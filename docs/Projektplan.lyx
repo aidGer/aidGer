@@ -74,6 +74,13 @@ Einleitung
 
 \begin_layout Section
 Zweck, Abgrenzung
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Zweck,-Abgrenzung"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -83,13 +90,13 @@ Seit März 2009 werden die Hilfskraftbeschäftigungen des Institutsverbund
  Die Amtsübernahme stellte die Abteilung SE damals vor große Herausforderungen:
  Man musste sich fachlich in die Thematik einarbeiten, das bisherige Verfahren
  analysieren und daraus neue Geschäftsprozesse etablieren.
- Hieraus wurde die Software mit dem Codename Hive entwickelt, welche die
- folgenden grundsätzlichen Aufgaben zur Erleichterung der täglichen Arbeiten
+ Hieraus entstand die Software mit dem Codename Hive, welche die folgenden
+ grundsätzlichen Hauptaufgaben zur Erleichterung der täglichen Arbeiten
  zu erfüllen hat:
 \end_layout
 
 \begin_layout Itemize
-Leichte und schnelle Abwicklung der Arbeitsverträge (z.B.
+Abwicklung der Arbeitsverträge (z.B.
  Einstellungen)
 \end_layout
 
@@ -102,20 +109,31 @@ Berichtswesen und Controlling
 \end_layout
 
 \begin_layout Standard
-Die Softwarelösung Hive hat jedoch einige Nachteile.
+Diese Softwarelösung hat jedoch einige Nachteile, die die Benutzung nur
+ eingeschränkt möglich macht.
  So sind beispielsweise die Geschäftsprozesse nur auf Papier definiert und
- das dahinterliegende Datenmodell gehört einer Überarbeitung unterzogen.
+ das Datenmodell gehört einer Überarbeitung unterzogen.
  Darüber hinaus bildet die Lösung keine gesamte, homogene Einheit, sondern
  besteht ferner aus einem inhomogenen Technologie-Mix, der sich unter anderem
- aus einer OpenOffice-Anwendung und einem Cron-Skript zusammensetzt.
+ aus einer OpenOffice-Anwendung, einem Ticket-System und einem Unix Cron-Skript
+ zusammensetzt.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Dieser Zustand führt folglich zu immensen Schwächen bei der Effizienz sowie
+ der Benutzerfreundlichkeit der Software.
+ Zudem wir die Abwicklung von Geschäftsprozessen nur bedingt softwareseitig
+ unterstützt.
 \end_layout
 
 \begin_layout Standard
-Dieser Zustand führt folglich zu immensen Schwächen bei der Effizienz sowie
- der Benutzerfreundlichkeit der Software.
- Aus diesem Grund soll im Rahmen dieses Projekts eine Nachfolger-Software
- entstehen, die den Namen aidGer tragen wird und schließlich Hive ersetzen
- soll.
+Aus diesem Grund soll im Rahmen dieses Projekts eine Nachfolger-Software
+ entstehen, die den Namen aidGer tragen wird und bei der Abnahme Hive schließlic
+h ersetzen soll.
 \end_layout
 
 \begin_layout Subsection
@@ -141,9 +159,12 @@ Projektüberblick, Motivation
 \end_layout
 
 \begin_layout Standard
-Im Rahmen des Projekts entsteht eine Software, die den Mitarbeitern der
- Abteilung SE bei ihrer täglichen Arbeit zur Verwaltung der Hilfskraftbeschäftig
-ung des Institutsverbund der Informatik unterstützt.
+Im Rahmen des Projekts wird eine Desktop-Anwendung entwickelt, die den Mitarbeit
+ern der Abteilung SE die tägliche Arbeit bei der Verwaltung der Hilfskraftbeschä
+ftigungen des Institutsverbund der Informatik erleichtern soll.
+ Hierbei soll die Software auf das bestehende System Hive aufbauen und dieses
+ durch eine vollständige Neuentwicklung schließlich ersetzen.
+ Die zu entwickelnde Software trägt den Codenamen aidGer.
 \begin_inset Newline newline
 \end_inset
 
@@ -151,7 +172,82 @@ ung des Institutsverbund der Informatik unterstützt.
 \begin_inset Newline newline
 \end_inset
 
-Datenbankschnittstelle AdoHive
+aidGer soll sich der jetzigen Lösung in vielen Punkten ähneln, wobei selbsterklä
+rend die Schwächen und Nachteile von Hive (siehe 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Zweck,-Abgrenzung"
+
+\end_inset
+
+) auszubessern sind, so dass im Endeffekt ein einheitliches und produktiv
+ einsetzbares Produkt entsteht.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Die neue Software dient grundsätzlich zur Erleichterung der Erfassung und
+ Auswertung aller Prozesse, die bei der Verwaltung von Hilfskräften anfallen.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Zusammengefasst müssen die folgenden Vorgänge in aidGer unterstützt werden:
+\end_layout
+
+\begin_layout Itemize
+Stammdatenverwaltung
+\end_layout
+
+\begin_layout Itemize
+Budgetprüfung
+\end_layout
+
+\begin_layout Itemize
+Buchung von Beschäftigten
+\end_layout
+
+\begin_layout Itemize
+Controlling der Abrechnungen
+\end_layout
+
+\begin_layout Itemize
+Berichtswesen / Reporting
+\end_layout
+
+\begin_layout Itemize
+Vorgangserfassung
+\end_layout
+
+\begin_layout Standard
+Hierzu wurde seither ein Ticket-System verwendet, welches hauptsächlich
+ die Funktion der Benachrichtigung von Hilfskräften via eMail übernimmt.
+ Dieses System soll mit aidGer weiterhin bestehen, wobei beide Systeme möglichst
+ als Einheit fungieren sollen.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Damit die Software mit den bestehenden Daten weiterarbeiten kann, wird eine
+ Datenbankschnittstelle AdoHive parallel von einem externen Team entwickelt,
+ auf welche aidGer zu zugreifen hat.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Zudem ist keine Authentifizierung beim Programmstart nötig.
 \end_layout
 
 \begin_layout Chapter
@@ -185,7 +281,7 @@ Das Projekt soll in Java geschrieben werden, Version: Java SE 1.6.
 \end_layout
 
 \begin_layout Itemize
-Die Benutzeroberfläche soll mittels Java Swing entworfen werden.
+Die Benutzeroberfläche soll mittels Java Swing gestaltet werden.
 \end_layout
 
 \begin_layout Section
@@ -197,11 +293,61 @@ Moderne und intuitiv bedienbare Desktop-Anwendung
 \end_layout
 
 \begin_layout Itemize
+Erfassung aller Geschäftsvorgänge, die getätigt werden (z.B.
+ Arbeitsverträge)
+\end_layout
+
+\begin_layout Itemize
+Möglichkeit zur Auflistung aller Vorgänge mittels der Protokoll-Funktion
+\end_layout
+
+\begin_layout Itemize
 Kompatibilität zur Datenbankschnittstelle AdoHive
 \end_layout
 
 \begin_layout Itemize
+Export von erweiterten PDF-Berichten
+\end_layout
+
+\begin_layout Itemize
+Möglichkeit zur Ausgabe von täglichen Mitteilungen (z.B.
+ zur Vorgangsübersicht)
+\end_layout
+
+\begin_layout Itemize
+Komfortable Ünterstützung des Users bei der Dateneingabe
+\end_layout
+
+\begin_layout Itemize
+Unterstützung für paralleles Arbeiten
+\end_layout
+
+\begin_layout Itemize
+Möglichkeit zur Massenerfassung von Daten
+\end_layout
+
+\begin_layout Itemize
+Anonymisierung von alten Datensätzen aufgrund des Datenschutzes
+\end_layout
+
+\begin_layout Itemize
+Möglichkeit zum Drucken der Daten
+\end_layout
+
+\begin_layout Itemize
+Benutzerhilfe / Benutzerhandbuch
+\end_layout
+
+\begin_layout Itemize
 Gute Benutzerfreundlichkeit
+\end_layout
+
+\begin_layout Itemize
+Übersichtliche und zeitgemäße Benutzeroberfläche
+\end_layout
+
+\begin_layout Itemize
+Kurze Einarbeitungszeit in das Programm
 \end_layout
 
 \begin_layout Itemize
@@ -225,9 +371,22 @@ Anforderungen an die Konformität mit Normen
 \end_layout
 
 \begin_layout Standard
-Da die Software eine komplette Neuentwicklung sein wird, sind keine festen
- Normen vorgeschrieben.
- Die erzeugten Berichte sollen jedoch ähnlich aussehen wie die bisherigen.
+Da die Software auf das bestehende System Hive aufbauen soll, sollte bei
+ der Entwicklung darauf geachtet werden, dass aidGer diesem ähnelt und jeder,
+ der zuvor am alten System gearbeitet hat, nach kurzer Einarbeitungszeit
+ aidGer bedienen kann.
+ Daher soll aidGer ein ähnliches Look&Feel wie seither erhalten.
+ Darüber hinaus sollen die exportierte Berichte dem Aussehen ähnlich wie
+ den jetzigen entsprechen.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Es müssen ferner Normen eingehalten werden, dass die Möglichkeit des Fallbacks
+ zum alten System Hive immer bestehen bleibt.
 \end_layout
 
 \begin_layout Section
@@ -321,25 +480,28 @@ Der Auftraggeber
 \end_layout
 
 \begin_layout Itemize
-stellt den Server selbst zur Vefügung.
- Dieser muss folgenden Voraussetzungen genügen:
+stellt den Server, auf welchem aidGer installiert wird, selbst zur Vefügung.
+\begin_inset Newline newline
+\end_inset
+
+Dieser muss den folgenden Voraussetzungen genügen:
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Prozessor: 300 MHz, Arbeitsspeicher: 512 MB, Festplatte: 1 GB
+Prozessor: 300 MHz, Arbeitsspeicher: 1024 MB, Festplatte: 512 MB
 \end_layout
 
 \begin_layout Itemize
-installierte Java Virtual Machine (JVM) der Version 1.6
+Java Virtual Machine (JVM) der Version 1.6 installiert
 \end_layout
 
 \begin_layout Itemize
-installierte Datenbankschnittstelle AdoHive
+Datenbankschnittstelle AdoHive und zugehöriges Datenbankmodell installiert
 \end_layout
 
 \begin_layout Itemize
-Datenbank
+bisheriges Ticket-System installiert
 \end_layout
 
 \end_deeper
@@ -348,7 +510,7 @@ ist für die Sicherungskopien der Daten selbst verantwortlich.
 \end_layout
 
 \begin_layout Itemize
-stellt das jetzige System Hive bereit.
+stellt das derzeitige System Hive bereit.
 \end_layout
 
 \begin_layout Section
@@ -363,8 +525,8 @@ name "sec:Externe-Meilensteine"
 \end_layout
 
 \begin_layout Standard
-Folgende Ergebnisse sollen an den angegebenen Terminen ausgeliefert werden
- (siehe 
+Folgende Ergebnisse sollen an den angegebenen Terminen an den Kunden ausgeliefer
+t werden (siehe 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Terminplan"
@@ -377,7 +539,7 @@ reference "sec:Terminplan"
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="9" columns="3">
+<lyxtabular version="3" rows="6" columns="3">
 <features>
 <column alignment="center" valignment="top" width="0">
 <column alignment="left" valignment="top" width="0">
@@ -440,26 +602,6 @@ M1
 \begin_inset Text
 
 \begin_layout Plain Layout
-Analysenotizen, Projektplan
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-16.02.2010
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 
 \family roman
 \series medium
@@ -469,25 +611,7 @@ Analysenotizen, Projektplan
 \bar no
 \noun off
 \color none
-M2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
-Spezifikation
+UI-Prototyp
 \end_layout
 
 \end_inset
@@ -507,6 +631,15 @@ Spezifikation
 \begin_inset Text
 
 \begin_layout Plain Layout
+M2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 
 \family roman
 \series medium
@@ -516,16 +649,7 @@ Spezifikation
 \bar no
 \noun off
 \color none
-M3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Korrigierte Spezifikation
+Spezifikation
 \end_layout
 
 \end_inset
@@ -554,7 +678,7 @@ Korrigierte Spezifikation
 \bar no
 \noun off
 \color none
-M4
+M3
 \end_layout
 
 \end_inset
@@ -583,16 +707,7 @@ Entwurf
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
-M5
+M4
 \end_layout
 
 \end_inset
@@ -601,74 +716,7 @@ M5
 \begin_inset Text
 
 \begin_layout Plain Layout
-Implementierung, Systemtestplan
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-18.05.2010
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
-M6
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Implementierung, Modultest
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-15.06.2010
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-M7
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Implementierung (RC), Systemtestprotokoll
+Release Candidate
 \end_layout
 
 \end_inset
@@ -688,7 +736,7 @@ Implementierung (RC), Systemtestprotokoll
 \begin_inset Text
 
 \begin_layout Plain Layout
-M8
+M5
 \end_layout
 
 \end_inset
@@ -697,7 +745,7 @@ M8
 \begin_inset Text
 
 \begin_layout Plain Layout
-Abnahme durch den Kunden
+Endabnahme
 \end_layout
 
 \end_inset
@@ -726,6 +774,11 @@ Abnahmeprozedur
 \begin_layout Standard
 Das Produkt wird dem Kunde mit obigen Lieferumfang ausgeliefert.
  Die Installation und die Wartung übernimmt der Kunde dann selbst.
+\end_layout
+
+\begin_layout Standard
+Unter Umständen sind Nachverhandlungen möglich, so dass der Support und
+ die Weiterentwicklung an aidGer entgeltlich weitergeführt wird.
 \end_layout
 
 \begin_layout Section
@@ -767,11 +820,7 @@ Dabei müssen die folgende Artefakte via Konfigurationsmanagement verwaltet
 \end_layout
 
 \begin_layout Itemize
-Begriffslexikon
-\end_layout
-
-\begin_layout Itemize
-Projektplan
+Analysenotizen, Projektplan
 \end_layout
 
 \begin_layout Itemize
@@ -796,6 +845,10 @@ Review-Berichte
 
 \begin_layout Itemize
 Testpläne
+\end_layout
+
+\begin_layout Itemize
+Zeitaufwand der Mitarbeiter
 \end_layout
 
 \begin_layout Standard
@@ -829,7 +882,8 @@ Die Projektsprache ist Deutsch.
 \end_layout
 
 \begin_layout Itemize
-Codekommentare müssen in Englisch verfasst werden.
+Codekommentare müssen in Englisch verfasst werden und in reichlicher Zahl
+ vorhanden sein.
 \end_layout
 
 \begin_layout Itemize
@@ -861,11 +915,18 @@ LaTeX
 
 \end_inset
 
- geschrieben werden.
+ oder LyX geschrieben werden.
 \end_layout
 
 \begin_layout Section
 Einsatz von Werkzeugen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Einsatz-von-Werkzeugen"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -873,23 +934,27 @@ IDE: Eclipse 3.5.1 mit dem UML-Plugin SDE for Eclipse 5.2 (Visual Paradigm)
 \end_layout
 
 \begin_layout Itemize
-Zeitaufwand: Fred 1.4
+Konfigurationsmanagement: Git 1.6
 \end_layout
 
 \begin_layout Itemize
-Konfigurationsmanagement: Git
+Projektmanagement: Redmine 0.9.2
 \end_layout
 
 \begin_layout Itemize
-Reviews: RevAger
+Aufwandserfassung und -auswertung: Fred 1.4
 \end_layout
 
 \begin_layout Itemize
-Glass-Box-Test: CodeCover
+Review-Organisation: RevAger 1.2
 \end_layout
 
 \begin_layout Itemize
-Testfallverwaltung: Justus
+Testüberdeckung: CodeCover 1.0
+\end_layout
+
+\begin_layout Itemize
+Testfallverwaltung: Justus 1.0
 \end_layout
 
 \begin_layout Itemize
@@ -910,7 +975,7 @@ LaTeX
 \begin_inset Formula $\text{ }2_{\epsilon}$
 \end_inset
 
-
+ und LyX 1.6.5
 \end_layout
 
 \begin_layout Chapter
@@ -1038,7 +1103,7 @@ Fragenkatalog für die Kundenbefragung
 \end_layout
 
 \begin_layout Itemize
-Projektplan
+Analysenotizen, Projektplan
 \end_layout
 
 \begin_layout Itemize
@@ -1077,10 +1142,6 @@ Folgende Resultate müssen einer Prüfung unterzogen werden:
 
 \begin_layout Itemize
 Spezifikation
-\end_layout
-
-\begin_layout Itemize
-Begriffslexikon
 \end_layout
 
 \begin_layout Itemize
@@ -1136,16 +1197,24 @@ Folgendes muss vom Auftragnehmer bereitgestellt werden:
 \end_layout
 
 \begin_layout Itemize
-Es müssen mindestens 3 Rechner zur Verfügung stehen, auf denen JVM und Eclipse
- lauffähig ist.
+Es müssen mindestens 3 Rechner zur Verfügung stehen, auf denen alle eingesetzen
+ Werkzeuge lauffähig sind (siehe hierzu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Einsatz-von-Werkzeugen"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Itemize
-Zentraler Server für Projektablage.
+Zentraler Server für die Projektablage, das Projektmanagement sowie das
+ Konfigurationsmanagement.
 \end_layout
 
 \begin_layout Itemize
-Verfügbarkeit von Rechnern mit Linux, Windows, Mac OS.
+Verfügbarkeit von Rechnern mit Linux, Windows und Mac OS.
 \end_layout
 
 \begin_layout Section
@@ -1161,7 +1230,17 @@ Leistungen externer Lieferanten
 \end_layout
 
 \begin_layout Standard
-Es wurden bislang keine Verträge mit externen Lieferanten unterzeichnet.
+Das externe Entwicklungsteam AdoHive muss die Datenbankschnittstelle AdoHive
+ pünktlich an uns liefern.
+ Es besteht ferner keine vertragliche Beziehung zu diesem externen Lieferant
+ (siehe 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Risiken-und-ihre"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Chapter
@@ -1266,7 +1345,7 @@ status collapsed
 
 \begin_layout Plain Layout
 
-philipp@gildein.com
+gildeipp@studi.informatik.uni-stuttgart.de
 \end_layout
 
 \end_inset
@@ -1303,7 +1382,7 @@ status collapsed
 
 \begin_layout Plain Layout
 
-philipp.pirrung@web.de
+pirrunpp@studi.informatik.uni-stuttgart.de
 \end_layout
 
 \end_inset
@@ -1340,7 +1419,7 @@ status collapsed
 
 \begin_layout Plain Layout
 
-christian@buchgraber.org
+buchgrcn@studi.informatik.uni-stuttgart.de
 \end_layout
 
 \end_inset
@@ -1429,19 +1508,31 @@ Implementieren des Programms in Java
 \end_layout
 
 \begin_layout Itemize
-Erstellen einer Beta-Version
-\end_layout
-
-\begin_layout Itemize
 Erstellen eines Testplans
 \end_layout
 
 \begin_layout Itemize
-Durchführen des Tests
+Durchführen des Modultests
+\end_layout
+
+\begin_layout Itemize
+Korrektur des Modultests
+\end_layout
+
+\begin_layout Itemize
+Durchführen des Systemtests
+\end_layout
+
+\begin_layout Itemize
+Korrektur des Systemtests
 \end_layout
 
 \begin_layout Itemize
 Korrigieren des Programms und Überarbeitung der erstellten Dokumente
+\end_layout
+
+\begin_layout Itemize
+Ausliefern eines Release Candidates an den Kunden
 \end_layout
 
 \begin_layout Itemize
@@ -1462,6 +1553,17 @@ name "sec:Terminplan"
 \begin_layout Standard
 \align left
 Der Terminplan ist als Gantt-Diagramm graphisch dargestellt:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename gannt.jpg
+	width 100text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1490,15 +1592,19 @@ BHand - Benutzerhandbuch
 \end_layout
 
 \begin_layout Itemize
-Beta - Erstellung der Beta-Version
-\end_layout
-
-\begin_layout Itemize
 TPlan - Erstellung eines Testplans
 \end_layout
 
 \begin_layout Itemize
-CKorr - Korrektur des Programms
+CoKor - Korrektur des Programms
+\end_layout
+
+\begin_layout Itemize
+MTest - Modultest
+\end_layout
+
+\begin_layout Itemize
+STest - Systemtest
 \end_layout
 
 \begin_layout Itemize
@@ -1507,37 +1613,30 @@ Abnhm - Abnahme durch den Kunde
 
 \begin_layout Section
 Risiken und ihre Bewertung
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Risiken-und-ihre"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Da der Auftraggeber eine einmalige Festpreis-Bezahlung wünscht, kann es
- beim Auftragnehmer zu finanziellen Engpässen kommen, da die Finanzierung
- bislang noch ungeklärt ist.
- Dieses Risiko tritt mit mittlerer Wahrscheinlichkeit ein und muss als extrem
- kritisch betrachtet werden, da bei Eintritt des Risikos notfalls Insolvenz
- beantragt werden muss.
- Eine Gegenmaßnahme ist die Auslieferung einer Beta-Version vor Release-Termin
- gegen Bezahlung eines Teilbetrags, womit der Auftraggeber auch einverstanden
- ist.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-Es besteht die Möglichkeit, dass projektexterne Institutionen wie beispielsweise
- das Prüfungsamt Widerstand gegen die Einführung von 
-\shape italic
-pKv 
-\shape default
-leisten, da diese nicht gewillt sind, ihre Prüfungen online zu stellen.
- Dieses Risiko tritt mit geringer Wahrscheinlichkeit ein, muss jedoch als
- kritisch eingestuft werden, weil im Falle des Eintretens die Projektdurchführun
-g in Gefahr ist.
- Um dieses Risiko entgegen zu treten, wird ein Vertrag mit allen beteiligten
- Institutionen unterzeichnet, in welchem der Auftragnehmer deren Einwilligung
- zugesichtert bekommt.
+Da der Erfolg des Projekt stark am externen Lieferant AdoHive abhängt, muss
+ folglich gesichert sein, dass die Datenbankschnittstelle rechtzeitig und
+ einsatzfähig von dem genannten Entwicklungsteam ausgeliefert wird.
+ Da keine Vertragsbeziehungen zwischen dem externen Lieferant und unserem
+ Unternehmen bestehen, kann rechtlich gesehen ein Schadenersatzanspruch
+ nicht geltend gemacht werden.
+ Es kann jedoch angenommen werden, dass dieser Umstand mit geringer Wahrscheinli
+chkeit eintritt, da sich das Entwicklungsteam aus Mitarbeitern der Abteilung
+ SE zusammensetzt, die ein begründetes Interesse am Erfolg des Projekts
+ haben.
+ Sollte dieser Fall aber trotz allem eintreten, so muss das entstandene
+ Risiko als äußert kritisch eingestuft werden, da unter Umständen die Software
+ aufgrund der zwingenden Abhängigkeit zur Datenbankschnittstelle nicht ausgelief
+ert werden kann.
 \begin_inset Newline newline
 \end_inset
 
@@ -1551,6 +1650,20 @@ em Umfang teilgenommen.
  Die Gegenmaßnahme besteht darin, dass unerfahrenen Mitarbeiter an einer
  mehrtägigen Java-Schulung teilnehmen, wobei die dadurch entstandenen Kosten
  vom Unternehmen gedeckt werden.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Ferner ist zu berücksichtigen, dass sich in einigen Projektphasen die Mitarbeite
+r aufgrund von Prüfungsvorbereitungen nicht vollzeitig mit der Softwareentwicklu
+ng befassen können.
+ So könnte es im Extremfall zu Lieferverzögerungen der Meilensteine kommen.
+ Dieses Risiko tritt mit mittlerer Wahrscheinlichkeit ein.
+ Um dies zu vermeiden, ist eine gute Projektplanung und ein gutes Zeitmanagement
+ von jedem Mitarbeiter zwingend verlangt.
 \end_layout
 
 \end_body

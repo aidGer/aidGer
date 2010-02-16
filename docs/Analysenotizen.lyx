@@ -68,7 +68,7 @@ Gruppe 10
 \end_layout
 
 \begin_layout Section*
-Was für Vorgänge sollen erfasst werden?
+Welche Vorgänge sollen erfasst werden?
 \end_layout
 
 \begin_layout Itemize
@@ -76,14 +76,14 @@ Alle Vorgänge, die getätigt werden.
 \end_layout
 
 \begin_layout Itemize
-Unter anderem: Arbeitsverträge, Budgetcheck, Lohnsteuerkarten.
+Darunter fallen unter anderem: Arbeitsverträge, Budgetcheck, Lohnsteuerkarten.
  
 \end_layout
 
 \begin_layout Itemize
 Benachrichtigungen für Hilfskräfte (z.B.
  falls Lohnabrechnung verfügbar).
- z.B.
+ Z.B.
  Liste mit allen Hilfskräften und Mails.
  
 \end_layout
@@ -168,7 +168,7 @@ Wie sollen die Ausgaben aussehen?
 \end_layout
 
 \begin_layout Standard
-Die Ausgabe soll wie bisher als .pdf erfolgen und das bisherige Aussehen
+Die Ausgabe soll wie bisher als PDF erfolgen und das bisherige Aussehen
  wird im ILIAS bereitgestellt.
  
 \begin_inset Newline newline
