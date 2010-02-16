@@ -1,0 +1,533 @@
+%% LyX 1.6.5 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,german,oneside]{scrbook}
+\usepackage{ae,aecompl}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{array}
+\usepackage{url}
+\usepackage{amstext}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+\makeatother
+
+\usepackage{babel}
+
+\begin{document}
+
+\title{Projektplan aidGer}
+
+
+\author{Buchgraber (2512046), Gildein (2513744), Pirrung (2526016)\\
+Gruppe 10}
+
+
+\subject{- vertrauliches Dokument -}
+
+\maketitle
+\tableofcontents{}
+
+
+\chapter{Einleitung}
+
+
+\section{Zweck, Abgrenzung}
+
+Seit März 2009 werden die Hilfskraftbeschäftigungen des Institutsverbund
+der Informatik (IvI) von der Abteilung SE an der Universität Stuttgart
+abgewickelt. Die Amtsübernahme stellte die Abteilung SE damals vor
+große Herausforderungen: Man musste sich fachlich in die Thematik
+einarbeiten, das bisherige Verfahren analysieren und daraus neue Geschäftsprozesse
+etablieren. Hieraus wurde die Software mit dem Codename Hive entwickelt,
+welche die folgenden grundsätzlichen Aufgaben zur Erleichterung der
+täglichen Arbeiten zu erfüllen hat:
+\begin{itemize}
+\item Leichte und schnelle Abwicklung der Arbeitsverträge (z.B. Einstellungen)
+\item Genehmigungsvorlage und Panung der Finanzmittel
+\item Berichtswesen und Controlling
+\end{itemize}
+Die Softwarelösung Hive hat jedoch einige Nachteile. So sind beispielsweise
+die Geschäftsprozesse nur auf Papier definiert und das dahinterliegende
+Datenmodell gehört einer Überarbeitung unterzogen. Darüber hinaus
+bildet die Lösung keine gesamte, homogene Einheit, sondern besteht
+ferner aus einem inhomogenen Technologie-Mix, der sich unter anderem
+aus einer OpenOffice-Anwendung und einem Cron-Skript zusammensetzt.
+
+Dieser Zustand führt folglich zu immensen Schwächen bei der Effizienz
+sowie der Benutzerfreundlichkeit der Software. Aus diesem Grund soll
+im Rahmen dieses Projekts eine Nachfolger-Software entstehen, die
+den Namen aidGer tragen wird und schließlich Hive ersetzen soll.
+
+
+\subsection{Zweck des Projektplans}
+
+Dieser Projektplan soll die Ziele des Projekts, die Zeitplanung für
+deren Verwirklichung und alle relevanten Bedingungen für das Projekt
+dokumentieren.
+
+Die Planung des Projekts ist zu Anfang sehr schwierig, da die Informationen
+über den Zeitaufwand für einzelne Teilaufgaben erst nach einer Einarbeitung
+hinreichend genau geschätzt werden können. Deshalb wird der Plan im
+Laufe des Projektes Änderungen erfahren, die vor allem die Zeitabläufe
+betreffen können. 
+
+
+\section{Projektüberblick, Motivation}
+
+Das Projekt umfasst ein kleines, maßgeschneidertes System namens \textit{pKv}
+(= {}``prima Klausurvorbereitung''), welches Studierende bei deren
+Klausurvorbereitung unterstützt.\\
+\\
+Hierbei besteht das System aus zwei wesentliche Teil-Komponenten:
+\begin{itemize}
+\item Web-Anwendung für die Studierende
+\item Desktop-Anwendung für die Datenpflege von Administratoren bzw. Einpfleger
+\end{itemize}
+Das System soll dabei die folgenden drei Grundfunktionen bieten:
+\begin{itemize}
+\item Abruf einer konkreten Klausur eines vergangenen Semesters
+\item Abruf einer Klausur zu einem Themengebiet
+\item Abruf einer Zufallsklausur
+\end{itemize}
+Darüber hinaus muss die Möglichkeit bestehen, zukünftig Erweiterungen
+an dem System vorzunehmen.
+
+
+\chapter{Formale Grundlagen}
+
+
+\section{Vetragliche Anforderungen an die Projektdurchführung}
+\begin{itemize}
+\item Der Auftraggeber ist der Abteilungsleiter eines technischen Hochschulinstituts.
+\item Es handelt sich um ein Festpreisprojekt. Der Auftraggeber ist bereit,
+einmalig 30.000,- EUR zu bezahlen.
+\item Aufgrund des üblichen Stundensatz von 100,- EUR dürfen bei der Durchführung
+nicht mehr als 300 Arbeitsstunden anfallen
+\item Bei Auslieferungen von externen Milestones ist der Kunde bereit, Teilbeträge
+zu bezahlen (siehe \ref{sec:Externe-Meilensteine}).
+\item Das Projekt muss bis Mitte Februar auslieferbar sein.
+\item Dabei wird es Ziel sein, das Projekt bis Ende Januar abzuschließen,
+damit notfalls der Zeitpuffer von 2 Wochen für abschließende Arbeiten
+genutzt werden kann.
+\item Das Projekt soll in Java geschrieben werden, Version: Java SE 1.6.
+\end{itemize}
+
+\section{Vetragliche Anforderungen an das Produkt}
+\begin{itemize}
+\item Moderne und intuitiv bedienbare Web-Anwendung via Browser für die
+Nutzer
+\item Desktop-Anwendung für Einpfleger bzw. Administratoren in Java
+\item Auswahl zweier Ansichten: Lese- und Druckansicht
+\item Suche nach Kategorien
+\item Plattformunabhängigkeit
+\item Mehrsprachigkeit
+\item Erweiterbarkeit
+\item Gute Wartbarkeit
+\end{itemize}
+
+\section{Vetragliche Anforderungen an die Konformität mit Normen}
+
+Das Web-Portal
+\begin{itemize}
+\item hat ein einheitliches Aussehen (Corporate Design).
+\item muss in die bestehende Homepage-Struktur der Universtität Stuttgart
+integriert werden.
+\end{itemize}
+
+\section{Gesetzliche Auflagen}
+\begin{itemize}
+\item Schutz personenbezogener Daten vor Missbrauch, insbesondere keine
+Weitergabe der Daten an Dritten%
+\footnote{gemäß Bundesdatenschutzgesetz (BDSG)%
+}.
+\item Die entstehende Software ist ein urheberrechtlich geschütztes Werk
+%
+\footnote{gemäß Gesetz über Urheberrecht und verwandte Schutzrechte (UrhG)%
+}.
+\end{itemize}
+
+\chapter{Leistungen der Vertragspartner}
+
+
+\section{Lieferumfang}
+
+Folgende Resultate werden dem Auftraggeber ausgeliefert:
+\begin{itemize}
+\item Web-Anwendung (Nutzer)
+\item Java-Anwendung (Administration)
+\item Quellcode
+\item Benutzerhandbuch
+\item Installationsanleitung
+\item Spezifikation und andere benötigte Dokumente nach Anfrage
+\end{itemize}
+
+\section{Resultate, die nicht zum Lieferumfang gehören}
+
+Der Kunde kann alle Resultate bzw. Dokumente nach Anfrage erhalten,
+mit Ausnahme von:
+\begin{itemize}
+\item streng vertraulich oder vertraulich gekennzeichnete Dokumente und
+\item Zwischendokumente.
+\end{itemize}
+
+\section{Leistungen des Auftragsgebers (Beistellungen)}
+
+Der Auftraggeber
+\begin{itemize}
+\item stellt für das Hosting den Server selbst zur Vefügung. Dieser muss
+folgenden Voraussetzungen genügen:
+
+\begin{itemize}
+\item Prozessor: 800 MHz, Arbeitsspeicher: 512 MB, Festplatte: 1 GB
+\item Betriebsystem: Ubuntu 8.04 LTS
+\item installierte Java Virtual Machine (JVM) der Version 1.6
+\item installierter HTTP-Server Apache 2.2
+\end{itemize}
+\item ist für die Sicherungskopien der Daten selbst verantwortlich.
+\item stellt alte Klausuren als Textdokument bereit.
+\end{itemize}
+
+\section{Externe Meilensteine\label{sec:Externe-Meilensteine}}
+
+Folgende Ergebnisse sollen an den angegebenen Terminen für den jeweiligen
+Teilbetrag ausgeliefert werden (siehe \ref{sec:Terminplan}):
+
+\begin{center}
+\begin{tabular}{|c|l|c|c|}
+\hline 
+\textbf{ID} & \textbf{Externer Meilenstein} & \textbf{Termin} & \textbf{Teilbetrag in EUR}\tabularnewline
+\hline
+\hline 
+1 & Begriffslexikon & 01.12.2009 & 0,-\tabularnewline
+\hline 
+2 & Spezifikation & 16.12.2009 & 0,-\tabularnewline
+\hline 
+3 & Entwurf & 01.01.2010 & 0,-\tabularnewline
+\hline 
+4 & Beta-Version & 15.01.2010 & 10.000,-\tabularnewline
+\hline 
+5 & Benutzerhandbuch & 05.02.2010 & 0,-\tabularnewline
+\hline 
+6 & Endabnahme & 15.02.2010 & 20.000,-\tabularnewline
+\hline
+\end{tabular}
+\par\end{center}
+
+
+\section{Abnahmeprozedur}
+
+Das Produkt wird dem Kunde mit obigen Lieferumfang ausgeliefert. Die
+Installation und die Wartung übernimmt der Kunde dann selbst.
+
+
+\section{Änderungsverfahren}
+
+Nach Auslieferung ist es die Aufgabe des Kunden, gewünschte Änderungen
+an der Software vorzunehmen (Wartungszuständigkeit des Auftraggebers).
+Änderungen, welche vor der Auslieferung bekannt gegeben werden, können
+mit eventueller Verzögerung der Auslieferung vorgenommen werden. Außerdem
+kann ein Änderungswunsch abgelehnt werden, falls dieser den Zeitaufwand
+immens steigern würde und somit den Auslieferungstermin gefährden
+könnte.
+
+
+\chapter{Richtlinien für die Entwicklung}
+
+
+\section{Konfigurationsmanagement}
+
+Als Konfigurationsmanagement muss das Werkzeug \textit{Git} von allen
+eingesetzt werden.\\
+\\
+Dabei müssen die folgende Artefakte via Konfigurationsmanagement
+verwaltet werden:
+\begin{itemize}
+\item Begriffslexikon
+\item Projektplan
+\item Anforderungsspezifikation
+\item Systementwurf
+\item Quellcode
+\item Benutzerhandbuch und Installationsvorschrift
+\item Review-Berichte
+\item Testpläne
+\end{itemize}
+Geprüfte und abgenommene Dokumente könnern nur nach Absprache mit
+dem Kunde bzw. dem Bearbeiter geändert werden. Anschließend müssen
+geänderte Dokumente erneut geprüft werden.\\
+\\
+Zudem muss ein hierarchisches Bezeichnungsschema verwendet werden.
+
+
+\section{Design- und Programmier-Richtlinien\label{sec:Design--und-Programmier-Richtlinien}}
+\begin{itemize}
+\item Die Projektsprache ist Deutsch.
+\item Codekommentare müssen in Englisch verfasst werden.
+\item Die Software muss vollständig in der Programmiersprache Java geschrieben
+werden.
+\item Falls eine relationale Datenbank zum Einsatz kommt, soll diese MySQL
+sein.
+\item Alle Programmierer müssen sich an die \textit{Code Conventions for
+the Java Programming Language} halten.
+\item Alle Dokumente müssen mit \LaTeX \, geschrieben werden.
+\end{itemize}
+
+\section{Einsatz von Werkzeugen}
+\begin{itemize}
+\item IDE: Eclipse 3.5.1 mit dem UML-Plugin Omondo EclipseUML 2.2
+\item HTTP-Server: Apache 2.2
+\item Servlet-Container: Apache Tomcat 6.0
+\item Dokumentation: \LaTeX $\text{ }2_{\epsilon}$
+\end{itemize}
+
+\chapter{Entwicklungsprozess}
+
+
+\section{Strategie für die Entwicklung und Integration}
+
+Um eine hohe Qualität der Resultate und die Einhaltung der Ablaufplanung
+zu garantieren, müssen bei der Entwicklung der Software ingenieursmäßige
+Prinzipien eingesetzt werden. So werden alle während der Entwicklung
+entstehende Artefakte wie beispielsweise die Spezifikation und das
+Benutzerhandbuch einem Review unterzogen und zusätzlich getestet.\\
+\\
+Eine gute und vor allem aktuelle Dokumentation aller Arbeitsergebnisse
+ist essentiell, um die Verwendung dieser Dokumente durch Dritte zu
+ermöglichen.\\
+\\
+Darüber hinaus müssen die festgelegten Programmierrichtlinien (siehe
+\ref{sec:Design--und-Programmier-Richtlinien}) eingehalten werden,
+um eine hohe Qualität des Programmcodes sicherzustellen.
+
+
+\section{Qualitätssicherung}
+
+Die Qualitätssicherung soll eine hohe Qualität des Entwicklungsprozesses
+und der erzielten Ergebnisse sicherstellen. Das erfordert, dass die
+angestrebten Qualitätsaspekte dokumentiert und Vorgehensweisen entwickelt
+werden.\\
+\\
+\textit{Organisatorische Maßnahmen:} Die Fortschritte werden alle
+zwei Wochen geprüft und unter Umständen die Zeitplanung entsprechend
+angepasst.\\
+\\
+\textit{Analytische Maßnahmen:} Die Dokumente werden in Reviews
+geprüft und das Programm einem Test nach einem erstellten Testplan
+unterzogen. Abgenommene Dokumente stellen Meilensteine dar, auf welche
+dann aufgebaut werden kann.
+
+
+\section{Phasen der Entwicklung}
+
+Das Projekt umfasst die folgenden sechs Phasen:
+\begin{itemize}
+\item Analyse
+\item Spezifikation der Anforderungen
+\item Architekturentwurf
+\item Codierung
+\item Test
+\item Abnahme
+\end{itemize}
+
+\section{Dokumentationsplan}
+
+Es werden folgende Dokumente während der Entwicklung entstehen:
+\begin{itemize}
+\item Fragenkatalog für die Kundenbefragung
+\item Begriffslexikon
+\item Projektplan
+\item Spezifikation, Entwurf, Benutzerhandbuch
+\item Testplan zum Test des Systems mit den zugehörigen Testdaten sowie
+das Testprotokoll
+\item Review-Berichte
+\end{itemize}
+Die Richtlinien für Dokumente in diesem Plan gelten für alle entstehenden
+Dokumente.
+
+
+\section{Prüfungen (Reviews und Tests)}
+
+Folgende Resultate müssen einer Prüfung unterzogen werden:
+\begin{itemize}
+\item Spezifikation
+\item Begriffslexikon
+\item Benutzerhandbuch
+\item Entwurf
+\item Codierung
+\end{itemize}
+Die Durchführung von Reviews unterliegen folgenden Richtlinien:
+\begin{itemize}
+\item Formale Reviews mit einem Moderator, 4-5 Gutachtern und einem Autor.
+\item Die Review-Dauer ist auf 2 Stunden beschränkt.
+\end{itemize}
+Folgende Tests müssen durchgeführt werden:
+\begin{itemize}
+\item Modultest der einzelnen Komponenten
+\item Systemtest der gesamten Software
+\item Abnahmetest zusammen mit dem Kunden
+\end{itemize}
+
+\chapter{Anforderungen an die Umgebung}
+
+
+\section{Infrastruktur (Büros, Rechnersysteme, Software)}
+
+Folgendes muss vom Auftragnehmer bereitgestellt werden:
+\begin{itemize}
+\item Es müssen mindestens 3 Rechner zur Verfügung stehen, auf denen JVM,
+Eclipse und Apache lauffähig ist. (Bereitstellung: Auftragnehmer)
+\item Zentraler Server für Projektablage.
+\item Verfügbarkeit von Rechnern mit Linux, Windows, Mac OS.
+\end{itemize}
+
+\section{Leistungen Dritter im Unternehmen}
+
+Alle Mitarbeiter im Unternehmen sind an diesem Projekt beteiligt.
+
+
+\section{Leistungen externer Lieferanten}
+
+Es wurden bislang keine Verträge mit externen Lieferanten unterzeichnet.
+
+
+\chapter{Projektorganisation}
+
+
+\section{Schnittstelle zum Auftraggeber}
+
+Die Vertretung zum Kunde übernimmt der Mitarbeiter Christian Buchgraber.
+
+
+\section{Schnittstelle zur Aufbauorganisation}
+
+Diese Schnittstelle übernimmt der Mitarbeiter Philipp Pirrung.
+
+
+\section{Schnittstelle zu anderen Projekten}
+
+Es wird keine Schnittstelle benötigt, da keine andere Projekte im
+Unternehmen existieren.
+
+
+\section{Schlüsselpersonen}
+
+\begin{tabular}{l>{\raggedright}p{6in}}
+\textbf{Kunde:} & Herr Daniel Kulesz\\
+E-Mail: \url{daniel.kulesz@informatik.uni-stuttgart.de}\tabularnewline
+\noalign{\vskip0.4cm}
+\textbf{Projektleiter:} & Herr Philipp Gildein\\
+E-Mail: \url{philipp@gildein.com}\tabularnewline
+\noalign{\vskip0.4cm}
+\textbf{Mitarbeiter 1: } & Herr Phlipp Pirrung\\
+E-Mail: \url{philipp.pirrung@web.de}\tabularnewline
+\noalign{\vskip0.4cm}
+\textbf{Mitarbeiter 2:} & Herr Christian Buchgraber\\
+E-Mail: \url{christian@buchgraber.org}\tabularnewline
+\noalign{\vskip0.4cm}
+\end{tabular}
+
+
+\section{Berichtswesen}
+
+Jeder Mitarbeiter ist verpflichtet, seinem direkten Vorgesetzten Bericht
+zu erstatten. Im Falle des Projektleiters ist der direkte Vorgesetzte
+der Manager des Unternehmens. Der Projektleiter ist der direkte Vorgesetzte
+aller übrigen Mitarbeiter.
+
+
+\chapter{Entwicklungsplan}
+
+
+\section{Projektstrukturplan (Arbeitsgliederung)}
+
+Das Projekt umfasst folgende Arbeitspakete:
+\begin{itemize}
+\item Analyse: Befragen des Kunden zur Erhebung des Ist- und Soll-Zustands
+\item Projektplanung: Festlegen der einzelnen Arbeitspakete und Meilensteine,
+Terminplanung
+\item Einarbeiten in die Thematik
+\item Spezifikation: Festlegen der Anforderungen an die Funktionalität des
+Systems, Festlegen der nicht-funktionalen Anforderungen
+\item Durchführen eines Spezifikationsreviews
+\item Nachbearbeiten der Spezifikation
+\item Erstellen eines Benutzerhandbuchs
+\item Erstellen eines Entwurfs: Festlegen der Systemarchitektur
+\item Durchführen eines Entwurfsreviews
+\item Nachbearbeiten des Entwurfs
+\item Implementieren des Programms in Java
+\item Erstellen einer Beta-Version
+\item Erstellen eines Testplans
+\item Durchführen des Tests
+\item Korrigieren des Programms und Überarbeitung der erstellten Dokumente
+\item Ausliefern an den Kunden
+\end{itemize}
+
+\section{Terminplan\label{sec:Terminplan}}
+
+\begin{flushleft}
+Der Terminplan ist als Gantt-Diagramm graphisch dargestellt:
+\par\end{flushleft}
+
+\begin{flushleft}
+Folgende nicht eindeutige Abkürzungen wurden verwendet:
+\par\end{flushleft}
+\begin{itemize}
+\item Anal - Erstellung der Analyse
+\item EinAr - Einarbeitung in die Thematik
+\item SpRev - Review der Spezifikation
+\item SpKor - Korrektur der Spezifikation
+\item BHand - Benutzerhandbuch
+\item Beta - Erstellung der Beta-Version
+\item TPlan - Erstellung eines Testplans
+\item CKorr - Korrektur des Programms
+\item Abnhm - Abnahme durch den Kunde
+\end{itemize}
+
+\section{Kostenplan}
+
+Es stehen 25.000,- EUR zur Verfügung, welche auf den gesamten Projektzeitraum
+aufgeteilt werden.\\
+\\
+Es folgt eine grobe Einschätzung der Kosten, die vor, während und
+nach der Codierung anfallen:
+\begin{itemize}
+\item Analyse, Spezifikation und Entwurf: 10.000,- EUR
+\item Codierung: 5.000,- EUR
+\item Integration, Test: 10.000,- EUR
+\end{itemize}
+Somit ist geplant, einen Gewinn von 5.000,- EUR zu erzielen.
+
+
+\section{Risiken und ihre Bewertung}
+
+Da der Auftraggeber eine einmalige Festpreis-Bezahlung wünscht, kann
+es beim Auftragnehmer zu finanziellen Engpässen kommen, da die Finanzierung
+bislang noch ungeklärt ist. Dieses Risiko tritt mit mittlerer Wahrscheinlichkeit
+ein und muss als extrem kritisch betrachtet werden, da bei Eintritt
+des Risikos notfalls Insolvenz beantragt werden muss. Eine Gegenmaßnahme
+ist die Auslieferung einer Beta-Version vor Release-Termin gegen Bezahlung
+eines Teilbetrags, womit der Auftraggeber auch einverstanden ist.\\
+\\
+Es besteht die Möglichkeit, dass projektexterne Institutionen wie
+beispielsweise das Prüfungsamt Widerstand gegen die Einführung von
+\textit{pKv }leisten, da diese nicht gewillt sind, ihre Prüfungen
+online zu stellen. Dieses Risiko tritt mit geringer Wahrscheinlichkeit
+ein, muss jedoch als kritisch eingestuft werden, weil im Falle des
+Eintretens die Projektdurchführung in Gefahr ist. Um dieses Risiko
+entgegen zu treten, wird ein Vertrag mit allen beteiligten Institutionen
+unterzeichnet, in welchem der Auftragnehmer deren Einwilligung zugesichtert
+bekommt.\\
+\\
+Nicht alle Mitarbeiter im Team haben bislang an Java-Projekten
+mit vergleichsbarem Umfang teilgenommen. Dieses Risiko tritt immer
+ein und kann als unkritisch eingestuft werden. Die Gegenmaßnahme besteht
+darin, dass unerfahrenen Mitarbeiter an einer mehrtägigen Java-Schulung
+teilnehmen, wobei die dadurch entstandenen Kosten vom Unternehmen
+gedeckt werden.
+\end{document}

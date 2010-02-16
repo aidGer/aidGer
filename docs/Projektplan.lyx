@@ -1,0 +1,1557 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass scrbook
+\options oneside
+\use_default_options false
+\language german
+\inputencoding auto
+\font_roman ae
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Projektplan aidGer
+\end_layout
+
+\begin_layout Author
+Buchgraber (2512046), Gildein (2513744), Pirrung (2526016)
+\begin_inset Newline newline
+\end_inset
+
+Gruppe 10
+\end_layout
+
+\begin_layout Subject
+- vertrauliches Dokument -
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Einleitung
+\end_layout
+
+\begin_layout Section
+Zweck, Abgrenzung
+\end_layout
+
+\begin_layout Standard
+Seit März 2009 werden die Hilfskraftbeschäftigungen des Institutsverbund
+ der Informatik (IvI) von der Abteilung SE an der Universität Stuttgart
+ abgewickelt.
+ Die Amtsübernahme stellte die Abteilung SE damals vor große Herausforderungen:
+ Man musste sich fachlich in die Thematik einarbeiten, das bisherige Verfahren
+ analysieren und daraus neue Geschäftsprozesse etablieren.
+ Hieraus wurde die Software mit dem Codename Hive entwickelt, welche die
+ folgenden grundsätzlichen Aufgaben zur Erleichterung der täglichen Arbeiten
+ zu erfüllen hat:
+\end_layout
+
+\begin_layout Itemize
+Leichte und schnelle Abwicklung der Arbeitsverträge (z.B.
+ Einstellungen)
+\end_layout
+
+\begin_layout Itemize
+Genehmigungsvorlage und Panung der Finanzmittel
+\end_layout
+
+\begin_layout Itemize
+Berichtswesen und Controlling
+\end_layout
+
+\begin_layout Standard
+Die Softwarelösung Hive hat jedoch einige Nachteile.
+ So sind beispielsweise die Geschäftsprozesse nur auf Papier definiert und
+ das dahinterliegende Datenmodell gehört einer Überarbeitung unterzogen.
+ Darüber hinaus bildet die Lösung keine gesamte, homogene Einheit, sondern
+ besteht ferner aus einem inhomogenen Technologie-Mix, der sich unter anderem
+ aus einer OpenOffice-Anwendung und einem Cron-Skript zusammensetzt.
+\end_layout
+
+\begin_layout Standard
+Dieser Zustand führt folglich zu immensen Schwächen bei der Effizienz sowie
+ der Benutzerfreundlichkeit der Software.
+ Aus diesem Grund soll im Rahmen dieses Projekts eine Nachfolger-Software
+ entstehen, die den Namen aidGer tragen wird und schließlich Hive ersetzen
+ soll.
+\end_layout
+
+\begin_layout Subsection
+Zweck des Projektplans
+\end_layout
+
+\begin_layout Standard
+Dieser Projektplan soll die Ziele des Projekts, die Zeitplanung für deren
+ Verwirklichung und alle relevanten Bedingungen für das Projekt dokumentieren.
+\end_layout
+
+\begin_layout Standard
+Die Planung des Projekts ist zu Anfang sehr schwierig, da die Informationen
+ über den Zeitaufwand für einzelne Teilaufgaben erst nach einer Einarbeitung
+ hinreichend genau geschätzt werden können.
+ Deshalb wird der Plan im Laufe des Projektes Änderungen erfahren, die vor
+ allem die Zeitabläufe betreffen können.
+ 
+\end_layout
+
+\begin_layout Section
+Projektüberblick, Motivation
+\end_layout
+
+\begin_layout Standard
+Im Rahmen des Projekts entsteht eine Software, die den Mitarbeitern der
+ Abteilung SE bei ihrer täglichen Arbeit zur Verwaltung der Hilfskraftbeschäftig
+ung des Institutsverbund der Informatik unterstützt.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Datenbankschnittstelle AdoHive
+\end_layout
+
+\begin_layout Chapter
+Formale Grundlagen
+\end_layout
+
+\begin_layout Section
+Anforderungen an die Projektdurchführung
+\end_layout
+
+\begin_layout Itemize
+Der Auftraggeber ist die Abteilung SE der Universität Stuttgart.
+\end_layout
+
+\begin_layout Itemize
+Es handelt sich um ein unentgeltliches Projekt.
+\end_layout
+
+\begin_layout Itemize
+Das Projekt muss bis Mitte Juli auslieferbar sein.
+\end_layout
+
+\begin_layout Itemize
+Dabei wird es Ziel sein, das Projekt bis Ende Juni abzuschließen, damit
+ notfalls der Zeitpuffer von 2 Wochen für abschließende Arbeiten genutzt
+ werden kann.
+\end_layout
+
+\begin_layout Itemize
+Das Projekt soll in Java geschrieben werden, Version: Java SE 1.6.
+\end_layout
+
+\begin_layout Itemize
+Die Benutzeroberfläche soll mittels Java Swing entworfen werden.
+\end_layout
+
+\begin_layout Section
+Anforderungen an das Produkt
+\end_layout
+
+\begin_layout Itemize
+Moderne und intuitiv bedienbare Desktop-Anwendung
+\end_layout
+
+\begin_layout Itemize
+Kompatibilität zur Datenbankschnittstelle AdoHive
+\end_layout
+
+\begin_layout Itemize
+Gute Benutzerfreundlichkeit
+\end_layout
+
+\begin_layout Itemize
+Plattformunabhängigkeit
+\end_layout
+
+\begin_layout Itemize
+Mehrsprachigkeit
+\end_layout
+
+\begin_layout Itemize
+Erweiterbarkeit
+\end_layout
+
+\begin_layout Itemize
+Gute Wartbarkeit
+\end_layout
+
+\begin_layout Section
+Anforderungen an die Konformität mit Normen
+\end_layout
+
+\begin_layout Standard
+Da die Software eine komplette Neuentwicklung sein wird, sind keine festen
+ Normen vorgeschrieben.
+ Die erzeugten Berichte sollen jedoch ähnlich aussehen wie die bisherigen.
+\end_layout
+
+\begin_layout Section
+Gesetzliche Auflagen
+\end_layout
+
+\begin_layout Itemize
+Schutz personenbezogener Daten vor Missbrauch, insbesondere keine Weitergabe
+ der Daten an Dritten
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+gemäß Bundesdatenschutzgesetz (BDSG)
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Die entstehende Software ist ein urheberrechtlich geschütztes Werk 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+gemäß Gesetz über Urheberrecht und verwandte Schutzrechte (UrhG)
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+Leistungen der Vertragspartner
+\end_layout
+
+\begin_layout Section
+Lieferumfang
+\end_layout
+
+\begin_layout Standard
+Folgende Resultate werden dem Auftraggeber ausgeliefert:
+\end_layout
+
+\begin_layout Itemize
+Java-Anwendung
+\end_layout
+
+\begin_layout Itemize
+Quellcode
+\end_layout
+
+\begin_layout Itemize
+Benutzerhandbuch
+\end_layout
+
+\begin_layout Itemize
+Installationsanleitung
+\end_layout
+
+\begin_layout Itemize
+Spezifikation und andere benötigte Dokumente nach Anfrage
+\end_layout
+
+\begin_layout Section
+Resultate, die nicht zum Lieferumfang gehören
+\end_layout
+
+\begin_layout Standard
+Der Kunde kann alle Resultate bzw.
+ Dokumente nach Anfrage erhalten, mit Ausnahme von:
+\end_layout
+
+\begin_layout Itemize
+streng vertraulich oder vertraulich gekennzeichnete Dokumente und
+\end_layout
+
+\begin_layout Itemize
+Zwischendokumente.
+\end_layout
+
+\begin_layout Section
+Leistungen des Auftragsgebers (Beistellungen)
+\end_layout
+
+\begin_layout Standard
+Der Auftraggeber
+\end_layout
+
+\begin_layout Itemize
+stellt den Server selbst zur Vefügung.
+ Dieser muss folgenden Voraussetzungen genügen:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Prozessor: 300 MHz, Arbeitsspeicher: 512 MB, Festplatte: 1 GB
+\end_layout
+
+\begin_layout Itemize
+installierte Java Virtual Machine (JVM) der Version 1.6
+\end_layout
+
+\begin_layout Itemize
+installierte Datenbankschnittstelle AdoHive
+\end_layout
+
+\begin_layout Itemize
+Datenbank
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+ist für die Sicherungskopien der Daten selbst verantwortlich.
+\end_layout
+
+\begin_layout Itemize
+stellt das jetzige System Hive bereit.
+\end_layout
+
+\begin_layout Section
+Externe Meilensteine
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Externe-Meilensteine"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Folgende Ergebnisse sollen an den angegebenen Terminen ausgeliefert werden
+ (siehe 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Terminplan"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="3">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+ID
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Externer Meilenstein
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Termin
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+M1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Analysenotizen, Projektplan
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16.02.2010
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+M2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Spezifikation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+09.03.2010
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+M3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Korrigierte Spezifikation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23.03.2010
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+M4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Entwurf
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13.04.2010
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+M5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Implementierung, Systemtestplan
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18.05.2010
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+M6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Implementierung, Modultest
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15.06.2010
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+M7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Implementierung (RC), Systemtestprotokoll
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29.06.2010
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+M8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Abnahme durch den Kunden
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14.07.2010
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Abnahmeprozedur
+\end_layout
+
+\begin_layout Standard
+Das Produkt wird dem Kunde mit obigen Lieferumfang ausgeliefert.
+ Die Installation und die Wartung übernimmt der Kunde dann selbst.
+\end_layout
+
+\begin_layout Section
+Änderungsverfahren
+\end_layout
+
+\begin_layout Standard
+Nach Auslieferung ist es die Aufgabe des Kunden, gewünschte Änderungen an
+ der Software vorzunehmen (Wartungszuständigkeit des Auftraggebers).
+ Änderungen, welche vor der Auslieferung bekannt gegeben werden, können
+ mit eventueller Verzögerung der Auslieferung vorgenommen werden.
+ Außerdem kann ein Änderungswunsch abgelehnt werden, falls dieser den Zeitaufwan
+d immens steigern würde und somit den Auslieferungstermin gefährden könnte.
+\end_layout
+
+\begin_layout Chapter
+Richtlinien für die Entwicklung
+\end_layout
+
+\begin_layout Section
+Konfigurationsmanagement
+\end_layout
+
+\begin_layout Standard
+Als Konfigurationsmanagement muss das Werkzeug 
+\shape italic
+Git
+\shape default
+ von allen eingesetzt werden.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Dabei müssen die folgende Artefakte via Konfigurationsmanagement verwaltet
+ werden:
+\end_layout
+
+\begin_layout Itemize
+Begriffslexikon
+\end_layout
+
+\begin_layout Itemize
+Projektplan
+\end_layout
+
+\begin_layout Itemize
+Anforderungsspezifikation
+\end_layout
+
+\begin_layout Itemize
+Systementwurf
+\end_layout
+
+\begin_layout Itemize
+Quellcode
+\end_layout
+
+\begin_layout Itemize
+Benutzerhandbuch und Installationsvorschrift
+\end_layout
+
+\begin_layout Itemize
+Review-Berichte
+\end_layout
+
+\begin_layout Itemize
+Testpläne
+\end_layout
+
+\begin_layout Standard
+Geprüfte und abgenommene Dokumente könnern nur nach Absprache mit dem Kunde
+ bzw.
+ dem Bearbeiter geändert werden.
+ Anschließend müssen geänderte Dokumente erneut geprüft werden.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Zudem muss ein hierarchisches Bezeichnungsschema verwendet werden.
+\end_layout
+
+\begin_layout Section
+Design- und Programmier-Richtlinien
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Design--und-Programmier-Richtlinien"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Die Projektsprache ist Deutsch.
+\end_layout
+
+\begin_layout Itemize
+Codekommentare müssen in Englisch verfasst werden.
+\end_layout
+
+\begin_layout Itemize
+Die Software muss vollständig in der Programmiersprache Java geschrieben
+ werden.
+\end_layout
+
+\begin_layout Itemize
+Alle Programmierer müssen sich an die 
+\shape italic
+Code Conventions for the Java Programming Language
+\shape default
+ halten.
+\end_layout
+
+\begin_layout Itemize
+Alle Dokumente müssen mit 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX 
+\backslash
+,
+\end_layout
+
+\end_inset
+
+ geschrieben werden.
+\end_layout
+
+\begin_layout Section
+Einsatz von Werkzeugen
+\end_layout
+
+\begin_layout Itemize
+IDE: Eclipse 3.5.1 mit dem UML-Plugin SDE for Eclipse 5.2 (Visual Paradigm)
+\end_layout
+
+\begin_layout Itemize
+Zeitaufwand: Fred 1.4
+\end_layout
+
+\begin_layout Itemize
+Konfigurationsmanagement: Git
+\end_layout
+
+\begin_layout Itemize
+Reviews: RevAger
+\end_layout
+
+\begin_layout Itemize
+Glass-Box-Test: CodeCover
+\end_layout
+
+\begin_layout Itemize
+Testfallverwaltung: Justus
+\end_layout
+
+\begin_layout Itemize
+Dokumentation: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\text{ }2_{\epsilon}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Entwicklungsprozess
+\end_layout
+
+\begin_layout Section
+Strategie für die Entwicklung und Integration
+\end_layout
+
+\begin_layout Standard
+Um eine hohe Qualität der Resultate und die Einhaltung der Ablaufplanung
+ zu garantieren, müssen bei der Entwicklung der Software ingenieursmäßige
+ Prinzipien eingesetzt werden.
+ So werden alle während der Entwicklung entstehende Artefakte wie beispielsweise
+ die Spezifikation und das Benutzerhandbuch einem Review unterzogen und
+ zusätzlich getestet.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Eine gute und vor allem aktuelle Dokumentation aller Arbeitsergebnisse ist
+ essentiell, um die Verwendung dieser Dokumente durch Dritte zu ermöglichen.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Darüber hinaus müssen die festgelegten Programmierrichtlinien (siehe 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Design--und-Programmier-Richtlinien"
+
+\end_inset
+
+) eingehalten werden, um eine hohe Qualität des Programmcodes sicherzustellen.
+\end_layout
+
+\begin_layout Section
+Qualitätssicherung
+\end_layout
+
+\begin_layout Standard
+Die Qualitätssicherung soll eine hohe Qualität des Entwicklungsprozesses
+ und der erzielten Ergebnisse sicherstellen.
+ Das erfordert, dass die angestrebten Qualitätsaspekte dokumentiert und
+ Vorgehensweisen entwickelt werden.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\shape italic
+Organisatorische Maßnahmen:
+\shape default
+ Die Fortschritte werden alle zwei Wochen geprüft und unter Umständen die
+ Zeitplanung entsprechend angepasst.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\shape italic
+Analytische Maßnahmen:
+\shape default
+ Die Dokumente werden in Reviews geprüft und das Programm einem Test nach
+ einem erstellten Testplan unterzogen.
+ Abgenommene Dokumente stellen Meilensteine dar, auf welche dann aufgebaut
+ werden kann.
+\end_layout
+
+\begin_layout Section
+Phasen der Entwicklung
+\end_layout
+
+\begin_layout Standard
+Das Projekt umfasst die folgenden sechs Phasen:
+\end_layout
+
+\begin_layout Itemize
+Analyse
+\end_layout
+
+\begin_layout Itemize
+Spezifikation der Anforderungen
+\end_layout
+
+\begin_layout Itemize
+Architekturentwurf
+\end_layout
+
+\begin_layout Itemize
+Codierung
+\end_layout
+
+\begin_layout Itemize
+Test
+\end_layout
+
+\begin_layout Itemize
+Abnahme
+\end_layout
+
+\begin_layout Section
+Dokumentationsplan
+\end_layout
+
+\begin_layout Standard
+Es werden folgende Dokumente während der Entwicklung entstehen:
+\end_layout
+
+\begin_layout Itemize
+Fragenkatalog für die Kundenbefragung
+\end_layout
+
+\begin_layout Itemize
+Projektplan
+\end_layout
+
+\begin_layout Itemize
+Spezifikation
+\end_layout
+
+\begin_layout Itemize
+Entwurf
+\end_layout
+
+\begin_layout Itemize
+Benutzerhandbuch
+\end_layout
+
+\begin_layout Itemize
+Testplan zum Test des Systems mit den zugehörigen Testdaten sowie das Testprotok
+oll
+\end_layout
+
+\begin_layout Itemize
+Review-Berichte
+\end_layout
+
+\begin_layout Standard
+Die Richtlinien für Dokumente in diesem Plan gelten für alle entstehenden
+ Dokumente.
+\end_layout
+
+\begin_layout Section
+Prüfungen (Reviews und Tests)
+\end_layout
+
+\begin_layout Standard
+Folgende Resultate müssen einer Prüfung unterzogen werden:
+\end_layout
+
+\begin_layout Itemize
+Spezifikation
+\end_layout
+
+\begin_layout Itemize
+Begriffslexikon
+\end_layout
+
+\begin_layout Itemize
+Benutzerhandbuch
+\end_layout
+
+\begin_layout Itemize
+Entwurf
+\end_layout
+
+\begin_layout Itemize
+Codierung
+\end_layout
+
+\begin_layout Standard
+Die Durchführung von Reviews unterliegen folgenden Richtlinien:
+\end_layout
+
+\begin_layout Itemize
+Formale Reviews mit einem Moderator, 2-3 Gutachtern und einem Autor.
+\end_layout
+
+\begin_layout Itemize
+Die Review-Dauer ist auf 2 Stunden beschränkt.
+\end_layout
+
+\begin_layout Standard
+Folgende Tests müssen durchgeführt werden:
+\end_layout
+
+\begin_layout Itemize
+Modultest der einzelnen Komponenten
+\end_layout
+
+\begin_layout Itemize
+Systemtest der gesamten Software
+\end_layout
+
+\begin_layout Itemize
+Abnahmetest zusammen mit dem Kunden
+\end_layout
+
+\begin_layout Chapter
+Anforderungen an die Umgebung
+\end_layout
+
+\begin_layout Section
+Infrastruktur (Büros, Rechnersysteme, Software)
+\end_layout
+
+\begin_layout Standard
+Folgendes muss vom Auftragnehmer bereitgestellt werden:
+\end_layout
+
+\begin_layout Itemize
+Es müssen mindestens 3 Rechner zur Verfügung stehen, auf denen JVM und Eclipse
+ lauffähig ist.
+\end_layout
+
+\begin_layout Itemize
+Zentraler Server für Projektablage.
+\end_layout
+
+\begin_layout Itemize
+Verfügbarkeit von Rechnern mit Linux, Windows, Mac OS.
+\end_layout
+
+\begin_layout Section
+Leistungen Dritter im Unternehmen
+\end_layout
+
+\begin_layout Standard
+Alle Mitarbeiter im Unternehmen sind an diesem Projekt beteiligt.
+\end_layout
+
+\begin_layout Section
+Leistungen externer Lieferanten
+\end_layout
+
+\begin_layout Standard
+Es wurden bislang keine Verträge mit externen Lieferanten unterzeichnet.
+\end_layout
+
+\begin_layout Chapter
+Projektorganisation
+\end_layout
+
+\begin_layout Section
+Schnittstelle zum Auftraggeber
+\end_layout
+
+\begin_layout Standard
+Die Vertretung zum Kunde übernimmt der Mitarbeiter Christian Buchgraber.
+\end_layout
+
+\begin_layout Section
+Schnittstelle zur Aufbauorganisation
+\end_layout
+
+\begin_layout Standard
+Diese Schnittstelle übernimmt der Mitarbeiter Philipp Pirrung.
+\end_layout
+
+\begin_layout Section
+Schnittstelle zu anderen Projekten
+\end_layout
+
+\begin_layout Standard
+Es wird keine Schnittstelle benötigt, da keine andere Projekte im Unternehmen
+ existieren.
+\end_layout
+
+\begin_layout Section
+Schlüsselpersonen
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features>
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="6in">
+<row interlinespace="0.4cm">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Kunde:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Herr Daniel Kulesz
+\begin_inset Newline newline
+\end_inset
+
+E-Mail: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+daniel.kulesz@informatik.uni-stuttgart.de
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row interlinespace="0.4cm">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Projektleiter:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Herr Philipp Gildein
+\begin_inset Newline newline
+\end_inset
+
+E-Mail: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+philipp@gildein.com
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row interlinespace="0.4cm">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Mitarbeiter 1: 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Herr Phlipp Pirrung
+\begin_inset Newline newline
+\end_inset
+
+E-Mail: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+philipp.pirrung@web.de
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row interlinespace="0.4cm">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Mitarbeiter 2:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Herr Christian Buchgraber
+\begin_inset Newline newline
+\end_inset
+
+E-Mail: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+christian@buchgraber.org
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Berichtswesen
+\end_layout
+
+\begin_layout Standard
+Jeder Mitarbeiter ist verpflichtet, seinem direkten Vorgesetzten Bericht
+ zu erstatten.
+ Im Falle des Projektleiters ist der direkte Vorgesetzte der Manager des
+ Unternehmens.
+ Der Projektleiter ist der direkte Vorgesetzte aller übrigen Mitarbeiter.
+\end_layout
+
+\begin_layout Chapter
+Entwicklungsplan
+\end_layout
+
+\begin_layout Section
+Projektstrukturplan (Arbeitsgliederung)
+\end_layout
+
+\begin_layout Standard
+Das Projekt umfasst folgende Arbeitspakete:
+\end_layout
+
+\begin_layout Itemize
+Analyse: Befragen des Kunden zur Erhebung des Ist- und Soll-Zustands
+\end_layout
+
+\begin_layout Itemize
+Projektplanung: Festlegen der einzelnen Arbeitspakete und Meilensteine,
+ Terminplanung
+\end_layout
+
+\begin_layout Itemize
+Einarbeiten in die Thematik
+\end_layout
+
+\begin_layout Itemize
+Spezifikation: Festlegen der Anforderungen an die Funktionalität des Systems,
+ Festlegen der nicht-funktionalen Anforderungen
+\end_layout
+
+\begin_layout Itemize
+Durchführen eines Spezifikationsreviews
+\end_layout
+
+\begin_layout Itemize
+Nachbearbeiten der Spezifikation
+\end_layout
+
+\begin_layout Itemize
+Erstellen eines Benutzerhandbuchs
+\end_layout
+
+\begin_layout Itemize
+Erstellen eines Entwurfs: Festlegen der Systemarchitektur
+\end_layout
+
+\begin_layout Itemize
+Durchführen eines Entwurfsreviews
+\end_layout
+
+\begin_layout Itemize
+Nachbearbeiten des Entwurfs
+\end_layout
+
+\begin_layout Itemize
+Implementieren des Programms in Java
+\end_layout
+
+\begin_layout Itemize
+Erstellen einer Beta-Version
+\end_layout
+
+\begin_layout Itemize
+Erstellen eines Testplans
+\end_layout
+
+\begin_layout Itemize
+Durchführen des Tests
+\end_layout
+
+\begin_layout Itemize
+Korrigieren des Programms und Überarbeitung der erstellten Dokumente
+\end_layout
+
+\begin_layout Itemize
+Ausliefern an den Kunden
+\end_layout
+
+\begin_layout Section
+Terminplan
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Terminplan"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+Der Terminplan ist als Gantt-Diagramm graphisch dargestellt:
+\end_layout
+
+\begin_layout Standard
+\align left
+Folgende nicht eindeutige Abkürzungen wurden verwendet:
+\end_layout
+
+\begin_layout Itemize
+Anal - Erstellung der Analyse
+\end_layout
+
+\begin_layout Itemize
+EinAr - Einarbeitung in die Thematik
+\end_layout
+
+\begin_layout Itemize
+SpRev - Review der Spezifikation
+\end_layout
+
+\begin_layout Itemize
+SpKor - Korrektur der Spezifikation
+\end_layout
+
+\begin_layout Itemize
+BHand - Benutzerhandbuch
+\end_layout
+
+\begin_layout Itemize
+Beta - Erstellung der Beta-Version
+\end_layout
+
+\begin_layout Itemize
+TPlan - Erstellung eines Testplans
+\end_layout
+
+\begin_layout Itemize
+CKorr - Korrektur des Programms
+\end_layout
+
+\begin_layout Itemize
+Abnhm - Abnahme durch den Kunde
+\end_layout
+
+\begin_layout Section
+Risiken und ihre Bewertung
+\end_layout
+
+\begin_layout Standard
+Da der Auftraggeber eine einmalige Festpreis-Bezahlung wünscht, kann es
+ beim Auftragnehmer zu finanziellen Engpässen kommen, da die Finanzierung
+ bislang noch ungeklärt ist.
+ Dieses Risiko tritt mit mittlerer Wahrscheinlichkeit ein und muss als extrem
+ kritisch betrachtet werden, da bei Eintritt des Risikos notfalls Insolvenz
+ beantragt werden muss.
+ Eine Gegenmaßnahme ist die Auslieferung einer Beta-Version vor Release-Termin
+ gegen Bezahlung eines Teilbetrags, womit der Auftraggeber auch einverstanden
+ ist.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Es besteht die Möglichkeit, dass projektexterne Institutionen wie beispielsweise
+ das Prüfungsamt Widerstand gegen die Einführung von 
+\shape italic
+pKv 
+\shape default
+leisten, da diese nicht gewillt sind, ihre Prüfungen online zu stellen.
+ Dieses Risiko tritt mit geringer Wahrscheinlichkeit ein, muss jedoch als
+ kritisch eingestuft werden, weil im Falle des Eintretens die Projektdurchführun
+g in Gefahr ist.
+ Um dieses Risiko entgegen zu treten, wird ein Vertrag mit allen beteiligten
+ Institutionen unterzeichnet, in welchem der Auftragnehmer deren Einwilligung
+ zugesichtert bekommt.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Nicht alle Mitarbeiter im Team haben bislang an Java-Projekten mit vergleichsbar
+em Umfang teilgenommen.
+ Dieses Risiko tritt immer ein und kann als unkritisch eingestuft werden.
+ Die Gegenmaßnahme besteht darin, dass unerfahrenen Mitarbeiter an einer
+ mehrtägigen Java-Schulung teilnehmen, wobei die dadurch entstandenen Kosten
+ vom Unternehmen gedeckt werden.
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,412 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass scrartcl
+\use_default_options true
+\language ngerman
+\inputencoding auto
+\font_roman ae
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language german
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Analysenotizen aidGer
+\end_layout
+
+\begin_layout Author
+Buchgraber (2512046), Gildein (2513744), Pirrung (2526016)
+\begin_inset Newline newline
+\end_inset
+
+Gruppe 10
+\end_layout
+
+\begin_layout Subject
+- vertrauliches Dokument -
+\end_layout
+
+\begin_layout Section*
+Was für Vorgänge sollen erfasst werden?
+\end_layout
+
+\begin_layout Itemize
+Alle Vorgänge, die getätigt werden.
+\end_layout
+
+\begin_layout Itemize
+Unter anderem: Arbeitsverträge, Budgetcheck, Lohnsteuerkarten.
+ 
+\end_layout
+
+\begin_layout Itemize
+Benachrichtigungen für Hilfskräfte (z.B.
+ falls Lohnabrechnung verfügbar).
+ z.B.
+ Liste mit allen Hilfskräften und Mails.
+ 
+\end_layout
+
+\begin_layout Itemize
+Protokoll soll alle Vorgänge auflisten können.
+ 
+\end_layout
+
+\begin_layout Section*
+AdoHive Interface
+\end_layout
+
+\begin_layout Standard
+Die Zuständigkeit für die Datenbank liegt bei Team AdoHive.
+ Wir erhalten von ihnen eine Schnittstellendokumentation.
+ 
+\begin_inset Newline newline
+\end_inset
+
+ Die jetzige Datenbank wird dabei nicht großartig verändert und ein Zugriff
+ auf diese eventuell über ILIAS verfügbar.
+ 
+\begin_inset Newline newline
+\end_inset
+
+ 
+\series bold
+Datenbanktyp:
+\series default
+ Apache Derby aka.
+ JavaDB
+\end_layout
+
+\begin_layout Section*
+Wie läuft das Berichtswesen ab?
+\end_layout
+
+\begin_layout Itemize
+Controlling - Interner Bericht 
+\end_layout
+
+\begin_layout Itemize
+Auszug von HIWIS zu bestimmten Situationen 
+\end_layout
+
+\begin_layout Itemize
+Prüfung von Lohnverteilung 
+\end_layout
+
+\begin_layout Itemize
+Nachname - Vorname - Gehalt bis zu diesem Monat (Von Januar bis...) 
+\end_layout
+
+\begin_layout Section*
+Wann liegt das Budget vor?
+\end_layout
+
+\begin_layout Standard
+Soll von Lehrplan am Anfang des Jahres vorgegeben sein.
+ Es besteht aber die Möglichkeit, dass sich das Budget im Laufe des Jahres
+ ändert.
+\end_layout
+
+\begin_layout Section*
+Details zu Anwendung:
+\end_layout
+
+\begin_layout Standard
+Nur eine Desktopanwendung sein, ohne sich irgendwo authentifizieren zu müssen
+ 
+\begin_inset Newline newline
+\end_inset
+
+ Die Datensätze sollen parallel bearbeitbar sein, was jedoch selten vorkommen
+ soll.
+ Zum Großteil Aufgabe von Team AdoHive (Locking der Tabellen).
+\end_layout
+
+\begin_layout Section*
+Wie sollen die Ausgaben aussehen?
+\end_layout
+
+\begin_layout Standard
+Die Ausgabe soll wie bisher als .pdf erfolgen und das bisherige Aussehen
+ wird im ILIAS bereitgestellt.
+ 
+\begin_inset Newline newline
+\end_inset
+
+ Berichte sollen auf jeden Fall optimiert werden zB.
+ durch Angabe von Summen.
+\end_layout
+
+\begin_layout Section*
+Werden die jetzigen Programme zur Verfügung gestellt?
+\end_layout
+
+\begin_layout Standard
+Ja, werden im ILIAS bereitgestellt (Anmerkung: zT.
+ bereits geschehen).
+\end_layout
+
+\begin_layout Section*
+Ticket-System
+\end_layout
+
+\begin_layout Itemize
+Früher: Internetinterface, mit dem man auf eMails antworten kann.
+ 
+\end_layout
+
+\begin_layout Itemize
+Tickets sollen manuell eingegeben werden können 
+\end_layout
+
+\begin_layout Itemize
+Updates sollen nicht ständig per eMail geschrieben werden 
+\end_layout
+
+\begin_layout Itemize
+Ablauf: Student (schickt eMail) 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ ruft Ticket-System auf 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ Benachrichtigung an beide Mitarbeiter per eMail (Antwort über Webinterface)
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ Student kriegt Antwort und beide Mitarbeiter auch.
+ 
+\end_layout
+
+\begin_layout Section*
+Wie berechnet sich das Gehalt?
+\end_layout
+
+\begin_layout Itemize
+Verschiedene Gehaltsstufen: ungeprüft, Bachelor, geprüfte Bachelor/Master
+ 
+\end_layout
+
+\begin_layout Itemize
+pro Monat einen Stundensatz pro Qualifikation 
+\end_layout
+
+\begin_layout Itemize
+Stundensatz + Steuersatz 
+\end_layout
+
+\begin_layout Standard
+Alle Geldangaben sind immer in Euro.
+ 
+\end_layout
+
+\begin_layout Section*
+Welche Prozesse gibt es?
+\end_layout
+
+\begin_layout Standard
+Eine Prozess-Skizze wird zur Verfügung gestellt.
+ 
+\end_layout
+
+\begin_layout Section*
+Mitteilungen:
+\end_layout
+
+\begin_layout Itemize
+Am Ende des Tages eine Vorgangsübersicht ausgeben 
+\end_layout
+
+\begin_layout Itemize
+Bei Überschreitung der vorgegeben Stundenanzahl einer Hilfskraft 
+\end_layout
+
+\begin_layout Section*
+Eingabe von Daten:
+\end_layout
+
+\begin_layout Itemize
+Bei nicht ausgefüllten Feldern nicht unbedingt Meldung (z.B.
+ nicht bei Bemerkung leer) 
+\end_layout
+
+\begin_layout Itemize
+Zuordnung zu Hilfskräften, eventuell zu Veranstaltungen.
+ Auch alte Vorgänge der Hilfskraft/Veranstaltung anzeigen.
+ 
+\end_layout
+
+\begin_layout Itemize
+Datum, Bearbeiter, Hilfskraft, Bemerkung, Sender, Adressat 
+\end_layout
+
+\begin_layout Itemize
+Massenerfassung soll möglich sein 
+\end_layout
+
+\begin_layout Section*
+Datenschutz:
+\end_layout
+
+\begin_layout Standard
+Hilskräfte, die zu lange gespeichert sind, werden anonymisiert.
+ 
+\end_layout
+
+\begin_layout Section*
+Zukunft:
+\end_layout
+
+\begin_layout Standard
+Datenaustauschformat mit Import/Export Funktion in der Applikation.
+ 
+\end_layout
+
+\begin_layout Section*
+Details zur Applikation
+\end_layout
+
+\begin_layout Itemize
+Implementierung mit Java 6 und Swing zur Oberflächengestaltung.
+ 
+\end_layout
+
+\begin_layout Itemize
+Sprache der Anwendung sollte Deutsch und nach Möglichkeit Englisch sein.
+ Die Möglichkeit zur Nachrüstung weiterer Sprachen sollte gegeben sein.
+ 
+\end_layout
+
+\begin_layout Itemize
+Die Größe der Applikation sollte sich an Bildschirme zwischen 1600x1200
+ und 1900x1200 Pixel richten.
+ 
+\end_layout
+
+\begin_layout Itemize
+Shortcuts für Funktionen wäre gut.
+ zB.
+ Enter um eine Eingabe zu beenden.
+ 
+\end_layout
+
+\begin_layout Itemize
+Die Einarbeitungszeit in die Applikation sollte möglichst gering sein.
+ 
+\end_layout
+
+\begin_layout Itemize
+Sie sollte übersichtlich und einfach zu bedienen sein.
+ 
+\end_layout
+
+\begin_layout Itemize
+Die jetzige Lösung soll jederzeit als Fallback-Möglichkeit zur Verfügung
+ stehen.
+ D.h.
+ das die neue Schnittstelle kompatibel zur alten bleiben muss.
+ 
+\end_layout
+
+\begin_layout Section*
+Programmierrichtlinien
+\end_layout
+
+\begin_layout Standard
+Der Code soll gut kommentiert und leicht lesbar sein, um ihn leicht durch
+ andere Personen erweiterbar zu halten.
+ 
+\begin_inset Newline newline
+\end_inset
+
+ Die Benutzung von Code Conventions (Sun CC) wäre bevorzugt.
+\end_layout
+
+\begin_layout Section*
+Externe Pakete für .pdf-Export?
+\end_layout
+
+\begin_layout Standard
+Wird noch spezifiziert, aber wohl eine aktuelle Version von iText.
+\end_layout
+
+\begin_layout Section*
+Generell verfügbare Funktionen?
+\end_layout
+
+\begin_layout Standard
+Eine Hilfe und eventuell Drucken.
+\end_layout
+
+\begin_layout Section*
+Wann kriegen wir den Ist-Zustand?
+\end_layout
+
+\begin_layout Standard
+Spätestens Anfang nächster Woche.
+ (Anmerkung: Bereits geschehen)
+\end_layout
+
+\begin_layout Section*
+Durchführung:
+\end_layout
+
+\begin_layout Itemize
+Das Prozessmodell ist durch die Meilensteine vorgegeben.
+ 
+\end_layout
+
+\begin_layout Itemize
+Meinungs- oder Terminänderungen müssen in die Dokumente einfließen.
+\end_layout
+
+\begin_layout Itemize
+Die Arbeit endet mit der Abgabe .
+\end_layout
+
+\end_body
+\end_document
