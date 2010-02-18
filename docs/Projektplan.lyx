@@ -70,6 +70,13 @@ LatexCommand tableofcontents
 
 \begin_layout Chapter
 Einleitung
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Einleitung"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -252,6 +259,13 @@ Zudem ist keine Authentifizierung beim Programmstart nötig.
 
 \begin_layout Chapter
 Formale Grundlagen
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Formale-Grundlagen"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -293,49 +307,11 @@ Moderne und intuitiv bedienbare Desktop-Anwendung
 \end_layout
 
 \begin_layout Itemize
-Erfassung aller Geschäftsvorgänge, die getätigt werden (z.B.
- Arbeitsverträge)
-\end_layout
-
-\begin_layout Itemize
-Möglichkeit zur Auflistung aller Vorgänge mittels der Protokoll-Funktion
+Erfassung aller Geschäftsvorgänge, die getätigt werden
 \end_layout
 
 \begin_layout Itemize
 Kompatibilität zur Datenbankschnittstelle AdoHive
-\end_layout
-
-\begin_layout Itemize
-Export von erweiterten PDF-Berichten
-\end_layout
-
-\begin_layout Itemize
-Möglichkeit zur Ausgabe von täglichen Mitteilungen (z.B.
- zur Vorgangsübersicht)
-\end_layout
-
-\begin_layout Itemize
-Komfortable Ünterstützung des Users bei der Dateneingabe
-\end_layout
-
-\begin_layout Itemize
-Unterstützung für paralleles Arbeiten
-\end_layout
-
-\begin_layout Itemize
-Möglichkeit zur Massenerfassung von Daten
-\end_layout
-
-\begin_layout Itemize
-Anonymisierung von alten Datensätzen aufgrund des Datenschutzes
-\end_layout
-
-\begin_layout Itemize
-Möglichkeit zum Drucken der Daten
-\end_layout
-
-\begin_layout Itemize
-Benutzerhilfe / Benutzerhandbuch
 \end_layout
 
 \begin_layout Itemize
@@ -424,6 +400,13 @@ gemäß Gesetz über Urheberrecht und verwandte Schutzrechte (UrhG)
 
 \begin_layout Chapter
 Leistungen der Vertragspartner
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Leistungen-der-Vertragspartner"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -511,6 +494,10 @@ ist für die Sicherungskopien der Daten selbst verantwortlich.
 
 \begin_layout Itemize
 stellt das derzeitige System Hive bereit.
+\end_layout
+
+\begin_layout Itemize
+steht für weitere Fragen zur Verfügung.
 \end_layout
 
 \begin_layout Section
@@ -796,6 +783,13 @@ d immens steigern würde und somit den Auslieferungstermin gefährden könnte.
 
 \begin_layout Chapter
 Richtlinien für die Entwicklung
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Richtlinien-für-die"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -980,6 +974,13 @@ LaTeX
 
 \begin_layout Chapter
 Entwicklungsprozess
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Entwicklungsprozess"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1186,6 +1187,13 @@ Abnahmetest zusammen mit dem Kunden
 
 \begin_layout Chapter
 Anforderungen an die Umgebung
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Anforderungen-an-die"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1245,6 +1253,13 @@ reference "sec:Risiken-und-ihre"
 
 \begin_layout Chapter
 Projektorganisation
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Projektorganisation"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1278,7 +1293,7 @@ Schlüsselpersonen
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="2">
+<lyxtabular version="3" rows="6" columns="2">
 <features>
 <column alignment="left" valignment="top" width="0">
 <column alignment="left" valignment="top" width="6in">
@@ -1302,13 +1317,87 @@ Herr Daniel Kulesz
 \begin_inset Newline newline
 \end_inset
 
-E-Mail: 
+eMail: 
 \begin_inset Flex URL
 status collapsed
 
 \begin_layout Plain Layout
 
 daniel.kulesz@informatik.uni-stuttgart.de
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row interlinespace="0.4cm">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Betreuer 1:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Herr Holger Röder
+\begin_inset Newline newline
+\end_inset
+
+eMail: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+roeder@informatik.uni-stuttgart.de
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row interlinespace="0.4cm">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Betreuer 2:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Herr Ivan Bogicevic
+\begin_inset Newline newline
+\end_inset
+
+eMail: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+ivan.bogicevic@informatik.uni-stuttgart.de
 \end_layout
 
 \end_inset
@@ -1339,7 +1428,7 @@ Herr Philipp Gildein
 \begin_inset Newline newline
 \end_inset
 
-E-Mail: 
+eMail: 
 \begin_inset Flex URL
 status collapsed
 
@@ -1376,7 +1465,7 @@ Herr Phlipp Pirrung
 \begin_inset Newline newline
 \end_inset
 
-E-Mail: 
+eMail: 
 \begin_inset Flex URL
 status collapsed
 
@@ -1413,7 +1502,7 @@ Herr Christian Buchgraber
 \begin_inset Newline newline
 \end_inset
 
-E-Mail: 
+eMail: 
 \begin_inset Flex URL
 status collapsed
 
@@ -1451,6 +1540,13 @@ Jeder Mitarbeiter ist verpflichtet, seinem direkten Vorgesetzten Bericht
 
 \begin_layout Chapter
 Entwicklungsplan
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Entwicklungsplan"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1558,7 +1654,7 @@ Der Terminplan ist als Gantt-Diagramm graphisch dargestellt:
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename gannt.jpg
+	filename gantt.jpg
 	width 100text%
 
 \end_inset
@@ -1664,6 +1760,128 @@ ng befassen können.
  Dieses Risiko tritt mit mittlerer Wahrscheinlichkeit ein.
  Um dies zu vermeiden, ist eine gute Projektplanung und ein gutes Zeitmanagement
  von jedem Mitarbeiter zwingend verlangt.
+\end_layout
+
+\begin_layout Chapter
+Anhang
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Anhang"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Versionshistorie
+\end_layout
+
+\begin_layout Subsubsection*
+Version 0.2 (18.02.2010)
+\end_layout
+
+\begin_layout Itemize
+Erstellung des Kapitels 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Anhang"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Fehlende Betreuerangaben hinzugefügt.
+\end_layout
+
+\begin_layout Itemize
+Liste der Leistungen seitens des Auftragsgebers ergänzt.
+\end_layout
+
+\begin_layout Itemize
+Liste der Anforderungen an das Produkt gekürzt.
+\end_layout
+
+\begin_layout Subsubsection*
+Version 0.1.2 (16.02.2010)
+\end_layout
+
+\begin_layout Itemize
+Korrekturen und Ergänzungen in allen Kapiteln vorgenommen.
+\end_layout
+
+\begin_layout Subsubsection*
+Version 0.1.1 (15.02.2010)
+\end_layout
+
+\begin_layout Itemize
+Erstellung der Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Entwicklungsprozess"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Projektorganisation"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Entwicklungsplan"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Version 0.1 (14.02.2010)
+\end_layout
+
+\begin_layout Itemize
+Erstellung der Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Einleitung"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Formale-Grundlagen"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Leistungen-der-Vertragspartner"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Richtlinien-für-die"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Anforderungen-an-die"
+
+\end_inset
+
+
 \end_layout
 
 \end_body
