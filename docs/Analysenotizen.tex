@@ -1,7 +1,6 @@
 %% LyX 1.6.5 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[12pt,ngerman]{scrartcl}
-\usepackage{ae,aecompl}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[letterpaper]{geometry}
@@ -16,163 +15,160 @@
 
 \title{Analysenotizen aidGer}
 
-
 \author{Buchgraber (2512046), Gildein (2513744), Pirrung (2526016)\\
 Gruppe 10}
-
 
 \subject{- vertrauliches Dokument -}
 
 \maketitle
 
-\section*{Welche Vorgänge sollen erfasst werden?}
-\begin{itemize}
-\item Alle Vorgänge, die getätigt werden.
-\item Darunter fallen unter anderem: Arbeitsverträge, Budgetcheck, Lohnsteuerkarten. 
-\item Benachrichtigungen für Hilfskräfte (z.B. falls Lohnabrechnung verfügbar).
-Z.B. Liste mit allen Hilfskräften und Mails. 
-\item Protokoll soll alle Vorgänge auflisten können. 
-\end{itemize}
+\section*{Ist-Zustand}
 
-\section*{AdoHive Interface}
+    \subsection*{Prozess}
+        Auf Papier definierte Abläufe und Geschäftsprozesse. \\ 
+        Etabliertes und ausreichend gut funktionierendes Datenmodell.\\ \\ 
+        Die genauen Prozessskizzen werden uns noch zur Verfügung gestellt.
 
-Die Zuständigkeit für die Datenbank liegt bei Team AdoHive. Wir erhalten
-von ihnen eine Schnittstellendokumentation. \\
- Die jetzige Datenbank wird dabei nicht großartig verändert und
-ein Zugriff auf diese eventuell über ILIAS verfügbar. \\
- \textbf{Datenbanktyp:} Apache Derby aka. JavaDB
+    \subsection*{Komponenten}
+        \begin{itemize}
+            \item Ticket-System
+            \item MySQL Datenbank
+            \item Cronscripte mit SQL Befehlen
+            \item OpenOffice.org Base Anwendung
+            \item Java GUI Prototyp
+        \end{itemize}
 
+    \subsection*{Details zum Ticket-System}
+        \begin{itemize}
+            \item Früher: Internetinterface, mit dem man auf eMails antworten kann. 
+            \item Tickets sollen manuell eingegeben werden können 
+            \item Updates sollen nicht ständig per eMail geschrieben werden 
+            \item Ablauf: Student (schickt eMail) $\rightarrow$ ruft Ticket-System
+            auf $\rightarrow$ Benachrichtigung an beide Mitarbeiter per eMail
+            (Antwort über Webinterface) $\rightarrow$ Student kriegt Antwort
+            und beide Mitarbeiter auch. 
+        \end{itemize}
+        
+    \subsection*{Wie berechnet sich das Gehalt?}
+        \begin{itemize}
+        \item Verschiedene Gehaltsstufen: ungeprüft, Bachelor, geprüfte Bachelor/Master 
+        \item pro Monat einen Stundensatz pro Qualifikation 
+        \item Stundensatz + Steuersatz 
+        \end{itemize}
+        Alle Geldangaben sind immer in Euro. 
 
-\section*{Wie läuft das Berichtswesen ab?}
-\begin{itemize}
-\item Controlling - Interner Bericht 
-\item Auszug von HIWIS zu bestimmten Situationen 
-\item Prüfung von Lohnverteilung 
-\item Nachname - Vorname - Gehalt bis zu diesem Monat (Von Januar bis...) 
-\end{itemize}
+    \subsection*{Werden die jetzigen Programme zur Verfügung gestellt?}
+        Ja, werden im ILIAS bereitgestellt (Anmerkung: zT. bereits geschehen).
+        
+    \subsection*{Wann kriegen wir den Ist-Zustand?}
+        Spätestens Anfang nächster Woche. (Anmerkung: Bereits geschehen)
 
-\section*{Wann liegt das Budget vor?}
+\section*{Soll-Zustand}
 
-Soll von Lehrplan am Anfang des Jahres vorgegeben sein. Es besteht
-aber die Möglichkeit, dass sich das Budget im Laufe des Jahres ändert.
+    \subsection*{Welche Vorgänge sollen erfasst werden?}
+        \begin{itemize}
+            \item Alle Vorgänge, die getätigt werden.
+            \item Darunter fallen unter anderem: Arbeitsverträge, Budgetcheck, Lohnsteuerkarten. 
+            \item Benachrichtigungen für Hilfskräfte (z.B. falls Lohnabrechnung verfügbar).
+            Z.B. Liste mit allen Hilfskräften und Mails. 
+            \item Protokoll soll alle Vorgänge auflisten können. 
+        \end{itemize}
 
-
-\section*{Details zu Anwendung:}
-
-Nur eine Desktopanwendung sein, ohne sich irgendwo authentifizieren
-zu müssen \\
- Die Datensätze sollen parallel bearbeitbar sein, was jedoch selten
-vorkommen soll. Zum Großteil Aufgabe von Team AdoHive (Locking der
-Tabellen).
-
-
-\section*{Wie sollen die Ausgaben aussehen?}
-
-Die Ausgabe soll wie bisher als PDF erfolgen und das bisherige Aussehen
-wird im ILIAS bereitgestellt. \\
- Berichte sollen auf jeden Fall optimiert werden zB. durch Angabe
-von Summen.
-
-
-\section*{Werden die jetzigen Programme zur Verfügung gestellt?}
-
-Ja, werden im ILIAS bereitgestellt (Anmerkung: zT. bereits geschehen).
-
-
-\section*{Ticket-System}
-\begin{itemize}
-\item Früher: Internetinterface, mit dem man auf eMails antworten kann. 
-\item Tickets sollen manuell eingegeben werden können 
-\item Updates sollen nicht ständig per eMail geschrieben werden 
-\item Ablauf: Student (schickt eMail) $\rightarrow$ ruft Ticket-System
-auf $\rightarrow$ Benachrichtigung an beide Mitarbeiter per eMail
-(Antwort über Webinterface) $\rightarrow$ Student kriegt Antwort
-und beide Mitarbeiter auch. 
-\end{itemize}
-
-\section*{Wie berechnet sich das Gehalt?}
-\begin{itemize}
-\item Verschiedene Gehaltsstufen: ungeprüft, Bachelor, geprüfte Bachelor/Master 
-\item pro Monat einen Stundensatz pro Qualifikation 
-\item Stundensatz + Steuersatz 
-\end{itemize}
-Alle Geldangaben sind immer in Euro. 
+    \subsection*{AdoHive Interface}
+        Die Zuständigkeit für die Datenbank liegt bei Team AdoHive. Wir erhalten
+        von ihnen eine Schnittstellendokumentation. \\
+        Die jetzige Datenbank wird dabei nicht großartig verändert und
+        ein Zugriff auf diese eventuell über ILIAS verfügbar. \\
+        \textbf{Datenbanktyp:} Apache Derby aka. JavaDB
 
 
-\section*{Welche Prozesse gibt es?}
+    \subsection*{Wie läuft das Berichtswesen ab?}
+        \begin{itemize}
+        \item Controlling - Interner Bericht 
+        \item Auszug von HIWIS zu bestimmten Situationen 
+        \item Prüfung von Lohnverteilung 
+        \item Nachname - Vorname - Gehalt bis zu diesem Monat (Von Januar bis...) 
+        \end{itemize}
 
-Eine Prozess-Skizze wird zur Verfügung gestellt. 
+    \subsection*{Wann liegt das Budget vor?}
 
-
-\section*{Mitteilungen:}
-\begin{itemize}
-\item Am Ende des Tages eine Vorgangsübersicht ausgeben 
-\item Bei Überschreitung der vorgegeben Stundenanzahl einer Hilfskraft 
-\end{itemize}
-
-\section*{Eingabe von Daten:}
-\begin{itemize}
-\item Bei nicht ausgefüllten Feldern nicht unbedingt Meldung (z.B. nicht
-bei Bemerkung leer) 
-\item Zuordnung zu Hilfskräften, eventuell zu Veranstaltungen. Auch alte
-Vorgänge der Hilfskraft/Veranstaltung anzeigen. 
-\item Datum, Bearbeiter, Hilfskraft, Bemerkung, Sender, Adressat 
-\item Massenerfassung soll möglich sein 
-\end{itemize}
-
-\section*{Datenschutz:}
-
-Hilskräfte, die zu lange gespeichert sind, werden anonymisiert. 
+        Soll von Lehrplan am Anfang des Jahres vorgegeben sein. Es besteht
+        aber die Möglichkeit, dass sich das Budget im Laufe des Jahres ändert.
 
 
-\section*{Zukunft:}
+    \subsection*{Details zu Anwendung:}
 
-Datenaustauschformat mit Import/Export Funktion in der Applikation. 
-
-
-\section*{Details zur Applikation}
-\begin{itemize}
-\item Implementierung mit Java 6 und Swing zur Oberflächengestaltung. 
-\item Sprache der Anwendung sollte Deutsch und nach Möglichkeit Englisch
-sein. Die Möglichkeit zur Nachrüstung weiterer Sprachen sollte gegeben
-sein. 
-\item Die Größe der Applikation sollte sich an Bildschirme zwischen 1600x1200
-und 1900x1200 Pixel richten. 
-\item Shortcuts für Funktionen wäre gut. zB. Enter um eine Eingabe zu beenden. 
-\item Die Einarbeitungszeit in die Applikation sollte möglichst gering sein. 
-\item Sie sollte übersichtlich und einfach zu bedienen sein. 
-\item Die jetzige Lösung soll jederzeit als Fallback-Möglichkeit zur Verfügung
-stehen. D.h. das die neue Schnittstelle kompatibel zur alten bleiben
-muss. 
-\end{itemize}
-
-\section*{Programmierrichtlinien}
-
-Der Code soll gut kommentiert und leicht lesbar sein, um ihn leicht
-durch andere Personen erweiterbar zu halten. \\
- Die Benutzung von Code Conventions (Sun CC) wäre bevorzugt.
+        Nur eine Desktopanwendung sein, ohne sich irgendwo authentifizieren
+        zu müssen \\
+         Die Datensätze sollen parallel bearbeitbar sein, was jedoch selten
+        vorkommen soll. Zum Großteil Aufgabe von Team AdoHive (Locking der
+        Tabellen).
 
 
-\section*{Externe Pakete für .pdf-Export?}
+    \subsection*{Wie sollen die Ausgaben aussehen?}
 
-Wird noch spezifiziert, aber wohl eine aktuelle Version von iText.
+        Die Ausgabe soll wie bisher als PDF erfolgen und das bisherige Aussehen
+        wird im ILIAS bereitgestellt. \\
+         Berichte sollen auf jeden Fall optimiert werden zB. durch Angabe
+        von Summen.
+
+    \subsection*{Mitteilungen:}
+        \begin{itemize}
+        \item Am Ende des Tages eine Vorgangsübersicht ausgeben 
+        \item Bei Überschreitung der vorgegeben Stundenanzahl einer Hilfskraft 
+        \end{itemize}
+
+    \subsection*{Eingabe von Daten:}
+        \begin{itemize}
+        \item Bei nicht ausgefüllten Feldern nicht unbedingt Meldung (z.B. nicht
+        bei Bemerkung leer) 
+        \item Zuordnung zu Hilfskräften, eventuell zu Veranstaltungen. Auch alte
+        Vorgänge der Hilfskraft/Veranstaltung anzeigen. 
+        \item Datum, Bearbeiter, Hilfskraft, Bemerkung, Sender, Adressat 
+        \item Massenerfassung soll möglich sein 
+        \end{itemize}
+
+    \subsection*{Datenschutz:}
+        Hilskräfte, die zu lange gespeichert sind, werden anonymisiert. 
 
 
-\section*{Generell verfügbare Funktionen?}
+    \subsection*{Zukunft:}
+        Datenaustauschformat mit Import/Export Funktion in der Applikation.
 
-Eine Hilfe und eventuell Drucken.
+    \subsection*{Details zur Applikation}
+        \begin{itemize}
+        \item Implementierung mit Java 6 und Swing zur Oberflächengestaltung. 
+        \item Sprache der Anwendung sollte Deutsch und nach Möglichkeit Englisch
+        sein. Die Möglichkeit zur Nachrüstung weiterer Sprachen sollte gegeben
+        sein. 
+        \item Die Größe der Applikation sollte sich an Bildschirme zwischen 1600x1200
+        und 1900x1200 Pixel richten. 
+        \item Shortcuts für Funktionen wäre gut. zB. Enter um eine Eingabe zu beenden. 
+        \item Die Einarbeitungszeit in die Applikation sollte möglichst gering sein. 
+        \item Sie sollte Übersichtlich und einfach zu bedienen sein. 
+        \item Die jetzige Lösung soll jederzeit als Fallback-Möglichkeit zur Verfügung
+        stehen. D.h. das die neue Schnittstelle kompatibel zur alten bleiben
+        muss. 
+        \end{itemize}
+
+    \subsection*{Programmierrichtlinien}
+        Der Code soll gut kommentiert und leicht lesbar sein, um ihn leicht
+        durch andere Personen erweiterbar zu halten. \\
+        Die Benutzung von Code Conventions (Sun CC) wäre bevorzugt.
 
 
-\section*{Wann kriegen wir den Ist-Zustand?}
+    \subsection*{Externe Pakete für .pdf-Export?}
+        Wird noch spezifiziert, aber wohl eine aktuelle Version von iText.
 
-Spätestens Anfang nächster Woche. (Anmerkung: Bereits geschehen)
 
+    \subsection*{Generell verfügbare Funktionen?}
+        Eine Hilfe und eventuell Drucken.
 
-\section*{Durchführung:}
-\begin{itemize}
-\item Das Prozessmodell ist durch die Meilensteine vorgegeben. 
-\item Meinungs- oder Terminänderungen müssen in die Dokumente einfließen.
-\item Die Arbeit endet mit der Abgabe .
-\end{itemize}
+    \subsection*{Durchführung:}
+        \begin{itemize}
+        \item Das Prozessmodell ist durch die Meilensteine vorgegeben. 
+        \item Meinungs- oder Terminänderungen müssen in die Dokumente einfließen.
+        \item Die Arbeit endet mit der Abgabe .
+        \end{itemize}
 
 \end{document}
