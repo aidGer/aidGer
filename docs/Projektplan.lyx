@@ -889,6 +889,16 @@ Die Software muss vollständig in der Programmiersprache Java geschrieben
 Alle Programmierer müssen sich an die 
 \shape italic
 Code Conventions for the Java Programming Language
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+http://java.sun.com/docs/codeconv/
+\end_layout
+
+\end_inset
+
+
 \shape default
  halten.
 \end_layout
@@ -928,7 +938,7 @@ IDE: Eclipse 3.5.1 mit dem UML-Plugin SDE for Eclipse 5.2 (Visual Paradigm)
 \end_layout
 
 \begin_layout Itemize
-Externe Biliothek für den PDF-Export: iText 5.0.1
+Externe Bibliothek für den PDF-Export: iText 5.0.1
 \end_layout
 
 \begin_layout Itemize
@@ -1227,6 +1237,20 @@ Zentraler Server für die Projektablage, das Projektmanagement sowie das
 
 \begin_layout Itemize
 Verfügbarkeit von Rechnern mit Linux, Windows und Mac OS.
+\end_layout
+
+\begin_layout Itemize
+Internetpräsenz des Projekts aidGer
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+http://www.aidger.de
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1745,6 +1769,30 @@ Versionshistorie
 \end_layout
 
 \begin_layout Subsubsection*
+Version 0.2.1 (19.02.2010)
+\end_layout
+
+\begin_layout Itemize
+Berichtigung der Betreuerangabe
+\end_layout
+
+\begin_layout Itemize
+Angabe der einzusetzenden Bibliotheken hinzugefügt
+\end_layout
+
+\begin_layout Itemize
+Vermerk der Internetpräsenz des Projekts ergänzt
+\end_layout
+
+\begin_layout Itemize
+Verweis auf die 
+\shape italic
+Java Code Conventions
+\shape default
+ hinzugefügt
+\end_layout
+
+\begin_layout Subsubsection*
 Version 0.2 (18.02.2010)
 \end_layout
 
@@ -1760,19 +1808,15 @@ reference "cha:Anhang"
 \end_layout
 
 \begin_layout Itemize
-Fehlende Betreuerangaben hinzugefügt.
+Fehlende Betreuerangaben hinzugefügt
 \end_layout
 
 \begin_layout Itemize
-Liste der Leistungen seitens des Auftragsgebers ergänzt.
+Liste der Leistungen seitens des Auftragsgebers ergänzt
 \end_layout
 
 \begin_layout Itemize
-Liste der Anforderungen an das Produkt gekürzt.
-\end_layout
-
-\begin_layout Itemize
-Angabe der einzusetzenden Bibliotheken hinzugefügt.
+Liste der Anforderungen an das Produkt gekürzt
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1780,7 +1824,7 @@ Version 0.1.2 (16.02.2010)
 \end_layout
 
 \begin_layout Itemize
-Korrekturen und Ergänzungen in allen Kapiteln vorgenommen.
+Korrekturen und Ergänzungen in allen Kapiteln vorgenommen
 \end_layout
 
 \begin_layout Subsubsection*
