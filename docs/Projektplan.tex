@@ -3,7 +3,7 @@
 \documentclass[oneside,german,oneside]{scrbook}
 \usepackage{ae,aecompl}
 \usepackage[T1]{fontenc}
-\usepackage[latin9]{inputenc}
+\usepackage[utf8]{inputenc}
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 \usepackage{array}
@@ -42,128 +42,128 @@ Gruppe 10}
 
 \section{Zweck, Abgrenzung\label{sec:Zweck,-Abgrenzung}}
 
-Seit März 2009 werden die Hilfskraftbeschäftigungen des Institutsverbund
-der Informatik (IvI) von der Abteilung SE an der Universität Stuttgart
-abgewickelt. Die Amtsübernahme stellte die Abteilung SE damals vor
-große Herausforderungen: Man musste sich fachlich in die Thematik
-einarbeiten, das bisherige Verfahren analysieren und daraus neue Geschäftsprozesse
+Seit MÃ¤rz 2009 werden die HilfskraftbeschÃ¤ftigungen des Institutsverbund
+der Informatik (IvI) von der Abteilung SE an der UniversitÃ¤t Stuttgart
+abgewickelt. Die AmtsÃ¼bernahme stellte die Abteilung SE damals vor
+groÃŸe Herausforderungen: Man musste sich fachlich in die Thematik
+einarbeiten, das bisherige Verfahren analysieren und daraus neue GeschÃ¤ftsprozesse
 etablieren. Hieraus entstand die Software mit dem Codename Hive, welche
-die folgenden grundsätzlichen Hauptaufgaben zur Erleichterung der
-täglichen Arbeiten zu erfüllen hat:
+die folgenden grundsÃ¤tzlichen Hauptaufgaben zur Erleichterung der
+tÃ¤glichen Arbeiten zu erfÃ¼llen hat:
 \begin{itemize}
-\item Abwicklung der Arbeitsverträge (z.B. Einstellungen)
+\item Abwicklung der ArbeitsvertrÃ¤ge (z.B. Einstellungen)
 \item Genehmigungsvorlage und Panung der Finanzmittel
 \item Berichtswesen und Controlling
 \end{itemize}
-Diese Softwarelösung hat jedoch einige Nachteile, die die Benutzung
-nur eingeschränkt möglich macht. So sind beispielsweise die Geschäftsprozesse
-nur auf Papier definiert und das Datenmodell gehört einer Überarbeitung
-unterzogen. Darüber hinaus bildet die Lösung keine gesamte, homogene
+Diese SoftwarelÃ¶sung hat jedoch einige Nachteile, die die Benutzung
+nur eingeschrÃ¤nkt mÃ¶glich macht. So sind beispielsweise die GeschÃ¤ftsprozesse
+nur auf Papier definiert und das Datenmodell gehÃ¶rt einer Ãœberarbeitung
+unterzogen. DarÃ¼ber hinaus bildet die LÃ¶sung keine gesamte, homogene
 Einheit, sondern besteht ferner aus einem inhomogenen Technologie-Mix,
 der sich unter anderem aus einer OpenOffice-Anwendung, einem Ticket-System
 und einem Unix Cron-Skript zusammensetzt.\\
 \\
-Dieser Zustand führt folglich zu immensen Schwächen bei der Effizienz
+Dieser Zustand fÃ¼hrt folglich zu immensen SchwÃ¤chen bei der Effizienz
 sowie der Benutzerfreundlichkeit der Software. Zudem wir die Abwicklung
-von Geschäftsprozessen nur bedingt softwareseitig unterstützt.
+von GeschÃ¤ftsprozessen nur bedingt softwareseitig unterstÃ¼tzt.
 
 Aus diesem Grund soll im Rahmen dieses Projekts eine Nachfolger-Software
 entstehen, die den Namen aidGer tragen wird und bei der Abnahme Hive
-schließlich ersetzen soll.
+schlieÃŸlich ersetzen soll.
 
 
 \subsection{Zweck des Projektplans}
 
-Dieser Projektplan soll die Ziele des Projekts, die Zeitplanung für
-deren Verwirklichung und alle relevanten Bedingungen für das Projekt
+Dieser Projektplan soll die Ziele des Projekts, die Zeitplanung fÃ¼r
+deren Verwirklichung und alle relevanten Bedingungen fÃ¼r das Projekt
 dokumentieren.
 
 Die Planung des Projekts ist zu Anfang sehr schwierig, da die Informationen
-über den Zeitaufwand für einzelne Teilaufgaben erst nach einer Einarbeitung
-hinreichend genau geschätzt werden können. Deshalb wird der Plan im
-Laufe des Projektes Änderungen erfahren, die vor allem die Zeitabläufe
-betreffen können. 
+Ã¼ber den Zeitaufwand fÃ¼r einzelne Teilaufgaben erst nach einer Einarbeitung
+hinreichend genau geschÃ¤tzt werden kÃ¶nnen. Deshalb wird der Plan im
+Laufe des Projektes Ã„nderungen erfahren, die vor allem die ZeitablÃ¤ufe
+betreffen kÃ¶nnen. 
 
 
-\section{Projektüberblick, Motivation}
+\section{ProjektÃ¼berblick, Motivation}
 
 Im Rahmen des Projekts wird eine Desktop-Anwendung entwickelt, die
-den Mitarbeitern der Abteilung SE die tägliche Arbeit bei der Verwaltung
-der Hilfskraftbeschäftigungen des Institutsverbund der Informatik
+den Mitarbeitern der Abteilung SE die tÃ¤gliche Arbeit bei der Verwaltung
+der HilfskraftbeschÃ¤ftigungen des Institutsverbund der Informatik
 erleichtern soll. Hierbei soll die Software auf das bestehende System
-Hive aufbauen und dieses durch eine vollständige Neuentwicklung schließlich
-ersetzen. Die zu entwickelnde Software trägt den Codenamen aidGer.\\
+Hive aufbauen und dieses durch eine vollstÃ¤ndige Neuentwicklung schlieÃŸlich
+ersetzen. Die zu entwickelnde Software trÃ¤gt den Codenamen aidGer.\\
 \\
-aidGer soll sich der jetzigen Lösung in vielen Punkten ähneln,
-wobei selbsterklärend die Schwächen und Nachteile von Hive (siehe
+aidGer soll sich der jetzigen LÃ¶sung in vielen Punkten Ã¤hneln,
+wobei selbsterklÃ¤rend die SchwÃ¤chen und Nachteile von Hive (siehe
 \ref{sec:Zweck,-Abgrenzung}) auszubessern sind, so dass im Endeffekt
 ein einheitliches und produktiv einsetzbares Produkt entsteht.\\
 \\
-Die neue Software dient grundsätzlich zur Erleichterung der Erfassung
-und Auswertung aller Prozesse, die bei der Verwaltung von Hilfskräften
+Die neue Software dient grundsÃ¤tzlich zur Erleichterung der Erfassung
+und Auswertung aller Prozesse, die bei der Verwaltung von HilfskrÃ¤ften
 anfallen.\\
 \\
-Zusammengefasst müssen die folgenden Vorgänge in aidGer unterstützt
+Zusammengefasst mÃ¼ssen die folgenden VorgÃ¤nge in aidGer unterstÃ¼tzt
 werden:
 \begin{itemize}
 \item Stammdatenverwaltung
-\item Budgetprüfung
-\item Buchung von Beschäftigten
+\item BudgetprÃ¼fung
+\item Buchung von BeschÃ¤ftigten
 \item Controlling der Abrechnungen
 \item Berichtswesen / Reporting
 \item Vorgangserfassung
 \end{itemize}
-Hierzu wurde seither ein Ticket-System verwendet, welches hauptsächlich
-die Funktion der Benachrichtigung von Hilfskräften via eMail übernimmt.
+Hierzu wurde seither ein Ticket-System verwendet, welches hauptsÃ¤chlich
+die Funktion der Benachrichtigung von HilfskrÃ¤ften via eMail Ã¼bernimmt.
 Dieses System soll mit aidGer weiterhin bestehen, wobei beide Systeme
-möglichst als Einheit fungieren sollen.\\
+mÃ¶glichst als Einheit fungieren sollen.\\
 \\
 Damit die Software mit den bestehenden Daten weiterarbeiten kann,
 wird eine Datenbankschnittstelle AdoHive parallel von einem externen
 Team entwickelt, auf welche aidGer zu zugreifen hat.\\
 \\
-Zudem ist keine Authentifizierung beim Programmstart nötig.
+Zudem ist keine Authentifizierung beim Programmstart nÃ¶tig.
 
 
 \chapter{Formale Grundlagen\label{cha:Formale-Grundlagen}}
 
 
-\section{Anforderungen an die Projektdurchführung}
+\section{Anforderungen an die ProjektdurchfÃ¼hrung}
 \begin{itemize}
-\item Der Auftraggeber ist die Abteilung SE der Universität Stuttgart.
+\item Der Auftraggeber ist die Abteilung SE der UniversitÃ¤t Stuttgart.
 \item Es handelt sich um ein unentgeltliches Projekt.
 \item Das Projekt muss bis Mitte Juli auslieferbar sein.
-\item Dabei wird es Ziel sein, das Projekt bis Ende Juni abzuschließen,
-damit notfalls der Zeitpuffer von 2 Wochen für abschließende Arbeiten
+\item Dabei wird es Ziel sein, das Projekt bis Ende Juni abzuschlieÃŸen,
+damit notfalls der Zeitpuffer von 2 Wochen fÃ¼r abschlieÃŸende Arbeiten
 genutzt werden kann.
 \item Das Projekt soll in Java geschrieben werden, Version: Java SE 1.6.
-\item Die Benutzeroberfläche soll mittels Java Swing gestaltet werden.
+\item Die BenutzeroberflÃ¤che soll mittels Java Swing gestaltet werden.
 \end{itemize}
 
 \section{Anforderungen an das Produkt}
 \begin{itemize}
 \item Moderne und intuitiv bedienbare Desktop-Anwendung
-\item Erfassung aller Geschäftsvorgänge, die getätigt werden
-\item Kompatibilität zur Datenbankschnittstelle AdoHive
+\item Erfassung aller GeschÃ¤ftsvorgÃ¤nge, die getÃ¤tigt werden
+\item KompatibilitÃ¤t zur Datenbankschnittstelle AdoHive
 \item Gute Benutzerfreundlichkeit
-\item Übersichtliche und zeitgemäße Benutzeroberfläche
+\item Ãœbersichtliche und zeitgemÃ¤ÃŸe BenutzeroberflÃ¤che
 \item Kurze Einarbeitungszeit in das Programm
-\item Plattformunabhängigkeit
+\item PlattformunabhÃ¤ngigkeit
 \item Mehrsprachigkeit
 \item Erweiterbarkeit
 \item Gute Wartbarkeit
 \end{itemize}
 
-\section{Anforderungen an die Konformität mit Normen}
+\section{Anforderungen an die KonformitÃ¤t mit Normen}
 
 Da die Software auf das bestehende System Hive aufbauen soll, sollte
-bei der Entwicklung darauf geachtet werden, dass aidGer diesem ähnelt
+bei der Entwicklung darauf geachtet werden, dass aidGer diesem Ã¤hnelt
 und jeder, der zuvor am alten System gearbeitet hat, nach kurzer Einarbeitungszeit
-aidGer bedienen kann. Daher soll aidGer ein ähnliches Look\&Feel wie
-seither erhalten. Darüber hinaus sollen die exportierte Berichte dem
-Aussehen ähnlich wie den jetzigen entsprechen.\\
+aidGer bedienen kann. Daher soll aidGer ein Ã¤hnliches Look\&Feel wie
+seither erhalten. DarÃ¼ber hinaus sollen die exportierte Berichte dem
+Aussehen Ã¤hnlich wie den jetzigen entsprechen.\\
 \\
-Es müssen ferner Normen eingehalten werden, dass die Möglichkeit
+Es mÃ¼ssen ferner Normen eingehalten werden, dass die MÃ¶glichkeit
 des Fallbacks zum alten System Hive immer bestehen bleibt.
 
 
@@ -171,11 +171,11 @@ des Fallbacks zum alten System Hive immer bestehen bleibt.
 \begin{itemize}
 \item Schutz personenbezogener Daten vor Missbrauch, insbesondere keine
 Weitergabe der Daten an Dritten%
-\footnote{gemäß Bundesdatenschutzgesetz (BDSG)%
+\footnote{gemÃ¤ÃŸ Bundesdatenschutzgesetz (BDSG)%
 }.
-\item Die entstehende Software ist ein urheberrechtlich geschütztes Werk
+\item Die entstehende Software ist ein urheberrechtlich geschÃ¼tztes Werk
 %
-\footnote{gemäß Gesetz über Urheberrecht und verwandte Schutzrechte (UrhG)%
+\footnote{gemÃ¤ÃŸ Gesetz Ã¼ber Urheberrecht und verwandte Schutzrechte (UrhG)%
 }.
 \end{itemize}
 
@@ -190,10 +190,10 @@ Folgende Resultate werden dem Auftraggeber ausgeliefert:
 \item Quellcode
 \item Benutzerhandbuch
 \item Installationsanleitung
-\item Spezifikation und andere benötigte Dokumente nach Anfrage
+\item Spezifikation und andere benÃ¶tigte Dokumente nach Anfrage
 \end{itemize}
 
-\section{Resultate, die nicht zum Lieferumfang gehören}
+\section{Resultate, die nicht zum Lieferumfang gehÃ¶ren}
 
 Der Kunde kann alle Resultate bzw. Dokumente nach Anfrage erhalten,
 mit Ausnahme von:
@@ -207,18 +207,18 @@ mit Ausnahme von:
 Der Auftraggeber
 \begin{itemize}
 \item stellt den Server, auf welchem aidGer installiert wird, selbst zur
-Vefügung.\\
-Dieser muss den folgenden Voraussetzungen genügen:
+VefÃ¼gung.\\
+Dieser muss den folgenden Voraussetzungen genÃ¼gen:
 
 \begin{itemize}
 \item Prozessor: 300 MHz, Arbeitsspeicher: 1024 MB, Festplatte: 512 MB
 \item Java Virtual Machine (JVM) der Version 1.6 installiert
-\item Datenbankschnittstelle AdoHive und zugehöriges Datenbankmodell installiert
+\item Datenbankschnittstelle AdoHive und zugehÃ¶riges Datenbankmodell installiert
 \item bisheriges Ticket-System installiert
 \end{itemize}
-\item ist für die Sicherungskopien der Daten selbst verantwortlich.
+\item ist fÃ¼r die Sicherungskopien der Daten selbst verantwortlich.
 \item stellt das derzeitige System Hive bereit.
-\item steht für weitere Fragen zur Verfügung.
+\item steht fÃ¼r weitere Fragen zur VerfÃ¼gung.
 \end{itemize}
 
 \section{Externe Meilensteine\label{sec:Externe-Meilensteine}}
@@ -249,24 +249,24 @@ M5 & Endabnahme & 14.07.2010\tabularnewline
 \section{Abnahmeprozedur}
 
 Das Produkt wird dem Kunde mit obigen Lieferumfang ausgeliefert. Die
-Installation und die Wartung übernimmt der Kunde dann selbst.
+Installation und die Wartung Ã¼bernimmt der Kunde dann selbst.
 
-Unter Umständen sind Nachverhandlungen möglich, so dass der Support
-und die Weiterentwicklung an aidGer entgeltlich weitergeführt wird.
-
-
-\section{Änderungsverfahren}
-
-Nach Auslieferung ist es die Aufgabe des Kunden, gewünschte Änderungen
-an der Software vorzunehmen (Wartungszuständigkeit des Auftraggebers).
-Änderungen, welche vor der Auslieferung bekannt gegeben werden, können
-mit eventueller Verzögerung der Auslieferung vorgenommen werden. Außerdem
-kann ein Änderungswunsch abgelehnt werden, falls dieser den Zeitaufwand
-immens steigern würde und somit den Auslieferungstermin gefährden
-könnte.
+Unter UmstÃ¤nden sind Nachverhandlungen mÃ¶glich, so dass der Support
+und die Weiterentwicklung an aidGer entgeltlich weitergefÃ¼hrt wird.
 
 
-\chapter{Richtlinien für die Entwicklung\label{cha:Richtlinien-f=0000FCr-die}}
+\section{Ã„nderungsverfahren}
+
+Nach Auslieferung ist es die Aufgabe des Kunden, gewÃ¼nschte Ã„nderungen
+an der Software vorzunehmen (WartungszustÃ¤ndigkeit des Auftraggebers).
+Ã„nderungen, welche vor der Auslieferung bekannt gegeben werden, kÃ¶nnen
+mit eventueller VerzÃ¶gerung der Auslieferung vorgenommen werden. AuÃŸerdem
+kann ein Ã„nderungswunsch abgelehnt werden, falls dieser den Zeitaufwand
+immens steigern wÃ¼rde und somit den Auslieferungstermin gefÃ¤hrden
+kÃ¶nnte.
+
+
+\chapter{Richtlinien fÃ¼r die Entwicklung\label{cha:Richtlinien-f=0000FCr-die}}
 
 
 \section{Konfigurationsmanagement}
@@ -274,7 +274,7 @@ könnte.
 Als Konfigurationsmanagement muss das Werkzeug \textit{Git} von allen
 eingesetzt werden.\\
 \\
-Dabei müssen die folgende Artefakte via Konfigurationsmanagement
+Dabei mÃ¼ssen die folgende Artefakte via Konfigurationsmanagement
 verwaltet werden:
 \begin{itemize}
 \item Analysenotizen, Projektplan
@@ -283,12 +283,12 @@ verwaltet werden:
 \item Quellcode
 \item Benutzerhandbuch und Installationsvorschrift
 \item Review-Berichte
-\item Testpläne
+\item TestplÃ¤ne
 \item Zeitaufwand der Mitarbeiter
 \end{itemize}
-Geprüfte und abgenommene Dokumente könnern nur nach Absprache mit
-dem Kunde bzw. dem Bearbeiter geändert werden. Anschließend müssen
-geänderte Dokumente erneut geprüft werden.\\
+GeprÃ¼fte und abgenommene Dokumente kÃ¶nnern nur nach Absprache mit
+dem Kunde bzw. dem Bearbeiter geÃ¤ndert werden. AnschlieÃŸend mÃ¼ssen
+geÃ¤nderte Dokumente erneut geprÃ¼ft werden.\\
 \\
 Zudem muss ein hierarchisches Bezeichnungsschema verwendet werden.
 
@@ -296,27 +296,27 @@ Zudem muss ein hierarchisches Bezeichnungsschema verwendet werden.
 \section{Design- und Programmier-Richtlinien\label{sec:Design--und-Programmier-Richtlinien}}
 \begin{itemize}
 \item Die Projektsprache ist Deutsch.
-\item Codekommentare müssen in Englisch verfasst werden und in reichlicher
+\item Codekommentare mÃ¼ssen in Englisch verfasst werden und in reichlicher
 Zahl vorhanden sein.
-\item Die Software muss vollständig in der Programmiersprache Java geschrieben
+\item Die Software muss vollstÃ¤ndig in der Programmiersprache Java geschrieben
 werden.
-\item Alle Programmierer müssen sich an die \textit{Code Conventions for
+\item Alle Programmierer mÃ¼ssen sich an die \textit{Code Conventions for
 the Java Programming Language}%
 \footnote{http://java.sun.com/docs/codeconv/%
 } halten.
-\item Alle Dokumente müssen mit \LaTeX \, oder \LyX{} geschrieben werden.
+\item Alle Dokumente mÃ¼ssen mit \LaTeX \, oder \LyX{} geschrieben werden.
 \end{itemize}
 
 \section{Einsatz von Werkzeugen\label{sec:Einsatz-von-Werkzeugen}}
 \begin{itemize}
 \item IDE: Eclipse 3.5.1 mit dem UML-Plugin SDE for Eclipse 5.2 (Visual
 Paradigm)
-\item Externe Bibliothek für den PDF-Export: iText 5.0.1
+\item Externe Bibliothek fÃ¼r den PDF-Export: iText 5.0.1
 \item Konfigurationsmanagement: Git 1.6
 \item Projektmanagement: Redmine 0.9.2
 \item Aufwandserfassung und -auswertung: Fred 1.4
 \item Review-Organisation: RevAger 1.2
-\item Testüberdeckung: CodeCover 1.0
+\item TestÃ¼berdeckung: CodeCover 1.0
 \item Testfallverwaltung: Justus 1.0
 \item Dokumentation: \LaTeX $\text{ }2_{\epsilon}$ und \LyX{} 1.6.5
 \end{itemize}
@@ -324,36 +324,36 @@ Paradigm)
 \chapter{Entwicklungsprozess\label{cha:Entwicklungsprozess}}
 
 
-\section{Strategie für die Entwicklung und Integration}
+\section{Strategie fÃ¼r die Entwicklung und Integration}
 
-Um eine hohe Qualität der Resultate und die Einhaltung der Ablaufplanung
-zu garantieren, müssen bei der Entwicklung der Software ingenieursmäßige
-Prinzipien eingesetzt werden. So werden alle während der Entwicklung
+Um eine hohe QualitÃ¤t der Resultate und die Einhaltung der Ablaufplanung
+zu garantieren, mÃ¼ssen bei der Entwicklung der Software ingenieursmÃ¤ÃŸige
+Prinzipien eingesetzt werden. So werden alle wÃ¤hrend der Entwicklung
 entstehende Artefakte wie beispielsweise die Spezifikation und das
-Benutzerhandbuch einem Review unterzogen und zusätzlich getestet.\\
+Benutzerhandbuch einem Review unterzogen und zusÃ¤tzlich getestet.\\
 \\
 Eine gute und vor allem aktuelle Dokumentation aller Arbeitsergebnisse
 ist essentiell, um die Verwendung dieser Dokumente durch Dritte zu
-ermöglichen.\\
+ermÃ¶glichen.\\
 \\
-Darüber hinaus müssen die festgelegten Programmierrichtlinien (siehe
+DarÃ¼ber hinaus mÃ¼ssen die festgelegten Programmierrichtlinien (siehe
 \ref{sec:Design--und-Programmier-Richtlinien}) eingehalten werden,
-um eine hohe Qualität des Programmcodes sicherzustellen.
+um eine hohe QualitÃ¤t des Programmcodes sicherzustellen.
 
 
-\section{Qualitätssicherung}
+\section{QualitÃ¤tssicherung}
 
-Die Qualitätssicherung soll eine hohe Qualität des Entwicklungsprozesses
+Die QualitÃ¤tssicherung soll eine hohe QualitÃ¤t des Entwicklungsprozesses
 und der erzielten Ergebnisse sicherstellen. Das erfordert, dass die
-angestrebten Qualitätsaspekte dokumentiert und Vorgehensweisen entwickelt
+angestrebten QualitÃ¤tsaspekte dokumentiert und Vorgehensweisen entwickelt
 werden.\\
 \\
-\textit{Organisatorische Maßnahmen:} Die Fortschritte werden alle
-zwei Wochen geprüft und unter Umständen die Zeitplanung entsprechend
+\textit{Organisatorische MaÃŸnahmen:} Die Fortschritte werden alle
+zwei Wochen geprÃ¼ft und unter UmstÃ¤nden die Zeitplanung entsprechend
 angepasst.\\
 \\
-\textit{Analytische Maßnahmen:} Die Dokumente werden in Reviews
-geprüft und das Programm einem Test nach einem erstellten Testplan
+\textit{Analytische MaÃŸnahmen:} Die Dokumente werden in Reviews
+geprÃ¼ft und das Programm einem Test nach einem erstellten Testplan
 unterzogen. Abgenommene Dokumente stellen Meilensteine dar, auf welche
 dann aufgebaut werden kann.
 
@@ -372,36 +372,36 @@ Das Projekt umfasst die folgenden sechs Phasen:
 
 \section{Dokumentationsplan}
 
-Es werden folgende Dokumente während der Entwicklung entstehen:
+Es werden folgende Dokumente wÃ¤hrend der Entwicklung entstehen:
 \begin{itemize}
-\item Fragenkatalog für die Kundenbefragung
+\item Fragenkatalog fÃ¼r die Kundenbefragung
 \item Analysenotizen, Projektplan
 \item Spezifikation
 \item Entwurf
 \item Benutzerhandbuch
-\item Testplan zum Test des Systems mit den zugehörigen Testdaten sowie
+\item Testplan zum Test des Systems mit den zugehÃ¶rigen Testdaten sowie
 das Testprotokoll
 \item Review-Berichte
 \end{itemize}
-Die Richtlinien für Dokumente in diesem Plan gelten für alle entstehenden
+Die Richtlinien fÃ¼r Dokumente in diesem Plan gelten fÃ¼r alle entstehenden
 Dokumente.
 
 
-\section{Prüfungen (Reviews und Tests)}
+\section{PrÃ¼fungen (Reviews und Tests)}
 
-Folgende Resultate müssen einer Prüfung unterzogen werden:
+Folgende Resultate mÃ¼ssen einer PrÃ¼fung unterzogen werden:
 \begin{itemize}
 \item Spezifikation
 \item Benutzerhandbuch
 \item Entwurf
 \item Codierung
 \end{itemize}
-Die Durchführung von Reviews unterliegen folgenden Richtlinien:
+Die DurchfÃ¼hrung von Reviews unterliegen folgenden Richtlinien:
 \begin{itemize}
 \item Formale Reviews mit einem Moderator, 2-3 Gutachtern und einem Autor.
-\item Die Review-Dauer ist auf 2 Stunden beschränkt.
+\item Die Review-Dauer ist auf 2 Stunden beschrÃ¤nkt.
 \end{itemize}
-Folgende Tests müssen durchgeführt werden:
+Folgende Tests mÃ¼ssen durchgefÃ¼hrt werden:
 \begin{itemize}
 \item Modultest der einzelnen Komponenten
 \item Systemtest der gesamten Software
@@ -411,16 +411,16 @@ Folgende Tests müssen durchgeführt werden:
 \chapter{Anforderungen an die Umgebung\label{cha:Anforderungen-an-die}}
 
 
-\section{Infrastruktur (Büros, Rechnersysteme, Software)}
+\section{Infrastruktur (BÃ¼ros, Rechnersysteme, Software)}
 
 Folgendes muss vom Auftragnehmer bereitgestellt werden:
 \begin{itemize}
-\item Es müssen mindestens 3 Rechner zur Verfügung stehen, auf denen alle
-eingesetzen Werkzeuge lauffähig sind (siehe hierzu \ref{sec:Einsatz-von-Werkzeugen}).
-\item Zentraler Server für die Projektablage, das Projektmanagement sowie
+\item Es mÃ¼ssen mindestens 3 Rechner zur VerfÃ¼gung stehen, auf denen alle
+eingesetzen Werkzeuge lauffÃ¤hig sind (siehe hierzu \ref{sec:Einsatz-von-Werkzeugen}).
+\item Zentraler Server fÃ¼r die Projektablage, das Projektmanagement sowie
 das Konfigurationsmanagement.
-\item Verfügbarkeit von Rechnern mit Linux, Windows und Mac OS.
-\item Internetpräsenz des Projekts aidGer%
+\item VerfÃ¼gbarkeit von Rechnern mit Linux, Windows und Mac OS.
+\item InternetprÃ¤senz des Projekts aidGer%
 \footnote{http://www.aidger.de%
 }
 \end{itemize}
@@ -433,7 +433,7 @@ Alle Mitarbeiter im Unternehmen sind an diesem Projekt beteiligt.
 \section{Leistungen externer Lieferanten}
 
 Das externe Entwicklungsteam AdoHive muss die Datenbankschnittstelle
-AdoHive pünktlich an uns liefern. Es besteht ferner keine vertragliche
+AdoHive pÃ¼nktlich an uns liefern. Es besteht ferner keine vertragliche
 Beziehung zu diesem externen Lieferant (siehe \ref{sec:Risiken-und-ihre}).
 
 
@@ -442,21 +442,21 @@ Beziehung zu diesem externen Lieferant (siehe \ref{sec:Risiken-und-ihre}).
 
 \section{Schnittstelle zum Auftraggeber}
 
-Die Vertretung zum Kunde übernimmt der Mitarbeiter Christian Buchgraber.
+Die Vertretung zum Kunde Ã¼bernimmt der Mitarbeiter Christian Buchgraber.
 
 
 \section{Schnittstelle zur Aufbauorganisation}
 
-Diese Schnittstelle übernimmt der Mitarbeiter Philipp Pirrung.
+Diese Schnittstelle Ã¼bernimmt der Mitarbeiter Philipp Pirrung.
 
 
 \section{Schnittstelle zu anderen Projekten}
 
-Es wird keine Schnittstelle benötigt, da keine andere Projekte im
+Es wird keine Schnittstelle benÃ¶tigt, da keine andere Projekte im
 Unternehmen existieren.
 
 
-\section{Schlüsselpersonen}
+\section{SchlÃ¼sselpersonen}
 
 \begin{tabular}{l>{\raggedright}p{6in}}
 \textbf{Kunde:} & Herr Daniel Kulesz\\
@@ -482,7 +482,7 @@ eMail: \url{buchgrcn@studi.informatik.uni-stuttgart.de}\tabularnewline
 Jeder Mitarbeiter ist verpflichtet, seinem direkten Vorgesetzten Bericht
 zu erstatten. Im Falle des Projektleiters ist der direkte Vorgesetzte
 der Manager des Unternehmens. Der Projektleiter ist der direkte Vorgesetzte
-aller übrigen Mitarbeiter.
+aller Ã¼brigen Mitarbeiter.
 
 
 \chapter{Entwicklungsplan\label{cha:Entwicklungsplan}}
@@ -496,21 +496,21 @@ Das Projekt umfasst folgende Arbeitspakete:
 \item Projektplanung: Festlegen der einzelnen Arbeitspakete und Meilensteine,
 Terminplanung
 \item Einarbeiten in die Thematik
-\item Spezifikation: Festlegen der Anforderungen an die Funktionalität des
+\item Spezifikation: Festlegen der Anforderungen an die FunktionalitÃ¤t des
 Systems, Festlegen der nicht-funktionalen Anforderungen
-\item Durchführen eines Spezifikationsreviews
+\item DurchfÃ¼hren eines Spezifikationsreviews
 \item Nachbearbeiten der Spezifikation
 \item Erstellen eines Benutzerhandbuchs
 \item Erstellen eines Entwurfs: Festlegen der Systemarchitektur
-\item Durchführen eines Entwurfsreviews
+\item DurchfÃ¼hren eines Entwurfsreviews
 \item Nachbearbeiten des Entwurfs
 \item Implementieren des Programms in Java
 \item Erstellen eines Testplans
-\item Durchführen des Modultests
+\item DurchfÃ¼hren des Modultests
 \item Korrektur des Modultests
-\item Durchführen des Systemtests
+\item DurchfÃ¼hren des Systemtests
 \item Korrektur des Systemtests
-\item Korrigieren des Programms und Überarbeitung der erstellten Dokumente
+\item Korrigieren des Programms und Ãœberarbeitung der erstellten Dokumente
 \item Ausliefern eines Release Candidates an den Kunden
 \item Ausliefern an den Kunden
 \end{itemize}
@@ -526,7 +526,7 @@ Der Terminplan ist als Gantt-Diagramm graphisch dargestellt:
 \par\end{center}
 
 \begin{flushleft}
-Folgende nicht eindeutige Abkürzungen wurden verwendet:
+Folgende nicht eindeutige AbkÃ¼rzungen wurden verwendet:
 \par\end{flushleft}
 \begin{itemize}
 \item Anal - Erstellung der Analyse
@@ -543,31 +543,31 @@ Folgende nicht eindeutige Abkürzungen wurden verwendet:
 
 \section{Risiken und ihre Bewertung\label{sec:Risiken-und-ihre}}
 
-Da der Erfolg des Projekt stark am externen Lieferant AdoHive abhängt,
+Da der Erfolg des Projekt stark am externen Lieferant AdoHive abhÃ¤ngt,
 muss folglich gesichert sein, dass die Datenbankschnittstelle rechtzeitig
-und einsatzfähig von dem genannten Entwicklungsteam ausgeliefert wird.
+und einsatzfÃ¤hig von dem genannten Entwicklungsteam ausgeliefert wird.
 Da keine Vertragsbeziehungen zwischen dem externen Lieferant und unserem
 Unternehmen bestehen, kann rechtlich gesehen ein Schadenersatzanspruch
 nicht geltend gemacht werden. Es kann jedoch angenommen werden, dass
 dieser Umstand mit geringer Wahrscheinlichkeit eintritt, da sich das
 Entwicklungsteam aus Mitarbeitern der Abteilung SE zusammensetzt,
-die ein begründetes Interesse am Erfolg des Projekts haben. Sollte
+die ein begrÃ¼ndetes Interesse am Erfolg des Projekts haben. Sollte
 dieser Fall aber trotz allem eintreten, so muss das entstandene Risiko
-als äußert kritisch eingestuft werden, da unter Umständen die Software
-aufgrund der zwingenden Abhängigkeit zur Datenbankschnittstelle nicht
+als Ã¤uÃŸert kritisch eingestuft werden, da unter UmstÃ¤nden die Software
+aufgrund der zwingenden AbhÃ¤ngigkeit zur Datenbankschnittstelle nicht
 ausgeliefert werden kann.\\
 \\
 Nicht alle Mitarbeiter im Team haben bislang an Java-Projekten
 mit vergleichsbarem Umfang teilgenommen. Dieses Risiko tritt immer
-ein und kann als unkritisch eingestuft werden. Die Gegenmaßnahme besteht
-darin, dass unerfahrenen Mitarbeiter an einer mehrtägigen Java-Schulung
+ein und kann als unkritisch eingestuft werden. Die GegenmaÃŸnahme besteht
+darin, dass unerfahrenen Mitarbeiter an einer mehrtÃ¤gigen Java-Schulung
 teilnehmen, wobei die dadurch entstandenen Kosten vom Unternehmen
 gedeckt werden.\\
 \\
-Ferner ist zu berücksichtigen, dass sich in einigen Projektphasen
-die Mitarbeiter aufgrund von Prüfungsvorbereitungen nicht vollzeitig
-mit der Softwareentwicklung befassen können. So könnte es im Extremfall
-zu Lieferverzögerungen der Meilensteine kommen. Dieses Risiko tritt
+Ferner ist zu berÃ¼cksichtigen, dass sich in einigen Projektphasen
+die Mitarbeiter aufgrund von PrÃ¼fungsvorbereitungen nicht vollzeitig
+mit der Softwareentwicklung befassen kÃ¶nnen. So kÃ¶nnte es im Extremfall
+zu LieferverzÃ¶gerungen der Meilensteine kommen. Dieses Risiko tritt
 mit mittlerer Wahrscheinlichkeit ein. Um dies zu vermeiden, ist eine
 gute Projektplanung und ein gutes Zeitmanagement von jedem Mitarbeiter
 zwingend verlangt.
@@ -582,22 +582,22 @@ zwingend verlangt.
 \subsubsection*{Version 0.2.1 (19.02.2010)}
 \begin{itemize}
 \item Berichtigung der Betreuerangabe
-\item Angabe der einzusetzenden Bibliotheken hinzugefügt
-\item Vermerk der Internetpräsenz des Projekts ergänzt
-\item Verweis auf die \textit{Java Code Conventions} hinzugefügt
+\item Angabe der einzusetzenden Bibliotheken hinzugefÃ¼gt
+\item Vermerk der InternetprÃ¤senz des Projekts ergÃ¤nzt
+\item Verweis auf die \textit{Java Code Conventions} hinzugefÃ¼gt
 \end{itemize}
 
 \subsubsection*{Version 0.2 (18.02.2010)}
 \begin{itemize}
 \item Erstellung des Kapitels \ref{cha:Anhang}
-\item Fehlende Betreuerangaben hinzugefügt
-\item Liste der Leistungen seitens des Auftragsgebers ergänzt
-\item Liste der Anforderungen an das Produkt gekürzt
+\item Fehlende Betreuerangaben hinzugefÃ¼gt
+\item Liste der Leistungen seitens des Auftragsgebers ergÃ¤nzt
+\item Liste der Anforderungen an das Produkt gekÃ¼rzt
 \end{itemize}
 
 \subsubsection*{Version 0.1.2 (16.02.2010)}
 \begin{itemize}
-\item Korrekturen und Ergänzungen in allen Kapiteln vorgenommen
+\item Korrekturen und ErgÃ¤nzungen in allen Kapiteln vorgenommen
 \end{itemize}
 
 \subsubsection*{Version 0.1.1 (15.02.2010)}

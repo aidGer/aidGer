@@ -5,7 +5,7 @@
 \textclass scrartcl
 \use_default_options true
 \language ngerman
-\inputencoding auto
+\inputencoding utf8
 \font_roman ae
 \font_sans default
 \font_typewriter default

@@ -3,7 +3,7 @@
 \documentclass[12pt,ngerman]{scrartcl}
 \usepackage{ae,aecompl}
 \usepackage[T1]{fontenc}
-\usepackage[latin9]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[letterpaper]{geometry}
 \geometry{verbose}
 \usepackage{babel}
@@ -25,44 +25,44 @@ Gruppe 10}
 
 \maketitle
 
-\section*{Welche Vorgänge sollen erfasst werden?}
+\section*{Welche VorgÃ¤nge sollen erfasst werden?}
 \begin{itemize}
-\item Alle Vorgänge, die getätigt werden.
-\item Darunter fallen unter anderem: Arbeitsverträge, Budgetcheck, Lohnsteuerkarten. 
-\item Benachrichtigungen für Hilfskräfte (z.B. falls Lohnabrechnung verfügbar).
-Z.B. Liste mit allen Hilfskräften und Mails. 
-\item Protokoll soll alle Vorgänge auflisten können. 
+\item Alle VorgÃ¤nge, die getÃ¤tigt werden.
+\item Darunter fallen unter anderem: ArbeitsvertrÃ¤ge, Budgetcheck, Lohnsteuerkarten. 
+\item Benachrichtigungen fÃ¼r HilfskrÃ¤fte (z.B. falls Lohnabrechnung verfÃ¼gbar).
+Z.B. Liste mit allen HilfskrÃ¤ften und Mails. 
+\item Protokoll soll alle VorgÃ¤nge auflisten kÃ¶nnen. 
 \end{itemize}
 
 \section*{AdoHive Interface}
 
-Die Zuständigkeit für die Datenbank liegt bei Team AdoHive. Wir erhalten
+Die ZustÃ¤ndigkeit fÃ¼r die Datenbank liegt bei Team AdoHive. Wir erhalten
 von ihnen eine Schnittstellendokumentation. \\
- Die jetzige Datenbank wird dabei nicht großartig verändert und
-ein Zugriff auf diese eventuell über ILIAS verfügbar. \\
+ Die jetzige Datenbank wird dabei nicht groÃŸartig verÃ¤ndert und
+ein Zugriff auf diese eventuell Ã¼ber ILIAS verfÃ¼gbar. \\
  \textbf{Datenbanktyp:} Apache Derby aka. JavaDB
 
 
-\section*{Wie läuft das Berichtswesen ab?}
+\section*{Wie lÃ¤uft das Berichtswesen ab?}
 \begin{itemize}
 \item Controlling - Interner Bericht 
 \item Auszug von HIWIS zu bestimmten Situationen 
-\item Prüfung von Lohnverteilung 
+\item PrÃ¼fung von Lohnverteilung 
 \item Nachname - Vorname - Gehalt bis zu diesem Monat (Von Januar bis...) 
 \end{itemize}
 
 \section*{Wann liegt das Budget vor?}
 
 Soll von Lehrplan am Anfang des Jahres vorgegeben sein. Es besteht
-aber die Möglichkeit, dass sich das Budget im Laufe des Jahres ändert.
+aber die MÃ¶glichkeit, dass sich das Budget im Laufe des Jahres Ã¤ndert.
 
 
 \section*{Details zu Anwendung:}
 
 Nur eine Desktopanwendung sein, ohne sich irgendwo authentifizieren
-zu müssen \\
- Die Datensätze sollen parallel bearbeitbar sein, was jedoch selten
-vorkommen soll. Zum Großteil Aufgabe von Team AdoHive (Locking der
+zu mÃ¼ssen \\
+ Die DatensÃ¤tze sollen parallel bearbeitbar sein, was jedoch selten
+vorkommen soll. Zum GroÃŸteil Aufgabe von Team AdoHive (Locking der
 Tabellen).
 
 
@@ -74,25 +74,25 @@ wird im ILIAS bereitgestellt. \\
 von Summen.
 
 
-\section*{Werden die jetzigen Programme zur Verfügung gestellt?}
+\section*{Werden die jetzigen Programme zur VerfÃ¼gung gestellt?}
 
 Ja, werden im ILIAS bereitgestellt (Anmerkung: zT. bereits geschehen).
 
 
 \section*{Ticket-System}
 \begin{itemize}
-\item Früher: Internetinterface, mit dem man auf eMails antworten kann. 
-\item Tickets sollen manuell eingegeben werden können 
-\item Updates sollen nicht ständig per eMail geschrieben werden 
+\item FrÃ¼her: Internetinterface, mit dem man auf eMails antworten kann. 
+\item Tickets sollen manuell eingegeben werden kÃ¶nnen 
+\item Updates sollen nicht stÃ¤ndig per eMail geschrieben werden 
 \item Ablauf: Student (schickt eMail) $\rightarrow$ ruft Ticket-System
 auf $\rightarrow$ Benachrichtigung an beide Mitarbeiter per eMail
-(Antwort über Webinterface) $\rightarrow$ Student kriegt Antwort
+(Antwort Ã¼ber Webinterface) $\rightarrow$ Student kriegt Antwort
 und beide Mitarbeiter auch. 
 \end{itemize}
 
 \section*{Wie berechnet sich das Gehalt?}
 \begin{itemize}
-\item Verschiedene Gehaltsstufen: ungeprüft, Bachelor, geprüfte Bachelor/Master 
+\item Verschiedene Gehaltsstufen: ungeprÃ¼ft, Bachelor, geprÃ¼fte Bachelor/Master 
 \item pro Monat einen Stundensatz pro Qualifikation 
 \item Stundensatz + Steuersatz 
 \end{itemize}
@@ -101,28 +101,28 @@ Alle Geldangaben sind immer in Euro.
 
 \section*{Welche Prozesse gibt es?}
 
-Eine Prozess-Skizze wird zur Verfügung gestellt. 
+Eine Prozess-Skizze wird zur VerfÃ¼gung gestellt. 
 
 
 \section*{Mitteilungen:}
 \begin{itemize}
-\item Am Ende des Tages eine Vorgangsübersicht ausgeben 
-\item Bei Überschreitung der vorgegeben Stundenanzahl einer Hilfskraft 
+\item Am Ende des Tages eine VorgangsÃ¼bersicht ausgeben 
+\item Bei Ãœberschreitung der vorgegeben Stundenanzahl einer Hilfskraft 
 \end{itemize}
 
 \section*{Eingabe von Daten:}
 \begin{itemize}
-\item Bei nicht ausgefüllten Feldern nicht unbedingt Meldung (z.B. nicht
+\item Bei nicht ausgefÃ¼llten Feldern nicht unbedingt Meldung (z.B. nicht
 bei Bemerkung leer) 
-\item Zuordnung zu Hilfskräften, eventuell zu Veranstaltungen. Auch alte
-Vorgänge der Hilfskraft/Veranstaltung anzeigen. 
+\item Zuordnung zu HilfskrÃ¤ften, eventuell zu Veranstaltungen. Auch alte
+VorgÃ¤nge der Hilfskraft/Veranstaltung anzeigen. 
 \item Datum, Bearbeiter, Hilfskraft, Bemerkung, Sender, Adressat 
-\item Massenerfassung soll möglich sein 
+\item Massenerfassung soll mÃ¶glich sein 
 \end{itemize}
 
 \section*{Datenschutz:}
 
-Hilskräfte, die zu lange gespeichert sind, werden anonymisiert. 
+HilskrÃ¤fte, die zu lange gespeichert sind, werden anonymisiert. 
 
 
 \section*{Zukunft:}
@@ -132,16 +132,16 @@ Datenaustauschformat mit Import/Export Funktion in der Applikation.
 
 \section*{Details zur Applikation}
 \begin{itemize}
-\item Implementierung mit Java 6 und Swing zur Oberflächengestaltung. 
-\item Sprache der Anwendung sollte Deutsch und nach Möglichkeit Englisch
-sein. Die Möglichkeit zur Nachrüstung weiterer Sprachen sollte gegeben
+\item Implementierung mit Java 6 und Swing zur OberflÃ¤chengestaltung. 
+\item Sprache der Anwendung sollte Deutsch und nach MÃ¶glichkeit Englisch
+sein. Die MÃ¶glichkeit zur NachrÃ¼stung weiterer Sprachen sollte gegeben
 sein. 
-\item Die Größe der Applikation sollte sich an Bildschirme zwischen 1600x1200
+\item Die GrÃ¶ÃŸe der Applikation sollte sich an Bildschirme zwischen 1600x1200
 und 1900x1200 Pixel richten. 
-\item Shortcuts für Funktionen wäre gut. zB. Enter um eine Eingabe zu beenden. 
-\item Die Einarbeitungszeit in die Applikation sollte möglichst gering sein. 
-\item Sie sollte übersichtlich und einfach zu bedienen sein. 
-\item Die jetzige Lösung soll jederzeit als Fallback-Möglichkeit zur Verfügung
+\item Shortcuts fÃ¼r Funktionen wÃ¤re gut. zB. Enter um eine Eingabe zu beenden. 
+\item Die Einarbeitungszeit in die Applikation sollte mÃ¶glichst gering sein. 
+\item Sie sollte Ã¼bersichtlich und einfach zu bedienen sein. 
+\item Die jetzige LÃ¶sung soll jederzeit als Fallback-MÃ¶glichkeit zur VerfÃ¼gung
 stehen. D.h. das die neue Schnittstelle kompatibel zur alten bleiben
 muss. 
 \end{itemize}
@@ -150,28 +150,28 @@ muss.
 
 Der Code soll gut kommentiert und leicht lesbar sein, um ihn leicht
 durch andere Personen erweiterbar zu halten. \\
- Die Benutzung von Code Conventions (Sun CC) wäre bevorzugt.
+ Die Benutzung von Code Conventions (Sun CC) wÃ¤re bevorzugt.
 
 
-\section*{Externe Pakete für .pdf-Export?}
+\section*{Externe Pakete fÃ¼r .pdf-Export?}
 
 Wird noch spezifiziert, aber wohl eine aktuelle Version von iText.
 
 
-\section*{Generell verfügbare Funktionen?}
+\section*{Generell verfÃ¼gbare Funktionen?}
 
 Eine Hilfe und eventuell Drucken.
 
 
 \section*{Wann kriegen wir den Ist-Zustand?}
 
-Spätestens Anfang nächster Woche. (Anmerkung: Bereits geschehen)
+SpÃ¤testens Anfang nÃ¤chster Woche. (Anmerkung: Bereits geschehen)
 
 
-\section*{Durchführung:}
+\section*{DurchfÃ¼hrung:}
 \begin{itemize}
 \item Das Prozessmodell ist durch die Meilensteine vorgegeben. 
-\item Meinungs- oder Terminänderungen müssen in die Dokumente einfließen.
+\item Meinungs- oder TerminÃ¤nderungen mÃ¼ssen in die Dokumente einflieÃŸen.
 \item Die Arbeit endet mit der Abgabe .
 \end{itemize}
 
