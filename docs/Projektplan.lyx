@@ -928,6 +928,10 @@ IDE: Eclipse 3.5.1 mit dem UML-Plugin SDE for Eclipse 5.2 (Visual Paradigm)
 \end_layout
 
 \begin_layout Itemize
+Externe Biliothek für den PDF-Export: iText 5.0.1
+\end_layout
+
+\begin_layout Itemize
 Konfigurationsmanagement: Git 1.6
 \end_layout
 
@@ -1293,7 +1297,7 @@ Schlüsselpersonen
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
+<lyxtabular version="3" rows="5" columns="2">
 <features>
 <column alignment="left" valignment="top" width="0">
 <column alignment="left" valignment="top" width="6in">
@@ -1341,44 +1345,7 @@ daniel.kulesz@informatik.uni-stuttgart.de
 \begin_layout Plain Layout
 
 \series bold
-Betreuer 1:
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Herr Holger Röder
-\begin_inset Newline newline
-\end_inset
-
-eMail: 
-\begin_inset Flex URL
-status collapsed
-
-\begin_layout Plain Layout
-
-roeder@informatik.uni-stuttgart.de
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row interlinespace="0.4cm">
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Betreuer 2:
+Betreuer:
 \end_layout
 
 \end_inset
@@ -1802,6 +1769,10 @@ Liste der Leistungen seitens des Auftragsgebers ergänzt.
 
 \begin_layout Itemize
 Liste der Anforderungen an das Produkt gekürzt.
+\end_layout
+
+\begin_layout Itemize
+Angabe der einzusetzenden Bibliotheken hinzugefügt.
 \end_layout
 
 \begin_layout Subsubsection*
