@@ -49,26 +49,25 @@ Gruppe 10}
             und beide Mitarbeiter auch. 
         \end{itemize}
         
-    \subsection*{Wie berechnet sich das Gehalt?}
+    \subsection*{Gehaltsberechnung}
         \begin{itemize}
-        \item Verschiedene Gehaltsstufen: ungeprüft, Bachelor, geprüfte Bachelor/Master 
-        \item pro Monat einen Stundensatz pro Qualifikation 
-        \item Stundensatz + Steuersatz 
+            \item Verschiedene Gehaltsstufen: ungeprüft, Bachelor, geprüfte Bachelor/Master 
+            \item pro Monat einen Stundensatz pro Qualifikation 
+            \item Stundensatz + Steuersatz 
         \end{itemize}
         Alle Geldangaben sind immer in Euro. 
 
-    \subsection*{Werden die jetzigen Programme zur Verfügung gestellt?}
-        Ja, werden im ILIAS bereitgestellt (Anmerkung: zT. bereits geschehen).
-        
-    \subsection*{Wann kriegen wir den Ist-Zustand?}
-        Spätestens Anfang nächster Woche. (Anmerkung: Bereits geschehen)
+    \subsection*{Verfügbarmachung des Ist-Zustandes}
+        Spätestens Anfang nächster Woche sollten die momentanen Programme/Prozesse 
+        im ILIAS bereitgestellt werden (Anmerkung: zT. bereits geschehen).
 
 \section*{Soll-Zustand}
 
-    \subsection*{Welche Vorgänge sollen erfasst werden?}
+    \subsection*{Vorgangserfassung}
+        Alle Vorgänge die getätigt werden sollen erfasst werden. \\
+        Darunter fallen unter anderem:
         \begin{itemize}
-            \item Alle Vorgänge, die getätigt werden.
-            \item Darunter fallen unter anderem: Arbeitsverträge, Budgetcheck, Lohnsteuerkarten. 
+            \item Arbeitsverträge, Budgetcheck, Lohnsteuerkarten. 
             \item Benachrichtigungen für Hilfskräfte (z.B. falls Lohnabrechnung verfügbar).
             Z.B. Liste mit allen Hilfskräften und Mails. 
             \item Protokoll soll alle Vorgänge auflisten können. 
@@ -82,73 +81,70 @@ Gruppe 10}
         \textbf{Datenbanktyp:} Apache Derby aka. JavaDB
 
 
-    \subsection*{Wie läuft das Berichtswesen ab?}
+    \subsection*{Berichtswesen}
+        Folgende Berichte sollen sich erstellen lassen/automatisch generiert werden:
         \begin{itemize}
-        \item Controlling - Interner Bericht 
-        \item Auszug von HIWIS zu bestimmten Situationen 
-        \item Prüfung von Lohnverteilung 
-        \item Nachname - Vorname - Gehalt bis zu diesem Monat (Von Januar bis...) 
+            \item Controlling - Interner Bericht 
+            \item Auszug von HIWIS zu bestimmten Situationen 
+            \item Prüfung von Lohnverteilung 
+            \item Nachname - Vorname - Gehalt bis zu diesem Monat (Von Januar bis...) 
         \end{itemize}
 
-    \subsection*{Wann liegt das Budget vor?}
+    \subsection*{Budgetplanung}
+        Das Budget wird vom Lehrplan am Anfang des Jahres vorgegeben sein. Es besteht
+        aber die Möglichkeit, dass sich dieses im Laufe des Jahres ändert.
 
-        Soll von Lehrplan am Anfang des Jahres vorgegeben sein. Es besteht
-        aber die Möglichkeit, dass sich das Budget im Laufe des Jahres ändert.
+    \subsection*{Details zu Anwendung}
 
-
-    \subsection*{Details zu Anwendung:}
-
-        Nur eine Desktopanwendung sein, ohne sich irgendwo authentifizieren
+        Es soll nur eine Desktopanwendung sein, ohne sich irgendwo authentifizieren
         zu müssen \\
          Die Datensätze sollen parallel bearbeitbar sein, was jedoch selten
         vorkommen soll. Zum Großteil Aufgabe von Team AdoHive (Locking der
         Tabellen).
 
+    \subsection*{Ausgaben}
 
-    \subsection*{Wie sollen die Ausgaben aussehen?}
-
-        Die Ausgabe soll wie bisher als PDF erfolgen und das bisherige Aussehen
+        Die Ausgabe soll wie bisher als PDF erfolgen. Das bisherige Aussehen
         wird im ILIAS bereitgestellt. \\
-         Berichte sollen auf jeden Fall optimiert werden zB. durch Angabe
+        Die Berichte sollen auf jeden Fall optimiert werden zB. durch Angabe
         von Summen.
 
-    \subsection*{Mitteilungen:}
+    \subsection*{Mitteilungen}
         \begin{itemize}
-        \item Am Ende des Tages eine Vorgangsübersicht ausgeben 
-        \item Bei Überschreitung der vorgegeben Stundenanzahl einer Hilfskraft 
+            \item Am Ende des Tages eine Vorgangsübersicht ausgeben 
+            \item Bei Überschreitung der vorgegeben Stundenanzahl einer Hilfskraft 
         \end{itemize}
 
-    \subsection*{Eingabe von Daten:}
+    \subsection*{Eingabe von Daten}
         \begin{itemize}
-        \item Bei nicht ausgefüllten Feldern nicht unbedingt Meldung (z.B. nicht
-        bei Bemerkung leer) 
-        \item Zuordnung zu Hilfskräften, eventuell zu Veranstaltungen. Auch alte
-        Vorgänge der Hilfskraft/Veranstaltung anzeigen. 
-        \item Datum, Bearbeiter, Hilfskraft, Bemerkung, Sender, Adressat 
-        \item Massenerfassung soll möglich sein 
+            \item Bei nicht ausgefüllten Feldern nicht unbedingt eine Meldung 
+            ausgeben (z.B. nicht bei Bemerkung leer) 
+            \item Zuordnung zu Hilfskräften, eventuell zu Veranstaltungen. Auch alte
+            Vorgänge der Hilfskraft/Veranstaltung anzeigen. 
+            \item Datum, Bearbeiter, Hilfskraft, Bemerkung, Sender, Adressat 
+            \item Massenerfassung soll möglich sein 
         \end{itemize}
 
-    \subsection*{Datenschutz:}
-        Hilskräfte, die zu lange gespeichert sind, werden anonymisiert. 
+    \subsection*{Datenschutz}
+        Hilskräfte, die zu lange gespeichert sind, werden anonymisiert.
 
-
-    \subsection*{Zukunft:}
+    \subsection*{Zukunft}
         Datenaustauschformat mit Import/Export Funktion in der Applikation.
 
     \subsection*{Details zur Applikation}
         \begin{itemize}
-        \item Implementierung mit Java 6 und Swing zur Oberflächengestaltung. 
-        \item Sprache der Anwendung sollte Deutsch und nach Möglichkeit Englisch
-        sein. Die Möglichkeit zur Nachrüstung weiterer Sprachen sollte gegeben
-        sein. 
-        \item Die Größe der Applikation sollte sich an Bildschirme zwischen 1600x1200
-        und 1900x1200 Pixel richten. 
-        \item Shortcuts für Funktionen wäre gut. zB. Enter um eine Eingabe zu beenden. 
-        \item Die Einarbeitungszeit in die Applikation sollte möglichst gering sein. 
-        \item Sie sollte Übersichtlich und einfach zu bedienen sein. 
-        \item Die jetzige Lösung soll jederzeit als Fallback-Möglichkeit zur Verfügung
-        stehen. D.h. das die neue Schnittstelle kompatibel zur alten bleiben
-        muss. 
+            \item Implementierung mit Java 6 und Swing zur Oberflächengestaltung. 
+            \item Sprache der Anwendung sollte Deutsch und nach Möglichkeit Englisch
+            sein. Die Möglichkeit zur Nachrüstung weiterer Sprachen sollte gegeben
+            sein. 
+            \item Die Größe der Applikation sollte sich an Bildschirme zwischen 1600x1200
+            und 1900x1200 Pixel richten. 
+            \item Shortcuts für Funktionen wäre gut. zB. Enter um eine Eingabe zu beenden. 
+            \item Die Einarbeitungszeit in die Applikation sollte möglichst gering sein. 
+            \item Sie sollte Übersichtlich und einfach zu bedienen sein. 
+            \item Die jetzige Lösung soll jederzeit als Fallback-Möglichkeit zur Verfügung
+            stehen. D.h. das die neue Schnittstelle kompatibel zur alten bleiben
+            muss. 
         \end{itemize}
 
     \subsection*{Programmierrichtlinien}
@@ -157,18 +153,20 @@ Gruppe 10}
         Die Benutzung von Code Conventions (Sun CC) wäre bevorzugt.
 
 
-    \subsection*{Externe Pakete für .pdf-Export?}
-        Wird noch spezifiziert, aber wohl eine aktuelle Version von iText.
+    \subsection*{Externe Pakete}
+        Es soll eine noch genauer spezifizierte Version von iText benutzt werden
+        um die PDF-Ausgabe zu realisieren. Zudem wird eine Version von AdoHive 
+        durch Team AdoHive zur Verfügung gestellt. \\
+        Weitere externe Bibliotheken müssen vom Betreuer genehmigt werden.
 
-
-    \subsection*{Generell verfügbare Funktionen?}
+    \subsection*{Generell verfügbare Funktionen}
         Eine Hilfe und eventuell Drucken.
 
-    \subsection*{Durchführung:}
+    \subsection*{Durchführung}
         \begin{itemize}
-        \item Das Prozessmodell ist durch die Meilensteine vorgegeben. 
-        \item Meinungs- oder Terminänderungen müssen in die Dokumente einfließen.
-        \item Die Arbeit endet mit der Abgabe .
+            \item Das Prozessmodell ist durch die Meilensteine vorgegeben. 
+            \item Meinungs- oder Terminänderungen müssen in die Dokumente einfließen.
+            \item Die Arbeit endet mit der Abgabe .
         \end{itemize}
 
 \end{document}
