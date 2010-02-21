@@ -8,7 +8,6 @@
 \setcounter{tocdepth}{3}
 \usepackage{array}
 \usepackage{url}
-\usepackage{amstext}
 \usepackage{graphicx}
 
 \makeatletter
@@ -138,6 +137,7 @@ damit notfalls der Zeitpuffer von 2 Wochen für abschließende Arbeiten
 genutzt werden kann.
 \item Das Projekt soll in Java geschrieben werden, Version: Java SE 1.6.
 \item Die Benutzeroberfläche soll mittels Java Swing gestaltet werden.
+\item Die externe Bibliothek iText wird für den PDF-Export eingesetzt.
 \end{itemize}
 
 \section{Anforderungen an das Produkt}
@@ -308,17 +308,17 @@ the Java Programming Language}%
 \end{itemize}
 
 \section{Einsatz von Werkzeugen\label{sec:Einsatz-von-Werkzeugen}}
+
+Alle Werkzeuge sollen in der aktuellsten Version verwendet werden.
 \begin{itemize}
-\item IDE: Eclipse 3.5.1 mit dem UML-Plugin SDE for Eclipse 5.2 (Visual
-Paradigm)
-\item Externe Bibliothek für den PDF-Export: iText 5.0.1
-\item Konfigurationsmanagement: Git 1.6
-\item Projektmanagement: Redmine 0.9.2
-\item Aufwandserfassung und -auswertung: Fred 1.4
-\item Review-Organisation: RevAger 1.2
-\item Testüberdeckung: CodeCover 1.0
-\item Testfallverwaltung: Justus 1.0
-\item Dokumentation: \LaTeX $\text{ }2_{\epsilon}$ und \LyX{} 1.6.5
+\item IDE: Eclipse mit dem UML-Plugin SDE for Eclipse (Visual Paradigm)
+\item Konfigurationsmanagement: Git
+\item Projektmanagement: Redmine
+\item Aufwandserfassung und -auswertung: Fred
+\item Review-Organisation: RevAger
+\item Testüberdeckung: CodeCover
+\item Testfallverwaltung: Justus
+\item Dokumentation: \LaTeX{} und \LyX{}
 \end{itemize}
 
 \chapter{Entwicklungsprozess\label{cha:Entwicklungsprozess}}
@@ -578,6 +578,12 @@ zwingend verlangt.
 
 \section{Versionshistorie}
 
+
+\subsubsection*{Version 0.2.2 (21.02.2010)}
+\begin{itemize}
+\item Angabe der externen Bibliothek iText in Formale Grundlagen verschoben
+\item Versionshinweise bei den Werkzeugen entfernt
+\end{itemize}
 
 \subsubsection*{Version 0.2.1 (19.02.2010)}
 \begin{itemize}
