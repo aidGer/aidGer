@@ -1,0 +1,306 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass scrartcl
+\use_default_options true
+\language ngerman
+\inputencoding utf8
+\font_roman ae
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth -1
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language polish
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Anforderungen aidGer
+\end_layout
+
+\begin_layout Author
+Buchgraber (2512046), Gildein (2513744), Pirrung (2526016)
+\begin_inset Newline newline
+\end_inset
+
+Gruppe 10
+\end_layout
+
+\begin_layout Subject
+- vertrauliches Dokument -
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Anforderung A-00: Erfassung der Vorgänge
+\end_layout
+
+\begin_layout Standard
+Es sollen u.a.
+ folgende Vorgänge erfasst werden:
+\end_layout
+
+\begin_layout Itemize
+Verwaltung von Arbeitsverträgen
+\end_layout
+
+\begin_layout Itemize
+Budgetüberprüfung
+\end_layout
+
+\begin_layout Itemize
+Lohnsteuerkartenverwaltung
+\end_layout
+
+\begin_layout Section
+Anforderung A-01: Eingabe von Daten
+\end_layout
+
+\begin_layout Standard
+Folgende Daten sollen eingegeben werden:
+\end_layout
+
+\begin_layout Itemize
+Datum
+\end_layout
+
+\begin_layout Itemize
+Bearbeiter
+\end_layout
+
+\begin_layout Itemize
+Hilfskraft
+\end_layout
+
+\begin_layout Itemize
+Bemerkung
+\end_layout
+
+\begin_layout Itemize
+Sender
+\end_layout
+
+\begin_layout Itemize
+Adressat
+\end_layout
+
+\begin_layout Standard
+Bei nicht ausgefüllten Feldern sollen keine unnötigen Benachrichtigungen
+ ausgegeben werden.
+\begin_inset Newline newline
+\end_inset
+
+Die Massenerfassung von Daten soll möglich sein.
+\end_layout
+
+\begin_layout Section
+Anforderung A-02: Grafische Benutzeroberfläche
+\end_layout
+
+\begin_layout Subsection
+A-02-0: Format
+\end_layout
+
+\begin_layout Standard
+Die Benutzeroberfläche soll als Desktopanwendung mittels Swing implementiert
+ werden.
+ Sie soll sich primär an Monitorgrößen zwischen 1600x1200 und 1900x1200
+ Pixel richten.
+ Die Oberfläche soll auf Deutsch und nach Möglichkeit auf Englisch verfügbar
+ sein.
+ Weitere Sprachen sollen nachrüstbar sein.
+\end_layout
+
+\begin_layout Subsection
+A-02-1: Übersichtlichkeit
+\end_layout
+
+\begin_layout Standard
+Die Benutzeroberfläche soll übersichtlich, einfach und intuitiv zu bedienen
+ sein.
+ Für wichtige Funktionen sollen Shortcuts zur Verfügung stehen.
+\end_layout
+
+\begin_layout Subsection
+A-02-2: Authentifizierung
+\end_layout
+
+\begin_layout Standard
+Zur Verwendung des Programms soll keine Authentifizierung notwendig sein.
+\end_layout
+
+\begin_layout Section
+Anforderung A-03: Ticket-System
+\end_layout
+
+\begin_layout Standard
+Es sollen Tickets auch manuell erstellbar sein.
+\begin_inset Newline newline
+\end_inset
+
+Der Anwender soll bei dem grundsätzlichen Ablauf eines Tickets unterstützt
+ werden.
+\begin_inset Newline newline
+\end_inset
+
+Der grundsätzliche Ablauf eines Tickets ist wie folgt:
+\begin_inset Newline newline
+\end_inset
+
+Ticket wird erstellt 
+\begin_inset Formula $\RHD$
+\end_inset
+
+ Mitarbeiter werden benachrichtigt 
+\begin_inset Formula $\RHD$
+\end_inset
+
+ Ticket wird bearbeitet 
+\begin_inset Formula $\RHD$
+\end_inset
+
+ Antwort geht an Student und beide Mitarbeiter
+\end_layout
+
+\begin_layout Section
+Anforderung A-04: Berichtswesen
+\end_layout
+
+\begin_layout Standard
+Lohnverteilungen sollen prüfbar sein.
+ Im Format Nachname - Vorname - Gehalt bis zu diesem Monat.
+\end_layout
+
+\begin_layout Section
+Anforderung A-05: Mitteilungen
+\end_layout
+
+\begin_layout Subsection
+A-05-0: Benachrichtigungen von Hilfskräften
+\end_layout
+
+\begin_layout Standard
+Hilfskräfte sollen über bestimmte Ereignisse, wie z.B.
+ Verfügbarkeit der Lohnabrechnung, informiert werden können.
+\begin_inset Newline newline
+\end_inset
+
+Hierfür soll eine Liste mit allen Hilfskräfte und ihren Mails verfügbar
+ sein.
+\end_layout
+
+\begin_layout Subsection
+A-05-1: Tägliche Vorgangsübersicht
+\end_layout
+
+\begin_layout Standard
+Am Ende jeden Tages soll eine Übersicht über alle Vorgänge ausgegeben werden.
+\end_layout
+
+\begin_layout Subsection
+A-05-2: Mitteilungen an Bearbeiter
+\end_layout
+
+\begin_layout Standard
+Die Bearbeiter sollen, z.B.
+ bei Überschreitungen von Stundenzahlen der Hilfskräfte, benachrichtigt
+ werden.
+\end_layout
+
+\begin_layout Section
+Anforderung A-06: PDF-Export
+\end_layout
+
+\begin_layout Standard
+Berichte sollen, mit ähnlichem Aussehen wie bisher - mit Optimierungen -
+ exportiert werden können.
+ Optimierungen sind z.B.
+ die Angabe von Summen.
+\end_layout
+
+\begin_layout Section
+Anforderung A-07: Budgetmanagement
+\end_layout
+
+\begin_layout Standard
+Das Budget steht am Anfang des Semesters, vom Lehrplan vorgegeben, zur Verfügung.
+ Es soll während des Semesters veränderbar sein.
+\end_layout
+
+\begin_layout Section
+Anforderung A-08: Kompatibilität zu AdoHive
+\end_layout
+
+\begin_layout Standard
+Das Programm soll über die Datenbankschnittstelle AdoHive auf die Datenbank
+ zugreifen.
+ Daher ist eine Kompatibilität zu AdoHive notwendig.
+\end_layout
+
+\begin_layout Section
+Anforderung A-09: Datenschutz
+\end_layout
+
+\begin_layout Standard
+Hilfskräfte die zu lange gespeichert sind, sollen anonymisiert werden.
+\end_layout
+
+\begin_layout Section
+Anforderung A-10: Generell verfügbare Funktionen
+\end_layout
+
+\begin_layout Standard
+Eine Hilfe- und eine Druckfunktion sollen generell zur Verfügung stehen.
+\end_layout
+
+\end_body
+\end_document
