@@ -1,0 +1,547 @@
+\documentclass[oneside,german,oneside]{scrbook}
+\usepackage{ae,aecompl}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{dcolumn}
+
+% Outline numbering
+\setcounter{secnumdepth}{0}
+% Fette Spalten
+\newcolumntype{b}{>{\bf}l}
+
+\title{aidGer Spezifikation}
+\author{Buchgraber (2512046), Gildein (2513744), Pirrung (2526016)\\
+Gruppe 10}
+\date{\today}
+
+\begin{document}
+
+\subject{- vertrauliches Dokument -}
+
+\maketitle
+\pagebreak
+
+\tableofcontents
+\pagebreak
+
+\section{Einleitung}\label{sec:Einleitung}
+
+    \subsection{Zweck}\label{sec:Zweck}
+
+        Die Spezifikation dient als Grundlage f\"ur alle Dokumente, die w\"ahrend
+        des hier beschriebenen Softwareprojekts entstehen. Sie enth\"alt alle
+        wesentlichen Anforderungen an die Software und deren Schnittstellen.
+
+    \subsection{Leserkreis}\label{sec:Leserkreis}
+
+        Dieses Dokument ist f\"ur den folgenden Leserkreis bestimmt:
+
+        \begin{itemize}
+          \item das gesamte Projektteam
+          \item den Kunden
+          \item die Dozenten/Betreuer
+          \item k\"unftige Programmierer/Verwalter dieses Projektes
+        \end{itemize}
+
+    \subsection{Einsatzbereich und Ziele}\label{sec:Einsatzbereich}
+
+        In diesem Projekt soll das Hilfskräfteverwaltungssystem
+        ``aidGer'' realisiert werden. Der ``aidGer'' soll den Mitarbeitern
+        der Abteilung SE die tägliche Arbeit bei der Verwaltung
+        der Hilfskraftbeschäftigungen des Institutsverbund der Informatik
+        erleichtern soll. \\
+        Die neue Software dient grundsätzlich zur Erleichterung der 
+        Erfassung und Auswertung aller Prozesse, die bei der Verwaltung 
+        von Hilfskräften anfallen. \\
+        Das Ziel ist es, mit ``aidGer'' die jetzige Lösung ``Hive'' zu 
+        ersetzen. Sie soll jedoch weiterhin einsetzbar sein, um im Notfall
+        auf alte Prozesse zurückgreifen zu können.
+
+    \subsection{Fachbegriffe und Abk\"urzungen}\label{sec:Fachbegriffe}
+
+        Alle f\"ur dieses Projekt relevanten Fachbegriffe und 
+        Abk\"urzungen sind im \ref{sec:Begriffslexikon} (im Anhang 
+        dieses Dokuments) aufgef\"uhrt.
+
+    \subsection{Aufbau dieses Dokuments}\label{sec:Aufbau}
+
+        Neben einer allgemeinen Beschreibung des Systems sollen
+        die Anforderungen an die Funktionen des Systems und die geforderten
+        Qualit\"aten hinsichtlich der Software selbst dokumentiert werden.
+
+    %TODO: Issue #6
+    %\subsection{Einschr\"ankungen}\label{sec:Einschraenkungen}
+
+    \pagebreak
+
+\section{Allgemeine Beschreibung}\label{sec:AllgemeineBeschreibung}
+
+    In diesem Kapitel soll der ``aidGer'' in seinen Grundz\"ugen beschrieben
+    werden.
+
+    \subsection{Einbettung}\label{sec:Einbettung}
+    
+        %TODO: Issue #5
+
+        Der ``aidGer'' soll übersichtlich und einfach zu bedienen sein 
+        um eine möglichst gerine Einarbeitungszeit zu ermöglichen. Es soll
+        auf möglichst vielen Betriebssystemen lauffähig sein.
+
+    \subsection{Grundlegende Funktionen}\label{sec:GrundlegendeFunktionen}
+
+        Der ``aidGer'' soll dem Nutzer folgende Grundfunktionen
+        bereitstellen:
+
+        \begin{itemize}
+          \item Hinzuf\"ugen, \"andern und L\"oschen von Filmen
+          \item Auflisten aller vorhandenen Filme in tabellarischer Form
+          \item Freitext-Suche zum Finden von Filmen
+          \item Betrachten der Details eines Filmes
+          \item Verleihen und Zur\"uckgeben von Filmen
+          \item Anzeige verliehener Filme nach Verleihdauer
+          \item Export der Filmsammlung im HTML-Format
+        \end{itemize}
+
+        Diese Funktionen sollen f\"ur alle Benutzer leicht erlernbar, effizient
+        und einfach in der Handhabung sein.
+
+    \subsection{Annahmen und Abh\"angigkeiten}\label{sec:Annahmen}
+
+        Bei der Spezifikation wurde von folgenden externen Einflussfaktoren
+        ausgegangen:
+
+        \begin{itemize}
+          \item Da von unbezahlten Hilfskr\"aften ausgef\"uhrt, besteht kein
+          Geldmangel.
+          \item Das System soll eine m\"oglichst lange Lebensdauer haben und muss
+          deshalb m\"oglichst flexibel sein.
+          \item Es stehen gen\"ugend Filmbesitzer als Tester zur Verf\"ugung
+        \end{itemize}
+
+    \subsection{Entwurfseinschr\"ankungen}\label{sec:Entwurfseinschraenkungen}
+
+        Die Vorgabe des Kunden hinsichtlich der Entwicklungsplattform ist
+        Java  mit der SDK Version 6 als Programmiersprache und Swing als 
+        Oberflächenbibliothek. \\
+        Zur Generierung von PDF Dateien soll eine aktuelle Version der
+        iText Bibliothek eingesetzt werden. Um auf die Datenbank 
+        zuzugreifen, soll die von Team AdoHive bereitgestellte AdoHive 
+        Bibliothek verwendet werden. Andere externe Bibliotheken
+        müssen durch den Betreuer explizit genehmigt werden.\\ \\
+        Zur Darstellung von Klassendiagrammen oder ähnlichen Diagrammen,
+        die während des Entwurfs entstehen, soll UML benutzt werden.
+
+    \subsection{Externe Schnittstellen}\label{sec:Schnittstellen}
+
+        Der ``aidGer'' benötigt eine Schnittstelle zur verwendeten 
+        Datenbank. Diese wird durch die Bibliothek AdoHive zur Verfügung
+        gestellt. Zudem wird eine Verbindung mit dem bereits vorhandenen
+        Ticketsystem benötigt.
+
+    \pagebreak
+
+\section{Anforderungen an die Funktion}
+
+    In diesem Kapitel werden die funktionalen Anforderungen an das System im
+    Detail beschrieben.
+
+    \subsection{Leistungsanforderungen}\label{sec:Leistungsanforderungen}
+
+        Da das Programm auf dem Computer des Benutzers verwendet wird, sollte es
+        andere Programme oder das Betriebssystem nicht behindern und alle
+        Funktionen in m\"oglichst geringer Zeit ($<$ 2 Sekunden) ausf\"uhren.\\
+        Ausnahmen k\"onnen hierbei der Export oder das Abspeichern sehr grosser
+        Sammlungen darstellen.
+
+    \subsection{Mengenger\"ust}\label{sec:Mengengeruest}
+
+        Folgende Kenngr\"o{\ss}en sind f\"ur das System relevant:
+
+        \begin{itemize}
+          \item Es wird von ca. 100 Filmen pro Sammlung ausgegangen. Mehr
+          abzuspeichern sollte jedoch auch kein Problem darstellen.
+          \item Pro Film werden 10 Datenpunkte abgespeichert
+          \item Wird oder war ein Film verliehen, kommen 3 weitere Datenpunkte
+          hinzu. (Sollten jedes Verleihen eines Filmes abgespeichert werden
+          vervielfacht sich diese Zahl nat\"urlich (OPTIONAL))
+        \end{itemize}
+
+    \subsection{Anforderung A-00: Film hinzuf\"ugen}\label{anf:00}
+
+        Der ``aidGer'' soll dem Nutzer eine simple M\"oglichkeit bieten, die
+        Daten eines Filmes einzutragen. Vor dem Speichern der Daten wird
+        \"uberpr\"uft ob alle ben\"otigten Informationen eingetragen wurden. Zu
+        diesen Daten geh\"oren jeweils:
+
+        \begin{itemize}
+          \item Filmtitel und Untertitel
+          \item Erscheinungsjahr
+          \item Genre
+          \item Inhaltsbeschreibung
+          \item Medium
+          \item Sprache(n)
+          \item L\"ange (in Minuten)
+          \item Pers\"onliche Bewertung auf einer Skala von 1 bis 5 Sternen
+          \item Kaufdatum
+        \end{itemize}
+
+        Es soll zudem m\"oglich sein neue Genres anzulegen (M\"oglicherweise auch
+        neue Medien anlegen f\"ur maximale Flexibilit\"at (OPTIONAL)).
+
+    \subsection{Anforderung A-01: Film bearbeiten}\label{anf:01}
+
+     Die Informationen bereits hinzugefügter Filme sollen einfach editiert werden
+     können. Dabei kann derselbe Dialog wie beim Hinzufügen von Filmen (siehe
+     \ref{anf:00} verwendet werden. Jedoch sollten bereits vorhandene
+     Informationen bereits eingefügt sein.
+
+    \subsection{Anforderung A-02: Film l\"oschen}\label{anf:02}
+
+        \"uber einen Knopfdruck sollte das L\"oschen eines Filmes m\"oglich sein. Vor
+        der Durchf\"uhrung sollte der Benutzer noch einmal gefragt werden ob er
+        sich sicher ist.
+
+    \subsection{Anforderung A-03: Anzeige der Filmsammlung}\label{anf:03}
+
+        Die Filmsammlung soll in einer Tabelle mit den Spalten ``Titel'',
+        ``Erscheinungsjahr'', ``Genre'', ``Medium'' und ``Bewertung'' angezeigt
+        werden. \"uber die Spalten soll sich die Sammlung sortieren lassen.
+
+    \subsection{Anforderung A-04: Anzeige des Umfangs der Sammlung}\label{anf:04}
+
+        Der Umfang der Filmsammlung (die Anzahl der Filme und die Gesamtl\"ange
+        aller Filme) sollte in der Statusleiste jederzeit einsehbar sein. Im
+        Falle einer stattfindenden Freitext-Suche (siehe \ref{anf:05}) sollten
+        sich die Werte dem Ergebnis der Suche anpassen.
+
+    \subsection{Anforderung A-05: Freitext-Suche}\label{anf:05}
+
+        Mit Hilfe eines Suchfeldes soll die Suche nach bestimmten Filmen m\"oglich
+        sein. Dabei wird ohne R\"ucksicht auf Gro{\ss}- und Kleinschreibung in den
+        Feldern ``Titel'', ``Untertitel'' und ``Inhaltsbeschreibung'' gesucht.
+        Die gefundenen Filme sollen in einer Trefferliste angezeigt werden.
+
+    \subsection{Anforderung A-06: Speichern der Sammlung}\label{anf:06}
+
+        Die Filmsammlung soll automatisch beim Verlassen der Anwendung
+        gespeichert werden. Der Benutzer soll jedoch auch selbst abspeichern
+        k\"onnen. \\
+        Der Speicherort kann von der Anwendung vorgegeben werden.
+
+    \subsection{Anforderung A-07: Verleihen von Filmen}\label{anf:07}
+
+        Die Filme der Sammlung sollen an andere Leute verliehen werden und von
+        diesen zur\"uckgegeben werden k\"onnen. Dazu werden f\"ur jeden Verleih
+        folgende Daten gespeichert:
+
+        \begin{itemize}
+          \item Film (ein Verweis auf den Film in der Sammlung)
+          \item Ausleihender
+          \item Verleihdatum
+          \item R\"uckgabedatum
+        \end{itemize}
+
+        Derzeit nicht verliehene Filme k\"onnen unter Angabe des Ausleihenden und
+        des Verleihdatums verliehen werden.\\
+        Diese Filme sollen in der Anzeige der Sammlung farblich hervor gehoben
+        werden oder eine andere entsprechende Markierung besitzen.\\
+        F\"ur jeden Film soll mindestens der letzte oder momentane Verleih
+        angezeigt werden.
+
+    \subsection{Anforderung A-08: Filterfunktion f\"ur verliehene
+    Filme}\label{anf:08}
+
+        Mithilfe einer Filterfunktion sollen alle verliehenen Filme angezeigt
+        werden k\"onnen die l\"anger als einen bestimmten Zeitraum verliehen sind.
+        Dieser Zeitraum soll frei eingestellt werden k\"onnen.
+
+    \subsection{Anforderung A-09: HTML-Export der Sammlung}\label{anf:09}
+
+        Die komplette Filmsammlung soll sich in ein HTML-Dokument exportieren
+        lassen. Dabei sollen alle Daten (au{\ss}er Verleihinformationen) angezeigt
+        werden k\"onnen. Der Speicherort soll vom Benutzer frei w\"ahlbar sein.
+
+    \subsection{Anforderung A-10: Format/Details der
+    Implementierung}\label{anf:10}
+
+        Die GUI muss in Swing implementiert werden und soll Deutsch oder
+        Englisch sein.\\
+        Der Code soll gem\"a{\ss} den Programmierrichtlinien von Sun geschrieben
+        werden und nach Javadoc-Konvention kommentiert werden.Das fertige
+        Programm muss unter JDK 6 laufen. \\
+        Die zentrale Klasse der Anwendung (mit der \textit{main()} Funktion)
+        soll \textit{MovieManager} heißen
+
+\pagebreak
+
+\section{Benutzeroberfl\"ache}\label{sec:Benutzeroberflaeche}
+
+    Die Benutzeroberfl\"ache des ``aidGer'' soll mit Swing erstellt werden
+    und sich in das Erscheinungsbild des Betriebssystems einpassen. Die
+    folgenden Mockups zeigen wie sie ungef\"ahr aussehen soll.
+
+	  %\includegraphics[scale=0.5]{Mockup1.png}
+  	%\captionof{figure}{Mockup}
+
+  	\bigskip
+
+  	Die Datentabelle soll dabei bei jeder Eingabe im Suchfeld dynamisch die
+  	Anzeige dem Suchwort entsprechend ver\"andern. Ebenfalls \"andern sollen sich
+  	dabei die Datenbankdetails und die Werte der aktuelle gefundenen Filme
+  	anzeigen.
+
+\pagebreak
+\section{Anwendungsf\"alle}\label{sec:Anwendungsfaelle}
+
+    In diesem Kapitel sollen die wichtigsten Anwendungsf\"alle des Systems
+    dargestellt werden.
+    
+    \subsection{Use-Case-Diagramm}\label{sec:usecasediagramm}
+    
+    %\includegraphics[scale=0.5]{Anwendungsfaelle.png}
+    %\captionof{figure}{Anwendungsf\"alle}
+
+    \subsection{Anwendungsfall A-00}\label{uc:00}
+
+      \begin{tabular}{|b|p{10cm}|}
+        \hline
+        Name & Film hinzuf\"ugen \\
+        \hline
+        Aktoren & Benutzer \\
+        \hline
+        \hline
+        Vorbedingung & Applikation wurde gestartet, Benutzer befindet sich in
+        der Hauptansicht.\\
+        \hline
+        Regul\"arer Ablauf & Benutzer klickt auf Schaltfl\"ache ``Film hinzuf\"ugen''
+        und ein Dialog \"offnet sich. Der Benutzer gibt die Daten des Filmes ein
+        und klickt auf ``Speichern''.\\
+        \hline
+        Nachbedingung & Der neue Film wurde intern abgespeichert und wird nun
+        in der Tabelle angezeigt.\\
+        \hline
+        Alternative Abl\"aufe &
+        \begin{enumerate}
+          \item Der Benutzer klickt auf ``Abbrechen'', der Dialog schlie{\ss}t sich
+          und keine Daten werden abgespeichert.
+          \item Der Benutzer gibt inkorrekte Daten in den Dialog ein. Nach dem
+          Klick auf ``Speichern'' gibt die Anwendung einen Fehler zur\"uck.
+        \end{enumerate}
+        \\
+        \hline
+      \end{tabular}
+
+    \subsection{Anwendungsfall A-01}\label{uc:01}
+
+      \begin{tabular}{|b|p{10cm}|}
+        \hline
+        Name & Film bearbeiten \\
+        \hline
+        Aktoren & Benutzer \\
+        \hline
+        \hline
+        Vorbedingung & Benutzer befindet sich in der Hauptansicht und es
+        sind Filme in der Sammlung vorhanden.\\
+        \hline
+        Regul\"arer Ablauf & Der Benutzer selektiert einen Film und klickt auf
+        ``Bearbeiten''. Im sich \"offnenden Dialog editiert er die gew\"unschten
+        Informationen und klickt auf ``Speichern'' um den Vorgang abzuschließen. \\
+        \hline
+        Nachbedingung & Die ge\"anderten Informationen des Filme werden gespeichert
+        und in der Tabelle angezeigt.\\
+        \hline
+        Alternative Abl\"aufe &
+        \begin{enumerate}
+          \item Es ist kein Film selektiert. Der Benutzer wird darauf hingewiesen.
+          \item Der Benutzer klickt auf ``Abbrechen'', der Dialog schlie{\ss}t sich
+          und keine Daten werden abgespeichert.
+          \item Der Benutzer gibt inkorrekte Daten in den Dialog ein. Nach dem
+          Klick auf ``Speichern'' gibt die Anwendung einen Fehler zur\"uck.
+        \end{enumerate}
+        \\
+        \hline
+      \end{tabular}
+
+    \subsection{Anwendungsfall A-02}\label{uc:02}
+
+      \begin{tabular}{|b|p{10cm}|}
+        \hline
+        Name & Film l\"oschen \\
+        \hline
+        Aktoren & Benutzer \\
+        \hline
+        \hline
+        Vorbedingung & Mindestens ein Film muss sich in der Datenbank befinden.
+        Der Benutzer befindet sich in der Hauptansicht.\\
+        \hline
+        Regul\"arer Ablauf & Der Benutzer w\"ahlt einen Film in der Tabelle aus und
+        klickt auf ``L\"oschen''.\\
+        \hline
+        Nachbedingung & Der Film wurde aus der Datenbank gel\"oscht und ist in
+        der Tabelle nicht mehr sichtbar.\\
+        \hline
+        Alternative Abl\"aufe &
+        \begin{enumerate}
+          \item Es ist momentan kein Film ausgew\"ahlt. Der Benutzer wird darauf
+          hingewiesen.
+        \end{enumerate}
+        \\
+        \hline
+      \end{tabular}
+
+    \subsection{Anwendungsfall A-05}\label{uc:05}
+
+      \begin{tabular}{|b|p{10cm}|}
+        \hline
+        Name & Freitext-Suche \\
+        \hline
+        Aktoren & Benutzer \\
+        \hline
+        \hline
+        Vorbedingung & Der Benutzer befindet sich in der Hauptansicht und es
+        sind mehrere Filme in der Datenbank vorhanden.\\
+        \hline
+        Regul\"arer Ablauf & Der Benutzer fokusiert das Suchfeld und beginnt ein
+        Suchwort einzugeben. Bei Eingabe jedes einzelnen Buchstabens wird die
+        Tabelle darunter aktualisiert und nur noch Filme angezeigt, deren
+        Informationen das Suchwort enthalten.\\
+        \hline
+        Nachbedingung & Angezeigt werden nur noch Filme, deren Informationen
+        das Suchwort enthalten.\\
+        \hline
+        Alternative Abl\"aufe &
+        \begin{enumerate}
+          \item Kein Film enth\"alt Informationen mit dem Suchwort. Der Benutzer
+          wird darauf hingewiesen.
+        \end{enumerate}\\
+        \hline
+      \end{tabular}
+
+    \subsection{Anwendungsfall A-06}\label{uc:06}
+
+      \begin{tabular}{|b|p{10cm}|}
+        \hline
+        Name & Speichern der Sammlung \\
+        \hline
+        Aktoren & Benutzer \\
+        \hline
+        \hline
+        Vorbedingung & Der Benutzer befindet sich in der Hauptansicht.\\
+        \hline
+        Regul\"arer Ablauf & Der Benutzer klickt auf ``Datei $\rightarrow$ Speichern'' und
+        die Sammlung wird daraufhin abgespeichert.\\
+        \hline
+        Nachbedingung & Die Sammlung wurde gespeichert.\\
+        \hline
+        Alternative Abl\"aufe & Keine \\
+        \hline
+      \end{tabular}
+
+    \subsection{Anwendungsfall A-07}\label{uc:07}
+
+      \begin{tabular}{|b|p{10cm}|}
+        \hline
+        Name & Verleihen von Filmen \\
+        \hline
+        Aktoren & Benutzer \\
+        \hline
+        \hline
+        Vorbedingung & Der Benutzer befindet sich in der Hauptansicht und es
+        sind Filme in der Sammlung vorhanden.\\
+        \hline
+        Regul\"arer Ablauf & Der Benutzer selektiert einen Film in der Tabelle
+        und klickt auf ``Verleihen''. Ein Dialog \"offnet sich, der Benutzer gibt
+        Name und Datum ein und klickt auf ``Speichern''.\\
+        \hline
+        Nachbedingung & Der Film wird nun als Verliehen markiert und die
+        Ausleihinformationen befinden sich in der Datenbank.\\
+        \hline
+        Alternative Abl\"aufe &
+        \begin{enumerate}
+          \item Der Benutzer hat keinen Film selektiert. Er wird darauf hingewiesen.
+          \item Der Benutzer klickt im Dialog auf ``Abbrechen''. Die Daten
+          werden nicht ver\"andert und er kehrt zur Hauptansicht zur\"uck.
+          \item Der Benutzer gibt inkorrekte Daten ein. Eine Fehlermeldung
+          wei{\ss}t ihn darauf hin.
+        \end{enumerate}\\
+        \hline
+      \end{tabular}
+
+    \subsection{Anwendungsfall A-08}\label{uc:08}
+
+      \begin{tabular}{|b|p{10cm}|}
+        \hline
+        Name & Filterfunktion f\"ur verliehen Filme \\
+        \hline
+        Aktoren & Benutzer \\
+        \hline
+        \hline
+        Vorbedingung & Der Benutzer befindet sich in der Hauptansicht und es
+        sind mehrere Filme in der Sammlung vorhanden.\\
+        \hline
+        Regul\"arer Ablauf & Noch keine Ahnung.\\
+        \hline
+        Nachbedingung & Angezeigt werden nur noch Filme angezeigt die mindestens
+        den angegeben Zeitraum verliehen wurden.\\
+        \hline
+        Alternative Abl\"aufe &
+        \begin{enumerate}
+          \item Kein Film ist bereits so lange verliehen. Der Benutzer wird
+          darauf hingewiesen.
+        \end{enumerate}\\
+        \hline
+      \end{tabular}
+
+    \subsection{Anwendungsfall A-09}\label{uc:09}
+
+      \begin{tabular}{|b|p{10cm}|}
+        \hline
+        Name & HTML-Export der Sammlung \\
+        \hline
+        Aktoren & Benutzer \\
+        \hline
+        \hline
+        Vorbedingung & Der Benutzer befindet sich in der Hauptansicht und es
+        sind Filme in der Sammlung vorhanden.\\
+        \hline
+        Regul\"arer Ablauf & Der Benutzer klickt auf ``Datei $\rightarrow$ Exportieren''
+        und ein normaler Speicherndialog erscheint. Er w\"ahlt ein Verzeichnis
+        und einen Dateinamen aus und klickt auf ``Speichern''.\\
+        \hline
+        Nachbedingung & In der angegebenen Datei befindet sich der HTML-Code
+        zur Anzeige der Sammlung.\\
+        \hline
+        Alternative Abl\"aufe &
+        \begin{enumerate}
+          \item In der Sammlung befinden sich keine Filme. Der Benutzer wird
+          darauf hingewiesen.
+          \item Die angegebene Datei existiert bereits. Der Benutzer wird
+          gefragt ob sie \"uberschrieben werden soll. Sollte er Nein w\"ahlen wird
+          der Speicherndialog noch einmal angezeigt.
+        \end{enumerate}\\
+        \hline
+      \end{tabular}
+
+\pagebreak
+\section{Anhang A}\label{sec:AnhangA}
+  \subsection{Revisionshistorie}\label{sec:Revisionshistorie}
+
+    \begin{tabular}{|b|l|}
+    \hline
+    Version 0.1, 23.02.2010 & Initiale Revision \\
+    \hline
+    \end{tabular}
+
+\section{Anhang B}\label{sec:AnhangB}
+  \subsection{Begriffslexikon}\label{sec:Begriffslexikon}
+
+    \begin{tabular}{|b|l|}
+    \hline
+    Begriff & Beschreibung \\
+    \hline
+    aidGer & Aide Manager (zu deutsch: Hilfskraft Verwalter)
+    \hline
+    \end{tabular}    
+\end{document}
