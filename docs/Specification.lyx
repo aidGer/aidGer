@@ -1,0 +1,779 @@
+#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass scrbook
+\use_default_options true
+\language ngerman
+\inputencoding utf8
+\font_roman ae
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language german
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Spezifikation aidGer
+\end_layout
+
+\begin_layout Author
+Buchgraber (2512046), Gildein (2513744), Pirrung (2526016)
+\begin_inset Newline newline
+\end_inset
+
+Gruppe 10
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Einleitung
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Einleitung"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Zweck
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Zweck"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Diese Spezifikation dient als Grundlage für alle weitere Dokumente, die
+ im Rahmen dieses Softwarepraktikums entstehen.
+ Sie enthält alle wesentlichen Anforderungen an die Software und deren Schnittst
+ellen.
+ Sie muss stets mit den anderen Dokumenten, insbesondere dem Entwurf und
+ der Codierung, konsistent gehalten werden.
+\end_layout
+
+\begin_layout Section
+Leserkreis
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Leserkreis"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dieses Dokument ist für den folgenden Leserkreis bestimmt:
+\end_layout
+
+\begin_layout Itemize
+Das gesamte Projektteam
+\end_layout
+
+\begin_layout Itemize
+Der Kunde
+\end_layout
+
+\begin_layout Itemize
+Die Betreuer des Softwarepraktikums
+\end_layout
+
+\begin_layout Itemize
+Der Gutachter des Spezifikationsreview
+\end_layout
+
+\begin_layout Itemize
+Die künftige Programmierer bzw.
+ Verwalter dieses Projektes
+\end_layout
+
+\begin_layout Section
+Einsatzbereich und Ziele
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Einsatzbereich-und-Ziele"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In diesem Projekt soll das Hilfskraftverwaltungssystem 
+\begin_inset Quotes gld
+\end_inset
+
+aidGer
+\begin_inset Quotes grd
+\end_inset
+
+ realisiert werden.
+ Der 
+\begin_inset Quotes gld
+\end_inset
+
+aidGer
+\begin_inset Quotes grd
+\end_inset
+
+ soll den Mitarbeitern der Abteilung SE die tägliche Arbeit bei der Verwaltung
+ der Hilfskraftbeschäftigungen des Institutsverbund der Informatik erleichtern.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Die neue Software dient grundsätzlich zur Erleichterung der Erfassung und
+ Auswertung aller Prozesse, die bei der Verwaltung von Hilfskräften anfallen.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Das Ziel ist es, mit 
+\begin_inset Quotes gld
+\end_inset
+
+aidGer
+\begin_inset Quotes grd
+\end_inset
+
+ die jetzige Lösung 
+\begin_inset Quotes gld
+\end_inset
+
+Hive
+\begin_inset Quotes grd
+\end_inset
+
+ zu ersetzen.
+ Sie soll jedoch weiterhin einsetzbar sein, um im Notfall auf alte Prozesse
+ zurückgreifen zu können.
+\end_layout
+
+\begin_layout Section
+Fachbegriffe und Abkürzungen
+\end_layout
+
+\begin_layout Standard
+Alle für dieses Projekt relevanten Fachbegriffe und Abkürzungen sind im
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Begriffslexikon"
+
+\end_inset
+
+ (im Anhang dieses Dokuments) aufgeführt.
+\end_layout
+
+\begin_layout Section
+Aufbau dieses Dokuments
+\end_layout
+
+\begin_layout Standard
+Neben einer allgemeinen Beschreibung des Systems sollen die Anforderungen
+ an die Funktionen des Systems und die geforderten Qualitäten hinsichtlich
+ der Software selbst dokumentiert werden.
+ Anschließend wird die Benutzeroberfläche und die Anwendungsfälle vorgestellt.
+\end_layout
+
+\begin_layout Subsection
+Konventionen
+\end_layout
+
+\begin_layout Standard
+In dieser Spezifikation werden die folgenden Konventionen zur Hervorhebung
+ von Begriffen verwendet:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%TODO: Konventionen festlegen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%TODO: Issue #6
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+subsection{Einschr
+\backslash
+"ankungen}
+\backslash
+label{sec:Einschraenkungen}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Allgemeine Beschreibung
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Allgemeine-Beschreibung"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In diesem Kapitel soll der 
+\begin_inset Quotes gld
+\end_inset
+
+aidGer
+\begin_inset Quotes grd
+\end_inset
+
+ in seinen Grundzügen beschrieben werden.
+\end_layout
+
+\begin_layout Section
+Einbettung
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Einbettung"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%TODO: Issue #5
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Software soll übersichtlich und einfach zu bedienen sein, um eine möglichst
+ geringe Einarbeitungszeit zu ermöglichen.
+ Es soll auf möglichst vielen Betriebssystemen lauffähig sein.
+\end_layout
+
+\begin_layout Section
+Grundlegende Funktionen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Grundlegende-Funktionen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der 
+\begin_inset Quotes gld
+\end_inset
+
+aidGer
+\begin_inset Quotes grd
+\end_inset
+
+ soll dem Nutzer folgende Grundfunktionen bereitstellen:
+\end_layout
+
+\begin_layout Itemize
+..
+\end_layout
+
+\begin_layout Standard
+Diese Funktionen sollen für alle Benutzer leicht erlernbar, effizient und
+ einfach in der Handhabung sein.
+\end_layout
+
+\begin_layout Section
+Annahmen und Abhängigkeiten
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Annahmen-und-Abhängigkeiten"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bei der Spezifikation wurde von folgenden externen Einflussfaktoren ausgegangen:
+\end_layout
+
+\begin_layout Itemize
+Da von unbezahlten Hilfskräften ausgeführt, besteht kein Geldmangel.
+ 
+\end_layout
+
+\begin_layout Itemize
+Das System soll eine möglichst lange Lebensdauer haben und muss deshalb
+ möglichst flexibel sein.
+ 
+\end_layout
+
+\begin_layout Itemize
+Es stehen genügend Filmbesitzer als Tester zur Verfügung 
+\end_layout
+
+\begin_layout Section
+Entwurfseinschränkungen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Entwurfseinschränkungen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Vorgabe des Kunden hinsichtlich der Entwicklungsplattform ist Java mit
+ der SDK Version 6 als Programmiersprache und Swing als Oberflächenbibliothek.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Zur Generierung von PDF-Berichten soll eine aktuelle Version der iText Bibliothe
+k eingesetzt werden.
+ Um auf die Datenbank zuzugreifen, soll die von Team AdoHive bereitgestellte
+ AdoHive Bibliothek verwendet werden.
+ Andere externe Bibliotheken müssen durch den Betreuer explizit genehmigt
+ werden.
+ Zur Anzeige von den generierten PDF-Berichten muss der Anwender einen PDF-Betra
+chter installiert haben.
+ Sollte das Programm nicht in der Lage sein, den systemspezifischen PDF-Betracht
+er zu starten, wird eine entsprechende Meldung dem Benutzer angezeigt.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Zur Darstellung von Klassendiagrammen oder ähnlichen Diagrammen, die während
+ des Entwurfs entstehen, soll UML benutzt werden.
+\end_layout
+
+\begin_layout Section
+Externe Schnittstellen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Externe-Schnittstellen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der 
+\begin_inset Quotes gld
+\end_inset
+
+aidGer
+\begin_inset Quotes grd
+\end_inset
+
+ benötigt eine Schnittstelle zur verwendeten Datenbank.
+ Diese wird durch die Bibliothek AdoHive zur Verfügung gestellt.
+ Zudem wird eine Verbindung mit dem bereits vorhandenen Ticketsystem benötigt.
+\end_layout
+
+\begin_layout Chapter
+Anforderungen an die Funktion
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Anforderungen-an-die"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In diesem Kapitel werden die funktionalen Anforderungen an das System im
+ Detail beschrieben.
+\end_layout
+
+\begin_layout Section
+Leistungsanforderungen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Leistungsanforderungen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da das Programm auf dem Computer des Benutzers verwendet wird, sollte es
+ andere Programme oder das Betriebssystem nicht behindern und alle Funktionen
+ in möglichst geringer Zeit (
+\begin_inset Formula $<$
+\end_inset
+
+ 2 Sekunden) ausführen.
+\end_layout
+
+\begin_layout Standard
+Ausnahmen können hierbei der Export oder das Abspeichern sehr grosser Sammlungen
+ darstellen.
+\end_layout
+
+\begin_layout Section
+Mengengerüst
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Mengengerüst"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Folgende Kenngrößen sind für das System relevant:
+\end_layout
+
+\begin_layout Itemize
+Das Programm ist eine Einzelplatzanwendung ohne Netzwerkfunktionalität und
+ wird daher stets von einem Anwender bedient.
+\end_layout
+
+\begin_layout Section
+Anforderung: 
+\end_layout
+
+\begin_layout Standard
+..
+\end_layout
+
+\begin_layout Chapter
+Benutzeroberfläche
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Benutzeroberfläche"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Benutzeroberfläche des 
+\begin_inset Quotes gld
+\end_inset
+
+aidGer
+\begin_inset Quotes grd
+\end_inset
+
+ soll mit Swing erstellt werden und sich in das Erscheinungsbild des Betriebssys
+tems einpassen.
+ Die folgenden Mockups zeigen wie sie ungefähr aussehen soll.
+\end_layout
+
+\begin_layout Chapter
+Anwendungsfälle
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Anwendungsfälle"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In diesem Kapitel sollen die wichtigsten Anwendungsfälle des Systems dargestellt
+ werden.
+\end_layout
+
+\begin_layout Section
+Use-Case-Diagramm
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Use-Case-Diagramm"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Anwendungsfall
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features>
+<column alignment="none" valignment="bottom" width="0">
+<column alignment="none" valignment="top" width="10cm">
+<row>
+<cell alignment="none" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Name 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Aktoren 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vorbedingung 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Regulärer Ablauf 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nachbedingung 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alternative Abläufe 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+..
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Anhang
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Anhang"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Begriffslexikon
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Begriffslexikon"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Versionshistorie
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Versionshistorie"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
