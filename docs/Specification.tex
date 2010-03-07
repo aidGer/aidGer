@@ -13,6 +13,7 @@
  bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
  breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
  {hyperref}
+\usepackage{graphicx}
 
 \makeatletter
 
@@ -168,6 +169,97 @@ Die Benutzeroberfläche des ,,aidGer{}`` soll mit Swing erstellt
 werden und sich in das Erscheinungsbild des Betriebssystems einpassen.
 Die folgenden Mockups zeigen wie sie ungefähr aussehen soll.
 
+\section{Programmstart}
+
+%TODO: Muss noch mehr hingeschrieben werden
+
+Beim Programmstart wird das Hauptfenster angezeigt. 
+Sollten beim vorherigen Schließen des Programms noch Tabs offen gewesen sein, so
+wird dem Nutzer die Möglichkeit gegeben diese wieder zu öffnen. Dabei wird versucht
+soviele Informationen wie möglichst zu erhalten; Eingaben in Formulare gehen dabei
+jedoch verloren.
+
+\section{Titelleiste des Hauptfensters}
+
+In der Titelleiste wird immer der Name der Applikation (``aidGer{}'') sowie die
+momentan offene Funktion angezeigt. Dieser Funktionsname stimmt mit dem Titel des
+Tabs überein. Ein Beispiel dafür wäre ``Stammdatenverwaltung - aidGer''.
+
+\section{Allgemeine Beschreibung des Hauptfensters}
+
+\includegraphics[scale=0.75]{mockup1.png}
+
+Das Hauptfenster ist in zwei Bereiche eingeteilt. Auf der linken Seite befindet
+sich die Navigationsleiste in der alle Funktionen angezeigt werden und der Benutzer
+einfach zwischen ihnen wechseln kann. Auf der rechten Seite befindet sich der
+Inhaltsbereich. Hier wird die aktuell ausgewählte Funktion angezeigt. Im Hintergrund
+können zudem noch weitere Funktionen offen sein. Diese befinden sich dann in weiteren
+Tabs. Im Beispiel wäre der ``Neue Tab'' der aktuell geöffnete und ``Vorgänge'' ein
+sich im Hintergrund befindlicher Tab. \\
+
+Die Navigationsleiste und der Inhaltsbereich sind durch eine bewegliche, vertikale
+Leiste getrennt. Dadurch kann die Größe beider Bereiche individuell angepasst werden.
+
+\subsection{Verhalten bei Änderung der Fenstergröße}
+
+Bei einer Veränderung der Fenstergröße in der Breite wird nur der Inhaltsbereich
+verändert um mehr Platz für Informationen/Formulare zu bekommen. Die Navigationsleiste
+wird höchstens so breit wie das breiteste Element in ihr. \\
+
+Sollte sich die Fenstergröße in der Höhe verändern, ändert sich die Größe beider
+Elemente gleichmäßig.
+
+\subsection{Verhalten bei Auswahl eines Elements in der Navigationsleiste}
+
+Wird vom Benutzer ein Element in der Navigationsleiste mit der linken Maustaste 
+ausgewählt, wird der aktuelle Inhalt des Inhaltsbereichs verworfen und durch den
+Inhalt des neuen Elements ersetzt. \\
+Sollte der Benutzer jedoch die mittlere Maustaste benutzen um das Element auszuwählen,
+wird ein neuer Reiter geöffnet und der Inhalt des Elements in diesem neuen Reiter
+dargestellt. Der aktuelle Reiter bleibt dabei vollständig erhalten, gerät jedoch
+in den Hintergrund (ist also nicht mehr sichtbar).
+
+\section{Navigationselemente}
+
+%TODO: Alle Navigationselemente aufzählen
+
+\section{Menüleiste}
+
+Die Menüleiste befindet sich unter Windows und Linux unterhalb des Fensterrahmens
+aber oberhalb der Navigationsleiste und des Inhaltsbereichs. Unter Mac OS X befindet
+sie sich in einer Leiste unter dem oberen Bildschirmrand. \\
+In der folgenden Gliederung dieser Menüleiste sind die obersten Elemente die
+Hauptelemente und darunter folgende Sublisten die dementsprechenden Menüs die 
+aufklappen sobald man auf das Hauptelement klickt.
+
+\section{Programmeinstellungen}
+
+\includegraphics[scale=1.00]{MockupSettings.png}
+
+Das Einstellungsfenster ist ein modaler Dialog, der über keine Menüleiste verfügt.
+Ganz unten verfügt er über zwei Buttons. Über den Abbrechen-Button schließt sich
+das Fenster ohne die Einstellungen zu speichern. Mit Hilfe des Speichern-Buttons
+werden die Einstellungen vor dem Schließen noch gespeichert. \\
+Es befinden sich folgende Einstellungsmöglichkeiten im Fenster:
+\begin{itemize}
+    \item \textbf{Name} \\ Der hier eingetragene Name wird zur Kennzeichnung der
+    Vorgänge benutzt. Das bedeutet das Vorgänge unter diesem Namen ins System
+    eingetragen werden.
+    \item \textbf{PDF-Anzeiger} \\ Pfad zu einem Programm das PDFs anzeigen kann.
+    Der Pfad zur PDF-Datei wird hierbei als Argument für das Programm übergeben.
+    \item \textbf{Berichte automatisch nach Generierung öffnen} \\ Wenn aktiviert
+    öffnen sich Berichte direkt nach ihrer Generierung automatisch im unter ``PDF-Anzeiger''
+    angegeben PDF-Programm oder in dem standardmäßig verwendeten Programm.
+    \item \text{Reiter bei Verlassen speichern} \\ Wenn aktiviert werden alle
+    geöffneten Reiter gespeichert und beim nächsten Aufruf des Programms wieder
+    geöffnet um dem Nutzer die Weiterführung seiner Arbeit zu erleichtern.
+\end{itemize}
+    
+
+\section{Über-Fenster}
+
+Das Über-Fenster enthält den Programmnamen und die Programmversion (sowie das zugehörige
+Veröffentlichungsdatum), die Namen der Entwickler und einen Verweis auf die Projektwebsite.
 
 \chapter{Anwendungsfälle\label{cha:Anwendungsf=0000E4lle}}
 
