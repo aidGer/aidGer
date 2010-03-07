@@ -72,12 +72,10 @@ Das Ziel ist es, mit ,,aidGer{}`` die jetzige Lösung ,,Hive{}``
 zu ersetzen. Sie soll jedoch weiterhin einsetzbar sein, um im Notfall
 auf alte Prozesse zurückgreifen zu können.
 
-
 \section{Fachbegriffe und Abkürzungen}
 
 Alle für dieses Projekt relevanten Fachbegriffe und Abkürzungen sind
 im \ref{sec:Begriffslexikon} (im Anhang dieses Dokuments) aufgeführt.
-
 
 \section{Aufbau dieses Dokuments}
 
@@ -86,7 +84,6 @@ an die Funktionen des Systems und die geforderten Qualitäten hinsichtlich
 der Software selbst dokumentiert werden. Anschließend wird die Benutzeroberfläche
 und die Anwendungsfälle vorgestellt.
 
-
 \subsection{Konventionen}
 
 In dieser Spezifikation werden die folgenden Konventionen zur Hervorhebung
@@ -94,25 +91,19 @@ von Begriffen verwendet:
 
 %TODO: Konventionen festlegen
 
-%TODO: Issue #6
-%\subsection{Einschr\"ankungen}\label{sec:Einschraenkungen}
-
-
-
 \chapter{Allgemeine Beschreibung\label{cha:Allgemeine-Beschreibung}}
 
 In diesem Kapitel soll der ,,aidGer{}`` in seinen Grundzügen beschrieben
 werden.
 
-
 \section{Einbettung\label{sec:Einbettung}}
 
 %TODO: Issue #5
 
-
-Die Software soll übersichtlich und einfach zu bedienen sein, um eine
-möglichst geringe Einarbeitungszeit zu ermöglichen. Es soll auf möglichst
-vielen Betriebssystemen lauffähig sein.
+Der ``aidGer'' benötigt eine Schnittstelle zur verwendeten 
+Datenbank. Diese wird durch die Bibliothek AdoHive zur Verfügung
+gestellt. Zudem wird eine Verbindung mit dem bereits vorhandenen
+Ticketsystem benötigt.
 
 
 \section{Grundlegende Funktionen\label{sec:Grundlegende-Funktionen}}
@@ -124,23 +115,11 @@ Der ,,aidGer{}`` soll dem Nutzer folgende Grundfunktionen bereitstellen:
 Diese Funktionen sollen für alle Benutzer leicht erlernbar, effizient
 und einfach in der Handhabung sein.
 
-
-\section{Annahmen und Abhängigkeiten\label{sec:Annahmen-und-Abh=0000E4ngigkeiten}}
-
-Bei der Spezifikation wurde von folgenden externen Einflussfaktoren
-ausgegangen:
-\begin{itemize}
-\item Da von unbezahlten Hilfskräften ausgeführt, besteht kein Geldmangel. 
-\item Das System soll eine möglichst lange Lebensdauer haben und muss deshalb
-möglichst flexibel sein. 
-\item Es stehen genügend Filmbesitzer als Tester zur Verfügung 
-\end{itemize}
-
-\section{Entwurfseinschränkungen\label{sec:Entwurfseinschr=0000E4nkungen}}
+\section{Einschränkungen\label{sec:Entwurfseinschr=0000E4nkungen}}
 
 Die Vorgabe des Kunden hinsichtlich der Entwicklungsplattform ist
 Java mit der SDK Version 6 als Programmiersprache und Swing als Oberflächenbibliothek.\\
-\\
+
 Zur Generierung von PDF-Berichten soll eine aktuelle Version der
 iText Bibliothek eingesetzt werden. Um auf die Datenbank zuzugreifen,
 soll die von Team AdoHive bereitgestellte AdoHive Bibliothek verwendet
@@ -149,23 +128,18 @@ genehmigt werden. Zur Anzeige von den generierten PDF-Berichten muss
 der Anwender einen PDF-Betrachter installiert haben. Sollte das Programm
 nicht in der Lage sein, den systemspezifischen PDF-Betrachter zu starten,
 wird eine entsprechende Meldung dem Benutzer angezeigt.\\
-\\
+
 Zur Darstellung von Klassendiagrammen oder ähnlichen Diagrammen,
-die während des Entwurfs entstehen, soll UML benutzt werden.
+die während des Entwurfs entstehen, soll UML benutzt werden. \\
 
+Durch den Zeitplan ist ein Prozessmodel bereits vorgegeben.
 
-\section{Externe Schnittstellen\label{sec:Externe-Schnittstellen}}
-
-Der ,,aidGer{}`` benötigt eine Schnittstelle zur verwendeten Datenbank.
-Diese wird durch die Bibliothek AdoHive zur Verfügung gestellt. Zudem
-wird eine Verbindung mit dem bereits vorhandenen Ticketsystem benötigt.
-
+\pagebreak
 
 \chapter{Anforderungen an die Funktion\label{cha:Anforderungen-an-die}}
 
 In diesem Kapitel werden die funktionalen Anforderungen an das System
 im Detail beschrieben.
-
 
 \section{Leistungsanforderungen\label{sec:Leistungsanforderungen}}
 
@@ -186,8 +160,6 @@ und wird daher stets von einem Anwender bedient.
 \end{itemize}
 
 \section{Anforderung: }
-
-..
 
 
 \chapter{Benutzeroberfläche\label{cha:Benutzeroberfl=0000E4che}}
