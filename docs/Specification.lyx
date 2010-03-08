@@ -101,6 +101,8 @@ Diese Spezifikation dient als Grundlage für alle weitere Dokumente, die
 ellen.
  Sie muss stets mit den anderen Dokumenten, insbesondere dem Entwurf und
  der Codierung, konsistent gehalten werden.
+ Die Spezifikation dient den Teammitgliedern als Grundlage und Richtlinie
+ bei der Entwicklung des Systems.
 \end_layout
 
 \begin_layout Section
@@ -177,8 +179,8 @@ aidGer
 \begin_inset Newline newline
 \end_inset
 
-Die neue Software dient grundsätzlich zur Erleichterung der Erfassung und
- Auswertung aller Prozesse, die bei der Verwaltung von Hilfskräften anfallen.
+Die neue Software dient hierbei grundsätzlich auch zur Erfassung und Auswertung
+ aller Vorgänge, die bei der Verwaltung von Hilfskräften anfallen.
 \begin_inset Newline newline
 \end_inset
 
@@ -203,8 +205,16 @@ Hive
 \end_inset
 
  zu ersetzen.
- Sie soll jedoch weiterhin einsetzbar sein, um im Notfall auf alte Prozesse
- zurückgreifen zu können.
+ Das Altsystem 
+\begin_inset Quotes gld
+\end_inset
+
+Hive
+\begin_inset Quotes grd
+\end_inset
+
+ soll jedoch weiterhin einsetzbar sein, um im Notfall oder bei ähnlichen
+ Anlässen auf dieses zurückgreifen zu können.
 \end_layout
 
 \begin_layout Section
@@ -212,7 +222,7 @@ Fachbegriffe und Abkürzungen
 \end_layout
 
 \begin_layout Standard
-Alle für dieses Projekt relevanten Fachbegriffe und Abkürzungen sind im
+Alle für dieses Projekt relevanten Fachbegriffe und Abkürzungen sind in
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -230,8 +240,10 @@ Aufbau dieses Dokuments
 \begin_layout Standard
 Neben einer allgemeinen Beschreibung des Systems sollen die Anforderungen
  an die Funktionen des Systems und die geforderten Qualitäten hinsichtlich
- der Software selbst dokumentiert werden.
- Anschließend wird die Benutzeroberfläche und die Anwendungsfälle vorgestellt.
+ der Software dokumentiert werden.
+ Im Anschluß hierzu wird auf die Benutzeroberfläche und im nächsten Schritt
+ auf die Anwendungsfälle des Systems näher eingegangen.
+ Das Dokument endet schließlich mit einem angehängten Begriffslexikon.
 \end_layout
 
 \begin_layout Subsection
@@ -245,50 +257,11 @@ In dieser Spezifikation werden die folgenden Konventionen zur Hervorhebung
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
-%TODO: Konventionen festlegen
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-%TODO: Issue #6
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-%
-\backslash
-subsection{Einschr
-\backslash
-"ankungen}
-\backslash
-label{sec:Einschraenkungen}
-\end_layout
-
-\begin_layout Plain Layout
-
+%TODO: Issue 11
 \end_layout
 
 \end_inset
@@ -349,9 +322,29 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-Die Software soll übersichtlich und einfach zu bedienen sein, um eine möglichst
- geringe Einarbeitungszeit zu ermöglichen.
- Es soll auf möglichst vielen Betriebssystemen lauffähig sein.
+Der 
+\begin_inset Quotes gld
+\end_inset
+
+aidGer
+\begin_inset Quotes grd
+\end_inset
+
+ benötigt eine Schnittstelle zur verwendeten Datenbank.
+ Diese wird durch die Bibliothek AdoHive zur Verfügung gestellt.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Zudem wird eine Verbindung mit dem bereits vorhandenen Ticket-System benötigt.
+ Diese Verbindung wird in Form einer Import- bzw.
+ Exportschnitstelle hergestellt, die jedoch in der ersten Software-Version
+ nur vorhergesehen und beim Entwurf berücksichtigt wird.
+ Eine spätere Implementierung ist jedoch denkbar und in Zukunft vom Kunden
+ auch ausdrücklich erwünscht.
 \end_layout
 
 \begin_layout Section
@@ -378,7 +371,40 @@ aidGer
 \end_layout
 
 \begin_layout Itemize
-..
+Verwaltung von Stammdaten: Veranstaltungen, Hilfskräfte, Finanzpläne, Stundenlöh
+ne
+\end_layout
+
+\begin_layout Itemize
+Anzeige von berechneten Daten: Budget aller Veranstaltungen (Budgetprüfung),
+ alle Beschäftigungen mit zugehörigem Vertrag, aggregierte Anzeigen wie
+ beispielsweise alle Vorgänge zu mehreren Hilfskräften oder Veranstaltungen
+\end_layout
+
+\begin_layout Itemize
+Buchung von Beschäftigungen mit Warnhinweisen bei bestimmten Ereignissen
+\end_layout
+
+\begin_layout Itemize
+Erfassung aller Vorgänge, die getätigt werden
+\end_layout
+
+\begin_layout Itemize
+Erleichterung des Controllings der Abrechnungen bzw.
+ Auszugslisten (Monatsauszug)
+\end_layout
+
+\begin_layout Itemize
+Generation möglichst vieler PDF-Berichte (Reporting)
+\end_layout
+
+\begin_layout Itemize
+Unterstützung bei der Benachrichtung mehrerer Hilfskräfte (Massenerfassung
+ von Vorgängen)
+\end_layout
+
+\begin_layout Itemize
+Tagesprotokoll über alle Vorgänge
 \end_layout
 
 \begin_layout Standard
@@ -387,10 +413,10 @@ Diese Funktionen sollen für alle Benutzer leicht erlernbar, effizient und
 \end_layout
 
 \begin_layout Section
-Annahmen und Abhängigkeiten
+Benutzerprofile
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Annahmen-und-Abhängigkeiten"
+name "sec:Benutzerprofile"
 
 \end_inset
 
@@ -398,29 +424,30 @@ name "sec:Annahmen-und-Abhängigkeiten"
 \end_layout
 
 \begin_layout Standard
-Bei der Spezifikation wurde von folgenden externen Einflussfaktoren ausgegangen:
-\end_layout
+Die Software wird ausschließlich von den Mitarbeitern der Hilfskraftmittelverwal
+tung des Institutsverbund für Informatik bedient.
+ Daher sind diese die einzige Benutzergruppe, die für die Software vorgesehen
+ werden muss.
+ Sie haben ein fundiertes Wissen über alle Bereiche der Hilfskraftmittelverwaltu
+ng und haben folglich alle Funktionen, die 
+\begin_inset Quotes gld
+\end_inset
 
-\begin_layout Itemize
-Da von unbezahlten Hilfskräften ausgeführt, besteht kein Geldmangel.
- 
-\end_layout
+aidGer
+\begin_inset Quotes grd
+\end_inset
 
-\begin_layout Itemize
-Das System soll eine möglichst lange Lebensdauer haben und muss deshalb
- möglichst flexibel sein.
- 
-\end_layout
-
-\begin_layout Itemize
-Es stehen genügend Filmbesitzer als Tester zur Verfügung 
+ bietet, bereits im alten System oder auf Papier durchgeführt.
+ Fundierte Kenntnisse im Software Engineering können von den Mitarbeitern
+ nicht angenommen werden, da nicht klar ist, welche Abteilung die Hilfskraftmitt
+elverwaltung in ferner Zukunft übernimmt.
 \end_layout
 
 \begin_layout Section
-Entwurfseinschränkungen
+Einschränkungen
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Entwurfseinschränkungen"
+name "sec:Einschränkungen"
 
 \end_inset
 
@@ -456,38 +483,21 @@ er zu starten, wird eine entsprechende Meldung dem Benutzer angezeigt.
 
 Zur Darstellung von Klassendiagrammen oder ähnlichen Diagrammen, die während
  des Entwurfs entstehen, soll UML benutzt werden.
-\end_layout
-
-\begin_layout Section
-Externe Schnittstellen
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Externe-Schnittstellen"
-
+\begin_inset Newline newline
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Der 
-\begin_inset Quotes gld
+\begin_inset Newline newline
 \end_inset
 
-aidGer
-\begin_inset Quotes grd
-\end_inset
-
- benötigt eine Schnittstelle zur verwendeten Datenbank.
- Diese wird durch die Bibliothek AdoHive zur Verfügung gestellt.
- Zudem wird eine Verbindung mit dem bereits vorhandenen Ticketsystem benötigt.
+Durch den Zeitplan ist ein Prozessmodel bereits vorgegeben.
 \end_layout
 
 \begin_layout Chapter
-Anforderungen an die Funktion
+Anforderungen
 \begin_inset CommandInset label
 LatexCommand label
-name "cha:Anforderungen-an-die"
+name "cha:Anforderungen"
 
 \end_inset
 
@@ -495,8 +505,7 @@ name "cha:Anforderungen-an-die"
 \end_layout
 
 \begin_layout Standard
-In diesem Kapitel werden die funktionalen Anforderungen an das System im
- Detail beschrieben.
+In diesem Kapitel werden die Anforderungen an das System im Detail beschrieben.
 \end_layout
 
 \begin_layout Section
@@ -511,18 +520,14 @@ name "sec:Leistungsanforderungen"
 \end_layout
 
 \begin_layout Standard
-Da das Programm auf dem Computer des Benutzers verwendet wird, sollte es
- andere Programme oder das Betriebssystem nicht behindern und alle Funktionen
- in möglichst geringer Zeit (
+Da das Programm auf dem Server des Benutzers verwendet wird, darf es andere
+ Programme oder das Betriebssystem nicht behindern.
+ Darüber hinaus soll die Software alle Funktionen in möglichst geringer
+ Zeit (
 \begin_inset Formula $<$
 \end_inset
 
- 2 Sekunden) ausführen.
-\end_layout
-
-\begin_layout Standard
-Ausnahmen können hierbei der Export oder das Abspeichern sehr grosser Sammlungen
- darstellen.
+ 5 Sekunden) ausführen.
 \end_layout
 
 \begin_layout Section
@@ -542,15 +547,865 @@ Folgende Kenngrößen sind für das System relevant:
 
 \begin_layout Itemize
 Das Programm ist eine Einzelplatzanwendung ohne Netzwerkfunktionalität und
- wird daher stets von einem Anwender bedient.
+ wird daher stets von einem Anwender bedient
+\end_layout
+
+\begin_layout Itemize
+Das Programm wird in der Regel von maximal 3 verschiedenen Anwendern bedient.
+ Daher sind gleichzeitige Zugriffe auf die Datenbank von mehreren Rechnern
+ zu vernachlässigen
+\end_layout
+
+\begin_layout Itemize
+Jährlich gibt es ungefähr 70 Hilfskräfte für durchschnittlich 30 Veranstaltungen
+\end_layout
+
+\begin_layout Itemize
+Mehr als 200 Hilfskräfte und 50 Veranstaltungen pro Jahr sind im Normalfall
+ unwahrscheinlich
+\end_layout
+
+\begin_layout Itemize
+Von den Hilfskräften sind ca.
+ 70 bis 80% Stammpersonal, d.h.
+ für diese müssen keine Neueinstellung vorgenommen werden, da sie bereits
+ als Hilfskraft im vorherigen Jahr tätig waren
 \end_layout
 
 \begin_layout Section
-Anforderung: 
+Funktionale Anforderungen
 \end_layout
 
 \begin_layout Standard
-..
+Im Folgenden sind alle Anforderungen an die Funktion von 
+\begin_inset Quotes gld
+\end_inset
+
+aidGer
+\begin_inset Quotes grd
+\end_inset
+
+ aufgelistet und detailliert beschrieben.
+\end_layout
+
+\begin_layout Subsection
+Stammdatenverwaltung
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Stammdatenverwaltung"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es müssen die folgenden Stammdaten angelegt, geändert und gelöscht werden
+ können:
+\end_layout
+
+\begin_layout Itemize
+Veranstaltungen
+\end_layout
+
+\begin_layout Itemize
+Hilfskräfte
+\end_layout
+
+\begin_layout Itemize
+Finanzpläne
+\end_layout
+
+\begin_layout Itemize
+Stundenlöhne
+\end_layout
+
+\begin_layout Standard
+Löschen von Stammdaten soll nur dann möglich sein, wenn sie nicht mehr referenzi
+ert werden.
+ Die Eingabe der Stammdaten muss bei der Erfassung überprüft werden, so
+ dass bei bestimmten Ereignissen der Benutzer gewarnt werden kann (siehe
+ hierzu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Budgetmanagement"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Mitteilungen"
+
+\end_inset
+
+).
+ Das Ändern von Stammdaten soll jederzeit möglich sein.
+\end_layout
+
+\begin_layout Subsubsection
+Erfassung von Veranstaltungen
+\end_layout
+
+\begin_layout Standard
+Die folgenden Informationen müssen für jede Veranstaltung erfasst werden:
+ Bezeichnung, Semester, Dozent, Klassifizierung, Gruppenanzahl, Zielpublikum,
+ HKS, Umfang, Teil, Gruppe, Bemerkung, genehmigte HKS, Finanzkategorie.
+\end_layout
+
+\begin_layout Subsubsection
+Erfassung von Hilfskräften
+\end_layout
+
+\begin_layout Standard
+Die folgenden Informationen müssen für jede Hilfskraft erfasst werden: Vorname,
+ Nachname, Stundenlohn, Studimail, Handicap, Qualifikation.
+\end_layout
+
+\begin_layout Subsubsection
+Erfassung von Finanzplänen
+\end_layout
+
+\begin_layout Standard
+Die folgenden Informationen müssen für jeden Finanzplan erfasst werden:
+ Finanzkategorie, Jahr, Plankostenhaushalt.
+\end_layout
+
+\begin_layout Subsubsection
+Erfassung von Stundenlöhne
+\end_layout
+
+\begin_layout Standard
+Die folgenden Informationen müssen für jeden Stundenlohn erfasst werden:
+ Qualifikation, Zeitpunkt, Lohn.
+\end_layout
+
+\begin_layout Subsection
+Anzeige des Budgets für Budgetprüfung
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Anzeige-des-Budgets"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das Budget aller Veranstaltungen soll für die Budgetprüfung tabellarisch
+ dargestellt werden.
+ Dabei soll für jede Veranstaltung angezeigt werden, wie viele Hilfskraftstunden
+ (HKS) eingeplant und wie viele davon bereits tatsächlich gebucht sind.
+\end_layout
+
+\begin_layout Subsection
+Anzeige aller Beschäftigungen
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Anzeige-aller-Beschäftigungen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Alle gebuchten Beschäftigungen sollen übersichtlich und tabellarisch angezeigt
+ werden.
+ Im Detail müssen die folgenden Informationen für eine Beschäftigung dargestellt
+ werden:
+\end_layout
+
+\begin_layout Itemize
+Alle Informationen, die bei der Buchung der Beschäftigung erfasst wurden
+ (siehe 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Buchung-von-Beschäftigungen"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+Der zugehörige Vertrag
+\end_layout
+
+\begin_layout Itemize
+Alle Vorgänge, die für die Beschäftigung erfasst wurden (siehe auch 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Aggregierte-Anzeigen"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Subsection
+Aggregierte Anzeigen
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Aggregierte-Anzeigen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die folgenden Informationen muss das System dem Benutzer liefern können:
+\end_layout
+
+\begin_layout Itemize
+Anzeige, für welche Veranstaltung eine Hilfskraft momentan arbeitet bzw.
+ in der Vergangenheit gearbeitet hat, und allgemein welche Vorgänge mit
+ dieser Hilfskraft zusammenhängen (siehe auch 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Tätigkeitsnachweis"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+Anzeige, welche Hilfskräfte für eine Veranstaltung mit wie vielen Stunden
+ jeweils gebucht sind.
+ Dabei soll auch das insgesamte verfügbare Budget für diese Veranstaltung
+ und das bisher verbrauchte bzw.
+ eingeplante angezeigt werden.
+\end_layout
+
+\begin_layout Subsection
+Tätigkeitsnachweis
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Tätigkeitsnachweis"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es sollen Tätigkeitsnachweise (offizielle Schreiben) für Hilfskräfte generiert
+ werden können.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Die folgenden Daten sollen dabei in einer Tabelle pro Beschäftigung aufgelistet
+ werden:
+\end_layout
+
+\begin_layout Itemize
+Beschäftigungszeitraum (nach Möglichkeit auf den Tag genau)
+\end_layout
+
+\begin_layout Itemize
+Veranstaltung
+\end_layout
+
+\begin_layout Itemize
+Umfang
+\end_layout
+
+\begin_layout Subsection
+Buchung von Beschäftigungen
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Buchung-von-Beschäftigungen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es müssen Beschäftigungen von Hilfskräften erstellt werden können.
+ Dabei ist es Pflicht, die folgenden Angaben zu erfassen:
+\end_layout
+
+\begin_layout Itemize
+Zeitraum
+\end_layout
+
+\begin_layout Itemize
+Anzahl der Stunden für jeden Monat
+\end_layout
+
+\begin_layout Itemize
+Fonds
+\end_layout
+
+\begin_layout Itemize
+Hilfskraft
+\end_layout
+
+\begin_layout Itemize
+Veranstaltung
+\end_layout
+
+\begin_layout Itemize
+Realkosten
+\end_layout
+
+\begin_layout Itemize
+Bemerkung
+\end_layout
+
+\begin_layout Itemize
+Kostenstelle
+\end_layout
+
+\begin_layout Standard
+Es müssen Vertragsdaten von Hilfskräften festgehalten werden.
+ Dabei werden die folgenden Angaben zum Eingeben verpflichtet:
+\end_layout
+
+\begin_layout Itemize
+Beschäftigungsbeginn
+\end_layout
+
+\begin_layout Itemize
+Beschäftigungsende
+\end_layout
+
+\begin_layout Itemize
+Anzahl Stunden pro Monat
+\end_layout
+
+\begin_layout Itemize
+Fonds
+\end_layout
+
+\begin_layout Itemize
+Art des Vertrags (Neuvertrag, Aufstockung)
+\end_layout
+
+\begin_layout Standard
+Bei folgenden Ereignissen sollen (
+\begin_inset Quotes pld
+\end_inset
+
+softe
+\begin_inset Quotes prd
+\end_inset
+
+) Warnungen ausgegeben werden:
+\end_layout
+
+\begin_layout Itemize
+Bei Budgetüberschreitungen, d.h.
+ die eingeplanten HKS einer Veranstaltung sind größer als die verfügbaren
+ HKS
+\end_layout
+
+\begin_layout Itemize
+Bei überlappenden Verträgen in einem Zeitraum
+\end_layout
+
+\begin_layout Itemize
+Wenn eine Hilfskraft mit einem Vertrag insgesammt mehr als 6 Jahre beschäftigt
+ wäre
+\end_layout
+
+\begin_layout Standard
+Es müssen Beschäftigungen einzeln gelöscht werden können (siehe auch 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Stammdatenverwaltung"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+Erfassung von Vorgängen
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Erfassung-von-Vorgängen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es sollen unter anderem folgende Vorgänge erfasst werden:
+\end_layout
+
+\begin_layout Itemize
+Verwaltung von Arbeitsverträgen
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Die Vertragsdaten von Hilfskräften müssen festgehalten werden können, siehe
+ hierzu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Buchung-von-Beschäftigungen"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Lohnsteuerkartenverwaltung
+\end_layout
+
+\begin_layout Standard
+Bei allen Vorgängen sollen folgende Daten erfasst werden können:
+\end_layout
+
+\begin_layout Itemize
+Datum
+\end_layout
+
+\begin_layout Itemize
+Bearbeiter
+\end_layout
+
+\begin_layout Itemize
+betroffene Hilfskraft
+\end_layout
+
+\begin_layout Itemize
+Bemerkung / Vorgangstext
+\end_layout
+
+\begin_layout Itemize
+Sender / Adressat
+\end_layout
+
+\begin_layout Standard
+Es soll möglich sein, an mehrere Hilfskräfte Nachrichten verschicken zu
+ können, ohne für jede Nachricht einen eigenen Vorgang eröffnen zu müssen
+ (Massenerfassung von Vorgängen).
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Die Vorgänge sollen mit einer Volltextsuche durchsucht werden können.
+\end_layout
+
+\begin_layout Subsection
+Budgetmanagement
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Budgetmanagement"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das Budget steht am Anfang des Semesters, vom Lehrplan vorgegeben, zur Verfügung.
+ Es soll während des Semesters veränderbar sein.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Das Budget von Veranstaltungen soll als verfügbar/gesamt bzw.
+ verbraucht/frei angezeigt werden.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Es sollen alle Beschäftigungen, die damit zusammenhängenden Verträge und
+ der damit zusammenhängenden Vorgänge pro Hilfskraft bzw.
+ pro Veranstaltung angezeigt werden können.
+ (siehe auch 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Anzeige-aller-Beschäftigungen"
+
+\end_inset
+
+)
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Das Budget soll daraufhin überprüft werden können, ob für eine Veranstaltung
+ noch HKS verfügbar sind oder ob die maximale Anzahl überschritten wurde.
+\end_layout
+
+\begin_layout Subsection
+Controlling via Monatsauszug
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Controlling-via-Monatsauszug"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Um das Überprüfen der Auszugslisten zu vereinfachen, muss für jeden Monat
+ eine Tabelle (Monatsauszug) erstellt werden, in welcher zu jeder Hilfskraft
+ die Plankosten netto und brutto aufgelistet sind.
+ Diese Tabelle / Auszug soll komfortabel um den tatsächlichen Lohn ergänzbar
+ sein, so dass die realen Kosten aus den Auszügen mit den Plankosten verglichen
+ werden können.
+ Es sollen zudem Warnungen ausgegeben werden, falls es Abweichungen zwischen
+ Soll und Ist gibt.
+\end_layout
+
+\begin_layout Subsection
+Berichtswesen / Reporting
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Berichtswesen-/-Reporting"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es sollen so viele Berichte wie möglich im PDF-Format erstellt werden können.
+ Dabei sollen die folgenden Berichte auf alle Fälle generiert werden können:
+\end_layout
+
+\begin_layout Itemize
+Jahres- und Semesterbilanz
+\end_layout
+
+\begin_layout Itemize
+Teilberichte von der Bilanz, beispielsweise ein Bericht mit Veranstaltungen
+ eines bestimmten Dozenten
+\end_layout
+
+\begin_layout Itemize
+Tätigkeitsnachweis für eine einzelne Hilfskraft (siehe 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Tätigkeitsnachweis"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+Die bisherigen Aufwendungen sollen als Tabelle bzw.
+ optional auch als Grafik dargestellt werden können.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Es soll eine Möglichkeit vorgesehen werden, um das Aussehen der Berichte
+ nachträglich beeinflussen zu können.
+\end_layout
+
+\begin_layout Subsection
+Mitteilungen
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Mitteilungen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Benachrichtigungen von Hilfskräften
+\end_layout
+
+\begin_layout Standard
+Hilfskräfte sollen über bestimmte Ereignisse, wie z.B.
+ Verfügbarkeit der Lohnabrechnung, informiert werden können.
+\begin_inset Newline newline
+\end_inset
+
+Hierfür soll auch eine Liste mit allen Hilfskräfte und ihren Mails verfügbar
+ sein.
+\end_layout
+
+\begin_layout Subsubsection
+Tägliche Vorgangsübersicht / Protokoll
+\end_layout
+
+\begin_layout Standard
+Am Ende jeden Tages soll eine Übersicht über alle Vorgänge (Protokoll) ausgegebe
+n werden können.
+\end_layout
+
+\begin_layout Subsubsection
+Mitteilungen an Bearbeiter
+\end_layout
+
+\begin_layout Standard
+Die Bearbeiter sollen, z.B.
+ bei Überschreitungen von Stundenzahlen der Hilfskräfte, benachrichtigt
+ werden können.
+\end_layout
+
+\begin_layout Subsection
+Ticket-System
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Ticket-System"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der Anwender soll bei dem grundsätzlichen Ablauf eines Tickets unterstützt
+ werden.
+ Dies bedeutet insbesondere, dass der Benutzer pro versandter und empfangener
+ eMail zusätzlich einen eMail-Vorgang im System anlegen kann, da jede empfangene
+ eMail im Endeffekt ein Vorgang ist.
+ Es sollte darüber hinaus eine mögliche Import- und Exportschnittstelle
+ vorhergesehen werden, über die Vorgänge in Zukunft mit den Tickets des
+ Ticket-Systems verbunden werden können.
+\end_layout
+
+\begin_layout Subsection
+PDF-Export
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:PDF-Export"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Berichte sollen, mit ähnlichem Aussehen wie bisher - mit Optimierungen -
+ im PDF-Format exportiert werden können.
+ Optimierungen sind z.B.
+ die Angabe von Summen.
+\end_layout
+
+\begin_layout Subsection
+Beantwortung von vielen Post-Mitteilungen
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Beantwortung-von-vielen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Um das Beantworten vieler Post-Mitteilungen zu unterstützen, soll eine kleine
+ Hilfe im System integriert werden, die vorgefertigte, kopierfähige Texte
+ generiert und außerdem die zugehörige Vorgänge in einem Rutsch erstellt.
+\end_layout
+
+\begin_layout Subsection
+Datenschutz
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Datenschutz"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hilfskräfte, die zu lange gespeichert sind, sollen anonymisiert werden.
+\end_layout
+
+\begin_layout Subsection
+Generelle Funktionen
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Generell-verfügbare-Funktionen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Eine Hilfe- sowie eine Druckfunktion der Informationen sollen generell zusätzlic
+h zum PDF-Export zur Verfügung stehen.
+\end_layout
+
+\begin_layout Section
+Qualitätsanforderungen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Qualitätsanforderungen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Im Folgenden sind die Anforderungen hinsichtlich der Qualität der Software
+ spezifiziert.
+\end_layout
+
+\begin_layout Subsection
+Robustheit
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Robustheit"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das Programm soll defensiv implementiert werden, jedoch sollen die Eingaben
+ nicht auf logische Konsistenz überprüft werden, da angenommen werden kann,
+ dass der Anwender im eigenen Interesse richtige Eingaben einpflegt.
+ Mutwillige Versuche, das Programm zum Absturz zu bringen, können auch ausgeschl
+ossen werden.
+ Programmfehler sollen jedoch nicht die Integrität der gespeicherten Daten
+ gefährden können.
+ 
+\end_layout
+
+\begin_layout Subsection
+Portabilität
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Portabilität"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das zu entwickelnde Programm soll auf allen Computersystemen lauffähig sein,
+ auf denen eine Java Runtime Environment (der Version 1.5 oder höher) mit
+ angemessener Performanz läuft.
+\end_layout
+
+\begin_layout Subsection
+Erweiterbarkeit
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Erweiterbarkeit"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Das Programm muss zur Einheitlichkeit mit dem Ticket-System eine entsprechende
+ Import- und Exportschnittstelle vorhersehen.
+\end_layout
+
+\begin_layout Itemize
+Die Oberfläche soll auf Deutsch und nach Möglichkeit auf Englisch verfügbar
+ sein.
+ Dabei sollen weitere Sprachen einfach nachrüstbar sein.
+\end_layout
+
+\begin_layout Subsection
+Kompatibilität
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Kompatibilität"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das Programm soll über die Datenbankschnittstelle AdoHive auf die Datenbank
+ zugreifen, wo durch eine Kompatibilität zu AdoHive zwingend notwendig ist.
+\end_layout
+
+\begin_layout Subsection
+Useability
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Useability"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Die Benutzeroberfläche soll übersichtlich, einfach und intuitiv zu bedienen
+ sein.
+\end_layout
+
+\begin_layout Itemize
+Für wichtige Funktionen sollen Shortcuts zur Verfügung stehen.
+\end_layout
+
+\begin_layout Itemize
+Die Benutzeroberfläche soll als Desktopanwendung implementiert werden und
+ sich primär an Monitorgrößen zwischen 1600 x 1200 und 1900 x 1200 Pixeln
+ richten.
+\end_layout
+
+\begin_layout Itemize
+Zur Verwendung des Programms soll keine Authentifizierung notwendig sein.
+\end_layout
+
+\begin_layout Itemize
+Eine Hilfe für den Benutzer muss in das System integriert werden.
+\end_layout
+
+\begin_layout Itemize
+Bei nicht ausgefüllten Feldern sollen keine unnötigen Benachrichtigungen
+ ausgegeben werden.
+\end_layout
+
+\begin_layout Subsection
+Distribution und Installation
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Distribution-und-Installation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Software wird für alle Betriebssysteme mit Java Virtual Machine als
+ installationsfreies Java Archive (JAR) ausgeliefert.
+ Zudem werden gegebenfalls einzelne Betriebssysteme spezielle Programmpakete
+ bereitgestellt, um die Installation zu erleichtern.
 \end_layout
 
 \begin_layout Chapter
@@ -576,6 +1431,360 @@ aidGer
  soll mit Swing erstellt werden und sich in das Erscheinungsbild des Betriebssys
 tems einpassen.
  Die folgenden Mockups zeigen wie sie ungefähr aussehen soll.
+\end_layout
+
+\begin_layout Section
+Programmstart
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Programmstart"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%TODO: Muss noch mehr hingeschrieben werden
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Beim Programmstart wird das Hauptfenster angezeigt.
+ Sollten beim vorherigen Schließen des Programms noch Tabs offen gewesen
+ sein, so wird dem Nutzer die Möglichkeit gegeben diese wieder zu öffnen.
+ Dabei wird versucht soviele Informationen wie möglichst zu erhalten; Eingaben
+ in Formulare gehen dabei jedoch verloren.
+\end_layout
+
+\begin_layout Section
+Titelleiste des Hauptfensters
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Titelleiste-des-Hauptfensters"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In der Titelleiste wird immer der Name der Applikation (
+\begin_inset Quotes gld
+\end_inset
+
+aidGer
+\begin_inset Quotes grd
+\end_inset
+
+) sowie die momentan offene Funktion angezeigt.
+ Dieser Funktionsname stimmt mit dem Titel des Tabs überein.
+ Ein Beispiel dafür wäre 
+\begin_inset Quotes gld
+\end_inset
+
+Stammdatenverwaltung - aidGer
+\begin_inset Quotes grd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Allgemeine Beschreibung des Hauptfensters
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Allgemeine-Beschreibung-des"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename mockup1.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das Hauptfenster ist in zwei Bereiche eingeteilt.
+ Auf der linken Seite befindet sich die Navigationsleiste, in der alle Funktione
+n angezeigt werden und der Benutzer einfach zwischen ihnen wechseln kann.
+ Auf der rechten Seite befindet sich der Inhaltsbereich.
+ Hier wird die aktuell ausgewählte Funktion angezeigt.
+ Im Hintergrund können zudem noch weitere Funktionen offen sein.
+ Diese befinden sich dann in weiteren Tabs.
+ Im Beispiel wäre der 
+\begin_inset Quotes eld
+\end_inset
+
+Neue Tab
+\begin_inset Quotes erd
+\end_inset
+
+ der aktuell geöffnete und 
+\begin_inset Quotes eld
+\end_inset
+
+Vorgänge
+\begin_inset Quotes erd
+\end_inset
+
+ ein sich im Hintergrund befindlicher Tab.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Die Navigationsleiste und der Inhaltsbereich sind durch eine bewegliche,
+ vertikale Leiste getrennt.
+ Dadurch kann die Größe beider Bereiche individuell angepasst werden.
+\end_layout
+
+\begin_layout Subsection
+Verhalten bei Änderung der Fenstergröße
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Verhalten-bei-Änderung"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bei einer Veränderung der Fenstergröße in der Breite wird nur der Inhaltsbereich
+ verändert um mehr Platz für Informationen/Formulare zu bekommen.
+ Die Navigationsleiste wird höchstens so breit wie das breiteste Element
+ in ihr.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Sollte sich die Fenstergröße in der Höhe verändern, ändert sich die Größe
+ beider Elemente gleichmäßig.
+\end_layout
+
+\begin_layout Subsection
+Verhalten bei Auswahl eines Elements in der Navigationsleiste
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Verhalten-bei-Auswahl"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wird vom Benutzer ein Element in der Navigationsleiste mit der linken Maustaste
+ ausgewählt, wird der aktuelle Inhalt des Inhaltsbereichs verworfen und
+ durch den Inhalt des neuen Elements ersetzt.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Sollte der Benutzer jedoch die mittlere Maustaste benutzen um das Element
+ auszuwählen, wird ein neuer Reiter geöffnet und der Inhalt des Elements
+ in diesem neuen Reiter dargestellt.
+ Der aktuelle Reiter bleibt dabei vollständig erhalten, gerät jedoch in
+ den Hintergrund (ist also nicht mehr sichtbar).
+\end_layout
+
+\begin_layout Section
+Navigationselemente
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Navigationselemente"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%TODO: Alle Navigationselemente aufzählen
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Menüleiste
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Menüleiste"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Menüleiste befindet sich unter Windows und Linux unterhalb des Fensterrahmen
+s aber oberhalb der Navigationsleiste und des Inhaltsbereichs.
+ Unter Mac OS X befindet sie sich in einer Leiste unter dem oberen Bildschirmran
+d.
+ 
+\begin_inset Newline newline
+\end_inset
+
+In der folgenden Gliederung dieser Menüleiste sind die obersten Elemente
+ die Hauptelemente und darunter folgende Sublisten die dementsprechenden
+ Menüs die aufklappen sobald man auf das Hauptelement klickt.
+\end_layout
+
+\begin_layout Section
+Programmeinstellungen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Programmeinstellungen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename MockupSettings.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das Einstellungsfenster ist ein modaler Dialog, der über keine Menüleiste
+ verfügt.
+ Ganz unten verfügt er über zwei Buttons.
+ Über den Abbrechen-Button schließt sich das Fenster ohne die Einstellungen
+ zu speichern.
+ Mit Hilfe des Speichern-Buttons werden die Einstellungen vor dem Schließen
+ noch gespeichert.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Es befinden sich folgende Einstellungsmöglichkeiten im Fenster: 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Name
+\series default
+ 
+\begin_inset Newline newline
+\end_inset
+
+Der hier eingetragene Name wird zur Kennzeichnung der Vorgänge benutzt.
+ Das bedeutet das Vorgänge unter diesem Namen ins System eingetragen werden.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+PDF-Anzeiger
+\series default
+ 
+\begin_inset Newline newline
+\end_inset
+
+Pfad zu einem Programm das PDFs anzeigen kann.
+ Der Pfad zur PDF-Datei wird hierbei als Argument für das Programm übergeben.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Berichte automatisch nach Generierung öffnen
+\series default
+ 
+\begin_inset Newline newline
+\end_inset
+
+Wenn aktiviert öffnen sich Berichte direkt nach ihrer Generierung automatisch
+ im unter 
+\begin_inset Quotes eld
+\end_inset
+
+PDF-Anzeiger
+\begin_inset Quotes erd
+\end_inset
+
+ angegeben PDF-Programm oder in dem standardmäßig verwendeten Programm.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Reiter bei Verlassen speichern
+\series default
+ 
+\begin_inset Newline newline
+\end_inset
+
+Wenn aktiviert werden alle geöffneten Reiter gespeichert und beim nächsten
+ Aufruf des Programms wieder geöffnet um dem Nutzer die Weiterführung seiner
+ Arbeit zu erleichtern.
+ 
+\end_layout
+
+\begin_layout Section
+Über-Fenster
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Über-Fenster"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das Über-Fenster enthält den Programmnamen und die Programmversion (sowie
+ das zugehörige Veröffentlichungsdatum), die Namen der Entwickler und einen
+ Verweis auf die Projektwebsite.
 \end_layout
 
 \begin_layout Chapter
@@ -605,27 +1814,54 @@ name "sec:Use-Case-Diagramm"
 
 \end_layout
 
-\begin_layout Section
-Anwendungsfall
+\begin_layout Standard
+..
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength{
+\backslash
+tabcolsep}{8pt} 
+\backslash
+renewcommand{
+\backslash
+arraystretch}{1.5}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Anwendungsfall X
+\end_layout
+
+\begin_layout Standard
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="6" columns="2">
 <features>
-<column alignment="none" valignment="bottom" width="0">
-<column alignment="none" valignment="top" width="10cm">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="10.5cm">
 <row>
-<cell alignment="none" valignment="top" topline="true" leftline="true" usebox="none">
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Name 
+Name
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -636,56 +1872,36 @@ Name
 </cell>
 </row>
 <row>
-<cell alignment="none" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Aktoren 
+Aktoren
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="none" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Benutzer 
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="none" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Vorbedingung 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+Benutzer
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="none" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Regulärer Ablauf 
+Vorbedingung
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -696,40 +1912,64 @@ Regulärer Ablauf
 </cell>
 </row>
 <row>
-<cell alignment="none" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Nachbedingung 
+Regulärer Ablauf
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="none" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Alternative Abläufe 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="none" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Enumerate
 ..
+\end_layout
+
+\begin_layout Enumerate
+..
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nachbedingung
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alternative Abläufe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -764,11 +2004,383 @@ name "sec:Begriffslexikon"
 
 \end_layout
 
+\begin_layout Paragraph*
+Aufstockung
+\end_layout
+
+\begin_layout Standard
+Erweiterung eines Vertrages, so dass die Hilfskraft für mehrere Veranstaltungen
+ eingesetzt werden kann.
+\end_layout
+
+\begin_layout Paragraph*
+Aufwendung, synonym: Lohnverteilung
+\end_layout
+
+\begin_layout Standard
+..
+\end_layout
+
+\begin_layout Paragraph*
+Beschäftigung
+\end_layout
+
+\begin_layout Standard
+Eine Einstellung einer Hilfskraft über einen bestimmten Zeitraum für eine
+ oder mehrere Veranstaltungen.
+\end_layout
+
+\begin_layout Paragraph*
+Bericht
+\end_layout
+
+\begin_layout Standard
+Ein PDF-Dokument zum Überblick über die bisherigen Aufwendungen.
+\end_layout
+
+\begin_layout Paragraph*
+Bilanz
+\end_layout
+
+\begin_layout Standard
+Aufstellung der Plankosten für Veranstaltungen für jede Gruppe.
+\end_layout
+
+\begin_layout Paragraph*
+Budget
+\end_layout
+
+\begin_layout Standard
+Kennzahl der verfügbaren HKS einer Veranstaltung.
+\end_layout
+
+\begin_layout Paragraph*
+Controlling
+\end_layout
+
+\begin_layout Standard
+Die Überprüfung von Abrechnungen auf deren Korrektheit.
+\end_layout
+
+\begin_layout Paragraph*
+Diff-Tabelle
+\end_layout
+
+\begin_layout Standard
+Ein Monatsauzug einer Hilfskraft.
+\end_layout
+
+\begin_layout Paragraph*
+Dozent
+\end_layout
+
+\begin_layout Standard
+Eine Person, die eine Veranstaltung verwaltet.
+\end_layout
+
+\begin_layout Paragraph*
+Finanzkategorie
+\end_layout
+
+\begin_layout Standard
+Einstufung der Beschäftigung nach Kategorien aufgrund unterschiedlicher
+ Vergütungen.
+\end_layout
+
+\begin_layout Paragraph*
+Finanzplan
+\end_layout
+
+\begin_layout Standard
+Zuordnung von Finanzkategorien zu deren Plankostenhaushalt.
+\end_layout
+
+\begin_layout Paragraph*
+Fonds
+\end_layout
+
+\begin_layout Standard
+Verfügbare Kapitalanlagen.
+\end_layout
+
+\begin_layout Paragraph*
+Gruppe
+\end_layout
+
+\begin_layout Standard
+Zuordnung der Veranstaltung zu einem Themengebiet oder Studiengang.
+\end_layout
+
+\begin_layout Paragraph*
+Handicap
+\end_layout
+
+\begin_layout Standard
+..
+\end_layout
+
+\begin_layout Paragraph*
+Haushalt
+\end_layout
+
+\begin_layout Standard
+Einnahmen und Ausgaben.
+\end_layout
+
+\begin_layout Paragraph*
+Hilfskraft
+\end_layout
+
+\begin_layout Standard
+Eine Person, welche am Institutsverbund Informatik eingestellt ist.
+\end_layout
+
+\begin_layout Paragraph*
+HKS
+\end_layout
+
+\begin_layout Standard
+Hilfskraftstunden
+\end_layout
+
+\begin_layout Paragraph*
+Kostenstelle
+\end_layout
+
+\begin_layout Standard
+siehe Fonds
+\end_layout
+
+\begin_layout Paragraph*
+Monatsauszug
+\end_layout
+
+\begin_layout Standard
+Ein Auflistung aller Plankosten der Hilfskräfte.
+\end_layout
+
+\begin_layout Paragraph*
+Plankosten
+\end_layout
+
+\begin_layout Standard
+Im System für einen Zeitraum hinterlegte Kosten.
+\end_layout
+
+\begin_layout Paragraph*
+Plankostenhaushalt
+\end_layout
+
+\begin_layout Standard
+tbd
+\end_layout
+
+\begin_layout Paragraph*
+Protokoll
+\end_layout
+
+\begin_layout Standard
+Eine Tabelle, die alle getätigten Vorgänge für einen Tag enthält.
+\end_layout
+
+\begin_layout Paragraph*
+Qualifikation
+\end_layout
+
+\begin_layout Standard
+Eine Hilfskraft ist entweder geprüft, ungeprüft oder hat ein Bachelor-Abschluss.
+\end_layout
+
+\begin_layout Paragraph*
+Stammdaten
+\end_layout
+
+\begin_layout Standard
+Wesentliche Daten, die bei der Hilfskräfteverwaltung hinterlegt werden müssen.
+\end_layout
+
+\begin_layout Paragraph*
+Stundenlohn
+\end_layout
+
+\begin_layout Standard
+Der Gehalt, den eine Hilfskraft, pro Stunde erhält.
+\end_layout
+
+\begin_layout Paragraph*
+Tätigkeitsnachweis
+\end_layout
+
+\begin_layout Standard
+Ein offizielles Schreiben, welches Informationen über Hilfskräfte enthält.
+\end_layout
+
+\begin_layout Paragraph*
+Teil
+\end_layout
+
+\begin_layout Standard
+Aufspaltung einer Veranstaltung nach mehreren Zielgruppen.
+\end_layout
+
+\begin_layout Paragraph*
+Ticket
+\end_layout
+
+\begin_layout Standard
+Ein Vorgang, der ausschließlich über das Ticket-System verwaltet wird.
+\end_layout
+
+\begin_layout Paragraph*
+Übungsgruppe
+\end_layout
+
+\begin_layout Standard
+Eine Versammlung von Studenten, die von einer Hilfskraft betreut wird.
+\end_layout
+
+\begin_layout Paragraph*
+Umfang
+\end_layout
+
+\begin_layout Standard
+Angabe der benötigten Semesterwochenstunden für eine Veranstaltung.
+\end_layout
+
+\begin_layout Paragraph*
+Veranstaltung
+\end_layout
+
+\begin_layout Standard
+Eine Beschäftigung (Forschung, Praktikum, Lehre), für die ein Dozent verantwortl
+ich ist.
+\end_layout
+
+\begin_layout Paragraph*
+Vertrag
+\end_layout
+
+\begin_layout Standard
+Eine schriftliche Vereinbarung zwischen der Hilfskraft und dem Institutsverbund
+\end_layout
+
+\begin_layout Paragraph*
+Vorgang
+\end_layout
+
+\begin_layout Standard
+Ein Prozess, der beim Verwalten von Hilfskräften anfällt.
+\end_layout
+
 \begin_layout Section
 Versionshistorie
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Versionshistorie"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Version 0.2 (08.03.2010)
+\end_layout
+
+\begin_layout Itemize
+Konkretisierung der Anforderungen
+\end_layout
+
+\begin_layout Itemize
+Verfeinerungen in Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Allgemeine-Beschreibung"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Anforderungen"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Benutzeroberfläche"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Erstellung des Kapitels 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Anwendungsfälle"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Begriffslexikon hinzugefügt und erweitert
+\end_layout
+
+\begin_layout Subsection*
+Version 0.1.1 (07.03.2010)
+\end_layout
+
+\begin_layout Itemize
+Sammeln von Anforderungen und Auflistung der Anforderungen in Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Anforderungen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Erste Mockups und Erklärungen für Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Benutzeroberfläche"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Erstellung des Begriffslexikons
+\end_layout
+
+\begin_layout Subsection*
+Version 0.1 (06.03.2010)
+\end_layout
+
+\begin_layout Itemize
+Erstellung der Grundstruktur dieses Dokuments
+\end_layout
+
+\begin_layout Itemize
+Erstellung des Kapitels 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Einleitung"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Allgemeine-Beschreibung"
 
 \end_inset
 
