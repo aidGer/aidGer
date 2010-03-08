@@ -24,7 +24,7 @@
 \pdf_bookmarksopen false
 \pdf_bookmarksopenlevel 1
 \pdf_breaklinks false
-\pdf_pdfborder false
+\pdf_pdfborder true
 \pdf_colorlinks false
 \pdf_backref false
 \pdf_pdfusetitle true
@@ -246,29 +246,6 @@ Neben einer allgemeinen Beschreibung des Systems sollen die Anforderungen
  Das Dokument endet schließlich mit einem angehängten Begriffslexikon.
 \end_layout
 
-\begin_layout Subsection
-Konventionen
-\end_layout
-
-\begin_layout Standard
-In dieser Spezifikation werden die folgenden Konventionen zur Hervorhebung
- von Begriffen verwendet:
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%TODO: Issue 11
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Chapter
 Allgemeine Beschreibung
 \begin_inset CommandInset label
@@ -297,24 +274,6 @@ Einbettung
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Einbettung"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%TODO: Issue #5
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \end_inset
 
@@ -1418,7 +1377,7 @@ Die Software wird für alle Betriebssysteme mit Java Virtual Machine als
 Benutzeroberfläche
 \begin_inset CommandInset label
 LatexCommand label
-name "cha:Benutzeroberfl=0000E4che"
+name "cha:Benutzeroberfläche"
 
 \end_inset
 
@@ -1440,24 +1399,6 @@ Programmstart
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Programmstart"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-%TODO: Muss noch mehr hingeschrieben werden
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \end_inset
 
@@ -1520,6 +1461,7 @@ name "sec:Allgemeine-Beschreibung-des"
 \end_layout
 
 \begin_layout Standard
+\noindent
 Das Hauptfenster ist in zwei Bereiche eingeteilt.
  Auf der linken Seite befindet sich die Navigationsleiste, in der alle Funktione
 n angezeigt werden und der Benutzer einfach zwischen ihnen wechseln kann.
@@ -1547,11 +1489,11 @@ Vorgänge
 \begin_inset Newline newline
 \end_inset
 
- 
+
 \begin_inset Newline newline
 \end_inset
 
- Die Navigationsleiste und der Inhaltsbereich sind durch eine bewegliche,
+Die Navigationsleiste und der Inhaltsbereich sind durch eine bewegliche,
  vertikale Leiste getrennt.
  Dadurch kann die Größe beider Bereiche individuell angepasst werden.
 \end_layout
@@ -1560,7 +1502,7 @@ Vorgänge
 Verhalten bei Änderung der Fenstergröße
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Verhalten-bei-=0000C4nderung"
+name "sub:Verhalten-bei-=00003D0000C4nderung"
 
 \end_inset
 
@@ -1579,7 +1521,7 @@ Bei einer Veränderung der Fenstergröße in der Breite wird nur der Inhaltsbere
 \begin_inset Newline newline
 \end_inset
 
- Sollte sich die Fenstergröße in der Höhe verändern, ändert sich die Größe
+Sollte sich die Fenstergröße in der Höhe verändern, ändert sich die Größe
  beider Elemente gleichmäßig.
 \end_layout
 
@@ -1602,7 +1544,11 @@ Wird vom Benutzer ein Element in der Navigationsleiste mit der linken Maustaste
 \begin_inset Newline newline
 \end_inset
 
- Sollte der Benutzer jedoch die mittlere Maustaste benutzen um das Element
+
+\begin_inset Newline newline
+\end_inset
+
+Sollte der Benutzer jedoch die mittlere Maustaste benutzen um das Element
  auszuwählen, wird ein neuer Reiter geöffnet und der Inhalt des Elements
  in diesem neuen Reiter dargestellt.
  Der aktuelle Reiter bleibt dabei vollständig erhalten, gerät jedoch in
@@ -1621,29 +1567,12 @@ name "sec:Navigationselemente"
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%TODO: Alle Navigationselemente aufzählen
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 In der folgenden Gliederung der Navigationsleiste sind die obersten Elemente
  die Hauptelemente und darunter folgende Sublisten die dementsprechenden
  Menüs die aufklappen sobald man auf das Hauptelement klickt.
  Nur beim Auswählen der Unterpunkte wird der Inhalt des Inhaltsbereiches
  verändert.
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -1669,40 +1598,30 @@ Stundenlöhne
 
 \end_deeper
 \begin_layout Itemize
-Budgetprüfung 
-\end_layout
-
-\begin_layout Itemize
 Beschäftigungen
 \end_layout
 
 \begin_layout Itemize
-Vorgänge 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Alle anzeigen 
+Vorgänge
 \end_layout
 
 \begin_layout Itemize
-Nach Vorgang suchen 
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Reports 
+Reports
 \end_layout
 
 \begin_layout Itemize
-Controlling 
+Controlling
+\end_layout
+
+\begin_layout Itemize
+Budgetprüfung
 \end_layout
 
 \begin_layout Section
 Menüleiste
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Men=0000FCleiste"
+name "sec:Men=00003D0000FCleiste"
 
 \end_inset
 
@@ -1721,10 +1640,11 @@ d.
  In der folgenden Gliederung dieser Menüleiste sind die obersten Elemente
  die Hauptelemente und darunter folgende Sublisten die dementsprechenden
  Menüs die aufklappen sobald man auf das Hauptelement klickt.
+ 
 \end_layout
 
 \begin_layout Itemize
-Datei 
+Datei
 \end_layout
 
 \begin_deeper
@@ -1749,7 +1669,7 @@ Beenden
 
 \end_deeper
 \begin_layout Itemize
-Hilfe 
+Hilfe
 \end_layout
 
 \begin_deeper
@@ -1778,6 +1698,7 @@ Hauptanzeige
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename MockupVeranstaltungen.png
 
@@ -1787,6 +1708,7 @@ Hauptanzeige
 \end_layout
 
 \begin_layout Standard
+\noindent
 Nach einem Klick auf Stammdatenverwaltung 
 \begin_inset Formula $\rightarrow$
 \end_inset
@@ -1794,6 +1716,7 @@ Nach einem Klick auf Stammdatenverwaltung
  Veranstaltungen wird die Hauptansicht der Stammdatenverwaltung angezeigt.
  Diese besteht aus einer Toolbar am oberen Rand und einer tabellarischen
  Darstellung aller vorhandenen Daten.
+ Zudem gibt es dazwischen noch ein Suchfeld.
  Zu Beginn ist die Tabelle auf einige wichtige Spalten beschränkt.
  Über ein Kontextmenü können jedoch alle verfügbaren Daten in der Tabelle
  angezeigt werden um einen breiten Bildschirm voll auszunützen.
@@ -1801,7 +1724,20 @@ Nach einem Klick auf Stammdatenverwaltung
 \begin_inset Newline newline
 \end_inset
 
- In der Toolbar befinden sich die Buttons 
+
+\begin_inset Newline newline
+\end_inset
+
+Die Suche aktualisiert die Tabelle sobald der erste Buchstabe eingegeben
+ wurde automatisch und ohne das ein Knopf gedrückt werden muss.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+In der Toolbar befinden sich die Buttons 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1852,6 +1788,7 @@ Anzeigen
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename MockupVeranstaltungenAnzeige.png
 
@@ -1861,6 +1798,7 @@ Anzeigen
 \end_layout
 
 \begin_layout Standard
+\noindent
 Hier werden alle vorhandenen Daten zum ausgewählten Datensatz angezeigt.
  Sollte beim Klick auf den 
 \begin_inset Quotes eld
@@ -1876,7 +1814,11 @@ Anzeigen
 \begin_inset Newline newline
 \end_inset
 
- Die Anzeige gliedert sich in zwei Abschnitte.
+
+\begin_inset Newline newline
+\end_inset
+
+Die Anzeige gliedert sich in zwei Abschnitte.
  Im Linken werden alle Daten angezeigt.
  Im Rechten wird die eingestellte Anzahl von Vorgängen (
 \begin_inset CommandInset ref
@@ -1891,7 +1833,11 @@ reference "sec:Programmeinstellungen"
 \begin_inset Newline newline
 \end_inset
 
- Unterhalb dieser Abschnitte befinden sich noch zwei Buttons.
+
+\begin_inset Newline newline
+\end_inset
+
+Unterhalb dieser Abschnitte befinden sich noch zwei Buttons.
  Der 
 \begin_inset Quotes eld
 \end_inset
@@ -1917,6 +1863,7 @@ Bearbeiten
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename MockupVeranstaltungenBearbeiten.png
 
@@ -1926,6 +1873,7 @@ Bearbeiten
 \end_layout
 
 \begin_layout Standard
+\noindent
 Diese Ansicht bietet die Möglichkeit alle Daten eines Datensatzes zu verändern.
  Sollte dieser Dialog über die Hauptansicht aufgerufen werden und kein Eintrag
  selektiert sein, so wird der Nutzer durch eine Fehlermeldung darauf hingewiesen.
@@ -1933,7 +1881,11 @@ Diese Ansicht bietet die Möglichkeit alle Daten eines Datensatzes zu verändern
 \begin_inset Newline newline
 \end_inset
 
- Die Ansicht bietet eine Reihe von Eingabefeldern um die Daten zu verändern.
+
+\begin_inset Newline newline
+\end_inset
+
+Die Ansicht bietet eine Reihe von Eingabefeldern um die Daten zu verändern.
  Unter diesen befinden sich zwei Buttons.
  Der 
 \begin_inset Quotes eld
@@ -1958,7 +1910,11 @@ Abbrechen
 \begin_inset Newline newline
 \end_inset
 
- Beim Speichern werden die eingetragenen Daten auf ihre Korrektheit überprüft.
+
+\begin_inset Newline newline
+\end_inset
+
+Beim Speichern werden die eingetragenen Daten auf ihre Korrektheit überprüft.
  Sollten sich in einem Eingabefeld inkorrekte Daten befinden (zum Beispiel
  ein Name in einem Datumsfeld) so wird der Nutzer darauf hingewiesen und
  kann die Daten erst speichern nachdem alle Daten korrekt sind.
@@ -2010,7 +1966,11 @@ g darauf hingewiesen.
 \begin_inset Newline newline
 \end_inset
 
- Bevor der Eintrag gelöscht wird, wird der Nutzer gefragt ob er diesen Vorgang
+
+\begin_inset Newline newline
+\end_inset
+
+Bevor der Eintrag gelöscht wird, wird der Nutzer gefragt ob er diesen Vorgang
  wirklich durchführen will um das versehentliche Löschen eines Eintrags
  zu verhindern.
 \end_layout
@@ -2027,14 +1987,21 @@ ung darauf hingewiesen.
 \begin_inset Newline newline
 \end_inset
 
- Durch einen Doppelklick auf einen Vorgang wird dieser angezeigt.
+
+\begin_inset Newline newline
+\end_inset
+
+Durch einen Doppelklick auf einen Vorgang wird dieser angezeigt.
 \end_layout
 
 \begin_layout Section
-Programmeinstellungen
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Programmeinstellungen"
+Beschäftigungen
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename MockupBuchungen.png
 
 \end_inset
 
@@ -2042,17 +2009,369 @@ name "sec:Programmeinstellungen"
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
+\noindent
+Bei den Beschäftigungen wird die von der Stammdatenhauptansicht bekannte
+ Form benutzt.
+ Das heisst das sich am oberen Rand eine Toolbar befindet in der es die
+ Funktionen 
+\begin_inset Quotes eld
+\end_inset
 
-\begin_layout Plain Layout
+Anzeigen
+\begin_inset Quotes erd
+\end_inset
 
-%TODO: Einstellung für Anzahl von Vorgängen bei Anzeigen hinzufügen
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Bearbeiten
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Hinzufügen
+\begin_inset Quotes erd
+\end_inset
+
+ und 
+\begin_inset Quotes eld
+\end_inset
+
+Entfernen
+\begin_inset Quotes erd
+\end_inset
+
+ gibt.
+ Darunter befindet sich ein Eingabefeld das zur Suche in der Tabelle dient
+ und letztendlich die Tabelle in der die Daten dargestellt werden.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Die Suche aktualisiert die Tabelle sobald der erste Buchstabe eingegeben
+ wurde automatisch und benötigt keinen Suchknopf.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
+\align left
+Die Ansichten zum Anzeigen, Bearbeiten, Hinzufügen und Entfernen sind größtentei
+ls Äquivalent zu ihren Gegenübern in der Stammdatenverwaltung.
+ 
+\begin_inset Newline newline
+\end_inset
+
 
 \end_layout
+
+\begin_layout Subsection
+Anzeigen
+\end_layout
+
+\begin_layout Standard
+Die normale 
+\begin_inset Quotes eld
+\end_inset
+
+Anzeigen
+\begin_inset Quotes erd
+\end_inset
+
+-Ansicht der Stammdatenverwaltug wird noch um Verweise auf die Hilfskraft
+ und die Veranstaltung erweitert um schnell an wichtige Informationen zu
+ kommen.
+ Zudem werden hier alle wichtigen Vertragsdetails angezeigt.
+\end_layout
+
+\begin_layout Subsection
+Bearbeiten und Hinzufügen
+\end_layout
+
+\begin_layout Standard
+Hier können die Veranstaltungen und Hilfskräfte einfach per Combobox aus
+ den bereits vorhandenen ausgesucht werden sowie über Verweise auf die entsprech
+enden Ansichten schnell hinzugefügt werden.
+\end_layout
+
+\begin_layout Section
+Vorgänge
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename MockupVorgaenge.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+Die 
+\begin_inset Quotes eld
+\end_inset
+
+Vorgänge
+\begin_inset Quotes erd
+\end_inset
+
+-Ansicht ist ebenfalls ähnlich wie die Stammdatenhauptansicht aufgebaut.
+ Am oberen Rand befindet sich eine Toolbar mit 4 Knöpfen 
+\begin_inset Quotes eld
+\end_inset
+
+Anzeigen
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Bearbeiten
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Hinzufügen
+\begin_inset Quotes erd
+\end_inset
+
+ und 
+\begin_inset Quotes eld
+\end_inset
+
+Entfernen
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Darunter befindet sich ein Suchfeld und letztendlich die Tabelle mit allen
+ Vorgängen, standardmäßig sortiert nach dem Zeitpunkt des Vorgangs.
+\begin_inset Newline newline
+\end_inset
+
+ Wird in das Suchfeld etwas hineingeschrieben, wird sofort die Tabelle darunter
+ aktualisiert und es werden nur noch Vorgänge angezeigt, die in einem ihrer
+ Felder mit dem Suchwort beginnen.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+Die Ansichten zum Anzeigen, Bearbeiten, Hinzufügen oder Entfernen entsprechen
+ größtenteils ihren Equivalenten aus der Stammdatenverwaltung.
+ Deshalb werden im Folgenden nur die Unterschiede aufgezeigt.
+\end_layout
+
+\begin_layout Subsection
+Anzeigen
+\end_layout
+
+\begin_layout Standard
+In der 
+\begin_inset Quotes eld
+\end_inset
+
+Anzeigen
+\begin_inset Quotes erd
+\end_inset
+
+-Ansicht befinden sich zusätzlich Verweise um auf die im Vorgang betroffenen
+ Stammdaten einfach zugreifen können.
+ Ein Klick auf einen dieser Verweise öffnet dann zum Beispiel die Anzeige
+ der Hilfskraftdetails in einem neuen Tab.
+\end_layout
+
+\begin_layout Subsection
+Bearbeiten und Hinzufügen
+\end_layout
+
+\begin_layout Standard
+Hier sind die einzigsten Unterschiede das Verweise auf Stammdaten aus Comboboxen
+ ausgesucht werden können um schnellstmöglichst auf diese Zugreifen zu können.
+\end_layout
+
+\begin_layout Section
+Reports
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename MockupReports.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+Die möglichen Berichte die generiert werden können, werden hier in einem
+ Drop-Down-Feld angezeigt.
+ Über den 
+\begin_inset Quotes eld
+\end_inset
+
+Mehr
+\begin_inset Quotes erd
+\end_inset
+
+-Button kann man sich die darunter befindlichen Einstellungsmöglichkeiten
+ einblenden lassen (davor sind diese nicht sichtbar).
+ Nach dem Ausfüllen der Felder kann dann über den 
+\begin_inset Quotes eld
+\end_inset
+
+Generieren
+\begin_inset Quotes erd
+\end_inset
+
+-Button der Bericht generiert werden.
+ Dieser wird dann je nach Einstellung automatisch geöffnet oder kann dann
+ durch einen Klick auf 
+\begin_inset Quotes eld
+\end_inset
+
+Anzeigen
+\begin_inset Quotes erd
+\end_inset
+
+ angezeigt werden.
+ Der 
+\begin_inset Quotes eld
+\end_inset
+
+Schließen
+\begin_inset Quotes erd
+\end_inset
+
+-Button schließt die 
+\begin_inset Quotes eld
+\end_inset
+
+Reports
+\begin_inset Quotes erd
+\end_inset
+
+-Ansicht und kehrt zur vorherigen Ansicht bzw.
+ der 
+\begin_inset Quotes eld
+\end_inset
+
+Neuer Tab
+\begin_inset Quotes erd
+\end_inset
+
+-Ansicht zurück.
+\end_layout
+
+\begin_layout Section
+Controlling
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename MockupControlling.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+Die 
+\begin_inset Quotes eld
+\end_inset
+
+Controlling
+\begin_inset Quotes erd
+\end_inset
+
+-Ansicht ist zweigeteilt.
+ Oben befindet sich die Monatskontrollleiste.
+ Mit ihr kann man zwischen den Monaten hin- und hernavigieren um den gewünschten
+ Monat zu erreichen.
+ Darunter werden für den jeweiligen Monat die entsprechenden geplanten Kosten
+ für alle Hilfskräfte einzeln in tabellarischer Form aufgelistet.
+\end_layout
+
+\begin_layout Section
+Budgetprüfung
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename MockupBudgetPruefung.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+Unter 
+\begin_inset Quotes eld
+\end_inset
+
+Budgetprüfung
+\begin_inset Quotes erd
+\end_inset
+
+ werden alle Veranstaltungen in Tabellenform aufgelistet.
+ Dabei wird jedoch nur die Anzahl der genehmigten HKS, der schon verbrauchten
+ und der noch übrig gebliebenen HKS angezeigt.
+ Veranstaltungen die schon mehr HKS verbraucht haben als eigentlich genehmigt
+ wurden werden zudem rot hinterlegt.
+ So ist sofort ersichtlich wo das Budget schon verbraucht ist und wo noch
+ nicht.
+\end_layout
+
+\begin_layout Section
+Drucken
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Drucken"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zum Drucken wird der von Java bereitgestellte Druckdialog verwendet.
+ Dieser erlaubt zum Beispiel die Einstellung des Druckers und der Anzahl
+ der Kopien.
+\end_layout
+
+\begin_layout Section
+Programmeinstellungen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Programmeinstellungen"
 
 \end_inset
 
@@ -2070,6 +2389,7 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
+\noindent
 Das Einstellungsfenster ist ein modaler Dialog, der über keine Menüleiste
  verfügt.
  Ganz unten verfügt er über zwei Buttons.
@@ -2081,7 +2401,11 @@ Das Einstellungsfenster ist ein modaler Dialog, der über keine Menüleiste
 \begin_inset Newline newline
 \end_inset
 
- Es befinden sich folgende Einstellungsmöglichkeiten im Fenster: 
+
+\begin_inset Newline newline
+\end_inset
+
+Es befinden sich folgende Einstellungsmöglichkeiten im Fenster: 
 \end_layout
 
 \begin_layout Itemize
@@ -2109,6 +2433,20 @@ PDF-Anzeiger
 
  Pfad zu einem Programm das PDFs anzeigen kann.
  Der Pfad zur PDF-Datei wird hierbei als Argument für das Programm übergeben.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Anzahl der Vorgänge
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+ Die Anzahl der Vorgänge die in Detailansichten wie zum Beispiel bei den
+ Stammdaten von Hilfskräften angezeigt werden sollen.
  
 \end_layout
 
@@ -2153,7 +2491,7 @@ Reiter bei Verlassen speichern
 Über-Fenster
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:=0000DCber-Fenster"
+name "sec:Über-Fenster"
 
 \end_inset
 
@@ -2183,7 +2521,7 @@ In diesem Kapitel sollen die wichtigsten Anwendungsfälle des Systems dargestell
 \end_layout
 
 \begin_layout Section
-Use-Case-Diagramm
+Use-Case-Diagram
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Use-Case-Diagramm"
@@ -2194,7 +2532,19 @@ name "sec:Use-Case-Diagramm"
 \end_layout
 
 \begin_layout Standard
-..
+Das Use-Case-Diagram ist auf der nächsten Seite abgebildet.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset External
+	template PDFPages
+	filename Use_Case_Diagram.pdf
+	display false
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2302,7 +2652,15 @@ Hinzufügen
 \end_layout
 
 \begin_layout Enumerate
-Content-Frame wird mit Hinzufügen-Dialog ersetzt
+Content-Frame wird mit 
+\begin_inset Quotes gld
+\end_inset
+
+Hinzufügen
+\begin_inset Quotes grd
+\end_inset
+
+-Dialog ersetzt
 \end_layout
 
 \begin_layout Enumerate
@@ -2322,7 +2680,7 @@ OK
 \end_layout
 
 \begin_layout Enumerate
-Content-Frame geht wieder in den vorherigen Zustand über
+Content-Frame geht in den vorherigen Zustand über
 \end_layout
 
 \end_inset
@@ -2367,7 +2725,7 @@ Alternativer Ablauf:
 \begin_inset Text
 
 \begin_layout Enumerate
-Benutzer gibt erforderliche Daten falsch ein
+Benutzer gibt die erforderlichen Daten falsch ein
 \end_layout
 
 \begin_deeper
@@ -2396,7 +2754,7 @@ OK
 \end_layout
 
 \begin_layout Enumerate
-Content-Frame geht wieder in den vorherigen Zustand über
+Content-Frame geht in den vorherigen Zustand über
 \end_layout
 
 \end_deeper
@@ -2414,7 +2772,7 @@ Abbrechen
 
 \begin_deeper
 \begin_layout Enumerate
-Content-Frame geht wieder in den vorherigen Zustand über
+Content-Frame geht in den vorherigen Zustand über
 \end_layout
 
 \end_deeper
@@ -2543,7 +2901,15 @@ Bearbeiten
 \end_layout
 
 \begin_layout Enumerate
-Content-Frame wird durch den Bearbeiten-Dialog ersetzt
+Content-Frame wird durch den 
+\begin_inset Quotes gld
+\end_inset
+
+Bearbeiten
+\begin_inset Quotes grd
+\end_inset
+
+-Dialog ersetzt
 \end_layout
 
 \begin_layout Enumerate
@@ -2563,7 +2929,7 @@ OK
 \end_layout
 
 \begin_layout Enumerate
-Content-Frame geht wieder in den vorherigen Zustand über
+Content-Frame geht in den vorherigen Zustand über
 \end_layout
 
 \end_inset
@@ -2655,7 +3021,7 @@ OK
 \end_layout
 
 \begin_layout Enumerate
-Content-Frame geht wieder in den vorherigen Zustand über
+Content-Frame geht in den vorherigen Zustand über
 \end_layout
 
 \end_deeper
@@ -2673,7 +3039,7 @@ Abbrechen
 
 \begin_deeper
 \begin_layout Enumerate
-Content-Frame geht wieder in den vorherigen Zustand über
+Content-Frame geht in den vorherigen Zustand über
 \end_layout
 
 \end_deeper
@@ -2769,7 +3135,7 @@ Vorbedingung:
 \begin_inset Text
 
 \begin_layout Plain Layout
-Benutzer befindet sich im Menüpunkt Stammdaten
+Benutzer befindet sich im Menüpunkt Stammdaten.
 \end_layout
 
 \end_inset
@@ -3579,7 +3945,7 @@ Benutzer hat sich über alle Hilfskräfte einer Veranstaltung informiert
 \end_layout
 
 \begin_layout Section
-Tätigkeitsnachweis generieren
+Tätigkeitsnachweis
 \end_layout
 
 \begin_layout Standard
@@ -3596,7 +3962,7 @@ Tätigkeitsnachweis generieren
 \begin_layout Plain Layout
 
 \series bold
-Tätigkeitsnachweis generieren
+Tätigkeitsnachweis
 \end_layout
 
 \end_inset
@@ -3627,7 +3993,7 @@ Vorbedingung:
 \begin_inset Text
 
 \begin_layout Plain Layout
-Benutzer befindet sich im Menüpunkt Reports
+Benutzer befindet sich im Menüpunkt Berichte.
 \end_layout
 
 \end_inset
@@ -3781,7 +4147,7 @@ Abbrechen
 
 \begin_deeper
 \begin_layout Enumerate
-Benutzer kommt zurück in den Berichtsmoduds
+Benutzer kommt zurück in den Berichtsmodus
 \end_layout
 
 \end_deeper
@@ -4177,7 +4543,7 @@ Vorbedingung:
 
 \begin_layout Plain Layout
 Benutzer hat die Beschäftigung korrekt eingetragen und befindet sich im
- Buchungsdialog im Schritt 2.
+ Buchungsdialog bei Schritt 2.
 \end_layout
 
 \end_inset
@@ -4342,7 +4708,7 @@ Die Buchung wurde vollständig mit dem bestehenden Vertrag gespeichert.
 \end_layout
 
 \begin_layout Enumerate
-Benutzer befindet sich weiterhin im Buchungsdialog im Schritt 2 und muss
+Benutzer befindet sich weiterhin im Buchungsdialog bei Schritt 2 und muss
  seine Eingabe korrigieren
 \end_layout
 
@@ -4405,7 +4771,7 @@ Vorbedingung:
 \begin_inset Text
 
 \begin_layout Plain Layout
-Benutzer befindet sich im Menüpunkt Vorgänge
+Benutzer befindet sich im Menüpunkt Vorgänge.
 \end_layout
 
 \end_inset
@@ -4439,7 +4805,15 @@ Vorgang hinzufügen
 \end_layout
 
 \begin_layout Enumerate
-Content-Frame wird durch Hinzufügen-Dialog ersetzt
+Content-Frame wird durch 
+\begin_inset Quotes gld
+\end_inset
+
+Vorgang hinzufügen
+\begin_inset Quotes grd
+\end_inset
+
+-Dialog ersetzt
 \end_layout
 
 \begin_layout Enumerate
@@ -4452,16 +4826,16 @@ Benutzer gibt das Datum ein
 \end_layout
 
 \begin_layout Enumerate
-Benutzer fügt eine oder mehrere Hilfskräfte als betroffene Hilfskraft/Hilfskräft
-e aus einer Liste hinzu
+Benutzer fügt eine oder mehrere Hilfskräfte als betroffene Hilfskraft /
+ Hilfskräfte aus einer Liste hinzu (Massenerfassung von Vorgängen)
 \end_layout
 
 \begin_layout Enumerate
-Benutzer gibt eine Bemerkung/den Vorgangstext ein
+Benutzer gibt eine Bemerkung / den Vorgangstext ein
 \end_layout
 
 \begin_layout Enumerate
-Benutzer gibt den Sender/den Adressat ein
+Benutzer gibt den Sender / den Adressat ein
 \end_layout
 
 \begin_layout Enumerate
@@ -4640,7 +5014,7 @@ Vorbedingung:
 \begin_inset Text
 
 \begin_layout Plain Layout
-Benutzer befindet sich im Menüpunkt Vorgänge
+Benutzer befindet sich im Menüpunkt Vorgänge.
 \end_layout
 
 \end_inset
@@ -4666,7 +5040,15 @@ Benutzer wählt einen Vorgang aus
 \end_layout
 
 \begin_layout Enumerate
-Content-Frame wird durch einen Bearbeiten-Dialog ersetzt
+Content-Frame wird durch den 
+\begin_inset Quotes gld
+\end_inset
+
+Bearbeiten
+\begin_inset Quotes grd
+\end_inset
+
+-Dialog ersetzt
 \end_layout
 
 \begin_layout Enumerate
@@ -4892,7 +5274,7 @@ Vorbedingung:
 \begin_inset Text
 
 \begin_layout Plain Layout
-Benutzer befindet sich im Menüpunkt Vorgänge
+Benutzer befindet sich im Menüpunkt Vorgänge.
 \end_layout
 
 \end_inset
@@ -5113,7 +5495,7 @@ Vorbedingung:
 \begin_inset Text
 
 \begin_layout Plain Layout
-Der Benutzer befindet sich im Menüpunkt Vorgänge
+Der Benutzer befindet sich im Menüpunkt Vorgänge.
 \end_layout
 
 \end_inset
@@ -5275,7 +5657,7 @@ Vorbedingung:
 \begin_inset Text
 
 \begin_layout Plain Layout
-Benutzer befindet sich im Menüpunkt Controlling
+Benutzer befindet sich im Menüpunkt Controlling.
 \end_layout
 
 \end_inset
@@ -5448,7 +5830,7 @@ Vorbedingung:
 \begin_inset Text
 
 \begin_layout Plain Layout
-Benutzer befindet sich im Menüpunkt Reports
+Benutzer befindet sich im Menüpunkt Berichte
 \end_layout
 
 \end_inset
@@ -5474,7 +5856,7 @@ Benutzer wählt die gewünschte Berichtsart aus
 \end_layout
 
 \begin_layout Enumerate
-Benutzer gibt den gewünschte Zeitraum ein
+Benutzer gibt die geforderten Informationen ein
 \end_layout
 
 \begin_layout Enumerate
@@ -5539,7 +5921,7 @@ Alternativer Ablauf:
 \begin_inset Text
 
 \begin_layout Enumerate
-Benutzer gibt ein falsches Jahr ein
+Benutzer gibt falsche Daten ein
 \end_layout
 
 \begin_deeper
@@ -5592,7 +5974,7 @@ Nachbedingung im Sonderfall:
 
 \begin_layout Enumerate
 Bericht wurde generiert, eventuell geöffnet und der Benutzer befindet sich
- weiterhin im Menüpunkt Reports
+ weiterhin im Menüpunkt Berichte
 \end_layout
 
 \end_inset
@@ -5982,6 +6364,10 @@ reference "cha:Anwendungsfälle"
 
 \begin_layout Itemize
 Begriffslexikon hinzugefügt und erweitert
+\end_layout
+
+\begin_layout Itemize
+Use-Case-Diagram erstellt
 \end_layout
 
 \begin_layout Subsection*
