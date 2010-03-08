@@ -680,11 +680,14 @@ Hauptunterschied sind dabei die dort dargestellten Daten und Formulare.
 Nach einem Klick auf Stammdatenverwaltung $\rightarrow$ Veranstaltungen
 wird die Hauptansicht der Stammdatenverwaltung angezeigt. Diese besteht
 aus einer Toolbar am oberen Rand und einer tabellarischen Darstellung
-aller vorhandenen Daten. Zu Beginn ist die Tabelle auf einige wichtige
+aller vorhandenen Daten. Zudem gibt es dazwischen noch ein Suchfeld. 
+Zu Beginn ist die Tabelle auf einige wichtige
 Spalten beschränkt. Über ein Kontextmenü können jedoch alle verfügbaren
 Daten in der Tabelle angezeigt werden um einen breiten Bildschirm
 voll auszunützen. \\
- In der Toolbar befinden sich die Buttons {}``Anzeigen'' zum
+Die Suche aktualisiert die Tabelle sobald der erste Buchstabe eingegeben wurde
+automatisch und ohne das ein Knopf gedrückt werden muss.\\
+In der Toolbar befinden sich die Buttons {}``Anzeigen'' zum
 Anzeigen der Details des momentan ausgewählten Tabelleneintrags, {}``Bearbeiten''
 um die ausgewählte Veranstaltung zu verändern, {}``Hinzufügen''
 um eine neue Veranstaltung hinzuzufügen, {}``Entfernen'' um die
@@ -759,11 +762,36 @@ durch eine Fehlermeldung darauf hingewiesen. \\
 
 \section{Beschäftigungen}
 
+\includegraphics{MockupBuchungen.png}
+
+Bei den Beschäftigungen wird die von der Stammdatenhauptansicht bekannte Form benutzt.
+Das heisst das sich am oberen Rand eine Toolbar befindet in der es die Funktionen
+``Anzeigen'', ``Bearbeiten'', ``Hinzufügen'' und ``Entfernen'' gibt. Darunter
+befindet sich ein Eingabefeld das zur Suche in der Tabelle dient und letztendlich
+die Tabelle in der die Daten dargestellt werden.\\
+Die Suche aktualisiert die Tabelle sobald der erste Buchstabe eingegeben wurde
+automatisch und benötigt keinen Suchknopf.\\
+
+Die Ansichten zum Anzeigen, Bearbeiten, Hinzufügen und Entfernen sind größtenteils
+Äquivalent zu ihren Gegenübern in der Stammdatenverwaltung. \\
+
+\subsection{Anzeigen}
+
+Die normale ``Anzeigen''-Ansicht der Stammdatenverwaltug wird noch um Verweise
+auf die Hilfskraft und die Veranstaltung erweitert um schnell an wichtige Informationen
+zu kommen. Zudem werden hier alle wichtigen Vertragsdetails angezeigt.
+
+\subsection{Bearbeiten und Hinzufügen}
+
+Hier können die Veranstaltungen und Hilfskräfte einfach per Combobox aus den bereits
+vorhandenen ausgesucht werden sowie über Verweise auf die entsprechenden Ansichten
+schnell hinzugefügt werden.
+
 \section{Vorgänge}
 
 \includegraphics{MockupVorgaenge.png}
 
-Die ``Vorgänge''-Ansicht ist ähnlich wie die Stammdatenhauptansicht aufgebaut.
+Die ``Vorgänge''-Ansicht ist ebenfalls ähnlich wie die Stammdatenhauptansicht aufgebaut.
 Am oberen Rand befindet sich eine Toolbar mit 4 Knöpfen ``Anzeigen'', ``Bearbeiten'',
 ``Hinzufügen'' und ``Entfernen''. Darunter befindet sich ein Suchfeld und letztendlich
 die Tabelle mit allen Vorgängen, standardmäßig sortiert nach dem Zeitpunkt des
@@ -848,6 +876,9 @@ werden.
 \item \textbf{PDF-Anzeiger} \\
  Pfad zu einem Programm das PDFs anzeigen kann. Der Pfad zur PDF-Datei
 wird hierbei als Argument für das Programm übergeben. 
+\item \textbf{Anzahl der Vorgänge}\\
+Die Anzahl der Vorgänge die in Detailansichten wie zum Beispiel bei den Stammdaten
+von Hilfskräften angezeigt werden sollen.
 \item \textbf{Berichte automatisch nach Generierung öffnen} \\
  Wenn aktiviert öffnen sich Berichte direkt nach ihrer Generierung
 automatisch im unter {}``PDF-Anzeiger'' angegeben PDF-Programm oder
