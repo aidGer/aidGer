@@ -836,10 +836,6 @@ Veranstaltung
 \end_layout
 
 \begin_layout Itemize
-Realkosten
-\end_layout
-
-\begin_layout Itemize
 Bemerkung
 \end_layout
 
@@ -848,8 +844,48 @@ Kostenstelle
 \end_layout
 
 \begin_layout Standard
+Bei Budgetüberschreitungen, d.h.
+ die gebuchten HKS einer Veranstaltung sind größer als die eingeplanten
+ HKS, soll eine (
+\begin_inset Quotes gld
+\end_inset
+
+softe
+\begin_inset Quotes grd
+\end_inset
+
+) Warnung ausgegeben werden.
+\begin_inset Newline newline
+\end_inset
+
+Es müssen Beschäftigungen einzeln gelöscht werden können (siehe auch 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Stammdatenverwaltung"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+Buchung von Vertragsdaten
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Buchung-von-Vertragsdaten"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Es müssen Vertragsdaten von Hilfskräften festgehalten werden.
  Dabei werden die folgenden Angaben zum Eingeben verpflichtet:
+\end_layout
+
+\begin_layout Itemize
+Hilfskraft
 \end_layout
 
 \begin_layout Itemize
@@ -874,20 +910,14 @@ Art des Vertrags (Neuvertrag, Aufstockung)
 
 \begin_layout Standard
 Bei folgenden Ereignissen sollen (
-\begin_inset Quotes pld
+\begin_inset Quotes gld
 \end_inset
 
 softe
-\begin_inset Quotes prd
+\begin_inset Quotes grd
 \end_inset
 
 ) Warnungen ausgegeben werden:
-\end_layout
-
-\begin_layout Itemize
-Bei Budgetüberschreitungen, d.h.
- die eingeplanten HKS einer Veranstaltung sind größer als die verfügbaren
- HKS
 \end_layout
 
 \begin_layout Itemize
@@ -895,19 +925,8 @@ Bei überlappenden Verträgen in einem Zeitraum
 \end_layout
 
 \begin_layout Itemize
-Wenn eine Hilfskraft mit einem Vertrag insgesammt mehr als 6 Jahre beschäftigt
+Wenn eine Hilfskraft mit einem Vertrag insgesamt mehr als 6 Jahre beschäftigt
  wäre
-\end_layout
-
-\begin_layout Standard
-Es müssen Beschäftigungen einzeln gelöscht werden können (siehe auch 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Stammdatenverwaltung"
-
-\end_inset
-
-).
 \end_layout
 
 \begin_layout Subsection
@@ -1831,7 +1850,7 @@ Anwendungsfall X
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="6" columns="2">
-<features>
+<features islongtable="true">
 <column alignment="left" valignment="top" width="3.5cm">
 <column alignment="left" valignment="top" width="10.5cm">
 <row>
@@ -1985,7 +2004,7 @@ Stammdaten hinzufügen
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="6" columns="2">
-<features>
+<features islongtable="true">
 <column alignment="left" valignment="top" width="3.5cm">
 <column alignment="left" valignment="top" width="10.5cm">
 <row>
@@ -2110,7 +2129,7 @@ Nachbedingung:
 \begin_inset Text
 
 \begin_layout Plain Layout
-Die neuen Stammdaten wurden hinzugefügt und der Benutzer befindet sich weiterhin
+Die neuen Stammdaten wurden hinzugefügt und der Benutzer befindet sich wieder
  in der Stammdatenverwaltung.
 \end_layout
 
@@ -2171,7 +2190,7 @@ Benutzer klickt auf den Button
 \begin_inset Quotes gld
 \end_inset
 
-Abrechen
+Abbrechen
 \begin_inset Quotes grd
 \end_inset
 
@@ -2209,6 +2228,507 @@ Die neuen (fehlerfreien) Stammdaten wurden hinzugefügt und der Benutzer
 
 \begin_layout Enumerate
 Es wurden keine Stammdaten hinzugefügt und der Benutzer befindet sich wieder
+ in der Stammdatenverwaltung
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Stammdaten bearbeiten
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features islongtable="true">
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="10.5cm">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Stammdaten bearbeiten
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vorbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer befindet sich in der Stammdatenverwaltung.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Regulärer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer markiert ein Datum
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Bearbeiten
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Das 
+\begin_inset Quotes gld
+\end_inset
+
+Bearbeiten
+\begin_inset Quotes grd
+\end_inset
+
+-Popup öffnet sich
+\end_layout
+
+\begin_layout Enumerate
+Benutzer ändert die gewünschten Daten
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf 
+\begin_inset Quotes gld
+\end_inset
+
+OK
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Das Popup schließt sich
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Das Datum wurde geändert und der Benutzer befindet sich wieder in der Stammdaten
+verwaltung.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Alternativer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer hat kein Datum markiert und klickt auf 
+\begin_inset Quotes gld
+\end_inset
+
+Bearbeiten
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Fehler wird in der Hinweisleiste angezeigt
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Benutzer gibt erforderliche Daten falsch ein
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Fehlerhafte Felder werden markiert
+\end_layout
+
+\begin_layout Enumerate
+Meldung erscheint, dass markierte Felder korrigiert werden müssen
+\end_layout
+
+\begin_layout Enumerate
+Benutzer korrigiert die fehlerhaften Felder
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+OK
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Das Popup schließt sich
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Abbrechen
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Das Popup schließt sich
+\end_layout
+
+\end_deeper
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung im Sonderfall:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Es wurde kein Datum verändert und der Benutzer befindet sich immer noch
+ in der Stammdatenverwaltung
+\end_layout
+
+\begin_layout Enumerate
+Das Datum wurde verändert und der Benutzer befindet sich wieder in der Stammdate
+nverwaltung
+\end_layout
+
+\begin_layout Enumerate
+Es wurde kein Datum verändert und der Benutzer befindet sich wieder in der
+ Stammdatenverwaltung
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Stammdaten löschen
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features islongtable="true">
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="10.5cm">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Stammdaten löschen
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vorbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer befindet sich in der Stammdatenverwaltung
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Regulärer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer markiert ein Datum
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Löschen
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Das 
+\begin_inset Quotes gld
+\end_inset
+
+Bestätigungs
+\begin_inset Quotes grd
+\end_inset
+
+-Popup öffnet sich
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Ja
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Das Popup schließt sich
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Das Datum wurde gelöscht und der Benutzer befindet sich weiterhin in der
+ Stammdatenverwaltung.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Alternativer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Das Datum wird referenziert
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Fehler wird in der Hinweisleiste angezeigt
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Der Benutzer klickt in dem 
+\begin_inset Quotes gld
+\end_inset
+
+Bestätigungs
+\begin_inset Quotes grd
+\end_inset
+
+-Popup auf 
+\begin_inset Quotes gld
+\end_inset
+
+Nein
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Das Popup schließt sich
+\end_layout
+
+\end_deeper
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung im Sonderfall:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Das Datum wurde nicht gelöscht und der Benutzer befindet sich weiterhin
+ in der Stammdatenverwaltung
+\end_layout
+
+\begin_layout Enumerate
+Das Datum wurde nicht gelöscht und der Benutzer befindet sich weiterhin
  in der Stammdatenverwaltung
 \end_layout
 
@@ -2287,11 +2807,27 @@ Aufstellung der Plankosten für Veranstaltungen für jede Gruppe.
 \end_layout
 
 \begin_layout Paragraph*
+Buchung
+\end_layout
+
+\begin_layout Standard
+Erstellung einer Beschäftigung für eine Hilfskraft.
+\end_layout
+
+\begin_layout Paragraph*
 Budget
 \end_layout
 
 \begin_layout Standard
 Kennzahl der verfügbaren HKS einer Veranstaltung.
+\end_layout
+
+\begin_layout Paragraph*
+Budgetprüfung
+\end_layout
+
+\begin_layout Standard
+Informationen über das gebuchte und eingeplante Budget erlangen.
 \end_layout
 
 \begin_layout Paragraph*
