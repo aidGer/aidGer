@@ -858,6 +858,10 @@ softe
 \begin_inset Newline newline
 \end_inset
 
+
+\begin_inset Newline newline
+\end_inset
+
 Es müssen Beschäftigungen einzeln gelöscht werden können (siehe auch 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1414,7 +1418,7 @@ Die Software wird für alle Betriebssysteme mit Java Virtual Machine als
 Benutzeroberfläche
 \begin_inset CommandInset label
 LatexCommand label
-name "cha:Benutzeroberfläche"
+name "cha:Benutzeroberfl=0000E4che"
 
 \end_inset
 
@@ -1422,12 +1426,8 @@ name "cha:Benutzeroberfläche"
 \end_layout
 
 \begin_layout Standard
-Die Benutzeroberfläche des 
-\begin_inset Quotes gld
-\end_inset
-
-aidGer
-\begin_inset Quotes grd
+Die Benutzeroberfläche des ,,aidGer
+\begin_inset Quotes eld
 \end_inset
 
  soll mit Swing erstellt werden und sich in das Erscheinungsbild des Betriebssys
@@ -1448,7 +1448,7 @@ name "sec:Programmstart"
 
 \begin_layout Standard
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -1484,22 +1484,14 @@ name "sec:Titelleiste-des-Hauptfensters"
 \end_layout
 
 \begin_layout Standard
-In der Titelleiste wird immer der Name der Applikation (
-\begin_inset Quotes gld
-\end_inset
-
-aidGer
-\begin_inset Quotes grd
+In der Titelleiste wird immer der Name der Applikation (,,aidGer
+\begin_inset Quotes eld
 \end_inset
 
 ) sowie die momentan offene Funktion angezeigt.
  Dieser Funktionsname stimmt mit dem Titel des Tabs überein.
- Ein Beispiel dafür wäre 
-\begin_inset Quotes gld
-\end_inset
-
-Stammdatenverwaltung - aidGer
-\begin_inset Quotes grd
+ Ein Beispiel dafür wäre ,,Stammdatenverwaltung - aidGer
+\begin_inset Quotes eld
 \end_inset
 
 .
@@ -1524,7 +1516,7 @@ name "sec:Allgemeine-Beschreibung-des"
 
 \end_inset
 
-
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1555,11 +1547,11 @@ Vorgänge
 \begin_inset Newline newline
 \end_inset
 
-
+ 
 \begin_inset Newline newline
 \end_inset
 
-Die Navigationsleiste und der Inhaltsbereich sind durch eine bewegliche,
+ Die Navigationsleiste und der Inhaltsbereich sind durch eine bewegliche,
  vertikale Leiste getrennt.
  Dadurch kann die Größe beider Bereiche individuell angepasst werden.
 \end_layout
@@ -1568,7 +1560,7 @@ Die Navigationsleiste und der Inhaltsbereich sind durch eine bewegliche,
 Verhalten bei Änderung der Fenstergröße
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Verhalten-bei-Änderung"
+name "sub:Verhalten-bei-=0000C4nderung"
 
 \end_inset
 
@@ -1583,11 +1575,11 @@ Bei einer Veränderung der Fenstergröße in der Breite wird nur der Inhaltsbere
 \begin_inset Newline newline
 \end_inset
 
-
+ 
 \begin_inset Newline newline
 \end_inset
 
-Sollte sich die Fenstergröße in der Höhe verändern, ändert sich die Größe
+ Sollte sich die Fenstergröße in der Höhe verändern, ändert sich die Größe
  beider Elemente gleichmäßig.
 \end_layout
 
@@ -1610,7 +1602,7 @@ Wird vom Benutzer ein Element in der Navigationsleiste mit der linken Maustaste
 \begin_inset Newline newline
 \end_inset
 
-Sollte der Benutzer jedoch die mittlere Maustaste benutzen um das Element
+ Sollte der Benutzer jedoch die mittlere Maustaste benutzen um das Element
  auszuwählen, wird ein neuer Reiter geöffnet und der Inhalt des Elements
  in diesem neuen Reiter dargestellt.
  Der aktuelle Reiter bleibt dabei vollständig erhalten, gerät jedoch in
@@ -1646,11 +1638,71 @@ status collapsed
 
 \end_layout
 
+\begin_layout Standard
+In der folgenden Gliederung der Navigationsleiste sind die obersten Elemente
+ die Hauptelemente und darunter folgende Sublisten die dementsprechenden
+ Menüs die aufklappen sobald man auf das Hauptelement klickt.
+ Nur beim Auswählen der Unterpunkte wird der Inhalt des Inhaltsbereiches
+ verändert.
+\end_layout
+
+\begin_layout Itemize
+Stammdatenverwaltung 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Veranstaltungen 
+\end_layout
+
+\begin_layout Itemize
+Hilfskräfte 
+\end_layout
+
+\begin_layout Itemize
+Finanzpläne 
+\end_layout
+
+\begin_layout Itemize
+Stundenlöhne 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Budgetprüfung 
+\end_layout
+
+\begin_layout Itemize
+Beschäftigungen
+\end_layout
+
+\begin_layout Itemize
+Vorgänge 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Alle anzeigen 
+\end_layout
+
+\begin_layout Itemize
+Nach Vorgang suchen 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Reports 
+\end_layout
+
+\begin_layout Itemize
+Controlling 
+\end_layout
+
 \begin_layout Section
 Menüleiste
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Menüleiste"
+name "sec:Men=0000FCleiste"
 
 \end_inset
 
@@ -1666,9 +1718,316 @@ d.
 \begin_inset Newline newline
 \end_inset
 
-In der folgenden Gliederung dieser Menüleiste sind die obersten Elemente
+ In der folgenden Gliederung dieser Menüleiste sind die obersten Elemente
  die Hauptelemente und darunter folgende Sublisten die dementsprechenden
  Menüs die aufklappen sobald man auf das Hauptelement klickt.
+\end_layout
+
+\begin_layout Itemize
+Datei 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Drucken 
+\end_layout
+
+\begin_layout Itemize
+Einstellungen 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $----------$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Beenden 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Hilfe 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Hilfe 
+\end_layout
+
+\begin_layout Itemize
+Über 
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Stammdatenverwaltung
+\end_layout
+
+\begin_layout Standard
+Die GUI für die Stammdatenverwaltung wird hier am Beispiel der Veranstaltungen
+ gezeigt.
+ Für die anderen Stammdaten ist diese ähnlich bis gleich.
+ Hauptunterschied sind dabei die dort dargestellten Daten und Formulare.
+\end_layout
+
+\begin_layout Subsection
+Hauptanzeige
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename MockupVeranstaltungen.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nach einem Klick auf Stammdatenverwaltung 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ Veranstaltungen wird die Hauptansicht der Stammdatenverwaltung angezeigt.
+ Diese besteht aus einer Toolbar am oberen Rand und einer tabellarischen
+ Darstellung aller vorhandenen Daten.
+ Zu Beginn ist die Tabelle auf einige wichtige Spalten beschränkt.
+ Über ein Kontextmenü können jedoch alle verfügbaren Daten in der Tabelle
+ angezeigt werden um einen breiten Bildschirm voll auszunützen.
+ 
+\begin_inset Newline newline
+\end_inset
+
+ In der Toolbar befinden sich die Buttons 
+\begin_inset Quotes eld
+\end_inset
+
+Anzeigen
+\begin_inset Quotes erd
+\end_inset
+
+ zum Anzeigen der Details des momentan ausgewählten Tabelleneintrags, 
+\begin_inset Quotes eld
+\end_inset
+
+Bearbeiten
+\begin_inset Quotes erd
+\end_inset
+
+ um die ausgewählte Veranstaltung zu verändern, 
+\begin_inset Quotes eld
+\end_inset
+
+Hinzufügen
+\begin_inset Quotes erd
+\end_inset
+
+ um eine neue Veranstaltung hinzuzufügen, 
+\begin_inset Quotes eld
+\end_inset
+
+Entfernen
+\begin_inset Quotes erd
+\end_inset
+
+ um die ausgewählte Veranstaltung zu entfernen und 
+\begin_inset Quotes eld
+\end_inset
+
+Vorgänge
+\begin_inset Quotes erd
+\end_inset
+
+ um direkt zu den Vorgängen der ausgewählten Veranstaltung zu springen.
+ Um einen Tabelleneintrag anzuzeigen kann auch ein Doppelklick auf ihn ausgeführ
+t werden.
+ Per Entf-Taste kann ein Eintrag zudem entfernt werden.
+\end_layout
+
+\begin_layout Subsection
+Anzeigen
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename MockupVeranstaltungenAnzeige.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hier werden alle vorhandenen Daten zum ausgewählten Datensatz angezeigt.
+ Sollte beim Klick auf den 
+\begin_inset Quotes eld
+\end_inset
+
+Anzeigen
+\begin_inset Quotes erd
+\end_inset
+
+-Button jedoch kein Eintrag ausgewählt worden sein, so wird der Nutzer dadurch
+ durch eine Fehlermeldung hingewiesen.
+ 
+\begin_inset Newline newline
+\end_inset
+
+ Die Anzeige gliedert sich in zwei Abschnitte.
+ Im Linken werden alle Daten angezeigt.
+ Im Rechten wird die eingestellte Anzahl von Vorgängen (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Programmeinstellungen"
+
+\end_inset
+
+) zu diesem Datensatz angezeigt.
+ Durch einen Doppelklick auf einen Vorgang wird dieser angezeigt.
+ 
+\begin_inset Newline newline
+\end_inset
+
+ Unterhalb dieser Abschnitte befinden sich noch zwei Buttons.
+ Der 
+\begin_inset Quotes eld
+\end_inset
+
+Schließen
+\begin_inset Quotes erd
+\end_inset
+
+-Button dient hierbei zum Schließen des Fensters und zurückkehren zur letzten
+ Ansicht und der 
+\begin_inset Quotes eld
+\end_inset
+
+Bearbeiten
+\begin_inset Quotes erd
+\end_inset
+
+-Button um die Daten zu verändern.
+\end_layout
+
+\begin_layout Subsection
+Bearbeiten
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename MockupVeranstaltungenBearbeiten.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Diese Ansicht bietet die Möglichkeit alle Daten eines Datensatzes zu verändern.
+ Sollte dieser Dialog über die Hauptansicht aufgerufen werden und kein Eintrag
+ selektiert sein, so wird der Nutzer durch eine Fehlermeldung darauf hingewiesen.
+ 
+\begin_inset Newline newline
+\end_inset
+
+ Die Ansicht bietet eine Reihe von Eingabefeldern um die Daten zu verändern.
+ Unter diesen befinden sich zwei Buttons.
+ Der 
+\begin_inset Quotes eld
+\end_inset
+
+Speichern
+\begin_inset Quotes erd
+\end_inset
+
+-Button speichert die neuen Daten in der Datenbank und schließt die Ansicht,
+ der 
+\begin_inset Quotes eld
+\end_inset
+
+Abbrechen
+\begin_inset Quotes erd
+\end_inset
+
+-Button schließt sie ebenfalls, jedoch ohne die Daten in der Datenbank zu
+ speichern.
+ 
+\begin_inset Newline newline
+\end_inset
+
+ Beim Speichern werden die eingetragenen Daten auf ihre Korrektheit überprüft.
+ Sollten sich in einem Eingabefeld inkorrekte Daten befinden (zum Beispiel
+ ein Name in einem Datumsfeld) so wird der Nutzer darauf hingewiesen und
+ kann die Daten erst speichern nachdem alle Daten korrekt sind.
+\end_layout
+
+\begin_layout Subsection
+Hinzufügen
+\end_layout
+
+\begin_layout Standard
+Die 
+\begin_inset Quotes eld
+\end_inset
+
+Hinzufügen
+\begin_inset Quotes erd
+\end_inset
+
+-Ansicht ist prinzipiell dieselbe wie die 
+\begin_inset Quotes eld
+\end_inset
+
+Bearbeiten
+\begin_inset Quotes erd
+\end_inset
+
+-Ansicht.
+ Einzigster Unterschied ist das sich hier noch keine Daten in den Eingabefeldern
+ befinden und das der 
+\begin_inset Quotes eld
+\end_inset
+
+Speichern
+\begin_inset Quotes erd
+\end_inset
+
+-Button einen neuen Eintrag in der Datenbank anlegt.
+\end_layout
+
+\begin_layout Subsection
+Entfernen
+\end_layout
+
+\begin_layout Standard
+Beim Löschen wird der momentan ausgewählte Eintrag in der Tabelle entfernt.
+ Sollte kein Eintrag ausgewählt sein, so wird der Nutzer durch eine Fehlermeldun
+g darauf hingewiesen.
+ 
+\begin_inset Newline newline
+\end_inset
+
+ Bevor der Eintrag gelöscht wird, wird der Nutzer gefragt ob er diesen Vorgang
+ wirklich durchführen will um das versehentliche Löschen eines Eintrags
+ zu verhindern.
+\end_layout
+
+\begin_layout Subsection
+Vorgänge
+\end_layout
+
+\begin_layout Standard
+Hier wird eine Liste aller Vorgänge zu dem ausgewählten Datensatz angezeigt.
+ Sollte kein Datensatz ausgewählt sein, so wird der Nutzer durch eine Fehlermeld
+ung darauf hingewiesen.
+ 
+\begin_inset Newline newline
+\end_inset
+
+ Durch einen Doppelklick auf einen Vorgang wird dieser angezeigt.
 \end_layout
 
 \begin_layout Section
@@ -1683,13 +2042,31 @@ name "sec:Programmeinstellungen"
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%TODO: Einstellung für Anzahl von Vorgängen bei Anzeigen hinzufügen
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \align center
 \begin_inset Graphics
 	filename MockupSettings.png
 
 \end_inset
 
-
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1704,7 +2081,7 @@ Das Einstellungsfenster ist ein modaler Dialog, der über keine Menüleiste
 \begin_inset Newline newline
 \end_inset
 
-Es befinden sich folgende Einstellungsmöglichkeiten im Fenster: 
+ Es befinden sich folgende Einstellungsmöglichkeiten im Fenster: 
 \end_layout
 
 \begin_layout Itemize
@@ -1716,7 +2093,7 @@ Name
 \begin_inset Newline newline
 \end_inset
 
-Der hier eingetragene Name wird zur Kennzeichnung der Vorgänge benutzt.
+ Der hier eingetragene Name wird zur Kennzeichnung der Vorgänge benutzt.
  Das bedeutet das Vorgänge unter diesem Namen ins System eingetragen werden.
  
 \end_layout
@@ -1730,7 +2107,7 @@ PDF-Anzeiger
 \begin_inset Newline newline
 \end_inset
 
-Pfad zu einem Programm das PDFs anzeigen kann.
+ Pfad zu einem Programm das PDFs anzeigen kann.
  Der Pfad zur PDF-Datei wird hierbei als Argument für das Programm übergeben.
  
 \end_layout
@@ -1744,7 +2121,7 @@ Berichte automatisch nach Generierung öffnen
 \begin_inset Newline newline
 \end_inset
 
-Wenn aktiviert öffnen sich Berichte direkt nach ihrer Generierung automatisch
+ Wenn aktiviert öffnen sich Berichte direkt nach ihrer Generierung automatisch
  im unter 
 \begin_inset Quotes eld
 \end_inset
@@ -1766,7 +2143,7 @@ Reiter bei Verlassen speichern
 \begin_inset Newline newline
 \end_inset
 
-Wenn aktiviert werden alle geöffneten Reiter gespeichert und beim nächsten
+ Wenn aktiviert werden alle geöffneten Reiter gespeichert und beim nächsten
  Aufruf des Programms wieder geöffnet um dem Nutzer die Weiterführung seiner
  Arbeit zu erleichtern.
  
@@ -1776,7 +2153,7 @@ Wenn aktiviert werden alle geöffneten Reiter gespeichert und beim nächsten
 Über-Fenster
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Über-Fenster"
+name "sec:=0000DCber-Fenster"
 
 \end_inset
 
@@ -2769,8 +3146,8 @@ Aufstockung
 \end_layout
 
 \begin_layout Standard
-Erweiterung eines Vertrages, so dass die Hilfskraft für mehrere Veranstaltungen
- eingesetzt werden kann.
+Erweiterung eines Vertrages, so dass die Hilfskraft für mehrere Veranstaltungen,
+ aus verschiedenen Fonds finanziert, verwendet werden kann.
 \end_layout
 
 \begin_layout Paragraph*
@@ -3050,6 +3427,8 @@ Vertrag
 
 \begin_layout Standard
 Eine schriftliche Vereinbarung zwischen der Hilfskraft und dem Institutsverbund.
+ Kann aus mehreren Beschäftigungen bestehen, falls diese aus dem gleichen
+ Fonds finanziert werden.
 \end_layout
 
 \begin_layout Paragraph*

@@ -1,4 +1,4 @@
-%% LyX 1.6.4 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 1.6.5 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[12pt,oneside,ngerman]{scrbook}
 \usepackage{ae,aecompl}
@@ -9,6 +9,7 @@
 \usepackage{babel}
 
 \usepackage{array}
+\usepackage{longtable}
 \usepackage{graphicx}
 \usepackage[unicode=true, pdfusetitle,
  bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
@@ -225,11 +226,8 @@ werden können:
 \item Stundenlöhne
 \end{itemize}
 Löschen von Stammdaten soll nur dann möglich sein, wenn sie nicht
-mehr referenziert werden. Die Eingabe der Stammdaten muss bei der
-Erfassung überprüft werden, so dass bei bestimmten Ereignissen der
-Benutzer gewarnt werden kann (siehe hierzu \ref{sub:Budgetmanagement}
-und \ref{sub:Mitteilungen}). Das Ändern von Stammdaten soll jederzeit
-möglich sein.
+mehr referenziert werden. Das Hinzufügen und Ändern von Stammdaten
+soll jederzeit möglich sein.
 
 
 \subsubsection{Erfassung von Veranstaltungen}
@@ -315,31 +313,36 @@ Dabei ist es Pflicht, die folgenden Angaben zu erfassen:
 \item Fonds
 \item Hilfskraft
 \item Veranstaltung
-\item Realkosten
 \item Bemerkung
 \item Kostenstelle
 \end{itemize}
+Bei Budgetüberschreitungen, d.h. die gebuchten HKS einer Veranstaltung
+sind größer als die eingeplanten HKS, soll eine (,,softe{}``) Warnung
+ausgegeben werden.\\
+\\
+Es müssen Beschäftigungen einzeln gelöscht werden können (siehe
+auch \ref{sub:Stammdatenverwaltung}).
+
+
+\subsection{Buchung von Vertragsdaten\label{sub:Buchung-von-Vertragsdaten}}
+
 Es müssen Vertragsdaten von Hilfskräften festgehalten werden. Dabei
 werden die folgenden Angaben zum Eingeben verpflichtet:
 \begin{itemize}
+\item Hilfskraft
 \item Beschäftigungsbeginn
 \item Beschäftigungsende
 \item Anzahl Stunden pro Monat
 \item Fonds
 \item Art des Vertrags (Neuvertrag, Aufstockung)
 \end{itemize}
-Bei folgenden Ereignissen sollen (,,softe'') Warnungen ausgegeben
+Bei folgenden Ereignissen sollen (,,softe{}``) Warnungen ausgegeben
 werden:
 \begin{itemize}
-\item Bei Budgetüberschreitungen, d.h. die eingeplanten HKS einer Veranstaltung
-sind größer als die verfügbaren HKS
 \item Bei überlappenden Verträgen in einem Zeitraum
-\item Wenn eine Hilfskraft mit einem Vertrag insgesammt mehr als 6 Jahre
+\item Wenn eine Hilfskraft mit einem Vertrag insgesamt mehr als 6 Jahre
 beschäftigt wäre
 \end{itemize}
-Es müssen Beschäftigungen einzeln gelöscht werden können (siehe auch
-\ref{sub:Stammdatenverwaltung}).
-
 
 \subsection{Erfassung von Vorgängen\label{sub:Erfassung-von-Vorg=0000E4ngen}}
 
@@ -365,7 +368,8 @@ Es soll möglich sein, an mehrere Hilfskräfte Nachrichten verschicken
 zu können, ohne für jede Nachricht einen eigenen Vorgang eröffnen
 zu müssen (Massenerfassung von Vorgängen).\\
 \\
-Die Vorgänge sollen mit einer Volltextsuche durchsucht werden können.
+Die Vorgänge sollen mit einer Volltextsuche durchsucht werden
+können.
 
 
 \subsection{Budgetmanagement\label{sub:Budgetmanagement}}
@@ -373,8 +377,8 @@ Die Vorgänge sollen mit einer Volltextsuche durchsucht werden können.
 Das Budget steht am Anfang des Semesters, vom Lehrplan vorgegeben,
 zur Verfügung. Es soll während des Semesters veränderbar sein.\\
 \\
-Das Budget von Veranstaltungen soll als verfügbar/gesamt bzw. verbraucht/frei
-angezeigt werden.\\
+Das Budget von Veranstaltungen soll als verfügbar/gesamt bzw.
+verbraucht/frei angezeigt werden.\\
 \\
 Es sollen alle Beschäftigungen, die damit zusammenhängenden Verträge
 und der damit zusammenhängenden Vorgänge pro Hilfskraft bzw. pro Veranstaltung
@@ -536,11 +540,11 @@ gegebenfalls einzelne Betriebssysteme spezielle Programmpakete bereitgestellt,
 um die Installation zu erleichtern.
 
 
-\chapter{Benutzeroberfläche\label{cha:Benutzeroberfl=0000E4che}}
+\chapter{Benutzeroberfläche\label{cha:Benutzeroberfl=00003D0000E4che}}
 
-Die Benutzeroberfläche des ,,aidGer{}`` soll mit Swing erstellt
-werden und sich in das Erscheinungsbild des Betriebssystems einpassen.
-Die folgenden Mockups zeigen wie sie ungefähr aussehen soll.
+Die Benutzeroberfläche des ,,aidGer{}`` soll mit Swing erstellt werden
+und sich in das Erscheinungsbild des Betriebssystems einpassen. Die
+folgenden Mockups zeigen wie sie ungefähr aussehen soll.
 
 
 \section{Programmstart\label{sec:Programmstart}}
@@ -566,7 +570,7 @@ stimmt mit dem Titel des Tabs überein. Ein Beispiel dafür wäre ,,Stammdatenve
 \section{Allgemeine Beschreibung des Hauptfensters\label{sec:Allgemeine-Beschreibung-des}}
 
 \begin{center}
-\includegraphics[scale=0.75]{mockup1}
+\includegraphics[scale=0.75]{mockup1} 
 \par\end{center}
 
 Das Hauptfenster ist in zwei Bereiche eingeteilt. Auf der linken Seite
@@ -577,20 +581,20 @@ aktuell ausgewählte Funktion angezeigt. Im Hintergrund können zudem
 noch weitere Funktionen offen sein. Diese befinden sich dann in weiteren
 Tabs. Im Beispiel wäre der {}``Neue Tab'' der aktuell geöffnete
 und {}``Vorgänge'' ein sich im Hintergrund befindlicher Tab.\\
-\\
-Die Navigationsleiste und der Inhaltsbereich sind durch eine bewegliche,
-vertikale Leiste getrennt. Dadurch kann die Größe beider Bereiche
-individuell angepasst werden.
+ \\
+ Die Navigationsleiste und der Inhaltsbereich sind durch eine
+bewegliche, vertikale Leiste getrennt. Dadurch kann die Größe beider
+Bereiche individuell angepasst werden.
 
 
-\subsection{Verhalten bei Änderung der Fenstergröße\label{sub:Verhalten-bei-=0000C4nderung}}
+\subsection{Verhalten bei Änderung der Fenstergröße\label{sub:Verhalten-bei-=00003D0000C4nderung}}
 
 Bei einer Veränderung der Fenstergröße in der Breite wird nur der
 Inhaltsbereich verändert um mehr Platz für Informationen/Formulare
 zu bekommen. Die Navigationsleiste wird höchstens so breit wie das
 breiteste Element in ihr.\\
-\\
-Sollte sich die Fenstergröße in der Höhe verändern, ändert sich
+ \\
+ Sollte sich die Fenstergröße in der Höhe verändern, ändert sich
 die Größe beider Elemente gleichmäßig.
 
 
@@ -599,8 +603,8 @@ die Größe beider Elemente gleichmäßig.
 Wird vom Benutzer ein Element in der Navigationsleiste mit der linken
 Maustaste ausgewählt, wird der aktuelle Inhalt des Inhaltsbereichs
 verworfen und durch den Inhalt des neuen Elements ersetzt. \\
-Sollte der Benutzer jedoch die mittlere Maustaste benutzen um das
-Element auszuwählen, wird ein neuer Reiter geöffnet und der Inhalt
+ Sollte der Benutzer jedoch die mittlere Maustaste benutzen um
+das Element auszuwählen, wird ein neuer Reiter geöffnet und der Inhalt
 des Elements in diesem neuen Reiter dargestellt. Der aktuelle Reiter
 bleibt dabei vollständig erhalten, gerät jedoch in den Hintergrund
 (ist also nicht mehr sichtbar).
@@ -610,145 +614,157 @@ bleibt dabei vollständig erhalten, gerät jedoch in den Hintergrund
 
 %TODO: Alle Navigationselemente aufzählen
 
-In der folgenden Gliederung der Navigationsleiste sind die obersten Elemente die
-Hauptelemente und darunter folgende Sublisten die dementsprechenden Menüs die 
-aufklappen sobald man auf das Hauptelement klickt. Nur beim Auswählen der Unterpunkte
-wird der Inhalt des Inhaltsbereiches verändert.
+
+In der folgenden Gliederung der Navigationsleiste sind die obersten
+Elemente die Hauptelemente und darunter folgende Sublisten die dementsprechenden
+Menüs die aufklappen sobald man auf das Hauptelement klickt. Nur beim
+Auswählen der Unterpunkte wird der Inhalt des Inhaltsbereiches verändert.
+\begin{itemize}
+\item Stammdatenverwaltung 
 
 \begin{itemize}
-    
-    \item Stammdatenverwaltung
-    \begin{itemize}
-        \item Veranstaltungen
-        \item Hilfskräfte
-        \item Finanzpläne
-        \item Stundenlöhne
-    \end{itemize}
-    
-    \item Budgetprüfung
-    
-    \item Beschäftigungen
+\item Veranstaltungen 
+\item Hilfskräfte 
+\item Finanzpläne 
+\item Stundenlöhne 
+\end{itemize}
+\item Budgetprüfung 
+\item Beschäftigungen
+\item Vorgänge 
 
-    \item Vorgänge
-    \begin{itemize}
-        \item Alle anzeigen
-        \item Nach Vorgang suchen
-    \end{itemize}
-    
-    \item Reports
-    
-    \item Controlling
+\begin{itemize}
+\item Alle anzeigen 
+\item Nach Vorgang suchen 
+\end{itemize}
+\item Reports 
+\item Controlling 
 \end{itemize}
 
-\section{Menüleiste\label{sec:Men=0000FCleiste}}
+\section{Menüleiste\label{sec:Men=00003D0000FCleiste}}
 
 Die Menüleiste befindet sich unter Windows und Linux unterhalb des
 Fensterrahmens aber oberhalb der Navigationsleiste und des Inhaltsbereichs.
 Unter Mac OS X befindet sie sich in einer Leiste unter dem oberen
 Bildschirmrand. \\
-In der folgenden Gliederung dieser Menüleiste sind die obersten
+ In der folgenden Gliederung dieser Menüleiste sind die obersten
 Elemente die Hauptelemente und darunter folgende Sublisten die dementsprechenden
 Menüs die aufklappen sobald man auf das Hauptelement klickt.
+\begin{itemize}
+\item Datei 
 
-\begin{itemize}	
-    \item Datei	
-    \begin{itemize}	
-        \item Drucken
-        \item Einstellungen
-        \item $----------$
-        \item Beenden
-    \end{itemize}
-    	
-    \item Hilfe
-    \begin{itemize}
-        \item Hilfe
-        \item Über
-    \end{itemize}
+\begin{itemize}
+\item Drucken 
+\item Einstellungen 
+\item $----------$ 
+\item Beenden 
+\end{itemize}
+\item Hilfe 
+
+\begin{itemize}
+\item Hilfe 
+\item Über 
+\end{itemize}
 \end{itemize}
 
 \section{Stammdatenverwaltung}
 
 Die GUI für die Stammdatenverwaltung wird hier am Beispiel der Veranstaltungen
-gezeigt. Für die anderen Stammdaten ist diese ähnlich bis gleich. Hauptunterschied
-sind dabei die dort dargestellten Daten und Formulare.
+gezeigt. Für die anderen Stammdaten ist diese ähnlich bis gleich.
+Hauptunterschied sind dabei die dort dargestellten Daten und Formulare.
+
 
 \subsection{Hauptanzeige}
 
-\includegraphics{MockupVeranstaltungen.png}
+\includegraphics{MockupVeranstaltungen}
 
-Nach einem Klick auf Stammdatenverwaltung $\rightarrow$ Veranstaltungen wird die
-Hauptansicht der Stammdatenverwaltung angezeigt. Diese besteht aus einer Toolbar
-am oberen Rand und einer tabellarischen Darstellung aller vorhandenen Daten. 
-Zu Beginn ist die Tabelle auf einige wichtige Spalten beschränkt. Über ein 
-Kontextmenü können jedoch alle verfügbaren Daten in der Tabelle angezeigt werden
-um einen breiten Bildschirm voll auszunützen. \\
-In der Toolbar befinden sich die Buttons ``Anzeigen'' zum Anzeigen der Details
-des momentan ausgewählten Tabelleneintrags, ``Bearbeiten'' um die ausgewählte 
-Veranstaltung zu verändern, ``Hinzufügen'' um eine neue Veranstaltung
-hinzuzufügen, ``Entfernen'' um die ausgewählte Veranstaltung zu entfernen und 
-``Vorgänge'' um direkt zu den Vorgängen der ausgewählten Veranstaltung zu springen.
-Um einen Tabelleneintrag anzuzeigen kann auch ein Doppelklick auf ihn ausgeführt
+Nach einem Klick auf Stammdatenverwaltung $\rightarrow$ Veranstaltungen
+wird die Hauptansicht der Stammdatenverwaltung angezeigt. Diese besteht
+aus einer Toolbar am oberen Rand und einer tabellarischen Darstellung
+aller vorhandenen Daten. Zu Beginn ist die Tabelle auf einige wichtige
+Spalten beschränkt. Über ein Kontextmenü können jedoch alle verfügbaren
+Daten in der Tabelle angezeigt werden um einen breiten Bildschirm
+voll auszunützen. \\
+ In der Toolbar befinden sich die Buttons {}``Anzeigen'' zum
+Anzeigen der Details des momentan ausgewählten Tabelleneintrags, {}``Bearbeiten''
+um die ausgewählte Veranstaltung zu verändern, {}``Hinzufügen''
+um eine neue Veranstaltung hinzuzufügen, {}``Entfernen'' um die
+ausgewählte Veranstaltung zu entfernen und {}``Vorgänge'' um direkt
+zu den Vorgängen der ausgewählten Veranstaltung zu springen. Um einen
+Tabelleneintrag anzuzeigen kann auch ein Doppelklick auf ihn ausgeführt
 werden. Per Entf-Taste kann ein Eintrag zudem entfernt werden.
+
 
 \subsection{Anzeigen}
 
-\includegraphics{MockupVeranstaltungenAnzeige.png}
+\includegraphics{MockupVeranstaltungenAnzeige}
 
-Hier werden alle vorhandenen Daten zum ausgewählten Datensatz angezeigt. Sollte
-beim Klick auf den ``Anzeigen''-Button jedoch kein Eintrag ausgewählt worden sein,
-so wird der Nutzer dadurch durch eine Fehlermeldung hingewiesen. \\
-Die Anzeige gliedert sich in zwei Abschnitte. Im Linken werden alle Daten angezeigt.
-Im Rechten wird die eingestellte Anzahl von Vorgängen (\ref{sec:Programmeinstellungen}) 
-zu diesem Datensatz angezeigt. Durch einen Doppelklick auf einen Vorgang wird 
-dieser angezeigt. \\
-Unterhalb dieser Abschnitte befinden sich noch zwei Buttons. Der ``Schließen''-Button
-dient hierbei zum Schließen des Fensters und zurückkehren zur letzten Ansicht
-und der ``Bearbeiten''-Button um die Daten zu verändern.
+Hier werden alle vorhandenen Daten zum ausgewählten Datensatz angezeigt.
+Sollte beim Klick auf den {}``Anzeigen''-Button jedoch kein Eintrag
+ausgewählt worden sein, so wird der Nutzer dadurch durch eine Fehlermeldung
+hingewiesen. \\
+ Die Anzeige gliedert sich in zwei Abschnitte. Im Linken werden
+alle Daten angezeigt. Im Rechten wird die eingestellte Anzahl von
+Vorgängen (\ref{sec:Programmeinstellungen}) zu diesem Datensatz angezeigt.
+Durch einen Doppelklick auf einen Vorgang wird dieser angezeigt. \\
+ Unterhalb dieser Abschnitte befinden sich noch zwei Buttons.
+Der {}``Schließen''-Button dient hierbei zum Schließen des Fensters
+und zurückkehren zur letzten Ansicht und der {}``Bearbeiten''-Button
+um die Daten zu verändern.
+
 
 \subsection{Bearbeiten}
 
-\includegraphics{MockupVeranstaltungenBearbeiten.png}
+\includegraphics{MockupVeranstaltungenBearbeiten}
 
-Diese Ansicht bietet die Möglichkeit alle Daten eines Datensatzes zu verändern.
-Sollte dieser Dialog über die Hauptansicht aufgerufen werden und kein Eintrag
-selektiert sein, so wird der Nutzer durch eine Fehlermeldung darauf hingewiesen. \\
-Die Ansicht bietet eine Reihe von Eingabefeldern um die Daten zu verändern. Unter
-diesen befinden sich zwei Buttons. Der ``Speichern''-Button speichert die neuen
-Daten in der Datenbank und schließt die Ansicht, der ``Abbrechen''-Button schließt
-sie ebenfalls, jedoch ohne die Daten in der Datenbank zu speichern. \\
-Beim Speichern werden die eingetragenen Daten auf ihre Korrektheit überprüft. Sollten
-sich in einem Eingabefeld inkorrekte Daten befinden (zum Beispiel ein Name in 
-einem Datumsfeld) so wird der Nutzer darauf hingewiesen und kann die Daten erst
-speichern nachdem alle Daten korrekt sind.
+Diese Ansicht bietet die Möglichkeit alle Daten eines Datensatzes
+zu verändern. Sollte dieser Dialog über die Hauptansicht aufgerufen
+werden und kein Eintrag selektiert sein, so wird der Nutzer durch
+eine Fehlermeldung darauf hingewiesen. \\
+ Die Ansicht bietet eine Reihe von Eingabefeldern um die Daten
+zu verändern. Unter diesen befinden sich zwei Buttons. Der {}``Speichern''-Button
+speichert die neuen Daten in der Datenbank und schließt die Ansicht,
+der {}``Abbrechen''-Button schließt sie ebenfalls, jedoch ohne die
+Daten in der Datenbank zu speichern. \\
+ Beim Speichern werden die eingetragenen Daten auf ihre Korrektheit
+überprüft. Sollten sich in einem Eingabefeld inkorrekte Daten befinden
+(zum Beispiel ein Name in einem Datumsfeld) so wird der Nutzer darauf
+hingewiesen und kann die Daten erst speichern nachdem alle Daten korrekt
+sind.
+
 
 \subsection{Hinzufügen}
 
-Die ``Hinzufügen''-Ansicht ist prinzipiell dieselbe wie die ``Bearbeiten''-Ansicht.
+Die {}``Hinzufügen''-Ansicht ist prinzipiell dieselbe wie die {}``Bearbeiten''-Ansicht.
 Einzigster Unterschied ist das sich hier noch keine Daten in den Eingabefeldern
-befinden und das der ``Speichern''-Button einen neuen Eintrag in der Datenbank
-anlegt.
+befinden und das der {}``Speichern''-Button einen neuen Eintrag
+in der Datenbank anlegt.
+
 
 \subsection{Entfernen}
 
-Beim Löschen wird der momentan ausgewählte Eintrag in der Tabelle entfernt. Sollte
-kein Eintrag ausgewählt sein, so wird der Nutzer durch eine Fehlermeldung darauf
-hingewiesen. \\
-Bevor der Eintrag gelöscht wird, wird der Nutzer gefragt ob er diesen Vorgang wirklich
-durchführen will um das versehentliche Löschen eines Eintrags zu verhindern.
+Beim Löschen wird der momentan ausgewählte Eintrag in der Tabelle
+entfernt. Sollte kein Eintrag ausgewählt sein, so wird der Nutzer
+durch eine Fehlermeldung darauf hingewiesen. \\
+ Bevor der Eintrag gelöscht wird, wird der Nutzer gefragt ob er
+diesen Vorgang wirklich durchführen will um das versehentliche Löschen
+eines Eintrags zu verhindern.
+
 
 \subsection{Vorgänge}
 
-Hier wird eine Liste aller Vorgänge zu dem ausgewählten Datensatz angezeigt. Sollte
-kein Datensatz ausgewählt sein, so wird der Nutzer durch eine Fehlermeldung darauf
-hingewiesen. \\
-Durch einen Doppelklick auf einen Vorgang wird dieser angezeigt.
+Hier wird eine Liste aller Vorgänge zu dem ausgewählten Datensatz
+angezeigt. Sollte kein Datensatz ausgewählt sein, so wird der Nutzer
+durch eine Fehlermeldung darauf hingewiesen. \\
+ Durch einen Doppelklick auf einen Vorgang wird dieser angezeigt.
+
 
 \section{Programmeinstellungen\label{sec:Programmeinstellungen}}
 
 %TODO: Einstellung für Anzahl von Vorgängen bei Anzeigen hinzufügen
 
+
 \begin{center}
-\includegraphics{MockupSettings}
+\includegraphics{MockupSettings} 
 \par\end{center}
 
 Das Einstellungsfenster ist ein modaler Dialog, der über keine Menüleiste
@@ -756,26 +772,26 @@ verfügt. Ganz unten verfügt er über zwei Buttons. Über den Abbrechen-Button
 schließt sich das Fenster ohne die Einstellungen zu speichern. Mit
 Hilfe des Speichern-Buttons werden die Einstellungen vor dem Schließen
 noch gespeichert. \\
-Es befinden sich folgende Einstellungsmöglichkeiten im Fenster: 
+ Es befinden sich folgende Einstellungsmöglichkeiten im Fenster: 
 \begin{itemize}
 \item \textbf{Name} \\
-Der hier eingetragene Name wird zur Kennzeichnung der Vorgänge
+ Der hier eingetragene Name wird zur Kennzeichnung der Vorgänge
 benutzt. Das bedeutet das Vorgänge unter diesem Namen ins System eingetragen
 werden. 
 \item \textbf{PDF-Anzeiger} \\
-Pfad zu einem Programm das PDFs anzeigen kann. Der Pfad zur PDF-Datei
+ Pfad zu einem Programm das PDFs anzeigen kann. Der Pfad zur PDF-Datei
 wird hierbei als Argument für das Programm übergeben. 
 \item \textbf{Berichte automatisch nach Generierung öffnen} \\
-Wenn aktiviert öffnen sich Berichte direkt nach ihrer Generierung
+ Wenn aktiviert öffnen sich Berichte direkt nach ihrer Generierung
 automatisch im unter {}``PDF-Anzeiger'' angegeben PDF-Programm oder
 in dem standardmäßig verwendeten Programm. 
 \item \textbf{Reiter bei Verlassen speichern} \\
-Wenn aktiviert werden alle geöffneten Reiter gespeichert und beim
-nächsten Aufruf des Programms wieder geöffnet um dem Nutzer die Weiterführung
-seiner Arbeit zu erleichtern. 
+ Wenn aktiviert werden alle geöffneten Reiter gespeichert und
+beim nächsten Aufruf des Programms wieder geöffnet um dem Nutzer die
+Weiterführung seiner Arbeit zu erleichtern. 
 \end{itemize}
 
-\section{Über-Fenster\label{sec:=0000DCber-Fenster}}
+\section{Über-Fenster\label{sec:=00003D0000DCber-Fenster}}
 
 Das Über-Fenster enthält den Programmnamen und die Programmversion
 (sowie das zugehörige Veröffentlichungsdatum), die Namen der Entwickler
@@ -798,25 +814,186 @@ dargestellt werden.
 \section{Anwendungsfall X}
 
 \begin{center}
-\begin{tabular}{|l|>{\raggedright}p{10.5cm}|}
+\begin{longtable}{|>{\raggedright}p{3.5cm}|>{\raggedright}p{10.5cm}|}
 \hline 
-\multicolumn{2}{|c|}{Name}\tabularnewline
+\multicolumn{2}{|c|}{\textbf{Name}}\tabularnewline
 \hline
-Aktoren & Benutzer\tabularnewline
 \hline 
-Vorbedingung & \tabularnewline
+\textbf{Vorbedingung:} & \tabularnewline
 \hline 
-Regulärer Ablauf & \begin{enumerate}
+\textbf{Regulärer Ablauf:} & \begin{enumerate}
 \item ..
 \item ..
 \end{enumerate}
 \tabularnewline
 \hline 
-Nachbedingung & \tabularnewline
+\textbf{Nachbedingung:} & \tabularnewline
 \hline 
-Alternative Abläufe & \tabularnewline
+\textbf{Alternativer Ablauf:} & \tabularnewline
+\hline 
+\textbf{Nachbedingung im Sonderfall:} & \tabularnewline
 \hline
-\end{tabular}
+\end{longtable}
+\par\end{center}
+
+
+\section{Stammdaten hinzufügen}
+
+\begin{center}
+\begin{longtable}{|>{\raggedright}p{3.5cm}|>{\raggedright}p{10.5cm}|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Stammdaten hinzufügen}}\tabularnewline
+\hline
+\hline 
+\textbf{Vorbedingung:} & Benutzer befindet sich in der Stammdatenverwaltung.\tabularnewline
+\hline 
+\textbf{Regulärer Ablauf:} & \begin{enumerate}
+\item Benutzer klickt auf den Button ,,Hinzufügen{}``
+\item Es öffnet sich das ,,Hinzufügen{}``-Popup
+\item Benutzer gibt die erforderlichen Daten ein
+\item Benutzer klickt auf den Button ,,OK{}``
+\item Das Popup schließt sich
+\end{enumerate}
+\tabularnewline
+\hline 
+\textbf{Nachbedingung:} & Die neuen Stammdaten wurden hinzugefügt und der Benutzer befindet
+sich wieder in der Stammdatenverwaltung.\tabularnewline
+\hline 
+\textbf{Alternativer Ablauf:} & \begin{enumerate}
+\item Benutzer gibt erforderliche Daten falsch ein
+
+\begin{enumerate}
+\item Fehlerhafte Felder werden markiert
+\item Meldung erscheint, dass markierte Felder korrigiert werden müssen
+\item Benutzer korrigiert die fehlerhaften Felder
+\item Benutzer klickt auf den Button ,,OK{}``
+\item Das Popup schließt sich
+\end{enumerate}
+\item Benutzer klickt auf den Button ,,Abbrechen{}``
+
+\begin{enumerate}
+\item Das Popup schließt sich
+\end{enumerate}
+\end{enumerate}
+\tabularnewline
+\hline 
+\textbf{Nachbedingung im Sonderfall:} & \begin{enumerate}
+\item Die neuen (fehlerfreien) Stammdaten wurden hinzugefügt und der Benutzer
+befindet sich wieder in der Stammdatenverwaltung
+\item Es wurden keine Stammdaten hinzugefügt und der Benutzer befindet sich
+wieder in der Stammdatenverwaltung
+\end{enumerate}
+\tabularnewline
+\hline
+\end{longtable}
+\par\end{center}
+
+
+\section{Stammdaten bearbeiten}
+
+\begin{center}
+\begin{longtable}{|>{\raggedright}p{3.5cm}|>{\raggedright}p{10.5cm}|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Stammdaten bearbeiten}}\tabularnewline
+\hline
+\hline 
+\textbf{Vorbedingung:} & Benutzer befindet sich in der Stammdatenverwaltung.\tabularnewline
+\hline 
+\textbf{Regulärer Ablauf:} & \begin{enumerate}
+\item Benutzer markiert ein Datum
+\item Benutzer klickt auf den Button ,,Bearbeiten{}``
+\item Das ,,Bearbeiten{}``-Popup öffnet sich
+\item Benutzer ändert die gewünschten Daten
+\item Benutzer klickt auf ,,OK{}``
+\item Das Popup schließt sich
+\end{enumerate}
+\tabularnewline
+\hline 
+\textbf{Nachbedingung:} & Das Datum wurde geändert und der Benutzer befindet sich wieder in
+der Stammdatenverwaltung.\tabularnewline
+\hline 
+\textbf{Alternativer Ablauf:} & \begin{enumerate}
+\item Benutzer hat kein Datum markiert und klickt auf ,,Bearbeiten{}``
+
+\begin{enumerate}
+\item Fehler wird in der Hinweisleiste angezeigt
+\end{enumerate}
+\item Benutzer gibt erforderliche Daten falsch ein
+
+\begin{enumerate}
+\item Fehlerhafte Felder werden markiert
+\item Meldung erscheint, dass markierte Felder korrigiert werden müssen
+\item Benutzer korrigiert die fehlerhaften Felder
+\item Benutzer klickt auf den Button ,,OK{}``
+\item Das Popup schließt sich
+\end{enumerate}
+\item Benutzer klickt auf den Button ,,Abbrechen{}``
+
+\begin{enumerate}
+\item Das Popup schließt sich
+\end{enumerate}
+\end{enumerate}
+\tabularnewline
+\hline 
+\textbf{Nachbedingung im Sonderfall:} & \begin{enumerate}
+\item Es wurde kein Datum verändert und der Benutzer befindet sich immer
+noch in der Stammdatenverwaltung
+\item Das Datum wurde verändert und der Benutzer befindet sich wieder in
+der Stammdatenverwaltung
+\item Es wurde kein Datum verändert und der Benutzer befindet sich wieder
+in der Stammdatenverwaltung
+\end{enumerate}
+\tabularnewline
+\hline
+\end{longtable}
+\par\end{center}
+
+
+\section{Stammdaten löschen}
+
+\begin{center}
+\begin{longtable}{|>{\raggedright}p{3.5cm}|>{\raggedright}p{10.5cm}|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Stammdaten löschen}}\tabularnewline
+\hline
+\hline 
+\textbf{Vorbedingung:} & Benutzer befindet sich in der Stammdatenverwaltung\tabularnewline
+\hline 
+\textbf{Regulärer Ablauf:} & \begin{enumerate}
+\item Benutzer markiert ein Datum
+\item Benutzer klickt auf den Button ,,Löschen{}``
+\item Das ,,Bestätigungs{}``-Popup öffnet sich
+\item Benutzer klickt auf den Button ,,Ja{}``
+\item Das Popup schließt sich
+\end{enumerate}
+\tabularnewline
+\hline 
+\textbf{Nachbedingung:} & Das Datum wurde gelöscht und der Benutzer befindet sich weiterhin
+in der Stammdatenverwaltung.\tabularnewline
+\hline 
+\textbf{Alternativer Ablauf:} & \begin{enumerate}
+\item Das Datum wird referenziert
+
+\begin{enumerate}
+\item Fehler wird in der Hinweisleiste angezeigt
+\end{enumerate}
+\item Der Benutzer klickt in dem ,,Bestätigungs{}``-Popup auf ,,Nein{}``
+
+\begin{enumerate}
+\item Das Popup schließt sich
+\end{enumerate}
+\end{enumerate}
+\tabularnewline
+\hline 
+\textbf{Nachbedingung im Sonderfall:} & \begin{enumerate}
+\item Das Datum wurde nicht gelöscht und der Benutzer befindet sich weiterhin
+in der Stammdatenverwaltung
+\item Das Datum wurde nicht gelöscht und der Benutzer befindet sich weiterhin
+in der Stammdatenverwaltung
+\end{enumerate}
+\tabularnewline
+\hline
+\end{longtable}
 \par\end{center}
 
 
@@ -828,13 +1005,13 @@ Alternative Abläufe & \tabularnewline
 
 \paragraph*{Aufstockung}
 
-Erweiterung eines Vertrages, so dass die Hilfskraft für mehrere Veranstaltungen
-eingesetzt werden kann.
+Erweiterung eines Vertrages, so dass die Hilfskraft für mehrere Veranstaltungen,
+aus verschiedenen Fonds finanziert, verwendet werden kann.
 
 
-\paragraph*{Aufwendung, synonym: Lohnverteilung}
+\paragraph*{Aufwendung}
 
-..
+Durch das Buchen von Beschäftigungen entstandener Aufwand.
 
 
 \paragraph*{Beschäftigung}
@@ -845,7 +1022,7 @@ eine oder mehrere Veranstaltungen.
 
 \paragraph*{Bericht}
 
-Ein PDF-Dokument zum Überblick über die bisherigen Aufwendungen.
+Ein PDF-Dokument zum Überblick über alle im System eingetragenen Informationen.
 
 
 \paragraph*{Bilanz}
@@ -853,19 +1030,29 @@ Ein PDF-Dokument zum Überblick über die bisherigen Aufwendungen.
 Aufstellung der Plankosten für Veranstaltungen für jede Gruppe.
 
 
+\paragraph*{Buchung}
+
+Erstellung einer Beschäftigung für eine Hilfskraft.
+
+
 \paragraph*{Budget}
 
 Kennzahl der verfügbaren HKS einer Veranstaltung.
 
 
+\paragraph*{Budgetprüfung}
+
+Informationen über das gebuchte und eingeplante Budget erlangen.
+
+
 \paragraph*{Controlling}
 
-Die Überprüfung von Abrechnungen auf deren Korrektheit.
+Die Überprüfung und der Vergleich von Abrechnungen auf deren Korrektheit.
 
 
 \paragraph*{Diff-Tabelle}
 
-Ein Monatsauzug einer Hilfskraft.
+Ein Monatsauzug aller Hilfskräfte.
 
 
 \paragraph*{Dozent}
@@ -881,7 +1068,7 @@ Vergütungen.
 
 \paragraph*{Finanzplan}
 
-Zuordnung von Finanzkategorien zu deren Plankostenhaushalt.
+Zuordnung von Finanzkategorien zu deren Plankostenhaushalt pro Jahr.
 
 
 \paragraph*{Fonds}
@@ -896,12 +1083,13 @@ Zuordnung der Veranstaltung zu einem Themengebiet oder Studiengang.
 
 \paragraph*{Handicap}
 
-..
+Ein Multiplikator, welcher, je nach Qualifikation der Hilfskräfte,
+dafür vorgesehen war, das Gehalt anzupassen.
 
 
 \paragraph*{Haushalt}
 
-Einnahmen und Ausgaben.
+Einnahmen und Ausgaben der Universität.
 
 
 \paragraph*{Hilfskraft}
@@ -916,7 +1104,7 @@ Hilfskraftstunden
 
 \paragraph*{Kostenstelle}
 
-siehe Fonds
+Klassifikation des Fonds in eine Ziffer.
 
 
 \paragraph*{Monatsauszug}
@@ -926,12 +1114,13 @@ Ein Auflistung aller Plankosten der Hilfskräfte.
 
 \paragraph*{Plankosten}
 
-Im System für einen Zeitraum hinterlegte Kosten.
+Im System für einen Zeitraum hinterlegte und daher geplante Kosten.
 
 
 \paragraph*{Plankostenhaushalt}
 
-tbd
+Plankosten, die einseits aus dem Haushalt, aber auch aus Studiengebühren
+finanziert werden.
 
 
 \paragraph*{Protokoll}
@@ -941,7 +1130,8 @@ Eine Tabelle, die alle getätigten Vorgänge für einen Tag enthält.
 
 \paragraph*{Qualifikation}
 
-Eine Hilfskraft ist entweder geprüft, ungeprüft oder hat ein Bachelor-Abschluss.
+Die Qualifikation einer Hilfskraft ist entweder geprüft, ungeprüft
+oder ein Bachelor-Abschluss.
 
 
 \paragraph*{Stammdaten}
@@ -958,7 +1148,7 @@ Der Gehalt, den eine Hilfskraft, pro Stunde erhält.
 \paragraph*{Tätigkeitsnachweis}
 
 Ein offizielles Schreiben, welches Informationen über Hilfskräfte
-enthält.
+und deren Vorgänge enthält.
 
 
 \paragraph*{Teil}
@@ -981,6 +1171,11 @@ Eine Versammlung von Studenten, die von einer Hilfskraft betreut wird.
 Angabe der benötigten Semesterwochenstunden für eine Veranstaltung.
 
 
+\paragraph*{Uni-Budget}
+
+Siehe Haushalt.
+
+
 \paragraph*{Veranstaltung}
 
 Eine Beschäftigung (Forschung, Praktikum, Lehre), für die ein Dozent
@@ -989,7 +1184,9 @@ verantwortlich ist.
 
 \paragraph*{Vertrag}
 
-Eine schriftliche Vereinbarung zwischen der Hilfskraft und dem Institutsverbund
+Eine schriftliche Vereinbarung zwischen der Hilfskraft und dem Institutsverbund.
+Kann aus mehreren Beschäftigungen bestehen, falls diese aus dem gleichen
+Fonds finanziert werden.
 
 
 \paragraph*{Vorgang}
