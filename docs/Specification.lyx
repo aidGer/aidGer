@@ -342,7 +342,7 @@ aidGer
 Zudem wird eine Verbindung mit dem bereits vorhandenen Ticket-System benötigt.
  Diese Verbindung wird in Form einer Import- bzw.
  Exportschnitstelle hergestellt, die jedoch in der ersten Software-Version
- nur vorhergesehen und beim Entwurf berücksichtigt wird.
+ nur vorgesehen und beim Entwurf berücksichtigt wird.
  Eine spätere Implementierung ist jedoch denkbar und in Zukunft vom Kunden
  auch ausdrücklich erwünscht.
 \end_layout
@@ -1325,7 +1325,7 @@ name "sub:Erweiterbarkeit"
 \end_layout
 
 \begin_layout Itemize
-Das Programm muss zur Einheitlichkeit mit dem Ticket-System eine entsprechende
+Das Programm muss zur Zusammenarbeit mit dem Ticket-System eine entsprechende
  Import- und Exportschnittstelle vorhersehen.
 \end_layout
 
