@@ -1,4 +1,4 @@
-#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -623,24 +623,7 @@ Stundenlöhne
 \begin_layout Standard
 Löschen von Stammdaten soll nur dann möglich sein, wenn sie nicht mehr referenzi
 ert werden.
- Die Eingabe der Stammdaten muss bei der Erfassung überprüft werden, so
- dass bei bestimmten Ereignissen der Benutzer gewarnt werden kann (siehe
- hierzu 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Budgetmanagement"
-
-\end_inset
-
- und 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Mitteilungen"
-
-\end_inset
-
-).
- Das Ändern von Stammdaten soll jederzeit möglich sein.
+ Das Hinzufügen und Ändern von Stammdaten soll jederzeit möglich sein.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1849,13 +1832,15 @@ Anwendungsfall X
 \begin_inset Tabular
 <lyxtabular version="3" rows="6" columns="2">
 <features>
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="3.5cm">
 <column alignment="left" valignment="top" width="10.5cm">
 <row>
 <cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 Name
 \end_layout
 
@@ -1872,31 +1857,13 @@ Name
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Aktoren
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Benutzer
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Vorbedingung
+
+\series bold
+Vorbedingung:
 \end_layout
 
 \end_inset
@@ -1916,7 +1883,9 @@ Vorbedingung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Regulärer Ablauf
+
+\series bold
+Regulärer Ablauf:
 \end_layout
 
 \end_inset
@@ -1940,7 +1909,31 @@ Regulärer Ablauf
 \begin_inset Text
 
 \begin_layout Plain Layout
-Nachbedingung
+
+\series bold
+Nachbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Alternativer Ablauf:
 \end_layout
 
 \end_inset
@@ -1960,7 +1953,9 @@ Nachbedingung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Alternative Abläufe
+
+\series bold
+Nachbedingung im Sonderfall:
 \end_layout
 
 \end_inset
@@ -1970,6 +1965,251 @@ Alternative Abläufe
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Stammdaten hinzufügen
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features>
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="10.5cm">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Stammdaten hinzufügen
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vorbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer befindet sich in der Stammdatenverwaltung.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Regulärer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Hinzufügen
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Es öffnet sich das 
+\begin_inset Quotes gld
+\end_inset
+
+Hinzufügen
+\begin_inset Quotes grd
+\end_inset
+
+-Popup
+\end_layout
+
+\begin_layout Enumerate
+Benutzer gibt die erforderlichen Daten ein
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+OK
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Das Popup schließt sich
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Die neuen Stammdaten wurden hinzugefügt und der Benutzer befindet sich weiterhin
+ in der Stammdatenverwaltung.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Alternativer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer gibt erforderliche Daten falsch ein
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Fehlerhafte Felder werden markiert
+\end_layout
+
+\begin_layout Enumerate
+Meldung erscheint, dass markierte Felder korrigiert werden müssen
+\end_layout
+
+\begin_layout Enumerate
+Benutzer korrigiert die fehlerhaften Felder
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+OK
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Das Popup schließt sich
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Abrechen
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Das Popup schließt sich
+\end_layout
+
+\end_deeper
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung im Sonderfall:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Die neuen (fehlerfreien) Stammdaten wurden hinzugefügt und der Benutzer
+ befindet sich wieder in der Stammdatenverwaltung
+\end_layout
+
+\begin_layout Enumerate
+Es wurden keine Stammdaten hinzugefügt und der Benutzer befindet sich wieder
+ in der Stammdatenverwaltung
 \end_layout
 
 \end_inset
@@ -2014,11 +2254,11 @@ Erweiterung eines Vertrages, so dass die Hilfskraft für mehrere Veranstaltungen
 \end_layout
 
 \begin_layout Paragraph*
-Aufwendung, synonym: Lohnverteilung
+Aufwendung
 \end_layout
 
 \begin_layout Standard
-..
+Durch das Buchen von Beschäftigungen entstandener Aufwand.
 \end_layout
 
 \begin_layout Paragraph*
@@ -2035,7 +2275,7 @@ Bericht
 \end_layout
 
 \begin_layout Standard
-Ein PDF-Dokument zum Überblick über die bisherigen Aufwendungen.
+Ein PDF-Dokument zum Überblick über alle im System eingetragenen Informationen.
 \end_layout
 
 \begin_layout Paragraph*
@@ -2059,7 +2299,7 @@ Controlling
 \end_layout
 
 \begin_layout Standard
-Die Überprüfung von Abrechnungen auf deren Korrektheit.
+Die Überprüfung und der Vergleich von Abrechnungen auf deren Korrektheit.
 \end_layout
 
 \begin_layout Paragraph*
@@ -2067,7 +2307,7 @@ Diff-Tabelle
 \end_layout
 
 \begin_layout Standard
-Ein Monatsauzug einer Hilfskraft.
+Ein Monatsauzug aller Hilfskräfte.
 \end_layout
 
 \begin_layout Paragraph*
@@ -2092,7 +2332,7 @@ Finanzplan
 \end_layout
 
 \begin_layout Standard
-Zuordnung von Finanzkategorien zu deren Plankostenhaushalt.
+Zuordnung von Finanzkategorien zu deren Plankostenhaushalt pro Jahr.
 \end_layout
 
 \begin_layout Paragraph*
@@ -2116,7 +2356,8 @@ Handicap
 \end_layout
 
 \begin_layout Standard
-..
+Ein Multiplikator, welcher, je nach Qualifikation der Hilfskräfte, dafür
+ vorgesehen war, das Gehalt anzupassen.
 \end_layout
 
 \begin_layout Paragraph*
@@ -2124,7 +2365,7 @@ Haushalt
 \end_layout
 
 \begin_layout Standard
-Einnahmen und Ausgaben.
+Einnahmen und Ausgaben der Universität.
 \end_layout
 
 \begin_layout Paragraph*
@@ -2148,7 +2389,7 @@ Kostenstelle
 \end_layout
 
 \begin_layout Standard
-siehe Fonds
+Klassifikation des Fonds in eine Ziffer.
 \end_layout
 
 \begin_layout Paragraph*
@@ -2164,7 +2405,7 @@ Plankosten
 \end_layout
 
 \begin_layout Standard
-Im System für einen Zeitraum hinterlegte Kosten.
+Im System für einen Zeitraum hinterlegte und daher geplante Kosten.
 \end_layout
 
 \begin_layout Paragraph*
@@ -2172,7 +2413,8 @@ Plankostenhaushalt
 \end_layout
 
 \begin_layout Standard
-tbd
+Plankosten, die einseits aus dem Haushalt, aber auch aus Studiengebühren
+ finanziert werden.
 \end_layout
 
 \begin_layout Paragraph*
@@ -2188,7 +2430,8 @@ Qualifikation
 \end_layout
 
 \begin_layout Standard
-Eine Hilfskraft ist entweder geprüft, ungeprüft oder hat ein Bachelor-Abschluss.
+Die Qualifikation einer Hilfskraft ist entweder geprüft, ungeprüft oder
+ ein Bachelor-Abschluss.
 \end_layout
 
 \begin_layout Paragraph*
@@ -2212,7 +2455,8 @@ Tätigkeitsnachweis
 \end_layout
 
 \begin_layout Standard
-Ein offizielles Schreiben, welches Informationen über Hilfskräfte enthält.
+Ein offizielles Schreiben, welches Informationen über Hilfskräfte und deren
+ Vorgänge enthält.
 \end_layout
 
 \begin_layout Paragraph*
@@ -2248,6 +2492,14 @@ Angabe der benötigten Semesterwochenstunden für eine Veranstaltung.
 \end_layout
 
 \begin_layout Paragraph*
+Uni-Budget
+\end_layout
+
+\begin_layout Standard
+Siehe Haushalt.
+\end_layout
+
+\begin_layout Paragraph*
 Veranstaltung
 \end_layout
 
@@ -2261,7 +2513,7 @@ Vertrag
 \end_layout
 
 \begin_layout Standard
-Eine schriftliche Vereinbarung zwischen der Hilfskraft und dem Institutsverbund
+Eine schriftliche Vereinbarung zwischen der Hilfskraft und dem Institutsverbund.
 \end_layout
 
 \begin_layout Paragraph*
