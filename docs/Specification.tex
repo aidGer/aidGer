@@ -621,23 +621,23 @@ Menüs die aufklappen sobald man auf das Hauptelement klickt. Nur beim
 Auswählen der Unterpunkte wird der Inhalt des Inhaltsbereiches verändert.
 \begin{itemize}
 \item Stammdatenverwaltung 
-
 \begin{itemize}
 \item Veranstaltungen 
 \item Hilfskräfte 
 \item Finanzpläne 
 \item Stundenlöhne 
 \end{itemize}
-\item Budgetprüfung 
+
 \item Beschäftigungen
+
 \item Vorgänge 
 
-\begin{itemize}
-\item Alle anzeigen 
-\item Nach Vorgang suchen 
-\end{itemize}
 \item Reports 
+
 \item Controlling 
+
+\item Budgetprüfung 
+
 \end{itemize}
 
 \section{Menüleiste\label{sec:Men=00003D0000FCleiste}}
@@ -757,6 +757,73 @@ angezeigt. Sollte kein Datensatz ausgewählt sein, so wird der Nutzer
 durch eine Fehlermeldung darauf hingewiesen. \\
  Durch einen Doppelklick auf einen Vorgang wird dieser angezeigt.
 
+\section{Beschäftigungen}
+
+\section{Vorgänge}
+
+\includegraphics{MockupVorgaenge.png}
+
+Die ``Vorgänge''-Ansicht ist ähnlich wie die Stammdatenhauptansicht aufgebaut.
+Am oberen Rand befindet sich eine Toolbar mit 4 Knöpfen ``Anzeigen'', ``Bearbeiten'',
+``Hinzufügen'' und ``Entfernen''. Darunter befindet sich ein Suchfeld und letztendlich
+die Tabelle mit allen Vorgängen, standardmäßig sortiert nach dem Zeitpunkt des
+Vorgangs.\\
+Wird in das Suchfeld etwas hineingeschrieben, wird sofort die Tabelle darunter
+aktualisiert und es werden nur noch Vorgänge angezeigt, die in einem ihrer Felder
+mit dem Suchwort beginnen.\\
+
+Die Ansichten zum Anzeigen, Bearbeiten, Hinzufügen oder Entfernen entsprechen
+größtenteils ihren Equivalenten aus der Stammdatenverwaltung. Deshalb werden
+im Folgenden nur die Unterschiede aufgezeigt.
+
+\subsection{Anzeigen}
+
+In der ``Anzeigen''-Ansicht befinden sich zusätzlich Verweise um auf die im
+Vorgang betroffenen Stammdaten einfach zugreifen können. Ein Klick auf einen
+dieser Verweise öffnet dann zum Beispiel die Anzeige der Hilfskraftdetails in 
+einem neuen Tab.
+
+\subsection{Bearbeiten und Hinzufügen}
+
+Hier sind die einzigsten Unterschiede das Verweise auf Stammdaten aus Comboboxen
+ausgesucht werden können um schnellstmöglichst auf diese Zugreifen zu können.
+
+\section{Reports}
+
+\includegraphics{MockupReports.png}
+
+Die möglichen Berichte die generiert werden können, werden hier in einem Drop-Down-Feld
+angezeigt. Über den ``Mehr''-Button kann man sich die darunter befindlichen
+Einstellungsmöglichkeiten einblenden lassen (davor sind diese nicht sichtbar).
+Nach dem Ausfüllen der Felder kann dann über den ``Generieren''-Button der Bericht
+generiert werden. Dieser wird dann je nach Einstellung automatisch geöffnet oder
+kann dann durch einen Klick auf ``Anzeigen'' angezeigt werden. 
+Der ``Schließen''-Button schließt die ``Reports''-Ansicht und kehrt zur vorherigen 
+Ansicht bzw. der ``Neuer Tab''-Ansicht zurück.
+
+\section{Controlling}
+
+\includegraphics{MockupControlling.png}
+
+Die ``Controlling''-Ansicht ist zweigeteilt. Oben befindet sich die Monatskontrollleiste.
+Mit ihr kann man zwischen den Monaten hin- und hernavigieren um den gewünschten Monat
+zu erreichen. Darunter werden für den jeweiligen Monat die entsprechenden 
+geplanten Kosten für alle Hilfskräfte einzeln in tabellarischer Form aufgelistet.
+
+\section{Budgetprüfung}
+
+\includegraphics{MockupBudgetPruefung.png}
+
+Unter ``Budgetprüfung'' werden alle Veranstaltungen in Tabellenform aufgelistet.
+Dabei wird jedoch nur die Anzahl der genehmigten HKS, der schon verbrauchten und
+der noch übrig gebliebenen HKS angezeigt. Veranstaltungen die schon mehr HKS 
+verbraucht haben als eigentlich genehmigt wurden werden zudem rot hinterlegt.
+So ist sofort ersichtlich wo das Budget schon verbraucht ist und wo noch nicht.
+
+\section{Drucken\label{sec:Drucken}}
+
+Zum Drucken wird der von Java bereitgestellte Druckdialog verwendet. Dieser erlaubt
+zum Beispiel die Einstellung des Druckers und der Anzahl der Kopien.
 
 \section{Programmeinstellungen\label{sec:Programmeinstellungen}}
 
