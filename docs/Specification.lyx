@@ -1009,58 +1009,6 @@ Die Vorgänge sollen mit einer Volltextsuche durchsucht werden können.
 \end_layout
 
 \begin_layout Subsection
-Budgetmanagement
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:Budgetmanagement"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Das Budget steht am Anfang des Semesters, vom Lehrplan vorgegeben, zur Verfügung.
- Es soll während des Semesters veränderbar sein.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-Das Budget von Veranstaltungen soll als verfügbar/gesamt bzw.
- verbraucht/frei angezeigt werden.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-Es sollen alle Beschäftigungen, die damit zusammenhängenden Verträge und
- der damit zusammenhängenden Vorgänge pro Hilfskraft bzw.
- pro Veranstaltung angezeigt werden können.
- (siehe auch 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Anzeige-aller-Beschäftigungen"
-
-\end_inset
-
-)
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-Das Budget soll daraufhin überprüft werden können, ob für eine Veranstaltung
- noch HKS verfügbar sind oder ob die maximale Anzahl überschritten wurde.
-\end_layout
-
-\begin_layout Subsection
 Controlling via Monatsauszug
 \begin_inset CommandInset label
 LatexCommand label
@@ -1130,6 +1078,58 @@ Die bisherigen Aufwendungen sollen als Tabelle bzw.
 
 Es soll eine Möglichkeit vorgesehen werden, um das Aussehen der Berichte
  nachträglich beeinflussen zu können.
+\end_layout
+
+\begin_layout Subsection
+Budgetmanagement
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Budgetmanagement"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das Budget steht am Anfang des Semesters, vom Lehrplan vorgegeben, zur Verfügung.
+ Es soll während des Semesters veränderbar sein.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Das Budget von Veranstaltungen soll als verfügbar/gesamt bzw.
+ verbraucht/frei angezeigt werden.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Es sollen alle Beschäftigungen, die damit zusammenhängenden Verträge und
+ der damit zusammenhängenden Vorgänge pro Hilfskraft bzw.
+ pro Veranstaltung angezeigt werden können.
+ (siehe auch 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Anzeige-aller-Beschäftigungen"
+
+\end_inset
+
+)
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Das Budget soll daraufhin überprüft werden können, ob für eine Veranstaltung
+ noch HKS verfügbar sind oder ob die maximale Anzahl überschritten wurde.
 \end_layout
 
 \begin_layout Subsection
@@ -2220,160 +2220,6 @@ arraystretch}{1.5}
 \end_layout
 
 \begin_layout Section
-Anwendungsfall X
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
-<features islongtable="true">
-<column alignment="left" valignment="top" width="3.5cm">
-<column alignment="left" valignment="top" width="10.5cm">
-<row>
-<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Name
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Vorbedingung:
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Regulärer Ablauf:
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Enumerate
-..
-\end_layout
-
-\begin_layout Enumerate
-..
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Nachbedingung:
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Alternativer Ablauf:
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Nachbedingung im Sonderfall:
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
 Stammdaten hinzufügen
 \end_layout
 
@@ -2422,7 +2268,7 @@ Vorbedingung:
 \begin_inset Text
 
 \begin_layout Plain Layout
-Benutzer befindet sich in der Stammdatenverwaltung.
+Benutzer befindet sich im Menüpunkt Stammdaten.
 \end_layout
 
 \end_inset
@@ -2456,15 +2302,7 @@ Hinzufügen
 \end_layout
 
 \begin_layout Enumerate
-Es öffnet sich das 
-\begin_inset Quotes gld
-\end_inset
-
-Hinzufügen
-\begin_inset Quotes grd
-\end_inset
-
--Popup
+Content-Frame wird mit Hinzufügen-Dialog ersetzt
 \end_layout
 
 \begin_layout Enumerate
@@ -2484,7 +2322,7 @@ OK
 \end_layout
 
 \begin_layout Enumerate
-Das Popup schließt sich
+Content-Frame geht wieder in den vorherigen Zustand über
 \end_layout
 
 \end_inset
@@ -2507,7 +2345,7 @@ Nachbedingung:
 
 \begin_layout Plain Layout
 Die neuen Stammdaten wurden hinzugefügt und der Benutzer befindet sich wieder
- in der Stammdatenverwaltung.
+ im Menüpunkt Stammdaten.
 \end_layout
 
 \end_inset
@@ -2558,7 +2396,7 @@ OK
 \end_layout
 
 \begin_layout Enumerate
-Das Popup schließt sich
+Content-Frame geht wieder in den vorherigen Zustand über
 \end_layout
 
 \end_deeper
@@ -2576,7 +2414,7 @@ Abbrechen
 
 \begin_deeper
 \begin_layout Enumerate
-Das Popup schließt sich
+Content-Frame geht wieder in den vorherigen Zustand über
 \end_layout
 
 \end_deeper
@@ -2600,12 +2438,12 @@ Nachbedingung im Sonderfall:
 
 \begin_layout Enumerate
 Die neuen (fehlerfreien) Stammdaten wurden hinzugefügt und der Benutzer
- befindet sich wieder in der Stammdatenverwaltung
+ befindet sich wieder im Menüpunkt Stammdaten
 \end_layout
 
 \begin_layout Enumerate
 Es wurden keine Stammdaten hinzugefügt und der Benutzer befindet sich wieder
- in der Stammdatenverwaltung
+ im Menüpunkt Stammdaten
 \end_layout
 
 \end_inset
@@ -2667,7 +2505,7 @@ Vorbedingung:
 \begin_inset Text
 
 \begin_layout Plain Layout
-Benutzer befindet sich in der Stammdatenverwaltung.
+Benutzer befindet sich im Menüpunkt Stammdaten.
 \end_layout
 
 \end_inset
@@ -2705,15 +2543,7 @@ Bearbeiten
 \end_layout
 
 \begin_layout Enumerate
-Das 
-\begin_inset Quotes gld
-\end_inset
-
-Bearbeiten
-\begin_inset Quotes grd
-\end_inset
-
--Popup öffnet sich
+Content-Frame wird durch den Bearbeiten-Dialog ersetzt
 \end_layout
 
 \begin_layout Enumerate
@@ -2733,7 +2563,7 @@ OK
 \end_layout
 
 \begin_layout Enumerate
-Das Popup schließt sich
+Content-Frame geht wieder in den vorherigen Zustand über
 \end_layout
 
 \end_inset
@@ -2755,8 +2585,8 @@ Nachbedingung:
 \begin_inset Text
 
 \begin_layout Plain Layout
-Das Datum wurde geändert und der Benutzer befindet sich wieder in der Stammdaten
-verwaltung.
+Das Datum wurde geändert und der Benutzer befindet sich wieder im Menüpunkt
+ Stammdaten.
 \end_layout
 
 \end_inset
@@ -2825,7 +2655,7 @@ OK
 \end_layout
 
 \begin_layout Enumerate
-Das Popup schließt sich
+Content-Frame geht wieder in den vorherigen Zustand über
 \end_layout
 
 \end_deeper
@@ -2843,7 +2673,7 @@ Abbrechen
 
 \begin_deeper
 \begin_layout Enumerate
-Das Popup schließt sich
+Content-Frame geht wieder in den vorherigen Zustand über
 \end_layout
 
 \end_deeper
@@ -2867,17 +2697,17 @@ Nachbedingung im Sonderfall:
 
 \begin_layout Enumerate
 Es wurde kein Datum verändert und der Benutzer befindet sich immer noch
- in der Stammdatenverwaltung
+ im Menüpunkt Stammdaten
 \end_layout
 
 \begin_layout Enumerate
-Das Datum wurde verändert und der Benutzer befindet sich wieder in der Stammdate
-nverwaltung
+Das Datum wurde verändert und der Benutzer befindet sich wieder im Menüpunkt
+ Stammdaten
 \end_layout
 
 \begin_layout Enumerate
-Es wurde kein Datum verändert und der Benutzer befindet sich wieder in der
- Stammdatenverwaltung
+Es wurde kein Datum verändert und der Benutzer befindet sich wieder im Menüpunkt
+ Stammdaten
 \end_layout
 
 \end_inset
@@ -2939,7 +2769,7 @@ Vorbedingung:
 \begin_inset Text
 
 \begin_layout Plain Layout
-Benutzer befindet sich in der Stammdatenverwaltung
+Benutzer befindet sich im Menüpunkt Stammdaten
 \end_layout
 
 \end_inset
@@ -3001,7 +2831,7 @@ Ja
 \end_layout
 
 \begin_layout Enumerate
-Das Popup schließt sich
+Popup schließt sich
 \end_layout
 
 \end_inset
@@ -3023,8 +2853,8 @@ Nachbedingung:
 \begin_inset Text
 
 \begin_layout Plain Layout
-Das Datum wurde gelöscht und der Benutzer befindet sich weiterhin in der
- Stammdatenverwaltung.
+Das Datum wurde gelöscht und der Benutzer befindet sich weiterhin im Menüpunkt
+ Stammdaten.
 \end_layout
 
 \end_inset
@@ -3077,7 +2907,17 @@ Nein
 
 \begin_deeper
 \begin_layout Enumerate
-Das Popup schließt sich
+Popup schließt sich
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Benutzer hat kein Datum ausgewählt
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Fehler wird in der Hinweisleiste angezeigt
 \end_layout
 
 \end_deeper
@@ -3101,12 +2941,2658 @@ Nachbedingung im Sonderfall:
 
 \begin_layout Enumerate
 Das Datum wurde nicht gelöscht und der Benutzer befindet sich weiterhin
- in der Stammdatenverwaltung
+ im Menüpunkt Stammdaten
 \end_layout
 
 \begin_layout Enumerate
 Das Datum wurde nicht gelöscht und der Benutzer befindet sich weiterhin
- in der Stammdatenverwaltung
+ im Menüpunkt Stammdaten
+\end_layout
+
+\begin_layout Enumerate
+Es wurde kein Datum gelöscht und der Benutzer befindet sich weiterhin im
+ Menüpunkt Stammdaten
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Budgetprüfung
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features islongtable="true">
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="10.5cm">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Budgetprüfung
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vorbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer befindet sich im Menüpunkt Budgetprüfung.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Regulärer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Das System zeigt eine Tabelle mit allen Veranstaltungen und deren gebuchten
+ und eingeplanten HKS an, wobei falsch gebuchte Veranstaltungen hervorgehoben
+ werden
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer kann sich über das gebuchte und eingeplante Budget aller Veranstaltunge
+n informieren.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Anzeige aller Beschäftigungen
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features islongtable="true">
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="10.5cm">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Anzeige aller Beschäftigungen
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vorbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer befindet sich im Menüpunkt Beschäftigungen.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Regulärer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+System stellt eine Tabelle mit allen gebuchten Beschäftigungen und den zugehörig
+en Verträgen dar
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer kann sich über alle gebuchten Beschäftigungen informieren.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Alternativer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer wählt eine Beschäftigung aus
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Vorgänge anzeigen
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Content-Frame wechselt in den 
+\begin_inset Quotes gld
+\end_inset
+
+Vorgänge anzeigen
+\begin_inset Quotes grd
+\end_inset
+
+-Dialog
+\end_layout
+
+\begin_layout Enumerate
+Es werden alle Vorgänge zu der ausgewählten Beschäftigung aufgelistet
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den 
+\begin_inset Quotes gld
+\end_inset
+
+Zurück
+\begin_inset Quotes grd
+\end_inset
+
+-Button
+\end_layout
+
+\begin_layout Enumerate
+Content-Frame wird mit dem vorherigen Zustand wieder ausgetauscht
+\end_layout
+
+\end_deeper
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung im Sonderfall:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer hat sich über die Vorgänge zu einer bestimmten Beschäftigung informiert
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Aggregierte Anzeigen
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features islongtable="true">
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="10.5cm">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Aggregierte Anzeigen
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vorbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer befindet sich im Menü Stammdaten.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Regulärer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer klickt auf Hilfskräfte
+\end_layout
+
+\begin_layout Enumerate
+Benutzer wählt eine Hilfskraft aus
+\end_layout
+
+\begin_layout Enumerate
+Benutzer drückt den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Tätigkeitsnachweis
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Content-Frame wird mit dem 
+\begin_inset Quotes gld
+\end_inset
+
+Tätigkeitsnachweis
+\begin_inset Quotes grd
+\end_inset
+
+-Dialog ausgewechselt
+\end_layout
+
+\begin_layout Enumerate
+Es werden alle Veranstaltungen zu der ausgewählten Hilfskraft in einer Tabelle
+ aufgelistet
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Zurück
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Content-Frame wird mit dem vorherigen Zustand ausgewechselt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer hat sich über die Tätigkeiten einer Hilfskraft informiert.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Alternativer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer klickt auf Hilfskräfte
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Benutzer wählt eine Hilfskraft aus
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Vorgänge anzeigen
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Content-Frame wird mit dem 
+\begin_inset Quotes gld
+\end_inset
+
+Vorgänge anzeigen
+\begin_inset Quotes grd
+\end_inset
+
+-Dialog ausgetauscht
+\end_layout
+
+\begin_layout Enumerate
+Es werden alle Vorgänge zu der gewählten Hilfskraft dargestellt
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Zurück
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Content-Frame wird mit dem vorherigen Zustand ausgetauscht
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Benutzer klickt auf Veranstaltungen
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Benutzer wählt eine Veranstaltung aus
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Hilfskräfte anzeigen
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Content-Frame wird mit dem 
+\begin_inset Quotes gld
+\end_inset
+
+Hilfskräfte anzeigen
+\begin_inset Quotes grd
+\end_inset
+
+-Dialog ersetzt
+\end_layout
+
+\begin_layout Enumerate
+Es werden alle Hilfskräfte zu der Veranstaltung und zusätzlich das verbrauchte
+ und eingeplante Budget angezeigt
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Zurück
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Content-Frame wird mit dem vorherigen Zustand ausgetauscht
+\end_layout
+
+\end_deeper
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung im Sonderfall:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer hat sich über alle Vorgänge zu einer Hilfskraft informiert
+\end_layout
+
+\begin_layout Enumerate
+Benutzer hat sich über alle Hilfskräfte einer Veranstaltung informiert
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Tätigkeitsnachweis generieren
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features islongtable="true">
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="10.5cm">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Tätigkeitsnachweis generieren
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vorbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer befindet sich im Menüpunkt Reports
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Regulärer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer wählt 
+\begin_inset Quotes gld
+\end_inset
+
+Tätigkeitsnachweis generieren
+\begin_inset Quotes grd
+\end_inset
+
+ aus
+\end_layout
+
+\begin_layout Enumerate
+Benutzer wählt die Hilfskraft aus
+\end_layout
+
+\begin_layout Enumerate
+Benutzer wählt den gewünschten Zeitraum aus
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Generieren
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Tätigkeitsnachweis wird generiert
+\end_layout
+
+\begin_layout Enumerate
+Tätigkeitsnachweis wird je nach Einstellung geöffnet
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tätigkeitsnachweis wurde generiert und der Benutzer befindet sich wieder
+ im Menüpunkt Berichte
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Alternativer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer wählt einen ungültigen Zeitraum aus
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Fehlerhafte Felder werden markiert
+\end_layout
+
+\begin_layout Enumerate
+Fehler wird in der Hinweisleiste angezeigt
+\end_layout
+
+\begin_layout Enumerate
+Benutzer korrigiert die Fehlerhaften Eingaben
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Generieren
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Tätigkeitsnachweis wird generiert
+\end_layout
+
+\begin_layout Enumerate
+Tätigkeitsnachweis wird je nach Einstellung geöffnet
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Abbrechen
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Benutzer kommt zurück in den Berichtsmoduds
+\end_layout
+
+\end_deeper
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung im Sonderfall:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Tätigkeitsnachweis wurde generiert, eventuell geöffnet und der Benutzer
+ befindet sich wieder im Menüpunkt Berichte
+\end_layout
+
+\begin_layout Enumerate
+Tätigkeitsnachweis wurde nicht generiert und der Benutzer befindet sich
+ wieder im Menüpunkt Berichte
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Buchung von Beschäftigungen
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features islongtable="true">
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="10.5cm">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Buchung von Beschäftigungen
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vorbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer befindet sich im Menüpunkt Beschäftigungen.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Regulärer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer drückt den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Beschäftigung buchen
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Content Frame wird mit dem 
+\begin_inset Quotes gld
+\end_inset
+
+Beschäftigung buchen
+\begin_inset Quotes grd
+\end_inset
+
+-Dialog ausgetauscht
+\end_layout
+
+\begin_layout Enumerate
+Benutzer wählt in einer Dropdown-Liste die Hilfskraft aus
+\end_layout
+
+\begin_layout Enumerate
+Benutzer wählt in einer Dropdown-Liste die Veranstaltung aus
+\end_layout
+
+\begin_layout Enumerate
+Benutzer wählt in einer Dropdown-Liste das Jahr aus
+\end_layout
+
+\begin_layout Enumerate
+Benutzer wählt in einer Dropdown-Liste den Fonds aus
+\end_layout
+
+\begin_layout Enumerate
+Benutzer gibt alternativ eine Kostenstelle an
+\end_layout
+
+\begin_layout Enumerate
+Benutzer gibt alternativ eine Bemerkung an
+\end_layout
+
+\begin_layout Enumerate
+Benutzer gibt den Zeitraum des Start- und Endmonats in zwei Dropdown-Listen
+ an
+\end_layout
+
+\begin_layout Enumerate
+Benutzer gibt zu diesem Zeitraum die Anzahl der Stunden der Hilfskraft an
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Zeitraum hinzufügen
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Buchung wird hinzugefügt
+\end_layout
+
+\begin_layout Enumerate
+Benutzer wiederholt ggf.
+ die Schritte 9 bis 12
+\end_layout
+
+\begin_layout Enumerate
+Benutzer drückt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Weiter
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Die Beschäftigung wurde im System zwischengespeichert und es wird im nächsten
+ Schritt der Vertrag zur Beschäftigung zugeordnet.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Alternative Abläufe:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Die gebuchten HKS sind größer als die geplanten HKS
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Der Fehler wird in der Hinweisleiste angezeigt
+\end_layout
+
+\begin_layout Enumerate
+Das inkorrekte Feld wird markiert
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Die Stundenzahl der Hilfskraft überschreitet die vertraglich vereinbarte
+ Arbeitszeit
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+siehe 1a)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Benutzer gibt einen inkorrekten Zeitraum ein
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+siehe 1a)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Benutzer gibt keine Zahl als Kostenstelle ein
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+siehe 1a)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Benutzer gibt keine Zahl als Anzahl der Stunden ein
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+siehe 1a)
+\end_layout
+
+\end_deeper
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung im Sonderfall:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Es wurde nicht gebucht und der Benutzer ist weiterhin im Buchungsdialog.
+\end_layout
+
+\begin_layout Enumerate
+siehe 1)
+\end_layout
+
+\begin_layout Enumerate
+siehe 1)
+\end_layout
+
+\begin_layout Enumerate
+siehe 1)
+\end_layout
+
+\begin_layout Enumerate
+siehe 1)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Buchung von Vertragsdaten
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features islongtable="true">
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="10.5cm">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Buchung von Vertragsdaten
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vorbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer hat die Beschäftigung korrekt eingetragen und befindet sich im
+ Buchungsdialog im Schritt 2.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Regulärer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer wählt in einer Dropdown-Liste die Hilfskraft aus
+\end_layout
+
+\begin_layout Enumerate
+Benutzer gibt ein Beschäftigungsbeginn ein
+\end_layout
+
+\begin_layout Enumerate
+Benutzer gibt ein Beschäftigungsende ein
+\end_layout
+
+\begin_layout Enumerate
+Benutzer gibt die Stundenanzahl pro Monat ein
+\end_layout
+
+\begin_layout Enumerate
+Benutzer wählt aus einer Dropdown-Liste den Fonds aus
+\end_layout
+
+\begin_layout Enumerate
+Benutzer wählt aus einer Dropdown-Liste die Art des Vertrags aus
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf Button 
+\begin_inset Quotes gld
+\end_inset
+
+Buchen
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Content-Frame wechselt in den Zustand vor der Buchung der Beschäftigung
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Die Buchung der Beschäftigung wurde vollständig gespeichert.
+ Die Vertragsdaten wurden außerdem zur Beschäftigung zugeordnet.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Alternativer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Es muss kein neuer Vertrag hinzugefügt werden, da bereits einer besteht
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Benutzer wählt aus einer Dropdown-Liste ein bestehenden Vertrag aus
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Buchen
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Content-Frame wechselt in den Zustand vor der Buchung der Beschäftigung
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Benutzer macht dem Feld nicht entsprechenden Eintrag
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Der Fehler wird in der Hinweisleiste angezeigt
+\end_layout
+
+\begin_layout Enumerate
+Das inkorrekte Feld wird markiert
+\end_layout
+
+\end_deeper
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung im Sonderfall:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Die Buchung wurde vollständig mit dem bestehenden Vertrag gespeichert.
+\end_layout
+
+\begin_layout Enumerate
+Benutzer befindet sich weiterhin im Buchungsdialog im Schritt 2 und muss
+ seine Eingabe korrigieren
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Vorgang hinzufügen
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features islongtable="true">
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="10.5cm">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vorgang hinzufügen
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vorbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer befindet sich im Menüpunkt Vorgänge
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Regulärer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Vorgang hinzufügen
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Content-Frame wird durch Hinzufügen-Dialog ersetzt
+\end_layout
+
+\begin_layout Enumerate
+Der Bearbeiter des Vorgangs wird automatisch durch den Namen des Benutzers
+ eingetragen
+\end_layout
+
+\begin_layout Enumerate
+Benutzer gibt das Datum ein
+\end_layout
+
+\begin_layout Enumerate
+Benutzer fügt eine oder mehrere Hilfskräfte als betroffene Hilfskraft/Hilfskräft
+e aus einer Liste hinzu
+\end_layout
+
+\begin_layout Enumerate
+Benutzer gibt eine Bemerkung/den Vorgangstext ein
+\end_layout
+
+\begin_layout Enumerate
+Benutzer gibt den Sender/den Adressat ein
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Hinzufügen
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Content-Frame geht in den vorherigen Zustand über
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vorgang wurde hinzugefügt und der Benutzer befindet sich wieder im Menüpunkt
+ Vorgänge
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Alternativer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer gibt ein falsches Datum ein
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Fehler wird in der Hinweisleiste angezeigt
+\end_layout
+
+\begin_layout Enumerate
+Benutzer korrigiert die falschen Daten
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Abbrechen
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Content-Frame geht in den vorherigen Zustand über
+\end_layout
+
+\end_deeper
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung im Sonderfall:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Vorgang wurde hinzugefügt und der Benutzer befindet sich wieder im Menüpunkt
+ Vorgänge
+\end_layout
+
+\begin_layout Enumerate
+Es wurde kein Vorgang hinzugefügt und der Benutzer befindet sich wieder
+ im Menüpunkt Vorgänge
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Vorgang bearbeiten
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features islongtable="true">
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="10.5cm">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vorgang bearbeiten
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vorbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer befindet sich im Menüpunkt Vorgänge
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Regulärer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer wählt einen Vorgang aus
+\end_layout
+
+\begin_layout Enumerate
+Content-Frame wird durch einen Bearbeiten-Dialog ersetzt
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Bearbeiten
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Benutzer ändert die gewünschten Daten
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf 
+\begin_inset Quotes gld
+\end_inset
+
+OK
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Content-Frame geht in den vorherigen Zustand über
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vorgang wurde bearbeitet und der Benutzer befindet sich wieder im Menüpunkt
+ Vorgänge
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Alternativer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer hat keinen Vorgang ausgewählt
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Fehler wird in der Hinweisleiste angezeigt
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Benutzer gibt die erforderlichen Daten falsch ein
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Fehler wird in der Hinweisleiste angezeigt
+\end_layout
+
+\begin_layout Enumerate
+Benutzer korrigiert die Fehler
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf 
+\begin_inset Quotes gld
+\end_inset
+
+OK
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Content-Frame geht in den vorherigen Zustand über
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Benutzer klickt auf 
+\begin_inset Quotes gld
+\end_inset
+
+Abbrechen
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Content-Frame geht in den vorherigen Zustand über
+\end_layout
+
+\end_deeper
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung im Sonderfall:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Vorgang wurde nicht bearbeitet und der Benutzer befindet sich weiterhin
+ im Menüpunkt Vorgänge
+\end_layout
+
+\begin_layout Enumerate
+Vorgang wurde bearbeitet und der Benutzer befindet sich wieder im Menüpunkt
+ Vorgänge
+\end_layout
+
+\begin_layout Enumerate
+Vorgang wurde nicht bearbeitet und der Benutzer befindet sich wieder im
+ Menüpunkt Vorgänge
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Vorgang löschen
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features islongtable="true">
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="10.5cm">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vorgang löschen
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vorbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer befindet sich im Menüpunkt Vorgänge
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Regulärer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer wählt einen Vorgang aus
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Löschen
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Das 
+\begin_inset Quotes gld
+\end_inset
+
+Bestätigen
+\begin_inset Quotes grd
+\end_inset
+
+-Popup öffnet sich
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Ja
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Popup wird geschlossen
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vorgang wurde gelöscht und der Benutzer befindet sich wieder im Menüpunkt
+ Vorgänge
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Alternativer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer hat keinen Vorgang ausgewählt
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Fehler wird in der Hinweisleiste angezeigt
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Nein
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Popup wird geschlossen
+\end_layout
+
+\end_deeper
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung im Sonderfall:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Es wurde kein Vorgang gelöscht und der Benutzer befindet sich weiterhin
+ im Menüpunkt Vorgänge
+\end_layout
+
+\begin_layout Enumerate
+Der Vorgang wurde nicht gelöscht und der Benutzer befindet sich wieder im
+ Menüpunkt Vorgänge
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Vorgänge suchen
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features islongtable="true">
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="10.5cm">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vorgänge suchen
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vorbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Der Benutzer befindet sich im Menüpunkt Vorgänge
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Regulärer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer gibt im Suchfeld einen Suchbegriff ein
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Suchen
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vorgänge, welche den Suchbegriff enthalten, werden angezeigt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Alternativer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer gibt keinen Suchbegriff ein
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung im Sonderfall:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Alle Vorgänge werden angezeigt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Controlling
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features islongtable="true">
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="10.5cm">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Controlling
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vorbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer befindet sich im Menüpunkt Controlling
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Regulärer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer wählt einen Monatsauszug aus
+\end_layout
+
+\begin_layout Enumerate
+Benutzer trägt die Realkosten ein
+\end_layout
+
+\begin_layout Enumerate
+Die Realkosten stimmen mit den Plankosten überein
+\end_layout
+
+\begin_layout Enumerate
+In der Hinweisleiste wird angezeigt, dass es keine Unstimmigkeiten gibt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer befindet sich weiterhin im Menüpunkt Controlling
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Alternativer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Die Realkosten stimmen nicht mit den Plankosten überein
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+In der Hinweisleiste wird angezeigt, dass es Unstimmigkeiten bei einer Hilfskraf
+t gibt
+\end_layout
+
+\begin_layout Enumerate
+Die Hilfskraft wird markiert
+\end_layout
+
+\end_deeper
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung im Sonderfall:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer befindet sich weiterhin im Menüpunkt Controlling
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Bericht generieren
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features islongtable="true">
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="10.5cm">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+ Bericht generieren
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vorbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer befindet sich im Menüpunkt Reports
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Regulärer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer wählt die gewünschte Berichtsart aus
+\end_layout
+
+\begin_layout Enumerate
+Benutzer gibt den gewünschte Zeitraum ein
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Generieren
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Bericht wird generiert
+\end_layout
+
+\begin_layout Enumerate
+Bericht wird je nach Einstellungen geöffnet
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Bericht wurde generiert, eventuell geöffnet und der Benutzer befindet sich
+ weiterhin im Menüpunkt Reports
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Alternativer Ablauf:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Benutzer gibt ein falsches Jahr ein
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Fehler wird in der Hinweisleiste angezeigt
+\end_layout
+
+\begin_layout Enumerate
+Benutzer korrigiert seine Eingabe
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Generieren
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Bericht wird generiert
+\end_layout
+
+\begin_layout Enumerate
+Bericht wird je nach Einstellungen geöffnet
+\end_layout
+
+\end_deeper
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung im Sonderfall:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Bericht wurde generiert, eventuell geöffnet und der Benutzer befindet sich
+ weiterhin im Menüpunkt Reports
 \end_layout
 
 \end_inset
