@@ -61,7 +61,6 @@ Dieses Dokument ist für den folgenden Leserkreis bestimmt:
 \item Das gesamte Projektteam
 \item Der Kunde
 \item Die Betreuer des Softwarepraktikums
-\item Der Gutachter des Spezifikationsreview
 \item Die künftige Programmierer bzw. Verwalter dieses Projektes
 \end{itemize}
 
@@ -76,10 +75,9 @@ Die neue Software dient hierbei grundsätzlich auch zur Erfassung
 und Auswertung aller Vorgänge, die bei der Verwaltung von Hilfskräften
 anfallen.\\
 \\
-Das Ziel ist es, mit ,,aidGer{}`` die jetzige Lösung ,,Hive{}``
-zu ersetzen. Das Altsystem ,,Hive{}`` soll jedoch weiterhin einsetzbar
-sein, um im Notfall oder bei ähnlichen Anlässen auf dieses zurückgreifen
-zu können.
+Das Ziel ist es, mit ,,aidGer{}`` die jetzige Lösung zu ersetzen.
+Das Altsystem soll jedoch weiterhin einsetzbar sein, um im Notfall
+oder bei ähnlichen Anlässen auf dieses zurückgreifen zu können.
 
 
 \section{Fachbegriffe und Abkürzungen}
@@ -180,9 +178,9 @@ beschrieben.
 \section{Leistungsanforderungen\label{sec:Leistungsanforderungen}}
 
 Da das Programm auf dem Server des Benutzers verwendet wird, darf
-es andere Programme oder das Betriebssystem nicht behindern. Darüber
-hinaus soll die Software alle Funktionen in möglichst geringer Zeit
-($<$ 5 Sekunden) ausführen.
+es nicht unnötig viele Ressourcen verwenden. Darüber hinaus soll die
+Software alle Funktionen in möglichst geringer Zeit ($<$ 5 Sekunden)
+ausführen.
 
 
 \section{Mengengerüst\label{sec:Mengenger=0000FCst}}
@@ -191,9 +189,10 @@ Folgende Kenngrößen sind für das System relevant:
 \begin{itemize}
 \item Das Programm ist eine Einzelplatzanwendung ohne Netzwerkfunktionalität
 und wird daher stets von einem Anwender bedient
-\item Das Programm wird in der Regel von maximal 3 verschiedenen Anwendern
-bedient. Daher sind gleichzeitige Zugriffe auf die Datenbank von mehreren
-Rechnern zu vernachlässigen
+\item Das Programm wird in der näheren Zukunft von 2 verschiedenen Anwendern
+bedient. Es ist aber möglich, dass neue Benutzer hinzukommen. Daher
+sind gleichzeitige Zugriffe auf die Datenbank von mehreren Rechnern
+zu vernachlässigen
 \item Jährlich gibt es ungefähr 70 Hilfskräfte für durchschnittlich 30 Veranstaltungen
 \item Mehr als 200 Hilfskräfte und 50 Veranstaltungen pro Jahr sind im Normalfall
 unwahrscheinlich
@@ -265,7 +264,7 @@ eine Beschäftigung dargestellt werden:
 \begin{itemize}
 \item Alle Informationen, die bei der Buchung der Beschäftigung erfasst
 wurden (siehe \ref{sub:Buchung-von-Besch=0000E4ftigungen})
-\item Der zugehörige Vertrag
+\item Der Vertrag, unter welchem diese Beschäftigung läuft
 \item Alle Vorgänge, die für die Beschäftigung erfasst wurden (siehe auch
 \ref{sub:Aggregierte-Anzeigen})
 \end{itemize}
@@ -361,25 +360,25 @@ Es soll möglich sein, an mehrere Hilfskräfte Nachrichten verschicken
 zu können, ohne für jede Nachricht einen eigenen Vorgang eröffnen
 zu müssen (Massenerfassung von Vorgängen).\\
 \\
-Die Vorgänge sollen mit einer Volltextsuche durchsucht werden können.
+Die Vorgänge sollen mit einer Volltextsuche durchsucht werden
+können.
 
 
 \subsection{Controlling via Monatsauszug\label{sub:Controlling-via-Monatsauszug}}
 
 Um das Überprüfen der Auszugslisten zu vereinfachen, muss für jeden
-Monat eine Tabelle (Monatsauszug) erstellt werden, in welcher zu jeder
-Hilfskraft die Plankosten netto und brutto aufgelistet sind. Diese
-Tabelle / Auszug soll komfortabel um den tatsächlichen Lohn ergänzbar
-sein, so dass die realen Kosten aus den Auszügen mit den Plankosten
-verglichen werden können. Es sollen zudem Warnungen ausgegeben werden,
-falls es Abweichungen zwischen Soll und Ist gibt.
+Monat ein Monatsauszug erstellt werden, in welcher zu jeder Hilfskraft
+die Plankosten netto und brutto aufgelistet sind. Dieser Auszug soll
+komfortabel um den tatsächlichen Lohn ergänzbar sein, so dass die
+realen Kosten aus den Auszügen mit den Plankosten verglichen werden
+können. Es sollen zudem Warnungen ausgegeben werden, falls es Abweichungen
+zwischen Soll und Ist gibt.
 
 
 \subsection{Berichtswesen / Reporting\label{sub:Berichtswesen-/-Reporting}}
 
-Es sollen so viele Berichte wie möglich im PDF-Format erstellt werden
-können. Dabei sollen die folgenden Berichte auf alle Fälle generiert
-werden können:
+Es sollen Berichte im PDF-Format erstellt werden können. Dabei sollen
+die folgenden Berichte auf alle Fälle generiert werden können:
 \begin{itemize}
 \item Jahres- und Semesterbilanz
 \item Teilberichte von der Bilanz, beispielsweise ein Bericht mit Veranstaltungen
@@ -398,8 +397,8 @@ Berichte nachträglich beeinflussen zu können.
 Das Budget steht am Anfang des Semesters, vom Lehrplan vorgegeben,
 zur Verfügung. Es soll während des Semesters veränderbar sein.\\
 \\
-Das Budget von Veranstaltungen soll als verfügbar/gesamt bzw. verbraucht/frei
-angezeigt werden.\\
+Das Budget von Veranstaltungen soll als verfügbar/gesamt bzw.
+verbraucht/frei angezeigt werden.\\
 \\
 Es sollen alle Beschäftigungen, die damit zusammenhängenden Verträge
 und der damit zusammenhängenden Vorgänge pro Hilfskraft bzw. pro Veranstaltung
@@ -416,21 +415,22 @@ Veranstaltung noch HKS verfügbar sind oder ob die maximale Anzahl
 \subsubsection{Benachrichtigungen von Hilfskräften}
 
 Hilfskräfte sollen über bestimmte Ereignisse, wie z.B. Verfügbarkeit
-der Lohnabrechnung, informiert werden können.\\
-Hierfür soll auch eine Liste mit allen Hilfskräfte und ihren Mails
+der Lohnabrechnung, über Mail informiert werden können.\\
+Hierfür soll eine Liste mit allen Hilfskräfte und ihren Mails
 verfügbar sein.
 
 
 \subsubsection{Tägliche Vorgangsübersicht / Protokoll}
 
-Am Ende jeden Tages soll eine Übersicht über alle Vorgänge (Protokoll)
-ausgegeben werden können.
+Am Ende jeden Tages soll, für den Anwender, eine Übersicht über alle
+Vorgänge, in Form einer Auflistung, ausgegeben werden können.
 
 
 \subsubsection{Mitteilungen an Bearbeiter}
 
 Die Bearbeiter sollen, z.B. bei Überschreitungen von Stundenzahlen
-der Hilfskräfte, benachrichtigt werden können.
+der Hilfskräfte, durch visuelle Hervorhebung des fraglichen Werts,
+darauf aufmerksam gemacht werden.
 
 
 \subsection{Ticket-System\label{sub:Ticket-System}}
@@ -456,12 +456,13 @@ die Angabe von Summen.
 Um das Beantworten vieler Post-Mitteilungen zu unterstützen, soll
 eine kleine Hilfe im System integriert werden, die vorgefertigte,
 kopierfähige Texte generiert und außerdem die zugehörige Vorgänge
-in einem Rutsch erstellt.
+erstellt.
 
 
 \subsection{Datenschutz\label{sub:Datenschutz}}
 
-Hilfskräfte, die zu lange gespeichert sind, sollen anonymisiert werden.
+Hilfskräfte, die zu lange gespeichert sind, sollen - durch Löschung
+der persönlichen Daten, wie z.B. Namen - anonymisiert werden.
 
 
 \subsection{Generelle Funktionen\label{sub:Generell-verf=0000FCgbare-Funktionen}}
@@ -486,6 +487,13 @@ können auch ausgeschlossen werden. Programmfehler sollen jedoch nicht
 die Integrität der gespeicherten Daten gefährden können. 
 
 
+\subsection{Wartbarkeit\label{sub:Wartbarkeit}}
+
+Das Programm soll ohne großen Aufwand zu warten sein. Hierzu soll
+es leicht lesbar geschrieben sein und über genügend aufschlussreiche,
+Kommentare verfügen.
+
+
 \subsection{Portabilität\label{sub:Portabilit=0000E4t}}
 
 Das zu entwickelnde Programm soll auf allen Computersystemen lauffähig
@@ -495,6 +503,7 @@ höher) mit angemessener Performanz läuft.
 
 \subsection{Erweiterbarkeit\label{sub:Erweiterbarkeit}}
 \begin{itemize}
+\item Das Programm soll ohne großen Aufwand erweiterbar sein.
 \item Das Programm muss zur Zusammenarbeit mit dem Ticket-System eine entsprechende
 Import- und Exportschnittstelle vorhersehen.
 \item Die Oberfläche soll auf Deutsch und nach Möglichkeit auf Englisch
@@ -594,8 +603,8 @@ Wird vom Benutzer ein Element in der Navigationsleiste mit der linken
 Maustaste ausgewählt, wird der aktuelle Inhalt des Inhaltsbereichs
 verworfen und durch den Inhalt des neuen Elements ersetzt. \\
 \\
-Sollte der Benutzer jedoch die mittlere Maustaste benutzen um das
-Element auszuwählen, wird ein neuer Reiter geöffnet und der Inhalt
+Sollte der Benutzer jedoch die mittlere Maustaste benutzen um
+das Element auszuwählen, wird ein neuer Reiter geöffnet und der Inhalt
 des Elements in diesem neuen Reiter dargestellt. Der aktuelle Reiter
 bleibt dabei vollständig erhalten, gerät jedoch in den Hintergrund
 (ist also nicht mehr sichtbar).
@@ -677,8 +686,8 @@ Die Suche aktualisiert die Tabelle, sobald der erste Buchstabe
 eingegeben wurde, automatisch und ohne, dass ein Knopf gedrückt werden
 muss.\\
 \\
-In der Toolbar befinden sich die Buttons ,,Anzeigen{}`` zum Anzeigen
-der Details des momentan ausgewählten Tabelleneintrags, ,,Bearbeiten{}``
+In der Toolbar befinden sich die Buttons ,,Anzeigen{}`` zum
+Anzeigen der Details des momentan ausgewählten Tabelleneintrags, ,,Bearbeiten{}``
 um die ausgewählte Veranstaltung zu verändern, ,,Hinzufügen{}``
 um eine neue Veranstaltung hinzuzufügen, ,,Entfernen{}`` um die
 ausgewählte Veranstaltung zu entfernen und ,,Vorgänge{}`` um direkt
@@ -720,8 +729,8 @@ zu verändern. Sollte dieser Dialog über die Hauptansicht aufgerufen
 werden und kein Eintrag selektiert sein, so wird der Nutzer durch
 eine Fehlermeldung darauf hingewiesen. \\
 \\
-Die Ansicht bietet eine Reihe von Eingabefeldern um die Daten zu
-verändern. Unter diesen befinden sich zwei Buttons. Der ,,Speichern{}``-Button
+Die Ansicht bietet eine Reihe von Eingabefeldern um die Daten
+zu verändern. Unter diesen befinden sich zwei Buttons. Der ,,Speichern{}``-Button
 speichert die neuen Daten in der Datenbank und schließt die Ansicht,
 der ,,Abbrechen{}``-Button schließt sie ebenfalls, jedoch ohne die
 Daten in der Datenbank zu speichern. \\
@@ -811,9 +820,9 @@ und ,,Entfernen{}``. Darunter befindet sich ein Suchfeld und letztendlich
 die Tabelle mit allen Vorgängen, standardmäßig sortiert nach dem Zeitpunkt
 des Vorgangs.\\
 \\
-Wird in das Suchfeld etwas hineingeschrieben, wird sofort die Tabelle
-darunter aktualisiert und es werden nur noch Vorgänge angezeigt, die
-in einem ihrer Felder mit dem Suchwort beginnen.\\
+Wird in das Suchfeld etwas hineingeschrieben, wird sofort die
+Tabelle darunter aktualisiert und es werden nur noch Vorgänge angezeigt,
+die in einem ihrer Felder mit dem Suchwort beginnen.\\
 \\
 Die Ansichten zum Anzeigen, Bearbeiten, Hinzufügen oder Entfernen
 entsprechen größtenteils ihren Äquivalenten aus der Stammdatenverwaltung.
@@ -940,7 +949,7 @@ dargestellt werden.
 Das Use-Case-Diagram ist auf der nächsten Seite abgebildet.
 
 \begin{center}
-\includepdf{Use_Case_Diagram}
+\includepdf[width=1\paperwidth]{Use_Case_Diagram}
 \par\end{center}
 
 \setlength{\tabcolsep}{8pt} \renewcommand{\arraystretch}{1.5}
@@ -961,12 +970,14 @@ Das Use-Case-Diagram ist auf der nächsten Seite abgebildet.
 \item Content-Frame wird mit ,,Hinzufügen{}``-Dialog ersetzt
 \item Benutzer gibt die erforderlichen Daten ein
 \item Benutzer klickt auf den Button ,,OK{}``
-\item Content-Frame geht in den vorherigen Zustand über
+\item Content-Frame wird mit dem vorherigen Zustand ersetzt
 \end{enumerate}
 \tabularnewline
 \hline 
 \textbf{Nachbedingung:} & Die neuen Stammdaten wurden hinzugefügt und der Benutzer befindet
 sich wieder im Menüpunkt Stammdaten.\tabularnewline
+\hline 
+\textbf{Akteur:} & Benutzer, System\tabularnewline
 \hline 
 \textbf{Alternativer Ablauf:} & \begin{enumerate}
 \item Benutzer gibt die erforderlichen Daten falsch ein
@@ -976,12 +987,12 @@ sich wieder im Menüpunkt Stammdaten.\tabularnewline
 \item Meldung erscheint, dass markierte Felder korrigiert werden müssen
 \item Benutzer korrigiert die fehlerhaften Felder
 \item Benutzer klickt auf den Button ,,OK{}``
-\item Content-Frame geht in den vorherigen Zustand über
+\item Content-Frame wird mit dem vorherigen Zustand ersetzt
 \end{enumerate}
 \item Benutzer klickt auf den Button ,,Abbrechen{}``
 
 \begin{enumerate}
-\item Content-Frame geht in den vorherigen Zustand über
+\item Content-Frame wird mit dem vorherigen Zustand ersetzt
 \end{enumerate}
 \end{enumerate}
 \tabularnewline
@@ -1014,12 +1025,14 @@ wieder im Menüpunkt Stammdaten
 \item Content-Frame wird durch den ,,Bearbeiten{}``-Dialog ersetzt
 \item Benutzer ändert die gewünschten Daten
 \item Benutzer klickt auf ,,OK{}``
-\item Content-Frame geht in den vorherigen Zustand über
+\item Content-Frame wird mit dem vorherigen Zustand ersetzt
 \end{enumerate}
 \tabularnewline
 \hline 
 \textbf{Nachbedingung:} & Das Datum wurde geändert und der Benutzer befindet sich wieder im
 Menüpunkt Stammdaten.\tabularnewline
+\hline 
+\textbf{Akteur:} & Benutzer, System\tabularnewline
 \hline 
 \textbf{Alternativer Ablauf:} & \begin{enumerate}
 \item Benutzer hat kein Datum markiert und klickt auf ,,Bearbeiten{}``
@@ -1034,12 +1047,12 @@ Menüpunkt Stammdaten.\tabularnewline
 \item Meldung erscheint, dass markierte Felder korrigiert werden müssen
 \item Benutzer korrigiert die fehlerhaften Felder
 \item Benutzer klickt auf den Button ,,OK{}``
-\item Content-Frame geht in den vorherigen Zustand über
+\item Content-Frame wird mit dem vorherigen Zustand ersetzt
 \end{enumerate}
 \item Benutzer klickt auf den Button ,,Abbrechen{}``
 
 \begin{enumerate}
-\item Content-Frame geht in den vorherigen Zustand über
+\item Content-Frame wird mit dem vorherigen Zustand ersetzt
 \end{enumerate}
 \end{enumerate}
 \tabularnewline
@@ -1071,14 +1084,16 @@ im Menüpunkt Stammdaten
 \textbf{Regulärer Ablauf:} & \begin{enumerate}
 \item Benutzer markiert ein Datum
 \item Benutzer klickt auf den Button ,,Löschen{}``
-\item Das ,,Bestätigungs{}``-Popup öffnet sich
+\item Das ,,Bestätigungs{}``-Popup wird geöffnet
 \item Benutzer klickt auf den Button ,,Ja{}``
-\item Popup schließt sich
+\item Popup wird geschlossen
 \end{enumerate}
 \tabularnewline
 \hline 
 \textbf{Nachbedingung:} & Das Datum wurde gelöscht und der Benutzer befindet sich weiterhin
 im Menüpunkt Stammdaten.\tabularnewline
+\hline 
+\textbf{Akteur:} & Benutzer, System\tabularnewline
 \hline 
 \textbf{Alternativer Ablauf:} & \begin{enumerate}
 \item Das Datum wird referenziert
@@ -1089,7 +1104,7 @@ im Menüpunkt Stammdaten.\tabularnewline
 \item Der Benutzer klickt in dem ,,Bestätigungs{}``-Popup auf ,,Nein{}``
 
 \begin{enumerate}
-\item Popup schließt sich
+\item Popup wird geschlossen
 \end{enumerate}
 \item Benutzer hat kein Datum ausgewählt
 
@@ -1125,13 +1140,15 @@ im Menüpunkt Stammdaten
 \hline 
 \textbf{Regulärer Ablauf:} & \begin{enumerate}
 \item Das System zeigt eine Tabelle mit allen Veranstaltungen und deren
-gebuchten und eingeplanten HKS an, wobei falsch gebuchte Veranstaltungen
-hervorgehoben werden
+gebuchten und eingeplanten HKS an, wobei Veranstaltungen mit zu vielen
+gebuchten HKS hervorgehoben werden
 \end{enumerate}
 \tabularnewline
 \hline 
 \textbf{Nachbedingung:} & Benutzer kann sich über das gebuchte und eingeplante Budget aller
 Veranstaltungen informieren.\tabularnewline
+\hline 
+\textbf{Akteur:} & System\tabularnewline
 \hline
 \end{longtable}
 \par\end{center}
@@ -1154,6 +1171,8 @@ den zugehörigen Verträgen dar
 \tabularnewline
 \hline 
 \textbf{Nachbedingung:} & Benutzer kann sich über alle gebuchten Beschäftigungen informieren.\tabularnewline
+\hline 
+\textbf{Akteur:} & Benutzer, System\tabularnewline
 \hline 
 \textbf{Alternativer Ablauf:} & \begin{enumerate}
 \item Benutzer wählt eine Beschäftigung aus
@@ -1201,6 +1220,8 @@ Tabelle aufgelistet
 \tabularnewline
 \hline 
 \textbf{Nachbedingung:} & Benutzer hat sich über die Tätigkeiten einer Hilfskraft informiert.\tabularnewline
+\hline 
+\textbf{Akteur:} & Benutzer, System\tabularnewline
 \hline 
 \textbf{Alternativer Ablauf:} & \begin{enumerate}
 \item Benutzer klickt auf Hilfskräfte
@@ -1259,6 +1280,8 @@ verbrauchte und eingeplante Budget angezeigt
 \hline 
 \textbf{Nachbedingung:} & Tätigkeitsnachweis wurde generiert und der Benutzer befindet sich
 wieder im Menüpunkt Berichte\tabularnewline
+\hline 
+\textbf{Akteur:} & Benutzer, System\tabularnewline
 \hline 
 \textbf{Alternativer Ablauf:} & \begin{enumerate}
 \item Benutzer wählt einen ungültigen Zeitraum aus
@@ -1324,6 +1347,8 @@ an
 \textbf{Nachbedingung:} & Die Beschäftigung wurde im System zwischengespeichert und es wird
 im nächsten Schritt der Vertrag zur Beschäftigung zugeordnet.\tabularnewline
 \hline 
+\textbf{Akteur:} & Benutzer, System\tabularnewline
+\hline 
 \textbf{Alternative Abläufe:} & \begin{enumerate}
 \item Die gebuchten HKS sind größer als die geplanten HKS
 
@@ -1337,7 +1362,8 @@ Arbeitszeit
 \begin{enumerate}
 \item siehe 1a)
 \end{enumerate}
-\item Benutzer gibt einen inkorrekten Zeitraum ein
+\item Benutzer gibt einen Zeitraum ein, bei welchem das Enddatum vor dem
+Anfangsdatum liegt
 
 \begin{enumerate}
 \item siehe 1a)
@@ -1393,6 +1419,8 @@ im Buchungsdialog bei Schritt 2.\tabularnewline
 \hline 
 \textbf{Nachbedingung:} & Die Buchung der Beschäftigung wurde vollständig gespeichert. Die Vertragsdaten
 wurden außerdem zur Beschäftigung zugeordnet.\tabularnewline
+\hline 
+\textbf{Akteur:} & Benutzer, System\tabularnewline
 \hline 
 \textbf{Alternativer Ablauf:} & \begin{enumerate}
 \item Es muss kein neuer Vertrag hinzugefügt werden, da bereits einer besteht
@@ -1450,12 +1478,16 @@ eingetragen
 \textbf{Nachbedingung:} & Vorgang wurde hinzugefügt und der Benutzer befindet sich wieder im
 Menüpunkt Vorgänge\tabularnewline
 \hline 
+\textbf{Akteur:} & Benutzer, System\tabularnewline
+\hline 
 \textbf{Alternativer Ablauf:} & \begin{enumerate}
-\item Benutzer gibt ein falsches Datum ein
+\item Benutzer gibt die erforderlichen Daten falsch ein
 
 \begin{enumerate}
 \item Fehler wird in der Hinweisleiste angezeigt
-\item Benutzer korrigiert die falschen Daten
+\item Benutzer korrigiert die Fehler
+\item Benutzer klickt auf ,,OK{}``
+\item Content-Frame geht in den vorherigen Zustand über
 \end{enumerate}
 \item Benutzer klickt auf den Button ,,Abbrechen{}``
 
@@ -1489,8 +1521,8 @@ im Menüpunkt Vorgänge
 \hline 
 \textbf{Regulärer Ablauf:} & \begin{enumerate}
 \item Benutzer wählt einen Vorgang aus
-\item Content-Frame wird durch den ,,Bearbeiten{}``-Dialog ersetzt
 \item Benutzer klickt auf den Button ,,Bearbeiten{}``
+\item Content-Frame wird durch den ,,Bearbeiten{}``-Dialog ersetzt
 \item Benutzer ändert die gewünschten Daten
 \item Benutzer klickt auf ,,OK{}``
 \item Content-Frame geht in den vorherigen Zustand über
@@ -1499,6 +1531,8 @@ im Menüpunkt Vorgänge
 \hline 
 \textbf{Nachbedingung:} & Vorgang wurde bearbeitet und der Benutzer befindet sich wieder im
 Menüpunkt Vorgänge\tabularnewline
+\hline 
+\textbf{Akteur:} & Benutzer, System\tabularnewline
 \hline 
 \textbf{Alternativer Ablauf:} & \begin{enumerate}
 \item Benutzer hat keinen Vorgang ausgewählt
@@ -1558,6 +1592,8 @@ im Menüpunkt Vorgänge
 \textbf{Nachbedingung:} & Vorgang wurde gelöscht und der Benutzer befindet sich wieder im Menüpunkt
 Vorgänge\tabularnewline
 \hline 
+\textbf{Akteur:} & Benutzer, System\tabularnewline
+\hline 
 \textbf{Alternativer Ablauf:} & \begin{enumerate}
 \item Benutzer hat keinen Vorgang ausgewählt
 
@@ -1596,19 +1632,27 @@ im Menüpunkt Vorgänge
 \hline 
 \textbf{Regulärer Ablauf:} & \begin{enumerate}
 \item Benutzer gibt im Suchfeld einen Suchbegriff ein
-\item Benutzer klickt auf den Button ,,Suchen{}``
+\item Die Tabelle wird mit jeder Eingabe aktualisiert
 \end{enumerate}
 \tabularnewline
 \hline 
 \textbf{Nachbedingung:} & Vorgänge, welche den Suchbegriff enthalten, werden angezeigt\tabularnewline
 \hline 
+\textbf{Akteur:} & Benutzer, System\tabularnewline
+\hline 
 \textbf{Alternativer Ablauf:} & \begin{enumerate}
 \item Benutzer gibt keinen Suchbegriff ein
+\item Es wird kein Eintrag gefunden
+
+\begin{enumerate}
+\item In der Hinweisleiste wird angezeigt, dass es keine Treffer gibt.
+\end{enumerate}
 \end{enumerate}
 \tabularnewline
 \hline 
 \textbf{Nachbedingung im Sonderfall:} & \begin{enumerate}
 \item Alle Vorgänge werden angezeigt
+\item Es werden keine Vorgänge angezeigt
 \end{enumerate}
 \tabularnewline
 \hline
@@ -1636,6 +1680,8 @@ gibt
 \tabularnewline
 \hline 
 \textbf{Nachbedingung:} & Benutzer befindet sich weiterhin im Menüpunkt Controlling\tabularnewline
+\hline 
+\textbf{Akteur:} & Benutzer, System\tabularnewline
 \hline 
 \textbf{Alternativer Ablauf:} & \begin{enumerate}
 \item Die Realkosten stimmen nicht mit den Plankosten überein
@@ -1678,6 +1724,8 @@ Hilfskraft gibt
 \hline 
 \textbf{Nachbedingung:} & Bericht wurde generiert, eventuell geöffnet und der Benutzer befindet
 sich weiterhin im Menüpunkt Reports\tabularnewline
+\hline 
+\textbf{Akteur:} & Benutzer, System\tabularnewline
 \hline 
 \textbf{Alternativer Ablauf:} & \begin{enumerate}
 \item Benutzer gibt falsche Daten ein
@@ -1789,7 +1837,8 @@ Zuordnung der Veranstaltung zu einem Themengebiet oder Studiengang.
 \paragraph*{Handicap}
 
 Ein Multiplikator, welcher, je nach Qualifikation der Hilfskräfte,
-dafür vorgesehen war, das Gehalt anzupassen.
+dafür vorgesehen war, das Gehalt anzupassen. Das Handicap ist stets
+auf ,,1{}``.
 
 
 \paragraph*{Haushalt}
@@ -1837,12 +1886,6 @@ Eine Tabelle, die alle getätigten Vorgänge für einen Tag enthält.
 
 Die Qualifikation einer Hilfskraft ist entweder geprüft, ungeprüft
 oder ein Bachelor-Abschluss.
-
-
-\paragraph*{Stammdaten}
-
-Wesentliche Daten, die bei der Hilfskräfteverwaltung hinterlegt werden
-müssen.
 
 
 \paragraph*{Stundenlohn}

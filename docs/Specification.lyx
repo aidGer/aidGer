@@ -133,10 +133,6 @@ Die Betreuer des Softwarepraktikums
 \end_layout
 
 \begin_layout Itemize
-Der Gutachter des Spezifikationsreview
-\end_layout
-
-\begin_layout Itemize
 Die künftige Programmierer bzw.
  Verwalter dieses Projektes
 \end_layout
@@ -196,25 +192,9 @@ aidGer
 \begin_inset Quotes grd
 \end_inset
 
- die jetzige Lösung 
-\begin_inset Quotes gld
-\end_inset
-
-Hive
-\begin_inset Quotes grd
-\end_inset
-
- zu ersetzen.
- Das Altsystem 
-\begin_inset Quotes gld
-\end_inset
-
-Hive
-\begin_inset Quotes grd
-\end_inset
-
- soll jedoch weiterhin einsetzbar sein, um im Notfall oder bei ähnlichen
- Anlässen auf dieses zurückgreifen zu können.
+ die jetzige Lösung zu ersetzen.
+ Das Altsystem soll jedoch weiterhin einsetzbar sein, um im Notfall oder
+ bei ähnlichen Anlässen auf dieses zurückgreifen zu können.
 \end_layout
 
 \begin_layout Section
@@ -479,8 +459,8 @@ name "sec:Leistungsanforderungen"
 \end_layout
 
 \begin_layout Standard
-Da das Programm auf dem Server des Benutzers verwendet wird, darf es andere
- Programme oder das Betriebssystem nicht behindern.
+Da das Programm auf dem Server des Benutzers verwendet wird, darf es nicht
+ unnötig viele Ressourcen verwenden.
  Darüber hinaus soll die Software alle Funktionen in möglichst geringer
  Zeit (
 \begin_inset Formula $<$
@@ -510,7 +490,8 @@ Das Programm ist eine Einzelplatzanwendung ohne Netzwerkfunktionalität und
 \end_layout
 
 \begin_layout Itemize
-Das Programm wird in der Regel von maximal 3 verschiedenen Anwendern bedient.
+Das Programm wird in der näheren Zukunft von 2 verschiedenen Anwendern bedient.
+ Es ist aber möglich, dass neue Benutzer hinzukommen.
  Daher sind gleichzeitige Zugriffe auf die Datenbank von mehreren Rechnern
  zu vernachlässigen
 \end_layout
@@ -671,7 +652,7 @@ reference "sub:Buchung-von-Beschäftigungen"
 \end_layout
 
 \begin_layout Itemize
-Der zugehörige Vertrag
+Der Vertrag, unter welchem diese Beschäftigung läuft
 \end_layout
 
 \begin_layout Itemize
@@ -980,10 +961,10 @@ name "sub:Controlling-via-Monatsauszug"
 
 \begin_layout Standard
 Um das Überprüfen der Auszugslisten zu vereinfachen, muss für jeden Monat
- eine Tabelle (Monatsauszug) erstellt werden, in welcher zu jeder Hilfskraft
- die Plankosten netto und brutto aufgelistet sind.
- Diese Tabelle / Auszug soll komfortabel um den tatsächlichen Lohn ergänzbar
- sein, so dass die realen Kosten aus den Auszügen mit den Plankosten verglichen
+ ein Monatsauszug erstellt werden, in welcher zu jeder Hilfskraft die Plankosten
+ netto und brutto aufgelistet sind.
+ Dieser Auszug soll komfortabel um den tatsächlichen Lohn ergänzbar sein,
+ so dass die realen Kosten aus den Auszügen mit den Plankosten verglichen
  werden können.
  Es sollen zudem Warnungen ausgegeben werden, falls es Abweichungen zwischen
  Soll und Ist gibt.
@@ -1001,7 +982,7 @@ name "sub:Berichtswesen-/-Reporting"
 \end_layout
 
 \begin_layout Standard
-Es sollen so viele Berichte wie möglich im PDF-Format erstellt werden können.
+Es sollen Berichte im PDF-Format erstellt werden können.
  Dabei sollen die folgenden Berichte auf alle Fälle generiert werden können:
 \end_layout
 
@@ -1107,11 +1088,11 @@ Benachrichtigungen von Hilfskräften
 
 \begin_layout Standard
 Hilfskräfte sollen über bestimmte Ereignisse, wie z.B.
- Verfügbarkeit der Lohnabrechnung, informiert werden können.
+ Verfügbarkeit der Lohnabrechnung, über Mail informiert werden können.
 \begin_inset Newline newline
 \end_inset
 
-Hierfür soll auch eine Liste mit allen Hilfskräfte und ihren Mails verfügbar
+Hierfür soll eine Liste mit allen Hilfskräfte und ihren Mails verfügbar
  sein.
 \end_layout
 
@@ -1120,8 +1101,8 @@ Tägliche Vorgangsübersicht / Protokoll
 \end_layout
 
 \begin_layout Standard
-Am Ende jeden Tages soll eine Übersicht über alle Vorgänge (Protokoll) ausgegebe
-n werden können.
+Am Ende jeden Tages soll, für den Anwender, eine Übersicht über alle Vorgänge,
+ in Form einer Auflistung, ausgegeben werden können.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1130,8 +1111,8 @@ Mitteilungen an Bearbeiter
 
 \begin_layout Standard
 Die Bearbeiter sollen, z.B.
- bei Überschreitungen von Stundenzahlen der Hilfskräfte, benachrichtigt
- werden können.
+ bei Überschreitungen von Stundenzahlen der Hilfskräfte, durch visuelle
+ Hervorhebung des fraglichen Werts, darauf aufmerksam gemacht werden.
 \end_layout
 
 \begin_layout Subsection
@@ -1188,7 +1169,7 @@ name "sub:Beantwortung-von-vielen"
 \begin_layout Standard
 Um das Beantworten vieler Post-Mitteilungen zu unterstützen, soll eine kleine
  Hilfe im System integriert werden, die vorgefertigte, kopierfähige Texte
- generiert und außerdem die zugehörige Vorgänge in einem Rutsch erstellt.
+ generiert und außerdem die zugehörige Vorgänge erstellt.
 \end_layout
 
 \begin_layout Subsection
@@ -1203,7 +1184,9 @@ name "sub:Datenschutz"
 \end_layout
 
 \begin_layout Standard
-Hilfskräfte, die zu lange gespeichert sind, sollen anonymisiert werden.
+Hilfskräfte, die zu lange gespeichert sind, sollen - durch Löschung der
+ persönlichen Daten, wie z.B.
+ Namen - anonymisiert werden.
 \end_layout
 
 \begin_layout Subsection
@@ -1261,6 +1244,23 @@ ossen werden.
 \end_layout
 
 \begin_layout Subsection
+Wartbarkeit
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Wartbarkeit"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das Programm soll ohne großen Aufwand zu warten sein.
+ Hierzu soll es leicht lesbar geschrieben sein und über genügend aufschlussreich
+e, Kommentare verfügen.
+\end_layout
+
+\begin_layout Subsection
 Portabilität
 \begin_inset CommandInset label
 LatexCommand label
@@ -1286,6 +1286,10 @@ name "sub:Erweiterbarkeit"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Itemize
+Das Programm soll ohne großen Aufwand erweiterbar sein.
 \end_layout
 
 \begin_layout Itemize
@@ -2603,6 +2607,7 @@ Das Use-Case-Diagram ist auf der nächsten Seite abgebildet.
 	template PDFPages
 	filename Use_Case_Diagram.pdf
 	display false
+	width 100page%
 
 \end_inset
 
@@ -2638,7 +2643,7 @@ Stammdaten hinzufügen
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
+<lyxtabular version="3" rows="7" columns="2">
 <features islongtable="true">
 <column alignment="left" valignment="top" width="3.5cm">
 <column alignment="left" valignment="top" width="10.5cm">
@@ -2742,7 +2747,7 @@ OK
 \end_layout
 
 \begin_layout Enumerate
-Content-Frame geht in den vorherigen Zustand über
+Content-Frame wird mit dem vorherigen Zustand ersetzt
 \end_layout
 
 \end_inset
@@ -2766,6 +2771,28 @@ Nachbedingung:
 \begin_layout Plain Layout
 Die neuen Stammdaten wurden hinzugefügt und der Benutzer befindet sich wieder
  im Menüpunkt Stammdaten.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Akteur:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer, System
 \end_layout
 
 \end_inset
@@ -2816,7 +2843,7 @@ OK
 \end_layout
 
 \begin_layout Enumerate
-Content-Frame geht in den vorherigen Zustand über
+Content-Frame wird mit dem vorherigen Zustand ersetzt
 \end_layout
 
 \end_deeper
@@ -2834,7 +2861,7 @@ Abbrechen
 
 \begin_deeper
 \begin_layout Enumerate
-Content-Frame geht in den vorherigen Zustand über
+Content-Frame wird mit dem vorherigen Zustand ersetzt
 \end_layout
 
 \end_deeper
@@ -2883,7 +2910,7 @@ Stammdaten bearbeiten
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
+<lyxtabular version="3" rows="7" columns="2">
 <features islongtable="true">
 <column alignment="left" valignment="top" width="3.5cm">
 <column alignment="left" valignment="top" width="10.5cm">
@@ -2991,7 +3018,7 @@ OK
 \end_layout
 
 \begin_layout Enumerate
-Content-Frame geht in den vorherigen Zustand über
+Content-Frame wird mit dem vorherigen Zustand ersetzt
 \end_layout
 
 \end_inset
@@ -3015,6 +3042,28 @@ Nachbedingung:
 \begin_layout Plain Layout
 Das Datum wurde geändert und der Benutzer befindet sich wieder im Menüpunkt
  Stammdaten.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Akteur:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer, System
 \end_layout
 
 \end_inset
@@ -3083,7 +3132,7 @@ OK
 \end_layout
 
 \begin_layout Enumerate
-Content-Frame geht in den vorherigen Zustand über
+Content-Frame wird mit dem vorherigen Zustand ersetzt
 \end_layout
 
 \end_deeper
@@ -3101,7 +3150,7 @@ Abbrechen
 
 \begin_deeper
 \begin_layout Enumerate
-Content-Frame geht in den vorherigen Zustand über
+Content-Frame wird mit dem vorherigen Zustand ersetzt
 \end_layout
 
 \end_deeper
@@ -3155,7 +3204,7 @@ Stammdaten löschen
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
+<lyxtabular version="3" rows="7" columns="2">
 <features islongtable="true">
 <column alignment="left" valignment="top" width="3.5cm">
 <column alignment="left" valignment="top" width="10.5cm">
@@ -3243,7 +3292,7 @@ Bestätigungs
 \begin_inset Quotes grd
 \end_inset
 
--Popup öffnet sich
+-Popup wird geöffnet
 \end_layout
 
 \begin_layout Enumerate
@@ -3259,7 +3308,7 @@ Ja
 \end_layout
 
 \begin_layout Enumerate
-Popup schließt sich
+Popup wird geschlossen
 \end_layout
 
 \end_inset
@@ -3283,6 +3332,28 @@ Nachbedingung:
 \begin_layout Plain Layout
 Das Datum wurde gelöscht und der Benutzer befindet sich weiterhin im Menüpunkt
  Stammdaten.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Akteur:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer, System
 \end_layout
 
 \end_inset
@@ -3335,7 +3406,7 @@ Nein
 
 \begin_deeper
 \begin_layout Enumerate
-Popup schließt sich
+Popup wird geschlossen
 \end_layout
 
 \end_deeper
@@ -3399,7 +3470,7 @@ Budgetprüfung
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="2">
+<lyxtabular version="3" rows="5" columns="2">
 <features islongtable="true">
 <column alignment="left" valignment="top" width="3.5cm">
 <column alignment="left" valignment="top" width="10.5cm">
@@ -3464,8 +3535,31 @@ Regulärer Ablauf:
 
 \begin_layout Enumerate
 Das System zeigt eine Tabelle mit allen Veranstaltungen und deren gebuchten
- und eingeplanten HKS an, wobei falsch gebuchte Veranstaltungen hervorgehoben
- werden
+ und eingeplanten HKS an, wobei Veranstaltungen mit zu vielen gebuchten
+ HKS hervorgehoben werden
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nachbedingung:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer kann sich über das gebuchte und eingeplante Budget aller Veranstaltunge
+n informieren.
 \end_layout
 
 \end_inset
@@ -3478,7 +3572,7 @@ Das System zeigt eine Tabelle mit allen Veranstaltungen und deren gebuchten
 \begin_layout Plain Layout
 
 \series bold
-Nachbedingung:
+Akteur:
 \end_layout
 
 \end_inset
@@ -3487,8 +3581,7 @@ Nachbedingung:
 \begin_inset Text
 
 \begin_layout Plain Layout
-Benutzer kann sich über das gebuchte und eingeplante Budget aller Veranstaltunge
-n informieren.
+System
 \end_layout
 
 \end_inset
@@ -3508,7 +3601,7 @@ Anzeige aller Beschäftigungen
 \begin_layout Standard
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
+<lyxtabular version="3" rows="7" columns="2">
 <features islongtable="true">
 <column alignment="left" valignment="top" width="3.5cm">
 <column alignment="left" valignment="top" width="10.5cm">
@@ -3596,6 +3689,28 @@ Nachbedingung:
 
 \begin_layout Plain Layout
 Benutzer kann sich über alle gebuchten Beschäftigungen informieren.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Akteur:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer, System
 \end_layout
 
 \end_inset
@@ -3705,7 +3820,7 @@ Aggregierte Anzeigen
 \begin_layout Standard
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
+<lyxtabular version="3" rows="7" columns="2">
 <features islongtable="true">
 <column alignment="left" valignment="top" width="3.5cm">
 <column alignment="left" valignment="top" width="10.5cm">
@@ -3841,6 +3956,28 @@ Nachbedingung:
 
 \begin_layout Plain Layout
 Benutzer hat sich über die Tätigkeiten einer Hilfskraft informiert.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Akteur:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer, System
 \end_layout
 
 \end_inset
@@ -4013,7 +4150,7 @@ Tätigkeitsnachweis
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
+<lyxtabular version="3" rows="7" columns="2">
 <features islongtable="true">
 <column alignment="left" valignment="top" width="3.5cm">
 <column alignment="left" valignment="top" width="10.5cm">
@@ -4149,6 +4286,28 @@ Tätigkeitsnachweis wurde generiert und der Benutzer befindet sich wieder
 \begin_layout Plain Layout
 
 \series bold
+Akteur:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer, System
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
 Alternativer Ablauf:
 \end_layout
 
@@ -4258,7 +4417,7 @@ Buchung von Beschäftigungen
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
+<lyxtabular version="3" rows="7" columns="2">
 <features islongtable="true">
 <column alignment="left" valignment="top" width="3.5cm">
 <column alignment="left" valignment="top" width="10.5cm">
@@ -4444,6 +4603,28 @@ Die Beschäftigung wurde im System zwischengespeichert und es wird im nächsten
 \begin_layout Plain Layout
 
 \series bold
+Akteur:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer, System
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
 Alternative Abläufe:
 \end_layout
 
@@ -4478,7 +4659,8 @@ siehe 1a)
 
 \end_deeper
 \begin_layout Enumerate
-Benutzer gibt einen inkorrekten Zeitraum ein
+Benutzer gibt einen Zeitraum ein, bei welchem das Enddatum vor dem Anfangsdatum
+ liegt
 \end_layout
 
 \begin_deeper
@@ -4562,7 +4744,7 @@ Buchung von Vertragsdaten
 \begin_layout Standard
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
+<lyxtabular version="3" rows="7" columns="2">
 <features islongtable="true">
 <column alignment="left" valignment="top" width="3.5cm">
 <column alignment="left" valignment="top" width="10.5cm">
@@ -4699,6 +4881,28 @@ Die Buchung der Beschäftigung wurde vollständig gespeichert.
 \begin_layout Plain Layout
 
 \series bold
+Akteur:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer, System
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
 Alternativer Ablauf:
 \end_layout
 
@@ -4791,7 +4995,7 @@ Vorgang hinzufügen
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
+<lyxtabular version="3" rows="7" columns="2">
 <features islongtable="true">
 <column alignment="left" valignment="top" width="3.5cm">
 <column alignment="left" valignment="top" width="10.5cm">
@@ -4949,6 +5153,28 @@ Vorgang wurde hinzugefügt und der Benutzer befindet sich wieder im Menüpunkt
 \begin_layout Plain Layout
 
 \series bold
+Akteur:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer, System
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
 Alternativer Ablauf:
 \end_layout
 
@@ -4958,7 +5184,7 @@ Alternativer Ablauf:
 \begin_inset Text
 
 \begin_layout Enumerate
-Benutzer gibt ein falsches Datum ein
+Benutzer gibt die erforderlichen Daten falsch ein
 \end_layout
 
 \begin_deeper
@@ -4967,7 +5193,23 @@ Fehler wird in der Hinweisleiste angezeigt
 \end_layout
 
 \begin_layout Enumerate
-Benutzer korrigiert die falschen Daten
+Benutzer korrigiert die Fehler
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf 
+\begin_inset Quotes gld
+\end_inset
+
+OK
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Content-Frame geht in den vorherigen Zustand über
 \end_layout
 
 \end_deeper
@@ -5034,7 +5276,7 @@ Vorgang bearbeiten
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
+<lyxtabular version="3" rows="7" columns="2">
 <features islongtable="true">
 <column alignment="left" valignment="top" width="3.5cm">
 <column alignment="left" valignment="top" width="10.5cm">
@@ -5102,18 +5344,6 @@ Benutzer wählt einen Vorgang aus
 \end_layout
 
 \begin_layout Enumerate
-Content-Frame wird durch den 
-\begin_inset Quotes gld
-\end_inset
-
-Bearbeiten
-\begin_inset Quotes grd
-\end_inset
-
--Dialog ersetzt
-\end_layout
-
-\begin_layout Enumerate
 Benutzer klickt auf den Button 
 \begin_inset Quotes gld
 \end_inset
@@ -5123,6 +5353,18 @@ Bearbeiten
 \end_inset
 
 
+\end_layout
+
+\begin_layout Enumerate
+Content-Frame wird durch den 
+\begin_inset Quotes gld
+\end_inset
+
+Bearbeiten
+\begin_inset Quotes grd
+\end_inset
+
+-Dialog ersetzt
 \end_layout
 
 \begin_layout Enumerate
@@ -5166,6 +5408,28 @@ Nachbedingung:
 \begin_layout Plain Layout
 Vorgang wurde bearbeitet und der Benutzer befindet sich wieder im Menüpunkt
  Vorgänge
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Akteur:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer, System
 \end_layout
 
 \end_inset
@@ -5294,7 +5558,7 @@ Vorgang löschen
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
+<lyxtabular version="3" rows="7" columns="2">
 <features islongtable="true">
 <column alignment="left" valignment="top" width="3.5cm">
 <column alignment="left" valignment="top" width="10.5cm">
@@ -5434,6 +5698,28 @@ Vorgang wurde gelöscht und der Benutzer befindet sich wieder im Menüpunkt
 \begin_layout Plain Layout
 
 \series bold
+Akteur:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer, System
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
 Alternativer Ablauf:
 \end_layout
 
@@ -5515,7 +5801,7 @@ Vorgänge suchen
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
+<lyxtabular version="3" rows="7" columns="2">
 <features islongtable="true">
 <column alignment="left" valignment="top" width="3.5cm">
 <column alignment="left" valignment="top" width="10.5cm">
@@ -5583,15 +5869,7 @@ Benutzer gibt im Suchfeld einen Suchbegriff ein
 \end_layout
 
 \begin_layout Enumerate
-Benutzer klickt auf den Button 
-\begin_inset Quotes gld
-\end_inset
-
-Suchen
-\begin_inset Quotes grd
-\end_inset
-
-
+Die Tabelle wird mit jeder Eingabe aktualisiert
 \end_layout
 
 \end_inset
@@ -5626,6 +5904,28 @@ Vorgänge, welche den Suchbegriff enthalten, werden angezeigt
 \begin_layout Plain Layout
 
 \series bold
+Akteur:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer, System
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
 Alternativer Ablauf:
 \end_layout
 
@@ -5638,6 +5938,16 @@ Alternativer Ablauf:
 Benutzer gibt keinen Suchbegriff ein
 \end_layout
 
+\begin_layout Enumerate
+Es wird kein Eintrag gefunden
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+In der Hinweisleiste wird angezeigt, dass es keine Treffer gibt.
+\end_layout
+
+\end_deeper
 \end_inset
 </cell>
 </row>
@@ -5660,6 +5970,10 @@ Nachbedingung im Sonderfall:
 Alle Vorgänge werden angezeigt
 \end_layout
 
+\begin_layout Enumerate
+Es werden keine Vorgänge angezeigt
+\end_layout
+
 \end_inset
 </cell>
 </row>
@@ -5677,7 +5991,7 @@ Controlling
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
+<lyxtabular version="3" rows="7" columns="2">
 <features islongtable="true">
 <column alignment="left" valignment="top" width="3.5cm">
 <column alignment="left" valignment="top" width="10.5cm">
@@ -5788,6 +6102,28 @@ Benutzer befindet sich weiterhin im Menüpunkt Controlling
 \begin_layout Plain Layout
 
 \series bold
+Akteur:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer, System
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
 Alternativer Ablauf:
 \end_layout
 
@@ -5850,7 +6186,7 @@ Bericht generieren
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
+<lyxtabular version="3" rows="7" columns="2">
 <features islongtable="true">
 <column alignment="left" valignment="top" width="3.5cm">
 <column alignment="left" valignment="top" width="10.5cm">
@@ -5962,6 +6298,28 @@ Nachbedingung:
 \begin_layout Plain Layout
 Bericht wurde generiert, eventuell geöffnet und der Benutzer befindet sich
  weiterhin im Menüpunkt Reports
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Akteur:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benutzer, System
 \end_layout
 
 \end_inset
@@ -6201,6 +6559,15 @@ Handicap
 \begin_layout Standard
 Ein Multiplikator, welcher, je nach Qualifikation der Hilfskräfte, dafür
  vorgesehen war, das Gehalt anzupassen.
+ Das Handicap ist stets auf 
+\begin_inset Quotes gld
+\end_inset
+
+1
+\begin_inset Quotes grd
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Paragraph*
@@ -6275,14 +6642,6 @@ Qualifikation
 \begin_layout Standard
 Die Qualifikation einer Hilfskraft ist entweder geprüft, ungeprüft oder
  ein Bachelor-Abschluss.
-\end_layout
-
-\begin_layout Paragraph*
-Stammdaten
-\end_layout
-
-\begin_layout Standard
-Wesentliche Daten, die bei der Hilfskräfteverwaltung hinterlegt werden müssen.
 \end_layout
 
 \begin_layout Paragraph*
