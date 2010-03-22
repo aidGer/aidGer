@@ -128,7 +128,7 @@ wie beispielsweise alle Vorgänge zu mehreren Hilfskräften oder Veranstaltungen
 \item Erleichterung des Controllings der Abrechnungen bzw. Auszugslisten
 (Monatsauszug)
 \item Generation möglichst vieler PDF-Berichte (Reporting)
-\item Unterstützung bei der Benachrichtung mehrerer Hilfskräfte (Massenerfassung
+\item Unterstützung bei der Benachrichtigung mehrerer Hilfskräfte (Massenerfassung
 von Vorgängen)
 \item Tagesprotokoll über alle Vorgänge
 \end{itemize}
@@ -277,7 +277,7 @@ Die folgenden Informationen muss das System dem Benutzer liefern können:
 bzw. in der Vergangenheit gearbeitet hat, und allgemein welche Vorgänge
 mit dieser Hilfskraft zusammenhängen (siehe auch \ref{sub:T=0000E4tigkeitsnachweis}).
 \item Anzeige, welche Hilfskräfte für eine Veranstaltung mit wie vielen
-Stunden jeweils gebucht sind. Dabei soll auch das insgesamte verfügbare
+Stunden jeweils gebucht sind. Dabei soll auch das insgesamt verfügbare
 Budget für diese Veranstaltung und das bisher verbrauchte bzw. eingeplante
 angezeigt werden.
 \end{itemize}
@@ -967,10 +967,10 @@ Das Use-Case-Diagram ist auf der nächsten Seite abgebildet.
 \hline 
 \textbf{Regulärer Ablauf:} & \begin{enumerate}
 \item Benutzer klickt auf den Button ,,Hinzufügen{}``
-\item Content-Frame wird mit ,,Hinzufügen{}``-Dialog ersetzt
+\item System ersetzt Content-Frame mit dem ,,Hinzufügen{}``-Dialog
 \item Benutzer gibt die erforderlichen Daten ein
 \item Benutzer klickt auf den Button ,,OK{}``
-\item Content-Frame wird mit dem vorherigen Zustand ersetzt
+\item System ersetzt Content-Frame mit dem vorherigen Zustand
 \end{enumerate}
 \tabularnewline
 \hline 
@@ -983,16 +983,16 @@ sich wieder im Menüpunkt Stammdaten.\tabularnewline
 \item Benutzer gibt die erforderlichen Daten falsch ein
 
 \begin{enumerate}
-\item Fehlerhafte Felder werden markiert
-\item Meldung erscheint, dass markierte Felder korrigiert werden müssen
+\item System markiert Fehlerhafte Felder
+\item System gibt Meldung aus, dass markierte Felder korrigiert werden müssen
 \item Benutzer korrigiert die fehlerhaften Felder
 \item Benutzer klickt auf den Button ,,OK{}``
-\item Content-Frame wird mit dem vorherigen Zustand ersetzt
+\item System ersetzt Content-Frame mit dem vorherigen Zustand
 \end{enumerate}
 \item Benutzer klickt auf den Button ,,Abbrechen{}``
 
 \begin{enumerate}
-\item Content-Frame wird mit dem vorherigen Zustand ersetzt
+\item System ersetzt Content-Frame mit dem vorherigen Zustand
 \end{enumerate}
 \end{enumerate}
 \tabularnewline
@@ -1022,10 +1022,10 @@ wieder im Menüpunkt Stammdaten
 \textbf{Regulärer Ablauf:} & \begin{enumerate}
 \item Benutzer markiert ein Datum
 \item Benutzer klickt auf den Button ,,Bearbeiten{}``
-\item Content-Frame wird durch den ,,Bearbeiten{}``-Dialog ersetzt
+\item System ersetzt Content-Frame durch den ,,Bearbeiten{}``-Dialog
 \item Benutzer ändert die gewünschten Daten
 \item Benutzer klickt auf ,,OK{}``
-\item Content-Frame wird mit dem vorherigen Zustand ersetzt
+\item System ersetzt Content-Frame mit dem vorherigen Zustand
 \end{enumerate}
 \tabularnewline
 \hline 
@@ -1038,21 +1038,21 @@ Menüpunkt Stammdaten.\tabularnewline
 \item Benutzer hat kein Datum markiert und klickt auf ,,Bearbeiten{}``
 
 \begin{enumerate}
-\item Fehler wird in der Hinweisleiste angezeigt
+\item System zeigt Fehler in der Hinweisleiste an
 \end{enumerate}
 \item Benutzer gibt erforderliche Daten falsch ein
 
 \begin{enumerate}
-\item Fehlerhafte Felder werden markiert
-\item Meldung erscheint, dass markierte Felder korrigiert werden müssen
+\item System markiert fehlerhafte Felder
+\item System gibt Meldung aus, dass markierte Felder korrigiert werden müssen
 \item Benutzer korrigiert die fehlerhaften Felder
 \item Benutzer klickt auf den Button ,,OK{}``
-\item Content-Frame wird mit dem vorherigen Zustand ersetzt
+\item System ersetzt Content-Frame mit dem vorherigen Zustand
 \end{enumerate}
 \item Benutzer klickt auf den Button ,,Abbrechen{}``
 
 \begin{enumerate}
-\item Content-Frame wird mit dem vorherigen Zustand ersetzt
+\item System ersetzt Content-Frame mit dem vorherigen Zustand
 \end{enumerate}
 \end{enumerate}
 \tabularnewline
@@ -1084,9 +1084,9 @@ im Menüpunkt Stammdaten
 \textbf{Regulärer Ablauf:} & \begin{enumerate}
 \item Benutzer markiert ein Datum
 \item Benutzer klickt auf den Button ,,Löschen{}``
-\item Das ,,Bestätigungs{}``-Popup wird geöffnet
+\item System öffnet das ,,Bestätigungs{}``-Popup
 \item Benutzer klickt auf den Button ,,Ja{}``
-\item Popup wird geschlossen
+\item System schließt das Popup
 \end{enumerate}
 \tabularnewline
 \hline 
@@ -1099,17 +1099,17 @@ im Menüpunkt Stammdaten.\tabularnewline
 \item Das Datum wird referenziert
 
 \begin{enumerate}
-\item Fehler wird in der Hinweisleiste angezeigt
+\item System zeigt Fehler in der Hinweisleiste an
 \end{enumerate}
 \item Der Benutzer klickt in dem ,,Bestätigungs{}``-Popup auf ,,Nein{}``
 
 \begin{enumerate}
-\item Popup wird geschlossen
+\item System schließt das Popup
 \end{enumerate}
 \item Benutzer hat kein Datum ausgewählt
 
 \begin{enumerate}
-\item Fehler wird in der Hinweisleiste angezeigt
+\item System zeigt den Fehler in der Hinweisleiste an
 \end{enumerate}
 \end{enumerate}
 \tabularnewline
@@ -1179,10 +1179,10 @@ den zugehörigen Verträgen dar
 
 \begin{enumerate}
 \item Benutzer klickt auf den Button ,,Vorgänge anzeigen{}``
-\item Content-Frame wechselt in den ,,Vorgänge anzeigen{}``-Dialog
-\item Es werden alle Vorgänge zu der ausgewählten Beschäftigung aufgelistet
+\item System wechselt den Content-Frame in den ,,Vorgänge anzeigen{}``-Dialog
+\item System listet alle Vorgänge zu der ausgewählten Beschäftigung auf
 \item Benutzer klickt auf den ,,Zurück{}``-Button
-\item Content-Frame wird mit dem vorherigen Zustand wieder ausgetauscht
+\item System ersetzt Content-Frame mit dem vorherigen Zustand
 \end{enumerate}
 \end{enumerate}
 \tabularnewline
@@ -1211,11 +1211,12 @@ informiert
 \item Benutzer klickt auf Hilfskräfte
 \item Benutzer wählt eine Hilfskraft aus
 \item Benutzer drückt den Button ,,Tätigkeitsnachweis{}``
-\item Content-Frame wird mit dem ,,Tätigkeitsnachweis{}``-Dialog ausgewechselt
-\item Es werden alle Veranstaltungen zu der ausgewählten Hilfskraft in einer
-Tabelle aufgelistet
+\item System wechselt Content-Frame mit dem ,,Tätigkeitsnachweis{}``-Dialog
+aus
+\item System listet alle Veranstaltungen zu der ausgewählten Hilfskraft
+in einer Tabelle auf
 \item Benutzer klickt auf den Button ,,Zurück{}``
-\item Content-Frame wird mit dem vorherigen Zustand ausgewechselt
+\item System ersetzt Content-Frame mit dem vorherigen Zustand
 \end{enumerate}
 \tabularnewline
 \hline 
@@ -1229,21 +1230,22 @@ Tabelle aufgelistet
 \begin{enumerate}
 \item Benutzer wählt eine Hilfskraft aus
 \item Benutzer klickt auf den Button ,,Vorgänge anzeigen{}``
-\item Content-Frame wird mit dem ,,Vorgänge anzeigen{}``-Dialog ausgetauscht
-\item Es werden alle Vorgänge zu der gewählten Hilfskraft dargestellt
+\item System tauscht Content-Frame mit dem ,,Vorgänge anzeigen{}``-Dialog
+aus
+\item System stellt alle Vorgänge zu der gewählten Hilfskraft dar
 \item Benutzer klickt auf den Button ,,Zurück{}``
-\item Content-Frame wird mit dem vorherigen Zustand ausgetauscht
+\item System ersetzt Content-Frame mit dem vorherigen Zustand
 \end{enumerate}
 \item Benutzer klickt auf Veranstaltungen
 
 \begin{enumerate}
 \item Benutzer wählt eine Veranstaltung aus
 \item Benutzer klickt auf den Button ,,Hilfskräfte anzeigen{}``
-\item Content-Frame wird mit dem ,,Hilfskräfte anzeigen{}``-Dialog ersetzt
-\item Es werden alle Hilfskräfte zu der Veranstaltung und zusätzlich das
-verbrauchte und eingeplante Budget angezeigt
+\item System ersetzt Content-Frame mit dem ,,Hilfskräfte anzeigen{}``-Dialog
+\item System zeigt alle Hilfskräfte zu der Veranstaltung und zusätzlich
+das verbrauchte und eingeplante Budget an
 \item Benutzer klickt auf den Button ,,Zurück{}``
-\item Content-Frame wird mit dem vorherigen Zustand ausgetauscht
+\item System ersetzt Content-Frame mit dem vorherigen Zustand
 \end{enumerate}
 \end{enumerate}
 \tabularnewline
@@ -1273,8 +1275,8 @@ verbrauchte und eingeplante Budget angezeigt
 \item Benutzer wählt die Hilfskraft aus
 \item Benutzer wählt den gewünschten Zeitraum aus
 \item Benutzer klickt auf den Button ,,Generieren{}``
-\item Tätigkeitsnachweis wird generiert
-\item Tätigkeitsnachweis wird je nach Einstellung geöffnet
+\item System generiert Tätigkeitsnachweis
+\item System öffnet, je nach Einstellung, den Tätigkeitsnachweis
 \end{enumerate}
 \tabularnewline
 \hline 
@@ -1287,12 +1289,12 @@ wieder im Menüpunkt Berichte\tabularnewline
 \item Benutzer wählt einen ungültigen Zeitraum aus
 
 \begin{enumerate}
-\item Fehlerhafte Felder werden markiert
-\item Fehler wird in der Hinweisleiste angezeigt
+\item System markiert fehlerhafte Felder
+\item System zeigt Fehler in der Hinweisleiste an
 \item Benutzer korrigiert die Fehlerhaften Eingaben
 \item Benutzer klickt auf den Button ,,Generieren{}``
-\item Tätigkeitsnachweis wird generiert
-\item Tätigkeitsnachweis wird je nach Einstellung geöffnet
+\item System generiert Tätigkeitsnachweis
+\item System öffnet Tätigkeitsnachweis je nach Einstellung
 \end{enumerate}
 \item Benutzer klickt auf den Button ,,Abbrechen{}``
 
@@ -1326,7 +1328,8 @@ sich wieder im Menüpunkt Berichte
 \hline 
 \textbf{Regulärer Ablauf:} & \begin{enumerate}
 \item Benutzer drückt den Button ,,Beschäftigung buchen{}``
-\item Content Frame wird mit dem ,,Beschäftigung buchen{}``-Dialog ausgetauscht
+\item System tauscht Content Frame mit dem ,,Beschäftigung buchen{}``-Dialog
+aus
 \item Benutzer wählt in einer Dropdown-Liste die Hilfskraft aus
 \item Benutzer wählt in einer Dropdown-Liste die Veranstaltung aus
 \item Benutzer wählt in einer Dropdown-Liste das Jahr aus
@@ -1353,8 +1356,8 @@ im nächsten Schritt der Vertrag zur Beschäftigung zugeordnet.\tabularnewline
 \item Die gebuchten HKS sind größer als die geplanten HKS
 
 \begin{enumerate}
-\item Der Fehler wird in der Hinweisleiste angezeigt
-\item Das inkorrekte Feld wird markiert
+\item System zeigt den Fehler in der Hinweisleiste an
+\item System markiert das inkorrekte Feld
 \end{enumerate}
 \item Die Stundenzahl der Hilfskraft überschreitet die vertraglich vereinbarte
 Arbeitszeit
@@ -1413,7 +1416,7 @@ im Buchungsdialog bei Schritt 2.\tabularnewline
 \item Benutzer wählt aus einer Dropdown-Liste den Fonds aus
 \item Benutzer wählt aus einer Dropdown-Liste die Art des Vertrags aus
 \item Benutzer klickt auf Button ,,Buchen{}``
-\item Content-Frame wechselt in den Zustand vor der Buchung der Beschäftigung
+\item System ersetzt Content-Frame mit dem vorherigen Zustand
 \end{enumerate}
 \tabularnewline
 \hline 
@@ -1428,13 +1431,13 @@ wurden außerdem zur Beschäftigung zugeordnet.\tabularnewline
 \begin{enumerate}
 \item Benutzer wählt aus einer Dropdown-Liste ein bestehenden Vertrag aus
 \item Benutzer klickt auf den Button ,,Buchen{}``
-\item Content-Frame wechselt in den Zustand vor der Buchung der Beschäftigung
+\item System ersetzt Content-Frame mit dem vorherigen Zustand
 \end{enumerate}
 \item Benutzer macht dem Feld nicht entsprechenden Eintrag
 
 \begin{enumerate}
-\item Der Fehler wird in der Hinweisleiste angezeigt
-\item Das inkorrekte Feld wird markiert
+\item System zeigt den Fehler in der Hinweisleiste an
+\item System markiert das inkorrekte Feld
 \end{enumerate}
 \end{enumerate}
 \tabularnewline
@@ -1462,16 +1465,16 @@ muss seine Eingabe korrigieren
 \hline 
 \textbf{Regulärer Ablauf:} & \begin{enumerate}
 \item Benutzer klickt auf den Button ,,Vorgang hinzufügen{}``
-\item Content-Frame wird durch ,,Vorgang hinzufügen{}``-Dialog ersetzt
-\item Der Bearbeiter des Vorgangs wird automatisch durch den Namen des Benutzers
-eingetragen
+\item System ersetzt Content-Frame durch ,,Vorgang hinzufügen{}``-Dialog
+\item System trägt automatisch den Namen des Benutzers als den Bearbeiter
+des Vorgangs ein
 \item Benutzer gibt das Datum ein
 \item Benutzer fügt eine oder mehrere Hilfskräfte als betroffene Hilfskraft
 / Hilfskräfte aus einer Liste hinzu (Massenerfassung von Vorgängen)
 \item Benutzer gibt eine Bemerkung / den Vorgangstext ein
 \item Benutzer gibt den Sender / den Adressat ein
 \item Benutzer klickt auf den Button ,,Hinzufügen{}``
-\item Content-Frame geht in den vorherigen Zustand über
+\item System ersetzt Content-Frame mit dem vorherigen Zustand
 \end{enumerate}
 \tabularnewline
 \hline 
@@ -1484,15 +1487,15 @@ Menüpunkt Vorgänge\tabularnewline
 \item Benutzer gibt die erforderlichen Daten falsch ein
 
 \begin{enumerate}
-\item Fehler wird in der Hinweisleiste angezeigt
+\item System zeigt Fehler in der Hinweisleiste an
 \item Benutzer korrigiert die Fehler
 \item Benutzer klickt auf ,,OK{}``
-\item Content-Frame geht in den vorherigen Zustand über
+\item System ersetzt Content-Frame mit dem vorherigen Zustand
 \end{enumerate}
 \item Benutzer klickt auf den Button ,,Abbrechen{}``
 
 \begin{enumerate}
-\item Content-Frame geht in den vorherigen Zustand über
+\item System ersetzt Content-Frame mit dem vorherigen Zustand
 \end{enumerate}
 \end{enumerate}
 \tabularnewline
@@ -1522,10 +1525,10 @@ im Menüpunkt Vorgänge
 \textbf{Regulärer Ablauf:} & \begin{enumerate}
 \item Benutzer wählt einen Vorgang aus
 \item Benutzer klickt auf den Button ,,Bearbeiten{}``
-\item Content-Frame wird durch den ,,Bearbeiten{}``-Dialog ersetzt
+\item System ersetzt Content-Frame durch den ,,Bearbeiten{}``-Dialog
 \item Benutzer ändert die gewünschten Daten
 \item Benutzer klickt auf ,,OK{}``
-\item Content-Frame geht in den vorherigen Zustand über
+\item System ersetzt Content-Frame mit dem vorherigen Zustand
 \end{enumerate}
 \tabularnewline
 \hline 
@@ -1538,20 +1541,20 @@ Menüpunkt Vorgänge\tabularnewline
 \item Benutzer hat keinen Vorgang ausgewählt
 
 \begin{enumerate}
-\item Fehler wird in der Hinweisleiste angezeigt
+\item System zeigt Fehler in der Hinweisleiste an
 \end{enumerate}
 \item Benutzer gibt die erforderlichen Daten falsch ein
 
 \begin{enumerate}
-\item Fehler wird in der Hinweisleiste angezeigt
+\item System zeigt Fehler in der Hinweisleiste an
 \item Benutzer korrigiert die Fehler
 \item Benutzer klickt auf ,,OK{}``
-\item Content-Frame geht in den vorherigen Zustand über
+\item System ersetzt Content-Frame mit dem vorherigen Zustand
 \end{enumerate}
 \item Benutzer klickt auf ,,Abbrechen{}``
 
 \begin{enumerate}
-\item Content-Frame geht in den vorherigen Zustand über
+\item System ersetzt Content-Frame mit dem vorherigen Zustand
 \end{enumerate}
 \end{enumerate}
 \tabularnewline
@@ -1583,9 +1586,9 @@ im Menüpunkt Vorgänge
 \textbf{Regulärer Ablauf:} & \begin{enumerate}
 \item Benutzer wählt einen Vorgang aus
 \item Benutzer klickt auf den Button ,,Löschen{}``
-\item Das ,,Bestätigen{}``-Popup öffnet sich
+\item System öffnet das ,,Bestätigen{}``-Popup
 \item Benutzer klickt auf den Button ,,Ja{}``
-\item Popup wird geschlossen
+\item System schließt das Popup
 \end{enumerate}
 \tabularnewline
 \hline 
@@ -1598,12 +1601,12 @@ Vorgänge\tabularnewline
 \item Benutzer hat keinen Vorgang ausgewählt
 
 \begin{enumerate}
-\item Fehler wird in der Hinweisleiste angezeigt
+\item System zeigt Fehler in der Hinweisleiste an
 \end{enumerate}
 \item Benutzer klickt auf den Button ,,Nein{}``
 
 \begin{enumerate}
-\item Popup wird geschlossen
+\item System schließt das Popup
 \end{enumerate}
 \end{enumerate}
 \tabularnewline
@@ -1632,7 +1635,7 @@ im Menüpunkt Vorgänge
 \hline 
 \textbf{Regulärer Ablauf:} & \begin{enumerate}
 \item Benutzer gibt im Suchfeld einen Suchbegriff ein
-\item Die Tabelle wird mit jeder Eingabe aktualisiert
+\item System aktualisiert die Tabelle mit jeder Eingabe
 \end{enumerate}
 \tabularnewline
 \hline 
@@ -1642,10 +1645,10 @@ im Menüpunkt Vorgänge
 \hline 
 \textbf{Alternativer Ablauf:} & \begin{enumerate}
 \item Benutzer gibt keinen Suchbegriff ein
-\item Es wird kein Eintrag gefunden
+\item System findet keinen Eintrag
 
 \begin{enumerate}
-\item In der Hinweisleiste wird angezeigt, dass es keine Treffer gibt.
+\item System zeigt in der Hinweisleiste wird an, dass es keine Treffer gibt.
 \end{enumerate}
 \end{enumerate}
 \tabularnewline
@@ -1674,7 +1677,7 @@ im Menüpunkt Vorgänge
 \item Benutzer wählt einen Monatsauszug aus
 \item Benutzer trägt die Realkosten ein
 \item Die Realkosten stimmen mit den Plankosten überein
-\item In der Hinweisleiste wird angezeigt, dass es keine Unstimmigkeiten
+\item System zeigt in der Hinweisleiste an, dass es keine Unstimmigkeiten
 gibt
 \end{enumerate}
 \tabularnewline
@@ -1687,9 +1690,9 @@ gibt
 \item Die Realkosten stimmen nicht mit den Plankosten überein
 
 \begin{enumerate}
-\item In der Hinweisleiste wird angezeigt, dass es Unstimmigkeiten bei einer
-Hilfskraft gibt
-\item Die Hilfskraft wird markiert
+\item System zeigt in der Hinweisleiste an, dass es Unstimmigkeiten bei
+einer Hilfskraft gibt
+\item System markiert die Hilfskraft
 \end{enumerate}
 \end{enumerate}
 \tabularnewline
@@ -1717,8 +1720,8 @@ Hilfskraft gibt
 \item Benutzer wählt die gewünschte Berichtsart aus
 \item Benutzer gibt die geforderten Informationen ein
 \item Benutzer klickt auf den Button ,,Generieren{}``
-\item Bericht wird generiert
-\item Bericht wird je nach Einstellungen geöffnet
+\item System generiert den Bericht
+\item System öffnet Bericht je nach Einstellung
 \end{enumerate}
 \tabularnewline
 \hline 
@@ -1731,11 +1734,11 @@ sich weiterhin im Menüpunkt Reports\tabularnewline
 \item Benutzer gibt falsche Daten ein
 
 \begin{enumerate}
-\item Fehler wird in der Hinweisleiste angezeigt
+\item System zeigt Fehler in der Hinweisleiste an
 \item Benutzer korrigiert seine Eingabe
 \item Benutzer klickt auf den Button ,,Generieren{}``
-\item Bericht wird generiert
-\item Bericht wird je nach Einstellungen geöffnet
+\item System generiert den Bericht
+\item System öffnet, je nach Einstellung, den Bericht
 \end{enumerate}
 \end{enumerate}
 \tabularnewline
@@ -1755,191 +1758,552 @@ sich weiterhin im Menüpunkt Berichte
 
 \section{Begriffslexikon\label{sec:Begriffslexikon}}
 
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Aufstockung}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Erweiterung eines \textit{Vertrages}, so dass die \textit{Hilfskraft}
+für mehrere \textit{Veranstaltungen}, aus verschiedenen \textit{Fonds}
+finanziert, verwendet werden kann.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \textit{Beschäftigungen} einer Aufstockung können nur aus einem \textit{Fonds}
+finanziert werden.\tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \textit{Vertrag}\tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-\paragraph*{Aufstockung}
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Aufwendung}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Durch das \textit{Buchen} von \textit{Beschäftigungen} entstandener
+Aufwand.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-Erweiterung eines Vertrages, so dass die Hilfskraft für mehrere Veranstaltungen,
-aus verschiedenen Fonds finanziert, verwendet werden kann.
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Beschäftigung}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Eine Einstellung einer \textit{Hilfskraft} über einen bestimmten Zeitraum
+für eine oder mehrere \textit{Veranstaltungen}.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & Beschäftigungen können nur vom gleichen \textit{Vertrag} stammen,
+falls diese von dem gleichen \textit{Fonds} finanziert werden.\tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Bericht}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Ein PDF-Dokument zum Überblick über alle im System eingetragenen Informationen.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-\paragraph*{Aufwendung}
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Bilanz}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Aufstellung der \textit{Plankosten} für \textit{Veranstaltungen} für
+jede \textit{Gruppe}.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-Durch das Buchen von Beschäftigungen entstandener Aufwand.
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Buchung}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Erstellung einer \textit{Beschäftigung} für eine \textit{Hilfskraft}.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Budget}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Kennzahl der verfügbaren \textit{HKS} einer \textit{Veranstaltung}.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-\paragraph*{Beschäftigung}
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Budgetprüfung}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Informationen über das gebuchte und eingeplante \textit{Budget} erlangen.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \textit{Budget}\tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-Eine Einstellung einer Hilfskraft über einen bestimmten Zeitraum für
-eine oder mehrere Veranstaltungen.
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Controlling}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Die Überprüfung und der Vergleich von Abrechnungen auf deren Korrektheit.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Finanzkategorie}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Einstufung der \textit{Beschäftigung} nach Kategorien aufgrund unterschiedlicher
+Vergütungen.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-\paragraph*{Bericht}
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Finanzplan}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Zuordnung von \textit{Finanzkategorien} zu deren \textit{Plankostenhaushalt}
+pro Jahr.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \textit{Finanzkategorie}\tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-Ein PDF-Dokument zum Überblick über alle im System eingetragenen Informationen.
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Fonds}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Verfügbare Kapitalanlagen.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Gruppe}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Zuordnung der \textit{Veranstaltung} zu einem Themengebiet oder Studiengang.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-\paragraph*{Bilanz}
-
-Aufstellung der Plankosten für Veranstaltungen für jede Gruppe.
-
-
-\paragraph*{Buchung}
-
-Erstellung einer Beschäftigung für eine Hilfskraft.
-
-
-\paragraph*{Budget}
-
-Kennzahl der verfügbaren HKS einer Veranstaltung.
-
-
-\paragraph*{Budgetprüfung}
-
-Informationen über das gebuchte und eingeplante Budget erlangen.
-
-
-\paragraph*{Controlling}
-
-Die Überprüfung und der Vergleich von Abrechnungen auf deren Korrektheit.
-
-
-\paragraph*{Diff-Tabelle}
-
-Ein Monatsauzug aller Hilfskräfte.
-
-
-\paragraph*{Dozent}
-
-Eine Person, die eine Veranstaltung verwaltet.
-
-
-\paragraph*{Finanzkategorie}
-
-Einstufung der Beschäftigung nach Kategorien aufgrund unterschiedlicher
-Vergütungen.
-
-
-\paragraph*{Finanzplan}
-
-Zuordnung von Finanzkategorien zu deren Plankostenhaushalt pro Jahr.
-
-
-\paragraph*{Fonds}
-
-Verfügbare Kapitalanlagen.
-
-
-\paragraph*{Gruppe}
-
-Zuordnung der Veranstaltung zu einem Themengebiet oder Studiengang.
-
-
-\paragraph*{Handicap}
-
-Ein Multiplikator, welcher, je nach Qualifikation der Hilfskräfte,
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Handicap}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Ein Multiplikator, welcher, je nach \textit{Qualifikation} der \textit{Hilfskräfte},
 dafür vorgesehen war, das Gehalt anzupassen. Das Handicap ist stets
-auf ,,1{}``.
+auf ,,1{}``.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Haushalt}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Einnahmen und Ausgaben der Universität.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-\paragraph*{Haushalt}
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Hilfskraft}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Eine Person, welche am Institutsverbund Informatik eingestellt ist.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-Einnahmen und Ausgaben der Universität.
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{HKS}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Hilfskraftstunden\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \textit{Hilfskraft}\tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Kostenstelle}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Klassifikation des \textit{Fonds} in eine Ziffer.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-\paragraph*{Hilfskraft}
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Monatsauszug}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Ein Auflistung aller \textit{Plankosten} der \textit{Hilfskräfte}.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \textit{Plankosten}\tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-Eine Person, welche am Institutsverbund Informatik eingestellt ist.
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Plankosten}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Im System für einen Zeitraum hinterlegte und daher geplante Kosten.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Plankostenhaushalt}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & \textit{Plankosten}, die einerseits aus dem Haushalt, aber auch aus
+Studiengebühren finanziert werden.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \textit{Plankosten}\tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-\paragraph*{HKS}
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Protokoll}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Eine Tabelle, die alle getätigten \textit{Vorgänge} für einen Tag
+enthält.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \textit{Vorgang}\tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-Hilfskraftstunden
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Qualifikation}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Die \textit{Qualifikation} einer \textit{Hilfskraft} ist entweder
+geprüft, ungeprüft oder ein Bachelor-Abschluss.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Stundenlohn}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Der Gehalt, den eine \textit{Hilfskraft}, pro Stunde erhält.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \textit{Qualifikation}\tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-\paragraph*{Kostenstelle}
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Tätigkeitsnachweis}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Ein offizielles Schreiben, welches Informationen über \textit{Hilfskräfte}
+und deren \textit{Vorgänge} enthält.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \textit{Bericht}\tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-Klassifikation des Fonds in eine Ziffer.
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Teil}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Aufspaltung einer \textit{Veranstaltung} nach mehreren Zielgruppen.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Ticket}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Ein \textit{Vorgang}, der ausschließlich über das Ticket-System verwaltet
+wird.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-\paragraph*{Monatsauszug}
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Umfang}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Angabe der benötigten Semesterwochenstunden für eine \textit{Veranstaltung}.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-Ein Auflistung aller Plankosten der Hilfskräfte.
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Veranstaltung}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Eine \textit{Beschäftigung} (Forschung, Praktikum, Lehre), für die
+ein Dozent verantwortlich ist.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Vertrag}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Eine schriftliche Vereinbarung zwischen der \textit{Hilfskraft} und
+dem Institutsverbund. Kann aus mehreren \textit{Beschäftigungen} bestehen,
+falls diese aus dem gleichen \textit{Fonds} finanziert werden.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \textit{Beschäftigungen} eines Vertrags können nur aus einem \textit{Fonds}
+finanziert werden.\tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
-\paragraph*{Plankosten}
-
-Im System für einen Zeitraum hinterlegte und daher geplante Kosten.
-
-
-\paragraph*{Plankostenhaushalt}
-
-Plankosten, die einseits aus dem Haushalt, aber auch aus Studiengebühren
-finanziert werden.
-
-
-\paragraph*{Protokoll}
-
-Eine Tabelle, die alle getätigten Vorgänge für einen Tag enthält.
-
-
-\paragraph*{Qualifikation}
-
-Die Qualifikation einer Hilfskraft ist entweder geprüft, ungeprüft
-oder ein Bachelor-Abschluss.
-
-
-\paragraph*{Stundenlohn}
-
-Der Gehalt, den eine Hilfskraft, pro Stunde erhält.
-
-
-\paragraph*{Tätigkeitsnachweis}
-
-Ein offizielles Schreiben, welches Informationen über Hilfskräfte
-und deren Vorgänge enthält.
-
-
-\paragraph*{Teil}
-
-Aufspaltung einer Veranstaltung nach mehreren Zielgruppen.
-
-
-\paragraph*{Ticket}
-
-Ein Vorgang, der ausschließlich über das Ticket-System verwaltet wird.
-
-
-\paragraph*{Übungsgruppe}
-
-Eine Versammlung von Studenten, die von einer Hilfskraft betreut wird.
-
-
-\paragraph*{Umfang}
-
-Angabe der benötigten Semesterwochenstunden für eine Veranstaltung.
-
-
-\paragraph*{Uni-Budget}
-
-Siehe Haushalt.
-
-
-\paragraph*{Veranstaltung}
-
-Eine Beschäftigung (Forschung, Praktikum, Lehre), für die ein Dozent
-verantwortlich ist.
-
-
-\paragraph*{Vertrag}
-
-Eine schriftliche Vereinbarung zwischen der Hilfskraft und dem Institutsverbund.
-Kann aus mehreren Beschäftigungen bestehen, falls diese aus dem gleichen
-Fonds finanziert werden.
-
-
-\paragraph*{Vorgang}
-
-Ein Prozess, der beim Verwalten von Hilfskräften anfällt.
+\begin{flushleft}
+\begin{tabular}{|c|>{\centering}p{0.75\textwidth}|}
+\hline 
+\textbf{Begriff} & \textbf{Vorgang}\tabularnewline
+\hline
+\hline 
+\textbf{Bedeutung} & Ein Prozess, der beim Verwalten von \textit{Hilfskräften} anfällt.\tabularnewline
+\hline 
+\textbf{Abgrenzung} & \tabularnewline
+\hline 
+\textbf{Unklarheiten} & \tabularnewline
+\hline 
+\textbf{Querverweise} & \tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
 
 
 \section{Versionshistorie\label{sec:Versionshistorie}}
@@ -1952,7 +2316,7 @@ Ein Prozess, der beim Verwalten von Hilfskräften anfällt.
 und \ref{cha:Benutzeroberfl=0000E4che}
 \item Erstellung des Kapitels \ref{cha:Anwendungsf=0000E4lle}
 \item Begriffslexikon hinzugefügt und erweitert
-\item Use-Case-Diagram erstellt
+\item Use-Case-Diagramm erstellt
 \end{itemize}
 
 \subsection*{Version 0.1.1 (07.03.2010)}
