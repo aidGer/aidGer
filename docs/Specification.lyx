@@ -100,7 +100,7 @@ Diese Spezifikation dient als Grundlage für alle weitere Dokumente, die
  Sie enthält alle wesentlichen Anforderungen an die Software und deren Schnittst
 ellen.
  Sie muss stets mit den anderen Dokumenten, insbesondere dem Entwurf und
- der Codierung, konsistent gehalten werden.
+ der Codierung, auf einem Stand gehalten werden.
  Die Spezifikation dient den Teammitgliedern als Grundlage und Richtlinie
  bei der Entwicklung des Systems.
 \end_layout
@@ -1412,7 +1412,7 @@ name "sec:Programmstart"
 Beim Programmstart wird das Hauptfenster angezeigt.
  Sollten beim vorherigen Schließen des Programms noch Tabs offen gewesen
  sein, so wird dem Nutzer die Möglichkeit gegeben diese wieder zu öffnen.
- Dabei wird versucht soviele Informationen wie möglichst zu erhalten; Eingaben
+ Dabei wird versucht so viele Informationen wie möglichst zu erhalten; Eingaben
  in Formulare gehen dabei jedoch verloren.
 \end_layout
 
@@ -1733,7 +1733,7 @@ Nach einem Klick auf Stammdatenverwaltung
  Zudem gibt es dazwischen noch ein Suchfeld.
  Zu Beginn ist die Tabelle auf einige wichtige Spalten beschränkt.
  Über ein Kontextmenü können jedoch alle verfügbaren Daten in der Tabelle
- angezeigt werden, um einen breiten Bildschirm voll auszunützen.
+ angezeigt werden, um einen breiten Bildschirm voll auszunutzen.
  
 \begin_inset Newline newline
 \end_inset
@@ -1794,7 +1794,7 @@ Vorgänge
  um direkt zu den Vorgängen der ausgewählten Veranstaltung zu springen.
  Um einen Tabelleneintrag anzuzeigen, kann auch ein Doppelklick auf ihn
  ausgeführt werden.
- Per Entf-Taste kann ein Eintrag zudem entfernt werden.
+ Per "Entf"-Taste kann ein Eintrag zudem entfernt werden.
 \end_layout
 
 \begin_layout Subsection
@@ -1956,8 +1956,8 @@ Bearbeiten
 \end_inset
 
 -Ansicht.
- Einzigster Unterschied ist, dass sich hier noch keine Daten in den Eingabefelde
-rn befinden und dass der 
+ Einziger Unterschied ist, dass sich hier noch keine Daten in den Eingabefeldern
+ befinden und dass der 
 \begin_inset Quotes gld
 \end_inset
 
@@ -2033,7 +2033,7 @@ name "sec:Beschäftigungen"
 \noindent
 Bei den Beschäftigungen wird die von der Stammdatenhauptansicht bekannte
  Form benutzt.
- Das heisst, dass sich am oberen Rand eine Toolbar befindet, in der es die
+ Das heißt, dass sich am oberen Rand eine Toolbar befindet, in der es die
  Funktionen 
 \begin_inset Quotes gld
 \end_inset
@@ -2086,7 +2086,7 @@ Die Suche aktualisiert die Tabelle, sobald der erste Buchstabe eingegeben
 \end_inset
 
 Die Ansichten zum Anzeigen, Bearbeiten, Hinzufügen und Entfernen sind größtentei
-ls aquivalent zu ihren Gegenübern in der Stammdatenverwaltung.
+ls äquivalent zu ihren Gegenübern in der Stammdatenverwaltung.
  
 \begin_inset Newline newline
 \end_inset
@@ -2236,9 +2236,9 @@ Bearbeiten und Hinzufügen
 \end_layout
 
 \begin_layout Standard
-Hier sind die einzigsten Unterschiede, dass Verweise auf Stammdaten aus
- Comboboxen ausgesucht werden können, um schnellstmöglichst auf diese zugreifen
- zu können.
+Hier sind die einzigen Unterschiede, dass Verweise auf Stammdaten aus Comboboxen
+ ausgesucht werden können, um schnellst möglichst auf diese zugreifen zu
+ können.
 \end_layout
 
 \begin_layout Section
@@ -2587,7 +2587,7 @@ In diesem Kapitel sollen die wichtigsten Anwendungsfälle des Systems dargestell
 \end_layout
 
 \begin_layout Section
-Use-Case-Diagram
+Use-Case-Diagramm
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Use-Case-Diagramm"
@@ -2598,7 +2598,7 @@ name "sec:Use-Case-Diagramm"
 \end_layout
 
 \begin_layout Standard
-Das Use-Case-Diagram ist auf der nächsten Seite abgebildet.
+Das Use-Case-Diagramm ist auf der nächsten Seite abgebildet.
 \end_layout
 
 \begin_layout Standard
@@ -4821,7 +4821,7 @@ Benutzer gibt ein Beschäftigungsende ein
 \end_layout
 
 \begin_layout Enumerate
-Benutzer gibt die Stundenanzahl pro Monat ein
+Benutzer gibt die Stundenzahl pro Monat ein
 \end_layout
 
 \begin_layout Enumerate
