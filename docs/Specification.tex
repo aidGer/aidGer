@@ -919,6 +919,10 @@ eingetragen werden.
 \item \textbf{PDF-Anzeiger} \\
 Pfad zu einem Programm, welches PDFs anzeigen kann. Der Pfad zur
 PDF-Datei wird hierbei als Argument für das Programm übergeben.
+\item \textbf{Sprache} \\
+Stellt die verwendete Sprache der GUI ein. Dies lädt die Übersetzungsdatei
+der gewählten Sprache und stellt alle übersetzten Label/Buttons/etc. in der
+jeweiligen Sprache dar. Für mehr siehe \ref{sec:Mehrsprachigkeit}.
 \item \textbf{Anzahl der Vorgänge}\\
 Die Anzahl der Vorgänge, die in Detailansichten wie zum Beispiel
 bei den Stammdaten von Hilfskräften angezeigt werden sollen.
@@ -937,6 +941,20 @@ seiner Arbeit zu erleichtern.
 Das Über-Fenster enthält den Programmnamen und die Programmversion
 (sowie das zugehörige Veröffentlichungsdatum), die Namen der Entwickler
 und einen Verweis auf die Projektwebsite.
+
+\section{Mehrsprachigkeit\label{sec:Mehrsprachigkeit}
+
+Durch Übersetzen der Sprachdatei in neue Sprachen und kopieren dieser in das
+Einstellungsverzeichnis können neue Sprachen zur Anwendung hinzugefügt werden.\\
+Diese können dann im Einstellungsdialog ausgewählt und benutzt werden. Alle
+übersetzten Elemente werden dann in der ausgewählten Sprache dargestellt. Sollte
+ein Element in der Sprachdatei nicht übersetzt worden sein, so wird auf die
+Standardsprache (Deutsch) zurückgegriffen, um leere Labels oder Buttons zu
+verhindern. \\
+
+Beim ersten Start der Anwendung wird die Sprache automatisch auf die Sprache
+des Betriebssystems gestellt oder, falls die Sprache nicht vorhanden ist, auf
+die Standardsprache (Deutsch) zurückgegriffen.
 
 
 \chapter{Anwendungsfälle\label{cha:Anwendungsf=0000E4lle}}
