@@ -2505,6 +2505,30 @@ Pfad zu einem Programm, welches PDFs anzeigen kann.
 \begin_layout Itemize
 
 \series bold
+Sprache
+\series default
+ 
+\begin_inset Newline newline
+\end_inset
+
+ Stellt die verwendete Sprache der GUI ein.
+ Dies lädt die Übersetzungsdatei der gewählten Sprache und stellt alle übersetzt
+en Label/Buttons/etc.
+ in der jeweiligen Sprache dar.
+ Für mehr siehe 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Mehrsprachigkeit"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
 Anzahl der Vorgänge
 \series default
 
@@ -2568,6 +2592,42 @@ name "sec:Über-Fenster"
 Das Über-Fenster enthält den Programmnamen und die Programmversion (sowie
  das zugehörige Veröffentlichungsdatum), die Namen der Entwickler und einen
  Verweis auf die Projektwebsite.
+\end_layout
+
+\begin_layout Section
+Mehrsprachigkeit
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Mehrsprachigkeit"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Durch Übersetzen der Sprachdatei in neue Sprachen und kopieren dieser in
+ das Einstellungsverzeichnis können neue Sprachen zur Anwendung hinzugefügt
+ werden.
+\begin_inset Newline newline
+\end_inset
+
+Diese können dann im Einstellungsdialog ausgewählt und benutzt werden.
+ Alle übersetzten Elemente werden dann in der ausgewählten Sprache dargestellt.
+ Sollte ein Element in der Sprachdatei nicht übersetzt worden sein, so wird
+ auf die Standardsprache (Deutsch) zurückgegriffen, um leere Labels oder
+ Buttons zu verhindern.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Beim ersten Start der Anwendung wird die Sprache automatisch auf die Sprache
+ des Betriebssystems gestellt oder, falls die Sprache nicht vorhanden ist,
+ auf die Standardsprache (Deutsch) zurückgegriffen.
 \end_layout
 
 \begin_layout Chapter
