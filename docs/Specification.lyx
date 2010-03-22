@@ -1256,8 +1256,11 @@ name "sub:Wartbarkeit"
 
 \begin_layout Standard
 Das Programm soll ohne großen Aufwand zu warten sein.
- Hierzu soll es leicht lesbar geschrieben sein und über genügend aufschlussreich
-e, Kommentare verfügen.
+ Hierzu soll der Code leicht lesbar und verständlich sein.
+ Zudem ist eine konsequente Verwendung von JavaDoc-Kommentaren im Quellcode
+ sowie die Einhaltung der Code Conventions for the Java Programming Language
+ von Sun verpflichtend.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -2511,7 +2514,7 @@ Sprache
 \begin_inset Newline newline
 \end_inset
 
- Stellt die verwendete Sprache der GUI ein.
+Stellt die verwendete Sprache der GUI ein.
  Dies lädt die Übersetzungsdatei der gewählten Sprache und stellt alle übersetzt
 en Label/Buttons/etc.
  in der jeweiligen Sprache dar.
@@ -6536,7 +6539,7 @@ Bedeutung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Erweiterung eines 
+Die Erweiterung eines 
 \shape italic
 Vertrages
 \shape default
@@ -6604,7 +6607,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -6628,7 +6631,7 @@ Querverweise
 \begin_layout Plain Layout
 
 \shape italic
-Vertrag, Fonds, Beschäftigung
+Vertrag, Hilfskraft, Fonds, Beschäftigung
 \end_layout
 
 \end_inset
@@ -6692,7 +6695,8 @@ Eine Einstellung einer
 \shape italic
 Hilfskraft
 \shape default
- über einen bestimmten Zeitraum für eine oder mehrere 
+ am Institutsverbund Informatik über einen bestimmten Zeitraum für eine
+ oder mehrere 
 \shape italic
 Veranstaltungen
 \shape default
@@ -6748,7 +6752,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -6770,6 +6774,8 @@ Querverweise
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\shape italic
 Hilfskraft, Veranstaltung, Vertrag, Fonds
 \end_layout
 
@@ -6830,7 +6836,8 @@ Bedeutung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Ein PDF-Dokument zum Überblick über alle im System eingetragenen Informationen.
+Die Ausgabe bzw.
+ die Präsentation der Funktionsergebnisse in Form eines Dokuments im PDF-Format.
 \end_layout
 
 \end_inset
@@ -6852,7 +6859,9 @@ Abgrenzung
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Unter einem Bericht werden Daten verstanden, die im Zuge einer Programmfunktiona
+lität gesammelt wurden und schlußendlich als PDF-Dokument gespeichert werden.
+ 
 \end_layout
 
 \end_inset
@@ -6874,7 +6883,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -6897,6 +6906,8 @@ Querverweise
 
 \begin_layout Plain Layout
 
+\shape italic
+Bilanz, Tätigkeitsnachweis
 \end_layout
 
 \end_inset
@@ -6956,19 +6967,19 @@ Bedeutung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Aufstellung der 
-\shape italic
-Plankosten
-\shape default
- für 
-\shape italic
-Veranstaltungen
-\shape default
- für jede 
+Für jede 
 \shape italic
 Gruppe
 \shape default
-.
+ werden die 
+\shape italic
+Plankosten
+\shape default
+ für die 
+\shape italic
+Veranstaltungen
+\shape default
+ aufgelistet.
 \end_layout
 
 \end_inset
@@ -6990,7 +7001,8 @@ Abgrenzung
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Eine Bilanz ist keine Gegenüberstellung von Vermögen und Schulden eines
+ Unternehmens.
 \end_layout
 
 \end_inset
@@ -7012,7 +7024,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -7035,6 +7047,8 @@ Querverweise
 
 \begin_layout Plain Layout
 
+\shape italic
+Plankosten, Veranstaltungen, Gruppe
 \end_layout
 
 \end_inset
@@ -7094,15 +7108,15 @@ Bedeutung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Erstellung einer 
-\shape italic
-Beschäftigung
-\shape default
- für eine 
+Ein systemtechnischer Vorgang, der für eine 
 \shape italic
 Hilfskraft
 \shape default
-.
+ eine neue 
+\shape italic
+Beschäftigung
+\shape default
+ erstellt.
 \end_layout
 
 \end_inset
@@ -7124,7 +7138,8 @@ Abgrenzung
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Die Buchung ist kein Vorgang im Sinne des Rechnungswesens bzw.
+ der Buchführung.
 \end_layout
 
 \end_inset
@@ -7146,7 +7161,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -7169,6 +7184,8 @@ Querverweise
 
 \begin_layout Plain Layout
 
+\shape italic
+Beschäftigung, Hilfskraft
 \end_layout
 
 \end_inset
@@ -7184,7 +7201,7 @@ Querverweise
 \begin_layout Standard
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
+<lyxtabular version="3" rows="4" columns="2">
 <features>
 <column alignment="left" valignment="top" width="0">
 <column alignment="block" valignment="top" width="75text%">
@@ -7228,37 +7245,11 @@ Bedeutung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Kennzahl der verfügbaren 
-\shape italic
-HKS
-\shape default
- einer 
+Eine Kennzahl der verfügbaren Hilfskraftstunden einer 
 \shape italic
 Veranstaltung
 \shape default
 .
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Abgrenzung
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
@@ -7280,7 +7271,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -7303,6 +7294,8 @@ Querverweise
 
 \begin_layout Plain Layout
 
+\shape italic
+Veranstaltung, Budgetprüfung
 \end_layout
 
 \end_inset
@@ -7318,7 +7311,7 @@ Querverweise
 \begin_layout Standard
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
+<lyxtabular version="3" rows="4" columns="2">
 <features>
 <column alignment="left" valignment="top" width="0">
 <column alignment="block" valignment="top" width="75text%">
@@ -7362,33 +7355,10 @@ Bedeutung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Informationen über das gebuchte und eingeplante 
+Der Vorgang des Benutzers zur Erlangung von Informationen über das gebuchte
+ und eingeplante 
 \shape italic
-Budget
-\shape default
- erlangen.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Abgrenzung
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+Budget.
 \end_layout
 
 \end_inset
@@ -7410,7 +7380,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -7450,7 +7420,7 @@ Budget
 \begin_layout Standard
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
+<lyxtabular version="3" rows="4" columns="2">
 <features>
 <column alignment="left" valignment="top" width="0">
 <column alignment="block" valignment="top" width="75text%">
@@ -7494,29 +7464,8 @@ Bedeutung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Die Überprüfung und der Vergleich von Abrechnungen auf deren Korrektheit.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Abgrenzung
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+Die Überprüfung und der Vergleich von Abrechnungen vom Benutzer auf deren
+ Korrektheit.
 \end_layout
 
 \end_inset
@@ -7538,7 +7487,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -7560,7 +7509,7 @@ Querverweise
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -7576,7 +7525,7 @@ Querverweise
 \begin_layout Standard
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
+<lyxtabular version="3" rows="4" columns="2">
 <features>
 <column alignment="left" valignment="top" width="0">
 <column alignment="block" valignment="top" width="75text%">
@@ -7637,28 +7586,6 @@ Beschäftigung
 \begin_layout Plain Layout
 
 \series bold
-Abgrenzung
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
 Unklarheiten
 \end_layout
 
@@ -7668,7 +7595,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -7691,6 +7618,8 @@ Querverweise
 
 \begin_layout Plain Layout
 
+\shape italic
+Beschäftigung
 \end_layout
 
 \end_inset
@@ -7706,7 +7635,7 @@ Querverweise
 \begin_layout Standard
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
+<lyxtabular version="3" rows="4" columns="2">
 <features>
 <column alignment="left" valignment="top" width="0">
 <column alignment="block" valignment="top" width="75text%">
@@ -7771,28 +7700,6 @@ Plankostenhaushalt
 \begin_layout Plain Layout
 
 \series bold
-Abgrenzung
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
 Unklarheiten
 \end_layout
 
@@ -7802,7 +7709,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -7826,7 +7733,7 @@ Querverweise
 \begin_layout Plain Layout
 
 \shape italic
-Finanzkategorie
+Finanzkategorie, Plankostenhaushalt
 \end_layout
 
 \end_inset
@@ -7842,7 +7749,114 @@ Finanzkategorie
 \begin_layout Standard
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
+<lyxtabular version="3" rows="4" columns="2">
+<features>
+<column alignment="left" valignment="top" width="0">
+<column alignment="block" valignment="top" width="75text%">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Begriff
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Fonds
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Bedeutung
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Kapitaleinlagen, die für die Beschäftigung von Hilfskräften zur Verfügung
+ gestellt wird.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Unklarheiten
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Querverweise
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\shape italic
+Beschäftigung, Hilfskraft
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
 <features>
 <column alignment="left" valignment="top" width="0">
 <column alignment="block" valignment="top" width="75text%">
@@ -7903,28 +7917,6 @@ Veranstaltung
 \begin_layout Plain Layout
 
 \series bold
-Abgrenzung
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
 Unklarheiten
 \end_layout
 
@@ -7934,7 +7926,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -7957,6 +7949,8 @@ Querverweise
 
 \begin_layout Plain Layout
 
+\shape italic
+Veranstaltung
 \end_layout
 
 \end_inset
@@ -7972,7 +7966,7 @@ Querverweise
 \begin_layout Standard
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
+<lyxtabular version="3" rows="4" columns="2">
 <features>
 <column alignment="left" valignment="top" width="0">
 <column alignment="block" valignment="top" width="75text%">
@@ -8046,28 +8040,6 @@ Hilfskräfte
 \begin_layout Plain Layout
 
 \series bold
-Abgrenzung
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
 Unklarheiten
 \end_layout
 
@@ -8077,7 +8049,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -8099,7 +8071,7 @@ Querverweise
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -8159,7 +8131,8 @@ Bedeutung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Eine Person, welche am Institutsverbund Informatik eingestellt ist.
+Eine von einem Institut des Institutsverbunds der Informatik der Universität
+ Stuttgart beschäftigte Person, die einer Veranstaltung zugeteilt wird.
 \end_layout
 
 \end_inset
@@ -8181,7 +8154,8 @@ Abgrenzung
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Keine Hilfskräfte sind solche, die nicht den Instituten des Institutsverbunds
+ der Informatik unterliegen.
 \end_layout
 
 \end_inset
@@ -8203,7 +8177,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -8226,6 +8200,8 @@ Querverweise
 
 \begin_layout Plain Layout
 
+\shape italic
+Veranstaltung
 \end_layout
 
 \end_inset
@@ -8241,7 +8217,7 @@ Querverweise
 \begin_layout Standard
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
+<lyxtabular version="3" rows="4" columns="2">
 <features>
 <column alignment="left" valignment="top" width="0">
 <column alignment="block" valignment="top" width="75text%">
@@ -8302,28 +8278,6 @@ Fonds
 \begin_layout Plain Layout
 
 \series bold
-Abgrenzung
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
 Unklarheiten
 \end_layout
 
@@ -8333,7 +8287,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -8356,6 +8310,8 @@ Querverweise
 
 \begin_layout Plain Layout
 
+\shape italic
+Fonds
 \end_layout
 
 \end_inset
@@ -8371,7 +8327,7 @@ Querverweise
 \begin_layout Standard
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
+<lyxtabular version="3" rows="4" columns="2">
 <features>
 <column alignment="left" valignment="top" width="0">
 <column alignment="block" valignment="top" width="75text%">
@@ -8415,7 +8371,7 @@ Bedeutung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Ein Auflistung aller 
+Eine Auflistung aller 
 \shape italic
 Plankosten
 \shape default
@@ -8424,28 +8380,6 @@ Plankosten
 Hilfskräfte
 \shape default
 .
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Abgrenzung
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
@@ -8467,7 +8401,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -8507,7 +8441,7 @@ Plankosten
 \begin_layout Standard
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
+<lyxtabular version="3" rows="4" columns="2">
 <features>
 <column alignment="left" valignment="top" width="0">
 <column alignment="block" valignment="top" width="75text%">
@@ -8564,28 +8498,6 @@ Im System für einen Zeitraum hinterlegte und daher geplante Kosten.
 \begin_layout Plain Layout
 
 \series bold
-Abgrenzung
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
 Unklarheiten
 \end_layout
 
@@ -8595,7 +8507,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -8618,6 +8530,8 @@ Querverweise
 
 \begin_layout Plain Layout
 
+\shape italic
+Plankostenhaushalt
 \end_layout
 
 \end_inset
@@ -8633,7 +8547,7 @@ Querverweise
 \begin_layout Standard
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
+<lyxtabular version="3" rows="4" columns="2">
 <features>
 <column alignment="left" valignment="top" width="0">
 <column alignment="block" valignment="top" width="75text%">
@@ -8695,28 +8609,6 @@ Plankosten
 \begin_layout Plain Layout
 
 \series bold
-Abgrenzung
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
 Unklarheiten
 \end_layout
 
@@ -8726,7 +8618,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -8766,7 +8658,7 @@ Plankosten
 \begin_layout Standard
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
+<lyxtabular version="3" rows="4" columns="2">
 <features>
 <column alignment="left" valignment="top" width="0">
 <column alignment="block" valignment="top" width="75text%">
@@ -8827,28 +8719,6 @@ Vorgänge
 \begin_layout Plain Layout
 
 \series bold
-Abgrenzung
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
 Unklarheiten
 \end_layout
 
@@ -8858,7 +8728,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -8898,141 +8768,7 @@ Vorgang
 \begin_layout Standard
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
-<features>
-<column alignment="left" valignment="top" width="0">
-<column alignment="block" valignment="top" width="75text%">
-<row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Begriff
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Qualifikation
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Bedeutung
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Die 
-\shape italic
-Qualifikation
-\shape default
- einer 
-\shape italic
-Hilfskraft
-\shape default
- ist entweder geprüft, ungeprüft oder ein Bachelor-Abschluss.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Abgrenzung
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Unklarheiten
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Querverweise
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align left
-\begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
+<lyxtabular version="3" rows="4" columns="2">
 <features>
 <column alignment="left" valignment="top" width="0">
 <column alignment="block" valignment="top" width="75text%">
@@ -9097,28 +8833,6 @@ Vorgänge
 \begin_layout Plain Layout
 
 \series bold
-Abgrenzung
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
 Unklarheiten
 \end_layout
 
@@ -9128,7 +8842,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -9152,7 +8866,7 @@ Querverweise
 \begin_layout Plain Layout
 
 \shape italic
-Bericht
+Bericht, Hilfskraft, Vorgang
 \end_layout
 
 \end_inset
@@ -9168,7 +8882,7 @@ Bericht
 \begin_layout Standard
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
+<lyxtabular version="3" rows="4" columns="2">
 <features>
 <column alignment="left" valignment="top" width="0">
 <column alignment="block" valignment="top" width="75text%">
@@ -9212,33 +8926,11 @@ Bedeutung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Aufspaltung einer 
+Die Aufspaltung einer 
 \shape italic
 Veranstaltung
 \shape default
  nach mehreren Zielgruppen.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Abgrenzung
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
@@ -9260,7 +8952,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -9283,6 +8975,8 @@ Querverweise
 
 \begin_layout Plain Layout
 
+\shape italic
+Veranstaltung
 \end_layout
 
 \end_inset
@@ -9342,11 +9036,7 @@ Bedeutung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Ein 
-\shape italic
-Vorgang
-\shape default
-, der ausschließlich über das Ticket-System verwaltet wird.
+Ein Vorgang, der über das Ticket-System verwaltet wird.
 \end_layout
 
 \end_inset
@@ -9368,7 +9058,15 @@ Abgrenzung
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Ein Ticket ist nicht ein Vorfall, der im Zusammenhang mit einer 
+\shape italic
+Hilfskraft
+\shape default
+ oder 
+\shape italic
+Veranstaltung
+\shape default
+ angefallen ist.
 \end_layout
 
 \end_inset
@@ -9390,7 +9088,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -9413,6 +9111,8 @@ Querverweise
 
 \begin_layout Plain Layout
 
+\shape italic
+Vorgang
 \end_layout
 
 \end_inset
@@ -9428,7 +9128,7 @@ Querverweise
 \begin_layout Standard
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
+<lyxtabular version="3" rows="4" columns="2">
 <features>
 <column alignment="left" valignment="top" width="0">
 <column alignment="block" valignment="top" width="75text%">
@@ -9472,33 +9172,11 @@ Bedeutung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Angabe der benötigten Semesterwochenstunden für eine 
+Der Umfang gibt die benötigten Semesterwochenstunden (SWS) für eine 
 \shape italic
 Veranstaltung
 \shape default
-.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Abgrenzung
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+ an.
 \end_layout
 
 \end_inset
@@ -9520,7 +9198,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -9543,6 +9221,8 @@ Querverweise
 
 \begin_layout Plain Layout
 
+\shape italic
+Veranstaltung
 \end_layout
 
 \end_inset
@@ -9602,11 +9282,9 @@ Bedeutung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Eine 
-\shape italic
-Beschäftigung
-\shape default
- (Forschung, Praktikum, Lehre), für die ein Dozent verantwortlich ist.
+Die Lehr- und Forschungsveranstaltungen, die von Instituten des Institutsverbund
+s der Informatik der Universität Stuttgart angeboten werden und deren Institute
+ für die Veranstaltung Hilfskräfte beschäftigen.
 \end_layout
 
 \end_inset
@@ -9628,7 +9306,9 @@ Abgrenzung
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Nicht betrachtet werden solche Veranstaltungen, die nicht den Instituten
+ des Institutsverbunds der Informatik unterliegen.
+ 
 \end_layout
 
 \end_inset
@@ -9650,7 +9330,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -9673,6 +9353,8 @@ Querverweise
 
 \begin_layout Plain Layout
 
+\shape italic
+Hilfskraft
 \end_layout
 
 \end_inset
@@ -9736,8 +9418,8 @@ Eine schriftliche Vereinbarung zwischen der
 \shape italic
 Hilfskraft
 \shape default
- und dem Institutsverbund.
- Kann aus mehreren 
+ und dem Institutsverbund der Informatik.
+ Diese kann auch aus mehreren 
 \shape italic
 Beschäftigungen
 \shape default
@@ -9797,7 +9479,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -9820,6 +9502,8 @@ Querverweise
 
 \begin_layout Plain Layout
 
+\shape italic
+Hilfskraft, Beschäftigung, Fonds
 \end_layout
 
 \end_inset
@@ -9851,7 +9535,7 @@ Begriff
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9879,11 +9563,15 @@ Bedeutung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Ein Prozess, der beim Verwalten von 
+Ein Vorgang beschreibt einen Vorfall im Zusammenhang mit einer 
 \shape italic
-Hilfskräften
+Hilfskraft
 \shape default
- anfällt.
+ oder einer 
+\shape italic
+Veranstaltung
+\shape default
+.
 \end_layout
 
 \end_inset
@@ -9905,7 +9593,16 @@ Abgrenzung
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Vorgänge sind keine programmatische Abläufe, sondern bezeichnen tatsächliche
+ Vorfälle mit 
+\shape italic
+Hilfskräften
+\shape default
+ und 
+\shape italic
+Veranstaltungen
+\shape default
+.
 \end_layout
 
 \end_inset
@@ -9927,7 +9624,7 @@ Unklarheiten
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -9950,6 +9647,8 @@ Querverweise
 
 \begin_layout Plain Layout
 
+\shape italic
+Hilfskraft, Veranstaltung
 \end_layout
 
 \end_inset
@@ -9957,6 +9656,13 @@ Querverweise
 </row>
 </lyxtabular>
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
 \end_inset
 
 
@@ -9978,11 +9684,12 @@ Version 0.3 (22.03.2010)
 \end_layout
 
 \begin_layout Itemize
-Layout des Begriffslexikons verändert
+Kleinere Korrekturen am gesamten Dokument aufgrund der Review-Sitzung am
+ 16.03.2010
 \end_layout
 
 \begin_layout Itemize
-Kleinere Korrekturen aus Review
+Layout des Begriffslexikons verändert
 \end_layout
 
 \begin_layout Itemize
@@ -9990,19 +9697,34 @@ Use-Case-Diagramm korrigiert
 \end_layout
 
 \begin_layout Itemize
-Kapitel Wartbarkeit hinzugefügt
+Kapitel Wartbarkeit (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Wartbarkeit"
+
+\end_inset
+
+) hinzugefügt
 \end_layout
 
 \begin_layout Itemize
-Umformulierung / Ergänzung von unklaren Definitionen
+Umformulierungen und Ergänzungen von unklaren Definitionen
 \end_layout
 
 \begin_layout Itemize
-Genauere Spezifikation von Mitteilungen
+Genauere Spezifikation von Mitteilungsanforderungen
 \end_layout
 
 \begin_layout Itemize
-Passive Use-Cases umgeschrieben
+Passiv formulierte Use Cases in Aktivform umgeschrieben
+\end_layout
+
+\begin_layout Itemize
+Option zur Mehrsprachigkeit zum Einstellungsdialog der GUI hinzugefügt
+\end_layout
+
+\begin_layout Itemize
+Detailliertere Definitionen von einigen Begriffen im Begriffslexikon
 \end_layout
 
 \begin_layout Subsection*
