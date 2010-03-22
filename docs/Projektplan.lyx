@@ -1632,7 +1632,7 @@ Der Terminplan ist als Gantt-Diagramm graphisch dargestellt:
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename gantt.jpg
+	filename images/gantt.jpg
 	width 100text%
 
 \end_inset

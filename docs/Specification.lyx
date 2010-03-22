@@ -278,12 +278,12 @@ aidGer
 \begin_inset Newline newline
 \end_inset
 
-Zudem wird eine Verbindung mit dem bereits vorhandenen Ticket-System benötigt.
- Diese Verbindung wird in Form einer Import- bzw.
- Exportschnitstelle hergestellt, die jedoch in der ersten Software-Version
- nur vorgesehen und beim Entwurf berücksichtigt wird.
- Eine spätere Implementierung ist jedoch denkbar und in Zukunft vom Kunden
- auch ausdrücklich erwünscht.
+Außerdem wird zukünftig eine Verbindung mit dem bereits vorhandenen Ticket-Syste
+m benötigt.
+ Diese Verbindung soll in Form einer Import- bzw.
+ Exportschnitstelle hergestellt werden, welche bereits beim Entwurf der
+ ersten Software-Version berücksichtigt werden muss, da eine spätere Implementie
+rung vom Kunden ausdrücklich erwünscht und verlangt ist.
 \end_layout
 
 \begin_layout Section
@@ -885,32 +885,6 @@ name "sub:Erfassung-von-Vorgängen"
 \end_layout
 
 \begin_layout Standard
-Es sollen unter anderem folgende Vorgänge erfasst werden:
-\end_layout
-
-\begin_layout Itemize
-Verwaltung von Arbeitsverträgen
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Die Vertragsdaten von Hilfskräften müssen festgehalten werden können, siehe
- hierzu 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Buchung-von-Beschäftigungen"
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Lohnsteuerkartenverwaltung
-\end_layout
-
-\begin_layout Standard
 Bei allen Vorgängen sollen folgende Daten erfasst werden können:
 \end_layout
 
@@ -945,7 +919,46 @@ Es soll möglich sein, an mehrere Hilfskräfte Nachrichten verschicken zu
 \begin_inset Newline newline
 \end_inset
 
+Zudem müssen Vorgänge an eine oder mehrere Veranstaltungen gekoppelt werden
+ können.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
 Die Vorgänge sollen mit einer Volltextsuche durchsucht werden können.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Beispielsweise müssen die folgenden Vorgänge erfasst werden:
+\end_layout
+
+\begin_layout Itemize
+Verwaltung von Arbeitsverträgen
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Die Vertragsdaten von Hilfskräften müssen festgehalten werden können, siehe
+ hierzu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Buchung-von-Beschäftigungen"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Lohnsteuerkartenverwaltung
 \end_layout
 
 \begin_layout Subsection
@@ -1149,10 +1162,13 @@ name "sub:PDF-Export"
 \end_layout
 
 \begin_layout Standard
-Berichte sollen, mit ähnlichem Aussehen wie bisher - mit Optimierungen -
- im PDF-Format exportiert werden können.
- Optimierungen sind z.B.
- die Angabe von Summen.
+Es sollen Berichte zu allen Funktionsergebnissen von aidGer im PDF-Format
+ exportiert werden können.
+ Dabei soll das bisherige Aussehen der Hive-Berichte weitgehend beibehalten
+ werden.
+ Optimierungen, die den Informationsgehalt der Berichte steigern, sind erwünscht.
+ So soll beispielsweise die Angabe von Summen in die exportieren Berichte
+ aufgenommen werden.
 \end_layout
 
 \begin_layout Subsection
@@ -2239,9 +2255,12 @@ Bearbeiten und Hinzufügen
 \end_layout
 
 \begin_layout Standard
-Hier sind die einzigen Unterschiede, dass Verweise auf Stammdaten aus Comboboxen
- ausgesucht werden können, um schnellst möglichst auf diese zugreifen zu
- können.
+Beim Bearbeiten und Hinzufügen kann der Benutzer dem Vorgang eine oder mehrere
+ Hilfskräfte zuordnen.
+ Wahlweise kann der Vorgang auch an eine oder mehrere Veranstaltungen geknüpft
+ werden.
+ Außerdem können Verweise auf Stammdaten aus Comboboxen ausgesucht werden,
+ um schnellst möglichst auf diese zugreifen zu können.
 \end_layout
 
 \begin_layout Section
@@ -2516,9 +2535,9 @@ Sprache
 
 Stellt die verwendete Sprache der GUI ein.
  Dies lädt die Übersetzungsdatei der gewählten Sprache und stellt alle übersetzt
-en Label/Buttons/etc.
+en Label / Buttons / etc.
  in der jeweiligen Sprache dar.
- Für mehr siehe 
+ Siehe auch 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Mehrsprachigkeit"
@@ -2609,14 +2628,20 @@ name "sec:Mehrsprachigkeit"
 \end_layout
 
 \begin_layout Standard
-Durch Übersetzen der Sprachdatei in neue Sprachen und kopieren dieser in
- das Einstellungsverzeichnis können neue Sprachen zur Anwendung hinzugefügt
- werden.
+\noindent
+Durch das Übersetzen der Sprachdatei in neue Sprachen und das anschließende
+ Kopieren dieser Datei in das Einstellungsverzeichnis können neue Sprachen
+ zur Anwendung hinzugefügt werden.
 \begin_inset Newline newline
 \end_inset
 
-Diese können dann im Einstellungsdialog ausgewählt und benutzt werden.
- Alle übersetzten Elemente werden dann in der ausgewählten Sprache dargestellt.
+
+\begin_inset Newline newline
+\end_inset
+
+Diese können daraufhin im Einstellungsdialog ausgewählt und benutzt werden,
+ so dass alle übersetzten Elemente in der ausgewählten Sprache dargestellt
+ werden.
  Sollte ein Element in der Sprachdatei nicht übersetzt worden sein, so wird
  auf die Standardsprache (Deutsch) zurückgegriffen, um leere Labels oder
  Buttons zu verhindern.
@@ -2966,6 +2991,19 @@ Es wurden keine Stammdaten hinzugefügt und der Benutzer befindet sich wieder
 
 \end_layout
 
+\begin_layout Standard
+\noindent
+Anmerkung: Die erforderlichen Daten können für alle Stammdaten dem Kapitel
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Stammdatenverwaltung"
+
+\end_inset
+
+ entnommen werden.
+\end_layout
+
 \begin_layout Section
 Stammdaten bearbeiten
 \end_layout
@@ -3260,6 +3298,18 @@ Es wurde kein Datum verändert und der Benutzer befindet sich wieder im Menüpun
 
 \end_layout
 
+\begin_layout Standard
+\noindent
+Anmerkung: Die änderbaren Daten können für alle Stammdaten dem Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Stammdatenverwaltung"
+
+\end_inset
+
+ entnommen werden.
+\end_layout
+
 \begin_layout Section
 Stammdaten löschen
 \end_layout
@@ -3524,6 +3574,18 @@ Es wurde kein Datum gelöscht und der Benutzer befindet sich weiterhin im
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Anmerkung: Die löschbaren Daten können für alle Stammdaten dem Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Stammdatenverwaltung"
+
+\end_inset
+
+ entnommen werden.
 \end_layout
 
 \begin_layout Section
@@ -5247,6 +5309,11 @@ Alternativer Ablauf:
 \begin_inset Text
 
 \begin_layout Enumerate
+Benutzer gibt eine oder mehrere Veranstaltungen anstatt eine oder mehrere
+ Hilfskräfte an
+\end_layout
+
+\begin_layout Enumerate
 Benutzer gibt die erforderlichen Daten falsch ein
 \end_layout
 
@@ -5311,6 +5378,11 @@ Nachbedingung im Sonderfall:
 </cell>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
+
+\begin_layout Enumerate
+Vorgang wurde mit den Daten zur Veranstaltung hinzugefügt und der Benutzer
+ befindet sich wieder im Menüpunkt Vorgänge
+\end_layout
 
 \begin_layout Enumerate
 Vorgang wurde hinzugefügt und der Benutzer befindet sich wieder im Menüpunkt
@@ -7569,7 +7641,7 @@ Bedeutung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Einstufung der 
+Die Einstufung der 
 \shape italic
 Beschäftigung
 \shape default
@@ -7679,7 +7751,7 @@ Bedeutung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Zuordnung von 
+Die Zuordnung von 
 \shape italic
 Finanzkategorien
 \shape default
@@ -7900,7 +7972,7 @@ Bedeutung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Zuordnung der 
+Die Zuordnung der 
 \shape italic
 Veranstaltung
 \shape default
@@ -8010,11 +8082,7 @@ Bedeutung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Ein Multiplikator, welcher, je nach 
-\shape italic
-Qualifikation
-\shape default
- der 
+Ein Multiplikator, welcher, je nach Qualifikation der 
 \shape italic
 Hilfskräfte
 \shape default
@@ -8261,7 +8329,7 @@ Bedeutung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Klassifikation des 
+Die Klassifikation des 
 \shape italic
 Fonds
 \shape default
@@ -9428,6 +9496,15 @@ Beschäftigungen
 Fonds
 \shape default
  finanziert werden.
+ 
+\shape italic
+Beschäftigungen
+\shape default
+ eines Vertrags können nur aus einem 
+\shape italic
+Fonds
+\shape default
+ finanziert werden.
 \end_layout
 
 \end_inset
@@ -9449,15 +9526,8 @@ Abgrenzung
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\shape italic
-Beschäftigungen
-\shape default
- eines Vertrags können nur aus einem 
-\shape italic
-Fonds
-\shape default
- finanziert werden.
+Als Vertrag ist nicht das eigentliche Dokument, sondern eine Sammlung von
+ relevanten Vertragsdaten aus dem Vertragsdokument zu verstehen.
 \end_layout
 
 \end_inset
@@ -9684,7 +9754,7 @@ Version 0.3 (22.03.2010)
 \end_layout
 
 \begin_layout Itemize
-Kleinere Korrekturen am gesamten Dokument aufgrund der Review-Sitzung am
+Kleinere Korrekturen am gesamten Dokument aufgrund der Review-Sitzung vom
  16.03.2010
 \end_layout
 

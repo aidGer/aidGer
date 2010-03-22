@@ -107,11 +107,11 @@ werden.
 Der ,,aidGer{}`` benötigt eine Schnittstelle zur verwendeten Datenbank.
 Diese wird durch die Bibliothek AdoHive zur Verfügung gestellt.\\
 \\
-Zudem wird eine Verbindung mit dem bereits vorhandenen Ticket-System
-benötigt. Diese Verbindung wird in Form einer Import- bzw. Exportschnitstelle
-hergestellt, die jedoch in der ersten Software-Version nur vorgesehen
-und beim Entwurf berücksichtigt wird. Eine spätere Implementierung
-ist jedoch denkbar und in Zukunft vom Kunden auch ausdrücklich erwünscht.
+Außerdem wird zukünftig eine Verbindung mit dem bereits vorhandenen
+Ticket-System benötigt. Diese Verbindung soll in Form einer Import-
+bzw. Exportschnitstelle hergestellt werden, welche bereits beim Entwurf
+der ersten Software-Version berücksichtigt werden muss, da eine spätere
+Implementierung vom Kunden ausdrücklich erwünscht und verlangt ist.
 
 
 \section{Grundlegende Funktionen\label{sec:Grundlegende-Funktionen}}
@@ -338,16 +338,6 @@ beschäftigt wäre
 
 \subsection{Erfassung von Vorgängen\label{sub:Erfassung-von-Vorg=0000E4ngen}}
 
-Es sollen unter anderem folgende Vorgänge erfasst werden:
-\begin{itemize}
-\item Verwaltung von Arbeitsverträgen
-
-\begin{itemize}
-\item Die Vertragsdaten von Hilfskräften müssen festgehalten werden können,
-siehe hierzu \ref{sub:Buchung-von-Besch=0000E4ftigungen}
-\end{itemize}
-\item Lohnsteuerkartenverwaltung
-\end{itemize}
 Bei allen Vorgängen sollen folgende Daten erfasst werden können:
 \begin{itemize}
 \item Datum
@@ -360,8 +350,21 @@ Es soll möglich sein, an mehrere Hilfskräfte Nachrichten verschicken
 zu können, ohne für jede Nachricht einen eigenen Vorgang eröffnen
 zu müssen (Massenerfassung von Vorgängen).\\
 \\
-Die Vorgänge sollen mit einer Volltextsuche durchsucht werden können.
+Zudem müssen Vorgänge an eine oder mehrere Veranstaltungen gekoppelt
+werden können.\\
+\\
+Die Vorgänge sollen mit einer Volltextsuche durchsucht werden können.\\
+\\
+Beispielsweise müssen die folgenden Vorgänge erfasst werden:
+\begin{itemize}
+\item Verwaltung von Arbeitsverträgen
 
+\begin{itemize}
+\item Die Vertragsdaten von Hilfskräften müssen festgehalten werden können,
+siehe hierzu \ref{sub:Buchung-von-Besch=0000E4ftigungen}
+\end{itemize}
+\item Lohnsteuerkartenverwaltung
+\end{itemize}
 
 \subsection{Controlling via Monatsauszug\label{sub:Controlling-via-Monatsauszug}}
 
@@ -445,9 +448,11 @@ verbunden werden können.
 
 \subsection{PDF-Export\label{sub:PDF-Export}}
 
-Berichte sollen, mit ähnlichem Aussehen wie bisher - mit Optimierungen
-- im PDF-Format exportiert werden können. Optimierungen sind z.B.
-die Angabe von Summen.
+Es sollen Berichte zu allen Funktionsergebnissen von aidGer im PDF-Format
+exportiert werden können. Dabei soll das bisherige Aussehen der Hive-Berichte
+weitgehend beibehalten werden. Optimierungen, die den Informationsgehalt
+der Berichte steigern, sind erwünscht. So soll beispielsweise die
+Angabe von Summen in die exportieren Berichte aufgenommen werden.
 
 
 \subsection{Beantwortung von vielen Post-Mitteilungen\label{sub:Beantwortung-von-vielen}}
@@ -840,9 +845,11 @@ der Hilfskraftdetails in einem neuen Tab.
 
 \subsection{Bearbeiten und Hinzufügen}
 
-Hier sind die einzigen Unterschiede, dass Verweise auf Stammdaten
-aus Comboboxen ausgesucht werden können, um schnellst möglichst auf
-diese zugreifen zu können.
+Beim Bearbeiten und Hinzufügen kann der Benutzer dem Vorgang eine
+oder mehrere Hilfskräfte zuordnen. Wahlweise kann der Vorgang auch
+an eine oder mehrere Veranstaltungen geknüpft werden. Außerdem können
+Verweise auf Stammdaten aus Comboboxen ausgesucht werden, um schnellst
+möglichst auf diese zugreifen zu können.
 
 
 \section{Berichte\label{sec:Berichte}}
@@ -921,8 +928,8 @@ Pfad zu einem Programm, welches PDFs anzeigen kann. Der Pfad zur
 PDF-Datei wird hierbei als Argument für das Programm übergeben. 
 \item \textbf{Sprache} \\
 Stellt die verwendete Sprache der GUI ein. Dies lädt die Übersetzungsdatei
-der gewählten Sprache und stellt alle übersetzten Label/Buttons/etc.
-in der jeweiligen Sprache dar. Für mehr siehe \ref{sec:Mehrsprachigkeit}. 
+der gewählten Sprache und stellt alle übersetzten Label / Buttons
+/ etc. in der jeweiligen Sprache dar. Siehe auch \ref{sec:Mehrsprachigkeit}. 
 \item \textbf{Anzahl der Vorgänge}\\
 Die Anzahl der Vorgänge, die in Detailansichten wie zum Beispiel
 bei den Stammdaten von Hilfskräften angezeigt werden sollen. 
@@ -945,12 +952,13 @@ und einen Verweis auf die Projektwebsite.
 
 \section{Mehrsprachigkeit\label{sec:Mehrsprachigkeit}}
 
-Durch Übersetzen der Sprachdatei in neue Sprachen und kopieren dieser
-in das Einstellungsverzeichnis können neue Sprachen zur Anwendung
-hinzugefügt werden.\\
-Diese können dann im Einstellungsdialog ausgewählt und benutzt
-werden. Alle übersetzten Elemente werden dann in der ausgewählten
-Sprache dargestellt. Sollte ein Element in der Sprachdatei nicht übersetzt
+\noindent Durch das Übersetzen der Sprachdatei in neue Sprachen und
+das anschließende Kopieren dieser Datei in das Einstellungsverzeichnis
+können neue Sprachen zur Anwendung hinzugefügt werden.\\
+\\
+Diese können daraufhin im Einstellungsdialog ausgewählt und benutzt
+werden, so dass alle übersetzten Elemente in der ausgewählten Sprache
+dargestellt werden. Sollte ein Element in der Sprachdatei nicht übersetzt
 worden sein, so wird auf die Standardsprache (Deutsch) zurückgegriffen,
 um leere Labels oder Buttons zu verhindern. \\
 \\
@@ -1029,6 +1037,9 @@ wieder im Menüpunkt Stammdaten
 \end{longtable}
 \par\end{center}
 
+\noindent Anmerkung: Die erforderlichen Daten können für alle Stammdaten
+dem Kapitel \ref{sub:Stammdatenverwaltung} entnommen werden.
+
 
 \section{Stammdaten bearbeiten}
 
@@ -1091,6 +1102,9 @@ im Menüpunkt Stammdaten
 \end{longtable}
 \par\end{center}
 
+\noindent Anmerkung: Die änderbaren Daten können für alle Stammdaten
+dem Kapitel \ref{sub:Stammdatenverwaltung} entnommen werden.
+
 
 \section{Stammdaten löschen}
 
@@ -1147,6 +1161,9 @@ im Menüpunkt Stammdaten
 \hline
 \end{longtable}
 \par\end{center}
+
+\noindent Anmerkung: Die löschbaren Daten können für alle Stammdaten
+dem Kapitel \ref{sub:Stammdatenverwaltung} entnommen werden.
 
 
 \section{Budgetprüfung}
@@ -1505,6 +1522,8 @@ Menüpunkt Vorgänge\tabularnewline
 \textbf{Akteur:} & Benutzer, System\tabularnewline
 \hline 
 \textbf{Alternativer Ablauf:} & \begin{enumerate}
+\item Benutzer gibt eine oder mehrere Veranstaltungen anstatt eine oder
+mehrere Hilfskräfte an
 \item Benutzer gibt die erforderlichen Daten falsch ein
 
 \begin{enumerate}
@@ -1522,6 +1541,8 @@ Menüpunkt Vorgänge\tabularnewline
 \tabularnewline
 \hline 
 \textbf{Nachbedingung im Sonderfall:} & \begin{enumerate}
+\item Vorgang wurde mit den Daten zur Veranstaltung hinzugefügt und der
+Benutzer befindet sich wieder im Menüpunkt Vorgänge
 \item Vorgang wurde hinzugefügt und der Benutzer befindet sich wieder im
 Menüpunkt Vorgänge
 \item Es wurde kein Vorgang hinzugefügt und der Benutzer befindet sich wieder
@@ -1928,8 +1949,8 @@ deren Korrektheit.\tabularnewline
 \textbf{Begriff} & \textbf{Finanzkategorie}\tabularnewline
 \hline
 \hline 
-\textbf{Bedeutung} & Einstufung der \textit{Beschäftigung} nach Kategorien aufgrund unterschiedlicher
-Vergütungen.\tabularnewline
+\textbf{Bedeutung} & Die Einstufung der \textit{Beschäftigung} nach Kategorien aufgrund
+unterschiedlicher Vergütungen.\tabularnewline
 \hline 
 \textbf{Unklarheiten} & -\tabularnewline
 \hline 
@@ -1944,7 +1965,7 @@ Vergütungen.\tabularnewline
 \textbf{Begriff} & \textbf{Finanzplan}\tabularnewline
 \hline
 \hline 
-\textbf{Bedeutung} & Zuordnung von \textit{Finanzkategorien} zu deren \textit{Plankostenhaushalt}
+\textbf{Bedeutung} & Die Zuordnung von \textit{Finanzkategorien} zu deren \textit{Plankostenhaushalt}
 pro Jahr.\tabularnewline
 \hline 
 \textbf{Unklarheiten} & -\tabularnewline
@@ -1976,7 +1997,8 @@ gestellt wird.\tabularnewline
 \textbf{Begriff} & \textbf{Gruppe}\tabularnewline
 \hline
 \hline 
-\textbf{Bedeutung} & Zuordnung der \textit{Veranstaltung} zu einem Themengebiet oder Studiengang.\tabularnewline
+\textbf{Bedeutung} & Die Zuordnung der \textit{Veranstaltung} zu einem Themengebiet oder
+Studiengang.\tabularnewline
 \hline 
 \textbf{Unklarheiten} & -\tabularnewline
 \hline 
@@ -1991,7 +2013,7 @@ gestellt wird.\tabularnewline
 \textbf{Begriff} & \textbf{Handicap}\tabularnewline
 \hline
 \hline 
-\textbf{Bedeutung} & Ein Multiplikator, welcher, je nach \textit{Qualifikation} der \textit{Hilfskräfte},
+\textbf{Bedeutung} & Ein Multiplikator, welcher, je nach Qualifikation der \textit{Hilfskräfte},
 dafür vorgesehen war, das Gehalt anzupassen. Das Handicap ist stets
 auf ,,1{}``.\tabularnewline
 \hline 
@@ -2027,7 +2049,7 @@ der Informatik unterliegen.\tabularnewline
 \textbf{Begriff} & \textbf{Kostenstelle}\tabularnewline
 \hline
 \hline 
-\textbf{Bedeutung} & Klassifikation des \textit{Fonds} in eine Ziffer.\tabularnewline
+\textbf{Bedeutung} & Die Klassifikation des \textit{Fonds} in eine Ziffer.\tabularnewline
 \hline 
 \textbf{Unklarheiten} & -\tabularnewline
 \hline 
@@ -2192,10 +2214,11 @@ des Institutsverbunds der Informatik unterliegen. \tabularnewline
 \textbf{Bedeutung} & Eine schriftliche Vereinbarung zwischen der \textit{Hilfskraft} und
 dem Institutsverbund der Informatik. Diese kann auch aus mehreren
 \textit{Beschäftigungen} bestehen, falls diese aus dem gleichen \textit{Fonds}
-finanziert werden.\tabularnewline
+finanziert werden. \textit{Beschäftigungen} eines Vertrags können
+nur aus einem \textit{Fonds} finanziert werden.\tabularnewline
 \hline 
-\textbf{Abgrenzung} & \textit{Beschäftigungen} eines Vertrags können nur aus einem \textit{Fonds}
-finanziert werden.\tabularnewline
+\textbf{Abgrenzung} & Als Vertrag ist nicht das eigentliche Dokument, sondern eine Sammlung
+von relevanten Vertragsdaten aus dem Vertragsdokument zu verstehen.\tabularnewline
 \hline 
 \textbf{Unklarheiten} & -\tabularnewline
 \hline 
@@ -2232,7 +2255,7 @@ Vorfälle mit \textit{Hilfskräften} und \textit{Veranstaltungen}.\tabularnewlin
 \subsection*{Version 0.3 (22.03.2010)}
 \begin{itemize}
 \item Kleinere Korrekturen am gesamten Dokument aufgrund der Review-Sitzung
-am 16.03.2010
+vom 16.03.2010
 \item Layout des Begriffslexikons verändert
 \item Use-Case-Diagramm korrigiert
 \item Kapitel Wartbarkeit (\ref{sub:Wartbarkeit}) hinzugefügt
