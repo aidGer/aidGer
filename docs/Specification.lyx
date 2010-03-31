@@ -3,6 +3,9 @@
 \begin_document
 \begin_header
 \textclass scrbook
+\begin_preamble
+\date{\begin{tabular}{rc}Erstellt am: & 06. März 2010 \\ Zuletzt geändert am: & \today \end{tabular}}
+\end_preamble
 \use_default_options true
 \language ngerman
 \inputencoding utf8
@@ -9747,6 +9750,30 @@ name "sec:Versionshistorie"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection*
+Version 0.3.1 (31.03.2010)
+\end_layout
+
+\begin_layout Itemize
+Angaben 
+\begin_inset Quotes gld
+\end_inset
+
+Erstellt am
+\begin_inset Quotes grd
+\end_inset
+
+ und 
+\begin_inset Quotes gld
+\end_inset
+
+Zuletzt geändert am
+\begin_inset Quotes grd
+\end_inset
+
+ zum Titelblatt hinzugefügt
 \end_layout
 
 \begin_layout Subsection*
