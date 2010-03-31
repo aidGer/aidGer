@@ -3,9 +3,12 @@
 \begin_document
 \begin_header
 \textclass scrbook
+\begin_preamble
+\date{\begin{tabular}{rl}Erstellt am: & 14. Februar 2010 \\ Zuletzt geändert am: & \today \end{tabular}}
+\end_preamble
 \options oneside
 \use_default_options false
-\language german
+\language ngerman
 \inputencoding utf8
 \font_roman ae
 \font_sans default
@@ -31,7 +34,7 @@
 \tocdepth 3
 \paragraph_separation indent
 \defskip medskip
-\quotes_language english
+\quotes_language german
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -1753,6 +1756,30 @@ name "cha:Anhang"
 
 \begin_layout Section
 Versionshistorie
+\end_layout
+
+\begin_layout Subsubsection*
+Version 0.2.3 (31.03.2010)
+\end_layout
+
+\begin_layout Itemize
+Angaben 
+\begin_inset Quotes gld
+\end_inset
+
+Erstellt am
+\begin_inset Quotes grd
+\end_inset
+
+ und 
+\begin_inset Quotes gld
+\end_inset
+
+Zuletzt geändert am
+\begin_inset Quotes grd
+\end_inset
+
+ zum Titelblatt hinzugefügt
 \end_layout
 
 \begin_layout Subsubsection*
