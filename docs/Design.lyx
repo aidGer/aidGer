@@ -1,0 +1,188 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass scrbook
+\begin_preamble
+\date{\begin{tabular}{rl}Erstellt am: & 10. April 2010 \\ Zuletzt geändert am: & \today \end{tabular}}
+\end_preamble
+\use_default_options true
+\language ngerman
+\inputencoding utf8
+\font_roman ae
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language german
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Entwurf aidGer
+\end_layout
+
+\begin_layout Author
+Buchgraber (2512046), Gildein (2513744), Pirrung (2526016)
+\begin_inset Newline newline
+\end_inset
+
+Gruppe 10
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Einleitung
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Einleitung"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Zweck
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Zweck"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+..
+\end_layout
+
+\begin_layout Section
+Leserkreis
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Leserkreis"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dieses Dokument ist für den folgenden Leserkreis bestimmt:
+\end_layout
+
+\begin_layout Itemize
+..
+\end_layout
+
+\begin_layout Section
+Überblick über dieses Dokument
+\end_layout
+
+\begin_layout Standard
+Neben einer allgemeinen Beschreibung des Systems sollen die Anforderungen
+ an die Funktionen des Systems und die geforderten Qualitäten hinsichtlich
+ der Software dokumentiert werden.
+ Im Anschluß hierzu wird auf die Benutzeroberfläche und im nächsten Schritt
+ auf die Anwendungsfälle des Systems näher eingegangen.
+ Das Dokument endet schließlich mit einem angehängten Begriffslexikon.
+\end_layout
+
+\begin_layout Section
+Konventionen
+\end_layout
+
+\begin_layout Standard
+..
+\end_layout
+
+\begin_layout Chapter
+Grundsätzliche Entwurfsüberlegungen
+\end_layout
+
+\begin_layout Standard
+..
+\end_layout
+
+\begin_layout Chapter
+Beschreibungen einzelner Programmkomponenten
+\end_layout
+
+\begin_layout Standard
+..
+\end_layout
+
+\begin_layout Chapter
+Anhang
+\end_layout
+
+\begin_layout Section
+Versionshistorie
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Versionshistorie"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Version 0.1 (10.04.2010)
+\end_layout
+
+\begin_layout Itemize
+Erstellung der Grundstruktur dieses Dokuments
+\end_layout
+
+\begin_layout Itemize
+Erstellung des Kapitels ..
+\end_layout
+
+\end_body
+\end_document
