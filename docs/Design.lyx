@@ -169,7 +169,26 @@ Architekturmuster
 Zur Strukturierung der Software aidGer wird das Architekturmuster Model
  View Controller (MVC) eingesetzt.
  Dabei geschieht eine Unterteilung der Struktur in drei Einheiten: Das Datenmode
-ll (Model), die Präsentation (View) und die Programmsteuerung (Controller).
+ll (
+\family typewriter
+\shape italic
+Model
+\family default
+\shape default
+), die Präsentationskomponente (
+\family typewriter
+\shape italic
+View
+\family default
+\shape default
+) und die Programmsteuerung bzw.
+ Business Logik (
+\family typewriter
+\shape italic
+Controller
+\family default
+\shape default
+).
  Die Entkopplung der darzustellende Daten, der Anwendungslogik und der grafische
 n Benutzeroberfläche ist die Basis für einen flexiblen Programmentwurf,
  der eine spätere Änderung oder Erweiterung erleichtert und eine Wiederverwendba
@@ -185,8 +204,14 @@ Model
 \end_layout
 
 \begin_layout Standard
-Das Modell enthält die darzustellende Daten und ist von Präsentation und
- Progrmmsteuerung unabhängig.
+Das 
+\family typewriter
+\shape italic
+Model
+\family default
+\shape default
+ enthält die darzustellende Daten und ist von der Präsentationskomponente
+ und der Progrmmsteuerung unabhängig.
 \begin_inset Newline newline
 \end_inset
 
@@ -194,19 +219,80 @@ Das Modell enthält die darzustellende Daten und ist von Präsentation und
 \begin_inset Newline newline
 \end_inset
 
-Die Klassen 
+Alle Klassen, die von einem Model-Interface aus AdoHive abgeleitet werden,
+ gehören der 
+\family typewriter
+\shape italic
+Model
+\family default
+\shape default
+-Domäne an.
 \end_layout
 
 \begin_layout Subsubsection
 View
 \end_layout
 
+\begin_layout Standard
+Die Klasse 
+\family typewriter
+Window
+\family default
+ bildet die Hauptkomponente der 
+\family typewriter
+\shape italic
+View
+\family default
+\shape default
+-Domäne.
+ Alle 
+\family typewriter
+\shape italic
+View
+\family default
+\shape default
+-Klassen, die zur Anzeige der Modeldaten dienen, sind Observer des Datenmodells,
+ so dass diese bei Änderungen darüber informiert werden.
+\end_layout
+
 \begin_layout Subsubsection
 Controller
 \end_layout
 
+\begin_layout Standard
+Die Klasse 
+\family typewriter
+Application
+\family default
+ bildet die Hauptkomponente der 
+\family typewriter
+\shape italic
+Controller
+\family default
+\shape default
+-Domäne.
+ Sie übernimmt die gesamte Steuerung und hat daher direkte Verbindungen
+ zum 
+\family typewriter
+\shape italic
+Model
+\family default
+\shape default
+ und 
+\family typewriter
+\shape italic
+View
+\family default
+\shape default
+.
+\end_layout
+
 \begin_layout Subsection
 Kommunikation
+\end_layout
+
+\begin_layout Standard
+Die einzelnen Einheiten kommunizierten wie im folgenden Diagramm dargestellt:
 \end_layout
 
 \begin_layout Standard
@@ -220,8 +306,65 @@ Kommunikation
 
 \end_layout
 
+\begin_layout Section
+Entwurfsmuster
+\end_layout
+
+\begin_layout Standard
+Es folgt eine Auflistung aller Entwurfsmuster, die beim Entwurf von aidGer
+ zum Einsatz kommen:
+\end_layout
+
+\begin_layout Itemize
+Singleton...
+\end_layout
+
+\begin_layout Itemize
+Beobachter..
+\end_layout
+
+\begin_layout Itemize
+Strategie..
+\end_layout
+
+\begin_layout Itemize
+..
+\end_layout
+
 \begin_layout Chapter
 Beschreibungen einzelner Programmkomponenten
+\end_layout
+
+\begin_layout Section
+Das Datenmodell
+\end_layout
+
+\begin_layout Standard
+..
+\end_layout
+
+\begin_layout Section
+Die Präsentationskomponente
+\end_layout
+
+\begin_layout Standard
+..
+\end_layout
+
+\begin_layout Section
+Die Businesslogik
+\end_layout
+
+\begin_layout Standard
+..
+\end_layout
+
+\begin_layout Section
+Hilfsklassen
+\end_layout
+
+\begin_layout Standard
+..
 \end_layout
 
 \begin_layout Standard
