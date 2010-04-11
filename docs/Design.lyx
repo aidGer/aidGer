@@ -132,25 +132,32 @@ Programmierer, die Wartungsarbeiten am fertigen Programm durchführen
 
 \begin_layout Section
 Überblick über dieses Dokument
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Überblick-über-dieses"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Der erste große Teil dieses Dokuments (Kapitel 2) besteht aus Beschreibungen
- der verschiedenen, beim Entwurf des Programms zur Anwendung gekommenen
- Prinzipien, um dem Leser alle weiteren Schritte des Entwurfs verständlich
- zu machen.
- Darauf aufbauend folgen in Kapitel 3 detailliertere Beschreibungen von
- Programmkomponenten und deren Interaktion.
- Dies wird mit UML-Diagrammen veranschaulicht.
- Die hier detailliert beschriebenen Komponenten dienen exemplarisch für
- evtl.
- nicht näher beschriebene Programmkomponenten, die konsistent im Sinne dieses
- Entwurfs umgesetzt werden.
- 
+Der erste Teil dieses Dokuments besteht aus Beschreibungen der verschiedenen,
+ beim Entwurf des Programms zur Anwendung gekommenen Prinzipien.
+ Darauf aufbauend folgen ein Kapitel später detailliertere Beschreibungen
+ von Programmkomponenten und deren Interaktion, was mit UML-Diagrammen näher
+ veranschaulicht wird.
 \end_layout
 
 \begin_layout Section
 Konventionen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Konventionen"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -159,10 +166,24 @@ Konventionen
 
 \begin_layout Chapter
 Grundsätzliche Entwurfsüberlegungen
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Grundsätzliche-Entwurfsüberlegungen"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
-Architekturmuster
+Architektur
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Architektur"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -182,25 +203,38 @@ View
 \family default
 \shape default
 ) und die Programmsteuerung bzw.
- Business Logik (
+ die Business Logik (
 \family typewriter
 \shape italic
 Controller
 \family default
 \shape default
 ).
- Die Entkopplung der darzustellende Daten, der Anwendungslogik und der grafische
-n Benutzeroberfläche ist die Basis für einen flexiblen Programmentwurf,
- der eine spätere Änderung oder Erweiterung erleichtert und eine Wiederverwendba
-rkeit der einzelnen Komponenten ermöglicht.
+ Die Entkopplung dieser drei Komponenten ist die Basis für einen flexiblen
+ Programmentwurf, der eine spätere Änderung oder Erweiterung erleichtert
+ und eine Wiederverwendbarkeit der einzelnen Komponenten ermöglicht.
 \end_layout
 
 \begin_layout Subsection
 Einheiten
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Einheiten"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
 Model
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Model"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -211,32 +245,51 @@ Model
 \family default
 \shape default
  enthält die darzustellende Daten und ist von der Präsentationskomponente
- und der Progrmmsteuerung unabhängig.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-Alle Klassen, die von einem Model-Interface aus AdoHive abgeleitet werden,
- gehören der 
+ und der Programmsteuerung unabhängig.
+ Alle 
 \family typewriter
 \shape italic
 Model
 \family default
 \shape default
--Domäne an.
+-Klassen implementieren ein 
+\family typewriter
+\shape italic
+Observable
+\family default
+\shape default
+-Interface, so dass andere Klassen bei Änderungen am Datenmodell reagieren
+ können.
+ Jede 
+\family typewriter
+\shape italic
+Model
+\family default
+\shape default
+-Klasse implementiert zudem das jeweilige 
+\family typewriter
+\shape italic
+AdoHiveModel
+\family default
+\shape default
+-Interface aus dem AdoHive Package.
 \end_layout
 
 \begin_layout Subsubsection
 View
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:View"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Die Klasse 
 \family typewriter
-Window
+UI
 \family default
  bildet die Hauptkomponente der 
 \family typewriter
@@ -251,12 +304,38 @@ View
 View
 \family default
 \shape default
--Klassen, die zur Anzeige der Modeldaten dienen, sind Observer des Datenmodells,
- so dass diese bei Änderungen darüber informiert werden.
+-Klassen, die zur Anzeige der 
+\family typewriter
+\shape italic
+Model
+\family default
+\shape default
+-Daten dienen, sind Observer des Datenmodells, so dass diese bei Änderungen
+ darüber informiert werden.
+ Inbesondere gehören 
+\family typewriter
+\shape italic
+Tabs
+\family default
+\shape default
+-Klassen zur 
+\family typewriter
+\shape italic
+View
+\family default
+\shape default
+-Domäne.
 \end_layout
 
 \begin_layout Subsubsection
 Controller
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Controller"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -271,8 +350,8 @@ Controller
 \family default
 \shape default
 -Domäne.
- Sie übernimmt die gesamte Steuerung und hat daher direkte Verbindungen
- zum 
+ Sie übernimmt mit der Klasse ActionRegistry die gesamte Steuerung und hat
+ daher direkte Verbindungen zum 
 \family typewriter
 \shape italic
 Model
@@ -285,19 +364,43 @@ View
 \family default
 \shape default
 .
+ Sie ist des weiteren die einzige Klasse, die direkten Zugriff auf die Datenbank
+ mit Hilfe des 
+\family typewriter
+\shape italic
+AdoHiveControllers
+\family default
+\shape default
+ hat, wodurch Änderungen an der Datenbank nur über den Controller erfolgen
+ können.
 \end_layout
 
 \begin_layout Subsection
 Kommunikation
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Kommunikation"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Die einzelnen Einheiten kommunizierten wie im folgenden Diagramm dargestellt:
+Die einzelnen Einheiten kommunizieren untereinander wie im folgenden Diagramm
+ dargestellt:
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Graphics
-	filename design/MVC.pdf
+	filename design/Architecture.pdf
 	display false
 	width 100col%
 
@@ -306,8 +409,36 @@ Die einzelnen Einheiten kommunizierten wie im folgenden Diagramm dargestellt:
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Die Architektur mit Hilfe des MVC-Patterns
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Entwurfsmuster
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Entwurfsmuster"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -316,27 +447,37 @@ Es folgt eine Auflistung aller Entwurfsmuster, die beim Entwurf von aidGer
 \end_layout
 
 \begin_layout Itemize
-Singleton...
+Singleton (Erzeugungsmuster): Sichere ab, dass eine Klasse genau ein Exemplar
+ besitzt und stelle einen globalen Zugriffspunkt darauf bereit.
 \end_layout
 
 \begin_layout Itemize
-Beobachter..
-\end_layout
-
-\begin_layout Itemize
-Strategie..
-\end_layout
-
-\begin_layout Itemize
-..
+Beobachter / Observer (Verhaltensmuster): Definiere eine 1-zu-n-Abhängigkeit
+ zwischen Objekten, so dass die Änderung des Zustands eines Objekts dazu
+ führt, dass alle abhängigen Objekte benachrichtigt und automatisch aktualisiert
+ werden.
 \end_layout
 
 \begin_layout Chapter
 Beschreibungen einzelner Programmkomponenten
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Beschreibungen-einzelner-Programmkomponenten"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
 Das Datenmodell
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Das-Datenmodell"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -345,6 +486,13 @@ Das Datenmodell
 
 \begin_layout Section
 Die Präsentationskomponente
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Die-Präsentationskomponente"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -353,6 +501,13 @@ Die Präsentationskomponente
 
 \begin_layout Section
 Die Businesslogik
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Die-Businesslogik"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -361,26 +516,28 @@ Die Businesslogik
 
 \begin_layout Section
 Hilfsklassen
-\end_layout
-
-\begin_layout Standard
-..
-\end_layout
-
-\begin_layout Standard
-\begin_inset External
-	template PDFPages
-	filename design/Design.pdf
-	display false
-	extra LaTeX "pages=-,fitpaper=true"
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Hilfsklassen"
 
 \end_inset
 
 
 \end_layout
 
+\begin_layout Standard
+..
+\end_layout
+
 \begin_layout Chapter
 Anhang
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Anhang"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -388,6 +545,47 @@ Versionshistorie
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Versionshistorie"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Version 0.2 (12.04.2010)
+\end_layout
+
+\begin_layout Itemize
+Verfeinerungen in den Kapiteln 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Grundsätzliche-Entwurfsüberlegungen"
+
+\end_inset
+
+ und  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Beschreibungen-einzelner-Programmkomponenten"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Version 0.1.1 (11.04.2010)
+\end_layout
+
+\begin_layout Itemize
+Erstellung des Architektur-Diagramms
+\end_layout
+
+\begin_layout Itemize
+Erstellung des Kapitels 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Beschreibungen-einzelner-Programmkomponenten"
 
 \end_inset
 
@@ -403,7 +601,14 @@ Erstellung der Grundstruktur dieses Dokuments
 \end_layout
 
 \begin_layout Itemize
-Erstellung des Kapitels ..
+Erstellung des Kapitels 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Grundsätzliche-Entwurfsüberlegungen"
+
+\end_inset
+
+
 \end_layout
 
 \end_body
