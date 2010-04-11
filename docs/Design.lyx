@@ -98,7 +98,13 @@ name "sec:Zweck"
 \end_layout
 
 \begin_layout Standard
-..
+Dieses Dokument dient als Richtschnur bei der Entwicklung des Programms.
+ Es dokumentiert die grundsätzlichen Überlegungen der Entwickler beim Entwurf
+ des Gesamtsystems und seiner Komponenten.
+ Darüber hinaus enthält es Beschreibungen der wichtigsten Programmkomponenten
+ und Informationen darüber, wie diese miteinander interagieren.
+ Diese liegen in textueller Form und als UML-Diagramme vor.
+ 
 \end_layout
 
 \begin_layout Section
@@ -117,7 +123,11 @@ Dieses Dokument ist für den folgenden Leserkreis bestimmt:
 \end_layout
 
 \begin_layout Itemize
-..
+Entwickler des Programms
+\end_layout
+
+\begin_layout Itemize
+Programmierer, die Wartungsarbeiten am fertigen Programm durchführen
 \end_layout
 
 \begin_layout Section
@@ -125,12 +135,18 @@ Dieses Dokument ist für den folgenden Leserkreis bestimmt:
 \end_layout
 
 \begin_layout Standard
-Neben einer allgemeinen Beschreibung des Systems sollen die Anforderungen
- an die Funktionen des Systems und die geforderten Qualitäten hinsichtlich
- der Software dokumentiert werden.
- Im Anschluß hierzu wird auf die Benutzeroberfläche und im nächsten Schritt
- auf die Anwendungsfälle des Systems näher eingegangen.
- Das Dokument endet schließlich mit einem angehängten Begriffslexikon.
+Der erste große Teil dieses Dokuments (Kapitel 2) besteht aus Beschreibungen
+ der verschiedenen, beim Entwurf des Programms zur Anwendung gekommenen
+ Prinzipien, um dem Leser alle weiteren Schritte des Entwurfs verständlich
+ zu machen.
+ Darauf aufbauend folgen in Kapitel 3 detailliertere Beschreibungen von
+ Programmkomponenten und deren Interaktion.
+ Dies wird mit UML-Diagrammen veranschaulicht.
+ Die hier detailliert beschriebenen Komponenten dienen exemplarisch für
+ evtl.
+ nicht näher beschriebene Programmkomponenten, die konsistent im Sinne dieses
+ Entwurfs umgesetzt werden.
+ 
 \end_layout
 
 \begin_layout Section
@@ -145,8 +161,63 @@ Konventionen
 Grundsätzliche Entwurfsüberlegungen
 \end_layout
 
+\begin_layout Section
+Architekturmuster
+\end_layout
+
 \begin_layout Standard
-..
+Zur Strukturierung der Software aidGer wird das Architekturmuster Model
+ View Controller (MVC) eingesetzt.
+ Dabei geschieht eine Unterteilung der Struktur in drei Einheiten: Das Datenmode
+ll (Model), die Präsentation (View) und die Programmsteuerung (Controller).
+ Die Entkopplung der darzustellende Daten, der Anwendungslogik und der grafische
+n Benutzeroberfläche ist die Basis für einen flexiblen Programmentwurf,
+ der eine spätere Änderung oder Erweiterung erleichtert und eine Wiederverwendba
+rkeit der einzelnen Komponenten ermöglicht.
+\end_layout
+
+\begin_layout Subsection
+Einheiten
+\end_layout
+
+\begin_layout Subsubsection
+Model
+\end_layout
+
+\begin_layout Standard
+Das Modell enthält die darzustellende Daten und ist von Präsentation und
+ Progrmmsteuerung unabhängig.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Die Klassen 
+\end_layout
+
+\begin_layout Subsubsection
+View
+\end_layout
+
+\begin_layout Subsubsection
+Controller
+\end_layout
+
+\begin_layout Subsection
+Kommunikation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename design/MVC.pdf
+	display false
+	width 100col%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -154,7 +225,15 @@ Beschreibungen einzelner Programmkomponenten
 \end_layout
 
 \begin_layout Standard
-..
+\begin_inset External
+	template PDFPages
+	filename design/Design.pdf
+	display false
+	extra LaTeX "pages=-,fitpaper=true"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
