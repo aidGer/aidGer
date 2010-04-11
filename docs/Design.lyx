@@ -525,8 +525,20 @@ name "sec:Hilfsklassen"
 
 \end_layout
 
+\begin_layout Subsection
+PDF-Export
+\end_layout
+
 \begin_layout Standard
-..
+Die zu exportierenden Daten werden von Reports an PDF-Converter geschickt,
+ von diesem in ein geeignetes Format konvertiert und an PDF-Exporter geschickt.
+\end_layout
+
+\begin_layout Standard
+Zu exportierende Objekte des Models müssen von einem PDF-Konverter in ein
+ für den PDF-Exporter geeignetes Format konvertiert werden.
+ Hieraus generiert dieser ein PDF-Dokument.
+ 
 \end_layout
 
 \begin_layout Chapter
