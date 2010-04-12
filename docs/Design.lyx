@@ -161,7 +161,51 @@ name "sec:Konventionen"
 \end_layout
 
 \begin_layout Standard
-..
+In diesem Dokument werden die folgenden Konventionen verwendet, um wichtige
+ Informationen hervorzuheben:
+\end_layout
+
+\begin_layout Itemize
+Technische oder stark hervorgehobene Begriffe werden 
+\series bold
+fett geschrieben
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Normal (im Sinne einer Betonung) hervorgehobene Begriffe werden 
+\shape italic
+kursiv geschrieben
+\shape default
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Klassennamen werden in einer 
+\family typewriter
+Monospace-Schrift hervorgehoben.
+
+\family default
+ 
+\end_layout
+
+\begin_layout Itemize
+Interfaces werden in einer 
+\family typewriter
+\shape italic
+kursiven Monospace-Schrift hervorgehoben
+\family default
+\shape default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Hervorhebungen von Klassen und Interfaces werden nicht automatisch umgebrochen
+ und können dadurch über den eigentlichen Rand des Textes hinausragen.
 \end_layout
 
 \begin_layout Chapter
@@ -188,27 +232,31 @@ name "sec:Architektur"
 
 \begin_layout Standard
 Zur Strukturierung der Software aidGer wird das Architekturmuster Model
- View Controller (MVC) eingesetzt.
+ View Controller (
+\series bold
+MVC
+\series default
+) eingesetzt.
  Dabei geschieht eine Unterteilung der Struktur in drei Einheiten: Das Datenmode
 ll (
 \family typewriter
-\shape italic
+\series bold
 Model
 \family default
-\shape default
+\series default
 ), die Präsentationskomponente (
 \family typewriter
-\shape italic
+\series bold
 View
 \family default
-\shape default
+\series default
 ) und die Programmsteuerung bzw.
  die Business Logik (
 \family typewriter
-\shape italic
+\series bold
 Controller
 \family default
-\shape default
+\series default
 ).
  Die Entkopplung dieser drei Komponenten ist die Basis für einen flexiblen
  Programmentwurf, der eine spätere Änderung oder Erweiterung erleichtert
@@ -240,18 +288,18 @@ name "sub:Model"
 \begin_layout Standard
 Das 
 \family typewriter
-\shape italic
+\series bold
 Model
 \family default
-\shape default
+\series default
  enthält die darzustellende Daten und ist von der Präsentationskomponente
  und der Programmsteuerung unabhängig.
  Alle 
 \family typewriter
-\shape italic
+\series bold
 Model
 \family default
-\shape default
+\series default
 -Klassen implementieren ein 
 \family typewriter
 \shape italic
@@ -262,10 +310,10 @@ Observable
  können.
  Jede 
 \family typewriter
-\shape italic
+\series bold
 Model
 \family default
-\shape default
+\series default
 -Klasse implementiert zudem das jeweilige 
 \family typewriter
 \shape italic
@@ -293,23 +341,23 @@ UI
 \family default
  bildet die Hauptkomponente der 
 \family typewriter
-\shape italic
+\series bold
 View
 \family default
-\shape default
+\series default
 -Domäne.
  Alle 
 \family typewriter
-\shape italic
+\series bold
 View
 \family default
-\shape default
+\series default
 -Klassen, die zur Anzeige der 
 \family typewriter
-\shape italic
+\series bold
 Model
 \family default
-\shape default
+\series default
 -Daten dienen, sind Observer des Datenmodells, so dass diese bei Änderungen
  darüber informiert werden.
  Inbesondere gehören 
@@ -320,10 +368,10 @@ Tabs
 \shape default
 -Klassen zur 
 \family typewriter
-\shape italic
+\series bold
 View
 \family default
-\shape default
+\series default
 -Domäne.
 \end_layout
 
@@ -345,24 +393,24 @@ Application
 \family default
  bildet die Hauptkomponente der 
 \family typewriter
-\shape italic
+\series bold
 Controller
 \family default
-\shape default
+\series default
 -Domäne.
  Sie übernimmt mit der Klasse ActionRegistry die gesamte Steuerung und hat
  daher direkte Verbindungen zum 
 \family typewriter
-\shape italic
+\series bold
 Model
 \family default
-\shape default
+\series default
  und 
 \family typewriter
-\shape italic
+\series bold
 View
 \family default
-\shape default
+\series default
 .
  Sie ist des weiteren die einzige Klasse, die direkten Zugriff auf die Datenbank
  mit Hilfe des 
@@ -403,6 +451,8 @@ status open
 	filename design/Architecture.pdf
 	display false
 	width 100col%
+	BoundingBox 20bp 330bp 530bp 813bp
+	clip
 
 \end_inset
 
@@ -447,15 +497,22 @@ Es folgt eine Auflistung aller Entwurfsmuster, die beim Entwurf von aidGer
 \end_layout
 
 \begin_layout Itemize
-Singleton (Erzeugungsmuster): Sichere ab, dass eine Klasse genau ein Exemplar
- besitzt und stelle einen globalen Zugriffspunkt darauf bereit.
+
+\series bold
+Singleton
+\series default
+ (Erzeugungsmuster): Sichere ab, dass eine Klasse genau ein Exemplar besitzt
+ und stelle einen globalen Zugriffspunkt darauf bereit.
 \end_layout
 
 \begin_layout Itemize
-Beobachter / Observer (Verhaltensmuster): Definiere eine 1-zu-n-Abhängigkeit
- zwischen Objekten, so dass die Änderung des Zustands eines Objekts dazu
- führt, dass alle abhängigen Objekte benachrichtigt und automatisch aktualisiert
- werden.
+
+\series bold
+Beobachter / Observer
+\series default
+ (Verhaltensmuster): Definiere eine 1-zu-n-Abhängigkeit zwischen Objekten,
+ so dass die Änderung des Zustands eines Objekts dazu führt, dass alle abhängige
+n Objekte benachrichtigt und automatisch aktualisiert werden.
 \end_layout
 
 \begin_layout Chapter
