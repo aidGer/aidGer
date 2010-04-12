@@ -203,11 +203,6 @@ kursiven Monospace-Schrift hervorgehoben
  
 \end_layout
 
-\begin_layout Standard
-Hervorhebungen von Klassen und Interfaces werden nicht automatisch umgebrochen
- und können dadurch über den eigentlichen Rand des Textes hinausragen.
-\end_layout
-
 \begin_layout Chapter
 Grundsätzliche Entwurfsüberlegungen
 \begin_inset CommandInset label
@@ -300,14 +295,11 @@ Model
 Model
 \family default
 \series default
--Klassen implementieren ein 
+-Klassen erweitern die 
 \family typewriter
-\shape italic
-Observable
+AbstractModel
 \family default
-\shape default
--Interface, so dass andere Klassen bei Änderungen am Datenmodell reagieren
- können.
+-Klasse, um die Daten in der Datenbank zu verwalten.
  Jede 
 \family typewriter
 \series bold
@@ -581,36 +573,36 @@ bei Programmstart initialisiert werden.
 \end_layout
 
 \begin_layout Subsection
+Die Reportmodels
+\end_layout
+
+\begin_layout Standard
+Die Reportmodels implementieren alle ...
+\end_layout
+
+\begin_layout Subsection
 Die Modelklassen
 \end_layout
 
 \begin_layout Standard
-Die Modelklassen implementieren zum einen die Model-Interfaces die AdoHive
- zur Verfügung stellt (zB.
+Die Modelklassen implementieren die Model-Interfaces die AdoHive zur Verfügung
+ stellt (zB.
  
 \family typewriter
 \emph on
 IAssistant
 \family default
 \emph default
-) sowie 
+) und erweitern die Klasse
 \family typewriter
-\emph on
-Observable
-\family default
-\emph default
-.
- Zudem erweitern sie die Klasse 
-\family typewriter
-
-\begin_inset Newline newline
-\end_inset
-
-AbstractModel
+ AbstractModel
 \family default
 .
- Diese stellt Methoden zur Verwaltung der Daten in der Datenbank bereit,
- zB.
+ Diese erweitert 
+\family typewriter
+Observable 
+\family default
+und stellt Methoden zur Verwaltung der Daten in der Datenbank bereit, zB.
  zum Speichern des Models oder dem Löschen aus der Datenbank.
 \begin_inset Newline newline
 \end_inset
