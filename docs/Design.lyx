@@ -439,6 +439,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename design/Architecture.pdf
 	display false
@@ -577,6 +578,46 @@ Die Reportmodels
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename design/Reports.pdf
+	height 25theight%
+	BoundingBox 33bp 562bp 480bp 763bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Klassendiagramm für die Reportmodels
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Die Reportmodels implementieren alle das Interface 
 \family typewriter
 \emph on
@@ -606,7 +647,7 @@ status open
 	filename design/Model.pdf
 	display false
 	height 80theight%
-	BoundingBox 23bp 557bp 566bp 813bp
+	BoundingBox 23bp 543bp 566bp 813bp
 	clip
 	rotateAngle 90
 
@@ -868,7 +909,7 @@ status open
 \begin_inset Graphics
 	filename design/PDF-Export.pdf
 	width 100text%
-	BoundingBox 25bp 575bp 500bp 775bp
+	BoundingBox 25bp 575bp 570bp 775bp
 	clip
 
 \end_inset
@@ -969,6 +1010,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename design/Runtime.pdf
+	width 100text%
 	BoundingBox 75bp 425bp 525bp 750bp
 	clip
 
