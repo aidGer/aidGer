@@ -286,32 +286,24 @@ Das
 Model
 \family default
 \series default
- enthält die darzustellende Daten und ist von der Präsentationskomponente
- und der Programmsteuerung unabhängig.
+ enthält die darzustellende Daten und die Business-Logik; Es ist von der
+ Präsentationskomponente und der Programmsteuerung unabhängig.
  Alle 
 \family typewriter
 \series bold
 Model
 \family default
 \series default
--Klassen erweitern die 
+-Klassen implementieren das jeweilige 
 \family typewriter
-AbstractModel
-\family default
--Klasse, um die Daten in der Datenbank verwalten zu können.
- Jede 
-\family typewriter
-\series bold
-Model
-\family default
-\series default
--Klasse implementiert zudem das jeweilige 
-\family typewriter
-\shape italic
 AdoHiveModel
 \family default
-\shape default
 -Interface aus dem AdoHive Package.
+ Zudem erweitern sie die
+\family typewriter
+ AbstractModel
+\family default
+-Klasse, die Funktionen zur Datenverwaltung bereitstellt.
 \end_layout
 
 \begin_layout Subsubsection
@@ -340,7 +332,7 @@ View
  Alle 
 \family typewriter
 \series bold
-View
+UI-Datenmodel
 \family default
 \series default
 -Klassen, die zur Anzeige der 
@@ -349,19 +341,22 @@ View
 Model
 \family default
 \series default
--Daten dienen, sind Observer des Datenmodells, so dass diese bei Änderungen
- darüber informiert werden.
- Inbesondere gehören 
+-Daten dienen, sind 
 \family typewriter
-\shape italic
-Tabs
+Observer 
 \family default
-\shape default
--Klassen zur 
-\family typewriter
+des Datenmodells, so dass diese bei Änderungen des 
+\series bold
+Models
+\series default
+ darüber informiert werden.
+\begin_inset Newline newline
+\end_inset
+
+Unter anderem zählen das Hauptfenster sowie Tabs und andere Dialoge zur
+ 
 \series bold
 View
-\family default
 \series default
 -Domäne.
 \end_layout
@@ -389,35 +384,34 @@ Controller
 \family default
 \series default
 -Domäne.
- Sie übernimmt mit der Klasse 
+ Sie startet die Anwendung und initialisiert alle notwendigen Objekte.
+\begin_inset Newline newline
+\end_inset
+
+Eines davon ist die ActionRegistry
 \family typewriter
-ActionRegistry
+-Klasse, 
 \family default
- die gesamte Steuerung und hat daher direkte Verbindungen zum 
+die alle Actionklassen verwaltet und über die die gesamte Steuerung der
+ Anwendung stattfindet.
+ Die Actionklassen, die 
 \family typewriter
-\series bold
-Model
+AbstractAction
 \family default
-\series default
- und 
-\family typewriter
+ erweitern, reagieren auf Events in der 
 \series bold
 View
-\family default
 \series default
-.
- Sie ist des weiteren die einzige Klasse, die direkten Zugriff auf die Datenbank
- mit Hilfe des 
-\family typewriter
-\shape italic
-AdoHiveControllers
-\family default
-\shape default
- hat, wodurch Änderungen an der Datenbank nur über den 
+-Domäne und führen dementsprechende Befehle aus.
+ Hierbei greifen sie als einzigste direkt auf 
 \series bold
-Controller
+Models
 \series default
- erfolgen können.
+ und 
+\series bold
+Views
+\series default
+ zu.
 \end_layout
 
 \begin_layout Subsection
