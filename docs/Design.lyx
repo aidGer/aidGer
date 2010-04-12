@@ -1058,12 +1058,65 @@ DefaultTranslation
  hinterlegt ist, zu.
 \end_layout
 
-\begin_layout Section
-TODO
+\begin_layout Subsection
+Der Datenbankwrapper
 \end_layout
 
 \begin_layout Standard
-Datenbankwrapper
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename design/DatabaseWrapper.pdf
+	width 100text%
+	BoundingBox 24bp 474bp 570bp 813bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Klassendiagramm Datenbankwrapper
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die 
+\family typewriter
+DataBaseWrapper
+\family default
+-Klasse abstrahiert die Methoden, die AdoHive zum Verwalten der Models zur
+ Verfügung stellt, um die Bedienung zu vereinfachen.
+ Hierbei wird mit den Reflectionmöglichkeiten, die Java bietet, gearbeitet,
+ um den Typ der übergebenen Klassen gearbeitet.
+ Der 
+\family typewriter
+DataBaseWrapper
+\family default
+ wird nur von der 
+\family typewriter
+AbstractModel
+\family default
+-Klasse verwendet und dient deshalb nur der Datenbankabstraktion.
 \end_layout
 
 \begin_layout Chapter
