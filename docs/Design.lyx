@@ -577,7 +577,16 @@ Die Reportmodels
 \end_layout
 
 \begin_layout Standard
-Die Reportmodels implementieren alle ...
+Die Reportmodels implementieren alle das Interface 
+\family typewriter
+\emph on
+IReport.
+ 
+\family default
+\emph default
+Ihren Konstruktoren werden die benötigten Datenmodelle übergeben.
+ Sie berechnen das Ergebnis und stellen dies dem View oder dem PDF-Export
+ zur Verfügung.
 \end_layout
 
 \begin_layout Subsection
@@ -653,8 +662,36 @@ Singleton
 Die Tabklassen
 \end_layout
 
+\begin_layout Standard
+Die Tabklassen erweitern entsprechende Swingklassen und repräsentieren die
+ Ansicht des jeweiligen Tabs und werden im Hauptfenster eingebettet dargestellt.
+ Sie verknüpfen zudem Buttons und andere Bedienelemente mit den entsprechenden
+ Actions und Datenmodellen.
+ In ihnen werden keine Benutzereingaben ausgewertet.
+\end_layout
+
 \begin_layout Subsection
 Das UI-Datenmodel
+\end_layout
+
+\begin_layout Standard
+Die UI-Datenmodelle erweitern entsprechende Swing-Model-Klassen und implementier
+en das 
+\family typewriter
+\emph on
+Observer
+\family default
+\emph default
+ Interface.
+ Ihnen werden zu Beginn alle darzustellenden Elemente übergeben.
+ Sie registrieren sich bei diesen als 
+\family typewriter
+\emph on
+Observer 
+\family default
+\emph default
+und aktualisieren ihre Ansicht (über Swingmethoden), falls sich ein Model
+ verändern sollte.
 \end_layout
 
 \begin_layout Section
@@ -666,6 +703,92 @@ name "sec:Die-Programmsteuerung"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Die Klasse 
+\family typewriter
+Application
+\end_layout
+
+\begin_layout Standard
+Die Klasse 
+\family typewriter
+Application
+\family default
+ ist eine 
+\series bold
+Singleton
+\series default
+-Klasse, in der sich unter anderem die 
+\series bold
+main
+\series default
+()-Funktion befindet.
+ Hier werden auch alle controllerspezifischen Klassen initialisiert sowie
+ alle Actionklassen bei der 
+\family typewriter
+ActionRegistry
+\family default
+ registriert.
+\end_layout
+
+\begin_layout Subsection
+Die Klasse 
+\family typewriter
+ActionRegistry
+\end_layout
+
+\begin_layout Standard
+Die Klasse 
+\family typewriter
+ActionRegistry
+\family default
+ ist eine 
+\series bold
+Singleton
+\series default
+-Klasse, in der sich alle Actionklassen registrieren.
+ 
+\series bold
+View
+\series default
+-Klassen können dann auf die Registry zugreifen, um sich Actions entsprechend
+ ihrer Funktionalität liefern zu lassen.
+\end_layout
+
+\begin_layout Subsection
+Die Actionklassen
+\end_layout
+
+\begin_layout Standard
+Die Actionklassen erweitern die 
+\family typewriter
+AbstractAction 
+\family default
+Klasse, die von Swing bereitgestellt wird.
+ Sie reagieren auf Benutzerinteraktionen mit dem 
+\series bold
+View
+\series default
+ und führen den entsprechenden Befehl aus, indem die 
+\emph on
+actionPerformed() 
+\emph default
+überschrieben wird.
+ Sie agieren mit dem Datenmodel und der 
+\family typewriter
+UI
+\family default
+-Klasse, um den momentanen 
+\series bold
+View
+\series default
+ zu wechseln oder mit dem momentanen 
+\series bold
+View,
+\series default
+ um diesen zu verändern.
 \end_layout
 
 \begin_layout Section
