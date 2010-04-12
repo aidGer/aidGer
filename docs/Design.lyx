@@ -98,7 +98,7 @@ name "sec:Zweck"
 \end_layout
 
 \begin_layout Standard
-Dieses Dokument dient als Richtschnur bei der Entwicklung des Programms.
+Dieses Dokument dient als Leitfaden bei der Entwicklung der Software aidGer.
  Es dokumentiert die grundsätzlichen Überlegungen der Entwickler beim Entwurf
  des Gesamtsystems und seiner Komponenten.
  Darüber hinaus enthält es Beschreibungen der wichtigsten Programmkomponenten
@@ -142,11 +142,11 @@ name "sec:Überblick-über-dieses"
 \end_layout
 
 \begin_layout Standard
-Der erste Teil dieses Dokuments besteht aus Beschreibungen der verschiedenen,
- beim Entwurf des Programms zur Anwendung gekommenen Prinzipien.
+Der erste Teil dieses Dokuments besteht aus Beschreibungen der verschiedenen
+ Prinzipien, die beim Entwurf des Programms zur Anwendung gekommen sind.
  Darauf aufbauend folgen ein Kapitel später detailliertere Beschreibungen
- von Programmkomponenten und deren Interaktion, was mit UML-Diagrammen näher
- veranschaulicht wird.
+ von Programmkomponenten und deren Interaktion, welche mit UML-Diagramme
+ veranschaulicht werden.
 \end_layout
 
 \begin_layout Section
@@ -245,8 +245,7 @@ Model
 View
 \family default
 \series default
-) und die Programmsteuerung bzw.
- die Business Logik (
+) und die Programmsteuerung (
 \family typewriter
 \series bold
 Controller
@@ -299,7 +298,7 @@ Model
 \family typewriter
 AbstractModel
 \family default
--Klasse, um die Daten in der Datenbank zu verwalten.
+-Klasse, um die Daten in der Datenbank verwalten zu können.
  Jede 
 \family typewriter
 \series bold
@@ -390,8 +389,11 @@ Controller
 \family default
 \series default
 -Domäne.
- Sie übernimmt mit der Klasse ActionRegistry die gesamte Steuerung und hat
- daher direkte Verbindungen zum 
+ Sie übernimmt mit der Klasse 
+\family typewriter
+ActionRegistry
+\family default
+ die gesamte Steuerung und hat daher direkte Verbindungen zum 
 \family typewriter
 \series bold
 Model
@@ -411,8 +413,11 @@ View
 AdoHiveControllers
 \family default
 \shape default
- hat, wodurch Änderungen an der Datenbank nur über den Controller erfolgen
- können.
+ hat, wodurch Änderungen an der Datenbank nur über den 
+\series bold
+Controller
+\series default
+ erfolgen können.
 \end_layout
 
 \begin_layout Subsection
@@ -971,6 +976,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename design/PDF-Export.pdf
+	display false
 	width 100text%
 	BoundingBox 25bp 575bp 570bp 775bp
 	clip
@@ -1080,6 +1086,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename design/Runtime.pdf
+	display false
 	width 100text%
 	BoundingBox 75bp 425bp 525bp 750bp
 	clip
@@ -1130,6 +1137,13 @@ DefaultTranslation
 
 \begin_layout Subsection
 Der Datenbankwrapper
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Der-Datenbankwrapper"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1143,6 +1157,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename design/DatabaseWrapper.pdf
+	display false
 	width 100text%
 	BoundingBox 24bp 474bp 570bp 813bp
 	clip
@@ -1230,6 +1245,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename design/Adding_Assistant.pdf
+	display false
 	height 80theight%
 	BoundingBox 25bp 425bp 575bp 813bp
 	clip
@@ -1336,7 +1352,7 @@ Version 0.2 (12.04.2010)
 \end_layout
 
 \begin_layout Itemize
-Verfeinerungen in den Kapiteln 
+Korrekturen und Verfeinerungen in den Kapiteln 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "cha:Grundsätzliche-Entwurfsüberlegungen"
@@ -1353,12 +1369,67 @@ reference "cha:Beschreibungen-einzelner-Programmkomponenten"
 
 \end_layout
 
+\begin_layout Itemize
+Klassendiagramme in den Kapiteln 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Die-Reportmodels"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Die-Modelklassen"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:PDF-Export"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Konfiguration-und-Übersetzung"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Der-Datenbankwrapper"
+
+\end_inset
+
+ hinzugefügt
+\end_layout
+
+\begin_layout Itemize
+Sequenzdiagramm für den Beispielablauf 
+\begin_inset Quotes gld
+\end_inset
+
+Hilfskraft hinzufügen
+\begin_inset Quotes grd
+\end_inset
+
+ integriert
+\end_layout
+
+\begin_layout Itemize
+Architektur-Diagramm verändert und umfangreicher beschrieben
+\end_layout
+
 \begin_layout Subsection*
 Version 0.1.1 (11.04.2010)
 \end_layout
 
 \begin_layout Itemize
-Erstellung des Architektur-Diagramms
+Erstellung des ersten Entwurfs des Architektur-Diagramms
 \end_layout
 
 \begin_layout Itemize
@@ -1366,6 +1437,17 @@ Erstellung des Kapitels
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "cha:Beschreibungen-einzelner-Programmkomponenten"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Ausführlichere Beschreibungen im Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Einleitung"
 
 \end_inset
 
@@ -1382,6 +1464,13 @@ Erstellung der Grundstruktur dieses Dokuments
 
 \begin_layout Itemize
 Erstellung des Kapitels 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Einleitung"
+
+\end_inset
+
+ und 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "cha:Grundsätzliche-Entwurfsüberlegungen"
