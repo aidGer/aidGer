@@ -1477,7 +1477,7 @@ name "sec:Allgemeine-Beschreibung-des"
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/mockup1.png
+	filename specification/mockup1.png
 	scale 75
 
 \end_inset
@@ -1736,7 +1736,7 @@ Hauptanzeige
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/MockupVeranstaltungen.png
+	filename specification/MockupVeranstaltungen.png
 
 \end_inset
 
@@ -1826,7 +1826,7 @@ Anzeigen
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/MockupVeranstaltungenAnzeige.png
+	filename specification/MockupVeranstaltungenAnzeige.png
 
 \end_inset
 
@@ -1901,7 +1901,7 @@ Bearbeiten
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/MockupVeranstaltungenBearbeiten.png
+	filename specification/MockupVeranstaltungenBearbeiten.png
 
 \end_inset
 
@@ -2044,7 +2044,7 @@ name "sec:Beschäftigungen"
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/MockupBuchungen.png
+	filename specification/MockupBuchungen.png
 
 \end_inset
 
@@ -2159,7 +2159,7 @@ name "sec:Vorgänge"
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/MockupVorgaenge.png
+	filename specification/MockupVorgaenge.png
 
 \end_inset
 
@@ -2280,7 +2280,7 @@ name "sec:Berichte"
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/MockupReports.png
+	filename specification/MockupReports.png
 
 \end_inset
 
@@ -2362,7 +2362,7 @@ name "sec:Controlling"
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/MockupControlling.png
+	filename specification/MockupControlling.png
 
 \end_inset
 
@@ -2401,7 +2401,7 @@ name "sec:Budgetprüfung"
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/MockupBudgetPruefung.png
+	filename specification/MockupBudgetPruefung.png
 
 \end_inset
 
@@ -2458,7 +2458,7 @@ name "sec:Programmeinstellungen"
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/MockupSettings.png
+	filename specification/MockupSettings.png
 
 \end_inset
 
@@ -2696,7 +2696,7 @@ Das Use-Case-Diagramm ist auf der nächsten Seite abgebildet.
 \align center
 \begin_inset External
 	template PDFPages
-	filename images/Use_Case_Diagram.pdf
+	filename specification/Use_Case_Diagram.pdf
 	display false
 	width 100page%
 
