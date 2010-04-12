@@ -556,6 +556,13 @@ name "sec:Das-Datenmodell"
 Die Klasse 
 \family typewriter
 Runtime
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Die-Klasse-Runtime"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -575,6 +582,13 @@ bei Programmstart initialisiert werden.
 
 \begin_layout Subsection
 Die Reportmodels
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Die-Reportmodels"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -632,6 +646,13 @@ Ihren Konstruktoren werden die benötigten Datenmodelle übergeben.
 
 \begin_layout Subsection
 Die Modelklassen
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Die-Modelklassen"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -723,6 +744,13 @@ name "sec:Die-Präsentationskomponente"
 Die Klasse 
 \family typewriter
 UI
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Die-Klasse-UI"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -744,6 +772,13 @@ Singleton
 
 \begin_layout Subsection
 Die Tabklassen
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Die-Tabklassen"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -756,6 +791,13 @@ Die Tabklassen erweitern entsprechende Swingklassen und repräsentieren die
 
 \begin_layout Subsection
 Das UI-Datenmodel
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Das-UI-Datenmodel"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -793,6 +835,13 @@ name "sec:Die-Programmsteuerung"
 Die Klasse 
 \family typewriter
 Application
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Die-Klasse-Application"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -821,6 +870,13 @@ ActionRegistry
 Die Klasse 
 \family typewriter
 ActionRegistry
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Die-Klasse-ActionRegistry"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -843,6 +899,13 @@ View
 
 \begin_layout Subsection
 Die Actionklassen
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Die-Actionklassen"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -997,6 +1060,13 @@ PDF-Exporter
 
 \begin_layout Subsection
 Konfiguration und Übersetzung
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Konfiguration-und-Übersetzung"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1117,6 +1187,126 @@ DataBaseWrapper
 AbstractModel
 \family default
 -Klasse verwendet und dient deshalb nur der Datenbankabstraktion.
+\end_layout
+
+\begin_layout Section
+Beispielablauf: Hinzufügen einer neuen Hilfskraft
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Hinzufügen-einer-neuen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das folgende Sequenzdiagramm beschreibt den Ablauf des Hinzufügens einer
+ neuen Hilfskraft.
+ Der Benutzer befindet sich momentan im Menüpunkt 
+\begin_inset Quotes gld
+\end_inset
+
+Stammdatenverwaltung 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+Hilfskräfte
+\begin_inset Quotes grd
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename design/Adding_Assistant.pdf
+	height 80theight%
+	BoundingBox 25bp 425bp 575bp 813bp
+	clip
+	rotateAngle 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Sequenzdiagramm Hilfskraft hinzufügen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Nach einem Klick auf Hinzufügen wird die Instanz 
+\family typewriter
+addAction
+\family default
+ von 
+\family typewriter
+Actions
+\family default
+ darüber informiert.
+ 
+\family typewriter
+addAction
+\family default
+ initialisiert daraufhin das 
+\family typewriter
+addTab
+\family default
+, welches sich die 
+\family typewriter
+saveAction
+\family default
+ holt und von der 
+\family typewriter
+UI
+\family default
+ dargestellt wird.
+ Nachdem vom Benutzer die Daten eingegeben wurden, legt die 
+\family typewriter
+saveAction
+\family default
+ einen neuen 
+\family typewriter
+Assistant
+\family default
+ an, holt sich die Daten, wie z.B.
+ den Namen, schreibt diese in den 
+\family typewriter
+Assistant
+\family default
+ und speichert den 
+\family typewriter
+Assistant
+\family default
+ danach.
+ Zum Schluss wird der alte Tab wieder durch die 
+\family typewriter
+UI
+\family default
+ dargestellt.
 \end_layout
 
 \begin_layout Chapter
