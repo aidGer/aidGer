@@ -594,6 +594,49 @@ Die Modelklassen
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename design/Model.pdf
+	display false
+	height 80theight%
+	BoundingBox 23bp 557bp 566bp 813bp
+	clip
+	rotateAngle 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Klassendiagramm für die Modelklassen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Die Modelklassen implementieren die Model-Interfaces die AdoHive zur Verfügung
  stellt (zB.
  
