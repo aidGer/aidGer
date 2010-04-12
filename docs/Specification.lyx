@@ -2696,7 +2696,7 @@ Das Use-Case-Diagramm ist auf der nächsten Seite abgebildet.
 \align center
 \begin_inset External
 	template PDFPages
-	filename Use_Case_Diagram.pdf
+	filename images/Use_Case_Diagram.pdf
 	display false
 	width 100page%
 
