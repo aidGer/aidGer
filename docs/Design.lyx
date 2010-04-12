@@ -515,6 +515,28 @@ Beobachter / Observer
 n Objekte benachrichtigt und automatisch aktualisiert werden.
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+Kompositum
+\series default
+ (Strukturmuster): Füge Objekte zu Baumstrukturen zusammen, um Teil-Ganzes-Hiera
+rchien zu repräsentieren.
+ Die Kompositionsmuster ermöglicht es Klienten, einzelne Objekte sowie Kompositi
+onen von Objekten einheitlich zu behandeln.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Fassade
+\series default
+ (Strukturmuster): Biete eine einheitliche Schnittstelle zu einer Menge
+ von Schnittstellen eines Subsystems.
+ Die Fassadenklasse definiert eine abstrakte Schnittstelle, welche die Verwendun
+g des Subsystems vereinfacht.
+\end_layout
+
 \begin_layout Chapter
 Beschreibungen einzelner Programmkomponenten
 \begin_inset CommandInset label
@@ -537,8 +559,68 @@ name "sec:Das-Datenmodell"
 
 \end_layout
 
+\begin_layout Subsection
+Die Klasse 
+\family typewriter
+Runtime
+\end_layout
+
 \begin_layout Standard
-..
+Die Klasse 
+\family typewriter
+Runtime 
+\family default
+erlaubt den Zugriff auf die Konfiguration, plattformspezifische Einstellungen
+ und die übersetzten Strings für die Benutzeroberfläche.
+ Dazu greift sie auf die andere Klassen zu, die diese Funktionalität implementie
+ren und von 
+\family typewriter
+Runtime 
+\family default
+bei Programmstart initialisiert werden.
+\end_layout
+
+\begin_layout Subsection
+Die Modelklassen
+\end_layout
+
+\begin_layout Standard
+Die Modelklassen implementieren zum einen die Model-Interfaces die AdoHive
+ zur Verfügung stellt (zB.
+ 
+\family typewriter
+\emph on
+IAssistant
+\family default
+\emph default
+) sowie 
+\family typewriter
+\emph on
+Observable
+\family default
+\emph default
+.
+ Zudem erweitern sie die Klasse 
+\family typewriter
+
+\begin_inset Newline newline
+\end_inset
+
+AbstractModel
+\family default
+.
+ Diese stellt Methoden zur Verwaltung der Daten in der Datenbank bereit,
+ zB.
+ zum Speichern des Models oder dem Löschen aus der Datenbank.
+\begin_inset Newline newline
+\end_inset
+
+Um auf die Datenbank zugreifen zu können nutzen die Models die 
+\family typewriter
+DatabaseWrapper 
+\family default
+Klasse, die die einzelnen AdoHive Manager Klassen zur einfachen Nutzung
+ abstrahiert.
 \end_layout
 
 \begin_layout Section
@@ -552,23 +634,46 @@ name "sec:Die-Präsentationskomponente"
 
 \end_layout
 
+\begin_layout Subsection
+Die Klasse 
+\family typewriter
+UI
+\end_layout
+
 \begin_layout Standard
-..
+Die Klasse UI
+\family typewriter
+ 
+\family default
+ist eine 
+\series bold
+Singleton
+\series default
+-Klasse, die sich um die Verwaltung des Hauptfensters und der darin befindlichen
+ Tabs kümmert.
+ Zum Hauptfenster gehören dabei die Menüleiste, die Navigation und generell
+ die Anzeige der Reiter.
+ Bei den Tabs kümmert sie sich um das Öffnen und Schließen und den Inhalt
+ der geöffneten Tabs.
+\end_layout
+
+\begin_layout Subsection
+Die Tabklassen
+\end_layout
+
+\begin_layout Subsection
+Das UI-Datenmodel
 \end_layout
 
 \begin_layout Section
-Die Businesslogik
+Die Programmsteuerung
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Die-Businesslogik"
+name "sec:Die-Programmsteuerung"
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-..
 \end_layout
 
 \begin_layout Section
@@ -795,7 +900,7 @@ reference "cha:Grundsätzliche-Entwurfsüberlegungen"
 
 \end_inset
 
- und  
+ und 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "cha:Beschreibungen-einzelner-Programmkomponenten"
