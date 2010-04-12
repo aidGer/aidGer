@@ -528,6 +528,28 @@ Beobachter / Observer
 n Objekte benachrichtigt und automatisch aktualisiert werden.
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+Kompositum
+\series default
+ (Strukturmuster): Füge Objekte zu Baumstrukturen zusammen, um Teil-Ganzes-Hiera
+rchien zu repräsentieren.
+ Die Kompositionsmuster ermöglicht es Klienten, einzelne Objekte sowie Kompositi
+onen von Objekten einheitlich zu behandeln.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Fassade
+\series default
+ (Strukturmuster): Biete eine einheitliche Schnittstelle zu einer Menge
+ von Schnittstellen eines Subsystems.
+ Die Fassadenklasse definiert eine abstrakte Schnittstelle, welche die Verwendun
+g des Subsystems vereinfacht.
+\end_layout
+
 \begin_layout Chapter
 Beschreibungen einzelner Programmkomponenten
 \begin_inset CommandInset label
@@ -570,10 +592,10 @@ name "sec:Die-Präsentationskomponente"
 \end_layout
 
 \begin_layout Section
-Die Businesslogik
+Die Programmsteuerung
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Die-Businesslogik"
+name "sec:Die-Programmsteuerung"
 
 \end_inset
 
