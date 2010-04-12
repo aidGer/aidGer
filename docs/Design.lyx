@@ -46,7 +46,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \author "" 
 \author "" 
@@ -634,8 +634,35 @@ name "sec:Die-Präsentationskomponente"
 
 \end_layout
 
+\begin_layout Subsection
+Die Klasse 
+\family typewriter
+UI
+\end_layout
+
 \begin_layout Standard
-..
+Die Klasse UI
+\family typewriter
+ 
+\family default
+ist eine 
+\series bold
+Singleton
+\series default
+-Klasse, die sich um die Verwaltung des Hauptfensters und der darin befindlichen
+ Tabs kümmert.
+ Zum Hauptfenster gehören dabei die Menüleiste, die Navigation und generell
+ die Anzeige der Reiter.
+ Bei den Tabs kümmert sie sich um das Öffnen und Schließen und den Inhalt
+ der geöffneten Tabs.
+\end_layout
+
+\begin_layout Subsection
+Die Tabklassen
+\end_layout
+
+\begin_layout Subsection
+Das UI-Datenmodel
 \end_layout
 
 \begin_layout Section
@@ -647,10 +674,6 @@ name "sec:Die-Programmsteuerung"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-..
 \end_layout
 
 \begin_layout Section
