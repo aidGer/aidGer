@@ -66,6 +66,10 @@ Buchgraber (2512046), Gildein (2513744), Pirrung (2526016)
 Gruppe 10
 \end_layout
 
+\begin_layout Subject
+- vertrauliches Dokument -
+\end_layout
+
 \begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
@@ -98,7 +102,11 @@ name "sec:Zweck"
 \end_layout
 
 \begin_layout Standard
-Dieses Dokument dient als Leitfaden bei der Entwicklung der Software aidGer.
+Dieses Dokument dient als Leitfaden bei der Entwicklung der Software 
+\emph on
+aidGer
+\emph default
+.
  Es dokumentiert die grundsätzlichen Überlegungen der Entwickler beim Entwurf
  des Gesamtsystems und seiner Komponenten.
  Darüber hinaus enthält es Beschreibungen der wichtigsten Programmkomponenten
@@ -226,30 +234,27 @@ name "sec:Architektur"
 \end_layout
 
 \begin_layout Standard
-Zur Strukturierung der Software aidGer wird das Architekturmuster Model
- View Controller (
+Zur Strukturierung der Software 
+\emph on
+aidGer
+\emph default
+ wird das Architekturmuster Model View Controller (
 \series bold
 MVC
 \series default
 ) eingesetzt.
  Dabei geschieht eine Unterteilung der Struktur in drei Einheiten: Das Datenmode
 ll (
-\family typewriter
 \series bold
 Model
-\family default
 \series default
 ), die Präsentationskomponente (
-\family typewriter
 \series bold
 View
-\family default
 \series default
 ) und die Programmsteuerung (
-\family typewriter
 \series bold
 Controller
-\family default
 \series default
 ).
  Die Entkopplung dieser drei Komponenten ist die Basis für einen flexiblen
@@ -281,27 +286,25 @@ name "sub:Model"
 
 \begin_layout Standard
 Das 
-\family typewriter
 \series bold
 Model
-\family default
 \series default
  enthält die darzustellende Daten und die Business-Logik; Es ist von der
  Präsentationskomponente und der Programmsteuerung unabhängig.
  Alle 
-\family typewriter
 \series bold
 Model
-\family default
 \series default
 -Klassen implementieren das jeweilige 
 \family typewriter
+\emph on
 AdoHiveModel
 \family default
+\emph default
 -Interface aus dem AdoHive Package.
- Zudem erweitern sie die
+ Zudem erweitern sie die 
 \family typewriter
- AbstractModel
+AbstractModel
 \family default
 -Klasse, die Funktionen zur Datenverwaltung bereitstellt.
 \end_layout
@@ -323,29 +326,23 @@ Die Klasse
 UI
 \family default
  bildet die Hauptkomponente der 
-\family typewriter
 \series bold
 View
-\family default
 \series default
 -Domäne.
  Alle 
-\family typewriter
 \series bold
 UI-Datenmodel
-\family default
 \series default
 -Klassen, die zur Anzeige der 
-\family typewriter
 \series bold
 Model
-\family default
 \series default
 -Daten dienen, sind 
 \family typewriter
-Observer 
+Observer
 \family default
-des Datenmodells, so dass diese bei Änderungen des 
+ des Datenmodells, so dass diese bei Änderungen des 
 \series bold
 Models
 \series default
@@ -378,23 +375,32 @@ Die Klasse
 Application
 \family default
  bildet die Hauptkomponente der 
-\family typewriter
 \series bold
 Controller
-\family default
 \series default
 -Domäne.
  Sie startet die Anwendung und initialisiert alle notwendigen Objekte.
 \begin_inset Newline newline
 \end_inset
 
-Eines davon ist die ActionRegistry
+Eines davon ist die 
 \family typewriter
--Klasse, 
+ActionRegistry
 \family default
-die alle Actionklassen verwaltet und über die die gesamte Steuerung der
- Anwendung stattfindet.
- Die Actionklassen, die 
+-Klasse
+\family typewriter
+,
+\family default
+ die alle 
+\family typewriter
+Action
+\family default
+-Klassen verwaltet und über die die gesamte Steuerung der Anwendung stattfindet.
+ Die 
+\family typewriter
+Action
+\family default
+-Klassen, die 
 \family typewriter
 AbstractAction
 \family default
@@ -455,7 +461,11 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Die Architektur mit Hilfe des MVC-Patterns
+Die Architektur von 
+\emph on
+aidGer
+\emph default
+ mit Hilfe des MVC-Patterns
 \end_layout
 
 \end_inset
@@ -484,7 +494,10 @@ name "sec:Entwurfsmuster"
 \end_layout
 
 \begin_layout Standard
-Es folgt eine Auflistung aller Entwurfsmuster, die beim Entwurf von aidGer
+Es folgt eine Auflistung aller Entwurfsmuster, die beim Entwurf von 
+\emph on
+aidGer
+\emph default
  zum Einsatz kommen:
 \end_layout
 
@@ -631,16 +644,21 @@ Klassendiagramm für die Reportmodels
 \end_layout
 
 \begin_layout Standard
+\noindent
 Die Reportmodels implementieren alle das Interface 
 \family typewriter
 \emph on
-IReport.
- 
+IReport
 \family default
+.
+ 
 \emph default
 Ihren Konstruktoren werden die benötigten Datenmodelle übergeben.
- Sie berechnen das Ergebnis und stellen dies dem View oder dem PDF-Export
- zur Verfügung.
+ Sie berechnen das Ergebnis und stellen dies dem 
+\series bold
+View
+\series default
+ oder dem PDF-Export zur Verfügung.
 \end_layout
 
 \begin_layout Subsection
@@ -698,8 +716,16 @@ Klassendiagramm für die Modelklassen
 \end_layout
 
 \begin_layout Standard
-Die Modelklassen implementieren die Model-Interfaces die AdoHive zur Verfügung
- stellt (zB.
+\noindent
+Die 
+\series bold
+Model
+\series default
+-Klassen implementieren die 
+\series bold
+Model
+\series default
+-Interfaces, die AdoHive zur Verfügung stellt (zB.
  
 \family typewriter
 \emph on
@@ -716,15 +742,23 @@ IAssistant
 Observable 
 \family default
 und stellt Methoden zur Verwaltung der Daten in der Datenbank bereit, zB.
- zum Speichern des Models oder dem Löschen aus der Datenbank.
+ zum Speichern des 
+\series bold
+Models
+\series default
+ oder dem Löschen aus der Datenbank.
 \begin_inset Newline newline
 \end_inset
 
-Um auf die Datenbank zugreifen zu können nutzen die Models die 
+Um auf die Datenbank zugreifen zu können, nutzen die 
+\series bold
+Models
+\series default
+ die 
 \family typewriter
-DatabaseWrapper 
+DatabaseWrapper
 \family default
-Klasse, die die einzelnen AdoHive Manager Klassen zur einfachen Nutzung
+ Klasse, die die einzelnen AdoHive Manager Klassen zur einfachen Nutzung
  abstrahiert.
 \end_layout
 
@@ -753,6 +787,49 @@ name "sub:Die-Klasse-UI"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename design/UI.pdf
+	BoundingBox 25bp 620bp 220bp 750bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Klassendiagramm für die Klasse 
+\family typewriter
+UI
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
 Die Klasse UI
 \family typewriter
  
@@ -781,10 +858,22 @@ name "sub:Die-Tabklassen"
 \end_layout
 
 \begin_layout Standard
-Die Tabklassen erweitern entsprechende Swingklassen und repräsentieren die
- Ansicht des jeweiligen Tabs und werden im Hauptfenster eingebettet dargestellt.
+Die Tabklassen erweitern entsprechende 
+\series bold
+Swing
+\series default
+-Klassen und repräsentieren die Ansicht des jeweiligen Tabs und werden im
+ Hauptfenster eingebettet dargestellt.
  Sie verknüpfen zudem Buttons und andere Bedienelemente mit den entsprechenden
- Actions und Datenmodellen.
+ 
+\family typewriter
+Actions
+\family default
+ und 
+\series bold
+Datenmodellen
+\series default
+.
  In ihnen werden keine Benutzereingaben ausgewertet.
 \end_layout
 
@@ -800,8 +889,11 @@ name "sub:Das-UI-Datenmodel"
 \end_layout
 
 \begin_layout Standard
-Die UI-Datenmodelle erweitern entsprechende Swing-Model-Klassen und implementier
-en das 
+Die UI-Datenmodelle erweitern entsprechende 
+\series bold
+Swing-Model
+\series default
+-Klassen und implementieren das 
 \family typewriter
 \emph on
 Observer
@@ -815,7 +907,14 @@ Observer
 Observer 
 \family default
 \emph default
-und aktualisieren ihre Ansicht (über Swingmethoden), falls sich ein Model
+und aktualisieren ihre Ansicht (über 
+\series bold
+Swing
+\series default
+-Methoden), falls sich ein 
+\series bold
+Model
+\series default
  verändern sollte.
 \end_layout
 
@@ -858,7 +957,11 @@ main
 \series default
 ()-Funktion befindet.
  Hier werden auch alle controllerspezifischen Klassen initialisiert sowie
- alle Actionklassen bei der 
+ alle 
+\family typewriter
+Action
+\family default
+-Klassen bei der 
 \family typewriter
 ActionRegistry
 \family default
@@ -887,17 +990,28 @@ ActionRegistry
 \series bold
 Singleton
 \series default
--Klasse, in der sich alle Actionklassen registrieren.
+-Klasse, in der sich alle 
+\family typewriter
+Action
+\family default
+-Klassen registrieren.
  
 \series bold
 View
 \series default
--Klassen können dann auf die Registry zugreifen, um sich Actions entsprechend
- ihrer Funktionalität liefern zu lassen.
+-Klassen können dann auf die Registry zugreifen, um sich 
+\family typewriter
+Actions
+\family default
+ entsprechend ihrer Funktionalität liefern zu lassen.
 \end_layout
 
 \begin_layout Subsection
-Die Actionklassen
+Die 
+\family typewriter
+Action
+\family default
+-Klassen
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Die-Actionklassen"
@@ -908,11 +1022,19 @@ name "sub:Die-Actionklassen"
 \end_layout
 
 \begin_layout Standard
-Die Actionklassen erweitern die 
+Die 
+\family typewriter
+Action
+\family default
+-Klassen erweitern die 
 \family typewriter
 AbstractAction 
 \family default
-Klasse, die von Swing bereitgestellt wird.
+Klasse, die von 
+\series bold
+Swing
+\series default
+ bereitgestellt wird.
  Sie reagieren auf Benutzerinteraktionen mit dem 
 \series bold
 View
@@ -922,7 +1044,11 @@ View
 actionPerformed() 
 \emph default
 überschrieben wird.
- Sie agieren mit dem Datenmodel und der 
+ Sie agieren mit dem 
+\series bold
+Datenmodel
+\series default
+ und der 
 \family typewriter
 UI
 \family default
@@ -1130,7 +1256,7 @@ DefaultTranslation
 \end_layout
 
 \begin_layout Subsection
-Der Datenbankwrapper
+Der Datenbank-Wrapper
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Der-Datenbankwrapper"
@@ -1165,7 +1291,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Klassendiagramm Datenbankwrapper
+Klassendiagramm des Datenbank-Wrappers
 \end_layout
 
 \end_inset
@@ -1179,13 +1305,14 @@ Klassendiagramm Datenbankwrapper
 \end_layout
 
 \begin_layout Standard
+\noindent
 Die 
 \family typewriter
 DataBaseWrapper
 \family default
 -Klasse abstrahiert die Methoden, die AdoHive zum Verwalten der Models zur
  Verfügung stellt, um die Bedienung zu vereinfachen.
- Hierbei wird mit den Reflectionmöglichkeiten, die Java bietet, gearbeitet,
+ Hierbei wird mit den Reflection-Möglichkeiten, die Java bietet, gearbeitet,
  um den Typ der übergebenen Klassen gearbeitet.
  Der 
 \family typewriter
@@ -1210,8 +1337,8 @@ name "sub:Hinzufügen-einer-neuen"
 \end_layout
 
 \begin_layout Standard
-Das folgende Sequenzdiagramm beschreibt den Ablauf des Hinzufügens einer
- neuen Hilfskraft.
+Das folgende Sequenzdiagramm beschreibt zur Veranschaulichung den internen
+ Ablauf beim Hinzufügen einer neuen Hilfskraft.
  Der Benutzer befindet sich momentan im Menüpunkt 
 \begin_inset Quotes gld
 \end_inset
@@ -1241,7 +1368,7 @@ status open
 	filename design/Adding_Assistant.pdf
 	display false
 	height 80theight%
-	BoundingBox 25bp 425bp 575bp 813bp
+	BoundingBox 25bp 490bp 575bp 813bp
 	clip
 	rotateAngle 90
 
@@ -1254,7 +1381,15 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Sequenzdiagramm Hilfskraft hinzufügen
+Sequenzdiagramm zum Ablauf 
+\begin_inset Quotes gld
+\end_inset
+
+Hilfskraft hinzufügen
+\begin_inset Quotes grd
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1268,6 +1403,11 @@ Sequenzdiagramm Hilfskraft hinzufügen
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
+\noindent
 Nach einem Klick auf Hinzufügen wird die Instanz 
 \family typewriter
 addAction
@@ -1364,7 +1504,7 @@ reference "cha:Beschreibungen-einzelner-Programmkomponenten"
 \end_layout
 
 \begin_layout Itemize
-Klassendiagramme in den Kapiteln 
+Klassendiagramme in den Unterkapiteln 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Die-Reportmodels"
@@ -1375,6 +1515,13 @@ reference "sub:Die-Reportmodels"
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Die-Modelklassen"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Die-Klasse-UI"
 
 \end_inset
 
