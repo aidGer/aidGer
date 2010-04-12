@@ -617,21 +617,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Die 
-\family typewriter
-\emph on
-Converter
-\family default
-\emph default
- wandeln die von den 
-\family typewriter
-Reports
-\family default
- erhaltene Informationen in ein für den 
-\family typewriter
-PDF-Exporter
-\family default
- lesbares Schema um
+Klassendiagramm des PDF-Exports
 \end_layout
 
 \end_inset
@@ -703,6 +689,76 @@ ReportConverter
 PDF-Exporter
 \family default
  weitergeleitet und in eine PDF-Datei geschrieben.
+\end_layout
+
+\begin_layout Subsection
+Konfiguration und Übersetzung
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename design/Runtime.pdf
+	BoundingBox 75bp 425bp 525bp 750bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Klassendiagramm der Konfiguration und der Übersetzung
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Die 
+\family typewriter
+Runtime-Klasse
+\family default
+ initialisiert zuerst die Klassen 
+\family typewriter
+Configuration
+\family default
+ und 
+\family typewriter
+Translation
+\family default
+ und leitet danach die verwendeten Funktionen weiter.
+ Sollte 
+\family typewriter
+Translation
+\family default
+ eine Übersetzung nicht in der momentanen Sprache finden, so greift es auf
+ die Standardsprache, welche in der Klasse 
+\family typewriter
+DefaultTranslation
+\family default
+ hinterlegt ist, zu.
+\end_layout
+
+\begin_layout Section
+TODO
+\end_layout
+
+\begin_layout Standard
+Datenbankwrapper
 \end_layout
 
 \begin_layout Chapter
