@@ -451,7 +451,7 @@ status open
 	filename design/Architecture.pdf
 	display false
 	width 100col%
-	BoundingBox 20bp 330bp 530bp 813bp
+	BoundingBox 20bp 300bp 530bp 813bp
 	clip
 
 \end_inset
