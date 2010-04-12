@@ -250,7 +250,8 @@ Model
 View
 \family default
 \series default
-) und die Programmsteuerung (
+) und die Programmsteuerung bzw.
+ die Business Logik (
 \family typewriter
 \series bold
 Controller
@@ -291,21 +292,15 @@ Das
 Model
 \family default
 \series default
- enthält die darzustellende Daten und die Business-Logik; Es ist von der
- Präsentationskomponente und der Programmsteuerung unabhängig.
+ enthält die darzustellende Daten und ist von der Präsentationskomponente
+ und der Programmsteuerung unabhängig.
  Alle 
 \family typewriter
 \series bold
 Model
 \family default
 \series default
--Klassen implementieren das jeweilige 
-\family typewriter
-\shape italic
-AdoHiveModel
-\family default
-\shape default
--Interface aus dem AdoHive Package sowie ein 
+-Klassen implementieren ein 
 \family typewriter
 \shape italic
 Observable
@@ -313,11 +308,19 @@ Observable
 \shape default
 -Interface, so dass andere Klassen bei Änderungen am Datenmodell reagieren
  können.
- Zudem erweitern sie die 
+ Jede 
 \family typewriter
-AbstractModel
+\series bold
+Model
 \family default
--Klasse, die Funktionen zur Datenverwaltung bereitstellt.
+\series default
+-Klasse implementiert zudem das jeweilige 
+\family typewriter
+\shape italic
+AdoHiveModel
+\family default
+\shape default
+-Interface aus dem AdoHive Package.
 \end_layout
 
 \begin_layout Subsubsection
@@ -346,30 +349,24 @@ View
  Alle 
 \family typewriter
 \series bold
-Datenmodel
+View
 \family default
 \series default
--Klassen, die über entsprechende 
-\series bold
-View
-\series default
--Klassen zur Anzeige der 
+-Klassen, die zur Anzeige der 
 \family typewriter
 \series bold
 Model
 \family default
 \series default
--Daten dienen, sind 
-\series bold
-Observer
-\series default
- des Datenmodells, so dass diese bei Änderungen darüber informiert werden.
- 
-\begin_inset Newline newline
-\end_inset
-
-Unter anderem zählen das Hauptfenster sowie Tabs und andere Dialoge zur
- 
+-Daten dienen, sind Observer des Datenmodells, so dass diese bei Änderungen
+ darüber informiert werden.
+ Inbesondere gehören 
+\family typewriter
+\shape italic
+Tabs
+\family default
+\shape default
+-Klassen zur 
 \family typewriter
 \series bold
 View
@@ -401,39 +398,29 @@ Controller
 \family default
 \series default
 -Domäne.
- Sie startet die Anwendung und initialisiert alle notwendigen Objekte.
- 
+ Sie übernimmt mit der Klasse ActionRegistry die gesamte Steuerung und hat
+ daher direkte Verbindungen zum 
 \family typewriter
-
-\begin_inset Newline newline
-\end_inset
-
-
-\family default
-Eines davon ist die Klasse 
-\family typewriter
-ActionRegistry
-\family default
-, die alle Actionklassen verwaltet und über die die gesamte Steuerung der
- Anwendung stattfindet.
- Die Actionklassen, die 
-\family typewriter
-AbstractAction
-\family default
- erweitern, reagieren auf Events in der 
 \series bold
-View
-\series default
--Domäne und führen dementsprechende Befehle aus.
- Hierbei greifen sie als einzigste direkt auf 
-\series bold
-Models
+Model
+\family default
 \series default
  und 
+\family typewriter
 \series bold
-Views
+View
+\family default
 \series default
- zu.
+.
+ Sie ist des weiteren die einzige Klasse, die direkten Zugriff auf die Datenbank
+ mit Hilfe des 
+\family typewriter
+\shape italic
+AdoHiveControllers
+\family default
+\shape default
+ hat, wodurch Änderungen an der Datenbank nur über den Controller erfolgen
+ können.
 \end_layout
 
 \begin_layout Subsection
@@ -464,7 +451,7 @@ status open
 	filename design/Architecture.pdf
 	display false
 	width 100col%
-	BoundingBox 20bp 300bp 530bp 813bp
+	BoundingBox 20bp 330bp 530bp 813bp
 	clip
 
 \end_inset
@@ -619,18 +606,125 @@ name "sec:Hilfsklassen"
 
 \begin_layout Subsection
 PDF-Export
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:PDF-Export"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Die zu exportierenden Daten werden von Reports an PDF-Converter geschickt,
- von diesem in ein geeignetes Format konvertiert und an PDF-Exporter geschickt.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename design/PDF-Export.pdf
+	width 100text%
+	BoundingBox 25bp 575bp 500bp 775bp
+	clip
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
-Zu exportierende Objekte des Models müssen von einem PDF-Konverter in ein
- für den PDF-Exporter geeignetes Format konvertiert werden.
- Hieraus generiert dieser ein PDF-Dokument.
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Die 
+\family typewriter
+\emph on
+Converter
+\family default
+\emph default
+ wandeln die von den 
+\family typewriter
+Reports
+\family default
+ erhaltene Informationen in ein für den 
+\family typewriter
+PDF-Exporter
+\family default
+ lesbares Schema um
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Für den Export von Berichten in PDF existieren Objekte des 
+\family typewriter
+\emph on
+ReportConverters
+\family default
+\emph default
+.
+ Für die verschiedenen Arten von Berichten existiert jeweils eine Kindklasse
+ des 
+\family typewriter
+\shape italic
+ReportConverters
+\emph on
+,
+\family default
+\emph default
  
+\shape default
+welche die Informationen des
+\shape italic
+\emph on
+ 
+\family typewriter
+Reports
+\family default
+ 
+\shape default
+\emph default
+in ein Schema umwandelt, aus welchem der 
+\family typewriter
+\shape italic
+\emph on
+PDF-Exporter
+\family default
+ 
+\shape default
+\emph default
+mit Hilfe von iText eine PDF-Datei erstellt.
+ Der Ablauf sei wie folgt: Der
+\shape italic
+\emph on
+ 
+\family typewriter
+Report
+\family default
+\emph default
+ 
+\shape default
+ruft seinen entsprechenden 
+\family typewriter
+\emph on
+ReportConverter
+\family default
+\emph default
+ auf.
+ Dieser liest die Daten und wandelt sie in das für diesen Bericht existierende
+ Schema.
+ Dieses Schema wird dann an den 
+\family typewriter
+PDF-Exporter
+\family default
+ weitergeleitet und in eine PDF-Datei geschrieben.
 \end_layout
 
 \begin_layout Chapter
