@@ -250,8 +250,7 @@ Model
 View
 \family default
 \series default
-) und die Programmsteuerung bzw.
- die Business Logik (
+) und die Programmsteuerung (
 \family typewriter
 \series bold
 Controller
@@ -292,8 +291,8 @@ Das
 Model
 \family default
 \series default
- enthält die darzustellende Daten und ist von der Präsentationskomponente
- und der Programmsteuerung unabhängig.
+ enthält die darzustellende Daten und die Business-Logik; Es ist von der
+ Präsentationskomponente und der Programmsteuerung unabhängig.
  Alle 
 \family typewriter
 \series bold
@@ -307,14 +306,7 @@ Observable
 \family default
 \shape default
 -Interface, so dass andere Klassen bei Änderungen am Datenmodell reagieren
- können.
- Jede 
-\family typewriter
-\series bold
-Model
-\family default
-\series default
--Klasse implementiert zudem das jeweilige 
+ können sowie das jeweilige 
 \family typewriter
 \shape italic
 AdoHiveModel
