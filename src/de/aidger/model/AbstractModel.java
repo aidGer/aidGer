@@ -1,5 +1,7 @@
 package de.aidger.model;
 
+import java.util.*;
+
 /**
  * AbstractModel contains all important database related functions which all
  * models need to contain. This includes getting instances of models and saving
@@ -7,21 +9,14 @@ package de.aidger.model;
  * 
  * @author Philipp Gildein
  */
-public class AbstractModel {
-
-    /**
-     * Private constructor so no one can construct AbstractModel directly
-     */
-    private AbstractModel() {
-
-    }
+public abstract class AbstractModel extends Observable {
     
     /**
      * Get all models from the database
      * 
      * @return An array containing all found models or null
      */
-    public static AbstractModel[] getAll() {
+    public static List<AbstractModel> getAll() {
 	return null;
     }
     
