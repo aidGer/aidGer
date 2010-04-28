@@ -17,17 +17,17 @@ public class Employment extends AbstractModel implements IEmployment {
 	private int id;
 
 	/**
-	 * References the unique id of the assistant.
+	 * References the corresponding assistant.
 	 */
 	private int assistantId;
 
 	/**
-	 * References the unique id of the contract.
+	 * References the corresponding contract.
 	 */
 	private int contractId;
 
 	/**
-	 * References the unique id of the course.
+	 * References the corresponding course.
 	 */
 	private int courseId;
 

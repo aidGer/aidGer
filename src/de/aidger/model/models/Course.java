@@ -3,155 +3,322 @@ package de.aidger.model.models;
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 
+/**
+ * Represents a single entry in the course column of the database.
+ * Contains functions to retrieve and change the data in the database.
+ *
+ * @author aidGer Team
+ */
 public class Course extends AbstractModel implements ICourse {
 
-	public Course clone()
-	{
+	/**
+	 * The unique id of the course.
+	 */
+	private int id;
+
+	/**
+	 * References the corresponding financial category.
+	 */
+	private int financeCategoryId;
+
+	/**
+	 * The description of the course.
+	 */
+	private String description;
+
+	/**
+	 * The semester in which the course takes place.
+	 */
+	private String semester;
+
+	/**
+	 * The lecturer of the course.
+	 */
+	private String lecturer;
+
+	/**
+	 * The number of groups in the course.
+	 */
+	private int numberOfGroups;
+
+	/**
+	 * The target audience for the course.
+	 */
+	private String targetAudience;
+
+	/**
+	 * The amount of unqualified working hours granted.
+	 */
+	private double unqualifiedWorkingHours; // UHKS
+
+	/**
+	 * The scope of the course.
+	 */
+	private String scope;
+
+	/**
+	 * The part of the course (e.g. 'a' and 'b' or '1' and '2')
+	 */
+	private char part;
+
+	/**
+	 * The group of the course.
+	 */
+	private String group;
+
+	/**
+	 * Remarks regarding the course.
+	 */
+	private String remark;
+
+	/**
+	 * Clone the current course.
+	 */
+	@Override
+	public Course clone() {
 		return new Course();
 	}
-	
+
+	/**
+	 * Get the description of the course
+	 *
+	 * @return The description of the course
+	 */
 	@Override
 	public String getDescription() {
-		// TODO Auto-generated method stub
-		return null;
+		return description;
 	}
 
+	/**
+	 * Get the id referencing the category.
+	 *
+	 * @return The id of the category
+	 */
 	@Override
 	public int getFinancialCategoryId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return financeCategoryId;
 	}
 
+	/**
+	 * Get the group of the course.
+	 *
+	 * @return The group of the course
+	 */
 	@Override
 	public String getGroup() {
-		// TODO Auto-generated method stub
-		return null;
+		return group;
 	}
 
+	/**
+	 * Get the lecturer of the course.
+	 *
+	 * @return The lecturer of the course
+	 */
 	@Override
 	public String getLecturer() {
-		// TODO Auto-generated method stub
-		return null;
+		return lecturer;
 	}
 
+	/**
+	 * Get the number of groups in the course.
+	 *
+	 * @return The number of groups
+	 */
 	@Override
 	public int getNumberOfGroups() {
-		// TODO Auto-generated method stub
-		return 0;
+		return numberOfGroups;
 	}
 
+	/**
+	 * Get the part of the course.
+	 *
+	 * @return The part of the course
+	 */
 	@Override
 	public char getPart() {
-		// TODO Auto-generated method stub
-		return 0;
+		return part;
 	}
 
+	/**
+	 * Get remarks regarding the course.
+	 *
+	 * @return The remarks
+	 */
 	@Override
 	public String getRemark() {
-		// TODO Auto-generated method stub
-		return null;
+		return remark;
 	}
 
+	/**
+	 * Get the scope of the course.
+	 *
+	 * @return The scope of the course
+	 */
 	@Override
 	public String getScope() {
-		// TODO Auto-generated method stub
-		return null;
+		return scope;
 	}
 
+	/**
+	 * Get the semester of the course.
+	 *
+	 * @return The semester
+	 */
 	@Override
 	public String getSemester() {
-		// TODO Auto-generated method stub
-		return null;
+		return semester;
 	}
 
+	/**
+	 * Get the target audience of the course.
+	 *
+	 * @return The target audience
+	 */
 	@Override
 	public String getTargetAudience() {
-		// TODO Auto-generated method stub
-		return null;
+		return targetAudience;
 	}
 
+	/**
+	 * Get the amount of unqualified working hours granted.
+	 *
+	 * @return The amount of UWHs
+	 */
 	@Override
 	public double getUnqualifiedWorkingHours() {
-		// TODO Auto-generated method stub
-		return 0;
+		return unqualifiedWorkingHours;
 	}
 
+	/**
+	 * Set the description of the course
+	 *
+	 * @param descr The description of the course
+	 */
 	@Override
-	public void setDescription(String arg0) {
-		// TODO Auto-generated method stub
-
+	public void setDescription(String descr) {
+		description = descr;
 	}
 
+	/**
+	 * Set the id referencing the category.
+	 *
+	 * @param id The id of the category
+	 */
 	@Override
-	public void setFinancialCategoryId(int arg0) {
-		// TODO Auto-generated method stub
-
+	public void setFinancialCategoryId(int id) {
+		financeCategoryId = id;
 	}
 
+	/**
+	 * Set the group of the course.
+	 *
+	 * @param group The group of the course
+	 */
 	@Override
-	public void setGroup(String arg0) {
-		// TODO Auto-generated method stub
-
+	public void setGroup(String group) {
+		this.group = group;
 	}
 
+	/**
+	 * Set the lecturer of the course.
+	 *
+	 * @param lec The lecturer of the course
+	 */
 	@Override
-	public void setLecturer(String arg0) {
-		// TODO Auto-generated method stub
-
+	public void setLecturer(String lec) {
+		lecturer = lec;
 	}
 
+	/**
+	 * Set the number of groups in the course.
+	 *
+	 * @param num The number of groups
+	 */
 	@Override
-	public void setNumberOfGroups(int arg0) {
-		// TODO Auto-generated method stub
-
+	public void setNumberOfGroups(int num) {
+		numberOfGroups = num;
 	}
 
+	/**
+	 * Set the part of the course.
+	 *
+	 * @param part The part of the course
+	 */
 	@Override
-	public void setPart(char arg0) {
-		// TODO Auto-generated method stub
-
+	public void setPart(char part) {
+		this.part = part;
 	}
 
+	/**
+	 * Set remarks regarding the course.
+	 *
+	 * @param rem The remarks
+	 */
 	@Override
-	public void setRemark(String arg0) {
-		// TODO Auto-generated method stub
-
+	public void setRemark(String rem) {
+		remark = rem;
 	}
 
+	/**
+	 * Set the scope of the course.
+	 *
+	 * @param scope The scope of the course
+	 */
 	@Override
-	public void setScope(String arg0) {
-		// TODO Auto-generated method stub
-
+	public void setScope(String scope) {
+		this.scope = scope;
 	}
 
+	/**
+	 * Set the semester of the course.
+	 *
+	 * @param sem The semester
+	 */
 	@Override
-	public void setSemester(String arg0) {
-		// TODO Auto-generated method stub
-
+	public void setSemester(String sem) {
+		semester = sem;
 	}
 
+	/**
+	 * Set the target audience of the course.
+	 *
+	 * @param target The target audience
+	 */
 	@Override
-	public void setTargetAudience(String arg0) {
-		// TODO Auto-generated method stub
-
+	public void setTargetAudience(String target) {
+		targetAudience = target;
 	}
 
+	/**
+	 * Set the amount of unqualified working hours granted.
+	 *
+	 * @param hours The amount of UWHs
+	 */
 	@Override
-	public void setUnqualifiedWorkingHours(double arg0) {
-		// TODO Auto-generated method stub
-
+	public void setUnqualifiedWorkingHours(double hours) {
+		unqualifiedWorkingHours = hours;
 	}
 
+	/**
+	 * Returns the unique id of the course.
+	 *
+	 * @return The unique id of the course
+	 */
 	@Override
 	public int getId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return id;
 	}
 
+	/**
+	 * Set the unique id of the course.
+	 *
+	 * <b>!!! THIS IS FOR INTERNAL ADOHIVE USAGE ONLY !!!</b>
+	 *
+	 * @param id The unique id of the course
+	 */
 	@Override
-	public void setId(int arg0) {
-		// TODO Auto-generated method stub
-
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

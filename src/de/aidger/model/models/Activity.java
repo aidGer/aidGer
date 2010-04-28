@@ -19,7 +19,7 @@ public class Activity extends AbstractModel implements IActivity {
 	private int id;
 
 	/**
-	 * References the assistant by its unique id.
+	 * References the corresponding assistant.
 	 */
 	private int assistantId;
 
