@@ -40,8 +40,7 @@ public class HourlyWage extends AbstractModel implements IHourlyWage {
 	 * Clone the current wage
 	 */
 	@Override
-	public HourlyWage clone()
-	{
+	public HourlyWage clone() {
 		return new HourlyWage();
 	}
 

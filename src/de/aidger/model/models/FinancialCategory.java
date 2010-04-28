@@ -41,8 +41,7 @@ public class FinancialCategory extends AbstractModel implements
 	 * Clone the current category.
 	 */
 	@Override
-	public FinancialCategory clone()
-	{
+	public FinancialCategory clone() {
 		return new FinancialCategory();
 	}
 

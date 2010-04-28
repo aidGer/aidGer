@@ -52,8 +52,7 @@ public class Contract extends AbstractModel implements IContract {
 	 * Clone the current contract
 	 */
 	@Override
-	public Contract clone()
-	{
+	public Contract clone()	{
 		return new Contract();
 	}
 

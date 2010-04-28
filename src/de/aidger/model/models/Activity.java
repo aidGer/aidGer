@@ -8,122 +8,122 @@ import de.unistuttgart.iste.se.adohive.model.IActivity;
 /**
  * Represents a single entry in the activity column of the database.
  * Contains functions to retrieve and change the data in the database.
- * 
+ *
  * @author aidGer Team
  */
 public class Activity extends AbstractModel implements IActivity {
-	
+
 	/**
 	 * The unique id of the element in the database.
 	 */
 	private int id;
-	
+
 	/**
 	 * References the assistant by its unique id.
 	 */
 	private int assistantId;
-	
+
 	/**
 	 * References the course by its unique id.
 	 */
 	private int courseId;
-	
+
 	/**
 	 * The date on which this activity took place.
 	 */
 	private Date date;
-	
+
 	/**
 	 * The sender of the activity.
 	 */
 	private String sender;
-	
+
 	/**
 	 * The type of document referenced by this activity.
 	 */
 	private String documentType;
-	
+
 	/**
 	 * The type of the activity.
 	 */
 	private String type;
-	
+
 	/**
 	 * The processor of the activity.
 	 */
 	private String processor;
-	
+
 	/**
 	 * The contents of the activity.
 	 */
 	private String content;
-	
+
 	/**
 	 * Remarks for the activity.
 	 */
 	private String remark;
-	
-	/** 
+
+	/**
 	 * Clone the current activity
 	 */
-	public Activity clone()
-	{
+	@Override
+	public Activity clone()	{
 		return new Activity();
 	}
 
 	/**
 	 * Get the id of the referenced assistant.
-	 * 
+	 *
 	 * @return The id of the referenced assistant
 	 */
 	@Override
-	public int getAssistantId() {		
+	public int getAssistantId() {
 		return assistantId;
 	}
 
 	/**
 	 * Get the contents of the activity.
-	 * 
+	 *
 	 * @return The contents of the activity
 	 */
 	@Override
-	public String getContent() {		
+	public String getContent() {
 		return content;
 	}
 
 	/**
 	 * Get the id of the referenced course.
-	 * 
+	 *
 	 * @return The id of the referenced course.
 	 */
 	@Override
-	public int getCourseId() {		
+	public int getCourseId() {
 		return courseId;
 	}
 
 	/**
 	 * Get the date of the activity.
-	 * 
+	 *
 	 * @return The date of the activity.
 	 */
 	@Override
-	public Date getDate() {		
+	public Date getDate() {
 		return date;
 	}
 
 	/**
 	 * Get the type of document.
-	 * 
+	 *
 	 * @return The type of document
 	 */
 	@Override
-	public String getDocumentType() {		
+	public String getDocumentType() {
 		return documentType;
 	}
 
 	/**
 	 * Get the processor of the activity.
-	 * 
+	 *
 	 * @return The processor of the activity.
 	 */
 	@Override
@@ -133,7 +133,7 @@ public class Activity extends AbstractModel implements IActivity {
 
 	/**
 	 * Get remarks to the activity.
-	 * 
+	 *
 	 * @return Remarks to the activity
 	 */
 	@Override
@@ -143,7 +143,7 @@ public class Activity extends AbstractModel implements IActivity {
 
 	/**
 	 * Get the sender of the activity.
-	 * 
+	 *
 	 * @return The sender of the activity.
 	 */
 	@Override
@@ -153,7 +153,7 @@ public class Activity extends AbstractModel implements IActivity {
 
 	/**
 	 * Get the type of the activity.
-	 * 
+	 *
 	 * @return The type of the activity
 	 */
 	@Override
@@ -163,7 +163,7 @@ public class Activity extends AbstractModel implements IActivity {
 
 	/**
 	 * Set the id of the assistant referenced by this activity.
-	 * 
+	 *
 	 * @param id The id of the assistant
 	 */
 	@Override
@@ -173,7 +173,7 @@ public class Activity extends AbstractModel implements IActivity {
 
 	/**
 	 * Set the contents of the activity.
-	 * 
+	 *
 	 * @param cont The contents of the activity
 	 */
 	@Override
@@ -183,7 +183,7 @@ public class Activity extends AbstractModel implements IActivity {
 
 	/**
 	 * Set the id of the course referenced by this activity.
-	 * 
+	 *
 	 * @param id The id of the course
 	 */
 	@Override
@@ -193,7 +193,7 @@ public class Activity extends AbstractModel implements IActivity {
 
 	/**
 	 * Set the date of the activity.
-	 * 
+	 *
 	 * @param dt The date of the activity
 	 */
 	@Override
@@ -203,7 +203,7 @@ public class Activity extends AbstractModel implements IActivity {
 
 	/**
 	 * Set the type of the document
-	 * 
+	 *
 	 * @param type The type of the document
 	 */
 	@Override
@@ -213,7 +213,7 @@ public class Activity extends AbstractModel implements IActivity {
 
 	/**
 	 * Set the processor of the activity.
-	 * 
+	 *
 	 * @param proc The processor of the activity
 	 */
 	@Override
@@ -223,7 +223,7 @@ public class Activity extends AbstractModel implements IActivity {
 
 	/**
 	 * Set remarks to the activity.
-	 * 
+	 *
 	 * @param rem Remarks to the activity
 	 */
 	@Override
@@ -233,7 +233,7 @@ public class Activity extends AbstractModel implements IActivity {
 
 	/**
 	 * Set the sender of the activity.
-	 * 
+	 *
 	 * @param send The sender of the activity
 	 */
 	@Override
@@ -243,7 +243,7 @@ public class Activity extends AbstractModel implements IActivity {
 
 	/**
 	 * Set the type of the activity.
-	 * 
+	 *
 	 * @param typec The type of the activity
 	 */
 	@Override
@@ -253,19 +253,19 @@ public class Activity extends AbstractModel implements IActivity {
 
 	/**
 	 * Returns the unique id of the activity.
-	 * 
+	 *
 	 * @return The unique id of the activity
 	 */
 	@Override
-	public int getId() {		
+	public int getId() {
 		return id;
 	}
 
 	/**
 	 * Set the unique id of the activity.
-	 * 
+	 *
 	 * <b>!!! THIS IS FOR INTERNAL ADOHIVE USAGE ONLY !!!</b>
-	 * 
+	 *
 	 * @param id The unique id of the activity
 	 */
 	@Override
