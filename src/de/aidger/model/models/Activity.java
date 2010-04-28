@@ -10,7 +10,6 @@ import de.unistuttgart.iste.se.adohive.model.IActivity;
  * Contains functions to retrieve and change the data in the database.
  * 
  * @author aidGer Team
- *
  */
 public class Activity extends AbstractModel implements IActivity {
 	
@@ -73,7 +72,7 @@ public class Activity extends AbstractModel implements IActivity {
 	}
 
 	/**
-	 * Returns the id of the referenced assistant.
+	 * Get the id of the referenced assistant.
 	 * 
 	 * @return The id of the referenced assistant
 	 */
@@ -83,7 +82,7 @@ public class Activity extends AbstractModel implements IActivity {
 	}
 
 	/**
-	 * Returns the contents of the activity.
+	 * Get the contents of the activity.
 	 * 
 	 * @return The contents of the activity
 	 */
@@ -93,7 +92,7 @@ public class Activity extends AbstractModel implements IActivity {
 	}
 
 	/**
-	 * Returns the id of the referenced course.
+	 * Get the id of the referenced course.
 	 * 
 	 * @return The id of the referenced course.
 	 */
@@ -103,7 +102,7 @@ public class Activity extends AbstractModel implements IActivity {
 	}
 
 	/**
-	 * Returns the date of the activity.
+	 * Get the date of the activity.
 	 * 
 	 * @return The date of the activity.
 	 */
@@ -113,7 +112,7 @@ public class Activity extends AbstractModel implements IActivity {
 	}
 
 	/**
-	 * Returns the type of document.
+	 * Get the type of document.
 	 * 
 	 * @return The type of document
 	 */
@@ -123,7 +122,7 @@ public class Activity extends AbstractModel implements IActivity {
 	}
 
 	/**
-	 * Returns the processor of the activity.
+	 * Get the processor of the activity.
 	 * 
 	 * @return The processor of the activity.
 	 */
@@ -133,7 +132,7 @@ public class Activity extends AbstractModel implements IActivity {
 	}
 
 	/**
-	 * Returns remarks to the activity.
+	 * Get remarks to the activity.
 	 * 
 	 * @return Remarks to the activity
 	 */
@@ -143,7 +142,7 @@ public class Activity extends AbstractModel implements IActivity {
 	}
 
 	/**
-	 * Returns the sender of the activity.
+	 * Get the sender of the activity.
 	 * 
 	 * @return The sender of the activity.
 	 */
@@ -153,7 +152,7 @@ public class Activity extends AbstractModel implements IActivity {
 	}
 
 	/**
-	 * Returns the type of the activity.
+	 * Get the type of the activity.
 	 * 
 	 * @return The type of the activity
 	 */
@@ -263,9 +262,9 @@ public class Activity extends AbstractModel implements IActivity {
 	}
 
 	/**
-	 * Set the unique id of the activity
+	 * Set the unique id of the activity.
 	 * 
-	 * <b>!!! THIS IS ONLY FOR INTERNAL ADOHIVE USAGE !!!</b>
+	 * <b>!!! THIS IS FOR INTERNAL ADOHIVE USAGE ONLY !!!</b>
 	 * 
 	 * @param id The unique id of the activity
 	 */
