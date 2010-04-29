@@ -26,7 +26,7 @@ public final class Configuration {
      * Initializes this Configuration with a given path.
      * 
      * @param path
-     *            - The path of the configuration.
+     *            The path of the configuration.
      */
     public Configuration(String path) {
         file = path + "settings.cfg";
@@ -74,7 +74,7 @@ public final class Configuration {
      * Gets the value of a property.
      * 
      * @param option
-     *            - The property of which to get the value from
+     *            The property of which to get the value from
      * @return The value of the specified property.
      */
     public String get(String option) {
@@ -85,9 +85,9 @@ public final class Configuration {
      * Sets the value of a property.
      * 
      * @param option
-     *            - The property to change.
+     *            The property to change.
      * @param value
-     *            - The value to change the property to.
+     *            The value to change the property to.
      */
     public void set(String option, String value) {
         properties.setProperty(option, value);

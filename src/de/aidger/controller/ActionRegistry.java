@@ -46,7 +46,7 @@ public final class ActionRegistry {
      * Registers an action with this application.
      * 
      * @param action
-     *            action to register
+     *            The action to register
      */
     public void register(Action action) {
         actions.put(action.getClass().getName(), action);
