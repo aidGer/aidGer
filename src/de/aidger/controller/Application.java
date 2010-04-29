@@ -5,6 +5,13 @@ import javax.swing.SwingUtilities;
 import de.aidger.controller.actions.ExitAction;
 import de.aidger.view.UI;
 
+/**
+ * Application is a singleton class in which the main() function is located. The
+ * application initializes all controller specific classes and registers the
+ * actions at the action registry.
+ * 
+ * @author aidGer Team
+ */
 public final class Application {
     /**
      * Holds an instance of this class.
@@ -23,16 +30,24 @@ public final class Application {
      * @return instance of this Application
      */
     public synchronized static Application getInstance() {
-        if (instance == null)
+        if (instance == null) {
             instance = new Application();
+        }
 
         return instance;
     }
 
     /**
+     * Initializes the application by registering the actions.
+     */
+    public void initialize() {
+        registerActions();
+    }
+
+    /**
      * Registers all action classes at ActionRegistry
      */
-    public void registerActions() {
+    private void registerActions() {
         ActionRegistry.getInstance().register(new ExitAction());
     }
 
@@ -42,7 +57,7 @@ public final class Application {
      * @param args
      */
     public static void main(String[] args) {
-        Application.getInstance().registerActions();
+        Application.getInstance().initialize();
 
         // Starts the main UI in the thread that runs the event loop.
         Runnable ui = new Runnable() {

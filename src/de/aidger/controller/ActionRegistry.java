@@ -5,6 +5,13 @@ import java.util.Map;
 
 import javax.swing.Action;
 
+/**
+ * All action classes have to register to ActionRegistry. Afterwards the view
+ * classes can access the registry to get the functionality of a registered
+ * action.
+ * 
+ * @author aidGer Team
+ */
 public final class ActionRegistry {
     /**
      * Holds an instance of this ActionRegistry.
@@ -14,7 +21,7 @@ public final class ActionRegistry {
     /**
      * Holds the action objects available in this application.
      */
-    private Map<String, Action> actions = new HashMap<String, Action>();
+    private final Map<String, Action> actions = new HashMap<String, Action>();
 
     /**
      * Constructor must be private and does nothing.
@@ -28,29 +35,21 @@ public final class ActionRegistry {
      * @return Instance of this action registry.
      */
     public synchronized static ActionRegistry getInstance() {
-        if (instance == null)
+        if (instance == null) {
             instance = new ActionRegistry();
+        }
 
         return instance;
-    }
-
-    /**
-     * Provides access to the stored actions.
-     * 
-     * @return Stored actions.
-     */
-    private Map<String, Action> getActions() {
-        return actions;
     }
 
     /**
      * Registers an action with this application.
      * 
      * @param action
-     *            to register
+     *            action to register
      */
     public void register(Action action) {
-        getActions().put(action.getClass().getName(), action);
+        actions.put(action.getClass().getName(), action);
     }
 
     /**
@@ -63,6 +62,6 @@ public final class ActionRegistry {
      * @return Action object or null if the action is not registered.
      */
     public Action get(String className) {
-        return getActions().get(className);
+        return actions.get(className);
     }
 }

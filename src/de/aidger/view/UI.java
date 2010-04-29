@@ -28,6 +28,13 @@ import de.aidger.controller.ActionRegistry;
 import de.aidger.controller.actions.ExitAction;
 import de.aidger.view.tabs.Tab;
 
+/**
+ * The UI manages the main window and all its tabs. The main window consists of
+ * the menu bar, the navigation and a tabbed pane which holds all tabs in the
+ * center of the main window.
+ * 
+ * @author aidGer Team
+ */
 @SuppressWarnings("serial")
 public final class UI extends JFrame {
     /**
@@ -41,7 +48,7 @@ public final class UI extends JFrame {
     private final Logger logger = Logger.getLogger(UI.class.getName());
 
     /**
-     * Creates the main frame of the application.
+     * Creates the main window of the application.
      */
     private UI() {
         super();
@@ -65,7 +72,7 @@ public final class UI extends JFrame {
         contentPane.add(getTabbedPane(), BorderLayout.CENTER);
         contentPane.add(getStatusPane(), BorderLayout.PAGE_END);
 
-        // set to full screen size
+        // Set to full screen size
         Toolkit tk = Toolkit.getDefaultToolkit();
         int xSize = (int) tk.getScreenSize().getWidth();
         int ySize = (int) tk.getScreenSize().getHeight();
@@ -76,6 +83,7 @@ public final class UI extends JFrame {
         // Initialize window event handling
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent e) {
                 Action action = ActionRegistry.getInstance().get(
                         ExitAction.class.getName());
@@ -96,8 +104,9 @@ public final class UI extends JFrame {
      * @return instance of this UI
      */
     public synchronized static UI getInstance() {
-        if (instance == null)
+        if (instance == null) {
             instance = new UI();
+        }
 
         return instance;
     }
