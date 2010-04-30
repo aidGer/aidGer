@@ -68,7 +68,7 @@ public final class UI extends JFrame {
         contentPane.setLayout(new BorderLayout());
 
         contentPane.add(getToolbar(), BorderLayout.PAGE_START);
-        contentPane.add(getNavigation(), BorderLayout.LINE_START);
+        contentPane.add(getNavigationBar(), BorderLayout.LINE_START);
         contentPane.add(getTabbedPane(), BorderLayout.CENTER);
         contentPane.add(getStatusPane(), BorderLayout.PAGE_END);
 
@@ -157,12 +157,20 @@ public final class UI extends JFrame {
     }
 
     /**
-     * Sets up the navigation.
+     * Sets up the navigation bar.
      */
-    private JPanel getNavigation() {
-        JPanel navigation = new JPanel();
+    private JPanel getNavigationBar() {
+        NavigationBar navigationBar = new NavigationBar();
 
-        return navigation;
+        // TODO: create own JPanel's for the components of the bars
+        navigationBar.addBar("Stammdaten", new JLabel("blub"));
+        navigationBar.addBar("Beschäftigungen", new JLabel("bla"));
+        navigationBar.addBar("Vorgänge", new JLabel("blu"));
+        navigationBar.addBar("Berichte", new JLabel("lal"));
+        navigationBar.addBar("Controlling", new JLabel("he"));
+        navigationBar.addBar("Budgetprüfung", new JLabel("lal"));
+
+        return navigationBar;
     }
 
     /**
