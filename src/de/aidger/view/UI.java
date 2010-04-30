@@ -2,6 +2,7 @@ package de.aidger.view;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
@@ -15,6 +16,7 @@ import javax.swing.Action;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -156,6 +158,10 @@ public final class UI extends JFrame {
         return toolBar;
     }
 
+    private JList getDummyList(String... items) {
+        return new JList(items);
+    }
+
     /**
      * Sets up the navigation bar.
      */
@@ -163,12 +169,16 @@ public final class UI extends JFrame {
         NavigationBar navigationBar = new NavigationBar();
 
         // TODO: create own JPanel's for the components of the bars
-        navigationBar.addBar("Stammdaten", new JLabel("blub"));
-        navigationBar.addBar("Beschäftigungen", new JLabel("bla"));
-        navigationBar.addBar("Vorgänge", new JLabel("blu"));
-        navigationBar.addBar("Berichte", new JLabel("lal"));
-        navigationBar.addBar("Controlling", new JLabel("he"));
-        navigationBar.addBar("Budgetprüfung", new JLabel("lal"));
+        navigationBar.addBar("Stammdaten", getDummyList("Veranstaltungen",
+                "Hilfskräfte", "Finanzpläne", "Stundenlöhne"));
+        navigationBar.addBar("Beschäftigungen", getDummyList("bla"));
+        navigationBar.addBar("Vorgänge", getDummyList("blu"));
+        navigationBar.addBar("Berichte", getDummyList("lal"));
+        navigationBar.addBar("Controlling", getDummyList("he"));
+        navigationBar.addBar("Budgetprüfung", getDummyList("lal"));
+
+        navigationBar.setPreferredSize(new Dimension(220, navigationBar
+                .getHeight()));
 
         return navigationBar;
     }
