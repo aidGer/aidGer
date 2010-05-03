@@ -165,4 +165,16 @@ public final class Runtime {
         return translation.get(id);
     }
 
+    /**
+     * Same as the getTranslation method. Gets and returns the translation of a
+     * string.
+     * 
+     * @param id
+     *            The string to be translated
+     * @return The translated string
+     */
+    public static String translate(String id) {
+        return instance.getTranslation(id);
+    }
+
 }
