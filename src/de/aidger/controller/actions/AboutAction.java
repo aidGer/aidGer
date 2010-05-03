@@ -7,6 +7,9 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.KeyStroke;
 
+import de.aidger.view.AboutDialog;
+import de.aidger.view.UI;
+
 /**
  * Displays the about dialog.
  * 
@@ -30,7 +33,8 @@ public class AboutAction extends AbstractAction {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Display the about dialog
+        AboutDialog dlg = new AboutDialog(UI.getInstance());
+        dlg.setVisible(true);
     }
 
 }

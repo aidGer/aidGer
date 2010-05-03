@@ -1,6 +1,5 @@
 package de.aidger.view;
 
-import java.awt.BorderLayout;
 import java.awt.Frame;
 
 import javax.swing.JDialog;
@@ -49,7 +48,6 @@ public class SettingsDialog extends JDialog {
     private JPanel getJContentPane() {
         if (jContentPane == null) {
             jContentPane = new JPanel();
-            jContentPane.setLayout(new BorderLayout());
             jButton1 = new javax.swing.JButton();
             jButton2 = new javax.swing.JButton();
             jCheckBox1 = new javax.swing.JCheckBox();
