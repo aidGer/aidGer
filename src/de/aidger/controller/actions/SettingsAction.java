@@ -7,6 +7,9 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.KeyStroke;
 
+import de.aidger.view.SettingsDialog;
+import de.aidger.view.UI;
+
 /**
  * Displays the settings dialog.
  * 
@@ -30,7 +33,8 @@ public class SettingsAction extends AbstractAction {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Display SettingsDialog
+        SettingsDialog dlg = new SettingsDialog(UI.getInstance());
+        dlg.setVisible(true);
     }
 
 }
