@@ -3,11 +3,12 @@ package de.aidger.model;
 import java.io.File;
 
 import de.aidger.utils.Configuration;
+import de.aidger.utils.Translation;
 
 /**
  * Initializes Configuration and Translation and relays the methods
  * 
- * @author Philipp Pirrung
+ * @author Philipp Gildein, Philipp Pirrung
  */
 public final class Runtime {
 
@@ -41,6 +42,11 @@ public final class Runtime {
     private Configuration configuration = null;
 
     /**
+     * The translation class handling the translations.
+     */
+    private Translation translation = null;
+
+    /**
      * Constructor must be private and does nothing.
      */
     private Runtime() {
@@ -60,6 +66,9 @@ public final class Runtime {
         return instance;
     }
 
+    /**
+     * Resolves the OS of the user and the file path to the aidGer settings.
+     */
     public void initialize() {
         /* Set the operating system */
         String os = System.getProperty("os.name").toLowerCase();
@@ -113,12 +122,13 @@ public final class Runtime {
         home = home + "/aidGer/";
         File file = new File(home);
         if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
-            System.err.println("Konnte Verzeichnis für Datenbank nicht "
+            System.err.println("Konnte Verzeichnis für Settings nicht "
                     + "erstellen");
         }
 
         configuration = new Configuration(home);
-        configuration.initialize();
+
+        translation = new Translation(home, configuration.get("sprache"));
     }
 
     /**
@@ -152,7 +162,7 @@ public final class Runtime {
      * @return The translated or an empty string
      */
     public String getTranslation(String id) {
-        return "";
+        return translation.get(id);
     }
 
 }

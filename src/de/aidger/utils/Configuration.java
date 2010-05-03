@@ -30,8 +30,15 @@ public final class Configuration {
      */
     public Configuration(String path) {
         file = path + "settings.cfg";
+        initialize();
     }
 
+    /**
+     * Creates the Settings file if it does not exist already, or reads the data
+     * from it, if it does.
+     * 
+     * @return If the file was created/read successfully.
+     */
     public boolean initialize() {
         /* Check if the configuration exists and create it if it does not */
         if (!(new File(file)).exists()) {
@@ -60,7 +67,7 @@ public final class Configuration {
             FileOutputStream outputStream = new FileOutputStream(outputFile);
             properties.setProperty("name", "");
             properties.setProperty("pdf-viewer", "");
-            properties.setProperty("sprache", "deutsch");
+            properties.setProperty("sprache", "de");
             properties.setProperty("vorgaenge", "10");
             properties.setProperty("auto-open", "n");
             properties.setProperty("auto-save", "n");
