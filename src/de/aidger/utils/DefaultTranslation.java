@@ -7,8 +7,8 @@ package de.aidger.utils;
  */
 public class DefaultTranslation extends Translation {
 
-	public DefaultTranslation() {
-		//TODO specify the id's for languages
-		super("blubb");
-	}
+    public DefaultTranslation() {
+        // TODO specify the id's for languages
+        super("blubb");
+    }
 }
