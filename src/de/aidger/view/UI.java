@@ -27,7 +27,11 @@ import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 
 import de.aidger.controller.ActionRegistry;
+import de.aidger.controller.actions.AboutAction;
 import de.aidger.controller.actions.ExitAction;
+import de.aidger.controller.actions.HelpAction;
+import de.aidger.controller.actions.PrintAction;
+import de.aidger.controller.actions.SettingsAction;
 import de.aidger.view.tabs.Tab;
 
 /**
@@ -119,6 +123,7 @@ public final class UI extends JFrame {
     private JMenuBar getMainMenuBar() {
         JMenuBar menuBar = new JMenuBar();
         menuBar.add(getFileMenu());
+        menuBar.add(getHelpMenu());
 
         return menuBar;
     }
@@ -129,22 +134,29 @@ public final class UI extends JFrame {
     private JMenu getFileMenu() {
         JMenu fileMenu = new JMenu("Datei");
 
-        // fileMenu.add(getFileOpenMenu());
-        // fileMenu.add(getFileSaveMenu());
+        fileMenu.add(new JMenuItem(ActionRegistry.getInstance().get(
+                PrintAction.class.getName())));
+        fileMenu.add(new JMenuItem(ActionRegistry.getInstance().get(
+                SettingsAction.class.getName())));
         fileMenu.addSeparator();
-        fileMenu.add(getFileExitMenu());
+        fileMenu.add(new JMenuItem(ActionRegistry.getInstance().get(
+                ExitAction.class.getName())));
 
         return fileMenu;
     }
 
     /**
-     * Sets up the exit menu.
+     * Sets up the help menu.
      */
-    private JMenuItem getFileExitMenu() {
-        JMenuItem fileExitMenu = new JMenuItem(ActionRegistry.getInstance()
-                .get(ExitAction.class.getName()));
+    private JMenu getHelpMenu() {
+        JMenu helpMenu = new JMenu("Hilfe");
 
-        return fileExitMenu;
+        helpMenu.add(new JMenuItem(ActionRegistry.getInstance().get(
+                HelpAction.class.getName())));
+        helpMenu.add(new JMenuItem(ActionRegistry.getInstance().get(
+                AboutAction.class.getName())));
+
+        return helpMenu;
     }
 
     /**
@@ -236,8 +248,6 @@ public final class UI extends JFrame {
     }
 
     /**
-     * 
-     * 
      * @param tab
      */
     public void addNewTab(Tab tab) {
@@ -245,8 +255,6 @@ public final class UI extends JFrame {
     }
 
     /**
-     * 
-     * 
      * @param tab
      */
     public void setCurrentTab(Tab tab) {
