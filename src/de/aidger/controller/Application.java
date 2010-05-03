@@ -3,6 +3,7 @@ package de.aidger.controller;
 import javax.swing.SwingUtilities;
 
 import de.aidger.controller.actions.ExitAction;
+import de.aidger.model.Runtime;
 import de.aidger.view.UI;
 
 /**
@@ -41,6 +42,7 @@ public final class Application {
      * Initializes the application by registering the actions.
      */
     public void initialize() {
+        Runtime.getInstance().initialize();
         registerActions();
     }
 
