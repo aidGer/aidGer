@@ -3,7 +3,7 @@ package de.aidger.utils;
 /**
  * Contains the default language
  * 
- * @author Phil
+ * @author aidGer Team
  */
 public class DefaultTranslation extends Translation {
 

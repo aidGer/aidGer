@@ -8,7 +8,7 @@ import java.util.Properties;
 /**
  * Gets and sets the settings
  * 
- * @author Philipp Pirrung
+ * @author aidGer Team
  */
 public final class Configuration {
 

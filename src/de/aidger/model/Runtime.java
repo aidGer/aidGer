@@ -8,7 +8,7 @@ import de.aidger.utils.Translation;
 /**
  * Initializes Configuration and Translation and relays the methods
  * 
- * @author Philipp Gildein, Philipp Pirrung
+ * @author aidGer Team
  */
 public final class Runtime {
 

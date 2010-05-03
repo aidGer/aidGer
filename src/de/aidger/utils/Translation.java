@@ -8,7 +8,7 @@ import java.util.PropertyResourceBundle;
  * Sets the translation of the program. If Strings of the current language can't
  * be found, it will fall back to the default language.
  * 
- * @author Philipp Pirrung
+ * @author aidGer Team
  */
 public class Translation {
 
@@ -81,7 +81,9 @@ public class Translation {
              * If the string is not translated in the bundle, or the bundle
              * cannot be found, fall back to the default translation.
              */
-            defaultTranslation = new DefaultTranslation(path);
+            if (defaultTranslation == null) {
+                defaultTranslation = new DefaultTranslation(path);
+            }
             return defaultTranslation.get(id);
         }
     }
