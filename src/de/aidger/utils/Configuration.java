@@ -67,8 +67,8 @@ public final class Configuration {
             FileOutputStream outputStream = new FileOutputStream(outputFile);
             properties.setProperty("name", "");
             properties.setProperty("pdf-viewer", "");
-            properties.setProperty("sprache", "de");
-            properties.setProperty("vorgaenge", "10");
+            properties.setProperty("language", "de");
+            properties.setProperty("activities", "10");
             properties.setProperty("auto-open", "n");
             properties.setProperty("auto-save", "n");
             properties.storeToXML(outputStream, "");

@@ -5,22 +5,24 @@ import java.awt.Frame;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import de.aidger.model.Runtime;
+
 public class SettingsDialog extends JDialog {
 
     private static final long serialVersionUID = 1L;
     private JPanel jContentPane = null;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JCheckBox saveCheckBox;
+    private javax.swing.JCheckBox openCheckBox;
+    private javax.swing.JComboBox langComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JSpinner refactorSpinner;
+    private javax.swing.JTextField nameTextField;
+    private javax.swing.JTextField pdfTextField;
 
     /**
      * @param owner
@@ -47,19 +49,27 @@ public class SettingsDialog extends JDialog {
      */
     private JPanel getJContentPane() {
         if (jContentPane == null) {
+
+            String name = Runtime.getInstance().getOption("name");
+            String pdf = Runtime.getInstance().getOption("pdf-viewer");
+            String lang = Runtime.getInstance().getOption("language");
+            String activities = Runtime.getInstance().getOption("activities");
+            String open = Runtime.getInstance().getOption("auto-open");
+            String save = Runtime.getInstance().getOption("auto-save");
+
             jContentPane = new JPanel();
             jButton1 = new javax.swing.JButton();
             jButton2 = new javax.swing.JButton();
-            jCheckBox1 = new javax.swing.JCheckBox();
-            jCheckBox2 = new javax.swing.JCheckBox();
+            saveCheckBox = new javax.swing.JCheckBox();
+            openCheckBox = new javax.swing.JCheckBox();
             jLabel1 = new javax.swing.JLabel();
-            jTextField1 = new javax.swing.JTextField();
+            nameTextField = new javax.swing.JTextField();
             jLabel2 = new javax.swing.JLabel();
-            jTextField2 = new javax.swing.JTextField();
+            pdfTextField = new javax.swing.JTextField();
             jLabel3 = new javax.swing.JLabel();
-            jSpinner1 = new javax.swing.JSpinner();
+            refactorSpinner = new javax.swing.JSpinner();
             jLabel4 = new javax.swing.JLabel();
-            jComboBox1 = new javax.swing.JComboBox();
+            langComboBox = new javax.swing.JComboBox();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
             setTitle("Einstellungen");
@@ -68,29 +78,34 @@ public class SettingsDialog extends JDialog {
 
             jButton2.setText("Speichern");
 
-            jCheckBox1.setText("Reiter bei Verlassen speichern");
+            saveCheckBox.setText("Reiter bei Verlassen speichern");
+            saveCheckBox.setSelected(Boolean.parseBoolean(save));
 
-            jCheckBox2.setText("Berichte automatisch nach Generierung öffnen");
+            openCheckBox.setText("Berichte automatisch nach Generierung öffnen");
+            openCheckBox.setSelected(Boolean.parseBoolean(open));
 
             jLabel1.setText("Name:");
             jLabel1
                     .setToolTipText("Unter welchem Name sollen Vorgänge erfolgen?");
 
-            jTextField1
+            nameTextField
                     .setToolTipText("Unter welchem Name sollen Vorgänge erfolgen?");
+            nameTextField.setText(name);
 
             jLabel2.setText("PDF Anzeiger:");
+            pdfTextField.setText(pdf);
 
             jLabel3.setText("Anzahl der Vorgänge:");
             jLabel3
                     .setToolTipText("Anzahl der Vorgänge die in Detailansichten angezeigt werden");
 
-            jSpinner1.setModel(new javax.swing.SpinnerNumberModel(Integer
-                    .valueOf(10), null, null, Integer.valueOf(1)));
+            refactorSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer
+                    .valueOf(activities), null, null, Integer.valueOf(1)));
 
             jLabel4.setText("Sprache:");
 
-            jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(
+            // TODO: Choose the correct language at start
+            langComboBox.setModel(new javax.swing.DefaultComboBoxModel(
                     new String[] { "Deutsch", "English", "Francais" }));
 
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
@@ -125,9 +140,9 @@ public class SettingsDialog extends JDialog {
                                                                             .createParallelGroup(
                                                                                     javax.swing.GroupLayout.Alignment.LEADING)
                                                                             .addComponent(
-                                                                                    jCheckBox2)
+                                                                                    openCheckBox)
                                                                             .addComponent(
-                                                                                    jCheckBox1))
+                                                                                    saveCheckBox))
                                                             .addGroup(
                                                                     javax.swing.GroupLayout.Alignment.TRAILING,
                                                                     layout
@@ -152,15 +167,15 @@ public class SettingsDialog extends JDialog {
                                                                                                     javax.swing.GroupLayout.Alignment.TRAILING,
                                                                                                     false)
                                                                                             .addComponent(
-                                                                                                    jComboBox1,
+                                                                                                    langComboBox,
                                                                                                     0,
                                                                                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                                     Short.MAX_VALUE)
                                                                                             .addComponent(
-                                                                                                    jTextField2,
+                                                                                                    pdfTextField,
                                                                                                     javax.swing.GroupLayout.Alignment.LEADING)
                                                                                             .addComponent(
-                                                                                                    jTextField1,
+                                                                                                    nameTextField,
                                                                                                     javax.swing.GroupLayout.Alignment.LEADING,
                                                                                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                                     179,
@@ -175,7 +190,7 @@ public class SettingsDialog extends JDialog {
                                                                                     125,
                                                                                     Short.MAX_VALUE)
                                                                             .addComponent(
-                                                                                    jSpinner1,
+                                                                                    refactorSpinner,
                                                                                     javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                     60,
                                                                                     javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -196,7 +211,7 @@ public class SettingsDialog extends JDialog {
                                                             .addComponent(
                                                                     jLabel1)
                                                             .addComponent(
-                                                                    jTextField1,
+                                                                    nameTextField,
                                                                     javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                     javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -209,7 +224,7 @@ public class SettingsDialog extends JDialog {
                                                             .addComponent(
                                                                     jLabel2)
                                                             .addComponent(
-                                                                    jTextField2,
+                                                                    pdfTextField,
                                                                     javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                     javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -222,7 +237,7 @@ public class SettingsDialog extends JDialog {
                                                             .addComponent(
                                                                     jLabel4)
                                                             .addComponent(
-                                                                    jComboBox1,
+                                                                    langComboBox,
                                                                     javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                     javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -235,7 +250,7 @@ public class SettingsDialog extends JDialog {
                                                             .addComponent(
                                                                     jLabel3)
                                                             .addComponent(
-                                                                    jSpinner1,
+                                                                    refactorSpinner,
                                                                     javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                     javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -243,10 +258,10 @@ public class SettingsDialog extends JDialog {
                                                     javax.swing.LayoutStyle.ComponentPlacement.RELATED,
                                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                                     Short.MAX_VALUE)
-                                            .addComponent(jCheckBox2)
+                                            .addComponent(openCheckBox)
                                             .addPreferredGap(
                                                     javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jCheckBox1)
+                                            .addComponent(saveCheckBox)
                                             .addGap(18, 18, 18)
                                             .addGroup(
                                                     layout
