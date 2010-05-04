@@ -1,5 +1,7 @@
 package de.aidger.view;
 
+import static de.aidger.utils.Translation._;
+
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -132,7 +134,7 @@ public final class UI extends JFrame {
      * Sets up the file menu.
      */
     private JMenu getFileMenu() {
-        JMenu fileMenu = new JMenu("Datei");
+        JMenu fileMenu = new JMenu(_("File"));
 
         fileMenu.add(new JMenuItem(ActionRegistry.getInstance().get(
                 PrintAction.class.getName())));
@@ -149,7 +151,7 @@ public final class UI extends JFrame {
      * Sets up the help menu.
      */
     private JMenu getHelpMenu() {
-        JMenu helpMenu = new JMenu("Hilfe");
+        JMenu helpMenu = new JMenu(_("Help"));
 
         helpMenu.add(new JMenuItem(ActionRegistry.getInstance().get(
                 HelpAction.class.getName())));

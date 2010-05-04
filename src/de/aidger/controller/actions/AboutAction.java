@@ -1,5 +1,7 @@
 package de.aidger.controller.actions;
 
+import static de.aidger.utils.Translation._;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
@@ -22,10 +24,10 @@ public class AboutAction extends AbstractAction {
      * Initializes the about action.
      */
     public AboutAction() {
-        putValue(Action.NAME, "Über");
+        putValue(Action.NAME, _("About"));
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_A,
                 ActionEvent.CTRL_MASK));
-        putValue(Action.SHORT_DESCRIPTION, "Autoren anzeigen");
+        putValue(Action.SHORT_DESCRIPTION, _("Show about informations"));
     }
 
     /**

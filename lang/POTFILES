@@ -1,1 +1,6 @@
-de/aidger/view/UI.java
+view/UI.java
+controller/actions/AboutAction.java
+controller/actions/ExitAction.java
+controller/actions/HelpAction.java
+controller/actions/PrintAction.java
+controller/actions/SettingsAction.java

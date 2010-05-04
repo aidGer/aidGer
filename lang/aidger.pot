@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-04 17:56+0200\n"
+"POT-Creation-Date: 2010-05-04 22:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,46 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: de/aidger/view/UI.java:138
-msgid "Datei"
+#: view/UI.java:137
+msgid "File"
+msgstr ""
+
+#: view/UI.java:154 controller/actions/HelpAction.java:23
+msgid "Help"
+msgstr ""
+
+#: controller/actions/AboutAction.java:27
+msgid "About"
+msgstr ""
+
+#: controller/actions/AboutAction.java:30
+msgid "Show about informations"
+msgstr ""
+
+#: controller/actions/ExitAction.java:23
+msgid "Quit"
+msgstr ""
+
+#: controller/actions/ExitAction.java:26
+msgid "Quit the program"
+msgstr ""
+
+#: controller/actions/HelpAction.java:26
+msgid "Display the help"
+msgstr ""
+
+#: controller/actions/PrintAction.java:23
+msgid "Print"
+msgstr ""
+
+#: controller/actions/PrintAction.java:26
+msgid "Print program contents"
+msgstr ""
+
+#: controller/actions/SettingsAction.java:26
+msgid "Settings"
+msgstr ""
+
+#: controller/actions/SettingsAction.java:29
+msgid "Display program settings"
 msgstr ""

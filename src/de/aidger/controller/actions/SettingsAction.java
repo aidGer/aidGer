@@ -9,6 +9,7 @@ import javax.swing.KeyStroke;
 
 import de.aidger.view.SettingsDialog;
 import de.aidger.view.UI;
+import static de.aidger.utils.Translation._;
 
 /**
  * Displays the settings dialog.
@@ -22,10 +23,10 @@ public class SettingsAction extends AbstractAction {
      * Initializes the settings action.
      */
     public SettingsAction() {
-        putValue(Action.NAME, "Einstellungen");
+        putValue(Action.NAME, _("Settings"));
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_S,
                 ActionEvent.CTRL_MASK));
-        putValue(Action.SHORT_DESCRIPTION, "Programmeinstellungen anzeigen");
+        putValue(Action.SHORT_DESCRIPTION, _("Display program settings"));
     }
 
     /**
