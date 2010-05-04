@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: aidGer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-05-04 22:14+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
+"Language-Team: aidGer Team <info@aidger.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: view/UI.java:137
+msgid "File"
+msgstr "Datei"
+
+#: view/UI.java:154
+#: controller/actions/HelpAction.java:23
+msgid "Help"
+msgstr "Hilfe"
+
+#: controller/actions/AboutAction.java:27
+msgid "About"
+msgstr "Über"
+
+#: controller/actions/AboutAction.java:30
+msgid "Show about informations"
+msgstr "Programminformationen anzeigen"
+
+#: controller/actions/ExitAction.java:23
+msgid "Quit"
+msgstr "Beenden"
+
+#: controller/actions/ExitAction.java:26
+msgid "Quit the program"
+msgstr "Programm beenden"
+
+#: controller/actions/HelpAction.java:26
+msgid "Display the help"
+msgstr "Hilfe anzeigen"
+
+#: controller/actions/PrintAction.java:23
+msgid "Print"
+msgstr "Drucken"
+
+#: controller/actions/PrintAction.java:26
+msgid "Print program contents"
+msgstr "Programminhalt drucken"
+
+#: controller/actions/SettingsAction.java:26
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: controller/actions/SettingsAction.java:29
+msgid "Display program settings"
+msgstr "Programmeinstellungen anzeigen"
+
