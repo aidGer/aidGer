@@ -2,6 +2,7 @@ package de.aidger.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.MissingResourceException;
 import java.util.PropertyResourceBundle;
 
 /**
@@ -76,7 +77,7 @@ public class Translation {
     public String get(String id) {
         try {
             return bundle.getString(id);
-        } catch (Exception e) {
+        } catch (MissingResourceException e) {
             /*
              * If the string is not translated in the bundle, or the bundle
              * cannot be found, fall back to the default translation.
