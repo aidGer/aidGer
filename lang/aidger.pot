@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-04 22:14+0200\n"
+"POT-Creation-Date: 2010-05-05 00:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,10 +52,18 @@ msgstr ""
 msgid "Print program contents"
 msgstr ""
 
-#: controller/actions/SettingsAction.java:26
+#: controller/actions/SettingsAction.java:26 view/SettingsDialog.java:82
 msgid "Settings"
 msgstr ""
 
 #: controller/actions/SettingsAction.java:29
 msgid "Display program settings"
+msgstr ""
+
+#: controller/actions/AbortAction.java:25
+msgid "Abort"
+msgstr ""
+
+#: controller/actions/AbortAction.java:28
+msgid "Abort the operation"
 msgstr ""

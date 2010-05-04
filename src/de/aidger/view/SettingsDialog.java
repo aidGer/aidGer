@@ -1,11 +1,15 @@
 package de.aidger.view;
 
+import static de.aidger.utils.Translation._;
+
 import java.awt.Frame;
 import java.util.List;
 
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import de.aidger.controller.ActionRegistry;
+import de.aidger.controller.actions.AbortAction;
 import de.aidger.model.Runtime;
 import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
 
@@ -60,7 +64,8 @@ public class SettingsDialog extends JDialog {
             String save = Runtime.getInstance().getOption("auto-save");
 
             jContentPane = new JPanel();
-            jButton1 = new javax.swing.JButton();
+            jButton1 = new javax.swing.JButton(ActionRegistry.getInstance()
+                    .get(AbortAction.class.getName()));
             jButton2 = new javax.swing.JButton();
             saveCheckBox = new javax.swing.JCheckBox();
             openCheckBox = new javax.swing.JCheckBox();
@@ -74,9 +79,7 @@ public class SettingsDialog extends JDialog {
             langComboBox = new javax.swing.JComboBox();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-            setTitle("Einstellungen");
-
-            jButton1.setText("Abbrechen");
+            setTitle(_("Settings"));
 
             jButton2.setText("Speichern");
 
@@ -111,7 +114,7 @@ public class SettingsDialog extends JDialog {
             List<Pair<String, String>> langs = Runtime.getInstance()
                     .getLanguages();
             String[] longLangs = new String[langs.size()];
-            int selected = 0;
+            int selected = -1;
 
             for (int i = 0; i < langs.size(); ++i) {
                 longLangs[i] = langs.get(i).snd();

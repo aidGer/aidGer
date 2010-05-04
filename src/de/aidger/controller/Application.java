@@ -2,6 +2,7 @@ package de.aidger.controller;
 
 import javax.swing.SwingUtilities;
 
+import de.aidger.controller.actions.AbortAction;
 import de.aidger.controller.actions.AboutAction;
 import de.aidger.controller.actions.ExitAction;
 import de.aidger.controller.actions.HelpAction;
@@ -59,6 +60,7 @@ public final class Application {
         ActionRegistry.getInstance().register(new SettingsAction());
         ActionRegistry.getInstance().register(new HelpAction());
         ActionRegistry.getInstance().register(new AboutAction());
+        ActionRegistry.getInstance().register(new AbortAction());
     }
 
     /**

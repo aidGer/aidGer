@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-04 22:14+0200\n"
+"POT-Creation-Date: 2010-05-05 00:44+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -51,10 +51,19 @@ msgid "Print program contents"
 msgstr "Programminhalt drucken"
 
 #: controller/actions/SettingsAction.java:26
+#: view/SettingsDialog.java:82
 msgid "Settings"
 msgstr "Einstellungen"
 
 #: controller/actions/SettingsAction.java:29
 msgid "Display program settings"
 msgstr "Programmeinstellungen anzeigen"
+
+#: controller/actions/AbortAction.java:25
+msgid "Abort"
+msgstr "Abbrechen"
+
+#: controller/actions/AbortAction.java:28
+msgid "Abort the operation"
+msgstr "Aktion abbrechen"
 

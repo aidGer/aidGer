@@ -1,4 +1,6 @@
 view/UI.java
+view/SettingsDialog.java
+controller/actions/AbortAction.java
 controller/actions/AboutAction.java
 controller/actions/ExitAction.java
 controller/actions/HelpAction.java
