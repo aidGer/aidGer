@@ -42,11 +42,6 @@ public final class Runtime {
     private Configuration configuration = null;
 
     /**
-     * The translation class handling the translations.
-     */
-    private Translation translation = null;
-
-    /**
      * Constructor must be private and does nothing.
      */
     private Runtime() {
@@ -121,6 +116,8 @@ public final class Runtime {
         }
         home = home + "/aidGer/";
         File file = new File(home);
+
+        // TODO: How to localize this error?
         if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
             System.err.println("Konnte Verzeichnis für Settings nicht "
                     + "erstellen");
@@ -128,7 +125,7 @@ public final class Runtime {
 
         configuration = new Configuration(home);
 
-        translation = new Translation(home, configuration.get("sprache"));
+        new Translation(home, configuration.get("language"));
     }
 
     /**
@@ -152,29 +149,6 @@ public final class Runtime {
      */
     public void setOption(String option, String value) {
         configuration.set(option, value);
-    }
-
-    /**
-     * Get the translation of an string.
-     * 
-     * @param id
-     *            The unique identifier of the string
-     * @return The translated or an empty string
-     */
-    public String getTranslation(String id) {
-        return translation.get(id);
-    }
-
-    /**
-     * Same as the getTranslation method but static. Gets and returns the
-     * translation of a string.
-     * 
-     * @param id
-     *            The string to be translated
-     * @return The translated or an empty string
-     */
-    public static String translate(String id) {
-        return getInstance().getTranslation(id);
     }
 
 }

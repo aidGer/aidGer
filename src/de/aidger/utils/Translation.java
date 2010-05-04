@@ -20,17 +20,7 @@ public class Translation {
     /**
      * The bundle holding the translation.
      */
-    protected PropertyResourceBundle bundle = null;
-
-    /**
-     * The default translation of this program.
-     */
-    private DefaultTranslation defaultTranslation = null;
-
-    /**
-     * The file path to the aidGer folder.
-     */
-    protected String path;
+    protected static PropertyResourceBundle bundle = null;
 
     /**
      * Initializes this class. Resolves the file path of the translation files.
@@ -41,22 +31,17 @@ public class Translation {
      *            The language to which the program will be translated.
      */
     public Translation(String path, String language) {
+        /* Create path if necessary */
         filePath = path + "lang/";
         File languagePath = new File(filePath);
         if ((!languagePath.exists() || !languagePath.isDirectory())
                 && !languagePath.mkdirs()) {
-            System.err.println("Konnte Verzeichnis für �bersetzung nicht "
+            System.err.println("Konnte Verzeichnis für Übersetzung nicht "
                     + "erstellen");
         }
         filePath = filePath + language + ".properties";
-        this.path = path;
-        initialize();
-    }
 
-    /**
-     * Creates a ResourceBundle of the language file.
-     */
-    public void initialize() {
+        /* Load the language file */
         try {
             File inputFile = new File(filePath);
             FileInputStream inputStream = new FileInputStream(inputFile);
@@ -71,20 +56,13 @@ public class Translation {
      * 
      * @param id
      *            The string to translate.
-     * @return The translated string.
+     * @return The translated string or return the id.
      */
-    public String get(String id) {
+    public static String _(String id) {
         try {
             return bundle.getString(id);
         } catch (Exception e) {
-            /*
-             * If the string is not translated in the bundle, or the bundle
-             * cannot be found, fall back to the default translation.
-             */
-            if (defaultTranslation == null) {
-                defaultTranslation = new DefaultTranslation(path);
-            }
-            return defaultTranslation.get(id);
+            return id;
         }
     }
 
