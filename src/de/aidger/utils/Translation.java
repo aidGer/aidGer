@@ -2,7 +2,12 @@ package de.aidger.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.List;
+import java.util.Locale;
 import java.util.PropertyResourceBundle;
+import java.util.Vector;
+
+import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
 
 /**
  * Sets the translation of the program. If Strings of the current language can't
@@ -39,11 +44,10 @@ public class Translation {
             System.err.println("Konnte Verzeichnis für Übersetzung nicht "
                     + "erstellen");
         }
-        filePath = filePath + language + ".properties";
 
         /* Load the language file */
         try {
-            File inputFile = new File(filePath);
+            File inputFile = new File(filePath + language + ".properties");
             FileInputStream inputStream = new FileInputStream(inputFile);
             bundle = new PropertyResourceBundle(inputStream);
             inputStream.close();
@@ -70,4 +74,35 @@ public class Translation {
         }
     }
 
+    /**
+     * Get a list of all languages installed on the system. The format is 0 =>
+     * short, 1 => long language name.
+     * 
+     * @return The list of all installed languages
+     */
+    public List<Pair<String, String>> getLanguages() {
+        List<Pair<String, String>> list = new Vector<Pair<String, String>>();
+        /* Add English as standard language */
+        list.add(new Pair<String, String>("en", new Locale("en")
+                .getDisplayLanguage()));
+
+        /* Search all files in the lang directory and add them */
+        File dir = new File(filePath);
+        File[] files = dir.listFiles();
+        if (files == null) {
+            return list;
+        }
+        for (File file : files) {
+            String filename = file.getName();
+            int idx = filename.indexOf(".properties");
+            if (idx > -1) {
+                String lang = filename.substring(0, idx);
+                Locale loc = new Locale(lang);
+                list.add(new Pair<String, String>(lang, loc
+                        .getDisplayLanguage()));
+            }
+        }
+
+        return list;
+    }
 }

@@ -1,11 +1,13 @@
 package de.aidger.view;
 
 import java.awt.Frame;
+import java.util.List;
 
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 
 import de.aidger.model.Runtime;
+import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
 
 public class SettingsDialog extends JDialog {
 
@@ -81,7 +83,8 @@ public class SettingsDialog extends JDialog {
             saveCheckBox.setText("Reiter bei Verlassen speichern");
             saveCheckBox.setSelected(Boolean.parseBoolean(save));
 
-            openCheckBox.setText("Berichte automatisch nach Generierung öffnen");
+            openCheckBox
+                    .setText("Berichte automatisch nach Generierung öffnen");
             openCheckBox.setSelected(Boolean.parseBoolean(open));
 
             jLabel1.setText("Name:");
@@ -104,9 +107,22 @@ public class SettingsDialog extends JDialog {
 
             jLabel4.setText("Sprache:");
 
-            // TODO: Choose the correct language at start
+            /* Add all languages to the combobox and select the correct one */
+            List<Pair<String, String>> langs = Runtime.getInstance()
+                    .getLanguages();
+            String[] longLangs = new String[langs.size()];
+            int selected = 0;
+
+            for (int i = 0; i < langs.size(); ++i) {
+                longLangs[i] = langs.get(i).snd();
+                if (langs.get(i).fst().equals(lang)) {
+                    selected = i;
+                }
+            }
+
             langComboBox.setModel(new javax.swing.DefaultComboBoxModel(
-                    new String[] { "Deutsch", "English", "Francais" }));
+                    longLangs));
+            langComboBox.setSelectedIndex(selected);
 
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
                     jContentPane);
@@ -277,5 +293,4 @@ public class SettingsDialog extends JDialog {
         }
         return jContentPane;
     }
-
 }

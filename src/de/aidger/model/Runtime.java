@@ -1,9 +1,11 @@
 package de.aidger.model;
 
 import java.io.File;
+import java.util.List;
 
 import de.aidger.utils.Configuration;
 import de.aidger.utils.Translation;
+import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
 
 /**
  * Initializes Configuration and Translation and relays the methods
@@ -40,6 +42,11 @@ public final class Runtime {
      * The configuration class handling the settings.
      */
     private Configuration configuration = null;
+
+    /**
+     * The class handling the translation of strings.
+     */
+    private Translation translation = null;
 
     /**
      * Constructor must be private and does nothing.
@@ -125,7 +132,7 @@ public final class Runtime {
 
         configuration = new Configuration(home);
 
-        new Translation(home, configuration.get("language"));
+        translation = new Translation(home, configuration.get("language"));
     }
 
     /**
@@ -149,6 +156,16 @@ public final class Runtime {
      */
     public void setOption(String option, String value) {
         configuration.set(option, value);
+    }
+
+    /**
+     * Get a list of all languages installed on the system. The format is 0 =>
+     * short, 1 => long language name.
+     * 
+     * @return The list of all installed languages
+     */
+    public List<Pair<String, String>> getLanguages() {
+        return translation.getLanguages();
     }
 
 }
