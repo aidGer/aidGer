@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-05 00:44+0200\n"
+"POT-Creation-Date: 2010-05-06 14:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,11 +16,11 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: view/UI.java:137
+#: view/UI.java:137 view/UI.java:143
 msgid "File"
 msgstr ""
 
-#: view/UI.java:154 controller/actions/HelpAction.java:23
+#: view/UI.java:154 controller/actions/HelpAction.java:23 view/UI.java:160
 msgid "Help"
 msgstr ""
 
@@ -66,4 +66,44 @@ msgstr ""
 
 #: controller/actions/AbortAction.java:28
 msgid "Abort the operation"
+msgstr ""
+
+#: view/UI.java:192
+msgid "Master Data"
+msgstr ""
+
+#: view/UI.java:192
+msgid "Courses"
+msgstr ""
+
+#: view/UI.java:193
+msgid "Assistants"
+msgstr ""
+
+#: view/UI.java:193
+msgid "Financial Plans"
+msgstr ""
+
+#: view/UI.java:193
+msgid "Hourly Wages"
+msgstr ""
+
+#: view/UI.java:194
+msgid "Employments"
+msgstr ""
+
+#: view/UI.java:195
+msgid "Activities"
+msgstr ""
+
+#: view/UI.java:196
+msgid "Reports"
+msgstr ""
+
+#: view/UI.java:197
+msgid "Controlling"
+msgstr ""
+
+#: view/UI.java:198
+msgid "Budget Check"
 msgstr ""

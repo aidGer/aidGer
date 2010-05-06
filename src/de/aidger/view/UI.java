@@ -189,13 +189,13 @@ public final class UI extends JFrame {
         NavigationBar navigationBar = new NavigationBar();
 
         // TODO: create own JPanel's for the components of the bars
-        navigationBar.addBar("Stammdaten", getDummyList("Veranstaltungen",
-                "Hilfskräfte", "Finanzpläne", "Stundenlöhne"));
-        navigationBar.addBar("Beschäftigungen", getDummyList("bla"));
-        navigationBar.addBar("Vorgänge", getDummyList("blu"));
-        navigationBar.addBar("Berichte", getDummyList("lal"));
-        navigationBar.addBar("Controlling", getDummyList("he"));
-        navigationBar.addBar("Budgetprüfung", getDummyList("lal"));
+        navigationBar.addBar(_("Master Data"), getDummyList(_("Courses"),
+                _("Assistants"), _("Financial Plans"), _("Hourly Wages")));
+        navigationBar.addBar(_("Employments"), getDummyList("bla"));
+        navigationBar.addBar(_("Activities"), getDummyList("blu"));
+        navigationBar.addBar(_("Reports"), getDummyList("lal"));
+        navigationBar.addBar(_("Controlling"), getDummyList("he"));
+        navigationBar.addBar(_("Budget Check"), getDummyList("lal"));
 
         navigationBar.setPreferredSize(new Dimension(220, navigationBar
                 .getHeight()));
