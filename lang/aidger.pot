@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-06 14:42+0200\n"
+"POT-Creation-Date: 2010-05-06 16:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,100 +16,29 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: view/UI.java:137 view/UI.java:143
-msgid "File"
-msgstr ""
-
-#: view/UI.java:154 controller/actions/HelpAction.java:23 view/UI.java:160
-msgid "Help"
-msgstr ""
-
-#: controller/actions/AboutAction.java:27
-msgid "About"
-msgstr ""
-
-#: controller/actions/AboutAction.java:30
-msgid "Show about informations"
-msgstr ""
-
-#: controller/actions/ExitAction.java:23
-msgid "Quit"
-msgstr ""
-
-#: controller/actions/ExitAction.java:26
-msgid "Quit the program"
-msgstr ""
-
-#: controller/actions/HelpAction.java:26
-msgid "Display the help"
-msgstr ""
-
-#: controller/actions/PrintAction.java:23
-msgid "Print"
-msgstr ""
-
-#: controller/actions/PrintAction.java:26
-msgid "Print program contents"
-msgstr ""
-
-#: controller/actions/SettingsAction.java:26 view/SettingsDialog.java:82
-msgid "Settings"
-msgstr ""
-
-#: controller/actions/SettingsAction.java:29
-msgid "Display program settings"
-msgstr ""
-
-#: controller/actions/AbortAction.java:25
-msgid "Abort"
-msgstr ""
-
-#: controller/actions/AbortAction.java:28
-msgid "Abort the operation"
-msgstr ""
-
-#: view/AboutDialog.java:32
+#: view/AboutDialog.java:37
 msgid "About aidGer"
 msgstr ""
 
-#: view/AboutDialog.java:55
+#: view/AboutDialog.java:62
 msgid "Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
 msgstr ""
 
-#: view/SettingsDialog.java:84
-msgid "Save"
+#: view/AboutDialog.java:64
+msgid "Close"
 msgstr ""
 
-#: view/SettingsDialog.java:86
-msgid "Save Tabs when quitting"
+#: view/AboutDialog.java:66
+msgid "Homepage: http://www.aidger.de"
 msgstr ""
 
-#: view/SettingsDialog.java:91
-msgid "Open reports automatically after generating"
+#: view/UI.java:143
+msgid "File"
 msgstr ""
 
-#: view/SettingsDialog.java:95
-msgid "Name:"
+#: view/UI.java:160 controller/actions/HelpAction.java:23
+msgid "Help"
 msgstr ""
-
-#: view/SettingsDialog.java:96 view/SettingsDialog.java:100
-msgid "The name used in activities."
-msgstr ""
-
-#: view/SettingsDialog.java:103
-msgid "PDF Viewer:"
-msgstr ""
-
-#: view/SettingsDialog.java:106
-msgid "Amount of activities:"
-msgstr ""
-
-#: view/SettingsDialog.java:108
-msgid "The amount of activities shown in detailviews."
-msgstr ""
-
-#: view/SettingsDialog.java:113
-msgid "Language:"
 
 #: view/UI.java:192
 msgid "Master Data"
@@ -149,4 +78,84 @@ msgstr ""
 
 #: view/UI.java:198
 msgid "Budget Check"
+msgstr ""
+
+#: view/SettingsDialog.java:82 controller/actions/SettingsAction.java:26
+msgid "Settings"
+msgstr ""
+
+#: view/SettingsDialog.java:84
+msgid "Save"
+msgstr ""
+
+#: view/SettingsDialog.java:86
+msgid "Save Tabs when quitting"
+msgstr ""
+
+#: view/SettingsDialog.java:90
+msgid "Open reports automatically after generating"
+msgstr ""
+
+#: view/SettingsDialog.java:93
+msgid "Name:"
+msgstr ""
+
+#: view/SettingsDialog.java:94 view/SettingsDialog.java:96
+msgid "The name used in activities."
+msgstr ""
+
+#: view/SettingsDialog.java:99
+msgid "PDF Viewer:"
+msgstr ""
+
+#: view/SettingsDialog.java:102
+msgid "Amount of activities:"
+msgstr ""
+
+#: view/SettingsDialog.java:104
+msgid "The amount of activities shown in detailviews."
+msgstr ""
+
+#: view/SettingsDialog.java:109
+msgid "Language:"
+msgstr ""
+
+#: controller/actions/AbortAction.java:25
+msgid "Abort"
+msgstr ""
+
+#: controller/actions/AbortAction.java:28
+msgid "Abort the operation"
+msgstr ""
+
+#: controller/actions/AboutAction.java:27
+msgid "About"
+msgstr ""
+
+#: controller/actions/AboutAction.java:30
+msgid "Show about informations"
+msgstr ""
+
+#: controller/actions/ExitAction.java:23
+msgid "Quit"
+msgstr ""
+
+#: controller/actions/ExitAction.java:26
+msgid "Quit the program"
+msgstr ""
+
+#: controller/actions/HelpAction.java:26
+msgid "Display the help"
+msgstr ""
+
+#: controller/actions/PrintAction.java:23
+msgid "Print"
+msgstr ""
+
+#: controller/actions/PrintAction.java:26
+msgid "Print program contents"
+msgstr ""
+
+#: controller/actions/SettingsAction.java:29
+msgid "Display program settings"
 msgstr ""

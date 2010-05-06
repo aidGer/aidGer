@@ -2,10 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-06 14:07+0200\n"
-"POT-Creation-Date: 2010-05-06 14:42+0200\n"
+"POT-Creation-Date: 2010-05-06 16:57+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
+"Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,106 +13,29 @@ msgstr ""
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: view/UI.java:137
+#: view/AboutDialog.java:37
+msgid "About aidGer"
+msgstr "Über aidGer"
+
+#: view/AboutDialog.java:62
+msgid "Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
+msgstr "Autoren: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
+
+#: view/AboutDialog.java:64
+msgid "Close"
+msgstr "Schließen"
+
+#: view/AboutDialog.java:66
+msgid "Homepage: http://www.aidger.de"
+msgstr "Homepage: http://www.aidger.de"
+
 #: view/UI.java:143
 msgid "File"
 msgstr "Datei"
 
-#: view/UI.java:154
-#: controller/actions/HelpAction.java:23
-#: view/UI.java:160
+#: view/UI.java:160 controller/actions/HelpAction.java:23
 msgid "Help"
 msgstr "Hilfe"
-
-#: controller/actions/AboutAction.java:27
-msgid "About"
-msgstr "Über"
-
-#: controller/actions/AboutAction.java:30
-msgid "Show about informations"
-msgstr "Programminformationen anzeigen"
-
-#: controller/actions/ExitAction.java:23
-msgid "Quit"
-msgstr "Beenden"
-
-#: controller/actions/ExitAction.java:26
-msgid "Quit the program"
-msgstr "Programm beenden"
-
-#: controller/actions/HelpAction.java:26
-msgid "Display the help"
-msgstr "Hilfe anzeigen"
-
-#: controller/actions/PrintAction.java:23
-msgid "Print"
-msgstr "Drucken"
-
-#: controller/actions/PrintAction.java:26
-msgid "Print program contents"
-msgstr "Programminhalt drucken"
-
-#: controller/actions/SettingsAction.java:26
-#: view/SettingsDialog.java:82
-msgid "Settings"
-msgstr "Einstellungen"
-
-#: controller/actions/SettingsAction.java:29
-msgid "Display program settings"
-msgstr "Programmeinstellungen anzeigen"
-
-#: controller/actions/AbortAction.java:25
-msgid "Abort"
-msgstr "Abbrechen"
-
-#: controller/actions/AbortAction.java:28
-msgid "Abort the operation"
-msgstr "Aktion abbrechen"
-
-#: view/AboutDialog.java:32
-msgid "About aidGer"
-msgstr "Über aidGer"
-
-#: view/AboutDialog.java:55
-msgid "Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
-msgstr "Autoren: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
-
-#: view/SettingsDialog.java:84
-msgid "Save"
-msgstr "Speichern"
-
-#: view/SettingsDialog.java:86
-msgid "Save Tabs when quitting"
-msgstr "Reiter bei Verlassen speichern"
-
-#: view/SettingsDialog.java:91
-msgid "Open reports automatically after generating"
-msgstr "Berichte automatisch nach Generierung öffnen"
-
-#: view/SettingsDialog.java:95
-msgid "Name:"
-msgstr "Name:"
-
-#: view/SettingsDialog.java:96
-#: view/SettingsDialog.java:100
-msgid "The name used in activities."
-msgstr "Name der in Vorgängen verwendet wird."
-
-#: view/SettingsDialog.java:103
-msgid "PDF Viewer:"
-msgstr "PDF Anzeiger:"
-
-#: view/SettingsDialog.java:106
-msgid "Amount of activities:"
-msgstr "Anzahl der Vorgänge:"
-
-#: view/SettingsDialog.java:108
-msgid "The amount of activities shown in detailviews."
-msgstr "Anzahl der Vorgänge die in Detailansichten angezeigt werden"
-
-#: view/SettingsDialog.java:113
-msgid "Language:"
-msgstr "Sprache:"
 
 #: view/UI.java:192
 msgid "Master Data"
@@ -155,3 +77,82 @@ msgstr "Controlling"
 msgid "Budget Check"
 msgstr "Budgetprüfung"
 
+#: view/SettingsDialog.java:82 controller/actions/SettingsAction.java:26
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: view/SettingsDialog.java:84
+msgid "Save"
+msgstr "Speichern"
+
+#: view/SettingsDialog.java:86
+msgid "Save Tabs when quitting"
+msgstr "Reiter bei Verlassen speichern"
+
+#: view/SettingsDialog.java:90
+msgid "Open reports automatically after generating"
+msgstr "Berichte automatisch nach Generierung öffnen"
+
+#: view/SettingsDialog.java:93
+msgid "Name:"
+msgstr "Name:"
+
+#: view/SettingsDialog.java:94 view/SettingsDialog.java:96
+msgid "The name used in activities."
+msgstr "Name der in Vorgängen verwendet wird."
+
+#: view/SettingsDialog.java:99
+msgid "PDF Viewer:"
+msgstr "PDF Anzeiger:"
+
+#: view/SettingsDialog.java:102
+msgid "Amount of activities:"
+msgstr "Anzahl der Vorgänge:"
+
+#: view/SettingsDialog.java:104
+msgid "The amount of activities shown in detailviews."
+msgstr "Anzahl der Vorgänge die in Detailansichten angezeigt werden"
+
+#: view/SettingsDialog.java:109
+msgid "Language:"
+msgstr "Sprache:"
+
+#: controller/actions/AbortAction.java:25
+msgid "Abort"
+msgstr "Abbrechen"
+
+#: controller/actions/AbortAction.java:28
+msgid "Abort the operation"
+msgstr "Aktion abbrechen"
+
+#: controller/actions/AboutAction.java:27
+msgid "About"
+msgstr "Über"
+
+#: controller/actions/AboutAction.java:30
+msgid "Show about informations"
+msgstr "Programminformationen anzeigen"
+
+#: controller/actions/ExitAction.java:23
+msgid "Quit"
+msgstr "Beenden"
+
+#: controller/actions/ExitAction.java:26
+msgid "Quit the program"
+msgstr "Programm beenden"
+
+#: controller/actions/HelpAction.java:26
+msgid "Display the help"
+msgstr "Hilfe anzeigen"
+
+#: controller/actions/PrintAction.java:23
+msgid "Print"
+msgstr "Drucken"
+
+#: controller/actions/PrintAction.java:26
+msgid "Print program contents"
+msgstr "Programminhalt drucken"
+
+#: controller/actions/SettingsAction.java:29
+msgid "Display program settings"
+msgstr "Programmeinstellungen anzeigen"
