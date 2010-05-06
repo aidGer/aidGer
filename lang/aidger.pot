@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-05 00:44+0200\n"
+"POT-Creation-Date: 2010-05-06 13:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,4 +66,12 @@ msgstr ""
 
 #: controller/actions/AbortAction.java:28
 msgid "Abort the operation"
+msgstr ""
+
+#: view/AboutDialog.java:32
+msgid "About aidGer"
+msgstr ""
+
+#: view/AboutDialog.java:55
+msgid "Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
 msgstr ""

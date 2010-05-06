@@ -1,5 +1,7 @@
 package de.aidger.view;
 
+import static de.aidger.utils.Translation._;
+
 import java.awt.Frame;
 
 import javax.swing.JDialog;
@@ -27,7 +29,7 @@ public class AboutDialog extends JDialog {
      */
     private void initialize() {
         this.setSize(460, 110);
-        setTitle("Über aidGer"); // Generated
+        setTitle(_("About aidGer"));
         setContentPane(getJContentPane());
     }
 
@@ -41,6 +43,7 @@ public class AboutDialog extends JDialog {
             jContentPane = new JPanel();
             jLabel1 = new javax.swing.JLabel();
             jLabel2 = new javax.swing.JLabel();
+            // TODO: Add link to homepage
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -49,7 +52,7 @@ public class AboutDialog extends JDialog {
             jLabel1.setText("aidGer 0.1");
 
             jLabel2
-                    .setText("Autoren: Christian Buchgraber, Philipp Gildein, Philipp Pirrung");
+                    .setText(_("Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"));
 
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
                     jContentPane);

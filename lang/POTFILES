@@ -1,3 +1,4 @@
+view/AboutDialog.java
 view/UI.java
 view/SettingsDialog.java
 controller/actions/AbortAction.java

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-05 00:44+0200\n"
+"POT-Creation-Date: 2010-05-06 13:45+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -66,4 +66,12 @@ msgstr "Abbrechen"
 #: controller/actions/AbortAction.java:28
 msgid "Abort the operation"
 msgstr "Aktion abbrechen"
+
+#: view/AboutDialog.java:32
+msgid "About aidGer"
+msgstr "Über aidGer"
+
+#: view/AboutDialog.java:55
+msgid "Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
+msgstr "Autoren: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
 
