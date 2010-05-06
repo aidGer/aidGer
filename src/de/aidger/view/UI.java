@@ -197,19 +197,19 @@ public final class UI extends JFrame {
         return navigationBar;
     }
 
+    JTabbedPane tabbedPane;
+
     /**
      * Sets up the tabbed pane in the middle.
      */
     private JTabbedPane getTabbedPane() {
-        JTabbedPane tabbedPane = new JTabbedPane();
-
-        tabbedPane.addTab("Willkommen", null, getWelcomeScreen(), "Willkommen");
+        tabbedPane = new JTabbedPane();
 
         return tabbedPane;
     }
 
     /**
-     * Sets uo the welcome screen.
+     * Sets up the welcome screen.
      */
     private JComponent getWelcomeScreen() {
         JPanel panel = new JPanel();
@@ -246,20 +246,19 @@ public final class UI extends JFrame {
      * 
      */
     public void addNewTab() {
-
     }
 
     /**
      * @param tab
      */
     public void addNewTab(Tab tab) {
-
+        tabbedPane.addTab(tab.getName(), null, tab.getNewTab(), tab.getName());
     }
 
     /**
      * @param tab
      */
     public void setCurrentTab(Tab tab) {
-
+        tabbedPane.setSelectedIndex(tabbedPane.indexOfComponent(tab.getTab()));
     }
 }

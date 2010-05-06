@@ -10,6 +10,7 @@ import de.aidger.controller.actions.PrintAction;
 import de.aidger.controller.actions.SettingsAction;
 import de.aidger.model.Runtime;
 import de.aidger.view.UI;
+import de.aidger.view.tabs.WelcomeTab;
 
 /**
  * Application is a singleton class in which the main() function is located. The
@@ -80,5 +81,6 @@ public final class Application {
         };
 
         SwingUtilities.invokeLater(ui);
+        UI.getInstance().addNewTab(new WelcomeTab());
     }
 }
