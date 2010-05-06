@@ -5,14 +5,18 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class WelcomeTab extends Tab {
+public class WelcomeTab implements Tab {
 
     /**
      * Initializes a new tab with the welcome message on it.
      */
     public WelcomeTab() {
-
     }
+
+    /**
+     * The panel, which will be added to the tabbed plane.
+     */
+    public JPanel panel = null;
 
     /**
      * Creates a new panel with the contents for the specific tab. If the panel

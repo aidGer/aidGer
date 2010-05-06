@@ -9,12 +9,7 @@ import javax.swing.JPanel;
  * @author aidGer Team
  */
 
-public class Tab {
-
-    /**
-     * The panel, which will be added to the tabbed plane.
-     */
-    public JPanel panel = null;
+public interface Tab {
 
     /**
      * Creates a new panel with the contents for the specific tab. If the panel
@@ -22,19 +17,12 @@ public class Tab {
      * 
      * @return The panel to be added to the tabbed plane.
      */
-    public JPanel getTab() {
-        if (panel == null) {
-            panel = new JPanel();
-        }
-        return panel;
-    }
+    public JPanel getTab();
 
     /**
      * Simply returns the name of the panel.
      * 
      * @return The name of the panel
      */
-    public String getName() {
-        return "";
-    }
+    public String getName();
 }
