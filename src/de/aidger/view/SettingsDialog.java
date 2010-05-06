@@ -81,34 +81,32 @@ public class SettingsDialog extends JDialog {
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
             setTitle(_("Settings"));
 
-            jButton2.setText("Speichern");
+            jButton2.setText(_("Save"));
 
-            saveCheckBox.setText("Reiter bei Verlassen speichern");
+            saveCheckBox.setText(_("Save Tabs when quitting"));
             saveCheckBox.setSelected(Boolean.parseBoolean(save));
 
             openCheckBox
-                    .setText("Berichte automatisch nach Generierung öffnen");
+                    .setText(_("Open reports automatically after generating"));
             openCheckBox.setSelected(Boolean.parseBoolean(open));
 
-            jLabel1.setText("Name:");
-            jLabel1
-                    .setToolTipText("Unter welchem Name sollen Vorgänge erfolgen?");
+            jLabel1.setText(_("Name:"));
+            jLabel1.setToolTipText(_("The name used in activities."));
 
-            nameTextField
-                    .setToolTipText("Unter welchem Name sollen Vorgänge erfolgen?");
+            nameTextField.setToolTipText(_("The name used in activities."));
             nameTextField.setText(name);
 
-            jLabel2.setText("PDF Anzeiger:");
+            jLabel2.setText(_("PDF Viewer:"));
             pdfTextField.setText(pdf);
 
-            jLabel3.setText("Anzahl der Vorgänge:");
+            jLabel3.setText(_("Amount of activities:"));
             jLabel3
-                    .setToolTipText("Anzahl der Vorgänge die in Detailansichten angezeigt werden");
+                    .setToolTipText(_("The amount of activities shown in detailviews."));
 
             refactorSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer
                     .valueOf(activities), null, null, Integer.valueOf(1)));
 
-            jLabel4.setText("Sprache:");
+            jLabel4.setText(_("Language:"));
 
             /* Add all languages to the combobox and select the correct one */
             List<Pair<String, String>> langs = Runtime.getInstance()

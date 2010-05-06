@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-06 13:45+0200\n"
+"POT-Creation-Date: 2010-05-06 14:07+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -74,4 +74,41 @@ msgstr "Über aidGer"
 #: view/AboutDialog.java:55
 msgid "Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
 msgstr "Autoren: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
+
+#: view/SettingsDialog.java:84
+msgid "Save"
+msgstr "Speichern"
+
+#: view/SettingsDialog.java:86
+msgid "Save Tabs when quitting"
+msgstr "Reiter bei Verlassen speichern"
+
+#: view/SettingsDialog.java:91
+msgid "Open reports automatically after generating"
+msgstr "Berichte automatisch nach Generierung öffnen"
+
+#: view/SettingsDialog.java:95
+msgid "Name:"
+msgstr "Name:"
+
+#: view/SettingsDialog.java:96
+#: view/SettingsDialog.java:100
+msgid "The name used in activities."
+msgstr "Name der in Vorgängen verwendet wird."
+
+#: view/SettingsDialog.java:103
+msgid "PDF Viewer:"
+msgstr "PDF Anzeiger:"
+
+#: view/SettingsDialog.java:106
+msgid "Amount of activities:"
+msgstr "Anzahl der Vorgänge:"
+
+#: view/SettingsDialog.java:108
+msgid "The amount of activities shown in detailviews."
+msgstr "Anzahl der Vorgänge die in Detailansichten angezeigt werden"
+
+#: view/SettingsDialog.java:113
+msgid "Language:"
+msgstr "Sprache:"
 

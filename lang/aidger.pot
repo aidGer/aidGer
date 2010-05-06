@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-06 13:45+0200\n"
+"POT-Creation-Date: 2010-05-06 14:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,4 +74,40 @@ msgstr ""
 
 #: view/AboutDialog.java:55
 msgid "Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
+msgstr ""
+
+#: view/SettingsDialog.java:84
+msgid "Save"
+msgstr ""
+
+#: view/SettingsDialog.java:86
+msgid "Save Tabs when quitting"
+msgstr ""
+
+#: view/SettingsDialog.java:91
+msgid "Open reports automatically after generating"
+msgstr ""
+
+#: view/SettingsDialog.java:95
+msgid "Name:"
+msgstr ""
+
+#: view/SettingsDialog.java:96 view/SettingsDialog.java:100
+msgid "The name used in activities."
+msgstr ""
+
+#: view/SettingsDialog.java:103
+msgid "PDF Viewer:"
+msgstr ""
+
+#: view/SettingsDialog.java:106
+msgid "Amount of activities:"
+msgstr ""
+
+#: view/SettingsDialog.java:108
+msgid "The amount of activities shown in detailviews."
+msgstr ""
+
+#: view/SettingsDialog.java:113
+msgid "Language:"
 msgstr ""
