@@ -11,18 +11,30 @@ import javax.swing.JPanel;
 
 public class Tab {
 
-    public JPanel panel;
+    /**
+     * The panel, which will be added to the tabbed plane.
+     */
+    public JPanel panel = null;
 
-    public JPanel getNewTab() {
-        panel = new JPanel();
+    /**
+     * Creates a new panel with the contents for the specific tab. If the panel
+     * already exists, returns the already existing panel.
+     * 
+     * @return The panel to be added to the tabbed plane.
+     */
+    public JPanel getTab() {
+        if (panel == null) {
+            panel = new JPanel();
+        }
         return panel;
     }
 
+    /**
+     * Simply returns the name of the panel.
+     * 
+     * @return The name of the panel
+     */
     public String getName() {
         return "";
-    }
-
-    public JPanel getTab() {
-        return panel;
     }
 }
