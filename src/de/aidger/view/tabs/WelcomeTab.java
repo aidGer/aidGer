@@ -1,20 +1,18 @@
 package de.aidger.view.tabs;
 
+import java.awt.GridLayout;
+
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-/**
- * Tab is the base class of all tabs that are located in the tabbed pane on the
- * main window.
- * 
- * @author aidGer Team
- */
-
-public class Tab {
+public class WelcomeTab extends Tab {
 
     /**
-     * The panel, which will be added to the tabbed plane.
+     * Initializes a new tab with the welcome message on it.
      */
-    public JPanel panel = null;
+    public WelcomeTab() {
+
+    }
 
     /**
      * Creates a new panel with the contents for the specific tab. If the panel
@@ -22,10 +20,18 @@ public class Tab {
      * 
      * @return The panel to be added to the tabbed plane.
      */
+    @Override
     public JPanel getTab() {
         if (panel == null) {
             panel = new JPanel();
+
+            JLabel filler = new JLabel("blobb");
+            filler.setHorizontalAlignment(JLabel.CENTER);
+
+            panel.setLayout(new GridLayout(1, 1));
+            panel.add(filler);
         }
+
         return panel;
     }
 
@@ -34,7 +40,8 @@ public class Tab {
      * 
      * @return The name of the panel
      */
+    @Override
     public String getName() {
-        return "";
+        return "Welcome";
     }
 }

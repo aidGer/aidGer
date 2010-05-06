@@ -6,7 +6,6 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
@@ -15,9 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.Action;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -35,6 +32,7 @@ import de.aidger.controller.actions.HelpAction;
 import de.aidger.controller.actions.PrintAction;
 import de.aidger.controller.actions.SettingsAction;
 import de.aidger.view.tabs.Tab;
+import de.aidger.view.tabs.WelcomeTab;
 
 /**
  * The UI manages the main window and all its tabs. The main window consists of
@@ -54,6 +52,11 @@ public final class UI extends JFrame {
      * Used for logging messages from exceptions.
      */
     private final Logger logger = Logger.getLogger(UI.class.getName());
+
+    /**
+     * The tabbed plane that will contain the tabs.
+     */
+    private JTabbedPane tabbedPane;
 
     /**
      * Creates the main window of the application.
@@ -104,6 +107,9 @@ public final class UI extends JFrame {
                 }
             }
         });
+
+        // Add the welcome tab to the UI.
+        addNewTab(new WelcomeTab());
     }
 
     /**
@@ -201,26 +207,9 @@ public final class UI extends JFrame {
      * Sets up the tabbed pane in the middle.
      */
     private JTabbedPane getTabbedPane() {
-        JTabbedPane tabbedPane = new JTabbedPane();
-
-        tabbedPane.addTab("Willkommen", null, getWelcomeScreen(), "Willkommen");
+        tabbedPane = new JTabbedPane();
 
         return tabbedPane;
-    }
-
-    /**
-     * Sets uo the welcome screen.
-     */
-    private JComponent getWelcomeScreen() {
-        JPanel panel = new JPanel();
-
-        JLabel filler = new JLabel("blobb");
-        filler.setHorizontalAlignment(JLabel.CENTER);
-
-        panel.setLayout(new GridLayout(1, 1));
-        panel.add(filler);
-
-        return panel;
     }
 
     /**
@@ -246,20 +235,29 @@ public final class UI extends JFrame {
      * 
      */
     public void addNewTab() {
-
     }
 
     /**
+     * Adds a new tab, specified by tab, to the tabbed plane.
+     * 
      * @param tab
+     *            The tab to be added.
      */
     public void addNewTab(Tab tab) {
-
+        tabbedPane.addTab(tab.getName(), null, tab.getTab(), tab.getName());
     }
 
     /**
+     * Sets the current tab on the tabbed plane to the one specified.
+     * 
      * @param tab
+     *            The tab to be set as current.
      */
     public void setCurrentTab(Tab tab) {
-
+        // Check if the tab to be set as current is even on the tabbed plane.
+        if (tabbedPane.indexOfComponent(tab.getTab()) != -1) {
+            tabbedPane.setSelectedIndex(tabbedPane.indexOfComponent(tab
+                    .getTab()));
+        }
     }
 }
