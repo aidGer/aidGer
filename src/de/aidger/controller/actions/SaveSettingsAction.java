@@ -52,5 +52,6 @@ public class SaveSettingsAction extends AbstractAction {
                 Boolean.toString(dlg.isSaveSelected()));
 
         dlg.setVisible(false);
+        dlg.dispose();
     }
 }

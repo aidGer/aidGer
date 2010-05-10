@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.KeyStroke;
 
 /**
@@ -33,6 +34,9 @@ public class AbortAction extends AbstractAction {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        ((JComponent) e.getSource()).getTopLevelAncestor().setVisible(false);
+        JDialog dlg = (JDialog) ((JComponent) e.getSource())
+                .getTopLevelAncestor();
+        dlg.setVisible(false);
+        dlg.dispose();
     }
 }
