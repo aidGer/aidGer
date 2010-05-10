@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-06 16:57+0200\n"
+"POT-Creation-Date: 2010-05-11 00:13+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -77,43 +77,39 @@ msgstr "Controlling"
 msgid "Budget Check"
 msgstr "Budgetprüfung"
 
-#: view/SettingsDialog.java:82 controller/actions/SettingsAction.java:26
+#: view/SettingsDialog.java:136 controller/actions/SettingsAction.java:26
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: view/SettingsDialog.java:84
-msgid "Save"
-msgstr "Speichern"
-
-#: view/SettingsDialog.java:86
+#: view/SettingsDialog.java:138
 msgid "Save Tabs when quitting"
 msgstr "Reiter bei Verlassen speichern"
 
-#: view/SettingsDialog.java:90
+#: view/SettingsDialog.java:142
 msgid "Open reports automatically after generating"
 msgstr "Berichte automatisch nach Generierung öffnen"
 
-#: view/SettingsDialog.java:93
+#: view/SettingsDialog.java:145
 msgid "Name:"
 msgstr "Name:"
 
-#: view/SettingsDialog.java:94 view/SettingsDialog.java:96
+#: view/SettingsDialog.java:146 view/SettingsDialog.java:148
 msgid "The name used in activities."
 msgstr "Name der in Vorgängen verwendet wird."
 
-#: view/SettingsDialog.java:99
+#: view/SettingsDialog.java:151
 msgid "PDF Viewer:"
 msgstr "PDF Anzeiger:"
 
-#: view/SettingsDialog.java:102
+#: view/SettingsDialog.java:154
 msgid "Amount of activities:"
 msgstr "Anzahl der Vorgänge:"
 
-#: view/SettingsDialog.java:104
+#: view/SettingsDialog.java:156
 msgid "The amount of activities shown in detailviews."
 msgstr "Anzahl der Vorgänge die in Detailansichten angezeigt werden"
 
-#: view/SettingsDialog.java:109
+#: view/SettingsDialog.java:163
 msgid "Language:"
 msgstr "Sprache:"
 
@@ -156,3 +152,11 @@ msgstr "Programminhalt drucken"
 #: controller/actions/SettingsAction.java:29
 msgid "Display program settings"
 msgstr "Programmeinstellungen anzeigen"
+
+#: controller/actions/SaveSettingsAction.java:26
+msgid "Save"
+msgstr "Speichern"
+
+#: controller/actions/SaveSettingsAction.java:27
+msgid "Save settings"
+msgstr "Einstellungen speichern"

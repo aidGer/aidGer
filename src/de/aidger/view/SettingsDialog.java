@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import de.aidger.controller.ActionRegistry;
 import de.aidger.controller.actions.AbortAction;
+import de.aidger.controller.actions.SaveSettingsAction;
 import de.aidger.model.Runtime;
 import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
 
@@ -26,7 +27,7 @@ public class SettingsDialog extends JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JSpinner refactorSpinner;
+    private javax.swing.JSpinner activitiesSpinner;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JTextField pdfTextField;
 
@@ -39,9 +40,61 @@ public class SettingsDialog extends JDialog {
     }
 
     /**
-     * This method initializes this
+     * Get the currently entered username.
      * 
-     * @return void
+     * @return The username
+     */
+    public String getUsername() {
+        return nameTextField.getText();
+    }
+
+    /**
+     * Get the currently entered pdf viewer.
+     * 
+     * @return The pdf viewer
+     */
+    public String getPDFViewer() {
+        return pdfTextField.getText();
+    }
+
+    /**
+     * Get the number of activities currently entered
+     * 
+     * @return The number of activities
+     */
+    public int getNumOfActivities() {
+        return (Integer) activitiesSpinner.getValue();
+    }
+
+    /**
+     * Get whether the save checkbox is selected
+     * 
+     * @return True if the checkbox is selected
+     */
+    public boolean isSaveSelected() {
+        return saveCheckBox.isSelected();
+    }
+
+    /**
+     * Get whether the open checkbox is selected
+     * 
+     * @return True if the checkbox is selected
+     */
+    public boolean isOpenSelected() {
+        return openCheckBox.isSelected();
+    }
+
+    /**
+     * Get the index of the selected language.
+     * 
+     * @return The index of the selected language
+     */
+    public int getSelectedLanguage() {
+        return langComboBox.getSelectedIndex();
+    }
+
+    /**
+     * This method initializes this dialog.
      */
     private void initialize() {
         this.setSize(350, 300);
@@ -49,7 +102,7 @@ public class SettingsDialog extends JDialog {
     }
 
     /**
-     * This method initializes jContentPane
+     * This method initializes jContentPane.
      * 
      * @return javax.swing.JPanel
      */
@@ -66,7 +119,8 @@ public class SettingsDialog extends JDialog {
             jContentPane = new JPanel();
             jButton1 = new javax.swing.JButton(ActionRegistry.getInstance()
                     .get(AbortAction.class.getName()));
-            jButton2 = new javax.swing.JButton();
+            jButton2 = new javax.swing.JButton(ActionRegistry.getInstance()
+                    .get(SaveSettingsAction.class.getName()));
             saveCheckBox = new javax.swing.JCheckBox();
             openCheckBox = new javax.swing.JCheckBox();
             jLabel1 = new javax.swing.JLabel();
@@ -74,14 +128,12 @@ public class SettingsDialog extends JDialog {
             jLabel2 = new javax.swing.JLabel();
             pdfTextField = new javax.swing.JTextField();
             jLabel3 = new javax.swing.JLabel();
-            refactorSpinner = new javax.swing.JSpinner();
+            activitiesSpinner = new javax.swing.JSpinner();
             jLabel4 = new javax.swing.JLabel();
             langComboBox = new javax.swing.JComboBox();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
             setTitle(_("Settings"));
-
-            jButton2.setText(_("Save"));
 
             saveCheckBox.setText(_("Save Tabs when quitting"));
             saveCheckBox.setSelected(Boolean.parseBoolean(save));
@@ -103,8 +155,10 @@ public class SettingsDialog extends JDialog {
             jLabel3
                     .setToolTipText(_("The amount of activities shown in detailviews."));
 
-            refactorSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer
-                    .valueOf(activities), null, null, Integer.valueOf(1)));
+            activitiesSpinner
+                    .setModel(new javax.swing.SpinnerNumberModel(Integer
+                            .valueOf(activities), null, null, Integer
+                            .valueOf(1)));
 
             jLabel4.setText(_("Language:"));
 
@@ -207,7 +261,7 @@ public class SettingsDialog extends JDialog {
                                                                                     125,
                                                                                     Short.MAX_VALUE)
                                                                             .addComponent(
-                                                                                    refactorSpinner,
+                                                                                    activitiesSpinner,
                                                                                     javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                     60,
                                                                                     javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -267,7 +321,7 @@ public class SettingsDialog extends JDialog {
                                                             .addComponent(
                                                                     jLabel3)
                                                             .addComponent(
-                                                                    refactorSpinner,
+                                                                    activitiesSpinner,
                                                                     javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                     javax.swing.GroupLayout.PREFERRED_SIZE))

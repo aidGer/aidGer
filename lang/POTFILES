@@ -7,3 +7,4 @@ controller/actions/ExitAction.java
 controller/actions/HelpAction.java
 controller/actions/PrintAction.java
 controller/actions/SettingsAction.java
+controller/actions/SaveSettingsAction.java

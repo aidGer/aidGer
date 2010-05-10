@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-06 16:57+0200\n"
+"POT-Creation-Date: 2010-05-11 00:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -80,43 +80,39 @@ msgstr ""
 msgid "Budget Check"
 msgstr ""
 
-#: view/SettingsDialog.java:82 controller/actions/SettingsAction.java:26
+#: view/SettingsDialog.java:136 controller/actions/SettingsAction.java:26
 msgid "Settings"
 msgstr ""
 
-#: view/SettingsDialog.java:84
-msgid "Save"
-msgstr ""
-
-#: view/SettingsDialog.java:86
+#: view/SettingsDialog.java:138
 msgid "Save Tabs when quitting"
 msgstr ""
 
-#: view/SettingsDialog.java:90
+#: view/SettingsDialog.java:142
 msgid "Open reports automatically after generating"
 msgstr ""
 
-#: view/SettingsDialog.java:93
+#: view/SettingsDialog.java:145
 msgid "Name:"
 msgstr ""
 
-#: view/SettingsDialog.java:94 view/SettingsDialog.java:96
+#: view/SettingsDialog.java:146 view/SettingsDialog.java:148
 msgid "The name used in activities."
 msgstr ""
 
-#: view/SettingsDialog.java:99
+#: view/SettingsDialog.java:151
 msgid "PDF Viewer:"
 msgstr ""
 
-#: view/SettingsDialog.java:102
+#: view/SettingsDialog.java:154
 msgid "Amount of activities:"
 msgstr ""
 
-#: view/SettingsDialog.java:104
+#: view/SettingsDialog.java:156
 msgid "The amount of activities shown in detailviews."
 msgstr ""
 
-#: view/SettingsDialog.java:109
+#: view/SettingsDialog.java:163
 msgid "Language:"
 msgstr ""
 
@@ -158,4 +154,12 @@ msgstr ""
 
 #: controller/actions/SettingsAction.java:29
 msgid "Display program settings"
+msgstr ""
+
+#: controller/actions/SaveSettingsAction.java:26
+msgid "Save"
+msgstr ""
+
+#: controller/actions/SaveSettingsAction.java:27
+msgid "Save settings"
 msgstr ""
