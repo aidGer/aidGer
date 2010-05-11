@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tests SYSTEM "project.dtd">
+<tests product="TestDataManager" team="05" version="1.0">
+<sequence created="11.05.2010" creator="aidGerTeam" name="Projekt" number="0">
+<description>Dies ist der Wurzelknoten des Projekts. Er enthält alle anderen Testsequenzen und Testfälle</description>
+<pre/>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Systemtest" number="3">
+<description/>
+<pre/>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Stammdaten" number="4">
+<description/>
+<pre/>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Veranstaltungen" number="12">
+<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten und Löschen der Stammdaten Veranstaltungen.</description>
+<pre>Benutzer befindet sich im Menüpunkt Veranstaltungen.</pre>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Hinzufügen" number="16">
+<description>Die Testsequenz enthält Testfälle zum Hinzufügen einer Veranstaltung in die Datenbank.</description>
+<pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:10" number="28" priority="B" title="Veranstaltung korrekt hinzufügen">
+<description>Es wird eine Veranstaltung zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die Bezeichnung "Nutzlose Betriebssysteme in der Praxis" ein
+
+* Benutzer gibt das Semester "WS0809" ein
+
+* Benutzer gibt den Dozent "B. Gates" ein
+
+* Benutzer gibt die Gruppenanzahl "3" ein
+
+* Benutzer gibt das Zielpublikum "ST" ein
+
+* Benutzer gibt die Genehmigte HKS "52,5" ein
+
+* Benutzer gibt den Umfang "1Ü" ein
+
+* Benutzer gibt den Teil "B" ein
+
+* Benutzer gibt die Gruppe "Vordiplom ST" ein
+
+* Benutzer lässt das Bemerkungsfeld leer
+
+* Benutzer wählt die Finanzkategorie "Lehre WS0809" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Veranstaltung ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:10" number="38" priority="B" title="Veranstaltung korrekt hinzufügen">
+<description>Es wird eine Veranstaltung zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die Bezeichnung "Mensa überleben für Pizza-Fans" ein
+
+* Benutzer gibt das Semester "SS10" ein
+
+* Benutzer gibt den Dozent "Claudius Chipkartenfan" ein
+
+* Benutzer gibt die Gruppenanzahl "1" ein
+
+* Benutzer gibt das Zielpublikum "INF" ein
+
+* Benutzer gibt die Genehmigte HKS "45" ein
+
+* Benutzer gibt den Umfang "1Ü" ein
+
+* Benutzer gibt den Teil "A" ein
+
+* Benutzer gibt die Gruppe "Bachelor INF" ein
+
+* Benutzer lässt das Bemerkungsfeld leer
+
+* Benutzer wählt die Finanzkategorie "Lehre SS10" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Veranstaltung ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:10" number="39" priority="B" title="Veranstaltung korrekt hinzufügen">
+<description>Es wird eine Veranstaltung zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die Bezeichnung "Laufende Forschung" ein
+
+* Benutzer gibt das Semester "2009" ein
+
+* Benutzer gibt den Dozent "Gustav Guifrickel" ein
+
+* Benutzer gibt die Gruppenanzahl "1" ein
+
+* Benutzer lässt das Feld Zielpublikum leer
+
+* Benutzer gibt die Genehmigte HKS "120" ein
+
+* Benutzer lässt das Feld Umfang leer
+
+* Benutzer lässt das Feld Teil leer
+
+* Benutzer gibt die Gruppe "Forschung" ein
+
+* Benutzer lässt das Bemerkungsfeld leer
+
+* Benutzer wählt die Finanzkategorie "Forschung" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Veranstaltung ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="30" priority="C" title="Veranstaltung unvollständig hinzufügen">
+<description>Es soll eine Veranstaltung hinzugefügt werden. Dabei werden Felder leer gelassen.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die Veranstaltung "Violette Parser" ein
+
+* Benutzer drückt auf Button "Speichern"</actions>
+<post>Der Benutzer wird darüber informiert, dass die leer gelassenen Felder noch auszufüllen sind. Das Tab bleibt weiterhin offen und der Benutzer kann die restlichen Felder ausfüllen.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="29" priority="B" title="Veranstaltung inkorrekt hinzufügen">
+<description>Es wird eine Veranstaltung zum System hinzugefügt. Dabei werden falsche Eingaben gemacht.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die HKS "zwölf" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Die Veranstaltung wurde nicht hinzugefügt und der Benutzer befindet sich weiterhin im Hinzufügen-Tab, um seine Eingabe korrigieren zu können. Das Feld "HKS" soll hervorgehoben werden.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="33" priority="B" title="Veranstaltung inkorrekt hinzufügen">
+<description>Es soll eine Veranstaltung hinzugefügt werden. Es werden Felder falsch eingegeben.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die Veranstaltung "Swing für Gtk-Liebhaber" ein
+
+* Benutzer gibt das Semester "SS09" ein
+
+* Benutzer gibt die Gruppenanzahl "abc" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Benutzer wird darüber informiert, dass die Gruppenanzahl eine Zahl sein muss. Die Veranstaltung wird nicht gespeichert und der Benutzer befindet sich weiterhin im Hinzufügen-Tab.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="31" priority="D" title="Abbruch: Veranstaltung hinzufügen">
+<description>Es soll eine Veranstaltung hinzugefügt werden. Dieser Vorgang wird abgebrochen</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die Veranstaltung "Laufende Forschung" ein
+
+* Benutzer gibt den Umfang "99" ein
+
+* Benutzer wählt die Finanzkategorie "Forschung" aus
+
+* Benutzer klickt auf den Button "Abbrechen"	</actions>
+<post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Bearbeiten" number="17">
+<description>Die Testsequenz enthält Testfälle zum Bearbeiten einer Veranstaltung in die Datenbank.</description>
+<pre>Benutzer möchte eine Veranstaltung bearbeiten.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="34" priority="C" title="Veranstaltung korrekt bearbeiten">
+<description>Es soll eine Veranstaltung bearbeitet werden. Alle Eingaben sind korrekt.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer gibt den neuen Dozent "B. Gates, S. Ballmer" ein
+
+* Benutzer gibt die HKS "61" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die geänderten Daten werden in der Datenbank hinterlegt und das System kehrt zum vorher angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="35" priority="C" title="Veranstaltung unvollständig bearbeiten">
+<description>Es soll eine Veranstaltung bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer löscht den Inhalt des Felds Semester
+
+* Benutzer löscht den Inhalt des Felds Dozent
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Datensatz wird nicht editiert. Der Benutzer bleibt im Bearbeiten-Tab und wird über die leer gelassenen Felder informiert.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="36" priority="C" title="Veranstaltung inkorrekt bearbeiten">
+<description>Es soll eine Veranstaltung bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 39 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ändert das Semester zu "XYZ"
+
+* Benutzer klickt auf den Button "Speichern"
+</actions>
+<post>Der Datensatz wird nicht bearbeitet. Der Benutzer wird darüber informiert, dass das Format für das Feld Semester nicht eingehalten wurde. Er befindet sich weiterhin im Bearbeiten-Tab, um seine Eingabe korrigieren zu können.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="37" priority="C" title="Abbruch: Veranstaltung bearbeiten">
+<description/>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 38 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Mensa überleben für Pizza-Fans"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ersetzt das Feld Dozent mit "Emil Eisenbrecher"
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Die Änderungen am Datensatz werden verworfen, das Bearbeiten-Tab wird geschloßen und der Benutzer befindet sich erneut im davor angezeigten Tab.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Löschen" number="18">
+<description>Die Testsequenz enthält Testfälle zum Löschen einer Veranstaltung in die Datenbank.</description>
+<pre>Benutzer möchte eine Veranstaltung löschen.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="40" priority="C" title="Veranstaltung entfernen ohne Referenz">
+<description>Es soll eine Veranstaltung gelöscht werden, was korrekt funktioniert.</description>
+<pre>Der Testfall 28 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="41" priority="C" title="Veranstaltung entfernen mit Referenz">
+<description>Es soll eine Veranstaltung gelöscht werden. Das Datum wiird noch referenziert.</description>
+<pre>Der Testfall 28 und X wurde ausgeführt. TODO</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="42" priority="C" title="Abbruch: Veranstaltung entfernen">
+<description>Es soll eine Veranstaltung gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
+<pre>Der Testfall 39 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="43" priority="C" title="Veranstaltung entfernen ohne Auswahl">
+<description>Es soll eine Veranstaltung gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Löschen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
+<tags/>
+</testcase>
+</sequence>
+</sequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Hilfskräfte" number="13">
+<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten und Löschen der Stammdaten Hilfskräfte.</description>
+<pre>Benutzer befindet sich im Menüpunkt Hilfskräfte.</pre>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Hinzufügen" number="20">
+<description>Die Testsequenz enthält Testfälle zum Hinzufügen einer Hilfskraft in die Datenbank.</description>
+<pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="44" priority="B" title="Hilfskraft korrekt hinzufügen">
+<description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt den Vorname "Carl" ein
+
+* Benutzer gibt den Nachname "Coder" ein
+
+* Benutzer gibt die eMail-Adresse "coder@studi.informatik.uni-stuttgart.de" ein
+
+* Benutzer wähl die Qualifikation "Bachelor" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Hilfskraft ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="45" priority="B" title="Hilfskraft korrekt hinzufügen">
+<description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt den Vorname "Peter" ein
+
+* Benutzer gibt den Nachname "Planlos" ein
+
+* Benutzer gibt die eMail-Adresse "planlos@studi.informatik.uni-stuttgart.de" ein
+
+* Benutzer wähl die Qualifikation "Ungeprüft" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Hilfskraft ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="46" priority="B" title="Hilfskraft korrekt hinzufügen">
+<description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt den Vorname "Fred" ein
+
+* Benutzer gibt den Nachname "Feuerstein" ein
+
+* Benutzer gibt die eMail-Adresse "feuerstein@studi.informatik.uni-stuttgart.de" ein
+
+* Benutzer wähl die Qualifikation "Geprüft" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Hilfskraft ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="47" priority="B" title="Hilfskraft unvollständig hinzufügen">
+<description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Es sind Eingaben unvollständig.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt den Vorname "Carl" ein
+
+* Benutzer gibt den Nachname "Coder" ein
+
+* Benutzer gibt keine eMail Adresse ein.
+
+* Benutzer wähl die Qualifikation "Bachelor" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Benutzer wird darüber informiert, dass die leer gelassenen Felder noch auszufüllen sind. Das Tab bleibt weiterhin offen und der Benutzer kann die restlichen Felder ausfüllen.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="49" priority="B" title="Hilfskraft inkorrekt hinzufügen">
+<description>Es soll eine Hilfskraft hinzugefügt werden. Es werden Felder falsch eingegeben.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt den Vornamen "Marcus" ein
+
+* Benutzer gibt den Nachnamen "Krause" ein
+
+* Benutzer gibt die email-Adresse "email" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Benutzer wird darüber informiert, dass das Format einer eMail-Adresse nicht eingehalten wurde. Die Hilfskraft wird nicht gespeichert und der Benutzer befindet sich weiterhin im Hinzufügen-Tab.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="51" priority="D" title="Abbruch: Hilfskraft hinzufügen">
+<description>Es soll eine Veranstaltung hinzugefügt werden. Dieser Vorgang wird abgebrochen</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt den Vornamen "Trick" ein
+
+* Benutzer klickt auf den Button "Abbrechen"	</actions>
+<post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Bearbeiten" number="19">
+<description>Die Testsequenz enthält Testfälle zum Bearbeiten einer Hilfskraft in die Datenbank.</description>
+<pre>Benutzer möchte eine Hilfskraft bearbeiten.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="52" priority="C" title="Hilfskraft korrekt bearbeiten">
+<description>Es soll eine Hilfskraft bearbeitet werden. Alle Eingaben sind korrekt.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ändert den Nachnamen zu "Plan"
+
+* Benutzer ändert die eMail-Adresse zu "plan@studi.informatik.uni-stuttgart.de"
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die geänderten Daten werden in der Datenbank hinterlegt und das System kehrt zum vorher angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="53" priority="C" title="Hilfskraft unvollständig bearbeiten">
+<description>Es soll eine Hilfskraft bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 44 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Carl Coder"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer löscht den Inhalt des Felds Nachname
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Datensatz wird nicht editiert. Der Benutzer bleibt im Bearbeiten-Tab und wird über die leer gelassenen Felder informiert.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="54" priority="C" title="Hilfskraft inkorrekt bearbeiten">
+<description>Es soll eine Hilfskraft bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 46 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Fred Feuerstein"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ändert die eMail-Adresse zu "mail@domain"
+
+* Benutzer klickt auf den Button "Speichern"
+</actions>
+<post>Der Datensatz wird nicht bearbeitet. Der Benutzer wird darüber informiert, dass das Format für das Feld eMail-Adresse nicht eingehalten wurde. Er befindet sich weiterhin im Bearbeiten-Tab, um seine Eingabe korrigieren zu können.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="55" priority="C" title="Abbruch: Hilfskraft bearbeiten">
+<description/>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ersetzt den Vornamen mit "Gustav"
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Die Änderungen am Datensatz werden verworfen, das Bearbeiten-Tab wird geschloßen und der Benutzer befindet sich erneut im davor angezeigten Tab.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Löschen" number="21">
+<description>Die Testsequenz enthält Testfälle zum Löschen einer Hilfskraft in die Datenbank.</description>
+<pre>Benutzer möchte eine Hilfskraft löschen.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="56" priority="C" title="Hilfskraft entfernen ohne Referenz">
+<description>Es soll eine Hilfskraft gelöscht werden, was korrekt funktioniert.</description>
+<pre>Der Testfall 45 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="57" priority="C" title="Hilfskraft entfernen mit Referenz">
+<description>Es soll eine Hilfskraft gelöscht werden. Das Datum wiird noch referenziert.</description>
+<pre>Der Testfall 45 und X wurde ausgeführt. TODO</pre>
+<actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="58" priority="C" title="Abbruch: Hilfskraft entfernen">
+<description>Es soll eine Hilfskraft gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
+<pre>Der Testfall 44 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Carl Coder"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="59" priority="C" title="Hilfskraft entfernen ohne Auswahl">
+<description>Es soll eine Hilfskraft gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Löschen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
+<tags/>
+</testcase>
+</sequence>
+</sequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Finanzkategorien" number="14">
+<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten und Löschen der Stammdaten Finanzpläne.</description>
+<pre>Benutzer befindet sich im Menüpunkt Finanzpläne.</pre>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Hinzufügen" number="22">
+<description>Die Testsequenz enthält Testfälle zum Hinzufügen eines Finanzplans in die Datenbank.</description>
+<pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
+</sequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Bearbeiten" number="23">
+<description>Die Testsequenz enthält Testfälle zum Bearbeiten eines Finanzplans in die Datenbank.</description>
+<pre>Benutzer möchte einen Finanzplan bearbeiten.</pre>
+</sequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Löschen" number="24">
+<description>Die Testsequenz enthält Testfälle zum Löschen eines Finanzplans in die Datenbank.</description>
+<pre>Benutzer möchte einen Finanzplan löschen.</pre>
+</sequence>
+</sequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Stundenlöhne" number="15">
+<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten und Löschen der Stammdaten Stundenlöhne.</description>
+<pre>Benutzer befindet sich im Menüpunkt Stundenlöhne.</pre>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Hinzufügen" number="25">
+<description>Die Testsequenz enthält Testfälle zum Hinzufügen eines Stundenlohns in die Datenbank.</description>
+<pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
+</sequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Bearbeiten" number="26">
+<description>Die Testsequenz enthält Testfälle zum Bearbeiten eines Stundenlohns in die Datenbank.</description>
+<pre>Benutzer möchte einen Stundenlohn bearbeiten.</pre>
+</sequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Löschen" number="27">
+<description>Die Testsequenz enthält Testfälle zum Löschen eines Stundenlohns in die Datenbank.</description>
+<pre>Benutzer möchte einen Stundenlohn löschen.</pre>
+</sequence>
+</sequence>
+</sequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Beschäftigungen" number="7">
+<description/>
+<pre/>
+</sequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Vorgänge" number="8">
+<description/>
+<pre/>
+</sequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Berichte" number="9">
+<description/>
+<pre/>
+</sequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Controlling" number="10">
+<description/>
+<pre/>
+</sequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Budgetprüfung" number="5">
+<description/>
+<pre/>
+</sequence>
+</sequence>
+</sequence>
+<tsa name="Projekt" number="0" revId="0">
+<relatedsequence>0</relatedsequence>
+<tsa name="Systemtest" number="3" revId="1">
+<relatedsequence>3</relatedsequence>
+<tsa name="Stammdaten" number="4" revId="1">
+<relatedsequence>4</relatedsequence>
+<tsa name="Veranstaltungen" number="12" revId="1">
+<relatedsequence>12</relatedsequence>
+<tsa name="Hinzufügen" number="16" revId="1">
+<relatedsequence>16</relatedsequence>
+</tsa>
+<tsa name="Bearbeiten" number="17" revId="1">
+<relatedsequence>17</relatedsequence>
+</tsa>
+<tsa name="Löschen" number="18" revId="1">
+<relatedsequence>18</relatedsequence>
+</tsa>
+</tsa>
+<tsa name="Hilfskräfte" number="13" revId="1">
+<relatedsequence>13</relatedsequence>
+<tsa name="Hinzufügen" number="20" revId="1">
+<relatedsequence>20</relatedsequence>
+</tsa>
+<tsa name="Bearbeiten" number="19" revId="1">
+<relatedsequence>19</relatedsequence>
+</tsa>
+<tsa name="Löschen" number="21" revId="1">
+<relatedsequence>21</relatedsequence>
+</tsa>
+</tsa>
+<tsa name="Stundenlöhne" number="15" revId="1">
+<relatedsequence>15</relatedsequence>
+<tsa name="Hinzufügen" number="25" revId="1">
+<relatedsequence>25</relatedsequence>
+</tsa>
+<tsa name="Bearbeiten" number="26" revId="1">
+<relatedsequence>26</relatedsequence>
+</tsa>
+<tsa name="Löschen" number="27" revId="1">
+<relatedsequence>27</relatedsequence>
+</tsa>
+</tsa>
+<tsa name="Finanzkategorien" number="14" revId="2">
+<relatedsequence>14</relatedsequence>
+</tsa>
+</tsa>
+<tsa name="Budgetprüfung" number="5" revId="1">
+<relatedsequence>5</relatedsequence>
+</tsa>
+<tsa name="Beschäftigungen" number="7" revId="1">
+<relatedsequence>7</relatedsequence>
+</tsa>
+<tsa name="Vorgänge" number="8" revId="1">
+<relatedsequence>8</relatedsequence>
+</tsa>
+<tsa name="Berichte" number="9" revId="1">
+<relatedsequence>9</relatedsequence>
+</tsa>
+<tsa name="Controlling" number="10" revId="1">
+<relatedsequence>10</relatedsequence>
+</tsa>
+</tsa>
+</tsa>
+<author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
+<extension name="standarduser" value="Y"/>
+</author>
+<extension name="maxid" value="59"/>
+</tests>

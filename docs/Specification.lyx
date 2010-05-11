@@ -556,7 +556,7 @@ Hilfskräfte
 \end_layout
 
 \begin_layout Itemize
-Finanzpläne
+Finanzkategorien
 \end_layout
 
 \begin_layout Itemize
@@ -575,8 +575,8 @@ Erfassung von Veranstaltungen
 
 \begin_layout Standard
 Die folgenden Informationen müssen für jede Veranstaltung erfasst werden:
- Bezeichnung, Semester, Dozent, Klassifizierung, Gruppenanzahl, Zielpublikum,
- HKS, Umfang, Teil, Gruppe, Bemerkung, genehmigte HKS, Finanzkategorie.
+ Bezeichnung, Semester, Dozent, Gruppenanzahl, Zielpublikum, Genehmigte
+ HKS, Umfang, Teil, Gruppe, Bemerkung, Finanzkategorie.
 \end_layout
 
 \begin_layout Subsubsection
@@ -585,16 +585,16 @@ Erfassung von Hilfskräften
 
 \begin_layout Standard
 Die folgenden Informationen müssen für jede Hilfskraft erfasst werden: Vorname,
- Nachname, Stundenlohn, Studimail, Handicap, Qualifikation.
+ Nachname, eMail-Adresse, Qualifikation.
 \end_layout
 
 \begin_layout Subsubsection
-Erfassung von Finanzplänen
+Erfassung von Finanzkategorien
 \end_layout
 
 \begin_layout Standard
-Die folgenden Informationen müssen für jeden Finanzplan erfasst werden:
- Finanzkategorie, Jahr, Plankostenhaushalt.
+Die folgenden Informationen müssen für jeden Finanzkategorie erfasst werden:
+ Name, Budgetkosten, Fonds, Jahr.
 \end_layout
 
 \begin_layout Subsubsection
@@ -9746,6 +9746,21 @@ Versionshistorie
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Versionshistorie"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Version 0.4 (11.05.2010)
+\end_layout
+
+\begin_layout Itemize
+Korrekturen an den Anforderungen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Stammdatenverwaltung"
 
 \end_inset
 
