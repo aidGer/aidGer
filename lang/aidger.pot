@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-11 18:30+0200\n"
+"POT-Creation-Date: 2010-05-11 18:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,114 +16,110 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: view/AboutDialog.java:37 view/AboutDialog.java:39
+#: view/AboutDialog.java:39
 msgid "About aidGer"
 msgstr ""
 
-#: view/AboutDialog.java:62 view/AboutDialog.java:70
+#: view/AboutDialog.java:70
 msgid "Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
 msgstr ""
 
-#: view/AboutDialog.java:64 view/AboutDialog.java:72
+#: view/AboutDialog.java:72
 msgid "Close"
 msgstr ""
 
-#: view/AboutDialog.java:66 view/AboutDialog.java:74
+#: view/AboutDialog.java:74
 msgid "Homepage: http://www.aidger.de"
 msgstr ""
 
-#: view/UI.java:143 view/UI.java:159
+#: view/UI.java:159
 msgid "File"
 msgstr ""
 
-#: view/UI.java:160 controller/actions/HelpAction.java:23 view/UI.java:178
+#: view/UI.java:178 controller/actions/HelpAction.java:23
 msgid "Help"
 msgstr ""
 
-#: view/UI.java:192 view/UI.java:210
+#: view/UI.java:210
 msgid "Master Data"
 msgstr ""
 
-#: view/UI.java:192 view/UI.java:210
+#: view/UI.java:210
 msgid "Courses"
 msgstr ""
 
-#: view/UI.java:193 view/UI.java:211
+#: view/UI.java:211
 msgid "Assistants"
 msgstr ""
 
-#: view/UI.java:193
-msgid "Financial Plans"
+#: view/UI.java:211
+msgid "Financial Categories"
 msgstr ""
 
-#: view/UI.java:193 view/UI.java:211
+#: view/UI.java:211
 msgid "Hourly Wages"
 msgstr ""
 
-#: view/UI.java:194 view/UI.java:212
+#: view/UI.java:212
 msgid "Employments"
 msgstr ""
 
-#: view/UI.java:195 view/UI.java:213
+#: view/UI.java:213
 msgid "Activities"
 msgstr ""
 
-#: view/UI.java:196 view/UI.java:214
+#: view/UI.java:214
 msgid "Reports"
 msgstr ""
 
-#: view/UI.java:197 view/UI.java:215
+#: view/UI.java:215
 msgid "Controlling"
 msgstr ""
 
-#: view/UI.java:198 view/UI.java:216
+#: view/UI.java:216
 msgid "Budget Check"
 msgstr ""
 
-#: view/SettingsDialog.java:136 controller/actions/SettingsAction.java:26
-#: view/SettingsDialog.java:143
+#: view/SettingsDialog.java:143 controller/actions/SettingsAction.java:26
 msgid "Settings"
 msgstr ""
 
-#: view/SettingsDialog.java:138 view/SettingsDialog.java:145
+#: view/SettingsDialog.java:145
 msgid "Save Tabs when quitting"
 msgstr ""
 
-#: view/SettingsDialog.java:142 view/SettingsDialog.java:149
+#: view/SettingsDialog.java:149
 msgid "Open reports automatically after generating"
 msgstr ""
 
-#: view/SettingsDialog.java:145 view/SettingsDialog.java:152
+#: view/SettingsDialog.java:152
 msgid "Name:"
 msgstr ""
 
-#: view/SettingsDialog.java:146 view/SettingsDialog.java:148
 #: view/SettingsDialog.java:153 view/SettingsDialog.java:155
 msgid "The name used in activities."
 msgstr ""
 
-#: view/SettingsDialog.java:151 view/SettingsDialog.java:158
+#: view/SettingsDialog.java:158
 msgid "PDF Viewer:"
 msgstr ""
 
-#: view/SettingsDialog.java:154 view/SettingsDialog.java:161
+#: view/SettingsDialog.java:161
 msgid "Amount of activities:"
 msgstr ""
 
-#: view/SettingsDialog.java:156 view/SettingsDialog.java:163
+#: view/SettingsDialog.java:163
 msgid "The amount of activities shown in detailviews."
 msgstr ""
 
-#: view/SettingsDialog.java:163 view/SettingsDialog.java:170
+#: view/SettingsDialog.java:170
 msgid "Language:"
 msgstr ""
 
-#: controller/actions/AbortAction.java:25
 #: controller/actions/AbortAction.java:26
 msgid "Abort"
 msgstr ""
 
-#: controller/actions/AbortAction.java:28
 #: controller/actions/AbortAction.java:29
 msgid "Abort the operation"
 msgstr ""
@@ -171,8 +167,4 @@ msgstr ""
 #: controller/ActionNotFoundException.java:15
 #, java-format
 msgid "action class {0} not found"
-msgstr ""
-
-#: view/UI.java:211
-msgid "Financial Categories"
 msgstr ""
