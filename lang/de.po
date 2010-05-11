@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-11 11:51+0200\n"
+"POT-Creation-Date: 2010-05-11 18:30+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -14,39 +14,48 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: view/AboutDialog.java:37
+#: view/AboutDialog.java:39
 msgid "About aidGer"
 msgstr "Über aidGer"
 
 #: view/AboutDialog.java:62
+#: view/AboutDialog.java:70
 msgid "Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
 msgstr "Autoren: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
 
 #: view/AboutDialog.java:64
+#: view/AboutDialog.java:72
 msgid "Close"
 msgstr "Schließen"
 
 #: view/AboutDialog.java:66
+#: view/AboutDialog.java:74
 msgid "Homepage: http://www.aidger.de"
 msgstr "Homepage: http://www.aidger.de"
 
 #: view/UI.java:143
+#: view/UI.java:159
 msgid "File"
 msgstr "Datei"
 
 #: view/UI.java:160
 #: controller/actions/HelpAction.java:23
+#: view/UI.java:178
 msgid "Help"
 msgstr "Hilfe"
 
 #: view/UI.java:192
+#: view/UI.java:210
 msgid "Master Data"
 msgstr "Stammdaten"
 
 #: view/UI.java:192
+#: view/UI.java:210
 msgid "Courses"
 msgstr "Veranstaltungen"
 
 #: view/UI.java:193
+#: view/UI.java:211
 msgid "Assistants"
 msgstr "Hilfskräfte"
 
@@ -55,64 +64,80 @@ msgid "Financial Plans"
 msgstr "Finanzpläne"
 
 #: view/UI.java:193
+#: view/UI.java:211
 msgid "Hourly Wages"
 msgstr "Stundenlöhne"
 
 #: view/UI.java:194
+#: view/UI.java:212
 msgid "Employments"
 msgstr "Beschäftigungen"
 
 #: view/UI.java:195
+#: view/UI.java:213
 msgid "Activities"
 msgstr "Vorgänge"
 
 #: view/UI.java:196
+#: view/UI.java:214
 msgid "Reports"
 msgstr "Berichte"
 
 #: view/UI.java:197
+#: view/UI.java:215
 msgid "Controlling"
 msgstr "Controlling"
 
 #: view/UI.java:198
+#: view/UI.java:216
 msgid "Budget Check"
 msgstr "Budgetprüfung"
 
 #: view/SettingsDialog.java:136
 #: controller/actions/SettingsAction.java:26
+#: view/SettingsDialog.java:143
 msgid "Settings"
 msgstr "Einstellungen"
 
 #: view/SettingsDialog.java:138
+#: view/SettingsDialog.java:145
 msgid "Save Tabs when quitting"
 msgstr "Reiter bei Verlassen speichern"
 
 #: view/SettingsDialog.java:142
+#: view/SettingsDialog.java:149
 msgid "Open reports automatically after generating"
 msgstr "Berichte automatisch nach Generierung öffnen"
 
 #: view/SettingsDialog.java:145
+#: view/SettingsDialog.java:152
 msgid "Name:"
 msgstr "Name:"
 
 #: view/SettingsDialog.java:146
 #: view/SettingsDialog.java:148
+#: view/SettingsDialog.java:153
+#: view/SettingsDialog.java:155
 msgid "The name used in activities."
 msgstr "Name der in Vorgängen verwendet wird."
 
 #: view/SettingsDialog.java:151
+#: view/SettingsDialog.java:158
 msgid "PDF Viewer:"
 msgstr "PDF Anzeiger:"
 
 #: view/SettingsDialog.java:154
+#: view/SettingsDialog.java:161
 msgid "Amount of activities:"
 msgstr "Anzahl der Vorgänge:"
 
 #: view/SettingsDialog.java:156
+#: view/SettingsDialog.java:163
 msgid "The amount of activities shown in detailviews."
 msgstr "Anzahl der Vorgänge die in Detailansichten angezeigt werden"
 
 #: view/SettingsDialog.java:163
+#: view/SettingsDialog.java:170
 msgid "Language:"
 msgstr "Sprache:"
 
@@ -170,4 +195,8 @@ msgstr "Einstellungen speichern"
 #, java-format
 msgid "action class {0} not found"
 msgstr "Aktion-Klasse {0} nicht gefunden"
+
+#: view/UI.java:211
+msgid "Financial Categories"
+msgstr "Finanzkategorien"
 
