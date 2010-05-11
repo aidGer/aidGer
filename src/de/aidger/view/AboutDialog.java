@@ -5,8 +5,10 @@ import static de.aidger.utils.Translation._;
 import java.awt.Frame;
 
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
 import de.aidger.controller.actions.AbortAction;
 
@@ -48,8 +50,14 @@ public class AboutDialog extends JDialog {
             jContentPane = new JPanel();
             jLabel1 = new javax.swing.JLabel();
             jLabel2 = new javax.swing.JLabel();
-            jButton1 = new javax.swing.JButton(ActionRegistry.getInstance()
-                    .get(AbortAction.class.getName()));
+
+            try {
+                jButton1 = new javax.swing.JButton(ActionRegistry.getInstance()
+                        .get(AbortAction.class.getName()));
+            } catch (ActionNotFoundException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+            }
+
             jLabel3 = new javax.swing.JLabel();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);

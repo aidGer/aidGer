@@ -60,8 +60,15 @@ public final class ActionRegistry {
      * @param className
      *            name of actions class
      * @return Action object or null if the action is not registered.
+     * @throws ActionNotFoundException
      */
-    public Action get(String className) {
-        return actions.get(className);
+    public Action get(String className) throws ActionNotFoundException {
+        Action action = actions.get(className);
+
+        if (action == null) {
+            throw new ActionNotFoundException(className);
+        }
+
+        return action;
     }
 }

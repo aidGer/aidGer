@@ -19,12 +19,14 @@ import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 
+import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
 import de.aidger.controller.actions.AboutAction;
 import de.aidger.controller.actions.ExitAction;
@@ -95,16 +97,22 @@ public final class UI extends JFrame {
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             @Override
-            public void windowClosing(WindowEvent e) {
-                Action action = ActionRegistry.getInstance().get(
-                        ExitAction.class.getName());
+            public void windowClosing(WindowEvent event) {
+                Action action;
+                try {
+                    action = ActionRegistry.getInstance().get(
+                            ExitAction.class.getName());
 
-                if (action != null) {
-                    ActionEvent evt = new ActionEvent(e.getSource(), e.getID(),
-                            null);
+                    if (action != null) {
+                        ActionEvent evt = new ActionEvent(event.getSource(),
+                                event.getID(), null);
 
-                    action.actionPerformed(evt);
+                        action.actionPerformed(evt);
+                    }
+                } catch (ActionNotFoundException e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage());
                 }
+
             }
         });
 
@@ -129,17 +137,25 @@ public final class UI extends JFrame {
      * Sets up the main menu bar.
      */
     private JMenuBar getMainMenuBar() {
-        JMenuBar menuBar = new JMenuBar();
-        menuBar.add(getFileMenu());
-        menuBar.add(getHelpMenu());
+        try {
+            JMenuBar menuBar = new JMenuBar();
+            menuBar.add(getFileMenu());
+            menuBar.add(getHelpMenu());
 
-        return menuBar;
+            return menuBar;
+        } catch (ActionNotFoundException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+
+            return null;
+        }
     }
 
     /**
      * Sets up the file menu.
+     * 
+     * @throws ActionNotFoundException
      */
-    private JMenu getFileMenu() {
+    private JMenu getFileMenu() throws ActionNotFoundException {
         JMenu fileMenu = new JMenu(_("File"));
 
         fileMenu.add(new JMenuItem(ActionRegistry.getInstance().get(
@@ -155,8 +171,10 @@ public final class UI extends JFrame {
 
     /**
      * Sets up the help menu.
+     * 
+     * @throws ActionNotFoundException
      */
-    private JMenu getHelpMenu() {
+    private JMenu getHelpMenu() throws ActionNotFoundException {
         JMenu helpMenu = new JMenu(_("Help"));
 
         helpMenu.add(new JMenuItem(ActionRegistry.getInstance().get(

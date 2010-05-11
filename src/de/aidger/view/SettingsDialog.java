@@ -6,8 +6,10 @@ import java.awt.Frame;
 import java.util.List;
 
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
 import de.aidger.controller.actions.AbortAction;
 import de.aidger.controller.actions.SaveSettingsAction;
@@ -116,11 +118,16 @@ public class SettingsDialog extends JDialog {
             String open = Runtime.getInstance().getOption("auto-open");
             String save = Runtime.getInstance().getOption("auto-save");
 
-            jContentPane = new JPanel();
-            jButton1 = new javax.swing.JButton(ActionRegistry.getInstance()
-                    .get(AbortAction.class.getName()));
-            jButton2 = new javax.swing.JButton(ActionRegistry.getInstance()
-                    .get(SaveSettingsAction.class.getName()));
+            try {
+                jContentPane = new JPanel();
+                jButton1 = new javax.swing.JButton(ActionRegistry.getInstance()
+                        .get(AbortAction.class.getName()));
+                jButton2 = new javax.swing.JButton(ActionRegistry.getInstance()
+                        .get(SaveSettingsAction.class.getName()));
+            } catch (ActionNotFoundException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+            }
+
             saveCheckBox = new javax.swing.JCheckBox();
             openCheckBox = new javax.swing.JCheckBox();
             jLabel1 = new javax.swing.JLabel();

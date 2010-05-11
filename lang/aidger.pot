@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-11 00:13+0200\n"
+"POT-Creation-Date: 2010-05-11 11:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -117,10 +117,12 @@ msgid "Language:"
 msgstr ""
 
 #: controller/actions/AbortAction.java:25
+#: controller/actions/AbortAction.java:26
 msgid "Abort"
 msgstr ""
 
 #: controller/actions/AbortAction.java:28
+#: controller/actions/AbortAction.java:29
 msgid "Abort the operation"
 msgstr ""
 
@@ -162,4 +164,9 @@ msgstr ""
 
 #: controller/actions/SaveSettingsAction.java:27
 msgid "Save settings"
+msgstr ""
+
+#: controller/ActionNotFoundException.java:15
+#, java-format
+msgid "action class {0} not found"
 msgstr ""
