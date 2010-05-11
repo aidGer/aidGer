@@ -1,6 +1,7 @@
 package de.aidger.model;
 
 import java.util.List;
+import java.util.Vector;
 import java.util.Observable;
 
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
@@ -9,6 +10,7 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAdoHiveModel;
 
 import de.aidger.model.validators.Validator;
+import de.aidger.model.validators.PresenceValidator;
 
 /**
  * AbstractModel contains all important database related functions which all
@@ -28,7 +30,7 @@ public abstract class AbstractModel<T> extends Observable implements
     /**
      * Array containing all validators for that specific model.
      */
-    protected Validator[] validators;
+    protected List<Validator> validators = new Vector<Validator>();
 
     /**
      * Cloneable function inherited from IAdoHiveModel.
@@ -128,6 +130,24 @@ public abstract class AbstractModel<T> extends Observable implements
     }
 
     /**
+     * Add a validator to the model.
+     *
+     * @param valid The validator to add
+     */
+    public void validate(Validator valid) {
+        validators.add(valid);
+    }
+
+    /**
+     * Add a presence validator to the model.
+     *
+     * @param members The name of the member variables to validate
+     */
+    public void validatePresenceOf(String[] members) {
+        validators.add(new PresenceValidator(this, members));
+    }
+
+    /**
      * Extract the name of the class and return the correct manager.
      * 
      * @return The name of the model class
@@ -140,8 +160,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
         java.lang.reflect.Method m;
         try {
-            m = AdoHiveController.getInstance().getClass().getMethod(
-                    "get" + classname + "Manager");
+            m = AdoHiveController.class.getMethod("get" + classname + "Manager");
             return (IAdoHiveManager) m.invoke(AdoHiveController.getInstance(),
                     new Object[0]);
         } catch (Exception ex) {
