@@ -1,5 +1,12 @@
+# Eclipse
 .classpath
 .project
 .settings/*
+
+# Netbeans
+build.xml
+manifest.mf
+nbproject/*
+
 bin/*
 *~

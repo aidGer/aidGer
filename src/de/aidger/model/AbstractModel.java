@@ -8,6 +8,8 @@ import de.unistuttgart.iste.se.adohive.controller.IAdoHiveManager;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAdoHiveModel;
 
+import de.aidger.model.validators.Validator;
+
 /**
  * AbstractModel contains all important database related functions which all
  * models need to contain. This includes getting instances of models and saving
@@ -18,8 +20,21 @@ import de.unistuttgart.iste.se.adohive.model.IAdoHiveModel;
 public abstract class AbstractModel<T> extends Observable implements
         IAdoHiveModel<T> {
 
+    /**
+     * The unique id of the model in the database.
+     */
     protected int id = -1;
 
+    /**
+     * Array containing all validators for that specific model.
+     */
+    protected Validator[] validators;
+
+    /**
+     * Cloneable function inherited from IAdoHiveModel.
+     *
+     * @return Clone of the model
+     */
     @Override
     abstract public T clone();
 
@@ -71,9 +86,19 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Save the current model to the database.
+     *
+     * @return True if validation succeeds
      */
     @SuppressWarnings("unchecked")
-    public void save() {
+    public boolean save() {
+        /* Try to validate before adding/updating */
+        for (Validator v : validators) {
+            if (!v.validate()) {
+                return false;
+            }
+        }
+
+        /* Add or update model */
         IAdoHiveManager mgr = getManager();
         if (id == -1) {
             try {
@@ -86,6 +111,7 @@ public abstract class AbstractModel<T> extends Observable implements
             } catch (AdoHiveException e) {
             }
         }
+        return true;
     }
 
     /**
