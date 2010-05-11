@@ -463,16 +463,96 @@
 <description>Die Testsequenz dient zum Hinzufügen, Bearbeiten und Löschen der Stammdaten Finanzpläne.</description>
 <pre>Benutzer befindet sich im Menüpunkt Finanzpläne.</pre>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Hinzufügen" number="22">
-<description>Die Testsequenz enthält Testfälle zum Hinzufügen eines Finanzplans in die Datenbank.</description>
+<description>Die Testsequenz enthält Testfälle zum Hinzufügen einer Finanzkategorie in die Datenbank.</description>
 <pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="60" priority="B" title="Finanzkategorie korrekt hinzufügen">
+<description>Es wird eine Finanzkategorie zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt den Namen "Lehre 2010" ein
+
+* Benutzer gibt die Budgetkosten "47000" ein
+
+* Benutzer gibt den Fonds "12345678" ein
+
+* Benutzer gibt das Jahr "2010" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Finanzkategorie ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="61" priority="B" title="Finanzkategorie korrekt hinzufügen">
+<description>Es wird eine Finanzkategorie zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt den Namen "Lehre 0809" ein
+
+* Benutzer gibt die Budgetkosten "12000" ein
+
+* Benutzer gibt den Fonds "87654321" ein
+
+* Benutzer gibt das Jahr "2009" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Finanzkategorie ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="62" priority="B" title="Finanzkategorie korrekt hinzufügen">
+<description>Es wird eine Finanzkategorie zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt den Namen "Sonstiges" ein
+
+* Benutzer gibt die Budgetkosten "6000" ein
+
+* Benutzer gibt den Fonds "12344321" ein
+
+* Benutzer gibt das Jahr "2009" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Finanzkategorie ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="63" priority="B" title="Finanzkategorie inkorrekt hinzufügen">
+<description>Es wird eine Finanzkategorie zum System hinzugefügt. Dabei werden falsche Eingaben gemacht.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt den Namen "Forschung" ein
+
+* Benutzer gibt den Fonds "Studiengebühren" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Die Finanzkategorie wurde nicht hinzugefügt und der Benutzer befindet sich weiterhin im Hinzufügen-Tab, um seine Eingabe korrigieren zu können. Das Feld "Fonds" soll hervorgehoben werden.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:04" number="64" priority="B" title="Finanzkategorie inkorrekt hinzufügen">
+<description>Es wird eine Finanzkategorie zum System hinzugefügt. Dabei werden falsche Eingaben gemacht.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt den Namen "Forschung" ein
+
+* Benutzer gibt die Budgetkosten "sehr wenig" ein
+
+* Benutzer gibt das Jahr "Zukunft" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Die Finanzkategorie wurde nicht hinzugefügt und der Benutzer befindet sich weiterhin im Hinzufügen-Tab, da er für die Felder Budgetkosten und Jahr ungültige Eingaben gemacht hat. Er wird darüber informiert.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="65" priority="D" title="Abbruch: Finanzkategorie hinzufügen">
+<description>Es soll eine Finanzkategorie hinzugefügt werden. Dieser Vorgang wird abgebrochen.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt den Namen "Sonstiges" ein
+
+* Benutzer gibt die Budgetkosten "6000" ein
+
+* Benutzer klickt auf den Button "Abbrechen"	</actions>
+<post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
+<tags/>
+</testcase>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Bearbeiten" number="23">
-<description>Die Testsequenz enthält Testfälle zum Bearbeiten eines Finanzplans in die Datenbank.</description>
-<pre>Benutzer möchte einen Finanzplan bearbeiten.</pre>
+<description>Die Testsequenz enthält Testfälle zum Bearbeiten einer Finanzkategorie in die Datenbank.</description>
+<pre>Benutzer möchte eine Finanzkategorie bearbeiten.</pre>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Löschen" number="24">
-<description>Die Testsequenz enthält Testfälle zum Löschen eines Finanzplans in die Datenbank.</description>
-<pre>Benutzer möchte einen Finanzplan löschen.</pre>
+<description>Die Testsequenz enthält Testfälle zum Löschen einer Finanzkategorie in die Datenbank.</description>
+<pre>Benutzer möchte eine Finanzkategorie löschen.</pre>
 </sequence>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Stundenlöhne" number="15">
@@ -580,5 +660,5 @@
 <author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
 <extension name="standarduser" value="Y"/>
 </author>
-<extension name="maxid" value="59"/>
+<extension name="maxid" value="65"/>
 </tests>
