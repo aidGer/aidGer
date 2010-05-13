@@ -275,10 +275,152 @@
 <sequence created="13.05.2010" creator="aidGerTeam" name="Anzeigen" number="98">
 <description>Die Testsequenz enthält Testfälle zum Anzeigen einer Veranstaltung in die Datenbank.</description>
 <pre>Benutzer möchte eine Veranstaltung anzeigen.</pre>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="122" priority="C" title="Spaltenauswahl über Kontextmenü">
+<description>TODO</description>
+<pre/>
+<actions/>
+<post/>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="121" priority="C" title="Veranstaltung anzeigen und schließen">
+<description>Es soll eine Veranstaltung angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
+<pre>Der Testfall 28 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 28 übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum zuvor angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="125" priority="C" title="Veranstaltung anzeigen und bearbeiten">
+<description>Es soll eine Veranstaltung angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
+<pre>Der Testfall 39 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* System geht in den "Bearbeiten"-Tab über
+
+* Benutzer gibt den neuen Dozent "B. Gates, S. Ballmer" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 39 übereinstimmen. Nach dem Bearbeiten wurde der Datensatz korrekt geändert und gespeichert. Der Benutzer befindet sich im vorher angezeigten Reiter wieder.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="127" priority="C" title="Veranstaltung anzeigen und Vorgang anzeigen">
+<description>Es soll eine Veranstaltung angezeigt werden. Anschließend soll ein Vorgang zur Veranstaltung angezeigt werden.</description>
+<pre>Der Testfall 28 und X wurde ausgeführt. TODO</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt den Vorgang "XX" an
+
+* System öffnet den Vorgang in einem neuen "Anzeigen"-Tab
+
+* Benutzer schließt den Vorgangsreiter
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 28 übereinstimmen. Des weiteren konnte er sich über den ausgewählten Vorgang informieren. Der Benutzer befindet sich wieder im zuvor angezeigten Reiter.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="126" priority="C" title="Veranstaltung anzeigen ohne Auswahl">
+<description>Es soll eine Veranstaltung angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen und es erscheint eine entsprechende Fehlermeldung.</post>
+<tags/>
+</testcase>
 </sequence>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Suchen" number="92">
 <description>Die Testsequenz enthält Testfälle zum Suchen einer Veranstaltung in die Datenbank.</description>
 <pre>Benutzer möchte eine Veranstaltung suchen.</pre>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="128" priority="C" title="Veranstaltung suchen nach Name">
+<description>Es soll eine Veranstaltung gesucht werden. Es wird nach dem Namen gesucht.</description>
+<pre>Der Testfall 28 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt im Suchfeld "Nutzlose Betriebssysteme in der Praxis" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich die gesuche Veranstaltung (Testfall 28). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="130" priority="C" title="Veranstaltung suchen nach Dozent">
+<description>Es soll eine Veranstaltung gesucht werden. Es wird nach dem Namen gesucht.</description>
+<pre>Der Testfall 28 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt im Suchfeld "B. Gates" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich die gesuche Veranstaltung (Testfall 28). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="131" priority="C" title="Veranstaltung unvollständig suchen">
+<description>Es soll eine Veranstaltung gesucht werden. Der Name der Veranstaltung wird nur teilweise eingeben.</description>
+<pre>Der Testfall 39 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt in das Suchfeld "Laufende" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich die gesuche Veranstaltung (Testfall 39). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="129" priority="C" title="Suchfilter entfernen">
+<description>Der angewandte Suchfilter soll entfernt werden.</description>
+<pre>Der Testfall 128 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt auf den Button neben dem Suchfeld</actions>
+<post>Die Anzeige-Tabelle zeigt alle Veranstaltungen an. Das Suchfeld wurde geleert.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Vorgänge" number="132">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen von Vorgängen zu einer Veranstaltung.</description>
+<pre>Benutzer möchte Vorgänge zu einer Veranstaltung anzeigen.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="133" priority="C" title="Vorgänge anzeigen und schließen">
+<description>Es sollen Vorgänge zu einer Veranstaltung angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
+<pre>Der Testfall 28 und X wurde ausgeführt. TODO</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Vorgänge"
+
+* System öffnet das "Vorgänge"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Veranstaltung erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum zuvor angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="134" priority="C" title="Vorgänge anzeigen und Detailansicht">
+<description>Es sollen Vorgänge zu einer Veranstaltung angezeigt werden. Ein einzelner Vorgang soll daraufhin angezeigt werden.</description>
+<pre>Der Testfall 38 und X wurde ausgeführt. TODO</pre>
+<actions>* Benutzer markiert die Veranstaltung "Mensa überleben für Pizza-Fans"
+
+* Benutzer klickt auf den Button "Vorgänge"
+
+* System öffnet das "Vorgänge"-Tab
+
+* Benutzer klickt auf den Vorgang "XX"
+
+* System öffnet das "Anzeige"-Tab des Vorgangs
+
+* Benutzer schließt das Vorgangsreiter
+
+* Benutzer drückt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Veranstaltung erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Anschließend konnte er sich über einen einzelen Vorgang in einer Detailsicht informieren. Die beiden Reiter-Fenster sind geschloßen und der Benutzer kehrt zum zuvor angezeigten Reiter zurück.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="135" priority="C" title="Vorgänge anzeigen ohne Auswahl">
+<description>Es sollen Vorgänge zu einer Veranstaltung angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen und es erscheint eine entsprechende Fehlermeldung.</post>
+<tags/>
+</testcase>
 </sequence>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Hilfskräfte" number="13">
@@ -915,12 +1057,52 @@
 </sequence>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Vorgänge" number="8">
-<description/>
+<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten, Löschen, Anzeigen und Suchen von Vorgängen.</description>
 <pre>Das Programm wurde gestartet.</pre>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Hinzufügen" number="108">
+<description>Die Testsequenz enthält Testfälle zum Hinzufügen eines Vorgangs in die Datenbank.</description>
+<pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Bearbeiten" number="109">
+<description>Die Testsequenz enthält Testfälle zum Bearbeiten eines Vorgangs in die Datenbank.</description>
+<pre/>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Löschen" number="111">
+<description>Die Testsequenz enthält Testfälle zum Löschen eines Vorgangs in die Datenbank.</description>
+<pre/>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Anzeigen" number="112">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen eines Vorgangs in die Datenbank.</description>
+<pre/>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Suchen" number="113">
+<description>Die Testsequenz enthält Testfälle zum Suchen eines Vorgangs in die Datenbank.</description>
+<pre/>
+</sequence>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Berichte" number="9">
 <description/>
 <pre>Das Programm wurde gestartet.</pre>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Jahresbilanz" number="114">
+<description/>
+<pre/>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Semesterbilanz" number="123">
+<description/>
+<pre/>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Teilbilanz" number="124">
+<description/>
+<pre/>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Tätigkeitsnachweise" number="115">
+<description/>
+<pre/>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Vorgangsprotokolle" number="116">
+<description/>
+<pre/>
+</sequence>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Controlling" number="10">
 <description/>
@@ -935,7 +1117,7 @@
 <pre>Das Programm wurde gestartet.</pre>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="88" priority="C" title="Programmstart mit offenen Tabs">
 <description>Das Programm wird gestartet, wobei beim letzten Programmstart Tabs offen gelassen wurden.</description>
-<pre/>
+<pre>Die Einstellung "Reiter bei Verlassen speichern" ist aktiviert.</pre>
 <actions>* Benutzer öffnet den Menüpunkt Veranstaltungen in einem neuen Tab
 
 * Benutzer drückt den Button "Hinzufügen"
@@ -973,7 +1155,7 @@ Sollte sich die Fenstergröße in der Höhe verändern, ändert sich die Größe
 <tags/>
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="91" priority="C" title="Auswahl eines Elements in der Navigationsleiste">
-<description/>
+<description>Es wird die Auswahl eines Menüeintrags in der Navigationsleiste getestet. Es gibt Unterschiede zwischen einem linken und einen mittleren Mausklick.</description>
 <pre/>
 <actions>* Benutzer drückt mit der linken Maustaste auf den Menüpunkt Berichte
 
@@ -981,6 +1163,34 @@ Sollte sich die Fenstergröße in der Höhe verändern, ändert sich die Größe
 <post>Wird vom Benutzer ein Element in der Navigationsleiste mit der linken Maustaste ausgewählt, wird der aktuelle Inhalt des Inhaltsbereichs verworfen und durch den Inhalt des neuen Elements ersetzt.
 
 Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen, wird ein neuer Reiter geöffnet und der Inhalt des Elements in diesem neuen Reiter dargestellt. Der aktuelle Reiter bleibt dabei vollständig erhalten, gerät jedoch in den Hintergrund (ist also nicht mehr sichtbar).</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="117" priority="C" title="Drucken">
+<description>TODO</description>
+<pre/>
+<actions/>
+<post/>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="118" priority="C" title="Mehrsprachigkeit">
+<description>TODO</description>
+<pre/>
+<actions/>
+<post/>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="119" priority="C" title="Ticket-System">
+<description>TODO</description>
+<pre/>
+<actions/>
+<post/>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="120" priority="C" title="Hilfe">
+<description>TODO</description>
+<pre/>
+<actions/>
+<post/>
 <tags/>
 </testcase>
 </sequence>
@@ -1013,9 +1223,39 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </tsa>
 <tsa name="Vorgänge" number="8" revId="1">
 <relatedsequence>8</relatedsequence>
+<tsa name="Hinzufügen" number="108" revId="2">
+<relatedsequence>108</relatedsequence>
+</tsa>
+<tsa name="Bearbeiten" number="109" revId="2">
+<relatedsequence>109</relatedsequence>
+</tsa>
+<tsa name="Löschen" number="111" revId="2">
+<relatedsequence>111</relatedsequence>
+</tsa>
+<tsa name="Anzeigen" number="112" revId="2">
+<relatedsequence>112</relatedsequence>
+</tsa>
+<tsa name="Suchen" number="113" revId="2">
+<relatedsequence>113</relatedsequence>
+</tsa>
 </tsa>
 <tsa name="Berichte" number="9" revId="1">
 <relatedsequence>9</relatedsequence>
+<tsa name="Tätigkeitsnachweise" number="115" revId="3">
+<relatedsequence>115</relatedsequence>
+</tsa>
+<tsa name="Vorgangsprotokolle" number="116" revId="3">
+<relatedsequence>116</relatedsequence>
+</tsa>
+<tsa name="Jahresbilanz" number="114" revId="5">
+<relatedsequence>114</relatedsequence>
+</tsa>
+<tsa name="Semesterbilanz" number="123" revId="2">
+<relatedsequence>123</relatedsequence>
+</tsa>
+<tsa name="Teilbilanz" number="124" revId="2">
+<relatedsequence>124</relatedsequence>
+</tsa>
 </tsa>
 <tsa name="Controlling" number="10" revId="1">
 <relatedsequence>10</relatedsequence>
@@ -1031,5 +1271,5 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
 <extension name="standarduser" value="Y"/>
 </author>
-<extension name="maxid" value="107"/>
+<extension name="maxid" value="135"/>
 </tests>
