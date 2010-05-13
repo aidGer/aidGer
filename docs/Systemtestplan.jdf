@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE tests SYSTEM "project.dtd">
 <tests product="TestDataManager" team="05" version="1.0">
-<sequence created="11.05.2010" creator="aidGerTeam" name="Projekt" number="0">
+<sequence created="13.05.2010" creator="aidGerTeam" name="Projekt" number="0">
 <description>Dies ist der Wurzelknoten des Projekts. Er enthält alle anderen Testsequenzen und Testfälle</description>
 <pre/>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Systemtest" number="3">
@@ -196,7 +196,7 @@
 <tags/>
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="37" priority="C" title="Abbruch: Veranstaltung bearbeiten">
-<description/>
+<description>Es soll eine Veranstaltung bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 38 wurde bereits ausgeführt.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Mensa überleben für Pizza-Fans"
 
@@ -226,7 +226,7 @@
 <tags/>
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="41" priority="C" title="Veranstaltung entfernen mit Referenz">
-<description>Es soll eine Veranstaltung gelöscht werden. Das Datum wiird noch referenziert.</description>
+<description>Es soll eine Veranstaltung gelöscht werden. Das Datum wird noch referenziert.</description>
 <pre>Der Testfall 28 und X wurde ausgeführt. TODO</pre>
 <actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
 
@@ -395,7 +395,7 @@
 <tags/>
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="55" priority="C" title="Abbruch: Hilfskraft bearbeiten">
-<description/>
+<description>Es soll eine Hilfskraft bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde bereits ausgeführt.</pre>
 <actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
 
@@ -425,7 +425,7 @@
 <tags/>
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="57" priority="C" title="Hilfskraft entfernen mit Referenz">
-<description>Es soll eine Hilfskraft gelöscht werden. Das Datum wiird noch referenziert.</description>
+<description>Es soll eine Hilfskraft gelöscht werden. Das Datum wird noch referenziert.</description>
 <pre>Der Testfall 45 und X wurde ausgeführt. TODO</pre>
 <actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
 
@@ -549,10 +549,115 @@
 <sequence created="11.05.2010" creator="aidGerTeam" name="Bearbeiten" number="23">
 <description>Die Testsequenz enthält Testfälle zum Bearbeiten einer Finanzkategorie in die Datenbank.</description>
 <pre>Benutzer möchte eine Finanzkategorie bearbeiten.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="66" priority="C" title="Finanzkategorie korrekt bearbeiten">
+<description>Es soll eine Finanzkategorie bearbeitet werden. Alle Eingaben sind korrekt.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 61 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Lehre 0809"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer gibt die neuen Budgetkosten "24000" ein
+
+* Benutzer gibt das Jahr "2008" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die geänderten Daten werden in der Datenbank hinterlegt und das System kehrt zum vorher angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="67" priority="C" title="Finanzkategorie unvollständig bearbeiten">
+<description>Es soll eine Finanzkategorie bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 61 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Lehre 0809"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer löscht den Inhalt des Felds Name
+
+* Benutzer löscht den Inhalt des Felds Jahr
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Datensatz wird nicht editiert. Der Benutzer bleibt im Bearbeiten-Tab und wird über die leer gelassenen Felder informiert.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="68" priority="C" title="Finanzkategorie inkorrekt bearbeiten">
+<description>Es soll eine Finanzkategorie bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 60 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Lehre 2010"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ändert den Fonds zu "1234"
+
+* Benutzer ändert das Jahr zu "irgendwann"
+
+* Benutzer klickt auf den Button "Speichern"
+</actions>
+<post>Der Datensatz wird nicht bearbeitet. Der Benutzer wird darüber informiert, dass das Format für die Felder Fonds und Jahr nicht eingehalten wurde. Er befindet sich weiterhin im Bearbeiten-Tab, um seine Eingabe korrigieren zu können.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="69" priority="C" title="Abbruch: Finanzkategorie bearbeiten">
+<description>Es soll eine Finanzkategorie bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 62 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Sonstiges"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ersetzt das Feld Jahr mit "2011"
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Die Änderungen am Datensatz werden verworfen, das Bearbeiten-Tab wird geschloßen und der Benutzer befindet sich erneut im davor angezeigten Tab.</post>
+<tags/>
+</testcase>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Löschen" number="24">
 <description>Die Testsequenz enthält Testfälle zum Löschen einer Finanzkategorie in die Datenbank.</description>
 <pre>Benutzer möchte eine Finanzkategorie löschen.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="70" priority="C" title="Finanzkategorie entfernen ohne Referenz">
+<description>Es soll eine Finanzkategorie gelöscht werden, was korrekt funktioniert.</description>
+<pre>Der Testfall 60 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Lehre 2010"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Finanzkategorien.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="71" priority="C" title="Finanzkategorie entfernen mit Referenz">
+<description>Es soll eine Finanzkategorie gelöscht werden. Das Datum wird noch referenziert.</description>
+<pre>Der Testfall 61 und X wurde ausgeführt. TODO</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Lehre 0809"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Finanzkategorien.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="72" priority="C" title="Abbruch: Finanzkategorie entfernen">
+<description>Es soll eine Finanzkategorie gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
+<pre>Der Testfall 62 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Sonstiges"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Finanzkategorien.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="73" priority="C" title="Finanzkategorie entfernen ohne Auswahl">
+<description>Es soll eine Finanzkategorie gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Löschen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
+<tags/>
+</testcase>
 </sequence>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Stundenlöhne" number="15">
@@ -636,7 +741,7 @@
 <relatedsequence>27</relatedsequence>
 </tsa>
 </tsa>
-<tsa name="Finanzkategorien" number="14" revId="2">
+<tsa name="Finanzkategorien" number="14" revId="1">
 <relatedsequence>14</relatedsequence>
 </tsa>
 </tsa>
@@ -660,5 +765,5 @@
 <author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
 <extension name="standarduser" value="Y"/>
 </author>
-<extension name="maxid" value="65"/>
+<extension name="maxid" value="73"/>
 </tests>
