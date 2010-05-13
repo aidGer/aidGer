@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE tests SYSTEM "project.dtd">
 <tests product="TestDataManager" team="05" version="1.0">
-<sequence created="11.05.2010" creator="aidGerTeam" name="Projekt" number="0">
+<sequence created="13.05.2010" creator="aidGerTeam" name="Projekt" number="0">
 <description>Dies ist der Wurzelknoten des Projekts. Er enthält alle anderen Testsequenzen und Testfälle</description>
 <pre/>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Systemtest" number="3">
 <description/>
 <pre/>
-<sequence created="11.05.2010" creator="aidGerTeam" name="Stammdaten" number="4">
-<description/>
-<pre/>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Stammdatenverwaltung" number="4">
+<description>Die Testsequenz dient zum Testen der Stammdatenverwaltung.</description>
+<pre>Das Programm wurde gestartet.</pre>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Veranstaltungen" number="12">
-<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten und Löschen der Stammdaten Veranstaltungen.</description>
+<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten, Löschen, Anzeigen und Suchen der Stammdaten Veranstaltungen.</description>
 <pre>Benutzer befindet sich im Menüpunkt Veranstaltungen.</pre>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Hinzufügen" number="16">
 <description>Die Testsequenz enthält Testfälle zum Hinzufügen einer Veranstaltung in die Datenbank.</description>
@@ -196,7 +196,7 @@
 <tags/>
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="37" priority="C" title="Abbruch: Veranstaltung bearbeiten">
-<description/>
+<description>Es soll eine Veranstaltung bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 38 wurde bereits ausgeführt.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Mensa überleben für Pizza-Fans"
 
@@ -225,8 +225,21 @@
 <post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
 <tags/>
 </testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="97" priority="C" title="Veranstaltung entfernen mit Taste Entf">
+<description>Es soll eine Veranstaltung gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
+<pre>Der Testfall 39 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
+
+* Benutzer drückt die Taste "Ent"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
+<tags/>
+</testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="41" priority="C" title="Veranstaltung entfernen mit Referenz">
-<description>Es soll eine Veranstaltung gelöscht werden. Das Datum wiird noch referenziert.</description>
+<description>Es soll eine Veranstaltung gelöscht werden. Das Datum wird noch referenziert.</description>
 <pre>Der Testfall 28 und X wurde ausgeführt. TODO</pre>
 <actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
 
@@ -259,9 +272,159 @@
 <tags/>
 </testcase>
 </sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Anzeigen" number="98">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen einer Veranstaltung in die Datenbank.</description>
+<pre>Benutzer möchte eine Veranstaltung anzeigen.</pre>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="122" priority="C" title="Spaltenauswahl über Kontextmenü">
+<description>TODO</description>
+<pre/>
+<actions/>
+<post/>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="121" priority="C" title="Veranstaltung anzeigen und schließen">
+<description>Es soll eine Veranstaltung angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
+<pre>Der Testfall 28 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 28 übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum zuvor angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="125" priority="C" title="Veranstaltung anzeigen und bearbeiten">
+<description>Es soll eine Veranstaltung angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
+<pre>Der Testfall 39 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* System geht in den "Bearbeiten"-Tab über
+
+* Benutzer gibt den neuen Dozent "B. Gates, S. Ballmer" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 39 übereinstimmen. Nach dem Bearbeiten wurde der Datensatz korrekt geändert und gespeichert. Der Benutzer befindet sich im vorher angezeigten Reiter wieder.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="127" priority="C" title="Veranstaltung anzeigen und Vorgang anzeigen">
+<description>Es soll eine Veranstaltung angezeigt werden. Anschließend soll ein Vorgang zur Veranstaltung angezeigt werden.</description>
+<pre>Der Testfall 28 und X wurde ausgeführt. TODO</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt den Vorgang "XX" an
+
+* System öffnet den Vorgang in einem neuen "Anzeigen"-Tab
+
+* Benutzer schließt den Vorgangsreiter
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 28 übereinstimmen. Des weiteren konnte er sich über den ausgewählten Vorgang informieren. Der Benutzer befindet sich wieder im zuvor angezeigten Reiter.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="126" priority="C" title="Veranstaltung anzeigen ohne Auswahl">
+<description>Es soll eine Veranstaltung angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen und es erscheint eine entsprechende Fehlermeldung.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Suchen" number="92">
+<description>Die Testsequenz enthält Testfälle zum Suchen einer Veranstaltung in die Datenbank.</description>
+<pre>Benutzer möchte eine Veranstaltung suchen.</pre>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="128" priority="C" title="Veranstaltung suchen nach Name">
+<description>Es soll eine Veranstaltung gesucht werden. Es wird nach dem Namen gesucht.</description>
+<pre>Der Testfall 28 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt im Suchfeld "Nutzlose Betriebssysteme in der Praxis" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich die gesuche Veranstaltung (Testfall 28). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="130" priority="C" title="Veranstaltung suchen nach Dozent">
+<description>Es soll eine Veranstaltung gesucht werden. Es wird nach dem Dozent gesucht.</description>
+<pre>Der Testfall 28 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt im Suchfeld "B. Gates" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich die gesuche Veranstaltung (Testfall 28). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="131" priority="C" title="Veranstaltung unvollständig suchen">
+<description>Es soll eine Veranstaltung gesucht werden. Der Name der Veranstaltung wird nur teilweise eingeben.</description>
+<pre>Der Testfall 39 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt in das Suchfeld "Laufende" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich die gesuche Veranstaltung (Testfall 39). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="129" priority="C" title="Suchfilter entfernen">
+<description>Der angewandte Suchfilter soll entfernt werden.</description>
+<pre>Der Testfall 128 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt auf den Button neben dem Suchfeld</actions>
+<post>Die Anzeige-Tabelle zeigt alle Veranstaltungen an. Das Suchfeld wurde geleert.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Vorgänge" number="132">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen von Vorgängen zu einer Veranstaltung.</description>
+<pre>Benutzer möchte Vorgänge zu einer Veranstaltung anzeigen.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="133" priority="C" title="Vorgänge anzeigen und schließen">
+<description>Es sollen Vorgänge zu einer Veranstaltung angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
+<pre>Der Testfall 28 und X wurde ausgeführt. TODO</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Vorgänge"
+
+* System öffnet das "Vorgänge"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Veranstaltung erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum zuvor angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="134" priority="C" title="Vorgänge anzeigen und Detailansicht">
+<description>Es sollen Vorgänge zu einer Veranstaltung angezeigt werden. Ein einzelner Vorgang soll daraufhin angezeigt werden.</description>
+<pre>Der Testfall 38 und X wurde ausgeführt. TODO</pre>
+<actions>* Benutzer markiert die Veranstaltung "Mensa überleben für Pizza-Fans"
+
+* Benutzer klickt auf den Button "Vorgänge"
+
+* System öffnet das "Vorgänge"-Tab
+
+* Benutzer klickt auf den Vorgang "XX"
+
+* System öffnet das "Anzeige"-Tab des Vorgangs
+
+* Benutzer schließt das Vorgangsreiter
+
+* Benutzer drückt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Veranstaltung erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Anschließend konnte er sich über einen einzelen Vorgang in einer Detailsicht informieren. Die beiden Reiter-Fenster sind geschloßen und der Benutzer kehrt zum zuvor angezeigten Reiter zurück.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="135" priority="C" title="Vorgänge anzeigen ohne Auswahl">
+<description>Es sollen Vorgänge zu einer Veranstaltung angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Vorgänge"</actions>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen und es erscheint eine entsprechende Fehlermeldung.</post>
+<tags/>
+</testcase>
+</sequence>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Hilfskräfte" number="13">
-<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten und Löschen der Stammdaten Hilfskräfte.</description>
+<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten, Löschen, Anzeigen und Suchen der Stammdaten Hilfskräfte.</description>
 <pre>Benutzer befindet sich im Menüpunkt Hilfskräfte.</pre>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Hinzufügen" number="20">
 <description>Die Testsequenz enthält Testfälle zum Hinzufügen einer Hilfskraft in die Datenbank.</description>
@@ -395,7 +558,7 @@
 <tags/>
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="55" priority="C" title="Abbruch: Hilfskraft bearbeiten">
-<description/>
+<description>Es soll eine Hilfskraft bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde bereits ausgeführt.</pre>
 <actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
 
@@ -424,8 +587,21 @@
 <post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
 <tags/>
 </testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="146" priority="C" title="Hilfskraft entfernen mit Taste Entf">
+<description>Es soll eine Hilfskraft gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
+<pre>Der Testfall 45 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
+
+* Benutzer drückt die Taste "Entf"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
+<tags/>
+</testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="57" priority="C" title="Hilfskraft entfernen mit Referenz">
-<description>Es soll eine Hilfskraft gelöscht werden. Das Datum wiird noch referenziert.</description>
+<description>Es soll eine Hilfskraft gelöscht werden. Das Datum wird noch referenziert.</description>
 <pre>Der Testfall 45 und X wurde ausgeführt. TODO</pre>
 <actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
 
@@ -458,9 +634,134 @@
 <tags/>
 </testcase>
 </sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Anzeigen" number="99">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen einer Hilfskraft in die Datenbank.</description>
+<pre>Benutzer möchte eine Hilfskraft anzeigen.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="137" priority="C" title="Hilfskraft anzeigen und schließen">
+<description>Es soll eine Hilfskraft angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
+<pre>Der Testfall 46 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Fred Feuerstein"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 46 übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum zuvor angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="138" priority="C" title="Hilfskraft anzeigen und bearbeiten">
+<description>Es soll eine Hilfskraft angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
+<pre>Der Testfall 45 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* System geht in den "Bearbeiten"-Tab über
+
+* Benutzer gibt den neuen Nachname "Planvoll" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 45 übereinstimmen. Nach dem Bearbeiten wurde der Datensatz korrekt geändert und gespeichert. Der Benutzer befindet sich im vorher angezeigten Reiter wieder.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="139" priority="C" title="Hilfskraft anzeigen und Vorgang anzeigen">
+<description>Es soll eine Hilfskraft angezeigt werden. Anschließend soll ein Vorgang zur Hilfskraft angezeigt werden.</description>
+<pre>Der Testfall 44 und X wurde ausgeführt. TODO</pre>
+<actions>* Benutzer markiert die Hilfskraft "Carl Coder"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt den Vorgang "XX" an
+
+* System öffnet den Vorgang in einem neuen "Anzeigen"-Tab
+
+* Benutzer schließt den Vorgangsreiter
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 44 übereinstimmen. Des weiteren konnte er sich über den ausgewählten Vorgang informieren. Der Benutzer befindet sich wieder im zuvor angezeigten Reiter.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="140" priority="C" title="Hilfskraft anzeigen ohne Auswahl">
+<description>Es soll eine Hilfskraft angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte und es erscheint eine entsprechende Fehlermeldung.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Suchen" number="94">
+<description>Die Testsequenz enthält Testfälle zum Suchen einer Hilfskraft in die Datenbank.</description>
+<pre>Benutzer möchte eine Hilfskraft suchen.</pre>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="141" priority="C" title="Hilfskraft suchen nach Nachname">
+<description>Es soll eine Hilfskraft gesucht werden. Es wird nach dem Nachnamen gesucht.</description>
+<pre>Der Testfall 45 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt im Suchfeld "Planlos" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich die gesuche Hilfskraft (Testfall 45). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="142" priority="C" title="Suchfilter entfernen">
+<description>Der angewandte Suchfilter soll entfernt werden.</description>
+<pre>Der Testfall 141 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt auf den Button neben dem Suchfeld</actions>
+<post>Die Anzeige-Tabelle zeigt alle Hilfskräfte an. Das Suchfeld wurde geleert.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Vorgänge" number="136">
+<description/>
+<pre/>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="143" priority="C" title="Vorgänge anzeigen und schließen">
+<description>Es sollen Vorgänge zu einer Hilfskraft angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
+<pre>Der Testfall 44 und X wurde ausgeführt. TODO</pre>
+<actions>* Benutzer markiert die Hilfskraft "Carl Coder"
+
+* Benutzer klickt auf den Button "Vorgänge"
+
+* System öffnet das "Vorgänge"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Hilfskraft erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum zuvor angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="144" priority="C" title="Vorgänge anzeigen und Detailansicht">
+<description>Es sollen Vorgänge zu einer Hilfskraft angezeigt werden. Ein einzelner Vorgang soll daraufhin angezeigt werden.</description>
+<pre>Der Testfall 44 und X wurde ausgeführt. TODO</pre>
+<actions>* Benutzer markiert die Hilfskraft "Carl Coder"
+
+* Benutzer klickt auf den Button "Vorgänge"
+
+* System öffnet das "Vorgänge"-Tab
+
+* Benutzer klickt auf den Vorgang "XX"
+
+* System öffnet das "Anzeige"-Tab des Vorgangs
+
+* Benutzer schließt das Vorgangsreiter
+
+* Benutzer drückt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Hilfskraft erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Anschließend konnte er sich über einen einzelen Vorgang in einer Detailsicht informieren. Die beiden Reiter-Fenster sind geschloßen und der Benutzer kehrt zum zuvor angezeigten Reiter zurück.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="145" priority="C" title="Vorgänge anzeigen ohne Auswahl">
+<description>Es sollen Vorgänge zu einer Hilfskraft angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Vorgänge"</actions>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte und es erscheint eine entsprechende Fehlermeldung.</post>
+<tags/>
+</testcase>
+</sequence>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Finanzkategorien" number="14">
-<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten und Löschen der Stammdaten Finanzpläne.</description>
+<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten, Löschen, Anziegen und Suchen der Stammdaten Finanzkategorien.</description>
 <pre>Benutzer befindet sich im Menüpunkt Finanzpläne.</pre>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Hinzufügen" number="22">
 <description>Die Testsequenz enthält Testfälle zum Hinzufügen einer Finanzkategorie in die Datenbank.</description>
@@ -549,48 +850,769 @@
 <sequence created="11.05.2010" creator="aidGerTeam" name="Bearbeiten" number="23">
 <description>Die Testsequenz enthält Testfälle zum Bearbeiten einer Finanzkategorie in die Datenbank.</description>
 <pre>Benutzer möchte eine Finanzkategorie bearbeiten.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="66" priority="C" title="Finanzkategorie korrekt bearbeiten">
+<description>Es soll eine Finanzkategorie bearbeitet werden. Alle Eingaben sind korrekt.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 61 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Lehre 0809"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer gibt die neuen Budgetkosten "24000" ein
+
+* Benutzer gibt das Jahr "2008" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die geänderten Daten werden in der Datenbank hinterlegt und das System kehrt zum vorher angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="67" priority="C" title="Finanzkategorie unvollständig bearbeiten">
+<description>Es soll eine Finanzkategorie bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 61 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Lehre 0809"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer löscht den Inhalt des Felds Name
+
+* Benutzer löscht den Inhalt des Felds Jahr
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Datensatz wird nicht editiert. Der Benutzer bleibt im Bearbeiten-Tab und wird über die leer gelassenen Felder informiert.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="68" priority="C" title="Finanzkategorie inkorrekt bearbeiten">
+<description>Es soll eine Finanzkategorie bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 60 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Lehre 2010"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ändert den Fonds zu "1234"
+
+* Benutzer ändert das Jahr zu "irgendwann"
+
+* Benutzer klickt auf den Button "Speichern"
+</actions>
+<post>Der Datensatz wird nicht bearbeitet. Der Benutzer wird darüber informiert, dass das Format für die Felder Fonds und Jahr nicht eingehalten wurde. Er befindet sich weiterhin im Bearbeiten-Tab, um seine Eingabe korrigieren zu können.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="69" priority="C" title="Abbruch: Finanzkategorie bearbeiten">
+<description>Es soll eine Finanzkategorie bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 62 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Sonstiges"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ersetzt das Feld Jahr mit "2011"
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Die Änderungen am Datensatz werden verworfen, das Bearbeiten-Tab wird geschloßen und der Benutzer befindet sich erneut im davor angezeigten Tab.</post>
+<tags/>
+</testcase>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Löschen" number="24">
 <description>Die Testsequenz enthält Testfälle zum Löschen einer Finanzkategorie in die Datenbank.</description>
 <pre>Benutzer möchte eine Finanzkategorie löschen.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="70" priority="C" title="Finanzkategorie entfernen ohne Referenz">
+<description>Es soll eine Finanzkategorie gelöscht werden, was korrekt funktioniert.</description>
+<pre>Der Testfall 60 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Lehre 2010"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Finanzkategorien.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="147" priority="C" title="Finanzkategorie entfernen mit Taste Entf">
+<description>Es soll eine Finanzkategorie gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
+<pre>Der Testfall 60 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Lehre 2010"
+
+* Benutzer drückt die Taste "Entf"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Finanzkategorien.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="71" priority="C" title="Finanzkategorie entfernen mit Referenz">
+<description>Es soll eine Finanzkategorie gelöscht werden. Das Datum wird noch referenziert.</description>
+<pre>Der Testfall 61 und X wurde ausgeführt. TODO</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Lehre 0809"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Finanzkategorien.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="72" priority="C" title="Abbruch: Finanzkategorie entfernen">
+<description>Es soll eine Finanzkategorie gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
+<pre>Der Testfall 62 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Sonstiges"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Finanzkategorien.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="73" priority="C" title="Finanzkategorie entfernen ohne Auswahl">
+<description>Es soll eine Finanzkategorie gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Löschen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Finanzkategorie.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Anzeigen" number="100">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen einer Finanzkategorie in die Datenbank.</description>
+<pre>Benutzer möchte eine Finanzkategorie anzeigen.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="149" priority="C" title="Finanzkategorie anzeigen und schließen">
+<description>Es soll eine Finanzkategorie angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
+<pre>Der Testfall 60 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Lehre 2010"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten. Diese Daten müssen zu den eingebenen Daten im Testfall 60 übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum zuvor angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="150" priority="C" title="Finanzkategorie anzeigen und bearbeiten">
+<description>Es soll eine Finanzkategorie angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
+<pre>Der Testfall 62 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Sonstiges"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* System geht in den "Bearbeiten"-Tab über
+
+* Benutzer gibt die neuen Budgetkosten "8000" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten. Diese Daten müssen zu den eingebenen Daten im Testfall 62 übereinstimmen. Nach dem Bearbeiten wurde der Datensatz korrekt geändert und gespeichert. Der Benutzer befindet sich im vorher angezeigten Reiter wieder.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="151" priority="C" title="Finanzkategorie anzeigen ohne Auswahl">
+<description>Es soll eine Finanzkategorie angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Finanzkategorien und es erscheint eine entsprechende Fehlermeldung.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Suchen" number="95">
+<description>Die Testsequenz enthält Testfälle zum Suchen einer Finanzkategorie in die Datenbank.</description>
+<pre>Benutzer möchte eine Finanzkategorie suchen.</pre>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="152" priority="C" title="Finanzkategorie suchen nach Budgetkosten">
+<description>Es soll eine Finanzkategorie gesucht werden. Es wird nach den Budgetkosten gesucht.</description>
+<pre>Der Testfall 61 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt im Suchfeld "12000" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich die gesuche Finanzkategorie (Testfall 61). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="153" priority="C" title="Suchfilter entfernen">
+<description>Der angewandte Suchfilter soll entfernt werden.</description>
+<pre>Der Testfall 152 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt auf den Button neben dem Suchfeld</actions>
+<post>Die Anzeige-Tabelle zeigt alle Finanzkategorien an. Das Suchfeld wurde geleert.</post>
+<tags/>
+</testcase>
 </sequence>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Stundenlöhne" number="15">
-<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten und Löschen der Stammdaten Stundenlöhne.</description>
+<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten, Löschen, Anzeigen und Suchen der Stammdaten Stundenlöhne.</description>
 <pre>Benutzer befindet sich im Menüpunkt Stundenlöhne.</pre>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Hinzufügen" number="25">
 <description>Die Testsequenz enthält Testfälle zum Hinzufügen eines Stundenlohns in die Datenbank.</description>
 <pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:04" number="74" priority="B" title="Stundenlohn korrekt hinzufügen">
+<description>Es wird ein Stundenlohn zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die Qualifikation "Bachelor" ein
+
+* Benutzer wählt den Monat "März" an
+
+* Benutzer wählt das Jahr "2010" aus
+
+* Benutzer gibt den Stundenlohn "10,50" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Stundenlohn ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:04" number="75" priority="B" title="Stundenlohn korrekt hinzufügen">
+<description>Es wird ein Stundenlohn zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die Qualifikation "Ungeprüft" ein
+
+* Benutzer wählt den Monat "April" an
+
+* Benutzer wählt das Jahr "2009" aus
+
+* Benutzer gibt den Stundenlohn "7,30" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Stundenlohn ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:04" number="76" priority="B" title="Stundenlohn korrekt hinzufügen">
+<description>Es wird ein Stundenlohn zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die Qualifikation "Geprüft" ein
+
+* Benutzer wählt den Monat "Dezember" an
+
+* Benutzer wählt das Jahr "2008" aus
+
+* Benutzer gibt den Stundenlohn "12,80" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Stundenlohn ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="77" priority="B" title="Stundenlohn inkorrekt hinzufügen">
+<description>Es wird ein Stundenlohn zum System hinzugefügt. Dabei werden falsche Eingaben gemacht.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die Qualifikation "Bachelor" ein
+
+* Benutzer gibt den Stundenlohn "Hungerlohn" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Stundenlohn wurde nicht hinzugefügt und der Benutzer befindet sich weiterhin im Hinzufügen-Tab, um seine Eingabe korrigieren zu können. Das Feld "Stundenlohn" soll hervorgehoben werden.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="78" priority="D" title="Abbruch: Stundenlohn hinzufügen">
+<description>Es soll ein Stundenlohn hinzugefügt werden. Dieser Vorgang wird abgebrochen.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die Qualifikation "Ungeprüft" ein
+
+* Benutzer wählt den Monat "Februar" aus
+
+* Benutzer klickt auf den Button "Abbrechen"	</actions>
+<post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
+<tags/>
+</testcase>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Bearbeiten" number="26">
 <description>Die Testsequenz enthält Testfälle zum Bearbeiten eines Stundenlohns in die Datenbank.</description>
 <pre>Benutzer möchte einen Stundenlohn bearbeiten.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="79" priority="C" title="Stundenlohn korrekt bearbeiten">
+<description>Es soll ein Stundenlohn bearbeitet werden. Alle Eingaben sind korrekt.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 74 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den Stundenlohn "Bachelor - 03.2010"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer gibt den Stundenlohn "10,80" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die geänderten Daten werden in der Datenbank hinterlegt und das System kehrt zum vorher angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="80" priority="C" title="Stundenlohn unvollständig bearbeiten">
+<description>Es soll ein Stundenlohn bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 75 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den Stundenlohn "Ungeprüft - 04.2009"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer löscht den Inhalt des Felds Stundenlohn
+
+* Benutzer löscht den Inhalt des Felds Qualifikation
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Datensatz wird nicht editiert. Der Benutzer bleibt im Bearbeiten-Tab und wird über die leer gelassenen Felder informiert.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="81" priority="C" title="Stundenlohn inkorrekt bearbeiten">
+<description>Es soll ein Stundenlohn bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 76 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den Stundenlohn "Geprüft - 12.2008"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ändert den Stundenlohn zu "nichts"
+
+* Benutzer klickt auf den Button "Speichern"
+</actions>
+<post>Der Datensatz wird nicht bearbeitet. Der Benutzer wird darüber informiert, dass das Format für des Felds Stundenlohn nicht eingehalten wurde. Er befindet sich weiterhin im Bearbeiten-Tab, um seine Eingabe korrigieren zu können.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="82" priority="C" title="Abbruch: Stundenlohn bearbeiten">
+<description>Es soll ein Stundenlohn bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 76 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den Stundenlohn "Geprüft - 12.2008"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ersetzt das Feld Jahr mit "2012"
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Die Änderungen am Datensatz werden verworfen, das Bearbeiten-Tab wird geschloßen und der Benutzer befindet sich erneut im davor angezeigten Tab.</post>
+<tags/>
+</testcase>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Löschen" number="27">
 <description>Die Testsequenz enthält Testfälle zum Löschen eines Stundenlohns in die Datenbank.</description>
 <pre>Benutzer möchte einen Stundenlohn löschen.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="83" priority="C" title="Stundenlohn entfernen ohne Referenz">
+<description>Es soll ein Stundenlohn gelöscht werden, was korrekt funktioniert.</description>
+<pre>Der Testfall 75 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den Stundenlohn "Ungeprüft - 04.2009"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Stundenlöhne.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="148" priority="C" title="Stundenlohn entfernen mit Taste Entf">
+<description>Es soll ein Stundenlohn gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
+<pre>Der Testfall 75 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den Stundenlohn "Ungeprüft - 04.2009"
+
+* Benutzer drückt die Taste "Entf"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Stundenlöhne.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="84" priority="C" title="Stundenlohn entfernen mit Referenz">
+<description>Es soll ein Stundenlohn gelöscht werden. Das Datum wird noch referenziert.</description>
+<pre>Der Testfall 74 und X wurde ausgeführt. TODO</pre>
+<actions>* Benutzer markiert den Stundenlohn "Bachelor - 03.2010"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Stundenlöhne.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="85" priority="C" title="Abbruch: Stundenlohn entfernen">
+<description>Es soll ein Stundenlohn gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
+<pre>Der Testfall 76 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den Stundenlohn "Geprüft - 12.2008"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Stundenlöhne.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="86" priority="C" title="Stundenlohn entfernen ohne Auswahl">
+<description>Es soll ein Stundenlohn gelöscht werden. Es wurde jedoch keiner ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Löschen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Stundenlöhne.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Anzeigen" number="101">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen eines Stundenlohns in die Datenbank.</description>
+<pre>Benutzer möchte eine Veranstaltung anzeigen.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="154" priority="C" title="Stundenlohn anzeigen und schließen">
+<description>Es soll ein Stundenlohn angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
+<pre>Der Testfall 75 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den Stundenlohn "Ungeprüft - 04.2009"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten. Diese Daten müssen zu den eingebenen Daten im Testfall 75 übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum zuvor angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="155" priority="C" title="Stundenlohn anzeigen und bearbeiten">
+<description>Es soll ein Stundenlohn angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
+<pre>Der Testfall 76 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den Stundenlohn "Geprüft - 12.2008"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* System geht in den "Bearbeiten"-Tab über
+
+* Benutzer gibt den neuen Stundenlohn "13,20" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten. Diese Daten müssen zu den eingebenen Daten im Testfall 76 übereinstimmen. Nach dem Bearbeiten wurde der Datensatz korrekt geändert und gespeichert. Der Benutzer befindet sich im vorher angezeigten Reiter wieder.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="156" priority="C" title="Stundenlohn anzeigen ohne Auswahl">
+<description>Es soll ein Stundenlohn angezeigt werden. Es wurde jedoch keiner ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Stundenlöhne und es erscheint eine entsprechende Fehlermeldung.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Suchen" number="96">
+<description>Die Testsequenz enthält Testfälle zum Suchen eines Stundenlohns in die Datenbank.</description>
+<pre>Benutzer möchte einen Stundenlohn suchen.</pre>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="157" priority="C" title="Stundenlohn suchen nach Qualifikation">
+<description>Es soll ein Stundenlohn gesucht werden. Es wird nach der Qualifikation gesucht.</description>
+<pre>Der Testfall 74 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt im Suchfeld "Bachelor" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich der gesuchte Stundenlohn (Testfall 74). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="158" priority="C" title="Suchfilter entfernen">
+<description>Der angewandte Suchfilter soll entfernt werden.</description>
+<pre>Der Testfall 152 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt auf den Button neben dem Suchfeld</actions>
+<post>Die Anzeige-Tabelle zeigt alle Finanzkategorien an. Das Suchfeld wurde geleert.</post>
+<tags/>
+</testcase>
 </sequence>
 </sequence>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Beschäftigungen" number="7">
-<description/>
-<pre/>
+<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten, Löschen, Anzeigen und Suchen von Beschäftigungen.</description>
+<pre>Das Programm wurde gestartet und der Benutzer befindet sich im Menüpunkt Beschäftigungen.</pre>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Hinzufügen" number="102">
+<description>Die Testsequenz enthält Testfälle zum Hinzufügen einer Beschäftigung in die Datenbank.</description>
+<pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="159" priority="A" title="Beschäftigung korrekt buchen">
+<description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44 und 28 wurden ausgeführt.</pre>
+<actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
+
+* Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
+
+* Benutzer gibt den Fonds "12345678" ein
+
+* Benutzer gibt die Kostenstelle "Studiengebühren" ein
+
+* Benutzer gibt die Bemerkung "keine" ein
+
+* Benutzer wählt den Startmonat "November" aus
+
+* Benutzer wählt das Startjahr "2010" aus
+
+* Benutzer wählt den Endmonat "Januar" aus
+
+* Benutzer wählt das Endjahr "2011" aus
+
+* Benutzer gibt für November 2010 30 HKS ein.
+
+* Benutzer gibt für Dezember 2010 20 HKS ein.
+
+* Benutzer gibt für Januar 2010 45 HKS ein.
+
+* Benutzer klickt auf den Button "Weiter"</actions>
+<post>Die Beschäftigung wurde im System mit den korrekten Werten zwischengespeichert und es wird im nächsten Schritt der Vertrag zur Beschäftigung zugeordnet.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:04" number="160" priority="A" title="Vertragsdaten korrekt buchen">
+<description>Die Beschäftigung wurde bereits erfasst. Nun müssen die Vertragsdaten im nächsten Schritt gebucht werden. Dieser Testfall knüpft direkt an Testfall 159 an.</description>
+<pre>Der Testfall 159 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt das Abschlußdatum "10.10.2010" ein
+
+* Benutzer lässt das Bestätigungsdatum leer
+
+* Benutzer setzt nicht das Häkchen bei "Einstellung nach Delegationsverfahren"
+
+* Benutzer lässt den Standardwert bei Beschätigungsbeginn
+
+* Benutzer lässt den Standardwert bei Beschäftigungsende
+
+* Benutzer gibt bei Art des Vertrags "Neuvertrag" ein
+
+* Benutzer klickt auf "Speichern"</actions>
+<post>Die Buchung der Beschäftigung wurde vollständig gespeichert. Die Vertragsdaten wurden außerdem zur Beschäftigung korrekt zugeordnet und abgespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehr zum Menüpunkt Beschäftigungen im alten Reiter zurück.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="161" priority="A" title="Beschäftigung inkorrekt buchen">
+<description>Es soll eine Beschäftigung gebucht werden. Es wurden falsche Eingaben gemacht.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 38 wurden ausgeführt.</pre>
+<actions>* Benutzer wählt die Hilfskraft "Peter Planlos" aus
+
+* Benutzer wählt die Veranstaltung "Mensa überleben für Pizza-Fans" aus
+
+* Benutzer gibt den Fonds "1234" ein
+
+* Benutzer gibt die Kostenstelle "Studiengebühren" ein
+
+* Benutzer gibt die Bemerkung "keine" ein
+
+* Benutzer wählt den Startmonat "November" aus
+
+* Benutzer wählt das Startjahr "2010" aus
+
+* Benutzer wählt den Endmonat "Mai" aus
+
+* Benutzer wählt das Endjahr "2010" aus
+
+* Benutzer klickt auf den Button "Weiter"</actions>
+<post>Die Beschätigung wurde nicht zwischengespeichert. Der Benutzer wird darüber informiert, dass das Format des Fonds nicht stimmt. Des weiteren bekommt er die Fehlermeldung, dass das Enddatum vor dem Startdatum liegt. Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="162" priority="A" title="Beschäftigung inkorrekt buchen">
+<description>Es soll eine Beschäftigung gebucht werden. Es wurden falsche Eingaben gemacht.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 38 wurden ausgeführt.</pre>
+<actions>* Benutzer wählt die Hilfskraft "Peter Planlos" aus
+
+* Benutzer gibt den Fonds "12344321" ein
+
+* Benutzer gibt die Kostenstelle "kein Plan" ein
+
+* Benutzer gibt die Bemerkung "wer will den überhaupt einstellen?" ein
+
+* Benutzer wählt den Startmonat "Mai" aus
+
+* Benutzer wählt das Startjahr "2010" aus
+
+* Benutzer wählt den Endmonat "August" aus
+
+* Benutzer wählt das Endjahr "2010" aus
+
+* Benutzer gibt für Mai 2010 "10" HKS ein
+
+* Benutzer gibt für Juni 2010 "viele" HKS ein
+
+* Benutzer gibt für Juli 2010 "einige" HKS ein
+
+* Benutzer gibt für August 2010 "33" HKS ein
+
+* Benutzer klickt auf den Button "Weiter"</actions>
+<post>Die Beschätigung wurde nicht zwischengespeichert. Der Benutzer wird darüber informiert, dass er keine Veranstaltung ausgewählt hat. Des weiteren bekommt er die Fehlermeldung, dass er das Format der HKS-Felder nicht eingehalten hat. Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="164" priority="A" title="Beschäftigung korrekt buchen, aber nicht möglich">
+<description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt. Die Buchung ist dennoch nicht möglich.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44, 28 und X wurden ausgeführt. TODO</pre>
+<actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
+
+* Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
+
+* Benutzer gibt den Fonds "12345678" ein
+
+* Benutzer gibt die Kostenstelle "Studiengebühren" ein
+
+* Benutzer gibt die Bemerkung "keine" ein
+
+* Benutzer wählt den Startmonat "November" aus
+
+* Benutzer wählt das Startjahr "2010" aus
+
+* Benutzer wählt den Endmonat "Januar" aus
+
+* Benutzer wählt das Endjahr "2011" aus
+
+* Benutzer gibt für November 2010 30 HKS ein.
+
+* Benutzer gibt für Dezember 2010 20 HKS ein.
+
+* Benutzer gibt für Januar 2010 45 HKS ein.
+
+* Benutzer klickt auf den Button "Weiter"</actions>
+<post>Die Beschäftigung wurde im System mit den korrekten Werten zwischengespeichert und es wird im nächsten Schritt der Vertrag zur Beschäftigung zugeordnet.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="163" priority="A" title="Abbruch: Beschäftigung buchen">
+<description>Es soll eine Beschäftigung gebucht werden. Die Buchung wird jedoch abgebrochen.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44 und 28 wurden ausgeführt.</pre>
+<actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
+
+* Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
+
+* Benutzer gibt den Fonds "12345678" ein
+
+* Benutzer gibt die Kostenstelle "Studiengebühren" ein
+
+* Benutzer gibt die Bemerkung "keine" ein
+
+* Benutzer klickt auf den Button "Abbrechen</actions>
+<post>Die Beschäftigung wurde verworfen. Das Tab-Fenster wird geschloßen und der Benutzer kehrt zum zuvor angezeigten Reiter zurück.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Bearbeiten" number="103">
+<description>Die Testsequenz enthält Testfälle zum Bearbeiten einer Beschäftigung in die Datenbank.</description>
+<pre>Benutzer möchte eine Beschäftigung bearbeiten.</pre>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Löschen" number="104">
+<description>Die Testsequenz enthält Testfälle zum Löschen einer Beschäftigung in die Datenbank.</description>
+<pre>Benutzer möchte eine Beschäftigung löschen.</pre>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Anzeigen" number="105">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen einer Beschäftigung in die Datenbank.</description>
+<pre>Benutzer möchte eine Beschäftigung anzeigen.</pre>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Suchen" number="107">
+<description>Die Testsequenz enthält Testfälle zum Suchen einer Beschäftigung in die Datenbank.</description>
+<pre>Benutzer möchte eine Beschäftigung suchen.</pre>
+</sequence>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Vorgänge" number="8">
-<description/>
+<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten, Löschen, Anzeigen und Suchen von Vorgängen.</description>
+<pre>Das Programm wurde gestartet.</pre>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Hinzufügen" number="108">
+<description>Die Testsequenz enthält Testfälle zum Hinzufügen eines Vorgangs in die Datenbank.</description>
+<pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Bearbeiten" number="109">
+<description>Die Testsequenz enthält Testfälle zum Bearbeiten eines Vorgangs in die Datenbank.</description>
 <pre/>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Löschen" number="111">
+<description>Die Testsequenz enthält Testfälle zum Löschen eines Vorgangs in die Datenbank.</description>
+<pre/>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Anzeigen" number="112">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen eines Vorgangs in die Datenbank.</description>
+<pre/>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Suchen" number="113">
+<description>Die Testsequenz enthält Testfälle zum Suchen eines Vorgangs in die Datenbank.</description>
+<pre/>
+</sequence>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Berichte" number="9">
 <description/>
+<pre>Das Programm wurde gestartet.</pre>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Jahresbilanz" number="114">
+<description/>
 <pre/>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Semesterbilanz" number="123">
+<description/>
+<pre/>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Teilbilanz" number="124">
+<description/>
+<pre/>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Tätigkeitsnachweise" number="115">
+<description/>
+<pre/>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Vorgangsprotokolle" number="116">
+<description/>
+<pre/>
+</sequence>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Controlling" number="10">
 <description/>
-<pre/>
+<pre>Das Programm wurde gestartet.</pre>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Budgetprüfung" number="5">
 <description/>
+<pre>Das Programm wurde gestartet.</pre>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Allgemeines" number="87">
+<description>Die Testsequenz dient zum Testen allgemeiner Funktionalitäten der Software.</description>
+<pre>Das Programm wurde gestartet.</pre>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="88" priority="C" title="Programmstart mit offenen Tabs">
+<description>Das Programm wird gestartet, wobei beim letzten Programmstart Tabs offen gelassen wurden.</description>
+<pre>Die Einstellung "Reiter bei Verlassen speichern" ist aktiviert.</pre>
+<actions>* Benutzer öffnet den Menüpunkt Veranstaltungen in einem neuen Tab
+
+* Benutzer drückt den Button "Hinzufügen"
+
+* System öffnet das "Hinzufügen"-Tab
+
+* Benutzer gibt die Bezeichnung "Veranstaltung YXZ" ein
+
+* Benutzer öffnet den Menüpunkt Vorgänge in einem neuen Tab
+
+* Benutzer schließt das Programm
+
+* Benutzer startet das Programm erneut</actions>
+<post>Die Tabs "Veranstaltungen", "Veranstaltungen - Hinzufügen" und "Vorgänge" sind nach dem Programmstart erneut offen. Die Eingabe im Veranstaltungen-Hinzufügen-Formular ging jedoch dabei verloren.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="89" priority="C" title="Bewegliche, vertikale Leiste">
+<description>Um die Größe der Navigationsleiste und des Inhaltbereichs individuell anpassen zu können, soll die Trennleiste zwischen beiden beweglich sein.</description>
 <pre/>
+<actions>* Benutzer zieht die Leiste nach links
+
+* Benutzer zieht die Leiste nach rechts</actions>
+<post>Bei beiden Aktionen soll sich jeweils die Größe der beiden Bereiche mittels der vertikalen Leiste angepasst haben.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="90" priority="C" title="Änderung der Fenstergröße">
+<description>Es soll das Verhalten bei einer Veränderung der Fenstergröße getestet werden.</description>
+<pre/>
+<actions>* Benutzer zieht das Programmfenster breiter
+
+* Benutzer zieht das Programmfenster höher</actions>
+<post>Bei einer Veränderung der Fenstergröße in der Breite wird nur der Inhaltsbereich verändert, um mehr Platz für Informationen/Formulare zu bekommen. Die Navigationsleiste wird höchstens so breit wie das breiteste Element in ihr.
+
+Sollte sich die Fenstergröße in der Höhe verändern, ändert sich die Größe beider Elemente gleichmäßig.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="91" priority="C" title="Auswahl eines Elements in der Navigationsleiste">
+<description>Es wird die Auswahl eines Menüeintrags in der Navigationsleiste getestet. Es gibt Unterschiede zwischen einem linken und einen mittleren Mausklick.</description>
+<pre/>
+<actions>* Benutzer drückt mit der linken Maustaste auf den Menüpunkt Berichte
+
+* Benutzer drückt mit der mittleren Maustaste auf den Menüpunkt Controlling</actions>
+<post>Wird vom Benutzer ein Element in der Navigationsleiste mit der linken Maustaste ausgewählt, wird der aktuelle Inhalt des Inhaltsbereichs verworfen und durch den Inhalt des neuen Elements ersetzt.
+
+Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen, wird ein neuer Reiter geöffnet und der Inhalt des Elements in diesem neuen Reiter dargestellt. Der aktuelle Reiter bleibt dabei vollständig erhalten, gerät jedoch in den Hintergrund (ist also nicht mehr sichtbar).</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="117" priority="C" title="Drucken">
+<description>TODO</description>
+<pre/>
+<actions/>
+<post/>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="118" priority="C" title="Mehrsprachigkeit">
+<description>TODO</description>
+<pre/>
+<actions/>
+<post/>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="119" priority="C" title="Ticket-System">
+<description>TODO</description>
+<pre/>
+<actions/>
+<post/>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="120" priority="C" title="Hilfe">
+<description>TODO</description>
+<pre/>
+<actions/>
+<post/>
+<tags/>
+</testcase>
 </sequence>
 </sequence>
 </sequence>
@@ -598,67 +1620,76 @@
 <relatedsequence>0</relatedsequence>
 <tsa name="Systemtest" number="3" revId="1">
 <relatedsequence>3</relatedsequence>
-<tsa name="Stammdaten" number="4" revId="1">
-<relatedsequence>4</relatedsequence>
-<tsa name="Veranstaltungen" number="12" revId="1">
-<relatedsequence>12</relatedsequence>
-<tsa name="Hinzufügen" number="16" revId="1">
-<relatedsequence>16</relatedsequence>
-</tsa>
-<tsa name="Bearbeiten" number="17" revId="1">
-<relatedsequence>17</relatedsequence>
-</tsa>
-<tsa name="Löschen" number="18" revId="1">
-<relatedsequence>18</relatedsequence>
-</tsa>
-</tsa>
-<tsa name="Hilfskräfte" number="13" revId="1">
-<relatedsequence>13</relatedsequence>
-<tsa name="Hinzufügen" number="20" revId="1">
-<relatedsequence>20</relatedsequence>
-</tsa>
-<tsa name="Bearbeiten" number="19" revId="1">
-<relatedsequence>19</relatedsequence>
-</tsa>
-<tsa name="Löschen" number="21" revId="1">
-<relatedsequence>21</relatedsequence>
-</tsa>
-</tsa>
-<tsa name="Stundenlöhne" number="15" revId="1">
-<relatedsequence>15</relatedsequence>
-<tsa name="Hinzufügen" number="25" revId="1">
-<relatedsequence>25</relatedsequence>
-</tsa>
-<tsa name="Bearbeiten" number="26" revId="1">
-<relatedsequence>26</relatedsequence>
-</tsa>
-<tsa name="Löschen" number="27" revId="1">
-<relatedsequence>27</relatedsequence>
-</tsa>
-</tsa>
-<tsa name="Finanzkategorien" number="14" revId="2">
-<relatedsequence>14</relatedsequence>
-</tsa>
-</tsa>
 <tsa name="Budgetprüfung" number="5" revId="1">
 <relatedsequence>5</relatedsequence>
 </tsa>
 <tsa name="Beschäftigungen" number="7" revId="1">
 <relatedsequence>7</relatedsequence>
+<tsa name="Hinzufügen" number="102" revId="2">
+<relatedsequence>102</relatedsequence>
+</tsa>
+<tsa name="Bearbeiten" number="103" revId="2">
+<relatedsequence>103</relatedsequence>
+</tsa>
+<tsa name="Löschen" number="104" revId="2">
+<relatedsequence>104</relatedsequence>
+</tsa>
+<tsa name="Anzeigen" number="105" revId="2">
+<relatedsequence>105</relatedsequence>
+</tsa>
+<tsa name="Suchen" number="107" revId="2">
+<relatedsequence>107</relatedsequence>
+</tsa>
 </tsa>
 <tsa name="Vorgänge" number="8" revId="1">
 <relatedsequence>8</relatedsequence>
+<tsa name="Hinzufügen" number="108" revId="2">
+<relatedsequence>108</relatedsequence>
+</tsa>
+<tsa name="Bearbeiten" number="109" revId="2">
+<relatedsequence>109</relatedsequence>
+</tsa>
+<tsa name="Löschen" number="111" revId="2">
+<relatedsequence>111</relatedsequence>
+</tsa>
+<tsa name="Anzeigen" number="112" revId="2">
+<relatedsequence>112</relatedsequence>
+</tsa>
+<tsa name="Suchen" number="113" revId="2">
+<relatedsequence>113</relatedsequence>
+</tsa>
 </tsa>
 <tsa name="Berichte" number="9" revId="1">
 <relatedsequence>9</relatedsequence>
+<tsa name="Tätigkeitsnachweise" number="115" revId="3">
+<relatedsequence>115</relatedsequence>
+</tsa>
+<tsa name="Vorgangsprotokolle" number="116" revId="3">
+<relatedsequence>116</relatedsequence>
+</tsa>
+<tsa name="Jahresbilanz" number="114" revId="5">
+<relatedsequence>114</relatedsequence>
+</tsa>
+<tsa name="Semesterbilanz" number="123" revId="2">
+<relatedsequence>123</relatedsequence>
+</tsa>
+<tsa name="Teilbilanz" number="124" revId="2">
+<relatedsequence>124</relatedsequence>
+</tsa>
 </tsa>
 <tsa name="Controlling" number="10" revId="1">
 <relatedsequence>10</relatedsequence>
+</tsa>
+<tsa name="Allgemeines" number="87" revId="2">
+<relatedsequence>87</relatedsequence>
+</tsa>
+<tsa name="Stammdatenverwaltung" number="4" revId="2">
+<relatedsequence>4</relatedsequence>
 </tsa>
 </tsa>
 </tsa>
 <author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
 <extension name="standarduser" value="Y"/>
 </author>
-<extension name="maxid" value="65"/>
+<extension name="maxid" value="164"/>
 </tests>

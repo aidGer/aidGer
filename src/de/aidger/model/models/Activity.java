@@ -1,9 +1,13 @@
 package de.aidger.model.models;
 
 import java.util.Date;
+import java.util.List;
 
 import de.aidger.model.AbstractModel;
+import de.unistuttgart.iste.se.adohive.controller.IActivityManager;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
+import de.unistuttgart.iste.se.adohive.model.IAssistant;
 
 /**
  * Represents a single entry in the activity column of the database.
@@ -64,6 +68,41 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
     @Override
     public Activity clone()	{
         return new Activity();
+    }
+
+    /**
+     * Get all activities related to a specified assistant.
+     *
+     * @param assistant
+     * 			The assistant for which all activities should be returned
+     * @return The activities related to the assistant or null if none were found
+     */
+    @SuppressWarnings("unchecked")
+	public List<Activity> getActivities(IAssistant assistant) {
+    	IActivityManager mgr = (IActivityManager) getManager();
+    	try {
+			return (List<Activity>)(List<?>)mgr.getActivities(assistant);
+		} catch (AdoHiveException e) {
+			return null;
+		}
+    }
+
+    /**
+     * Get all activities related to a specified course.
+     *
+     * @param course
+     * 			The course for which all activities should be returned
+     * @return The activities related to the course or null if none were found
+     */
+    @SuppressWarnings("unchecked")
+	public List<Activity> getActivities(Course course)
+    {
+    	IActivityManager mgr = (IActivityManager) getManager();
+    	try {
+			return (List<Activity>)(List<?>)mgr.getActivities(course);
+		} catch (AdoHiveException e) {
+			return null;
+		}
     }
 
     /**

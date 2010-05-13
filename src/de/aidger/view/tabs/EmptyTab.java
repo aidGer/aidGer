@@ -2,22 +2,24 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
-import java.awt.GridLayout;
-
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class WelcomeTab implements Tab {
+/**
+ * An empty tab that will be created when adding a new tab with the "+" button.
+ * 
+ * @author aidGer Team
+ */
+public class EmptyTab implements Tab {
 
     /**
      * The panel which will be added to the tabbed plane.
      */
-    public JPanel panel = null;
+    public JPanel panel = new JPanel();
 
     /**
-     * Initializes a new tab with the welcome messages on it.
+     * Initializes a new empty tab.
      */
-    public WelcomeTab() {
+    public EmptyTab() {
     }
 
     /*
@@ -27,16 +29,6 @@ public class WelcomeTab implements Tab {
      */
     @Override
     public JPanel getContent() {
-        if (panel == null) {
-            panel = new JPanel();
-
-            JLabel filler = new JLabel("blobb");
-            filler.setHorizontalAlignment(JLabel.CENTER);
-
-            panel.setLayout(new GridLayout(1, 1));
-            panel.add(filler);
-        }
-
         return panel;
     }
 
@@ -47,6 +39,6 @@ public class WelcomeTab implements Tab {
      */
     @Override
     public String getName() {
-        return _("Welcome");
+        return _("(Unnamed)");
     }
 }

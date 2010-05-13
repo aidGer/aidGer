@@ -1,12 +1,16 @@
 package de.aidger.model.models;
 
+import java.util.Date;
+import java.util.List;
+
 import de.aidger.model.AbstractModel;
+import de.unistuttgart.iste.se.adohive.controller.IEmploymentManager;
 import de.unistuttgart.iste.se.adohive.model.IEmployment;
 
 /**
  * Represents a single entry in the employment column of the database. Contains
  * functions to retrieve and change the data in the database.
- * 
+ *
  * @author aidGer Team
  */
 public class Employment extends AbstractModel<IEmployment> implements
@@ -66,8 +70,36 @@ public class Employment extends AbstractModel<IEmployment> implements
     }
 
     /**
+     * Get all employments during the given time.
+     *
+     * @param start
+     * 			The start date
+     * @param end
+     * 			The end date
+     * @return The employments during the given time
+     */
+    @SuppressWarnings("unchecked")
+	public List<Employment> getEmployments(Date start, Date end) {
+    	IEmploymentManager mgr = (IEmploymentManager)getManager();
+    	return (List<Employment>)(List<?>)mgr.getEmployments(start, end);
+    }
+
+    /**
+     * Get all employments for the semester.
+     *
+     * @param semester
+     * 			The semester
+     * @return The employments for the semester
+     */
+    @SuppressWarnings("unchecked")
+	public List<Employment> getEmployments(String semester) {
+    	IEmploymentManager mgr = (IEmploymentManager)getManager();
+    	return (List<Employment>)(List<?>)mgr.getEmployments(semester);
+    }
+
+    /**
      * Get the id referencing the assistant.
-     * 
+     *
      * @return The id of the assistant
      */
     @Override
@@ -77,7 +109,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Get the id referencing the contract.
-     * 
+     *
      * @return The id of the contract
      */
     @Override
@@ -87,7 +119,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Get the cost unit of the contract.
-     * 
+     *
      * @return The cost unit of the contract
      */
     @Override
@@ -97,7 +129,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Get the id referencing the course.
-     * 
+     *
      * @return The id of the course
      */
     @Override
@@ -107,7 +139,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Get the fonds of the employment.
-     * 
+     *
      * @return The fonds of the employment
      */
     @Override
@@ -117,7 +149,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Get the hours worked during the employment.
-     * 
+     *
      * @return The hours worked during the employment
      */
     @Override
@@ -127,7 +159,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Get the month of the employment.
-     * 
+     *
      * @return The month of the employment
      */
     @Override
@@ -137,7 +169,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Get the remarks regarding the employment.
-     * 
+     *
      * @return The remarks regarding the employment
      */
     @Override
@@ -147,7 +179,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Get the year of the employment.
-     * 
+     *
      * @return The year of the employment
      */
     @Override
@@ -157,7 +189,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Set the id referencing the assistant.
-     * 
+     *
      * @param id
      *            The id of the assistant
      */
@@ -168,7 +200,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Set the id referencing the contract.
-     * 
+     *
      * @param id
      *            The id of the contract
      */
@@ -179,7 +211,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Set the cost unit of the contract.
-     * 
+     *
      * @param cost
      *            The cost unit of the contract
      */
@@ -190,7 +222,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Set the id referencing the course.
-     * 
+     *
      * @param id
      *            The id of the course
      */
@@ -201,7 +233,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Set the fonds of the employment.
-     * 
+     *
      * @param fonds
      *            The fonds of the employment
      */
@@ -212,7 +244,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Set the hours worked during the employment.
-     * 
+     *
      * @param hours
      *            The hours worked during the employment
      */
@@ -223,7 +255,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Set the month of the employment.
-     * 
+     *
      * @param month
      *            The month of the employment
      */
@@ -235,7 +267,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Set the remarks regarding the employment.
-     * 
+     *
      * @param rem
      *            The remarks regarding the employment
      */
@@ -246,7 +278,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Set the year of the employment.
-     * 
+     *
      * @param year
      *            The year of the employment
      */
@@ -257,7 +289,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Returns the unique id of the employment.
-     * 
+     *
      * @return The unique id of the employment
      */
     @Override
@@ -268,7 +300,7 @@ public class Employment extends AbstractModel<IEmployment> implements
     /**
      * Set the unique id of the employment. <b>!!! THIS IS FOR INTERNAL ADOHIVE
      * USAGE ONLY !!!</b>
-     * 
+     *
      * @param id
      *            The unique id of the employment
      */

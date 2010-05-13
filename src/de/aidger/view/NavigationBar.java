@@ -182,6 +182,11 @@ public final class NavigationBar extends JPanel implements ActionListener {
         private final JButton button;
 
         /**
+         * A flag whether the body is visible or not
+         */
+        private final boolean visible;
+
+        /**
          * The component that is the body of the bar
          */
         private final JComponent component;
@@ -198,6 +203,7 @@ public final class NavigationBar extends JPanel implements ActionListener {
             this.name = name;
             this.component = component;
             this.button = new JButton(name);
+            this.visible = false;
         }
 
         /**
@@ -216,6 +222,15 @@ public final class NavigationBar extends JPanel implements ActionListener {
          */
         public JButton getButton() {
             return button;
+        }
+
+        /**
+         * Returns wheter the body of the bar is visible
+         * 
+         * @return the visible flag
+         */
+        public boolean getVisible() {
+            return visible;
         }
 
         /**

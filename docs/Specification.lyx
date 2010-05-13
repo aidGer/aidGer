@@ -759,18 +759,6 @@ Es müssen Beschäftigungen von Hilfskräften erstellt werden können.
 \end_layout
 
 \begin_layout Itemize
-Zeitraum
-\end_layout
-
-\begin_layout Itemize
-Anzahl der Stunden für jeden Monat
-\end_layout
-
-\begin_layout Itemize
-Fonds
-\end_layout
-
-\begin_layout Itemize
 Hilfskraft
 \end_layout
 
@@ -779,11 +767,27 @@ Veranstaltung
 \end_layout
 
 \begin_layout Itemize
-Bemerkung
+Fonds
 \end_layout
 
 \begin_layout Itemize
 Kostenstelle
+\end_layout
+
+\begin_layout Itemize
+Bemerkung
+\end_layout
+
+\begin_layout Itemize
+Zeitraum (Startdatum und Enddatum)
+\end_layout
+
+\begin_layout Itemize
+Anzahl der Stunden (HKS) für jeden Monat
+\end_layout
+
+\begin_layout Itemize
+Vertrag
 \end_layout
 
 \begin_layout Standard
@@ -827,12 +831,16 @@ name "sub:Buchung-von-Vertragsdaten"
 \end_layout
 
 \begin_layout Standard
-Es müssen Vertragsdaten von Hilfskräften festgehalten werden.
+Es müssen Vertragsdaten von Beschäftigungen festgehalten werden.
  Dabei werden die folgenden Angaben zum Eingeben verpflichtet:
 \end_layout
 
 \begin_layout Itemize
-Hilfskraft
+Abschlußdatum des Vertrags
+\end_layout
+
+\begin_layout Itemize
+Bestätigungsdatum des Vertrags
 \end_layout
 
 \begin_layout Itemize
@@ -844,15 +852,12 @@ Beschäftigungsende
 \end_layout
 
 \begin_layout Itemize
-Anzahl Stunden pro Monat
+Art des Vertrags (z.B.
+ Neuvertrag, Aufstockung)
 \end_layout
 
 \begin_layout Itemize
-Fonds
-\end_layout
-
-\begin_layout Itemize
-Art des Vertrags (Neuvertrag, Aufstockung)
+Einstellung nach Delegationsverfahren (ja / nein)
 \end_layout
 
 \begin_layout Standard
@@ -9753,7 +9758,7 @@ name "sec:Versionshistorie"
 \end_layout
 
 \begin_layout Subsection*
-Version 0.4 (11.05.2010)
+Version 0.4 (13.05.2010)
 \end_layout
 
 \begin_layout Itemize
@@ -9761,6 +9766,20 @@ Korrekturen an den Anforderungen
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Stammdatenverwaltung"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Buchung-von-Beschäftigungen"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Buchung-von-Vertragsdaten"
 
 \end_inset
 
