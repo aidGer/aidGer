@@ -10,21 +10,20 @@ import javax.swing.JPanel;
 public class WelcomeTab implements Tab {
 
     /**
-     * Initializes a new tab with the welcome message on it.
-     */
-    public WelcomeTab() {
-    }
-
-    /**
-     * The panel, which will be added to the tabbed plane.
+     * The panel which will be added to the tabbed plane.
      */
     public JPanel panel = null;
 
     /**
-     * Creates a new panel with the contents for the specific tab. If the panel
-     * already exists, returns the already existing panel.
+     * Initializes a new tab with the welcome messages on it.
+     */
+    public WelcomeTab() {
+    }
+
+    /*
+     * (non-Javadoc)
      * 
-     * @return The panel to be added to the tabbed plane.
+     * @see de.aidger.view.tabs.Tab#getContent()
      */
     @Override
     public JPanel getContent() {
@@ -41,10 +40,10 @@ public class WelcomeTab implements Tab {
         return panel;
     }
 
-    /**
-     * Simply returns the name of the panel.
+    /*
+     * (non-Javadoc)
      * 
-     * @return The name of the panel
+     * @see de.aidger.view.tabs.Tab#getName()
      */
     @Override
     public String getName() {
