@@ -6,7 +6,7 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Toolkit;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -25,6 +25,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
@@ -33,6 +35,7 @@ import de.aidger.controller.actions.ExitAction;
 import de.aidger.controller.actions.HelpAction;
 import de.aidger.controller.actions.PrintAction;
 import de.aidger.controller.actions.SettingsAction;
+import de.aidger.view.tabs.EmptyTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.WelcomeTab;
 
@@ -61,6 +64,11 @@ public final class UI extends JFrame {
     private JTabbedPane tabbedPane;
 
     /**
+     * A change listener for the tabbed pane
+     */
+    private ChangeListener tabbedPaneListener;
+
+    /**
      * Creates the main window of the application.
      */
     private UI() {
@@ -85,11 +93,7 @@ public final class UI extends JFrame {
         contentPane.add(getTabbedPane(), BorderLayout.CENTER);
         contentPane.add(getStatusPane(), BorderLayout.PAGE_END);
 
-        // Set to full screen size
-        Toolkit tk = Toolkit.getDefaultToolkit();
-        int xSize = (int) tk.getScreenSize().getWidth();
-        int ySize = (int) tk.getScreenSize().getHeight();
-        setSize(xSize, ySize);
+        setSize(new Dimension(1024, 768));
 
         setTitle("aidGer");
 
@@ -207,16 +211,14 @@ public final class UI extends JFrame {
         NavigationBar navigationBar = new NavigationBar();
 
         // TODO: create own JPanel's for the components of the bars
-        navigationBar.addBar(_("Master Data"), getDummyList(_("Courses"),
-                _("Assistants"), _("Financial Categories"), _("Hourly Wages")));
+        navigationBar.addBar(_("Master Data Management"), getDummyList(
+                _("Courses"), _("Assistants"), _("Contracts"),
+                _("Financial Categories"), _("Hourly Wages")));
         navigationBar.addBar(_("Employments"), getDummyList("bla"));
         navigationBar.addBar(_("Activities"), getDummyList("blu"));
         navigationBar.addBar(_("Reports"), getDummyList("lal"));
         navigationBar.addBar(_("Controlling"), getDummyList("he"));
         navigationBar.addBar(_("Budget Check"), getDummyList("lal"));
-
-        navigationBar.setPreferredSize(new Dimension(220, navigationBar
-                .getHeight()));
 
         return navigationBar;
     }
@@ -226,6 +228,19 @@ public final class UI extends JFrame {
      */
     private JTabbedPane getTabbedPane() {
         tabbedPane = new JTabbedPane();
+
+        tabbedPaneListener = new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                addNewTab();
+            }
+        };
+
+        tabbedPane.add(new JPanel(), "+");
+        tabbedPane.setToolTipTextAt(0, _("Open a new tab"));
+
+        tabbedPane.addChangeListener(tabbedPaneListener);
+
+        tabbedPane.setTabLayoutPolicy(JTabbedPane.WRAP_TAB_LAYOUT);
 
         return tabbedPane;
     }
@@ -250,9 +265,23 @@ public final class UI extends JFrame {
     }
 
     /**
-     * 
+     * Adds a new empty tab and focus it if "+" button was clicked
      */
     public void addNewTab() {
+        int index = tabbedPane.getTabCount() - 1;
+
+        if (tabbedPane.getSelectedIndex() == index) {
+            tabbedPane.removeChangeListener(tabbedPaneListener);
+
+            Tab emptyTab = new EmptyTab();
+            tabbedPane.add(emptyTab.getContent(), index);
+            tabbedPane.setTabComponentAt(index, new CloseTabComponent(
+                    tabbedPane, tabbedPaneListener, emptyTab.getName()));
+
+            tabbedPane.setSelectedIndex(index);
+
+            tabbedPane.addChangeListener(tabbedPaneListener);
+        }
     }
 
     /**
@@ -262,7 +291,17 @@ public final class UI extends JFrame {
      *            The tab to be added.
      */
     public void addNewTab(Tab tab) {
-        tabbedPane.addTab(tab.getName(), null, tab.getTab(), tab.getName());
+        int index = tabbedPane.getTabCount() - 1;
+
+        tabbedPane.removeChangeListener(tabbedPaneListener);
+
+        tabbedPane.add(tab.getContent(), index);
+        tabbedPane.setTabComponentAt(index, new CloseTabComponent(tabbedPane,
+                tabbedPaneListener, tab.getName()));
+
+        tabbedPane.setSelectedIndex(index);
+
+        tabbedPane.addChangeListener(tabbedPaneListener);
     }
 
     /**
@@ -273,9 +312,17 @@ public final class UI extends JFrame {
      */
     public void setCurrentTab(Tab tab) {
         // Check if the tab to be set as current is even on the tabbed plane.
-        if (tabbedPane.indexOfComponent(tab.getTab()) != -1) {
+        if (tabbedPane.indexOfComponent(tab.getContent()) != -1) {
             tabbedPane.setSelectedIndex(tabbedPane.indexOfComponent(tab
-                    .getTab()));
+                    .getContent()));
         }
+    }
+
+    @Override
+    public void setVisible(boolean in) {
+        super.setVisible(in);
+
+        // start maximized
+        setExtendedState(Frame.MAXIMIZED_BOTH);
     }
 }

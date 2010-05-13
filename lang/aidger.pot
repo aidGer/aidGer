@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-11 18:51+0200\n"
+"POT-Creation-Date: 2010-05-13 23:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,52 +32,60 @@ msgstr ""
 msgid "Homepage: http://www.aidger.de"
 msgstr ""
 
-#: view/UI.java:159
+#: view/UI.java:167
 msgid "File"
 msgstr ""
 
-#: view/UI.java:178 controller/actions/HelpAction.java:23
+#: view/UI.java:186 controller/actions/HelpAction.java:23
 msgid "Help"
 msgstr ""
 
-#: view/UI.java:210
-msgid "Master Data"
+#: view/UI.java:218
+msgid "Master Data Management"
 msgstr ""
 
-#: view/UI.java:210
+#: view/UI.java:219
 msgid "Courses"
 msgstr ""
 
-#: view/UI.java:211
+#: view/UI.java:219
 msgid "Assistants"
 msgstr ""
 
-#: view/UI.java:211
+#: view/UI.java:219
+msgid "Contracts"
+msgstr ""
+
+#: view/UI.java:220
 msgid "Financial Categories"
 msgstr ""
 
-#: view/UI.java:211
+#: view/UI.java:220
 msgid "Hourly Wages"
 msgstr ""
 
-#: view/UI.java:212
+#: view/UI.java:221
 msgid "Employments"
 msgstr ""
 
-#: view/UI.java:213
+#: view/UI.java:222
 msgid "Activities"
 msgstr ""
 
-#: view/UI.java:214
+#: view/UI.java:223
 msgid "Reports"
 msgstr ""
 
-#: view/UI.java:215
+#: view/UI.java:224
 msgid "Controlling"
 msgstr ""
 
-#: view/UI.java:216
+#: view/UI.java:225
 msgid "Budget Check"
+msgstr ""
+
+#: view/UI.java:243
+msgid "Open a new tab"
 msgstr ""
 
 #: view/SettingsDialog.java:143 controller/actions/SettingsAction.java:26
@@ -114,6 +122,18 @@ msgstr ""
 
 #: view/SettingsDialog.java:170
 msgid "Language:"
+msgstr ""
+
+#: view/CloseTabComponent.java:69
+msgid "Close tab"
+msgstr ""
+
+#: view/tabs/EmptyTab.java:43
+msgid "(Unnamed)"
+msgstr ""
+
+#: view/tabs/WelcomeTab.java:51
+msgid "Welcome"
 msgstr ""
 
 #: controller/actions/AbortAction.java:26

@@ -17,7 +17,7 @@ public interface Tab {
      * 
      * @return The panel to be added to the tabbed plane.
      */
-    public JPanel getTab();
+    public JPanel getContent();
 
     /**
      * Simply returns the name of the panel.

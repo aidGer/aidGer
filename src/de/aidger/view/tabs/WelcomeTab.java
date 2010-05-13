@@ -1,5 +1,7 @@
 package de.aidger.view.tabs;
 
+import static de.aidger.utils.Translation._;
+
 import java.awt.GridLayout;
 
 import javax.swing.JLabel;
@@ -25,7 +27,7 @@ public class WelcomeTab implements Tab {
      * @return The panel to be added to the tabbed plane.
      */
     @Override
-    public JPanel getTab() {
+    public JPanel getContent() {
         if (panel == null) {
             panel = new JPanel();
 
@@ -46,6 +48,6 @@ public class WelcomeTab implements Tab {
      */
     @Override
     public String getName() {
-        return "Welcome";
+        return _("Welcome");
     }
 }
