@@ -1300,26 +1300,180 @@
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Beschäftigungen" number="7">
 <description>Die Testsequenz dient zum Hinzufügen, Bearbeiten, Löschen, Anzeigen und Suchen von Beschäftigungen.</description>
-<pre>Das Programm wurde gestartet.</pre>
+<pre>Das Programm wurde gestartet und der Benutzer befindet sich im Menüpunkt Beschäftigungen.</pre>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Hinzufügen" number="102">
 <description>Die Testsequenz enthält Testfälle zum Hinzufügen einer Beschäftigung in die Datenbank.</description>
 <pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="159" priority="A" title="Beschäftigung korrekt buchen">
+<description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44 und 28 wurden ausgeführt.</pre>
+<actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
+
+* Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
+
+* Benutzer gibt den Fonds "12345678" ein
+
+* Benutzer gibt die Kostenstelle "Studiengebühren" ein
+
+* Benutzer gibt die Bemerkung "keine" ein
+
+* Benutzer wählt den Startmonat "November" aus
+
+* Benutzer wählt das Startjahr "2010" aus
+
+* Benutzer wählt den Endmonat "Januar" aus
+
+* Benutzer wählt das Endjahr "2011" aus
+
+* Benutzer gibt für November 2010 30 HKS ein.
+
+* Benutzer gibt für Dezember 2010 20 HKS ein.
+
+* Benutzer gibt für Januar 2010 45 HKS ein.
+
+* Benutzer klickt auf den Button "Weiter"</actions>
+<post>Die Beschäftigung wurde im System mit den korrekten Werten zwischengespeichert und es wird im nächsten Schritt der Vertrag zur Beschäftigung zugeordnet.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:04" number="160" priority="A" title="Vertragsdaten korrekt buchen">
+<description>Die Beschäftigung wurde bereits erfasst. Nun müssen die Vertragsdaten im nächsten Schritt gebucht werden. Dieser Testfall knüpft direkt an Testfall 159 an.</description>
+<pre>Der Testfall 159 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt das Abschlußdatum "10.10.2010" ein
+
+* Benutzer lässt das Bestätigungsdatum leer
+
+* Benutzer setzt nicht das Häkchen bei "Einstellung nach Delegationsverfahren"
+
+* Benutzer lässt den Standardwert bei Beschätigungsbeginn
+
+* Benutzer lässt den Standardwert bei Beschäftigungsende
+
+* Benutzer gibt bei Art des Vertrags "Neuvertrag" ein
+
+* Benutzer klickt auf "Speichern"</actions>
+<post>Die Buchung der Beschäftigung wurde vollständig gespeichert. Die Vertragsdaten wurden außerdem zur Beschäftigung korrekt zugeordnet und abgespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehr zum Menüpunkt Beschäftigungen im alten Reiter zurück.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="161" priority="A" title="Beschäftigung inkorrekt buchen">
+<description>Es soll eine Beschäftigung gebucht werden. Es wurden falsche Eingaben gemacht.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 38 wurden ausgeführt.</pre>
+<actions>* Benutzer wählt die Hilfskraft "Peter Planlos" aus
+
+* Benutzer wählt die Veranstaltung "Mensa überleben für Pizza-Fans" aus
+
+* Benutzer gibt den Fonds "1234" ein
+
+* Benutzer gibt die Kostenstelle "Studiengebühren" ein
+
+* Benutzer gibt die Bemerkung "keine" ein
+
+* Benutzer wählt den Startmonat "November" aus
+
+* Benutzer wählt das Startjahr "2010" aus
+
+* Benutzer wählt den Endmonat "Mai" aus
+
+* Benutzer wählt das Endjahr "2010" aus
+
+* Benutzer klickt auf den Button "Weiter"</actions>
+<post>Die Beschätigung wurde nicht zwischengespeichert. Der Benutzer wird darüber informiert, dass das Format des Fonds nicht stimmt. Des weiteren bekommt er die Fehlermeldung, dass das Enddatum vor dem Startdatum liegt. Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="162" priority="A" title="Beschäftigung inkorrekt buchen">
+<description>Es soll eine Beschäftigung gebucht werden. Es wurden falsche Eingaben gemacht.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 38 wurden ausgeführt.</pre>
+<actions>* Benutzer wählt die Hilfskraft "Peter Planlos" aus
+
+* Benutzer gibt den Fonds "12344321" ein
+
+* Benutzer gibt die Kostenstelle "kein Plan" ein
+
+* Benutzer gibt die Bemerkung "wer will den überhaupt einstellen?" ein
+
+* Benutzer wählt den Startmonat "Mai" aus
+
+* Benutzer wählt das Startjahr "2010" aus
+
+* Benutzer wählt den Endmonat "August" aus
+
+* Benutzer wählt das Endjahr "2010" aus
+
+* Benutzer gibt für Mai 2010 "10" HKS ein
+
+* Benutzer gibt für Juni 2010 "viele" HKS ein
+
+* Benutzer gibt für Juli 2010 "einige" HKS ein
+
+* Benutzer gibt für August 2010 "33" HKS ein
+
+* Benutzer klickt auf den Button "Weiter"</actions>
+<post>Die Beschätigung wurde nicht zwischengespeichert. Der Benutzer wird darüber informiert, dass er keine Veranstaltung ausgewählt hat. Des weiteren bekommt er die Fehlermeldung, dass er das Format der HKS-Felder nicht eingehalten hat. Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="164" priority="A" title="Beschäftigung korrekt buchen, aber nicht möglich">
+<description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt. Die Buchung ist dennoch nicht möglich.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44, 28 und X wurden ausgeführt. TODO</pre>
+<actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
+
+* Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
+
+* Benutzer gibt den Fonds "12345678" ein
+
+* Benutzer gibt die Kostenstelle "Studiengebühren" ein
+
+* Benutzer gibt die Bemerkung "keine" ein
+
+* Benutzer wählt den Startmonat "November" aus
+
+* Benutzer wählt das Startjahr "2010" aus
+
+* Benutzer wählt den Endmonat "Januar" aus
+
+* Benutzer wählt das Endjahr "2011" aus
+
+* Benutzer gibt für November 2010 30 HKS ein.
+
+* Benutzer gibt für Dezember 2010 20 HKS ein.
+
+* Benutzer gibt für Januar 2010 45 HKS ein.
+
+* Benutzer klickt auf den Button "Weiter"</actions>
+<post>Die Beschäftigung wurde im System mit den korrekten Werten zwischengespeichert und es wird im nächsten Schritt der Vertrag zur Beschäftigung zugeordnet.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="163" priority="A" title="Abbruch: Beschäftigung buchen">
+<description>Es soll eine Beschäftigung gebucht werden. Die Buchung wird jedoch abgebrochen.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44 und 28 wurden ausgeführt.</pre>
+<actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
+
+* Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
+
+* Benutzer gibt den Fonds "12345678" ein
+
+* Benutzer gibt die Kostenstelle "Studiengebühren" ein
+
+* Benutzer gibt die Bemerkung "keine" ein
+
+* Benutzer klickt auf den Button "Abbrechen</actions>
+<post>Die Beschäftigung wurde verworfen. Das Tab-Fenster wird geschloßen und der Benutzer kehrt zum zuvor angezeigten Reiter zurück.</post>
+<tags/>
+</testcase>
 </sequence>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Bearbeiten" number="103">
 <description>Die Testsequenz enthält Testfälle zum Bearbeiten einer Beschäftigung in die Datenbank.</description>
-<pre/>
+<pre>Benutzer möchte eine Beschäftigung bearbeiten.</pre>
 </sequence>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Löschen" number="104">
 <description>Die Testsequenz enthält Testfälle zum Löschen einer Beschäftigung in die Datenbank.</description>
-<pre/>
+<pre>Benutzer möchte eine Beschäftigung löschen.</pre>
 </sequence>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Anzeigen" number="105">
 <description>Die Testsequenz enthält Testfälle zum Anzeigen einer Beschäftigung in die Datenbank.</description>
-<pre/>
+<pre>Benutzer möchte eine Beschäftigung anzeigen.</pre>
 </sequence>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Suchen" number="107">
 <description>Die Testsequenz enthält Testfälle zum Suchen einer Beschäftigung in die Datenbank.</description>
-<pre/>
+<pre>Benutzer möchte eine Beschäftigung suchen.</pre>
 </sequence>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Vorgänge" number="8">
@@ -1537,5 +1691,5 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
 <extension name="standarduser" value="Y"/>
 </author>
-<extension name="maxid" value="158"/>
+<extension name="maxid" value="164"/>
 </tests>
