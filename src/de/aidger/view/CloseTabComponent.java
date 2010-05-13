@@ -24,6 +24,9 @@ import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeListener;
 import javax.swing.plaf.basic.BasicButtonUI;
 
+import de.aidger.view.tabs.EmptyTab;
+import de.aidger.view.tabs.Tab;
+
 /**
  * Component to be used as tabComponent. It contains a JLabel to show the title
  * of the tab and a JButton to close the tab it belongs to
@@ -94,7 +97,14 @@ public class CloseTabComponent extends JPanel {
 
                 pane.remove(i);
 
-                if (i == pane.getTabCount() - 1) {
+                if (pane.getTabCount() == 1) {
+                    Tab emptyTab = new EmptyTab();
+                    pane.add(emptyTab.getContent(), 0);
+                    pane.setTabComponentAt(0, new CloseTabComponent(pane,
+                            listener, emptyTab.getName()));
+
+                    pane.setSelectedIndex(0);
+                } else if (i == pane.getTabCount() - 1) {
                     pane.setSelectedIndex(i - 1);
                 }
 
@@ -120,10 +130,6 @@ public class CloseTabComponent extends JPanel {
 
             g2.setStroke(new BasicStroke(2));
             g2.setColor(Color.BLACK);
-
-            if (getModel().isRollover()) {
-                g2.setColor(new Color(88, 119, 152));
-            }
 
             int delta = 6;
 
