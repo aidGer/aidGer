@@ -4,7 +4,6 @@ import static de.aidger.utils.Translation._;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
@@ -93,7 +92,10 @@ public final class UI extends JFrame {
         contentPane.add(getTabbedPane(), BorderLayout.CENTER);
         contentPane.add(getStatusPane(), BorderLayout.PAGE_END);
 
-        setSize(new Dimension(1024, 768));
+        // start maximized
+        setExtendedState(Frame.MAXIMIZED_BOTH);
+
+        pack();
 
         setTitle("aidGer");
 
@@ -316,13 +318,5 @@ public final class UI extends JFrame {
             tabbedPane.setSelectedIndex(tabbedPane.indexOfComponent(tab
                     .getContent()));
         }
-    }
-
-    @Override
-    public void setVisible(boolean in) {
-        super.setVisible(in);
-
-        // start maximized
-        setExtendedState(Frame.MAXIMIZED_BOTH);
     }
 }
