@@ -655,7 +655,7 @@
 <description>Es soll eine Finanzkategorie gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
 <pre/>
 <actions>* Benutzer klickt auf den Button "Löschen"</actions>
-<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
+<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Finanzkategorie.</post>
 <tags/>
 </testcase>
 </sequence>
@@ -666,14 +666,182 @@
 <sequence created="11.05.2010" creator="aidGerTeam" name="Hinzufügen" number="25">
 <description>Die Testsequenz enthält Testfälle zum Hinzufügen eines Stundenlohns in die Datenbank.</description>
 <pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:04" number="74" priority="B" title="Stundenlohn korrekt hinzufügen">
+<description>Es wird ein Stundenlohn zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die Qualifikation "Bachelor" ein
+
+* Benutzer wählt den Monat "März" an
+
+* Benutzer wählt das Jahr "2010" aus
+
+* Benutzer gibt den Stundenlohn "10,50" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Stundenlohn ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:04" number="75" priority="B" title="Stundenlohn korrekt hinzufügen">
+<description>Es wird ein Stundenlohn zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die Qualifikation "Ungeprüft" ein
+
+* Benutzer wählt den Monat "April" an
+
+* Benutzer wählt das Jahr "2009" aus
+
+* Benutzer gibt den Stundenlohn "7,30" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Stundenlohn ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:04" number="76" priority="B" title="Stundenlohn korrekt hinzufügen">
+<description>Es wird ein Stundenlohn zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die Qualifikation "Geprüft" ein
+
+* Benutzer wählt den Monat "Dezember" an
+
+* Benutzer wählt das Jahr "2008" aus
+
+* Benutzer gibt den Stundenlohn "12,80" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Stundenlohn ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="77" priority="B" title="Stundenlohn inkorrekt hinzufügen">
+<description>Es wird ein Stundenlohn zum System hinzugefügt. Dabei werden falsche Eingaben gemacht.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die Qualifikation "Bachelor" ein
+
+* Benutzer gibt den Stundenlohn "Hungerlohn" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Stundenlohn wurde nicht hinzugefügt und der Benutzer befindet sich weiterhin im Hinzufügen-Tab, um seine Eingabe korrigieren zu können. Das Feld "Stundenlohn" soll hervorgehoben werden.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="78" priority="D" title="Abbruch: Stundenlohn hinzufügen">
+<description>Es soll ein Stundenlohn hinzugefügt werden. Dieser Vorgang wird abgebrochen.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die Qualifikation "Ungeprüft" ein
+
+* Benutzer wählt den Monat "Februar" aus
+
+* Benutzer klickt auf den Button "Abbrechen"	</actions>
+<post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
+<tags/>
+</testcase>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Bearbeiten" number="26">
 <description>Die Testsequenz enthält Testfälle zum Bearbeiten eines Stundenlohns in die Datenbank.</description>
 <pre>Benutzer möchte einen Stundenlohn bearbeiten.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="79" priority="C" title="Stundenlohn korrekt bearbeiten">
+<description>Es soll ein Stundenlohn bearbeitet werden. Alle Eingaben sind korrekt.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 74 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den Stundenlohn "Bachelor - 03.2010"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer gibt den Stundenlohn "10,80" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die geänderten Daten werden in der Datenbank hinterlegt und das System kehrt zum vorher angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="80" priority="C" title="Stundenlohn unvollständig bearbeiten">
+<description>Es soll ein Stundenlohn bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 75 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den Stundenlohn "Ungeprüft - 04.2009"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer löscht den Inhalt des Felds Stundenlohn
+
+* Benutzer löscht den Inhalt des Felds Qualifikation
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Datensatz wird nicht editiert. Der Benutzer bleibt im Bearbeiten-Tab und wird über die leer gelassenen Felder informiert.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="81" priority="C" title="Stundenlohn inkorrekt bearbeiten">
+<description>Es soll ein Stundenlohn bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 76 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den Stundenlohn "Geprüft - 12.2008"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ändert den Stundenlohn zu "nichts"
+
+* Benutzer klickt auf den Button "Speichern"
+</actions>
+<post>Der Datensatz wird nicht bearbeitet. Der Benutzer wird darüber informiert, dass das Format für des Felds Stundenlohn nicht eingehalten wurde. Er befindet sich weiterhin im Bearbeiten-Tab, um seine Eingabe korrigieren zu können.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="82" priority="C" title="Abbruch: Stundenlohn bearbeiten">
+<description>Es soll ein Stundenlohn bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 76 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den Stundenlohn "Geprüft - 12.2008"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ersetzt das Feld Jahr mit "2012"
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Die Änderungen am Datensatz werden verworfen, das Bearbeiten-Tab wird geschloßen und der Benutzer befindet sich erneut im davor angezeigten Tab.</post>
+<tags/>
+</testcase>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Löschen" number="27">
 <description>Die Testsequenz enthält Testfälle zum Löschen eines Stundenlohns in die Datenbank.</description>
 <pre>Benutzer möchte einen Stundenlohn löschen.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="83" priority="C" title="Stundenlohn entfernen ohne Referenz">
+<description>Es soll ein Stundenlohn gelöscht werden, was korrekt funktioniert.</description>
+<pre>Der Testfall 75 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den Stundenlohn "Ungeprüft - 04.2009"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Stundenlöhne.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="84" priority="C" title="Stundenlohn entfernen mit Referenz">
+<description>Es soll ein Stundenlohn gelöscht werden. Das Datum wird noch referenziert.</description>
+<pre>Der Testfall 74 und X wurde ausgeführt. TODO</pre>
+<actions>* Benutzer markiert den Stundenlohn "Bachelor - 03.2010"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Stundenlöhne.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="85" priority="C" title="Abbruch: Stundenlohn entfernen">
+<description>Es soll ein Stundenlohn gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
+<pre>Der Testfall 76 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den Stundenlohn "Geprüft - 12.2008"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Stundenlöhne.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="86" priority="C" title="Stundenlohn entfernen ohne Auswahl">
+<description>Es soll ein Stundenlohn gelöscht werden. Es wurde jedoch keiner ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Löschen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Stundenlöhne.</post>
+<tags/>
+</testcase>
 </sequence>
 </sequence>
 </sequence>
@@ -765,5 +933,5 @@
 <author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
 <extension name="standarduser" value="Y"/>
 </author>
-<extension name="maxid" value="73"/>
+<extension name="maxid" value="86"/>
 </tests>
