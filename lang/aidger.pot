@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-13 23:02+0200\n"
+"POT-Creation-Date: 2010-05-16 17:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,123 +16,123 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: view/AboutDialog.java:39
-msgid "About aidGer"
-msgstr ""
-
-#: view/AboutDialog.java:70
-msgid "Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
-msgstr ""
-
-#: view/AboutDialog.java:72
+#: view/AboutDialog.java:30
 msgid "Close"
 msgstr ""
 
-#: view/AboutDialog.java:74
+#: view/AboutDialog.java:51
+msgid "About aidGer"
+msgstr ""
+
+#: view/AboutDialog.java:57
+msgid "Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
+msgstr ""
+
+#: view/AboutDialog.java:62
 msgid "Homepage: http://www.aidger.de"
 msgstr ""
 
-#: view/UI.java:167
+#: view/UI.java:165
 msgid "File"
 msgstr ""
 
-#: view/UI.java:186 controller/actions/HelpAction.java:23
+#: view/UI.java:184 controller/actions/HelpAction.java:23
 msgid "Help"
 msgstr ""
 
-#: view/UI.java:218
+#: view/UI.java:216
 msgid "Master Data Management"
 msgstr ""
 
-#: view/UI.java:219
+#: view/UI.java:217
 msgid "Courses"
 msgstr ""
 
-#: view/UI.java:219
+#: view/UI.java:217
 msgid "Assistants"
 msgstr ""
 
-#: view/UI.java:219
+#: view/UI.java:217
 msgid "Contracts"
 msgstr ""
 
-#: view/UI.java:220
+#: view/UI.java:218
 msgid "Financial Categories"
 msgstr ""
 
-#: view/UI.java:220
+#: view/UI.java:218
 msgid "Hourly Wages"
 msgstr ""
 
-#: view/UI.java:221
+#: view/UI.java:219
 msgid "Employments"
 msgstr ""
 
-#: view/UI.java:222
+#: view/UI.java:220
 msgid "Activities"
 msgstr ""
 
-#: view/UI.java:223
+#: view/UI.java:221
 msgid "Reports"
 msgstr ""
 
-#: view/UI.java:224
+#: view/UI.java:222
 msgid "Controlling"
 msgstr ""
 
-#: view/UI.java:225
+#: view/UI.java:223
 msgid "Budget Check"
 msgstr ""
 
-#: view/UI.java:243
+#: view/UI.java:241
 msgid "Open a new tab"
 msgstr ""
 
-#: view/SettingsDialog.java:143 controller/actions/SettingsAction.java:26
+#: view/SettingsDialog.java:164 controller/actions/SettingsAction.java:26
 msgid "Settings"
 msgstr ""
 
-#: view/SettingsDialog.java:145
+#: view/SettingsDialog.java:170
 msgid "Save Tabs when quitting"
 msgstr ""
 
-#: view/SettingsDialog.java:149
+#: view/SettingsDialog.java:172
 msgid "Open reports automatically after generating"
 msgstr ""
 
-#: view/SettingsDialog.java:152
+#: view/SettingsDialog.java:174
 msgid "Name:"
 msgstr ""
 
-#: view/SettingsDialog.java:153 view/SettingsDialog.java:155
+#: view/SettingsDialog.java:175 view/SettingsDialog.java:177
 msgid "The name used in activities."
 msgstr ""
 
-#: view/SettingsDialog.java:158
+#: view/SettingsDialog.java:179
 msgid "PDF Viewer:"
 msgstr ""
 
-#: view/SettingsDialog.java:161
+#: view/SettingsDialog.java:181
 msgid "Amount of activities:"
 msgstr ""
 
-#: view/SettingsDialog.java:163
+#: view/SettingsDialog.java:182
 msgid "The amount of activities shown in detailviews."
 msgstr ""
 
-#: view/SettingsDialog.java:170
+#: view/SettingsDialog.java:186
 msgid "Language:"
 msgstr ""
 
-#: view/CloseTabComponent.java:69
+#: view/CloseTabComponent.java:72
 msgid "Close tab"
 msgstr ""
 
-#: view/tabs/EmptyTab.java:43
+#: view/tabs/EmptyTab.java:42
 msgid "(Unnamed)"
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:51
+#: view/tabs/WelcomeTab.java:50
 msgid "Welcome"
 msgstr ""
 
