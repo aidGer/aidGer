@@ -10,7 +10,6 @@ import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Phrase;
-import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -25,7 +24,7 @@ public class BalanceReportConverter implements ReportConverter {
             document = new Document(PageSize.A4.rotate());
         }
         makeNewDocument(path, name);
-        // writeHeader();
+        writeHeader();
         writeTables();
         document.close();
     }
@@ -46,35 +45,44 @@ public class BalanceReportConverter implements ReportConverter {
     }
 
     private void writeHeader() {
-        Rectangle page = document.getPageSize();
         PdfPTable head = new PdfPTable(new float[] { 0.8f, 0.2f });
+        try {
+            Font pageTitleFont = new Font(BaseFont
+                    .createFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252,
+                            BaseFont.EMBEDDED), 18);
+            Font authorNameFont = new Font(BaseFont.createFont(
+                    BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 8);
 
-        PdfPCell left = new PdfPCell();
-        left.setHorizontalAlignment(Element.ALIGN_LEFT);
-        left.setBorder(0);
-        left.addElement(new Phrase("blabb"));
+            PdfPCell left = new PdfPCell();
+            left.setHorizontalAlignment(Element.ALIGN_LEFT);
+            left.setVerticalAlignment(Element.ALIGN_BOTTOM);
+            left.setBorder(0);
+            left.addElement(new Phrase("Bilanz-bericht", pageTitleFont));
 
-        PdfPCell mid = new PdfPCell();
-        mid.setHorizontalAlignment(Element.ALIGN_CENTER);
-        mid.setBorder(0);
-        mid.addElement(new Phrase("blabb"));
-        PdfPTable test = new PdfPTable(1);
-        test.addCell(mid);
+            PdfPCell right = new PdfPCell();
+            right.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            right.setVerticalAlignment(Element.ALIGN_BOTTOM);
+            right.setBorder(0);
+            right.addElement(new Phrase("Author:", authorNameFont));
 
-        head.addCell(left);
-        head.addCell(test);
-        head.addCell(test);
-        head.addCell("blabb");
-
-        head.setTotalWidth(page.getWidth() - document.leftMargin()
-                - document.rightMargin());
-
-        head.writeSelectedRows(0, -1, document.leftMargin(), page.getHeight()
-                - document.topMargin() + 1, writer.getDirectContent());
+            head.addCell(left);
+            head.addCell(right);
+        } catch (DocumentException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        } catch (IOException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        try {
+            document.add(head);
+        } catch (DocumentException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     private void writeTables() {
-        Rectangle page = document.getPageSize();
         String[] group = { "Bachelor Bio-Informatik", "Bachelor Mechatronik",
                 "Bachelor Mechatroniker" };
         String[] courseTitles = { "BEZEICHNUNG", "TEIL", "DOZENT",
@@ -99,20 +107,22 @@ public class BalanceReportConverter implements ReportConverter {
             PdfPTable contentTable = new PdfPTable(1);
 
             for (int i = 0; i < 10; i++) {
-                PdfPTable groupTable = new PdfPTable(new float[] { 0.2f, 0.8f });
+                PdfPTable groupTable = new PdfPTable(1);
+                PdfPTable groupNameTable = new PdfPTable(new float[] { 0.2f,
+                        0.8f });
                 PdfPCell groupTitle = new PdfPCell(new Phrase("GRUPPE",
                         groupTitleFont));
                 groupTitle.setBorder(2);
-                groupTable.addCell(groupTitle);
+                groupNameTable.addCell(groupTitle);
                 PdfPCell groupName = new PdfPCell(new Phrase(group[1],
                         groupNameFont));
                 groupName.setBorder(2);
-                groupTable.addCell(groupName);
-                PdfPCell groupContent = new PdfPCell(groupTable);
+                groupNameTable.addCell(groupName);
+                PdfPCell groupContent = new PdfPCell(groupNameTable);
                 groupContent.setBorder(0);
                 groupContent.setPaddingTop(10.0f);
                 groupContent.setPaddingBottom(2.0f);
-                contentTable.addCell(groupContent);
+                groupTable.addCell(groupContent);
                 PdfPTable groupContentTable = new PdfPTable(new float[] {
                         0.25f, 0.05f, 0.15f, 0.15f, 0.1f, 0.1f, 0.1f, 0.1f });
                 for (int j = 0; j < 8; j++) {
@@ -125,7 +135,7 @@ public class BalanceReportConverter implements ReportConverter {
                     }
                     groupContentTable.addCell(cell);
                 }
-                for (int k = 0; k < 2; k++) {
+                for (int k = 0; k < 5; k++) {
                     for (int j = 0; j < 8; j++) {
                         PdfPCell cell;
                         if (courseNames[j] != "") {
@@ -145,17 +155,16 @@ public class BalanceReportConverter implements ReportConverter {
                 }
                 PdfPCell cell = new PdfPCell(groupContentTable);
                 cell.setBorder(0);
+                groupTable.addCell(cell);
+                groupTable.setKeepTogether(true);
+                cell = new PdfPCell(groupTable);
+                cell.setBorder(0);
                 contentTable.addCell(cell);
             }
             PdfPCell cell = new PdfPCell(new Phrase(""));
             cell.setBorder(0);
             contentTable.addCell(cell);
-            contentTable.setTotalWidth(page.getWidth() - document.leftMargin()
-                    - document.rightMargin());
-
-            contentTable.writeSelectedRows(0, -1, document.leftMargin(), page
-                    .getHeight()
-                    - document.topMargin() + 1, writer.getDirectContent());
+            document.add(contentTable);
         } catch (DocumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -163,7 +172,6 @@ public class BalanceReportConverter implements ReportConverter {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        System.out.println(document.getPageNumber());
 
     }
 }
