@@ -3,11 +3,8 @@ package de.aidger.view;
 import static de.aidger.utils.Translation._;
 
 import java.awt.Frame;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.swing.JDialog;
-import javax.swing.JOptionPane;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
@@ -29,7 +26,7 @@ public class AboutDialog extends JDialog {
             jButton1.setAction(ActionRegistry.getInstance().get(AbortAction.class.getName()));
             jButton1.setText(_("Close"));
         } catch (ActionNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
+            UI.displayError(ex.getMessage());
         }
     }
 

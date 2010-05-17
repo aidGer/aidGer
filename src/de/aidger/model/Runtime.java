@@ -2,9 +2,11 @@ package de.aidger.model;
 
 import java.io.File;
 import java.util.List;
+import java.text.MessageFormat;
 
 import de.aidger.utils.Configuration;
 import de.aidger.utils.Translation;
+import de.aidger.view.UI;
 import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
 
 /**
@@ -124,11 +126,12 @@ public final class Runtime {
         home = home + "/aidGer/";
         File file = new File(home);
 
-        // TODO: How to localize this error?
         if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
-            System.err.println("Konnte Verzeichnis für Settings nicht "
-                    + "erstellen");
-        }
+            UI.displayError(MessageFormat.format(
+                    "Couldn't create directory {0}. Please make sure that you have enough rights to create this directory.",
+                    new Object[] { file.getName() }));
+            System.exit(-1);
+       }
 
         configuration = new Configuration(home);
 

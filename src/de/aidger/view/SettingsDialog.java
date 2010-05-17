@@ -6,7 +6,6 @@ import java.awt.Frame;
 import java.util.List;
 
 import javax.swing.JDialog;
-import javax.swing.JOptionPane;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
@@ -54,7 +53,7 @@ public class SettingsDialog extends JDialog {
             jButton2.setAction(ActionRegistry.getInstance()
                     .get(SaveSettingsAction.class.getName()));
         } catch (ActionNotFoundException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            UI.displayError(e.getMessage());
         }
 
         saveCheckBox.setSelected(Boolean.parseBoolean(save));
@@ -180,8 +179,6 @@ public class SettingsDialog extends JDialog {
 
         jLabel3.setText(_("Amount of activities:"));
         jLabel3.setToolTipText(_("The amount of activities shown in detailviews."));
-
-        activitiesSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(10), null, null, Integer.valueOf(1)));
 
         jLabel4.setText(_("Language:"));
 
