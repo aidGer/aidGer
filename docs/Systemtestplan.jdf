@@ -2258,7 +2258,7 @@
 <sequence created="13.05.2010" creator="aidGerTeam" name="Teilbilanzen via Filter" number="124">
 <description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von einer Teilbilanz.</description>
 <pre>Der Benutzer möchte eine Teilbilanz generieren.</pre>
-<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="217" priority="C" title="Teilbilanz für ein Zeitraum generieren">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="217" priority="C" title="Teilbilanz für ein Zeitraum mit bestimmten Dozent generieren">
 <description>Es soll eine Teilbilanz für einen angegebenen Zeitraum generiert und anschließend dargestellt werden.</description>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
 <actions>* Benutzer wählt in der Dropdown-Liste den Bericht "Teilbilanz"
@@ -2267,12 +2267,40 @@
 
 * System zeigt die Einstellungsmöglichkeiten zu diesem Bericht an
 
-* Benutzer gibt fügt den Filter 
+* Benutzer fügt den Filter "Dozent" hinzu
 
-* 
+* Benutzer gibt den Dozent "B. Gates" ein
+
+* Benutzer fügt den Filter "Jahr" hinzu
+
+* Benutzer gibt das Jahr "2010" hinzu
 
 * Benutzer klickt auf den Button "Generieren"</actions>
-<post>Es wurde ein neues Berichte-Tab geöffnet und die erstellte Semesterbilanz wird für das angegebene Jahr im Frame intern angezeigt. Die Semesterbilanz umfasst eine Veranstaltung im WS0809. Dabei wurden die eingeplanten HKS, der HKS Grundbedarf sowie die Plankosten korrekt bestimmt. Es ist hierbei irrelevant, dass die Veranstaltung laut Beschäftigung erst November 2010 beginnt. Diese Überprüfung hat nicht stattgefunden.</post>
+<post>Es wurde ein neues Berichte-Tab geöffnet und die erstellte Teilbilanz wird für das angegebene Jahr im Frame intern angezeigt. Die Teilbilanz umfasst eine Veranstaltung aus Testfall 159.</post>
+<tags/>
+</testcase>
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="233" priority="C" title="Teilbilanz mit Filter findet keine Veranstaltungen">
+<description>Es soll eine Teilbilanz für einen angegebenen Zeitraum generiert und anschließend dargestellt werden. Mit der Filterung wurde jedoch keine Veranstaltung gefunden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt in der Dropdown-Liste den Bericht "Teilbilanz"
+
+* Benutzer drückt auf den Button "Mehr"
+
+* System zeigt die Einstellungsmöglichkeiten zu diesem Bericht an
+
+* Benutzer fügt den Filter "Gruppe" hinzu
+
+* Benutzer gibt den Gruppe "Tolle Gruppe" ein
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Es wird eine Meldung gebracht, dass mit dem aktuellen Filter keine Teilbilanz generiert werden kann, da keine Veranstaltungen gefunden wurden. Es hat sich daher kein neuer Reiter geöffnet.</post>
+<tags/>
+</testcase>
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="234" priority="C" title="Semesterbilanz in PDF-Format exportieren">
+<description>Eine generierte Teilbilanz soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 217 wurde bereits ausgeführt. Benutzer befindet sich im Teilrbilanz-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren" bzw. "Anzeigen"</actions>
+<post>Die bereits dargestellte Semesterbilanz wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
 <tags/>
 </testcase>
 </sequence>
@@ -2555,20 +2583,20 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </tsa>
 <tsa name="Vorgangsprotokolle" number="116" revId="1">
 <relatedsequence>116</relatedsequence>
-<tsa name="Für einen Zeitraum" number="224" revId="2">
+<tsa name="Für einen Zeitraum" number="224" revId="1">
 <relatedsequence>224</relatedsequence>
 </tsa>
-<tsa name="Für einen Zeitpunkt" number="223" revId="4">
+<tsa name="Für einen Zeitpunkt" number="223" revId="1">
 <relatedsequence>223</relatedsequence>
 </tsa>
 </tsa>
-<tsa name="Jahresbilanzen" number="114" revId="2">
+<tsa name="Jahresbilanzen" number="114" revId="1">
 <relatedsequence>114</relatedsequence>
 </tsa>
-<tsa name="Semesterbilanzen" number="123" revId="2">
+<tsa name="Semesterbilanzen" number="123" revId="1">
 <relatedsequence>123</relatedsequence>
 </tsa>
-<tsa name="Teilbilanzen via Filter" number="124" revId="3">
+<tsa name="Teilbilanzen via Filter" number="124" revId="1">
 <relatedsequence>124</relatedsequence>
 </tsa>
 </tsa>
@@ -2589,5 +2617,5 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
 <extension name="standarduser" value="Y"/>
 </author>
-<extension name="maxid" value="232"/>
+<extension name="maxid" value="234"/>
 </tests>
