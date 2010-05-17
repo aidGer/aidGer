@@ -16,9 +16,24 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 public class BalanceReportConverter implements ReportConverter {
-    Document document = null;
-    PdfWriter writer = null;
+    /*
+     * The PDF-document which will be created.
+     */
+    private Document document = null;
 
+    /*
+     * The PdfWriter used to write the document.
+     */
+    private PdfWriter writer = null;
+
+    /**
+     * Initializes this BalanceReportConverter with a given path and a name.
+     * 
+     * @param path
+     *            The path, at which to save the document.
+     * @param name
+     *            The desired name of the document.
+     */
     public BalanceReportConverter(String path, String name) {
         if (document == null) {
             document = new Document(PageSize.A4.rotate());
@@ -29,6 +44,14 @@ public class BalanceReportConverter implements ReportConverter {
         document.close();
     }
 
+    /**
+     * Creates a new document.
+     * 
+     * @param path
+     *            The path at which to create the PDF-document.
+     * @param name
+     *            The desired name of the PDF-file.
+     */
     private void makeNewDocument(String path, String name) {
         FileOutputStream outStream = null;
         try {
@@ -44,6 +67,9 @@ public class BalanceReportConverter implements ReportConverter {
         }
     }
 
+    /**
+     * Writes the Header of the document on the first page only.
+     */
     private void writeHeader() {
         PdfPTable head = new PdfPTable(new float[] { 0.8f, 0.2f });
         try {
@@ -82,6 +108,9 @@ public class BalanceReportConverter implements ReportConverter {
         }
     }
 
+    /**
+     * Writes the Balance Tables, which belong to this report.
+     */
     private void writeTables() {
         String[] group = { "Bachelor Bio-Informatik", "Bachelor Mechatronik",
                 "Bachelor Mechatroniker" };
@@ -106,6 +135,10 @@ public class BalanceReportConverter implements ReportConverter {
 
             PdfPTable contentTable = new PdfPTable(1);
 
+            /*
+             * As long as there are groups for this Balance report, create new
+             * group tables.
+             */
             for (int i = 0; i < 10; i++) {
                 PdfPTable groupTable = new PdfPTable(1);
                 PdfPTable groupNameTable = new PdfPTable(new float[] { 0.2f,
@@ -125,6 +158,9 @@ public class BalanceReportConverter implements ReportConverter {
                 groupTable.addCell(groupContent);
                 PdfPTable groupContentTable = new PdfPTable(new float[] {
                         0.25f, 0.05f, 0.15f, 0.15f, 0.1f, 0.1f, 0.1f, 0.1f });
+                /*
+                 * Create the titles of the table entries.
+                 */
                 for (int j = 0; j < 8; j++) {
                     PdfPCell cell = new PdfPCell(new Phrase(courseTitles[j],
                             tableTitleFont));
@@ -135,6 +171,10 @@ public class BalanceReportConverter implements ReportConverter {
                     }
                     groupContentTable.addCell(cell);
                 }
+                /*
+                 * Create new table entries, as long as there are new Courses
+                 * for the current group.
+                 */
                 for (int k = 0; k < 5; k++) {
                     for (int j = 0; j < 8; j++) {
                         PdfPCell cell;
@@ -153,6 +193,10 @@ public class BalanceReportConverter implements ReportConverter {
                         groupContentTable.addCell(cell);
                     }
                 }
+                /*
+                 * Add the entry of the current group to the table and make sure
+                 * it doesn't get torn apart when a new page is added.
+                 */
                 PdfPCell cell = new PdfPCell(groupContentTable);
                 cell.setBorder(0);
                 groupTable.addCell(cell);
@@ -161,9 +205,6 @@ public class BalanceReportConverter implements ReportConverter {
                 cell.setBorder(0);
                 contentTable.addCell(cell);
             }
-            PdfPCell cell = new PdfPCell(new Phrase(""));
-            cell.setBorder(0);
-            contentTable.addCell(cell);
             document.add(contentTable);
         } catch (DocumentException e) {
             // TODO Auto-generated catch block
@@ -173,5 +214,11 @@ public class BalanceReportConverter implements ReportConverter {
             e.printStackTrace();
         }
 
+    }
+
+    /**
+     * Writes the Footer on every page of the document.
+     */
+    private void writeFooter() {
     }
 }
