@@ -11,6 +11,7 @@ import java.awt.print.*;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.KeyStroke;
+import javax.swing.RepaintManager;
 
 import de.aidger.view.UI;
 
@@ -57,7 +58,13 @@ public class PrintAction extends AbstractAction {
                 }
                 Graphics2D g2 = (Graphics2D)pg;
                 g2.translate(pf.getImageableX(), pf.getImageableY());
+
+                /* Disable double buffering while painting */
+                RepaintManager curMgr = RepaintManager.currentManager(panel);
+                curMgr.setDoubleBufferingEnabled(false);
                 panel.paint(g2);
+                curMgr.setDoubleBufferingEnabled(true);
+
                 return Printable.PAGE_EXISTS;
             }
         });
