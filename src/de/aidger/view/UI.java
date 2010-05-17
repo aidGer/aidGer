@@ -92,9 +92,6 @@ public final class UI extends JFrame {
         contentPane.add(getTabbedPane(), BorderLayout.CENTER);
         contentPane.add(getStatusPane(), BorderLayout.PAGE_END);
 
-        // start maximized
-        setExtendedState(Frame.MAXIMIZED_BOTH);
-
         pack();
 
         setTitle("aidGer");
@@ -264,6 +261,9 @@ public final class UI extends JFrame {
      */
     public void run() {
         setVisible(true);
+
+        // start maximized
+        setExtendedState(Frame.MAXIMIZED_BOTH);
     }
 
     /**
