@@ -139,6 +139,12 @@ public final class UI extends JFrame {
         return instance;
     }
 
+
+    public static void displayError(String error) {
+        JOptionPane.showMessageDialog(instance, error, _("Error"),
+                JOptionPane.ERROR_MESSAGE);
+    }
+
     /**
      * Sets up the main menu bar.
      */
