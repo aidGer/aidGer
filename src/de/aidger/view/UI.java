@@ -116,9 +116,8 @@ public final class UI extends JFrame {
                         action.actionPerformed(evt);
                     }
                 } catch (ActionNotFoundException e) {
-                    JOptionPane.showMessageDialog(null, e.getMessage());
+                    displayError(e.getMessage());
                 }
-
             }
         });
 
@@ -156,8 +155,7 @@ public final class UI extends JFrame {
 
             return menuBar;
         } catch (ActionNotFoundException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-
+            displayError(e.getMessage());
             return null;
         }
     }
