@@ -11,6 +11,13 @@ public class PresenceValidator extends Validator {
 
     /**
      * Initialize the PresenceValidator class.
+     */
+    public PresenceValidator() {
+
+    }
+
+    /**
+     * Initialize the PresenceValidator class.
      *
      * @param model The model to validate
      * @param members The members of the model to validate
@@ -19,16 +26,30 @@ public class PresenceValidator extends Validator {
         super(model, members);
     }
 
+    /**
+     * Validate one variable independently.
+     *
+     * @param o The variable to validate
+     * @return True if the variable validates
+     */
+    public static boolean validate(Object o) {
+        return (new PresenceValidator()).validateVar(o);
+    }
+
+    /**
+     * Validate the variable.
+     *
+     * @param o
+     *            The variable to validate
+     * @return True if the input validates, false otherwise
+     */
     @Override
-	public boolean validate() {
-        for(String member : members) {
-            Object value = getValueOf(member);
-            if (value == null) {
-                return false;
-            } else if (value.getClass().getName().equals("String") &&
-            		((String) value).isEmpty()) {
-                return false;
-            }
+    public boolean validateVar(Object o) {
+        if (o == null) {
+            return false;
+        } else if (o.getClass().getName().equals(String.class.getName()) &&
+                    ((String) o).isEmpty()) {
+            return false;
         }
         return true;
     }

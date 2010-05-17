@@ -21,6 +21,14 @@ public abstract class Validator {
 
     /**
      * Initialize the PresenceValidator class.
+     */
+    public Validator() {
+        this.model = null;
+        this.members = new String[0];
+    }
+
+    /**
+     * Initialize the PresenceValidator class.
      *
      * @param model The model to validate
      * @param members The members of the model to validate
@@ -33,9 +41,26 @@ public abstract class Validator {
     /**
      * Validate the input.
      *
+     * @return True if it validates
+     */
+    public boolean validate() {
+        for(String member : members) {
+            Object value = getValueOf(member);
+            if (!validateVar(value)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Validate the variable.
+     *
+     * @param o
+     *            The variable to validate
      * @return True if the input validates, false otherwise
      */
-    abstract public boolean validate();
+    abstract public boolean validateVar(Object o);
 
     /**
      * Get the value of the given member variable.
