@@ -2300,7 +2300,7 @@
 <description>Eine generierte Teilbilanz soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
 <pre>Der Testfall 217 wurde bereits ausgeführt. Benutzer befindet sich im Teilrbilanz-Reiter.</pre>
 <actions>* Benutzer klickt auf den Button "Exportieren" bzw. "Anzeigen"</actions>
-<post>Die bereits dargestellte Semesterbilanz wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
+<post>Die bereits dargestellte Teilbilanz wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
 <tags/>
 </testcase>
 </sequence>
@@ -2460,8 +2460,69 @@
 </sequence>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Controlling" number="10">
-<description/>
-<pre>Das Programm wurde gestartet.</pre>
+<description>Die Testsequenz dient zum Testen des Controllings. Es können Monatsauszüge der angestellten Hilfskräfte angezeigt und exportiert werden. Zwischen den Monaten kann leicht navigiert werden. Außerdem müssen komfortabel die realen Kosten in die Tabelle eingetragen werden können. Desweiteren werden bei Soll-Ist-Abweichungen Warnungen angezeigt.</description>
+<pre>Das Programm wurde gestartet und der Benutzer befindet sich im Menüpunkt Controlling.</pre>
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="242" priority="C" title="Monatsauszug für ein Monat anzeigen">
+<description>Es soll eine Monatsauszug für einen Monat angezeigt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt in der Dropdown-Liste den Monat "November 2010" aus
+
+* Benutzer drückt auf den Button "Auszug anzeigen"</actions>
+<post>Es wurde ein neues Controlling-Tab geöffnet und der Monatsauszug wird für den angegebenen Monat dargestellt. Es wird die Hilfskraft "Carl Coder" angezeigt. Dabei werden die Plankosten korrekt berrechnet.</post>
+<tags/>
+</testcase>
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="239" priority="C" title="Monatsauszug wechseln bzw. navigieren">
+<description>Der aktuelle Monatsauszug soll gewechselt bzw. navigiert werden. Der Benutzer geht ein Monat zurück und zwei Monate vor.</description>
+<pre>Testfall 236 wurde ausgeführt.</pre>
+<actions>* Benutzer drückt den Button "Oktober 2010"
+
+* Benutzer drückt den Button "November 2010"
+
+* Benutzer drückt den Button "Dezember 2010"</actions>
+<post>Die Montsauszüge der 3 Monate wurden jeweils nach den Buttonklicks angezeigt. Die angezeigten Plankosten müssen korrekt berrechnet sein. Für Oktober 2010 und Dezember 2010 dürfen keine Hilfskräfte eingetragen sein.</post>
+<tags/>
+</testcase>
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="238" priority="C" title="Monatsauszug in PDF-Format exportieren">
+<description>Eine generierter Monatsauszug soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 236 wurde bereits ausgeführt. Benutzer befindet sich im Controlling-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
+<post>Der bereits dargestellte Monatsauszug wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
+<tags/>
+</testcase>
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="240" priority="C" title="Reale Kosten eintragen und keine Abweichung">
+<description>Im aktuellen Monatsauszug sollen die realen Kosten eingetragen werden. Es gibt keine Abweichung zwischen Soll und Ist.</description>
+<pre>Testfall 236 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt die Zelle "Reale Kosten" bei der Hilfskraft "Carl Coder" an
+
+* Benutzer gibt die Reale Kosten 315 ein</actions>
+<post>Die realen Kosten für die Hilfskraft werden in der Tabelle angezeigt. Es besteht keine Abweichung zwischen Soll und Ist. Der Benutzer kann sich den Auszug ins PDF-Format exportieren lassen.</post>
+<tags/>
+</testcase>
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="241" priority="C" title="Reale Kosten eintragen und eine Abweichung">
+<description>Im aktuellen Monatsauszug sollen die realen Kosten eingetragen werden. Es gibt eine Abweichung zwischen Soll und Ist.</description>
+<pre>Testfall 236 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt die Zelle "Reale Kosten" bei der Hilfskraft "Carl Coder" an
+
+* Benutzer gibt die Reale Kosten 1000 ein</actions>
+<post>Die realen Kosten für die Hilfskraft werden in der Tabelle angezeigt. Es besteht eine Abweichung zwischen geplanten und realen Kosten, worüber der Benutzer durch eine softe Warnung informiert wird. Der Benutzer kann sich trotzdem den Auszug ins PDF-Format exportieren lassen.</post>
+<tags/>
+</testcase>
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="243" priority="C" title="Reale Kosten inkorrekt eintragen">
+<description>Im aktuellen Monatsauszug sollen die realen Kosten eingetragen werden. Das Format wurde dabei jedoch nicht eingehalten.</description>
+<pre>Testfall 236 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt die Zelle "Reale Kosten" bei der Hilfskraft "Carl Coder" an
+
+* Benutzer gibt die Reale Kosten "viel zu viel" ein</actions>
+<post>Die realen Kosten für die Hilfskraft werden in der Tabelle angezeigt. Es besteht keine Abweichung zwischen Soll und Ist. Der Benutzer kann sich den Auszug ins PDF-Format exportieren lassen.</post>
+<tags/>
+</testcase>
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="236" priority="C" title="Aktueller Monatsauszug anzeigen">
+<description>Es soll der aktuelle Monatsauszug angezeigt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer drückt auf den Menüpunkt "Controlling"</actions>
+<post>* Der aktuelle Monatsauszug öffnet sich. Es werden mit hoher Wahrscheinlichkeit keine Hilfskräfte für den jetzigen Monat angezeigt.</post>
+<tags/>
+</testcase>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Budgetprüfung" number="5">
 <description/>
@@ -2617,5 +2678,5 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
 <extension name="standarduser" value="Y"/>
 </author>
-<extension name="maxid" value="234"/>
+<extension name="maxid" value="243"/>
 </tests>
