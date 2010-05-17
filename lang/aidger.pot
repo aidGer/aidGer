@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-17 19:37+0200\n"
+"POT-Creation-Date: 2010-05-17 23:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -168,15 +168,15 @@ msgstr ""
 msgid "Display the help"
 msgstr ""
 
-#: controller/actions/PrintAction.java:29
+#: controller/actions/PrintAction.java:30
 msgid "Print"
 msgstr ""
 
-#: controller/actions/PrintAction.java:32
+#: controller/actions/PrintAction.java:33
 msgid "Print program contents"
 msgstr ""
 
-#: controller/actions/PrintAction.java:48
+#: controller/actions/PrintAction.java:49
 msgid "Print current tab"
 msgstr ""
 
@@ -184,12 +184,28 @@ msgstr ""
 msgid "Display program settings"
 msgstr ""
 
-#: controller/actions/SaveSettingsAction.java:26
+#: controller/actions/SaveSettingsAction.java:30
 msgid "Save"
 msgstr ""
 
-#: controller/actions/SaveSettingsAction.java:27
+#: controller/actions/SaveSettingsAction.java:31
 msgid "Save settings"
+msgstr ""
+
+#: controller/actions/SaveSettingsAction.java:43
+msgid "Username is empty."
+msgstr ""
+
+#: controller/actions/SaveSettingsAction.java:51
+msgid "PDF Viewer points to nonexistant file."
+msgstr ""
+
+#: controller/actions/SaveSettingsAction.java:58
+msgid "No Language selected or incorrect language selected."
+msgstr ""
+
+#: controller/actions/SaveSettingsAction.java:67
+msgid "The number of activities needs to be bigger than 0."
 msgstr ""
 
 #: controller/ActionNotFoundException.java:15
