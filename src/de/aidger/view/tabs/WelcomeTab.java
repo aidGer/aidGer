@@ -7,6 +7,12 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * A tab containing a welcome message, which is opened when the program is
+ * started and no other tabs are active.
+ * 
+ * @author aidGer Team
+ */
 public class WelcomeTab implements Tab {
 
     /**
