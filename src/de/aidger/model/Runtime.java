@@ -128,10 +128,10 @@ public final class Runtime {
 
         if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
             UI.displayError(MessageFormat.format(
-                    "Couldn't create directory {0}. Please make sure that you have enough rights to create this directory.",
-                    new Object[] { file.getName() }));
+                    "Could not create directory \"{0}\".\nPlease make sure that you have enough rights to create this directory.",
+                    new Object[] { file.getPath() }));
             System.exit(-1);
-       }
+        }
 
         configuration = new Configuration(home);
 

@@ -1,6 +1,7 @@
 package de.aidger.controller;
 
 import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 
 import de.aidger.controller.actions.AbortAction;
 import de.aidger.controller.actions.AboutAction;
@@ -71,6 +72,14 @@ public final class Application {
      * @param args
      */
     public static void main(String[] args) {
+        // Load the system specific look and feel
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            UI.displayError(e.getMessage());
+        }
+
+
         Application.getInstance().initialize();
 
         // Starts the main UI in the thread that runs the event loop.
