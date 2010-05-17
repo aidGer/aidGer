@@ -22,7 +22,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
-import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -72,13 +71,6 @@ public final class UI extends JFrame {
      */
     private UI() {
         super();
-
-        // Load the system specific look and feel
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e) {
-            logger.log(Level.WARNING, e.getMessage(), e);
-        }
 
         // Create the menu bar
         setJMenuBar(getMainMenuBar());
