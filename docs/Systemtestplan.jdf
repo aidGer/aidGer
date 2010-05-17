@@ -384,7 +384,7 @@
 <pre>Benutzer möchte Vorgänge zu einer Veranstaltung anzeigen.</pre>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="133" priority="C" title="Vorgänge anzeigen und schließen">
 <description>Es sollen Vorgänge zu einer Veranstaltung angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
-<pre>Der Testfall 28 und X wurde ausgeführt. TODO</pre>
+<pre>Der Testfälle 28, 189, 191 und 193 wurden ausgeführt.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
 
 * Benutzer klickt auf den Button "Vorgänge"
@@ -397,14 +397,14 @@
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="134" priority="C" title="Vorgänge anzeigen und Detailansicht">
 <description>Es sollen Vorgänge zu einer Veranstaltung angezeigt werden. Ein einzelner Vorgang soll daraufhin angezeigt werden.</description>
-<pre>Der Testfall 38 und X wurde ausgeführt. TODO</pre>
+<pre>Der Testfälle 38 und 193 wurden ausgeführt.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Mensa überleben für Pizza-Fans"
 
 * Benutzer klickt auf den Button "Vorgänge"
 
 * System öffnet das "Vorgänge"-Tab
 
-* Benutzer klickt auf den Vorgang "XX"
+* Benutzer klickt auf den Vorgang "Fred Feuerstein - Mensa überleben für Pizza-Fans"
 
 * System öffnet das "Anzeige"-Tab des Vorgangs
 
@@ -721,7 +721,7 @@
 <pre/>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="143" priority="C" title="Vorgänge anzeigen und schließen">
 <description>Es sollen Vorgänge zu einer Hilfskraft angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
-<pre>Der Testfall 44 und X wurde ausgeführt. TODO</pre>
+<pre>Der Testfälle 44, 189, 191 und 193 wurden ausgeführt.</pre>
 <actions>* Benutzer markiert die Hilfskraft "Carl Coder"
 
 * Benutzer klickt auf den Button "Vorgänge"
@@ -734,14 +734,14 @@
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="144" priority="C" title="Vorgänge anzeigen und Detailansicht">
 <description>Es sollen Vorgänge zu einer Hilfskraft angezeigt werden. Ein einzelner Vorgang soll daraufhin angezeigt werden.</description>
-<pre>Der Testfall 44 und X wurde ausgeführt. TODO</pre>
+<pre>Der Testfälle 44, 189, 191 und 193 wurden ausgeführt.</pre>
 <actions>* Benutzer markiert die Hilfskraft "Carl Coder"
 
 * Benutzer klickt auf den Button "Vorgänge"
 
 * System öffnet das "Vorgänge"-Tab
 
-* Benutzer klickt auf den Vorgang "XX"
+* Benutzer klickt auf den Vorgang "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
 
 * System öffnet das "Anzeige"-Tab des Vorgangs
 
@@ -1497,7 +1497,7 @@
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="164" priority="A" title="Beschäftigung korrekt buchen, aber nicht möglich">
 <description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt. Die Buchung ist dennoch nicht möglich (gebuchte HKS &gt; genehmigte HKS).</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44, 28, 168 und X wurden ausgeführt. TODO</pre>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44, 28 und 168 wurden ausgeführt.</pre>
 <actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
 
 * Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
@@ -1903,7 +1903,7 @@
 
 * Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
 
-* Benutzer wählt die Veranstaltung "Laufende Forschung" aus
+* Benutzer wählt zusätzlich die Veranstaltung "Mensa überleben für Pizza-Fans" aus
 
 * Benutzer gibt den Bearbeiter "Philly" ein
 
@@ -2149,7 +2149,7 @@
 <actions>* Benutzer gibt im Suchfeld "Nutzlose Betriebssysteme in der Praxis" ein
 
 * System aktualisiert die Anzeige-Tabelle</actions>
-<post>In der Anzeige-Tabelle erscheinen aufgrund der zuvor ausgeführten Testfälle . Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<post>In der Anzeige-Tabelle erscheinen aufgrund der zuvor ausgeführten Testfälle 5 Vorgänge. Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
 <tags/>
 </testcase>
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="209" priority="C" title="Vorgang unvollständig suchen">
