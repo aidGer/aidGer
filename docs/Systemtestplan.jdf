@@ -1827,7 +1827,7 @@
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="188" priority="C" title="Suchfilter entfernen">
 <description>Der angewandte Suchfilter soll entfernt werden.</description>
-<pre>Der Testfall 128 wurde ausgeführt.</pre>
+<pre>Der Testfall 187 wurde ausgeführt.</pre>
 <actions>* Benutzer klickt auf den Button neben dem Suchfeld</actions>
 <post>Die Anzeige-Tabelle zeigt alle Veranstaltungen an. Das Suchfeld wurde geleert.</post>
 <tags/>
@@ -1840,14 +1840,234 @@
 <sequence created="13.05.2010" creator="aidGerTeam" name="Hinzufügen" number="108">
 <description>Die Testsequenz enthält Testfälle zum Hinzufügen eines Vorgangs in die Datenbank.</description>
 <pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:05" number="189" priority="B" title="Vorgang einmal korrekt hinzufügen">
+<description>Es wird ein Vorgang zur Datenbank hinzugefügt. Alle Eingaben sind korrekt. Es ist keine Massenerfassung von Vorgängen.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 28 wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Datum "15.10.2010" ein
+
+* Benutzer wählt die Hilfskraft "Peter Planlos" aus
+
+* Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
+
+* Benutzer gibt den Bearbeiter "Chris" ein
+
+* Benutzer gibt den Sender "Bart Simpson" ein
+
+* Benutzer gibt die Vorgangsart "Neueinstellung" ein
+
+* Benutzer gibt die Art des Vorgangsdokument "eMail" ein
+
+* Benutzer lässt den Vorgangstext leer
+
+* Benutzer gibt keine Bemerkung ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Vorgang ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Die Zuordnung zur Hilfskraft und Veranstaltung ist vorhanden. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:05" number="191" priority="B" title="Vorgang mehrmals für Hilfskräfte korrekt hinzufügen (Massenerfassung)">
+<description>Es wird ein Vorgang zur Datenbank hinzugefügt. Alle Eingaben sind korrekt. Es ist eine Massenerfassung von Vorgängen für verschiedene Hilfskräfte.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die benötigte Veranstaltungs- und Hilfskrafttestfälle wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Datum "01.03.2009" ein
+
+* Benutzer wählt die Hilfskraft "Peter Planlos" aus
+
+* Benutzer wählt zusätzlich die Hilfskraft "Carl Coder" aus
+
+* Benutzer wählt zusätzlich die Hilfskraft "Fred Feuerstein" aus
+
+* Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
+
+* Benutzer gibt den Bearbeiter "Phil" ein
+
+* Benutzer gibt den Sender "Lisa Simpson" ein
+
+* Benutzer gibt die Vorgangsart "Posteingang" ein
+
+* Benutzer gibt die Art des Vorgangsdokument "Arbeitsvertrag" ein
+
+* Benutzer lässt den Vorgangstext leer
+
+* Benutzer gibt keine Bemerkung ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Vorgänge sind mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Dabei wurden Vorgänge zu jeder ausgewählten Hilfskraft erstellt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:05" number="193" priority="B" title="Vorgang mehrmals für Veranstaltungen korrekt hinzufügen (Massenerfassung)">
+<description>Es wird ein Vorgang zur Datenbank hinzugefügt. Alle Eingaben sind korrekt. Es ist eine Massenerfassung von Vorgängen für verschiedene Veranstaltungen.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die benötigte Veranstaltungs- und Hilfskrafttestfälle wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Datum "07.06.2011" ein
+
+* Benutzer wählt zusätzlich die Hilfskraft "Fred Feuerstein" aus
+
+* Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
+
+* Benutzer wählt die Veranstaltung "Laufende Forschung" aus
+
+* Benutzer gibt den Bearbeiter "Philly" ein
+
+* Benutzer gibt den Sender "Homer Simpson" ein
+
+* Benutzer gibt die Vorgangsart "Postausgang" ein
+
+* Benutzer gibt die Art des Vorgangsdokument "Gehaltsabrechnung" ein
+
+* Benutzer lässt den Vorgangstext leer
+
+* Benutzer gibt keine Bemerkung ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Vorgänge sind mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Dabei wurden Vorgänge zu jeder ausgewählten Veranstaltung erstellt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:05" number="192" priority="B" title="Vorgang inkorrekt hinzufügen">
+<description>Es wird ein Vorgang zur Datenbank hinzugefügt. Es wurden falsche Eingaben gemacht.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 28 wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Datum "In ferner Zukunft" ein
+
+* Benutzer wählt die Hilfskraft "Peter Planlos" aus
+
+* Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
+
+* Benutzer gibt den Bearbeiter "Chrissy" ein
+
+* Benutzer gibt den Sender "Bart Simpson" ein
+
+* Benutzer gibt die Vorgangsart "Postausgang" ein
+
+* Benutzer gibt die Art des Vorgangsdokument "Lohnsteuerkarte" ein
+
+* Benutzer lässt den Vorgangstext leer
+
+* Benutzer gibt keine Bemerkung ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Vorgang wurde in der Datenbank nicht abgelegt. Der Benutzer wird darüber informiert, dass das Datumsformat falsch ist. Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.</post>
+<tags/>
+</testcase>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="194" priority="D" title="Abbruch: Vorgang hinzufügen">
+<description>Es soll ein Vorgang hinzugefügt werden. Dieser Vorgang wird abgebrochen</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer wählt die Hilfskraft "Peter Planlos" aus
+
+* Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
+
+* Benutzer klickt auf den Button "Abbrechen"	</actions>
+<post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
+<tags/>
+</testcase>
 </sequence>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Bearbeiten" number="109">
 <description>Die Testsequenz enthält Testfälle zum Bearbeiten eines Vorgangs in die Datenbank.</description>
 <pre/>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="195" priority="C" title="Vorgang korrekt bearbeiten">
+<description>Es soll ein Vorgang bearbeitet werden. Alle Eingaben sind korrekt.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall  wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den Vorgang "Peter Planlos - Nutzlose Betriebssysteme in der Praxis"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer gibt die Bemerkung "Ich bin ein Bemerkungsfeld" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die geänderten Daten werden in der Datenbank hinterlegt und das System kehrt zum vorher angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="196" priority="C" title="Vorgang unvollständig bearbeiten">
+<description>Es soll ein Vorgang  bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 191 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den Vorgang "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer löscht den Inhalt des Felds Bearbeiter
+
+* Benutzer löscht den Inhalt des Felds Datum
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Datensatz wird nicht editiert. Der Benutzer bleibt im Bearbeiten-Tab und wird über die leer gelassenen Felder informiert.</post>
+<tags/>
+</testcase>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="197" priority="C" title="Vorgang inkorrekt bearbeiten">
+<description>Es soll ein Vorgang bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 193 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den Vorgang "Fred Feuerstein - Laufende Forschung"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ändert das Datum zu "Vergangenheit"
+
+* Benutzer löscht die Referenz zur Veranstaltung
+
+* Benutzer klickt auf den Button "Speichern"
+</actions>
+<post>Der Datensatz wird nicht bearbeitet. Der Benutzer wird darüber informiert, dass das Format für das Feld Datum nicht eingehalten wurde. Auch erhält er eine Meldung, dass der Vorgang eine Veranstaltung referenzieren muss. Er befindet sich weiterhin im Bearbeiten-Tab, um seine Eingabe korrigieren zu können.</post>
+<tags/>
+</testcase>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="198" priority="C" title="Abbruch: Vorgang bearbeiten">
+<description>Es soll ein Vorgang bearbeitet werden. Dies wird jedoch abgebrochen.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 189 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den Vorgang "Peter Planlos - Nutzlose Betriebssysteme in der Praxis"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ersetzt den Sender mit "Philipp"
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Die Änderungen am Datensatz werden verworfen, das Bearbeiten-Tab wird geschloßen und der Benutzer befindet sich erneut im davor angezeigten Tab.</post>
+<tags/>
+</testcase>
 </sequence>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Löschen" number="111">
 <description>Die Testsequenz enthält Testfälle zum Löschen eines Vorgangs in die Datenbank.</description>
 <pre/>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="199" priority="C" title="Vorgang korrekt entfernen">
+<description>Es soll ein Vorgang gelöscht werden, was korrekt funktioniert.</description>
+<pre>Der Testfall 189 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den Vorgang "Peter Planlos - Nutzlose Betriebssysteme in der Praxis"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Vorgänge.</post>
+<tags/>
+</testcase>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="200" priority="C" title="Vorgang entfernen mit Taste Entf">
+<description>Es soll ein Vorgangt gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
+<pre>Der Testfall 191 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den Vorgang "Fred Feuerstein - Laufende Forschung"
+
+* Benutzer drückt die Taste "Entf"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Vorgänge.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="201" priority="C" title="Abbruch: Vorgang entfernen">
+<description>Es soll ein Vorgang gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
+<pre>Der Testfall 191 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den Vorgang "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="202" priority="C" title="Hilfskraft entfernen ohne Auswahl">
+<description>Es soll eine Hilfskraft gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Löschen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
+<tags/>
+</testcase>
 </sequence>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Anzeigen" number="112">
 <description>Die Testsequenz enthält Testfälle zum Anzeigen eines Vorgangs in die Datenbank.</description>
@@ -2034,5 +2254,5 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
 <extension name="standarduser" value="Y"/>
 </author>
-<extension name="maxid" value="188"/>
+<extension name="maxid" value="202"/>
 </tests>
