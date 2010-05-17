@@ -897,7 +897,15 @@ Bei allen Vorgängen sollen folgende Daten erfasst werden können:
 \end_layout
 
 \begin_layout Itemize
-Datum
+Datum des Vorgangs
+\end_layout
+
+\begin_layout Itemize
+Betroffene Hilfskraft
+\end_layout
+
+\begin_layout Itemize
+Betroffene Veranstaltung
 \end_layout
 
 \begin_layout Itemize
@@ -905,15 +913,23 @@ Bearbeiter
 \end_layout
 
 \begin_layout Itemize
-betroffene Hilfskraft
+Sender
 \end_layout
 
 \begin_layout Itemize
-Bemerkung / Vorgangstext
+Vorgangsart
 \end_layout
 
 \begin_layout Itemize
-Sender / Adressat
+Art des Vorgangsdokuments
+\end_layout
+
+\begin_layout Itemize
+Vorgangstext
+\end_layout
+
+\begin_layout Itemize
+Bemerkung
 \end_layout
 
 \begin_layout Standard

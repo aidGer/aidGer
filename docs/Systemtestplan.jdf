@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE tests SYSTEM "project.dtd">
 <tests product="TestDataManager" team="05" version="1.0">
-<sequence created="13.05.2010" creator="aidGerTeam" name="Projekt" number="0">
+<sequence created="17.05.2010" creator="aidGerTeam" name="Projekt" number="0">
 <description>Dies ist der Wurzelknoten des Projekts. Er enthält alle anderen Testsequenzen und Testfälle</description>
 <pre/>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Systemtest" number="3">
@@ -1304,8 +1304,8 @@
 <sequence created="13.05.2010" creator="aidGerTeam" name="Hinzufügen" number="102">
 <description>Die Testsequenz enthält Testfälle zum Hinzufügen einer Beschäftigung in die Datenbank.</description>
 <pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="159" priority="A" title="Beschäftigung korrekt buchen">
-<description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt.</description>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:10" number="159" priority="A" title="Beschäftigung mit neuem Vertrag korrekt buchen">
+<description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt. Dabei wird ein neuer Vertrag zur Beschäftigung angelegt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44 und 28 wurden ausgeführt.</pre>
 <actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
 
@@ -1331,14 +1331,9 @@
 
 * Benutzer gibt für Januar 2010 45 HKS ein.
 
-* Benutzer klickt auf den Button "Weiter"</actions>
-<post>Die Beschäftigung wurde im System mit den korrekten Werten zwischengespeichert und es wird im nächsten Schritt der Vertrag zur Beschäftigung zugeordnet.</post>
-<tags/>
-</testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:04" number="160" priority="A" title="Vertragsdaten korrekt buchen">
-<description>Die Beschäftigung wurde bereits erfasst. Nun müssen die Vertragsdaten im nächsten Schritt gebucht werden. Dieser Testfall knüpft direkt an Testfall 159 an.</description>
-<pre>Der Testfall 159 wurde ausgeführt.</pre>
-<actions>* Benutzer gibt das Abschlußdatum "10.10.2010" ein
+* Benutzer klickt auf den Button "+", um einen Vertrag der Beschäftigung hinzuzufügen
+
+* Benutzer gibt das Abschlußdatum "10.10.2010" ein
 
 * Benutzer lässt das Bestätigungsdatum leer
 
@@ -1350,12 +1345,14 @@
 
 * Benutzer gibt bei Art des Vertrags "Neuvertrag" ein
 
-* Benutzer klickt auf "Speichern"</actions>
-<post>Die Buchung der Beschäftigung wurde vollständig gespeichert. Die Vertragsdaten wurden außerdem zur Beschäftigung korrekt zugeordnet und abgespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehr zum Menüpunkt Beschäftigungen im alten Reiter zurück.</post>
+* Benutzer klickt auf den Button "Speichern"
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Beschäftigung wurde im System mit den korrekten Werten vollständig gespeichert. Die Vertragsdaten wurden außerdem zur Beschäftigung korrekt zugeordnet und abgespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehrt zum Menüpunkt Beschäftigungen im alten Reiter zurück.</post>
 <tags/>
 </testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="168" priority="A" title="Beschäftigung korrekt buchen">
-<description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt.</description>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:10" number="168" priority="A" title="Beschäftigung mit neuem Vertrag korrekt buchen">
+<description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt. Dabei wird ein neuer Vertrag zur Beschäftigung angelegt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 39 wurden ausgeführt.</pre>
 <actions>* Benutzer wählt die Hilfskraft "Peter Planlos" aus
 
@@ -1383,14 +1380,9 @@
 
 * Benutzer gibt für April 2010 "12" HKS ein
 
-* Benutzer klickt auf den Button "Weiter"</actions>
-<post>Die Beschäftigung wurde im System mit den korrekten Werten zwischengespeichert und es wird im nächsten Schritt der Vertrag zur Beschäftigung zugeordnet.</post>
-<tags/>
-</testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:04" number="169" priority="A" title="Vertragsdaten korrekt buchen">
-<description>Die Beschäftigung wurde bereits erfasst. Nun müssen die Vertragsdaten im nächsten Schritt gebucht werden. Dieser Testfall knüpft direkt an Testfall 159 an.</description>
-<pre>Der Testfall 168 wurde ausgeführt.</pre>
-<actions>* Benutzer gibt das Abschlußdatum "11.12.2009" ein
+* Benutzer klickt auf den Button "+", um einen neuen Vertrag anzulegen
+
+* Benutzer gibt das Abschlußdatum "11.12.2009" ein
 
 * Benutzer lässt das Bestätigungsdatum leer
 
@@ -1402,8 +1394,45 @@
 
 * Benutzer gibt bei Art des Vertrags "Aufstockung" ein
 
-* Benutzer klickt auf "Speichern"</actions>
-<post>Die Buchung der Beschäftigung wurde vollständig gespeichert. Die Vertragsdaten wurden außerdem zur Beschäftigung korrekt zugeordnet und abgespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehr zum Menüpunkt Beschäftigungen im alten Reiter zurück.</post>
+* Benutzer klickt auf den Button "Speichern"
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Beschäftigung wurde im System mit den korrekten Werten vollständig gespeichert. Die Vertragsdaten wurden außerdem zur Beschäftigung korrekt zugeordnet und abgespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehrt zum Menüpunkt Beschäftigungen im alten Reiter zurück.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:10" number="177" priority="A" title="Beschäftigung mit bestehenden Vertrag korrekt buchen">
+<description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt. Dabei wird ein neuer Vertrag zur Beschäftigung angelegt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45, 38 und 168 wurden ausgeführt.</pre>
+<actions>* Benutzer wählt die Hilfskraft "Peter Planlos" aus
+
+* Benutzer wählt die Veranstaltung "Mensa überleben für Pizza-Fans" aus
+
+* Benutzer gibt den Fonds "87654321" ein
+
+* Benutzer gibt die Kostenstelle "Studiengebühren" ein
+
+* Benutzer lässt das Bemerkungsfeld leer
+
+* Benutzer wählt den Startmonat "Januar" aus
+
+* Benutzer wählt das Startjahr "2010" aus
+
+* Benutzer wählt den Endmonat "April" aus
+
+* Benutzer wählt das Endjahr "2010" aus
+
+* Benutzer gibt für Januar 2010 "10" HKS ein
+
+* Benutzer gibt für Februar 2010 "10" HKS ein
+
+* Benutzer gibt für März 2010 "15" HKS ein
+
+* Benutzer gibt für April 2010 "12" HKS ein
+
+* Benutzer wählt den Vertrag aus Testfall 168 aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Beschäftigung wurde im System mit den korrekten Werten vollständig gespeichert. Die bestehenden Vertragsdaten wurden außerdem zur Beschäftigung korrekt zugeordnet und abgespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehrt zum Menüpunkt Beschäftigungen im alten Reiter zurück.</post>
 <tags/>
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="161" priority="A" title="Beschäftigung inkorrekt buchen">
@@ -1427,8 +1456,10 @@
 
 * Benutzer wählt das Endjahr "2010" aus
 
-* Benutzer klickt auf den Button "Weiter"</actions>
-<post>Die Beschätigung wurde nicht zwischengespeichert. Der Benutzer wird darüber informiert, dass das Format des Fonds nicht stimmt. Des weiteren bekommt er die Fehlermeldung, dass das Enddatum vor dem Startdatum liegt. Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</post>
+* Benutzer wählt keinen Vertrag aus oder fügt einen neuen hinzu
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Beschätigung wurde nicht gespeichert. Der Benutzer wird darüber informiert, dass das Format des Fonds nicht stimmt. Des weiteren bekommt er die Fehlermeldung, dass das Enddatum vor dem Startdatum liegt. Zudem wird er darüber informiert, dass er keine Vertragsdaten angegeben wurden. Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</post>
 <tags/>
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="162" priority="A" title="Beschäftigung inkorrekt buchen">
@@ -1458,13 +1489,15 @@
 
 * Benutzer gibt für August 2010 "33" HKS ein
 
+* Benutzer wählt keinen Vertrag aus oder fügt einen neuen hinzu
+
 * Benutzer klickt auf den Button "Weiter"</actions>
-<post>Die Beschätigung wurde nicht zwischengespeichert. Der Benutzer wird darüber informiert, dass er keine Veranstaltung ausgewählt hat. Des weiteren bekommt er die Fehlermeldung, dass er das Format der HKS-Felder nicht eingehalten hat. Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</post>
+<post>Die Beschätigung wurde nicht gespeichert. Der Benutzer wird darüber informiert, dass er keine Veranstaltung ausgewählt hat. Des weiteren bekommt er die Fehlermeldung, dass er das Format der HKS-Felder nicht eingehalten hat. Zudem wird er darüber informiert, dass er keine Vertragsdaten angegeben wurden. Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</post>
 <tags/>
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="164" priority="A" title="Beschäftigung korrekt buchen, aber nicht möglich">
 <description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt. Die Buchung ist dennoch nicht möglich (gebuchte HKS &gt; genehmigte HKS).</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44, 28 und X wurden ausgeführt. TODO</pre>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44, 28, 168 und X wurden ausgeführt. TODO</pre>
 <actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
 
 * Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
@@ -1489,31 +1522,14 @@
 
 * Benutzer gibt für Januar 2010 100 HKS ein.
 
-* Benutzer klickt auf den Button "Weiter"</actions>
-<post>Die Beschäftigung wurde im System nicht zwischengespeichert. Die gebuchen HKS sind größer als die genehmigten HKS für diese Veranstaltung. Der Benutzer wird darüber informiert.</post>
+* Benutzer wählt den Vertrag aus Testfall 168 aus.
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Beschäftigung wurde im System nicht gespeichert. Die gebuchen HKS sind größer als die genehmigten HKS für diese Veranstaltung. Der Benutzer wird darüber informiert.</post>
 <tags/>
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:04" number="166" priority="A" title="Vertragsdaten inkorrekt buchen">
 <description>Die Beschäftigung wurde bereits erfasst. Nun müssen die Vertragsdaten im nächsten Schritt gebucht werden. Dieser Testfall knüpft direkt an Testfall 159 an. Die Vertragsdaten werden jedoch falsch eingegeben.</description>
-<pre>Der Testfall 159 wurde ausgeführt.</pre>
-<actions>* Benutzer lässt das Abschlußdatum leer
-
-* Benutzer lässt das Bestätigungsdatum leer
-
-* Benutzer setzt das Häkchen bei "Einstellung nach Delegationsverfahren"
-
-* Benutzer gibt den Beschäftigungsbeginn "01.11.2010" ein
-
-* Benutzer gibt das Beschäftigungsende "01.05.2010" ein
-
-* Benutzer gibt bei Art des Vertrags "Aufstockung" ein
-
-* Benutzer klickt auf "Speichern"</actions>
-<post>Der Benutzer wird informiert, dass er Falscheingaben gemacht hat: Das Beschäftigungsende liegt vor dem Beschäftigungsbeginn und es ist kein Abschlußdatum angegeben. Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</post>
-<tags/>
-</testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="163" priority="A" title="Abbruch: Beschäftigung buchen">
-<description>Es soll eine Beschäftigung gebucht werden. Die Buchung wird jedoch abgebrochen.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44 und 28 wurden ausgeführt.</pre>
 <actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
 
@@ -1525,17 +1541,57 @@
 
 * Benutzer gibt die Bemerkung "keine" ein
 
-* Benutzer klickt auf den Button "Abbrechen</actions>
-<post>Die Beschäftigung wurde verworfen. Das Tab-Fenster wird geschloßen und der Benutzer kehrt zum zuvor angezeigten Reiter zurück.</post>
+* Benutzer wählt den Startmonat "November" aus
+
+* Benutzer wählt das Startjahr "2010" aus
+
+* Benutzer wählt den Endmonat "Januar" aus
+
+* Benutzer wählt das Endjahr "2011" aus
+
+* Benutzer gibt für November 2010 30 HKS ein.
+
+* Benutzer gibt für Dezember 2010 20 HKS ein.
+
+* Benutzer gibt für Januar 2010 45 HKS ein.
+
+* Benutzer klickt auf den Button "+", um einen Vertrag der Beschäftigung hinzuzufügen
+
+* Benutzer lässt das Abschlußdatum leer
+
+* Benutzer lässt das Bestätigungsdatum leer
+
+* Benutzer setzt das Häkchen bei "Einstellung nach Delegationsverfahren"
+
+* Benutzer gibt den Beschäftigungsbeginn "01.11.2010" ein
+
+* Benutzer gibt das Beschäftigungsende "01.05.2010" ein
+
+* Benutzer gibt bei Art des Vertrags "Aufstockung" ein
+
+* Benutzer klickt auf den Button "Speichern"
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Benutzer wird informiert, dass er Falscheingaben gemacht hat: Das Beschäftigungsende liegt vor dem Beschäftigungsbeginn und es ist kein Abschlußdatum angegeben. Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</post>
 <tags/>
 </testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="165" priority="A" title="Abbruch: Vertragsdaten buchen">
-<description>Es soll eine Beschäftigung gebucht werden. Die Buchung der Beschäftigungsdaten war erfolgreich, das Buchen der Vertragsdaten wurde jedoch abgebrochen.</description>
-<pre>Der Testfall 159 wurde ausgeführt.</pre>
-<actions>* Benutzer gibt das Abschlußdatum "10.04.2010" ein
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="163" priority="A" title="Abbruch: Beschäftigung buchen">
+<description>Es soll eine Beschäftigung gebucht werden. Die Buchung wird jedoch abgebrochen.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44, 168 und 28 wurden ausgeführt.</pre>
+<actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
+
+* Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
+
+* Benutzer gibt den Fonds "12345678" ein
+
+* Benutzer gibt die Kostenstelle "Studiengebühren" ein
+
+* Benutzer gibt die Bemerkung "keine" ein
+
+* Benutzer wählt den Vertrag aus Testfall 168 aus
 
 * Benutzer klickt auf den Button "Abbrechen"</actions>
-<post>Die gesamte Beschäftigung (Beschäftigungs- und Vertragsdaten) wurde verworfen. Das Tab-Fenster wird geschloßen und der Benutzer kehrt zum zuvor angezeigten Reiter zurück.</post>
+<post>Die Beschäftigung und alle möglichen Vertragsdaten zu dieser temporären Beschäftigung wurden verworfen. Das Tab-Fenster wird geschloßen und der Benutzer kehrt zum zuvor angezeigten Reiter zurück.</post>
 <tags/>
 </testcase>
 </sequence>
@@ -1603,7 +1659,11 @@
 <pre>Der Testfall 168 wurde bereits ausgeführt.</pre>
 <actions>* Benutzer markiert die Beschäftigung "Peter Planlos - Laufende Forschung"
 
-* Benutzer klickt auf den Button "Vertrag"
+* Benutzer klickt auf den Button "Anzeigen"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer klickt auf den Button "Bearbeiten des Vertrags"
 
 * Benutzer gibt das Bestätigungsdatum "03.12.2009" ein
 
@@ -1630,14 +1690,148 @@
 <sequence created="13.05.2010" creator="aidGerTeam" name="Löschen" number="104">
 <description>Die Testsequenz enthält Testfälle zum Löschen einer Beschäftigung in die Datenbank.</description>
 <pre>Benutzer möchte eine Beschäftigung löschen.</pre>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="175" priority="C" title="Beschäftigung inkl. Vertrag entfernen">
+<description>Es soll eine Beschäftigung gelöscht werden, was korrekt funktioniert. Der Vertrag wird in Folge dessen ebenfalls entfernt.</description>
+<pre>Der Testfall 168 wurde ausgeführt, der Testfall 177 wurde noch nicht ausgeführt.</pre>
+<actions>* Benutzer markiert die Beschäftigung "Peter Planlos - Laufende Forschung"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Die Beschäftigung wird aus der Datenbank gelöscht. Da der Vertrag nicht von einer anderen Beschäftigung referenziert wird, wird auch dieser entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen.</post>
+<tags/>
+</testcase>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="176" priority="C" title="Beschäftigung ohne Vertrag entfernen">
+<description>Es soll eine Beschäftigung gelöscht werden, was korrekt funktioniert. Der Vertrag bleibt jedoch im System erhalten.</description>
+<pre>Der Testfall 168 und 177 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Beschäftigung "Peter Planlos -  Mensa überleben für Pizza-Fans"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Die Beschäftigung wird aus der Datenbank gelöscht. Da der Vertrag von Testfall 168 weiterhin referenziert wird, wird dieser nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen.</post>
+<tags/>
+</testcase>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="180" priority="C" title="Beschäftigung entfernen mit Taste Entf">
+<description>Es soll eine Beschäftigung gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet. Der Vertrag wird dabei ebenfalls gelöscht.</description>
+<pre>Der Testfall 159 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Beschäftigung "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
+
+* Benutzer drückt die Taste "Ent"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz (Beschäftigung + Vertragsdaten) wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen.</post>
+<tags/>
+</testcase>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="178" priority="C" title="Abbruch: Beschäftigung entfernen">
+<description>Es soll eine Beschäftigung gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
+<pre>Der Testfall 159 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Beschäftigung "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen.</post>
+<tags/>
+</testcase>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="179" priority="C" title="Beschäftigung entfernen ohne Auswahl">
+<description>Es soll eine Beschäftigung gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Löschen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen.</post>
+<tags/>
+</testcase>
 </sequence>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Anzeigen" number="105">
 <description>Die Testsequenz enthält Testfälle zum Anzeigen einer Beschäftigung in die Datenbank.</description>
 <pre>Benutzer möchte eine Beschäftigung anzeigen.</pre>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="181" priority="C" title="Beschäftigung anzeigen und schließen">
+<description>Es soll eine Beschäftigung angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
+<pre>Der Testfall 159 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Beschäftigung "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Beschäftigungs- und Vertragsdaten erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 159 übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum zuvor angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="182" priority="C" title="Beschäftigung anzeigen und bearbeiten">
+<description>Es soll eine Beschäftigung angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
+<pre>Der Testfall 177 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Beschäftigung "Peter Planlos -  Mensa überleben für Pizza-Fans"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* System geht in den "Bearbeiten"-Tab über
+
+* Benutzer gibt den Fonds "77774444" ein
+
+* Benutzer gibt die Kostenstelle "Sonstiges" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Beschäftigungsdaten und den zugehörigen Vertrag erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 177 übereinstimmen. Nach dem Bearbeiten wurde der Datensatz korrekt geändert und gespeichert. Der Benutzer befindet sich im vorher angezeigten Reiter wieder.</post>
+<tags/>
+</testcase>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="184" priority="C" title="Beschäftigung anzeigen ohne Auswahl">
+<description>Es soll eine Beschäftigung angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen und es erscheint eine entsprechende Fehlermeldung.</post>
+<tags/>
+</testcase>
 </sequence>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Suchen" number="107">
 <description>Die Testsequenz enthält Testfälle zum Suchen einer Beschäftigung in die Datenbank.</description>
 <pre>Benutzer möchte eine Beschäftigung suchen.</pre>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="185" priority="C" title="Beschäftigung suchen nach Veranstaltung">
+<description>Es soll eine Beschäftigung gesucht werden. Es wird nach dem Veranstaltungsnamen gesucht.</description>
+<pre>Der Testfall 28 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt im Suchfeld "Nutzlose Betriebssysteme in der Praxis" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich die gesuche Veranstaltung (Testfall 28). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="186" priority="C" title="Beschäftigung suchen nach Art des Vertrags">
+<description>Es soll eine Beschäftigung gesucht werden. Es wird nach der Vertragsart der Beschäftigung gesucht.</description>
+<pre>Der Testfall 28 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt im Suchfeld "B. Gates" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich die gesuche Veranstaltung (Testfall 28). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="187" priority="C" title="Beschäftigung unvollständig suchen">
+<description>Es soll eine Beschäftigung gesucht werden. Das Beschäftigungsdatum des Vertrags wird nur teilweise eingeben.</description>
+<pre>Der Testfall 168 und 177 wurden ausgeführt.</pre>
+<actions>* Benutzer gibt in das Suchfeld "11.02" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheinen die zwei Beschäftigungen aus 168 und 177. Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="188" priority="C" title="Suchfilter entfernen">
+<description>Der angewandte Suchfilter soll entfernt werden.</description>
+<pre>Der Testfall 128 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt auf den Button neben dem Suchfeld</actions>
+<post>Die Anzeige-Tabelle zeigt alle Veranstaltungen an. Das Suchfeld wurde geleert.</post>
+<tags/>
+</testcase>
 </sequence>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Vorgänge" number="8">
@@ -1832,7 +2026,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <tsa name="Stammdatenverwaltung" number="4" revId="1">
 <relatedsequence>4</relatedsequence>
 </tsa>
-<tsa name="Beschäftigungen und Verträge" number="7" revId="3">
+<tsa name="Beschäftigungen und Verträge" number="7" revId="1">
 <relatedsequence>7</relatedsequence>
 </tsa>
 </tsa>
@@ -1840,5 +2034,5 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
 <extension name="standarduser" value="Y"/>
 </author>
-<extension name="maxid" value="174"/>
+<extension name="maxid" value="188"/>
 </tests>

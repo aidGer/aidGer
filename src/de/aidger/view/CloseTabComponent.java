@@ -104,7 +104,8 @@ public class CloseTabComponent extends JPanel {
                             listener, emptyTab.getName()));
 
                     pane.setSelectedIndex(0);
-                } else if (i == pane.getTabCount() - 1) {
+                } else if (i == pane.getTabCount() - 1
+                        && pane.getSelectedIndex() == pane.getTabCount() - 1) {
                     pane.setSelectedIndex(i - 1);
                 }
 
