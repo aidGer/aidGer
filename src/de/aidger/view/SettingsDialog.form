@@ -157,11 +157,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="activitiesSpinner">
-      <Properties>
-        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-          <SpinnerModel initial="10" numberType="java.lang.Integer" stepSize="1" type="number"/>
-        </Property>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>

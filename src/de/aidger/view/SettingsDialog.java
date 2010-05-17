@@ -181,8 +181,6 @@ public class SettingsDialog extends JDialog {
         jLabel3.setText(_("Amount of activities:"));
         jLabel3.setToolTipText(_("The amount of activities shown in detailviews."));
 
-        activitiesSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(10), null, null, Integer.valueOf(1)));
-
         jLabel4.setText(_("Language:"));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
