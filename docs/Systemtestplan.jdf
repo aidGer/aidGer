@@ -2601,11 +2601,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 * Benutzer gibt die Veranstaltung "Dumbdidum" ein
 
 * Benutzer drückt auf den Button "Prüfen"</actions>
-<post>Ein weiteres Budgetprüfungstab wird geöffnet. In diesem wird nur die Veranstaltung "Laufende Forschung" mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet.
-
-Laufende Forschung: 47 / 45
-
-Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<post>Es wurde kein neues Budgetprüfung-Tab geöffnet. Der Benutzer wird darüber informiert, dass mit diesem Veranstaltungsfilter keine Budgetprüfung durchzuführen ist.</post>
 <tags/>
 </testcase>
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="246" priority="C" title="Veranstaltungsliste in PDF-Format exportieren">
@@ -2669,13 +2665,73 @@ Sollte sich die Fenstergröße in der Höhe verändern, ändert sich die Größe
 Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen, wird ein neuer Reiter geöffnet und der Inhalt des Elements in diesem neuen Reiter dargestellt. Der aktuelle Reiter bleibt dabei vollständig erhalten, gerät jedoch in den Hintergrund (ist also nicht mehr sichtbar).</post>
 <tags/>
 </testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="117" priority="C" title="Drucken">
-<description>TODO</description>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="119" priority="C" title="Ticket-System">
+<description>Die Schnittstelle zum Ticket-System muss gewährleistet sein. Es müssen </description>
 <pre/>
 <actions/>
 <post/>
 <tags/>
 </testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="120" priority="C" title="Die Hilfe anzeigen">
+<description>Es soll die Hilfe für aidGer angezeigt werden.</description>
+<pre>Benutzer möchte sich die Hilfe anzeigen lassen.</pre>
+<actions>* Benutzer wählt den </actions>
+<post/>
+<tags/>
+</testcase>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Drucken" number="251">
+<description/>
+<pre/>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="117" priority="C" title="Drucken eines Monatsauszuges">
+<description>Es soll die Druckmöglichkeit in der Software getestet werden. Es wird ein Monatsauszug gedruckt.</description>
+<pre>Testfall 242 (Controlliing) wurde ausgeführt. Der Controlling-Tab ist vom Benutzer geöffnet.</pre>
+<actions>* Benutzer klickt auf den Menüeintrag "Datei"
+
+* Benutzer klickt auf den Menüeintrag "Drucken"
+
+* Benutzer stellt seinen bereits konfigurierten Drucker ein
+
+* Benutzer drückt auf den Button "Drucken"</actions>
+<post>Es soll der angezeigte Monatsauszug am Drucker gedruckt werden. Dabei hat der gedruckte Auszug das selbe Format wie sein PDF-Exemplar.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="250" priority="C" title="Drucken eines Berichts nach Budgetprüfung via Shortcut">
+<description>Es soll die Druckmöglichkeit in der Software getestet werden. Es wird hierfür ein Shortcut benutzt. Es wird ein Budgetprüfungsbericht gedruckt.</description>
+<pre>Testfall 244 (Budgetprüfung) wurde ausgeführt. Der Budgetprüfung-Tab ist vom Benutzer geöffnet.</pre>
+<actions>* Benutzer gibt den Shortcut "STRG + P" ein
+
+* Benutzer stellt seinen bereits konfigurierten Drucker ein
+
+* Benutzer drückt auf den Button "Drucken"</actions>
+<post>Es soll die angezeigte Veranstaltungsliste am Drucker gedruckt werden. Dabei hat die gedruckte Liste das selbe Format wie sein PDF-Exemplar.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="254" priority="C" title="Drucken der Beschäftigungen ohne PDF-Export">
+<description>Es soll die Druckmöglichkeit in der Software getestet werden. Es werden die angezeigten Beschäftigungen gedruckt, wofür kein PDF-Export existiert.</description>
+<pre>Die Testfälle zum Hinzufügen von Beschäftigungen wurden ausgeführt. Der Beschäftigungen-Tab ist vom Benutzer geöffnet.</pre>
+<actions>* Benutzer klickt auf den Menüeintrag "Datei"
+
+* Benutzer klickt auf den Menüeintrag "Drucken"
+
+* Benutzer stellt seinen bereits konfigurierten Drucker ein
+
+* Benutzer drückt auf den Button "Drucken"</actions>
+<post>Es wird die angezeigte Beschäftigungsliste gedruckt. Da es hierfür jedoch kein PDF-Export existiert, wird der gerenderte Tab gedruckt. Unter Umständen kann die gedruckte Seite daher nicht "schön" sein.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="253" priority="C" title="Drucken eines leeren Reiters">
+<description>Es soll die Druckmöglichkeit in der Software getestet werden. Es wird jedoch ein leerer Reiter angezeigt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den "+" Button bei den Reitern
+
+* Benutzer drückt den Shortcut "STRG + P"</actions>
+<post>Es sol eine Meldung angezeigt werden, dass es nicht sinnvoll ist, eine leere Seite zu drucken. Der Benutzer soll jedoch weiterhiin die Möglichkeit haben, mit dem Drucken fortzusetzen.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Programmeinstellungen" number="252">
+<description/>
+<pre/>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="118" priority="C" title="Mehrsprachigkeit">
 <description>TODO</description>
 <pre/>
@@ -2683,20 +2739,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <tags/>
 </testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="119" priority="C" title="Ticket-System">
-<description>TODO</description>
-<pre/>
-<actions/>
-<post/>
-<tags/>
-</testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="120" priority="C" title="Hilfe">
-<description>TODO</description>
-<pre/>
-<actions/>
-<post/>
-<tags/>
-</testcase>
+</sequence>
 </sequence>
 </sequence>
 </sequence>
@@ -2754,6 +2797,12 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </tsa>
 <tsa name="Allgemeines" number="87" revId="1">
 <relatedsequence>87</relatedsequence>
+<tsa name="Drucken" number="251" revId="2">
+<relatedsequence>251</relatedsequence>
+</tsa>
+<tsa name="Programmeinstellungen" number="252" revId="2">
+<relatedsequence>252</relatedsequence>
+</tsa>
 </tsa>
 <tsa name="Stammdatenverwaltung" number="4" revId="1">
 <relatedsequence>4</relatedsequence>
@@ -2766,5 +2815,5 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
 <extension name="standarduser" value="Y"/>
 </author>
-<extension name="maxid" value="249"/>
+<extension name="maxid" value="254"/>
 </tests>
