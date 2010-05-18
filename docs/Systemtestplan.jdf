@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE tests SYSTEM "project.dtd">
 <tests product="TestDataManager" team="05" version="1.0">
-<sequence created="17.05.2010" creator="aidGerTeam" name="Projekt" number="0">
+<sequence created="18.05.2010" creator="aidGerTeam" name="Projekt" number="0">
 <description>Dies ist der Wurzelknoten des Projekts. Er enthält alle anderen Testsequenzen und Testfälle</description>
 <pre/>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Systemtest" number="3">
@@ -2471,6 +2471,15 @@
 <post>Es wurde ein neues Controlling-Tab geöffnet und der Monatsauszug wird für den angegebenen Monat dargestellt. Es wird die Hilfskraft "Carl Coder" angezeigt. Dabei werden die Plankosten korrekt berrechnet.</post>
 <tags/>
 </testcase>
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="248" priority="C" title="Monatsauszug ohne Hilfskräfte anzeigen">
+<description>Es soll eine Monatsauszug für einen Monat angezeigt werden. Das Problem tritt auf, dass für diesen Monat keine Hilfskräfte beschäftigt sind.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt in der Dropdown-Liste den Monat "Oktober 2010" aus
+
+* Benutzer drückt auf den Button "Auszug anzeigen"</actions>
+<post>Es wurde kein neues Controlling-Tab geöffnet. Der Benutzer bekommt die Meldung zu sehen, dass für diesen Monat keine Hilfskräfte beschäftigt waren. Er kann nun seinen Monatsfilter anpassen oder Hilfskräfte für diesen Zeitraum in der Datenbank einpflegen.</post>
+<tags/>
+</testcase>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="239" priority="C" title="Monatsauszug wechseln bzw. navigieren">
 <description>Der aktuelle Monatsauszug soll gewechselt bzw. navigiert werden. Der Benutzer geht ein Monat zurück und zwei Monate vor.</description>
 <pre>Testfall 236 wurde ausgeführt.</pre>
@@ -2513,7 +2522,7 @@
 <actions>* Benutzer klickt die Zelle "Reale Kosten" bei der Hilfskraft "Carl Coder" an
 
 * Benutzer gibt die Reale Kosten "viel zu viel" ein</actions>
-<post>Die realen Kosten für die Hilfskraft werden in der Tabelle angezeigt. Es besteht keine Abweichung zwischen Soll und Ist. Der Benutzer kann sich den Auszug ins PDF-Format exportieren lassen.</post>
+<post>Der Benutzer bekommt die Fehlermeldung, dass er das Format für die realen Kosten nicht eingehalten hat. Die Zelle wird geleert und der Benutzer kann die Kosten erneut eingeben.</post>
 <tags/>
 </testcase>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="236" priority="C" title="Aktueller Monatsauszug anzeigen">
@@ -2525,8 +2534,87 @@
 </testcase>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Budgetprüfung" number="5">
-<description/>
-<pre>Das Programm wurde gestartet.</pre>
+<description>Die Testsequenz dient zum Testen der Budgetprüfung. Es können standardmäßig alle Veranstaltungen angezeigt werden. Über einen Filter können zudem nur spezifische Veranstaltungen oder Veranstaltungen in einem Jahr bzw. Semester betrachtet werden. Die Liste kann zudem exportiert werden.</description>
+<pre>Das Programm wurde gestartet und der Benutzer befindet sich im Menüpunkt Budgetprüfung.</pre>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="244" priority="C" title="Alle Veranstaltungen anzeigen">
+<description>Für die Budgetprüfung sollen alle Veranstaltungen angezeigt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer klickt auf den Menüpunkt "Veranstaltungen"
+
+* System öffnet in der Navigationsleiste weitere Einstellmöglichkeiten</actions>
+<post>Ein weiteres Budgetprüfungstab wird geöffnet. In diesem sind alle Veranstaltungen mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet. Es müssen 3 Veranstaltungen angezeigt werden:
+
+Nutzlose Betriebssysteme in der Praxis: 95 / 157,5
+Laufende Forschung: 47 / 45
+Mensa überleben für Pizza-Fan: 47 / 120
+
+Die Zeile "Laufende Forschung" muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="245" priority="C" title="Veranstaltungen via Filter (Veranstaltung) anzeigen">
+<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter über Veranstaltung benutzt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer klickt auf den Menüpunkt "Veranstaltungen"
+
+* System öffnet in der Navigationsleiste weitere Einstellmöglichkeiten
+
+* Benutzer fügt den Filter "Veranstaltung" hinzu
+
+* Benutzer gibt die Veranstaltung "Forsch" ein
+
+* Benutzer drückt auf den Button "Prüfen"</actions>
+<post>Ein weiteres Budgetprüfungstab wird geöffnet. In diesem wird nur die Veranstaltung "Laufende Forschung" mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet.
+
+Laufende Forschung: 47 / 45
+
+Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="247" priority="C" title="Veranstaltungen via Filter (Übrige HKS) anzeigen">
+<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter über Übrige HKS benutzt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer klickt auf den Menüpunkt "Veranstaltungen"
+
+* System öffnet in der Navigationsleiste weitere Einstellmöglichkeiten
+
+* Benutzer fügt den Filter "Übrige HKS" hinzu
+
+* Benutzer gibt die die übrige HKS kleiner als "0"
+
+* Benutzer drückt auf den Button "Prüfen"</actions>
+<post>Ein weiteres Budgetprüfungstab wird geöffnet. In diesem wird nur die Veranstaltung "Laufende Forschung" mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet.
+
+Laufende Forschung: 47 / 45
+
+Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="249" priority="C" title="Budgetprüfung ohne Veranstaltungen">
+<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter benutzt. Dieser Filter führt jedoch zu keinem Ergebnis.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer klickt auf den Menüpunkt "Veranstaltungen"
+
+* System öffnet in der Navigationsleiste weitere Einstellmöglichkeiten
+
+* Benutzer fügt den Filter "Veranstaltung" hinzu
+
+* Benutzer gibt die Veranstaltung "Dumbdidum" ein
+
+* Benutzer drückt auf den Button "Prüfen"</actions>
+<post>Ein weiteres Budgetprüfungstab wird geöffnet. In diesem wird nur die Veranstaltung "Laufende Forschung" mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet.
+
+Laufende Forschung: 47 / 45
+
+Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="246" priority="C" title="Veranstaltungsliste in PDF-Format exportieren">
+<description>Eine Veranstaltungsliste soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 244 wurde bereits ausgeführt. Benutzer befindet sich im Budgetprüfung-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
+<post>Die bereits dargestellte Veranstaltungsliste wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden. Veranstaltungen mit negativen übrigen HKS werden auch in der PDF hervorgehoben.</post>
+<tags/>
+</testcase>
 </sequence>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Allgemeines" number="87">
 <description>Die Testsequenz dient zum Testen allgemeiner Funktionalitäten der Software.</description>
@@ -2678,5 +2766,5 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
 <extension name="standarduser" value="Y"/>
 </author>
-<extension name="maxid" value="243"/>
+<extension name="maxid" value="249"/>
 </tests>
