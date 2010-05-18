@@ -41,6 +41,11 @@ public final class Runtime {
     private OS operatingSystem;
 
     /**
+     * The path the config is saved in.
+     */
+    private String configPath;
+
+    /**
      * The configuration class handling the settings.
      */
     private Configuration configuration = null;
@@ -123,8 +128,8 @@ public final class Runtime {
              */
             home = System.getProperty("user.home", ".");
         }
-        home = home + "/aidGer/";
-        File file = new File(home);
+        configPath = home + "/aidGer/";
+        File file = new File(configPath);
 
         if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
             UI.displayError(MessageFormat.format(
@@ -133,9 +138,18 @@ public final class Runtime {
             System.exit(-1);
         }
 
-        configuration = new Configuration(home);
+        configuration = new Configuration(configPath);
 
-        translation = new Translation(home, configuration.get("language"));
+        translation = new Translation(configPath, configuration.get("language"));
+    }
+
+    /**
+     * Get the path the config is saved in.
+     *
+     * @return The path of the config dir
+     */
+    public String getConfigPath() {
+        return configPath;
     }
 
     /**
