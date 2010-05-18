@@ -275,13 +275,6 @@
 <sequence created="13.05.2010" creator="aidGerTeam" name="Anzeigen" number="98">
 <description>Die Testsequenz enthält Testfälle zum Anzeigen einer Veranstaltung in die Datenbank.</description>
 <pre>Benutzer möchte eine Veranstaltung anzeigen.</pre>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="122" priority="C" title="Spaltenauswahl über Kontextmenü">
-<description>TODO</description>
-<pre/>
-<actions/>
-<post/>
-<tags/>
-</testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="121" priority="C" title="Veranstaltung anzeigen und schließen">
 <description>Es soll eine Veranstaltung angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
 <pre>Der Testfall 28 wurde ausgeführt.</pre>
@@ -338,6 +331,13 @@
 <pre/>
 <actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
 <post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen und es erscheint eine entsprechende Fehlermeldung.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="122" priority="C" title="Spaltenauswahl über Kontextmenü">
+<description>Es soll individuell die Spalten in der Anzeige-Tabelle der Veranstaltungen ausgewählt werden können.</description>
+<pre>Der Testfall 28 wurde ausgeführt.</pre>
+<actions>* Benutzer wählt zusätzlich die Spalte "Umfang" aus</actions>
+<post>Die Spalte wird mit den bereits dargestellten Spalten in der Anzeige-Tabelle für die Veranstaltungen dargestellt. Der Benutzer hat einen höheren Informationsgehalt erhalten.</post>
 <tags/>
 </testcase>
 </sequence>
@@ -2615,57 +2615,6 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Allgemeines" number="87">
 <description>Die Testsequenz dient zum Testen allgemeiner Funktionalitäten der Software.</description>
 <pre>Das Programm wurde gestartet.</pre>
-<sequence created="18.05.2010" creator="aidGerTeam" name="Warnungen" number="261">
-<description>Die Testsequenz dient zum Testen des Erscheines spezifizierter Warnungen.</description>
-<pre>Warnungen wurden spezifiziert, die in bestimmten Situationen erscheinen müssen.</pre>
-</sequence>
-<sequence created="18.05.2010" creator="aidGerTeam" name="Tabbing" number="264">
-<description>Die Testsequenz dient zum Testen des Tabbings im Programm.</description>
-<pre>Das Programm verwendet Tabs für eine einfachere Bedienung von aidGer.</pre>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="265" priority="C" title="Leerer Tab öffnen">
-<description>Es soll ein neuer leerer Tab geöffnet werden.</description>
-<pre>Benutzer möchte einen leeren Tab öffnen.</pre>
-<actions>* Benutzer drückt auf den "+"-Button bei den Reitern</actions>
-<post>Ein neuer Tab hat sich geöffnet und befindet sich im Vordergrund. Es können nun alle Navigationselemente in diesem Reiter geöffnet werden.</post>
-<tags/>
-</testcase>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="266" priority="C" title="Ein neuen Tab via mittlerer Maustaste (Navigationsleiste)">
-<description>Es soll ein neuer Tab mit Hilfe der mittleren Maustaste geöffnet werden.</description>
-<pre>Benutzer möchte sich Daten in einem neuen Tab anzeigen lassen.</pre>
-<actions>* Benutzer klickt mit der mittleren Maustaste auf "Controlling" in der Navigationsleiste</actions>
-<post>Der aktuelle Monatsauszug hat sich in einem neuen Reiter geöffnet. Dieser ist zudem in den Vordergrund gekommen.</post>
-<tags/>
-</testcase>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="268" priority="C" title="Zwischen Tabs navigieren">
-<description>Es soll zwischen den Tabs navigiert werden können.</description>
-<pre>Benutzer möchte zwischen den Tabs navigieren.</pre>
-<actions>* Benutzer erstellt vier neue Tabs via "+"-Button
-
-* Benutzer klickt auf Tab 1
-
-* Benutzer klickt auf Tab 3</actions>
-<post>Beim Wechseln der Tabs wurde jeweils der Inhalt im Content-Frame geändert. Der Benutzer befindet sich im Tab 3.</post>
-<tags/>
-</testcase>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="267" priority="C" title="Einen Tab schließen">
-<description>Es soll ein Tab geschlossen werden.</description>
-<pre>Der Benutzer möchte einen nicht mehr benötigten Tab schließen.</pre>
-<actions>* Benutzer klickt auf das "X" im Reiter</actions>
-<post>Das Tab hat sich geschlossen. Falls der Tab nicht selektiert war, bleibt der angezeigte Tab im Vordergrund. Wurde das angezeigte Tab geschloßen, wird der nächste Tab genommen. Wird der letzte Tab geschloßen, so wird der nun neue letzte Tab selektiert.</post>
-<tags/>
-</testcase>
-</sequence>
-<sequence created="18.05.2010" creator="aidGerTeam" name="Navigationsleiste" number="269">
-<description>Die Testsequenz dient zum Testen des Navigationsleiste im Programm.</description>
-<pre>Der Benutzer möchte zwischen den verschiedenen Ansichten navigieren.</pre>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="270" priority="C" title="Verhalten bei Programmstart">
-<description/>
-<pre/>
-<actions/>
-<post/>
-<tags/>
-</testcase>
-</sequence>
 <sequence created="18.05.2010" creator="aidGerTeam" name="Programmeinstellungen" number="252">
 <description>Die Testsequenz dient zum Testen der Wirksamkeit der Programmeinstellungen in der Software.</description>
 <pre>Benutzer möchte das Programm individuell einstellen.</pre>
@@ -2771,6 +2720,67 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <tags/>
 </testcase>
 </sequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Tabbing" number="264">
+<description>Die Testsequenz dient zum Testen des Tabbings im Programm.</description>
+<pre>Das Programm verwendet Tabs für eine einfachere Bedienung von aidGer.</pre>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="265" priority="C" title="Leerer Tab öffnen">
+<description>Es soll ein neuer leerer Tab geöffnet werden.</description>
+<pre>Benutzer möchte einen leeren Tab öffnen.</pre>
+<actions>* Benutzer drückt auf den "+"-Button bei den Reitern</actions>
+<post>Ein neuer Tab hat sich geöffnet und befindet sich im Vordergrund. Es können nun alle Navigationselemente in diesem Reiter geöffnet werden.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="266" priority="C" title="Ein neuen Tab via mittlerer Maustaste (Navigationsleiste)">
+<description>Es soll ein neuer Tab mit Hilfe der mittleren Maustaste geöffnet werden.</description>
+<pre>Benutzer möchte sich Daten in einem neuen Tab anzeigen lassen.</pre>
+<actions>* Benutzer klickt mit der mittleren Maustaste auf "Controlling" in der Navigationsleiste</actions>
+<post>Der aktuelle Monatsauszug hat sich in einem neuen Reiter geöffnet. Dieser ist zudem in den Vordergrund gekommen.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="268" priority="C" title="Zwischen Tabs navigieren">
+<description>Es soll zwischen den Tabs navigiert werden können.</description>
+<pre>Benutzer möchte zwischen den Tabs navigieren.</pre>
+<actions>* Benutzer erstellt vier neue Tabs via "+"-Button
+
+* Benutzer klickt auf Tab 1
+
+* Benutzer klickt auf Tab 3</actions>
+<post>Beim Wechseln der Tabs wurde jeweils der Inhalt im Content-Frame geändert. Der Benutzer befindet sich im Tab 3.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="267" priority="C" title="Einen Tab schließen">
+<description>Es soll ein Tab geschlossen werden.</description>
+<pre>Der Benutzer möchte einen nicht mehr benötigten Tab schließen.</pre>
+<actions>* Benutzer klickt auf das "X" im Reiter</actions>
+<post>Das Tab hat sich geschlossen. Falls der Tab nicht selektiert war, bleibt der angezeigte Tab im Vordergrund. Wurde das angezeigte Tab geschloßen, wird der nächste Tab genommen. Wird der letzte Tab geschloßen, so wird der nun neue letzte Tab selektiert.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Navigationsleiste" number="269">
+<description>Die Testsequenz dient zum Testen des Navigationsleiste im Programm.</description>
+<pre>Der Benutzer möchte zwischen den verschiedenen Ansichten navigieren.</pre>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="270" priority="C" title="Verhalten bei Programmstart">
+<description>Das Verhalten der Navigationsleiste beim Programmstart soll getestet werden.</description>
+<pre>Das Programm wurde gestartet.</pre>
+<actions/>
+<post>Der Menüpunkt Stammdatenverwaltung ist geöffnet, d.h. dem Benutzer wird der Menükontext der Stammdatenverwaltung angezeigt. Alle anderen Menüpunkte sind beim Programmstart noch geschlossen.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="271" priority="C" title="Klick auf geschlossenen Menüpunkt">
+<description>Das Verhalten beim Klick auf einen geschlossenen Menüpunkt soll getestet werden.</description>
+<pre>Benutzer möchte einen Menüpunkt öffnen, um weitere Navigationsmöglichkeiten zu diesem Menüpunkt zu bekommen.</pre>
+<actions>* Benutzer klickt auf einen geschlossenen Menüpunkt</actions>
+<post>Der geschlossene Menüpunkt öffnet seinen untergeordneten Menükontext. Falls beim Klick auf den Menüpunkt der Content-Frame bzw. das aktuelle Tab geändert werden muss, wird dies getan. Der Benutzer kann zudem im geöffneten Menükontext weiter navigieren.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="272" priority="C" title="Klick auf aktivem Menüpunkt">
+<description/>
+<pre>Ein Menüpunkt ist bereits offen, d.h. sein Menükontext wird angezeigt.</pre>
+<actions>* Benutzer klickt erneut auf den offenen Menüpunkt</actions>
+<post>Der Menüpunkt schließt sich, d.h. sein Menükontext wird nicht mehr angezeigt. Der Content-Frame ändert sich dabei nicht. Andere offene Menüpunkte ändern ihren Zustand nicht.</post>
+<tags/>
+</testcase>
+</sequence>
 <sequence created="18.05.2010" creator="aidGerTeam" name="Drucken" number="251">
 <description>Die Testsequenz dient zum Testen der Druckmöglichkeit in der Software.</description>
 <pre>Der Benutzer möchte angezeigte Daten drucken.</pre>
@@ -2818,6 +2828,38 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 
 * Benutzer drückt den Shortcut "STRG + P"</actions>
 <post>Es sol eine Meldung angezeigt werden, dass es nicht sinnvoll ist, eine leere Seite zu drucken. Der Benutzer soll jedoch weiterhiin die Möglichkeit haben, mit dem Drucken fortzusetzen.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Warnungen" number="261">
+<description>Die Testsequenz dient zum Testen des Erscheines spezifizierter Warnungen.</description>
+<pre>Warnungen wurden spezifiziert, die in bestimmten Situationen erscheinen müssen.</pre>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:04" number="274" priority="A" title="Budgetüberschreitung einer Veranstaltung">
+<description>Es soll das Erscheinen einer Warnung bei der Budgetüberschreitung einer Veranstaltung getestet werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Beschäftigungen und Veranstaltungen wurden ausgeführt.</pre>
+<actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung für eine existierende Veranstaltung. Die Hilfskraft arbeitet monatlich 1000 HKS.</actions>
+<post>Der Benutzer wird beim Erstellen der Beschäftigung darüber informiert, dass das Budget für die Veranstaltung überschritten wurde. Die Beschäftigung wird dennoch in der Datenbank angelegt.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="277" priority="C" title="Budgetüberschreitung einer Finanzkategorie">
+<description/>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Finanzkategorie wurden ausgeführt.</pre>
+<actions>* Benutzer erstellt eine neue korrekt eingegebene Veranstaltung und weist dieser eine existierende Finanzkategorie zu. Er gibt hierbei zudem die Genehmigte HKS "1000" ein.</actions>
+<post>Der Benutzer wird darüber informiert, dass das Budget der Finanzkategorie durch das Erstellen der Veranstaltung überschritten wurde. Die Veranstaltung wird dennoch in der Datenbank angelegt.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="275" priority="A" title="Überlappende Verträge in einem Zeitraum">
+<description>Es soll das Erscheinen einer Warnung bei überlappende Verträge in einem Zeitraum getestet werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Hilfskräften, Beschäftigungen und Veranstaltungen wurden ausgeführt.</pre>
+<actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung für eine existierende Hilfskraft und weist dieser einen neuen Vertrag mit den selben Daten des Vertrags der alten Beschäftigung hinzu</actions>
+<post>Der Benutzer wird darüber informiert, dass sich in dem für die Beschäftigung eingegebenen Zeitraum die Verträge überlappen. Die Beschäftigung wird dennoch angelegt.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="276" priority="C" title="Hilfskraft mehr als 6 Jahre angestellt">
+<description>Es soll das Erscheinen einer Warnung getestet werden, wenn die Hilfskraft mehr als 6 Jahre angestellt ist.</description>
+<pre>Die Testfälle zum Hinzufügen von Hilfskräften, Beschäftigungen und Veranstaltungen wurden ausgeführt. Die Hilfskraft "Peter Planlos" ist bereits 5 1/2 Jahre angestellt.</pre>
+<actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung, um somit die Hilfskraft Peter Plan für ein weiteres Jahr einzustellen.</actions>
+<post>Der Benutzer bekommt die Warnung angezeigt, dass durch die Beschäftigung die Hilfskraft für mehr als 6 Jahre angestellt ist. Die Beschäftigung wird dennoch im System abgespeichert.</post>
 <tags/>
 </testcase>
 </sequence>
@@ -2960,19 +3002,19 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </tsa>
 <tsa name="Allgemeines" number="87" revId="1">
 <relatedsequence>87</relatedsequence>
-<tsa name="Programmeinstellungen" number="252" revId="2">
+<tsa name="Programmeinstellungen" number="252" revId="1">
 <relatedsequence>252</relatedsequence>
 </tsa>
 <tsa name="Drucken" number="251" revId="1">
 <relatedsequence>251</relatedsequence>
 </tsa>
-<tsa name="Warnungen" number="261" revId="2">
+<tsa name="Warnungen" number="261" revId="1">
 <relatedsequence>261</relatedsequence>
 </tsa>
-<tsa name="Tabbing" number="264" revId="2">
+<tsa name="Tabbing" number="264" revId="1">
 <relatedsequence>264</relatedsequence>
 </tsa>
-<tsa name="Navigationsleiste" number="269" revId="2">
+<tsa name="Navigationsleiste" number="269" revId="1">
 <relatedsequence>269</relatedsequence>
 </tsa>
 </tsa>
@@ -2987,5 +3029,5 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
 <extension name="standarduser" value="Y"/>
 </author>
-<extension name="maxid" value="270"/>
+<extension name="maxid" value="278"/>
 </tests>
