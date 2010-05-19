@@ -9,8 +9,7 @@ import de.unistuttgart.iste.se.adohive.controller.IAdoHiveManager;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAdoHiveModel;
 
-import de.aidger.model.validators.Validator;
-import de.aidger.model.validators.PresenceValidator;
+import de.aidger.model.validators.*;
 
 /**
  * AbstractModel contains all important database related functions which all
@@ -93,11 +92,8 @@ public abstract class AbstractModel<T> extends Observable implements
      */
     @SuppressWarnings("unchecked")
     public boolean save() {
-        /* Try to validate before adding/updating */
-        for (Validator v : validators) {
-            if (!v.validate()) {
-                return false;
-            }
+        if (!doValidate()) {
+            return false;
         }
 
         /* Add or update model */
@@ -147,6 +143,10 @@ public abstract class AbstractModel<T> extends Observable implements
         validators.add(new PresenceValidator(this, members));
     }
 
+    public void validateEmailAddress(String member) {
+        validators.add(new EmailValidator(this, new String[] { member }));
+    }
+
     /**
      * Extract the name of the class and return the correct manager.
      * 
@@ -158,13 +158,37 @@ public abstract class AbstractModel<T> extends Observable implements
         int idx = classname.lastIndexOf('.');
         classname = classname.substring(idx);
 
-        java.lang.reflect.Method m;
         try {
-            m = AdoHiveController.class.getMethod("get" + classname + "Manager");
+            java.lang.reflect.Method m = AdoHiveController.class.getMethod(
+                    "get" + classname + "Manager");
             return (IAdoHiveManager) m.invoke(AdoHiveController.getInstance(),
                     new Object[0]);
         } catch (Exception ex) {
             return null;
         }
+    }
+
+    /**
+     * Validate the input using the validators and a custom validate function.
+     *
+     * @return True if everything validates
+     */
+    protected boolean doValidate() {
+        /* Try to validate before adding/updating */
+        boolean ret = true;
+        for (Validator v : validators) {
+            if (!v.validate()) {
+                ret = false;
+            }
+        }
+
+        /* Check if the model got a validate() function */
+        try {
+            java.lang.reflect.Method m = getClass().getDeclaredMethod("validate");
+            if (!(Boolean)m.invoke(this, new Object[0]))
+                ret = false;
+        } catch (Exception ex) { }
+
+        return ret;
     }
 }
