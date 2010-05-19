@@ -1,4 +1,4 @@
-package de.aidger.utils;
+package de.aidger.utils.PDF;
 
 
 public class ActivityReportConverter implements ReportConverter {

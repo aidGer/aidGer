@@ -1,4 +1,4 @@
-package de.aidger.utils;
+package de.aidger.utils.PDF;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
