@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-17 23:28+0200\n"
+"POT-Creation-Date: 2010-05-19 13:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,79 +16,93 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: view/AboutDialog.java:27
+#: view/AboutDialog.java:32
 msgid "Close"
 msgstr ""
 
-#: view/AboutDialog.java:48
+#: view/AboutDialog.java:54
 msgid "About aidGer"
 msgstr ""
 
-#: view/AboutDialog.java:54
+#: view/AboutDialog.java:61
 msgid "Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
 msgstr ""
 
-#: view/AboutDialog.java:59
+#: view/AboutDialog.java:66
 msgid "Homepage: http://www.aidger.de"
 msgstr ""
 
-#: view/UI.java:142
+#: view/UI.java:138
 msgid "Error"
 msgstr ""
 
-#: view/UI.java:245
+#: view/UI.java:161
+msgid "Adding new empty tab"
+msgstr ""
+
+#: view/UI.java:184
+#, java-format
+msgid "Adding new Tab \"{0}\""
+msgstr ""
+
+#: view/UI.java:219
+#, java-format
+msgid "Setting current tab to \"{0}\""
+msgstr ""
+
+#: view/UI.java:249
 msgid "File"
 msgstr ""
 
-#: view/UI.java:264 controller/actions/HelpAction.java:23
+#: view/UI.java:268 controller/actions/HelpAction.java:23
 msgid "Help"
 msgstr ""
 
-#: view/UI.java:296
+#: view/UI.java:300
 msgid "Master Data Management"
 msgstr ""
 
-#: view/UI.java:297
+#: view/UI.java:301
 msgid "Courses"
 msgstr ""
 
-#: view/UI.java:297
+#: view/UI.java:301
 msgid "Assistants"
 msgstr ""
 
-#: view/UI.java:297
+#: view/UI.java:301
 msgid "Contracts"
 msgstr ""
 
-#: view/UI.java:298
+#: view/UI.java:302
 msgid "Financial Categories"
 msgstr ""
 
-#: view/UI.java:298
+#: view/UI.java:302
 msgid "Hourly Wages"
 msgstr ""
 
-#: view/UI.java:299
+#: view/UI.java:303
 msgid "Employments"
 msgstr ""
 
-#: view/UI.java:300
+#: view/UI.java:304
 msgid "Activities"
 msgstr ""
 
-#: view/UI.java:301
+#: view/UI.java:305
 msgid "Reports"
 msgstr ""
 
-#: view/UI.java:302
+#: view/UI.java:306
 msgid "Controlling"
 msgstr ""
 
-#: view/UI.java:303
+#: view/UI.java:307
 msgid "Budget Check"
 msgstr ""
 
-#: view/UI.java:321
+#: view/UI.java:325
 msgid "Open a new tab"
 msgstr ""
 
@@ -136,7 +150,7 @@ msgstr ""
 msgid "(Unnamed)"
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:50
+#: view/tabs/WelcomeTab.java:56
 msgid "Welcome"
 msgstr ""
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-17 23:28+0200\n"
+"POT-Creation-Date: 2010-05-19 13:42+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -13,80 +13,94 @@ msgstr ""
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: view/AboutDialog.java:27
+#: view/AboutDialog.java:32
 msgid "Close"
 msgstr "Schließen"
 
-#: view/AboutDialog.java:48
+#: view/AboutDialog.java:54
 msgid "About aidGer"
 msgstr "Über aidGer"
 
-#: view/AboutDialog.java:54
+#: view/AboutDialog.java:61
 msgid "Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
 msgstr "Autoren: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
 
-#: view/AboutDialog.java:59
+#: view/AboutDialog.java:66
 msgid "Homepage: http://www.aidger.de"
 msgstr "Homepage: http://www.aidger.de"
 
-#: view/UI.java:142
+#: view/UI.java:138
 msgid "Error"
 msgstr "Fehler"
 
-#: view/UI.java:245
+#: view/UI.java:161
+msgid "Adding new empty tab"
+msgstr "Neuer leerer Tab hinzugefügt"
+
+#: view/UI.java:184
+#, java-format
+msgid "Adding new Tab \"{0}\""
+msgstr "Neuer Tab \"{0}\" hinzugefügt"
+
+#: view/UI.java:219
+#, java-format
+msgid "Setting current tab to \"{0}\""
+msgstr "Momentaner Reiter ist nun \"{0}\""
+
+#: view/UI.java:249
 msgid "File"
 msgstr "Datei"
 
-#: view/UI.java:264
+#: view/UI.java:268
 #: controller/actions/HelpAction.java:23
 msgid "Help"
 msgstr "Hilfe"
 
-#: view/UI.java:296
+#: view/UI.java:300
 msgid "Master Data Management"
 msgstr "Stammdatenverwaltung"
 
-#: view/UI.java:297
+#: view/UI.java:301
 msgid "Courses"
 msgstr "Veranstaltungen"
 
-#: view/UI.java:297
+#: view/UI.java:301
 msgid "Assistants"
 msgstr "Hilfskräfte"
 
-#: view/UI.java:297
+#: view/UI.java:301
 msgid "Contracts"
 msgstr "Verträge"
 
-#: view/UI.java:298
+#: view/UI.java:302
 msgid "Financial Categories"
 msgstr "Finanzkategorien"
 
-#: view/UI.java:298
+#: view/UI.java:302
 msgid "Hourly Wages"
 msgstr "Stundenlöhne"
 
-#: view/UI.java:299
+#: view/UI.java:303
 msgid "Employments"
 msgstr "Beschäftigungen"
 
-#: view/UI.java:300
+#: view/UI.java:304
 msgid "Activities"
 msgstr "Vorgänge"
 
-#: view/UI.java:301
+#: view/UI.java:305
 msgid "Reports"
 msgstr "Berichte"
 
-#: view/UI.java:302
+#: view/UI.java:306
 msgid "Controlling"
 msgstr "Controlling"
 
-#: view/UI.java:303
+#: view/UI.java:307
 msgid "Budget Check"
 msgstr "Budgetprüfung"
 
-#: view/UI.java:321
+#: view/UI.java:325
 msgid "Open a new tab"
 msgstr "Öffnet einen neuen Tab"
 
@@ -136,7 +150,7 @@ msgstr "Tab schließen"
 msgid "(Unnamed)"
 msgstr "(Unbenannt)"
 
-#: view/tabs/WelcomeTab.java:50
+#: view/tabs/WelcomeTab.java:56
 msgid "Welcome"
 msgstr "Willkommen"
 
@@ -211,7 +225,7 @@ msgstr "Die Anzahl an Aktivitäten muss größer als 0 sein."
 #: controller/ActionNotFoundException.java:15
 #, java-format
 msgid "action class {0} not found"
-msgstr "Aktion-Klasse {0} nicht gefunden"
+msgstr "Aktions-Klasse {0} nicht gefunden"
 
 #~ msgid "New Tab"
 #~ msgstr "Neuer Reiter"

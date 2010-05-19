@@ -9,8 +9,8 @@ import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import java.text.MessageFormat;
 
 import javax.swing.Action;
 import javax.swing.JFrame;
@@ -33,6 +33,7 @@ import de.aidger.controller.actions.ExitAction;
 import de.aidger.controller.actions.HelpAction;
 import de.aidger.controller.actions.PrintAction;
 import de.aidger.controller.actions.SettingsAction;
+import de.aidger.utils.Logger;
 import de.aidger.view.tabs.EmptyTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.WelcomeTab;
@@ -50,11 +51,6 @@ public final class UI extends JFrame {
      * Holds an instance of this class.
      */
     private static UI instance = null;
-
-    /**
-     * Used for logging messages from exceptions.
-     */
-    private final Logger logger = Logger.getLogger(UI.class.getName());
 
     /**
      * The tabbed plane that will contain the tabs.
@@ -141,6 +137,7 @@ public final class UI extends JFrame {
     public static void displayError(String error) {
         JOptionPane.showMessageDialog(instance, error, _("Error"),
                 JOptionPane.ERROR_MESSAGE);
+        Logger.error(error);
     }
 
 
@@ -161,6 +158,8 @@ public final class UI extends JFrame {
         int index = tabbedPane.getTabCount() - 1;
 
         if (tabbedPane.getSelectedIndex() == index) {
+            Logger.debug(_("Adding new empty tab"));
+
             tabbedPane.removeChangeListener(tabbedPaneListener);
 
             Tab emptyTab = new EmptyTab();
@@ -182,6 +181,9 @@ public final class UI extends JFrame {
      *            The tab to be added.
      */
     public void addNewTab(Tab tab) {
+        Logger.debug(MessageFormat.format(_("Adding new Tab \"{0}\""),
+                new Object[] { tab.getName() }));
+
         int index = tabbedPane.getTabCount() - 1;
 
         tabbedPane.removeChangeListener(tabbedPaneListener);
@@ -214,6 +216,8 @@ public final class UI extends JFrame {
     public void setCurrentTab(Tab tab) {
         /* Check if the tab to be set as current is even on the tabbed plane. */
         if (tabbedPane.indexOfComponent(tab.getContent()) != -1) {
+            Logger.debug(MessageFormat.format(_("Setting current tab to \"{0}\""),
+                    new Object[] { tab.getName() }));
             currentTab = tab;
             tabbedPane.setSelectedIndex(tabbedPane.indexOfComponent(tab
                     .getContent()));
