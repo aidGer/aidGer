@@ -37,6 +37,10 @@ import de.aidger.utils.Logger;
 import de.aidger.view.tabs.EmptyTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.WelcomeTab;
+import de.aidger.view.tabs.AssistantEditorTab;
+import de.aidger.view.tabs.MasterDataViewerTab;
+import de.aidger.view.tabs.CourseEditorTab;
+import de.aidger.view.tabs.FinancialCategoryEditorTab;
 
 /**
  * The UI manages the main window and all its tabs. The main window consists of
@@ -113,6 +117,10 @@ public final class UI extends JFrame {
 
         // Add the welcome tab to the UI.
         addNewTab(new WelcomeTab());
+        addNewTab(new AssistantEditorTab());
+        addNewTab(new MasterDataViewerTab());
+        addNewTab(new CourseEditorTab());
+        addNewTab(new FinancialCategoryEditorTab());
     }
 
     /**
