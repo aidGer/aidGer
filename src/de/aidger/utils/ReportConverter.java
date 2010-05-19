@@ -1,4 +1,4 @@
-package de.aidger.utils.PDF;
+package de.aidger.utils;
 
 public interface ReportConverter {
 
