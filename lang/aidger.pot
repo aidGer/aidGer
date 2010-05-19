@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#: view/UI.java:337 view/UI.java:344
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-19 14:44+0200\n"
+"POT-Creation-Date: 2010-05-19 23:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,77 +37,133 @@ msgstr ""
 msgid "Opening browser to http://aidger.de"
 msgstr ""
 
-#: view/UI.java:138
+#: view/UI.java:150
 msgid "Error"
 msgstr ""
 
-#: view/UI.java:161
+#: view/UI.java:172
 msgid "Adding new empty tab"
 msgstr ""
 
-#: view/UI.java:184
+#: view/UI.java:195
 #, java-format
 msgid "Adding new Tab \"{0}\""
 msgstr ""
 
-#: view/UI.java:219
+#: view/UI.java:231
 #, java-format
 msgid "Setting current tab to \"{0}\""
 msgstr ""
 
-#: view/UI.java:249
+#: view/UI.java:261
 msgid "File"
 msgstr ""
 
-#: view/UI.java:268 controller/actions/HelpAction.java:23
+#: view/UI.java:280 controller/actions/HelpAction.java:23
 msgid "Help"
 msgstr ""
 
-#: view/UI.java:300
+#: view/UI.java:307
 msgid "Master Data Management"
 msgstr ""
 
-#: view/UI.java:301
+#: view/UI.java:309
 msgid "Courses"
 msgstr ""
 
-#: view/UI.java:301
+#: view/UI.java:310
 msgid "Assistants"
 msgstr ""
 
-#: view/UI.java:301
-msgid "Contracts"
-msgstr ""
-
-#: view/UI.java:302
+#: view/UI.java:311
 msgid "Financial Categories"
 msgstr ""
 
-#: view/UI.java:302
+#: view/UI.java:312
 msgid "Hourly Wages"
 msgstr ""
 
-#: view/UI.java:303
+#: view/UI.java:314
 msgid "Employments"
 msgstr ""
 
-#: view/UI.java:304
+#: view/UI.java:315
+msgid "Create new employment"
+msgstr ""
+
+#: view/UI.java:316
+msgid "Show all contracts"
+msgstr ""
+
+#: view/UI.java:319
 msgid "Activities"
 msgstr ""
 
-#: view/UI.java:305
+#: view/UI.java:320
+msgid "Create new activity"
+msgstr ""
+
+#: view/UI.java:321
+msgid "Export"
+msgstr ""
+
+#: view/UI.java:324
 msgid "Reports"
 msgstr ""
 
-#: view/UI.java:306
+#: view/UI.java:326
+msgid "Annual Balance"
+msgstr ""
+
+#: view/UI.java:326
+msgid "Semester Balance"
+msgstr ""
+
+#: view/UI.java:327
+msgid "Partial Balance"
+msgstr ""
+
+#: view/UI.java:327
+msgid "Activity Report"
+msgstr ""
+
+#: view/UI.java:327
+msgid "Protocol"
+msgstr ""
+
+#: view/UI.java:330
+msgid "More"
+msgstr ""
+
+#: view/UI.java:334
 msgid "Controlling"
 msgstr ""
 
-#: view/UI.java:307
+#: view/UI.java:336
+msgid "Choose a month:"
+msgstr ""
+
+#: view/UI.java:341
 msgid "Budget Check"
 msgstr ""
 
-#: view/UI.java:325
+#: view/UI.java:343
+msgid "Add Filter"
+msgstr ""
+
+#: view/UI.java:348
+msgid "Quick Settings"
+msgstr ""
+
+#: view/UI.java:349
+msgid "Remember my tabs"
+msgstr ""
+
+#: view/UI.java:350
+msgid "Open reports instantly"
+msgstr ""
+
+#: view/UI.java:382
 msgid "Open a new tab"
 msgstr ""
 
@@ -159,11 +216,11 @@ msgid "Welcome"
 msgstr ""
 
 #: controller/actions/AbortAction.java:26
-msgid "Abort"
+msgid "Cancel"
 msgstr ""
 
 #: controller/actions/AbortAction.java:29
-msgid "Abort the operation"
+msgid "Cancel the operation"
 msgstr ""
 
 #: controller/actions/AboutAction.java:27

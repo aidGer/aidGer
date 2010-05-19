@@ -333,14 +333,14 @@ public final class UI extends JFrame {
 
         TaskPane tpControlling = new TaskPane(_("Controlling"));
         JPanel monthSelection = new JPanel();
-        monthSelection.add(new JLabel(_("Choose a month:")));
+        monthSelection.add(new JLabel(_("Choose a month" + ":")));
         monthSelection.add(new JComboBox(new String[] { _("") }));
         monthSelection.setOpaque(false);
         tpControlling.add(monthSelection);
 
         TaskPane tpBudgetCheck = new TaskPane(_("Budget Check"));
         JPanel budgetFilter = new JPanel();
-        budgetFilter.add(new JLabel(_("Add Filter:")));
+        budgetFilter.add(new JLabel(_("Add Filter") + ":"));
         budgetFilter.add(new JComboBox(new String[] { _("") }));
         budgetFilter.setOpaque(false);
         tpBudgetCheck.add(budgetFilter);
