@@ -23,10 +23,10 @@ public class AbortAction extends AbstractAction {
      * Initializes the abort action.
      */
     public AbortAction() {
-        putValue(Action.NAME, _("Abort"));
+        putValue(Action.NAME, _("Cancel"));
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_A,
                 ActionEvent.CTRL_MASK));
-        putValue(Action.SHORT_DESCRIPTION, _("Abort the operation"));
+        putValue(Action.SHORT_DESCRIPTION, _("Cancel the operation"));
     }
 
     /**
