@@ -7,6 +7,7 @@ import de.aidger.controller.actions.AbortAction;
 import de.aidger.controller.actions.AboutAction;
 import de.aidger.controller.actions.ExitAction;
 import de.aidger.controller.actions.HelpAction;
+import de.aidger.controller.actions.HomepageAction;
 import de.aidger.controller.actions.PrintAction;
 import de.aidger.controller.actions.SaveSettingsAction;
 import de.aidger.controller.actions.SettingsAction;
@@ -62,6 +63,7 @@ public final class Application {
         ActionRegistry.getInstance().register(new SettingsAction());
         ActionRegistry.getInstance().register(new SaveSettingsAction());
         ActionRegistry.getInstance().register(new HelpAction());
+        ActionRegistry.getInstance().register(new HomepageAction());
         ActionRegistry.getInstance().register(new AboutAction());
         ActionRegistry.getInstance().register(new AbortAction());
     }

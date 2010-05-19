@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-19 13:42+0200\n"
+"POT-Creation-Date: 2010-05-19 14:44+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -13,21 +13,25 @@ msgstr ""
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: view/AboutDialog.java:32
+#: view/AboutDialog.java:37
 msgid "Close"
 msgstr "Schließen"
 
-#: view/AboutDialog.java:54
+#: view/AboutDialog.java:59
 msgid "About aidGer"
 msgstr "Über aidGer"
 
-#: view/AboutDialog.java:61
+#: view/AboutDialog.java:65
 msgid "Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
 msgstr "Autoren: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
 
-#: view/AboutDialog.java:66
+#: view/AboutDialog.java:70
 msgid "Homepage: http://www.aidger.de"
 msgstr "Homepage: http://www.aidger.de"
+
+#: view/AboutDialog.java:111
+msgid "Opening browser to http://aidger.de"
+msgstr "Öffne Browser auf http://www.aidger.de"
 
 #: view/UI.java:138
 msgid "Error"
@@ -181,6 +185,14 @@ msgstr "Programm beenden"
 #: controller/actions/HelpAction.java:26
 msgid "Display the help"
 msgstr "Hilfe anzeigen"
+
+#: controller/actions/HomepageAction.java:25
+msgid "Homepage"
+msgstr "Homepage"
+
+#: controller/actions/HomepageAction.java:26
+msgid "Open homepage"
+msgstr "Homepage öffnen"
 
 #: controller/actions/PrintAction.java:30
 msgid "Print"

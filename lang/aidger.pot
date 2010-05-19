@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-19 13:42+0200\n"
+"POT-Creation-Date: 2010-05-19 14:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,20 +16,24 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: view/AboutDialog.java:32
+#: view/AboutDialog.java:37
 msgid "Close"
 msgstr ""
 
-#: view/AboutDialog.java:54
+#: view/AboutDialog.java:59
 msgid "About aidGer"
 msgstr ""
 
-#: view/AboutDialog.java:61
+#: view/AboutDialog.java:65
 msgid "Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
 msgstr ""
 
-#: view/AboutDialog.java:66
+#: view/AboutDialog.java:70
 msgid "Homepage: http://www.aidger.de"
+msgstr ""
+
+#: view/AboutDialog.java:111
+msgid "Opening browser to http://aidger.de"
 msgstr ""
 
 #: view/UI.java:138
@@ -180,6 +184,14 @@ msgstr ""
 
 #: controller/actions/HelpAction.java:26
 msgid "Display the help"
+msgstr ""
+
+#: controller/actions/HomepageAction.java:25
+msgid "Homepage"
+msgstr ""
+
+#: controller/actions/HomepageAction.java:26
+msgid "Open homepage"
 msgstr ""
 
 #: controller/actions/PrintAction.java:30

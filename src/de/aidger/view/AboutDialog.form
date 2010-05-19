@@ -94,6 +94,9 @@
           <Connection code="_(&quot;Homepage: http://www.aidger.de&quot;)" type="code"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel3MouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
