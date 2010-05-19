@@ -62,11 +62,31 @@ public class Employment extends AbstractModel<IEmployment> implements
     private String remark;
 
     /**
+     * Initializes the Employment class.
+     */
+    public Employment() {
+        validatePresenceOf(new String[] { "costUnit" });
+        //TODO: Validate the Ids
+        //TODO: Validate the fonds
+        //TODO: Validate the hourCount
+    }
+
+    /**
      * Clone the current employment.
      */
     @Override
     public Employment clone() {
-        return new Employment();
+        Employment e = new Employment();
+        e.setId(id);
+        e.setAssistantId(assistantId);
+        e.setContractId(contractId);
+        e.setCostUnit(costUnit);
+        e.setFonds(fonds);
+        e.setHourCount(hourCount);
+        e.setMonth(month);
+        e.setRemark(remark);
+        e.setYear(year);
+        return e;
     }
 
     /**

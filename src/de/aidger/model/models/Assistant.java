@@ -32,11 +32,27 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
     private String qualification;
 
     /**
+     * Initializes the Assistant class.
+     */
+    public Assistant() {
+        validatePresenceOf(new String[] { "email", "firstName", "lastName",
+                "qualification"});
+        //TODO: Check correctness of email by using a regexp
+        //TODO: Check qualification level
+    }
+
+    /**
      * Clone the current activity.
      */
     @Override
     public Assistant clone() {
-        return new Assistant();
+        Assistant a = new Assistant();
+        a.setId(id);
+        a.setEmail(email);
+        a.setFirstName(firstName);
+        a.setLastName(lastName);
+        a.setQualification(qualification);
+        return a;
     }
 
     /**

@@ -71,7 +71,20 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
      */
     @Override
     public Course clone() {
-        return new Course();
+        Course c = new Course();
+        c.setId(id);
+        c.setDescription(description);
+        c.setFinancialCategoryId(financeCategoryId);
+        c.setGroup(group);
+        c.setLecturer(lecturer);
+        c.setNumberOfGroups(numberOfGroups);
+        c.setPart(part);
+        c.setRemark(remark);
+        c.setScope(scope);
+        c.setSemester(semester);
+        c.setTargetAudience(targetAudience);
+        c.setUnqualifiedWorkingHours(unqualifiedWorkingHours);
+        return c;
     }
 
     /**

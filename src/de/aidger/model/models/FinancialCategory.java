@@ -33,11 +33,26 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
     private short  year;
 
     /**
+     * Initialize the FinancialCategory class.
+     */
+    public FinancialCategory() {
+        validatePresenceOf(new String[] { "name" });
+        //TODO: Validate the budget costs and fonds
+        //TODO: Validate the year
+    }
+
+    /**
      * Clone the current category.
      */
     @Override
     public FinancialCategory clone() {
-        return new FinancialCategory();
+        FinancialCategory f = new FinancialCategory();
+        f.setId(id);
+        f.setBugdetCosts(budgetCosts);
+        f.setFonds(fonds);
+        f.setName(name);
+        f.setYear(year);
+        return f;
     }
 
     /**

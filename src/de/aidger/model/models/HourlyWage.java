@@ -33,11 +33,26 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
     private double wage;
 
     /**
+     * Initializes the HourlyWage class.
+     */
+    public HourlyWage() {
+        validatePresenceOf(new String[] { "qualification" });
+        //TODO: Validate month and year
+        //TODO: Validate the wage
+    }
+
+    /**
      * Clone the current wage
      */
     @Override
     public HourlyWage clone() {
-        return new HourlyWage();
+        HourlyWage h = new HourlyWage();
+        h.setId(id);
+        h.setMonth(month);
+        h.setQualification(qualification);
+        h.setWage(wage);
+        h.setYear(year);
+        return h;
     }
 
     /**

@@ -63,11 +63,31 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
     private String remark;
 
     /**
+     * Initializes the Activity class.
+     */
+    public Activity() {
+        validatePresenceOf(new String[] { "date", "sender", "type",
+                "processor", "content" });
+        //TODO: Check that documentType and type are correct (need to know what valid values are first)
+    }
+
+    /**
      * Clone the current activity
      */
     @Override
     public Activity clone()	{
-        return new Activity();
+        Activity a = new Activity();
+        a.setId(id);
+        a.setAssistantId(assistantId);
+        a.setContent(content);
+        a.setCourseId(courseId);
+        a.setDate(date);
+        a.setDocumentType(documentType);
+        a.setProcessor(processor);
+        a.setRemark(remark);
+        a.setSender(sender);
+        a.setType(type);
+        return a;
     }
 
     /**

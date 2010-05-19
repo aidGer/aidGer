@@ -44,11 +44,29 @@ public class Contract extends AbstractModel<IContract> implements IContract {
     private String type;
 
     /**
+     * Initializes the Contract class.
+     */
+    public Contract() {
+        validatePresenceOf(new String[] { "completionDate", "confirmationDate",
+                "endDate", "startDate", "type" });
+        //TODO: Validate the range of the dates
+        //TODO: Validate the type
+    }
+
+    /**
      * Clone the current contract
      */
     @Override
     public Contract clone()	{
-        return new Contract();
+        Contract c = new Contract();
+        c.setId(id);
+        c.setCompletionDate(completionDate);
+        c.setConfirmationDate(confirmationDate);
+        c.setDelegation(delegation);
+        c.setEndDate(endDate);
+        c.setStartDate(startDate);
+        c.setType(type);
+        return c;
     }
 
     /**
