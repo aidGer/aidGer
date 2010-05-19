@@ -21,24 +21,32 @@ public final class Logger {
     /**
      * Logger to log all messages
      */
-    private java.util.logging.Logger logger =
-            java.util.logging.Logger.getLogger("aidGer");
+    private java.util.logging.Logger logger;
 
     /**
      * Initializes the Logger class.
      */
     private Logger() {
+        logger = java.util.logging.Logger.getLogger("aidger");
+        logger.setUseParentHandlers(false);
         try {
             FileHandler fhandler = new FileHandler(Runtime.getInstance().
                     getConfigPath().concat("/aidger.log"));
-            //TODO: Add formatter (or at least look what we could format)
+            fhandler.setFormatter(new SimpleFormatter());
+            fhandler.setLevel(Level.ALL);
             logger.addHandler(fhandler);
+
+            ConsoleHandler chandler = new ConsoleHandler();
             if (Boolean.parseBoolean(Runtime.getInstance().getOption("debug"))) {
                 logger.setLevel(Level.ALL);
+                chandler.setLevel(Level.ALL);
             }
+            logger.addHandler(chandler);
+
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        logger.log(Level.INFO, "Startin Logger");
     }
 
     /**
@@ -46,7 +54,7 @@ public final class Logger {
      *
      * @return The instance
      */
-    public static synchronized Logger getInstance() {
+    public synchronized static Logger getInstance() {
         if (instance == null) {
             instance = new Logger();
         }
@@ -75,6 +83,7 @@ public final class Logger {
     public static void debug(String msg) {
         getInstance().logMsg(Level.FINE, msg);
     }
+
     /**
      * Log a message with info level.
      *
