@@ -9,18 +9,22 @@ import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-
 import java.text.MessageFormat;
 
 import javax.swing.Action;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JList;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.WindowConstants;
 import javax.swing.event.ChangeEvent;
@@ -34,13 +38,13 @@ import de.aidger.controller.actions.HelpAction;
 import de.aidger.controller.actions.PrintAction;
 import de.aidger.controller.actions.SettingsAction;
 import de.aidger.utils.Logger;
+import de.aidger.view.tabs.AssistantEditorTab;
+import de.aidger.view.tabs.CourseEditorTab;
 import de.aidger.view.tabs.EmptyTab;
+import de.aidger.view.tabs.FinancialCategoryEditorTab;
+import de.aidger.view.tabs.MasterDataViewerTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.WelcomeTab;
-import de.aidger.view.tabs.AssistantEditorTab;
-import de.aidger.view.tabs.MasterDataViewerTab;
-import de.aidger.view.tabs.CourseEditorTab;
-import de.aidger.view.tabs.FinancialCategoryEditorTab;
 
 /**
  * The UI manages the main window and all its tabs. The main window consists of
@@ -85,7 +89,7 @@ public final class UI extends JFrame {
         contentPane.setLayout(new BorderLayout());
 
         contentPane.add(getToolbar(), BorderLayout.PAGE_START);
-        contentPane.add(getNavigationBar(), BorderLayout.LINE_START);
+        contentPane.add(getTaskPane(), BorderLayout.LINE_START);
         contentPane.add(getTabbedPane(), BorderLayout.CENTER);
         contentPane.add(getStatusPane(), BorderLayout.PAGE_END);
 
@@ -138,7 +142,7 @@ public final class UI extends JFrame {
 
     /**
      * Display an error message in a dialog window.
-     *
+     * 
      * @param error
      *            The error message to display
      */
@@ -147,7 +151,6 @@ public final class UI extends JFrame {
                 JOptionPane.ERROR_MESSAGE);
         Logger.error(error);
     }
-
 
     /**
      * Runs and displays the graphical user interface.
@@ -184,7 +187,7 @@ public final class UI extends JFrame {
 
     /**
      * Adds a new tab, specified by tab, to the tabbed plane.
-     *
+     * 
      * @param tab
      *            The tab to be added.
      */
@@ -208,7 +211,7 @@ public final class UI extends JFrame {
 
     /**
      * Get the currently selected tab.
-     *
+     * 
      * @return The selected tab
      */
     public Tab getCurrentTab() {
@@ -217,15 +220,16 @@ public final class UI extends JFrame {
 
     /**
      * Sets the current tab on the tabbed plane to the one specified.
-     *
+     * 
      * @param tab
      *            The tab to be set as current.
      */
     public void setCurrentTab(Tab tab) {
         /* Check if the tab to be set as current is even on the tabbed plane. */
         if (tabbedPane.indexOfComponent(tab.getContent()) != -1) {
-            Logger.debug(MessageFormat.format(_("Setting current tab to \"{0}\""),
-                    new Object[] { tab.getName() }));
+            Logger.debug(MessageFormat.format(
+                    _("Setting current tab to \"{0}\""), new Object[] { tab
+                            .getName() }));
             currentTab = tab;
             tabbedPane.setSelectedIndex(tabbedPane.indexOfComponent(tab
                     .getContent()));
@@ -294,27 +298,72 @@ public final class UI extends JFrame {
         return toolBar;
     }
 
-    private JList getDummyList(String... items) {
-        return new JList(items);
-    }
-
     /**
-     * Sets up the navigation bar.
+     * Sets up the task pane.
      */
-    private JPanel getNavigationBar() {
-        NavigationBar navigationBar = new NavigationBar();
+    private JScrollPane getTaskPane() {
+        TaskPaneContainer tpc = new TaskPaneContainer();
 
-        // TODO: create own JPanel's for the components of the bars
-        navigationBar.addBar(_("Master Data Management"), getDummyList(
-                _("Courses"), _("Assistants"), _("Contracts"),
-                _("Financial Categories"), _("Hourly Wages")));
-        navigationBar.addBar(_("Employments"), getDummyList("bla"));
-        navigationBar.addBar(_("Activities"), getDummyList("blu"));
-        navigationBar.addBar(_("Reports"), getDummyList("lal"));
-        navigationBar.addBar(_("Controlling"), getDummyList("he"));
-        navigationBar.addBar(_("Budget Check"), getDummyList("lal"));
+        TaskPane tpMasterData = new TaskPane(_("Master Data Management"));
 
-        return navigationBar;
+        tpMasterData.add(new JLabel(_("Courses")));
+        tpMasterData.add(new JLabel(_("Assistants")));
+        tpMasterData.add(new JLabel(_("Financial Categories")));
+        tpMasterData.add(new JLabel(_("Hourly Wages")));
+
+        TaskPane tpEmployments = new TaskPane(_("Employments"));
+        tpEmployments.add(new JLabel(_("Create new employment")));
+        tpEmployments.add(new JLabel(_("Show all contracts")));
+        tpEmployments.add(new JTextField());
+
+        TaskPane tpActivities = new TaskPane(_("Activities"));
+        tpActivities.add(new JLabel(_("Create new activity")));
+        tpActivities.add(new JLabel(_("Export")));
+        tpActivities.add(new JTextField());
+
+        TaskPane tpReports = new TaskPane(_("Reports"));
+
+        String[] reports = { _("Annual Balance"), _("Semester Balance"),
+                _("Partial Balance"), _("Activity Report"), _("Protocol") };
+        JPanel reportSelection = new JPanel();
+        reportSelection.add(new JComboBox(reports));
+        reportSelection.add(new JButton(_("More")));
+        reportSelection.setOpaque(false);
+        tpReports.add(reportSelection);
+
+        TaskPane tpControlling = new TaskPane(_("Controlling"));
+        JPanel monthSelection = new JPanel();
+        monthSelection.add(new JLabel(_("Choose a month:")));
+        monthSelection.add(new JComboBox(new String[] { _("") }));
+        monthSelection.setOpaque(false);
+        tpControlling.add(monthSelection);
+
+        TaskPane tpBudgetCheck = new TaskPane(_("Budget Check"));
+        JPanel budgetFilter = new JPanel();
+        budgetFilter.add(new JLabel(_("Add Filter:")));
+        budgetFilter.add(new JComboBox(new String[] { _("") }));
+        budgetFilter.setOpaque(false);
+        tpBudgetCheck.add(budgetFilter);
+
+        TaskPane tpQuickSettings = new TaskPane(_("Quick Settings"));
+        tpQuickSettings.add(new JCheckBox(_("Remember my tabs")));
+        tpQuickSettings.add(new JCheckBox(_("Open reports instantly")));
+
+        tpc.addTask(tpMasterData);
+        tpc.addTask(tpEmployments);
+        tpc.addTask(tpActivities);
+        tpc.addTask(tpReports);
+        tpc.addTask(tpControlling);
+        tpc.addTask(tpBudgetCheck);
+        tpc.addTask(tpQuickSettings);
+
+        tpReports.setExpanded(false);
+        tpControlling.setExpanded(false);
+        tpBudgetCheck.setExpanded(false);
+        tpQuickSettings.setExpanded(false);
+
+        return new JScrollPane(tpc, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+                JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     }
 
     /**
