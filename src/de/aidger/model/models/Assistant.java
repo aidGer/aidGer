@@ -37,7 +37,7 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
     public Assistant() {
         validatePresenceOf(new String[] { "email", "firstName", "lastName",
                 "qualification"});
-        //TODO: Check correctness of email by using a regexp
+        validateEmailAddress("email");
         //TODO: Check qualification level
     }
 

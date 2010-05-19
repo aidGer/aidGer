@@ -128,7 +128,8 @@ public abstract class AbstractModel<T> extends Observable implements
     /**
      * Add a validator to the model.
      *
-     * @param valid The validator to add
+     * @param valid
+     *            The validator to add
      */
     public void validate(Validator valid) {
         validators.add(valid);
@@ -137,12 +138,19 @@ public abstract class AbstractModel<T> extends Observable implements
     /**
      * Add a presence validator to the model.
      *
-     * @param members The name of the member variables to validate
+     * @param members
+     *            The name of the member variables to validate
      */
     public void validatePresenceOf(String[] members) {
         validators.add(new PresenceValidator(this, members));
     }
 
+    /**
+     * Add an email validator to the model.
+     *
+     * @param member
+     *            The name of the member variable to validate
+     */
     public void validateEmailAddress(String member) {
         validators.add(new EmailValidator(this, new String[] { member }));
     }
