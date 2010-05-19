@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-19 23:13+0200\n"
+"POT-Creation-Date: 2010-05-19 23:38+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -137,8 +137,8 @@ msgid "Controlling"
 msgstr "Controlling"
 
 #: view/UI.java:336
-msgid "Choose a month:"
-msgstr "Wähle einen Monat:"
+msgid "Choose a month"
+msgstr "Wähle einen Monat"
 
 #: view/UI.java:341
 msgid "Budget Check"
