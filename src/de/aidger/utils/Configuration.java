@@ -71,6 +71,7 @@ public final class Configuration {
             properties.setProperty("activities", "10");
             properties.setProperty("auto-open", "n");
             properties.setProperty("auto-save", "n");
+            properties.setProperty("debug", "false");
             properties.storeToXML(outputStream, "");
             outputStream.close();
         } catch (Exception e) {

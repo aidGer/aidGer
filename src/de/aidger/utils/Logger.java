@@ -2,6 +2,7 @@ package de.aidger.utils;
 
 import java.io.IOException;
 import java.util.logging.*;
+import java.text.MessageFormat;
 
 import de.aidger.model.Runtime;
 
@@ -29,14 +30,25 @@ public final class Logger {
     private Logger() {
         logger = java.util.logging.Logger.getLogger("aidger");
         logger.setUseParentHandlers(false);
+
+        Formatter format = new Formatter() {
+            @Override
+            public String format(LogRecord record) {
+                return MessageFormat.format("[{1, time, medium}] [{0}] {2}",
+                        new Object[] { record.getLevel().getLocalizedName(),
+                        record.getMillis(), record.getMessage() });
+            }
+        };
+
         try {
             FileHandler fhandler = new FileHandler(Runtime.getInstance().
                     getConfigPath().concat("/aidger.log"));
-            fhandler.setFormatter(new SimpleFormatter());
+            fhandler.setFormatter(format);
             fhandler.setLevel(Level.ALL);
             logger.addHandler(fhandler);
 
             ConsoleHandler chandler = new ConsoleHandler();
+            chandler.setFormatter(format);
             if (Boolean.parseBoolean(Runtime.getInstance().getOption("debug"))) {
                 logger.setLevel(Level.ALL);
                 chandler.setLevel(Level.ALL);
@@ -46,7 +58,6 @@ public final class Logger {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        logger.log(Level.INFO, "Startin Logger");
     }
 
     /**
