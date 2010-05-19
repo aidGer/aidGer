@@ -12,9 +12,7 @@ public class PresenceValidator extends Validator {
     /**
      * Initialize the PresenceValidator class.
      */
-    public PresenceValidator() {
-
-    }
+    private PresenceValidator() {  }
 
     /**
      * Initialize the PresenceValidator class.

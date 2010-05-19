@@ -156,6 +156,18 @@ public abstract class AbstractModel<T> extends Observable implements
     }
 
     /**
+     * Add an date range validator to the model.
+     *
+     * @param from
+     *            The starting date
+     * @param to
+     *            The end date
+     */
+    public void validateDateRange(String from, String to) {
+        validators.add(new DateRangeValidator(this, from, to));
+    }
+
+    /**
      * Extract the name of the class and return the correct manager.
      * 
      * @return The name of the model class

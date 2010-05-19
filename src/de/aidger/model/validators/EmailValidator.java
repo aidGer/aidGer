@@ -10,11 +10,26 @@ import de.aidger.model.AbstractModel;
  */
 public class EmailValidator extends Validator {
 
+    /**
+     * Initializes the EmailValidator class.
+     *
+     * @param model
+     *            The model to validate
+     * @param members
+     *            The member variables of the model
+     */
     public EmailValidator(AbstractModel model, String[] members) {
         this.model = model;
         this.members = members;
     }
 
+    /**
+     * Validate an email address.
+     *
+     * @param o
+     *            Variable to validate
+     * @return True if the variable validates
+     */
     @Override
     public boolean validateVar(Object o) {
         if (o == null) {

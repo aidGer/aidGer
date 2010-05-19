@@ -49,7 +49,8 @@ public class Contract extends AbstractModel<IContract> implements IContract {
     public Contract() {
         validatePresenceOf(new String[] { "completionDate", "confirmationDate",
                 "endDate", "startDate", "type" });
-        //TODO: Validate the range of the dates
+        validateDateRange("startDate", "endDate");
+        validateDateRange("completionDate", "confirmationDate");        
         //TODO: Validate the type
     }
 
