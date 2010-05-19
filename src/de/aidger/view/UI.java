@@ -356,6 +356,7 @@ public final class UI extends JFrame {
         tpc.addTask(tpControlling);
         tpc.addTask(tpBudgetCheck);
         tpc.addTask(tpQuickSettings);
+        tpc.addFiller();
 
         tpReports.setExpanded(false);
         tpControlling.setExpanded(false);

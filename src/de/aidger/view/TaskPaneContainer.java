@@ -39,7 +39,7 @@ public class TaskPaneContainer extends JPanel {
         this.first = first;
         this.second = second;
 
-        setBorder(new EmptyBorder(10, 10, 10, 10));
+        setBorder(new EmptyBorder(10, 10, 0, 10));
 
         addComponentListener(new ComponentAdapter() {
             @Override
@@ -75,13 +75,23 @@ public class TaskPaneContainer extends JPanel {
         GridBagConstraints c = new GridBagConstraints();
 
         c.fill = GridBagConstraints.BOTH;
-        c.insets = new Insets(0, 0, 20, 0);
+        c.insets = new Insets(0, 0, 15, 0);
         c.gridx = 0;
         c.gridy = GridBagConstraints.RELATIVE;
 
         add(taskPane, c);
 
         taskPane.container = this;
+    }
+
+    public void addFiller() {
+        GridBagConstraints c = new GridBagConstraints();
+
+        c.gridx = 0;
+        c.gridy = GridBagConstraints.RELATIVE;
+        c.weighty = 1.0;
+
+        add(javax.swing.Box.createVerticalGlue(), c);
     }
 
     public void removeTask(TaskPane taskPane) {
@@ -100,7 +110,11 @@ public class TaskPaneContainer extends JPanel {
     }
 
     public TaskPane getTask(int index) {
-        return (TaskPane) getComponent(index);
+        if (getComponent(index) instanceof TaskPane) {
+            return (TaskPane) getComponent(index);
+        }
+
+        return null;
     }
 
     public int getTaskCount() {
@@ -184,7 +198,10 @@ public class TaskPaneContainer extends JPanel {
 
         for (int i = 0; i < count; i++) {
             TaskPane tp = getTask(i);
-            tp.setExpandedHeight(max);
+
+            if (tp != null) {
+                tp.setExpandedHeight(max);
+            }
         }
     }
 

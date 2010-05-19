@@ -65,6 +65,8 @@ public class TaskPane extends JComponent {
             @Override
             public void mouseClicked(MouseEvent e) {
                 setExpanded(!expanded);
+
+                UI.getInstance().validate();
             }
         });
 
