@@ -34,7 +34,7 @@ public final class Logger {
         Formatter format = new Formatter() {
             @Override
             public String format(LogRecord record) {
-                return MessageFormat.format("[{1, time, medium}] [{0}] {2}",
+                return MessageFormat.format("[{1, time, medium}] [{0}] {2}\n",
                         new Object[] { record.getLevel().getLocalizedName(),
                         record.getMillis(), record.getMessage() });
             }
