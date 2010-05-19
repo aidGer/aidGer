@@ -32,19 +32,18 @@ public class AssistantEditorTab extends javax.swing.JPanel implements Tab {
     /*
      * (non-Javadoc)
      *
-     * @see de.aidger.view.tabs.Tab#getName()
-     */
-    public String getName() {
-        return _("Assistant Editing");
-    }
-
-    /*
-     * (non-Javadoc)
-     *
      * @see de.aidger.view.tabs.Tab#getContent()
      */
     public JPanel getContent() {
         return this;
+    }
+    /*
+     * (non-Javadoc)
+     *
+     * @see de.aidger.view.tabs.Tab#getName()
+     */
+    public String getName() {
+        return _("Assistant Editing");
     }
 
     /** This method is called from within the constructor to
@@ -101,7 +100,7 @@ public class AssistantEditorTab extends javax.swing.JPanel implements Tab {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                             .addComponent(jTextField1)
                             .addComponent(jTextField2))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
