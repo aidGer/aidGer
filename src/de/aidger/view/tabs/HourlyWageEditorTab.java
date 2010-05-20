@@ -43,6 +43,7 @@ public class HourlyWageEditorTab extends javax.swing.JPanel implements Tab {
      *
      * @see de.aidger.view.tabs.Tab#getName()
      */
+    @Override
     public String getName() {
         return _("Hourly Wage Editing");
     }

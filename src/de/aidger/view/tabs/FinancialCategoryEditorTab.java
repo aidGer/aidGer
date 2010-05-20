@@ -43,6 +43,7 @@ public class FinancialCategoryEditorTab extends javax.swing.JPanel implements Ta
      *
      * @see de.aidger.view.tabs.Tab#getName()
      */
+    @Override
     public String getName() {
         return _("Financial Category Editing");
     }
