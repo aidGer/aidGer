@@ -8,13 +8,17 @@ import de.aidger.controller.actions.AbortAction;
 import de.aidger.view.UI;
 
 /**
- * A tab for data about a course and activities asserted with it.
+ * A tab for data about a course and activities associated with it.
  *
  * @author aidGer Team
  */
 public class CourseViewerTab extends javax.swing.JPanel implements Tab {
 
-    /** Creates new form CourseViewerTab */
+    /**
+     * Initializes a new CourseViewerTab with all the fields for displaying
+     * all the relevant data, as well as all the activities associated with the
+     * course.
+     */
     public CourseViewerTab() {
         initComponents();
         try {
@@ -329,7 +333,7 @@ public class CourseViewerTab extends javax.swing.JPanel implements Tab {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,7 +346,7 @@ public class CourseViewerTab extends javax.swing.JPanel implements Tab {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
