@@ -271,8 +271,8 @@ public final class UI extends JFrame {
     public void replaceCurrentTab(Tab tab) {
         int index = tabbedPane.getSelectedIndex();
 
-        removeTabAt(index);
         addNewTab(tab, index);
+        removeTabAt(index + 1);
     }
 
     /**
@@ -430,23 +430,25 @@ public final class UI extends JFrame {
 
         TaskPane tpMasterData = new TaskPane(_("Master Data Management"));
 
-        tpMasterData
-                .add(createTaskPaneButton(_("Courses"), Task.CoursesViewer));
+        tpMasterData.add(createTaskPaneButton(_("Courses"), Task.ViewCourses));
         tpMasterData.add(createTaskPaneButton(_("Assistants"),
-                Task.AssistantsViewer));
+                Task.ViewAssistants));
         tpMasterData.add(createTaskPaneButton(_("Financial Categories"),
-                Task.FinancialCategoriesViewer));
+                Task.ViewFinancialCategories));
         tpMasterData.add(createTaskPaneButton(_("Hourly Wages"),
-                Task.HourlyWagesViewer));
+                Task.ViewHourlyWages));
 
         TaskPane tpEmployments = new TaskPane(_("Employments"));
-        tpEmployments.add(new JLabel(_("Create new employment")));
-        tpEmployments.add(new JLabel(_("Show all contracts")));
+        tpEmployments.add(createTaskPaneButton(_("Create new employment"),
+                Task.Void));
+        tpEmployments.add(createTaskPaneButton(_("Show all contracts"),
+                Task.Void));
         tpEmployments.add(new JTextField());
 
         TaskPane tpActivities = new TaskPane(_("Activities"));
-        tpActivities.add(new JLabel(_("Create new activity")));
-        tpActivities.add(new JLabel(_("Export")));
+        tpActivities.add(createTaskPaneButton(_("Create new activity"),
+                Task.Void));
+        tpActivities.add(createTaskPaneButton(_("Export"), Task.Void));
         tpActivities.add(new JTextField());
 
         TaskPane tpReports = new TaskPane(_("Reports"));

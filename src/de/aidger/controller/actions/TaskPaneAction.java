@@ -9,6 +9,7 @@ import javax.swing.Action;
 import javax.swing.SwingUtilities;
 
 import de.aidger.view.UI;
+import de.aidger.view.tabs.EmptyTab;
 import de.aidger.view.tabs.MasterDataViewerTab;
 import de.aidger.view.tabs.Tab;
 
@@ -25,7 +26,7 @@ public class TaskPaneAction extends AbstractAction implements MouseListener {
      * @author aidGer Team
      */
     public enum Task {
-        CoursesViewer, AssistantsViewer, FinancialCategoriesViewer, HourlyWagesViewer
+        ViewCourses, ViewAssistants, ViewFinancialCategories, ViewHourlyWages, Void
     }
 
     /**
@@ -54,11 +55,13 @@ public class TaskPaneAction extends AbstractAction implements MouseListener {
      */
     private Tab getNewTab() {
         switch (task) {
-        case CoursesViewer:
-        case AssistantsViewer:
-        case FinancialCategoriesViewer:
-        case HourlyWagesViewer:
+        case ViewCourses:
+        case ViewAssistants:
+        case ViewFinancialCategories:
+        case ViewHourlyWages:
             return new MasterDataViewerTab();
+        case Void:
+            return new EmptyTab();
         default:
             return null;
         }
