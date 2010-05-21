@@ -12,7 +12,6 @@ import java.awt.event.WindowEvent;
 import java.text.MessageFormat;
 
 import javax.swing.Action;
-import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -325,11 +324,7 @@ public final class UI extends JFrame {
 
         String[] reports = { _("Annual Balance"), _("Semester Balance"),
                 _("Partial Balance"), _("Activity Report"), _("Protocol") };
-        JPanel reportSelection = new JPanel();
-        reportSelection.add(new JComboBox(reports));
-        reportSelection.add(new JButton(_("More")));
-        reportSelection.setOpaque(false);
-        tpReports.add(reportSelection);
+        tpReports.add(new JComboBox(reports));
 
         TaskPane tpControlling = new TaskPane(_("Controlling"));
         JPanel monthSelection = new JPanel();
