@@ -10,7 +10,6 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Insets;
-import java.awt.LayoutManager;
 import java.awt.Paint;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -24,19 +23,101 @@ import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 
-import de.aidger.view.TaskPaneTitleBar.ArrowIcon;
-
+/**
+ * This class represents a single task pane. A task pane is a box with a title
+ * bar on the top and a content pane on the bottom which can holds links,
+ * buttons, text fields and more. Furthermore the content pane is collapsible.
+ * 
+ * @author aidGer Team
+ */
 @SuppressWarnings("serial")
 public class TaskPane extends JComponent {
-    TaskPaneTitleBar titleBar;
-    JComponent contentPane;
-    Color bg = new Color(0xFFD6DFF7);
-    boolean expanded = true;
-    Color firstColor = Color.white;
-    Color secondColor = new Color(0xFFC7D4F7);
-    TaskPaneContainer container;
-    float speed = 16.0f;
+    /**
+     * The title bar of the task pane.
+     */
+    private final TaskPaneTitleBar titleBar;
 
+    /**
+     * The collapsible content pane.
+     */
+    private final JComponent contentPane;
+
+    /**
+     * The background color.
+     */
+    private final Color bg = new Color(0xFFD6DFF7);
+
+    /**
+     * A flag whether the content pane is expanded.
+     */
+    private boolean expanded = true;
+
+    /**
+     * The first color for the gradient painting.
+     */
+    private final Color firstColor = Color.white;
+
+    /**
+     * The second color for the gradient painting.
+     */
+    private final Color secondColor = new Color(0xFFC7D4F7);
+
+    /**
+     * The container which holds this task pane.
+     */
+    protected TaskPaneContainer container;
+
+    /**
+     * The animation speed.
+     */
+    private final float speed = 16.0f;
+
+    /**
+     * The current alpha value for a fade out effect.
+     */
+    private float alpha = 1.0f;
+
+    /**
+     * A flag whether the alpha value should be currently used.
+     */
+    private boolean useAlpha;
+
+    /**
+     * The expanded height for the animation process.
+     */
+    private int expandedHeight;
+
+    /**
+     * The saved height for the animation process.
+     */
+    private int savedHeight;
+
+    /**
+     * The expanding flag for the animation process.
+     */
+    private boolean expanding;
+
+    /**
+     * The collapsing flag for the animation process.
+     */
+    private boolean collapsing;
+
+    /**
+     * A helper object for the animation process.
+     */
+    private final CObj cObj = new CObj();
+
+    /**
+     * A helper object for the animation process.
+     */
+    private final EObj eObj = new EObj();
+
+    /**
+     * Constructs the task pane.
+     * 
+     * @param title
+     *            the title text of the task pane
+     */
     public TaskPane(String title) {
         setLayout(new BorderLayout());
         updateUI();
@@ -48,6 +129,7 @@ public class TaskPane extends JComponent {
         contentPane.setBorder(new EmptyBorder(5, 8, 5, 8));
         contentPane.setOpaque(false);
 
+        // sets the border of the content pane properly
         Border b = contentPane.getBorder();
         if (b != null) {
             contentPane.setBorder(new CompoundBorder(new TaskPaneBorder(), b));
@@ -58,6 +140,7 @@ public class TaskPane extends JComponent {
         titleBar = new TaskPaneTitleBar(title);
         titleBar.setMargin(new Insets(3, 5, 3, 5));
 
+        // the content pane expands or collapses if user clicks on the title bar
         titleBar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -69,6 +152,7 @@ public class TaskPane extends JComponent {
 
         super.addImpl(titleBar, BorderLayout.NORTH, -1);
 
+        // use different cursors for the title bar
         titleBar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -87,15 +171,32 @@ public class TaskPane extends JComponent {
         finishExpand();
     }
 
+    /**
+     * Adds a new component to the task pane.
+     * 
+     * @param comp
+     *            the component that will be added
+     */
     public void add(JComponent comp) {
         contentPane.add(comp, BorderLayout.LINE_START);
         contentPane.add(Box.createRigidArea(new Dimension(0, 5)));
     }
 
+    /**
+     * Returns whether the content pane is expanded.
+     * 
+     * @return a flag whether the content pane is expanded
+     */
     public boolean isExpanded() {
         return expanded;
     }
 
+    /**
+     * Sets the expanded state of the content pane.
+     * 
+     * @param expanded
+     *            a flag whether the content pane should be expanded
+     */
     public void setExpanded(boolean expanded) {
         titleBar.setExpanded(expanded);
 
@@ -108,17 +209,11 @@ public class TaskPane extends JComponent {
         }
     }
 
-    protected TaskPaneContainer getTaskPaneContainer() {
-        return container;
-    }
-
-    ArrowIcon getArrowIcon() {
-        return titleBar.arrowIcon;
-    }
-
-    float alpha = 1.0f;
-    boolean useAlpha;
-
+    /*
+     * (non-Javadoc)
+     * 
+     * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+     */
     @Override
     protected void paintComponent(Graphics g) {
         g.setColor(getBackground());
@@ -138,6 +233,12 @@ public class TaskPane extends JComponent {
         }
     }
 
+    /**
+     * Turns on/off the animation effect for this task pane.
+     * 
+     * @param animated
+     *            A flag whether the task pane should be animated
+     */
     void setAnimated(boolean animated) {
         if (!animated) {
             setPreferredSize(null);
@@ -148,7 +249,19 @@ public class TaskPane extends JComponent {
         }
     }
 
+    /**
+     * This class represents the border of the task pane.
+     * 
+     * @author aidGer Team
+     */
     class TaskPaneBorder extends AbstractBorder {
+        /*
+         * (non-Javadoc)
+         * 
+         * @see
+         * javax.swing.border.AbstractBorder#paintBorder(java.awt.Component,
+         * java.awt.Graphics, int, int, int, int)
+         */
         @Override
         public void paintBorder(Component c, Graphics g, int x, int y,
                 int width, int height) {
@@ -164,11 +277,24 @@ public class TaskPane extends JComponent {
             g2d.drawLine(w - 1, y, w - 1, y + height - 1);
         }
 
+        /*
+         * (non-Javadoc)
+         * 
+         * @see
+         * javax.swing.border.AbstractBorder#getBorderInsets(java.awt.Component)
+         */
         @Override
         public Insets getBorderInsets(Component c) {
             return new Insets(0, 1, 1, 1);
         }
 
+        /*
+         * (non-Javadoc)
+         * 
+         * @see
+         * javax.swing.border.AbstractBorder#getBorderInsets(java.awt.Component,
+         * java.awt.Insets)
+         */
         @Override
         public Insets getBorderInsets(Component c, Insets insets) {
             if (insets != null) {
@@ -183,10 +309,10 @@ public class TaskPane extends JComponent {
         }
     }
 
-    CObj cObj = new CObj();
-    EObj eObj = new EObj();
-
-    void finishCollapse() {
+    /**
+     * Finishes the collapse process.
+     */
+    protected void finishCollapse() {
         useAlpha = false;
         expanded = false;
         contentPane.setVisible(false);
@@ -195,9 +321,12 @@ public class TaskPane extends JComponent {
         contentPane.setSize(contentPane.getWidth(), savedHeight);
     }
 
-    int savedHeight;
-
-    int prepareToCollapse() {
+    /**
+     * Prepares the collapse process.
+     * 
+     * @return the count variable for internal use
+     */
+    protected int prepareToCollapse() {
         collapsing = true;
         expandedHeight = 0;
         savedHeight = contentPane.getHeight();
@@ -213,7 +342,10 @@ public class TaskPane extends JComponent {
         return count;
     }
 
-    void doCollapse() {
+    /**
+     * Performs the whole collapse process.
+     */
+    protected void doCollapse() {
         for (int i = 0; i < cObj.count; i++) {
             doCollapseStep();
             container.doLayout();
@@ -223,7 +355,10 @@ public class TaskPane extends JComponent {
         }
     }
 
-    void doCollapseStep() {
+    /**
+     * Performs operations for each collapse step.
+     */
+    protected void doCollapseStep() {
         cObj.d.height -= cObj.k;
         cObj.d.height = Math.max(cObj.d.height, titleBar.getHeight());
         setPreferredSize(cObj.d);
@@ -231,9 +366,10 @@ public class TaskPane extends JComponent {
         // pause();
     }
 
-    boolean expanding, collapsing;
-
-    void finishExpand() {
+    /**
+     * Finished the expand process.
+     */
+    protected void finishExpand() {
         useAlpha = false;
         expanded = true;
         expanding = false;
@@ -241,7 +377,12 @@ public class TaskPane extends JComponent {
         // setPreferredSize(null);
     }
 
-    int prepareToExpand() {
+    /**
+     * Prepares a expand process.
+     * 
+     * @return the count variable for internal use
+     */
+    protected int prepareToExpand() {
         expanding = true;
         setPreferredSize(null);
         contentPane.setVisible(true);
@@ -256,26 +397,14 @@ public class TaskPane extends JComponent {
         float step = 1.0f / (amount / k);
         alpha = 0.0f;
         eObj.set(h, count, k, d, d0, step);
+
         return count;
     }
 
-    public int getPreferredHeight() {
-        Dimension d = contentPane.getPreferredSize();
-        int h = titleBar.getHeight();
-        return d.height + h;
-    }
-
-    int expandedHeight;
-
-    public int getExpandedHeight() {
-        return expandedHeight;
-    }
-
-    public void setExpandedHeight(int expandedHeight) {
-        this.expandedHeight = expandedHeight;
-    }
-
-    void doExpand() {
+    /**
+     * Performs a whole expand process.
+     */
+    protected void doExpand() {
         for (int i = eObj.h; i > 0; i--) {
             doExpandStep();
             container.doLayout();
@@ -284,13 +413,43 @@ public class TaskPane extends JComponent {
         }
     }
 
-    void doExpandStep() {
+    /**
+     * Performs operations for each expand step.
+     */
+    protected void doExpandStep() {
         eObj.d.height += eObj.k;
         eObj.d.height = Math.min(eObj.d.height, eObj.d0.height);
         setPreferredSize(eObj.d);
         alpha = Math.min(alpha + eObj.step, 1.0f);
     }
 
+    /**
+     * Retrieves the preferred height of the content pane.
+     * 
+     * @return the preferred height of the content pane
+     */
+    public int getPreferredHeight() {
+        Dimension d = contentPane.getPreferredSize();
+        int h = titleBar.getHeight();
+        return d.height + h;
+    }
+
+    /**
+     * Sets the expanded height for the animation process.
+     * 
+     * @param expandedHeight
+     *            the expanded height
+     */
+    public void setExpandedHeight(int expandedHeight) {
+        this.expandedHeight = expandedHeight;
+    }
+
+    /**
+     * Helper class for the animation effect. It holds some frequently used
+     * variables.
+     * 
+     * @author aidGer Team
+     */
     private static class CObj {
         int count;
         float k;
@@ -305,6 +464,12 @@ public class TaskPane extends JComponent {
         }
     }
 
+    /**
+     * Helper class for the animation effect. It holds some frequently used
+     * variables.
+     * 
+     * @author aidGer Team
+     */
     private static class EObj {
         int h;
         @SuppressWarnings("unused")
@@ -325,23 +490,24 @@ public class TaskPane extends JComponent {
         }
     }
 
+    /**
+     * This class represents the collapsible content pane of the task pane.
+     * 
+     * @author aidGer Team
+     */
     class ContentPane extends JPanel {
-
+        /**
+         * Constructs a content pane. The constructor does nothing at the
+         * moment.
+         */
         public ContentPane() {
         }
 
-        public ContentPane(boolean isDoubleBuffered) {
-            super(isDoubleBuffered);
-        }
-
-        public ContentPane(LayoutManager layout) {
-            super(layout);
-        }
-
-        public ContentPane(LayoutManager layout, boolean isDoubleBuffered) {
-            super(layout, isDoubleBuffered);
-        }
-
+        /*
+         * (non-Javadoc)
+         * 
+         * @see javax.swing.JComponent#paintBorder(java.awt.Graphics)
+         */
         @Override
         protected void paintBorder(Graphics g) {
             Border border = getBorder();
@@ -360,6 +526,11 @@ public class TaskPane extends JComponent {
             }
         }
 
+        /*
+         * (non-Javadoc)
+         * 
+         * @see javax.swing.JComponent#paintChildren(java.awt.Graphics)
+         */
         @Override
         protected void paintChildren(Graphics g) {
             if (useAlpha) {

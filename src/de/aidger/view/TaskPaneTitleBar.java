@@ -20,21 +20,57 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
 
+/**
+ * This class represents the title bar of a task pane.
+ * 
+ * @author aidGer Team
+ */
 @SuppressWarnings("serial")
 public class TaskPaneTitleBar extends JComponent {
-
+    /**
+     * The first color for the gradient painting.
+     */
     Color firstColor = new Color(0xFFFAFAFA);
+
+    /**
+     * The second color for the gradient painting.
+     */
     Color secondColor = new Color(0xFFC7D4F7);
+
+    /**
+     * The foreground of the title bar.
+     */
     Color fg = new Color(0xFF215DC6);
+
+    /**
+     * The forground if title bar is active.
+     */
     Color activeFg = new Color(0xFF4288FF);
 
+    /**
+     * The arrow icon on the title bar.
+     */
     ArrowIcon arrowIcon = new ArrowIcon();
+
+    /**
+     * The painting object.
+     */
     GradientPaint paint;
+
+    /**
+     * The title label.
+     */
     JLabel titleLabel;
 
+    /**
+     * Constructs the title bar for the task pane.
+     * 
+     * @param title
+     */
     public TaskPaneTitleBar(String title) {
         setLayout(new BorderLayout());
 
+        // change foreground if mouse hovers or leaves the title bar
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -53,23 +89,32 @@ public class TaskPaneTitleBar extends JComponent {
             }
         });
 
+        // title label in bold font
         titleLabel = new JLabel(title) {
             @Override
             public void updateUI() {
                 super.updateUI();
+
                 Font font = getFont();
                 if (font != null) {
                     setFont(font.deriveFont(Font.BOLD, font.getSize()));
                 }
             }
         };
+
         titleLabel.setForeground(fg);
 
         add(titleLabel, BorderLayout.LINE_START);
+        // need some space between title label and arrow icon
         add(new JLabel("  "), BorderLayout.CENTER);
         add(new JLabel(arrowIcon), BorderLayout.LINE_END);
     }
 
+    /**
+     * Returns the gradient painting in order to paint the background.
+     * 
+     * @return the gradient painting
+     */
     protected GradientPaint getPaint() {
         if (paint == null) {
             paint = new GradientPaint(0, 0, firstColor, getWidth() / 2, 0,
@@ -79,10 +124,22 @@ public class TaskPaneTitleBar extends JComponent {
         return paint;
     }
 
+    /**
+     * Sets the title bar to expanded. Mainly the arrow icon will be changed.
+     * 
+     * @param expanded
+     *            The flag whether title bar should be expanded
+     */
     public void setExpanded(boolean expanded) {
         arrowIcon.setExpanded(expanded);
     }
 
+    /**
+     * Sets the margin of the title bar.
+     * 
+     * @param margin
+     *            the margin
+     */
     public void setMargin(Insets margin) {
         if (margin == null) {
             margin = new Insets(0, 0, 0, 0);
@@ -92,6 +149,11 @@ public class TaskPaneTitleBar extends JComponent {
         setBorder(outsideBorder);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+     */
     @Override
     protected void paintComponent(Graphics g) {
         g.setColor(firstColor);
@@ -112,17 +174,63 @@ public class TaskPaneTitleBar extends JComponent {
         g2d.dispose();
     }
 
+    /**
+     * This class represents an arrow icon for the title bar.
+     * 
+     * @author aidGer Team
+     */
     public class ArrowIcon implements Icon {
+        /**
+         * Constant that represents the direction up
+         */
         public static final int UP = 0;
+
+        /**
+         * Constant that stands for the direction down
+         */
         public static final int DOWN = 1;
+
+        /**
+         * The current direction of the arrow icon.
+         */
         int direction;
+
+        /**
+         * The fix weight of the icon.
+         */
         int iconWidth = 19;
+
+        /**
+         * The fix height of the icon.
+         */
         int iconHeight = 19;
+
+        /**
+         * The background color.
+         */
         Color background = new Color(200, 217, 247);
-        Color cirleColor = Color.white;
-        Color shadowColor = new Color(160, 160, 200);
+
+        /**
+         * The foreground color.
+         */
         Color foreground = new Color(0, 60, 165);
 
+        /**
+         * The circle color.
+         */
+        Color cirleColor = Color.white;
+
+        /**
+         * The shadow color.
+         */
+        Color shadowColor = new Color(160, 160, 200);
+
+        /*
+         * (non-Javadoc)
+         * 
+         * @see javax.swing.Icon#paintIcon(java.awt.Component,
+         * java.awt.Graphics, int, int)
+         */
         public void paintIcon(Component c, Graphics g, int x, int y) {
             Graphics2D g2d = (Graphics2D) g;
 
@@ -157,6 +265,12 @@ public class TaskPaneTitleBar extends JComponent {
             }
         }
 
+        /**
+         * Draws an arrow in down direction.
+         * 
+         * @param g
+         *            the graphics the arrow icon is painted on
+         */
         private void drawDownArrow(Graphics g) {
             g.drawLine(6, 8 - 2, 9, 8 + 1);
             g.drawLine(7, 8 - 2, 9, 8);
@@ -171,6 +285,12 @@ public class TaskPaneTitleBar extends JComponent {
             g.drawLine(9, 12, 11, 12 - 2);
         }
 
+        /**
+         * Draws an arrow icon in up direction.
+         * 
+         * @param g
+         *            the graphics the arrow icon is painted on
+         */
         private void drawUpArrow(Graphics g) {
             g.drawLine(6, 8, 9, 8 - 3);
             g.drawLine(7, 8, 9, 8 - 2);
@@ -185,18 +305,40 @@ public class TaskPaneTitleBar extends JComponent {
             g.drawLine(9, 12 - 2, 11, 12);
         }
 
+        /*
+         * (non-Javadoc)
+         * 
+         * @see javax.swing.Icon#getIconWidth()
+         */
         public int getIconWidth() {
             return iconWidth;
         }
 
+        /*
+         * (non-Javadoc)
+         * 
+         * @see javax.swing.Icon#getIconHeight()
+         */
         public int getIconHeight() {
             return iconHeight;
         }
 
+        /**
+         * Sets the foreground.
+         * 
+         * @param foreground
+         *            the color of the foreground
+         */
         public void setForeground(Color foreground) {
             this.foreground = foreground;
         }
 
+        /**
+         * Sets the expanded state of the arrow icon.
+         * 
+         * @param expanded
+         *            A flag whether the arrow icon should be expanded
+         */
         public void setExpanded(boolean expanded) {
             if (expanded) {
                 direction = 0;

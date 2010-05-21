@@ -8,20 +8,40 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Paint;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+/**
+ * TaskPaneContainer is a container that holds and manages all added task panes.
+ * 
+ * @author aidGer Team
+ */
 @SuppressWarnings("serial")
 public class TaskPaneContainer extends JPanel {
+    /**
+     * The first color for the gradient painting.
+     */
     Color first;
+
+    /**
+     * The second color for the gradient painting.
+     */
     Color second;
-    TaskPane expanded;
-    boolean gradientValid;
+
+    /**
+     * The gradient painting.
+     */
     GradientPaint paint;
 
+    /**
+     * Constructs a task pane container.
+     * 
+     * @param first
+     *            the first gradient color
+     * @param second
+     *            the second gradient color
+     */
     public TaskPaneContainer(Color first, Color second) {
         setLayout(new GridBagLayout());
 
@@ -29,13 +49,6 @@ public class TaskPaneContainer extends JPanel {
         this.second = second;
 
         setBorder(new EmptyBorder(10, 10, 0, 10));
-
-        addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentResized(ComponentEvent e) {
-                gradientValid = false;
-            }
-        });
 
         // use animation
         int count = getTaskCount();
@@ -46,18 +59,32 @@ public class TaskPaneContainer extends JPanel {
         }
     }
 
+    /**
+     * Constructs a task pane container with default gradient colors.
+     */
     public TaskPaneContainer() {
         this(new Color(0xFF7BA2E7), new Color(0xFF6476D6));
     }
 
+    /**
+     * Returns the gradient painting.
+     * 
+     * @return the gradient painting
+     */
     protected GradientPaint getPaint() {
-        if (paint == null || !gradientValid) {
+        if (paint == null) {
             paint = new GradientPaint(0, 0, first, 0, getHeight(), second);
         }
 
         return paint;
     }
 
+    /**
+     * Adds a new task pane to the container.
+     * 
+     * @param taskPane
+     *            the task pane that will be added
+     */
     public void addTask(TaskPane taskPane) {
         GridBagConstraints c = new GridBagConstraints();
 
@@ -71,6 +98,10 @@ public class TaskPaneContainer extends JPanel {
         taskPane.container = this;
     }
 
+    /**
+     * Adds an empty filler to the container. Basically it is used to set the
+     * task panes to the top of the frame. This method must be called at last.
+     */
     public void addFiller() {
         GridBagConstraints c = new GridBagConstraints();
 
@@ -81,6 +112,12 @@ public class TaskPaneContainer extends JPanel {
         add(javax.swing.Box.createVerticalGlue(), c);
     }
 
+    /**
+     * Removes a task pane from the container.
+     * 
+     * @param taskPane
+     *            the task pane that will be removed
+     */
     public void removeTask(TaskPane taskPane) {
         super.remove(taskPane);
 
@@ -89,6 +126,13 @@ public class TaskPaneContainer extends JPanel {
         }
     }
 
+    /**
+     * Removes a task pane from the container. The task pane is identified by
+     * its position on the container.
+     * 
+     * @param i
+     *            the position of the task pane that will be removed
+     */
     public void removeTask(int i) {
         TaskPane tp = getTask(i);
 
@@ -99,6 +143,13 @@ public class TaskPaneContainer extends JPanel {
         super.remove(i);
     }
 
+    /**
+     * Returns the task pane at the given position.
+     * 
+     * @param index
+     *            the position of the task pane on the container
+     * @return the task pane at the given position
+     */
     public TaskPane getTask(int index) {
         if (getComponent(index) instanceof TaskPane) {
             return (TaskPane) getComponent(index);
@@ -107,10 +158,20 @@ public class TaskPaneContainer extends JPanel {
         return null;
     }
 
+    /**
+     * Retrieves the count of the task panes.
+     * 
+     * @return the count of the task panes
+     */
     public int getTaskCount() {
         return getComponentCount();
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+     */
     @Override
     protected void paintComponent(Graphics g) {
         Paint p = getPaint();
@@ -120,6 +181,9 @@ public class TaskPaneContainer extends JPanel {
         g2d.fillRect(0, 0, getWidth(), getHeight());
     }
 
+    /**
+     * Checks the size of all task panes.
+     */
     protected void checkSizes() {
         int count = getTaskCount();
         int max = 0;
@@ -133,6 +197,12 @@ public class TaskPaneContainer extends JPanel {
         }
     }
 
+    /**
+     * Collapses the given task pane.
+     * 
+     * @param tp
+     *            the task pane that will be collapsed
+     */
     public void collapse(TaskPane tp) {
         checkSizes();
 
@@ -142,13 +212,17 @@ public class TaskPaneContainer extends JPanel {
         tp.finishCollapse();
     }
 
+    /**
+     * Expands the given task pane.
+     * 
+     * @param tp
+     *            the task pane that will be expanded
+     */
     public void expand(TaskPane tp) {
         checkSizes();
 
         tp.prepareToExpand();
         tp.doExpand();
         tp.finishExpand();
-
-        expanded = tp;
     }
 }
