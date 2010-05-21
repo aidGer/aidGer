@@ -8,6 +8,8 @@ import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseWheelEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.MessageFormat;
@@ -289,14 +291,51 @@ public final class UI extends JFrame {
      *            The tab to be set as current. The tab must exist already.
      */
     public void setCurrentTab(Tab tab) {
-        /* Check if the tab to be set as current is even on the tabbed plane. */
-        if (tabbedPane.indexOfComponent(tab) != -1) {
-            Logger.debug(MessageFormat.format(
-                    _("Setting current tab to \"{0}\""), new Object[] { tab
-                            .getName() }));
+        int index = tabbedPane.indexOfComponent(tab);
 
-            tabbedPane.setSelectedIndex(tabbedPane.indexOfComponent(tab));
+        if (index != -1) {
+            setCurrentTabAt(index);
         }
+    }
+
+    /**
+     * Sets the current tab to the tab at given position.
+     * 
+     * @param index
+     */
+    public void setCurrentTabAt(int index) {
+        Tab newTab = (Tab) tabbedPane.getComponentAt(index);
+
+        Logger.debug(MessageFormat.format(_("Setting current tab to \"{0}\""),
+                new Object[] { newTab.getName() }));
+
+        tabbedPane.setSelectedIndex(index);
+    }
+
+    /**
+     * Sets the current to the previous tab.
+     */
+    public void setPreviousTab() {
+        int prevIndex = tabbedPane.getSelectedIndex() - 1;
+
+        if (prevIndex < 0) {
+            prevIndex = tabbedPane.getTabCount() - 2;
+        }
+
+        setCurrentTabAt(prevIndex);
+    }
+
+    /**
+     * Sets the current to the next tab.
+     */
+    public void setNextTab() {
+        int nextIndex = tabbedPane.getSelectedIndex() + 1;
+
+        if (nextIndex == tabbedPane.getTabCount() - 1) {
+            nextIndex = 0;
+        }
+
+        setCurrentTabAt(nextIndex);
     }
 
     /**
@@ -470,6 +509,18 @@ public final class UI extends JFrame {
         tabbedPane.addChangeListener(tabbedPaneListener);
 
         tabbedPane.setTabLayoutPolicy(JTabbedPane.WRAP_TAB_LAYOUT);
+
+        // mouse wheel support for tabs
+        tabbedPane.addMouseWheelListener(new MouseAdapter() {
+            @Override
+            public void mouseWheelMoved(MouseWheelEvent e) {
+                if (e.getWheelRotation() < 0) {
+                    setPreviousTab();
+                } else {
+                    setNextTab();
+                }
+            }
+        });
 
         return tabbedPane;
     }
