@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: view/UI.java:337 view/UI.java:344
+#: view/UI.java:366 view/UI.java:373
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-19 23:38+0200\n"
+"POT-Creation-Date: 2010-05-21 13:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,129 +41,122 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: view/UI.java:172
-msgid "Adding new empty tab"
-msgstr ""
-
-#: view/UI.java:195
+#: view/UI.java:175
 #, java-format
-msgid "Adding new Tab \"{0}\""
+msgid "Adding new tab \"{0}\" at position {1}"
 msgstr ""
 
-#: view/UI.java:231
+#: view/UI.java:219
+#, java-format
+msgid "Removing {0}. tab"
+msgstr ""
+
+#: view/UI.java:262
 #, java-format
 msgid "Setting current tab to \"{0}\""
 msgstr ""
 
-#: view/UI.java:261
+#: view/UI.java:294
 msgid "File"
 msgstr ""
 
-#: view/UI.java:280 controller/actions/HelpAction.java:23
+#: view/UI.java:313 controller/actions/HelpAction.java:23
 msgid "Help"
 msgstr ""
 
-#: view/UI.java:307
+#: view/UI.java:340
 msgid "Master Data Management"
 msgstr ""
 
-#: view/UI.java:309
+#: view/UI.java:342
 msgid "Courses"
 msgstr ""
 
-#: view/UI.java:310
+#: view/UI.java:343
 msgid "Assistants"
 msgstr ""
 
-#: view/UI.java:311
+#: view/UI.java:344
 msgid "Financial Categories"
 msgstr ""
 
-#: view/UI.java:312
+#: view/UI.java:345
 msgid "Hourly Wages"
 msgstr ""
 
-#: view/UI.java:314
+#: view/UI.java:347
 msgid "Employments"
 msgstr ""
 
-#: view/UI.java:315
+#: view/UI.java:348
 msgid "Create new employment"
 msgstr ""
 
-#: view/UI.java:316
+#: view/UI.java:349
 msgid "Show all contracts"
 msgstr ""
 
-#: view/UI.java:319
+#: view/UI.java:352
 msgid "Activities"
 msgstr ""
 
-#: view/UI.java:320
-msgid "Create new activity"
-msgstr ""
-
-#: view/UI.java:321
+#: view/UI.java:354
 msgid "Export"
 msgstr ""
 
-#: view/UI.java:324
+#: view/UI.java:357
 msgid "Reports"
 msgstr ""
 
-#: view/UI.java:326
+#: view/UI.java:359
 msgid "Annual Balance"
 msgstr ""
 
-#: view/UI.java:326
+#: view/UI.java:359
 msgid "Semester Balance"
 msgstr ""
 
-#: view/UI.java:327
+#: view/UI.java:360
 msgid "Partial Balance"
 msgstr ""
 
-#: view/UI.java:327
+#: view/UI.java:360
 msgid "Activity Report"
 msgstr ""
 
-#: view/UI.java:327
+#: view/UI.java:360
 msgid "Protocol"
 msgstr ""
 
-#: view/UI.java:330
-msgid "More"
-msgstr ""
-
-#: view/UI.java:334
+#: view/UI.java:363
 msgid "Controlling"
 msgstr ""
 
-#: view/UI.java:336
+#: view/UI.java:365
 msgid "Choose a month"
 msgstr ""
 
-#: view/UI.java:341
+#: view/UI.java:370
 msgid "Budget Check"
 msgstr ""
 
-#: view/UI.java:343
+#: view/UI.java:372
 msgid "Add Filter"
 msgstr ""
 
-#: view/UI.java:348
+#: view/UI.java:377
 msgid "Quick Settings"
 msgstr ""
 
-#: view/UI.java:349
+#: view/UI.java:378
 msgid "Remember my tabs"
 msgstr ""
 
-#: view/UI.java:350
+#: view/UI.java:379
 msgid "Open reports instantly"
 msgstr ""
 
-#: view/UI.java:382
+#: view/UI.java:412
 msgid "Open a new tab"
 msgstr ""
 
@@ -294,4 +287,8 @@ msgstr ""
 #: controller/ActionNotFoundException.java:15
 #, java-format
 msgid "action class {0} not found"
+msgstr ""
+
+#: controller/actions/taskpane/CreateActivityAction.java:25
+msgid "Create new activity"
 msgstr ""

@@ -36,6 +36,7 @@ import de.aidger.controller.actions.ExitAction;
 import de.aidger.controller.actions.HelpAction;
 import de.aidger.controller.actions.PrintAction;
 import de.aidger.controller.actions.SettingsAction;
+import de.aidger.controller.actions.taskpane.CreateActivityAction;
 import de.aidger.utils.Logger;
 import de.aidger.view.tabs.AssistantEditorTab;
 import de.aidger.view.tabs.CourseEditorTab;
@@ -162,50 +163,81 @@ public final class UI extends JFrame {
     }
 
     /**
+     * Adds a new tab at the given index to the tabbed plane.
+     * 
+     * @param tab
+     *            The tab to be added.
+     * @param index
+     *            The position where the tab will be added
+     */
+    public void addNewTab(Tab tab, int index) {
+        Logger.debug(MessageFormat.format(
+                _("Adding new tab \"{0}\" at position {1}"), new Object[] {
+                        tab.getName(), index }));
+
+        currentTab = tab;
+
+        tabbedPane.removeChangeListener(tabbedPaneListener);
+
+        tabbedPane.add(currentTab.getContent(), index);
+        tabbedPane.setTabComponentAt(index, new CloseTabComponent(tabbedPane,
+                tabbedPaneListener, currentTab.getName()));
+
+        tabbedPane.setSelectedIndex(index);
+
+        tabbedPane.addChangeListener(tabbedPaneListener);
+    }
+
+    /**
+     * Adds a new tab at the end of the tabbed pane.
+     * 
+     * @param tab
+     *            The tab to be added
+     */
+    public void addNewTab(Tab tab) {
+        addNewTab(tab, tabbedPane.getTabCount() - 1);
+    }
+
+    /**
      * Adds a new empty tab and focus it if "+" button was clicked
      */
     public void addNewTab() {
         int index = tabbedPane.getTabCount() - 1;
 
         if (tabbedPane.getSelectedIndex() == index) {
-            Logger.debug(_("Adding new empty tab"));
-
-            tabbedPane.removeChangeListener(tabbedPaneListener);
-
-            Tab emptyTab = new EmptyTab();
-            tabbedPane.add(emptyTab.getContent(), index);
-            tabbedPane.setTabComponentAt(index, new CloseTabComponent(
-                    tabbedPane, tabbedPaneListener, emptyTab.getName()));
-
-            tabbedPane.setSelectedIndex(index);
-            currentTab = emptyTab;
-
-            tabbedPane.addChangeListener(tabbedPaneListener);
+            addNewTab(new EmptyTab());
         }
     }
 
     /**
-     * Adds a new tab, specified by tab, to the tabbed plane.
+     * Removes the tab at given index.
      * 
-     * @param tab
-     *            The tab to be added.
+     * @param index
+     *            The index identifies the tab that will be removed
      */
-    public void addNewTab(Tab tab) {
-        Logger.debug(MessageFormat.format(_("Adding new Tab \"{0}\""),
-                new Object[] { tab.getName() }));
-
-        int index = tabbedPane.getTabCount() - 1;
+    public void removeTabAt(int index) {
+        Logger.debug(MessageFormat.format(_("Removing {0}. tab"),
+                new Object[] { index }));
 
         tabbedPane.removeChangeListener(tabbedPaneListener);
 
-        tabbedPane.add(tab.getContent(), index);
-        tabbedPane.setTabComponentAt(index, new CloseTabComponent(tabbedPane,
-                tabbedPaneListener, tab.getName()));
-
-        tabbedPane.setSelectedIndex(index);
-        currentTab = tab;
+        tabbedPane.remove(index);
 
         tabbedPane.addChangeListener(tabbedPaneListener);
+    }
+
+    /**
+     * Replaces the current tab with the given one. The old tab will be removed.
+     * 
+     * @param tab
+     *            the new current tab
+     */
+    public void replaceCurrentTab(Tab tab) {
+        currentTab = tab;
+        int index = tabbedPane.getSelectedIndex();
+
+        removeTabAt(index);
+        addNewTab(currentTab, index);
     }
 
     /**
@@ -221,7 +253,7 @@ public final class UI extends JFrame {
      * Sets the current tab on the tabbed plane to the one specified.
      * 
      * @param tab
-     *            The tab to be set as current.
+     *            The tab to be set as current. The tab must exist already.
      */
     public void setCurrentTab(Tab tab) {
         /* Check if the tab to be set as current is even on the tabbed plane. */
@@ -229,8 +261,10 @@ public final class UI extends JFrame {
             Logger.debug(MessageFormat.format(
                     _("Setting current tab to \"{0}\""), new Object[] { tab
                             .getName() }));
+
             currentTab = tab;
-            tabbedPane.setSelectedIndex(tabbedPane.indexOfComponent(tab
+
+            tabbedPane.setSelectedIndex(tabbedPane.indexOfComponent(currentTab
                     .getContent()));
         }
     }
@@ -316,7 +350,7 @@ public final class UI extends JFrame {
         tpEmployments.add(new JTextField());
 
         TaskPane tpActivities = new TaskPane(_("Activities"));
-        tpActivities.add(new JLabel(_("Create new activity")));
+        tpActivities.add(new TaskPaneButton(new CreateActivityAction()));
         tpActivities.add(new JLabel(_("Export")));
         tpActivities.add(new JTextField());
 

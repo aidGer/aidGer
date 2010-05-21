@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-19 23:38+0200\n"
+"POT-Creation-Date: 2010-05-21 13:52+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -37,130 +37,123 @@ msgstr "Öffne Browser auf http://www.aidger.de"
 msgid "Error"
 msgstr "Fehler"
 
-#: view/UI.java:172
-msgid "Adding new empty tab"
-msgstr "Neuer leerer Tab hinzugefügt"
-
-#: view/UI.java:195
+#: view/UI.java:175
 #, java-format
-msgid "Adding new Tab \"{0}\""
-msgstr "Neuer Tab \"{0}\" hinzugefügt"
+msgid "Adding new tab \"{0}\" at position {1}"
+msgstr "Neuer Tab \"{0}\" an die {1}. Stelle hinzugefügt"
 
-#: view/UI.java:231
+#: view/UI.java:219
+#, java-format
+msgid "Removing {0}. tab"
+msgstr "{0}. Tab gelöscht"
+
+#: view/UI.java:262
 #, java-format
 msgid "Setting current tab to \"{0}\""
 msgstr "Momentaner Reiter ist nun \"{0}\""
 
-#: view/UI.java:261
+#: view/UI.java:294
 msgid "File"
 msgstr "Datei"
 
-#: view/UI.java:280
+#: view/UI.java:313
 #: controller/actions/HelpAction.java:23
 msgid "Help"
 msgstr "Hilfe"
 
-#: view/UI.java:307
+#: view/UI.java:340
 msgid "Master Data Management"
 msgstr "Stammdatenverwaltung"
 
-#: view/UI.java:309
+#: view/UI.java:342
 msgid "Courses"
 msgstr "Veranstaltungen"
 
-#: view/UI.java:310
+#: view/UI.java:343
 msgid "Assistants"
 msgstr "Hilfskräfte"
 
-#: view/UI.java:311
+#: view/UI.java:344
 msgid "Financial Categories"
 msgstr "Finanzkategorien"
 
-#: view/UI.java:312
+#: view/UI.java:345
 msgid "Hourly Wages"
 msgstr "Stundenlöhne"
 
-#: view/UI.java:314
+#: view/UI.java:347
 msgid "Employments"
 msgstr "Beschäftigungen"
 
-#: view/UI.java:315
+#: view/UI.java:348
 msgid "Create new employment"
 msgstr "Neue Beschäftigung anlegen"
 
-#: view/UI.java:316
+#: view/UI.java:349
 msgid "Show all contracts"
 msgstr "Alle Verträge anzeigen"
 
-#: view/UI.java:319
+#: view/UI.java:352
 msgid "Activities"
 msgstr "Vorgänge"
 
-#: view/UI.java:320
-msgid "Create new activity"
-msgstr "Neuer Vorgang anlegen"
-
-#: view/UI.java:321
+#: view/UI.java:354
 msgid "Export"
 msgstr "Exportieren"
 
-#: view/UI.java:324
+#: view/UI.java:357
 msgid "Reports"
 msgstr "Berichte"
 
-#: view/UI.java:326
+#: view/UI.java:359
 msgid "Annual Balance"
 msgstr "Jahresbilanz"
 
-#: view/UI.java:326
+#: view/UI.java:359
 msgid "Semester Balance"
 msgstr "Semesterbilanz"
 
-#: view/UI.java:327
+#: view/UI.java:360
 msgid "Partial Balance"
 msgstr "Teilbilanz"
 
-#: view/UI.java:327
+#: view/UI.java:360
 msgid "Activity Report"
 msgstr "Tätigkeitsnachweis"
 
-#: view/UI.java:327
+#: view/UI.java:360
 msgid "Protocol"
 msgstr "Vorgangsprotokoll"
 
-#: view/UI.java:330
-msgid "More"
-msgstr "Mehr"
-
-#: view/UI.java:334
+#: view/UI.java:363
 msgid "Controlling"
 msgstr "Controlling"
 
-#: view/UI.java:336
+#: view/UI.java:365
 msgid "Choose a month"
 msgstr "Wähle einen Monat"
 
-#: view/UI.java:341
+#: view/UI.java:370
 msgid "Budget Check"
 msgstr "Budgetprüfung"
 
-#: view/UI.java:343
+#: view/UI.java:372
 msgid "Add Filter"
 msgstr "Filter hinzufügen"
 
-#: view/UI.java:348
+#: view/UI.java:377
 msgid "Quick Settings"
 msgstr "Schnelleinstellungen"
 
-#: view/UI.java:349
+#: view/UI.java:378
 msgid "Remember my tabs"
 msgstr "Merke meine Reiter"
 
-#: view/UI.java:350
+#: view/UI.java:379
 msgid "Open reports instantly"
 msgstr "Berichte sofort öffnen"
 
-#: view/UI.java:382
+#: view/UI.java:412
 msgid "Open a new tab"
 msgstr "Öffnet einen neuen Tab"
 
@@ -295,6 +288,16 @@ msgstr "Die Anzahl an Aktivitäten muss größer als 0 sein."
 msgid "action class {0} not found"
 msgstr "Aktions-Klasse {0} nicht gefunden"
 
+#: controller/actions/taskpane/CreateActivityAction.java:25
+msgid "Create new activity"
+msgstr "Neuer Vorgang anlegen"
+
+#~ msgid "Removing tab at position {0}"
+#~ msgstr "{0}. Tab gelöscht"
+#~ msgid "Adding new empty tab"
+#~ msgstr "Neuer leerer Tab hinzugefügt"
+#~ msgid "More"
+#~ msgstr "Mehr"
 #~ msgid "Contracts"
 #~ msgstr "Verträge"
 #~ msgid "Abort"

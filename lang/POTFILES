@@ -13,3 +13,4 @@ controller/actions/PrintAction.java
 controller/actions/SettingsAction.java
 controller/actions/SaveSettingsAction.java
 controller/ActionNotFoundException.java
+controller/actions/taskpane/CreateActivityAction.java
