@@ -50,7 +50,6 @@ public class CloseTabComponent extends JPanel {
         addMouseWheelListener(new MouseAdapter() {
             @Override
             public void mouseWheelMoved(MouseWheelEvent e) {
-                System.out.println(e.getSource());
                 if (e.getWheelRotation() < 0) {
                     UI.getInstance().setPreviousTab();
                 } else {
