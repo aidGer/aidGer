@@ -8,8 +8,6 @@ import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseWheelEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.MessageFormat;
@@ -511,18 +509,6 @@ public final class UI extends JFrame {
         tabbedPane.addChangeListener(tabbedPaneListener);
 
         tabbedPane.setTabLayoutPolicy(JTabbedPane.WRAP_TAB_LAYOUT);
-
-        // mouse wheel support for tabs
-        tabbedPane.addMouseWheelListener(new MouseAdapter() {
-            @Override
-            public void mouseWheelMoved(MouseWheelEvent e) {
-                if (e.getWheelRotation() < 0) {
-                    setPreviousTab();
-                } else {
-                    setNextTab();
-                }
-            }
-        });
 
         return tabbedPane;
     }
