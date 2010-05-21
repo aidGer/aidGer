@@ -30,13 +30,10 @@ import de.aidger.view.TaskPaneTitleBar.ArrowIcon;
 public class TaskPane extends JComponent {
     TaskPaneTitleBar titleBar;
     JComponent contentPane;
-
     Color bg = new Color(0xFFD6DFF7);
     boolean expanded = true;
-
     Color firstColor = Color.white;
     Color secondColor = new Color(0xFFC7D4F7);
-
     TaskPaneContainer container;
     float speed = 16.0f;
 
@@ -129,14 +126,14 @@ public class TaskPane extends JComponent {
         int h = getHeight();
         int tbh = titleBar.getHeight();
 
-        if (useAlpha && container.fadeOut) {
+        if (useAlpha) {
             ((Graphics2D) g).setComposite(AlphaComposite.getInstance(
                     AlphaComposite.SRC_OVER, alpha));
         }
 
         g.fillRect(0, tbh, w - 1, h - tbh);
 
-        if (useAlpha && container.fadeOut) {
+        if (useAlpha) {
             g.setPaintMode();
         }
     }
@@ -144,6 +141,7 @@ public class TaskPane extends JComponent {
     void setAnimated(boolean animated) {
         if (!animated) {
             setPreferredSize(null);
+
             if (!expanded) {
                 contentPane.setVisible(false);
             }
@@ -151,7 +149,6 @@ public class TaskPane extends JComponent {
     }
 
     class TaskPaneBorder extends AbstractBorder {
-
         @Override
         public void paintBorder(Component c, Graphics g, int x, int y,
                 int width, int height) {
@@ -212,6 +209,7 @@ public class TaskPane extends JComponent {
         int count = (int) (h / k);
         alpha = 1.0f;
         cObj.set(count, k, d, step);
+
         return count;
     }
 
@@ -364,7 +362,7 @@ public class TaskPane extends JComponent {
 
         @Override
         protected void paintChildren(Graphics g) {
-            if (useAlpha && container.fadeOut) {
+            if (useAlpha) {
                 ((Graphics2D) g).setComposite(AlphaComposite.getInstance(
                         AlphaComposite.SRC_OVER, alpha));
             }
@@ -374,8 +372,7 @@ public class TaskPane extends JComponent {
             int h = TaskPane.this.getHeight();
             int w = getWidth();
 
-            if ((expanding || collapsing) && ph != h
-                    && container.showRollEffect) {
+            if ((expanding || collapsing) && ph != h) {
                 int y = h - ph;
                 Graphics2D g2D = (Graphics2D) g.create(0, y, w, ph);
                 g2D.setClip(0, -y, w, ph);
@@ -385,7 +382,7 @@ public class TaskPane extends JComponent {
                 super.paintChildren(g);
             }
 
-            if (useAlpha && container.fadeOut) {
+            if (useAlpha) {
                 g.setPaintMode();
             }
         }
