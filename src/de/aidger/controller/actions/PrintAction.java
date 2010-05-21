@@ -2,11 +2,13 @@ package de.aidger.controller.actions;
 
 import static de.aidger.utils.Translation._;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.print.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterJob;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -35,14 +37,14 @@ public class PrintAction extends AbstractAction {
 
     /*
      * (non-Javadoc)
+     * 
      * @see
      * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
      */
     @Override
     public void actionPerformed(ActionEvent e) {
         /* Get the Panel to print */
-        final javax.swing.JPanel panel = UI.getInstance().getCurrentTab().
-                getContent();
+        final javax.swing.JPanel panel = UI.getInstance().getCurrentTab();
 
         /* Get PrinterJob and modify default format */
         PrinterJob pj = PrinterJob.getPrinterJob();
@@ -56,7 +58,7 @@ public class PrintAction extends AbstractAction {
                 if (pageNum > 0) {
                     return Printable.NO_SUCH_PAGE;
                 }
-                Graphics2D g2 = (Graphics2D)pg;
+                Graphics2D g2 = (Graphics2D) pg;
                 g2.translate(pf.getImageableX(), pf.getImageableY());
 
                 /* Disable double buffering while painting */

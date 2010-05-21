@@ -7,13 +7,18 @@ import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.MessageFormat;
 
+import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.ActionMap;
+import javax.swing.InputMap;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -25,6 +30,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
+import javax.swing.KeyStroke;
 import javax.swing.WindowConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -36,13 +42,10 @@ import de.aidger.controller.actions.ExitAction;
 import de.aidger.controller.actions.HelpAction;
 import de.aidger.controller.actions.PrintAction;
 import de.aidger.controller.actions.SettingsAction;
-import de.aidger.controller.actions.taskpane.CreateActivityAction;
+import de.aidger.controller.actions.TaskPaneAction;
+import de.aidger.controller.actions.TaskPaneAction.Task;
 import de.aidger.utils.Logger;
-import de.aidger.view.tabs.AssistantEditorTab;
-import de.aidger.view.tabs.CourseEditorTab;
 import de.aidger.view.tabs.EmptyTab;
-import de.aidger.view.tabs.FinancialCategoryEditorTab;
-import de.aidger.view.tabs.MasterDataViewerTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.WelcomeTab;
 
@@ -71,27 +74,22 @@ public final class UI extends JFrame {
     private ChangeListener tabbedPaneListener;
 
     /**
-     * The currently selected Tab
-     */
-    private Tab currentTab;
-
-    /**
      * Creates the main window of the application.
      */
     private UI() {
         super();
 
         // Create the menu bar
-        setJMenuBar(getMainMenuBar());
+        setJMenuBar(createMainMenuBar());
 
         // Build the main panel
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
 
-        contentPane.add(getToolbar(), BorderLayout.PAGE_START);
-        contentPane.add(getTaskPane(), BorderLayout.LINE_START);
-        contentPane.add(getTabbedPane(), BorderLayout.CENTER);
-        contentPane.add(getStatusPane(), BorderLayout.PAGE_END);
+        contentPane.add(createToolbar(), BorderLayout.PAGE_START);
+        contentPane.add(createTaskPane(), BorderLayout.LINE_START);
+        contentPane.add(createTabbedPane(), BorderLayout.CENTER);
+        contentPane.add(createStatusPane(), BorderLayout.PAGE_END);
 
         pack();
 
@@ -119,12 +117,31 @@ public final class UI extends JFrame {
             }
         });
 
+        // shortcuts for better tab handling
+        JComponent comp = (JComponent) getContentPane();
+        ActionMap actionMap = comp.getActionMap();
+        InputMap inputMap = comp.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+
+        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_T,
+                ActionEvent.CTRL_MASK), "addNewTab");
+
+        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_W,
+                ActionEvent.CTRL_MASK), "removeCurrentTab");
+
+        actionMap.put("addNewTab", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                addNewTab(new EmptyTab());
+            }
+        });
+
+        actionMap.put("removeCurrentTab", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                removeCurrentTab();
+            }
+        });
+
         // Add the welcome tab to the UI.
         addNewTab(new WelcomeTab());
-        addNewTab(new AssistantEditorTab());
-        addNewTab(new MasterDataViewerTab());
-        addNewTab(new CourseEditorTab());
-        addNewTab(new FinancialCategoryEditorTab());
     }
 
     /**
@@ -175,13 +192,11 @@ public final class UI extends JFrame {
                 _("Adding new tab \"{0}\" at position {1}"), new Object[] {
                         tab.getName(), index }));
 
-        currentTab = tab;
-
         tabbedPane.removeChangeListener(tabbedPaneListener);
 
-        tabbedPane.add(currentTab.getContent(), index);
-        tabbedPane.setTabComponentAt(index, new CloseTabComponent(tabbedPane,
-                tabbedPaneListener, currentTab.getName()));
+        tabbedPane.add(tab, index);
+        tabbedPane.setTabComponentAt(index,
+                new CloseTabComponent(tab.getName()));
 
         tabbedPane.setSelectedIndex(index);
 
@@ -223,7 +238,26 @@ public final class UI extends JFrame {
 
         tabbedPane.remove(index);
 
+        if (tabbedPane.getTabCount() == 1) {
+            Tab emptyTab = new EmptyTab();
+            tabbedPane.add(emptyTab, 0);
+            tabbedPane.setTabComponentAt(0, new CloseTabComponent(emptyTab
+                    .getName()));
+
+            tabbedPane.setSelectedIndex(0);
+        } else if (index == tabbedPane.getTabCount() - 1
+                && tabbedPane.getSelectedIndex() == tabbedPane.getTabCount() - 1) {
+            tabbedPane.setSelectedIndex(index - 1);
+        }
+
         tabbedPane.addChangeListener(tabbedPaneListener);
+    }
+
+    /**
+     * Removes the current tab.
+     */
+    public void removeCurrentTab() {
+        removeTabAt(tabbedPane.getSelectedIndex());
     }
 
     /**
@@ -233,11 +267,10 @@ public final class UI extends JFrame {
      *            the new current tab
      */
     public void replaceCurrentTab(Tab tab) {
-        currentTab = tab;
         int index = tabbedPane.getSelectedIndex();
 
         removeTabAt(index);
-        addNewTab(currentTab, index);
+        addNewTab(tab, index);
     }
 
     /**
@@ -246,7 +279,7 @@ public final class UI extends JFrame {
      * @return The selected tab
      */
     public Tab getCurrentTab() {
-        return currentTab;
+        return (Tab) tabbedPane.getSelectedComponent();
     }
 
     /**
@@ -257,26 +290,32 @@ public final class UI extends JFrame {
      */
     public void setCurrentTab(Tab tab) {
         /* Check if the tab to be set as current is even on the tabbed plane. */
-        if (tabbedPane.indexOfComponent(tab.getContent()) != -1) {
+        if (tabbedPane.indexOfComponent(tab) != -1) {
             Logger.debug(MessageFormat.format(
                     _("Setting current tab to \"{0}\""), new Object[] { tab
                             .getName() }));
 
-            currentTab = tab;
-
-            tabbedPane.setSelectedIndex(tabbedPane.indexOfComponent(currentTab
-                    .getContent()));
+            tabbedPane.setSelectedIndex(tabbedPane.indexOfComponent(tab));
         }
+    }
+
+    /**
+     * Retrieves the tabbed pane.
+     * 
+     * @return the tabbed pane
+     */
+    public JTabbedPane getTabbedPane() {
+        return tabbedPane;
     }
 
     /**
      * Sets up the main menu bar.
      */
-    private JMenuBar getMainMenuBar() {
+    private JMenuBar createMainMenuBar() {
         try {
             JMenuBar menuBar = new JMenuBar();
-            menuBar.add(getFileMenu());
-            menuBar.add(getHelpMenu());
+            menuBar.add(createFileMenu());
+            menuBar.add(createHelpMenu());
 
             return menuBar;
         } catch (ActionNotFoundException e) {
@@ -290,7 +329,7 @@ public final class UI extends JFrame {
      * 
      * @throws ActionNotFoundException
      */
-    private JMenu getFileMenu() throws ActionNotFoundException {
+    private JMenu createFileMenu() throws ActionNotFoundException {
         JMenu fileMenu = new JMenu(_("File"));
 
         fileMenu.add(new JMenuItem(ActionRegistry.getInstance().get(
@@ -309,7 +348,7 @@ public final class UI extends JFrame {
      * 
      * @throws ActionNotFoundException
      */
-    private JMenu getHelpMenu() throws ActionNotFoundException {
+    private JMenu createHelpMenu() throws ActionNotFoundException {
         JMenu helpMenu = new JMenu(_("Help"));
 
         helpMenu.add(new JMenuItem(ActionRegistry.getInstance().get(
@@ -323,7 +362,7 @@ public final class UI extends JFrame {
     /**
      * Sets up the toolbar.
      */
-    private JToolBar getToolbar() {
+    private JToolBar createToolbar() {
         JToolBar toolBar = new JToolBar();
 
         // toolBar.add(ActionRegistry.getInstance().get(OpenAction.class.getName()));
@@ -332,17 +371,34 @@ public final class UI extends JFrame {
     }
 
     /**
+     * Creates a button for the task pane.
+     * 
+     * @param name
+     *            the button name
+     * @param tab
+     *            the tab that will be opened on click
+     * @return the task pane button
+     */
+    private TaskPaneButton createTaskPaneButton(String name, Task task) {
+        return new TaskPaneButton(new TaskPaneAction(name, task));
+    }
+
+    /**
      * Sets up the task pane.
      */
-    private JScrollPane getTaskPane() {
+    private JScrollPane createTaskPane() {
         TaskPaneContainer tpc = new TaskPaneContainer();
 
         TaskPane tpMasterData = new TaskPane(_("Master Data Management"));
 
-        tpMasterData.add(new JLabel(_("Courses")));
-        tpMasterData.add(new JLabel(_("Assistants")));
-        tpMasterData.add(new JLabel(_("Financial Categories")));
-        tpMasterData.add(new JLabel(_("Hourly Wages")));
+        tpMasterData
+                .add(createTaskPaneButton(_("Courses"), Task.CoursesViewer));
+        tpMasterData.add(createTaskPaneButton(_("Assistants"),
+                Task.AssistantsViewer));
+        tpMasterData.add(createTaskPaneButton(_("Financial Categories"),
+                Task.FinancialCategoriesViewer));
+        tpMasterData.add(createTaskPaneButton(_("Hourly Wages"),
+                Task.HourlyWagesViewer));
 
         TaskPane tpEmployments = new TaskPane(_("Employments"));
         tpEmployments.add(new JLabel(_("Create new employment")));
@@ -350,7 +406,7 @@ public final class UI extends JFrame {
         tpEmployments.add(new JTextField());
 
         TaskPane tpActivities = new TaskPane(_("Activities"));
-        tpActivities.add(new TaskPaneButton(new CreateActivityAction()));
+        tpActivities.add(new JLabel(_("Create new activity")));
         tpActivities.add(new JLabel(_("Export")));
         tpActivities.add(new JTextField());
 
@@ -399,7 +455,7 @@ public final class UI extends JFrame {
     /**
      * Sets up the tabbed pane in the middle.
      */
-    private JTabbedPane getTabbedPane() {
+    private JTabbedPane createTabbedPane() {
         tabbedPane = new JTabbedPane();
 
         tabbedPaneListener = new ChangeListener() {
@@ -421,7 +477,7 @@ public final class UI extends JFrame {
     /**
      * Sets up the panel that contains the status label.
      */
-    private JPanel getStatusPane() {
+    private JPanel createStatusPane() {
         JPanel statusPane = new JPanel();
         statusPane.setLayout(new FlowLayout(FlowLayout.LEFT));
 

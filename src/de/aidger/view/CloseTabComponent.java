@@ -20,12 +20,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-import javax.swing.event.ChangeListener;
 import javax.swing.plaf.basic.BasicButtonUI;
-
-import de.aidger.view.tabs.EmptyTab;
-import de.aidger.view.tabs.Tab;
 
 /**
  * Component to be used as tabComponent. It contains a JLabel to show the title
@@ -33,22 +28,9 @@ import de.aidger.view.tabs.Tab;
  */
 @SuppressWarnings("serial")
 public class CloseTabComponent extends JPanel {
-    private final JTabbedPane pane;
 
-    private final ChangeListener listener;
-
-    public CloseTabComponent(final JTabbedPane pane,
-            final ChangeListener listener, String text) {
-
+    public CloseTabComponent(String text) {
         super(new FlowLayout(FlowLayout.LEFT, 0, 0));
-
-        if (pane == null) {
-            throw new NullPointerException("TabbedPane is null");
-        }
-
-        this.pane = pane;
-        this.listener = listener;
-
         setOpaque(false);
 
         JLabel label = new JLabel(text);
@@ -90,26 +72,11 @@ public class CloseTabComponent extends JPanel {
         }
 
         public void actionPerformed(ActionEvent e) {
-            int i = pane.indexOfTabComponent(CloseTabComponent.this);
+            int i = UI.getInstance().getTabbedPane().indexOfTabComponent(
+                    CloseTabComponent.this);
 
             if (i != -1) {
-                pane.removeChangeListener(listener);
-
-                pane.remove(i);
-
-                if (pane.getTabCount() == 1) {
-                    Tab emptyTab = new EmptyTab();
-                    pane.add(emptyTab.getContent(), 0);
-                    pane.setTabComponentAt(0, new CloseTabComponent(pane,
-                            listener, emptyTab.getName()));
-
-                    pane.setSelectedIndex(0);
-                } else if (i == pane.getTabCount() - 1
-                        && pane.getSelectedIndex() == pane.getTabCount() - 1) {
-                    pane.setSelectedIndex(i - 1);
-                }
-
-                pane.addChangeListener(listener);
+                UI.getInstance().removeTabAt(i);
             }
         }
 

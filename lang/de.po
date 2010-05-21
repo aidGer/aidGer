@@ -1,10 +1,12 @@
+#: view/UI.java:422 view/UI.java:429
 msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-21 13:52+0200\n"
+"POT-Creation-Date: 2010-05-21 18:06+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
+"Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-"
+"stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,132 +35,134 @@ msgstr "Homepage: http://www.aidger.de"
 msgid "Opening browser to http://aidger.de"
 msgstr "Öffne Browser auf http://www.aidger.de"
 
-#: view/UI.java:150
+#: view/UI.java:167
 msgid "Error"
 msgstr "Fehler"
 
-#: view/UI.java:175
+#: view/UI.java:192
 #, java-format
 msgid "Adding new tab \"{0}\" at position {1}"
 msgstr "Neuer Tab \"{0}\" an die {1}. Stelle hinzugefügt"
 
-#: view/UI.java:219
+#: view/UI.java:234
 #, java-format
 msgid "Removing {0}. tab"
 msgstr "{0}. Tab gelöscht"
 
-#: view/UI.java:262
+#: view/UI.java:295
 #, java-format
 msgid "Setting current tab to \"{0}\""
 msgstr "Momentaner Reiter ist nun \"{0}\""
 
-#: view/UI.java:294
+#: view/UI.java:333
 msgid "File"
 msgstr "Datei"
 
-#: view/UI.java:313
-#: controller/actions/HelpAction.java:23
+#: view/UI.java:352 controller/actions/HelpAction.java:23
 msgid "Help"
 msgstr "Hilfe"
 
-#: view/UI.java:340
+#: view/UI.java:392
 msgid "Master Data Management"
 msgstr "Stammdatenverwaltung"
 
-#: view/UI.java:342
+#: view/UI.java:395
 msgid "Courses"
 msgstr "Veranstaltungen"
 
-#: view/UI.java:343
+#: view/UI.java:396
 msgid "Assistants"
 msgstr "Hilfskräfte"
 
-#: view/UI.java:344
+#: view/UI.java:398
 msgid "Financial Categories"
 msgstr "Finanzkategorien"
 
-#: view/UI.java:345
+#: view/UI.java:400
 msgid "Hourly Wages"
 msgstr "Stundenlöhne"
 
-#: view/UI.java:347
+#: view/UI.java:403
 msgid "Employments"
 msgstr "Beschäftigungen"
 
-#: view/UI.java:348
+#: view/UI.java:404
 msgid "Create new employment"
 msgstr "Neue Beschäftigung anlegen"
 
-#: view/UI.java:349
+#: view/UI.java:405
 msgid "Show all contracts"
 msgstr "Alle Verträge anzeigen"
 
-#: view/UI.java:352
+#: view/UI.java:408
 msgid "Activities"
 msgstr "Vorgänge"
 
-#: view/UI.java:354
+#: view/UI.java:409
+msgid "Create new activity"
+msgstr "Neuer Vorgang anlegen"
+
+#: view/UI.java:410
 msgid "Export"
 msgstr "Exportieren"
 
-#: view/UI.java:357
+#: view/UI.java:413
 msgid "Reports"
 msgstr "Berichte"
 
-#: view/UI.java:359
+#: view/UI.java:415
 msgid "Annual Balance"
 msgstr "Jahresbilanz"
 
-#: view/UI.java:359
+#: view/UI.java:415
 msgid "Semester Balance"
 msgstr "Semesterbilanz"
 
-#: view/UI.java:360
+#: view/UI.java:416
 msgid "Partial Balance"
 msgstr "Teilbilanz"
 
-#: view/UI.java:360
+#: view/UI.java:416
 msgid "Activity Report"
 msgstr "Tätigkeitsnachweis"
 
-#: view/UI.java:360
+#: view/UI.java:416
 msgid "Protocol"
 msgstr "Vorgangsprotokoll"
 
-#: view/UI.java:363
+#: view/UI.java:419
 msgid "Controlling"
 msgstr "Controlling"
 
-#: view/UI.java:365
+#: view/UI.java:421
 msgid "Choose a month"
 msgstr "Wähle einen Monat"
 
-#: view/UI.java:370
+#: view/UI.java:426
 msgid "Budget Check"
 msgstr "Budgetprüfung"
 
-#: view/UI.java:372
+#: view/UI.java:428
 msgid "Add Filter"
 msgstr "Filter hinzufügen"
 
-#: view/UI.java:377
+#: view/UI.java:433
 msgid "Quick Settings"
 msgstr "Schnelleinstellungen"
 
-#: view/UI.java:378
+#: view/UI.java:434
 msgid "Remember my tabs"
 msgstr "Merke meine Reiter"
 
-#: view/UI.java:379
+#: view/UI.java:435
 msgid "Open reports instantly"
 msgstr "Berichte sofort öffnen"
 
-#: view/UI.java:412
+#: view/UI.java:468
 msgid "Open a new tab"
 msgstr "Öffnet einen neuen Tab"
 
-#: view/SettingsDialog.java:163
-#: controller/actions/SettingsAction.java:26
+#: view/SettingsDialog.java:163 controller/actions/SettingsAction.java:26
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -174,8 +178,7 @@ msgstr "Berichte automatisch nach Generierung öffnen"
 msgid "Name:"
 msgstr "Name:"
 
-#: view/SettingsDialog.java:174
-#: view/SettingsDialog.java:176
+#: view/SettingsDialog.java:174 view/SettingsDialog.java:176
 msgid "The name used in activities."
 msgstr "Name der in Vorgängen verwendet wird."
 
@@ -195,15 +198,15 @@ msgstr "Anzahl der Vorgänge die in Detailansichten angezeigt werden"
 msgid "Language:"
 msgstr "Sprache:"
 
-#: view/CloseTabComponent.java:72
+#: view/CloseTabComponent.java:54
 msgid "Close tab"
 msgstr "Tab schließen"
 
-#: view/tabs/EmptyTab.java:42
+#: view/tabs/EmptyTab.java:26
 msgid "(Unnamed)"
 msgstr "(Unbenannt)"
 
-#: view/tabs/WelcomeTab.java:56
+#: view/tabs/WelcomeTab.java:42
 msgid "Welcome"
 msgstr "Willkommen"
 
@@ -243,15 +246,15 @@ msgstr "Homepage"
 msgid "Open homepage"
 msgstr "Homepage öffnen"
 
-#: controller/actions/PrintAction.java:30
+#: controller/actions/PrintAction.java:32
 msgid "Print"
 msgstr "Drucken"
 
-#: controller/actions/PrintAction.java:33
+#: controller/actions/PrintAction.java:35
 msgid "Print program contents"
 msgstr "Programminhalt drucken"
 
-#: controller/actions/PrintAction.java:49
+#: controller/actions/PrintAction.java:51
 msgid "Print current tab"
 msgstr "Momentanen Reiter ausdrucken"
 
@@ -288,22 +291,23 @@ msgstr "Die Anzahl an Aktivitäten muss größer als 0 sein."
 msgid "action class {0} not found"
 msgstr "Aktions-Klasse {0} nicht gefunden"
 
-#: controller/actions/taskpane/CreateActivityAction.java:25
-msgid "Create new activity"
-msgstr "Neuer Vorgang anlegen"
-
 #~ msgid "Removing tab at position {0}"
 #~ msgstr "{0}. Tab gelöscht"
+
 #~ msgid "Adding new empty tab"
 #~ msgstr "Neuer leerer Tab hinzugefügt"
+
 #~ msgid "More"
 #~ msgstr "Mehr"
+
 #~ msgid "Contracts"
 #~ msgstr "Verträge"
+
 #~ msgid "Abort"
 #~ msgstr "Abbrechen"
+
 #~ msgid "New Tab"
 #~ msgstr "Neuer Reiter"
+
 #~ msgid "Financial Plans"
 #~ msgstr "Finanzpläne"
-

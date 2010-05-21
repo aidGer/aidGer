@@ -13,7 +13,8 @@ import javax.swing.JPanel;
  * 
  * @author aidGer Team
  */
-public class WelcomeTab implements Tab {
+@SuppressWarnings("serial")
+public class WelcomeTab extends Tab {
 
     /**
      * The panel which will be added to the tabbed plane.
@@ -24,26 +25,11 @@ public class WelcomeTab implements Tab {
      * Initializes a new tab with the welcome messages on it.
      */
     public WelcomeTab() {
-    }
+        JLabel filler = new JLabel("blobb");
+        filler.setHorizontalAlignment(JLabel.CENTER);
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see de.aidger.view.tabs.Tab#getContent()
-     */
-    @Override
-    public JPanel getContent() {
-        if (panel == null) {
-            panel = new JPanel();
-
-            JLabel filler = new JLabel("blobb");
-            filler.setHorizontalAlignment(JLabel.CENTER);
-
-            panel.setLayout(new GridLayout(1, 1));
-            panel.add(filler);
-        }
-
-        return panel;
+        setLayout(new GridLayout(1, 1));
+        add(filler);
     }
 
     /*

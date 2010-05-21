@@ -2,29 +2,18 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
-import javax.swing.JPanel;
-
 /**
  * A tab which will be used to display the master data.
  * 
  * @author aidGer Team
  */
-public class MasterDataViewerTab extends javax.swing.JPanel implements Tab {
+public class MasterDataViewerTab extends Tab {
 
     /**
      * Initiazlies a new DataTab.
      */
     public MasterDataViewerTab() {
         initComponents();
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see de.aidger.view.tabs.Tab#getContent()
-     */
-    public JPanel getContent() {
-        return this;
     }
 
     /*
@@ -44,7 +33,8 @@ public class MasterDataViewerTab extends javax.swing.JPanel implements Tab {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed"
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed"
+    // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
@@ -90,43 +80,81 @@ public class MasterDataViewerTab extends javax.swing.JPanel implements Tab {
         jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton4);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Violette Parser", "SS10", "Rainer Unsinn", "6 SWS"},
-                {"Nukulartechnik", "SS10", "Homer Simpson", "2 SWS"}
-            },
-            new String [] {
-                "Bezeichnung", "Semester", "Dozent", "Umfang"
-            }
-        ));
+        jTable1
+                .setModel(new javax.swing.table.DefaultTableModel(
+                        new Object[][] {
+                                { "Violette Parser", "SS10", "Rainer Unsinn",
+                                        "6 SWS" },
+                                { "Nukulartechnik", "SS10", "Homer Simpson",
+                                        "2 SWS" } }, new String[] {
+                                "Bezeichnung", "Semester", "Dozent", "Umfang" }));
         jScrollPane1.setViewportView(jTable1);
 
         jTextField1.setText(_("Search"));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)))
-                    .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        layout
+                .setHorizontalGroup(layout
+                        .createParallelGroup(
+                                javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(
+                                layout
+                                        .createSequentialGroup()
+                                        .addGroup(
+                                                layout
+                                                        .createParallelGroup(
+                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(
+                                                                layout
+                                                                        .createSequentialGroup()
+                                                                        .addContainerGap()
+                                                                        .addGroup(
+                                                                                layout
+                                                                                        .createParallelGroup(
+                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                        .addComponent(
+                                                                                                jTextField1,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                150,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                        .addComponent(
+                                                                                                jScrollPane1,
+                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                530,
+                                                                                                Short.MAX_VALUE)))
+                                                        .addComponent(
+                                                                jToolBar1,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                540,
+                                                                Short.MAX_VALUE))
+                                        .addContainerGap()));
+        layout
+                .setVerticalGroup(layout
+                        .createParallelGroup(
+                                javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(
+                                layout
+                                        .createSequentialGroup()
+                                        .addComponent(
+                                                jToolBar1,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                25,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(
+                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(
+                                                jTextField1,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(
+                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(
+                                                jScrollPane1,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                256, Short.MAX_VALUE)
+                                        .addContainerGap()));
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
