@@ -14,7 +14,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseWheelEvent;
 
 import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
@@ -45,18 +44,6 @@ public class CloseTabComponent extends JPanel {
 
         // add more space to the top of the component
         setBorder(BorderFactory.createEmptyBorder(2, 0, 0, 0));
-
-        // mouse wheel support for tabs
-        addMouseWheelListener(new MouseAdapter() {
-            @Override
-            public void mouseWheelMoved(MouseWheelEvent e) {
-                if (e.getWheelRotation() < 0) {
-                    UI.getInstance().setPreviousTab();
-                } else {
-                    UI.getInstance().setNextTab();
-                }
-            }
-        });
     }
 
     private class TabButton extends JButton implements ActionListener {

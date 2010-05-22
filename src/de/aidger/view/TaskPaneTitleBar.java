@@ -30,22 +30,22 @@ public class TaskPaneTitleBar extends JComponent {
     /**
      * The first color for the gradient painting.
      */
-    Color firstColor = new Color(0xFFFAFAFA);
+    Color firstColor = new Color(0x33628c);
 
     /**
      * The second color for the gradient painting.
      */
-    Color secondColor = new Color(0xFFC7D4F7);
+    Color secondColor = new Color(0xa7bbcd);
 
     /**
      * The foreground of the title bar.
      */
-    Color fg = new Color(0xFF215DC6);
+    Color fg = new Color(0xf7f8fa);
 
     /**
      * The forground if title bar is active.
      */
-    Color activeFg = new Color(0xFF4288FF);
+    Color activeFg = new Color(0xbdc1c8);
 
     /**
      * The arrow icon on the title bar.
@@ -83,7 +83,7 @@ public class TaskPaneTitleBar extends JComponent {
             @Override
             public void mouseExited(MouseEvent e) {
                 titleLabel.setForeground(fg);
-                arrowIcon.setForeground(fg);
+                arrowIcon.setForeground(firstColor);
 
                 repaint();
             }
@@ -206,14 +206,9 @@ public class TaskPaneTitleBar extends JComponent {
         int iconHeight = 19;
 
         /**
-         * The background color.
-         */
-        Color background = new Color(200, 217, 247);
-
-        /**
          * The foreground color.
          */
-        Color foreground = new Color(0, 60, 165);
+        Color foreground = firstColor;
 
         /**
          * The circle color.
@@ -233,9 +228,6 @@ public class TaskPaneTitleBar extends JComponent {
          */
         public void paintIcon(Component c, Graphics g, int x, int y) {
             Graphics2D g2d = (Graphics2D) g;
-
-            g.setColor(background);
-            g.fillRect(0, 0, iconWidth, iconHeight);
 
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                     RenderingHints.VALUE_ANTIALIAS_ON);

@@ -2,12 +2,9 @@ package de.aidger.view;
 
 import java.awt.Color;
 import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.Paint;
 
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -96,6 +93,8 @@ public class TaskPaneContainer extends JPanel {
         add(taskPane, c);
 
         taskPane.container = this;
+
+        taskPane.setExpanded(false);
     }
 
     /**
@@ -172,14 +171,12 @@ public class TaskPaneContainer extends JPanel {
      * 
      * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
      */
-    @Override
-    protected void paintComponent(Graphics g) {
-        Paint p = getPaint();
-        Graphics2D g2d = (Graphics2D) g;
-
-        g2d.setPaint(p);
-        g2d.fillRect(0, 0, getWidth(), getHeight());
-    }
+    /*
+     * @Override protected void paintComponent(Graphics g) { Paint p =
+     * getPaint(); Graphics2D g2d = (Graphics2D) g;
+     * 
+     * g2d.setPaint(p); g2d.fillRect(0, 0, getWidth(), getHeight()); }
+     */
 
     /**
      * Checks the size of all task panes.

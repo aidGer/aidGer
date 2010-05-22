@@ -1,8 +1,8 @@
 package de.aidger.model;
 
 import java.io.File;
-import java.util.List;
 import java.text.MessageFormat;
+import java.util.List;
 
 import de.aidger.utils.Configuration;
 import de.aidger.utils.Translation;
@@ -132,9 +132,11 @@ public final class Runtime {
         File file = new File(configPath);
 
         if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
-            UI.displayError(MessageFormat.format(
-                    "Could not create directory \"{0}\".\nPlease make sure that you have enough rights to create this directory.",
-                    new Object[] { file.getPath() }));
+            UI
+                    .displayError(MessageFormat
+                            .format(
+                                    "Could not create directory \"{0}\".\nPlease make sure that you have enough rights to create this directory.",
+                                    new Object[] { file.getPath() }));
             System.exit(-1);
         }
 
@@ -145,11 +147,18 @@ public final class Runtime {
 
     /**
      * Get the path the config is saved in.
-     *
+     * 
      * @return The path of the config dir
      */
     public String getConfigPath() {
         return configPath;
+    }
+
+    /**
+     * Returns the operating system of the user.
+     */
+    public OS getOperatingSystem() {
+        return operatingSystem;
     }
 
     /**

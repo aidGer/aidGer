@@ -4,10 +4,13 @@ import static de.aidger.utils.Translation._;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseWheelEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.MessageFormat;
@@ -92,6 +95,17 @@ public final class UI extends JFrame {
         contentPane.add(createStatusPane(), BorderLayout.PAGE_END);
 
         pack();
+
+        int posX = (int) ((int) (getSize().getWidth() / 2) - (this.getSize()
+                .getWidth() / 2));
+        int posY = (int) ((int) (getSize().getHeight() / 2) - (this.getSize()
+                .getHeight() / 2));
+
+        setLocation(posX, posY);
+
+        setMinimumSize(new Dimension(950, 700));
+
+        setExtendedState(Frame.MAXIMIZED_BOTH);
 
         setTitle("aidGer");
 
@@ -482,10 +496,7 @@ public final class UI extends JFrame {
         tpc.addTask(tpQuickSettings);
         tpc.addFiller();
 
-        tpReports.setExpanded(false);
-        tpControlling.setExpanded(false);
-        tpBudgetCheck.setExpanded(false);
-        tpQuickSettings.setExpanded(false);
+        tpMasterData.setExpanded(true);
 
         return new JScrollPane(tpc, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -510,6 +521,22 @@ public final class UI extends JFrame {
 
         tabbedPane.setTabLayoutPolicy(JTabbedPane.WRAP_TAB_LAYOUT);
 
+        // mouse wheel support for tabs
+        tabbedPane.addMouseWheelListener(new MouseAdapter() {
+            @Override
+            public void mouseWheelMoved(MouseWheelEvent e) {
+                if (tabbedPane.indexAtLocation(e.getPoint().x, e.getPoint().y) < 0) {
+                    return;
+                }
+
+                if (e.getWheelRotation() < 0) {
+                    setPreviousTab();
+                } else {
+                    setNextTab();
+                }
+            }
+        });
+
         return tabbedPane;
     }
 
@@ -520,7 +547,7 @@ public final class UI extends JFrame {
         JPanel statusPane = new JPanel();
         statusPane.setLayout(new FlowLayout(FlowLayout.LEFT));
 
-        // statusPane.add(getStatusLabel());
+        statusPane.add(new JLabel(_("Ready")));
 
         return statusPane;
     }

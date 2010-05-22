@@ -45,7 +45,7 @@ public class TaskPane extends JComponent {
     /**
      * The background color.
      */
-    private final Color bg = new Color(0xFFD6DFF7);
+    private final Color bg = new Color(0xf2f2f2);
 
     /**
      * A flag whether the content pane is expanded.
@@ -55,12 +55,12 @@ public class TaskPane extends JComponent {
     /**
      * The first color for the gradient painting.
      */
-    private final Color firstColor = Color.white;
+    private final Color firstColor = new Color(0x33628c);
 
     /**
      * The second color for the gradient painting.
      */
-    private final Color secondColor = new Color(0xFFC7D4F7);
+    private final Color secondColor = new Color(0xa7bbcd);
 
     /**
      * The container which holds this task pane.
@@ -179,7 +179,7 @@ public class TaskPane extends JComponent {
      */
     public void add(JComponent comp) {
         contentPane.add(comp, BorderLayout.LINE_START);
-        contentPane.add(Box.createRigidArea(new Dimension(0, 5)));
+        contentPane.add(Box.createRigidArea(new Dimension(0, 8)));
     }
 
     /**
@@ -214,6 +214,7 @@ public class TaskPane extends JComponent {
      * 
      * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
      */
+
     @Override
     protected void paintComponent(Graphics g) {
         g.setColor(getBackground());
