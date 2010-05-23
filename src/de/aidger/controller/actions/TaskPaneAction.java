@@ -8,6 +8,7 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.SwingUtilities;
 
+import de.aidger.view.TaskPane;
 import de.aidger.view.UI;
 import de.aidger.view.tabs.EmptyTab;
 import de.aidger.view.tabs.MasterDataViewerTab;
@@ -26,13 +27,18 @@ public class TaskPaneAction extends AbstractAction implements MouseListener {
      * @author aidGer Team
      */
     public enum Task {
-        ViewCourses, ViewAssistants, ViewFinancialCategories, ViewHourlyWages, Void
+        ViewCourses, ViewAssistants, ViewFinancialCategories, ViewHourlyWages, ViewEmpty, Void
     }
 
     /**
      * The task of the action.
      */
     private final Task task;
+
+    /**
+     * The task pane of the action.
+     */
+    private TaskPane taskPane;
 
     /**
      * Constructs a task pane action.
@@ -49,7 +55,18 @@ public class TaskPaneAction extends AbstractAction implements MouseListener {
     }
 
     /**
-     * Returns a new tab of the actions task.
+     * Sets the task pane of the action.
+     * 
+     * @param tp
+     *            the task pane
+     */
+    public void setTaskPane(TaskPane tp) {
+        taskPane = tp;
+    }
+
+    /**
+     * Returns a new tab of the actions task. If there is no tab for the given
+     * task, null will be returned.
      * 
      * @return the new tab
      */
@@ -60,25 +77,11 @@ public class TaskPaneAction extends AbstractAction implements MouseListener {
         case ViewFinancialCategories:
         case ViewHourlyWages:
             return new MasterDataViewerTab();
-        case Void:
+        case ViewEmpty:
             return new EmptyTab();
+        case Void:
         default:
             return null;
-        }
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-     */
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        Tab tab = getNewTab();
-
-        if (tab != null) {
-            UI.getInstance().replaceCurrentTab(tab);
         }
     }
 
@@ -89,7 +92,30 @@ public class TaskPaneAction extends AbstractAction implements MouseListener {
      */
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (SwingUtilities.isMiddleMouseButton(e)) {
+        if (SwingUtilities.isLeftMouseButton(e)) {
+            // handling for click on title bar
+            if (taskPane != null) {
+                if (taskPane.isExpanded()) {
+                    taskPane.setExpanded(false);
+
+                    UI.getInstance().validate();
+
+                    // the current tab will not be replaced if the content pane
+                    // of this task pane was expanded
+                    return;
+                } else {
+                    taskPane.setExpanded(true);
+
+                    UI.getInstance().validate();
+                }
+            }
+
+            Tab tab = getNewTab();
+
+            if (tab != null) {
+                UI.getInstance().replaceCurrentTab(tab);
+            }
+        } else if (SwingUtilities.isMiddleMouseButton(e)) {
             Tab tab = getNewTab();
 
             if (tab != null) {
@@ -133,5 +159,16 @@ public class TaskPaneAction extends AbstractAction implements MouseListener {
      */
     @Override
     public void mouseReleased(MouseEvent e) {
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // all task pane actions are handled by the mouse listener
     }
 }

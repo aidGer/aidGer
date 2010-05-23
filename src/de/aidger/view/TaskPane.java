@@ -14,6 +14,7 @@ import java.awt.Paint;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.AbstractAction;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JComponent;
@@ -22,6 +23,9 @@ import javax.swing.border.AbstractBorder;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
+
+import de.aidger.controller.actions.TaskPaneAction;
+import de.aidger.controller.actions.TaskPaneAction.Task;
 
 /**
  * This class represents a single task pane. A task pane is a box with a title
@@ -50,7 +54,7 @@ public class TaskPane extends JComponent {
     /**
      * A flag whether the content pane is expanded.
      */
-    private boolean expanded = true;
+    private boolean expanded = false;
 
     /**
      * The first color for the gradient painting.
@@ -118,9 +122,11 @@ public class TaskPane extends JComponent {
      * @param title
      *            the title text of the task pane
      */
-    public TaskPane(String title) {
+    public TaskPane(TaskPaneAction a) {
         setLayout(new BorderLayout());
         updateUI();
+
+        String title = (String) a.getValue(AbstractAction.NAME);
 
         setBackground(bg);
 
@@ -140,17 +146,8 @@ public class TaskPane extends JComponent {
         titleBar = new TaskPaneTitleBar(title);
         titleBar.setMargin(new Insets(3, 5, 3, 5));
 
-        // the content pane expands or collapses if user clicks on the title bar
-        titleBar.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                setExpanded(!expanded);
-
-                UI.getInstance().validate();
-            }
-        });
-
-        super.addImpl(titleBar, BorderLayout.NORTH, -1);
+        a.setTaskPane(this);
+        titleBar.addMouseListener(a);
 
         // use different cursors for the title bar
         titleBar.addMouseListener(new MouseAdapter() {
@@ -166,9 +163,20 @@ public class TaskPane extends JComponent {
             }
         });
 
+        super.addImpl(titleBar, BorderLayout.NORTH, -1);
         super.addImpl(this.contentPane, null, -1);
 
         finishExpand();
+    }
+
+    /**
+     * Constructs the task pane.
+     * 
+     * @param a
+     *            the task pane action
+     */
+    public TaskPane(String title) {
+        this(new TaskPaneAction(title, Task.Void));
     }
 
     /**
@@ -199,12 +207,11 @@ public class TaskPane extends JComponent {
      */
     public void setExpanded(boolean expanded) {
         titleBar.setExpanded(expanded);
+        this.expanded = expanded;
 
         if (!expanded) {
             container.collapse(this);
-            this.expanded = expanded;
         } else {
-            this.expanded = expanded;
             container.expand(this);
         }
     }

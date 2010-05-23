@@ -3,7 +3,6 @@ package de.aidger.controller;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
-import javax.swing.plaf.ColorUIResource;
 
 import de.aidger.controller.actions.AbortAction;
 import de.aidger.controller.actions.AboutAction;
@@ -88,14 +87,11 @@ public final class Application {
             try {
                 UIManager.setLookAndFeel(UIManager
                         .getSystemLookAndFeelClassName());
-            } catch (Exception e2) {
+            } catch (Exception e_) {
 
             }
 
         }
-
-        UIManager.getLookAndFeelDefaults().put("Label.background",
-                new ColorUIResource(0xffffff));
 
         Application.getInstance().initialize();
 

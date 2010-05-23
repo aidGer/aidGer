@@ -450,17 +450,19 @@ public final class UI extends JFrame {
         tpMasterData.add(createTaskPaneButton(_("Hourly Wages"),
                 Task.ViewHourlyWages));
 
-        TaskPane tpEmployments = new TaskPane(_("Employments"));
+        TaskPane tpEmployments = new TaskPane(new TaskPaneAction(
+                _("Employments"), Task.ViewEmpty));
+
         tpEmployments.add(createTaskPaneButton(_("Create new employment"),
-                Task.Void));
+                Task.ViewEmpty));
         tpEmployments.add(createTaskPaneButton(_("Show all contracts"),
-                Task.Void));
+                Task.ViewEmpty));
         tpEmployments.add(new JTextField());
 
         TaskPane tpActivities = new TaskPane(_("Activities"));
         tpActivities.add(createTaskPaneButton(_("Create new activity"),
-                Task.Void));
-        tpActivities.add(createTaskPaneButton(_("Export"), Task.Void));
+                Task.ViewEmpty));
+        tpActivities.add(createTaskPaneButton(_("Export"), Task.ViewEmpty));
         tpActivities.add(new JTextField());
 
         TaskPane tpReports = new TaskPane(_("Reports"));
