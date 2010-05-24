@@ -100,7 +100,7 @@ public abstract class AbstractModel<T> extends Observable implements
      * @return True if validation succeeds
      */
     @SuppressWarnings("unchecked")
-    public boolean save() {
+    public boolean save() throws AdoHiveException {
         if (!doValidate()) {
             return false;
         }
@@ -108,16 +108,13 @@ public abstract class AbstractModel<T> extends Observable implements
         /* Add or update model */
         IAdoHiveManager mgr = getManager();
         if (id == -1) {
-            try {
-                mgr.add(this);
-            } catch (AdoHiveException e) {
-            }
+            mgr.add(this);
         } else {
-            try {
-                mgr.update(this);
-            } catch (AdoHiveException e) {
-            }
+            mgr.update(this);
         }
+        setChanged();
+        notifyObservers();
+
         return true;
     }
 
@@ -125,13 +122,12 @@ public abstract class AbstractModel<T> extends Observable implements
      * Remove the current model from the database.
      */
     @SuppressWarnings("unchecked")
-    public void remove() {
+    public void remove() throws AdoHiveException {
         if (id != -1) {
-            try {
-                getManager().remove(this);
-            } catch (AdoHiveException e) {
-            }
+            getManager().remove(this);
         }
+        clearChanged();
+        notifyObservers();
     }
 
     /**
