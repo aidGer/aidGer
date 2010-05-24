@@ -183,7 +183,7 @@ public abstract class AbstractModel<T> extends Observable implements
             /* Extract the name of the class */
             String classname = getClass().getName();
             int idx = classname.lastIndexOf('.');
-            classname = classname.substring(idx);
+            classname = classname.substring(idx + 1);
 
             /* Try to get the correct manager from the AdoHiveController */
             try {

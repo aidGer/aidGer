@@ -75,7 +75,7 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * Clone the current activity
      */
     @Override
-    public Activity clone()	{
+    public Activity clone() {
         Activity a = new Activity();
         a.setId(id);
         a.setAssistantId(assistantId);
@@ -98,13 +98,13 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @return The activities related to the assistant or null if none were found
      */
     @SuppressWarnings("unchecked")
-	public List<Activity> getActivities(IAssistant assistant) {
+    public List<Activity> getActivities(Assistant assistant) {
     	IActivityManager mgr = (IActivityManager) getManager();
     	try {
-			return (List<Activity>)(List<?>)mgr.getActivities(assistant);
-		} catch (AdoHiveException e) {
-			return null;
-		}
+            return (List<Activity>)(List<?>)mgr.getActivities(assistant);
+        } catch (AdoHiveException e) {
+            return null;
+        }
     }
 
     /**
@@ -115,14 +115,13 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @return The activities related to the course or null if none were found
      */
     @SuppressWarnings("unchecked")
-	public List<Activity> getActivities(Course course)
-    {
+    public List<Activity> getActivities(Course course) {
     	IActivityManager mgr = (IActivityManager) getManager();
     	try {
-			return (List<Activity>)(List<?>)mgr.getActivities(course);
-		} catch (AdoHiveException e) {
-			return null;
-		}
+            return (List<Activity>)(List<?>)mgr.getActivities(course);
+        } catch (AdoHiveException e) {
+            return null;
+        }
     }
 
     /**
