@@ -1,8 +1,11 @@
 package de.aidger.model;
 
+import static de.aidger.utils.Translation._;
+
 import java.util.List;
 import java.util.Vector;
 import java.util.Observable;
+import java.text.MessageFormat;
 
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.controller.IAdoHiveManager;
@@ -10,6 +13,7 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAdoHiveModel;
 
 import de.aidger.model.validators.*;
+import de.aidger.utils.Logger;
 
 /**
  * AbstractModel contains all important database related functions which all
@@ -25,6 +29,11 @@ public abstract class AbstractModel<T> extends Observable implements
      * The unique id of the model in the database.
      */
     protected int id = -1;
+
+    /**
+     * Used to cache the AdoHiveManager after getting it the first time.
+     */
+    protected IAdoHiveManager manager = null;
 
     /**
      * Array containing all validators for that specific model.
@@ -174,18 +183,27 @@ public abstract class AbstractModel<T> extends Observable implements
      */
     @SuppressWarnings("unchecked")
     protected IAdoHiveManager getManager() {
-        String classname = getClass().getName();
-        int idx = classname.lastIndexOf('.');
-        classname = classname.substring(idx);
+        if (manager == null) {
+            /* Extract the name of the class */
+            String classname = getClass().getName();
+            int idx = classname.lastIndexOf('.');
+            classname = classname.substring(idx);
 
-        try {
-            java.lang.reflect.Method m = AdoHiveController.class.getMethod(
-                    "get" + classname + "Manager");
-            return (IAdoHiveManager) m.invoke(AdoHiveController.getInstance(),
-                    new Object[0]);
-        } catch (Exception ex) {
-            return null;
+            /* Try to get the correct manager from the AdoHiveController */
+            try {
+                java.lang.reflect.Method m = AdoHiveController.class.getMethod(
+                        "get" + classname + "Manager");
+                manager = (IAdoHiveManager) m.invoke(AdoHiveController.getInstance(),
+                        new Object[0]);
+            } catch (Exception ex) {
+                manager = null;  // Make sure that manager is really null!
+                Logger.error(MessageFormat.format(
+                        _("Could not get manager for class \"{0}\". Error: {1}"),
+                        new Object[] { classname, ex.getMessage() }));
+            }
         }
+
+        return manager;
     }
 
     /**
