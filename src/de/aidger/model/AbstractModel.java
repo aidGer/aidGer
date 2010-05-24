@@ -125,9 +125,9 @@ public abstract class AbstractModel<T> extends Observable implements
     public void remove() throws AdoHiveException {
         if (id != -1) {
             getManager().remove(this);
+            clearChanged();
+            notifyObservers();
         }
-        clearChanged();
-        notifyObservers();
     }
 
     /**
