@@ -3,13 +3,12 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: view/UI.java:463 view/UI.java:470
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-22 17:22+0200\n"
+"POT-Creation-Date: 2010-05-25 14:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,134 +36,134 @@ msgstr ""
 msgid "Opening browser to http://aidger.de"
 msgstr ""
 
-#: view/UI.java:169
+#: view/UI.java:181
 msgid "Error"
 msgstr ""
 
-#: view/UI.java:194
+#: view/UI.java:206
 #, java-format
 msgid "Adding new tab \"{0}\" at position {1}"
 msgstr ""
 
-#: view/UI.java:236
+#: view/UI.java:248
 #, java-format
 msgid "Removing {0}. tab"
 msgstr ""
 
-#: view/UI.java:309
+#: view/UI.java:321
 #, java-format
 msgid "Setting current tab to \"{0}\""
 msgstr ""
 
-#: view/UI.java:372
+#: view/UI.java:384
 msgid "File"
 msgstr ""
 
-#: view/UI.java:391 controller/actions/HelpAction.java:23
+#: view/UI.java:403 controller/actions/HelpAction.java:23
 msgid "Help"
 msgstr ""
 
-#: view/UI.java:431
+#: view/UI.java:443
 msgid "Master Data Management"
 msgstr ""
 
-#: view/UI.java:433
+#: view/UI.java:445
 msgid "Courses"
 msgstr ""
 
-#: view/UI.java:434
+#: view/UI.java:446
 msgid "Assistants"
 msgstr ""
 
-#: view/UI.java:436
+#: view/UI.java:448
 msgid "Financial Categories"
 msgstr ""
 
-#: view/UI.java:438
+#: view/UI.java:450
 msgid "Hourly Wages"
 msgstr ""
 
-#: view/UI.java:441
+#: view/UI.java:454
 msgid "Employments"
 msgstr ""
 
-#: view/UI.java:442
+#: view/UI.java:456
 msgid "Create new employment"
 msgstr ""
 
-#: view/UI.java:444
+#: view/UI.java:458
 msgid "Show all contracts"
 msgstr ""
 
-#: view/UI.java:448
+#: view/UI.java:462
 msgid "Activities"
 msgstr ""
 
-#: view/UI.java:449
+#: view/UI.java:463
 msgid "Create new activity"
 msgstr ""
 
-#: view/UI.java:451
+#: view/UI.java:465
 msgid "Export"
 msgstr ""
 
-#: view/UI.java:454
+#: view/UI.java:468
 msgid "Reports"
 msgstr ""
 
-#: view/UI.java:456
+#: view/UI.java:470
 msgid "Annual Balance"
 msgstr ""
 
-#: view/UI.java:456
+#: view/UI.java:470
 msgid "Semester Balance"
 msgstr ""
 
-#: view/UI.java:457
+#: view/UI.java:471
 msgid "Partial Balance"
 msgstr ""
 
-#: view/UI.java:457
+#: view/UI.java:471
 msgid "Activity Report"
 msgstr ""
 
-#: view/UI.java:457
+#: view/UI.java:471
 msgid "Protocol"
 msgstr ""
 
-#: view/UI.java:460
+#: view/UI.java:474
 msgid "Controlling"
 msgstr ""
 
-#: view/UI.java:462
+#: view/UI.java:476
 msgid "Choose a month"
 msgstr ""
 
-#: view/UI.java:467
+#: view/UI.java:481
 msgid "Budget Check"
 msgstr ""
 
-#: view/UI.java:469
+#: view/UI.java:483
 msgid "Add Filter"
 msgstr ""
 
-#: view/UI.java:474
+#: view/UI.java:488
 msgid "Quick Settings"
 msgstr ""
 
-#: view/UI.java:475
+#: view/UI.java:489
 msgid "Remember my tabs"
 msgstr ""
 
-#: view/UI.java:476
+#: view/UI.java:490
 msgid "Open reports instantly"
 msgstr ""
 
-#: view/UI.java:506
+#: view/UI.java:520
 msgid "Open a new tab"
 msgstr ""
 
-#: view/UI.java:538
+#: view/UI.java:552
 msgid "Ready"
 msgstr ""
 
@@ -295,4 +294,19 @@ msgstr ""
 #: controller/ActionNotFoundException.java:15
 #, java-format
 msgid "action class {0} not found"
+msgstr ""
+
+#: model/AbstractModel.java:197
+#, java-format
+msgid "Could not get manager for class \"{0}\". Error: {1}"
+msgstr ""
+
+#: model/models/Activity.java:111
+#, java-format
+msgid "Caught exception in getActivities(assistant): {0}"
+msgstr ""
+
+#: model/models/Activity.java:131
+#, java-format
+msgid "Caught exception in getActivities(course): {0}"
 msgstr ""

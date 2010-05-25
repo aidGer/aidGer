@@ -13,3 +13,5 @@ controller/actions/PrintAction.java
 controller/actions/SettingsAction.java
 controller/actions/SaveSettingsAction.java
 controller/ActionNotFoundException.java
+model/AbstractModel.java
+model/models/Activity.java

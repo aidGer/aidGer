@@ -2,12 +2,16 @@ package de.aidger.model.models;
 
 import java.util.Date;
 import java.util.List;
+import java.text.MessageFormat;
+
+import static de.aidger.utils.Translation._;
+import de.aidger.utils.Logger;
 
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.controller.IActivityManager;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
+
 
 /**
  * Represents a single entry in the activity column of the database.
@@ -103,6 +107,9 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
     	try {
             return (List<Activity>)(List<?>)mgr.getActivities(assistant);
         } catch (AdoHiveException e) {
+            Logger.error(MessageFormat.format(
+                    _("Caught exception in getActivities(assistant): {0}"),
+                    new Object[] { e.getMessage() }));
             return null;
         }
     }
@@ -120,6 +127,9 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
     	try {
             return (List<Activity>)(List<?>)mgr.getActivities(course);
         } catch (AdoHiveException e) {
+            Logger.error(MessageFormat.format(
+                    _("Caught exception in getActivities(course): {0}"),
+                    new Object[] { e.getMessage() }));
             return null;
         }
     }
