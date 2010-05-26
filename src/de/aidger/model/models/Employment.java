@@ -307,26 +307,4 @@ public class Employment extends AbstractModel<IEmployment> implements
         this.year = year;
     }
 
-    /**
-     * Returns the unique id of the employment.
-     *
-     * @return The unique id of the employment
-     */
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Set the unique id of the employment. <b>!!! THIS IS FOR INTERNAL ADOHIVE
-     * USAGE ONLY !!!</b>
-     *
-     * @param id
-     *            The unique id of the employment
-     */
-    @Override
-    public void setId(int id) {
-        this.id = id;
-    }
-
 }

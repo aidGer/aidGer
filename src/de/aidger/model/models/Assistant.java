@@ -135,26 +135,4 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
         qualification = qual;
     }
 
-    /**
-     * Returns the unique id of the assistant.
-     *
-     * @return The unique id of the assistant
-     */
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Set the unique id of the assistant.
-     *
-     * <b>!!! THIS IS FOR INTERNAL ADOHIVE USAGE ONLY !!!</b>
-     *
-     * @param id The unique id of the assistant
-     */
-    @Override
-    public void setId(int id) {
-        this.id = id;
-    }
-
 }

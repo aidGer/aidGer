@@ -139,26 +139,4 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
         this.year = year;
     }
 
-    /**
-     * Returns the unique id of the category.
-     * 
-     * @return The unique id of the category
-     */
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Set the unique id of the category. <b>!!! THIS IS FOR INTERNAL ADOHIVE
-     * USAGE ONLY !!!</b>
-     * 
-     * @param id
-     *            The unique id of the category
-     */
-    @Override
-    public void setId(int id) {
-        this.id = id;
-    }
-
 }

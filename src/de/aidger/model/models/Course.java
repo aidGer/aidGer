@@ -307,26 +307,4 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
         unqualifiedWorkingHours = hours;
     }
 
-    /**
-     * Returns the unique id of the course.
-     *
-     * @return The unique id of the course
-     */
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Set the unique id of the course.
-     *
-     * <b>!!! THIS IS FOR INTERNAL ADOHIVE USAGE ONLY !!!</b>
-     *
-     * @param id The unique id of the course
-     */
-    @Override
-    public void setId(int id) {
-        this.id = id;
-    }
-
 }

@@ -314,26 +314,4 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
         type = typec;
     }
 
-    /**
-     * Returns the unique id of the activity.
-     *
-     * @return The unique id of the activity
-     */
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Set the unique id of the activity.
-     *
-     * <b>!!! THIS IS FOR INTERNAL ADOHIVE USAGE ONLY !!!</b>
-     *
-     * @param id The unique id of the activity
-     */
-    @Override
-    public void setId(int id) {
-        this.id = id;
-    }
-
 }

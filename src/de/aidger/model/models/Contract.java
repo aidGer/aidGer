@@ -190,26 +190,4 @@ public class Contract extends AbstractModel<IContract> implements IContract {
         type = tp;
     }
 
-    /**
-     * Returns the unique id of the contract.
-     *
-     * @return The unique id of the contract
-     */
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Set the unique id of the contract.
-     *
-     * <b>!!! THIS IS FOR INTERNAL ADOHIVE USAGE ONLY !!!</b>
-     *
-     * @param id The unique id of the contract
-     */
-    @Override
-    public void setId(int id) {
-        this.id = id;
-    }
-
 }

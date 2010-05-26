@@ -139,26 +139,4 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
         this.year = year;
     }
 
-    /**
-     * Returns the unique id of the wage.
-     * 
-     * @return The unique id of the wage
-     */
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Set the unique id of the wage. <b>!!! THIS IS FOR INTERNAL ADOHIVE USAGE
-     * ONLY !!!</b>
-     * 
-     * @param id
-     *            The unique id of the wage
-     */
-    @Override
-    public void setId(int id) {
-        this.id = id;
-    }
-
 }
