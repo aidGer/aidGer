@@ -2,18 +2,53 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
+import javax.swing.JPopupMenu;
+
+import de.aidger.model.models.Course;
+import de.aidger.view.models.CourseTableModel;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+
 /**
  * A tab which will be used to display the master data.
  * 
  * @author aidGer Team
  */
+@SuppressWarnings("serial")
 public class MasterDataViewerTab extends Tab {
 
     /**
-     * Initiazlies a new DataTab.
+     * Constructs a new master data viewer tab.
      */
+    @SuppressWarnings("unchecked")
     public MasterDataViewerTab() {
         initComponents();
+
+        Course c = new Course();
+        c.setId(1);
+        c.setDescription("Description");
+        c.setFinancialCategoryId(1);
+        c.setGroup("2");
+        c.setLecturer("Test Tester");
+        c.setNumberOfGroups(3);
+        c.setPart('a');
+        c.setRemark("Remark");
+        c.setScope("Sniper Scope");
+        c.setSemester("SS 09");
+        c.setTargetAudience("Testers");
+        c.setUnqualifiedWorkingHours(100);
+
+        try {
+            c.save();
+        } catch (AdoHiveException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        table.setModel(new CourseTableModel());
+        table.setComponentPopupMenu(new JPopupMenu());
+        table.setAutoCreateRowSorter(true);
+        table.setDoubleBuffered(true);
+        table.setFocusCycleRoot(true);
     }
 
     /*
@@ -34,6 +69,8 @@ public class MasterDataViewerTab extends Tab {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
     // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -44,7 +81,7 @@ public class MasterDataViewerTab extends Tab {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
 
         jToolBar1.setFloatable(false);
@@ -80,15 +117,7 @@ public class MasterDataViewerTab extends Tab {
         jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton4);
 
-        jTable1
-                .setModel(new javax.swing.table.DefaultTableModel(
-                        new Object[][] {
-                                { "Violette Parser", "SS10", "Rainer Unsinn",
-                                        "6 SWS" },
-                                { "Nukulartechnik", "SS10", "Homer Simpson",
-                                        "2 SWS" } }, new String[] {
-                                "Bezeichnung", "Semester", "Dozent", "Umfang" }));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(table);
 
         jTextField1.setText(_("Search"));
 
@@ -125,8 +154,8 @@ public class MasterDataViewerTab extends Tab {
                                                                                                 Short.MAX_VALUE)))
                                                         .addComponent(
                                                                 jToolBar1,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                540,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                542,
                                                                 Short.MAX_VALUE))
                                         .addContainerGap()));
         layout
@@ -164,9 +193,9 @@ public class MasterDataViewerTab extends Tab {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 
 }

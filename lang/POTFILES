@@ -4,6 +4,8 @@ view/SettingsDialog.java
 view/CloseTabComponent.java
 view/tabs/EmptyTab.java
 view/tabs/WelcomeTab.java
+view/tabs/MasterDataViewerTab.java
+view/models/CourseTableModel.java
 controller/actions/AbortAction.java
 controller/actions/AboutAction.java
 controller/actions/ExitAction.java

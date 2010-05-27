@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-25 14:45+0200\n"
+"POT-Creation-Date: 2010-05-27 17:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -215,6 +215,54 @@ msgstr ""
 msgid "Welcome"
 msgstr ""
 
+#: view/tabs/MasterDataViewerTab.java:54
+msgid "Master Data"
+msgstr ""
+
+#: view/tabs/MasterDataViewerTab.java:82
+msgid "View"
+msgstr ""
+
+#: view/tabs/MasterDataViewerTab.java:88
+msgid "Edit"
+msgstr ""
+
+#: view/tabs/MasterDataViewerTab.java:94
+msgid "Add"
+msgstr ""
+
+#: view/tabs/MasterDataViewerTab.java:100
+msgid "Delete"
+msgstr ""
+
+#: view/tabs/MasterDataViewerTab.java:106
+msgid "Activites"
+msgstr ""
+
+#: view/tabs/MasterDataViewerTab.java:114
+msgid "Search"
+msgstr ""
+
+#: view/models/CourseTableModel.java:18
+msgid "Description"
+msgstr ""
+
+#: view/models/CourseTableModel.java:18
+msgid "Semester"
+msgstr ""
+
+#: view/models/CourseTableModel.java:19
+msgid "Lecturer"
+msgstr ""
+
+#: view/models/CourseTableModel.java:19
+msgid "Number of Groups"
+msgstr ""
+
+#: view/models/CourseTableModel.java:19
+msgid "Target Audience"
+msgstr ""
+
 #: controller/actions/AbortAction.java:26
 msgid "Cancel"
 msgstr ""
@@ -296,7 +344,7 @@ msgstr ""
 msgid "action class {0} not found"
 msgstr ""
 
-#: model/AbstractModel.java:197
+#: model/AbstractModel.java:219
 #, java-format
 msgid "Could not get manager for class \"{0}\". Error: {1}"
 msgstr ""
