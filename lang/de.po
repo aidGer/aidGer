@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-27 17:16+0200\n"
+"POT-Creation-Date: 2010-05-27 23:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -215,31 +215,35 @@ msgstr "(Unbenannt)"
 msgid "Welcome"
 msgstr "Willkommen"
 
-#: view/tabs/MasterDataViewerTab.java:54
+#: view/tabs/MasterDataViewerTab.java:67
+msgid "Show/Hide Columns"
+msgstr "Spalten ein-/ausblenden"
+
+#: view/tabs/MasterDataViewerTab.java:123
 msgid "Master Data"
 msgstr "Stammdaten"
 
-#: view/tabs/MasterDataViewerTab.java:82
+#: view/tabs/MasterDataViewerTab.java:152
 msgid "View"
 msgstr "Anzeigen"
 
-#: view/tabs/MasterDataViewerTab.java:88
+#: view/tabs/MasterDataViewerTab.java:158
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: view/tabs/MasterDataViewerTab.java:94
+#: view/tabs/MasterDataViewerTab.java:164
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: view/tabs/MasterDataViewerTab.java:100
+#: view/tabs/MasterDataViewerTab.java:170
 msgid "Delete"
 msgstr "Löschen"
 
-#: view/tabs/MasterDataViewerTab.java:106
+#: view/tabs/MasterDataViewerTab.java:176
 msgid "Activites"
 msgstr "Vorgänge"
 
-#: view/tabs/MasterDataViewerTab.java:114
+#: view/tabs/MasterDataViewerTab.java:184
 msgid "Search"
 msgstr "Suchen"
 

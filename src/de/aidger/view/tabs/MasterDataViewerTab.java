@@ -2,7 +2,16 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Enumeration;
+
+import javax.swing.AbstractAction;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JMenu;
 import javax.swing.JPopupMenu;
+import javax.swing.table.TableColumn;
 
 import de.aidger.model.models.Course;
 import de.aidger.view.models.CourseTableModel;
@@ -15,6 +24,8 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
  */
 @SuppressWarnings("serial")
 public class MasterDataViewerTab extends Tab {
+
+    int[][] tableHeaderSize;
 
     /**
      * Constructs a new master data viewer tab.
@@ -40,15 +51,65 @@ public class MasterDataViewerTab extends Tab {
         try {
             c.save();
         } catch (AdoHiveException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
         table.setModel(new CourseTableModel());
-        table.setComponentPopupMenu(new JPopupMenu());
+        // table.setComponentPopupMenu(new JPopupMenu());
         table.setAutoCreateRowSorter(true);
         table.setDoubleBuffered(true);
         table.setFocusCycleRoot(true);
+
+        // column filtering
+        tableHeaderSize = new int[table.getColumnCount()][3];
+
+        JMenu columnMenu = new JMenu(_("Show/Hide Columns"));
+        JPopupMenu headerMenu = new JPopupMenu();
+        headerMenu.add(columnMenu);
+
+        Enumeration en = table.getTableHeader().getColumnModel().getColumns();
+
+        while (en.hasMoreElements()) {
+            TableColumn column = (TableColumn) en.nextElement();
+
+            JCheckBoxMenuItem mi = new JCheckBoxMenuItem(new AbstractAction(
+                    column.getHeaderValue().toString()) {
+                public void actionPerformed(ActionEvent evt) {
+                    String cmd = evt.getActionCommand();
+
+                    int index = table.getTableHeader().getColumnModel()
+                            .getColumnIndex(cmd);
+                    TableColumn column = table.getTableHeader()
+                            .getColumnModel().getColumn(index);
+
+                    if (column.getPreferredWidth() != 0) {
+                        tableHeaderSize[index][0] = column.getPreferredWidth();
+                        tableHeaderSize[index][1] = column.getMinWidth();
+                        tableHeaderSize[index][2] = column.getMaxWidth();
+
+                        column.setMinWidth(0);
+                        column.setMaxWidth(0);
+                        column.setPreferredWidth(0);
+                    } else {
+                        column.setMinWidth(tableHeaderSize[index][1]);
+                        column.setMaxWidth(tableHeaderSize[index][2]);
+                        column.setPreferredWidth(tableHeaderSize[index][0]);
+
+                        column.sizeWidthToFit();
+                    }
+                }
+            });
+
+            if (column.getPreferredWidth() != 0) {
+                mi.setSelected(true);
+            } else {
+                mi.setSelected(false);
+            }
+
+            columnMenu.add(mi);
+        }
+
+        table.getTableHeader().addMouseListener(new PopupListener(headerMenu));
     }
 
     /*
@@ -196,6 +257,30 @@ public class MasterDataViewerTab extends Tab {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JTable table;
+
     // End of variables declaration//GEN-END:variables
 
+    class PopupListener extends MouseAdapter {
+        JPopupMenu popupMenu;
+
+        public PopupListener(JPopupMenu popup) {
+            this.popupMenu = popup;
+        }
+
+        @Override
+        public void mousePressed(MouseEvent me) {
+            showPopup(me);
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent me) {
+            showPopup(me);
+        }
+
+        private void showPopup(MouseEvent me) {
+            if (me.isPopupTrigger()) {
+                popupMenu.show(me.getComponent(), me.getX(), me.getY());
+            }
+        }
+    }
 }

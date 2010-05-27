@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-27 17:16+0200\n"
+"POT-Creation-Date: 2010-05-27 23:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -215,31 +215,35 @@ msgstr ""
 msgid "Welcome"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:54
+#: view/tabs/MasterDataViewerTab.java:67
+msgid "Show/Hide Columns"
+msgstr ""
+
+#: view/tabs/MasterDataViewerTab.java:123
 msgid "Master Data"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:82
+#: view/tabs/MasterDataViewerTab.java:152
 msgid "View"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:88
+#: view/tabs/MasterDataViewerTab.java:158
 msgid "Edit"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:94
+#: view/tabs/MasterDataViewerTab.java:164
 msgid "Add"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:100
+#: view/tabs/MasterDataViewerTab.java:170
 msgid "Delete"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:106
+#: view/tabs/MasterDataViewerTab.java:176
 msgid "Activites"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:114
+#: view/tabs/MasterDataViewerTab.java:184
 msgid "Search"
 msgstr ""
 
