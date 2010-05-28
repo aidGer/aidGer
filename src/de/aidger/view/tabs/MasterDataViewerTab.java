@@ -9,7 +9,6 @@ import java.util.Enumeration;
 
 import javax.swing.AbstractAction;
 import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JMenu;
 import javax.swing.JPopupMenu;
 import javax.swing.table.TableColumn;
 
@@ -59,9 +58,15 @@ public class MasterDataViewerTab extends Tab {
         table.setDoubleBuffered(true);
         table.setFocusCycleRoot(true);
 
-        // column filtering
         tableHeaderSize = new int[table.getColumnCount()][3];
 
+        // hide columns at startup
+        int[] hiddenColumns = { 6, 7, 8, 9, 10 };
+        for (int i = 0; i < hiddenColumns.length; ++i) {
+            toggleColumnVisible(hiddenColumns[i]);
+        }
+
+        // column filtering
         JPopupMenu headerMenu = new JPopupMenu();
 
         Enumeration en = table.getTableHeader().getColumnModel().getColumns();
@@ -76,24 +81,8 @@ public class MasterDataViewerTab extends Tab {
 
                     int index = table.getTableHeader().getColumnModel()
                             .getColumnIndex(cmd);
-                    TableColumn column = table.getTableHeader()
-                            .getColumnModel().getColumn(index);
 
-                    if (column.getPreferredWidth() != 0) {
-                        tableHeaderSize[index][0] = column.getPreferredWidth();
-                        tableHeaderSize[index][1] = column.getMinWidth();
-                        tableHeaderSize[index][2] = column.getMaxWidth();
-
-                        column.setMinWidth(0);
-                        column.setMaxWidth(0);
-                        column.setPreferredWidth(0);
-                    } else {
-                        column.setMinWidth(tableHeaderSize[index][1]);
-                        column.setMaxWidth(tableHeaderSize[index][2]);
-                        column.setPreferredWidth(tableHeaderSize[index][0]);
-
-                        column.sizeWidthToFit();
-                    }
+                    toggleColumnVisible(index);
                 }
             });
 
@@ -117,6 +106,27 @@ public class MasterDataViewerTab extends Tab {
     @Override
     public String getName() {
         return _("Master Data");
+    }
+
+    private void toggleColumnVisible(int index) {
+        TableColumn column = table.getTableHeader().getColumnModel().getColumn(
+                index);
+
+        if (column.getPreferredWidth() != 0) {
+            tableHeaderSize[index][0] = column.getPreferredWidth();
+            tableHeaderSize[index][1] = column.getMinWidth();
+            tableHeaderSize[index][2] = column.getMaxWidth();
+
+            column.setMinWidth(0);
+            column.setMaxWidth(0);
+            column.setPreferredWidth(0);
+        } else {
+            column.setMinWidth(tableHeaderSize[index][1]);
+            column.setMaxWidth(tableHeaderSize[index][2]);
+            column.setPreferredWidth(tableHeaderSize[index][0]);
+
+            column.sizeWidthToFit();
+        }
     }
 
     /**

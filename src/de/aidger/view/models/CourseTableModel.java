@@ -9,6 +9,11 @@ import javax.swing.table.DefaultTableModel;
 
 import de.aidger.model.models.Course;
 
+/**
+ * 
+ * 
+ * @author aidGer Team
+ */
 @SuppressWarnings("serial")
 public class CourseTableModel extends DefaultTableModel {
 
@@ -16,14 +21,22 @@ public class CourseTableModel extends DefaultTableModel {
      * The names of the columns.
      */
     private final String[] columnNames = { _("Description"), _("Semester"),
-            _("Lecturer"), _("Number of Groups"), _("Target Audience") };
+            _("Lecturer"), _("Number of Groups"), _("Target Audience"),
+            _("Granted AWH"), _("Scope"), _("Part"), _("Group"), _("Remark"),
+            _("Financial Category") };
 
+    /**
+     * Constructs the table model for courses.
+     */
     public CourseTableModel() {
         setColumnIdentifiers(columnNames);
 
         refresh();
     }
 
+    /**
+     * Refreshs the whole table.
+     */
     @SuppressWarnings("unchecked")
     public void refresh() {
         List<Course> courses = (new Course()).getAll();
@@ -33,7 +46,10 @@ public class CourseTableModel extends DefaultTableModel {
             Course course = it.next();
             addRow(new Object[] { course.getDescription(),
                     course.getSemester(), course.getNumberOfGroups(),
-                    course.getTargetAudience() });
+                    course.getTargetAudience(),
+                    course.getUnqualifiedWorkingHours(), course.getScope(),
+                    course.getPart(), course.getGroup(), course.getRemark(),
+                    course.getFinancialCategoryId() });
         }
     }
 }
