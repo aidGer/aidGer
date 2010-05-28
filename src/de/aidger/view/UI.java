@@ -47,6 +47,7 @@ import de.aidger.controller.actions.PrintAction;
 import de.aidger.controller.actions.SettingsAction;
 import de.aidger.controller.actions.TaskPaneAction;
 import de.aidger.controller.actions.TaskPaneAction.Task;
+import de.aidger.model.Runtime;
 import de.aidger.utils.Logger;
 import de.aidger.view.tabs.EmptyTab;
 import de.aidger.view.tabs.Tab;
@@ -498,7 +499,21 @@ public final class UI extends JFrame {
         tpc.addTask(tpQuickSettings);
         tpc.addFiller();
 
-        tpMasterData.setExpanded(true);
+        String[] collapsed = Runtime.getInstance().getOptionArray(
+                "taskPaneCollapsed");
+
+        if (collapsed == null) {
+            collapsed = new String[] { "1", "2", "3", "4" };
+
+            Runtime.getInstance()
+                    .setOptionArray("taskPaneCollapsed", collapsed);
+        }
+
+        for (int i = 0; i < collapsed.length; ++i) {
+            if (!collapsed[i].isEmpty()) {
+                tpc.getTask(Integer.valueOf(collapsed[i])).setExpanded(false);
+            }
+        }
 
         return new JScrollPane(tpc, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);

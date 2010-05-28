@@ -117,6 +117,11 @@ public class TaskPane extends JComponent {
     private final EObj eObj = new EObj();
 
     /**
+     * The position on the task pane container.
+     */
+    private int position;
+
+    /**
      * Constructs the task pane.
      * 
      * @param title
@@ -450,6 +455,25 @@ public class TaskPane extends JComponent {
      */
     public void setExpandedHeight(int expandedHeight) {
         this.expandedHeight = expandedHeight;
+    }
+
+    /**
+     * Sets the position on the container.
+     * 
+     * @param position
+     *            the position to set
+     */
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
+    /**
+     * Returns the position on the container.
+     * 
+     * @return the position
+     */
+    public int getPosition() {
+        return position;
     }
 
     /**

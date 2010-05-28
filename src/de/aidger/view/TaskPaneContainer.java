@@ -5,9 +5,13 @@ import java.awt.GradientPaint;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import de.aidger.model.Runtime;
 
 /**
  * TaskPaneContainer is a container that holds and manages all added task panes.
@@ -30,6 +34,11 @@ public class TaskPaneContainer extends JPanel {
      * The gradient painting.
      */
     GradientPaint paint;
+
+    /**
+     * A list that holds the collapse state of the task panes.
+     */
+    List<String> collapsed = new ArrayList<String>();
 
     /**
      * Constructs a task pane container.
@@ -90,11 +99,11 @@ public class TaskPaneContainer extends JPanel {
         c.gridx = 0;
         c.gridy = GridBagConstraints.RELATIVE;
 
+        taskPane.setPosition(getTaskCount());
+
         add(taskPane, c);
 
         taskPane.container = this;
-
-        taskPane.setExpanded(false);
     }
 
     /**
@@ -207,6 +216,10 @@ public class TaskPaneContainer extends JPanel {
         tp.doCollapse();
 
         tp.finishCollapse();
+
+        collapsed.add(String.valueOf(tp.getPosition()));
+        Runtime.getInstance().setOptionArray("taskPaneCollapsed",
+                collapsed.toArray(new String[0]));
     }
 
     /**
@@ -221,5 +234,9 @@ public class TaskPaneContainer extends JPanel {
         tp.prepareToExpand();
         tp.doExpand();
         tp.finishExpand();
+
+        collapsed.remove(String.valueOf(tp.getPosition()));
+        Runtime.getInstance().setOptionArray("taskPaneCollapsed",
+                collapsed.toArray(new String[0]));
     }
 }
