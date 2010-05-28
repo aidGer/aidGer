@@ -173,6 +173,21 @@ public final class Runtime {
     }
 
     /**
+     * Get an array of values for the specified option
+     * 
+     * @param option
+     *            The option to get
+     * @return Array containing all values
+     */
+    public String[] getOptionArray(String option) {
+        String rest = getOption(option);
+        if (!rest.startsWith("[") || !rest.endsWith("]")) {
+            return null;
+        }
+        return rest.substring(1, rest.length() - 2).split(",");
+    }
+
+    /**
      * Set the value of an option.
      * 
      * @param option
@@ -182,6 +197,26 @@ public final class Runtime {
      */
     public void setOption(String option, String value) {
         configuration.set(option, value);
+    }
+
+        /**
+     * Sets the value of a property by converting an array into a single string.
+     *
+     * @param option
+     *            The property to change
+     * @param values
+     *            Array of all values
+     */
+    public void setOptionArray(String option, String[] values) {
+        String result = new String("[");
+        for (String s : values) {
+            result += s + ",";
+        }
+        if (result.endsWith(",")) {
+            result = result.substring(result.length() - 2);
+        }
+        result += "]";
+        setOption(option, result);
     }
 
     /**
