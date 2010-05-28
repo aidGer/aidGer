@@ -63,9 +63,7 @@ public class MasterDataViewerTab extends Tab {
         // column filtering
         tableHeaderSize = new int[table.getColumnCount()][3];
 
-        JMenu columnMenu = new JMenu(_("Show/Hide Columns"));
         JPopupMenu headerMenu = new JPopupMenu();
-        headerMenu.add(columnMenu);
 
         Enumeration en = table.getTableHeader().getColumnModel().getColumns();
 
@@ -106,7 +104,7 @@ public class MasterDataViewerTab extends Tab {
                 mi.setSelected(false);
             }
 
-            columnMenu.add(mi);
+            headerMenu.add(mi);
         }
 
         table.getTableHeader().addMouseListener(new PopupListener(headerMenu));
