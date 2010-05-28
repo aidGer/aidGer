@@ -1,9 +1,13 @@
 package de.aidger.utils;
 
+import static de.aidger.utils.Translation._;
+import de.aidger.utils.Logger;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Properties;
+import java.text.MessageFormat;
 
 /**
  * Gets and sets the settings
@@ -48,7 +52,7 @@ public final class Configuration {
             try {
                 File inputFile = new File(file);
                 FileInputStream inputStream = new FileInputStream(inputFile);
-                properties.loadFromXML(inputStream);
+                properties.load(inputStream);
                 inputStream.close();
             } catch (Exception e) {
                 createFile();
@@ -75,6 +79,9 @@ public final class Configuration {
             properties.storeToXML(outputStream, "");
             outputStream.close();
         } catch (Exception e) {
+            Logger.error(MessageFormat.format(
+                    _("Couldn't create file \"{0}\"."),
+                    new Object[] { file }));
         }
     }
 
@@ -102,7 +109,7 @@ public final class Configuration {
         try {
             File outputFile = new File(file);
             FileOutputStream outputStream = new FileOutputStream(outputFile);
-            properties.storeToXML(outputStream, "");
+            properties.store(outputStream, "");
             outputStream.close();
         } catch (Exception e) {
             createFile();
