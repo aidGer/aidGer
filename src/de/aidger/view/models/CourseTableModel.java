@@ -44,9 +44,10 @@ public class CourseTableModel extends DefaultTableModel {
         Iterator<Course> it = courses.iterator();
         while (it.hasNext()) {
             Course course = it.next();
+
             addRow(new Object[] { course.getDescription(),
-                    course.getSemester(), course.getNumberOfGroups(),
-                    course.getTargetAudience(),
+                    course.getSemester(), course.getLecturer(),
+                    course.getNumberOfGroups(), course.getTargetAudience(),
                     course.getUnqualifiedWorkingHours(), course.getScope(),
                     course.getPart(), course.getGroup(), course.getRemark(),
                     course.getFinancialCategoryId() });

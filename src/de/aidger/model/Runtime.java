@@ -181,10 +181,16 @@ public final class Runtime {
      */
     public String[] getOptionArray(String option) {
         String rest = getOption(option);
+
+        if (rest == null) {
+            return null;
+        }
+
         if (!rest.startsWith("[") || !rest.endsWith("]")) {
             return null;
         }
-        return rest.substring(1, rest.length() - 2).split(",");
+
+        return rest.substring(1, rest.length() - 1).split(",");
     }
 
     /**
@@ -199,9 +205,9 @@ public final class Runtime {
         configuration.set(option, value);
     }
 
-        /**
+    /**
      * Sets the value of a property by converting an array into a single string.
-     *
+     * 
      * @param option
      *            The property to change
      * @param values
@@ -209,13 +215,17 @@ public final class Runtime {
      */
     public void setOptionArray(String option, String[] values) {
         String result = new String("[");
+
         for (String s : values) {
             result += s + ",";
         }
+
         if (result.endsWith(",")) {
-            result = result.substring(result.length() - 2);
+            result = result.substring(0, result.length() - 1);
         }
+
         result += "]";
+
         setOption(option, result);
     }
 

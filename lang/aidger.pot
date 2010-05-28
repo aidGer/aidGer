@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-28 18:42+0200\n"
+"POT-Creation-Date: 2010-05-28 23:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -215,35 +215,31 @@ msgstr ""
 msgid "Welcome"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:66
-msgid "Show/Hide Columns"
-msgstr ""
-
-#: view/tabs/MasterDataViewerTab.java:122
+#: view/tabs/MasterDataViewerTab.java:121
 msgid "Master Data"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:151
+#: view/tabs/MasterDataViewerTab.java:171
 msgid "View"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:157
+#: view/tabs/MasterDataViewerTab.java:177
 msgid "Edit"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:163
+#: view/tabs/MasterDataViewerTab.java:183
 msgid "Add"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:169
+#: view/tabs/MasterDataViewerTab.java:189
 msgid "Delete"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:175
+#: view/tabs/MasterDataViewerTab.java:195
 msgid "Activites"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:183
+#: view/tabs/MasterDataViewerTab.java:203
 msgid "Search"
 msgstr ""
 
@@ -385,4 +381,9 @@ msgstr ""
 #: model/models/Activity.java:131
 #, java-format
 msgid "Caught exception in getActivities(course): {0}"
+msgstr ""
+
+#: utils/Configuration.java:84
+#, java-format
+msgid "Could not create file \"{0}\"."
 msgstr ""
