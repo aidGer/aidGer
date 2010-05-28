@@ -35,7 +35,6 @@ public class MasterDataViewerTab extends Tab {
         initComponents();
 
         Course c = new Course();
-        c.setId(1);
         c.setDescription("Description");
         c.setFinancialCategoryId(1);
         c.setGroup("2");
