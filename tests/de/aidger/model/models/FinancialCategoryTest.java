@@ -1,6 +1,7 @@
 package de.aidger.model.models;
 
 import org.junit.Test;
+import org.junit.Before;
 import static org.junit.Assert.*;
 
 /**
@@ -10,6 +11,18 @@ import static org.junit.Assert.*;
  */
 public class FinancialCategoryTest {
 
+    protected FinancialCategory financial = null;
+
+    @Before
+    public void setUp() {
+        financial = new FinancialCategory();
+        financial.setId(1);
+        financial.setBugdetCosts(new int[] { 100, 200 });
+        financial.setFonds(new int[] { 100, 200 });
+        financial.setName("Tester");
+        financial.setYear((short) 2010);
+    }
+
     /**
      * Test of clone method, of class FinancialCategory.
      */
@@ -17,20 +30,24 @@ public class FinancialCategoryTest {
     public void testClone() {
         System.out.println("clone");
 
-        FinancialCategory f = new FinancialCategory();
-        f.setId(1);
-        f.setBugdetCosts(new int[] { 100, 200 });
-        f.setFonds(new int[] { 100, 200 });
-        f.setName("Tester");
-        f.setYear((short) 2010);
+        FinancialCategory result = financial.clone();
 
-        FinancialCategory result = f.clone();
+        assertEquals(financial.getId(), result.getId());
+        assertEquals(financial.getBugdetCosts(), result.getBugdetCosts());
+        assertEquals(financial.getFonds(), result.getFonds());
+        assertEquals(financial.getName(), result.getName());
+        assertEquals(financial.getYear(), result.getYear());
+    }
 
-        assertEquals(f.getId(), result.getId());
-        assertEquals(f.getBugdetCosts(), result.getBugdetCosts());
-        assertEquals(f.getFonds(), result.getFonds());
-        assertEquals(f.getName(), result.getName());
-        assertEquals(f.getYear(), result.getYear());
+    /**
+     * Test of equals method, of class FinancialCategory.
+     */
+    @Test
+    public void testEquals() {
+        System.out.println("equals");
+        FinancialCategory result = financial.clone();
+
+        assertEquals(financial, result);
     }
 
 }

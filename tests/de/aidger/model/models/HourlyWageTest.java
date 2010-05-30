@@ -1,6 +1,7 @@
 package de.aidger.model.models;
 
 import org.junit.Test;
+import org.junit.Before;
 import static org.junit.Assert.*;
 
 /**
@@ -10,6 +11,18 @@ import static org.junit.Assert.*;
  */
 public class HourlyWageTest {
 
+    protected HourlyWage hourly = null;
+
+    @Before
+    public void setUp() {
+        hourly = new HourlyWage();
+        hourly.setId(1);
+        hourly.setMonth((byte) 10);
+        hourly.setQualification("OverQualified");
+        hourly.setWage(200);
+        hourly.setYear((short) 2010);
+    }
+
     /**
      * Test of clone method, of class HourlyWage.
      */
@@ -17,20 +30,24 @@ public class HourlyWageTest {
     public void testClone() {
         System.out.println("clone");
 
-        HourlyWage h = new HourlyWage();
-        h.setId(1);
-        h.setMonth((byte) 10);
-        h.setQualification("OverQualified");
-        h.setWage(200);
-        h.setYear((short) 2010);
+        HourlyWage result = hourly.clone();
 
-        HourlyWage result = h.clone();
+        assertEquals(hourly.getId(), result.getId());
+        assertEquals(hourly.getMonth(), result.getMonth());
+        assertEquals(hourly.getQualification(), result.getQualification());
+        assertEquals(hourly.getWage(), result.getWage(), 0.001);
+        assertEquals(hourly.getYear(), result.getYear());
+    }
 
-        assertEquals(h.getId(), result.getId());
-        assertEquals(h.getMonth(), result.getMonth());
-        assertEquals(h.getQualification(), result.getQualification());
-        assertEquals(h.getWage(), result.getWage(), 0.001);
-        assertEquals(h.getYear(), result.getYear());
+    /**
+     * Test of equals method, of class HourlyWage.
+     */
+    @Test
+    public void testEquals() {
+        System.out.println("equals");
+        HourlyWage result = hourly.clone();
+
+        assertEquals(hourly, result);
     }
 
 }

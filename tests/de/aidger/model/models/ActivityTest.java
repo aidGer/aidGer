@@ -63,6 +63,16 @@ public class ActivityTest {
     }
 
     /**
+     * Test of equals method, of class Activity.
+     */
+    @Test
+    public void testEquals() {
+        System.out.println("equals");
+        Activity result = activity.clone();
+        
+        assertEquals(activity, result);
+    }
+    /**
      * Test of getActivities method, of class Activity.
      */
     @Test

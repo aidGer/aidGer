@@ -52,6 +52,17 @@ public class EmploymentTest {
     }
 
     /**
+     * Test of equals method, of class Employment.
+     */
+    @Test
+    public void testEquals() {
+        System.out.println("equals");
+        Employment result = employment.clone();
+
+        assertEquals(employment, result);
+    }
+
+    /**
      * Test of getEmployments method, of class Employment.
      */
     @Test

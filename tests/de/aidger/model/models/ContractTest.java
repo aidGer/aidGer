@@ -3,6 +3,7 @@ package de.aidger.model.models;
 import java.util.Date;
 
 import org.junit.Test;
+import org.junit.Before;
 import static org.junit.Assert.*;
 
 /**
@@ -11,6 +12,20 @@ import static org.junit.Assert.*;
  * @author aidGer Team
  */
 public class ContractTest {
+    
+    protected Contract contract = null;
+
+    @Before
+    public void setUp() {
+        contract = new Contract();
+        contract.setId(1);
+        contract.setCompletionDate(new Date(100));
+        contract.setConfirmationDate(new Date(10));
+        contract.setDelegation(false);
+        contract.setEndDate(new Date(1000));
+        contract.setStartDate(new Date(20));
+        contract.setType("Type");
+    }
 
     /**
      * Test of clone method, of class Contract.
@@ -19,24 +34,26 @@ public class ContractTest {
     public void testClone() {
         System.out.println("clone");
 
-        Contract c = new Contract();
-        c.setId(1);
-        c.setCompletionDate(new Date(100));
-        c.setConfirmationDate(new Date(10));
-        c.setDelegation(false);
-        c.setEndDate(new Date(1000));
-        c.setStartDate(new Date(20));
-        c.setType("Type");
+        Contract result = contract.clone();
 
-        Contract result = c.clone();
+        assertEquals(contract.getId(), result.getId());
+        assertEquals(contract.getCompletionDate(), result.getCompletionDate());
+        assertEquals(contract.getConfirmationDate(), result.getConfirmationDate());
+        assertEquals(contract.isDelegation(), result.isDelegation());
+        assertEquals(contract.getEndDate(), result.getEndDate());
+        assertEquals(contract.getStartDate(), result.getStartDate());
+        assertEquals(contract.getType(), result.getType());
+    }
 
-        assertEquals(c.getId(), result.getId());
-        assertEquals(c.getCompletionDate(), result.getCompletionDate());
-        assertEquals(c.getConfirmationDate(), result.getConfirmationDate());
-        assertEquals(c.isDelegation(), result.isDelegation());
-        assertEquals(c.getEndDate(), result.getEndDate());
-        assertEquals(c.getStartDate(), result.getStartDate());
-        assertEquals(c.getType(), result.getType());
+    /**
+     * Test of equals method, of class Contract.
+     */
+    @Test
+    public void testEquals() {
+        System.out.println("equals");
+        Contract result = contract.clone();
+
+        assertEquals(contract, result);
     }
 
 }
