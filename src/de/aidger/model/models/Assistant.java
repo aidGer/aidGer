@@ -64,11 +64,15 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
      */
     @Override
     public boolean equals(Object o) {
-        if (o != null && o instanceof Assistant) {
+        if (o instanceof Assistant) {
             Assistant a = (Assistant) o;
-            return a.firstName.equals(firstName) && a.id == id &&
-                    a.lastName.equals(lastName) &&
-                    a.qualification.equals(qualification);
+            return a.id == id &&
+                    (firstName == null ? a.firstName == null :
+                            a.firstName.equals(firstName)) &&
+                    (lastName == null ? a.lastName == null : 
+                            a.lastName.equals(lastName)) &&
+                    (qualification == null ? a.qualification == null :
+                            a.qualification.equals(qualification));
         } else {
             return false;
         }

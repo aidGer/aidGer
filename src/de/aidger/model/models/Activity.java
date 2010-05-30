@@ -103,13 +103,22 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      */
     @Override
     public boolean equals(Object o) {
-        if (o != null && o instanceof Activity) {
+        if (o instanceof Activity) {
             Activity a = (Activity) o;
-            return a.assistantId == assistantId && a.content.equals(content) &&
-                    a.courseId == courseId &&  a.date.equals(date) &&
-                    a.documentType.equals(documentType) &&  a.id == this.id &&
-                    a.processor.equals(processor) && a.remark.equals(remark) &&
-                    a.sender.equals(sender) && a.type.equals(type);
+            return a.assistantId == assistantId && a.id == this.id &&
+                    a.courseId == courseId &&
+                    (date == null ? a.date == null : a.date.equals(date)) &&
+                    (content == null ? a.content == null :
+                            a.content.equals(content)) &&
+                    (documentType == null ? a.documentType == null : 
+                            a.documentType.equals(documentType)) &&
+                    (processor == null ? a.processor == null :
+                            a.processor.equals(processor)) &&
+                    (remark == null ? a.remark == null :
+                            a.remark.equals(remark)) &&
+                    (sender == null ? a.sender == null :
+                            a.sender.equals(sender)) &&
+                    (type == null ? a.type == null : a.type.equals(type));
         } else {
             return false;
         }

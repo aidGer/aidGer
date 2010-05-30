@@ -98,13 +98,17 @@ public class Employment extends AbstractModel<IEmployment> implements
      */
     @Override
     public boolean equals(Object o) {
-        if (o != null && o instanceof Employment) {
+        if (o instanceof Employment) {
             Employment e = (Employment) o;
             return e.id == id && e.assistantId == assistantId &&
-                    e.contractId == contractId && e.costUnit.equals(costUnit) &&
-                    e.courseId == courseId && e.fonds == fonds &&
-                    e.hourCount - hourCount <= 0.001 && e.month == month &&
-                    e.remark.equals(remark) && e.year == year;
+                    e.contractId == contractId && e.fonds == fonds &&
+                    e.courseId == courseId && e.month == month && 
+                    e.year == year &&
+                    (costUnit == null ? e.costUnit == null : 
+                            e.costUnit.equals(costUnit)) &&
+                    ((Double) e.hourCount).equals(hourCount) &&
+                    (remark == null ? e.remark == null : 
+                            e.remark.equals(remark));
         } else {
             return false;
         }

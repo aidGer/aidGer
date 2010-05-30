@@ -96,16 +96,19 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
      */
     @Override
     public boolean equals(Object o) {
-        if (o != null && o instanceof Course) {
+        if (o instanceof Course) {
             Course c = (Course) o;
-            return c.id == id && c.description.equals(description) &&
-                    c.financeCategoryId == financeCategoryId &&
-                    c.group.equals(group) && c.lecturer.equals(lecturer) &&
-                    c.numberOfGroups == numberOfGroups && c.part == part &&
-                    c.remark.equals(remark) && c.scope.equals(scope) &&
-                    c.semester.equals(semester) &&
-                    c.targetAudience.equals(targetAudience) &&
-                    c.unqualifiedWorkingHours - unqualifiedWorkingHours <= 0.001;
+            return c.id == id && c.numberOfGroups == numberOfGroups &&
+                    c.part == part && 
+                    ((Double)c.unqualifiedWorkingHours).equals(
+                    unqualifiedWorkingHours) &&
+                    (remark == null ? c.remark == null :
+                            remark.equals(c.remark)) &&
+                    (scope == null ? c.scope == null : scope.equals(c.scope)) &&
+                    (semester == null ? c.semester == null :
+                            semester.equals(c.semester)) &&
+                    (targetAudience == null ? c.targetAudience == null :
+                            targetAudience.equals(c.targetAudience));
         } else {
             return false;
         }

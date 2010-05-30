@@ -65,10 +65,11 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      */
     @Override
     public boolean equals(Object o) {
-        if (o != null && o instanceof FinancialCategory) {
+        if (o instanceof FinancialCategory) {
             FinancialCategory f = (FinancialCategory) o;
             return f.id == id && f.budgetCosts == budgetCosts &&
-                    f.fonds == fonds && f.name.equals(name) && f.year == year;
+                    f.fonds == fonds && f.year == year &&
+                    (name == null ? f.name == null : f.name.equals(name));
         } else {
             return false;
         }

@@ -79,12 +79,18 @@ public class Contract extends AbstractModel<IContract> implements IContract {
      */
     @Override
     public boolean equals(Object o) {
-        if (o != null && o instanceof Contract) {
+        if (o instanceof Contract) {
             Contract c = (Contract) o;
-            return c.id == id && c.completionDate.equals(completionDate) &&
-                    c.confirmationDate.equals(confirmationDate) &&
-                    c.delegation == delegation && c.endDate.equals(endDate) &&
-                    c.startDate.equals(startDate) && c.type.equals(type);
+            return c.id == id && c.delegation == delegation &&
+                    (completionDate == null ? c.completionDate == null : 
+                            c.completionDate.equals(completionDate)) &&
+                    (confirmationDate == null ? c.confirmationDate == null :
+                            c.confirmationDate.equals(confirmationDate)) &&
+                    (endDate == null ? c.endDate == null : 
+                            c.endDate.equals(endDate)) &&
+                    (startDate == null ? c.startDate == null : 
+                            c.startDate.equals(startDate)) &&
+                    (type == null ? c.type == null : c.type.equals(type));
         } else {
             return false;
         }

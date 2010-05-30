@@ -64,11 +64,12 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      */
     @Override
     public boolean equals(Object o) {
-        if (o != null && o instanceof HourlyWage) {
+        if (o instanceof HourlyWage) {
             HourlyWage h = (HourlyWage) o;
-            return h.id == id && h.month == month &&
-                    h.qualification.equals(qualification) &&
-                    h.wage - wage <= 0.001 && h.year == year;
+            return h.id == id && h.month == month && h.year == year &&
+                    (qualification == null ? h.qualification == null :
+                            h.qualification.equals(qualification)) &&
+                    ((Double) h.wage).equals(wage);
         } else {
             return false;
         }
