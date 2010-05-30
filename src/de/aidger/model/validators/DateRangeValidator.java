@@ -39,8 +39,22 @@ public class DateRangeValidator extends Validator {
     public boolean validate() {
         Date from = (Date)getValueOf(members[0]);
         Date to = (Date)getValueOf(members[1]);
+        return validate(from, to);
+    }
 
-        if (from.equals(to) || from.before(to)) {
+    /**
+     * Validate the range of the given dates.
+     *
+     * Note: Only used for testing purposes.
+     *
+     * @param from
+     *            The from date
+     * @param to
+     *            The to date
+     * @return True if the date range validates
+     */
+    public static boolean validate(Date from, Date to) {
+        if (from.equals(to) || from.after(to)) {
             return false;
         }
         return true;

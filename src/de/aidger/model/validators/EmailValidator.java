@@ -1,6 +1,7 @@
 package de.aidger.model.validators;
 
 import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 import de.aidger.model.AbstractModel;
 
@@ -38,8 +39,12 @@ public class EmailValidator extends Validator {
             return false;
         }
 
-        return Pattern.matches("/^[0-9a-z_\\.-]+@(([0-9]{1,3}\\.){3}[0-9]{1,3}|"
-                + "([0-9a-z][0-9a-z-]*[0-9a-z]\\.)+[a-z]{2,3})$/i", (String) o);
+        String expression =
+                "^[\\w\\-]([\\.\\w])+[\\w]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        CharSequence inputStr = (String) o;
+        Pattern pattern = Pattern.compile(expression,Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(inputStr);
+        return matcher.matches();        
     }
 
 }
