@@ -2,6 +2,7 @@ package de.aidger.model.models;
 
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
+import java.util.Arrays;
 
 /**
  * Represents a single entry in the financial category column of the database.
@@ -53,6 +54,39 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
         f.setName(name);
         f.setYear(year);
         return f;
+    }
+
+    /**
+     * Check if two objects are equal.
+     *
+     * @param o
+     *            The other object
+     * @return True if both are equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (o != null && o instanceof FinancialCategory) {
+            FinancialCategory f = (FinancialCategory) o;
+            return f.id == id && f.budgetCosts == budgetCosts &&
+                    f.fonds == fonds && f.name.equals(name) && f.year == year;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Generate a unique hashcode for this instance.
+     *
+     * @return The hashcode
+     */
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 37 * hash + (name != null ? name.hashCode() : 0);
+        hash = 37 * hash + Arrays.hashCode(budgetCosts);
+        hash = 37 * hash + Arrays.hashCode(fonds);
+        hash = 37 * hash + year;
+        return hash;
     }
 
     /**

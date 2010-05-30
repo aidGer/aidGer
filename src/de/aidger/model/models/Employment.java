@@ -90,6 +90,48 @@ public class Employment extends AbstractModel<IEmployment> implements
     }
 
     /**
+     * Check if two objects are equal.
+     *
+     * @param o
+     *            The other object
+     * @return True if both are equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (o != null && o instanceof Employment) {
+            Employment e = (Employment) o;
+            return e.id == id && e.assistantId == assistantId &&
+                    e.contractId == contractId && e.costUnit.equals(costUnit) &&
+                    e.courseId == courseId && e.fonds == fonds &&
+                    e.hourCount - hourCount <= 0.001 && e.month == month &&
+                    e.remark.equals(remark) && e.year == year;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Generate a unique hashcode for this instance.
+     *
+     * @return The hashcode
+     */
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + assistantId;
+        hash = 79 * hash + contractId;
+        hash = 79 * hash + courseId;
+        hash = 79 * hash + fonds;
+        hash = 79 * hash + month;
+        hash = 79 * hash + year;
+        hash = 79 * hash + (int) (Double.doubleToLongBits(hourCount) ^
+                (Double.doubleToLongBits(hourCount) >>> 32));
+        hash = 79 * hash + (costUnit != null ? costUnit.hashCode() : 0);
+        hash = 79 * hash + (remark != null ? remark.hashCode() : 0);
+        return hash;
+    }
+
+    /**
      * Get all employments during the given time.
      *
      * @param start
@@ -99,7 +141,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @return The employments during the given time
      */
     @SuppressWarnings("unchecked")
-	public List<Employment> getEmployments(Date start, Date end) {
+    public List<Employment> getEmployments(Date start, Date end) {
     	IEmploymentManager mgr = (IEmploymentManager)getManager();
     	return (List<Employment>)(List<?>)mgr.getEmployments(start, end);
     }
@@ -112,7 +154,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @return The employments for the semester
      */
     @SuppressWarnings("unchecked")
-	public List<Employment> getEmployments(String semester) {
+    public List<Employment> getEmployments(String semester) {
     	IEmploymentManager mgr = (IEmploymentManager)getManager();
     	return (List<Employment>)(List<?>)mgr.getEmployments(semester);
     }

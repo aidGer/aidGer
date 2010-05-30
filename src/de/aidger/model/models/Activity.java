@@ -95,6 +95,47 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
     }
 
     /**
+     * Check if two objects are equal.
+     *
+     * @param o
+     *            The other object
+     * @return True if both are equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (o != null && o instanceof Activity) {
+            Activity a = (Activity) o;
+            return a.assistantId == assistantId && a.content.equals(content) &&
+                    a.courseId == courseId &&  a.date.equals(date) &&
+                    a.documentType.equals(documentType) &&  a.id == this.id &&
+                    a.processor.equals(processor) && a.remark.equals(remark) &&
+                    a.sender.equals(sender) && a.type.equals(type);
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Generate a unique hashcode for this instance.
+     *
+     * @return The hashcode
+     */
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 97 * hash + assistantId;
+        hash = 97 * hash + courseId;
+        hash = 97 * hash + (date != null ? date.hashCode() : 0);
+        hash = 97 * hash + (sender != null ? sender.hashCode() : 0);
+        hash = 97 * hash + (documentType != null ? documentType.hashCode() : 0);
+        hash = 97 * hash + (type != null ? type.hashCode() : 0);
+        hash = 97 * hash + (processor != null ? processor.hashCode() : 0);
+        hash = 97 * hash + (content != null ? content.hashCode() : 0);
+        hash = 97 * hash + (remark != null ? remark.hashCode() : 0);
+        return hash;
+    }
+
+    /**
      * Get all activities related to a specified assistant.
      *
      * @param assistant

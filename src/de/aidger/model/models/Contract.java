@@ -71,6 +71,45 @@ public class Contract extends AbstractModel<IContract> implements IContract {
     }
 
     /**
+     * Check if two objects are equal.
+     *
+     * @param o
+     *            The other object
+     * @return True if both are equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (o != null && o instanceof Contract) {
+            Contract c = (Contract) o;
+            return c.id == id && c.completionDate.equals(completionDate) &&
+                    c.confirmationDate.equals(confirmationDate) &&
+                    c.delegation == delegation && c.endDate.equals(endDate) &&
+                    c.startDate.equals(startDate) && c.type.equals(type);
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Generate a unique hashcode for this instance.
+     *
+     * @return The hashcode
+     */
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 41 * hash + (completionDate != null ?
+                completionDate.hashCode() : 0);
+        hash = 41 * hash + (confirmationDate != null ?
+                confirmationDate.hashCode() : 0);
+        hash = 41 * hash + (delegation ? 1 : 0);
+        hash = 41 * hash + (endDate != null ? endDate.hashCode() : 0);
+        hash = 41 * hash + (startDate != null ? startDate.hashCode() : 0);
+        hash = 41 * hash + (type != null ? type.hashCode() : 0);
+        return hash;
+    }
+
+    /**
      * Get the date the contract was completed.
      *
      * @return The date the contract was completed

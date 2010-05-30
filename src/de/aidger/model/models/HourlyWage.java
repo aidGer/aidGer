@@ -56,6 +56,41 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
     }
 
     /**
+     * Check if two objects are equal.
+     *
+     * @param o
+     *            The other object
+     * @return True if both are equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (o != null && o instanceof HourlyWage) {
+            HourlyWage h = (HourlyWage) o;
+            return h.id == id && h.month == month &&
+                    h.qualification.equals(qualification) &&
+                    h.wage - wage <= 0.001 && h.year == year;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Generate a unique hashcode for this instance.
+     *
+     * @return The hashcode
+     */
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + (qualification != null ? qualification.hashCode() : 0);
+        hash = 37 * hash + month;
+        hash = 37 * hash + year;
+        hash = 37 * hash + (int) (Double.doubleToLongBits(wage) ^
+                (Double.doubleToLongBits(wage) >>> 32));
+        return hash;
+    }
+
+    /**
      * Get the month the wage is valid in.
      * 
      * @return The month the wage is valid in

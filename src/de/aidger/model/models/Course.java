@@ -88,6 +88,54 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     }
 
     /**
+     * Check if two objects are equal.
+     *
+     * @param o
+     *            The other object
+     * @return True if both are equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (o != null && o instanceof Course) {
+            Course c = (Course) o;
+            return c.id == id && c.description.equals(description) &&
+                    c.financeCategoryId == financeCategoryId &&
+                    c.group.equals(group) && c.lecturer.equals(lecturer) &&
+                    c.numberOfGroups == numberOfGroups && c.part == part &&
+                    c.remark.equals(remark) && c.scope.equals(scope) &&
+                    c.semester.equals(semester) &&
+                    c.targetAudience.equals(targetAudience) &&
+                    c.unqualifiedWorkingHours - unqualifiedWorkingHours <= 0.001;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Generate a unique hashcode for this instance.
+     *
+     * @return The hashcode
+     */
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 23 * hash + financeCategoryId;
+        hash = 23 * hash + (description != null ? description.hashCode() : 0);
+        hash = 23 * hash + (semester != null ? semester.hashCode() : 0);
+        hash = 23 * hash + (lecturer != null ? lecturer.hashCode() : 0);
+        hash = 23 * hash + numberOfGroups;
+        hash = 23 * hash + (targetAudience != null ?
+            targetAudience.hashCode() : 0);
+        hash = 23 * hash + (int) (Double.doubleToLongBits(unqualifiedWorkingHours)
+                ^ (Double.doubleToLongBits(unqualifiedWorkingHours) >>> 32));
+        hash = 23 * hash + (scope != null ? scope.hashCode() : 0);
+        hash = 23 * hash + part;
+        hash = 23 * hash + (group != null ? group.hashCode() : 0);
+        hash = 23 * hash + (remark != null ? remark.hashCode() : 0);
+        return hash;
+    }
+
+    /**
      * Get the description of the course
      *
      * @return The description of the course

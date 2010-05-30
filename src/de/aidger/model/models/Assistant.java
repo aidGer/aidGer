@@ -56,6 +56,41 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
     }
 
     /**
+     * Check if two objects are equal.
+     *
+     * @param o
+     *            The other object
+     * @return True if both are equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (o != null && o instanceof Assistant) {
+            Assistant a = (Assistant) o;
+            return a.firstName.equals(firstName) && a.id == id &&
+                    a.lastName.equals(lastName) &&
+                    a.qualification.equals(qualification);
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Generate a unique hashcode for this instance.
+     *
+     * @return The hashcode
+     */
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 19 * hash + (email != null ? email.hashCode() : 0);
+        hash = 19 * hash + (firstName != null ? firstName.hashCode() : 0);
+        hash = 19 * hash + (lastName != null ? lastName.hashCode() : 0);
+        hash = 19 * hash + (qualification != null ? qualification.hashCode()
+                : 0);
+        return hash;
+    }
+
+    /**
      * Get the email address of the assistant.
      *
      * @return The email address of the assistant
