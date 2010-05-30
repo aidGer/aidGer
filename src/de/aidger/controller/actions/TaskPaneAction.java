@@ -13,6 +13,7 @@ import de.aidger.view.UI;
 import de.aidger.view.tabs.EmptyTab;
 import de.aidger.view.tabs.MasterDataViewerTab;
 import de.aidger.view.tabs.Tab;
+import de.aidger.view.tabs.MasterDataViewerTab.MasterDataType;
 
 /**
  * Base class for all task pane actions.
@@ -73,10 +74,13 @@ public class TaskPaneAction extends AbstractAction implements MouseListener {
     private Tab getNewTab() {
         switch (task) {
         case ViewCourses:
+            return new MasterDataViewerTab(MasterDataType.Course);
         case ViewAssistants:
+            return new MasterDataViewerTab(MasterDataType.Assistant);
         case ViewFinancialCategories:
+            return new MasterDataViewerTab(MasterDataType.FinancialCategory);
         case ViewHourlyWages:
-            return new MasterDataViewerTab();
+            return new MasterDataViewerTab(MasterDataType.HourlyWage);
         case ViewEmpty:
             return new EmptyTab();
         case Void:

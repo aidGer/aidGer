@@ -1,8 +1,11 @@
 package de.aidger.utils;
 
+import static de.aidger.utils.Translation._;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.text.MessageFormat;
 import java.util.Properties;
 
 /**
@@ -30,6 +33,7 @@ public final class Configuration {
      */
     public Configuration(String path) {
         file = path + "settings.cfg";
+
         initialize();
     }
 
@@ -48,7 +52,7 @@ public final class Configuration {
             try {
                 File inputFile = new File(file);
                 FileInputStream inputStream = new FileInputStream(inputFile);
-                properties.loadFromXML(inputStream);
+                properties.load(inputStream);
                 inputStream.close();
             } catch (Exception e) {
                 createFile();
@@ -72,9 +76,13 @@ public final class Configuration {
             properties.setProperty("auto-open", "n");
             properties.setProperty("auto-save", "n");
             properties.setProperty("debug", "false");
-            properties.storeToXML(outputStream, "");
+            properties.store(outputStream, "");
             outputStream.close();
         } catch (Exception e) {
+            Logger
+                    .error(MessageFormat.format(
+                            _("Could not create file \"{0}\"."),
+                            new Object[] { file }));
         }
     }
 
@@ -99,14 +107,14 @@ public final class Configuration {
      */
     public void set(String option, String value) {
         properties.setProperty(option, value);
+
         try {
             File outputFile = new File(file);
             FileOutputStream outputStream = new FileOutputStream(outputFile);
-            properties.storeToXML(outputStream, "");
+            properties.store(outputStream, "");
             outputStream.close();
         } catch (Exception e) {
             createFile();
         }
     }
-
 }

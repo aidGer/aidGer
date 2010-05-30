@@ -17,3 +17,4 @@ controller/actions/SaveSettingsAction.java
 controller/ActionNotFoundException.java
 model/AbstractModel.java
 model/models/Activity.java
+utils/Configuration.java

@@ -5,14 +5,16 @@ import static de.aidger.utils.Translation._;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JMenu;
 import javax.swing.JPopupMenu;
 import javax.swing.table.TableColumn;
 
+import de.aidger.model.Runtime;
 import de.aidger.model.models.Course;
 import de.aidger.view.models.CourseTableModel;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
@@ -24,14 +26,22 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
  */
 @SuppressWarnings("serial")
 public class MasterDataViewerTab extends Tab {
+    public enum MasterDataType {
+        Course, Assistant, FinancialCategory, HourlyWage
+    }
 
-    int[][] tableHeaderSize;
+    private final int[][] tableHeaderSize;
+
+    private final List<String> hiddenColumns = new ArrayList<String>();
+
+    private final MasterDataType type;
 
     /**
      * Constructs a new master data viewer tab.
      */
     @SuppressWarnings("unchecked")
-    public MasterDataViewerTab() {
+    public MasterDataViewerTab(MasterDataType type) {
+        this.type = type;
         initComponents();
 
         Course c = new Course();
@@ -59,8 +69,31 @@ public class MasterDataViewerTab extends Tab {
         table.setDoubleBuffered(true);
         table.setFocusCycleRoot(true);
 
-        // column filtering
         tableHeaderSize = new int[table.getColumnCount()][3];
+
+        // column filtering
+        String[] hiddenColumns = Runtime.getInstance().getOptionArray(
+                "hiddenColumns" + type);
+
+        if (hiddenColumns == null) {
+            switch (type) {
+            case Course:
+                hiddenColumns = new String[] { "6", "7", "8", "9", "10" };
+                break;
+            default:
+                hiddenColumns = new String[] {};
+                break;
+            }
+
+            Runtime.getInstance().setOptionArray("hiddenColumns" + type,
+                    hiddenColumns);
+        }
+
+        for (int i = 0; i < hiddenColumns.length; ++i) {
+            if (!hiddenColumns[i].isEmpty()) {
+                toggleColumnVisibility(Integer.valueOf(hiddenColumns[i]));
+            }
+        }
 
         JPopupMenu headerMenu = new JPopupMenu();
 
@@ -76,24 +109,8 @@ public class MasterDataViewerTab extends Tab {
 
                     int index = table.getTableHeader().getColumnModel()
                             .getColumnIndex(cmd);
-                    TableColumn column = table.getTableHeader()
-                            .getColumnModel().getColumn(index);
 
-                    if (column.getPreferredWidth() != 0) {
-                        tableHeaderSize[index][0] = column.getPreferredWidth();
-                        tableHeaderSize[index][1] = column.getMinWidth();
-                        tableHeaderSize[index][2] = column.getMaxWidth();
-
-                        column.setMinWidth(0);
-                        column.setMaxWidth(0);
-                        column.setPreferredWidth(0);
-                    } else {
-                        column.setMinWidth(tableHeaderSize[index][1]);
-                        column.setMaxWidth(tableHeaderSize[index][2]);
-                        column.setPreferredWidth(tableHeaderSize[index][0]);
-
-                        column.sizeWidthToFit();
-                    }
+                    toggleColumnVisibility(index);
                 }
             });
 
@@ -117,6 +134,35 @@ public class MasterDataViewerTab extends Tab {
     @Override
     public String getName() {
         return _("Master Data");
+    }
+
+    private void toggleColumnVisibility(int index) {
+        TableColumn column = table.getTableHeader().getColumnModel().getColumn(
+                index);
+
+        if (column.getPreferredWidth() != 0) {
+            tableHeaderSize[index][0] = column.getPreferredWidth();
+            tableHeaderSize[index][1] = column.getMinWidth();
+            tableHeaderSize[index][2] = column.getMaxWidth();
+
+            column.setMinWidth(0);
+            column.setMaxWidth(0);
+            column.setPreferredWidth(0);
+
+            hiddenColumns.add(String.valueOf(index));
+        } else {
+            column.setMinWidth(tableHeaderSize[index][1]);
+            column.setMaxWidth(tableHeaderSize[index][2]);
+            column.setPreferredWidth(tableHeaderSize[index][0]);
+
+            column.sizeWidthToFit();
+
+            hiddenColumns.remove(String.valueOf(index));
+        }
+
+        Runtime.getInstance().setOptionArray("hiddenColumns" + type,
+                hiddenColumns.toArray(new String[0]));
+
     }
 
     /**

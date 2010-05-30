@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-27 23:48+0200\n"
+"POT-Creation-Date: 2010-05-28 23:25+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -215,57 +215,77 @@ msgstr "(Unbenannt)"
 msgid "Welcome"
 msgstr "Willkommen"
 
-#: view/tabs/MasterDataViewerTab.java:67
-msgid "Show/Hide Columns"
-msgstr "Spalten ein-/ausblenden"
-
-#: view/tabs/MasterDataViewerTab.java:123
+#: view/tabs/MasterDataViewerTab.java:121
 msgid "Master Data"
 msgstr "Stammdaten"
 
-#: view/tabs/MasterDataViewerTab.java:152
+#: view/tabs/MasterDataViewerTab.java:171
 msgid "View"
 msgstr "Anzeigen"
 
-#: view/tabs/MasterDataViewerTab.java:158
+#: view/tabs/MasterDataViewerTab.java:177
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: view/tabs/MasterDataViewerTab.java:164
+#: view/tabs/MasterDataViewerTab.java:183
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: view/tabs/MasterDataViewerTab.java:170
+#: view/tabs/MasterDataViewerTab.java:189
 msgid "Delete"
 msgstr "Löschen"
 
-#: view/tabs/MasterDataViewerTab.java:176
+#: view/tabs/MasterDataViewerTab.java:195
 msgid "Activites"
 msgstr "Vorgänge"
 
-#: view/tabs/MasterDataViewerTab.java:184
+#: view/tabs/MasterDataViewerTab.java:203
 msgid "Search"
 msgstr "Suchen"
 
-#: view/models/CourseTableModel.java:18
+#: view/models/CourseTableModel.java:23
 msgid "Description"
 msgstr "Bezeichnung"
 
-#: view/models/CourseTableModel.java:18
+#: view/models/CourseTableModel.java:23
 msgid "Semester"
 msgstr "Semester"
 
-#: view/models/CourseTableModel.java:19
+#: view/models/CourseTableModel.java:24
 msgid "Lecturer"
 msgstr "Dozent"
 
-#: view/models/CourseTableModel.java:19
+#: view/models/CourseTableModel.java:24
 msgid "Number of Groups"
 msgstr "Gruppenanzahl"
 
-#: view/models/CourseTableModel.java:19
+#: view/models/CourseTableModel.java:24
 msgid "Target Audience"
 msgstr "Zielpublikum"
+
+#: view/models/CourseTableModel.java:25
+msgid "Granted AWH"
+msgstr "Genehmigte HKS"
+
+#: view/models/CourseTableModel.java:25
+msgid "Scope"
+msgstr "Umfang"
+
+#: view/models/CourseTableModel.java:25
+msgid "Part"
+msgstr "Teil"
+
+#: view/models/CourseTableModel.java:25
+msgid "Group"
+msgstr "Gruppe"
+
+#: view/models/CourseTableModel.java:25
+msgid "Remark"
+msgstr "Bemerkung"
+
+#: view/models/CourseTableModel.java:26
+msgid "Financial Category"
+msgstr "Finanzkategorie"
 
 #: controller/actions/AbortAction.java:26
 msgid "Cancel"
@@ -363,6 +383,13 @@ msgstr "Ausnahme in getActivities(assistant): {0}"
 msgid "Caught exception in getActivities(course): {0}"
 msgstr "Ausnahme in getActivities(course): {0}"
 
+#: utils/Configuration.java:84
+#, java-format
+msgid "Could not create file \"{0}\"."
+msgstr "Die Datei \"{0}\" konnte nicht erstellt werden."
+
+#~ msgid "Show/Hide Columns"
+#~ msgstr "Spalten ein-/ausblenden"
 #~ msgid "Removing tab at position {0}"
 #~ msgstr "{0}. Tab gelöscht"
 #~ msgid "Adding new empty tab"

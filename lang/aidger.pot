@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-27 23:48+0200\n"
+"POT-Creation-Date: 2010-05-28 23:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -215,56 +215,76 @@ msgstr ""
 msgid "Welcome"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:67
-msgid "Show/Hide Columns"
-msgstr ""
-
-#: view/tabs/MasterDataViewerTab.java:123
+#: view/tabs/MasterDataViewerTab.java:121
 msgid "Master Data"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:152
+#: view/tabs/MasterDataViewerTab.java:171
 msgid "View"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:158
+#: view/tabs/MasterDataViewerTab.java:177
 msgid "Edit"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:164
+#: view/tabs/MasterDataViewerTab.java:183
 msgid "Add"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:170
+#: view/tabs/MasterDataViewerTab.java:189
 msgid "Delete"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:176
+#: view/tabs/MasterDataViewerTab.java:195
 msgid "Activites"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:184
+#: view/tabs/MasterDataViewerTab.java:203
 msgid "Search"
 msgstr ""
 
-#: view/models/CourseTableModel.java:18
+#: view/models/CourseTableModel.java:23
 msgid "Description"
 msgstr ""
 
-#: view/models/CourseTableModel.java:18
+#: view/models/CourseTableModel.java:23
 msgid "Semester"
 msgstr ""
 
-#: view/models/CourseTableModel.java:19
+#: view/models/CourseTableModel.java:24
 msgid "Lecturer"
 msgstr ""
 
-#: view/models/CourseTableModel.java:19
+#: view/models/CourseTableModel.java:24
 msgid "Number of Groups"
 msgstr ""
 
-#: view/models/CourseTableModel.java:19
+#: view/models/CourseTableModel.java:24
 msgid "Target Audience"
+msgstr ""
+
+#: view/models/CourseTableModel.java:25
+msgid "Granted AWH"
+msgstr ""
+
+#: view/models/CourseTableModel.java:25
+msgid "Scope"
+msgstr ""
+
+#: view/models/CourseTableModel.java:25
+msgid "Part"
+msgstr ""
+
+#: view/models/CourseTableModel.java:25
+msgid "Group"
+msgstr ""
+
+#: view/models/CourseTableModel.java:25
+msgid "Remark"
+msgstr ""
+
+#: view/models/CourseTableModel.java:26
+msgid "Financial Category"
 msgstr ""
 
 #: controller/actions/AbortAction.java:26
@@ -361,4 +381,9 @@ msgstr ""
 #: model/models/Activity.java:131
 #, java-format
 msgid "Caught exception in getActivities(course): {0}"
+msgstr ""
+
+#: utils/Configuration.java:84
+#, java-format
+msgid "Could not create file \"{0}\"."
 msgstr ""
