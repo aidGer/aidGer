@@ -130,6 +130,8 @@ public abstract class AbstractModel<T> extends Observable implements
             getManager().remove(this);
             clearChanged();
             notifyObservers();
+
+            setId(-1);
         }
     }
 
