@@ -48,7 +48,6 @@ public class AbstractModelTest {
 
         Course c = new Course();
         c.save();
-        System.out.println(c.getId());
 
         Course course = (Course) c.getById(c.getId());
 
@@ -60,13 +59,14 @@ public class AbstractModelTest {
      * Test of getByKeys method, of class AbstractModel.
      */
     @Test
-    public void testGetByKeys() {
+    public void testGetByKeys() throws AdoHiveException {
         System.out.println("getByKeys");
 
         HourlyWage h = new HourlyWage();
         h.setQualification("Tester");
         h.setMonth((byte) 10);
         h.setYear((short) 2010);
+        h.save();
 
         HourlyWage result = (HourlyWage) h.getByKeys("Tester", 10, 2010);
 
