@@ -48,6 +48,18 @@ public class AssistantTest {
         Assistant result = assistant.clone();
 
         assertEquals(assistant, result);
+        assertFalse(assistant.equals(new Object()));
+    }
+
+    /**
+     * Test of hashCode method, of class Assistant.
+     */
+    @Test
+    public void testHashCode() {
+        System.out.println("hashCode");
+        Assistant result = assistant.clone();
+
+        assertEquals(assistant.hashCode(), result.hashCode());
     }
 
 }

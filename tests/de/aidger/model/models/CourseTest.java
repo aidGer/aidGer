@@ -62,6 +62,18 @@ public class CourseTest {
         Course result = course.clone();
 
         assertEquals(course, result);
+        assertFalse(course.equals(new Object()));
+    }
+
+    /**
+     * Test of hashCode method, of class Assistant.
+     */
+    @Test
+    public void testHashCode() {
+        System.out.println("hashCode");
+        Course result = course.clone();
+
+        assertEquals(course.hashCode(), result.hashCode());
     }
 
 }

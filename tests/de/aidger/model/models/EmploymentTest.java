@@ -60,6 +60,18 @@ public class EmploymentTest {
         Employment result = employment.clone();
 
         assertEquals(employment, result);
+        assertFalse(employment.equals(new Object()));
+    }
+
+    /**
+     * Test of hashCode method, of class Assistant.
+     */
+    @Test
+    public void testHashCode() {
+        System.out.println("hashCode");
+        Employment result = employment.clone();
+
+        assertEquals(employment.hashCode(), result.hashCode());
     }
 
     /**

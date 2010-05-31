@@ -48,6 +48,18 @@ public class HourlyWageTest {
         HourlyWage result = hourly.clone();
 
         assertEquals(hourly, result);
+        assertFalse(hourly.equals(new Object()));
+    }
+
+    /**
+     * Test of hashCode method, of class Assistant.
+     */
+    @Test
+    public void testHashCode() {
+        System.out.println("hashCode");
+        HourlyWage result = hourly.clone();
+
+        assertEquals(hourly.hashCode(), result.hashCode());
     }
 
 }

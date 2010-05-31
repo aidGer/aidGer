@@ -54,6 +54,18 @@ public class ContractTest {
         Contract result = contract.clone();
 
         assertEquals(contract, result);
+        assertFalse(contract.equals(new Object()));
+    }
+
+    /**
+     * Test of hashCode method, of class Contract.
+     */
+    @Test
+    public void testHashCode() {
+        System.out.println("hashCode");
+        Contract result = contract.clone();
+
+        assertEquals(contract.hashCode(), result.hashCode());
     }
 
 }

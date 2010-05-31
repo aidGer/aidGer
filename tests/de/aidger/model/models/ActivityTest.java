@@ -19,11 +19,6 @@ public class ActivityTest {
 
     private Activity activity = null;
 
-    @org.junit.BeforeClass
-    public static void beforeClass() {
-        de.aidger.model.Runtime.getInstance().initialize();
-    }
-
     /**
      * Sets the Activity class up for tests.
      */
@@ -71,7 +66,20 @@ public class ActivityTest {
         Activity result = activity.clone();
         
         assertEquals(activity, result);
+        assertFalse(activity.equals(new Object()));
     }
+
+    /**
+     * Test of hashCode method, of class Activity.
+     */
+    @Test
+    public void testHashCode() {
+        System.out.println("hashCode");
+        Activity result = activity.clone();
+
+        assertEquals(activity.hashCode(), result.hashCode());
+    }
+    
     /**
      * Test of getActivities method, of class Activity.
      */
@@ -85,6 +93,7 @@ public class ActivityTest {
         activity.setAssistantId(assistant.getId());
         activity.setId(-1);
         activity.save();
+
         List result = activity.getActivities(assistant);
 
         assertNotNull(result);

@@ -24,6 +24,9 @@ public class ValidatorTest {
                 new String[] { "test", "name" });
 
         assertTrue(valid.validate());
+
+        valid = new ValidatorImpl(model, new String[] { "notdefined" });
+        assertFalse(valid.validate());
     }
 
     public class ValidatorImpl extends Validator {

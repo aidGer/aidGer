@@ -48,6 +48,18 @@ public class FinancialCategoryTest {
         FinancialCategory result = financial.clone();
 
         assertEquals(financial, result);
+        assertFalse(financial.equals(new Object()));
+    }
+
+    /**
+     * Test of hashCode method, of class Assistant.
+     */
+    @Test
+    public void testHashCode() {
+        System.out.println("hashCode");
+        FinancialCategory result = financial.clone();
+
+        assertEquals(financial.hashCode(), result.hashCode());
     }
 
 }
