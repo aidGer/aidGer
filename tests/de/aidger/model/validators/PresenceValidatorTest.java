@@ -27,4 +27,15 @@ public class PresenceValidatorTest {
         assertTrue(val.validateVar("Test"));
     }
 
+    /**
+     * Test of validate method, of class PresenceValidator.
+     */
+    @Test
+    public void testValidate() {
+        System.out.println("validate");
+
+        assertFalse(PresenceValidator.validate(null));
+        assertTrue(PresenceValidator.validate(this));
+    }
+
 }
