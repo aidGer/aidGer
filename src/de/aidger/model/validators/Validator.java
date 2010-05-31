@@ -44,13 +44,14 @@ public abstract class Validator {
      * @return True if it validates
      */
     public boolean validate() {
+        boolean ret = true;
         for(String member : members) {
             Object value = getValueOf(member);
             if (!validateVar(value)) {
-                return false;
+                ret = false;
             }
         }
-        return true;
+        return ret;
     }
 
     /**
@@ -68,7 +69,7 @@ public abstract class Validator {
      * @param name The name of the member variable
      * @return The value of the member variable or null
      */
-    public Object getValueOf(String name) {
+    protected Object getValueOf(String name) {
         String functionname = "get" + name.substring(0,1).toUpperCase() +
                 name.substring(1);
         try {
@@ -77,7 +78,7 @@ public abstract class Validator {
             return m.invoke(model, new Object[0]);
         } catch (Exception ex) {
             try {
-                return model.getClass().getField(name);
+                return model.getClass().getField(name).get(model);
             } catch (Exception e) {
                 return null;
             }
