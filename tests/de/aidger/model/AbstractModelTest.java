@@ -68,6 +68,7 @@ public class AbstractModelTest {
         h.setYear((short) 2010);
         h.save();
 
+        //TODO: Wait for good documentation. Current one doesn't specify correct keys
         HourlyWage result = (HourlyWage) h.getByKeys("Tester", 10, 2010);
 
         assertNotNull(result);
@@ -86,6 +87,13 @@ public class AbstractModelTest {
 
         assertTrue(c.getId() > 0);
         assertEquals(c, c.getById(c.getId()));
+
+        c.setDescription("Test");
+        c.save();
+
+        Course result = (Course) c.getById(c.getId());
+
+        assertEquals(c.getDescription(), result.getDescription());
     }
 
     /**
