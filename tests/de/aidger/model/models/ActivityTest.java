@@ -94,6 +94,7 @@ public class ActivityTest {
         activity.setId(-1);
         activity.save();
 
+        //TODO: Currently not implemented by AdoHive
         List result = activity.getActivities(assistant);
 
         assertNotNull(result);
@@ -114,6 +115,7 @@ public class ActivityTest {
         activity.setId(-1);
         activity.save();
 
+        //TODO: Currently not implemented by AdoHive
         List result = activity.getActivities(course);
 
         assertNotNull(result);

@@ -69,7 +69,8 @@ public class AbstractModelTest {
         h.save();
 
         //TODO: Wait for good documentation. Current one doesn't specify correct keys
-        HourlyWage result = (HourlyWage) h.getByKeys("Tester", 10, 2010);
+        HourlyWage result = (HourlyWage) h.getByKeys("Tester", (byte) 10,
+                (short) 2010);
 
         assertNotNull(result);
         assertEquals(h, result);

@@ -86,6 +86,7 @@ public class EmploymentTest {
         employment.setId(-1);
         employment.save();
 
+        //TODO: Currently not implemented by AdoHive
         List result = employment.getEmployments(start, end);
 
         assertNotNull(result);
@@ -103,6 +104,7 @@ public class EmploymentTest {
         employment.setId(-1);
         employment.save();
 
+        //TODO: Currently not implemented by AdoHive
         List result = employment.getEmployments(semester);
 
         assertNotNull(result);
