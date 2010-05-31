@@ -41,8 +41,7 @@ public class Translation {
         File languagePath = new File(filePath);
         if ((!languagePath.exists() || !languagePath.isDirectory())
                 && !languagePath.mkdirs()) {
-            System.err.println("Konnte Verzeichnis für Übersetzung nicht "
-                    + "erstellen");
+            System.err.println("Couldn't create directory for translations.");
         }
 
         /* Load the language file */
