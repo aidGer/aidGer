@@ -1,10 +1,6 @@
 package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
-import de.aidger.controller.ActionNotFoundException;
-import de.aidger.controller.ActionRegistry;
-import de.aidger.controller.actions.AbortAction;
-import de.aidger.view.UI;
 
 /**
  * A Tab for editing/creating new courses.
@@ -20,13 +16,6 @@ public class CourseEditorTab extends Tab {
      */
     public CourseEditorTab() {
         initComponents();
-
-        try {
-            jButton1.setAction(ActionRegistry.getInstance().get(
-                    AbortAction.class.getName()));
-        } catch (ActionNotFoundException e) {
-            UI.displayError(e.getMessage());
-        }
     }
 
     /*
@@ -46,442 +35,234 @@ public class CourseEditorTab extends Tab {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed"
-    // desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jSpinner1 = new javax.swing.JSpinner();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
+        lblDescription = new javax.swing.JLabel();
+        lblSemester = new javax.swing.JLabel();
+        lblLecturer = new javax.swing.JLabel();
+        lblNumberOfGroups = new javax.swing.JLabel();
+        lblTargetAudience = new javax.swing.JLabel();
+        lblGrantedAWH = new javax.swing.JLabel();
+        txtDescription = new javax.swing.JTextField();
+        txtSemester = new javax.swing.JTextField();
+        txtLecturer = new javax.swing.JTextField();
+        txtTargetAudience = new javax.swing.JTextField();
+        txtGrantedAWH = new javax.swing.JTextField();
+        lblScope = new javax.swing.JLabel();
+        lblPart = new javax.swing.JLabel();
+        lblGroup = new javax.swing.JLabel();
+        lblRemark = new javax.swing.JLabel();
+        lblFinancialCategory = new javax.swing.JLabel();
+        filler = new javax.swing.JLabel();
+        filler2 = new javax.swing.JLabel();
+        txtScope = new javax.swing.JTextField();
+        txtPart = new javax.swing.JTextField();
+        txtGroup = new javax.swing.JTextField();
+        txtRemark = new javax.swing.JTextField();
+        buttons = new javax.swing.JPanel();
+        btnSave = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
 
-        jButton1.setText("Abbrechen");
+        setLayout(new java.awt.GridBagLayout());
 
-        jButton2.setText("Speichern");
+        lblDescription.setText(_("Description"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblDescription, gridBagConstraints);
 
-        jLabel1.setText(_("Title") + ":");
+        lblSemester.setText(_("Semester"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblSemester, gridBagConstraints);
 
-        jLabel2.setText(_("Semester") + ":");
+        lblLecturer.setText(_("Lecturer"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblLecturer, gridBagConstraints);
 
-        jLabel3.setText(_("Lecturer") + ":");
+        lblNumberOfGroups.setText(_("Number of Groups"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblNumberOfGroups, gridBagConstraints);
 
-        jLabel4.setText(_("Number of Groups") + ":");
+        lblTargetAudience.setText(_("Target Audience"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblTargetAudience, gridBagConstraints);
 
-        jLabel5.setText(_("Target audience") + ":");
+        lblGrantedAWH.setText(_("Granted AWH"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblGrantedAWH, gridBagConstraints);
 
-        jLabel6.setText(_("Approved HKS") + ":");
+        txtDescription.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtDescription, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(
-                jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(
-                javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-                jPanel1Layout.createSequentialGroup().addGroup(
-                        jPanel1Layout.createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1).addComponent(jLabel2)
-                                .addComponent(jLabel3).addComponent(jLabel4)
-                                .addComponent(jLabel5).addComponent(jLabel6))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
-                                Short.MAX_VALUE)));
-        jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(
-                javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-                jPanel1Layout.createSequentialGroup().addComponent(jLabel1)
-                        .addGap(18, 18, 18).addComponent(jLabel2).addGap(18,
-                                18, 18).addComponent(jLabel3)
-                        .addGap(18, 18, 18).addComponent(jLabel4).addGap(18,
-                                18, 18).addComponent(jLabel5)
-                        .addGap(18, 18, 18).addComponent(jLabel6)
-                        .addContainerGap(1, Short.MAX_VALUE)));
+        txtSemester.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtSemester, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(
-                jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout
-                .setHorizontalGroup(jPanel2Layout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(
-                                jPanel2Layout
-                                        .createParallelGroup(
-                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(
-                                                jSpinner1,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(
-                                                jPanel2Layout
-                                                        .createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(
-                                                                jTextField1,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                120,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(
-                                                                jTextField2,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                120,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(
-                                                                jTextField3,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                120,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(
-                                                                jTextField4,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                120,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(
-                                                                jTextField5,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                120,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))));
-        jPanel2Layout
-                .setVerticalGroup(jPanel2Layout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(
-                                jPanel2Layout
-                                        .createSequentialGroup()
-                                        .addComponent(
-                                                jTextField1,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(
-                                                jTextField2,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(
-                                                jTextField3,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(
-                                                jSpinner1,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(11, 11, 11)
-                                        .addComponent(
-                                                jTextField4,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(
-                                                jTextField5,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)));
+        txtLecturer.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtLecturer, gridBagConstraints);
 
-        jLabel8.setText(_("Part") + ":");
+        txtTargetAudience.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtTargetAudience, gridBagConstraints);
 
-        jLabel7.setText(_("Complexity") + ":");
+        txtGrantedAWH.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtGrantedAWH, gridBagConstraints);
 
-        jLabel9.setText(_("Group") + ":");
+        lblScope.setText(_("Scope"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        add(lblScope, gridBagConstraints);
 
-        jLabel10.setText(_("Comment") + ":");
+        lblPart.setText(_("Part"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        add(lblPart, gridBagConstraints);
 
-        jLabel11.setText(_("Financial Category") + ":");
+        lblGroup.setText(_("Group"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        add(lblGroup, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(
-                jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout
-                .setHorizontalGroup(jPanel3Layout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(
-                                jPanel3Layout
-                                        .createSequentialGroup()
-                                        .addGroup(
-                                                jPanel3Layout
-                                                        .createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel7)
-                                                        .addComponent(jLabel8)
-                                                        .addComponent(jLabel9)
-                                                        .addComponent(jLabel10)
-                                                        .addComponent(jLabel11))
-                                        .addContainerGap(
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE)));
-        jPanel3Layout.setVerticalGroup(jPanel3Layout.createParallelGroup(
-                javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-                jPanel3Layout.createSequentialGroup().addComponent(jLabel7)
-                        .addGap(18, 18, 18).addComponent(jLabel8).addGap(18,
-                                18, 18).addComponent(jLabel9)
-                        .addGap(18, 18, 18).addComponent(jLabel10).addGap(18,
-                                18, 18).addComponent(jLabel11)));
+        lblRemark.setText(_("Remark"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        add(lblRemark, gridBagConstraints);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
-                "Item 1", "Item 2", "Item 3", "Item 4" }));
+        lblFinancialCategory.setText(_("Group"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        add(lblFinancialCategory, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 8;
+        gridBagConstraints.weightx = 1.0;
+        add(filler, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.weighty = 1.0;
+        add(filler2, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(
-                jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(jPanel4Layout.createParallelGroup(
-                javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-                jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 120,
-                Short.MAX_VALUE).addComponent(jTextField8,
-                javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                .addComponent(jTextField9,
-                        javax.swing.GroupLayout.DEFAULT_SIZE, 120,
-                        Short.MAX_VALUE).addComponent(jComboBox1, 0, 120,
-                        Short.MAX_VALUE).addComponent(jTextField6,
-                        javax.swing.GroupLayout.DEFAULT_SIZE, 120,
-                        Short.MAX_VALUE));
-        jPanel4Layout
-                .setVerticalGroup(jPanel4Layout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(
-                                jPanel4Layout
-                                        .createSequentialGroup()
-                                        .addComponent(
-                                                jTextField6,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(11, 11, 11)
-                                        .addComponent(
-                                                jTextField7,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(
-                                                jTextField8,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(
-                                                jTextField9,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(
-                                                jComboBox1,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)));
+        txtScope.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtScope, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(
-                jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout
-                .setHorizontalGroup(jPanel5Layout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(
-                                javax.swing.GroupLayout.Alignment.TRAILING,
-                                jPanel5Layout
-                                        .createSequentialGroup()
-                                        .addContainerGap(
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE)
-                                        .addComponent(
-                                                jPanel1,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(
-                                                jPanel2,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(
-                                                jPanel3,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(
-                                                jPanel4,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addContainerGap()));
-        jPanel5Layout
-                .setVerticalGroup(jPanel5Layout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(
-                                jPanel5Layout
-                                        .createSequentialGroup()
-                                        .addContainerGap()
-                                        .addGroup(
-                                                jPanel5Layout
-                                                        .createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(
-                                                                jPanel3,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(
-                                                                jPanel4,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGroup(
-                                                                jPanel5Layout
-                                                                        .createSequentialGroup()
-                                                                        .addGroup(
-                                                                                jPanel5Layout
-                                                                                        .createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                                false)
-                                                                                        .addComponent(
-                                                                                                jPanel2,
-                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE)
-                                                                                        .addComponent(
-                                                                                                jPanel1,
-                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                175,
-                                                                                                Short.MAX_VALUE))
-                                                                        .addGap(
-                                                                                272,
-                                                                                272,
-                                                                                272)))
-                                        .addContainerGap()));
+        txtPart.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtPart, gridBagConstraints);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout
-                .setHorizontalGroup(layout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(
-                                layout
-                                        .createSequentialGroup()
-                                        .addContainerGap()
-                                        .addGroup(
-                                                layout
-                                                        .createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addGroup(
-                                                                layout
-                                                                        .createSequentialGroup()
-                                                                        .addComponent(
-                                                                                jButton2)
-                                                                        .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                        .addComponent(
-                                                                                jButton1))
-                                                        .addComponent(
-                                                                jPanel5,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addContainerGap(
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE)));
-        layout
-                .setVerticalGroup(layout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(
-                                layout
-                                        .createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(
-                                                jPanel5,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                196,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(
-                                                layout
-                                                        .createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jButton1)
-                                                        .addComponent(jButton2))
-                                        .addContainerGap(
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE)));
+        txtGroup.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtGroup, gridBagConstraints);
+
+        txtRemark.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtRemark, gridBagConstraints);
+
+        btnSave.setText(_("Save"));
+        buttons.add(btnSave);
+
+        btnCancel.setText(_("Cancel"));
+        buttons.add(btnCancel);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 6;
+        add(buttons, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JPanel buttons;
+    private javax.swing.JLabel filler;
+    private javax.swing.JLabel filler2;
+    private javax.swing.JLabel lblDescription;
+    private javax.swing.JLabel lblFinancialCategory;
+    private javax.swing.JLabel lblGrantedAWH;
+    private javax.swing.JLabel lblGroup;
+    private javax.swing.JLabel lblLecturer;
+    private javax.swing.JLabel lblNumberOfGroups;
+    private javax.swing.JLabel lblPart;
+    private javax.swing.JLabel lblRemark;
+    private javax.swing.JLabel lblScope;
+    private javax.swing.JLabel lblSemester;
+    private javax.swing.JLabel lblTargetAudience;
+    private javax.swing.JTextField txtDescription;
+    private javax.swing.JTextField txtGrantedAWH;
+    private javax.swing.JTextField txtGroup;
+    private javax.swing.JTextField txtLecturer;
+    private javax.swing.JTextField txtPart;
+    private javax.swing.JTextField txtRemark;
+    private javax.swing.JTextField txtScope;
+    private javax.swing.JTextField txtSemester;
+    private javax.swing.JTextField txtTargetAudience;
     // End of variables declaration//GEN-END:variables
 
 }

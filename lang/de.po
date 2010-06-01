@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-01 12:32+0200\n"
+"POT-Creation-Date: 2010-06-01 19:15+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -57,7 +57,7 @@ msgid "File"
 msgstr "Datei"
 
 #: view/UI.java:404
-#: controller/actions/HelpAction.java:23
+#: controller/actions/HelpAction.java:24
 msgid "Help"
 msgstr "Hilfe"
 
@@ -166,7 +166,7 @@ msgid "Ready"
 msgstr "Bereit"
 
 #: view/SettingsDialog.java:163
-#: controller/actions/SettingsAction.java:26
+#: controller/actions/SettingsAction.java:27
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -215,47 +215,48 @@ msgstr "(Unbenannt)"
 msgid "Welcome"
 msgstr "Willkommen"
 
-#: view/tabs/MasterDataViewerTab.java:137
+#: view/tabs/MasterDataViewerTab.java:206
 msgid "Master Data Courses"
 msgstr "Stammdaten Veranstaltungen"
 
-#: view/tabs/MasterDataViewerTab.java:139
+#: view/tabs/MasterDataViewerTab.java:208
 msgid "Master Data Assistants"
 msgstr "Stammdaten Hilfskräfte"
 
-#: view/tabs/MasterDataViewerTab.java:141
+#: view/tabs/MasterDataViewerTab.java:210
 msgid "Master Data Financial Categories"
 msgstr "Stammdaten Finanzkategorien"
 
-#: view/tabs/MasterDataViewerTab.java:143
+#: view/tabs/MasterDataViewerTab.java:212
 msgid "Master Data Hourly Wages"
 msgstr "Stammdaten Stundenlöhne"
 
-#: view/tabs/MasterDataViewerTab.java:145
+#: view/tabs/MasterDataViewerTab.java:214
 msgid "Master Data"
 msgstr "Stammdaten"
 
-#: view/tabs/MasterDataViewerTab.java:205
+#: view/tabs/MasterDataViewerTab.java:307
 msgid "View"
 msgstr "Anzeigen"
 
-#: view/tabs/MasterDataViewerTab.java:216
+#: view/tabs/MasterDataViewerTab.java:313
+#: controller/actions/MasterDataEditAction.java:35
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: view/tabs/MasterDataViewerTab.java:227
+#: view/tabs/MasterDataViewerTab.java:319
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: view/tabs/MasterDataViewerTab.java:238
+#: view/tabs/MasterDataViewerTab.java:325
 msgid "Delete"
 msgstr "Löschen"
 
-#: view/tabs/MasterDataViewerTab.java:249
+#: view/tabs/MasterDataViewerTab.java:331
 msgid "Activites"
 msgstr "Vorgänge"
 
-#: view/tabs/MasterDataViewerTab.java:264
+#: view/tabs/MasterDataViewerTab.java:341
 msgid "Search"
 msgstr "Suchen"
 
@@ -267,12 +268,12 @@ msgstr "Vorname"
 msgid "Last Name"
 msgstr "Nachname"
 
-#: view/models/AssistantTableModel.java:24
+#: view/models/AssistantTableModel.java:23
 msgid "Email"
 msgstr "Email"
 
 #: view/models/AssistantTableModel.java:24
-#: view/models/HourlyWageTableModel.java:23
+#: view/models/HourlyWageTableModel.java:22
 msgid "Qualification"
 msgstr "Qualifikation"
 
@@ -284,7 +285,7 @@ msgstr "Bezeichnung"
 msgid "Semester"
 msgstr "Semester"
 
-#: view/models/CourseTableModel.java:24
+#: view/models/CourseTableModel.java:23
 msgid "Lecturer"
 msgstr "Dozent"
 
@@ -296,7 +297,7 @@ msgstr "Gruppenanzahl"
 msgid "Target Audience"
 msgstr "Zielpublikum"
 
-#: view/models/CourseTableModel.java:25
+#: view/models/CourseTableModel.java:24
 msgid "Granted AWH"
 msgstr "Genehmigte HKS"
 
@@ -328,20 +329,20 @@ msgstr "Name"
 msgid "Budget Costs"
 msgstr "Budgetkosten"
 
-#: view/models/FinancialCategoryTableModel.java:25
+#: view/models/FinancialCategoryTableModel.java:24
 msgid "Fonds"
 msgstr "Fonds"
 
 #: view/models/FinancialCategoryTableModel.java:25
-#: view/models/HourlyWageTableModel.java:24
+#: view/models/HourlyWageTableModel.java:22
 msgid "Year"
 msgstr "Jahr"
 
-#: view/models/HourlyWageTableModel.java:23
+#: view/models/HourlyWageTableModel.java:22
 msgid "Month"
 msgstr "Monat"
 
-#: view/models/HourlyWageTableModel.java:24
+#: view/models/HourlyWageTableModel.java:23
 msgid "Wage"
 msgstr "Lohn"
 
@@ -361,23 +362,23 @@ msgstr "Über"
 msgid "Show about informations"
 msgstr "Programminformationen anzeigen"
 
-#: controller/actions/ExitAction.java:23
+#: controller/actions/ExitAction.java:24
 msgid "Quit"
 msgstr "Beenden"
 
-#: controller/actions/ExitAction.java:26
+#: controller/actions/ExitAction.java:27
 msgid "Quit the program"
 msgstr "Programm beenden"
 
-#: controller/actions/HelpAction.java:26
+#: controller/actions/HelpAction.java:27
 msgid "Display the help"
 msgstr "Hilfe anzeigen"
 
-#: controller/actions/HomepageAction.java:25
+#: controller/actions/HomepageAction.java:24
 msgid "Homepage"
 msgstr "Homepage"
 
-#: controller/actions/HomepageAction.java:26
+#: controller/actions/HomepageAction.java:25
 msgid "Open homepage"
 msgstr "Homepage öffnen"
 
@@ -393,33 +394,37 @@ msgstr "Programminhalt drucken"
 msgid "Print current tab"
 msgstr "Momentanen Reiter ausdrucken"
 
-#: controller/actions/SettingsAction.java:29
+#: controller/actions/SettingsAction.java:30
 msgid "Display program settings"
 msgstr "Programmeinstellungen anzeigen"
 
-#: controller/actions/SaveSettingsAction.java:30
+#: controller/actions/SaveSettingsAction.java:29
 msgid "Save"
 msgstr "Speichern"
 
-#: controller/actions/SaveSettingsAction.java:31
+#: controller/actions/SaveSettingsAction.java:30
 msgid "Save settings"
 msgstr "Einstellungen speichern"
 
-#: controller/actions/SaveSettingsAction.java:43
+#: controller/actions/SaveSettingsAction.java:45
 msgid "Username is empty."
 msgstr "Name ist leer."
 
-#: controller/actions/SaveSettingsAction.java:51
+#: controller/actions/SaveSettingsAction.java:53
 msgid "PDF Viewer points to nonexistant file."
 msgstr "PDF Anzeiger verweist auf nicht existierende Datei."
 
-#: controller/actions/SaveSettingsAction.java:58
+#: controller/actions/SaveSettingsAction.java:61
 msgid "No Language selected or incorrect language selected."
 msgstr "Keine oder falsche Sprache ausgewählt."
 
-#: controller/actions/SaveSettingsAction.java:67
+#: controller/actions/SaveSettingsAction.java:71
 msgid "The number of activities needs to be bigger than 0."
 msgstr "Die Anzahl an Aktivitäten muss größer als 0 sein."
+
+#: controller/actions/MasterDataEditAction.java:81
+msgid "Please select an entry from the table."
+msgstr "Bitte einen Eintrag aus der Tabelle auswählen."
 
 #: controller/ActionNotFoundException.java:15
 #, java-format
