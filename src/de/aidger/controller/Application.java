@@ -4,8 +4,10 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
-import de.aidger.controller.actions.AbortAction;
 import de.aidger.controller.actions.AboutAction;
+import de.aidger.controller.actions.CourseEditorCancelAction;
+import de.aidger.controller.actions.CourseEditorSaveAction;
+import de.aidger.controller.actions.DialogAbortAction;
 import de.aidger.controller.actions.ExitAction;
 import de.aidger.controller.actions.HelpAction;
 import de.aidger.controller.actions.HomepageAction;
@@ -71,12 +73,14 @@ public final class Application {
         ActionRegistry.getInstance().register(new HelpAction());
         ActionRegistry.getInstance().register(new HomepageAction());
         ActionRegistry.getInstance().register(new AboutAction());
-        ActionRegistry.getInstance().register(new AbortAction());
+        ActionRegistry.getInstance().register(new DialogAbortAction());
         ActionRegistry.getInstance().register(new MasterDataViewAction());
         ActionRegistry.getInstance().register(new MasterDataEditAction());
         ActionRegistry.getInstance().register(new MasterDataAddAction());
         ActionRegistry.getInstance().register(new MasterDataDeleteAction());
         ActionRegistry.getInstance().register(new MasterDataActivitiesAction());
+        ActionRegistry.getInstance().register(new CourseEditorSaveAction());
+        ActionRegistry.getInstance().register(new CourseEditorCancelAction());
     }
 
     /**

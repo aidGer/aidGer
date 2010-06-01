@@ -3,7 +3,7 @@ package de.aidger.view.tabs;
 import static de.aidger.utils.Translation._;
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
-import de.aidger.controller.actions.AbortAction;
+import de.aidger.controller.actions.DialogAbortAction;
 import de.aidger.view.UI;
 
 /**
@@ -23,7 +23,7 @@ public class AssistantViewerTab extends Tab {
         initComponents();
         try {
             jButton1.setAction(ActionRegistry.getInstance().get(
-                    AbortAction.class.getName()));
+                    DialogAbortAction.class.getName()));
         } catch (ActionNotFoundException e) {
             UI.displayError(e.getMessage());
         }

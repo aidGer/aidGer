@@ -17,12 +17,12 @@ import javax.swing.KeyStroke;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class AbortAction extends AbstractAction {
+public class DialogAbortAction extends AbstractAction {
 
     /**
      * Initializes the action.
      */
-    public AbortAction() {
+    public DialogAbortAction() {
         putValue(Action.NAME, _("Cancel"));
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_A,
                 ActionEvent.CTRL_MASK));

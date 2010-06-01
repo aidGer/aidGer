@@ -1,9 +1,15 @@
 package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
+import de.aidger.controller.ActionNotFoundException;
+import de.aidger.controller.ActionRegistry;
+import de.aidger.controller.actions.CourseEditorCancelAction;
+import de.aidger.controller.actions.CourseEditorSaveAction;
+import de.aidger.model.models.Course;
+import de.aidger.view.UI;
 
 /**
- * A Tab for editing/creating new courses.
+ * A tab for editing / creating new courses.
  * 
  * @author aidGer Team
  */
@@ -11,11 +17,49 @@ import static de.aidger.utils.Translation._;
 public class CourseEditorTab extends Tab {
 
     /**
-     * Initializes a new CourseEditorTab with the required fields for all
-     * relevant data.
+     * Constructs a course editor tab.
      */
     public CourseEditorTab() {
+        init();
+    }
+
+    /**
+     * Constructs a course editor tab.
+     * 
+     * @param course
+     *            The course that will be edited
+     */
+    public CourseEditorTab(Course course) {
+        init();
+
+        txtDescription.setText(course.getDescription());
+        txtSemester.setText(course.getSemester());
+        txtLecturer.setText(course.getLecturer());
+        txtTargetAudience.setText(course.getTargetAudience());
+        spNumberOfGroups.setValue(course.getNumberOfGroups());
+        txtGrantedAWH.setText(String.valueOf(course
+                .getUnqualifiedWorkingHours()));
+        txtScope.setText(course.getScope());
+        txtPart.setText(String.valueOf(course.getPart()));
+        txtGroup.setText(course.getGroup());
+        txtRemark.setText(course.getRemark());
+    }
+
+    /**
+     * Initializes the components and actions.
+     */
+    private void init() {
         initComponents();
+
+        // init the button actions
+        try {
+            btnSave.setAction(ActionRegistry.getInstance().get(
+                    CourseEditorSaveAction.class.getName()));
+            btnCancel.setAction(ActionRegistry.getInstance().get(
+                    CourseEditorCancelAction.class.getName()));
+        } catch (ActionNotFoundException e) {
+            UI.displayError(e.getMessage());
+        }
     }
 
     /*
@@ -36,7 +80,11 @@ public class CourseEditorTab extends Tab {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
+    // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -49,6 +97,7 @@ public class CourseEditorTab extends Tab {
         txtDescription = new javax.swing.JTextField();
         txtSemester = new javax.swing.JTextField();
         txtLecturer = new javax.swing.JTextField();
+        spNumberOfGroups = new javax.swing.JSpinner();
         txtTargetAudience = new javax.swing.JTextField();
         txtGrantedAWH = new javax.swing.JTextField();
         lblScope = new javax.swing.JLabel();
@@ -62,6 +111,7 @@ public class CourseEditorTab extends Tab {
         txtPart = new javax.swing.JTextField();
         txtGroup = new javax.swing.JTextField();
         txtRemark = new javax.swing.JTextField();
+        cmbFinancialCategory = new javax.swing.JComboBox();
         buttons = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
@@ -132,6 +182,12 @@ public class CourseEditorTab extends Tab {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtLecturer, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(spNumberOfGroups, gridBagConstraints);
 
         txtTargetAudience.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -177,7 +233,7 @@ public class CourseEditorTab extends Tab {
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
         add(lblRemark, gridBagConstraints);
 
-        lblFinancialCategory.setText(_("Group"));
+        lblFinancialCategory.setText(_("Financial Category"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
@@ -225,6 +281,15 @@ public class CourseEditorTab extends Tab {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtRemark, gridBagConstraints);
 
+        cmbFinancialCategory.setModel(new javax.swing.DefaultComboBoxModel(
+                new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(cmbFinancialCategory, gridBagConstraints);
+
         btnSave.setText(_("Save"));
         buttons.add(btnSave);
 
@@ -241,6 +306,7 @@ public class CourseEditorTab extends Tab {
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSave;
     private javax.swing.JPanel buttons;
+    private javax.swing.JComboBox cmbFinancialCategory;
     private javax.swing.JLabel filler;
     private javax.swing.JLabel filler2;
     private javax.swing.JLabel lblDescription;
@@ -254,6 +320,7 @@ public class CourseEditorTab extends Tab {
     private javax.swing.JLabel lblScope;
     private javax.swing.JLabel lblSemester;
     private javax.swing.JLabel lblTargetAudience;
+    private javax.swing.JSpinner spNumberOfGroups;
     private javax.swing.JTextField txtDescription;
     private javax.swing.JTextField txtGrantedAWH;
     private javax.swing.JTextField txtGroup;

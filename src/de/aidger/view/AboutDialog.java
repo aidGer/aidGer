@@ -9,7 +9,7 @@ import javax.swing.JDialog;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
-import de.aidger.controller.actions.AbortAction;
+import de.aidger.controller.actions.DialogAbortAction;
 import de.aidger.controller.actions.HomepageAction;
 import de.aidger.utils.Logger;
 
@@ -33,7 +33,7 @@ public class AboutDialog extends JDialog {
 
         try {
             jButton1.setAction(ActionRegistry.getInstance().get(
-                    AbortAction.class.getName()));
+                    DialogAbortAction.class.getName()));
             jButton1.setText(_("Close"));
         } catch (ActionNotFoundException ex) {
             UI.displayError(ex.getMessage());

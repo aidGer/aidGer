@@ -55,7 +55,7 @@ public class MasterDataEditAction extends AbstractAction {
             case Course:
                 Course course = (Course) tab.getTableModel().getModel(index);
 
-                UI.getInstance().replaceCurrentTab(new CourseEditorTab());
+                UI.getInstance().replaceCurrentTab(new CourseEditorTab(course));
                 break;
             case Assistant:
                 Assistant assistant = (Assistant) tab.getTableModel().getModel(
