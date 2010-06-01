@@ -28,24 +28,40 @@ import de.aidger.view.models.HourlyWageTableModel;
  */
 @SuppressWarnings("serial")
 public class MasterDataViewerTab extends Tab {
+    /**
+     * The type of the master data that will be viewed.
+     */
     public enum MasterDataType {
         Course, Assistant, FinancialCategory, HourlyWage
     }
 
+    /**
+     * The header size of the shown table.
+     */
     private final int[][] tableHeaderSize;
 
+    /**
+     * The hidden columns for restoring configuration state.
+     */
     private final List<String> hiddenColumns = new ArrayList<String>();
 
+    /**
+     * The type of the master data.
+     */
     private final MasterDataType type;
 
     /**
-     * Constructs a new master data viewer tab.
+     * Constructs the master data viewer tab.
+     * 
+     * @param type
+     *            the type of the master data
      */
     @SuppressWarnings("unchecked")
     public MasterDataViewerTab(MasterDataType type) {
         this.type = type;
         initComponents();
 
+        // use different table model for each master data type
         switch (type) {
         case Course:
             table.setModel(new CourseTableModel());
@@ -70,7 +86,7 @@ public class MasterDataViewerTab extends Tab {
 
         tableHeaderSize = new int[table.getColumnCount()][3];
 
-        // column filtering
+        // activate column filtering
         String[] hiddenColumns = Runtime.getInstance().getOptionArray(
                 "hiddenColumns" + type);
 
@@ -146,6 +162,12 @@ public class MasterDataViewerTab extends Tab {
         }
     }
 
+    /**
+     * Toggles the visibility of the given column.
+     * 
+     * @param index
+     *            the column index whose visibility will be toggled
+     */
     private void toggleColumnVisibility(int index) {
         TableColumn column = table.getTableHeader().getColumnModel().getColumn(
                 index);
@@ -172,7 +194,6 @@ public class MasterDataViewerTab extends Tab {
 
         Runtime.getInstance().setOptionArray("hiddenColumns" + type,
                 hiddenColumns.toArray(new String[0]));
-
     }
 
     /**
@@ -328,6 +349,12 @@ public class MasterDataViewerTab extends Tab {
                                         .addContainerGap()));
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Replaces currennt tab with add-tab for each master data type.
+     * 
+     * @param evt
+     *            the action event
+     */
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAddActionPerformed
         Tab newTab;
 
@@ -381,23 +408,52 @@ public class MasterDataViewerTab extends Tab {
 
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * A mouse listener that shows a given popup menu.
+     * 
+     * @author aidGer Team
+     */
     class PopupListener extends MouseAdapter {
         JPopupMenu popupMenu;
 
+        /**
+         * Constructs the popup listener.
+         * 
+         * @param popup
+         *            the popup menu that will be shown
+         */
         public PopupListener(JPopupMenu popup) {
             this.popupMenu = popup;
         }
 
+        /*
+         * (non-Javadoc)
+         * 
+         * @see
+         * java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+         */
         @Override
         public void mousePressed(MouseEvent me) {
             showPopup(me);
         }
 
+        /*
+         * (non-Javadoc)
+         * 
+         * @see
+         * java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
+         */
         @Override
         public void mouseReleased(MouseEvent me) {
             showPopup(me);
         }
 
+        /**
+         * Shows the popup menu.
+         * 
+         * @param me
+         *            the mouse event
+         */
         private void showPopup(MouseEvent me) {
             if (me.isPopupTrigger()) {
                 popupMenu.show(me.getComponent(), me.getX(), me.getY());
