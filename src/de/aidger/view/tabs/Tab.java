@@ -1,5 +1,6 @@
 package de.aidger.view.tabs;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 /**
@@ -11,6 +12,13 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public abstract class Tab extends JPanel {
+
+    /**
+     * Constructs a tab.
+     */
+    public Tab() {
+        setBorder(BorderFactory.createTitledBorder(""));
+    }
 
     /**
      * Returns the name of the panel.

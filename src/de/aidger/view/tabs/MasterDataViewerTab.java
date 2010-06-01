@@ -86,10 +86,12 @@ public class MasterDataViewerTab extends Tab {
         case FinancialCategory:
             tableModel = new FinancialCategoryTableModel();
             btnActivities.setVisible(false);
+            separator5.setVisible(false);
             break;
         case HourlyWage:
             tableModel = new HourlyWageTableModel();
             btnActivities.setVisible(false);
+            separator5.setVisible(false);
             break;
         }
 
@@ -267,45 +269,61 @@ public class MasterDataViewerTab extends Tab {
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
     // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         toolBar = new javax.swing.JToolBar();
+        separator = new javax.swing.JToolBar.Separator();
         btnView = new javax.swing.JButton();
+        separator1 = new javax.swing.JToolBar.Separator();
         btnEdit = new javax.swing.JButton();
+        separator2 = new javax.swing.JToolBar.Separator();
         btnAdd = new javax.swing.JButton();
+        separator3 = new javax.swing.JToolBar.Separator();
         btnDelete = new javax.swing.JButton();
+        separator4 = new javax.swing.JToolBar.Separator();
         btnActivities = new javax.swing.JButton();
+        separator5 = new javax.swing.JToolBar.Separator();
         scrollPane = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         searchField = new javax.swing.JTextField();
 
+        setLayout(new java.awt.GridBagLayout());
+
         toolBar.setFloatable(false);
         toolBar.setRollover(true);
+        toolBar.add(separator);
 
         btnView.setText(_("View"));
         btnView.setFocusable(false);
         btnView.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnView.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(btnView);
+        toolBar.add(separator1);
 
         btnEdit.setText(_("Edit"));
         btnEdit.setFocusable(false);
         btnEdit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnEdit.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(btnEdit);
+        toolBar.add(separator2);
 
         btnAdd.setText(_("Add"));
         btnAdd.setFocusable(false);
         btnAdd.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnAdd.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(btnAdd);
+        toolBar.add(separator3);
 
         btnDelete.setText(_("Delete"));
         btnDelete.setFocusable(false);
         btnDelete.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnDelete.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(btnDelete);
+        toolBar.add(separator4);
 
         btnActivities.setText(_("Activites"));
         btnActivities.setFocusable(false);
@@ -314,74 +332,34 @@ public class MasterDataViewerTab extends Tab {
         btnActivities
                 .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(btnActivities);
+        toolBar.add(separator5);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        add(toolBar, gridBagConstraints);
 
         scrollPane.setViewportView(table);
 
-        searchField.setText(_("Search"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        add(scrollPane, gridBagConstraints);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout
-                .setHorizontalGroup(layout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(
-                                layout
-                                        .createSequentialGroup()
-                                        .addGroup(
-                                                layout
-                                                        .createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(
-                                                                layout
-                                                                        .createSequentialGroup()
-                                                                        .addContainerGap()
-                                                                        .addGroup(
-                                                                                layout
-                                                                                        .createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                        .addComponent(
-                                                                                                searchField,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                150,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                        .addComponent(
-                                                                                                scrollPane,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                530,
-                                                                                                Short.MAX_VALUE)))
-                                                        .addComponent(
-                                                                toolBar,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                542,
-                                                                Short.MAX_VALUE))
-                                        .addContainerGap()));
-        layout
-                .setVerticalGroup(layout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(
-                                layout
-                                        .createSequentialGroup()
-                                        .addComponent(
-                                                toolBar,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                25,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(
-                                                searchField,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(
-                                                scrollPane,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                256, Short.MAX_VALUE)
-                                        .addContainerGap()));
+        searchField.setText(_("Search"));
+        searchField.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(8, 0, 5, 0);
+        add(searchField, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -392,6 +370,12 @@ public class MasterDataViewerTab extends Tab {
     private javax.swing.JButton btnView;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JTextField searchField;
+    private javax.swing.JToolBar.Separator separator;
+    private javax.swing.JToolBar.Separator separator1;
+    private javax.swing.JToolBar.Separator separator2;
+    private javax.swing.JToolBar.Separator separator3;
+    private javax.swing.JToolBar.Separator separator4;
+    private javax.swing.JToolBar.Separator separator5;
     private javax.swing.JTable table;
     private javax.swing.JToolBar toolBar;
 

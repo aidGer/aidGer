@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-01 21:48+0200\n"
+"POT-Creation-Date: 2010-06-01 22:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -260,6 +260,69 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+#: view/tabs/CourseEditorTab.java:80
+msgid "Edit course"
+msgstr ""
+
+#: view/tabs/CourseEditorTab.java:83
+msgid "Add course"
+msgstr ""
+
+#: view/tabs/CourseEditorTab.java:249 view/models/CourseTableModel.java:23
+msgid "Description"
+msgstr ""
+
+#: view/tabs/CourseEditorTab.java:255 view/models/CourseTableModel.java:23
+msgid "Semester"
+msgstr ""
+
+#: view/tabs/CourseEditorTab.java:263 view/models/CourseTableModel.java:23
+msgid "Lecturer"
+msgstr ""
+
+#: view/tabs/CourseEditorTab.java:271 view/models/CourseTableModel.java:24
+msgid "Number of Groups"
+msgstr ""
+
+#: view/tabs/CourseEditorTab.java:279 view/models/CourseTableModel.java:24
+msgid "Target Audience"
+msgstr ""
+
+#: view/tabs/CourseEditorTab.java:287 view/models/CourseTableModel.java:24
+msgid "Granted AWH"
+msgstr ""
+
+#: view/tabs/CourseEditorTab.java:334 view/models/CourseTableModel.java:25
+msgid "Scope"
+msgstr ""
+
+#: view/tabs/CourseEditorTab.java:340 view/models/CourseTableModel.java:25
+msgid "Part"
+msgstr ""
+
+#: view/tabs/CourseEditorTab.java:348 view/models/CourseTableModel.java:25
+msgid "Group"
+msgstr ""
+
+#: view/tabs/CourseEditorTab.java:356 view/models/CourseTableModel.java:25
+msgid "Remark"
+msgstr ""
+
+#: view/tabs/CourseEditorTab.java:364 view/models/CourseTableModel.java:26
+msgid "Financial Category"
+msgstr ""
+
+#: view/tabs/CourseEditorTab.java:421
+#: controller/actions/SaveSettingsAction.java:29
+#: controller/actions/CourseEditorSaveAction.java:32
+msgid "Save"
+msgstr ""
+
+#: view/tabs/CourseEditorTab.java:424
+#: controller/actions/DialogAbortAction.java:26
+msgid "Cancel"
+msgstr ""
+
 #: view/models/AssistantTableModel.java:23
 msgid "First Name"
 msgstr ""
@@ -275,50 +338,6 @@ msgstr ""
 #: view/models/AssistantTableModel.java:24
 #: view/models/HourlyWageTableModel.java:22
 msgid "Qualification"
-msgstr ""
-
-#: view/models/CourseTableModel.java:23
-msgid "Description"
-msgstr ""
-
-#: view/models/CourseTableModel.java:23
-msgid "Semester"
-msgstr ""
-
-#: view/models/CourseTableModel.java:23
-msgid "Lecturer"
-msgstr ""
-
-#: view/models/CourseTableModel.java:24
-msgid "Number of Groups"
-msgstr ""
-
-#: view/models/CourseTableModel.java:24
-msgid "Target Audience"
-msgstr ""
-
-#: view/models/CourseTableModel.java:24
-msgid "Granted AWH"
-msgstr ""
-
-#: view/models/CourseTableModel.java:25
-msgid "Scope"
-msgstr ""
-
-#: view/models/CourseTableModel.java:25
-msgid "Part"
-msgstr ""
-
-#: view/models/CourseTableModel.java:25
-msgid "Group"
-msgstr ""
-
-#: view/models/CourseTableModel.java:25
-msgid "Remark"
-msgstr ""
-
-#: view/models/CourseTableModel.java:26
-msgid "Financial Category"
 msgstr ""
 
 #: view/models/FinancialCategoryTableModel.java:24
@@ -344,10 +363,6 @@ msgstr ""
 
 #: view/models/HourlyWageTableModel.java:23
 msgid "Wage"
-msgstr ""
-
-#: controller/actions/DialogAbortAction.java:26
-msgid "Cancel"
 msgstr ""
 
 #: controller/actions/DialogAbortAction.java:29
@@ -396,11 +411,6 @@ msgstr ""
 
 #: controller/actions/SettingsAction.java:30
 msgid "Display program settings"
-msgstr ""
-
-#: controller/actions/SaveSettingsAction.java:29
-#: controller/actions/CourseEditorSaveAction.java:32
-msgid "Save"
 msgstr ""
 
 #: controller/actions/SaveSettingsAction.java:30

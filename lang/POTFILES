@@ -5,6 +5,7 @@ view/CloseTabComponent.java
 view/tabs/EmptyTab.java
 view/tabs/WelcomeTab.java
 view/tabs/MasterDataViewerTab.java
+view/tabs/CourseEditorTab.java
 view/models/AssistantTableModel.java
 view/models/CourseTableModel.java
 view/models/FinancialCategoryTableModel.java
