@@ -31,10 +31,10 @@ public class CourseEditorTab extends Tab {
     /*
      * (non-Javadoc)
      * 
-     * @see de.aidger.view.tabs.Tab#getName()
+     * @see de.aidger.view.tabs.Tab#getTabName()
      */
     @Override
-    public String getName() {
+    public String getTabName() {
         return _("Course Editing");
     }
 

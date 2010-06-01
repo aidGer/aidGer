@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-28 23:25+0200\n"
+"POT-Creation-Date: 2010-06-01 12:32+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -33,135 +33,135 @@ msgstr "Homepage: http://www.aidger.de"
 msgid "Opening browser to http://aidger.de"
 msgstr "Öffne Browser auf http://www.aidger.de"
 
-#: view/UI.java:181
+#: view/UI.java:182
 msgid "Error"
 msgstr "Fehler"
 
-#: view/UI.java:206
+#: view/UI.java:207
 #, java-format
 msgid "Adding new tab \"{0}\" at position {1}"
 msgstr "Neuer Tab \"{0}\" an die {1}. Stelle hinzugefügt"
 
-#: view/UI.java:248
+#: view/UI.java:249
 #, java-format
 msgid "Removing {0}. tab"
 msgstr "{0}. Tab gelöscht"
 
-#: view/UI.java:321
+#: view/UI.java:322
 #, java-format
 msgid "Setting current tab to \"{0}\""
 msgstr "Momentaner Reiter ist nun \"{0}\""
 
-#: view/UI.java:384
+#: view/UI.java:385
 msgid "File"
 msgstr "Datei"
 
-#: view/UI.java:403
+#: view/UI.java:404
 #: controller/actions/HelpAction.java:23
 msgid "Help"
 msgstr "Hilfe"
 
-#: view/UI.java:443
+#: view/UI.java:444
 msgid "Master Data Management"
 msgstr "Stammdatenverwaltung"
 
-#: view/UI.java:445
+#: view/UI.java:446
 msgid "Courses"
 msgstr "Veranstaltungen"
 
-#: view/UI.java:446
+#: view/UI.java:447
 msgid "Assistants"
 msgstr "Hilfskräfte"
 
-#: view/UI.java:448
+#: view/UI.java:449
 msgid "Financial Categories"
 msgstr "Finanzkategorien"
 
-#: view/UI.java:450
+#: view/UI.java:451
 msgid "Hourly Wages"
 msgstr "Stundenlöhne"
 
-#: view/UI.java:454
+#: view/UI.java:455
 msgid "Employments"
 msgstr "Beschäftigungen"
 
-#: view/UI.java:456
+#: view/UI.java:457
 msgid "Create new employment"
 msgstr "Neue Beschäftigung anlegen"
 
-#: view/UI.java:458
+#: view/UI.java:459
 msgid "Show all contracts"
 msgstr "Alle Verträge anzeigen"
 
-#: view/UI.java:462
+#: view/UI.java:463
 msgid "Activities"
 msgstr "Vorgänge"
 
-#: view/UI.java:463
+#: view/UI.java:464
 msgid "Create new activity"
 msgstr "Neuer Vorgang anlegen"
 
-#: view/UI.java:465
+#: view/UI.java:466
 msgid "Export"
 msgstr "Exportieren"
 
-#: view/UI.java:468
+#: view/UI.java:469
 msgid "Reports"
 msgstr "Berichte"
 
-#: view/UI.java:470
+#: view/UI.java:471
 msgid "Annual Balance"
 msgstr "Jahresbilanz"
 
-#: view/UI.java:470
+#: view/UI.java:471
 msgid "Semester Balance"
 msgstr "Semesterbilanz"
 
-#: view/UI.java:471
+#: view/UI.java:472
 msgid "Partial Balance"
 msgstr "Teilbilanz"
 
-#: view/UI.java:471
+#: view/UI.java:472
 msgid "Activity Report"
 msgstr "Tätigkeitsnachweis"
 
-#: view/UI.java:471
+#: view/UI.java:472
 msgid "Protocol"
 msgstr "Vorgangsprotokoll"
 
-#: view/UI.java:474
+#: view/UI.java:475
 msgid "Controlling"
 msgstr "Controlling"
 
-#: view/UI.java:476
+#: view/UI.java:477
 msgid "Choose a month"
 msgstr "Wähle einen Monat"
 
-#: view/UI.java:481
+#: view/UI.java:482
 msgid "Budget Check"
 msgstr "Budgetprüfung"
 
-#: view/UI.java:483
+#: view/UI.java:484
 msgid "Add Filter"
 msgstr "Filter hinzufügen"
 
-#: view/UI.java:488
+#: view/UI.java:489
 msgid "Quick Settings"
 msgstr "Schnelleinstellungen"
 
-#: view/UI.java:489
+#: view/UI.java:490
 msgid "Remember my tabs"
 msgstr "Merke meine Reiter"
 
-#: view/UI.java:490
+#: view/UI.java:491
 msgid "Open reports instantly"
 msgstr "Berichte sofort öffnen"
 
-#: view/UI.java:520
+#: view/UI.java:535
 msgid "Open a new tab"
 msgstr "Öffnet einen neuen Tab"
 
-#: view/UI.java:552
+#: view/UI.java:567
 msgid "Ready"
 msgstr "Bereit"
 
@@ -215,33 +215,66 @@ msgstr "(Unbenannt)"
 msgid "Welcome"
 msgstr "Willkommen"
 
-#: view/tabs/MasterDataViewerTab.java:121
+#: view/tabs/MasterDataViewerTab.java:137
+msgid "Master Data Courses"
+msgstr "Stammdaten Veranstaltungen"
+
+#: view/tabs/MasterDataViewerTab.java:139
+msgid "Master Data Assistants"
+msgstr "Stammdaten Hilfskräfte"
+
+#: view/tabs/MasterDataViewerTab.java:141
+msgid "Master Data Financial Categories"
+msgstr "Stammdaten Finanzkategorien"
+
+#: view/tabs/MasterDataViewerTab.java:143
+msgid "Master Data Hourly Wages"
+msgstr "Stammdaten Stundenlöhne"
+
+#: view/tabs/MasterDataViewerTab.java:145
 msgid "Master Data"
 msgstr "Stammdaten"
 
-#: view/tabs/MasterDataViewerTab.java:171
+#: view/tabs/MasterDataViewerTab.java:205
 msgid "View"
 msgstr "Anzeigen"
 
-#: view/tabs/MasterDataViewerTab.java:177
+#: view/tabs/MasterDataViewerTab.java:216
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: view/tabs/MasterDataViewerTab.java:183
+#: view/tabs/MasterDataViewerTab.java:227
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: view/tabs/MasterDataViewerTab.java:189
+#: view/tabs/MasterDataViewerTab.java:238
 msgid "Delete"
 msgstr "Löschen"
 
-#: view/tabs/MasterDataViewerTab.java:195
+#: view/tabs/MasterDataViewerTab.java:249
 msgid "Activites"
 msgstr "Vorgänge"
 
-#: view/tabs/MasterDataViewerTab.java:203
+#: view/tabs/MasterDataViewerTab.java:264
 msgid "Search"
 msgstr "Suchen"
+
+#: view/models/AssistantTableModel.java:23
+msgid "First Name"
+msgstr "Vorname"
+
+#: view/models/AssistantTableModel.java:23
+msgid "Last Name"
+msgstr "Nachname"
+
+#: view/models/AssistantTableModel.java:24
+msgid "Email"
+msgstr "Email"
+
+#: view/models/AssistantTableModel.java:24
+#: view/models/HourlyWageTableModel.java:23
+msgid "Qualification"
+msgstr "Qualifikation"
 
 #: view/models/CourseTableModel.java:23
 msgid "Description"
@@ -286,6 +319,31 @@ msgstr "Bemerkung"
 #: view/models/CourseTableModel.java:26
 msgid "Financial Category"
 msgstr "Finanzkategorie"
+
+#: view/models/FinancialCategoryTableModel.java:24
+msgid "Name"
+msgstr "Name"
+
+#: view/models/FinancialCategoryTableModel.java:24
+msgid "Budget Costs"
+msgstr "Budgetkosten"
+
+#: view/models/FinancialCategoryTableModel.java:25
+msgid "Fonds"
+msgstr "Fonds"
+
+#: view/models/FinancialCategoryTableModel.java:25
+#: view/models/HourlyWageTableModel.java:24
+msgid "Year"
+msgstr "Jahr"
+
+#: view/models/HourlyWageTableModel.java:23
+msgid "Month"
+msgstr "Monat"
+
+#: view/models/HourlyWageTableModel.java:24
+msgid "Wage"
+msgstr "Lohn"
 
 #: controller/actions/AbortAction.java:26
 msgid "Cancel"
@@ -368,17 +426,17 @@ msgstr "Die Anzahl an Aktivitäten muss größer als 0 sein."
 msgid "action class {0} not found"
 msgstr "Aktions-Klasse {0} nicht gefunden"
 
-#: model/AbstractModel.java:219
+#: model/AbstractModel.java:221
 #, java-format
 msgid "Could not get manager for class \"{0}\". Error: {1}"
 msgstr "Konnte Manager für Klasse \"{0}\" nicht finden. Fehler: {1}"
 
-#: model/models/Activity.java:111
+#: model/models/Activity.java:161
 #, java-format
 msgid "Caught exception in getActivities(assistant): {0}"
 msgstr "Ausnahme in getActivities(assistant): {0}"
 
-#: model/models/Activity.java:131
+#: model/models/Activity.java:181
 #, java-format
 msgid "Caught exception in getActivities(course): {0}"
 msgstr "Ausnahme in getActivities(course): {0}"
