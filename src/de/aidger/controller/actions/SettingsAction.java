@@ -1,5 +1,7 @@
 package de.aidger.controller.actions;
 
+import static de.aidger.utils.Translation._;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
@@ -9,10 +11,9 @@ import javax.swing.KeyStroke;
 
 import de.aidger.view.SettingsDialog;
 import de.aidger.view.UI;
-import static de.aidger.utils.Translation._;
 
 /**
- * Displays the settings dialog.
+ * This action displays the settings dialog.
  * 
  * @author aidGer Team
  */
@@ -20,7 +21,7 @@ import static de.aidger.utils.Translation._;
 public class SettingsAction extends AbstractAction {
 
     /**
-     * Initializes the settings action.
+     * Initializes the action.
      */
     public SettingsAction() {
         putValue(Action.NAME, _("Settings"));
@@ -29,8 +30,11 @@ public class SettingsAction extends AbstractAction {
         putValue(Action.SHORT_DESCRIPTION, _("Display program settings"));
     }
 
-    /**
-     * Displays the settings dialog.
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
      */
     @Override
     public void actionPerformed(ActionEvent e) {

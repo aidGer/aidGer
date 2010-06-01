@@ -12,7 +12,7 @@ import javax.swing.JDialog;
 import javax.swing.KeyStroke;
 
 /**
- * Close the currently open dialog.
+ * This action closes the currently open dialog.
  * 
  * @author aidGer Team
  */
@@ -20,7 +20,7 @@ import javax.swing.KeyStroke;
 public class AbortAction extends AbstractAction {
 
     /**
-     * Initializes the abort action.
+     * Initializes the action.
      */
     public AbortAction() {
         putValue(Action.NAME, _("Cancel"));
@@ -29,8 +29,11 @@ public class AbortAction extends AbstractAction {
         putValue(Action.SHORT_DESCRIPTION, _("Cancel the operation"));
     }
 
-    /**
-     * Closes the currently open dialog.
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
      */
     @Override
     public void actionPerformed(ActionEvent e) {

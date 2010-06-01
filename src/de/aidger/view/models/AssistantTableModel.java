@@ -4,9 +4,9 @@ import static de.aidger.utils.Translation._;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Vector;
 
-import javax.swing.table.DefaultTableModel;
-
+import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Assistant;
 
 /**
@@ -15,26 +15,21 @@ import de.aidger.model.models.Assistant;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class AssistantTableModel extends DefaultTableModel {
-
+public class AssistantTableModel extends MasterDataTableModel {
     /**
-     * The names of the columns.
-     */
-    private final String[] columnNames = { _("First Name"), _("Last Name"),
-            _("Email"), _("Qualification") };
-
-    /**
-     * Constructs the table model for courses.
+     * Constructs the table model for assistants.
      */
     public AssistantTableModel() {
-        setColumnIdentifiers(columnNames);
-
-        refresh();
+        super(new String[] { _("First Name"), _("Last Name"), _("Email"),
+                _("Qualification") });
     }
 
-    /**
-     * Refreshs the whole table.
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.models.MasterDataTableModel#refresh()
      */
+    @Override
     @SuppressWarnings("unchecked")
     public void refresh() {
         List<Assistant> assistants = (new Assistant()).getAll();
@@ -47,5 +42,24 @@ public class AssistantTableModel extends DefaultTableModel {
                     assistant.getLastName(), assistant.getEmail(),
                     assistant.getQualification() });
         }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.models.MasterDataTableModel#getModel(int)
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public AbstractModel getModel(int i) {
+        Vector row = (Vector) getDataVector().elementAt(i);
+
+        Assistant assistant = new Assistant();
+        assistant.setFirstName((String) row.get(0));
+        assistant.setLastName((String) row.get(1));
+        assistant.setEmail((String) row.get(2));
+        assistant.setQualification((String) row.get(3));
+
+        return assistant;
     }
 }

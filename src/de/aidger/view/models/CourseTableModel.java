@@ -4,9 +4,9 @@ import static de.aidger.utils.Translation._;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Vector;
 
-import javax.swing.table.DefaultTableModel;
-
+import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Course;
 
 /**
@@ -15,29 +15,24 @@ import de.aidger.model.models.Course;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class CourseTableModel extends DefaultTableModel {
-
-    /**
-     * The names of the columns.
-     */
-    private final String[] columnNames = { _("Description"), _("Semester"),
-            _("Lecturer"), _("Number of Groups"), _("Target Audience"),
-            _("Granted AWH"), _("Scope"), _("Part"), _("Group"), _("Remark"),
-            _("Financial Category") };
-
+public class CourseTableModel extends MasterDataTableModel {
     /**
      * Constructs the table model for courses.
      */
     public CourseTableModel() {
-        setColumnIdentifiers(columnNames);
-
-        refresh();
+        super(new String[] { _("Description"), _("Semester"), _("Lecturer"),
+                _("Number of Groups"), _("Target Audience"), _("Granted AWH"),
+                _("Scope"), _("Part"), _("Group"), _("Remark"),
+                _("Financial Category") });
     }
 
-    /**
-     * Refreshs the whole table.
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.models.MasterDataTableModel#refresh()
      */
     @SuppressWarnings("unchecked")
+    @Override
     public void refresh() {
         List<Course> courses = (new Course()).getAll();
 
@@ -52,5 +47,31 @@ public class CourseTableModel extends DefaultTableModel {
                     course.getPart(), course.getGroup(), course.getRemark(),
                     course.getFinancialCategoryId() });
         }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.models.MasterDataTableModel#getModel(int)
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public AbstractModel getModel(int i) {
+        Vector row = (Vector) getDataVector().elementAt(i);
+
+        Course course = new Course();
+        course.setDescription((String) row.get(0));
+        course.setSemester((String) row.get(1));
+        course.setLecturer((String) row.get(2));
+        course.setNumberOfGroups((Integer) row.get(3));
+        course.setTargetAudience((String) row.get(4));
+        course.setUnqualifiedWorkingHours((Double) row.get(5));
+        course.setScope((String) row.get(6));
+        course.setPart((Character) row.get(7));
+        course.setGroup((String) row.get(8));
+        course.setRemark((String) row.get(9));
+        course.setFinancialCategoryId((Integer) row.get(10));
+
+        return course;
     }
 }

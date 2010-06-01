@@ -5,8 +5,7 @@ import static de.aidger.utils.Translation._;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.swing.table.DefaultTableModel;
-
+import de.aidger.model.AbstractModel;
 import de.aidger.model.models.HourlyWage;
 
 /**
@@ -15,26 +14,21 @@ import de.aidger.model.models.HourlyWage;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class HourlyWageTableModel extends DefaultTableModel {
-
+public class HourlyWageTableModel extends MasterDataTableModel {
     /**
-     * The names of the columns.
-     */
-    private final String[] columnNames = { _("Qualification"), _("Month"),
-            _("Year"), _("Wage") };
-
-    /**
-     * Constructs the table model for courses.
+     * Constructs the table model for hourly wages.
      */
     public HourlyWageTableModel() {
-        setColumnIdentifiers(columnNames);
-
-        refresh();
+        super(new String[] { _("Qualification"), _("Month"), _("Year"),
+                _("Wage") });
     }
 
-    /**
-     * Refreshs the whole table.
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.models.MasterDataTableModel#refresh()
      */
+    @Override
     @SuppressWarnings("unchecked")
     public void refresh() {
         List<HourlyWage> hws = (new HourlyWage()).getAll();
@@ -46,5 +40,16 @@ public class HourlyWageTableModel extends DefaultTableModel {
             addRow(new Object[] { hw.getQualification(), hw.getMonth(),
                     hw.getYear(), hw.getWage() });
         }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.models.MasterDataTableModel#getModel(int)
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public AbstractModel getModel(int i) {
+        return null;
     }
 }

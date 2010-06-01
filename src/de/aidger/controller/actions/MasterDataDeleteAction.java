@@ -3,28 +3,32 @@ package de.aidger.controller.actions;
 import static de.aidger.utils.Translation._;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
-import javax.swing.KeyStroke;
+
+import de.aidger.view.tabs.MasterDataViewerTab;
 
 /**
- * This action performs a shutdown of the application.
+ * This action removes a master data from the table and the database.
  * 
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class ExitAction extends AbstractAction {
+public class MasterDataDeleteAction extends AbstractAction {
+
+    /**
+     * The master data viewer tab where the action is performed.
+     */
+    private final MasterDataViewerTab tab;
 
     /**
      * Initializes the action.
      */
-    public ExitAction() {
-        putValue(Action.NAME, _("Quit"));
-        putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_Q,
-                ActionEvent.CTRL_MASK));
-        putValue(Action.SHORT_DESCRIPTION, _("Quit the program"));
+    public MasterDataDeleteAction(MasterDataViewerTab tab) {
+        putValue(Action.NAME, _("Delete"));
+
+        this.tab = tab;
     }
 
     /*
@@ -35,7 +39,6 @@ public class ExitAction extends AbstractAction {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.exit(0);
-    }
 
+    }
 }

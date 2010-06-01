@@ -9,32 +9,34 @@ import javax.swing.Action;
 
 import de.aidger.view.UI;
 
-
 /**
- * Opens aidger.de in the default browser.
- *
+ * This action opens aidger.de in the default browser.
+ * 
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
 public class HomepageAction extends AbstractAction {
 
     /**
-     * Initializes the homepage action.
+     * Initializes the action.
      */
     public HomepageAction() {
         putValue(Action.NAME, _("Homepage"));
         putValue(Action.SHORT_DESCRIPTION, _("Open homepage"));
     }
 
-    /**
-     * Opens aidger.de in the default browser
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
      */
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
             // Only works with Java >= 6
-            java.awt.Desktop.getDesktop().browse(new java.net.URI(
-                    "http://aidger.de"));
+            java.awt.Desktop.getDesktop().browse(
+                    new java.net.URI("http://aidger.de"));
         } catch (Exception ex) {
             UI.displayError(ex.getMessage());
         }

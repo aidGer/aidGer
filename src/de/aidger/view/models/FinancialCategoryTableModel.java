@@ -4,9 +4,9 @@ import static de.aidger.utils.Translation._;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Vector;
 
-import javax.swing.table.DefaultTableModel;
-
+import de.aidger.model.AbstractModel;
 import de.aidger.model.models.FinancialCategory;
 
 /**
@@ -16,26 +16,21 @@ import de.aidger.model.models.FinancialCategory;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class FinancialCategoryTableModel extends DefaultTableModel {
-
+public class FinancialCategoryTableModel extends MasterDataTableModel {
     /**
-     * The names of the columns.
-     */
-    private final String[] columnNames = { _("Name"), _("Budget Costs"),
-            _("Fonds"), _("Year") };
-
-    /**
-     * Constructs the table model for courses.
+     * Constructs the table model for financial categories.
      */
     public FinancialCategoryTableModel() {
-        setColumnIdentifiers(columnNames);
-
-        refresh();
+        super(new String[] { _("Name"), _("Budget Costs"), _("Fonds"),
+                _("Year") });
     }
 
-    /**
-     * Refreshs the whole table.
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.models.MasterDataTableModel#refresh()
      */
+    @Override
     @SuppressWarnings("unchecked")
     public void refresh() {
         List<FinancialCategory> fcs = (new FinancialCategory()).getAll();
@@ -47,5 +42,24 @@ public class FinancialCategoryTableModel extends DefaultTableModel {
             addRow(new Object[] { fc.getName(), fc.getBugdetCosts(),
                     fc.getFonds(), fc.getYear() });
         }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.models.MasterDataTableModel#getModel(int)
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public AbstractModel getModel(int i) {
+        Vector row = (Vector) getDataVector().elementAt(i);
+
+        FinancialCategory fc = new FinancialCategory();
+        fc.setName((String) row.get(0));
+        fc.setBugdetCosts((int[]) row.get(1));
+        fc.setFonds((int[]) row.get(2));
+        fc.setYear((Short) row.get(3));
+
+        return fc;
     }
 }

@@ -20,6 +20,7 @@ public class CourseEditorTab extends Tab {
      */
     public CourseEditorTab() {
         initComponents();
+
         try {
             jButton1.setAction(ActionRegistry.getInstance().get(
                     AbortAction.class.getName()));

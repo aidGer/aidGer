@@ -18,7 +18,7 @@ import javax.swing.RepaintManager;
 import de.aidger.view.UI;
 
 /**
- * PrintAction sends the current contents to the printer.
+ * This action sends the current contents to the printer.
  * 
  * @author aidGer Team
  */
@@ -26,7 +26,7 @@ import de.aidger.view.UI;
 public class PrintAction extends AbstractAction {
 
     /**
-     * Initializes the print action.
+     * Initializes the action.
      */
     public PrintAction() {
         putValue(Action.NAME, _("Print"));

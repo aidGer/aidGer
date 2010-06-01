@@ -2,9 +2,8 @@ package de.aidger.controller.actions;
 
 import static de.aidger.utils.Translation._;
 
-import java.io.File;
-
 import java.awt.event.ActionEvent;
+import java.io.File;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -12,11 +11,11 @@ import javax.swing.JComponent;
 
 import de.aidger.model.Runtime;
 import de.aidger.model.validators.PresenceValidator;
-import de.aidger.view.UI;
 import de.aidger.view.SettingsDialog;
+import de.aidger.view.UI;
 
 /**
- * Saves the settings in the dialog and closes it.
+ * This action saves the settings in the dialog and closes it.
  * 
  * @author aidGer Team
  */
@@ -31,8 +30,11 @@ public class SaveSettingsAction extends AbstractAction {
         putValue(Action.SHORT_DESCRIPTION, _("Save settings"));
     }
 
-    /**
-     * Saves the settings in the configuration and closes the dialog.
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -46,16 +48,17 @@ public class SaveSettingsAction extends AbstractAction {
         Runtime.getInstance().setOption("name", dlg.getUsername());
 
         Runtime.getInstance().setOption("pdf-viewer", dlg.getPDFViewer());
-        if (!dlg.getPDFViewer().isEmpty() && !(new File(dlg.getPDFViewer())).
-                exists()) {
+        if (!dlg.getPDFViewer().isEmpty()
+                && !(new File(dlg.getPDFViewer())).exists()) {
             UI.displayError(_("PDF Viewer points to nonexistant file."));
             return;
         }
 
-        if (dlg.getSelectedLanguage() == -1 ||
-                dlg.getSelectedLanguage() >= Runtime.getInstance().
-                getLanguages().size()) {
-            UI.displayError(_("No Language selected or incorrect language selected."));
+        if (dlg.getSelectedLanguage() == -1
+                || dlg.getSelectedLanguage() >= Runtime.getInstance()
+                        .getLanguages().size()) {
+            UI
+                    .displayError(_("No Language selected or incorrect language selected."));
             return;
         }
         Runtime.getInstance().setOption(
@@ -64,7 +67,8 @@ public class SaveSettingsAction extends AbstractAction {
                         dlg.getSelectedLanguage()).fst());
 
         if (dlg.getNumOfActivities() <= 0) {
-            UI.displayError(_("The number of activities needs to be bigger than 0."));
+            UI
+                    .displayError(_("The number of activities needs to be bigger than 0."));
             return;
         }
         Runtime.getInstance().setOption("activities",

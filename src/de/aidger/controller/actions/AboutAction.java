@@ -13,7 +13,7 @@ import de.aidger.view.AboutDialog;
 import de.aidger.view.UI;
 
 /**
- * Displays the about dialog.
+ * This action displays the about dialog.
  * 
  * @author aidGer Team
  */
@@ -21,7 +21,7 @@ import de.aidger.view.UI;
 public class AboutAction extends AbstractAction {
 
     /**
-     * Initializes the about action.
+     * Initializes the action.
      */
     public AboutAction() {
         putValue(Action.NAME, _("About"));
@@ -30,8 +30,11 @@ public class AboutAction extends AbstractAction {
         putValue(Action.SHORT_DESCRIPTION, _("Show about informations"));
     }
 
-    /**
-     * Displays the about dialog.
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
      */
     @Override
     public void actionPerformed(ActionEvent e) {
