@@ -17,7 +17,6 @@ public abstract class Tab extends JPanel {
      * 
      * @return The name of the panel
      */
-    @Override
-    public abstract String getName();
+    public abstract String getTabName();
 
 }

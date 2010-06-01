@@ -205,13 +205,13 @@ public final class UI extends JFrame {
     public void addNewTab(Tab tab, int index) {
         Logger.debug(MessageFormat.format(
                 _("Adding new tab \"{0}\" at position {1}"), new Object[] {
-                        tab.getName(), index }));
+                        tab.getTabName(), index }));
 
         tabbedPane.removeChangeListener(tabbedPaneListener);
 
         tabbedPane.add(tab, index);
-        tabbedPane.setTabComponentAt(index,
-                new CloseTabComponent(tab.getName()));
+        tabbedPane.setTabComponentAt(index, new CloseTabComponent(tab
+                .getTabName()));
 
         tabbedPane.setSelectedIndex(index);
 
@@ -257,7 +257,7 @@ public final class UI extends JFrame {
             Tab emptyTab = new EmptyTab();
             tabbedPane.add(emptyTab, 0);
             tabbedPane.setTabComponentAt(0, new CloseTabComponent(emptyTab
-                    .getName()));
+                    .getTabName()));
 
             tabbedPane.setSelectedIndex(0);
         } else if (index == tabbedPane.getTabCount() - 1
@@ -320,7 +320,7 @@ public final class UI extends JFrame {
         Tab newTab = (Tab) tabbedPane.getComponentAt(index);
 
         Logger.debug(MessageFormat.format(_("Setting current tab to \"{0}\""),
-                new Object[] { newTab.getName() }));
+                new Object[] { newTab.getTabName() }));
 
         tabbedPane.setSelectedIndex(index);
     }

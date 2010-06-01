@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import de.aidger.model.models.Course;
 
 /**
- * 
+ * The class represents the table model for the master data courses.
  * 
  * @author aidGer Team
  */

@@ -15,9 +15,11 @@ import javax.swing.JPopupMenu;
 import javax.swing.table.TableColumn;
 
 import de.aidger.model.Runtime;
-import de.aidger.model.models.Course;
+import de.aidger.view.UI;
+import de.aidger.view.models.AssistantTableModel;
 import de.aidger.view.models.CourseTableModel;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.aidger.view.models.FinancialCategoryTableModel;
+import de.aidger.view.models.HourlyWageTableModel;
 
 /**
  * A tab which will be used to display the master data.
@@ -44,26 +46,23 @@ public class MasterDataViewerTab extends Tab {
         this.type = type;
         initComponents();
 
-        Course c = new Course();
-        c.setDescription("Description");
-        c.setFinancialCategoryId(1);
-        c.setGroup("2");
-        c.setLecturer("Test Tester");
-        c.setNumberOfGroups(3);
-        c.setPart('a');
-        c.setRemark("Remark");
-        c.setScope("Sniper Scope");
-        c.setSemester("SS 09");
-        c.setTargetAudience("Testers");
-        c.setUnqualifiedWorkingHours(100);
-
-        try {
-            c.save();
-        } catch (AdoHiveException e) {
-            e.printStackTrace();
+        switch (type) {
+        case Course:
+            table.setModel(new CourseTableModel());
+            break;
+        case Assistant:
+            table.setModel(new AssistantTableModel());
+            break;
+        case FinancialCategory:
+            table.setModel(new FinancialCategoryTableModel());
+            btnActivities.setVisible(false);
+            break;
+        case HourlyWage:
+            table.setModel(new HourlyWageTableModel());
+            btnActivities.setVisible(false);
+            break;
         }
 
-        table.setModel(new CourseTableModel());
         // table.setComponentPopupMenu(new JPopupMenu());
         table.setAutoCreateRowSorter(true);
         table.setDoubleBuffered(true);
@@ -129,11 +128,22 @@ public class MasterDataViewerTab extends Tab {
     /*
      * (non-Javadoc)
      * 
-     * @see de.aidger.view.tabs.Tab#getName()
+     * @see de.aidger.view.tabs.Tab#getTabName()
      */
     @Override
-    public String getName() {
-        return _("Master Data");
+    public String getTabName() {
+        switch (type) {
+        case Course:
+            return _("Master Data Courses");
+        case Assistant:
+            return _("Master Data Assistants");
+        case FinancialCategory:
+            return _("Master Data Financial Categories");
+        case HourlyWage:
+            return _("Master Data Hourly Wages");
+        default:
+            return _("Master Data");
+        }
     }
 
     private void toggleColumnVisibility(int index) {
@@ -175,55 +185,83 @@ public class MasterDataViewerTab extends Tab {
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
     // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jToolBar1 = new javax.swing.JToolBar();
-        jButton1 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        toolBar = new javax.swing.JToolBar();
+        btnView = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnActivities = new javax.swing.JButton();
+        scrollPane = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        searchField = new javax.swing.JTextField();
 
-        jToolBar1.setFloatable(false);
-        jToolBar1.setRollover(true);
+        toolBar.setFloatable(false);
+        toolBar.setRollover(true);
 
-        jButton1.setText(_("View"));
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton1);
+        btnView.setText(_("View"));
+        btnView.setFocusable(false);
+        btnView.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnView.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
+        toolBar.add(btnView);
 
-        jButton5.setText(_("Edit"));
-        jButton5.setFocusable(false);
-        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton5);
+        btnEdit.setText(_("Edit"));
+        btnEdit.setFocusable(false);
+        btnEdit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEdit.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
+        toolBar.add(btnEdit);
 
-        jButton2.setText(_("Add"));
-        jButton2.setFocusable(false);
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton2);
+        btnAdd.setText(_("Add"));
+        btnAdd.setFocusable(false);
+        btnAdd.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAdd.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+        toolBar.add(btnAdd);
 
-        jButton3.setText(_("Delete"));
-        jButton3.setFocusable(false);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton3);
+        btnDelete.setText(_("Delete"));
+        btnDelete.setFocusable(false);
+        btnDelete.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnDelete.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        toolBar.add(btnDelete);
 
-        jButton4.setText(_("Activites"));
-        jButton4.setFocusable(false);
-        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton4);
+        btnActivities.setText(_("Activites"));
+        btnActivities.setFocusable(false);
+        btnActivities
+                .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnActivities
+                .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnActivities.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActivitiesActionPerformed(evt);
+            }
+        });
+        toolBar.add(btnActivities);
 
-        jScrollPane1.setViewportView(table);
+        scrollPane.setViewportView(table);
 
-        jTextField1.setText(_("Search"));
+        searchField.setText(_("Search"));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -247,17 +285,17 @@ public class MasterDataViewerTab extends Tab {
                                                                                         .createParallelGroup(
                                                                                                 javax.swing.GroupLayout.Alignment.LEADING)
                                                                                         .addComponent(
-                                                                                                jTextField1,
+                                                                                                searchField,
                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                 150,
                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                         .addComponent(
-                                                                                                jScrollPane1,
+                                                                                                scrollPane,
                                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                                 530,
                                                                                                 Short.MAX_VALUE)))
                                                         .addComponent(
-                                                                jToolBar1,
+                                                                toolBar,
                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                 542,
                                                                 Short.MAX_VALUE))
@@ -270,36 +308,76 @@ public class MasterDataViewerTab extends Tab {
                                 layout
                                         .createSequentialGroup()
                                         .addComponent(
-                                                jToolBar1,
+                                                toolBar,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                 25,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(
                                                 javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(
-                                                jTextField1,
+                                                searchField,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(
                                                 javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(
-                                                jScrollPane1,
+                                                scrollPane,
                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 256, Short.MAX_VALUE)
                                         .addContainerGap()));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAddActionPerformed
+        Tab newTab;
+
+        switch (type) {
+        case Course:
+            newTab = new CourseEditorTab();
+            break;
+        case Assistant:
+            newTab = new AssistantEditorTab();
+            break;
+        case FinancialCategory:
+            newTab = new FinancialCategoryEditorTab();
+            break;
+        case HourlyWage:
+            newTab = new HourlyWageEditorTab();
+            break;
+        default:
+            newTab = new EmptyTab();
+            break;
+        }
+
+        UI.getInstance().replaceCurrentTab(newTab);
+    }// GEN-LAST:event_btnAddActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnEditActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_btnEditActionPerformed
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnViewActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_btnViewActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnActivitiesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnActivitiesActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_btnActivitiesActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JButton btnActivities;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnView;
+    private javax.swing.JScrollPane scrollPane;
+    private javax.swing.JTextField searchField;
     private javax.swing.JTable table;
+    private javax.swing.JToolBar toolBar;
 
     // End of variables declaration//GEN-END:variables
 

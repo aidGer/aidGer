@@ -5,7 +5,10 @@ view/CloseTabComponent.java
 view/tabs/EmptyTab.java
 view/tabs/WelcomeTab.java
 view/tabs/MasterDataViewerTab.java
+view/models/AssistantTableModel.java
 view/models/CourseTableModel.java
+view/models/FinancialCategoryTableModel.java
+view/models/HourlyWageTableModel.java
 controller/actions/AbortAction.java
 controller/actions/AboutAction.java
 controller/actions/ExitAction.java
