@@ -33,4 +33,14 @@ public abstract class MasterDataTableModel extends DefaultTableModel {
      */
     @SuppressWarnings("unchecked")
     public abstract AbstractModel getModel(int i);
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see javax.swing.table.DefaultTableModel#isCellEditable(int, int)
+     */
+    @Override
+    public boolean isCellEditable(int row, int col) {
+        return false;
+    }
 }

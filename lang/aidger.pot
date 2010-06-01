@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-01 19:15+0200\n"
+"POT-Creation-Date: 2010-06-01 21:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -215,48 +215,48 @@ msgstr ""
 msgid "Welcome"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:206
+#: view/tabs/MasterDataViewerTab.java:185
 msgid "Master Data Courses"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:208
+#: view/tabs/MasterDataViewerTab.java:187
 msgid "Master Data Assistants"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:210
+#: view/tabs/MasterDataViewerTab.java:189
 msgid "Master Data Financial Categories"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:212
+#: view/tabs/MasterDataViewerTab.java:191
 msgid "Master Data Hourly Wages"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:214
+#: view/tabs/MasterDataViewerTab.java:193
 msgid "Master Data"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:307
+#: view/tabs/MasterDataViewerTab.java:286
 msgid "View"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:313
+#: view/tabs/MasterDataViewerTab.java:292
 #: controller/actions/MasterDataEditAction.java:35
 msgid "Edit"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:319
+#: view/tabs/MasterDataViewerTab.java:298
 msgid "Add"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:325
+#: view/tabs/MasterDataViewerTab.java:304
 msgid "Delete"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:331
+#: view/tabs/MasterDataViewerTab.java:310
 msgid "Activites"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:341
+#: view/tabs/MasterDataViewerTab.java:320
 msgid "Search"
 msgstr ""
 
@@ -346,11 +346,11 @@ msgstr ""
 msgid "Wage"
 msgstr ""
 
-#: controller/actions/AbortAction.java:26
+#: controller/actions/DialogAbortAction.java:26
 msgid "Cancel"
 msgstr ""
 
-#: controller/actions/AbortAction.java:29
+#: controller/actions/DialogAbortAction.java:29
 msgid "Cancel the operation"
 msgstr ""
 
@@ -399,6 +399,7 @@ msgid "Display program settings"
 msgstr ""
 
 #: controller/actions/SaveSettingsAction.java:29
+#: controller/actions/CourseEditorSaveAction.java:32
 msgid "Save"
 msgstr ""
 
@@ -424,6 +425,10 @@ msgstr ""
 
 #: controller/actions/MasterDataEditAction.java:81
 msgid "Please select an entry from the table."
+msgstr ""
+
+#: controller/actions/CourseEditorSaveAction.java:71
+msgid "Could not save the course."
 msgstr ""
 
 #: controller/ActionNotFoundException.java:15

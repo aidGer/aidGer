@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-01 19:15+0200\n"
+"POT-Creation-Date: 2010-06-01 21:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -215,48 +215,48 @@ msgstr "(Unbenannt)"
 msgid "Welcome"
 msgstr "Willkommen"
 
-#: view/tabs/MasterDataViewerTab.java:206
+#: view/tabs/MasterDataViewerTab.java:185
 msgid "Master Data Courses"
 msgstr "Stammdaten Veranstaltungen"
 
-#: view/tabs/MasterDataViewerTab.java:208
+#: view/tabs/MasterDataViewerTab.java:187
 msgid "Master Data Assistants"
 msgstr "Stammdaten Hilfskräfte"
 
-#: view/tabs/MasterDataViewerTab.java:210
+#: view/tabs/MasterDataViewerTab.java:189
 msgid "Master Data Financial Categories"
 msgstr "Stammdaten Finanzkategorien"
 
-#: view/tabs/MasterDataViewerTab.java:212
+#: view/tabs/MasterDataViewerTab.java:191
 msgid "Master Data Hourly Wages"
 msgstr "Stammdaten Stundenlöhne"
 
-#: view/tabs/MasterDataViewerTab.java:214
+#: view/tabs/MasterDataViewerTab.java:193
 msgid "Master Data"
 msgstr "Stammdaten"
 
-#: view/tabs/MasterDataViewerTab.java:307
+#: view/tabs/MasterDataViewerTab.java:286
 msgid "View"
 msgstr "Anzeigen"
 
-#: view/tabs/MasterDataViewerTab.java:313
+#: view/tabs/MasterDataViewerTab.java:292
 #: controller/actions/MasterDataEditAction.java:35
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: view/tabs/MasterDataViewerTab.java:319
+#: view/tabs/MasterDataViewerTab.java:298
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: view/tabs/MasterDataViewerTab.java:325
+#: view/tabs/MasterDataViewerTab.java:304
 msgid "Delete"
 msgstr "Löschen"
 
-#: view/tabs/MasterDataViewerTab.java:331
+#: view/tabs/MasterDataViewerTab.java:310
 msgid "Activites"
 msgstr "Vorgänge"
 
-#: view/tabs/MasterDataViewerTab.java:341
+#: view/tabs/MasterDataViewerTab.java:320
 msgid "Search"
 msgstr "Suchen"
 
@@ -346,11 +346,11 @@ msgstr "Monat"
 msgid "Wage"
 msgstr "Lohn"
 
-#: controller/actions/AbortAction.java:26
+#: controller/actions/DialogAbortAction.java:26
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: controller/actions/AbortAction.java:29
+#: controller/actions/DialogAbortAction.java:29
 msgid "Cancel the operation"
 msgstr "Aktion abbrechen"
 
@@ -399,6 +399,7 @@ msgid "Display program settings"
 msgstr "Programmeinstellungen anzeigen"
 
 #: controller/actions/SaveSettingsAction.java:29
+#: controller/actions/CourseEditorSaveAction.java:32
 msgid "Save"
 msgstr "Speichern"
 
@@ -425,6 +426,10 @@ msgstr "Die Anzahl an Aktivitäten muss größer als 0 sein."
 #: controller/actions/MasterDataEditAction.java:81
 msgid "Please select an entry from the table."
 msgstr "Bitte einen Eintrag aus der Tabelle auswählen."
+
+#: controller/actions/CourseEditorSaveAction.java:71
+msgid "Could not save the course."
+msgstr "Die Veranstaltung konnte nicht gespeichert werden."
 
 #: controller/ActionNotFoundException.java:15
 #, java-format

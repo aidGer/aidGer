@@ -17,6 +17,11 @@ import de.aidger.view.UI;
 public class CourseEditorTab extends Tab {
 
     /**
+     * The course that is edited in this tab.
+     */
+    private Course course = null;
+
+    /**
      * Constructs a course editor tab.
      */
     public CourseEditorTab() {
@@ -31,6 +36,8 @@ public class CourseEditorTab extends Tab {
      */
     public CourseEditorTab(Course course) {
         init();
+
+        this.course = course;
 
         txtDescription.setText(course.getDescription());
         txtSemester.setText(course.getSemester());
@@ -69,7 +76,128 @@ public class CourseEditorTab extends Tab {
      */
     @Override
     public String getTabName() {
-        return _("Course Editing");
+        if (isEditMode()) {
+            return _("Edit course");
+        }
+
+        return _("Add course");
+    }
+
+    /**
+     * Retrieves wheter the tab is in edit mode.
+     * 
+     * @return whether the tab is in edit mode
+     */
+    public boolean isEditMode() {
+        return course != null;
+    }
+
+    /**
+     * Returns the course.
+     * 
+     * @return the course
+     */
+    public Course getCourse() {
+        return course;
+    }
+
+    /**
+     * Get the description of the course
+     * 
+     * @return The description of the course
+     */
+    public String getDescription() {
+        return txtDescription.getText();
+    }
+
+    /**
+     * Get the id referencing the category.
+     * 
+     * @return The id of the category
+     */
+    public int getFinancialCategoryId() {
+        return 0; // TODO
+    }
+
+    /**
+     * Get the group of the course.
+     * 
+     * @return The group of the course
+     */
+    public String getGroup() {
+        return txtGroup.getText();
+    }
+
+    /**
+     * Get the lecturer of the course.
+     * 
+     * @return The lecturer of the course
+     */
+    public String getLecturer() {
+        return txtLecturer.getText();
+    }
+
+    /**
+     * Get the number of groups in the course.
+     * 
+     * @return The number of groups
+     */
+    public int getNumberOfGroups() {
+        return (Integer) spNumberOfGroups.getValue();
+    }
+
+    /**
+     * Get the part of the course.
+     * 
+     * @return The part of the course
+     */
+    public char getPart() {
+        return txtPart.getText().charAt(0);
+    }
+
+    /**
+     * Get remarks regarding the course.
+     * 
+     * @return The remarks
+     */
+    public String getRemark() {
+        return txtRemark.getText();
+    }
+
+    /**
+     * Get the scope of the course.
+     * 
+     * @return The scope of the course
+     */
+    public String getScope() {
+        return txtScope.getText();
+    }
+
+    /**
+     * Get the semester of the course.
+     * 
+     * @return The semester
+     */
+    public String getSemester() {
+        return txtSemester.getText();
+    }
+
+    /**
+     * Get the target audience of the course.
+     * 
+     * @return The target audience
+     */
+    public String getTargetAudience() {
+        return txtTargetAudience.getText();
+    }
+
+    /**
+     * Get the amount of unqualified working hours granted.
+     * 
+     * @return The amount of UWHs
+     */
+    public double getUnqualifiedWorkingHours() {
+        return Double.valueOf(txtGrantedAWH.getText());
     }
 
     /**

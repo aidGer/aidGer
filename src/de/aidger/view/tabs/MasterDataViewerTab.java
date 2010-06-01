@@ -23,14 +23,12 @@ import de.aidger.controller.actions.MasterDataDeleteAction;
 import de.aidger.controller.actions.MasterDataEditAction;
 import de.aidger.controller.actions.MasterDataViewAction;
 import de.aidger.model.Runtime;
-import de.aidger.model.models.Course;
 import de.aidger.view.UI;
 import de.aidger.view.models.AssistantTableModel;
 import de.aidger.view.models.CourseTableModel;
 import de.aidger.view.models.FinancialCategoryTableModel;
 import de.aidger.view.models.HourlyWageTableModel;
 import de.aidger.view.models.MasterDataTableModel;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * A tab which will be used to display the master data.
@@ -76,25 +74,6 @@ public class MasterDataViewerTab extends Tab {
     public MasterDataViewerTab(MasterDataType type) {
         this.type = type;
         initComponents();
-
-        Course c = new Course();
-        c.setDescription("Description");
-        c.setFinancialCategoryId(1);
-        c.setGroup("2");
-        c.setLecturer("Test Tester");
-        c.setNumberOfGroups(3);
-        c.setPart('a');
-        c.setRemark("Remark");
-        c.setScope("Sniper Scope");
-        c.setSemester("SS 09");
-        c.setTargetAudience("Testers");
-        c.setUnqualifiedWorkingHours(100);
-
-        try {
-            c.save();
-        } catch (AdoHiveException e) {
-            e.printStackTrace();
-        }
 
         // use different table model for each master data type
         switch (type) {
