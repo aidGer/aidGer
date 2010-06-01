@@ -6,10 +6,18 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.JButton;
+import javax.swing.JToolBar;
 
+import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
+import de.aidger.model.models.FinancialCategory;
+import de.aidger.model.models.HourlyWage;
 import de.aidger.view.UI;
+import de.aidger.view.tabs.AssistantEditorTab;
 import de.aidger.view.tabs.CourseEditorTab;
+import de.aidger.view.tabs.FinancialCategoryEditorTab;
+import de.aidger.view.tabs.HourlyWageEditorTab;
 import de.aidger.view.tabs.MasterDataViewerTab;
 
 /**
@@ -21,17 +29,10 @@ import de.aidger.view.tabs.MasterDataViewerTab;
 public class MasterDataEditAction extends AbstractAction {
 
     /**
-     * The master data viewer tab where the action is performed.
-     */
-    private final MasterDataViewerTab tab;
-
-    /**
      * Initializes the action.
      */
-    public MasterDataEditAction(MasterDataViewerTab tab) {
+    public MasterDataEditAction() {
         putValue(Action.NAME, _("Edit"));
-
-        this.tab = tab;
     }
 
     /*
@@ -42,6 +43,10 @@ public class MasterDataEditAction extends AbstractAction {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
+        JButton btnEdit = (JButton) e.getSource();
+        JToolBar toolBar = (JToolBar) btnEdit.getParent();
+        MasterDataViewerTab tab = (MasterDataViewerTab) toolBar.getParent();
+
         if (tab.getTable().getSelectedRow() > -1) {
             int index = tab.getTable().getRowSorter().convertRowIndexToModel(
                     tab.getTable().getSelectedRow());
@@ -53,10 +58,23 @@ public class MasterDataEditAction extends AbstractAction {
                 UI.getInstance().replaceCurrentTab(new CourseEditorTab());
                 break;
             case Assistant:
+                Assistant assistant = (Assistant) tab.getTableModel().getModel(
+                        index);
+
+                UI.getInstance().replaceCurrentTab(new AssistantEditorTab());
                 break;
             case FinancialCategory:
+                FinancialCategory fc = (FinancialCategory) tab.getTableModel()
+                        .getModel(index);
+
+                UI.getInstance().replaceCurrentTab(
+                        new FinancialCategoryEditorTab());
                 break;
             case HourlyWage:
+                HourlyWage hw = (HourlyWage) tab.getTableModel()
+                        .getModel(index);
+
+                UI.getInstance().replaceCurrentTab(new HourlyWageEditorTab());
                 break;
             }
         } else {

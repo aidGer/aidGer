@@ -15,6 +15,8 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTable;
 import javax.swing.table.TableColumn;
 
+import de.aidger.controller.ActionNotFoundException;
+import de.aidger.controller.ActionRegistry;
 import de.aidger.controller.actions.MasterDataActivitiesAction;
 import de.aidger.controller.actions.MasterDataAddAction;
 import de.aidger.controller.actions.MasterDataDeleteAction;
@@ -22,6 +24,7 @@ import de.aidger.controller.actions.MasterDataEditAction;
 import de.aidger.controller.actions.MasterDataViewAction;
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Course;
+import de.aidger.view.UI;
 import de.aidger.view.models.AssistantTableModel;
 import de.aidger.view.models.CourseTableModel;
 import de.aidger.view.models.FinancialCategoryTableModel;
@@ -118,12 +121,21 @@ public class MasterDataViewerTab extends Tab {
         table.setDoubleBuffered(true);
         table.setFocusCycleRoot(true);
 
-        // initializes button actions
-        btnView.setAction(new MasterDataViewAction(this));
-        btnEdit.setAction(new MasterDataEditAction(this));
-        btnAdd.setAction(new MasterDataAddAction(this));
-        btnDelete.setAction(new MasterDataDeleteAction(this));
-        btnActivities.setAction(new MasterDataActivitiesAction(this));
+        // initializes the button actions
+        try {
+            btnView.setAction(ActionRegistry.getInstance().get(
+                    MasterDataViewAction.class.getName()));
+            btnEdit.setAction(ActionRegistry.getInstance().get(
+                    MasterDataEditAction.class.getName()));
+            btnAdd.setAction(ActionRegistry.getInstance().get(
+                    MasterDataAddAction.class.getName()));
+            btnDelete.setAction(ActionRegistry.getInstance().get(
+                    MasterDataDeleteAction.class.getName()));
+            btnActivities.setAction(ActionRegistry.getInstance().get(
+                    MasterDataActivitiesAction.class.getName()));
+        } catch (ActionNotFoundException e) {
+            UI.displayError(e.getMessage());
+        }
 
         tableHeaderSize = new int[table.getColumnCount()][3];
 

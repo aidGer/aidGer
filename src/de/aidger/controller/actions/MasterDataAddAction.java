@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.JButton;
+import javax.swing.JToolBar;
 
 import de.aidger.view.UI;
 import de.aidger.view.tabs.AssistantEditorTab;
@@ -25,17 +27,10 @@ import de.aidger.view.tabs.Tab;
 public class MasterDataAddAction extends AbstractAction {
 
     /**
-     * The master data viewer tab where the action is performed.
-     */
-    private final MasterDataViewerTab tab;
-
-    /**
      * Initializes the action.
      */
-    public MasterDataAddAction(MasterDataViewerTab tab) {
+    public MasterDataAddAction() {
         putValue(Action.NAME, _("Add"));
-
-        this.tab = tab;
     }
 
     /*
@@ -46,6 +41,10 @@ public class MasterDataAddAction extends AbstractAction {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
+        JButton btnEdit = (JButton) e.getSource();
+        JToolBar toolBar = (JToolBar) btnEdit.getParent();
+        MasterDataViewerTab tab = (MasterDataViewerTab) toolBar.getParent();
+
         Tab newTab;
 
         switch (tab.getType()) {

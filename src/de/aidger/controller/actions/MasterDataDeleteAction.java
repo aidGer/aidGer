@@ -7,8 +7,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 
-import de.aidger.view.tabs.MasterDataViewerTab;
-
 /**
  * This action removes a master data from the table and the database.
  * 
@@ -18,17 +16,10 @@ import de.aidger.view.tabs.MasterDataViewerTab;
 public class MasterDataDeleteAction extends AbstractAction {
 
     /**
-     * The master data viewer tab where the action is performed.
-     */
-    private final MasterDataViewerTab tab;
-
-    /**
      * Initializes the action.
      */
-    public MasterDataDeleteAction(MasterDataViewerTab tab) {
+    public MasterDataDeleteAction() {
         putValue(Action.NAME, _("Delete"));
-
-        this.tab = tab;
     }
 
     /*

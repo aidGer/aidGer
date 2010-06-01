@@ -7,8 +7,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 
-import de.aidger.view.tabs.MasterDataViewerTab;
-
 /**
  * This action shows a master data in the current tab.
  * 
@@ -18,17 +16,10 @@ import de.aidger.view.tabs.MasterDataViewerTab;
 public class MasterDataViewAction extends AbstractAction {
 
     /**
-     * The master data viewer tab where the action is performed.
-     */
-    private final MasterDataViewerTab tab;
-
-    /**
      * Initializes the action.
      */
-    public MasterDataViewAction(MasterDataViewerTab tab) {
+    public MasterDataViewAction() {
         putValue(Action.NAME, _("View"));
-
-        this.tab = tab;
     }
 
     /*

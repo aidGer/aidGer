@@ -9,6 +9,11 @@ import de.aidger.controller.actions.AboutAction;
 import de.aidger.controller.actions.ExitAction;
 import de.aidger.controller.actions.HelpAction;
 import de.aidger.controller.actions.HomepageAction;
+import de.aidger.controller.actions.MasterDataActivitiesAction;
+import de.aidger.controller.actions.MasterDataAddAction;
+import de.aidger.controller.actions.MasterDataDeleteAction;
+import de.aidger.controller.actions.MasterDataEditAction;
+import de.aidger.controller.actions.MasterDataViewAction;
 import de.aidger.controller.actions.PrintAction;
 import de.aidger.controller.actions.SaveSettingsAction;
 import de.aidger.controller.actions.SettingsAction;
@@ -67,6 +72,11 @@ public final class Application {
         ActionRegistry.getInstance().register(new HomepageAction());
         ActionRegistry.getInstance().register(new AboutAction());
         ActionRegistry.getInstance().register(new AbortAction());
+        ActionRegistry.getInstance().register(new MasterDataViewAction());
+        ActionRegistry.getInstance().register(new MasterDataEditAction());
+        ActionRegistry.getInstance().register(new MasterDataAddAction());
+        ActionRegistry.getInstance().register(new MasterDataDeleteAction());
+        ActionRegistry.getInstance().register(new MasterDataActivitiesAction());
     }
 
     /**
