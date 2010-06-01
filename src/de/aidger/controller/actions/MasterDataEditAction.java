@@ -7,7 +7,12 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JButton;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JToolBar;
+import javax.swing.JViewport;
 
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
@@ -43,9 +48,20 @@ public class MasterDataEditAction extends AbstractAction {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        JButton btnEdit = (JButton) e.getSource();
-        JToolBar toolBar = (JToolBar) btnEdit.getParent();
-        MasterDataViewerTab tab = (MasterDataViewerTab) toolBar.getParent();
+        MasterDataViewerTab tab;
+
+        if (e.getSource() instanceof JButton) {
+            JButton btnEdit = (JButton) e.getSource();
+            JToolBar toolBar = (JToolBar) btnEdit.getParent();
+            tab = (MasterDataViewerTab) toolBar.getParent();
+        } else {
+            JMenuItem itemEdit = (JMenuItem) e.getSource();
+            JPopupMenu popupMenu = (JPopupMenu) itemEdit.getParent();
+            JTable table = (JTable) popupMenu.getInvoker();
+            JViewport viewport = (JViewport) table.getParent();
+            JScrollPane scrollPane = (JScrollPane) viewport.getParent();
+            tab = (MasterDataViewerTab) scrollPane.getParent();
+        }
 
         if (tab.getTable().getSelectedRow() > -1) {
             int index = tab.getTable().getRowSorter().convertRowIndexToModel(

@@ -426,6 +426,7 @@ public class CourseEditorTab extends Tab {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         add(buttons, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 

@@ -97,12 +97,12 @@ public class MasterDataViewerTab extends Tab {
 
         table.setModel(tableModel);
 
-        // table.setComponentPopupMenu(new JPopupMenu());
+        table.setComponentPopupMenu(popupMenu);
         table.setAutoCreateRowSorter(true);
         table.setDoubleBuffered(true);
         table.setFocusCycleRoot(true);
 
-        // initializes the button actions
+        // initializes the button and menu items actions
         try {
             btnView.setAction(ActionRegistry.getInstance().get(
                     MasterDataViewAction.class.getName()));
@@ -114,6 +114,16 @@ public class MasterDataViewerTab extends Tab {
                     MasterDataDeleteAction.class.getName()));
             btnActivities.setAction(ActionRegistry.getInstance().get(
                     MasterDataActivitiesAction.class.getName()));
+
+            itemView.setAction(ActionRegistry.getInstance().get(
+                    MasterDataViewAction.class.getName()));
+            itemEdit.setAction(ActionRegistry.getInstance().get(
+                    MasterDataEditAction.class.getName()));
+            itemDelete.setAction(ActionRegistry.getInstance().get(
+                    MasterDataDeleteAction.class.getName()));
+            itemActivities.setAction(ActionRegistry.getInstance().get(
+                    MasterDataActivitiesAction.class.getName()));
+
         } catch (ActionNotFoundException e) {
             UI.displayError(e.getMessage());
         }
@@ -271,10 +281,17 @@ public class MasterDataViewerTab extends Tab {
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
     // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        popupMenu = new javax.swing.JPopupMenu();
+        itemView = new javax.swing.JMenuItem();
+        itemEdit = new javax.swing.JMenuItem();
+        itemDelete = new javax.swing.JMenuItem();
+        itemActivities = new javax.swing.JMenuItem();
         toolBar = new javax.swing.JToolBar();
         separator = new javax.swing.JToolBar.Separator();
         btnView = new javax.swing.JButton();
@@ -290,6 +307,18 @@ public class MasterDataViewerTab extends Tab {
         scrollPane = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         searchField = new javax.swing.JTextField();
+
+        itemView.setText(_("View"));
+        popupMenu.add(itemView);
+
+        itemEdit.setText(_("Edit"));
+        popupMenu.add(itemEdit);
+
+        itemDelete.setText(_("Delete"));
+        popupMenu.add(itemDelete);
+
+        itemActivities.setText(_("Activities"));
+        popupMenu.add(itemActivities);
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -368,6 +397,11 @@ public class MasterDataViewerTab extends Tab {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnView;
+    private javax.swing.JMenuItem itemActivities;
+    private javax.swing.JMenuItem itemDelete;
+    private javax.swing.JMenuItem itemEdit;
+    private javax.swing.JMenuItem itemView;
+    private javax.swing.JPopupMenu popupMenu;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JTextField searchField;
     private javax.swing.JToolBar.Separator separator;
