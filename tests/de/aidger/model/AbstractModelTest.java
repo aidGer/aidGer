@@ -14,8 +14,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import de.aidger.model.models.Assistant;
-import de.aidger.model.models.Course;
+import de.aidger.model.models.Employment;
 import de.aidger.model.models.HourlyWage;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
@@ -31,18 +30,20 @@ public class AbstractModelTest {
     @Test
     public void testGetAll() throws AdoHiveException {
         System.out.println("getAll");
-        Course c = new Course();
-        c.save();
+        Employment e = new Employment();
+        e.setCostUnit("0711");
+        e.save();
 
-        Course d = new Course();
-        d.save();
+        Employment f = new Employment();
+        f.setCostUnit("0711");
+        f.save();
 
-        List<Course> list = d.getAll();
+        List list = e.getAll();
 
         assertNotNull(list);
         assertEquals(list.size(), 2);
-        assertEquals(list.get(0), c);
-        assertEquals(list.get(1), d);
+        assertEquals(list.get(0), e);
+        assertEquals(list.get(1), f);
     }
 
     /**
@@ -52,13 +53,14 @@ public class AbstractModelTest {
     public void testGetById() throws AdoHiveException {
         System.out.println("getById");
 
-        Course c = new Course();
-        c.save();
+        Employment e = new Employment();
+        e.setCostUnit("0711");
+        e.save();
 
-        Course course = (Course) c.getById(c.getId());
+        Employment result = (Employment) e.getById(e.getId());
 
-        assertNotNull(course);
-        assertEquals(c.getId(), course.getId());
+        assertNotNull(result);
+        assertEquals(e.getId(), result.getId());
     }
 
     /**
@@ -80,12 +82,13 @@ public class AbstractModelTest {
         assertNotNull(result);
         assertEquals(h, result);
 
-        Course c = new Course();
-        c.save();
+        Employment e = new Employment();
+        e.setCostUnit("0711");
+        e.save();
 
-        Course res = (Course) c.getByKeys(c.getId());
+        Employment res = (Employment) e.getByKeys(e.getId());
 
-        assertEquals(c, res);
+        assertEquals(e, res);
     }
 
     /**
@@ -95,25 +98,18 @@ public class AbstractModelTest {
     public void testSave() throws AdoHiveException {
         System.out.println("save");
 
-        Course c = new Course();
-        c.save();
+        Employment e = new Employment();
+        e.setCostUnit("0711");
+        e.save();
 
-        assertTrue(c.getId() > 0);
-        assertEquals(c, c.getById(c.getId()));
+        assertTrue(e.getId() > 0);
+        assertEquals(e, e.getById(e.getId()));
 
-        c.setDescription("Description");
-        c.setSemester("Semester");
-        c.setLecturer("Lecturer");
-        c.setNumberOfGroups(5);
-        c.setTargetAudience("Audience");
-        c.setScope("Umfang");
-        c.setPart('a');
-        c.setGroup("Gruppe");
-        c.setRemark("Bemerkung");
+        e.setAssistantId(1);
+        e.setContractId(1);
+        e.save();
 
-        c.save();
-
-        assertEquals(c, c.getById(c.getId()));
+        assertEquals(e, e.getById(e.getId()));
     }
 
     /**
@@ -123,14 +119,15 @@ public class AbstractModelTest {
     public void testRemove() throws Exception {
         System.out.println("remove");
 
-        Course c = new Course();
-        c.save();
-        int id = c.getId();
+        Employment e = new Employment();
+        e.setCostUnit("0711");
+        e.save();
+        int id = e.getId();
 
-        c.remove();
+        e.remove();
 
-        assertNull(c.getById(id));
-        assertTrue(c.getId() <= 0);
+        assertNull(e.getById(id));
+        assertTrue(e.getId() <= 0);
     }
 
 }

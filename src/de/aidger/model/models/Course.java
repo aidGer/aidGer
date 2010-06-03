@@ -67,6 +67,15 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     private String remark;
 
     /**
+     * Initializes the Course class.
+     */
+    public Course() {
+        validatePresenceOf(new String[] { "description", "semester", "lecturer",
+                "targetAudience", "group" });
+        // TODO: Validate the rest of the variables
+    }
+
+    /**
      * Clone the current course.
      */
     @Override
