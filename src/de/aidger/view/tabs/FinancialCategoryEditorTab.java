@@ -1,10 +1,6 @@
 package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
-import de.aidger.controller.ActionNotFoundException;
-import de.aidger.controller.ActionRegistry;
-import de.aidger.controller.actions.DialogAbortAction;
-import de.aidger.view.UI;
 
 /**
  * A tab for editing/creating new financial categories.
@@ -19,12 +15,6 @@ public class FinancialCategoryEditorTab extends Tab {
      */
     public FinancialCategoryEditorTab() {
         initComponents();
-        try {
-            jButton1.setAction(ActionRegistry.getInstance().get(
-                    DialogAbortAction.class.getName()));
-        } catch (ActionNotFoundException e) {
-            UI.displayError(e.getMessage());
-        }
     }
 
     /*
@@ -44,189 +34,105 @@ public class FinancialCategoryEditorTab extends Tab {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
     // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        lblName = new javax.swing.JLabel();
+        lblBudgetCosts = new javax.swing.JLabel();
+        lblFonds = new javax.swing.JLabel();
+        lblYear = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        txtBudgetCosts = new javax.swing.JTextField();
+        txtFonds = new javax.swing.JTextField();
+        txtYear = new javax.swing.JTextField();
+        buttons = new javax.swing.JPanel();
+        btnSave = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
+        filler = new javax.swing.JLabel();
+        filler2 = new javax.swing.JLabel();
 
-        jButton1.setText("Abbrechen");
+        setLayout(new java.awt.GridBagLayout());
 
-        jButton2.setText("Speichern");
+        lblName.setText(_("Name"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblName, gridBagConstraints);
 
-        jLabel1.setText(_("Name") + ":");
+        lblBudgetCosts.setText(_("Budget Costs"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblBudgetCosts, gridBagConstraints);
 
-        jLabel2.setText(("Budgetcosts") + ":");
+        lblFonds.setText(_("Fonds"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblFonds, gridBagConstraints);
 
-        jLabel3.setText(_("Fund") + ":");
+        lblYear.setText(_("Year"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblYear, gridBagConstraints);
 
-        jLabel4.setText(_("Year") + ":");
+        txtName.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtName, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(
-                jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(
-                javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-                jPanel1Layout.createSequentialGroup().addGroup(
-                        jPanel1Layout.createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1).addComponent(jLabel2)
-                                .addComponent(jLabel3).addComponent(jLabel4))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
-                                Short.MAX_VALUE)));
-        jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(
-                javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-                jPanel1Layout.createSequentialGroup().addComponent(jLabel1)
-                        .addGap(18, 18, 18).addComponent(jLabel2).addGap(18,
-                                18, 18).addComponent(jLabel3)
-                        .addGap(18, 18, 18).addComponent(jLabel4)));
+        txtBudgetCosts.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtBudgetCosts, gridBagConstraints);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
+        txtFonds.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtFonds, gridBagConstraints);
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
+        txtYear.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtYear, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(
-                jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(jPanel2Layout.createParallelGroup(
-                javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-                jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 120,
-                Short.MAX_VALUE).addComponent(jTextField3,
-                javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                .addComponent(jTextField4,
-                        javax.swing.GroupLayout.DEFAULT_SIZE, 120,
-                        Short.MAX_VALUE).addComponent(jTextField2,
-                        javax.swing.GroupLayout.Alignment.TRAILING,
-                        javax.swing.GroupLayout.DEFAULT_SIZE, 120,
-                        Short.MAX_VALUE));
-        jPanel2Layout
-                .setVerticalGroup(jPanel2Layout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(
-                                jPanel2Layout
-                                        .createSequentialGroup()
-                                        .addComponent(
-                                                jTextField1,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(
-                                                jTextField2,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(
-                                                jTextField3,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(
-                                                jTextField4,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)));
+        btnSave.setText(_("Save"));
+        buttons.add(btnSave);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout
-                .setHorizontalGroup(layout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(
-                                layout
-                                        .createSequentialGroup()
-                                        .addGroup(
-                                                layout
-                                                        .createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(
-                                                                javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                layout
-                                                                        .createSequentialGroup()
-                                                                        .addContainerGap()
-                                                                        .addComponent(
-                                                                                jButton2)
-                                                                        .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                        .addComponent(
-                                                                                jButton1))
-                                                        .addGroup(
-                                                                layout
-                                                                        .createSequentialGroup()
-                                                                        .addContainerGap()
-                                                                        .addComponent(
-                                                                                jPanel1,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                        .addComponent(
-                                                                                jPanel2,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addContainerGap(
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE)));
-        layout
-                .setVerticalGroup(layout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(
-                                layout
-                                        .createSequentialGroup()
-                                        .addContainerGap()
-                                        .addGroup(
-                                                layout
-                                                        .createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(
-                                                                jPanel1,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(
-                                                                jPanel2,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(
-                                                layout
-                                                        .createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jButton2)
-                                                        .addComponent(jButton1))
-                                        .addContainerGap(
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE)));
+        btnCancel.setText(_("Cancel"));
+        buttons.add(btnCancel);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(buttons, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.weighty = 1.0;
+        add(filler, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridheight = 5;
+        gridBagConstraints.weightx = 1.0;
+        add(filler2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextField1ActionPerformed
@@ -238,18 +144,19 @@ public class FinancialCategoryEditorTab extends Tab {
     }// GEN-LAST:event_jTextField3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JPanel buttons;
+    private javax.swing.JLabel filler;
+    private javax.swing.JLabel filler2;
+    private javax.swing.JLabel lblBudgetCosts;
+    private javax.swing.JLabel lblFonds;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblYear;
+    private javax.swing.JTextField txtBudgetCosts;
+    private javax.swing.JTextField txtFonds;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtYear;
     // End of variables declaration//GEN-END:variables
 
 }

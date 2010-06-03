@@ -1,30 +1,20 @@
 package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
-import de.aidger.controller.ActionNotFoundException;
-import de.aidger.controller.ActionRegistry;
-import de.aidger.controller.actions.DialogAbortAction;
-import de.aidger.view.UI;
 
 /**
- * A Tab for editing/creating new hourly wages.
+ * A tab for editing/creating new financial categories.
  * 
  * @author aidGer Team
  */
 public class HourlyWageEditorTab extends Tab {
 
     /**
-     * Initializes a new HourlyWageEditorTab with the required fields for
-     * entering all relevant data.
+     * Initializes a new FinancialCategoryEditorTab with the required fields for
+     * the relevant data.
      */
     public HourlyWageEditorTab() {
         initComponents();
-        try {
-            jButton1.setAction(ActionRegistry.getInstance().get(
-                    DialogAbortAction.class.getName()));
-        } catch (ActionNotFoundException e) {
-            UI.displayError(e.getMessage());
-        }
     }
 
     /*
@@ -34,7 +24,7 @@ public class HourlyWageEditorTab extends Tab {
      */
     @Override
     public String getTabName() {
-        return _("Hourly Wage Editing");
+        return _("Financial Category Editing");
     }
 
     /**
@@ -44,214 +34,129 @@ public class HourlyWageEditorTab extends Tab {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed"
-    // desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        lblQualification = new javax.swing.JLabel();
+        lblMonth = new javax.swing.JLabel();
+        lblYear = new javax.swing.JLabel();
+        lblWage = new javax.swing.JLabel();
+        txtQualification = new javax.swing.JTextField();
+        txtMonth = new javax.swing.JTextField();
+        txtYear = new javax.swing.JTextField();
+        txtWage = new javax.swing.JTextField();
+        buttons = new javax.swing.JPanel();
+        btnSave = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
+        filler = new javax.swing.JLabel();
+        filler2 = new javax.swing.JLabel();
 
-        jButton1.setText("Abbrechen");
+        setLayout(new java.awt.GridBagLayout());
 
-        jButton2.setText("Speichern");
+        lblQualification.setText(_("Qualification"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblQualification, gridBagConstraints);
 
-        jLabel1.setText(_("Qualification") + ":");
+        lblMonth.setText(_("Month"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblMonth, gridBagConstraints);
 
-        jLabel2.setText(_("Effective Date") + ":");
+        lblYear.setText(_("Year"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblYear, gridBagConstraints);
 
-        jLabel3.setText(_("Hourly Wage") + ":");
+        lblWage.setText(_("Wage"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblWage, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(
-                jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout
-                .setHorizontalGroup(jPanel1Layout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(
-                                jPanel1Layout
-                                        .createSequentialGroup()
-                                        .addGroup(
-                                                jPanel1Layout
-                                                        .createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel1)
-                                                        .addComponent(jLabel2)
-                                                        .addComponent(jLabel3))
-                                        .addContainerGap(
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE)));
-        jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(
-                javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-                jPanel1Layout.createSequentialGroup().addComponent(jLabel1)
-                        .addGap(18, 18, 18).addComponent(jLabel2).addGap(18,
-                                18, 18).addComponent(jLabel3)));
+        txtQualification.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtQualification, gridBagConstraints);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
-                "Item 1", "Item 2", "Item 3", "Item 4" }));
+        txtMonth.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtMonth, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(
-                jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(jPanel2Layout.createParallelGroup(
-                javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-                jComboBox1, 0, 120, Short.MAX_VALUE).addComponent(jTextField2,
-                javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                .addComponent(jTextField1,
-                        javax.swing.GroupLayout.Alignment.TRAILING,
-                        javax.swing.GroupLayout.DEFAULT_SIZE, 120,
-                        Short.MAX_VALUE));
-        jPanel2Layout
-                .setVerticalGroup(jPanel2Layout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(
-                                jPanel2Layout
-                                        .createSequentialGroup()
-                                        .addComponent(
-                                                jComboBox1,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(
-                                                jTextField1,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(
-                                                jTextField2,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)));
+        txtYear.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtYear, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(
-                jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout
-                .setHorizontalGroup(jPanel3Layout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(
-                                jPanel3Layout
-                                        .createSequentialGroup()
-                                        .addComponent(
-                                                jPanel1,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(
-                                                jPanel2,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)));
-        jPanel3Layout
-                .setVerticalGroup(jPanel3Layout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(
-                                jPanel3Layout
-                                        .createSequentialGroup()
-                                        .addGroup(
-                                                jPanel3Layout
-                                                        .createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(
-                                                                jPanel1,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(
-                                                                jPanel2,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addContainerGap(
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE)));
+        txtWage.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtWage, gridBagConstraints);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout
-                .setHorizontalGroup(layout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(
-                                layout
-                                        .createSequentialGroup()
-                                        .addContainerGap()
-                                        .addGroup(
-                                                layout
-                                                        .createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addGroup(
-                                                                layout
-                                                                        .createSequentialGroup()
-                                                                        .addComponent(
-                                                                                jButton2)
-                                                                        .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                        .addComponent(
-                                                                                jButton1))
-                                                        .addComponent(
-                                                                jPanel3,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addContainerGap(
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE)));
-        layout
-                .setVerticalGroup(layout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(
-                                layout
-                                        .createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(
-                                                jPanel3,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(
-                                                layout
-                                                        .createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jButton1)
-                                                        .addComponent(jButton2))
-                                        .addContainerGap(
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE)));
+        btnSave.setText(_("Save"));
+        buttons.add(btnSave);
+
+        btnCancel.setText(_("Cancel"));
+        buttons.add(btnCancel);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(buttons, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.weighty = 1.0;
+        add(filler, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridheight = 5;
+        gridBagConstraints.weightx = 1.0;
+        add(filler2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_jTextField3ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JPanel buttons;
+    private javax.swing.JLabel filler;
+    private javax.swing.JLabel filler2;
+    private javax.swing.JLabel lblMonth;
+    private javax.swing.JLabel lblQualification;
+    private javax.swing.JLabel lblWage;
+    private javax.swing.JLabel lblYear;
+    private javax.swing.JTextField txtMonth;
+    private javax.swing.JTextField txtQualification;
+    private javax.swing.JTextField txtWage;
+    private javax.swing.JTextField txtYear;
     // End of variables declaration//GEN-END:variables
 
 }
