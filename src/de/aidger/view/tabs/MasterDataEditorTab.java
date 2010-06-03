@@ -188,7 +188,7 @@ public class MasterDataEditorTab extends Tab {
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
-    // desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -222,10 +222,13 @@ public class MasterDataEditorTab extends Tab {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.weighty = 1.0;
         add(filler, gridBagConstraints);
+
+        hints.setBorder(javax.swing.BorderFactory.createTitledBorder(_("Hints")));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(hints, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;

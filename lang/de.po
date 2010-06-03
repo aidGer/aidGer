@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-03 22:05+0200\n"
+"POT-Creation-Date: 2010-06-03 22:21+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -32,7 +32,6 @@ msgid "is an invalid email address"
 msgstr "ist eine ungültige Emailadresse"
 
 #: model/validators/DateRangeValidator.java:32
-#, fuzzy
 msgid "is an incorrect date range"
 msgstr "ist ein ungültiges Datum"
 
@@ -94,6 +93,10 @@ msgstr "Speichern"
 #: controller/actions/DialogAbortAction.java:26
 msgid "Cancel"
 msgstr "Abbrechen"
+
+#: view/tabs/MasterDataEditorTab.java:226
+msgid "Hints"
+msgstr "Hinweise"
 
 #: view/tabs/FinancialCategoryViewerTab.java:37
 #, fuzzy

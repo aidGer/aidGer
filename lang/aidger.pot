@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-03 22:05+0200\n"
+"POT-Creation-Date: 2010-06-03 22:21+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -94,6 +94,10 @@ msgstr ""
 #: controller/actions/masterdata/MasterDataEditorCancelAction.java:29
 #: controller/actions/DialogAbortAction.java:26
 msgid "Cancel"
+msgstr ""
+
+#: view/tabs/MasterDataEditorTab.java:226
+msgid "Hints"
 msgstr ""
 
 #: view/tabs/FinancialCategoryViewerTab.java:37
