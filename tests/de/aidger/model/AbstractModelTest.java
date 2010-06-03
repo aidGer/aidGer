@@ -92,7 +92,7 @@ public class AbstractModelTest {
      * Test of save method, of class AbstractModel.
      */
     @Test
-    public void testSave() throws Exception {
+    public void testSave() throws AdoHiveException {
         System.out.println("save");
 
         Course c = new Course();
@@ -113,31 +113,7 @@ public class AbstractModelTest {
 
         c.save();
 
-        Course result = (Course) c.getById(c.getId());
-
-        assertEquals(c.getDescription(), result.getDescription());
-        assertEquals(c.getSemester(), result.getSemester());
-        assertEquals(c.getLecturer(), result.getLecturer());
-        assertEquals(c.getNumberOfGroups(), result.getNumberOfGroups());
-        assertEquals(c.getTargetAudience(), result.getTargetAudience());
-        assertEquals(c.getScope(), result.getScope());
-        assertEquals(c.getPart(), result.getPart());
-        assertEquals(c.getGroup(), result.getGroup());
-        assertEquals(c.getRemark(), result.getRemark());
-    }
-
-    /**
-     * Test of save method with assistant, of class AbstractModel.
-     */
-    @Test
-    public void testSaveAssistant() throws Exception {
-        System.out.println("saveAssistant");
-
-        Assistant a = new Assistant();
-        a.save();
-
-        assertTrue(a.getId() > 0);
-        assertEquals(a, a.getById(a.getId()));
+        assertEquals(c, c.getById(c.getId()));
     }
 
     /**
