@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-03 18:06+0200\n"
+"POT-Creation-Date: 2010-06-03 18:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -513,6 +513,22 @@ msgstr ""
 #: model/models/Activity.java:181
 #, java-format
 msgid "Caught exception in getActivities(course): {0}"
+msgstr ""
+
+#: model/validators/Validator.java:34 model/validators/Validator.java:46
+msgid "Default error"
+msgstr ""
+
+#: model/validators/DateRangeValidator.java:32
+msgid "is an incorrect date range"
+msgstr ""
+
+#: model/validators/EmailValidator.java:26
+msgid "is an invalid email address"
+msgstr ""
+
+#: model/validators/PresenceValidator.java:26
+msgid "is empty"
 msgstr ""
 
 #: utils/Configuration.java:84

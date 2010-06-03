@@ -25,4 +25,8 @@ controller/actions/masterdata/MasterDataEditorSaveAction.java
 controller/ActionNotFoundException.java
 model/AbstractModel.java
 model/models/Activity.java
+model/validators/Validator.java
+model/validators/DateRangeValidator.java
+model/validators/EmailValidator.java
+model/validators/PresenceValidator.java
 utils/Configuration.java

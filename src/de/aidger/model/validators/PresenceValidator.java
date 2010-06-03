@@ -1,5 +1,6 @@
 package de.aidger.model.validators;
 
+import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 
 /**
@@ -22,6 +23,7 @@ public class PresenceValidator extends Validator {
      */
     public PresenceValidator(AbstractModel model, String[] members) {
         super(model, members);
+        message = _("is empty");
     }
 
     /**
