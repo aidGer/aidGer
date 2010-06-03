@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-03 16:18+0200\n"
+"POT-Creation-Date: 2010-06-03 18:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -475,7 +475,7 @@ msgid "The number of activities needs to be bigger than 0."
 msgstr ""
 
 #: controller/actions/masterdata/MasterDataViewerEditAction.java:98
-#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:91
+#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:93
 msgid "Please select an entry from the table."
 msgstr ""
 
@@ -483,11 +483,15 @@ msgstr ""
 msgid "Do you really want to delete this entry?"
 msgstr ""
 
-#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:87
+#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:89
 msgid "Could not remove model from database."
 msgstr ""
 
-#: controller/actions/masterdata/MasterDataEditorSaveAction.java:54
+#: controller/actions/masterdata/MasterDataEditorSaveAction.java:53
+msgid "Validation failed."
+msgstr ""
+
+#: controller/actions/masterdata/MasterDataEditorSaveAction.java:56
 msgid "Could not save the model to database."
 msgstr ""
 
@@ -496,7 +500,7 @@ msgstr ""
 msgid "action class {0} not found"
 msgstr ""
 
-#: model/AbstractModel.java:221
+#: model/AbstractModel.java:282
 #, java-format
 msgid "Could not get manager for class \"{0}\". Error: {1}"
 msgstr ""

@@ -49,7 +49,9 @@ public class MasterDataEditorSaveAction extends AbstractAction {
         tab.setModel();
 
         try {
-            tab.getModel().save();
+            if (!tab.getModel().save()) {
+                UI.displayError(_("Validation failed."));
+            }
         } catch (AdoHiveException e1) {
             UI.displayError(_("Could not save the model to database."));
         }

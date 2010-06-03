@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-03 16:18+0200\n"
+"POT-Creation-Date: 2010-06-03 18:06+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -476,19 +476,23 @@ msgid "The number of activities needs to be bigger than 0."
 msgstr "Die Anzahl an Aktivitäten muss größer als 0 sein."
 
 #: controller/actions/masterdata/MasterDataViewerEditAction.java:98
-#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:91
+#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:93
 msgid "Please select an entry from the table."
-msgstr "Bitte markieren Sie zuerst einen Eintrag aus der Tabelle."
+msgstr "Bitte markieren Sie zunächst einen Eintrag aus der Tabelle."
 
 #: controller/actions/masterdata/MasterDataViewerDeleteAction.java:50
 msgid "Do you really want to delete this entry?"
 msgstr "Möchten Sie den Eintrag wirklich löschen?"
 
-#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:87
+#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:89
 msgid "Could not remove model from database."
 msgstr "Das Model konnte nicht aus der Datenbank gelöscht werden."
 
-#: controller/actions/masterdata/MasterDataEditorSaveAction.java:54
+#: controller/actions/masterdata/MasterDataEditorSaveAction.java:53
+msgid "Validation failed."
+msgstr "Validierung ist fehlgeschlagen."
+
+#: controller/actions/masterdata/MasterDataEditorSaveAction.java:56
 msgid "Could not save the model to database."
 msgstr "Das Model konnte nicht in der Datenbank gespeichert werden."
 
@@ -497,7 +501,7 @@ msgstr "Das Model konnte nicht in der Datenbank gespeichert werden."
 msgid "action class {0} not found"
 msgstr "Aktions-Klasse {0} nicht gefunden"
 
-#: model/AbstractModel.java:221
+#: model/AbstractModel.java:282
 #, java-format
 msgid "Could not get manager for class \"{0}\". Error: {1}"
 msgstr "Konnte Manager für Klasse \"{0}\" nicht finden. Fehler: {1}"
