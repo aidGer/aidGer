@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-03 19:06+0200\n"
+"POT-Creation-Date: 2010-06-03 22:05+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -23,10 +23,23 @@ msgstr "Die Datei \"{0}\" konnte nicht erstellt werden."
 msgid "Could not get manager for class \"{0}\". Error: {1}"
 msgstr "Konnte Manager für Klasse \"{0}\" nicht finden. Fehler: {1}"
 
+#: model/validators/PresenceValidator.java:26
+msgid "is empty"
+msgstr "ist leer"
+
+#: model/validators/EmailValidator.java:26
+msgid "is an invalid email address"
+msgstr "ist eine ungültige Emailadresse"
+
+#: model/validators/DateRangeValidator.java:32
+#, fuzzy
+msgid "is an incorrect date range"
+msgstr "ist ein ungültiges Datum"
+
 #: model/validators/Validator.java:34
 #: model/validators/Validator.java:46
 msgid "Default error"
-msgstr ""
+msgstr "Standardfehler"
 
 #: model/models/Activity.java:161
 #, java-format
@@ -38,126 +51,49 @@ msgstr "Ausnahme in getActivities(assistant): {0}"
 msgid "Caught exception in getActivities(course): {0}"
 msgstr "Ausnahme in getActivities(course): {0}"
 
-#: view/tabs/MasterDataEditorTab.java:130
+#: view/tabs/MasterDataEditorTab.java:107
 msgid "Edit course"
 msgstr "Veranstaltung bearbeiten"
 
-#: view/tabs/MasterDataEditorTab.java:132
+#: view/tabs/MasterDataEditorTab.java:109
 msgid "Edit assistant"
 msgstr "Hilfskraft bearbeiten"
 
-#: view/tabs/MasterDataEditorTab.java:134
+#: view/tabs/MasterDataEditorTab.java:111
 msgid "Edit financial category"
 msgstr "Finanzkategorie bearbeiten"
 
-#: view/tabs/MasterDataEditorTab.java:136
+#: view/tabs/MasterDataEditorTab.java:113
 msgid "Edit hourly wage"
 msgstr "Stundenlohn bearbeiten"
 
-#: view/tabs/MasterDataEditorTab.java:142
+#: view/tabs/MasterDataEditorTab.java:119
 msgid "Add course"
 msgstr "Veranstaltung hinzufügen"
 
-#: view/tabs/MasterDataEditorTab.java:144
+#: view/tabs/MasterDataEditorTab.java:121
 msgid "Add assistant"
 msgstr "Hilfskraft hinzufügen"
 
-#: view/tabs/MasterDataEditorTab.java:146
+#: view/tabs/MasterDataEditorTab.java:123
 msgid "Add financial category"
 msgstr "Finanzkategorie hinzufügen"
 
-#: view/tabs/MasterDataEditorTab.java:148
+#: view/tabs/MasterDataEditorTab.java:125
 msgid "Add hourly wage"
 msgstr "Stundenlohn hinzufügen"
 
-#: view/tabs/CourseEditorTab.java:141
-#: view/models/CourseTableModel.java:21
-msgid "Description"
-msgstr "Bezeichnung"
-
-#: view/tabs/CourseEditorTab.java:147
-#: view/tabs/CourseViewerTab.java:217
-#: view/tabs/CourseViewerTab.java:279
-#: view/models/CourseTableModel.java:21
-msgid "Semester"
-msgstr "Semester"
-
-#: view/tabs/CourseEditorTab.java:155
-#: view/tabs/CourseViewerTab.java:219
-#: view/tabs/CourseViewerTab.java:280
-#: view/models/CourseTableModel.java:21
-msgid "Lecturer"
-msgstr "Dozent"
-
-#: view/tabs/CourseEditorTab.java:163
-#: view/tabs/CourseViewerTab.java:221
-#: view/tabs/CourseViewerTab.java:281
-#: view/models/CourseTableModel.java:22
-msgid "Number of Groups"
-msgstr "Gruppenanzahl"
-
-#: view/tabs/CourseEditorTab.java:171
-#: view/models/CourseTableModel.java:22
-msgid "Target Audience"
-msgstr "Zielpublikum"
-
-#: view/tabs/CourseEditorTab.java:179
-#: view/models/CourseTableModel.java:22
-msgid "Granted AWH"
-msgstr "Genehmigte HKS"
-
-#: view/tabs/CourseEditorTab.java:226
-#: view/models/CourseTableModel.java:23
-msgid "Scope"
-msgstr "Umfang"
-
-#: view/tabs/CourseEditorTab.java:232
-#: view/tabs/CourseViewerTab.java:90
-#: view/tabs/CourseViewerTab.java:146
-#: view/models/CourseTableModel.java:23
-msgid "Part"
-msgstr "Teil"
-
-#: view/tabs/CourseEditorTab.java:240
-#: view/tabs/CourseViewerTab.java:92
-#: view/tabs/CourseViewerTab.java:147
-#: view/models/CourseTableModel.java:23
-msgid "Group"
-msgstr "Gruppe"
-
-#: view/tabs/CourseEditorTab.java:248
-#: view/models/CourseTableModel.java:23
-msgid "Remark"
-msgstr "Bemerkung"
-
-#: view/tabs/CourseEditorTab.java:256
-#: view/tabs/CourseViewerTab.java:96
-#: view/tabs/CourseViewerTab.java:150
-#: view/models/CourseTableModel.java:24
-msgid "Financial Category"
-msgstr "Finanzkategorie"
-
-#: view/tabs/CourseEditorTab.java:312
-#: view/tabs/AssistantEditorTab.java:150
-#: view/tabs/FinancialCategoryEditorTab.java:155
-#: view/tabs/HourlyWageEditorTab.java:141
-#: controller/actions/masterdata/MasterDataEditorSaveAction.java:30
+#: view/tabs/MasterDataEditorTab.java:209
+#: controller/actions/masterdata/MasterDataEditorSaveAction.java:39
 #: controller/actions/SaveSettingsAction.java:29
 msgid "Save"
 msgstr "Speichern"
 
-#: view/tabs/CourseEditorTab.java:315
-#: view/tabs/AssistantEditorTab.java:153
-#: view/tabs/FinancialCategoryEditorTab.java:158
-#: view/tabs/HourlyWageEditorTab.java:144
+#: view/tabs/MasterDataEditorTab.java:212
 #: controller/actions/masterdata/MasterDataEditorCancelAction.java:29
 #: controller/actions/DialogAbortAction.java:26
 msgid "Cancel"
 msgstr "Abbrechen"
-
-#: view/tabs/CourseEditorTab.java:324
-msgid "Hints"
-msgstr "Hinweise"
 
 #: view/tabs/FinancialCategoryViewerTab.java:37
 #, fuzzy
@@ -174,7 +110,7 @@ msgstr "Datum"
 
 #: view/tabs/FinancialCategoryViewerTab.java:67
 #: view/tabs/FinancialCategoryViewerTab.java:106
-#: view/tabs/FinancialCategoryEditorTab.java:99
+#: view/forms/FinancialCategoryEditorForm.java:93
 #: view/models/FinancialCategoryTableModel.java:22
 msgid "Name"
 msgstr "Name"
@@ -190,7 +126,7 @@ msgid "Fund"
 msgstr "Fonds"
 
 #: view/tabs/FinancialCategoryViewerTab.java:73
-#: view/tabs/FinancialCategoryEditorTab.java:121
+#: view/forms/FinancialCategoryEditorForm.java:115
 #: view/models/HourlyWageTableModel.java:21
 #: view/models/FinancialCategoryTableModel.java:23
 msgid "Year"
@@ -199,32 +135,6 @@ msgstr "Jahr"
 #: view/tabs/EmptyTab.java:26
 msgid "(Unnamed)"
 msgstr "(Unbenannt)"
-
-#: view/tabs/AssistantEditorTab.java:94
-#: view/tabs/AssistantViewerTab.java:72
-#: view/models/AssistantTableModel.java:21
-msgid "First Name"
-msgstr "Vorname"
-
-#: view/tabs/AssistantEditorTab.java:100
-#: view/tabs/AssistantViewerTab.java:74
-#: view/models/AssistantTableModel.java:21
-msgid "Last Name"
-msgstr "Nachname"
-
-#: view/tabs/AssistantEditorTab.java:108
-#: view/models/AssistantTableModel.java:21
-msgid "Email"
-msgstr "Email"
-
-#: view/tabs/AssistantEditorTab.java:116
-#: view/tabs/AssistantViewerTab.java:78
-#: view/tabs/HourlyWageViewerTab.java:65
-#: view/tabs/HourlyWageEditorTab.java:96
-#: view/models/HourlyWageTableModel.java:21
-#: view/models/AssistantTableModel.java:22
-msgid "Qualification"
-msgstr "Qualifikation"
 
 #: view/tabs/MasterDataViewerTab.java:197
 msgid "Master Data Courses"
@@ -254,7 +164,7 @@ msgstr "Anzeigen"
 
 #: view/tabs/MasterDataViewerTab.java:313
 #: view/tabs/MasterDataViewerTab.java:335
-#: controller/actions/masterdata/MasterDataViewerEditAction.java:40
+#: controller/actions/masterdata/MasterDataViewerEditAction.java:33
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -272,7 +182,7 @@ msgid "Activities"
 msgstr "Vorgänge"
 
 #: view/tabs/MasterDataViewerTab.java:342
-#: controller/actions/masterdata/MasterDataViewerAddAction.java:33
+#: controller/actions/masterdata/MasterDataViewerAddAction.java:28
 msgid "Add"
 msgstr "Hinzufügen"
 
@@ -290,9 +200,30 @@ msgstr "Suchen"
 msgid "Assistant Viewing"
 msgstr "Hilfskräfte"
 
+#: view/tabs/AssistantViewerTab.java:72
+#: view/forms/AssistantEditorForm.java:96
+#: view/models/AssistantTableModel.java:21
+msgid "First Name"
+msgstr "Vorname"
+
+#: view/tabs/AssistantViewerTab.java:74
+#: view/forms/AssistantEditorForm.java:102
+#: view/models/AssistantTableModel.java:21
+msgid "Last Name"
+msgstr "Nachname"
+
 #: view/tabs/AssistantViewerTab.java:76
 msgid "eMail Address"
 msgstr ""
+
+#: view/tabs/AssistantViewerTab.java:78
+#: view/tabs/HourlyWageViewerTab.java:65
+#: view/forms/AssistantEditorForm.java:118
+#: view/forms/HourlyWageEditorForm.java:92
+#: view/models/HourlyWageTableModel.java:21
+#: view/models/AssistantTableModel.java:22
+msgid "Qualification"
+msgstr "Qualifikation"
 
 #: view/tabs/CourseViewerTab.java:39
 msgid "Course Viewing"
@@ -303,16 +234,58 @@ msgstr ""
 msgid "Complexity"
 msgstr ""
 
+#: view/tabs/CourseViewerTab.java:90
+#: view/tabs/CourseViewerTab.java:146
+#: view/forms/CourseEditorForm.java:278
+#: view/models/CourseTableModel.java:23
+msgid "Part"
+msgstr "Teil"
+
+#: view/tabs/CourseViewerTab.java:92
+#: view/tabs/CourseViewerTab.java:147
+#: view/forms/CourseEditorForm.java:286
+#: view/models/CourseTableModel.java:23
+msgid "Group"
+msgstr "Gruppe"
+
 #: view/tabs/CourseViewerTab.java:94
 #: view/tabs/CourseViewerTab.java:148
 msgid "Comment"
 msgstr ""
+
+#: view/tabs/CourseViewerTab.java:96
+#: view/tabs/CourseViewerTab.java:150
+#: view/forms/CourseEditorForm.java:302
+#: view/models/CourseTableModel.java:24
+msgid "Financial Category"
+msgstr "Finanzkategorie"
 
 #: view/tabs/CourseViewerTab.java:215
 #: view/tabs/CourseViewerTab.java:278
 #, fuzzy
 msgid "Title"
 msgstr "Datei"
+
+#: view/tabs/CourseViewerTab.java:217
+#: view/tabs/CourseViewerTab.java:279
+#: view/forms/CourseEditorForm.java:193
+#: view/models/CourseTableModel.java:21
+msgid "Semester"
+msgstr "Semester"
+
+#: view/tabs/CourseViewerTab.java:219
+#: view/tabs/CourseViewerTab.java:280
+#: view/forms/CourseEditorForm.java:201
+#: view/models/CourseTableModel.java:21
+msgid "Lecturer"
+msgstr "Dozent"
+
+#: view/tabs/CourseViewerTab.java:221
+#: view/tabs/CourseViewerTab.java:281
+#: view/forms/CourseEditorForm.java:209
+#: view/models/CourseTableModel.java:22
+msgid "Number of Groups"
+msgstr "Gruppenanzahl"
 
 #: view/tabs/CourseViewerTab.java:223
 #: view/tabs/CourseViewerTab.java:282
@@ -338,25 +311,6 @@ msgstr ""
 #, fuzzy
 msgid "Hourly Wage"
 msgstr "Stundenlöhne"
-
-#: view/tabs/FinancialCategoryEditorTab.java:105
-#: view/models/FinancialCategoryTableModel.java:22
-msgid "Budget Costs"
-msgstr "Budgetkosten"
-
-#: view/tabs/FinancialCategoryEditorTab.java:113
-#: view/models/FinancialCategoryTableModel.java:22
-msgid "Fonds"
-msgstr "Fonds"
-
-#: view/tabs/HourlyWageEditorTab.java:102
-msgid "Date"
-msgstr "Datum"
-
-#: view/tabs/HourlyWageEditorTab.java:110
-#: view/models/HourlyWageTableModel.java:22
-msgid "Wage"
-msgstr "Lohn"
 
 #: view/tabs/WelcomeTab.java:42
 msgid "Welcome"
@@ -490,6 +444,55 @@ msgstr "Öffnet einen neuen Tab"
 msgid "Ready"
 msgstr "Bereit"
 
+#: view/forms/AssistantEditorForm.java:110
+#: view/models/AssistantTableModel.java:21
+msgid "Email"
+msgstr "Email"
+
+#: view/forms/HourlyWageEditorForm.java:98
+msgid "Date"
+msgstr "Datum"
+
+#: view/forms/HourlyWageEditorForm.java:106
+#: view/models/HourlyWageTableModel.java:22
+msgid "Wage"
+msgstr "Lohn"
+
+#: view/forms/CourseEditorForm.java:187
+#: view/models/CourseTableModel.java:21
+msgid "Description"
+msgstr "Bezeichnung"
+
+#: view/forms/CourseEditorForm.java:217
+#: view/models/CourseTableModel.java:22
+msgid "Target Audience"
+msgstr "Zielpublikum"
+
+#: view/forms/CourseEditorForm.java:225
+#: view/models/CourseTableModel.java:22
+msgid "Granted AWH"
+msgstr "Genehmigte HKS"
+
+#: view/forms/CourseEditorForm.java:272
+#: view/models/CourseTableModel.java:23
+msgid "Scope"
+msgstr "Umfang"
+
+#: view/forms/CourseEditorForm.java:294
+#: view/models/CourseTableModel.java:23
+msgid "Remark"
+msgstr "Bemerkung"
+
+#: view/forms/FinancialCategoryEditorForm.java:99
+#: view/models/FinancialCategoryTableModel.java:22
+msgid "Budget Costs"
+msgstr "Budgetkosten"
+
+#: view/forms/FinancialCategoryEditorForm.java:107
+#: view/models/FinancialCategoryTableModel.java:22
+msgid "Fonds"
+msgstr "Fonds"
+
 #: view/CloseTabComponent.java:54
 msgid "Close tab"
 msgstr "Tab schließen"
@@ -563,15 +566,11 @@ msgstr "Anzahl der Vorgänge die in Detailansichten angezeigt werden"
 msgid "Language:"
 msgstr "Sprache:"
 
-#: controller/actions/masterdata/MasterDataEditorSaveAction.java:53
-msgid "Validation failed."
-msgstr "Validierung ist fehlgeschlagen."
-
-#: controller/actions/masterdata/MasterDataEditorSaveAction.java:56
+#: controller/actions/masterdata/MasterDataEditorSaveAction.java:178
 msgid "Could not save the model to database."
 msgstr "Das Model konnte nicht in der Datenbank gespeichert werden."
 
-#: controller/actions/masterdata/MasterDataViewerEditAction.java:98
+#: controller/actions/masterdata/MasterDataViewerEditAction.java:67
 #: controller/actions/masterdata/MasterDataViewerDeleteAction.java:93
 msgid "Please select an entry from the table."
 msgstr "Bitte markieren Sie zunächst einen Eintrag aus der Tabelle."
@@ -657,6 +656,8 @@ msgstr "Programm beenden"
 msgid "action class {0} not found"
 msgstr "Aktions-Klasse {0} nicht gefunden"
 
+#~ msgid "Validation failed."
+#~ msgstr "Validierung ist fehlgeschlagen."
 #~ msgid "Show/Hide Columns"
 #~ msgstr "Spalten ein-/ausblenden"
 #~ msgid "Removing tab at position {0}"

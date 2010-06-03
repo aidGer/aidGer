@@ -3,6 +3,7 @@ package de.aidger.model.validators;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
+import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 
 /**
@@ -22,6 +23,7 @@ public class EmailValidator extends Validator {
     public EmailValidator(AbstractModel model, String[] members) {
         this.model = model;
         this.members = members;
+        this.message = _("is an invalid email address");
     }
 
     /**

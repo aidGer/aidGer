@@ -7,6 +7,7 @@ package de.aidger.model.validators;
 
 import java.util.Date;
 
+import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 
 /**
@@ -28,6 +29,7 @@ public class DateRangeValidator extends Validator {
     public DateRangeValidator(AbstractModel model, String from, String to) {
         this.model = model;
         this.members = new String[] { from, to };
+        this.message = _("is an incorrect date range");
     }
 
     /**
