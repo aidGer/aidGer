@@ -44,6 +44,17 @@ public abstract class AbstractModel<T> extends Observable implements
     protected List<Validator> validators = new Vector<Validator>();
 
     /**
+     * Array containing errors if a validator fails.
+     */
+    protected List<String> errors = new Vector<String>();
+
+    /**
+     * Map of errors for specific fields.
+     */
+    protected Map<String, List<String>> fieldErrors = new HashMap<String,
+            List<String>>();
+
+    /**
      * Cloneable function inherited from IAdoHiveModel.
      *
      * @return Clone of the model
@@ -132,6 +143,56 @@ public abstract class AbstractModel<T> extends Observable implements
             notifyObservers();
 
             setId(-1);
+        }
+    }
+
+    /**
+     * Get a list of all errors.
+     *
+     * @return A list of errors
+     */
+    public List<String> getErrors() {
+        return errors;
+    }
+
+    /**
+     * Get a list of errors for a specific field.
+     *
+     * @param field
+     *            The field to get the errors for
+     * @return A list of errors
+     */
+    public List<String> getErrorsFor(String field) {
+        return fieldErrors.get(field);
+    }
+
+    /**
+     * Add an error to the list,
+     *
+     * @param error
+     *            The error to add
+     */
+    public void addError(String error) {
+        errors.add(error);
+    }
+
+    /**
+     * Add an error for a specific field to the list.
+     *
+     * @param field
+     *            The field on which the error occured
+     * @param error
+     *            The error to add
+     */
+    public void addError(String field, String error) {
+        error = field + " " + error;
+        errors.add(error);
+        if (fieldErrors.containsKey(field)) {
+            fieldErrors.get(field).add(error);
+        } else {
+            List<String> list = new Vector<String>();
+            list.add(error);
+            fieldErrors.put(field, list);
         }
     }
 

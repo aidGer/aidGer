@@ -1,5 +1,6 @@
 package de.aidger.model.validators;
 
+import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 
 /**
@@ -20,11 +21,17 @@ public abstract class Validator {
     protected String[] members;
 
     /**
+     * The error message.
+     */
+    protected String message;
+
+    /**
      * Initialize the PresenceValidator class.
      */
     public Validator() {
         this.model = null;
         this.members = new String[0];
+        this.message = _("Default error");
     }
 
     /**
@@ -36,6 +43,7 @@ public abstract class Validator {
     public Validator(AbstractModel model, String[] members) {
         this.model = model;
         this.members = members;
+        this.message = _("Default error");
     }
 
     /**
@@ -49,6 +57,9 @@ public abstract class Validator {
             Object value = getValueOf(member);
             if (!validateVar(value)) {
                 ret = false;
+                if (model != null) {
+                    model.addError(member, message);
+                }
             }
         }
         return ret;
@@ -62,6 +73,16 @@ public abstract class Validator {
      * @return True if the input validates, false otherwise
      */
     abstract public boolean validateVar(Object o);
+
+    /**
+     * Set the error message.
+     *
+     * @param msg
+     *            The new error message
+     */
+     public void setMessage(String msg) {
+         message = msg;
+     }
 
     /**
      * Get the value of the given member variable.
