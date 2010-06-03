@@ -5,7 +5,6 @@ import static de.aidger.utils.Translation._;
 import java.util.Iterator;
 import java.util.List;
 
-import de.aidger.model.AbstractModel;
 import de.aidger.model.models.HourlyWage;
 
 /**
@@ -20,7 +19,7 @@ public class HourlyWageTableModel extends MasterDataTableModel {
      */
     public HourlyWageTableModel() {
         super(new String[] { _("Qualification"), _("Month"), _("Year"),
-                _("Wage") });
+                _("Wage"), _("ID") });
     }
 
     /*
@@ -31,25 +30,18 @@ public class HourlyWageTableModel extends MasterDataTableModel {
     @Override
     @SuppressWarnings("unchecked")
     public void refresh() {
+        masterData.clear();
+
         List<HourlyWage> hws = (new HourlyWage()).getAll();
 
         Iterator<HourlyWage> it = hws.iterator();
         while (it.hasNext()) {
             HourlyWage hw = it.next();
 
-            addRow(new Object[] { hw.getQualification(), hw.getMonth(),
-                    hw.getYear(), hw.getWage() });
-        }
-    }
+            masterData.add(hw);
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see de.aidger.view.models.MasterDataTableModel#getModel(int)
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public AbstractModel getModel(int i) {
-        return null;
+            addRow(new Object[] { hw.getQualification(), hw.getMonth(),
+                    hw.getYear(), hw.getWage(), hw.getId() });
+        }
     }
 }

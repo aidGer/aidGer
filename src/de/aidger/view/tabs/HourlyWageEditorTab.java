@@ -31,7 +31,9 @@ public class HourlyWageEditorTab extends MasterDataEditorTab {
     public HourlyWageEditorTab(HourlyWage hw) {
         super(MasterDataType.HourlyWage, hw);
 
-        // TODO
+        txtQualification.setText(hw.getQualification());
+        // spDate.setValue(hw.getMonth() + "." + hw.getYear());
+        txtWage.setText(String.valueOf(hw.getWage()));
     }
 
     /*
@@ -54,6 +56,7 @@ public class HourlyWageEditorTab extends MasterDataEditorTab {
         HourlyWage hw = (HourlyWage) model;
 
         hw.setQualification(txtQualification.getText());
+        hw.setWage(Double.valueOf(txtWage.getText()));
     }
 
     /**

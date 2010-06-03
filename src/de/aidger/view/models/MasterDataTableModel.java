@@ -1,5 +1,8 @@
 package de.aidger.view.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.table.DefaultTableModel;
 
 import de.aidger.model.AbstractModel;
@@ -11,6 +14,12 @@ import de.aidger.model.AbstractModel;
  */
 @SuppressWarnings("serial")
 public abstract class MasterDataTableModel extends DefaultTableModel {
+
+    /**
+     * the master data that is displayed on the table
+     */
+    @SuppressWarnings("unchecked")
+    protected List<AbstractModel> masterData = new ArrayList<AbstractModel>();
 
     /**
      * Constructs the abstract master data table model.
@@ -32,7 +41,9 @@ public abstract class MasterDataTableModel extends DefaultTableModel {
      * @return the model at the given index
      */
     @SuppressWarnings("unchecked")
-    public abstract AbstractModel getModel(int i);
+    public AbstractModel getModel(int i) {
+        return masterData.get(i);
+    }
 
     /*
      * (non-Javadoc)

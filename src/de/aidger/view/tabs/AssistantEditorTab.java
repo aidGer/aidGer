@@ -31,7 +31,10 @@ public class AssistantEditorTab extends MasterDataEditorTab {
     public AssistantEditorTab(Assistant assistant) {
         super(MasterDataType.Assistant, assistant);
 
-        // TODO
+        txtFirstName.setText(assistant.getFirstName());
+        txtLastName.setText(assistant.getLastName());
+        txtEmail.setText(assistant.getEmail());
+        txtQualification.setText(assistant.getQualification());
     }
 
     /*

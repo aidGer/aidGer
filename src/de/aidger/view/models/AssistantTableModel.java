@@ -4,9 +4,7 @@ import static de.aidger.utils.Translation._;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.Vector;
 
-import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Assistant;
 
 /**
@@ -21,7 +19,7 @@ public class AssistantTableModel extends MasterDataTableModel {
      */
     public AssistantTableModel() {
         super(new String[] { _("First Name"), _("Last Name"), _("Email"),
-                _("Qualification") });
+                _("Qualification"), _("ID") });
     }
 
     /*
@@ -32,34 +30,19 @@ public class AssistantTableModel extends MasterDataTableModel {
     @Override
     @SuppressWarnings("unchecked")
     public void refresh() {
+        masterData.clear();
+
         List<Assistant> assistants = (new Assistant()).getAll();
 
         Iterator<Assistant> it = assistants.iterator();
         while (it.hasNext()) {
             Assistant assistant = it.next();
 
+            masterData.add(assistant);
+
             addRow(new Object[] { assistant.getFirstName(),
                     assistant.getLastName(), assistant.getEmail(),
-                    assistant.getQualification() });
+                    assistant.getQualification(), assistant.getId() });
         }
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see de.aidger.view.models.MasterDataTableModel#getModel(int)
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public AbstractModel getModel(int i) {
-        Vector row = (Vector) getDataVector().elementAt(i);
-
-        Assistant assistant = new Assistant();
-        assistant.setFirstName((String) row.get(0));
-        assistant.setLastName((String) row.get(1));
-        assistant.setEmail((String) row.get(2));
-        assistant.setQualification((String) row.get(3));
-
-        return assistant;
     }
 }

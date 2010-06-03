@@ -4,9 +4,7 @@ import static de.aidger.utils.Translation._;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.Vector;
 
-import de.aidger.model.AbstractModel;
 import de.aidger.model.models.FinancialCategory;
 
 /**
@@ -22,7 +20,7 @@ public class FinancialCategoryTableModel extends MasterDataTableModel {
      */
     public FinancialCategoryTableModel() {
         super(new String[] { _("Name"), _("Budget Costs"), _("Fonds"),
-                _("Year") });
+                _("Year"), _("ID") });
     }
 
     /*
@@ -33,33 +31,18 @@ public class FinancialCategoryTableModel extends MasterDataTableModel {
     @Override
     @SuppressWarnings("unchecked")
     public void refresh() {
+        masterData.clear();
+
         List<FinancialCategory> fcs = (new FinancialCategory()).getAll();
 
         Iterator<FinancialCategory> it = fcs.iterator();
         while (it.hasNext()) {
             FinancialCategory fc = it.next();
 
+            masterData.add(fc);
+
             addRow(new Object[] { fc.getName(), fc.getBugdetCosts(),
-                    fc.getFonds(), fc.getYear() });
+                    fc.getFonds(), fc.getYear(), fc.getId() });
         }
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see de.aidger.view.models.MasterDataTableModel#getModel(int)
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public AbstractModel getModel(int i) {
-        Vector row = (Vector) getDataVector().elementAt(i);
-
-        FinancialCategory fc = new FinancialCategory();
-        fc.setName((String) row.get(0));
-        fc.setBugdetCosts((int[]) row.get(1));
-        fc.setFonds((int[]) row.get(2));
-        fc.setYear((Short) row.get(3));
-
-        return fc;
     }
 }
