@@ -5,6 +5,7 @@ import static de.aidger.utils.Translation._;
 import javax.swing.JButton;
 
 import de.aidger.model.models.FinancialCategory;
+import de.aidger.view.UI;
 import de.aidger.view.tabs.MasterDataViewerTab.MasterDataType;
 
 /**
@@ -31,6 +32,9 @@ public class FinancialCategoryEditorTab extends MasterDataEditorTab {
     public FinancialCategoryEditorTab(FinancialCategory fc) {
         super(MasterDataType.FinancialCategory, fc);
 
+        txtName.setText(fc.getName());
+        txtYear.setText(String.valueOf(fc.getYear()));
+
         // TODO
     }
 
@@ -53,11 +57,16 @@ public class FinancialCategoryEditorTab extends MasterDataEditorTab {
     public void setModel() {
         FinancialCategory fc = (FinancialCategory) model;
 
-        fc.setName(txtName.getText());
-        // fc.setBugdetCosts((int[]) txtBudgetCosts.getText());
-        // fc.setFonds();
-        // TODO
-        fc.setYear(Short.valueOf(txtYear.getText()));
+        try {
+            fc.setName(txtName.getText());
+            // fc.setBugdetCosts((int[]) txtBudgetCosts.getText());
+            // fc.setFonds();
+            fc.setYear(Short.valueOf(txtYear.getText()));
+
+            // TODO
+        } catch (NumberFormatException e) {
+            UI.displayError(e.getMessage());
+        }
     }
 
     /**

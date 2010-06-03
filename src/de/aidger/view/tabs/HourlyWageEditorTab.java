@@ -5,6 +5,7 @@ import static de.aidger.utils.Translation._;
 import javax.swing.JButton;
 
 import de.aidger.model.models.HourlyWage;
+import de.aidger.view.UI;
 import de.aidger.view.tabs.MasterDataViewerTab.MasterDataType;
 
 /**
@@ -55,8 +56,14 @@ public class HourlyWageEditorTab extends MasterDataEditorTab {
     public void setModel() {
         HourlyWage hw = (HourlyWage) model;
 
-        hw.setQualification(txtQualification.getText());
-        hw.setWage(Double.valueOf(txtWage.getText()));
+        try {
+            hw.setQualification(txtQualification.getText());
+            hw.setWage(Double.valueOf(txtWage.getText()));
+
+            // TODO
+        } catch (NumberFormatException e) {
+            UI.displayError(e.getMessage());
+        }
     }
 
     /**
