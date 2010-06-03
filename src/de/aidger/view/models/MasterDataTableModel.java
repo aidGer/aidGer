@@ -16,7 +16,7 @@ import de.aidger.model.AbstractModel;
 public abstract class MasterDataTableModel extends DefaultTableModel {
 
     /**
-     * the master data that is displayed on the table
+     * The master data that is displayed on the table.
      */
     @SuppressWarnings("unchecked")
     protected List<AbstractModel> masterData = new ArrayList<AbstractModel>();
