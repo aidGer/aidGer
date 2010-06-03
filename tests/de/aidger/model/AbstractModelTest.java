@@ -14,6 +14,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.HourlyWage;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
@@ -123,6 +124,20 @@ public class AbstractModelTest {
         assertEquals(c.getPart(), result.getPart());
         assertEquals(c.getGroup(), result.getGroup());
         assertEquals(c.getRemark(), result.getRemark());
+    }
+
+    /**
+     * Test of save method with assistant, of class AbstractModel.
+     */
+    @Test
+    public void testSaveAssistant() throws Exception {
+        System.out.println("saveAssistant");
+
+        Assistant a = new Assistant();
+        a.save();
+
+        assertTrue(a.getId() > 0);
+        assertEquals(a, a.getById(a.getId()));
     }
 
     /**
