@@ -111,6 +111,8 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
                     c.part == part && 
                     ((Double)c.unqualifiedWorkingHours).equals(
                     unqualifiedWorkingHours) &&
+                    (description == null ? c.description == null :
+                            description.equals(c.description)) &&
                     (remark == null ? c.remark == null :
                             remark.equals(c.remark)) &&
                     (scope == null ? c.scope == null : scope.equals(c.scope)) &&
