@@ -20,6 +20,7 @@ controller/actions/PrintAction.java
 controller/actions/SettingsAction.java
 controller/actions/SaveSettingsAction.java
 controller/actions/masterdata/MasterDataViewerEditAction.java
+controller/actions/masterdata/MasterDataViewerDeleteAction.java
 controller/actions/masterdata/MasterDataEditorSaveAction.java
 controller/ActionNotFoundException.java
 model/AbstractModel.java

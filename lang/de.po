@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-03 13:53+0200\n"
+"POT-Creation-Date: 2010-06-03 16:18+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -249,6 +249,7 @@ msgstr "Bearbeiten"
 
 #: view/tabs/MasterDataViewerTab.java:316
 #: view/tabs/MasterDataViewerTab.java:349
+#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:33
 msgid "Delete"
 msgstr "Löschen"
 
@@ -296,106 +297,113 @@ msgstr "Finanzkategorie hinzufügen"
 msgid "Add hourly wage"
 msgstr "Stundenlohn hinzufügen"
 
-#: view/tabs/HourlyWageEditorTab.java:57
-#: view/models/AssistantTableModel.java:24
-#: view/models/HourlyWageTableModel.java:22
+#: view/tabs/HourlyWageEditorTab.java:96
+#: view/models/AssistantTableModel.java:22
+#: view/models/HourlyWageTableModel.java:21
 msgid "Qualification"
 msgstr "Qualifikation"
 
-#: view/tabs/HourlyWageEditorTab.java:63
+#: view/tabs/HourlyWageEditorTab.java:102
 msgid "Date"
 msgstr "Datum"
 
-#: view/tabs/HourlyWageEditorTab.java:71
-#: view/models/HourlyWageTableModel.java:23
+#: view/tabs/HourlyWageEditorTab.java:110
+#: view/models/HourlyWageTableModel.java:22
 msgid "Wage"
 msgstr "Lohn"
 
-#: view/tabs/HourlyWageEditorTab.java:102
+#: view/tabs/HourlyWageEditorTab.java:141
 #: controller/actions/SaveSettingsAction.java:29
 #: controller/actions/masterdata/MasterDataEditorSaveAction.java:30
 msgid "Save"
 msgstr "Speichern"
 
-#: view/tabs/HourlyWageEditorTab.java:105
+#: view/tabs/HourlyWageEditorTab.java:144
 #: controller/actions/DialogAbortAction.java:26
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: view/models/AssistantTableModel.java:23
+#: view/models/AssistantTableModel.java:21
 msgid "First Name"
 msgstr "Vorname"
 
-#: view/models/AssistantTableModel.java:23
+#: view/models/AssistantTableModel.java:21
 msgid "Last Name"
 msgstr "Nachname"
 
-#: view/models/AssistantTableModel.java:23
+#: view/models/AssistantTableModel.java:21
 msgid "Email"
 msgstr "Email"
 
-#: view/models/CourseTableModel.java:23
+#: view/models/AssistantTableModel.java:22
+#: view/models/CourseTableModel.java:24
+#: view/models/FinancialCategoryTableModel.java:23
+#: view/models/HourlyWageTableModel.java:22
+msgid "ID"
+msgstr "ID"
+
+#: view/models/CourseTableModel.java:21
 msgid "Description"
 msgstr "Bezeichnung"
 
-#: view/models/CourseTableModel.java:23
+#: view/models/CourseTableModel.java:21
 msgid "Semester"
 msgstr "Semester"
 
-#: view/models/CourseTableModel.java:23
+#: view/models/CourseTableModel.java:21
 msgid "Lecturer"
 msgstr "Dozent"
 
-#: view/models/CourseTableModel.java:24
+#: view/models/CourseTableModel.java:22
 msgid "Number of Groups"
 msgstr "Gruppenanzahl"
 
-#: view/models/CourseTableModel.java:24
+#: view/models/CourseTableModel.java:22
 msgid "Target Audience"
 msgstr "Zielpublikum"
 
-#: view/models/CourseTableModel.java:24
+#: view/models/CourseTableModel.java:22
 msgid "Granted AWH"
 msgstr "Genehmigte HKS"
 
-#: view/models/CourseTableModel.java:25
+#: view/models/CourseTableModel.java:23
 msgid "Scope"
 msgstr "Umfang"
 
-#: view/models/CourseTableModel.java:25
+#: view/models/CourseTableModel.java:23
 msgid "Part"
 msgstr "Teil"
 
-#: view/models/CourseTableModel.java:25
+#: view/models/CourseTableModel.java:23
 msgid "Group"
 msgstr "Gruppe"
 
-#: view/models/CourseTableModel.java:25
+#: view/models/CourseTableModel.java:23
 msgid "Remark"
 msgstr "Bemerkung"
 
-#: view/models/CourseTableModel.java:26
+#: view/models/CourseTableModel.java:24
 msgid "Financial Category"
 msgstr "Finanzkategorie"
 
-#: view/models/FinancialCategoryTableModel.java:24
+#: view/models/FinancialCategoryTableModel.java:22
 msgid "Name"
 msgstr "Name"
 
-#: view/models/FinancialCategoryTableModel.java:24
+#: view/models/FinancialCategoryTableModel.java:22
 msgid "Budget Costs"
 msgstr "Budgetkosten"
 
-#: view/models/FinancialCategoryTableModel.java:24
+#: view/models/FinancialCategoryTableModel.java:22
 msgid "Fonds"
 msgstr "Fonds"
 
-#: view/models/FinancialCategoryTableModel.java:25
-#: view/models/HourlyWageTableModel.java:22
+#: view/models/FinancialCategoryTableModel.java:23
+#: view/models/HourlyWageTableModel.java:21
 msgid "Year"
 msgstr "Jahr"
 
-#: view/models/HourlyWageTableModel.java:22
+#: view/models/HourlyWageTableModel.java:21
 msgid "Month"
 msgstr "Monat"
 
@@ -467,13 +475,22 @@ msgstr "Keine oder falsche Sprache ausgewählt."
 msgid "The number of activities needs to be bigger than 0."
 msgstr "Die Anzahl an Aktivitäten muss größer als 0 sein."
 
-#: controller/actions/masterdata/MasterDataViewerEditAction.java:97
+#: controller/actions/masterdata/MasterDataViewerEditAction.java:98
+#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:91
 msgid "Please select an entry from the table."
-msgstr "Bitte einen Eintrag aus der Tabelle auswählen."
+msgstr "Bitte markieren Sie zuerst einen Eintrag aus der Tabelle."
+
+#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:50
+msgid "Do you really want to delete this entry?"
+msgstr "Möchten Sie den Eintrag wirklich löschen?"
+
+#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:87
+msgid "Could not remove model from database."
+msgstr "Das Model konnte nicht aus der Datenbank gelöscht werden."
 
 #: controller/actions/masterdata/MasterDataEditorSaveAction.java:54
-msgid "Could not save the model."
-msgstr "Das Model konnte nicht gespeichert werden."
+msgid "Could not save the model to database."
+msgstr "Das Model konnte nicht in der Datenbank gespeichert werden."
 
 #: controller/ActionNotFoundException.java:15
 #, java-format
