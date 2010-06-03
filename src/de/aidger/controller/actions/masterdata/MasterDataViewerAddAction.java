@@ -10,13 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JToolBar;
 
 import de.aidger.view.UI;
-import de.aidger.view.tabs.AssistantEditorTab;
-import de.aidger.view.tabs.CourseEditorTab;
-import de.aidger.view.tabs.EmptyTab;
-import de.aidger.view.tabs.FinancialCategoryEditorTab;
-import de.aidger.view.tabs.HourlyWageEditorTab;
+import de.aidger.view.tabs.MasterDataEditorTab;
 import de.aidger.view.tabs.MasterDataViewerTab;
-import de.aidger.view.tabs.Tab;
 
 /**
  * This action replaces the current tab with add-tab for each master data type.
@@ -45,26 +40,7 @@ public class MasterDataViewerAddAction extends AbstractAction {
         JToolBar toolBar = (JToolBar) btnEdit.getParent();
         MasterDataViewerTab tab = (MasterDataViewerTab) toolBar.getParent();
 
-        Tab newTab;
-
-        switch (tab.getType()) {
-        case Course:
-            newTab = new CourseEditorTab();
-            break;
-        case Assistant:
-            newTab = new AssistantEditorTab();
-            break;
-        case FinancialCategory:
-            newTab = new FinancialCategoryEditorTab();
-            break;
-        case HourlyWage:
-            newTab = new HourlyWageEditorTab();
-            break;
-        default:
-            newTab = new EmptyTab();
-            break;
-        }
-
-        UI.getInstance().replaceCurrentTab(newTab);
+        UI.getInstance().replaceCurrentTab(
+                new MasterDataEditorTab(tab.getType()));
     }
 }

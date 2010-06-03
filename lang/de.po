@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-03 18:06+0200\n"
+"POT-Creation-Date: 2010-06-03 19:06+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -13,25 +13,354 @@ msgstr ""
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: view/AboutDialog.java:37
-msgid "Close"
-msgstr "Schließen"
+#: utils/Configuration.java:84
+#, java-format
+msgid "Could not create file \"{0}\"."
+msgstr "Die Datei \"{0}\" konnte nicht erstellt werden."
 
-#: view/AboutDialog.java:59
-msgid "About aidGer"
-msgstr "Über aidGer"
+#: model/AbstractModel.java:282
+#, java-format
+msgid "Could not get manager for class \"{0}\". Error: {1}"
+msgstr "Konnte Manager für Klasse \"{0}\" nicht finden. Fehler: {1}"
 
-#: view/AboutDialog.java:65
-msgid "Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
-msgstr "Autoren: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
+#: model/validators/Validator.java:34
+#: model/validators/Validator.java:46
+msgid "Default error"
+msgstr ""
 
-#: view/AboutDialog.java:70
-msgid "Homepage: http://www.aidger.de"
-msgstr "Homepage: http://www.aidger.de"
+#: model/models/Activity.java:161
+#, java-format
+msgid "Caught exception in getActivities(assistant): {0}"
+msgstr "Ausnahme in getActivities(assistant): {0}"
 
-#: view/AboutDialog.java:111
-msgid "Opening browser to http://aidger.de"
-msgstr "Öffne Browser auf http://www.aidger.de"
+#: model/models/Activity.java:181
+#, java-format
+msgid "Caught exception in getActivities(course): {0}"
+msgstr "Ausnahme in getActivities(course): {0}"
+
+#: view/tabs/MasterDataEditorTab.java:130
+msgid "Edit course"
+msgstr "Veranstaltung bearbeiten"
+
+#: view/tabs/MasterDataEditorTab.java:132
+msgid "Edit assistant"
+msgstr "Hilfskraft bearbeiten"
+
+#: view/tabs/MasterDataEditorTab.java:134
+msgid "Edit financial category"
+msgstr "Finanzkategorie bearbeiten"
+
+#: view/tabs/MasterDataEditorTab.java:136
+msgid "Edit hourly wage"
+msgstr "Stundenlohn bearbeiten"
+
+#: view/tabs/MasterDataEditorTab.java:142
+msgid "Add course"
+msgstr "Veranstaltung hinzufügen"
+
+#: view/tabs/MasterDataEditorTab.java:144
+msgid "Add assistant"
+msgstr "Hilfskraft hinzufügen"
+
+#: view/tabs/MasterDataEditorTab.java:146
+msgid "Add financial category"
+msgstr "Finanzkategorie hinzufügen"
+
+#: view/tabs/MasterDataEditorTab.java:148
+msgid "Add hourly wage"
+msgstr "Stundenlohn hinzufügen"
+
+#: view/tabs/CourseEditorTab.java:141
+#: view/models/CourseTableModel.java:21
+msgid "Description"
+msgstr "Bezeichnung"
+
+#: view/tabs/CourseEditorTab.java:147
+#: view/tabs/CourseViewerTab.java:217
+#: view/tabs/CourseViewerTab.java:279
+#: view/models/CourseTableModel.java:21
+msgid "Semester"
+msgstr "Semester"
+
+#: view/tabs/CourseEditorTab.java:155
+#: view/tabs/CourseViewerTab.java:219
+#: view/tabs/CourseViewerTab.java:280
+#: view/models/CourseTableModel.java:21
+msgid "Lecturer"
+msgstr "Dozent"
+
+#: view/tabs/CourseEditorTab.java:163
+#: view/tabs/CourseViewerTab.java:221
+#: view/tabs/CourseViewerTab.java:281
+#: view/models/CourseTableModel.java:22
+msgid "Number of Groups"
+msgstr "Gruppenanzahl"
+
+#: view/tabs/CourseEditorTab.java:171
+#: view/models/CourseTableModel.java:22
+msgid "Target Audience"
+msgstr "Zielpublikum"
+
+#: view/tabs/CourseEditorTab.java:179
+#: view/models/CourseTableModel.java:22
+msgid "Granted AWH"
+msgstr "Genehmigte HKS"
+
+#: view/tabs/CourseEditorTab.java:226
+#: view/models/CourseTableModel.java:23
+msgid "Scope"
+msgstr "Umfang"
+
+#: view/tabs/CourseEditorTab.java:232
+#: view/tabs/CourseViewerTab.java:90
+#: view/tabs/CourseViewerTab.java:146
+#: view/models/CourseTableModel.java:23
+msgid "Part"
+msgstr "Teil"
+
+#: view/tabs/CourseEditorTab.java:240
+#: view/tabs/CourseViewerTab.java:92
+#: view/tabs/CourseViewerTab.java:147
+#: view/models/CourseTableModel.java:23
+msgid "Group"
+msgstr "Gruppe"
+
+#: view/tabs/CourseEditorTab.java:248
+#: view/models/CourseTableModel.java:23
+msgid "Remark"
+msgstr "Bemerkung"
+
+#: view/tabs/CourseEditorTab.java:256
+#: view/tabs/CourseViewerTab.java:96
+#: view/tabs/CourseViewerTab.java:150
+#: view/models/CourseTableModel.java:24
+msgid "Financial Category"
+msgstr "Finanzkategorie"
+
+#: view/tabs/CourseEditorTab.java:312
+#: view/tabs/AssistantEditorTab.java:150
+#: view/tabs/FinancialCategoryEditorTab.java:155
+#: view/tabs/HourlyWageEditorTab.java:141
+#: controller/actions/masterdata/MasterDataEditorSaveAction.java:30
+#: controller/actions/SaveSettingsAction.java:29
+msgid "Save"
+msgstr "Speichern"
+
+#: view/tabs/CourseEditorTab.java:315
+#: view/tabs/AssistantEditorTab.java:153
+#: view/tabs/FinancialCategoryEditorTab.java:158
+#: view/tabs/HourlyWageEditorTab.java:144
+#: controller/actions/masterdata/MasterDataEditorCancelAction.java:29
+#: controller/actions/DialogAbortAction.java:26
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: view/tabs/CourseEditorTab.java:324
+msgid "Hints"
+msgstr "Hinweise"
+
+#: view/tabs/FinancialCategoryViewerTab.java:37
+#, fuzzy
+msgid "Financial Category Viewing"
+msgstr "Finanzkategorien"
+
+#: view/tabs/FinancialCategoryViewerTab.java:65
+#: view/tabs/AssistantViewerTab.java:70
+#: view/tabs/CourseViewerTab.java:86
+#: view/tabs/HourlyWageViewerTab.java:63
+#, fuzzy
+msgid "Data"
+msgstr "Datum"
+
+#: view/tabs/FinancialCategoryViewerTab.java:67
+#: view/tabs/FinancialCategoryViewerTab.java:106
+#: view/tabs/FinancialCategoryEditorTab.java:99
+#: view/models/FinancialCategoryTableModel.java:22
+msgid "Name"
+msgstr "Name"
+
+#: view/tabs/FinancialCategoryViewerTab.java:69
+#, fuzzy
+msgid "Budgetcosts"
+msgstr "Budgetkosten"
+
+#: view/tabs/FinancialCategoryViewerTab.java:71
+#, fuzzy
+msgid "Fund"
+msgstr "Fonds"
+
+#: view/tabs/FinancialCategoryViewerTab.java:73
+#: view/tabs/FinancialCategoryEditorTab.java:121
+#: view/models/HourlyWageTableModel.java:21
+#: view/models/FinancialCategoryTableModel.java:23
+msgid "Year"
+msgstr "Jahr"
+
+#: view/tabs/EmptyTab.java:26
+msgid "(Unnamed)"
+msgstr "(Unbenannt)"
+
+#: view/tabs/AssistantEditorTab.java:94
+#: view/tabs/AssistantViewerTab.java:72
+#: view/models/AssistantTableModel.java:21
+msgid "First Name"
+msgstr "Vorname"
+
+#: view/tabs/AssistantEditorTab.java:100
+#: view/tabs/AssistantViewerTab.java:74
+#: view/models/AssistantTableModel.java:21
+msgid "Last Name"
+msgstr "Nachname"
+
+#: view/tabs/AssistantEditorTab.java:108
+#: view/models/AssistantTableModel.java:21
+msgid "Email"
+msgstr "Email"
+
+#: view/tabs/AssistantEditorTab.java:116
+#: view/tabs/AssistantViewerTab.java:78
+#: view/tabs/HourlyWageViewerTab.java:65
+#: view/tabs/HourlyWageEditorTab.java:96
+#: view/models/HourlyWageTableModel.java:21
+#: view/models/AssistantTableModel.java:22
+msgid "Qualification"
+msgstr "Qualifikation"
+
+#: view/tabs/MasterDataViewerTab.java:197
+msgid "Master Data Courses"
+msgstr "Stammdaten Veranstaltungen"
+
+#: view/tabs/MasterDataViewerTab.java:199
+msgid "Master Data Assistants"
+msgstr "Stammdaten Hilfskräfte"
+
+#: view/tabs/MasterDataViewerTab.java:201
+msgid "Master Data Financial Categories"
+msgstr "Stammdaten Finanzkategorien"
+
+#: view/tabs/MasterDataViewerTab.java:203
+msgid "Master Data Hourly Wages"
+msgstr "Stammdaten Stundenlöhne"
+
+#: view/tabs/MasterDataViewerTab.java:205
+msgid "Master Data"
+msgstr "Stammdaten"
+
+#: view/tabs/MasterDataViewerTab.java:310
+#: view/tabs/MasterDataViewerTab.java:328
+#: controller/actions/masterdata/MasterDataViewerViewAction.java:33
+msgid "View"
+msgstr "Anzeigen"
+
+#: view/tabs/MasterDataViewerTab.java:313
+#: view/tabs/MasterDataViewerTab.java:335
+#: controller/actions/masterdata/MasterDataViewerEditAction.java:40
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: view/tabs/MasterDataViewerTab.java:316
+#: view/tabs/MasterDataViewerTab.java:349
+#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:33
+msgid "Delete"
+msgstr "Löschen"
+
+#: view/tabs/MasterDataViewerTab.java:319
+#: view/tabs/CourseViewerTab.java:427
+#: view/UI.java:463
+#: controller/actions/masterdata/MasterDataViewerActivitiesAction.java:22
+msgid "Activities"
+msgstr "Vorgänge"
+
+#: view/tabs/MasterDataViewerTab.java:342
+#: controller/actions/masterdata/MasterDataViewerAddAction.java:33
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: view/tabs/MasterDataViewerTab.java:356
+#: view/tabs/AssistantViewerTab.java:213
+msgid "Activites"
+msgstr "Vorgänge"
+
+#: view/tabs/MasterDataViewerTab.java:383
+msgid "Search"
+msgstr "Suchen"
+
+#: view/tabs/AssistantViewerTab.java:39
+#, fuzzy
+msgid "Assistant Viewing"
+msgstr "Hilfskräfte"
+
+#: view/tabs/AssistantViewerTab.java:76
+msgid "eMail Address"
+msgstr ""
+
+#: view/tabs/CourseViewerTab.java:39
+msgid "Course Viewing"
+msgstr ""
+
+#: view/tabs/CourseViewerTab.java:88
+#: view/tabs/CourseViewerTab.java:145
+msgid "Complexity"
+msgstr ""
+
+#: view/tabs/CourseViewerTab.java:94
+#: view/tabs/CourseViewerTab.java:148
+msgid "Comment"
+msgstr ""
+
+#: view/tabs/CourseViewerTab.java:215
+#: view/tabs/CourseViewerTab.java:278
+#, fuzzy
+msgid "Title"
+msgstr "Datei"
+
+#: view/tabs/CourseViewerTab.java:223
+#: view/tabs/CourseViewerTab.java:282
+#, fuzzy
+msgid "Target audience"
+msgstr "Zielpublikum"
+
+#: view/tabs/CourseViewerTab.java:225
+#: view/tabs/CourseViewerTab.java:283
+msgid "Approved HKS"
+msgstr ""
+
+#: view/tabs/HourlyWageViewerTab.java:37
+#, fuzzy
+msgid "Hourly Wage Viewing"
+msgstr "Stundenlöhne"
+
+#: view/tabs/HourlyWageViewerTab.java:67
+msgid "Effective Date"
+msgstr ""
+
+#: view/tabs/HourlyWageViewerTab.java:69
+#, fuzzy
+msgid "Hourly Wage"
+msgstr "Stundenlöhne"
+
+#: view/tabs/FinancialCategoryEditorTab.java:105
+#: view/models/FinancialCategoryTableModel.java:22
+msgid "Budget Costs"
+msgstr "Budgetkosten"
+
+#: view/tabs/FinancialCategoryEditorTab.java:113
+#: view/models/FinancialCategoryTableModel.java:22
+msgid "Fonds"
+msgstr "Fonds"
+
+#: view/tabs/HourlyWageEditorTab.java:102
+msgid "Date"
+msgstr "Datum"
+
+#: view/tabs/HourlyWageEditorTab.java:110
+#: view/models/HourlyWageTableModel.java:22
+msgid "Wage"
+msgstr "Lohn"
+
+#: view/tabs/WelcomeTab.java:42
+msgid "Welcome"
+msgstr "Willkommen"
 
 #: view/UI.java:182
 msgid "Error"
@@ -92,11 +421,6 @@ msgstr "Neue Beschäftigung anlegen"
 #: view/UI.java:459
 msgid "Show all contracts"
 msgstr "Alle Verträge anzeigen"
-
-#: view/UI.java:463
-#: view/tabs/MasterDataViewerTab.java:319
-msgid "Activities"
-msgstr "Vorgänge"
 
 #: view/UI.java:464
 msgid "Create new activity"
@@ -166,6 +490,41 @@ msgstr "Öffnet einen neuen Tab"
 msgid "Ready"
 msgstr "Bereit"
 
+#: view/CloseTabComponent.java:54
+msgid "Close tab"
+msgstr "Tab schließen"
+
+#: view/AboutDialog.java:37
+msgid "Close"
+msgstr "Schließen"
+
+#: view/AboutDialog.java:59
+msgid "About aidGer"
+msgstr "Über aidGer"
+
+#: view/AboutDialog.java:65
+msgid "Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
+msgstr "Autoren: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"
+
+#: view/AboutDialog.java:70
+msgid "Homepage: http://www.aidger.de"
+msgstr "Homepage: http://www.aidger.de"
+
+#: view/AboutDialog.java:111
+msgid "Opening browser to http://aidger.de"
+msgstr "Öffne Browser auf http://www.aidger.de"
+
+#: view/models/CourseTableModel.java:24
+#: view/models/HourlyWageTableModel.java:22
+#: view/models/AssistantTableModel.java:22
+#: view/models/FinancialCategoryTableModel.java:23
+msgid "ID"
+msgstr "ID"
+
+#: view/models/HourlyWageTableModel.java:21
+msgid "Month"
+msgstr "Monat"
+
 #: view/SettingsDialog.java:163
 #: controller/actions/SettingsAction.java:27
 msgid "Settings"
@@ -204,256 +563,38 @@ msgstr "Anzahl der Vorgänge die in Detailansichten angezeigt werden"
 msgid "Language:"
 msgstr "Sprache:"
 
-#: view/CloseTabComponent.java:54
-msgid "Close tab"
-msgstr "Tab schließen"
+#: controller/actions/masterdata/MasterDataEditorSaveAction.java:53
+msgid "Validation failed."
+msgstr "Validierung ist fehlgeschlagen."
 
-#: view/tabs/EmptyTab.java:26
-msgid "(Unnamed)"
-msgstr "(Unbenannt)"
+#: controller/actions/masterdata/MasterDataEditorSaveAction.java:56
+msgid "Could not save the model to database."
+msgstr "Das Model konnte nicht in der Datenbank gespeichert werden."
 
-#: view/tabs/WelcomeTab.java:42
-msgid "Welcome"
-msgstr "Willkommen"
+#: controller/actions/masterdata/MasterDataViewerEditAction.java:98
+#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:93
+msgid "Please select an entry from the table."
+msgstr "Bitte markieren Sie zunächst einen Eintrag aus der Tabelle."
 
-#: view/tabs/MasterDataViewerTab.java:197
-msgid "Master Data Courses"
-msgstr "Stammdaten Veranstaltungen"
+#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:50
+msgid "Do you really want to delete this entry?"
+msgstr "Möchten Sie den Eintrag wirklich löschen?"
 
-#: view/tabs/MasterDataViewerTab.java:199
-msgid "Master Data Assistants"
-msgstr "Stammdaten Hilfskräfte"
-
-#: view/tabs/MasterDataViewerTab.java:201
-msgid "Master Data Financial Categories"
-msgstr "Stammdaten Finanzkategorien"
-
-#: view/tabs/MasterDataViewerTab.java:203
-msgid "Master Data Hourly Wages"
-msgstr "Stammdaten Stundenlöhne"
-
-#: view/tabs/MasterDataViewerTab.java:205
-msgid "Master Data"
-msgstr "Stammdaten"
-
-#: view/tabs/MasterDataViewerTab.java:310
-#: view/tabs/MasterDataViewerTab.java:328
-msgid "View"
-msgstr "Anzeigen"
-
-#: view/tabs/MasterDataViewerTab.java:313
-#: view/tabs/MasterDataViewerTab.java:335
-#: controller/actions/masterdata/MasterDataViewerEditAction.java:40
-msgid "Edit"
-msgstr "Bearbeiten"
-
-#: view/tabs/MasterDataViewerTab.java:316
-#: view/tabs/MasterDataViewerTab.java:349
-#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:33
-msgid "Delete"
-msgstr "Löschen"
-
-#: view/tabs/MasterDataViewerTab.java:342
-msgid "Add"
-msgstr "Hinzufügen"
-
-#: view/tabs/MasterDataViewerTab.java:356
-msgid "Activites"
-msgstr "Vorgänge"
-
-#: view/tabs/MasterDataViewerTab.java:383
-msgid "Search"
-msgstr "Suchen"
-
-#: view/tabs/MasterDataEditorTab.java:130
-msgid "Edit course"
-msgstr "Veranstaltung bearbeiten"
-
-#: view/tabs/MasterDataEditorTab.java:132
-msgid "Edit assistant"
-msgstr "Hilfskraft bearbeiten"
-
-#: view/tabs/MasterDataEditorTab.java:134
-msgid "Edit financial category"
-msgstr "Finanzkategorie bearbeiten"
-
-#: view/tabs/MasterDataEditorTab.java:136
-msgid "Edit hourly wage"
-msgstr "Stundenlohn bearbeiten"
-
-#: view/tabs/MasterDataEditorTab.java:142
-msgid "Add course"
-msgstr "Veranstaltung hinzufügen"
-
-#: view/tabs/MasterDataEditorTab.java:144
-msgid "Add assistant"
-msgstr "Hilfskraft hinzufügen"
-
-#: view/tabs/MasterDataEditorTab.java:146
-msgid "Add financial category"
-msgstr "Finanzkategorie hinzufügen"
-
-#: view/tabs/MasterDataEditorTab.java:148
-msgid "Add hourly wage"
-msgstr "Stundenlohn hinzufügen"
-
-#: view/tabs/HourlyWageEditorTab.java:96
-#: view/models/AssistantTableModel.java:22
-#: view/models/HourlyWageTableModel.java:21
-msgid "Qualification"
-msgstr "Qualifikation"
-
-#: view/tabs/HourlyWageEditorTab.java:102
-msgid "Date"
-msgstr "Datum"
-
-#: view/tabs/HourlyWageEditorTab.java:110
-#: view/models/HourlyWageTableModel.java:22
-msgid "Wage"
-msgstr "Lohn"
-
-#: view/tabs/HourlyWageEditorTab.java:141
-#: controller/actions/SaveSettingsAction.java:29
-#: controller/actions/masterdata/MasterDataEditorSaveAction.java:30
-msgid "Save"
-msgstr "Speichern"
-
-#: view/tabs/HourlyWageEditorTab.java:144
-#: controller/actions/DialogAbortAction.java:26
-msgid "Cancel"
-msgstr "Abbrechen"
-
-#: view/models/AssistantTableModel.java:21
-msgid "First Name"
-msgstr "Vorname"
-
-#: view/models/AssistantTableModel.java:21
-msgid "Last Name"
-msgstr "Nachname"
-
-#: view/models/AssistantTableModel.java:21
-msgid "Email"
-msgstr "Email"
-
-#: view/models/AssistantTableModel.java:22
-#: view/models/CourseTableModel.java:24
-#: view/models/FinancialCategoryTableModel.java:23
-#: view/models/HourlyWageTableModel.java:22
-msgid "ID"
-msgstr "ID"
-
-#: view/models/CourseTableModel.java:21
-msgid "Description"
-msgstr "Bezeichnung"
-
-#: view/models/CourseTableModel.java:21
-msgid "Semester"
-msgstr "Semester"
-
-#: view/models/CourseTableModel.java:21
-msgid "Lecturer"
-msgstr "Dozent"
-
-#: view/models/CourseTableModel.java:22
-msgid "Number of Groups"
-msgstr "Gruppenanzahl"
-
-#: view/models/CourseTableModel.java:22
-msgid "Target Audience"
-msgstr "Zielpublikum"
-
-#: view/models/CourseTableModel.java:22
-msgid "Granted AWH"
-msgstr "Genehmigte HKS"
-
-#: view/models/CourseTableModel.java:23
-msgid "Scope"
-msgstr "Umfang"
-
-#: view/models/CourseTableModel.java:23
-msgid "Part"
-msgstr "Teil"
-
-#: view/models/CourseTableModel.java:23
-msgid "Group"
-msgstr "Gruppe"
-
-#: view/models/CourseTableModel.java:23
-msgid "Remark"
-msgstr "Bemerkung"
-
-#: view/models/CourseTableModel.java:24
-msgid "Financial Category"
-msgstr "Finanzkategorie"
-
-#: view/models/FinancialCategoryTableModel.java:22
-msgid "Name"
-msgstr "Name"
-
-#: view/models/FinancialCategoryTableModel.java:22
-msgid "Budget Costs"
-msgstr "Budgetkosten"
-
-#: view/models/FinancialCategoryTableModel.java:22
-msgid "Fonds"
-msgstr "Fonds"
-
-#: view/models/FinancialCategoryTableModel.java:23
-#: view/models/HourlyWageTableModel.java:21
-msgid "Year"
-msgstr "Jahr"
-
-#: view/models/HourlyWageTableModel.java:21
-msgid "Month"
-msgstr "Monat"
-
-#: controller/actions/DialogAbortAction.java:29
-msgid "Cancel the operation"
-msgstr "Aktion abbrechen"
-
-#: controller/actions/AboutAction.java:27
-msgid "About"
-msgstr "Über"
-
-#: controller/actions/AboutAction.java:30
-msgid "Show about informations"
-msgstr "Programminformationen anzeigen"
-
-#: controller/actions/ExitAction.java:24
-msgid "Quit"
-msgstr "Beenden"
-
-#: controller/actions/ExitAction.java:27
-msgid "Quit the program"
-msgstr "Programm beenden"
+#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:89
+msgid "Could not remove model from database."
+msgstr "Das Model konnte nicht aus der Datenbank gelöscht werden."
 
 #: controller/actions/HelpAction.java:27
 msgid "Display the help"
 msgstr "Hilfe anzeigen"
 
-#: controller/actions/HomepageAction.java:24
-msgid "Homepage"
-msgstr "Homepage"
-
-#: controller/actions/HomepageAction.java:25
-msgid "Open homepage"
-msgstr "Homepage öffnen"
-
-#: controller/actions/PrintAction.java:32
-msgid "Print"
-msgstr "Drucken"
-
-#: controller/actions/PrintAction.java:35
-msgid "Print program contents"
-msgstr "Programminhalt drucken"
-
-#: controller/actions/PrintAction.java:51
-msgid "Print current tab"
-msgstr "Momentanen Reiter ausdrucken"
-
 #: controller/actions/SettingsAction.java:30
 msgid "Display program settings"
 msgstr "Programmeinstellungen anzeigen"
+
+#: controller/actions/DialogAbortAction.java:29
+msgid "Cancel the operation"
+msgstr "Aktion abbrechen"
 
 #: controller/actions/SaveSettingsAction.java:30
 msgid "Save settings"
@@ -475,51 +616,46 @@ msgstr "Keine oder falsche Sprache ausgewählt."
 msgid "The number of activities needs to be bigger than 0."
 msgstr "Die Anzahl an Aktivitäten muss größer als 0 sein."
 
-#: controller/actions/masterdata/MasterDataViewerEditAction.java:98
-#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:93
-msgid "Please select an entry from the table."
-msgstr "Bitte markieren Sie zunächst einen Eintrag aus der Tabelle."
+#: controller/actions/AboutAction.java:27
+msgid "About"
+msgstr "Über"
 
-#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:50
-msgid "Do you really want to delete this entry?"
-msgstr "Möchten Sie den Eintrag wirklich löschen?"
+#: controller/actions/AboutAction.java:30
+msgid "Show about informations"
+msgstr "Programminformationen anzeigen"
 
-#: controller/actions/masterdata/MasterDataViewerDeleteAction.java:89
-msgid "Could not remove model from database."
-msgstr "Das Model konnte nicht aus der Datenbank gelöscht werden."
+#: controller/actions/HomepageAction.java:24
+msgid "Homepage"
+msgstr "Homepage"
 
-#: controller/actions/masterdata/MasterDataEditorSaveAction.java:53
-msgid "Validation failed."
-msgstr "Validierung ist fehlgeschlagen."
+#: controller/actions/HomepageAction.java:25
+msgid "Open homepage"
+msgstr "Homepage öffnen"
 
-#: controller/actions/masterdata/MasterDataEditorSaveAction.java:56
-msgid "Could not save the model to database."
-msgstr "Das Model konnte nicht in der Datenbank gespeichert werden."
+#: controller/actions/PrintAction.java:32
+msgid "Print"
+msgstr "Drucken"
+
+#: controller/actions/PrintAction.java:35
+msgid "Print program contents"
+msgstr "Programminhalt drucken"
+
+#: controller/actions/PrintAction.java:51
+msgid "Print current tab"
+msgstr "Momentanen Reiter ausdrucken"
+
+#: controller/actions/ExitAction.java:24
+msgid "Quit"
+msgstr "Beenden"
+
+#: controller/actions/ExitAction.java:27
+msgid "Quit the program"
+msgstr "Programm beenden"
 
 #: controller/ActionNotFoundException.java:15
 #, java-format
 msgid "action class {0} not found"
 msgstr "Aktions-Klasse {0} nicht gefunden"
-
-#: model/AbstractModel.java:282
-#, java-format
-msgid "Could not get manager for class \"{0}\". Error: {1}"
-msgstr "Konnte Manager für Klasse \"{0}\" nicht finden. Fehler: {1}"
-
-#: model/models/Activity.java:161
-#, java-format
-msgid "Caught exception in getActivities(assistant): {0}"
-msgstr "Ausnahme in getActivities(assistant): {0}"
-
-#: model/models/Activity.java:181
-#, java-format
-msgid "Caught exception in getActivities(course): {0}"
-msgstr "Ausnahme in getActivities(course): {0}"
-
-#: utils/Configuration.java:84
-#, java-format
-msgid "Could not create file \"{0}\"."
-msgstr "Die Datei \"{0}\" konnte nicht erstellt werden."
 
 #~ msgid "Show/Hide Columns"
 #~ msgstr "Spalten ein-/ausblenden"
