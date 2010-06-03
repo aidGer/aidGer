@@ -1,20 +1,25 @@
- /*
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 
 package de.aidger.model;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
+
+import org.junit.Test;
+
 import de.aidger.model.models.Course;
 import de.aidger.model.models.HourlyWage;
-
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import java.util.List;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
- *
+ * 
  * @author rmbl
  */
 public class AbstractModelTest {
@@ -95,12 +100,29 @@ public class AbstractModelTest {
         assertTrue(c.getId() > 0);
         assertEquals(c, c.getById(c.getId()));
 
-        c.setDescription("Test");
+        c.setDescription("Description");
+        c.setSemester("Semester");
+        c.setLecturer("Lecturer");
+        c.setNumberOfGroups(5);
+        c.setTargetAudience("Audience");
+        c.setScope("Umfang");
+        c.setPart('a');
+        c.setGroup("Gruppe");
+        c.setRemark("Bemerkung");
+
         c.save();
 
         Course result = (Course) c.getById(c.getId());
 
         assertEquals(c.getDescription(), result.getDescription());
+        assertEquals(c.getSemester(), result.getSemester());
+        assertEquals(c.getLecturer(), result.getLecturer());
+        assertEquals(c.getNumberOfGroups(), result.getNumberOfGroups());
+        assertEquals(c.getTargetAudience(), result.getTargetAudience());
+        assertEquals(c.getScope(), result.getScope());
+        assertEquals(c.getPart(), result.getPart());
+        assertEquals(c.getGroup(), result.getGroup());
+        assertEquals(c.getRemark(), result.getRemark());
     }
 
     /**
