@@ -51,7 +51,7 @@ public class MasterDataEditorSaveAction extends AbstractAction {
         try {
             tab.getModel().save();
         } catch (AdoHiveException e1) {
-            UI.displayError(_("Could not save the model."));
+            UI.displayError(_("Could not save the model to database."));
         }
 
         UI.getInstance().replaceCurrentTab(
