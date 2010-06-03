@@ -1,12 +1,11 @@
 package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
-import de.aidger.controller.ActionNotFoundException;
-import de.aidger.controller.ActionRegistry;
-import de.aidger.controller.actions.CourseEditorCancelAction;
-import de.aidger.controller.actions.CourseEditorSaveAction;
+
+import javax.swing.JButton;
+
 import de.aidger.model.models.Course;
-import de.aidger.view.UI;
+import de.aidger.view.tabs.MasterDataViewerTab.MasterDataType;
 
 /**
  * A tab for editing / creating new courses.
@@ -14,18 +13,13 @@ import de.aidger.view.UI;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class CourseEditorTab extends Tab {
-
-    /**
-     * The course that is edited in this tab.
-     */
-    private Course course = null;
+public class CourseEditorTab extends MasterDataEditorTab {
 
     /**
      * Constructs a course editor tab.
      */
     public CourseEditorTab() {
-        init();
+        super(MasterDataType.Course);
     }
 
     /**
@@ -35,9 +29,7 @@ public class CourseEditorTab extends Tab {
      *            The course that will be edited
      */
     public CourseEditorTab(Course course) {
-        init();
-
-        this.course = course;
+        super(MasterDataType.Course, course);
 
         txtDescription.setText(course.getDescription());
         txtSemester.setText(course.getSemester());
@@ -50,154 +42,51 @@ public class CourseEditorTab extends Tab {
         txtPart.setText(String.valueOf(course.getPart()));
         txtGroup.setText(course.getGroup());
         txtRemark.setText(course.getRemark());
-    }
 
-    /**
-     * Initializes the components and actions.
-     */
-    private void init() {
-        initComponents();
-
-        // init the button actions
-        try {
-            btnSave.setAction(ActionRegistry.getInstance().get(
-                    CourseEditorSaveAction.class.getName()));
-            btnCancel.setAction(ActionRegistry.getInstance().get(
-                    CourseEditorCancelAction.class.getName()));
-        } catch (ActionNotFoundException e) {
-            UI.displayError(e.getMessage());
-        }
+        // TODO set financial category
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see de.aidger.view.tabs.Tab#getTabName()
+     * @see de.aidger.view.tabs.MasterDataEditorTab#init()
      */
     @Override
-    public String getTabName() {
-        if (isEditMode()) {
-            return _("Edit course");
+    protected void init() {
+        initComponents();
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.tabs.MasterDataEditorTab#setModel()
+     */
+    @Override
+    public void setModel() {
+        Course course = (Course) model;
+
+        // just temporary..
+        if (txtGrantedAWH.getText().isEmpty()) {
+            txtGrantedAWH.setText("0");
         }
 
-        return _("Add course");
-    }
+        if (txtPart.getText().isEmpty()) {
+            txtPart.setText(" ");
+        }
 
-    /**
-     * Retrieves wheter the tab is in edit mode.
-     * 
-     * @return whether the tab is in edit mode
-     */
-    public boolean isEditMode() {
-        return course != null;
-    }
+        course.setDescription(txtDescription.getText());
+        course.setSemester(txtSemester.getText());
+        course.setLecturer(txtLecturer.getText());
+        course.setNumberOfGroups((Integer) spNumberOfGroups.getValue());
+        course.setTargetAudience(txtTargetAudience.getText());
+        course.setUnqualifiedWorkingHours(Double.valueOf(txtGrantedAWH
+                .getText()));
+        course.setScope(txtScope.getText());
+        course.setPart(txtPart.getText().charAt(0));
+        course.setGroup(txtGroup.getText());
+        course.setRemark(txtRemark.getText());
 
-    /**
-     * Returns the course.
-     * 
-     * @return the course
-     */
-    public Course getCourse() {
-        return course;
-    }
-
-    /**
-     * Get the description of the course
-     * 
-     * @return The description of the course
-     */
-    public String getDescription() {
-        return txtDescription.getText();
-    }
-
-    /**
-     * Get the id referencing the category.
-     * 
-     * @return The id of the category
-     */
-    public int getFinancialCategoryId() {
-        return 0; // TODO
-    }
-
-    /**
-     * Get the group of the course.
-     * 
-     * @return The group of the course
-     */
-    public String getGroup() {
-        return txtGroup.getText();
-    }
-
-    /**
-     * Get the lecturer of the course.
-     * 
-     * @return The lecturer of the course
-     */
-    public String getLecturer() {
-        return txtLecturer.getText();
-    }
-
-    /**
-     * Get the number of groups in the course.
-     * 
-     * @return The number of groups
-     */
-    public int getNumberOfGroups() {
-        return (Integer) spNumberOfGroups.getValue();
-    }
-
-    /**
-     * Get the part of the course.
-     * 
-     * @return The part of the course
-     */
-    public char getPart() {
-        return txtPart.getText().charAt(0);
-    }
-
-    /**
-     * Get remarks regarding the course.
-     * 
-     * @return The remarks
-     */
-    public String getRemark() {
-        return txtRemark.getText();
-    }
-
-    /**
-     * Get the scope of the course.
-     * 
-     * @return The scope of the course
-     */
-    public String getScope() {
-        return txtScope.getText();
-    }
-
-    /**
-     * Get the semester of the course.
-     * 
-     * @return The semester
-     */
-    public String getSemester() {
-        return txtSemester.getText();
-    }
-
-    /**
-     * Get the target audience of the course.
-     * 
-     * @return The target audience
-     */
-    public String getTargetAudience() {
-        return txtTargetAudience.getText();
-    }
-
-    /**
-     * Get the amount of unqualified working hours granted.
-     * 
-     * @return The amount of UWHs
-     */
-    public double getUnqualifiedWorkingHours() {
-        return Double.valueOf(txtGrantedAWH.getText());
+        // TODO set financial category
     }
 
     /**
@@ -205,14 +94,14 @@ public class CourseEditorTab extends Tab {
      * WARNING: Do NOT modify this code. The content of this method is always
      * regenerated by the Form Editor.
      */
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed"
+    // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -409,7 +298,8 @@ public class CourseEditorTab extends Tab {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtRemark, gridBagConstraints);
 
-        cmbFinancialCategory.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbFinancialCategory.setModel(new javax.swing.DefaultComboBoxModel(
+                new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 4;
@@ -458,6 +348,27 @@ public class CourseEditorTab extends Tab {
     private javax.swing.JTextField txtScope;
     private javax.swing.JTextField txtSemester;
     private javax.swing.JTextField txtTargetAudience;
+
     // End of variables declaration//GEN-END:variables
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.tabs.MasterDataEditorTab#getButtonCancel()
+     */
+    @Override
+    protected JButton getButtonCancel() {
+        return btnCancel;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.tabs.MasterDataEditorTab#getButtonSave()
+     */
+    @Override
+    protected JButton getButtonSave() {
+        return btnSave;
+    }
 
 }

@@ -1,4 +1,4 @@
-package de.aidger.controller.actions;
+package de.aidger.controller.actions.masterdata;
 
 import static de.aidger.utils.Translation._;
 
@@ -8,18 +8,18 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 
 /**
- * This action shows the activities for a given master data.
+ * This action removes a master data from the table and the database.
  * 
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class MasterDataActivitiesAction extends AbstractAction {
+public class MasterDataViewerDeleteAction extends AbstractAction {
 
     /**
      * Initializes the action.
      */
-    public MasterDataActivitiesAction() {
-        putValue(Action.NAME, _("Activities"));
+    public MasterDataViewerDeleteAction() {
+        putValue(Action.NAME, _("Delete"));
     }
 
     /*

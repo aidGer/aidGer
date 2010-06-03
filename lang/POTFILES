@@ -5,7 +5,8 @@ view/CloseTabComponent.java
 view/tabs/EmptyTab.java
 view/tabs/WelcomeTab.java
 view/tabs/MasterDataViewerTab.java
-view/tabs/CourseEditorTab.java
+view/tabs/MasterDataEditorTab.java
+view/tabs/HourlyWageEditorTab.java
 view/models/AssistantTableModel.java
 view/models/CourseTableModel.java
 view/models/FinancialCategoryTableModel.java
@@ -18,8 +19,8 @@ controller/actions/HomepageAction.java
 controller/actions/PrintAction.java
 controller/actions/SettingsAction.java
 controller/actions/SaveSettingsAction.java
-controller/actions/MasterDataEditAction.java
-controller/actions/CourseEditorSaveAction.java
+controller/actions/masterdata/MasterDataViewerEditAction.java
+controller/actions/masterdata/MasterDataEditorSaveAction.java
 controller/ActionNotFoundException.java
 model/AbstractModel.java
 model/models/Activity.java

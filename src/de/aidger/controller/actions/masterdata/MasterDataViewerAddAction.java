@@ -1,4 +1,4 @@
-package de.aidger.controller.actions;
+package de.aidger.controller.actions.masterdata;
 
 import static de.aidger.utils.Translation._;
 
@@ -24,12 +24,12 @@ import de.aidger.view.tabs.Tab;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class MasterDataAddAction extends AbstractAction {
+public class MasterDataViewerAddAction extends AbstractAction {
 
     /**
      * Initializes the action.
      */
-    public MasterDataAddAction() {
+    public MasterDataViewerAddAction() {
         putValue(Action.NAME, _("Add"));
     }
 

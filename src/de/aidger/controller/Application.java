@@ -5,20 +5,20 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
 import de.aidger.controller.actions.AboutAction;
-import de.aidger.controller.actions.CourseEditorCancelAction;
-import de.aidger.controller.actions.CourseEditorSaveAction;
 import de.aidger.controller.actions.DialogAbortAction;
 import de.aidger.controller.actions.ExitAction;
 import de.aidger.controller.actions.HelpAction;
 import de.aidger.controller.actions.HomepageAction;
-import de.aidger.controller.actions.MasterDataActivitiesAction;
-import de.aidger.controller.actions.MasterDataAddAction;
-import de.aidger.controller.actions.MasterDataDeleteAction;
-import de.aidger.controller.actions.MasterDataEditAction;
-import de.aidger.controller.actions.MasterDataViewAction;
 import de.aidger.controller.actions.PrintAction;
 import de.aidger.controller.actions.SaveSettingsAction;
 import de.aidger.controller.actions.SettingsAction;
+import de.aidger.controller.actions.masterdata.MasterDataEditorCancelAction;
+import de.aidger.controller.actions.masterdata.MasterDataEditorSaveAction;
+import de.aidger.controller.actions.masterdata.MasterDataViewerActivitiesAction;
+import de.aidger.controller.actions.masterdata.MasterDataViewerAddAction;
+import de.aidger.controller.actions.masterdata.MasterDataViewerDeleteAction;
+import de.aidger.controller.actions.masterdata.MasterDataViewerEditAction;
+import de.aidger.controller.actions.masterdata.MasterDataViewerViewAction;
 import de.aidger.model.Runtime;
 import de.aidger.view.UI;
 
@@ -74,13 +74,17 @@ public final class Application {
         ActionRegistry.getInstance().register(new HomepageAction());
         ActionRegistry.getInstance().register(new AboutAction());
         ActionRegistry.getInstance().register(new DialogAbortAction());
-        ActionRegistry.getInstance().register(new MasterDataViewAction());
-        ActionRegistry.getInstance().register(new MasterDataEditAction());
-        ActionRegistry.getInstance().register(new MasterDataAddAction());
-        ActionRegistry.getInstance().register(new MasterDataDeleteAction());
-        ActionRegistry.getInstance().register(new MasterDataActivitiesAction());
-        ActionRegistry.getInstance().register(new CourseEditorSaveAction());
-        ActionRegistry.getInstance().register(new CourseEditorCancelAction());
+
+        ActionRegistry.getInstance().register(new MasterDataViewerViewAction());
+        ActionRegistry.getInstance().register(new MasterDataViewerEditAction());
+        ActionRegistry.getInstance().register(new MasterDataViewerAddAction());
+        ActionRegistry.getInstance().register(
+                new MasterDataViewerDeleteAction());
+        ActionRegistry.getInstance().register(
+                new MasterDataViewerActivitiesAction());
+        ActionRegistry.getInstance().register(new MasterDataEditorSaveAction());
+        ActionRegistry.getInstance().register(
+                new MasterDataEditorCancelAction());
     }
 
     /**

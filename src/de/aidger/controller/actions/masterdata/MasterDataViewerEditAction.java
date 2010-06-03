@@ -1,4 +1,4 @@
-package de.aidger.controller.actions;
+package de.aidger.controller.actions.masterdata;
 
 import static de.aidger.utils.Translation._;
 
@@ -31,12 +31,12 @@ import de.aidger.view.tabs.MasterDataViewerTab;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class MasterDataEditAction extends AbstractAction {
+public class MasterDataViewerEditAction extends AbstractAction {
 
     /**
      * Initializes the action.
      */
-    public MasterDataEditAction() {
+    public MasterDataViewerEditAction() {
         putValue(Action.NAME, _("Edit"));
     }
 
@@ -77,20 +77,21 @@ public class MasterDataEditAction extends AbstractAction {
                 Assistant assistant = (Assistant) tab.getTableModel().getModel(
                         index);
 
-                UI.getInstance().replaceCurrentTab(new AssistantEditorTab());
+                UI.getInstance().replaceCurrentTab(
+                        new AssistantEditorTab(assistant));
                 break;
             case FinancialCategory:
                 FinancialCategory fc = (FinancialCategory) tab.getTableModel()
                         .getModel(index);
 
                 UI.getInstance().replaceCurrentTab(
-                        new FinancialCategoryEditorTab());
+                        new FinancialCategoryEditorTab(fc));
                 break;
             case HourlyWage:
                 HourlyWage hw = (HourlyWage) tab.getTableModel()
                         .getModel(index);
 
-                UI.getInstance().replaceCurrentTab(new HourlyWageEditorTab());
+                UI.getInstance().replaceCurrentTab(new HourlyWageEditorTab(hw));
                 break;
             }
         } else {
