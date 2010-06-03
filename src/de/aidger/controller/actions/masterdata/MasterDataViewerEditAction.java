@@ -14,15 +14,8 @@ import javax.swing.JTable;
 import javax.swing.JToolBar;
 import javax.swing.JViewport;
 
-import de.aidger.model.models.Assistant;
-import de.aidger.model.models.Course;
-import de.aidger.model.models.FinancialCategory;
-import de.aidger.model.models.HourlyWage;
 import de.aidger.view.UI;
-import de.aidger.view.tabs.AssistantEditorTab;
-import de.aidger.view.tabs.CourseEditorTab;
-import de.aidger.view.tabs.FinancialCategoryEditorTab;
-import de.aidger.view.tabs.HourlyWageEditorTab;
+import de.aidger.view.tabs.MasterDataEditorTab;
 import de.aidger.view.tabs.MasterDataViewerTab;
 
 /**
@@ -67,33 +60,9 @@ public class MasterDataViewerEditAction extends AbstractAction {
             int index = tab.getTable().getRowSorter().convertRowIndexToModel(
                     tab.getTable().getSelectedRow());
 
-            switch (tab.getType()) {
-            case Course:
-                Course course = (Course) tab.getTableModel().getModel(index);
-
-                UI.getInstance().replaceCurrentTab(new CourseEditorTab(course));
-                break;
-            case Assistant:
-                Assistant assistant = (Assistant) tab.getTableModel().getModel(
-                        index);
-
-                UI.getInstance().replaceCurrentTab(
-                        new AssistantEditorTab(assistant));
-                break;
-            case FinancialCategory:
-                FinancialCategory fc = (FinancialCategory) tab.getTableModel()
-                        .getModel(index);
-
-                UI.getInstance().replaceCurrentTab(
-                        new FinancialCategoryEditorTab(fc));
-                break;
-            case HourlyWage:
-                HourlyWage hw = (HourlyWage) tab.getTableModel()
-                        .getModel(index);
-
-                UI.getInstance().replaceCurrentTab(new HourlyWageEditorTab(hw));
-                break;
-            }
+            UI.getInstance().replaceCurrentTab(
+                    new MasterDataEditorTab(tab.getType(), tab.getTableModel()
+                            .getModel(index)));
         } else {
             UI.displayError(_("Please select an entry from the table."));
         }

@@ -1,92 +1,143 @@
-package de.aidger.view.tabs;
+package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
 
-import javax.swing.JButton;
+import javax.swing.JPanel;
 
 import de.aidger.model.models.Course;
-import de.aidger.view.tabs.MasterDataViewerTab.MasterDataType;
 
 /**
- * A tab for editing / creating new courses.
+ * A form used for editing / creating new courses.
  * 
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class CourseEditorTab extends MasterDataEditorTab {
+public class CourseEditorForm extends JPanel {
 
     /**
-     * Constructs a course editor tab.
-     */
-    public CourseEditorTab() {
-        super(MasterDataType.Course);
-    }
-
-    /**
-     * Constructs a course editor tab.
+     * Constructs a course editor form.
      * 
      * @param course
      *            The course that will be edited
      */
-    public CourseEditorTab(Course course) {
-        super(MasterDataType.Course, course);
-
-        txtDescription.setText(course.getDescription());
-        txtSemester.setText(course.getSemester());
-        txtLecturer.setText(course.getLecturer());
-        txtTargetAudience.setText(course.getTargetAudience());
-        spNumberOfGroups.setValue(course.getNumberOfGroups());
-        txtGrantedAWH.setText(String.valueOf(course
-                .getUnqualifiedWorkingHours()));
-        txtScope.setText(course.getScope());
-        txtPart.setText(String.valueOf(course.getPart()));
-        txtGroup.setText(course.getGroup());
-        txtRemark.setText(course.getRemark());
-
-        // TODO set financial category
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see de.aidger.view.tabs.MasterDataEditorTab#init()
-     */
-    @Override
-    protected void init() {
+    public CourseEditorForm(Course course) {
         initComponents();
+
+        if (course != null) {
+            txtDescription.setText(course.getDescription());
+            txtSemester.setText(course.getSemester());
+            txtLecturer.setText(course.getLecturer());
+            txtTargetAudience.setText(course.getTargetAudience());
+            spNumberOfGroups.setValue(course.getNumberOfGroups());
+            txtGrantedAWH.setText(String.valueOf(course
+                    .getUnqualifiedWorkingHours()));
+            txtScope.setText(course.getScope());
+            txtPart.setText(String.valueOf(course.getPart()));
+            txtGroup.setText(course.getGroup());
+            txtRemark.setText(course.getRemark());
+
+            // TODO set financial category
+        }
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Get the description of the course
      * 
-     * @see de.aidger.view.tabs.MasterDataEditorTab#setModel()
+     * @return The description of the course
      */
-    @Override
-    public void setModel() {
-        Course course = (Course) model;
+    public String getDescription() {
+        return txtDescription.getText();
+    }
 
-        // just temporary..
-        if (txtGrantedAWH.getText().isEmpty()) {
-            txtGrantedAWH.setText("0");
-        }
+    /**
+     * Get the id referencing the category.
+     * 
+     * @return The id of the category
+     */
+    public int getFinancialCategoryId() {
+        // TODO
+        return 0;
+    }
 
-        if (txtPart.getText().isEmpty()) {
-            txtPart.setText(" ");
-        }
+    /**
+     * Get the group of the course.
+     * 
+     * @return The group of the course
+     */
+    public String getGroup() {
+        return txtGroup.getText();
+    }
 
-        course.setDescription(txtDescription.getText());
-        course.setSemester(txtSemester.getText());
-        course.setLecturer(txtLecturer.getText());
-        course.setNumberOfGroups((Integer) spNumberOfGroups.getValue());
-        course.setTargetAudience(txtTargetAudience.getText());
-        course.setUnqualifiedWorkingHours(Double.valueOf(txtGrantedAWH
-                .getText()));
-        course.setScope(txtScope.getText());
-        course.setPart(txtPart.getText().charAt(0));
-        course.setGroup(txtGroup.getText());
-        course.setRemark(txtRemark.getText());
+    /**
+     * Get the lecturer of the course.
+     * 
+     * @return The lecturer of the course
+     */
+    public String getLecturer() {
+        return txtLecturer.getText();
+    }
 
-        // TODO set financial category
+    /**
+     * Get the number of groups in the course.
+     * 
+     * @return The number of groups
+     */
+    public int getNumberOfGroups() {
+        return (Integer) spNumberOfGroups.getValue();
+    }
+
+    /**
+     * Get the part of the course.
+     * 
+     * @return The part of the course
+     */
+    public char getPart() {
+        return txtPart.getText().charAt(0);
+    }
+
+    /**
+     * Get remarks regarding the course.
+     * 
+     * @return The remarks
+     */
+    public String getRemark() {
+        return txtRemark.getText();
+    }
+
+    /**
+     * Get the scope of the course.
+     * 
+     * @return The scope of the course
+     */
+    public String getScope() {
+        return txtScope.getText();
+    }
+
+    /**
+     * Get the semester of the course.
+     * 
+     * @return The semester
+     */
+    public String getSemester() {
+        return txtSemester.getText();
+    }
+
+    /**
+     * Get the target audience of the course.
+     * 
+     * @return The target audience
+     */
+    public String getTargetAudience() {
+        return txtTargetAudience.getText();
+    }
+
+    /**
+     * Get the amount of unqualified working hours granted.
+     * 
+     * @return The amount of UWHs
+     */
+    public double getUnqualifiedWorkingHours() {
+        return Double.valueOf(txtGrantedAWH.getText());
     }
 
     /**
@@ -94,6 +145,9 @@ public class CourseEditorTab extends MasterDataEditorTab {
      * WARNING: Do NOT modify this code. The content of this method is always
      * regenerated by the Form Editor.
      */
+    // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
@@ -122,16 +176,11 @@ public class CourseEditorTab extends MasterDataEditorTab {
         lblGroup = new javax.swing.JLabel();
         lblRemark = new javax.swing.JLabel();
         lblFinancialCategory = new javax.swing.JLabel();
-        filler = new javax.swing.JLabel();
-        filler2 = new javax.swing.JLabel();
         txtScope = new javax.swing.JTextField();
         txtPart = new javax.swing.JTextField();
         txtGroup = new javax.swing.JTextField();
         txtRemark = new javax.swing.JTextField();
         cmbFinancialCategory = new javax.swing.JComboBox();
-        buttons = new javax.swing.JPanel();
-        btnSave = new javax.swing.JButton();
-        btnCancel = new javax.swing.JButton();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -257,18 +306,6 @@ public class CourseEditorTab extends MasterDataEditorTab {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
         add(lblFinancialCategory, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 8;
-        gridBagConstraints.weightx = 1.0;
-        add(filler, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.weighty = 1.0;
-        add(filler2, gridBagConstraints);
 
         txtScope.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -306,27 +343,10 @@ public class CourseEditorTab extends MasterDataEditorTab {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbFinancialCategory, gridBagConstraints);
-
-        btnSave.setText(_("Save"));
-        buttons.add(btnSave);
-
-        btnCancel.setText(_("Cancel"));
-        buttons.add(btnCancel);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        add(buttons, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancel;
-    private javax.swing.JButton btnSave;
-    private javax.swing.JPanel buttons;
     private javax.swing.JComboBox cmbFinancialCategory;
-    private javax.swing.JLabel filler;
-    private javax.swing.JLabel filler2;
     private javax.swing.JLabel lblDescription;
     private javax.swing.JLabel lblFinancialCategory;
     private javax.swing.JLabel lblGrantedAWH;
@@ -348,27 +368,6 @@ public class CourseEditorTab extends MasterDataEditorTab {
     private javax.swing.JTextField txtScope;
     private javax.swing.JTextField txtSemester;
     private javax.swing.JTextField txtTargetAudience;
-
     // End of variables declaration//GEN-END:variables
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see de.aidger.view.tabs.MasterDataEditorTab#getButtonCancel()
-     */
-    @Override
-    protected JButton getButtonCancel() {
-        return btnCancel;
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see de.aidger.view.tabs.MasterDataEditorTab#getButtonSave()
-     */
-    @Override
-    protected JButton getButtonSave() {
-        return btnSave;
-    }
 
 }
