@@ -2,6 +2,11 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
+import java.awt.Dimension;
+import java.util.List;
+
+import javax.swing.Box;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import de.aidger.controller.ActionNotFoundException;
@@ -91,7 +96,35 @@ public class MasterDataEditorTab extends Tab {
      */
     @SuppressWarnings("unchecked")
     public AbstractModel getModel() {
+        if (model == null) {
+            switch (type) {
+            case Course:
+                model = new Course();
+                break;
+            case Assistant:
+                model = new Assistant();
+                break;
+            case FinancialCategory:
+                model = new FinancialCategory();
+                break;
+            case HourlyWage:
+                model = new HourlyWage();
+                break;
+            }
+        }
+
         return model;
+    }
+
+    /**
+     * Sets the master data model.
+     * 
+     * @param model
+     *            the master data model that will be set
+     */
+    @SuppressWarnings("unchecked")
+    public void setModel(AbstractModel model) {
+        this.model = model;
     }
 
     /*
@@ -171,10 +204,23 @@ public class MasterDataEditorTab extends Tab {
     }
 
     /**
-     * 
+     * Updates the hints panel due to validation failures.
      */
+    @SuppressWarnings("unchecked")
     public void updateHints() {
-        // TODO
+        List<String> hints = model.getErrors();
+
+        this.hints.removeAll();
+
+        for (String hint : hints) {
+            this.hints.add(new JLabel(hint));
+
+            this.hints.add(Box.createRigidArea(new Dimension(0, 5)));
+        }
+
+        this.hints.revalidate();
+
+        model.resetErrors();
     }
 
     /**
@@ -188,7 +234,10 @@ public class MasterDataEditorTab extends Tab {
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
+    // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -223,7 +272,10 @@ public class MasterDataEditorTab extends Tab {
         gridBagConstraints.weighty = 1.0;
         add(filler, gridBagConstraints);
 
-        hints.setBorder(javax.swing.BorderFactory.createTitledBorder(_("Hints")));
+        hints.setBorder(javax.swing.BorderFactory
+                .createTitledBorder(_("Hints")));
+        hints.setLayout(new javax.swing.BoxLayout(hints,
+                javax.swing.BoxLayout.Y_AXIS));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;

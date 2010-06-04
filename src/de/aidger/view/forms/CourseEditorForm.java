@@ -23,6 +23,10 @@ public class CourseEditorForm extends JPanel {
     public CourseEditorForm(Course course) {
         initComponents();
 
+        // add input filters
+        InputPatternFilter.addFilter(txtGrantedAWH, "[0-9]+[.,]?[0-9]*");
+        InputPatternFilter.addFilter(txtPart, ".?");
+
         if (course != null) {
             txtDescription.setText(course.getDescription());
             txtSemester.setText(course.getSemester());
@@ -92,7 +96,8 @@ public class CourseEditorForm extends JPanel {
      * @return The part of the course
      */
     public char getPart() {
-        return txtPart.getText().charAt(0);
+        // return txtPart.getText().charAt(0);
+        return ' '; // TODO
     }
 
     /**
@@ -137,7 +142,8 @@ public class CourseEditorForm extends JPanel {
      * @return The amount of UWHs
      */
     public double getUnqualifiedWorkingHours() {
-        return Double.valueOf(txtGrantedAWH.getText());
+        // return Double.valueOf(txtGrantedAWH.getText());
+        return 0.0; // TODO
     }
 
     /**

@@ -2,7 +2,6 @@ package de.aidger.view.models;
 
 import static de.aidger.utils.Translation._;
 
-import java.util.Iterator;
 import java.util.List;
 
 import de.aidger.model.models.Course;
@@ -36,10 +35,7 @@ public class CourseTableModel extends MasterDataTableModel {
 
         List<Course> courses = (new Course()).getAll();
 
-        Iterator<Course> it = courses.iterator();
-        while (it.hasNext()) {
-            Course course = it.next();
-
+        for (Course course : courses) {
             masterData.add(course);
 
             addRow(new Object[] { course.getDescription(),

@@ -2,7 +2,6 @@ package de.aidger.view.models;
 
 import static de.aidger.utils.Translation._;
 
-import java.util.Iterator;
 import java.util.List;
 
 import de.aidger.model.models.HourlyWage;
@@ -34,10 +33,7 @@ public class HourlyWageTableModel extends MasterDataTableModel {
 
         List<HourlyWage> hws = (new HourlyWage()).getAll();
 
-        Iterator<HourlyWage> it = hws.iterator();
-        while (it.hasNext()) {
-            HourlyWage hw = it.next();
-
+        for (HourlyWage hw : hws) {
             masterData.add(hw);
 
             addRow(new Object[] { hw.getQualification(), hw.getMonth(),
