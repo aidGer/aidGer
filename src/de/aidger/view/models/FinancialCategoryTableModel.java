@@ -2,7 +2,6 @@ package de.aidger.view.models;
 
 import static de.aidger.utils.Translation._;
 
-import java.util.Iterator;
 import java.util.List;
 
 import de.aidger.model.models.FinancialCategory;
@@ -35,10 +34,7 @@ public class FinancialCategoryTableModel extends MasterDataTableModel {
 
         List<FinancialCategory> fcs = (new FinancialCategory()).getAll();
 
-        Iterator<FinancialCategory> it = fcs.iterator();
-        while (it.hasNext()) {
-            FinancialCategory fc = it.next();
-
+        for (FinancialCategory fc : fcs) {
             masterData.add(fc);
 
             addRow(new Object[] { fc.getName(), fc.getBugdetCosts(),
