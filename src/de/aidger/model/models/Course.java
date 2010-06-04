@@ -17,6 +17,11 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     private int financeCategoryId;
 
     /**
+     * The advisor of the course.
+     */
+    private String advisor;
+
+    /**
      * The description of the course.
      */
     private String description;
@@ -82,6 +87,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     public Course clone() {
         Course c = new Course();
         c.setId(id);
+        c.setAdvisor(advisor);
         c.setDescription(description);
         c.setFinancialCategoryId(financeCategoryId);
         c.setGroup(group);
@@ -111,6 +117,8 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
                     c.part == part && 
                     ((Double)c.unqualifiedWorkingHours).equals(
                     unqualifiedWorkingHours) &&
+                    (advisor == null ? c.advisor == null :
+                            advisor.equals(c.advisor)) &&
                     (description == null ? c.description == null :
                             description.equals(c.description)) &&
                     (remark == null ? c.remark == null :
@@ -132,21 +140,32 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
      */
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 23 * hash + financeCategoryId;
-        hash = 23 * hash + (description != null ? description.hashCode() : 0);
-        hash = 23 * hash + (semester != null ? semester.hashCode() : 0);
-        hash = 23 * hash + (lecturer != null ? lecturer.hashCode() : 0);
-        hash = 23 * hash + numberOfGroups;
-        hash = 23 * hash + (targetAudience != null ?
-            targetAudience.hashCode() : 0);
-        hash = 23 * hash + (int) (Double.doubleToLongBits(unqualifiedWorkingHours)
+        int hash = 7;
+        hash = 67 * hash + financeCategoryId;
+        hash = 67 * hash + (advisor != null ? advisor.hashCode() : 0);
+        hash = 67 * hash + (description != null ? description.hashCode() : 0);
+        hash = 67 * hash + (semester != null ? semester.hashCode() : 0);
+        hash = 67 * hash + (lecturer != null ? lecturer.hashCode() : 0);
+        hash = 67 * hash + numberOfGroups;
+        hash = 67 * hash + (targetAudience != null ? targetAudience.hashCode() :
+                0);
+        hash = 67 * hash + (int) (Double.doubleToLongBits(unqualifiedWorkingHours)
                 ^ (Double.doubleToLongBits(unqualifiedWorkingHours) >>> 32));
-        hash = 23 * hash + (scope != null ? scope.hashCode() : 0);
-        hash = 23 * hash + part;
-        hash = 23 * hash + (group != null ? group.hashCode() : 0);
-        hash = 23 * hash + (remark != null ? remark.hashCode() : 0);
+        hash = 67 * hash + (scope != null ? scope.hashCode() : 0);
+        hash = 67 * hash + part;
+        hash = 67 * hash + (group != null ? group.hashCode() : 0);
+        hash = 67 * hash + (remark != null ? remark.hashCode() : 0);
         return hash;
+    }
+
+    /**
+     * Get the advisor of the course.
+     *
+     * @return The advisor of the course
+     */
+    @Override
+    public String getAdvisor() {
+        return advisor;
     }
 
     /**
@@ -257,6 +276,17 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     @Override
     public double getUnqualifiedWorkingHours() {
         return unqualifiedWorkingHours;
+    }
+
+    /**
+     * Set the advisor of the course
+     *
+     * @param advisor
+     *            The advisor of the course
+     */
+    @Override
+    public void setAdvisor(String advisor) {
+        this.advisor = advisor;
     }
 
     /**
