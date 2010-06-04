@@ -1,6 +1,6 @@
 package de.aidger.model.models;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import java.text.MessageFormat;
 

@@ -37,8 +37,8 @@ public class FinancialCategoryTableModel extends MasterDataTableModel {
         for (FinancialCategory fc : fcs) {
             masterData.add(fc);
 
-            addRow(new Object[] { fc.getName(), fc.getBugdetCosts(),
-                    fc.getFonds(), fc.getYear(), fc.getId() });
+            addRow(new Object[] { fc.getName(), fc.getBudgetCosts(),
+                    fc.getFunds(), fc.getYear(), fc.getId() });
         }
     }
 }

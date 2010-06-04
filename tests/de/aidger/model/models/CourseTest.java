@@ -17,6 +17,7 @@ public class CourseTest {
     public void setUp() {
         course = new Course();
         course.setId(1);
+        course.setAdvisor("Tester");
         course.setDescription("Description");
         course.setFinancialCategoryId(1);
         course.setGroup("2");
@@ -40,6 +41,7 @@ public class CourseTest {
         Course result = course.clone();
 
         assertEquals(course.getId(), result.getId());
+        assertEquals(course.getAdvisor(), result.getAdvisor());
         assertEquals(course.getDescription(), result.getDescription());
         assertEquals(course.getFinancialCategoryId(), result.getFinancialCategoryId());
         assertEquals(course.getGroup(), result.getGroup());

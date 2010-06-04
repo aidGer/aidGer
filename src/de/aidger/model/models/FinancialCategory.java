@@ -26,7 +26,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
     /**
      * The fonds of the category.
      */
-    private int[]  fonds;
+    private int[]  funds;
 
     /**
      * The year the category is valid.
@@ -49,8 +49,8 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
     public FinancialCategory clone() {
         FinancialCategory f = new FinancialCategory();
         f.setId(id);
-        f.setBugdetCosts(budgetCosts);
-        f.setFonds(fonds);
+        f.setBudgetCosts(budgetCosts);
+        f.setFunds(funds);
         f.setName(name);
         f.setYear(year);
         return f;
@@ -68,7 +68,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
         if (o instanceof FinancialCategory) {
             FinancialCategory f = (FinancialCategory) o;
             return f.id == id && f.budgetCosts == budgetCosts &&
-                    f.fonds == fonds && f.year == year &&
+                    f.funds == funds && f.year == year &&
                     (name == null ? f.name == null : f.name.equals(name));
         } else {
             return false;
@@ -85,7 +85,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
         int hash = 3;
         hash = 37 * hash + (name != null ? name.hashCode() : 0);
         hash = 37 * hash + Arrays.hashCode(budgetCosts);
-        hash = 37 * hash + Arrays.hashCode(fonds);
+        hash = 37 * hash + Arrays.hashCode(funds);
         hash = 37 * hash + year;
         return hash;
     }
@@ -96,18 +96,18 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      * @return The budget costs of the category
      */
     @Override
-    public int[] getBugdetCosts() {
+    public int[] getBudgetCosts() {
         return budgetCosts;
     }
 
     /**
-     * Get the fonds of the category.
+     * Get the funds of the category.
      * 
-     * @return The fonds of the category
+     * @return The funds of the category
      */
     @Override
-    public int[] getFonds() {
-        return fonds;
+    public int[] getFunds() {
+        return funds;
     }
 
     /**
@@ -137,19 +137,19 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      *            The budget costs of the category
      */
     @Override
-    public void setBugdetCosts(int[] costs) {
+    public void setBudgetCosts(int[] costs) {
         budgetCosts = costs;
     }
 
     /**
-     * Set the fonds of the category.
+     * Set the funds of the category.
      * 
-     * @param fonds
-     *            The fonds of the category
+     * @param funds
+     *            The funds of the category
      */
     @Override
-    public void setFonds(int[] fonds) {
-        this.fonds = fonds;
+    public void setFunds(int[] funds) {
+        this.funds = funds;
     }
 
     /**

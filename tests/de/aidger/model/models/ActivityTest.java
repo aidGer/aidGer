@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -29,7 +29,7 @@ public class ActivityTest {
         activity.setAssistantId(1);
         activity.setContent("New assistant");
         activity.setCourseId(1);
-        activity.setDate(new Date(2010, 10, 10));
+        activity.setDate(new Date(100));
         activity.setDocumentType("Test Type");
         activity.setProcessor("Test User");
         activity.setRemark("Remark");

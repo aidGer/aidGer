@@ -210,7 +210,7 @@ public abstract class AbstractModel<T> extends Observable implements
      * @param valid
      *            The validator to add
      */
-    public void validate(Validator valid) {
+    public void addValidator(Validator valid) {
         validators.add(valid);
     }
 
@@ -312,8 +312,9 @@ public abstract class AbstractModel<T> extends Observable implements
         /* Check if the model got a validate() function */
         try {
             java.lang.reflect.Method m = getClass().getDeclaredMethod("validate");
-            if (!(Boolean)m.invoke(this, new Object[0]))
+            if (!(Boolean)m.invoke(this, new Object[0])) {
                 ret = false;
+            }
         } catch (Exception ex) { }
 
         return ret;

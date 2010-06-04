@@ -180,17 +180,13 @@ public final class Runtime {
      * @return Array containing all values
      */
     public String[] getOptionArray(String option) {
-        String rest = getOption(option);
+        String str = getOption(option);
 
-        if (rest == null) {
+        if (str == null || (!str.startsWith("[") || !str.endsWith("]"))) {
             return null;
         }
 
-        if (!rest.startsWith("[") || !rest.endsWith("]")) {
-            return null;
-        }
-
-        return rest.substring(1, rest.length() - 1).split(",");
+        return str.substring(1, str.length() - 1).split(",");
     }
 
     /**
