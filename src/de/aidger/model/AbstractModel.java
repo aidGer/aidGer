@@ -197,6 +197,14 @@ public abstract class AbstractModel<T> extends Observable implements
     }
 
     /**
+     * Clear the error lists.
+     */
+    public void resetErrors() {
+        errors.clear();
+        fieldErrors.clear();
+    }
+
+    /**
      * Add a validator to the model.
      *
      * @param valid

@@ -145,6 +145,9 @@ public class AbstractModelTest {
         assertTrue(result.get(0).equals("error message"));
     }
 
+    /**
+     * Test of addError method, of class AbstractModel.
+     */
     @Test
     public void testAddError_field() {
         System.out.println("addError_field");
@@ -156,7 +159,25 @@ public class AbstractModelTest {
         List<String> result = e.getErrorsFor("field");
 
         assertTrue(result.size() == 1);
+        assertTrue(e.getErrors().size() == 2);
         assertTrue(result.get(0).equals("field error message"));
+    }
+
+    @Test
+    public void testResetErrors() {
+        System.out.println("resetErrors");
+
+        Employment e = new Employment();
+        e.addError("error message");
+        e.addError("field", "error message");
+
+        assertTrue(e.getErrors().size() == 2);
+        assertTrue(e.getErrorsFor("field").size() == 1);
+
+        e.resetErrors();
+
+        assertTrue(e.getErrors().isEmpty());
+        assertNull(e.getErrorsFor("field"));
     }
 
 }
