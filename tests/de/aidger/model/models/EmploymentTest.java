@@ -22,6 +22,7 @@ public class EmploymentTest {
         employment.setId(1);
         employment.setAssistantId(1);
         employment.setContractId(1);
+        employment.setCourseId(0);
         employment.setCostUnit("0711");
         employment.setFonds(1);
         employment.setHourCount(40);
