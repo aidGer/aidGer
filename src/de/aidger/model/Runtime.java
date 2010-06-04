@@ -1,10 +1,13 @@
 package de.aidger.model;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.List;
 
+import static de.aidger.utils.Translation._;
 import de.aidger.utils.Configuration;
+import de.aidger.utils.Logger;
 import de.aidger.utils.Translation;
 import de.aidger.view.UI;
 import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
@@ -143,6 +146,12 @@ public final class Runtime {
         configuration = new Configuration(configPath);
 
         translation = new Translation(configPath, configuration.get("language"));
+
+        /* Check if an instance of aidGer is already running */
+        if (!checkLock()) {
+            UI.displayError(_("Only one instance of aidGer can be run at a time."));
+            System.exit(-1);
+        }
     }
 
     /**
@@ -233,6 +242,27 @@ public final class Runtime {
      */
     public List<Pair<String, String>> getLanguages() {
         return translation.getLanguages();
+    }
+
+    /**
+     * Check for a lock file or create it to only allow one running instance.
+     *
+     * @return
+     */
+    protected boolean checkLock() {
+        File lock = new File(configPath + "/aidger.lock");
+        if (lock.exists()) {
+            return false;
+        }
+
+        try {
+            lock.createNewFile();
+            lock.deleteOnExit();
+        } catch (IOException ex) {
+            Logger.error(_("Couldn't create lockfile"));
+        }
+
+        return true;
     }
 
 }
