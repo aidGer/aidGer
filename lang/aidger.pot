@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-04 18:08+0200\n"
+"POT-Creation-Date: 2010-06-04 23:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,6 +50,14 @@ msgstr ""
 #: model/models/Activity.java:181
 #, java-format
 msgid "Caught exception in getActivities(course): {0}"
+msgstr ""
+
+#: model/Runtime.java:152
+msgid "Only one instance of aidGer can be run at a time."
+msgstr ""
+
+#: model/Runtime.java:262
+msgid "Couldn't create lockfile"
 msgstr ""
 
 #: view/tabs/MasterDataEditorTab.java:140

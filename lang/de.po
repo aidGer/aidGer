@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-04 18:08+0200\n"
+"POT-Creation-Date: 2010-06-04 23:34+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
+"Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,6 +49,14 @@ msgstr "Ausnahme in getActivities(assistant): {0}"
 #, java-format
 msgid "Caught exception in getActivities(course): {0}"
 msgstr "Ausnahme in getActivities(course): {0}"
+
+#: model/Runtime.java:152
+msgid "Only one instance of aidGer can be run at a time."
+msgstr "Nur eine Instanz von aidGer darf zur selben Zeit laufen."
+
+#: model/Runtime.java:262
+msgid "Couldn't create lockfile"
+msgstr "Konnte Lockdatei nicht erstellen"
 
 #: view/tabs/MasterDataEditorTab.java:140
 msgid "Edit course"
@@ -99,17 +107,15 @@ msgid "Hints"
 msgstr "Hinweise"
 
 #: view/tabs/FinancialCategoryViewerTab.java:37
-#, fuzzy
 msgid "Financial Category Viewing"
-msgstr "Finanzkategorien"
+msgstr "Finanzkategorieanzeige"
 
 #: view/tabs/FinancialCategoryViewerTab.java:65
 #: view/tabs/AssistantViewerTab.java:70
 #: view/tabs/CourseViewerTab.java:86
 #: view/tabs/HourlyWageViewerTab.java:63
-#, fuzzy
 msgid "Data"
-msgstr "Datum"
+msgstr "Daten"
 
 #: view/tabs/FinancialCategoryViewerTab.java:67
 #: view/tabs/FinancialCategoryViewerTab.java:106
@@ -119,14 +125,12 @@ msgid "Name"
 msgstr "Name"
 
 #: view/tabs/FinancialCategoryViewerTab.java:69
-#, fuzzy
 msgid "Budgetcosts"
 msgstr "Budgetkosten"
 
 #: view/tabs/FinancialCategoryViewerTab.java:71
-#, fuzzy
 msgid "Fund"
-msgstr "Fonds"
+msgstr "Fund"
 
 #: view/tabs/FinancialCategoryViewerTab.java:73
 #: view/forms/FinancialCategoryEditorForm.java:127
@@ -199,9 +203,8 @@ msgid "Search"
 msgstr "Suchen"
 
 #: view/tabs/AssistantViewerTab.java:39
-#, fuzzy
 msgid "Assistant Viewing"
-msgstr "Hilfskräfte"
+msgstr "Hilfskraftanzeige"
 
 #: view/tabs/AssistantViewerTab.java:72
 #: view/forms/AssistantEditorForm.java:96
@@ -217,7 +220,7 @@ msgstr "Nachname"
 
 #: view/tabs/AssistantViewerTab.java:76
 msgid "eMail Address"
-msgstr ""
+msgstr "Emailaddresse"
 
 #: view/tabs/AssistantViewerTab.java:78
 #: view/tabs/HourlyWageViewerTab.java:65
@@ -230,12 +233,12 @@ msgstr "Qualifikation"
 
 #: view/tabs/CourseViewerTab.java:39
 msgid "Course Viewing"
-msgstr ""
+msgstr "Veranstaltungsanzeige"
 
 #: view/tabs/CourseViewerTab.java:88
 #: view/tabs/CourseViewerTab.java:145
 msgid "Complexity"
-msgstr ""
+msgstr "Komplexität"
 
 #: view/tabs/CourseViewerTab.java:90
 #: view/tabs/CourseViewerTab.java:146
@@ -254,7 +257,7 @@ msgstr "Gruppe"
 #: view/tabs/CourseViewerTab.java:94
 #: view/tabs/CourseViewerTab.java:148
 msgid "Comment"
-msgstr ""
+msgstr "Kommentar"
 
 #: view/tabs/CourseViewerTab.java:96
 #: view/tabs/CourseViewerTab.java:150
@@ -265,9 +268,8 @@ msgstr "Finanzkategorie"
 
 #: view/tabs/CourseViewerTab.java:215
 #: view/tabs/CourseViewerTab.java:278
-#, fuzzy
 msgid "Title"
-msgstr "Datei"
+msgstr "Titel"
 
 #: view/tabs/CourseViewerTab.java:217
 #: view/tabs/CourseViewerTab.java:279
@@ -292,28 +294,25 @@ msgstr "Gruppenanzahl"
 
 #: view/tabs/CourseViewerTab.java:223
 #: view/tabs/CourseViewerTab.java:282
-#, fuzzy
 msgid "Target audience"
 msgstr "Zielpublikum"
 
 #: view/tabs/CourseViewerTab.java:225
 #: view/tabs/CourseViewerTab.java:283
 msgid "Approved HKS"
-msgstr ""
+msgstr "Genehmigte HKS"
 
 #: view/tabs/HourlyWageViewerTab.java:37
-#, fuzzy
 msgid "Hourly Wage Viewing"
-msgstr "Stundenlöhne"
+msgstr "Stundenlohnanzeige"
 
 #: view/tabs/HourlyWageViewerTab.java:67
 msgid "Effective Date"
 msgstr ""
 
 #: view/tabs/HourlyWageViewerTab.java:69
-#, fuzzy
 msgid "Hourly Wage"
-msgstr "Stundenlöhne"
+msgstr "Stundenlohn"
 
 #: view/tabs/WelcomeTab.java:42
 msgid "Welcome"
