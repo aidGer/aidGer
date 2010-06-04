@@ -23,8 +23,11 @@ public class HourlyWageEditorForm extends JPanel {
     public HourlyWageEditorForm(HourlyWage hw) {
         initComponents();
 
+        // add input filters
+        InputPatternFilter.addFilter(txtWage, "[0-9]+[.,]?[0-9]{0,2}");
+
         if (hw != null) {
-            txtQualification.setText(hw.getQualification());
+            cmbQualification.setSelectedItem(hw.getQualification());
             // spDate.setValue(hw.getMonth() + "." + hw.getYear());
             txtWage.setText(String.valueOf(hw.getWage()));
         }
@@ -45,7 +48,7 @@ public class HourlyWageEditorForm extends JPanel {
      * @return The qualification needed for the wage
      */
     public String getQualification() {
-        return txtQualification.getText();
+        return (String) cmbQualification.getSelectedItem();
     }
 
     /**
@@ -76,6 +79,7 @@ public class HourlyWageEditorForm extends JPanel {
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
     // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
@@ -83,7 +87,7 @@ public class HourlyWageEditorForm extends JPanel {
         lblQualification = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
         lblWage = new javax.swing.JLabel();
-        txtQualification = new javax.swing.JTextField();
+        cmbQualification = new javax.swing.JComboBox();
         spDate = new javax.swing.JSpinner();
         txtWage = new javax.swing.JTextField();
 
@@ -111,10 +115,12 @@ public class HourlyWageEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblWage, gridBagConstraints);
 
-        txtQualification.setPreferredSize(new java.awt.Dimension(200, 25));
+        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(
+                new String[] { _("Unchecked"), _("Checked"), _("Bachelor") }));
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(txtQualification, gridBagConstraints);
+        add(cmbQualification, gridBagConstraints);
 
         spDate.setModel(new javax.swing.SpinnerDateModel());
         spDate
@@ -136,11 +142,11 @@ public class HourlyWageEditorForm extends JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cmbQualification;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblQualification;
     private javax.swing.JLabel lblWage;
     private javax.swing.JSpinner spDate;
-    private javax.swing.JTextField txtQualification;
     private javax.swing.JTextField txtWage;
     // End of variables declaration//GEN-END:variables
 
