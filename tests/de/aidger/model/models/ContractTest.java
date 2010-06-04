@@ -1,6 +1,6 @@
 package de.aidger.model.models;
 
-import java.util.Date;
+import java.sql.Date;
 
 import org.junit.Test;
 import org.junit.Before;

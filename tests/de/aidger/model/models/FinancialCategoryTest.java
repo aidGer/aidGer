@@ -17,8 +17,8 @@ public class FinancialCategoryTest {
     public void setUp() {
         financial = new FinancialCategory();
         financial.setId(1);
-        financial.setBugdetCosts(new int[] { 100, 200 });
-        financial.setFonds(new int[] { 100, 200 });
+        financial.setBudgetCosts(new int[] { 100, 200 });
+        financial.setFunds(new int[] { 100, 200 });
         financial.setName("Tester");
         financial.setYear((short) 2010);
     }
@@ -33,8 +33,8 @@ public class FinancialCategoryTest {
         FinancialCategory result = financial.clone();
 
         assertEquals(financial.getId(), result.getId());
-        assertEquals(financial.getBugdetCosts(), result.getBugdetCosts());
-        assertEquals(financial.getFonds(), result.getFonds());
+        assertEquals(financial.getBudgetCosts(), result.getBudgetCosts());
+        assertEquals(financial.getFunds(), result.getFunds());
         assertEquals(financial.getName(), result.getName());
         assertEquals(financial.getYear(), result.getYear());
     }

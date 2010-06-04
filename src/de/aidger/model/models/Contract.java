@@ -1,6 +1,6 @@
 package de.aidger.model.models;
 
-import java.util.Date;
+import java.sql.Date;
 
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.model.IContract;
