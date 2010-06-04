@@ -18,9 +18,9 @@ public class CourseTableModel extends MasterDataTableModel {
      */
     public CourseTableModel() {
         super(new String[] { _("Description"), _("Semester"), _("Lecturer"),
-                _("Number of Groups"), _("Target Audience"), _("Granted AWH"),
-                _("Scope"), _("Part"), _("Group"), _("Remark"),
-                _("Financial Category"), _("ID") });
+                _("Advisor"), _("Number of Groups"), _("Target Audience"),
+                _("Granted AWH"), _("Scope"), _("Part"), _("Group"),
+                _("Remark"), _("Financial Category"), _("ID") });
     }
 
     /*
@@ -40,7 +40,8 @@ public class CourseTableModel extends MasterDataTableModel {
 
             addRow(new Object[] { course.getDescription(),
                     course.getSemester(), course.getLecturer(),
-                    course.getNumberOfGroups(), course.getTargetAudience(),
+                    course.getAdvisor(), course.getNumberOfGroups(),
+                    course.getTargetAudience(),
                     course.getUnqualifiedWorkingHours(), course.getScope(),
                     course.getPart(), course.getGroup(), course.getRemark(),
                     course.getFinancialCategoryId(), course.getId() });

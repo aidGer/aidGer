@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-04 15:05+0200\n"
+"POT-Creation-Date: 2010-06-04 18:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Could not create file \"{0}\"."
 msgstr ""
 
-#: model/AbstractModel.java:290
+#: model/AbstractModel.java:335
 #, java-format
 msgid "Could not get manager for class \"{0}\". Error: {1}"
 msgstr ""
@@ -215,7 +215,7 @@ msgstr ""
 
 #: view/tabs/AssistantViewerTab.java:78 view/tabs/HourlyWageViewerTab.java:65
 #: view/forms/AssistantEditorForm.java:118
-#: view/forms/HourlyWageEditorForm.java:95
+#: view/forms/HourlyWageEditorForm.java:96
 #: view/models/HourlyWageTableModel.java:20
 #: view/models/AssistantTableModel.java:21
 msgid "Qualification"
@@ -230,12 +230,12 @@ msgid "Complexity"
 msgstr ""
 
 #: view/tabs/CourseViewerTab.java:90 view/tabs/CourseViewerTab.java:146
-#: view/forms/CourseEditorForm.java:284 view/models/CourseTableModel.java:22
+#: view/forms/CourseEditorForm.java:307 view/models/CourseTableModel.java:22
 msgid "Part"
 msgstr ""
 
 #: view/tabs/CourseViewerTab.java:92 view/tabs/CourseViewerTab.java:147
-#: view/forms/CourseEditorForm.java:292 view/models/CourseTableModel.java:22
+#: view/forms/CourseEditorForm.java:315 view/models/CourseTableModel.java:22
 msgid "Group"
 msgstr ""
 
@@ -244,7 +244,7 @@ msgid "Comment"
 msgstr ""
 
 #: view/tabs/CourseViewerTab.java:96 view/tabs/CourseViewerTab.java:150
-#: view/forms/CourseEditorForm.java:308 view/models/CourseTableModel.java:23
+#: view/forms/CourseEditorForm.java:331 view/models/CourseTableModel.java:23
 msgid "Financial Category"
 msgstr ""
 
@@ -253,17 +253,17 @@ msgid "Title"
 msgstr ""
 
 #: view/tabs/CourseViewerTab.java:217 view/tabs/CourseViewerTab.java:279
-#: view/forms/CourseEditorForm.java:199 view/models/CourseTableModel.java:20
+#: view/forms/CourseEditorForm.java:212 view/models/CourseTableModel.java:20
 msgid "Semester"
 msgstr ""
 
 #: view/tabs/CourseViewerTab.java:219 view/tabs/CourseViewerTab.java:280
-#: view/forms/CourseEditorForm.java:207 view/models/CourseTableModel.java:20
+#: view/forms/CourseEditorForm.java:220 view/models/CourseTableModel.java:20
 msgid "Lecturer"
 msgstr ""
 
 #: view/tabs/CourseViewerTab.java:221 view/tabs/CourseViewerTab.java:281
-#: view/forms/CourseEditorForm.java:215 view/models/CourseTableModel.java:21
+#: view/forms/CourseEditorForm.java:236 view/models/CourseTableModel.java:21
 msgid "Number of Groups"
 msgstr ""
 
@@ -423,44 +423,48 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: view/forms/HourlyWageEditorForm.java:101
+#: view/forms/HourlyWageEditorForm.java:102
 msgid "Date"
 msgstr ""
 
-#: view/forms/HourlyWageEditorForm.java:109
+#: view/forms/HourlyWageEditorForm.java:110
 #: view/models/HourlyWageTableModel.java:21
 msgid "Wage"
 msgstr ""
 
-#: view/forms/HourlyWageEditorForm.java:117
+#: view/forms/HourlyWageEditorForm.java:119
 msgid "Unchecked"
 msgstr ""
 
-#: view/forms/HourlyWageEditorForm.java:117
+#: view/forms/HourlyWageEditorForm.java:119
 msgid "Checked"
 msgstr ""
 
-#: view/forms/HourlyWageEditorForm.java:117
+#: view/forms/HourlyWageEditorForm.java:119
 msgid "Bachelor"
 msgstr ""
 
-#: view/forms/CourseEditorForm.java:193 view/models/CourseTableModel.java:20
+#: view/forms/CourseEditorForm.java:206 view/models/CourseTableModel.java:20
 msgid "Description"
 msgstr ""
 
-#: view/forms/CourseEditorForm.java:223 view/models/CourseTableModel.java:21
+#: view/forms/CourseEditorForm.java:228 view/models/CourseTableModel.java:21
+msgid "Advisor"
+msgstr ""
+
+#: view/forms/CourseEditorForm.java:244 view/models/CourseTableModel.java:21
 msgid "Target Audience"
 msgstr ""
 
-#: view/forms/CourseEditorForm.java:231 view/models/CourseTableModel.java:21
+#: view/forms/CourseEditorForm.java:291 view/models/CourseTableModel.java:22
 msgid "Granted AWH"
 msgstr ""
 
-#: view/forms/CourseEditorForm.java:278 view/models/CourseTableModel.java:22
+#: view/forms/CourseEditorForm.java:299 view/models/CourseTableModel.java:22
 msgid "Scope"
 msgstr ""
 
-#: view/forms/CourseEditorForm.java:300 view/models/CourseTableModel.java:22
+#: view/forms/CourseEditorForm.java:323 view/models/CourseTableModel.java:23
 msgid "Remark"
 msgstr ""
 
@@ -545,7 +549,7 @@ msgstr ""
 msgid "Language:"
 msgstr ""
 
-#: controller/actions/masterdata/MasterDataEditorSaveAction.java:148
+#: controller/actions/masterdata/MasterDataEditorSaveAction.java:149
 msgid "Could not save the model to database."
 msgstr ""
 

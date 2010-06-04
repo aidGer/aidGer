@@ -51,6 +51,7 @@ public class MasterDataEditorSaveAction extends AbstractAction {
         course.setDescription(form.getDescription());
         course.setSemester(form.getSemester());
         course.setLecturer(form.getLecturer());
+        course.setAdvisor(form.getAdvisor());
         course.setNumberOfGroups(form.getNumberOfGroups());
         course.setTargetAudience(form.getTargetAudience());
         course.setUnqualifiedWorkingHours(form.getUnqualifiedWorkingHours());
