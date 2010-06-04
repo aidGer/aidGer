@@ -109,9 +109,52 @@ public abstract class AbstractModel<T> extends Observable implements
     }
 
     /**
+     * Get the number of models in the database.
+     *
+     * @return The number of models
+     * @throws AdoHiveException
+     */
+    public int size() throws AdoHiveException {
+        return getManager().size();
+    }
+
+    /**
+     * Returns true if no model has been saved into the database.
+     *
+     * @return True if no model is in the database
+     * @throws AdoHiveException
+     */
+    public boolean isEmpty() throws AdoHiveException {
+        return getManager().isEmpty();
+    }
+
+    /**
+     * Checks if the current instance exists in the database.
+     *
+     * @return True if the instance exists
+     * @throws AdoHiveException
+     */
+    public boolean isInDatabase() throws AdoHiveException {
+        return getManager().contains(this);
+    }
+
+    /**
+     * Deletes everything from the associated table.
+     *
+     * @throws AdoHiveException
+     */
+    public void clearTable() throws AdoHiveException {
+        getManager().clear();
+        id = -1; // Reset
+    }
+
+    //TODO: Add get(index) method?
+
+    /**
      * Save the current model to the database.
      *
      * @return True if validation succeeds
+     * @throws AdoHiveException
      */
     @SuppressWarnings("unchecked")
     public boolean save() throws AdoHiveException {
@@ -134,6 +177,8 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Remove the current model from the database.
+     *
+     * @throws AdoHiveException
      */
     @SuppressWarnings("unchecked")
     public void remove() throws AdoHiveException {

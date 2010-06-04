@@ -100,6 +100,77 @@ public class AbstractModelTest {
     }
 
     /**
+     * Test of size method, of class AbstractModel.
+     */
+    @Test
+    public void testSize() throws AdoHiveException {
+        System.out.println("size");
+
+        Employment e = new Employment();
+
+        int size = e.size();
+
+        e.setCostUnit("0711");
+        e.setQualification("none");
+        e.save();
+
+        assertTrue(e.size() == size + 1);
+    }
+
+    /**
+     * Test of isEmpty method, of class AbstractModel.
+     */
+    @Test
+    public void testIsEmpty() throws AdoHiveException {
+        System.out.println("isEmpty");
+
+        Employment e = new Employment();
+        e.setCostUnit("0711");
+        e.setQualification("none");
+        e.save();
+
+        assertTrue(!e.isEmpty());
+
+        e.clearTable();
+        assertTrue(e.isEmpty());
+    }
+
+    /**
+     * Test of isInDatabase method, of class AbstractModel.
+     */
+    @Test
+    public void testIsInDatabase() throws AdoHiveException {
+        System.out.println("isInDatabase");
+
+        Employment e = new Employment();
+        e.setCostUnit("0711");
+        e.setQualification("none");
+
+        assertTrue(!e.isInDatabase());
+
+        e.save();
+        assertTrue(e.isInDatabase());
+    }
+
+    /**
+     * Test of clearTable method, of class AbstractModel.
+     */
+    @Test
+    public void testClearTable() throws AdoHiveException {
+        System.out.println("clearTable");
+
+        Employment e = new Employment();
+        e.setCostUnit("0711");
+        e.setQualification("none");
+        e.save();
+
+        assertTrue(e.size() > 0);
+
+        e.clearTable();
+        assertTrue(e.size() == 0);
+    }
+
+    /**
      * Test of save method, of class AbstractModel.
      */
     @Test
