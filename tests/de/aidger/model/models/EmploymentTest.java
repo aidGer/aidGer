@@ -1,7 +1,7 @@
 package de.aidger.model.models;
 
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,9 +24,10 @@ public class EmploymentTest {
         employment.setContractId(1);
         employment.setCourseId(0);
         employment.setCostUnit("0711");
-        employment.setFonds(1);
+        employment.setFunds(1);
         employment.setHourCount(40);
         employment.setMonth((byte) 10);
+        employment.setQualification("Overqualified");
         employment.setRemark("Remark");
         employment.setYear((short) 2010);
     }
@@ -45,9 +46,10 @@ public class EmploymentTest {
         assertEquals(result.getContractId(), employment.getContractId());
         assertEquals(result.getCostUnit(), employment.getCostUnit());
         assertEquals(result.getCourseId(), employment.getCourseId());
-        assertEquals(result.getFonds(), employment.getFonds());
+        assertEquals(result.getFunds(), employment.getFunds());
         assertEquals(result.getHourCount(), employment.getHourCount(), 0.001);
         assertEquals(result.getMonth(), employment.getMonth());
+        assertEquals(result.getQualification(), employment.getQualification());
         assertEquals(result.getRemark(), employment.getRemark());
         assertEquals(result.getYear(), employment.getYear());
     }

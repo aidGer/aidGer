@@ -75,8 +75,8 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
      * Initializes the Course class.
      */
     public Course() {
-        validatePresenceOf(new String[] { "description", "semester", "lecturer",
-                "targetAudience", "group" });
+        validatePresenceOf(new String[] { "advisor", "description", "semester",
+                "lecturer", "targetAudience", "group" });
         // TODO: Validate the rest of the variables
     }
 

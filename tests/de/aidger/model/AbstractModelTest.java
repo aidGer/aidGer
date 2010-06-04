@@ -24,6 +24,10 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
  */
 public class AbstractModelTest {
 
+    public AbstractModelTest() {
+        Runtime.getInstance().initialize();
+    }
+
     /**
      * Test of getAll method, of class AbstractModel.
      */
@@ -32,10 +36,12 @@ public class AbstractModelTest {
         System.out.println("getAll");
         Employment e = new Employment();
         e.setCostUnit("0711");
+        e.setQualification("none");
         e.save();
 
         Employment f = new Employment();
         f.setCostUnit("0711");
+        f.setQualification("none");
         f.save();
 
         List list = e.getAll();
@@ -55,6 +61,7 @@ public class AbstractModelTest {
 
         Employment e = new Employment();
         e.setCostUnit("0711");
+        e.setQualification("none");
         e.save();
 
         Employment result = (Employment) e.getById(e.getId());
@@ -84,6 +91,7 @@ public class AbstractModelTest {
 
         Employment e = new Employment();
         e.setCostUnit("0711");
+        e.setQualification("none");
         e.save();
 
         Employment res = (Employment) e.getByKeys(e.getId());
@@ -100,6 +108,7 @@ public class AbstractModelTest {
 
         Employment e = new Employment();
         e.setCostUnit("0711");
+        e.setQualification("none");
         e.save();
 
         assertTrue(e.getId() > 0);
@@ -121,6 +130,7 @@ public class AbstractModelTest {
 
         Employment e = new Employment();
         e.setCostUnit("0711");
+        e.setQualification("none");
         e.save();
         int id = e.getId();
 
