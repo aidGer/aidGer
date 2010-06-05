@@ -148,7 +148,7 @@ public final class Runtime {
         translation = new Translation(configPath, configuration.get("language"));
 
         /* Check if an instance of aidGer is already running */
-        if (!checkLock()) {
+        if (!Boolean.valueOf(getOption("debug")) && !checkLock()) {
             UI.displayError(_("Only one instance of aidGer can be run at a time."));
             System.exit(-1);
         }
