@@ -4,6 +4,8 @@ import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.*;
 
+import java.math.BigDecimal;
+
 /**
  * Tests the HourlyWage class.
  *
@@ -19,7 +21,7 @@ public class HourlyWageTest {
         hourly.setId(1);
         hourly.setMonth((byte) 10);
         hourly.setQualification("OverQualified");
-        hourly.setWage(200);
+        hourly.setWage(new BigDecimal(200));
         hourly.setYear((short) 2010);
     }
 
@@ -35,7 +37,7 @@ public class HourlyWageTest {
         assertEquals(hourly.getId(), result.getId());
         assertEquals(hourly.getMonth(), result.getMonth());
         assertEquals(hourly.getQualification(), result.getQualification());
-        assertEquals(hourly.getWage(), result.getWage(), 0.001);
+        assertEquals(hourly.getWage(), result.getWage());
         assertEquals(hourly.getYear(), result.getYear());
     }
 
