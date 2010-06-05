@@ -3,6 +3,8 @@ package de.aidger.model.models;
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
 
+import java.math.BigDecimal;
+
 /**
  * Represents a single entry in the hourly wage column of the database. Contains
  * functions to retrieve and change the data in the database.
@@ -30,15 +32,14 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
     /**
      * The wage per hour.
      */
-    private double wage;
+    private BigDecimal wage;
 
     /**
      * Initializes the HourlyWage class.
      */
     public HourlyWage() {
-        validatePresenceOf(new String[] { "qualification" });
+        validatePresenceOf(new String[] { "qualification", "wage" });
         //TODO: Validate month and year
-        //TODO: Validate the wage
     }
 
     /**
@@ -69,7 +70,7 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
             return h.id == id && h.month == month && h.year == year &&
                     (qualification == null ? h.qualification == null :
                             h.qualification.equals(qualification)) &&
-                    ((Double) h.wage).equals(wage);
+                    (wage == null ? h.wage == null : h.wage.equals(wage));
         } else {
             return false;
         }
@@ -86,8 +87,7 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
         hash = 37 * hash + (qualification != null ? qualification.hashCode() : 0);
         hash = 37 * hash + month;
         hash = 37 * hash + year;
-        hash = 37 * hash + (int) (Double.doubleToLongBits(wage) ^
-                (Double.doubleToLongBits(wage) >>> 32));
+        hash = 37 * hash + (wage != null ? wage.hashCode() : 0);
         return hash;
     }
 
@@ -117,7 +117,7 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      * @return The wage per hour
      */
     @Override
-    public double getWage() {
+    public BigDecimal getWage() {
         return wage;
     }
 
@@ -160,7 +160,7 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      *            The wage per hour
      */
     @Override
-    public void setWage(double wage) {
+    public void setWage(BigDecimal wage) {
         this.wage = wage;
     }
 
