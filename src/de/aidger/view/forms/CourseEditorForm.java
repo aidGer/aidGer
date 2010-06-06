@@ -106,8 +106,7 @@ public class CourseEditorForm extends JPanel {
      * @return The part of the course
      */
     public char getPart() {
-        // return txtPart.getText().charAt(0);
-        return ' '; // TODO
+        return txtPart.getText().charAt(0);
     }
 
     /**

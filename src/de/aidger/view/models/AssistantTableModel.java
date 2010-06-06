@@ -5,6 +5,7 @@ import static de.aidger.utils.Translation._;
 import java.util.List;
 
 import de.aidger.model.models.Assistant;
+import de.unistuttgart.iste.se.adohive.model.IAssistant;
 
 /**
  * The class represents the table model for the master data assistants.
@@ -31,10 +32,10 @@ public class AssistantTableModel extends MasterDataTableModel {
     public void refresh() {
         masterData.clear();
 
-        List<Assistant> assistants = (new Assistant()).getAll();
+        List<IAssistant> assistants = (new Assistant()).getAll();
 
-        for (Assistant assistant : assistants) {
-            masterData.add(assistant);
+        for (IAssistant assistant : assistants) {
+            masterData.add(new Assistant(assistant));
 
             addRow(new Object[] { assistant.getFirstName(),
                     assistant.getLastName(), assistant.getEmail(),

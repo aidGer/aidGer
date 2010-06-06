@@ -103,7 +103,11 @@ public class MasterDataEditorSaveAction extends AbstractAction {
         hw.setQualification(form.getQualification());
         hw.setMonth(form.getMonth());
         hw.setYear(form.getYear());
-        hw.setWage(java.math.BigDecimal.valueOf(form.getWage()));
+
+        String wage = form.getWage();
+        if (!wage.isEmpty()) {
+            hw.setWage(java.math.BigDecimal.valueOf(Double.valueOf(wage)));
+        }
     }
 
     /*

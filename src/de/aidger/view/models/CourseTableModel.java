@@ -5,6 +5,7 @@ import static de.aidger.utils.Translation._;
 import java.util.List;
 
 import de.aidger.model.models.Course;
+import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
  * The class represents the table model for the master data courses.
@@ -33,10 +34,10 @@ public class CourseTableModel extends MasterDataTableModel {
     public void refresh() {
         masterData.clear();
 
-        List<Course> courses = (new Course()).getAll();
+        List<ICourse> courses = (new Course()).getAll();
 
-        for (Course course : courses) {
-            masterData.add(course);
+        for (ICourse course : courses) {
+            masterData.add(new Course(course));
 
             addRow(new Object[] { course.getDescription(),
                     course.getSemester(), course.getLecturer(),

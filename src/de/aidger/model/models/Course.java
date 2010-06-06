@@ -4,9 +4,9 @@ import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
- * Represents a single entry in the course column of the database.
- * Contains functions to retrieve and change the data in the database.
- *
+ * Represents a single entry in the course column of the database. Contains
+ * functions to retrieve and change the data in the database.
+ * 
  * @author aidGer Team
  */
 public class Course extends AbstractModel<ICourse> implements ICourse {
@@ -81,6 +81,28 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     }
 
     /**
+     * Initializes the couse class with the given course model.
+     * 
+     * @param course
+     *            the course model
+     */
+    public Course(ICourse course) {
+        setId(course.getId());
+        setAdvisor(course.getAdvisor());
+        setDescription(course.getDescription());
+        setFinancialCategoryId(course.getFinancialCategoryId());
+        setGroup(course.getGroup());
+        setLecturer(course.getLecturer());
+        setNumberOfGroups(course.getNumberOfGroups());
+        setPart(course.getPart());
+        setRemark(course.getRemark());
+        setScope(course.getScope());
+        setSemester(course.getSemester());
+        setTargetAudience(course.getTargetAudience());
+        setUnqualifiedWorkingHours(course.getUnqualifiedWorkingHours());
+    }
+
+    /**
      * Clone the current course.
      */
     @Override
@@ -104,7 +126,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Check if two objects are equal.
-     *
+     * 
      * @param o
      *            The other object
      * @return True if both are equal
@@ -113,21 +135,22 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     public boolean equals(Object o) {
         if (o instanceof Course) {
             Course c = (Course) o;
-            return c.id == id && c.numberOfGroups == numberOfGroups &&
-                    c.part == part && 
-                    ((Double)c.unqualifiedWorkingHours).equals(
-                    unqualifiedWorkingHours) &&
-                    (advisor == null ? c.advisor == null :
-                            advisor.equals(c.advisor)) &&
-                    (description == null ? c.description == null :
-                            description.equals(c.description)) &&
-                    (remark == null ? c.remark == null :
-                            remark.equals(c.remark)) &&
-                    (scope == null ? c.scope == null : scope.equals(c.scope)) &&
-                    (semester == null ? c.semester == null :
-                            semester.equals(c.semester)) &&
-                    (targetAudience == null ? c.targetAudience == null :
-                            targetAudience.equals(c.targetAudience));
+            return c.id == id
+                    && c.numberOfGroups == numberOfGroups
+                    && c.part == part
+                    && ((Double) c.unqualifiedWorkingHours)
+                            .equals(unqualifiedWorkingHours)
+                    && (advisor == null ? c.advisor == null : advisor
+                            .equals(c.advisor))
+                    && (description == null ? c.description == null
+                            : description.equals(c.description))
+                    && (remark == null ? c.remark == null : remark
+                            .equals(c.remark))
+                    && (scope == null ? c.scope == null : scope.equals(c.scope))
+                    && (semester == null ? c.semester == null : semester
+                            .equals(c.semester))
+                    && (targetAudience == null ? c.targetAudience == null
+                            : targetAudience.equals(c.targetAudience));
         } else {
             return false;
         }
@@ -135,7 +158,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Generate a unique hashcode for this instance.
-     *
+     * 
      * @return The hashcode
      */
     @Override
@@ -147,10 +170,12 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
         hash = 67 * hash + (semester != null ? semester.hashCode() : 0);
         hash = 67 * hash + (lecturer != null ? lecturer.hashCode() : 0);
         hash = 67 * hash + numberOfGroups;
-        hash = 67 * hash + (targetAudience != null ? targetAudience.hashCode() :
-                0);
-        hash = 67 * hash + (int) (Double.doubleToLongBits(unqualifiedWorkingHours)
-                ^ (Double.doubleToLongBits(unqualifiedWorkingHours) >>> 32));
+        hash = 67 * hash
+                + (targetAudience != null ? targetAudience.hashCode() : 0);
+        hash = 67
+                * hash
+                + (int) (Double.doubleToLongBits(unqualifiedWorkingHours) ^ (Double
+                        .doubleToLongBits(unqualifiedWorkingHours) >>> 32));
         hash = 67 * hash + (scope != null ? scope.hashCode() : 0);
         hash = 67 * hash + part;
         hash = 67 * hash + (group != null ? group.hashCode() : 0);
@@ -160,7 +185,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Get the advisor of the course.
-     *
+     * 
      * @return The advisor of the course
      */
     @Override
@@ -170,7 +195,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Get the description of the course
-     *
+     * 
      * @return The description of the course
      */
     @Override
@@ -180,7 +205,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Get the id referencing the category.
-     *
+     * 
      * @return The id of the category
      */
     @Override
@@ -190,7 +215,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Get the group of the course.
-     *
+     * 
      * @return The group of the course
      */
     @Override
@@ -200,7 +225,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Get the lecturer of the course.
-     *
+     * 
      * @return The lecturer of the course
      */
     @Override
@@ -210,7 +235,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Get the number of groups in the course.
-     *
+     * 
      * @return The number of groups
      */
     @Override
@@ -220,7 +245,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Get the part of the course.
-     *
+     * 
      * @return The part of the course
      */
     @Override
@@ -230,7 +255,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Get remarks regarding the course.
-     *
+     * 
      * @return The remarks
      */
     @Override
@@ -240,7 +265,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Get the scope of the course.
-     *
+     * 
      * @return The scope of the course
      */
     @Override
@@ -250,7 +275,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Get the semester of the course.
-     *
+     * 
      * @return The semester
      */
     @Override
@@ -260,7 +285,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Get the target audience of the course.
-     *
+     * 
      * @return The target audience
      */
     @Override
@@ -270,7 +295,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Get the amount of unqualified working hours granted.
-     *
+     * 
      * @return The amount of UWHs
      */
     @Override
@@ -280,7 +305,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Set the advisor of the course
-     *
+     * 
      * @param advisor
      *            The advisor of the course
      */
@@ -291,8 +316,9 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Set the description of the course
-     *
-     * @param descr The description of the course
+     * 
+     * @param descr
+     *            The description of the course
      */
     @Override
     public void setDescription(String descr) {
@@ -301,8 +327,9 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Set the id referencing the category.
-     *
-     * @param id The id of the category
+     * 
+     * @param id
+     *            The id of the category
      */
     @Override
     public void setFinancialCategoryId(int id) {
@@ -311,8 +338,9 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Set the group of the course.
-     *
-     * @param group The group of the course
+     * 
+     * @param group
+     *            The group of the course
      */
     @Override
     public void setGroup(String group) {
@@ -321,8 +349,9 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Set the lecturer of the course.
-     *
-     * @param lec The lecturer of the course
+     * 
+     * @param lec
+     *            The lecturer of the course
      */
     @Override
     public void setLecturer(String lec) {
@@ -331,8 +360,9 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Set the number of groups in the course.
-     *
-     * @param num The number of groups
+     * 
+     * @param num
+     *            The number of groups
      */
     @Override
     public void setNumberOfGroups(int num) {
@@ -341,8 +371,9 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Set the part of the course.
-     *
-     * @param part The part of the course
+     * 
+     * @param part
+     *            The part of the course
      */
     @Override
     public void setPart(char part) {
@@ -351,8 +382,9 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Set remarks regarding the course.
-     *
-     * @param rem The remarks
+     * 
+     * @param rem
+     *            The remarks
      */
     @Override
     public void setRemark(String rem) {
@@ -361,8 +393,9 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Set the scope of the course.
-     *
-     * @param scope The scope of the course
+     * 
+     * @param scope
+     *            The scope of the course
      */
     @Override
     public void setScope(String scope) {
@@ -371,8 +404,9 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Set the semester of the course.
-     *
-     * @param sem The semester
+     * 
+     * @param sem
+     *            The semester
      */
     @Override
     public void setSemester(String sem) {
@@ -381,8 +415,9 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Set the target audience of the course.
-     *
-     * @param target The target audience
+     * 
+     * @param target
+     *            The target audience
      */
     @Override
     public void setTargetAudience(String target) {
@@ -391,8 +426,9 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Set the amount of unqualified working hours granted.
-     *
-     * @param hours The amount of UWHs
+     * 
+     * @param hours
+     *            The amount of UWHs
      */
     @Override
     public void setUnqualifiedWorkingHours(double hours) {

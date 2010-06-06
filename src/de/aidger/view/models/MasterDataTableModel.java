@@ -6,6 +6,7 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 import de.aidger.model.AbstractModel;
+import de.unistuttgart.iste.se.adohive.model.IAdoHiveModel;
 
 /**
  * The class represents the abstract table model for the master data.

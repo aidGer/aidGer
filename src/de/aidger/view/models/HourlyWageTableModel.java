@@ -5,6 +5,7 @@ import static de.aidger.utils.Translation._;
 import java.util.List;
 
 import de.aidger.model.models.HourlyWage;
+import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
 
 /**
  * The class represents the table model for the master data hourly wages.
@@ -31,10 +32,10 @@ public class HourlyWageTableModel extends MasterDataTableModel {
     public void refresh() {
         masterData.clear();
 
-        List<HourlyWage> hws = (new HourlyWage()).getAll();
+        List<IHourlyWage> hws = (new HourlyWage()).getAll();
 
-        for (HourlyWage hw : hws) {
-            masterData.add(hw);
+        for (IHourlyWage hw : hws) {
+            masterData.add(new HourlyWage(hw));
 
             addRow(new Object[] { hw.getQualification(), hw.getMonth(),
                     hw.getYear(), hw.getWage(), hw.getId() });

@@ -1,8 +1,9 @@
 package de.aidger.model.models;
 
+import java.util.Arrays;
+
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
-import java.util.Arrays;
 
 /**
  * Represents a single entry in the financial category column of the database.
@@ -21,25 +22,40 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
     /**
      * The budget costs of the category.
      */
-    private int[]  budgetCosts;
+    private int[] budgetCosts;
 
     /**
      * The fonds of the category.
      */
-    private int[]  funds;
+    private int[] funds;
 
     /**
      * The year the category is valid.
      */
-    private short  year;
+    private short year;
 
     /**
      * Initialize the FinancialCategory class.
      */
     public FinancialCategory() {
         validatePresenceOf(new String[] { "name" });
-        //TODO: Validate the budget costs and fonds
-        //TODO: Validate the year
+        // TODO: Validate the budget costs and fonds
+        // TODO: Validate the year
+    }
+
+    /**
+     * Initialize the FinancialCategory class with the given financial category
+     * model.
+     * 
+     * @param f
+     *            the financial category model
+     */
+    public FinancialCategory(IFinancialCategory f) {
+        setId(f.getId());
+        setBudgetCosts(f.getBudgetCosts());
+        setFunds(f.getFunds());
+        setName(f.getName());
+        setYear(f.getYear());
     }
 
     /**
@@ -58,7 +74,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
 
     /**
      * Check if two objects are equal.
-     *
+     * 
      * @param o
      *            The other object
      * @return True if both are equal
@@ -67,9 +83,9 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
     public boolean equals(Object o) {
         if (o instanceof FinancialCategory) {
             FinancialCategory f = (FinancialCategory) o;
-            return f.id == id && f.budgetCosts == budgetCosts &&
-                    f.funds == funds && f.year == year &&
-                    (name == null ? f.name == null : f.name.equals(name));
+            return f.id == id && f.budgetCosts == budgetCosts
+                    && f.funds == funds && f.year == year
+                    && (name == null ? f.name == null : f.name.equals(name));
         } else {
             return false;
         }
@@ -77,7 +93,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
 
     /**
      * Generate a unique hashcode for this instance.
-     *
+     * 
      * @return The hashcode
      */
     @Override

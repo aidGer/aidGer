@@ -1,9 +1,9 @@
 package de.aidger.model.models;
 
+import java.math.BigDecimal;
+
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
-
-import java.math.BigDecimal;
 
 /**
  * Represents a single entry in the hourly wage column of the database. Contains
@@ -22,12 +22,12 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
     /**
      * The month the wage is valid in.
      */
-    private byte   month;
+    private byte month;
 
     /**
      * The year the wage is valid in.
      */
-    private short  year;
+    private short year;
 
     /**
      * The wage per hour.
@@ -39,7 +39,21 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      */
     public HourlyWage() {
         validatePresenceOf(new String[] { "qualification", "wage" });
-        //TODO: Validate month and year
+        // TODO: Validate month and year
+    }
+
+    /**
+     * Initializes the HourlyWage class with the given hourly wage model.
+     * 
+     * @param h
+     *            the hourly wage model
+     */
+    public HourlyWage(IHourlyWage h) {
+        setId(h.getId());
+        setMonth(h.getMonth());
+        setQualification(h.getQualification());
+        setWage(h.getWage());
+        setYear(h.getYear());
     }
 
     /**
@@ -58,7 +72,7 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
 
     /**
      * Check if two objects are equal.
-     *
+     * 
      * @param o
      *            The other object
      * @return True if both are equal
@@ -67,10 +81,12 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
     public boolean equals(Object o) {
         if (o instanceof HourlyWage) {
             HourlyWage h = (HourlyWage) o;
-            return h.id == id && h.month == month && h.year == year &&
-                    (qualification == null ? h.qualification == null :
-                            h.qualification.equals(qualification)) &&
-                    (wage == null ? h.wage == null : h.wage.equals(wage));
+            return h.id == id
+                    && h.month == month
+                    && h.year == year
+                    && (qualification == null ? h.qualification == null
+                            : h.qualification.equals(qualification))
+                    && (wage == null ? h.wage == null : h.wage.equals(wage));
         } else {
             return false;
         }
@@ -78,13 +94,14 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
 
     /**
      * Generate a unique hashcode for this instance.
-     *
+     * 
      * @return The hashcode
      */
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 37 * hash + (qualification != null ? qualification.hashCode() : 0);
+        hash = 37 * hash
+                + (qualification != null ? qualification.hashCode() : 0);
         hash = 37 * hash + month;
         hash = 37 * hash + year;
         hash = 37 * hash + (wage != null ? wage.hashCode() : 0);

@@ -4,9 +4,9 @@ import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 
 /**
- * Represents a single entry in the assistant column of the database.
- * Contains functions to retrieve and change the data in the database.
- *
+ * Represents a single entry in the assistant column of the database. Contains
+ * functions to retrieve and change the data in the database.
+ * 
  * @author aidGer Team
  */
 public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
@@ -36,9 +36,23 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
      */
     public Assistant() {
         validatePresenceOf(new String[] { "email", "firstName", "lastName",
-                "qualification"});
+                "qualification" });
         validateEmailAddress("email");
-        //TODO: Check qualification level
+        // TODO: Check qualification level
+    }
+
+    /**
+     * Initializes the Assistant class with the given assistant model.
+     * 
+     * @param a
+     *            the assistant model
+     */
+    public Assistant(IAssistant a) {
+        setId(a.getId());
+        setEmail(a.getEmail());
+        setFirstName(a.getFirstName());
+        setLastName(a.getLastName());
+        setQualification(a.getQualification());
     }
 
     /**
@@ -57,7 +71,7 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
 
     /**
      * Check if two objects are equal.
-     *
+     * 
      * @param o
      *            The other object
      * @return True if both are equal
@@ -66,13 +80,13 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
     public boolean equals(Object o) {
         if (o instanceof Assistant) {
             Assistant a = (Assistant) o;
-            return a.id == id &&
-                    (firstName == null ? a.firstName == null :
-                            a.firstName.equals(firstName)) &&
-                    (lastName == null ? a.lastName == null : 
-                            a.lastName.equals(lastName)) &&
-                    (qualification == null ? a.qualification == null :
-                            a.qualification.equals(qualification));
+            return a.id == id
+                    && (firstName == null ? a.firstName == null : a.firstName
+                            .equals(firstName))
+                    && (lastName == null ? a.lastName == null : a.lastName
+                            .equals(lastName))
+                    && (qualification == null ? a.qualification == null
+                            : a.qualification.equals(qualification));
         } else {
             return false;
         }
@@ -80,7 +94,7 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
 
     /**
      * Generate a unique hashcode for this instance.
-     *
+     * 
      * @return The hashcode
      */
     @Override
@@ -89,14 +103,14 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
         hash = 19 * hash + (email != null ? email.hashCode() : 0);
         hash = 19 * hash + (firstName != null ? firstName.hashCode() : 0);
         hash = 19 * hash + (lastName != null ? lastName.hashCode() : 0);
-        hash = 19 * hash + (qualification != null ? qualification.hashCode()
-                : 0);
+        hash = 19 * hash
+                + (qualification != null ? qualification.hashCode() : 0);
         return hash;
     }
 
     /**
      * Get the email address of the assistant.
-     *
+     * 
      * @return The email address of the assistant
      */
     @Override
@@ -106,7 +120,7 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
 
     /**
      * Get the first name of the assistant.
-     *
+     * 
      * @return The first name of the assistant
      */
     @Override
@@ -116,7 +130,7 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
 
     /**
      * Get the last name of the assistant.
-     *
+     * 
      * @return The last name of the assistant.
      */
     @Override
@@ -126,7 +140,7 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
 
     /**
      * Get the qualification level of the assistant.
-     *
+     * 
      * @return The qualification level of the assistant
      */
     @Override
@@ -136,8 +150,9 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
 
     /**
      * Set the email address of the assistant.
-     *
-     * @param mail The email address of the assistant
+     * 
+     * @param mail
+     *            The email address of the assistant
      */
     @Override
     public void setEmail(String mail) {
@@ -146,8 +161,9 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
 
     /**
      * Set the first name of the assistant.
-     *
-     * @param first The first name of the assistant
+     * 
+     * @param first
+     *            The first name of the assistant
      */
     @Override
     public void setFirstName(String first) {
@@ -156,8 +172,9 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
 
     /**
      * Set the last name of the assistant.
-     *
-     * @param last The last name of the assistant
+     * 
+     * @param last
+     *            The last name of the assistant
      */
     @Override
     public void setLastName(String last) {
@@ -166,8 +183,9 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
 
     /**
      * Set the qualification level of the assistant.
-     *
-     * @param qual The qualification level of the assistant
+     * 
+     * @param qual
+     *            The qualification level of the assistant
      */
     @Override
     public void setQualification(String qual) {

@@ -56,8 +56,8 @@ public class HourlyWageEditorForm extends JPanel {
      * 
      * @return The wage per hour
      */
-    public double getWage() {
-        return Double.valueOf(txtWage.getText());
+    public String getWage() {
+        return txtWage.getText();
     }
 
     /**
