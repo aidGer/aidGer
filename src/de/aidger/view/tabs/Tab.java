@@ -27,4 +27,10 @@ public abstract class Tab extends JPanel {
      */
     public abstract String getTabName();
 
+    /**
+     * Tab can perform actions before it is closed.
+     */
+    public void performBeforeClose() {
+    }
+
 }

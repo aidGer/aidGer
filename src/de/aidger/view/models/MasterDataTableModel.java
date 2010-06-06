@@ -2,11 +2,12 @@ package de.aidger.view.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.table.DefaultTableModel;
 
 import de.aidger.model.AbstractModel;
-import de.unistuttgart.iste.se.adohive.model.IAdoHiveModel;
 
 /**
  * The class represents the abstract table model for the master data.
@@ -14,7 +15,13 @@ import de.unistuttgart.iste.se.adohive.model.IAdoHiveModel;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public abstract class MasterDataTableModel extends DefaultTableModel {
+public abstract class MasterDataTableModel extends DefaultTableModel implements
+        Observer {
+
+    /**
+     * The names of the columns.
+     */
+    protected final String[] columnNames;
 
     /**
      * The master data that is displayed on the table.
@@ -26,6 +33,8 @@ public abstract class MasterDataTableModel extends DefaultTableModel {
      * Constructs the abstract master data table model.
      */
     public MasterDataTableModel(String[] columnNames) {
+        this.columnNames = columnNames;
+
         setColumnIdentifiers(columnNames);
 
         refresh();
@@ -34,7 +43,11 @@ public abstract class MasterDataTableModel extends DefaultTableModel {
     /**
      * Refreshs the whole table.
      */
-    public abstract void refresh();
+    public void refresh() {
+        masterData.clear();
+
+        setRowCount(0);
+    }
 
     /**
      * Returns the model at the given index.
@@ -44,6 +57,16 @@ public abstract class MasterDataTableModel extends DefaultTableModel {
     @SuppressWarnings("unchecked")
     public AbstractModel getModel(int i) {
         return masterData.get(i);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+     */
+    @Override
+    public void update(Observable m, Object o) {
+        refresh();
     }
 
     /*

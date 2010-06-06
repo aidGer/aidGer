@@ -7,7 +7,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.AbstractAction;
 import javax.swing.JCheckBoxMenuItem;
@@ -60,9 +62,14 @@ public class MasterDataViewerTab extends Tab {
     private final MasterDataType type;
 
     /**
-     * The table model.
+     * The table model of this viewer tab.
      */
     private MasterDataTableModel tableModel;
+
+    /**
+     * All table models for all types.
+     */
+    public static Map<MasterDataType, ArrayList<MasterDataTableModel>> tableModels;
 
     /**
      * Constructs the master data viewer tab.
@@ -74,6 +81,15 @@ public class MasterDataViewerTab extends Tab {
     public MasterDataViewerTab(MasterDataType type) {
         this.type = type;
         initComponents();
+
+        if (tableModels == null) {
+            tableModels = new HashMap<MasterDataType, ArrayList<MasterDataTableModel>>();
+
+            tableModels.put(MasterDataType.Course, new ArrayList());
+            tableModels.put(MasterDataType.Assistant, new ArrayList());
+            tableModels.put(MasterDataType.FinancialCategory, new ArrayList());
+            tableModels.put(MasterDataType.HourlyWage, new ArrayList());
+        }
 
         // use different table model for each master data type
         switch (type) {
@@ -96,6 +112,8 @@ public class MasterDataViewerTab extends Tab {
         }
 
         table.setModel(tableModel);
+
+        tableModels.get(type).add(tableModel);
 
         table.setComponentPopupMenu(popupMenu);
         table.setAutoCreateRowSorter(true);
@@ -183,6 +201,16 @@ public class MasterDataViewerTab extends Tab {
         }
 
         table.getTableHeader().addMouseListener(new PopupListener(headerMenu));
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.tabs.Tab#performOnClose()
+     */
+    @Override
+    public void performBeforeClose() {
+        tableModels.get(type).remove(tableModel);
     }
 
     /*

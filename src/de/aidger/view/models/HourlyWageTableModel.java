@@ -30,7 +30,7 @@ public class HourlyWageTableModel extends MasterDataTableModel {
     @Override
     @SuppressWarnings("unchecked")
     public void refresh() {
-        masterData.clear();
+        super.refresh();
 
         List<IHourlyWage> hws = (new HourlyWage()).getAll();
 

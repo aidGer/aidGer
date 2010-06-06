@@ -31,7 +31,7 @@ public class FinancialCategoryTableModel extends MasterDataTableModel {
     @Override
     @SuppressWarnings("unchecked")
     public void refresh() {
-        masterData.clear();
+        super.refresh();
 
         List<IFinancialCategory> fcs = (new FinancialCategory()).getAll();
 

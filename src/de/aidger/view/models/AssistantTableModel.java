@@ -30,7 +30,7 @@ public class AssistantTableModel extends MasterDataTableModel {
     @Override
     @SuppressWarnings("unchecked")
     public void refresh() {
-        masterData.clear();
+        super.refresh();
 
         List<IAssistant> assistants = (new Assistant()).getAll();
 

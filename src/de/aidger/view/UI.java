@@ -251,6 +251,8 @@ public final class UI extends JFrame {
 
         tabbedPane.removeChangeListener(tabbedPaneListener);
 
+        ((Tab) tabbedPane.getComponentAt(index)).performBeforeClose();
+
         tabbedPane.remove(index);
 
         if (tabbedPane.getTabCount() == 1) {

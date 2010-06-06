@@ -3,6 +3,7 @@ package de.aidger.controller.actions.masterdata;
 import static de.aidger.utils.Translation._;
 
 import java.awt.event.ActionEvent;
+import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -19,6 +20,7 @@ import de.aidger.view.forms.AssistantEditorForm;
 import de.aidger.view.forms.CourseEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
 import de.aidger.view.forms.HourlyWageEditorForm;
+import de.aidger.view.models.MasterDataTableModel;
 import de.aidger.view.tabs.MasterDataEditorTab;
 import de.aidger.view.tabs.MasterDataViewerTab;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
@@ -141,6 +143,13 @@ public class MasterDataEditorSaveAction extends AbstractAction {
             setModel((HourlyWage) model, (HourlyWageEditorForm) tab
                     .getEditorForm());
             break;
+        }
+
+        List<MasterDataTableModel> tableModels = MasterDataViewerTab.tableModels
+                .get(tab.getType());
+
+        for (MasterDataTableModel tableModel : tableModels) {
+            model.addObserver(tableModel);
         }
 
         try {

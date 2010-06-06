@@ -32,7 +32,7 @@ public class CourseTableModel extends MasterDataTableModel {
     @SuppressWarnings("unchecked")
     @Override
     public void refresh() {
-        masterData.clear();
+        super.refresh();
 
         List<ICourse> courses = (new Course()).getAll();
 
