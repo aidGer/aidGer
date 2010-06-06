@@ -171,7 +171,7 @@ public class CourseEditorForm extends JPanel {
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
-    // desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -248,11 +248,13 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblTargetAudience, gridBagConstraints);
 
+        txtDescription.setMinimumSize(new java.awt.Dimension(200, 25));
         txtDescription.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtDescription, gridBagConstraints);
 
+        txtSemester.setMinimumSize(new java.awt.Dimension(200, 25));
         txtSemester.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -260,6 +262,7 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtSemester, gridBagConstraints);
 
+        txtLecturer.setMinimumSize(new java.awt.Dimension(200, 25));
         txtLecturer.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -267,6 +270,7 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtLecturer, gridBagConstraints);
 
+        txtAdvisor.setMinimumSize(new java.awt.Dimension(200, 25));
         txtAdvisor.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -280,6 +284,7 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(spNumberOfGroups, gridBagConstraints);
 
+        txtTargetAudience.setMinimumSize(new java.awt.Dimension(200, 25));
         txtTargetAudience.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -335,6 +340,7 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
         add(lblFinancialCategory, gridBagConstraints);
 
+        txtGrantedAWH.setMinimumSize(new java.awt.Dimension(200, 25));
         txtGrantedAWH.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -342,6 +348,7 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtGrantedAWH, gridBagConstraints);
 
+        txtScope.setMinimumSize(new java.awt.Dimension(200, 25));
         txtScope.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -349,6 +356,7 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtScope, gridBagConstraints);
 
+        txtPart.setMinimumSize(new java.awt.Dimension(200, 25));
         txtPart.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -356,6 +364,7 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtPart, gridBagConstraints);
 
+        txtGroup.setMinimumSize(new java.awt.Dimension(200, 25));
         txtGroup.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -363,6 +372,7 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtGroup, gridBagConstraints);
 
+        txtRemark.setMinimumSize(new java.awt.Dimension(200, 25));
         txtRemark.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -370,8 +380,7 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtRemark, gridBagConstraints);
 
-        cmbFinancialCategory.setModel(new javax.swing.DefaultComboBoxModel(
-                new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbFinancialCategory.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;

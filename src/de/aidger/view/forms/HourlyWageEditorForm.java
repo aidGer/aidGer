@@ -80,7 +80,7 @@ public class HourlyWageEditorForm extends JPanel {
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
-    // desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -115,17 +115,14 @@ public class HourlyWageEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblWage, gridBagConstraints);
 
-        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(
-                new String[] { _("Unchecked"), _("Checked"), _("Bachelor") }));
+        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(new String[] { _("Unchecked"), _("Checked"), _("Bachelor") }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbQualification, gridBagConstraints);
 
         spDate.setModel(new javax.swing.SpinnerDateModel());
-        spDate
-                .setEditor(new javax.swing.JSpinner.DateEditor(spDate,
-                        "MM.yyyy"));
+        spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate, "MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -133,6 +130,7 @@ public class HourlyWageEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(spDate, gridBagConstraints);
 
+        txtWage.setMinimumSize(new java.awt.Dimension(200, 25));
         txtWage.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;

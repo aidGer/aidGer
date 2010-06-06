@@ -87,7 +87,7 @@ public class FinancialCategoryEditorForm extends JPanel {
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
-    // desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -132,11 +132,13 @@ public class FinancialCategoryEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblYear, gridBagConstraints);
 
+        txtName.setMinimumSize(new java.awt.Dimension(200, 25));
         txtName.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtName, gridBagConstraints);
 
+        txtBudgetCosts.setMinimumSize(new java.awt.Dimension(200, 25));
         txtBudgetCosts.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -144,6 +146,7 @@ public class FinancialCategoryEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtBudgetCosts, gridBagConstraints);
 
+        txtFonds.setMinimumSize(new java.awt.Dimension(200, 25));
         txtFonds.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -151,6 +154,7 @@ public class FinancialCategoryEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtFonds, gridBagConstraints);
 
+        txtYear.setMinimumSize(new java.awt.Dimension(200, 25));
         txtYear.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
