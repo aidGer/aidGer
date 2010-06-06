@@ -87,7 +87,7 @@ public class MasterDataEditorSaveAction extends AbstractAction {
     private void setModel(FinancialCategory fc, FinancialCategoryEditorForm form) {
         fc.setName(form.getFCName());
         fc.setBudgetCosts(form.getBudgetCosts());
-        fc.setFunds(form.getFonds());
+        fc.setFunds(form.getFunds());
         fc.setYear(form.getYear());
     }
 

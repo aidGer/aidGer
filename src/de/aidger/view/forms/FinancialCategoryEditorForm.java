@@ -25,7 +25,7 @@ public class FinancialCategoryEditorForm extends JPanel {
 
         // add input filters
         InputPatternFilter.addFilter(txtBudgetCosts, "[0-9]+[.,]?[0-9]{0,2}");
-        InputPatternFilter.addFilter(txtFonds, "[0-9]{0,8}");
+        InputPatternFilter.addFilter(txtFunds, "[0-9]{0,8}");
         InputPatternFilter.addFilter(txtYear, "[0-9]{0,4}");
 
         if (fc != null) {
@@ -46,11 +46,11 @@ public class FinancialCategoryEditorForm extends JPanel {
     }
 
     /**
-     * Get the fonds of the category.
+     * Get the funds of the category.
      * 
-     * @return The fonds of the category
+     * @return The funds of the category
      */
-    public int[] getFonds() {
+    public int[] getFunds() {
         return new int[] { 0 }; // TODO
     }
 
@@ -87,17 +87,18 @@ public class FinancialCategoryEditorForm extends JPanel {
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
         lblName = new javax.swing.JLabel();
         lblBudgetCosts = new javax.swing.JLabel();
-        lblFonds = new javax.swing.JLabel();
+        lblFunds = new javax.swing.JLabel();
         lblYear = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         txtBudgetCosts = new javax.swing.JTextField();
-        txtFonds = new javax.swing.JTextField();
+        txtFunds = new javax.swing.JTextField();
         txtYear = new javax.swing.JFormattedTextField();
 
         setLayout(new java.awt.GridBagLayout());
@@ -116,13 +117,13 @@ public class FinancialCategoryEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblBudgetCosts, gridBagConstraints);
 
-        lblFonds.setText(_("Fonds"));
+        lblFunds.setText(_("Funds"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(lblFonds, gridBagConstraints);
+        add(lblFunds, gridBagConstraints);
 
         lblYear.setText(_("Year"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -146,13 +147,13 @@ public class FinancialCategoryEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtBudgetCosts, gridBagConstraints);
 
-        txtFonds.setMinimumSize(new java.awt.Dimension(200, 25));
-        txtFonds.setPreferredSize(new java.awt.Dimension(200, 25));
+        txtFunds.setMinimumSize(new java.awt.Dimension(200, 25));
+        txtFunds.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(txtFonds, gridBagConstraints);
+        add(txtFunds, gridBagConstraints);
 
         txtYear.setMinimumSize(new java.awt.Dimension(200, 25));
         txtYear.setPreferredSize(new java.awt.Dimension(200, 25));
@@ -164,11 +165,11 @@ public class FinancialCategoryEditorForm extends JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblBudgetCosts;
-    private javax.swing.JLabel lblFonds;
+    private javax.swing.JLabel lblFunds;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblYear;
     private javax.swing.JTextField txtBudgetCosts;
-    private javax.swing.JTextField txtFonds;
+    private javax.swing.JTextField txtFunds;
     private javax.swing.JTextField txtName;
     private javax.swing.JFormattedTextField txtYear;
     // End of variables declaration//GEN-END:variables
