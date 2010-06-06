@@ -3,6 +3,7 @@ package de.aidger.controller.actions.masterdata;
 import static de.aidger.utils.Translation._;
 
 import java.awt.event.ActionEvent;
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.swing.AbstractAction;
@@ -108,7 +109,7 @@ public class MasterDataEditorSaveAction extends AbstractAction {
 
         String wage = form.getWage();
         if (!wage.isEmpty()) {
-            hw.setWage(java.math.BigDecimal.valueOf(Double.valueOf(wage)));
+            hw.setWage(new BigDecimal(wage));
         }
     }
 

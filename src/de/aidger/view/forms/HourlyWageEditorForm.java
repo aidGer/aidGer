@@ -69,7 +69,7 @@ public class HourlyWageEditorForm extends JPanel {
      * @return The month the wage is valid in
      */
     public byte getMonth() {
-        return 0; // TODO
+        return 6; // TODO
     }
 
     /**
@@ -96,7 +96,7 @@ public class HourlyWageEditorForm extends JPanel {
      * @return The year the wage is valid in
      */
     public short getYear() {
-        return 0; // TODO
+        return 2010; // TODO
     }
 
     /**

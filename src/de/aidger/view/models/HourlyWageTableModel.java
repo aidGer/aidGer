@@ -5,6 +5,7 @@ import static de.aidger.utils.Translation._;
 import java.util.List;
 
 import de.aidger.model.models.HourlyWage;
+import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
 
 /**
@@ -37,8 +38,8 @@ public class HourlyWageTableModel extends MasterDataTableModel {
         for (IHourlyWage hw : hws) {
             masterData.add(new HourlyWage(hw));
 
-            addRow(new Object[] { hw.getQualification(), hw.getMonth(),
-                    hw.getYear(), hw.getWage(), hw.getId() });
+            addRow(new Object[] { Qualification.valueOf(hw.getQualification()),
+                    hw.getMonth(), hw.getYear(), hw.getWage(), hw.getId() });
         }
     }
 }

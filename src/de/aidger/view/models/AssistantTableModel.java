@@ -5,6 +5,7 @@ import static de.aidger.utils.Translation._;
 import java.util.List;
 
 import de.aidger.model.models.Assistant;
+import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 
 /**
@@ -39,7 +40,8 @@ public class AssistantTableModel extends MasterDataTableModel {
 
             addRow(new Object[] { assistant.getFirstName(),
                     assistant.getLastName(), assistant.getEmail(),
-                    assistant.getQualification(), assistant.getId() });
+                    Qualification.valueOf(assistant.getQualification()),
+                    assistant.getId() });
         }
     }
 }
