@@ -14,6 +14,35 @@ import de.aidger.model.models.HourlyWage;
 @SuppressWarnings("serial")
 public class HourlyWageEditorForm extends JPanel {
 
+    public enum Qualification {
+        u(_("Unchecked")), g(_("Checked")), b(_("Bachelor"));
+
+        /**
+         * The display name of an item.
+         */
+        private final String displayName;
+
+        /**
+         * Constructs a qualification item.
+         * 
+         * @param displayName
+         *            the display name of the item
+         */
+        Qualification(final String displayName) {
+            this.displayName = displayName;
+        }
+
+        /*
+         * (non-Javadoc)
+         * 
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {
+            return displayName;
+        }
+    }
+
     /**
      * Constructs a hourly wage editor form.
      * 
@@ -27,7 +56,8 @@ public class HourlyWageEditorForm extends JPanel {
         InputPatternFilter.addFilter(txtWage, "[0-9]+[.,]?[0-9]{0,2}");
 
         if (hw != null) {
-            cmbQualification.setSelectedItem(hw.getQualification());
+            cmbQualification.setSelectedItem(Qualification.valueOf(hw
+                    .getQualification()));
             // spDate.setValue(hw.getMonth() + "." + hw.getYear());
             txtWage.setText(String.valueOf(hw.getWage()));
         }
@@ -48,7 +78,7 @@ public class HourlyWageEditorForm extends JPanel {
      * @return The qualification needed for the wage
      */
     public String getQualification() {
-        return (String) cmbQualification.getSelectedItem();
+        return ((Qualification) cmbQualification.getSelectedItem()).name();
     }
 
     /**
@@ -80,7 +110,9 @@ public class HourlyWageEditorForm extends JPanel {
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
+    // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -115,14 +147,17 @@ public class HourlyWageEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblWage, gridBagConstraints);
 
-        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(new String[] { _("Unchecked"), _("Checked"), _("Bachelor") }));
+        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(
+                Qualification.values()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbQualification, gridBagConstraints);
 
         spDate.setModel(new javax.swing.SpinnerDateModel());
-        spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate, "MM.yyyy"));
+        spDate
+                .setEditor(new javax.swing.JSpinner.DateEditor(spDate,
+                        "MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;

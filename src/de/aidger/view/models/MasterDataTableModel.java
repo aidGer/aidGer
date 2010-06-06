@@ -19,11 +19,6 @@ public abstract class MasterDataTableModel extends DefaultTableModel implements
         Observer {
 
     /**
-     * The names of the columns.
-     */
-    protected final String[] columnNames;
-
-    /**
      * The master data that is displayed on the table.
      */
     @SuppressWarnings("unchecked")
@@ -33,8 +28,6 @@ public abstract class MasterDataTableModel extends DefaultTableModel implements
      * Constructs the abstract master data table model.
      */
     public MasterDataTableModel(String[] columnNames) {
-        this.columnNames = columnNames;
-
         setColumnIdentifiers(columnNames);
 
         refresh();

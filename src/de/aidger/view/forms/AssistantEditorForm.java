@@ -5,6 +5,7 @@ import static de.aidger.utils.Translation._;
 import javax.swing.JPanel;
 
 import de.aidger.model.models.Assistant;
+import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 
 /**
  * A form used for editing / creating new assistants.
@@ -27,7 +28,8 @@ public class AssistantEditorForm extends JPanel {
             txtFirstName.setText(assistant.getFirstName());
             txtLastName.setText(assistant.getLastName());
             txtEmail.setText(assistant.getEmail());
-            txtQualification.setText(assistant.getQualification());
+            cmbQualification.setSelectedItem(Qualification.valueOf(assistant
+                    .getQualification()));
         }
     }
 
@@ -64,7 +66,7 @@ public class AssistantEditorForm extends JPanel {
      * @return The qualification level of the assistant
      */
     public String getQualification() {
-        return txtQualification.getText();
+        return ((Qualification) cmbQualification.getSelectedItem()).name();
     }
 
     /**
@@ -78,7 +80,8 @@ public class AssistantEditorForm extends JPanel {
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed"
+    // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -89,7 +92,7 @@ public class AssistantEditorForm extends JPanel {
         txtFirstName = new javax.swing.JTextField();
         txtLastName = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
-        txtQualification = new javax.swing.JTextField();
+        cmbQualification = new javax.swing.JComboBox();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -145,16 +148,18 @@ public class AssistantEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtEmail, gridBagConstraints);
 
-        txtQualification.setMinimumSize(new java.awt.Dimension(200, 25));
-        txtQualification.setPreferredSize(new java.awt.Dimension(200, 25));
+        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(
+                Qualification.values()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(txtQualification, gridBagConstraints);
+        add(cmbQualification, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cmbQualification;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFirstName;
     private javax.swing.JLabel lblLastName;
@@ -162,7 +167,6 @@ public class AssistantEditorForm extends JPanel {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtLastName;
-    private javax.swing.JTextField txtQualification;
     // End of variables declaration//GEN-END:variables
 
 }

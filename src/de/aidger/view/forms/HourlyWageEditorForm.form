@@ -55,7 +55,7 @@
     <Component class="javax.swing.JComboBox" name="cmbQualification">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { _(&quot;Unchecked&quot;), _(&quot;Checked&quot;), _(&quot;Bachelor&quot;) })" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(Qualification.values())" type="code"/>
         </Property>
       </Properties>
       <Constraints>
