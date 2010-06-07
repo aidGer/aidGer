@@ -81,12 +81,14 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
     public boolean equals(Object o) {
         if (o instanceof HourlyWage) {
             HourlyWage h = (HourlyWage) o;
-            return h.id == id
-                    && h.month == month
+            /* ID is not used anymore because the database table itself doesn't
+               contain one. */
+            return h.month == month
                     && h.year == year
                     && (qualification == null ? h.qualification == null
                             : h.qualification.equals(qualification))
-                    && (wage == null ? h.wage == null : h.wage.equals(wage));
+                    && (wage == null ? h.wage == null : 
+                            wage.subtract(h.wage).doubleValue() <= 0.01);
         } else {
             return false;
         }
