@@ -76,6 +76,26 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
     }
 
     /**
+     * Initializes the Activity class with the given activity model.
+     *
+     * @param a
+     *            the activity model
+     */
+    public Activity(IActivity a) {
+        this();
+        setId(a.getId());
+        setAssistantId(a.getAssistantId());
+        setContent(a.getContent());
+        setCourseId(a.getCourseId());
+        setDate(a.getDate());
+        setDocumentType(a.getDocumentType());
+        setProcessor(a.getProcessor());
+        setRemark(a.getRemark());
+        setSender(a.getSender());
+        setType(a.getType());
+    }
+
+    /**
      * Clone the current activity
      */
     @Override
