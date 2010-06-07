@@ -141,6 +141,16 @@ public class MasterDataEditorSaveAction extends AbstractAction {
                     (FinancialCategoryEditorForm) tab.getEditorForm());
             break;
         case HourlyWage:
+            /*
+             * workaround (see #62): in order to edit all fields it is essential
+             * to remove the hourly wage model before it is saved again
+             */
+
+            try {
+                model.remove();
+            } catch (AdoHiveException e1) {
+            }
+
             setModel((HourlyWage) model, (HourlyWageEditorForm) tab
                     .getEditorForm());
             break;
@@ -159,10 +169,10 @@ public class MasterDataEditorSaveAction extends AbstractAction {
 
                 return;
             }
-        } catch (AdoHiveException e1) {
+        } catch (AdoHiveException e2) {
             UI.displayError(_("Could not save the model to database."));
 
-            System.out.println(e1.getMessage());
+            System.out.println(e2.getMessage());
         }
 
         UI.getInstance().replaceCurrentTab(
