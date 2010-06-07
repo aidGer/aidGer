@@ -42,7 +42,7 @@ public class FinancialCategoryEditorForm extends JPanel {
      * @return The budget costs of the category
      */
     public int[] getBudgetCosts() {
-        return new int[] { 0 }; // TODO
+        return new int[] { Integer.valueOf(txtBudgetCosts.getText()), 0 }; // TODO
     }
 
     /**
@@ -51,7 +51,7 @@ public class FinancialCategoryEditorForm extends JPanel {
      * @return The funds of the category
      */
     public int[] getFunds() {
-        return new int[] { 0 }; // TODO
+        return new int[] { Integer.valueOf(txtFunds.getText()), 0 }; // TODO
     }
 
     /**
@@ -88,7 +88,8 @@ public class FinancialCategoryEditorForm extends JPanel {
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed"
+    // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 

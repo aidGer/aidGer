@@ -2,7 +2,12 @@ package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.text.DefaultFormatter;
 
 import de.aidger.model.models.HourlyWage;
 
@@ -55,11 +60,18 @@ public class HourlyWageEditorForm extends JPanel {
         // add input filters
         InputPatternFilter.addFilter(txtWage, "[0-9]+[.,]?[0-9]{0,2}");
 
+        ((DefaultFormatter) ((JSpinner.DefaultEditor) spDate.getEditor())
+                .getTextField().getFormatter()).setAllowsInvalid(false);
+
         if (hw != null) {
             cmbQualification.setSelectedItem(Qualification.valueOf(hw
                     .getQualification()));
-            // spDate.setValue(hw.getMonth() + "." + hw.getYear());
             txtWage.setText(String.valueOf(hw.getWage()));
+
+            Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.MONTH, hw.getMonth() - 1);
+            cal.set(Calendar.YEAR, hw.getYear());
+            spDate.setValue(cal.getTime());
         }
     }
 
@@ -69,7 +81,10 @@ public class HourlyWageEditorForm extends JPanel {
      * @return The month the wage is valid in
      */
     public byte getMonth() {
-        return 6; // TODO
+        Calendar cal = Calendar.getInstance();
+        cal.setTime((Date) spDate.getValue());
+
+        return (byte) (cal.get(Calendar.MONTH) + 1);
     }
 
     /**
@@ -96,7 +111,10 @@ public class HourlyWageEditorForm extends JPanel {
      * @return The year the wage is valid in
      */
     public short getYear() {
-        return 2010; // TODO
+        Calendar cal = Calendar.getInstance();
+        cal.setTime((Date) spDate.getValue());
+
+        return (short) cal.get(Calendar.YEAR);
     }
 
     /**
