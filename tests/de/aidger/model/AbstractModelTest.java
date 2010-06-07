@@ -227,19 +227,21 @@ public class AbstractModelTest {
     public void testSave() throws AdoHiveException {
         System.out.println("save");
 
-        Employment e = new Employment();
-        e.setCostUnit("0711");
-        e.setQualification("none");
-        e.save();
+        Assistant a = new Assistant();
+        a.setEmail("test@example.com");
+        a.setFirstName("Test");
+        a.setLastName("Tester");
+        a.setQualification("Q");
+        a.save();
 
-        assertTrue(e.getId() > 0);
-        assertEquals(e, e.getById(e.getId()));
+        assertTrue(a.getId() > 0);
+        assertEquals(a, new Assistant(a.getById(a.getId())));
 
-        e.setAssistantId(1);
-        e.setContractId(1);
-        e.save();
+        a.setFirstName("Tester");
+        a.setLastName("Test");
+        a.save();
 
-        assertEquals(e, e.getById(e.getId()));
+        assertEquals(a, new Assistant(a.getById(a.getId())));
     }
 
     /**
@@ -249,16 +251,18 @@ public class AbstractModelTest {
     public void testRemove() throws Exception {
         System.out.println("remove");
 
-        Employment e = new Employment();
-        e.setCostUnit("0711");
-        e.setQualification("none");
-        e.save();
-        int id = e.getId();
+        Assistant a = new Assistant();
+        a.setEmail("test@example.com");
+        a.setFirstName("Test");
+        a.setLastName("Tester");
+        a.setQualification("Q");
+        a.save();
+        int id = a.getId();
 
-        e.remove();
+        a.remove();
 
-        assertNull(e.getById(id));
-        assertTrue(e.getId() <= 0);
+        assertNull(a.getById(id));
+        assertTrue(a.getId() <= 0);
     }
 
     /**
