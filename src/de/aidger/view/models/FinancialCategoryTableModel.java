@@ -36,10 +36,12 @@ public class FinancialCategoryTableModel extends MasterDataTableModel {
         List<IFinancialCategory> fcs = (new FinancialCategory()).getAll();
 
         for (IFinancialCategory fc : fcs) {
-            masterData.add(new FinancialCategory(fc));
+            for (int i = 0; i < fc.getFunds().length; i++) {
+                masterData.add(new FinancialCategory(fc));
 
-            addRow(new Object[] { fc.getName(), fc.getBudgetCosts(),
-                    fc.getFunds(), fc.getYear(), fc.getId() });
+                addRow(new Object[] { fc.getName(), fc.getBudgetCosts()[i],
+                        fc.getFunds()[i], fc.getYear(), fc.getId() });
+            }
         }
     }
 }

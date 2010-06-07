@@ -20,7 +20,7 @@ public class HourlyWageTableModel extends MasterDataTableModel {
      */
     public HourlyWageTableModel() {
         super(new String[] { _("Qualification"), _("Month"), _("Year"),
-                _("Wage"), _("ID") });
+                _("Wage") });
     }
 
     /*
@@ -39,7 +39,7 @@ public class HourlyWageTableModel extends MasterDataTableModel {
             masterData.add(new HourlyWage(hw));
 
             addRow(new Object[] { Qualification.valueOf(hw.getQualification()),
-                    hw.getMonth(), hw.getYear(), hw.getWage(), hw.getId() });
+                    hw.getMonth(), hw.getYear(), hw.getWage() });
         }
     }
 }
