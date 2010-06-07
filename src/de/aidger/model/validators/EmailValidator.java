@@ -7,8 +7,9 @@ import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 
 /**
+ * Validates email adresses in the specified model class.
  *
- * @author rmbl
+ * @author aidGer Team
  */
 public class EmailValidator extends Validator {
 
@@ -21,9 +22,8 @@ public class EmailValidator extends Validator {
      *            The member variables of the model
      */
     public EmailValidator(AbstractModel model, String[] members) {
-        this.model = model;
-        this.members = members;
-        this.message = _("is an invalid email address");
+        super(model, members);
+        message = _("is an invalid email address");
     }
 
     /**

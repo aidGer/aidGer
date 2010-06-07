@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package de.aidger.model.validators;
 
 import java.util.Date;
@@ -11,8 +6,9 @@ import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 
 /**
+ * Validates the range of two dates in the specified model class.
  *
- * @author rmbl
+ * @author aidGer Team
  */
 public class DateRangeValidator extends Validator {
 
@@ -27,9 +23,8 @@ public class DateRangeValidator extends Validator {
      *            The to date
      */
     public DateRangeValidator(AbstractModel model, String from, String to) {
-        this.model = model;
-        this.members = new String[] { from, to };
-        this.message = _("is an incorrect date range");
+        super(model, new String[] { from, to });
+        message = _("is an incorrect date range");
     }
 
     /**

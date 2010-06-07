@@ -318,8 +318,9 @@ public class AbstractModelTest {
         a.setLastName("Tester");
         a.setQualification("Q");
 
-        assertEquals("Assistant [ID: -1, Email: test@example.com, FirstName: "
-                + "Test, LastName: Tester, Qualification: Q]", a.toString());
+        System.out.println(a.toString());
+        assertEquals("Assistant [ID: 0, Qualification: Q, FirstName: Test, " +
+                "LastName: Tester, Email: test@example.com]", a.toString());
     }
 
 }

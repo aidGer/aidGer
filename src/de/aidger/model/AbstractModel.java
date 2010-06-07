@@ -13,6 +13,7 @@ import java.util.Vector;
 import de.aidger.model.validators.DateRangeValidator;
 import de.aidger.model.validators.EmailValidator;
 import de.aidger.model.validators.PresenceValidator;
+import de.aidger.model.validators.InclusionValidator;
 import de.aidger.model.validators.Validator;
 import de.aidger.utils.Logger;
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
@@ -298,6 +299,18 @@ public abstract class AbstractModel<T> extends Observable implements
      */
     public void validateDateRange(String from, String to) {
         validators.add(new DateRangeValidator(this, from, to));
+    }
+
+    /**
+     * Add an inclusion validator to the model.
+     *
+     * @param members
+     *            The name of the member variables to validate
+     * @param inc
+     *            The list to check for inclusion
+     */
+    public void validateInclusionOf(String[] members, String[] inc) {
+        validators.add(new InclusionValidator(this, members, inc));
     }
 
     /**
