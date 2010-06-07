@@ -29,7 +29,7 @@ public class EmploymentTest {
         employment.setFunds(1);
         employment.setHourCount(40);
         employment.setMonth((byte) 10);
-        employment.setQualification("Overqualified");
+        employment.setQualification("Q");
         employment.setRemark("Remark");
         employment.setYear((short) 2010);
     }
