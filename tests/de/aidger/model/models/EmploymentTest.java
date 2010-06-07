@@ -92,10 +92,10 @@ public class EmploymentTest {
 
         employment.setMonth((byte) 10);
         employment.setYear((short) 2010);
-        employment.setId(-1);
+        employment.setNew(true);
         employment.save();
 
-        employment.setId(-1);
+        employment.setNew(true);
         employment.setMonth((byte) 11);
         employment.save();
 
@@ -116,7 +116,7 @@ public class EmploymentTest {
 
         employment.setMonth((byte) 7);
         employment.setYear((short) 2010);
-        employment.setId(-1);
+        employment.setNew(true);
         employment.save();
         
         //TODO: Currently not implemented by AdoHive

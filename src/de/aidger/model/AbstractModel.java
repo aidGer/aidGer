@@ -153,7 +153,7 @@ public abstract class AbstractModel<T> extends Observable implements
      */
     public void clearTable() throws AdoHiveException {
         getManager().clear();
-        id = -1; // Reset
+        id = 0; // Reset
     }
 
     // TODO: Add get(index) method?

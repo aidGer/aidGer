@@ -96,7 +96,7 @@ public class ActivityTest {
         System.out.println(a.getId());
 
         activity.setAssistantId(a.getId());
-        activity.setId(-1);
+        activity.setNew(true);
         activity.save();
         System.out.println(activity.getId());
 
@@ -130,7 +130,7 @@ public class ActivityTest {
         course.save();
 
         activity.setCourseId(course.getId());
-        activity.setId(-1);
+        activity.setNew(true);
         activity.save();
 
         //TODO: Currently not implemented by AdoHive
