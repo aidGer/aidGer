@@ -1,23 +1,24 @@
 package de.aidger.model;
 
 import static de.aidger.utils.Translation._;
-import java.lang.reflect.InvocationTargetException;
 
-import java.util.List;
-import java.util.Vector;
+import java.lang.reflect.InvocationTargetException;
+import java.text.MessageFormat;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Observable;
-import java.text.MessageFormat;
+import java.util.Vector;
 
+import de.aidger.model.validators.DateRangeValidator;
+import de.aidger.model.validators.EmailValidator;
+import de.aidger.model.validators.PresenceValidator;
+import de.aidger.model.validators.Validator;
+import de.aidger.utils.Logger;
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.controller.IAdoHiveManager;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAdoHiveModel;
-
-import de.aidger.model.validators.*;
-import de.aidger.utils.Logger;
-import java.util.logging.Level;
 
 /**
  * AbstractModel contains all important database related functions which all
@@ -32,7 +33,12 @@ public abstract class AbstractModel<T> extends Observable implements
     /**
      * The unique id of the model in the database.
      */
-    protected int id = -1;
+    protected int id = 0;
+
+    /**
+     * Determines if the model has been saved in the db yet.
+     */
+    protected boolean isNew = true;
 
     /**
      * Used to cache the AdoHiveManagers after getting them the first time.
@@ -53,12 +59,12 @@ public abstract class AbstractModel<T> extends Observable implements
     /**
      * Map of errors for specific fields.
      */
-    protected Map<String, List<String>> fieldErrors = new HashMap<String,
-            List<String>>();
+    protected Map<String, List<String>> fieldErrors =
+            new HashMap<String, List<String>>();
 
     /**
      * Cloneable function inherited from IAdoHiveModel.
-     *
+     * 
      * @return Clone of the model
      */
     @Override
@@ -112,7 +118,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Get the number of models in the database.
-     *
+     * 
      * @return The number of models
      * @throws AdoHiveException
      */
@@ -122,7 +128,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Returns true if no model has been saved into the database.
-     *
+     * 
      * @return True if no model is in the database
      * @throws AdoHiveException
      */
@@ -132,7 +138,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Checks if the current instance exists in the database.
-     *
+     * 
      * @return True if the instance exists
      * @throws AdoHiveException
      */
@@ -142,7 +148,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Deletes everything from the associated table.
-     *
+     * 
      * @throws AdoHiveException
      */
     public void clearTable() throws AdoHiveException {
@@ -150,11 +156,11 @@ public abstract class AbstractModel<T> extends Observable implements
         id = -1; // Reset
     }
 
-    //TODO: Add get(index) method?
+    // TODO: Add get(index) method?
 
     /**
      * Save the current model to the database.
-     *
+     * 
      * @return True if validation succeeds
      * @throws AdoHiveException
      */
@@ -166,8 +172,9 @@ public abstract class AbstractModel<T> extends Observable implements
 
         /* Add or update model */
         IAdoHiveManager mgr = getManager();
-        if (id == -1) {
+        if (isNew) {
             mgr.add(this);
+            isNew = false;
         } else {
             mgr.update(this);
         }
@@ -179,23 +186,23 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Remove the current model from the database.
-     *
+     * 
      * @throws AdoHiveException
      */
     @SuppressWarnings("unchecked")
     public void remove() throws AdoHiveException {
-        if (id != -1) {
+        if (!isNew) {
             getManager().remove(this);
             clearChanged();
             notifyObservers();
 
-            setId(-1);
+            setNew(true);
         }
     }
 
     /**
      * Get a list of all errors.
-     *
+     * 
      * @return A list of errors
      */
     public List<String> getErrors() {
@@ -204,7 +211,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Get a list of errors for a specific field.
-     *
+     * 
      * @param field
      *            The field to get the errors for
      * @return A list of errors
@@ -215,7 +222,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Add an error to the list,
-     *
+     * 
      * @param error
      *            The error to add
      */
@@ -225,7 +232,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Add an error for a specific field to the list.
-     *
+     * 
      * @param field
      *            The field on which the error occured
      * @param error
@@ -253,7 +260,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Add a validator to the model.
-     *
+     * 
      * @param valid
      *            The validator to add
      */
@@ -263,7 +270,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Add a presence validator to the model.
-     *
+     * 
      * @param members
      *            The name of the member variables to validate
      */
@@ -273,7 +280,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Add an email validator to the model.
-     *
+     * 
      * @param member
      *            The name of the member variable to validate
      */
@@ -283,7 +290,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Add an date range validator to the model.
-     *
+     * 
      * @param from
      *            The starting date
      * @param to
@@ -295,7 +302,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Returns the unique id of the activity.
-     *
+     * 
      * @return The unique id of the activity
      */
     @Override
@@ -307,8 +314,9 @@ public abstract class AbstractModel<T> extends Observable implements
      * Set the unique id of the assistant.
      *
      * <b>!!! THIS IS FOR INTERNAL ADOHIVE USAGE ONLY !!!</b>
-     *
-     * @param id The unique id of the assistant
+     * 
+     * @param id
+     *            The unique id of the assistant
      */
     @Override
     public void setId(int id) {
@@ -316,13 +324,27 @@ public abstract class AbstractModel<T> extends Observable implements
     }
 
     /**
-     * Returns a string containing all informations stored in the model.
+     * Set if the model is new and should be added to the database.
      *
+     * @param isnew
+     *            Is the model new?
+     */
+    public void setNew(boolean isnew) {
+        isNew = isnew;
+        if (isNew) {
+            setId(0);
+        }
+    }
+
+    /**
+     * Returns a string containing all informations stored in the model.
+     * 
      * @return A string containing informations on the model
      */
     @Override
     public String toString() {
-        String ret = getClass().getSimpleName() + " [" + "ID: " + getId() + ", ";
+        String ret = getClass().getSimpleName() + " [" + "ID: " + getId()
+                + ", ";
         try {
             for (java.lang.reflect.Method m : getClass().getDeclaredMethods()) {
                 if (m.getName().startsWith("get")) {
@@ -354,14 +376,15 @@ public abstract class AbstractModel<T> extends Observable implements
         if (!managers.containsKey(classname)) {
             /* Try to get the correct manager from the AdoHiveController */
             try {
-                java.lang.reflect.Method m = AdoHiveController.class.getMethod(
-                        "get" + classname + "Manager");
+                java.lang.reflect.Method m = AdoHiveController.class
+                        .getMethod("get" + classname + "Manager");
                 managers.put(classname, (IAdoHiveManager) m.invoke(
                         AdoHiveController.getInstance(), new Object[0]));
-            } catch (Exception ex) {                
+            } catch (Exception ex) {
                 Logger.error(MessageFormat.format(
                         _("Could not get manager for class \"{0}\". Error: {1}"),
-                        new Object[] { classname, ex.getMessage() }));
+                        new Object[] { classname,
+                                ex.getMessage() }));
             }
         }
 
@@ -370,7 +393,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Validate the input using the validators and a custom validate function.
-     *
+     * 
      * @return True if everything validates
      */
     protected boolean doValidate() {
@@ -384,11 +407,13 @@ public abstract class AbstractModel<T> extends Observable implements
 
         /* Check if the model got a validate() function */
         try {
-            java.lang.reflect.Method m = getClass().getDeclaredMethod("validate");
-            if (!(Boolean)m.invoke(this, new Object[0])) {
+            java.lang.reflect.Method m = getClass().getDeclaredMethod(
+                    "validate");
+            if (!(Boolean) m.invoke(this, new Object[0])) {
                 ret = false;
             }
-        } catch (Exception ex) { }
+        } catch (Exception ex) {
+        }
 
         return ret;
     }

@@ -292,6 +292,20 @@ public class AbstractModelTest {
     }
 
     /**
+     * Test of setNew method, of class AbstractModel.
+     */
+    @Test
+    public void testSetNew() {
+        System.out.println("setNew");
+
+        Assistant a = new Assistant();
+        a.setId(3);
+        a.setNew(true);
+
+        assertTrue(a.getId() == 0);
+    }
+
+    /**
      * Test of toString method, of class AbstractModel.
      */
     @Test
