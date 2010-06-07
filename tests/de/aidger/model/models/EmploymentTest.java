@@ -7,6 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import java.util.GregorianCalendar;
+
 /**
  * Tests the Employment class.
  *
@@ -83,10 +85,18 @@ public class EmploymentTest {
     @Test
     public void testGetEmployments_Date_Date() throws AdoHiveException {
         System.out.println("getEmployments");
-        Date start = new Date(1);
-        Date end = new Date(Integer.MAX_VALUE);
+        Date start = new Date(new GregorianCalendar(2010, 10, 1).getTime().
+                getTime());
+        Date end = new Date(new GregorianCalendar(2010, 12, 1).getTime().
+                getTime());
+
+        employment.setMonth((byte) 10);
+        employment.setYear((short) 2010);
+        employment.setId(-1);
+        employment.save();
 
         employment.setId(-1);
+        employment.setMonth((byte) 11);
         employment.save();
 
         //TODO: Currently not implemented by AdoHive
@@ -104,9 +114,11 @@ public class EmploymentTest {
         System.out.println("getEmployments");
         String semester = "SS 10";
 
+        employment.setMonth((byte) 7);
+        employment.setYear((short) 2010);
         employment.setId(-1);
         employment.save();
-
+        
         //TODO: Currently not implemented by AdoHive
         List result = employment.getEmployments(semester);
 

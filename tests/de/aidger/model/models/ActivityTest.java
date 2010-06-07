@@ -31,7 +31,7 @@ public class ActivityTest {
         activity.setCourseId(1);
         activity.setDate(new Date(100));
         activity.setDocumentType("Test Type");
-        activity.setProcessor("Test User");
+        activity.setProcessor("T");
         activity.setRemark("Remark");
         activity.setSender("Test Sender");
         activity.setType("Test Type");
@@ -87,15 +87,21 @@ public class ActivityTest {
     public void testGetActivities_Assistant() throws AdoHiveException {
         System.out.println("getActivities");
 
-        Assistant assistant = new Assistant();
-        assistant.save();
+        Assistant a = new Assistant();
+        a.setEmail("test@example.com");
+        a.setFirstName("Test");
+        a.setLastName("Tester");
+        a.setQualification("Q");
+        a.save();
+        System.out.println(a.getId());
 
-        activity.setAssistantId(assistant.getId());
+        activity.setAssistantId(a.getId());
         activity.setId(-1);
         activity.save();
+        System.out.println(activity.getId());
 
         //TODO: Currently not implemented by AdoHive
-        List result = activity.getActivities(assistant);
+        List result = activity.getActivities(a);
 
         assertNotNull(result);
         assertTrue(result.size() == 1);
@@ -109,6 +115,18 @@ public class ActivityTest {
         System.out.println("getActivities");
 
         Course course = new Course();
+        course.setAdvisor("Tester");
+        course.setDescription("Description");
+        course.setFinancialCategoryId(1);
+        course.setGroup("2");
+        course.setLecturer("Test Tester");
+        course.setNumberOfGroups(3);
+        course.setPart('a');
+        course.setRemark("Remark");
+        course.setScope("Sniper Scope");
+        course.setSemester("SS 09");
+        course.setTargetAudience("Testers");
+        course.setUnqualifiedWorkingHours(100);
         course.save();
 
         activity.setCourseId(course.getId());
