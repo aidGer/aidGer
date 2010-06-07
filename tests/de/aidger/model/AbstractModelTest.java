@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package de.aidger.model;
 
 import static org.junit.Assert.assertEquals;
@@ -11,6 +6,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
+import java.math.BigDecimal;
 
 import org.junit.Test;
 
@@ -19,7 +15,6 @@ import de.aidger.model.models.HourlyWage;
 import de.aidger.model.models.Assistant;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
 
 /**
  * 
@@ -60,26 +55,6 @@ public class AbstractModelTest {
         assertEquals(2, list.size());
         assertEquals(h, new HourlyWage(list.get(0)));
         assertEquals(g, new HourlyWage(list.get(1)));
-
-        /*Assistant a = new Assistant();
-        a.clearTable();
-
-        a.setEmail("test@example.com");
-        a.setFirstName("Test");
-        a.setLastName("Tester");
-        a.setQualification("Q");
-        a.save();
-
-        Assistant b = a.clone();
-        b.setId(-1);
-        b.save();
-
-        List<IAssistant> list = a.getAll();
-
-        assertNotNull(list);
-        assertEquals(2, list.size());
-        assertEquals(a, new Assistant(list.get(0)));
-        assertEquals(b, new Assistant(list.get(1)));*/
     }
 
     /**
@@ -89,19 +64,19 @@ public class AbstractModelTest {
     public void testGetById() throws AdoHiveException {
         System.out.println("getById");
 
-        HourlyWage h = new HourlyWage();
-        h.clearTable();
+        Assistant a = new Assistant();
+        a.clearTable();
 
-        h.setMonth((byte) 10);
-        h.setQualification("Q");
-        h.setWage(new java.math.BigDecimal(200));
-        h.setYear((short) 2010);
-        h.save();
+        a.setEmail("test@example.com");
+        a.setFirstName("Test");
+        a.setLastName("Tester");
+        a.setQualification("Q");
+        a.save();
 
-        IHourlyWage result = h.getById(h.getId());
+        Assistant result = new Assistant(a.getById(a.getId()));
 
         assertNotNull(result);
-        assertEquals(h.getId(), result.getId());
+        assertEquals(a.getId(), result.getId());
     }
 
     /**
@@ -112,33 +87,31 @@ public class AbstractModelTest {
         System.out.println("getByKeys");
 
         HourlyWage h = new HourlyWage();
-        h.setQualification("Tester");
+        h.clearTable();
+        
+        h.setQualification("Q");
         h.setMonth((byte) 10);
         h.setYear((short) 2010);
+        h.setWage(new BigDecimal(200));
         h.save();
 
-        IHourlyWage result = h.getByKeys("Tester", (byte) 10,
-                (short) 2010);
+        // TODO: Has to fail! AdoHive Bug
+        HourlyWage result = new HourlyWage(h.getByKeys("BLA", (byte) 11,
+                (short) 2011));
 
         assertNotNull(result);
         assertEquals(h, result);
 
-        Employment e = new Employment();
-        e.setAssistantId(1);
-        e.setContractId(1);
-        e.setCourseId(0);
-        e.setCostUnit("0711");
-        e.setFunds(1);
-        e.setHourCount(40);
-        e.setMonth((byte) 10);
-        e.setQualification("O");
-        e.setRemark("Remark");
-        e.setYear((short) 2010);
-        e.save();
+        Assistant a = new Assistant();
+        a.setEmail("test@example.com");
+        a.setFirstName("Test");
+        a.setLastName("Tester");
+        a.setQualification("Q");
+        a.save();
 
-        Employment res = (Employment) e.getByKeys(e.getId());
+        Assistant res = new Assistant(a.getByKeys(a.getId()));
 
-        assertEquals(e, res);
+        assertEquals(a, res);
     }
 
     /**
@@ -149,7 +122,7 @@ public class AbstractModelTest {
         System.out.println("size");
 
         Assistant a = new Assistant();
-        
+
         int size = a.size();
 
         a.setEmail("test@example.com");
