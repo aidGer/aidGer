@@ -104,19 +104,19 @@ public class Employment extends AbstractModel<IEmployment> implements
      */
     @Override
     public boolean equals(Object o) {
-        if (o instanceof Employment) {
-            Employment e = (Employment) o;
-            return e.id == id && e.assistantId == assistantId &&
-                    e.contractId == contractId && e.funds == funds &&
-                    e.courseId == courseId && e.month == month && 
-                    e.year == year &&
-                    (costUnit == null ? e.costUnit == null : 
-                            e.costUnit.equals(costUnit)) &&
-                    ((Double) e.hourCount).equals(hourCount) &&
-                    (qualification == null ? e.qualification == null :
-                            e.qualification.equals(qualification)) &&
-                    (remark == null ? e.remark == null : 
-                            e.remark.equals(remark));
+        if (o instanceof IEmployment) {
+            IEmployment e = (IEmployment) o;
+            return e.getId() == id && e.getAssistantId() == assistantId &&
+                    e.getContractId() == contractId && e.getFunds() == funds &&
+                    e.getCourseId() == courseId && e.getMonth() == month &&
+                    e.getYear() == year &&
+                    (costUnit == null ? e.getCostUnit() == null :
+                            costUnit.equals(e.getCostUnit())) &&
+                    ((Double) hourCount).equals(e.getHourCount()) &&
+                    (qualification == null ? e.getQualification() == null :
+                            qualification.equals(e.getQualification())) &&
+                    (remark == null ? e.getRemark() == null :
+                            remark.equals(e.getRemark()));
         } else {
             return false;
         }

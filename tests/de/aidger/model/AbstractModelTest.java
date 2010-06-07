@@ -16,7 +16,10 @@ import org.junit.Test;
 
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.HourlyWage;
+import de.aidger.model.models.Assistant;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
+import de.unistuttgart.iste.se.adohive.model.IAssistant;
 
 /**
  * 
@@ -34,22 +37,49 @@ public class AbstractModelTest {
     @Test
     public void testGetAll() throws AdoHiveException {
         System.out.println("getAll");
-        Employment e = new Employment();
-        e.setCostUnit("0711");
-        e.setQualification("none");
-        e.save();
 
-        Employment f = new Employment();
-        f.setCostUnit("0711");
-        f.setQualification("none");
-        f.save();
+        HourlyWage h = new HourlyWage();
+        h.clearTable();
 
-        List list = e.getAll();
+        h.setMonth((byte) 10);
+        h.setQualification("Q");
+        h.setWage(new java.math.BigDecimal(200));
+        h.setYear((short) 2010);
+        h.save();
+
+        HourlyWage g = new HourlyWage();
+        g.setMonth((byte) 10);
+        g.setQualification("W");
+        g.setWage(new java.math.BigDecimal(200));
+        g.setYear((short) 2010);
+        g.save();
+
+        List<IHourlyWage> list = h.getAll();
 
         assertNotNull(list);
-        assertEquals(list.size(), 2);
-        assertEquals(list.get(0), e);
-        assertEquals(list.get(1), f);
+        assertEquals(2, list.size());
+        assertEquals(h, new HourlyWage(list.get(0)));
+        assertEquals(g, new HourlyWage(list.get(1)));
+
+        /*Assistant a = new Assistant();
+        a.clearTable();
+
+        a.setEmail("test@example.com");
+        a.setFirstName("Test");
+        a.setLastName("Tester");
+        a.setQualification("Q");
+        a.save();
+
+        Assistant b = a.clone();
+        b.setId(-1);
+        b.save();
+
+        List<IAssistant> list = a.getAll();
+
+        assertNotNull(list);
+        assertEquals(2, list.size());
+        assertEquals(a, new Assistant(list.get(0)));
+        assertEquals(b, new Assistant(list.get(1)));*/
     }
 
     /**
@@ -59,15 +89,19 @@ public class AbstractModelTest {
     public void testGetById() throws AdoHiveException {
         System.out.println("getById");
 
-        Employment e = new Employment();
-        e.setCostUnit("0711");
-        e.setQualification("none");
-        e.save();
+        HourlyWage h = new HourlyWage();
+        h.clearTable();
 
-        Employment result = (Employment) e.getById(e.getId());
+        h.setMonth((byte) 10);
+        h.setQualification("Q");
+        h.setWage(new java.math.BigDecimal(200));
+        h.setYear((short) 2010);
+        h.save();
+
+        IHourlyWage result = h.getById(h.getId());
 
         assertNotNull(result);
-        assertEquals(e.getId(), result.getId());
+        assertEquals(h.getId(), result.getId());
     }
 
     /**
@@ -83,15 +117,23 @@ public class AbstractModelTest {
         h.setYear((short) 2010);
         h.save();
 
-        HourlyWage result = (HourlyWage) h.getByKeys("Tester", (byte) 10,
+        IHourlyWage result = h.getByKeys("Tester", (byte) 10,
                 (short) 2010);
 
         assertNotNull(result);
         assertEquals(h, result);
 
         Employment e = new Employment();
+        e.setAssistantId(1);
+        e.setContractId(1);
+        e.setCourseId(0);
         e.setCostUnit("0711");
-        e.setQualification("none");
+        e.setFunds(1);
+        e.setHourCount(40);
+        e.setMonth((byte) 10);
+        e.setQualification("O");
+        e.setRemark("Remark");
+        e.setYear((short) 2010);
         e.save();
 
         Employment res = (Employment) e.getByKeys(e.getId());
@@ -106,15 +148,17 @@ public class AbstractModelTest {
     public void testSize() throws AdoHiveException {
         System.out.println("size");
 
-        Employment e = new Employment();
+        Assistant a = new Assistant();
+        
+        int size = a.size();
 
-        int size = e.size();
+        a.setEmail("test@example.com");
+        a.setFirstName("Test");
+        a.setLastName("Tester");
+        a.setQualification("Q");
+        a.save();
 
-        e.setCostUnit("0711");
-        e.setQualification("none");
-        e.save();
-
-        assertTrue(e.size() == size + 1);
+        assertTrue(a.size() == size + 1);
     }
 
     /**
@@ -124,15 +168,17 @@ public class AbstractModelTest {
     public void testIsEmpty() throws AdoHiveException {
         System.out.println("isEmpty");
 
-        Employment e = new Employment();
-        e.setCostUnit("0711");
-        e.setQualification("none");
-        e.save();
+        Assistant a = new Assistant();
+        a.setEmail("test@example.com");
+        a.setFirstName("Test");
+        a.setLastName("Tester");
+        a.setQualification("Q");
+        a.save();
 
-        assertTrue(!e.isEmpty());
+        assertTrue(!a.isEmpty());
 
-        e.clearTable();
-        assertTrue(e.isEmpty());
+        a.clearTable();
+        assertTrue(a.isEmpty());
     }
 
     /**
@@ -142,14 +188,16 @@ public class AbstractModelTest {
     public void testIsInDatabase() throws AdoHiveException {
         System.out.println("isInDatabase");
 
-        Employment e = new Employment();
-        e.setCostUnit("0711");
-        e.setQualification("none");
+        Assistant a = new Assistant();
+        a.setEmail("test@example.com");
+        a.setFirstName("Test");
+        a.setLastName("Tester");
+        a.setQualification("Q");
 
-        assertTrue(!e.isInDatabase());
+        assertTrue(!a.isInDatabase());
 
-        e.save();
-        assertTrue(e.isInDatabase());
+        a.save();
+        assertTrue(a.isInDatabase());
     }
 
     /**
@@ -159,15 +207,17 @@ public class AbstractModelTest {
     public void testClearTable() throws AdoHiveException {
         System.out.println("clearTable");
 
-        Employment e = new Employment();
-        e.setCostUnit("0711");
-        e.setQualification("none");
-        e.save();
+        Assistant a = new Assistant();
+        a.setEmail("test@example.com");
+        a.setFirstName("Test");
+        a.setLastName("Tester");
+        a.setQualification("Q");
+        a.save();
 
-        assertTrue(e.size() > 0);
+        assertTrue(a.size() > 0);
 
-        e.clearTable();
-        assertTrue(e.size() == 0);
+        a.clearTable();
+        assertTrue(a.size() == 0);
     }
 
     /**
