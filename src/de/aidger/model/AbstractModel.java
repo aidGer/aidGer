@@ -1,6 +1,7 @@
 package de.aidger.model;
 
 import static de.aidger.utils.Translation._;
+import java.lang.reflect.InvocationTargetException;
 
 import java.util.List;
 import java.util.Vector;
@@ -16,6 +17,7 @@ import de.unistuttgart.iste.se.adohive.model.IAdoHiveModel;
 
 import de.aidger.model.validators.*;
 import de.aidger.utils.Logger;
+import java.util.logging.Level;
 
 /**
  * AbstractModel contains all important database related functions which all
@@ -314,15 +316,41 @@ public abstract class AbstractModel<T> extends Observable implements
     }
 
     /**
+     * Returns a string containing all informations stored in the model.
+     *
+     * @return A string containing informations on the model
+     */
+    @Override
+    public String toString() {
+        String ret = getClass().getSimpleName() + " [" + "ID: " + getId() + ", ";
+        try {
+            for (java.lang.reflect.Method m : getClass().getDeclaredMethods()) {
+                if (m.getName().startsWith("get")) {
+                    ret += m.getName().substring(3) + ": ";
+                    ret += m.invoke(this, new Object[0]) + ", ";
+                }
+            }
+            if (ret.endsWith(", ")) {
+                ret = ret.substring(0, ret.length() - 2);
+            }
+        } catch (InvocationTargetException ex) {
+            System.err.println(ex.getMessage());
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
+        } catch (IllegalAccessException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return ret + "]";
+    }
+
+    /**
      * Extract the name of the class and return the correct manager.
      * 
      * @return The name of the model class
      */
     @SuppressWarnings("unchecked")
     protected IAdoHiveManager getManager() {
-        /* Extract the name of the class */
-        String classname = getClass().getName();
-        classname = classname.substring(classname.lastIndexOf('.') + 1);
+        String classname = getClass().getSimpleName();
         if (!managers.containsKey(classname)) {
             /* Try to get the correct manager from the AdoHiveController */
             try {

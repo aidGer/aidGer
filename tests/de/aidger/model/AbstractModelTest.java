@@ -271,6 +271,9 @@ public class AbstractModelTest {
         assertTrue(result.get(0).equals("field error message"));
     }
 
+    /**
+     * Test of resetErrors method, of class AbstractModel.
+     */
     @Test
     public void testResetErrors() {
         System.out.println("resetErrors");
@@ -286,6 +289,23 @@ public class AbstractModelTest {
 
         assertTrue(e.getErrors().isEmpty());
         assertNull(e.getErrorsFor("field"));
+    }
+
+    /**
+     * Test of toString method, of class AbstractModel.
+     */
+    @Test
+    public void testToString() {
+        System.out.println("toString");
+
+        Assistant a = new Assistant();
+        a.setEmail("test@example.com");
+        a.setFirstName("Test");
+        a.setLastName("Tester");
+        a.setQualification("Q");
+
+        assertEquals("Assistant [ID: -1, Email: test@example.com, FirstName: "
+                + "Test, LastName: Tester, Qualification: Q]", a.toString());
     }
 
 }
