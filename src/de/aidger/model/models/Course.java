@@ -87,6 +87,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
      *            the course model
      */
     public Course(ICourse course) {
+        this();
         setId(course.getId());
         setAdvisor(course.getAdvisor());
         setDescription(course.getDescription());

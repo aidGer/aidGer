@@ -49,6 +49,7 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      *            the hourly wage model
      */
     public HourlyWage(IHourlyWage h) {
+        this();
         setId(h.getId());
         setMonth(h.getMonth());
         setQualification(h.getQualification());
