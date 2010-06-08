@@ -2,6 +2,7 @@ package de.aidger.view.forms;
 
 import java.awt.Toolkit;
 
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.text.AbstractDocument;
 import javax.swing.text.AttributeSet;
@@ -76,5 +77,17 @@ public class InputPatternFilter extends DocumentFilter {
     public static void addFilter(JTextField textField, String pattern) {
         ((AbstractDocument) textField.getDocument())
                 .setDocumentFilter(new InputPatternFilter(pattern));
+    }
+
+    /**
+     * Adds this pattern filter to the given editable combo box.
+     * 
+     * @param cmb
+     *            the editable combo box that will be filtered
+     * @param pattern
+     *            the pattern to match
+     */
+    public static void addFilter(JComboBox cmb, String pattern) {
+        addFilter((JTextField) cmb.getEditor().getEditorComponent(), pattern);
     }
 }
