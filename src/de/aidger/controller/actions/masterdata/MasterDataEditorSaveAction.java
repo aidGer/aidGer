@@ -137,15 +137,20 @@ public class MasterDataEditorSaveAction extends AbstractAction {
                     .getEditorForm());
             break;
         case FinancialCategory:
+            /*
+             * workaround (see #62): in order to edit all fields it is essential
+             * to remove the financial category model before it is saved again
+             */
+
+            try {
+                model.remove();
+            } catch (AdoHiveException e1) {
+            }
+
             setModel((FinancialCategory) model,
                     (FinancialCategoryEditorForm) tab.getEditorForm());
             break;
         case HourlyWage:
-            /*
-             * workaround (see #62): in order to edit all fields it is essential
-             * to remove the hourly wage model before it is saved again
-             */
-
             try {
                 model.remove();
             } catch (AdoHiveException e1) {
