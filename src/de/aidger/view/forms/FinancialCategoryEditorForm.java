@@ -42,7 +42,16 @@ public class FinancialCategoryEditorForm extends JPanel {
             txtName.setText(fc.getName());
             txtYear.setText(String.valueOf(fc.getYear()));
 
-            // TODO
+            for (int i = 0; i < fc.getFunds().length; ++i) {
+                addNewFunds();
+
+                FundsLine fl = fundsLines.get(i);
+                fl.cmbFunds.setSelectedItem(String.valueOf(fc.getFunds()[i]));
+                fl.txtBudgetCosts.setText(String
+                        .valueOf(fc.getBudgetCosts()[i]));
+            }
+        } else {
+            addNewFunds();
         }
     }
 
@@ -222,8 +231,6 @@ public class FinancialCategoryEditorForm extends JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtYear, gridBagConstraints);
-
-        addNewFunds();
     }
 
     private JLabel lblName;
