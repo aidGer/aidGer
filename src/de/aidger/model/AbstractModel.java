@@ -360,7 +360,8 @@ public abstract class AbstractModel<T> extends Observable implements
                 + ", ";
         try {
             for (java.lang.reflect.Method m : getClass().getDeclaredMethods()) {
-                if (m.getName().startsWith("get")) {
+                if (m.getName().startsWith("get") &&
+                        m.getParameterTypes().length == 0) {
                     ret += m.getName().substring(3) + ": ";
                     ret += m.invoke(this, new Object[0]) + ", ";
                 }
@@ -386,7 +387,8 @@ public abstract class AbstractModel<T> extends Observable implements
     @SuppressWarnings("unchecked")
     protected IAdoHiveManager getManager() {
         String classname = getClass().getSimpleName();
-        if (!managers.containsKey(classname)) {
+        if (!managers.containsKey(classname) ||
+                managers.get(classname) == null) {
             /* Try to get the correct manager from the AdoHiveController */
             try {
                 java.lang.reflect.Method m = AdoHiveController.class
