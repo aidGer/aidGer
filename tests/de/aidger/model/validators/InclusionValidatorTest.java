@@ -20,9 +20,9 @@ public class InclusionValidatorTest {
         InclusionValidator val = new InclusionValidator(null, null,
                 new String[] { "in", "cl", "us", "ion" });
 
-        assertTrue(!val.validateVar(null));
-        assertTrue(!val.validateVar(""));
-        assertTrue(!val.validateVar("inclusion"));
+        assertFalse(val.validateVar(null));
+        assertFalse(val.validateVar(""));
+        assertFalse(val.validateVar("inclusion"));
         assertTrue(val.validateVar("in"));
     }
 

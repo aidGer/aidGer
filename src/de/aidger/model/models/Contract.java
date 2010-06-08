@@ -55,6 +55,23 @@ public class Contract extends AbstractModel<IContract> implements IContract {
     }
 
     /**
+     * Initializes the Contract class with the given contract model.
+     *
+     * @param c
+     *            the contract model
+     */
+    public Contract(IContract c) {
+        this();
+        setId(c.getId());
+        setCompletionDate(c.getCompletionDate());
+        setConfirmationDate(c.getConfirmationDate());
+        setDelegation(c.isDelegation());
+        setEndDate(c.getEndDate());
+        setStartDate(c.getStartDate());
+        setType(c.getType());
+    }
+
+    /**
      * Clone the current contract
      */
     @Override

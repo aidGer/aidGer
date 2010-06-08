@@ -33,55 +33,65 @@ public class BalanceReportGroupCreator extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed"
-    // desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-
-        setBorder(javax.swing.BorderFactory.createTitledBorder(_("Group") + " "
-                + name));
-        setLayout(new java.awt.GridLayout());
+        jLabel1 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][] {
-                        { null, null, null, null, null, null, null, null },
-                        { null, null, null, null, null, null, null, null },
-                        { null, null, null, null, null, null, null, null },
-                        { null, null, null, null, null, null, null, null } },
-                new String[] { "java.lang.Object@38f3cbe6",
-                        "java.lang.Object@38f3cbe6",
-                        "java.lang.Object@38f3cbe6",
-                        "java.lang.Object@38f3cbe6",
-                        "java.lang.Object@38f3cbe6",
-                        "java.lang.Object@38f3cbe6",
-                        "java.lang.Object@38f3cbe6",
-                        "java.lang.Object@38f3cbe6" }) {
-            boolean[] canEdit = new boolean[] { false, false, false, false,
-                    false, false, false, false };
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "java.lang.Object@38f3cbe6", "java.lang.Object@38f3cbe6", "java.lang.Object@38f3cbe6", "java.lang.Object@38f3cbe6", "java.lang.Object@38f3cbe6", "java.lang.Object@38f3cbe6", "java.lang.Object@38f3cbe6", "java.lang.Object@38f3cbe6"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
 
-            @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit[columnIndex];
+                return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(jTable1);
         jTable1.getColumnModel().getColumn(0).setHeaderValue(_("Title"));
         jTable1.getColumnModel().getColumn(1).setHeaderValue(_("Part"));
         jTable1.getColumnModel().getColumn(2).setHeaderValue(_("Lecturer"));
-        jTable1.getColumnModel().getColumn(3).setHeaderValue(
-                _("Target Audience"));
+        jTable1.getColumnModel().getColumn(3).setHeaderValue(_("Target Audience"));
         jTable1.getColumnModel().getColumn(4).setHeaderValue(_("Planned AWS"));
         jTable1.getColumnModel().getColumn(5).setHeaderValue(_("Basic AWS"));
-        jTable1.getColumnModel().getColumn(6).setHeaderValue(
-                _("Budget costs from student fees"));
-        jTable1.getColumnModel().getColumn(7).setHeaderValue(
-                _("Budget costs from resources"));
+        jTable1.getColumnModel().getColumn(6).setHeaderValue(_("Budget costs from student fees"));
+        jTable1.getColumnModel().getColumn(7).setHeaderValue(_("Budget costs from resources"));
 
-        add(jScrollPane1);
+        jLabel1.setText(_("Group") + (" ") + name);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addContainerGap(432, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

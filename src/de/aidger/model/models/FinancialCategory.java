@@ -51,6 +51,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      *            the financial category model
      */
     public FinancialCategory(IFinancialCategory f) {
+        this();
         setId(f.getId());
         setBudgetCosts(f.getBudgetCosts());
         setFunds(f.getFunds());

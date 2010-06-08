@@ -77,6 +77,26 @@ public class Employment extends AbstractModel<IEmployment> implements
     }
 
     /**
+     * Initializes the Employment class with the given employment model.
+     *
+     * @param e
+     *            the employment model
+     */
+    public Employment(IEmployment e) {
+        this();
+        setId(e.getId());
+        setAssistantId(e.getAssistantId());
+        setContractId(e.getContractId());
+        setCostUnit(e.getCostUnit());
+        setFunds(e.getFunds());
+        setHourCount(e.getHourCount());
+        setMonth(e.getMonth());
+        setQualification(e.getQualification());
+        setRemark(e.getRemark());
+        setYear(e.getYear());
+    }
+
+    /**
      * Clone the current employment.
      */
     @Override
