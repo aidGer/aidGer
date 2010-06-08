@@ -209,7 +209,7 @@ public final class UI extends JFrame {
 
         tabbedPane.removeChangeListener(tabbedPaneListener);
 
-        tabbedPane.add(tab, index);
+        tabbedPane.add(new JScrollPane(tab), index);
         tabbedPane.setTabComponentAt(index, new CloseTabComponent(tab
                 .getTabName()));
 
@@ -251,13 +251,14 @@ public final class UI extends JFrame {
 
         tabbedPane.removeChangeListener(tabbedPaneListener);
 
-        ((Tab) tabbedPane.getComponentAt(index)).performBeforeClose();
+        ((Tab) ((JScrollPane) tabbedPane.getComponentAt(index)).getViewport()
+                .getView()).performBeforeClose();
 
         tabbedPane.remove(index);
 
         if (tabbedPane.getTabCount() == 1) {
             Tab emptyTab = new EmptyTab();
-            tabbedPane.add(emptyTab, 0);
+            tabbedPane.add(new JScrollPane(emptyTab), 0);
             tabbedPane.setTabComponentAt(0, new CloseTabComponent(emptyTab
                     .getTabName()));
 
