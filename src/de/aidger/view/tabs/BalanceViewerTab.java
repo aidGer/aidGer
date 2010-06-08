@@ -17,6 +17,7 @@ public class BalanceViewerTab extends Tab {
     public BalanceViewerTab() {
         initComponents();
         add(new BalanceReportSemesterCreator("2009"));
+        add(new BalanceReportSemesterCreator("2010"));
     }
 
     /*
