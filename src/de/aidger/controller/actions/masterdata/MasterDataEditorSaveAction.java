@@ -143,7 +143,6 @@ public class MasterDataEditorSaveAction extends AbstractAction {
              */
 
             try {
-                model.setNew(false);
                 model.remove();
             } catch (AdoHiveException e1) {
             }
@@ -153,7 +152,6 @@ public class MasterDataEditorSaveAction extends AbstractAction {
             break;
         case HourlyWage:
             try {
-                model.setNew(false);
                 model.remove();
             } catch (AdoHiveException e1) {
             }

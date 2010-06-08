@@ -113,6 +113,8 @@ public class MasterDataEditorTab extends Tab {
             }
         }
 
+        model.setNew(false);
+
         return model;
     }
 

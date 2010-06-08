@@ -49,6 +49,8 @@ public abstract class MasterDataTableModel extends DefaultTableModel implements
      */
     @SuppressWarnings("unchecked")
     public AbstractModel getModel(int i) {
+        masterData.get(i).setNew(false);
+
         return masterData.get(i);
     }
 
