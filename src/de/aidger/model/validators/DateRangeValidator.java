@@ -1,6 +1,7 @@
 package de.aidger.model.validators;
 
 import java.util.Date;
+import java.text.MessageFormat;
 
 import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
@@ -36,7 +37,15 @@ public class DateRangeValidator extends Validator {
     public boolean validate() {
         Date from = (Date)getValueOf(members[0]);
         Date to = (Date)getValueOf(members[1]);
-        return validate(from, to);
+        if (!validate(from, to)) {
+            if (model != null) {
+                model.addError(MessageFormat.format(
+                        _("The date range {0} and {1} is incorrect."),
+                        (Object[])members));
+            }
+            return false;
+        }
+        return true;
     }
 
     /**
