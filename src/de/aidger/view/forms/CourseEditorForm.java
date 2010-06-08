@@ -104,8 +104,9 @@ public class CourseEditorForm extends JPanel {
      * Get the part of the course.
      * 
      * @return The part of the course
+     * @throws StringIndexOutOfBoundsException
      */
-    public char getPart() {
+    public char getPart() throws StringIndexOutOfBoundsException {
         return txtPart.getText().charAt(0);
     }
 
@@ -149,10 +150,10 @@ public class CourseEditorForm extends JPanel {
      * Get the amount of unqualified working hours granted.
      * 
      * @return The amount of UWHs
+     * @throws NumberFormatException
      */
-    public double getUnqualifiedWorkingHours() {
-        // return Double.valueOf(txtGrantedAWH.getText());
-        return 0.0; // TODO
+    public double getUnqualifiedWorkingHours() throws NumberFormatException {
+        return Double.valueOf(txtGrantedAWH.getText());
     }
 
     /**
@@ -171,7 +172,8 @@ public class CourseEditorForm extends JPanel {
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed"
+    // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -380,7 +382,8 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtRemark, gridBagConstraints);
 
-        cmbFinancialCategory.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbFinancialCategory.setModel(new javax.swing.DefaultComboBoxModel(
+                new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;

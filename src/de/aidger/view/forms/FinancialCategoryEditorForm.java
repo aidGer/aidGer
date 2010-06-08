@@ -59,8 +59,9 @@ public class FinancialCategoryEditorForm extends JPanel {
      * Get the budget costs of the category.
      * 
      * @return The budget costs of the category
+     * @throws NumberFormatException
      */
-    public int[] getBudgetCosts() {
+    public int[] getBudgetCosts() throws NumberFormatException {
         int[] budgetCosts = new int[fundsLines.size()];
 
         for (int i = 0; i < fundsLines.size(); ++i) {
@@ -75,8 +76,9 @@ public class FinancialCategoryEditorForm extends JPanel {
      * Get the funds of the category.
      * 
      * @return The funds of the category
+     * @throws NumberFormatException
      */
-    public int[] getFunds() {
+    public int[] getFunds() throws NumberFormatException {
         int[] funds = new int[fundsLines.size()];
 
         for (int i = 0; i < fundsLines.size(); ++i) {
@@ -100,15 +102,10 @@ public class FinancialCategoryEditorForm extends JPanel {
      * Get the year the category is valid.
      * 
      * @return The year the category is valid
+     * @throws NumberFormatException
      */
-    public short getYear() {
-        String year = txtYear.getText();
-
-        if (year.isEmpty()) {
-            ;
-        }
-
-        return Short.valueOf(year);
+    public short getYear() throws NumberFormatException {
+        return Short.valueOf(txtYear.getText());
     }
 
     /**

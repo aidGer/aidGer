@@ -100,9 +100,10 @@ public class HourlyWageEditorForm extends JPanel {
      * Get the wage per hour.
      * 
      * @return The wage per hour
+     * @throws NumberFormatException
      */
-    public String getWage() {
-        return txtWage.getText();
+    public double getWage() throws NumberFormatException {
+        return Double.valueOf(txtWage.getText());
     }
 
     /**
