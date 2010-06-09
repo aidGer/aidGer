@@ -22,8 +22,8 @@ public class FinancialCategoryTableModel extends MasterDataTableModel {
      * Constructs the table model for financial categories.
      */
     public FinancialCategoryTableModel() {
-        super(new String[] { _("Name"), _("Budget Costs"), _("Funds"),
-                _("Year"), _("ID") });
+        super(new String[] { _("Name"), _("Year"), _("Funds"),
+                _("Budget Costs"), _("ID") });
     }
 
     /*
@@ -44,12 +44,18 @@ public class FinancialCategoryTableModel extends MasterDataTableModel {
         }
 
         for (IFinancialCategory fc : fcs) {
-            for (int i = 0; i < fc.getFunds().length; i++) {
-                masterData.add(new FinancialCategory(fc));
+            String funds = String.valueOf(fc.getFunds()[0]);
+            String budgetCosts = String.valueOf(fc.getBudgetCosts()[0]);
 
-                addRow(new Object[] { fc.getName(), fc.getBudgetCosts()[i],
-                        fc.getFunds()[i], fc.getYear(), fc.getId() });
+            masterData.add(new FinancialCategory(fc));
+
+            for (int i = 1; i < fc.getFunds().length; i++) {
+                funds += "\n" + fc.getFunds()[i];
+                budgetCosts += "\n" + fc.getBudgetCosts()[i];
             }
+
+            addRow(new Object[] { fc.getName(), fc.getYear(), funds,
+                    budgetCosts, fc.getId() });
         }
     }
 }

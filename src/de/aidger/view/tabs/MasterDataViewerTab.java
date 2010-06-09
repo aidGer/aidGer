@@ -31,6 +31,7 @@ import de.aidger.view.models.CourseTableModel;
 import de.aidger.view.models.FinancialCategoryTableModel;
 import de.aidger.view.models.HourlyWageTableModel;
 import de.aidger.view.models.MasterDataTableModel;
+import de.aidger.view.utils.MultiLineCellRenderer;
 
 /**
  * A tab which will be used to display the master data.
@@ -112,8 +113,15 @@ public class MasterDataViewerTab extends Tab {
         }
 
         table.setModel(tableModel);
-
         tableModels.get(type).add(tableModel);
+
+        // multi line columns for financial category table
+        if (type == MasterDataType.FinancialCategory) {
+            table.getColumnModel().getColumn(2).setCellRenderer(
+                new MultiLineCellRenderer());
+            table.getColumnModel().getColumn(3).setCellRenderer(
+                new MultiLineCellRenderer());
+        }
 
         table.setComponentPopupMenu(popupMenu);
         table.setAutoCreateRowSorter(true);

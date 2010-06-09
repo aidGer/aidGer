@@ -10,6 +10,7 @@ import javax.swing.JSpinner;
 import javax.swing.text.DefaultFormatter;
 
 import de.aidger.model.models.HourlyWage;
+import de.aidger.view.utils.InputPatternFilter;
 
 /**
  * A form used for editing / creating new hourly wages.
