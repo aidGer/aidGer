@@ -22,7 +22,7 @@ public class AssistantTest {
         assistant.setEmail("test@example.com");
         assistant.setFirstName("Test");
         assistant.setLastName("Tester");
-        assistant.setQualification("Q");
+        assistant.setQualification("g");
     }
 
     /**

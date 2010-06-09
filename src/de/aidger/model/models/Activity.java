@@ -83,6 +83,7 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      */
     public Activity(IActivity a) {
         this();
+        setNew(false);
         setId(a.getId());
         setAssistantId(a.getAssistantId());
         setContent(a.getContent());

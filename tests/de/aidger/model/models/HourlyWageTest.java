@@ -22,7 +22,7 @@ public class HourlyWageTest {
         hourly = new HourlyWage();
         hourly.setId(1);
         hourly.setMonth((byte) 10);
-        hourly.setQualification("Q");
+        hourly.setQualification("g");
         hourly.setWage(new BigDecimal(200));
         hourly.setYear((short) 2010);
     }

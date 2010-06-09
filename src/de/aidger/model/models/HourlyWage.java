@@ -39,6 +39,8 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      */
     public HourlyWage() {
         validatePresenceOf(new String[] { "qualification" });
+        validateInclusionOf(new String[] { "qualification" }, new String[] {
+                "g", "u", "b"});
         // TODO: Validate month and year
     }
 

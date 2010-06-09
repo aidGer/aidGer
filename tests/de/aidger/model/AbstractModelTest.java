@@ -34,14 +34,14 @@ public class AbstractModelTest {
         h.clearTable();
 
         h.setMonth((byte) 10);
-        h.setQualification("Q");
+        h.setQualification("g");
         h.setWage(new java.math.BigDecimal(200));
         h.setYear((short) 2010);
         h.save();
 
         HourlyWage g = new HourlyWage();
         g.setMonth((byte) 10);
-        g.setQualification("W");
+        g.setQualification("u");
         g.setWage(new java.math.BigDecimal(200));
         g.setYear((short) 2010);
         g.save();
@@ -67,7 +67,7 @@ public class AbstractModelTest {
         a.setEmail("test@example.com");
         a.setFirstName("Test");
         a.setLastName("Tester");
-        a.setQualification("Q");
+        a.setQualification("g");
         a.save();
 
         Assistant result = new Assistant(a.getById(a.getId()));
@@ -86,7 +86,7 @@ public class AbstractModelTest {
         HourlyWage h = new HourlyWage();
         h.clearTable();
         
-        h.setQualification("Q");
+        h.setQualification("g");
         h.setMonth((byte) 10);
         h.setYear((short) 2010);
         h.setWage(new BigDecimal(200));
@@ -103,7 +103,7 @@ public class AbstractModelTest {
         a.setEmail("test@example.com");
         a.setFirstName("Test");
         a.setLastName("Tester");
-        a.setQualification("Q");
+        a.setQualification("g");
         a.save();
 
         Assistant res = new Assistant(a.getByKeys(a.getId()));
@@ -125,7 +125,7 @@ public class AbstractModelTest {
         a.setEmail("test@example.com");
         a.setFirstName("Test");
         a.setLastName("Tester");
-        a.setQualification("Q");
+        a.setQualification("g");
         a.save();
 
         assertTrue(a.size() == size + 1);
@@ -142,7 +142,7 @@ public class AbstractModelTest {
         a.setEmail("test@example.com");
         a.setFirstName("Test");
         a.setLastName("Tester");
-        a.setQualification("Q");
+        a.setQualification("g");
         a.save();
 
         assertTrue(!a.isEmpty());
@@ -162,7 +162,7 @@ public class AbstractModelTest {
         a.setEmail("test@example.com");
         a.setFirstName("Test");
         a.setLastName("Tester");
-        a.setQualification("Q");
+        a.setQualification("g");
 
         assertTrue(!a.isInDatabase());
 
@@ -181,7 +181,7 @@ public class AbstractModelTest {
         a.setEmail("test@example.com");
         a.setFirstName("Test");
         a.setLastName("Tester");
-        a.setQualification("Q");
+        a.setQualification("g");
         a.save();
 
         assertTrue(a.size() > 0);
@@ -201,7 +201,7 @@ public class AbstractModelTest {
         a.setEmail("test@example.com");
         a.setFirstName("Test");
         a.setLastName("Tester");
-        a.setQualification("Q");
+        a.setQualification("g");
 
         assertTrue(a.save());
         assertTrue(a.getId() > 0);
@@ -228,7 +228,7 @@ public class AbstractModelTest {
         a.setEmail("test@example.com");
         a.setFirstName("Test");
         a.setLastName("Tester");
-        a.setQualification("Q");
+        a.setQualification("g");
         a.save();
         int id = a.getId();
 
@@ -316,9 +316,9 @@ public class AbstractModelTest {
         a.setEmail("test@example.com");
         a.setFirstName("Test");
         a.setLastName("Tester");
-        a.setQualification("Q");
+        a.setQualification("g");
 
-        assertEquals("Assistant [ID: 0, Qualification: Q, FirstName: Test, " +
+        assertEquals("Assistant [ID: 0, Qualification: g, FirstName: Test, " +
                 "LastName: Tester, Email: test@example.com]", a.toString());
     }
 

@@ -108,7 +108,7 @@ public class ActivityTest {
         a.setEmail("test@example.com");
         a.setFirstName("Test");
         a.setLastName("Tester");
-        a.setQualification("Q");
+        a.setQualification("g");
         a.save();
         System.out.println(a.getId());
 
