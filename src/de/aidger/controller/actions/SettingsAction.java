@@ -26,7 +26,7 @@ public class SettingsAction extends AbstractAction {
     public SettingsAction() {
         putValue(Action.NAME, _("Settings"));
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_S,
-                ActionEvent.CTRL_MASK));
+            ActionEvent.CTRL_MASK));
         putValue(Action.SHORT_DESCRIPTION, _("Display program settings"));
     }
 

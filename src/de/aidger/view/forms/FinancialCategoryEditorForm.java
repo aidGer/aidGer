@@ -48,7 +48,7 @@ public class FinancialCategoryEditorForm extends JPanel {
                 FundsLine fl = fundsLines.get(i);
                 fl.cmbFunds.setSelectedItem(String.valueOf(fc.getFunds()[i]));
                 fl.txtBudgetCosts.setText(String
-                        .valueOf(fc.getBudgetCosts()[i]));
+                    .valueOf(fc.getBudgetCosts()[i]));
             }
         } else {
             addNewFunds();
@@ -59,13 +59,14 @@ public class FinancialCategoryEditorForm extends JPanel {
      * Get the budget costs of the category.
      * 
      * @return The budget costs of the category
+     * @throws NumberFormatException
      */
-    public int[] getBudgetCosts() {
+    public int[] getBudgetCosts() throws NumberFormatException {
         int[] budgetCosts = new int[fundsLines.size()];
 
         for (int i = 0; i < fundsLines.size(); ++i) {
             budgetCosts[i] = Integer.valueOf(fundsLines.get(i).txtBudgetCosts
-                    .getText());
+                .getText());
         }
 
         return budgetCosts;
@@ -75,13 +76,14 @@ public class FinancialCategoryEditorForm extends JPanel {
      * Get the funds of the category.
      * 
      * @return The funds of the category
+     * @throws NumberFormatException
      */
-    public int[] getFunds() {
+    public int[] getFunds() throws NumberFormatException {
         int[] funds = new int[fundsLines.size()];
 
         for (int i = 0; i < fundsLines.size(); ++i) {
             funds[i] = Integer.valueOf((String) fundsLines.get(i).cmbFunds
-                    .getSelectedItem());
+                .getSelectedItem());
         }
 
         return funds;
@@ -100,15 +102,10 @@ public class FinancialCategoryEditorForm extends JPanel {
      * Get the year the category is valid.
      * 
      * @return The year the category is valid
+     * @throws NumberFormatException
      */
-    public short getYear() {
-        String year = txtYear.getText();
-
-        if (year.isEmpty()) {
-            ;
-        }
-
-        return Short.valueOf(year);
+    public short getYear() throws NumberFormatException {
+        return Short.valueOf(txtYear.getText());
     }
 
     /**
@@ -162,7 +159,7 @@ public class FinancialCategoryEditorForm extends JPanel {
         gridBagConstraints.gridx = 4;
 
         FundsLine fl = new FundsLine(lblFunds, cmbFunds, lblBudgetCosts,
-                txtBudgetCosts, btnPlusMinus);
+            txtBudgetCosts, btnPlusMinus);
 
         if (fundsLines.isEmpty()) {
             btnPlusMinus.setText("+");

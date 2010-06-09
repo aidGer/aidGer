@@ -23,7 +23,7 @@ public class ExitAction extends AbstractAction {
     public ExitAction() {
         putValue(Action.NAME, _("Quit"));
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_Q,
-                ActionEvent.CTRL_MASK));
+            ActionEvent.CTRL_MASK));
         putValue(Action.SHORT_DESCRIPTION, _("Quit the program"));
     }
 

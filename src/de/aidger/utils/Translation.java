@@ -83,7 +83,7 @@ public class Translation {
         List<Pair<String, String>> list = new Vector<Pair<String, String>>();
         /* Add English as standard language */
         list.add(new Pair<String, String>("en", new Locale("en")
-                .getDisplayLanguage()));
+            .getDisplayLanguage()));
 
         /* Search all files in the lang directory and add them */
         File dir = new File(filePath);
@@ -98,7 +98,7 @@ public class Translation {
                 String lang = filename.substring(0, idx);
                 Locale loc = new Locale(lang);
                 list.add(new Pair<String, String>(lang, loc
-                        .getDisplayLanguage()));
+                    .getDisplayLanguage()));
             }
         }
 

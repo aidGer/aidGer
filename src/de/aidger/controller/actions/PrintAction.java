@@ -31,7 +31,7 @@ public class PrintAction extends AbstractAction {
     public PrintAction() {
         putValue(Action.NAME, _("Print"));
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_P,
-                ActionEvent.CTRL_MASK));
+            ActionEvent.CTRL_MASK));
         putValue(Action.SHORT_DESCRIPTION, _("Print program contents"));
     }
 

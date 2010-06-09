@@ -54,7 +54,7 @@ public class InputPatternFilter extends DocumentFilter {
     public void replace(FilterBypass fb, int offset, int length, String str,
             AttributeSet attrs) throws BadLocationException {
         String oldStr = fb.getDocument().getText(0,
-                fb.getDocument().getLength());
+            fb.getDocument().getLength());
 
         String newStr = oldStr.substring(0, offset) + str
                 + oldStr.substring(offset, oldStr.length());
@@ -76,7 +76,7 @@ public class InputPatternFilter extends DocumentFilter {
      */
     public static void addFilter(JTextField textField, String pattern) {
         ((AbstractDocument) textField.getDocument())
-                .setDocumentFilter(new InputPatternFilter(pattern));
+            .setDocumentFilter(new InputPatternFilter(pattern));
     }
 
     /**

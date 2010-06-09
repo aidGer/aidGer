@@ -159,7 +159,7 @@ public class TaskPane extends JComponent {
             @Override
             public void mouseEntered(MouseEvent e) {
                 e.getComponent().setCursor(
-                        Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                    Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             }
 
             @Override
@@ -236,7 +236,7 @@ public class TaskPane extends JComponent {
 
         if (useAlpha) {
             ((Graphics2D) g).setComposite(AlphaComposite.getInstance(
-                    AlphaComposite.SRC_OVER, alpha));
+                AlphaComposite.SRC_OVER, alpha));
         }
 
         g.fillRect(0, tbh, w - 1, h - tbh);
@@ -567,11 +567,11 @@ public class TaskPane extends JComponent {
         protected void paintChildren(Graphics g) {
             if (useAlpha) {
                 ((Graphics2D) g).setComposite(AlphaComposite.getInstance(
-                        AlphaComposite.SRC_OVER, alpha));
+                    AlphaComposite.SRC_OVER, alpha));
             }
 
             int ph = Math.max(TaskPane.this.getPreferredHeight(), TaskPane.this
-                    .getHeight());
+                .getHeight());
             int h = TaskPane.this.getHeight();
             int w = getWidth();
 

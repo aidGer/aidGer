@@ -9,7 +9,7 @@ import de.aidger.model.Runtime;
 /**
  * Provides a set of helper functions to ease the use of the java.util.logging
  * package.
- *
+ * 
  * @author aidGer Team
  */
 public final class Logger {
@@ -35,14 +35,14 @@ public final class Logger {
             @Override
             public String format(LogRecord record) {
                 return MessageFormat.format("[{1, time, medium}] [{0}] {2}\n",
-                        new Object[] { record.getLevel().getLocalizedName(),
-                        record.getMillis(), record.getMessage() });
+                    new Object[] { record.getLevel().getLocalizedName(),
+                            record.getMillis(), record.getMessage() });
             }
         };
 
         try {
-            FileHandler fhandler = new FileHandler(Runtime.getInstance().
-                    getConfigPath().concat("/aidger.log"));
+            FileHandler fhandler = new FileHandler(Runtime.getInstance()
+                .getConfigPath().concat("/aidger.log"));
             fhandler.setFormatter(format);
             fhandler.setLevel(Level.ALL);
             logger.addHandler(fhandler);
@@ -62,7 +62,7 @@ public final class Logger {
 
     /**
      * Get the only instance of the logger.
-     *
+     * 
      * @return The instance
      */
     public synchronized static Logger getInstance() {
@@ -72,7 +72,7 @@ public final class Logger {
 
         return instance;
     }
-    
+
     /**
      * Log a message with the given level to all handlers.
      * 
@@ -87,7 +87,7 @@ public final class Logger {
 
     /**
      * Log a message with debug level.
-     *
+     * 
      * @param msg
      *            The message to log
      */
@@ -97,7 +97,7 @@ public final class Logger {
 
     /**
      * Log a message with info level.
-     *
+     * 
      * @param msg
      *            The message to log
      */
@@ -107,7 +107,7 @@ public final class Logger {
 
     /**
      * Log a message with error level.
-     *
+     * 
      * @param msg
      *            The message to log
      */

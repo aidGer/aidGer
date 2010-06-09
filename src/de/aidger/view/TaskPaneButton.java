@@ -251,8 +251,7 @@ public class TaskPaneButton extends AbstractButton {
          */
         public ButtonRenderer(Action a) {
             super((String) a.getValue(AbstractAction.NAME), (Icon) a
-                    .getValue(AbstractAction.SMALL_ICON),
-                    SwingConstants.LEADING);
+                .getValue(AbstractAction.SMALL_ICON), SwingConstants.LEADING);
         }
     }
 }

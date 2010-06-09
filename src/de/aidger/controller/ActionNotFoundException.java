@@ -13,6 +13,6 @@ public class ActionNotFoundException extends Exception {
      */
     public ActionNotFoundException(String className) {
         super(MessageFormat.format(_("action class {0} not found"),
-                new Object[] { className }));
+            new Object[] { className }));
     }
 }

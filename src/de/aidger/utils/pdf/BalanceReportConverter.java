@@ -73,11 +73,11 @@ public class BalanceReportConverter implements ReportConverter {
     private void writeHeader() {
         PdfPTable head = new PdfPTable(new float[] { 0.8f, 0.2f });
         try {
-            Font pageTitleFont = new Font(BaseFont
-                    .createFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252,
-                            BaseFont.EMBEDDED), 18);
+            Font pageTitleFont = new Font(BaseFont.createFont(
+                BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.EMBEDDED),
+                18);
             Font authorNameFont = new Font(BaseFont.createFont(
-                    BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 8);
+                BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 8);
 
             PdfPCell left = new PdfPCell();
             left.setHorizontalAlignment(Element.ALIGN_LEFT);
@@ -122,16 +122,15 @@ public class BalanceReportConverter implements ReportConverter {
                 "", "0", "", "10000", "", "" };
 
         try {
-            Font groupTitleFont = new Font(BaseFont
-                    .createFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252,
-                            BaseFont.EMBEDDED), 11);
+            Font groupTitleFont = new Font(BaseFont.createFont(
+                BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.EMBEDDED),
+                11);
             Font groupNameFont = new Font(BaseFont.createFont(
-                    BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 11);
-            Font tableTitleFont = new Font(BaseFont
-                    .createFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252,
-                            BaseFont.EMBEDDED), 9);
+                BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 11);
+            Font tableTitleFont = new Font(BaseFont.createFont(
+                BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.EMBEDDED), 9);
             Font tableContentFont = new Font(BaseFont.createFont(
-                    BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 9);
+                BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 9);
 
             PdfPTable contentTable = new PdfPTable(1);
 
@@ -144,11 +143,11 @@ public class BalanceReportConverter implements ReportConverter {
                 PdfPTable groupNameTable = new PdfPTable(new float[] { 0.2f,
                         0.8f });
                 PdfPCell groupTitle = new PdfPCell(new Phrase("GRUPPE",
-                        groupTitleFont));
+                    groupTitleFont));
                 groupTitle.setBorder(2);
                 groupNameTable.addCell(groupTitle);
                 PdfPCell groupName = new PdfPCell(new Phrase(group[1],
-                        groupNameFont));
+                    groupNameFont));
                 groupName.setBorder(2);
                 groupNameTable.addCell(groupName);
                 PdfPCell groupContent = new PdfPCell(groupNameTable);
@@ -163,7 +162,7 @@ public class BalanceReportConverter implements ReportConverter {
                  */
                 for (int j = 0; j < 8; j++) {
                     PdfPCell cell = new PdfPCell(new Phrase(courseTitles[j],
-                            tableTitleFont));
+                        tableTitleFont));
                     if (j != 0) {
                         cell.setBorder(6);
                     } else {
@@ -180,10 +179,10 @@ public class BalanceReportConverter implements ReportConverter {
                         PdfPCell cell;
                         if (courseNames[j] != "") {
                             cell = new PdfPCell(new Phrase(courseNames[j],
-                                    tableContentFont));
+                                tableContentFont));
                         } else {
                             cell = new PdfPCell(new Phrase("-",
-                                    tableContentFont));
+                                tableContentFont));
                         }
                         if (j != 0) {
                             cell.setBorder(4);

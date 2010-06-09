@@ -41,6 +41,6 @@ public class MasterDataViewerAddAction extends AbstractAction {
         MasterDataViewerTab tab = (MasterDataViewerTab) toolBar.getParent();
 
         UI.getInstance().replaceCurrentTab(
-                new MasterDataEditorTab(tab.getType()));
+            new MasterDataEditorTab(tab.getType()));
     }
 }

@@ -98,9 +98,9 @@ public final class UI extends JFrame {
         pack();
 
         int posX = (int) ((int) (getSize().getWidth() / 2) - (this.getSize()
-                .getWidth() / 2));
+            .getWidth() / 2));
         int posY = (int) ((int) (getSize().getHeight() / 2) - (this.getSize()
-                .getHeight() / 2));
+            .getHeight() / 2));
 
         setLocation(posX, posY);
 
@@ -118,11 +118,11 @@ public final class UI extends JFrame {
                 Action action;
                 try {
                     action = ActionRegistry.getInstance().get(
-                            ExitAction.class.getName());
+                        ExitAction.class.getName());
 
                     if (action != null) {
                         ActionEvent evt = new ActionEvent(event.getSource(),
-                                event.getID(), null);
+                            event.getID(), null);
 
                         action.actionPerformed(evt);
                     }
@@ -138,10 +138,10 @@ public final class UI extends JFrame {
         InputMap inputMap = comp.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
 
         inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_T,
-                ActionEvent.CTRL_MASK), "addNewTab");
+            ActionEvent.CTRL_MASK), "addNewTab");
 
         inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_W,
-                ActionEvent.CTRL_MASK), "removeCurrentTab");
+            ActionEvent.CTRL_MASK), "removeCurrentTab");
 
         actionMap.put("addNewTab", new AbstractAction() {
             public void actionPerformed(ActionEvent e) {
@@ -180,7 +180,7 @@ public final class UI extends JFrame {
      */
     public static void displayError(String error) {
         JOptionPane.showMessageDialog(instance, error, _("Error"),
-                JOptionPane.ERROR_MESSAGE);
+            JOptionPane.ERROR_MESSAGE);
         Logger.error(error);
     }
 
@@ -204,14 +204,14 @@ public final class UI extends JFrame {
      */
     public void addNewTab(Tab tab, int index) {
         Logger.debug(MessageFormat.format(
-                _("Adding new tab \"{0}\" at position {1}"), new Object[] {
-                        tab.getTabName(), index }));
+            _("Adding new tab \"{0}\" at position {1}"), new Object[] {
+                    tab.getTabName(), index }));
 
         tabbedPane.removeChangeListener(tabbedPaneListener);
 
         tabbedPane.add(new JScrollPane(tab), index);
         tabbedPane.setTabComponentAt(index, new CloseTabComponent(tab
-                .getTabName()));
+            .getTabName()));
 
         tabbedPane.setSelectedIndex(index);
 
@@ -247,12 +247,12 @@ public final class UI extends JFrame {
      */
     public void removeTabAt(int index) {
         Logger.debug(MessageFormat.format(_("Removing {0}. tab"),
-                new Object[] { index }));
+            new Object[] { index }));
 
         tabbedPane.removeChangeListener(tabbedPaneListener);
 
         ((Tab) ((JScrollPane) tabbedPane.getComponentAt(index)).getViewport()
-                .getView()).performBeforeClose();
+            .getView()).performBeforeClose();
 
         tabbedPane.remove(index);
 
@@ -260,7 +260,7 @@ public final class UI extends JFrame {
             Tab emptyTab = new EmptyTab();
             tabbedPane.add(new JScrollPane(emptyTab), 0);
             tabbedPane.setTabComponentAt(0, new CloseTabComponent(emptyTab
-                    .getTabName()));
+                .getTabName()));
 
             tabbedPane.setSelectedIndex(0);
         } else if (index == tabbedPane.getTabCount() - 1
@@ -323,7 +323,7 @@ public final class UI extends JFrame {
         Tab newTab = (Tab) tabbedPane.getComponentAt(index);
 
         Logger.debug(MessageFormat.format(_("Setting current tab to \"{0}\""),
-                new Object[] { newTab.getTabName() }));
+            new Object[] { newTab.getTabName() }));
 
         tabbedPane.setSelectedIndex(index);
     }
@@ -388,12 +388,12 @@ public final class UI extends JFrame {
         JMenu fileMenu = new JMenu(_("File"));
 
         fileMenu.add(new JMenuItem(ActionRegistry.getInstance().get(
-                PrintAction.class.getName())));
+            PrintAction.class.getName())));
         fileMenu.add(new JMenuItem(ActionRegistry.getInstance().get(
-                SettingsAction.class.getName())));
+            SettingsAction.class.getName())));
         fileMenu.addSeparator();
         fileMenu.add(new JMenuItem(ActionRegistry.getInstance().get(
-                ExitAction.class.getName())));
+            ExitAction.class.getName())));
 
         return fileMenu;
     }
@@ -407,9 +407,9 @@ public final class UI extends JFrame {
         JMenu helpMenu = new JMenu(_("Help"));
 
         helpMenu.add(new JMenuItem(ActionRegistry.getInstance().get(
-                HelpAction.class.getName())));
+            HelpAction.class.getName())));
         helpMenu.add(new JMenuItem(ActionRegistry.getInstance().get(
-                AboutAction.class.getName())));
+            AboutAction.class.getName())));
 
         return helpMenu;
     }
@@ -448,24 +448,24 @@ public final class UI extends JFrame {
 
         tpMasterData.add(createTaskPaneButton(_("Courses"), Task.ViewCourses));
         tpMasterData.add(createTaskPaneButton(_("Assistants"),
-                Task.ViewAssistants));
+            Task.ViewAssistants));
         tpMasterData.add(createTaskPaneButton(_("Financial Categories"),
-                Task.ViewFinancialCategories));
+            Task.ViewFinancialCategories));
         tpMasterData.add(createTaskPaneButton(_("Hourly Wages"),
-                Task.ViewHourlyWages));
+            Task.ViewHourlyWages));
 
         TaskPane tpEmployments = new TaskPane(new TaskPaneAction(
-                _("Employments"), Task.ViewEmpty));
+            _("Employments"), Task.ViewEmpty));
 
         tpEmployments.add(createTaskPaneButton(_("Create new employment"),
-                Task.ViewEmpty));
+            Task.ViewEmpty));
         tpEmployments.add(createTaskPaneButton(_("Show all contracts"),
-                Task.ViewEmpty));
+            Task.ViewEmpty));
         tpEmployments.add(new JTextField());
 
         TaskPane tpActivities = new TaskPane(_("Activities"));
         tpActivities.add(createTaskPaneButton(_("Create new activity"),
-                Task.ViewEmpty));
+            Task.ViewEmpty));
         tpActivities.add(createTaskPaneButton(_("Export"), Task.ViewEmpty));
         tpActivities.add(new JTextField());
 
@@ -503,13 +503,13 @@ public final class UI extends JFrame {
         tpc.addFiller();
 
         String[] collapsed = Runtime.getInstance().getOptionArray(
-                "taskPaneCollapsed");
+            "taskPaneCollapsed");
 
         if (collapsed == null) {
             collapsed = new String[] { "1", "2", "3", "4" };
 
             Runtime.getInstance()
-                    .setOptionArray("taskPaneCollapsed", collapsed);
+                .setOptionArray("taskPaneCollapsed", collapsed);
         }
 
         for (int i = 0; i < collapsed.length; ++i) {
@@ -519,7 +519,7 @@ public final class UI extends JFrame {
         }
 
         return new JScrollPane(tpc, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-                JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+            JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     }
 
     /**

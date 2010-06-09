@@ -118,7 +118,7 @@ public class TaskPaneTitleBar extends JComponent {
     protected GradientPaint getPaint() {
         if (paint == null) {
             paint = new GradientPaint(0, 0, firstColor, getWidth() / 2, 0,
-                    secondColor);
+                secondColor);
         }
 
         return paint;
@@ -230,7 +230,7 @@ public class TaskPaneTitleBar extends JComponent {
             Graphics2D g2d = (Graphics2D) g;
 
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                    RenderingHints.VALUE_ANTIALIAS_ON);
+                RenderingHints.VALUE_ANTIALIAS_ON);
 
             g.setColor(cirleColor);
             g.fillOval(1, 1, iconWidth - 3, iconHeight - 3);
@@ -239,13 +239,13 @@ public class TaskPaneTitleBar extends JComponent {
             g2d.setStroke(new BasicStroke(2));
 
             g2d.setComposite(AlphaComposite.getInstance(
-                    AlphaComposite.SRC_OVER, 0.5f));
+                AlphaComposite.SRC_OVER, 0.5f));
             g2d.drawOval(1, 1, iconWidth - 3, iconHeight - 3);
 
             g.setPaintMode();
             g2d.setStroke(new BasicStroke(1));
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                    RenderingHints.VALUE_ANTIALIAS_OFF);
+                RenderingHints.VALUE_ANTIALIAS_OFF);
 
             g2d.setStroke(new BasicStroke(1));
             g.setColor(foreground);

@@ -16,6 +16,7 @@ import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.models.HourlyWage;
+import de.aidger.model.validators.PresenceValidator;
 import de.aidger.view.UI;
 import de.aidger.view.forms.AssistantEditorForm;
 import de.aidger.view.forms.CourseEditorForm;
@@ -57,11 +58,24 @@ public class MasterDataEditorSaveAction extends AbstractAction {
         course.setAdvisor(form.getAdvisor());
         course.setNumberOfGroups(form.getNumberOfGroups());
         course.setTargetAudience(form.getTargetAudience());
-        course.setUnqualifiedWorkingHours(form.getUnqualifiedWorkingHours());
         course.setScope(form.getScope());
-        course.setPart(form.getPart());
         course.setGroup(form.getGroup());
         course.setRemark(form.getRemark());
+
+        try {
+            course
+                .setUnqualifiedWorkingHours(form.getUnqualifiedWorkingHours());
+        } catch (NumberFormatException e) {
+            course.addError("unqualifiedWorkingHours", new PresenceValidator(
+                course, new String[] {}).getMessage());
+        }
+
+        try {
+            course.setPart(form.getPart());
+        } catch (StringIndexOutOfBoundsException e) {
+            course.addError("part", new PresenceValidator(course,
+                new String[] {}).getMessage());
+        }
     }
 
     /**
@@ -89,9 +103,27 @@ public class MasterDataEditorSaveAction extends AbstractAction {
      */
     private void setModel(FinancialCategory fc, FinancialCategoryEditorForm form) {
         fc.setName(form.getFCName());
-        fc.setBudgetCosts(form.getBudgetCosts());
-        fc.setFunds(form.getFunds());
-        fc.setYear(form.getYear());
+
+        try {
+            fc.setBudgetCosts(form.getBudgetCosts());
+        } catch (NumberFormatException e) {
+            fc.addError("budgetCosts", new PresenceValidator(fc,
+                new String[] {}).getMessage());
+        }
+
+        try {
+            fc.setFunds(form.getFunds());
+        } catch (NumberFormatException e) {
+            fc.addError("funds", new PresenceValidator(fc, new String[] {})
+                .getMessage());
+        }
+
+        try {
+            fc.setYear(form.getYear());
+        } catch (NumberFormatException e) {
+            fc.addError("year", new PresenceValidator(fc, new String[] {})
+                .getMessage());
+        }
     }
 
     /**
@@ -107,10 +139,13 @@ public class MasterDataEditorSaveAction extends AbstractAction {
         hw.setMonth(form.getMonth());
         hw.setYear(form.getYear());
 
-        String wage = form.getWage();
-        if (!wage.isEmpty()) {
-            hw.setWage(new BigDecimal(wage));
+        try {
+            hw.setWage(new BigDecimal(form.getWage()));
+        } catch (NumberFormatException e) {
+            hw.addError("wage", new PresenceValidator(hw, new String[] {})
+                .getMessage());
         }
+
     }
 
     /*
@@ -134,7 +169,7 @@ public class MasterDataEditorSaveAction extends AbstractAction {
             break;
         case Assistant:
             setModel((Assistant) model, (AssistantEditorForm) tab
-                    .getEditorForm());
+                .getEditorForm());
             break;
         case FinancialCategory:
             /*
@@ -148,7 +183,7 @@ public class MasterDataEditorSaveAction extends AbstractAction {
             }
 
             setModel((FinancialCategory) model,
-                    (FinancialCategoryEditorForm) tab.getEditorForm());
+                (FinancialCategoryEditorForm) tab.getEditorForm());
             break;
         case HourlyWage:
             try {
@@ -157,12 +192,12 @@ public class MasterDataEditorSaveAction extends AbstractAction {
             }
 
             setModel((HourlyWage) model, (HourlyWageEditorForm) tab
-                    .getEditorForm());
+                .getEditorForm());
             break;
         }
 
         List<MasterDataTableModel> tableModels = MasterDataViewerTab.tableModels
-                .get(tab.getType());
+            .get(tab.getType());
 
         for (MasterDataTableModel tableModel : tableModels) {
             model.addObserver(tableModel);
@@ -181,6 +216,6 @@ public class MasterDataEditorSaveAction extends AbstractAction {
         }
 
         UI.getInstance().replaceCurrentTab(
-                new MasterDataViewerTab(tab.getType()));
+            new MasterDataViewerTab(tab.getType()));
     }
 }

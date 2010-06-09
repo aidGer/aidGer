@@ -42,6 +42,6 @@ public class MasterDataEditorCancelAction extends AbstractAction {
         MasterDataEditorTab tab = (MasterDataEditorTab) buttons.getParent();
 
         UI.getInstance().replaceCurrentTab(
-                new MasterDataViewerTab(tab.getType()));
+            new MasterDataViewerTab(tab.getType()));
     }
 }

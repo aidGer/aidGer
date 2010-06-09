@@ -36,7 +36,7 @@ public class HomepageAction extends AbstractAction {
         try {
             // Only works with Java >= 6
             java.awt.Desktop.getDesktop().browse(
-                    new java.net.URI("http://aidger.de"));
+                new java.net.URI("http://aidger.de"));
         } catch (Exception ex) {
             UI.displayError(ex.getMessage());
         }

@@ -79,12 +79,12 @@ public final class Application {
         ActionRegistry.getInstance().register(new MasterDataViewerEditAction());
         ActionRegistry.getInstance().register(new MasterDataViewerAddAction());
         ActionRegistry.getInstance().register(
-                new MasterDataViewerDeleteAction());
+            new MasterDataViewerDeleteAction());
         ActionRegistry.getInstance().register(
-                new MasterDataViewerActivitiesAction());
+            new MasterDataViewerActivitiesAction());
         ActionRegistry.getInstance().register(new MasterDataEditorSaveAction());
         ActionRegistry.getInstance().register(
-                new MasterDataEditorCancelAction());
+            new MasterDataEditorCancelAction());
     }
 
     /**
@@ -104,7 +104,7 @@ public final class Application {
         } catch (Exception e) {
             try {
                 UIManager.setLookAndFeel(UIManager
-                        .getSystemLookAndFeelClassName());
+                    .getSystemLookAndFeelClassName());
             } catch (Exception e_) {
 
             }
