@@ -5,6 +5,7 @@ import org.junit.Before;
 import static org.junit.Assert.*;
 
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import java.util.List;
 
 /**
  * Tests the Course class.
@@ -96,6 +97,31 @@ public class CourseTest {
         Course result = course.clone();
 
         assertEquals(course.hashCode(), result.hashCode());
+    }
+
+     /**
+     * Test of getCourses method, of class Assistant.
+     */
+    @Test
+    public void testGetCourses_FinancialCategory() throws AdoHiveException {
+        System.out.println("getCourses");
+
+        FinancialCategory fc = new FinancialCategory();
+        fc.setBudgetCosts(new int[] { 100, 200 });
+        fc.setFunds(new int[] { 10001000, 20002000 });
+        fc.setName("Tester");
+        fc.setYear((short) 2010);
+        fc.save();
+
+        course.clearTable();
+        course.setFinancialCategoryId(fc.getId());
+        course.save();
+
+        List result = course.getCourses(fc);
+
+        assertNotNull(result);
+        assertTrue(result.size() == 1);
+        assertEquals(course, result.get(0));
     }
 
 }
