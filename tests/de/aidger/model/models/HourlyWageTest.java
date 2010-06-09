@@ -28,7 +28,7 @@ public class HourlyWageTest {
     }
 
     /**
-     * Test of constructor, of class Contract.
+     * Test of constructor, of class HourlyWage.
      */
     @Test
     public void testConstructor() throws AdoHiveException {
@@ -44,6 +44,37 @@ public class HourlyWageTest {
 
         assertNotNull(result);
         assertEquals(hourly, result);
+    }
+
+    /**
+     * Test of validation methods, of class HourlyWage.
+     */
+    @Test
+    public void testValidation() throws AdoHiveException {
+        System.out.println("Validation");
+
+        hourly.clearTable();
+        assertTrue(hourly.save());
+
+        hourly.setQualification(null);
+        assertFalse(hourly.save());
+
+        hourly.setQualification("Q");
+        assertFalse(hourly.save());
+        hourly.setQualification("g");
+
+        hourly.setMonth((byte) -1);
+        assertFalse(hourly.save());
+
+        hourly.setMonth((byte) 13);
+        assertFalse(hourly.save());
+        hourly.setMonth((byte) 10);
+
+        hourly.setYear((short) 999);
+        assertFalse(hourly.save());
+
+        hourly.setYear((short) 10101);
+        assertFalse(hourly.save());
     }
 
 
