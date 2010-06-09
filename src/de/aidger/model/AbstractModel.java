@@ -165,11 +165,11 @@ public abstract class AbstractModel<T> extends Observable implements
      */
     @SuppressWarnings("unchecked")
     public boolean save() throws AdoHiveException {
-        if (!doValidate() || !errors.isEmpty()) {
-            if (!errors.isEmpty()) {
-                Logger
-                        .debug(_("The model was not saved because the error list is not empty."));
-            }
+        if (!doValidate()) {
+            return false;
+        } else if (!errors.isEmpty()) {
+            Logger
+                    .debug(_("The model was not saved because the error list is not empty."));
 
             return false;
         }
