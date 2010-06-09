@@ -9,5 +9,12 @@ build/*
 manifest.mf
 nbproject/*
 
+# Code Coverage
+coverage/*
+codecover/*
+
+# Database
+derby*
+
 bin/*
 *~
