@@ -197,6 +197,7 @@ public class AbstractModelTest {
     public void testSave() throws AdoHiveException {
         System.out.println("save");
 
+        /* Test of adding a model */
         Assistant a = new Assistant();
         a.setEmail("test@example.com");
         a.setFirstName("Test");
@@ -207,14 +208,29 @@ public class AbstractModelTest {
         assertTrue(a.getId() > 0);
         assertEquals(a, new Assistant(a.getById(a.getId())));
 
+        /* Test of updating a model */
         a.setFirstName("Tester");
         a.setLastName("Test");
 
         assertTrue(a.save());
         assertEquals(a, new Assistant(a.getById(a.getId())));
 
+        /* Test fail of doValidate */
         a.setFirstName(null);
         assertFalse(a.save());
+
+        /* Test saving when editing a primary key */
+        HourlyWage h = new HourlyWage();
+        h.clearTable();
+        h.setMonth((byte) 10);
+        h.setQualification("g");
+        h.setWage(new BigDecimal(200));
+        h.setYear((short) 2010);
+
+        assertTrue(h.save());
+
+        h.setQualification("u");
+        assertTrue(h.save());
     }
 
     /**

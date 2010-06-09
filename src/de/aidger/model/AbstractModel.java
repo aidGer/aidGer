@@ -42,6 +42,13 @@ public abstract class AbstractModel<T> extends Observable implements
     protected boolean isNew = true;
 
     /**
+     * Should the model first be removed before saveing. Needed for example for
+     * HourlyWage which has several Primary Keys and needs to be removed when
+     * edited.
+     */
+    protected boolean removeOnUpdate = false;
+
+    /**
      * Used to cache the AdoHiveManagers after getting them the first time.
      */
     protected static Map<String, IAdoHiveManager> managers = new HashMap<String, IAdoHiveManager>();
@@ -167,6 +174,9 @@ public abstract class AbstractModel<T> extends Observable implements
         if (isNew) {
             mgr.add(this);
             isNew = false;
+        } else if (removeOnUpdate) {
+            remove();
+            mgr.add(this);
         } else {
             mgr.update(this);
         }
