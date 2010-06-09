@@ -108,6 +108,7 @@ public class EmploymentTest {
         Date end = new Date(new GregorianCalendar(2010, 12, 1).getTime().
                 getTime());
 
+        employment.clearTable();
         employment.setMonth((byte) 10);
         employment.setYear((short) 2010);
         employment.setNew(true);
@@ -117,31 +118,124 @@ public class EmploymentTest {
         employment.setMonth((byte) 11);
         employment.save();
 
-        //TODO: Currently not implemented by AdoHive
         List result = employment.getEmployments(start, end);
 
         assertNotNull(result);
-        assertTrue(result.size() == 1);
+        assertTrue(result.size() == 2);
     }
 
     /**
      * Test of getEmployments method, of class Employment.
      */
     @Test
-    public void testGetEmployments_String() throws AdoHiveException {
+    public void testGetEmployments_short_byte_short_byte()
+            throws AdoHiveException {
         System.out.println("getEmployments");
-        String semester = "SS 10";
 
+        employment.clearTable();
         employment.setMonth((byte) 7);
         employment.setYear((short) 2010);
         employment.setNew(true);
         employment.save();
         
-        //TODO: Currently not implemented by AdoHive
-        List result = employment.getEmployments(semester);
+        List result = employment.getEmployments((short) 2010, (byte) 7,
+                (short) 2010, (byte) 8);
 
         assertNotNull(result);
         assertTrue(result.size() == 1);
+        assertEquals(employment, result.get(0));
     }
+
+    /**
+     * Test of getEmployments method, of class Employment.
+     */
+    @Test
+    public void testGetEmployments_Contract() throws AdoHiveException {
+        System.out.println("getEmployments");
+
+        Contract c = new Contract();
+        c.setCompletionDate(new Date(2));
+        c.setConfirmationDate(new Date(1));
+        c.setEndDate(new Date(2));
+        c.setStartDate(new Date(1));
+        c.setType("Type");
+        c.save();
+
+        employment.clearTable();
+        employment.setContractId(c.getId());
+        employment.setMonth((byte) 7);
+        employment.setYear((short) 2010);
+        employment.setNew(true);
+        employment.save();
+
+        List result = employment.getEmployments(c);
+
+        assertNotNull(result);
+        assertTrue(result.size() == 1);
+        assertEquals(employment, result.get(0));
+    }
+
+    /**
+     * Test of getEmployments method, of class Employment.
+     */
+    @Test
+    public void testGetEmployments_Assistant() throws AdoHiveException {
+        System.out.println("getEmployments");
+
+        Assistant a = new Assistant();
+        a.setEmail("test@example.com");
+        a.setFirstName("Test");
+        a.setLastName("Tester");
+        a.setQualification("u");
+
+        employment.clearTable();
+        employment.setAssistantId(a.getId());
+        employment.setMonth((byte) 7);
+        employment.setYear((short) 2010);
+        employment.setNew(true);
+        employment.save();
+
+        List result = employment.getEmployments(a);
+
+        assertNotNull(result);
+        assertTrue(result.size() == 1);
+        assertEquals(employment, result.get(0));
+    }
+
+    /**
+     * Test of getEmployments method, of class Employment.
+     */
+    @Test
+    public void testGetEmployments_Course() throws AdoHiveException {
+        System.out.println("getEmployments");
+
+        Course c = new Course();
+        c.setAdvisor("Tester");
+        c.setDescription("Description");
+        c.setFinancialCategoryId(1);
+        c.setGroup("2");
+        c.setLecturer("Test Tester");
+        c.setNumberOfGroups(3);
+        c.setPart('a');
+        c.setRemark("Remark");
+        c.setScope("Sniper Scope");
+        c.setSemester("SS 09");
+        c.setTargetAudience("Testers");
+        c.setUnqualifiedWorkingHours(100);
+
+        employment.clearTable();
+        employment.setCourseId(c.getId());
+        employment.setMonth((byte) 7);
+        employment.setYear((short) 2010);
+        employment.setNew(true);
+        employment.save();
+
+        List result = employment.getEmployments(c);
+
+        assertNotNull(result);
+        assertTrue(result.size() == 1);
+        assertEquals(employment, result.get(0));
+    }
+
 
 }

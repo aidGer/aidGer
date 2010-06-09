@@ -92,9 +92,8 @@ public class AbstractModelTest {
         h.setWage(new BigDecimal(200));
         h.save();
 
-        // TODO: Has to fail! AdoHive Bug
-        HourlyWage result = new HourlyWage(h.getByKeys("BLA", (byte) 11,
-                (short) 2011));
+        HourlyWage result = new HourlyWage(h.getByKeys("g", (byte) 10,
+                (short) 2010));
 
         assertNotNull(result);
         assertEquals(h, result);

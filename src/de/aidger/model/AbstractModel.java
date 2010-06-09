@@ -176,6 +176,7 @@ public abstract class AbstractModel<T> extends Observable implements
         } else if (removeOnUpdate) {
             remove();
             mgr.add(this);
+            setNew(false);
         } else {
             mgr.update(this);
         }

@@ -1,7 +1,12 @@
 package de.aidger.model.models;
 
 import de.aidger.model.AbstractModel;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
+import de.unistuttgart.iste.se.adohive.controller.ICourseManager;
+
+import java.util.List;
+import java.util.Vector;
 
 /**
  * Represents a single entry in the course column of the database. Contains
@@ -182,6 +187,17 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
         hash = 67 * hash + (group != null ? group.hashCode() : 0);
         hash = 67 * hash + (remark != null ? remark.hashCode() : 0);
         return hash;
+    }
+
+    public List<Course> getCourses(FinancialCategory category) throws AdoHiveException {
+        ICourseManager mgr = (ICourseManager) getManager();
+        List<ICourse> list = mgr.getCourses(category);
+        
+        List<Course> ret = new Vector<Course>();
+        for (ICourse course : list) {
+            ret.add(new Course(course));
+        }
+        return ret;
     }
 
     /**
