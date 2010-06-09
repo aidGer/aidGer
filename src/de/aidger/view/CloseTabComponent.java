@@ -73,7 +73,7 @@ public class CloseTabComponent extends JPanel {
 
         public void actionPerformed(ActionEvent e) {
             int i = UI.getInstance().getTabbedPane().indexOfTabComponent(
-                    CloseTabComponent.this);
+                CloseTabComponent.this);
 
             if (i != -1) {
                 UI.getInstance().removeTabAt(i);

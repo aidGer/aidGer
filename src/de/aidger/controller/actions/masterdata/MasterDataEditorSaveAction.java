@@ -64,18 +64,17 @@ public class MasterDataEditorSaveAction extends AbstractAction {
 
         try {
             course
-                    .setUnqualifiedWorkingHours(form
-                            .getUnqualifiedWorkingHours());
+                .setUnqualifiedWorkingHours(form.getUnqualifiedWorkingHours());
         } catch (NumberFormatException e) {
             course.addError("unqualifiedWorkingHours", new PresenceValidator(
-                    course, new String[] {}).getMessage());
+                course, new String[] {}).getMessage());
         }
 
         try {
             course.setPart(form.getPart());
         } catch (StringIndexOutOfBoundsException e) {
             course.addError("part", new PresenceValidator(course,
-                    new String[] {}).getMessage());
+                new String[] {}).getMessage());
         }
     }
 
@@ -109,21 +108,21 @@ public class MasterDataEditorSaveAction extends AbstractAction {
             fc.setBudgetCosts(form.getBudgetCosts());
         } catch (NumberFormatException e) {
             fc.addError("budgetCosts", new PresenceValidator(fc,
-                    new String[] {}).getMessage());
+                new String[] {}).getMessage());
         }
 
         try {
             fc.setFunds(form.getFunds());
         } catch (NumberFormatException e) {
             fc.addError("funds", new PresenceValidator(fc, new String[] {})
-                    .getMessage());
+                .getMessage());
         }
 
         try {
             fc.setYear(form.getYear());
         } catch (NumberFormatException e) {
             fc.addError("year", new PresenceValidator(fc, new String[] {})
-                    .getMessage());
+                .getMessage());
         }
     }
 
@@ -144,7 +143,7 @@ public class MasterDataEditorSaveAction extends AbstractAction {
             hw.setWage(new BigDecimal(form.getWage()));
         } catch (NumberFormatException e) {
             hw.addError("wage", new PresenceValidator(hw, new String[] {})
-                    .getMessage());
+                .getMessage());
         }
 
     }
@@ -170,7 +169,7 @@ public class MasterDataEditorSaveAction extends AbstractAction {
             break;
         case Assistant:
             setModel((Assistant) model, (AssistantEditorForm) tab
-                    .getEditorForm());
+                .getEditorForm());
             break;
         case FinancialCategory:
             /*
@@ -184,7 +183,7 @@ public class MasterDataEditorSaveAction extends AbstractAction {
             }
 
             setModel((FinancialCategory) model,
-                    (FinancialCategoryEditorForm) tab.getEditorForm());
+                (FinancialCategoryEditorForm) tab.getEditorForm());
             break;
         case HourlyWage:
             try {
@@ -193,12 +192,12 @@ public class MasterDataEditorSaveAction extends AbstractAction {
             }
 
             setModel((HourlyWage) model, (HourlyWageEditorForm) tab
-                    .getEditorForm());
+                .getEditorForm());
             break;
         }
 
         List<MasterDataTableModel> tableModels = MasterDataViewerTab.tableModels
-                .get(tab.getType());
+            .get(tab.getType());
 
         for (MasterDataTableModel tableModel : tableModels) {
             model.addObserver(tableModel);
@@ -217,6 +216,6 @@ public class MasterDataEditorSaveAction extends AbstractAction {
         }
 
         UI.getInstance().replaceCurrentTab(
-                new MasterDataViewerTab(tab.getType()));
+            new MasterDataViewerTab(tab.getType()));
     }
 }

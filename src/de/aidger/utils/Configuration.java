@@ -79,10 +79,8 @@ public final class Configuration {
             properties.store(outputStream, "");
             outputStream.close();
         } catch (Exception e) {
-            Logger
-                    .error(MessageFormat.format(
-                            _("Could not create file \"{0}\"."),
-                            new Object[] { file }));
+            Logger.error(MessageFormat.format(
+                _("Could not create file \"{0}\"."), new Object[] { file }));
         }
     }
 

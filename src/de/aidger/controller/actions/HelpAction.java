@@ -23,7 +23,7 @@ public class HelpAction extends AbstractAction {
     public HelpAction() {
         putValue(Action.NAME, _("Help"));
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_H,
-                ActionEvent.CTRL_MASK));
+            ActionEvent.CTRL_MASK));
         putValue(Action.SHORT_DESCRIPTION, _("Display the help"));
     }
 

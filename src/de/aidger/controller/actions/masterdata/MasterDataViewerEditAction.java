@@ -58,11 +58,11 @@ public class MasterDataViewerEditAction extends AbstractAction {
 
         if (tab.getTable().getSelectedRow() > -1) {
             int index = tab.getTable().getRowSorter().convertRowIndexToModel(
-                    tab.getTable().getSelectedRow());
+                tab.getTable().getSelectedRow());
 
             UI.getInstance().replaceCurrentTab(
-                    new MasterDataEditorTab(tab.getType(), tab.getTableModel()
-                            .getModel(index)));
+                new MasterDataEditorTab(tab.getType(), tab.getTableModel()
+                    .getModel(index)));
         } else {
             UI.displayError(_("Please select an entry from the table."));
         }

@@ -39,7 +39,7 @@ public class SaveSettingsAction extends AbstractAction {
     @Override
     public void actionPerformed(ActionEvent e) {
         SettingsDialog dlg = (SettingsDialog) ((JComponent) e.getSource())
-                .getTopLevelAncestor();
+            .getTopLevelAncestor();
 
         if (!PresenceValidator.validate(dlg.getUsername())) {
             UI.displayError(_("Username is empty."));
@@ -56,28 +56,28 @@ public class SaveSettingsAction extends AbstractAction {
 
         if (dlg.getSelectedLanguage() == -1
                 || dlg.getSelectedLanguage() >= Runtime.getInstance()
-                        .getLanguages().size()) {
+                    .getLanguages().size()) {
             UI
-                    .displayError(_("No Language selected or incorrect language selected."));
+                .displayError(_("No Language selected or incorrect language selected."));
             return;
         }
         Runtime.getInstance().setOption(
-                "language",
-                Runtime.getInstance().getLanguages().get(
-                        dlg.getSelectedLanguage()).fst());
+            "language",
+            Runtime.getInstance().getLanguages().get(dlg.getSelectedLanguage())
+                .fst());
 
         if (dlg.getNumOfActivities() <= 0) {
             UI
-                    .displayError(_("The number of activities needs to be bigger than 0."));
+                .displayError(_("The number of activities needs to be bigger than 0."));
             return;
         }
         Runtime.getInstance().setOption("activities",
-                Integer.toString(dlg.getNumOfActivities()));
+            Integer.toString(dlg.getNumOfActivities()));
 
         Runtime.getInstance().setOption("auto-open",
-                Boolean.toString(dlg.isOpenSelected()));
+            Boolean.toString(dlg.isOpenSelected()));
         Runtime.getInstance().setOption("auto-save",
-                Boolean.toString(dlg.isSaveSelected()));
+            Boolean.toString(dlg.isSaveSelected()));
 
         dlg.setVisible(false);
         dlg.dispose();

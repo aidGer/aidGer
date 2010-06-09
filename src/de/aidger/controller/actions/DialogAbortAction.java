@@ -25,7 +25,7 @@ public class DialogAbortAction extends AbstractAction {
     public DialogAbortAction() {
         putValue(Action.NAME, _("Cancel"));
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_A,
-                ActionEvent.CTRL_MASK));
+            ActionEvent.CTRL_MASK));
         putValue(Action.SHORT_DESCRIPTION, _("Cancel the operation"));
     }
 
@@ -38,7 +38,7 @@ public class DialogAbortAction extends AbstractAction {
     @Override
     public void actionPerformed(ActionEvent e) {
         JDialog dlg = (JDialog) ((JComponent) e.getSource())
-                .getTopLevelAncestor();
+            .getTopLevelAncestor();
         dlg.setVisible(false);
         dlg.dispose();
     }

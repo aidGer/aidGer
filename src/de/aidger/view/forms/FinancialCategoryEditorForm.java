@@ -48,7 +48,7 @@ public class FinancialCategoryEditorForm extends JPanel {
                 FundsLine fl = fundsLines.get(i);
                 fl.cmbFunds.setSelectedItem(String.valueOf(fc.getFunds()[i]));
                 fl.txtBudgetCosts.setText(String
-                        .valueOf(fc.getBudgetCosts()[i]));
+                    .valueOf(fc.getBudgetCosts()[i]));
             }
         } else {
             addNewFunds();
@@ -66,7 +66,7 @@ public class FinancialCategoryEditorForm extends JPanel {
 
         for (int i = 0; i < fundsLines.size(); ++i) {
             budgetCosts[i] = Integer.valueOf(fundsLines.get(i).txtBudgetCosts
-                    .getText());
+                .getText());
         }
 
         return budgetCosts;
@@ -83,7 +83,7 @@ public class FinancialCategoryEditorForm extends JPanel {
 
         for (int i = 0; i < fundsLines.size(); ++i) {
             funds[i] = Integer.valueOf((String) fundsLines.get(i).cmbFunds
-                    .getSelectedItem());
+                .getSelectedItem());
         }
 
         return funds;
@@ -159,7 +159,7 @@ public class FinancialCategoryEditorForm extends JPanel {
         gridBagConstraints.gridx = 4;
 
         FundsLine fl = new FundsLine(lblFunds, cmbFunds, lblBudgetCosts,
-                txtBudgetCosts, btnPlusMinus);
+            txtBudgetCosts, btnPlusMinus);
 
         if (fundsLines.isEmpty()) {
             btnPlusMinus.setText("+");

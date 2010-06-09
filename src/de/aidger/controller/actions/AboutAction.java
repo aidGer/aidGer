@@ -26,7 +26,7 @@ public class AboutAction extends AbstractAction {
     public AboutAction() {
         putValue(Action.NAME, _("About"));
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_A,
-                ActionEvent.CTRL_MASK));
+            ActionEvent.CTRL_MASK));
         putValue(Action.SHORT_DESCRIPTION, _("Show about informations"));
     }
 

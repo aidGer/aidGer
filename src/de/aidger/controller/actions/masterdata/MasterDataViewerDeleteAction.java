@@ -47,38 +47,36 @@ public class MasterDataViewerDeleteAction extends AbstractAction {
 
         if (tab.getTable().getSelectedRow() > -1) {
             int ret = JOptionPane.showConfirmDialog(tab,
-                    _("Do you really want to delete this entry?"), null,
-                    JOptionPane.YES_NO_OPTION);
+                _("Do you really want to delete this entry?"), null,
+                JOptionPane.YES_NO_OPTION);
 
             if (ret == JOptionPane.YES_OPTION) {
-                int index = tab
-                        .getTable()
-                        .getRowSorter()
-                        .convertRowIndexToModel(tab.getTable().getSelectedRow());
+                int index = tab.getTable().getRowSorter()
+                    .convertRowIndexToModel(tab.getTable().getSelectedRow());
 
                 try {
                     switch (tab.getType()) {
                     case Course:
                         Course course = (Course) tab.getTableModel().getModel(
-                                index);
+                            index);
 
                         course.remove();
                         break;
                     case Assistant:
                         Assistant assistant = (Assistant) tab.getTableModel()
-                                .getModel(index);
+                            .getModel(index);
 
                         assistant.remove();
                         break;
                     case FinancialCategory:
                         FinancialCategory fc = (FinancialCategory) tab
-                                .getTableModel().getModel(index);
+                            .getTableModel().getModel(index);
 
                         fc.remove();
                         break;
                     case HourlyWage:
                         HourlyWage hw = (HourlyWage) tab.getTableModel()
-                                .getModel(index);
+                            .getModel(index);
 
                         hw.remove();
                         break;

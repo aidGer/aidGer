@@ -219,7 +219,7 @@ public class TaskPaneContainer extends JPanel {
 
         collapsed.add(String.valueOf(tp.getPosition()));
         Runtime.getInstance().setOptionArray("taskPaneCollapsed",
-                collapsed.toArray(new String[0]));
+            collapsed.toArray(new String[0]));
     }
 
     /**
@@ -237,6 +237,6 @@ public class TaskPaneContainer extends JPanel {
 
         collapsed.remove(String.valueOf(tp.getPosition()));
         Runtime.getInstance().setOptionArray("taskPaneCollapsed",
-                collapsed.toArray(new String[0]));
+            collapsed.toArray(new String[0]));
     }
 }
