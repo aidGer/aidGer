@@ -4,6 +4,9 @@ import static de.aidger.utils.Translation._;
 
 import javax.swing.table.DefaultTableModel;
 
+import de.aidger.model.reports.BalanceCourse;
+import de.unistuttgart.iste.se.adohive.model.ICourse;
+
 /**
  * A JPanel which has the courses of a group in it.
  * 
@@ -15,10 +18,10 @@ public class BalanceReportGroupCreator extends javax.swing.JPanel {
     /**
      * The name of the group.
      */
-    private final String name;
+    private final String group;
 
     /**
-     * The tablemodel of the content table.
+     * The table model of the content table.
      */
     private final DefaultTableModel groupTableModel = new DefaultTableModel(
         null, new String[] { "java.lang.Object@38f3cbe6",
@@ -42,11 +45,28 @@ public class BalanceReportGroupCreator extends javax.swing.JPanel {
      * @param group
      *            The name of the group.
      */
-    public BalanceReportGroupCreator(String group) {
-        this.name = group;
+    public BalanceReportGroupCreator(String group, ICourse course) {
+        System.out.println(group);
+        this.group = group;
         initComponents();
         contentPanel.add(contentTable.getTableHeader(),
             java.awt.BorderLayout.NORTH);
+        addCourse(course);
+    }
+
+    /**
+     * Adds a course to the table.
+     * 
+     * @param course
+     *            The course to be added to the table.
+     */
+    public void addCourse(ICourse course) {
+        BalanceCourse balanceCourse = new BalanceCourse();
+        balanceCourse.setTitle(course.getDescription());
+        balanceCourse.setPart(course.getPart());
+        balanceCourse.setLecturer(course.getLecturer());
+        balanceCourse.setTargetAudience(course.getTargetAudience());
+        groupTableModel.addRow(balanceCourse.getCourseObject());
     }
 
     /**
@@ -63,7 +83,7 @@ public class BalanceReportGroupCreator extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        groupNameLabel.setText(_("Group") + (" ") + name);
+        groupNameLabel.setText(_("Group") + (" ") + group);
         add(groupNameLabel, java.awt.BorderLayout.PAGE_START);
 
         contentPanel.setLayout(new java.awt.BorderLayout());
