@@ -75,12 +75,8 @@ public abstract class AbstractModel<T> extends Observable implements
      * @return An array containing all found models or null
      */
     @SuppressWarnings("unchecked")
-    public List getAll() {
-        try {
-            return getManager().getAll();
-        } catch (Exception ex) {
-        }
-        return null;
+    public List getAll() throws AdoHiveException {
+        return getManager().getAll();
     }
 
     /**
@@ -91,12 +87,8 @@ public abstract class AbstractModel<T> extends Observable implements
      * @return The model if one was found or null
      */
     @SuppressWarnings("unchecked")
-    public T getById(int id) {
-        try {
-            return (T) getManager().getById(id);
-        } catch (Exception ex) {
-        }
-        return null;
+    public T getById(int id) throws AdoHiveException {
+        return (T) getManager().getById(id);
     }
 
     /**
@@ -107,12 +99,8 @@ public abstract class AbstractModel<T> extends Observable implements
      * @return The model if one was found or null
      */
     @SuppressWarnings("unchecked")
-    public T getByKeys(Object... o) {
-        try {
-            return (T) getManager().getByKeys(o);
-        } catch (Exception ex) {
-        }
-        return null;
+    public T getByKeys(Object... o) throws AdoHiveException {
+        return (T) getManager().getByKeys(o);
     }
 
     /**

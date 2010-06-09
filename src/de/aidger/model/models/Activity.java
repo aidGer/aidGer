@@ -173,16 +173,10 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @return The activities related to the assistant or null if none were found
      */
     @SuppressWarnings("unchecked")
-    public List<Activity> getActivities(Assistant assistant) {
+    public List<Activity> getActivities(Assistant assistant) throws
+            AdoHiveException {
     	IActivityManager mgr = (IActivityManager) getManager();
-    	try {
-            return (List<Activity>)(List<?>)mgr.getActivities(assistant);
-        } catch (AdoHiveException e) {
-            Logger.error(MessageFormat.format(
-                    _("Caught exception in getActivities(assistant): {0}"),
-                    new Object[] { e.getMessage() }));
-            return null;
-        }
+        return (List<Activity>)(List<?>)mgr.getActivities(assistant);
     }
 
     /**
@@ -193,16 +187,9 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @return The activities related to the course or null if none were found
      */
     @SuppressWarnings("unchecked")
-    public List<Activity> getActivities(Course course) {
+    public List<Activity> getActivities(Course course) throws AdoHiveException {
     	IActivityManager mgr = (IActivityManager) getManager();
-    	try {
-            return (List<Activity>)(List<?>)mgr.getActivities(course);
-        } catch (AdoHiveException e) {
-            Logger.error(MessageFormat.format(
-                    _("Caught exception in getActivities(course): {0}"),
-                    new Object[] { e.getMessage() }));
-            return null;
-        }
+        return (List<Activity>)(List<?>)mgr.getActivities(course);
     }
 
     /**
