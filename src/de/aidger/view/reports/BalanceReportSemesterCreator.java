@@ -37,7 +37,13 @@ public class BalanceReportSemesterCreator extends javax.swing.JPanel {
     public BalanceReportSemesterCreator(String semester) {
         this.name = semester;
         initComponents();
-        List<ICourse> courses = (new Course()).getAll();
+        List<ICourse> courses = null;
+        try {
+            courses = (new Course()).getAll();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
         for (ICourse course : courses) {
             if (course.getSemester().equals(semester)) {
                 if (balanceReportGroupCreators.isEmpty()) {
