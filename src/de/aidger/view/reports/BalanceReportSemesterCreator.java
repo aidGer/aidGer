@@ -47,17 +47,12 @@ public class BalanceReportSemesterCreator extends javax.swing.JPanel {
         for (ICourse course : courses) {
             if (course.getSemester().equals(semester)) {
                 if (balanceReportGroupCreators.isEmpty()) {
-                    System.out.println("isEmpty");
                     createGroup(course);
                 } else {
                     boolean foundGroup = false;
                     for (int i = 0; i <= balanceReportGroupCreators.size() - 1; i++) {
                         if (((Vector) balanceReportGroupCreators.get(i)).get(1)
                             .equals(course.getGroup())) {
-                            System.out.println("isEqual");
-                            System.out
-                                .println(((Vector) balanceReportGroupCreators
-                                    .get(i)).get(0));
                             ((BalanceReportGroupCreator) ((Vector) balanceReportGroupCreators
                                 .get(i)).get(0)).addCourse(course);
                             foundGroup = true;
