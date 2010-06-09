@@ -126,7 +126,7 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
     public boolean equals(Object o) {
         if (o instanceof Activity) {
             Activity a = (Activity) o;
-            return a.assistantId == assistantId && a.id == this.id &&
+            return a.assistantId == assistantId && a.id == id &&
                     a.courseId == courseId &&
                     (date == null ? a.date == null : a.date.equals(date)) &&
                     (content == null ? a.content == null :

@@ -1,8 +1,9 @@
 package de.aidger.model.models;
 
+import static de.aidger.utils.Translation._;
+
 import java.util.Arrays;
 
-import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 
@@ -40,7 +41,6 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      */
     public FinancialCategory() {
         validatePresenceOf(new String[] { "name" });
-        // TODO: Validate the budget costs and fonds
     }
 
     /**
@@ -118,6 +118,21 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
             addError("year", _("is an incorrect year"));
             ret = false;
         }
+
+        for (int b : budgetCosts) {
+            if (b <= 0) {
+                addError("budgetCosts", _("can't be zero."));
+                ret = false;
+            }
+        }
+
+        for (int f : funds) {
+            if (String.valueOf(f).length() != 8) {
+                addError("funds", _("has to have a length of 8"));
+                ret = false;
+            }
+        }
+
         return ret;
     }
 
