@@ -171,13 +171,22 @@ public abstract class AbstractModel<T> extends Observable implements
         /* Add or update model */
         IAdoHiveManager mgr = getManager();
         if (isNew) {
+            Logger.info(MessageFormat.format(_("Adding model: {0}"),
+                    new Object[] { toString() }));
+
             mgr.add(this);
             isNew = false;
         } else if (removeOnUpdate) {
+            Logger.info(MessageFormat.format(_("Readding model: {0}"),
+                    new Object[] { toString() }));
+
             remove();
             mgr.add(this);
             setNew(false);
         } else {
+            Logger.info(MessageFormat.format(_("Updating model: {0}"),
+                    new Object[] { toString() }));
+
             mgr.update(this);
         }
         setChanged();
@@ -194,6 +203,9 @@ public abstract class AbstractModel<T> extends Observable implements
     @SuppressWarnings("unchecked")
     public void remove() throws AdoHiveException {
         if (!isNew) {
+            Logger.info(MessageFormat.format(_("Removing model: {0}"),
+                    new Object[] { toString() }));
+
             getManager().remove(this);
             clearChanged();
             notifyObservers();

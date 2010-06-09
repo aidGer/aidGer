@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-10 00:39+0200\n"
+"POT-Creation-Date: 2010-06-10 01:16+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -22,7 +22,27 @@ msgstr "Die Datei \"{0}\" konnte nicht erstellt werden."
 msgid "The model was not saved because the error list is not empty."
 msgstr "Das Model wurde nicht gespeichert, da die Fehlerliste nicht leer ist."
 
-#: model/AbstractModel.java:401
+#: model/AbstractModel.java:174
+#, java-format
+msgid "Adding model: {0}"
+msgstr "Füge Model hinzu: {0}"
+
+#: model/AbstractModel.java:180
+#, java-format
+msgid "Readding model: {0}"
+msgstr "Füge Model erneut hinzu: {0}"
+
+#: model/AbstractModel.java:187
+#, java-format
+msgid "Updating model: {0}"
+msgstr "Update Model: {0}"
+
+#: model/AbstractModel.java:206
+#, java-format
+msgid "Removing model: {0}"
+msgstr "Entferne Model: {0}"
+
+#: model/AbstractModel.java:413
 #, java-format
 msgid "Could not get manager for class \"{0}\". Error: {1}"
 msgstr "Konnte Manager für Klasse \"{0}\" nicht finden. Fehler: {1}"
