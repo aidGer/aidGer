@@ -35,6 +35,24 @@ public class EmploymentTest {
     }
 
     /**
+     * Test of constructor, of class Contract.
+     */
+    @Test
+    public void testConstructor() throws AdoHiveException {
+        System.out.println("Constructor");
+
+        employment.setNew(true);
+        employment.save();
+
+        Employment result = new Employment(employment.getById(
+                employment.getId()));
+
+        assertNotNull(result);
+        assertEquals(employment, result);
+    }
+
+
+    /**
      * Test of clone method, of class Employment.
      */
     @Test

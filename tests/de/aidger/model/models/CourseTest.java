@@ -4,6 +4,8 @@ import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.*;
 
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+
 /**
  * Tests the Course class.
  *
@@ -30,6 +32,24 @@ public class CourseTest {
         course.setTargetAudience("Testers");
         course.setUnqualifiedWorkingHours(100);
     }
+
+    /**
+     * Test of constructor, of class Contract.
+     */
+    @Test
+    public void testConstructor() throws AdoHiveException {
+        System.out.println("Constructor");
+
+        course.setNew(true);
+        course.save();
+
+        Course result = new Course(course.getById(
+                course.getId()));
+
+        assertNotNull(result);
+        assertEquals(course, result);
+    }
+
 
     /**
      * Test of clone method, of class Course.

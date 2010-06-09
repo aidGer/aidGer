@@ -1,9 +1,6 @@
 package de.aidger.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.List;
 import java.math.BigDecimal;
@@ -205,16 +202,19 @@ public class AbstractModelTest {
         a.setFirstName("Test");
         a.setLastName("Tester");
         a.setQualification("Q");
-        a.save();
 
+        assertTrue(a.save());
         assertTrue(a.getId() > 0);
         assertEquals(a, new Assistant(a.getById(a.getId())));
 
         a.setFirstName("Tester");
         a.setLastName("Test");
-        a.save();
 
+        assertTrue(a.save());
         assertEquals(a, new Assistant(a.getById(a.getId())));
+
+        a.setFirstName(null);
+        assertFalse(a.save());
     }
 
     /**
@@ -318,7 +318,6 @@ public class AbstractModelTest {
         a.setLastName("Tester");
         a.setQualification("Q");
 
-        System.out.println(a.toString());
         assertEquals("Assistant [ID: 0, Qualification: Q, FirstName: Test, " +
                 "LastName: Tester, Email: test@example.com]", a.toString());
     }
