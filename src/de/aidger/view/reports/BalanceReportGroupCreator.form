@@ -19,7 +19,7 @@
     <Component class="javax.swing.JLabel" name="groupNameLabel">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="_(&quot;Group&quot;) + (&quot; &quot;) + name" type="code"/>
+          <Connection code="_(&quot;Group&quot;) + (&quot; &quot;) + group" type="code"/>
         </Property>
       </Properties>
       <Constraints>

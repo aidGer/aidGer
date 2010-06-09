@@ -2,8 +2,15 @@ package de.aidger.view.reports;
 
 import static de.aidger.utils.Translation._;
 
+import java.util.List;
+import java.util.Vector;
+
+import de.aidger.model.models.Course;
+import de.unistuttgart.iste.se.adohive.model.ICourse;
+
 /**
- * A JPanel which holds all the groups of a semester.
+ * A JPanel which holds all the groups of a semester. This class also
+ * initializes the groups of the balance report.
  * 
  * @author aidGer Team
  */
@@ -15,17 +22,65 @@ public class BalanceReportSemesterCreator extends javax.swing.JPanel {
     private final String name;
 
     /**
+     * The vector containing the balanceReportGroupCreators and the names of
+     * their groups.
+     */
+    private final Vector balanceReportGroupCreators = new Vector<Vector>();
+
+    /**
      * Initializes a new BalanceReportSemesterCreator and adds the groups of the
      * semester.
      * 
-     * @param name
+     * @param semester
      *            The name of the semester.
      */
-    public BalanceReportSemesterCreator(String name) {
-        this.name = name;
+    public BalanceReportSemesterCreator(String semester) {
+        this.name = semester;
         initComponents();
-        add(new BalanceReportGroupCreator("-"));
-        add(new BalanceReportGroupCreator("Forschung"));
+        List<ICourse> courses = (new Course()).getAll();
+        for (ICourse course : courses) {
+            if (course.getSemester().equals(semester)) {
+                if (balanceReportGroupCreators.isEmpty()) {
+                    System.out.println("isEmpty");
+                    createGroup(course);
+                } else {
+                    boolean foundGroup = false;
+                    for (int i = 0; i <= balanceReportGroupCreators.size() - 1; i++) {
+                        if (((Vector) balanceReportGroupCreators.get(i)).get(1)
+                            .equals(course.getGroup())) {
+                            System.out.println("isEqual");
+                            System.out
+                                .println(((Vector) balanceReportGroupCreators
+                                    .get(i)).get(0));
+                            ((BalanceReportGroupCreator) ((Vector) balanceReportGroupCreators
+                                .get(i)).get(0)).addCourse(course);
+                            foundGroup = true;
+                            break;
+                        }
+                    }
+                    if (!foundGroup) {
+                        createGroup(course);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Creates a new group and adds it to the balanceReportGroupCreators vector.
+     * 
+     * @param course
+     *            The first course, which the group contains.
+     */
+    private void createGroup(ICourse course) {
+        BalanceReportGroupCreator balanceReportGroupCreator = new BalanceReportGroupCreator(
+            course.getGroup(), course);
+        balanceReportGroupCreators.add(new Vector<Object>());
+        int i = balanceReportGroupCreators.size() - 1;
+        ((Vector) balanceReportGroupCreators.get(i))
+            .add(balanceReportGroupCreator);
+        ((Vector) balanceReportGroupCreators.get(i)).add(course.getGroup());
+        this.add(balanceReportGroupCreator);
     }
 
     /**
@@ -38,7 +93,8 @@ public class BalanceReportSemesterCreator extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder(_("Semester") + (" ") + name));
+        setBorder(javax.swing.BorderFactory.createTitledBorder(_("Semester")
+                + (" ") + name));
         setLayout(new java.awt.GridLayout(0, 1));
     }// </editor-fold>//GEN-END:initComponents
 
