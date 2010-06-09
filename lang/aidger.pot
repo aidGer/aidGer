@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-06 20:55+0200\n"
+"POT-Creation-Date: 2010-06-09 11:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,11 @@ msgstr ""
 msgid "Could not create file \"{0}\"."
 msgstr ""
 
-#: model/AbstractModel.java:335
+#: model/AbstractModel.java:171
+msgid "The model was not saved because the error list is not empty."
+msgstr ""
+
+#: model/AbstractModel.java:403
 #, java-format
 msgid "Could not get manager for class \"{0}\". Error: {1}"
 msgstr ""
@@ -34,20 +38,20 @@ msgstr ""
 msgid "is an invalid email address"
 msgstr ""
 
-#: model/validators/DateRangeValidator.java:32
+#: model/validators/DateRangeValidator.java:27
 msgid "is an incorrect date range"
 msgstr ""
 
-#: model/validators/Validator.java:34 model/validators/Validator.java:46
+#: model/validators/Validator.java:34 model/validators/Validator.java:48
 msgid "Default error"
 msgstr ""
 
-#: model/models/Activity.java:161
+#: model/models/Activity.java:181
 #, java-format
 msgid "Caught exception in getActivities(assistant): {0}"
 msgstr ""
 
-#: model/models/Activity.java:181
+#: model/models/Activity.java:201
 #, java-format
 msgid "Caught exception in getActivities(course): {0}"
 msgstr ""
@@ -93,7 +97,7 @@ msgid "Add hourly wage"
 msgstr ""
 
 #: view/tabs/MasterDataEditorTab.java:258
-#: controller/actions/masterdata/MasterDataEditorSaveAction.java:39
+#: controller/actions/masterdata/MasterDataEditorSaveAction.java:43
 #: controller/actions/SaveSettingsAction.java:29
 msgid "Save"
 msgstr ""
@@ -120,7 +124,7 @@ msgstr ""
 
 #: view/tabs/FinancialCategoryViewerTab.java:67
 #: view/tabs/FinancialCategoryViewerTab.java:106
-#: view/forms/FinancialCategoryEditorForm.java:106
+#: view/forms/FinancialCategoryEditorForm.java:202
 #: view/models/FinancialCategoryTableModel.java:22
 msgid "Name"
 msgstr ""
@@ -134,8 +138,8 @@ msgid "Fund"
 msgstr ""
 
 #: view/tabs/FinancialCategoryViewerTab.java:73
-#: view/forms/FinancialCategoryEditorForm.java:128
-#: view/models/HourlyWageTableModel.java:21
+#: view/forms/FinancialCategoryEditorForm.java:208
+#: view/models/HourlyWageTableModel.java:22
 #: view/models/FinancialCategoryTableModel.java:23
 msgid "Year"
 msgstr ""
@@ -144,61 +148,61 @@ msgstr ""
 msgid "(Unnamed)"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:197
+#: view/tabs/MasterDataViewerTab.java:225
 msgid "Master Data Courses"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:199
+#: view/tabs/MasterDataViewerTab.java:227
 msgid "Master Data Assistants"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:201
+#: view/tabs/MasterDataViewerTab.java:229
 msgid "Master Data Financial Categories"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:203
+#: view/tabs/MasterDataViewerTab.java:231
 msgid "Master Data Hourly Wages"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:205
+#: view/tabs/MasterDataViewerTab.java:233
 msgid "Master Data"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:310
-#: view/tabs/MasterDataViewerTab.java:328
+#: view/tabs/MasterDataViewerTab.java:338
+#: view/tabs/MasterDataViewerTab.java:356
 #: controller/actions/masterdata/MasterDataViewerViewAction.java:33
 msgid "View"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:313
-#: view/tabs/MasterDataViewerTab.java:335
+#: view/tabs/MasterDataViewerTab.java:341
+#: view/tabs/MasterDataViewerTab.java:363
 #: controller/actions/masterdata/MasterDataViewerEditAction.java:33
 msgid "Edit"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:316
-#: view/tabs/MasterDataViewerTab.java:349
+#: view/tabs/MasterDataViewerTab.java:344
+#: view/tabs/MasterDataViewerTab.java:377
 #: controller/actions/masterdata/MasterDataViewerDeleteAction.java:33
 msgid "Delete"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:319 view/tabs/CourseViewerTab.java:427
-#: view/UI.java:463
+#: view/tabs/MasterDataViewerTab.java:347 view/tabs/CourseViewerTab.java:427
+#: view/UI.java:466
 #: controller/actions/masterdata/MasterDataViewerActivitiesAction.java:22
 msgid "Activities"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:342
+#: view/tabs/MasterDataViewerTab.java:370
 #: controller/actions/masterdata/MasterDataViewerAddAction.java:28
 msgid "Add"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:356
+#: view/tabs/MasterDataViewerTab.java:384
 #: view/tabs/AssistantViewerTab.java:213
 msgid "Activites"
 msgstr ""
 
-#: view/tabs/MasterDataViewerTab.java:383
+#: view/tabs/MasterDataViewerTab.java:411
 msgid "Search"
 msgstr ""
 
@@ -206,14 +210,14 @@ msgstr ""
 msgid "Assistant Viewing"
 msgstr ""
 
-#: view/tabs/AssistantViewerTab.java:72 view/forms/AssistantEditorForm.java:96
-#: view/models/AssistantTableModel.java:21
+#: view/tabs/AssistantViewerTab.java:72 view/forms/AssistantEditorForm.java:99
+#: view/models/AssistantTableModel.java:22
 msgid "First Name"
 msgstr ""
 
 #: view/tabs/AssistantViewerTab.java:74
-#: view/forms/AssistantEditorForm.java:102
-#: view/models/AssistantTableModel.java:21
+#: view/forms/AssistantEditorForm.java:105
+#: view/models/AssistantTableModel.java:22
 msgid "Last Name"
 msgstr ""
 
@@ -222,10 +226,10 @@ msgid "eMail Address"
 msgstr ""
 
 #: view/tabs/AssistantViewerTab.java:78 view/tabs/HourlyWageViewerTab.java:65
-#: view/forms/AssistantEditorForm.java:118
-#: view/forms/HourlyWageEditorForm.java:96
-#: view/models/HourlyWageTableModel.java:21
-#: view/models/AssistantTableModel.java:22
+#: view/forms/AssistantEditorForm.java:121
+#: view/forms/HourlyWageEditorForm.java:147
+#: view/models/HourlyWageTableModel.java:22
+#: view/models/AssistantTableModel.java:23
 msgid "Qualification"
 msgstr ""
 
@@ -238,12 +242,12 @@ msgid "Complexity"
 msgstr ""
 
 #: view/tabs/CourseViewerTab.java:90 view/tabs/CourseViewerTab.java:146
-#: view/forms/CourseEditorForm.java:311 view/models/CourseTableModel.java:23
+#: view/forms/CourseEditorForm.java:313 view/models/CourseTableModel.java:23
 msgid "Part"
 msgstr ""
 
 #: view/tabs/CourseViewerTab.java:92 view/tabs/CourseViewerTab.java:147
-#: view/forms/CourseEditorForm.java:319 view/models/CourseTableModel.java:23
+#: view/forms/CourseEditorForm.java:321 view/models/CourseTableModel.java:23
 msgid "Group"
 msgstr ""
 
@@ -252,7 +256,7 @@ msgid "Comment"
 msgstr ""
 
 #: view/tabs/CourseViewerTab.java:96 view/tabs/CourseViewerTab.java:150
-#: view/forms/CourseEditorForm.java:335 view/models/CourseTableModel.java:24
+#: view/forms/CourseEditorForm.java:337 view/models/CourseTableModel.java:24
 msgid "Financial Category"
 msgstr ""
 
@@ -261,17 +265,17 @@ msgid "Title"
 msgstr ""
 
 #: view/tabs/CourseViewerTab.java:217 view/tabs/CourseViewerTab.java:279
-#: view/forms/CourseEditorForm.java:211 view/models/CourseTableModel.java:21
+#: view/forms/CourseEditorForm.java:213 view/models/CourseTableModel.java:21
 msgid "Semester"
 msgstr ""
 
 #: view/tabs/CourseViewerTab.java:219 view/tabs/CourseViewerTab.java:280
-#: view/forms/CourseEditorForm.java:219 view/models/CourseTableModel.java:21
+#: view/forms/CourseEditorForm.java:221 view/models/CourseTableModel.java:21
 msgid "Lecturer"
 msgstr ""
 
 #: view/tabs/CourseViewerTab.java:221 view/tabs/CourseViewerTab.java:281
-#: view/forms/CourseEditorForm.java:235 view/models/CourseTableModel.java:22
+#: view/forms/CourseEditorForm.java:237 view/models/CourseTableModel.java:22
 msgid "Number of Groups"
 msgstr ""
 
@@ -313,177 +317,177 @@ msgstr ""
 msgid "Removing {0}. tab"
 msgstr ""
 
-#: view/UI.java:322
+#: view/UI.java:325
 #, java-format
 msgid "Setting current tab to \"{0}\""
 msgstr ""
 
-#: view/UI.java:385
+#: view/UI.java:388
 msgid "File"
 msgstr ""
 
-#: view/UI.java:404 controller/actions/HelpAction.java:24
+#: view/UI.java:407 controller/actions/HelpAction.java:24
 msgid "Help"
 msgstr ""
 
-#: view/UI.java:444
+#: view/UI.java:447
 msgid "Master Data Management"
 msgstr ""
 
-#: view/UI.java:446
+#: view/UI.java:449
 msgid "Courses"
 msgstr ""
 
-#: view/UI.java:447
+#: view/UI.java:450
 msgid "Assistants"
 msgstr ""
 
-#: view/UI.java:449
+#: view/UI.java:452
 msgid "Financial Categories"
 msgstr ""
 
-#: view/UI.java:451
+#: view/UI.java:454
 msgid "Hourly Wages"
 msgstr ""
 
-#: view/UI.java:455
+#: view/UI.java:458
 msgid "Employments"
 msgstr ""
 
-#: view/UI.java:457
+#: view/UI.java:460
 msgid "Create new employment"
 msgstr ""
 
-#: view/UI.java:459
+#: view/UI.java:462
 msgid "Show all contracts"
 msgstr ""
 
-#: view/UI.java:464
+#: view/UI.java:467
 msgid "Create new activity"
 msgstr ""
 
-#: view/UI.java:466
+#: view/UI.java:469
 msgid "Export"
 msgstr ""
 
-#: view/UI.java:469
+#: view/UI.java:472
 msgid "Reports"
 msgstr ""
 
-#: view/UI.java:471
+#: view/UI.java:474
 msgid "Annual Balance"
 msgstr ""
 
-#: view/UI.java:471
+#: view/UI.java:474
 msgid "Semester Balance"
 msgstr ""
 
-#: view/UI.java:472
+#: view/UI.java:475
 msgid "Partial Balance"
 msgstr ""
 
-#: view/UI.java:472
+#: view/UI.java:475
 msgid "Activity Report"
 msgstr ""
 
-#: view/UI.java:472
+#: view/UI.java:475
 msgid "Protocol"
 msgstr ""
 
-#: view/UI.java:475
+#: view/UI.java:478
 msgid "Controlling"
 msgstr ""
 
-#: view/UI.java:477
+#: view/UI.java:480
 msgid "Choose a month"
 msgstr ""
 
-#: view/UI.java:482
+#: view/UI.java:485
 msgid "Budget Check"
 msgstr ""
 
-#: view/UI.java:484
+#: view/UI.java:487
 msgid "Add Filter"
 msgstr ""
 
-#: view/UI.java:489
+#: view/UI.java:492
 msgid "Quick Settings"
 msgstr ""
 
-#: view/UI.java:490
+#: view/UI.java:493
 msgid "Remember my tabs"
 msgstr ""
 
-#: view/UI.java:491
+#: view/UI.java:494
 msgid "Open reports instantly"
 msgstr ""
 
-#: view/UI.java:535
+#: view/UI.java:538
 msgid "Open a new tab"
 msgstr ""
 
-#: view/UI.java:567
+#: view/UI.java:570
 msgid "Ready"
 msgstr ""
 
-#: view/forms/AssistantEditorForm.java:110
-#: view/models/AssistantTableModel.java:21
+#: view/forms/AssistantEditorForm.java:113
+#: view/models/AssistantTableModel.java:22
 msgid "Email"
 msgstr ""
 
-#: view/forms/HourlyWageEditorForm.java:102
-msgid "Date"
-msgstr ""
-
-#: view/forms/HourlyWageEditorForm.java:110
-#: view/models/HourlyWageTableModel.java:22
-msgid "Wage"
-msgstr ""
-
-#: view/forms/HourlyWageEditorForm.java:118
+#: view/forms/HourlyWageEditorForm.java:23
 msgid "Unchecked"
 msgstr ""
 
-#: view/forms/HourlyWageEditorForm.java:118
+#: view/forms/HourlyWageEditorForm.java:23
 msgid "Checked"
 msgstr ""
 
-#: view/forms/HourlyWageEditorForm.java:118
+#: view/forms/HourlyWageEditorForm.java:23
 msgid "Bachelor"
 msgstr ""
 
-#: view/forms/CourseEditorForm.java:205 view/models/CourseTableModel.java:21
+#: view/forms/HourlyWageEditorForm.java:153
+msgid "Date"
+msgstr ""
+
+#: view/forms/HourlyWageEditorForm.java:161
+#: view/models/HourlyWageTableModel.java:23
+msgid "Wage"
+msgstr ""
+
+#: view/forms/CourseEditorForm.java:207 view/models/CourseTableModel.java:21
 msgid "Description"
 msgstr ""
 
-#: view/forms/CourseEditorForm.java:227 view/models/CourseTableModel.java:22
+#: view/forms/CourseEditorForm.java:229 view/models/CourseTableModel.java:22
 msgid "Advisor"
 msgstr ""
 
-#: view/forms/CourseEditorForm.java:243 view/models/CourseTableModel.java:22
+#: view/forms/CourseEditorForm.java:245 view/models/CourseTableModel.java:22
 msgid "Target Audience"
 msgstr ""
 
-#: view/forms/CourseEditorForm.java:295 view/models/CourseTableModel.java:23
+#: view/forms/CourseEditorForm.java:297 view/models/CourseTableModel.java:23
 msgid "Granted AWH"
 msgstr ""
 
-#: view/forms/CourseEditorForm.java:303 view/models/CourseTableModel.java:23
+#: view/forms/CourseEditorForm.java:305 view/models/CourseTableModel.java:23
 msgid "Scope"
 msgstr ""
 
-#: view/forms/CourseEditorForm.java:327 view/models/CourseTableModel.java:24
+#: view/forms/CourseEditorForm.java:329 view/models/CourseTableModel.java:24
 msgid "Remark"
 msgstr ""
 
-#: view/forms/FinancialCategoryEditorForm.java:112
-#: view/models/FinancialCategoryTableModel.java:22
-msgid "Budget Costs"
-msgstr ""
-
-#: view/forms/FinancialCategoryEditorForm.java:120
+#: view/forms/FinancialCategoryEditorForm.java:118
 #: view/models/FinancialCategoryTableModel.java:22
 msgid "Funds"
+msgstr ""
+
+#: view/forms/FinancialCategoryEditorForm.java:138
+#: view/models/FinancialCategoryTableModel.java:22
+msgid "Budget Costs"
 msgstr ""
 
 #: view/CloseTabComponent.java:54
@@ -511,13 +515,12 @@ msgid "Opening browser to http://aidger.de"
 msgstr ""
 
 #: view/models/CourseTableModel.java:24
-#: view/models/HourlyWageTableModel.java:22
-#: view/models/AssistantTableModel.java:22
+#: view/models/AssistantTableModel.java:23
 #: view/models/FinancialCategoryTableModel.java:23
 msgid "ID"
 msgstr ""
 
-#: view/models/HourlyWageTableModel.java:21
+#: view/models/HourlyWageTableModel.java:22
 msgid "Month"
 msgstr ""
 
@@ -557,7 +560,7 @@ msgstr ""
 msgid "Language:"
 msgstr ""
 
-#: controller/actions/masterdata/MasterDataEditorSaveAction.java:153
+#: controller/actions/masterdata/MasterDataEditorSaveAction.java:214
 msgid "Could not save the model to database."
 msgstr ""
 

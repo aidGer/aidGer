@@ -205,12 +205,6 @@ public class MasterDataEditorSaveAction extends AbstractAction {
         }
 
         try {
-            if (!model.getErrors().isEmpty()) {
-                tab.updateHints();
-
-                return;
-            }
-
             if (!model.save()) {
                 tab.updateHints();
 
