@@ -35,11 +35,10 @@ public class BalanceReportSemesterCreator extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed"
-    // desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder(_("Semester")
-                + (" ") + name));
+        setBorder(javax.swing.BorderFactory.createTitledBorder(_("Semester") + (" ") + name));
         setLayout(new java.awt.GridLayout(0, 1));
     }// </editor-fold>//GEN-END:initComponents
 

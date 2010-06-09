@@ -17,7 +17,6 @@ public class BalanceViewerTab extends Tab {
     public BalanceViewerTab() {
         initComponents();
         add(new BalanceReportSemesterCreator("2009"));
-        add(new BalanceReportSemesterCreator("2010"));
     }
 
     /*
@@ -46,14 +45,14 @@ public class BalanceViewerTab extends Tab {
         jTextField3.setText("jTextField3");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(
-                jPanel2);
+            jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(jPanel2Layout.createParallelGroup(
-                javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 100,
-                Short.MAX_VALUE));
+            javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 100,
+            Short.MAX_VALUE));
         jPanel2Layout.setVerticalGroup(jPanel2Layout.createParallelGroup(
-                javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 100,
-                Short.MAX_VALUE));
+            javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 100,
+            Short.MAX_VALUE));
 
         setLayout(new java.awt.GridLayout(0, 1));
     }// </editor-fold>//GEN-END:initComponents
