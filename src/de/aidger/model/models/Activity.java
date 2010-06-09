@@ -83,6 +83,7 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      */
     public Activity(IActivity a) {
         this();
+        setNew(false);
         setId(a.getId());
         setAssistantId(a.getAssistantId());
         setContent(a.getContent());
@@ -125,12 +126,12 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
     public boolean equals(Object o) {
         if (o instanceof Activity) {
             Activity a = (Activity) o;
-            return a.assistantId == assistantId && a.id == this.id &&
+            return a.assistantId == assistantId && a.id == id &&
                     a.courseId == courseId &&
-                    (date == null ? a.date == null : a.date.equals(date)) &&
+                    (date == null ? a.date == null : a.date.toString().equals(date.toString())) &&
                     (content == null ? a.content == null :
                             a.content.equals(content)) &&
-                    (documentType == null ? a.documentType == null : 
+                    (documentType == null ? a.documentType == null :
                             a.documentType.equals(documentType)) &&
                     (processor == null ? a.processor == null :
                             a.processor.equals(processor)) &&
@@ -172,16 +173,10 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @return The activities related to the assistant or null if none were found
      */
     @SuppressWarnings("unchecked")
-    public List<Activity> getActivities(Assistant assistant) {
+    public List<Activity> getActivities(Assistant assistant) throws
+            AdoHiveException {
     	IActivityManager mgr = (IActivityManager) getManager();
-    	try {
-            return (List<Activity>)(List<?>)mgr.getActivities(assistant);
-        } catch (AdoHiveException e) {
-            Logger.error(MessageFormat.format(
-                    _("Caught exception in getActivities(assistant): {0}"),
-                    new Object[] { e.getMessage() }));
-            return null;
-        }
+        return (List<Activity>)(List<?>)mgr.getActivities(assistant);
     }
 
     /**
@@ -192,16 +187,9 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @return The activities related to the course or null if none were found
      */
     @SuppressWarnings("unchecked")
-    public List<Activity> getActivities(Course course) {
+    public List<Activity> getActivities(Course course) throws AdoHiveException {
     	IActivityManager mgr = (IActivityManager) getManager();
-    	try {
-            return (List<Activity>)(List<?>)mgr.getActivities(course);
-        } catch (AdoHiveException e) {
-            Logger.error(MessageFormat.format(
-                    _("Caught exception in getActivities(course): {0}"),
-                    new Object[] { e.getMessage() }));
-            return null;
-        }
+        return (List<Activity>)(List<?>)mgr.getActivities(course);
     }
 
     /**

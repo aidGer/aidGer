@@ -1,11 +1,14 @@
 package de.aidger.view.models;
 
 import static de.aidger.utils.Translation._;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 import java.util.List;
 
 import de.aidger.model.models.Course;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * The class represents the table model for the master data courses.
@@ -34,7 +37,12 @@ public class CourseTableModel extends MasterDataTableModel {
     public void refresh() {
         super.refresh();
 
-        List<ICourse> courses = (new Course()).getAll();
+        List<ICourse> courses = null;
+        try {
+            courses = (new Course()).getAll();
+        } catch (AdoHiveException ex) {
+            Logger.getLogger(CourseTableModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         for (ICourse course : courses) {
             masterData.add(new Course(course));

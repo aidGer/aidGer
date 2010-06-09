@@ -71,6 +71,8 @@ public class Employment extends AbstractModel<IEmployment> implements
      */
     public Employment() {
         validatePresenceOf(new String[] { "costUnit", "qualification" });
+        validateInclusionOf(new String[] { "qualification" }, new String[] {
+                "g", "u", "b"});
         //TODO: Validate the Ids
         //TODO: Validate the fonds
         //TODO: Validate the hourCount

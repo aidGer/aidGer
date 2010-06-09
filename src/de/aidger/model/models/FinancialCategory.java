@@ -1,5 +1,7 @@
 package de.aidger.model.models;
 
+import static de.aidger.utils.Translation._;
+
 import java.util.Arrays;
 
 import de.aidger.model.AbstractModel;
@@ -39,8 +41,6 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      */
     public FinancialCategory() {
         validatePresenceOf(new String[] { "name" });
-        // TODO: Validate the budget costs and fonds
-        // TODO: Validate the year
     }
 
     /**
@@ -84,8 +84,8 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
     public boolean equals(Object o) {
         if (o instanceof FinancialCategory) {
             FinancialCategory f = (FinancialCategory) o;
-            return f.id == id && f.budgetCosts == budgetCosts
-                    && f.funds == funds && f.year == year
+            return f.id == id && Arrays.equals(f.budgetCosts, budgetCosts)
+                    && Arrays.equals(f.funds, funds) && f.year == year
                     && (name == null ? f.name == null : f.name.equals(name));
         } else {
             return false;
@@ -105,6 +105,35 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
         hash = 37 * hash + Arrays.hashCode(funds);
         hash = 37 * hash + year;
         return hash;
+    }
+
+    /**
+     * Custom validation function.
+     *
+     * @return True if the validation is successfull
+     */
+    public boolean validate() {
+        boolean ret = true;
+        if (year <= 1000 || year >= 10000) {
+            addError("year", _("is an incorrect year"));
+            ret = false;
+        }
+
+        for (int b : budgetCosts) {
+            if (b <= 0) {
+                addError("budgetCosts", _("can't be zero."));
+                ret = false;
+            }
+        }
+
+        for (int f : funds) {
+            if (String.valueOf(f).length() != 8) {
+                addError("funds", _("has to have a length of 8"));
+                ret = false;
+            }
+        }
+
+        return ret;
     }
 
     /**

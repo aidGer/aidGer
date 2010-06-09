@@ -2,6 +2,7 @@ package de.aidger.model.models;
 
 import java.math.BigDecimal;
 
+import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
 
@@ -38,8 +39,11 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      * Initializes the HourlyWage class.
      */
     public HourlyWage() {
+        removeOnUpdate = true;
+
         validatePresenceOf(new String[] { "qualification" });
-        // TODO: Validate month and year
+        validateInclusionOf(new String[] { "qualification" }, new String[] {
+                "g", "u", "b"});
     }
 
     /**
@@ -50,6 +54,7 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      */
     public HourlyWage(IHourlyWage h) {
         this();
+        setNew(false);
         setId(h.getId());
         setMonth(h.getMonth());
         setQualification(h.getQualification());
@@ -111,6 +116,24 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
         hash = 37 * hash + year;
         hash = 37 * hash + (wage != null ? wage.hashCode() : 0);
         return hash;
+    }
+
+    /**
+     * Custom validation function.
+     *
+     * @return True if the validation is successfull
+     */
+    public boolean validate() {
+        boolean ret = true;
+        if (year <= 1000 || year >= 10000) {
+            addError("year", _("is an incorrect year"));
+            ret = false;
+        }
+        if (month <= 0 || month >= 13) {
+            addError("month", _("is an incorrect month"));
+            ret = false;
+        }
+        return ret;
     }
 
     /**

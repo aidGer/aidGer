@@ -108,14 +108,12 @@ public class ActivityTest {
         a.setEmail("test@example.com");
         a.setFirstName("Test");
         a.setLastName("Tester");
-        a.setQualification("Q");
+        a.setQualification("g");
         a.save();
-        System.out.println(a.getId());
 
         activity.setAssistantId(a.getId());
         activity.setNew(true);
         activity.save();
-        System.out.println(activity.getId());
 
         //TODO: Currently not implemented by AdoHive
         List result = activity.getActivities(a);

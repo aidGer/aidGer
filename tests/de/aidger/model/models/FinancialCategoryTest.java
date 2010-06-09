@@ -1,9 +1,14 @@
 package de.aidger.model.models;
 
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Before;
-import static org.junit.Assert.*;
+import org.junit.Test;
+
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * Tests the FinancialCategory class.
@@ -19,7 +24,7 @@ public class FinancialCategoryTest {
         financial = new FinancialCategory();
         financial.setId(1);
         financial.setBudgetCosts(new int[] { 100, 200 });
-        financial.setFunds(new int[] { 100, 200 });
+        financial.setFunds(new int[] { 10001000, 20002000 });
         financial.setName("Tester");
         financial.setYear((short) 2010);
     }
@@ -39,6 +44,38 @@ public class FinancialCategoryTest {
 
         assertNotNull(result);
         assertEquals(financial, result);
+    }
+
+    /**
+     * Test of validation methods, of class FinancialCategory.
+     */
+    @Test
+    public void testValidation() throws AdoHiveException {
+        System.out.println("Validation");
+
+        financial.setNew(true);
+        assertTrue(financial.save());
+
+        financial.setName(null);
+        assertFalse(financial.save());
+        financial.setName("Tester");
+
+        financial.setYear((short) 999);
+        assertFalse(financial.save());
+
+        financial.setYear((short) 10101);
+        assertFalse(financial.save());
+        financial.setYear((short) 2010);
+
+        financial.setBudgetCosts(new int[] { 0, -1 });
+        assertFalse(financial.save());
+        financial.setBudgetCosts(new int[] { 100, 200 });
+
+        financial.setFunds(new int[] { 1234567 });
+        assertFalse(financial.save());
+
+        financial.setFunds(new int[] { 123456789 });
+        assertFalse(financial.save());
     }
 
     /**
