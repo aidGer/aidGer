@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import de.aidger.model.models.FinancialCategory;
+import de.aidger.view.utils.InputPatternFilter;
 
 /**
  * A form used for editing / creating new financial categories.

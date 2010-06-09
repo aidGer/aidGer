@@ -1,4 +1,4 @@
-package de.aidger.view.forms;
+package de.aidger.view.utils;
 
 import java.awt.Toolkit;
 

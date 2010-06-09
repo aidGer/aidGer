@@ -5,6 +5,7 @@ import static de.aidger.utils.Translation._;
 import javax.swing.JPanel;
 
 import de.aidger.model.models.Course;
+import de.aidger.view.utils.InputPatternFilter;
 
 /**
  * A form used for editing / creating new courses.
