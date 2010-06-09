@@ -6,6 +6,9 @@ import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.*;
 
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.aidger.model.Runtime;
+
 /**
  * Tests the Contract class.
  *
@@ -14,6 +17,10 @@ import static org.junit.Assert.*;
 public class ContractTest {
     
     protected Contract contract = null;
+
+    public ContractTest() {
+        Runtime.getInstance().initialize();
+    }
 
     @Before
     public void setUp() {
@@ -25,6 +32,24 @@ public class ContractTest {
         contract.setEndDate(new Date(1000));
         contract.setStartDate(new Date(20));
         contract.setType("Type");
+    }
+
+    /**
+     * Test of constructor, of class Contract.
+     */
+    @Test
+    public void testConstructor() throws AdoHiveException {
+        System.out.println("Constructor");
+
+        contract.setNew(true);
+        System.out.println(contract.save());
+        System.out.println(contract.getErrors());
+
+        Contract result = new Contract(contract.getById(
+                contract.getId()));
+
+        assertNotNull(result);
+        assertEquals(contract, result);
     }
 
     /**

@@ -1,5 +1,6 @@
 package de.aidger.model.models;
 
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.*;
@@ -21,6 +22,23 @@ public class FinancialCategoryTest {
         financial.setFunds(new int[] { 100, 200 });
         financial.setName("Tester");
         financial.setYear((short) 2010);
+    }
+
+    /**
+     * Test of constructor, of class FinancialCategory.
+     */
+    @Test
+    public void testConstructor() throws AdoHiveException {
+        System.out.println("Constructor");
+
+        financial.setNew(true);
+        financial.save();
+
+        FinancialCategory result = new FinancialCategory(financial.getById(
+                financial.getId()));
+
+        assertNotNull(result);
+        assertEquals(financial, result);
     }
 
     /**

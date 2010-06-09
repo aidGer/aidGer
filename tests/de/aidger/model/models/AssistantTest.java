@@ -4,6 +4,8 @@ import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.*;
 
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+
 /**
  * Tests the Assistant class.
  *
@@ -20,7 +22,24 @@ public class AssistantTest {
         assistant.setEmail("test@example.com");
         assistant.setFirstName("Test");
         assistant.setLastName("Tester");
-        assistant.setQualification("Tester");
+        assistant.setQualification("Q");
+    }
+
+    /**
+     * Test of constructor, of class Assistant.
+     */
+    @Test
+    public void testConstructor() throws AdoHiveException {
+        System.out.println("Constructor");
+
+        assistant.setNew(true);
+        assistant.save();
+
+        Assistant result = new Assistant(assistant.getById(
+                assistant.getId()));
+
+        assertNotNull(result);
+        assertEquals(assistant, result);
     }
 
     /**

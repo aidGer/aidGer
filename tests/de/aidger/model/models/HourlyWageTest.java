@@ -6,6 +6,8 @@ import static org.junit.Assert.*;
 
 import java.math.BigDecimal;
 
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+
 /**
  * Tests the HourlyWage class.
  *
@@ -20,10 +22,30 @@ public class HourlyWageTest {
         hourly = new HourlyWage();
         hourly.setId(1);
         hourly.setMonth((byte) 10);
-        hourly.setQualification("OverQualified");
+        hourly.setQualification("Q");
         hourly.setWage(new BigDecimal(200));
         hourly.setYear((short) 2010);
     }
+
+    /**
+     * Test of constructor, of class Contract.
+     */
+    @Test
+    public void testConstructor() throws AdoHiveException {
+        System.out.println("Constructor");
+
+        hourly.clearTable();
+        hourly.setNew(true);
+        hourly.save();
+
+        HourlyWage result = new HourlyWage(hourly.getByKeys(
+                hourly.getQualification(), hourly.getMonth(),
+                hourly.getYear()));
+
+        assertNotNull(result);
+        assertEquals(hourly, result);
+    }
+
 
     /**
      * Test of clone method, of class HourlyWage.

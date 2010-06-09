@@ -38,11 +38,28 @@ public class ActivityTest {
     }
 
     /**
+     * Test of constructor, of class Activity.
+     */
+    @Test
+    public void testConstructor() throws AdoHiveException {
+        System.out.println("Constructor");
+
+        activity.setNew(true);
+        activity.save();
+
+        Activity result = new Activity(activity.getById(activity.getId()));
+
+        assertNotNull(result);
+        assertEquals(activity, result);
+    }
+
+    /**
      * Test of clone method, of class Activity.
      */
     @Test
     public void testClone() {
         System.out.println("clone");
+        
         Activity result = activity.clone();
 
         assertEquals(activity.getId(), result.getId());
