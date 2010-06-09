@@ -110,12 +110,10 @@ public class ActivityTest {
         a.setLastName("Tester");
         a.setQualification("g");
         a.save();
-        System.out.println(a.getId());
 
         activity.setAssistantId(a.getId());
         activity.setNew(true);
         activity.save();
-        System.out.println(activity.getId());
 
         //TODO: Currently not implemented by AdoHive
         List result = activity.getActivities(a);

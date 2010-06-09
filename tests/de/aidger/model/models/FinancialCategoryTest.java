@@ -24,7 +24,7 @@ public class FinancialCategoryTest {
         financial = new FinancialCategory();
         financial.setId(1);
         financial.setBudgetCosts(new int[] { 100, 200 });
-        financial.setFunds(new int[] { 10001000 });
+        financial.setFunds(new int[] { 10001000, 20002000 });
         financial.setName("Tester");
         financial.setYear((short) 2010);
     }

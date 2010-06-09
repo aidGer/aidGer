@@ -100,13 +100,16 @@ public class Contract extends AbstractModel<IContract> implements IContract {
             Contract c = (Contract) o;
             return c.id == id && c.delegation == delegation &&
                     (completionDate == null ? c.completionDate == null : 
-                            c.completionDate.equals(completionDate)) &&
+                            c.completionDate.toString().equals(
+                            completionDate.toString())) &&
                     (confirmationDate == null ? c.confirmationDate == null :
-                            c.confirmationDate.equals(confirmationDate)) &&
+                            c.confirmationDate.toString().equals(
+                            confirmationDate.toString())) &&
                     (endDate == null ? c.endDate == null : 
-                            c.endDate.equals(endDate)) &&
+                            c.endDate.toString().equals(endDate.toString())) &&
                     (startDate == null ? c.startDate == null : 
-                            c.startDate.equals(startDate)) &&
+                            c.startDate.toString().equals(
+                            startDate.toString())) &&
                     (type == null ? c.type == null : c.type.equals(type));
         } else {
             return false;

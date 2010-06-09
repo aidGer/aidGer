@@ -84,8 +84,8 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
     public boolean equals(Object o) {
         if (o instanceof FinancialCategory) {
             FinancialCategory f = (FinancialCategory) o;
-            return f.id == id && f.budgetCosts == budgetCosts
-                    && f.funds == funds && f.year == year
+            return f.id == id && Arrays.equals(f.budgetCosts, budgetCosts)
+                    && Arrays.equals(f.funds, funds) && f.year == year
                     && (name == null ? f.name == null : f.name.equals(name));
         } else {
             return false;

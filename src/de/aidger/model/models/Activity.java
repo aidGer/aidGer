@@ -128,10 +128,10 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
             Activity a = (Activity) o;
             return a.assistantId == assistantId && a.id == id &&
                     a.courseId == courseId &&
-                    (date == null ? a.date == null : a.date.equals(date)) &&
+                    (date == null ? a.date == null : a.date.toString().equals(date.toString())) &&
                     (content == null ? a.content == null :
                             a.content.equals(content)) &&
-                    (documentType == null ? a.documentType == null : 
+                    (documentType == null ? a.documentType == null :
                             a.documentType.equals(documentType)) &&
                     (processor == null ? a.processor == null :
                             a.processor.equals(processor)) &&

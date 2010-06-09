@@ -51,7 +51,8 @@ public abstract class AbstractModel<T> extends Observable implements
     /**
      * Used to cache the AdoHiveManagers after getting them the first time.
      */
-    protected static Map<String, IAdoHiveManager> managers = new HashMap<String, IAdoHiveManager>();
+    protected static Map<String, IAdoHiveManager> managers =
+        new HashMap<String, IAdoHiveManager>();
 
     /**
      * Array containing all validators for that specific model.
@@ -163,9 +164,7 @@ public abstract class AbstractModel<T> extends Observable implements
         if (!doValidate()) {
             return false;
         } else if (!errors.isEmpty()) {
-            Logger
-                    .debug(_("The model was not saved because the error list is not empty."));
-
+            Logger.debug(_("The model was not saved because the error list is not empty."));
             return false;
         }
 
@@ -326,7 +325,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Set the unique id of the assistant.
-     * 
+     *
      * <b>!!! THIS IS FOR INTERNAL ADOHIVE USAGE ONLY !!!</b>
      * 
      * @param id
@@ -361,8 +360,8 @@ public abstract class AbstractModel<T> extends Observable implements
                 + ", ";
         try {
             for (java.lang.reflect.Method m : getClass().getDeclaredMethods()) {
-                if (m.getName().startsWith("get") &&
-                        m.getParameterTypes().length == 0) {
+                if (m.getName().startsWith("get")
+                        && m.getParameterTypes().length == 0) {
                     ret += m.getName().substring(3) + ": ";
                     ret += m.invoke(this, new Object[0]) + ", ";
                 }
@@ -397,12 +396,9 @@ public abstract class AbstractModel<T> extends Observable implements
                 managers.put(classname, (IAdoHiveManager) m.invoke(
                         AdoHiveController.getInstance(), new Object[0]));
             } catch (Exception ex) {
-                Logger
-                        .error(MessageFormat
-                                .format(
-                                        _("Could not get manager for class \"{0}\". Error: {1}"),
-                                        new Object[] { classname,
-                                                ex.getMessage() }));
+                Logger.error(MessageFormat.format(
+                                _("Could not get manager for class \"{0}\". Error: {1}"),
+                                new Object[] { classname, ex.getMessage() }));
             }
         }
 
