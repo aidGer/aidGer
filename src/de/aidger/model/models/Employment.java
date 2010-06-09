@@ -1,7 +1,10 @@
 package de.aidger.model.models;
 
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import java.sql.Date;
 import java.util.List;
+import java.util.Calendar;
+import java.util.Vector;
 
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.controller.IEmploymentManager;
@@ -176,24 +179,79 @@ public class Employment extends AbstractModel<IEmployment> implements
      * 			The end date
      * @return The employments during the given time
      */
-    @SuppressWarnings("unchecked")
-    public List<Employment> getEmployments(Date start, Date end) {
-    	IEmploymentManager mgr = (IEmploymentManager)getManager();
-    	return (List<Employment>)(List<?>)mgr.getEmployments(start, end);
+    public List<Employment> getEmployments(Date start, Date end) 
+            throws AdoHiveException {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(start);
+        short startYear = (short) cal.get(Calendar.YEAR);
+        byte startMonth = (byte) cal.get(Calendar.MONTH);
+
+        cal.setTime(end);
+        short endYear = (short) cal.get(Calendar.YEAR);
+        byte endMonth = (byte) cal.get(Calendar.MONTH);
+
+    	return getEmployments(startYear, startMonth, endYear, endMonth);
     }
 
     /**
-     * Get all employments for the semester.
+     * Get all employments during the given time.
      *
-     * @param semester
-     * 			The semester
-     * @return The employments for the semester
+     * @param startYear
+     * 			The start year
+     * @param startMonth
+     *                  The start month
+     * @param endYear
+     * 			The end year
+     * @param endMonth
+     *                  The end month
+     * @return The employments during the given time
      */
-    @SuppressWarnings("unchecked")
-    public List<Employment> getEmployments(String semester) {
+    public List<Employment> getEmployments(short startYear, byte startMonth,
+            short endYear, byte endMonth) throws AdoHiveException {
     	IEmploymentManager mgr = (IEmploymentManager)getManager();
-    	return (List<Employment>)(List<?>)mgr.getEmployments(semester);
+    	return castList(mgr.getEmployments(startYear, startMonth, endYear,
+                endMonth));
     }
+
+    /**
+     * Get all employments with the given contract.
+     *
+     * @param contract
+     * 			The given contract
+     * @return The employments with the given contract
+     */
+    public List<Employment> getEmployments(Contract contract) 
+            throws AdoHiveException {
+    	IEmploymentManager mgr = (IEmploymentManager)getManager();
+    	return castList(mgr.getEmployments(contract));
+    }
+
+    /**
+     * Get all employments of the given assistant.
+     *
+     * @param assistant
+     *                  The given assistant
+     * @return The employments of the given assistant
+     */
+    public List<Employment> getEmployments(Assistant assistant) 
+            throws AdoHiveException {
+    	IEmploymentManager mgr = (IEmploymentManager)getManager();
+    	return castList(mgr.getEmployments(assistant));
+    }
+
+    /**
+     * Get all employments for the given course.
+     *
+     * @param course
+     *                  The given course
+     * @return The employments for the given course
+     */
+    public List<Employment> getEmployments(Course course)
+            throws AdoHiveException {
+    	IEmploymentManager mgr = (IEmploymentManager)getManager();
+    	return castList(mgr.getEmployments(course));
+    }
+
 
     /**
      * Get the id referencing the assistant.
@@ -404,6 +462,21 @@ public class Employment extends AbstractModel<IEmployment> implements
     @Override
     public void setYear(short year) {
         this.year = year;
+    }
+
+    /**
+     * Cast the list from interface to real class.
+     *
+     * @param list
+     *              The list to cast
+     * @return The new list
+     */
+    protected List<Employment> castList(List<IEmployment> list) {
+        List<Employment> ret = new Vector<Employment>();
+        for (IEmployment emp : list) {
+            ret.add(new Employment(emp));
+        }
+        return ret;
     }
 
 }

@@ -2,10 +2,7 @@ package de.aidger.model.models;
 
 import java.sql.Date;
 import java.util.List;
-import java.text.MessageFormat;
-
-import static de.aidger.utils.Translation._;
-import de.aidger.utils.Logger;
+import java.util.Vector;
 
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.controller.IActivityManager;
@@ -176,7 +173,7 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
     public List<Activity> getActivities(Assistant assistant) throws
             AdoHiveException {
     	IActivityManager mgr = (IActivityManager) getManager();
-        return (List<Activity>)(List<?>)mgr.getActivities(assistant);
+        return castList(mgr.getActivities(assistant));
     }
 
     /**
@@ -189,7 +186,7 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
     @SuppressWarnings("unchecked")
     public List<Activity> getActivities(Course course) throws AdoHiveException {
     	IActivityManager mgr = (IActivityManager) getManager();
-        return (List<Activity>)(List<?>)mgr.getActivities(course);
+        return castList(mgr.getActivities(course));
     }
 
     /**
@@ -370,6 +367,21 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
     @Override
     public void setType(String typec) {
         type = typec;
+    }
+
+    /**
+     * Cast the list from interface to real class.
+     *
+     * @param list
+     *              The list to cast
+     * @return The new list
+     */
+    protected List<Activity> castList(List<IActivity> list) {
+        List<Activity> ret = new Vector<Activity>();
+        for (IActivity act : list) {
+            ret.add(new Activity(act));
+        }
+        return ret;
     }
 
 }
