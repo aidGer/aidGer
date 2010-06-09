@@ -43,6 +43,44 @@ public class AssistantTest {
     }
 
     /**
+     * Test of validation methods, of class Assistant.
+     */
+    @Test
+    public void testValidation() throws AdoHiveException {
+        System.out.println("Validation");
+
+        assistant.setNew(true);
+        assertTrue(assistant.save());
+
+        assistant.setEmail(null);
+        assertFalse(assistant.save());
+
+        assistant.setEmail("test");
+        assertFalse(assistant.save());
+        assistant.setEmail("test@example.com");
+
+        assistant.setFirstName(null);
+        assertFalse(assistant.save());
+
+        assistant.setFirstName("");
+        assertFalse(assistant.save());
+        assistant.setFirstName("Test");
+
+        assistant.setLastName(null);
+        assertFalse(assistant.save());
+
+        assistant.setLastName("");
+        assertFalse(assistant.save());
+        assistant.setLastName("Test");
+
+        assistant.setQualification(null);
+        assertFalse(assistant.save());
+
+        assistant.setQualification("Q");
+        assertFalse(assistant.save());
+    }
+
+    /**
      * Test of clone method, of class Assistant.
      */
     @Test

@@ -42,6 +42,27 @@ public class FinancialCategoryTest {
     }
 
     /**
+     * Test of validation methods, of class FinancialCategory.
+     */
+    @Test
+    public void testValidation() throws AdoHiveException {
+        System.out.println("Validation");
+
+        financial.setNew(true);
+        assertTrue(financial.save());
+
+        financial.setName(null);
+        assertFalse(financial.save());
+        financial.setName("Tester");
+
+        financial.setYear((short) 999);
+        assertFalse(financial.save());
+
+        financial.setYear((short) 10101);
+        assertFalse(financial.save());
+    }
+
+    /**
      * Test of clone method, of class FinancialCategory.
      */
     @Test

@@ -2,6 +2,7 @@ package de.aidger.model.models;
 
 import java.util.Arrays;
 
+import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 
@@ -40,7 +41,6 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
     public FinancialCategory() {
         validatePresenceOf(new String[] { "name" });
         // TODO: Validate the budget costs and fonds
-        // TODO: Validate the year
     }
 
     /**
@@ -105,6 +105,20 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
         hash = 37 * hash + Arrays.hashCode(funds);
         hash = 37 * hash + year;
         return hash;
+    }
+
+    /**
+     * Custom validation function.
+     *
+     * @return True if the validation is successfull
+     */
+    public boolean validate() {
+        boolean ret = true;
+        if (year <= 1000 || year >= 10000) {
+            addError("year", _("is an incorrect year"));
+            ret = false;
+        }
+        return ret;
     }
 
     /**

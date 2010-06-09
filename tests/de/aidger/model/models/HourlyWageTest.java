@@ -54,6 +54,7 @@ public class HourlyWageTest {
         System.out.println("Validation");
 
         hourly.clearTable();
+        hourly.setNew(true);
         assertTrue(hourly.save());
 
         hourly.setQualification(null);
