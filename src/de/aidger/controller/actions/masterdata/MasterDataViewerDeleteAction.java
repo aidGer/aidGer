@@ -8,10 +8,7 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JOptionPane;
 
-import de.aidger.model.models.Assistant;
-import de.aidger.model.models.Course;
-import de.aidger.model.models.FinancialCategory;
-import de.aidger.model.models.HourlyWage;
+import de.aidger.model.AbstractModel;
 import de.aidger.view.UI;
 import de.aidger.view.tabs.MasterDataViewerTab;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
@@ -37,6 +34,7 @@ public class MasterDataViewerDeleteAction extends AbstractAction {
      * @see
      * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
      */
+    @SuppressWarnings("unchecked")
     @Override
     public void actionPerformed(ActionEvent e) {
         MasterDataViewerTab tab = (MasterDataViewerTab) UI.getInstance()
@@ -52,32 +50,9 @@ public class MasterDataViewerDeleteAction extends AbstractAction {
                     .convertRowIndexToModel(tab.getTable().getSelectedRow());
 
                 try {
-                    switch (tab.getType()) {
-                    case Course:
-                        Course course = (Course) tab.getTableModel().getModel(
-                            index);
+                    AbstractModel model = tab.getTableModel().getModel(index);
 
-                        course.remove();
-                        break;
-                    case Assistant:
-                        Assistant assistant = (Assistant) tab.getTableModel()
-                            .getModel(index);
-
-                        assistant.remove();
-                        break;
-                    case FinancialCategory:
-                        FinancialCategory fc = (FinancialCategory) tab
-                            .getTableModel().getModel(index);
-
-                        fc.remove();
-                        break;
-                    case HourlyWage:
-                        HourlyWage hw = (HourlyWage) tab.getTableModel()
-                            .getModel(index);
-
-                        hw.remove();
-                        break;
-                    }
+                    model.remove();
 
                     tab.getTableModel().removeRow(index);
                 } catch (AdoHiveException e1) {
