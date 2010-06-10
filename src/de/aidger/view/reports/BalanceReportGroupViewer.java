@@ -21,11 +21,10 @@ public class BalanceReportGroupViewer extends javax.swing.JPanel {
      * The table model of the content table.
      */
     private final DefaultTableModel groupTableModel = new DefaultTableModel(
-        null, new String[] { "java.lang.Object@38f3cbe6",
-                "java.lang.Object@38f3cbe6", "java.lang.Object@38f3cbe6",
-                "java.lang.Object@38f3cbe6", "java.lang.Object@38f3cbe6",
-                "java.lang.Object@38f3cbe6", "java.lang.Object@38f3cbe6",
-                "java.lang.Object@38f3cbe6" }) {
+        null, new String[] { _("Title"), _("Part"), _("Lecturer"),
+                _("Target Audience"), _("Planned AWS"), _("Basic AWS"),
+                _("Budget costs from student fees"),
+                _("Budget costs from resources") }) {
         boolean[] canEdit = new boolean[] { false, false, false, false, false,
                 false, false, false };
 
@@ -79,20 +78,6 @@ public class BalanceReportGroupViewer extends javax.swing.JPanel {
 
         contentTable.setModel(groupTableModel);
         contentPanel.add(contentTable, java.awt.BorderLayout.CENTER);
-        contentTable.getColumnModel().getColumn(0).setHeaderValue(_("Title"));
-        contentTable.getColumnModel().getColumn(1).setHeaderValue(_("Part"));
-        contentTable.getColumnModel().getColumn(2)
-            .setHeaderValue(_("Lecturer"));
-        contentTable.getColumnModel().getColumn(3).setHeaderValue(
-            _("Target Audience"));
-        contentTable.getColumnModel().getColumn(4).setHeaderValue(
-            _("Planned AWS"));
-        contentTable.getColumnModel().getColumn(5).setHeaderValue(
-            _("Basic AWS"));
-        contentTable.getColumnModel().getColumn(6).setHeaderValue(
-            _("Budget costs from student fees"));
-        contentTable.getColumnModel().getColumn(7).setHeaderValue(
-            _("Budget costs from resources"));
 
         add(contentPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
