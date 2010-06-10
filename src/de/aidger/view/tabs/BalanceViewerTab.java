@@ -1,7 +1,6 @@
 package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
-import de.aidger.view.reports.BalanceReportSemesterCreator;
 
 /**
  * A tab for viewing balance reports.
@@ -16,8 +15,6 @@ public class BalanceViewerTab extends Tab {
      */
     public BalanceViewerTab() {
         initComponents();
-        add(new BalanceReportSemesterCreator("2009"));
-        add(new BalanceReportSemesterCreator("2010"));
     }
 
     /*
