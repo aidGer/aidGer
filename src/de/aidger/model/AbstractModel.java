@@ -42,13 +42,6 @@ public abstract class AbstractModel<T> extends Observable implements
     protected boolean isNew = true;
 
     /**
-     * Should the model first be removed before saveing. Needed for example for
-     * HourlyWage which has several Primary Keys and needs to be removed when
-     * edited.
-     */
-    protected boolean removeOnUpdate = false;
-
-    /**
      * Used to cache the AdoHiveManagers after getting them the first time.
      */
     protected static Map<String, IAdoHiveManager> managers =
@@ -67,7 +60,20 @@ public abstract class AbstractModel<T> extends Observable implements
     /**
      * Map of errors for specific fields.
      */
-    protected Map<String, List<String>> fieldErrors = new HashMap<String, List<String>>();
+    protected Map<String, List<String>> fieldErrors = 
+            new HashMap<String, List<String>>();
+
+    /**
+     * Should the model first be removed before saveing. Needed for example for
+     * HourlyWage which has several Primary Keys and needs to be removed when
+     * edited.
+     */
+    protected boolean updatePKs = false;
+
+    /**
+     * The old model before any changes.
+     */
+    private AbstractModel<T> pkModel = null;
 
     /**
      * Cloneable function inherited from IAdoHiveModel.
@@ -175,14 +181,12 @@ public abstract class AbstractModel<T> extends Observable implements
                     new Object[] { toString() }));
 
             mgr.add(this);
-            isNew = false;
-        } else if (removeOnUpdate) {
-            Logger.info(MessageFormat.format(_("Readding model: {0}"),
+            setNew(false);
+        } else if (updatePKs) {
+            Logger.info(MessageFormat.format(_("Updating PKs for model: {0}"),
                     new Object[] { toString() }));
 
-            remove();
-            mgr.add(this);
-            setNew(false);
+            updateKeys();
         } else {
             Logger.info(MessageFormat.format(_("Updating model: {0}"),
                     new Object[] { toString() }));
@@ -211,6 +215,9 @@ public abstract class AbstractModel<T> extends Observable implements
             notifyObservers();
 
             setNew(true);
+            if (updatePKs) {
+                pkModel = null;
+            }
         }
     }
 
@@ -359,6 +366,8 @@ public abstract class AbstractModel<T> extends Observable implements
         isNew = isnew;
         if (isNew) {
             setId(0);
+        } else if (updatePKs) {
+            pkModel = (AbstractModel<T>) clone();
         }
     }
 
@@ -443,5 +452,27 @@ public abstract class AbstractModel<T> extends Observable implements
         }
 
         return ret;
+    }
+
+    /**
+     * Update the Primary Keys of the model.
+     *
+     * @pre Model needs to set updatePKs to true
+     * @throws AdoHiveException
+     */
+    private void updateKeys() throws AdoHiveException {
+        if (!updatePKs) {
+            return;
+        } else if (pkModel == null) {
+            System.out.println("NOT REALLY");
+            setNew(true);
+            save();
+            return;
+        }
+
+        IAdoHiveManager mgr = getManager();
+        mgr.remove(pkModel);
+        mgr.add(this);
+        pkModel = this;
     }
 }

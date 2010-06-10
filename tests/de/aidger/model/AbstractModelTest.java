@@ -226,10 +226,14 @@ public class AbstractModelTest {
         h.setWage(new BigDecimal(200));
         h.setYear((short) 2010);
 
+        HourlyWage g = h.clone();
+
         assertTrue(h.save());
 
         h.setQualification("u");
         assertTrue(h.save());
+        assertTrue(h.getByKeys(g.getQualification(), g.getMonth(), 
+                g.getYear()) == null);
     }
 
     /**
