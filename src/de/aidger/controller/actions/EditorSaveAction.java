@@ -1,4 +1,4 @@
-package de.aidger.controller.actions.masterdata;
+package de.aidger.controller.actions;
 
 import static de.aidger.utils.Translation._;
 
@@ -20,24 +20,24 @@ import de.aidger.view.forms.AssistantEditorForm;
 import de.aidger.view.forms.CourseEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
 import de.aidger.view.forms.HourlyWageEditorForm;
-import de.aidger.view.models.MasterDataTableModel;
-import de.aidger.view.tabs.MasterDataEditorTab;
-import de.aidger.view.tabs.MasterDataViewerTab;
+import de.aidger.view.models.TableModel;
+import de.aidger.view.tabs.EditorTab;
+import de.aidger.view.tabs.ViewerTab;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
- * This action saves the master data and replaces the current tab with the
- * master data viewer tab.
+ * This action saves the model and replaces the current tab with the model
+ * viewer tab.
  * 
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class MasterDataEditorSaveAction extends AbstractAction {
+public class EditorSaveAction extends AbstractAction {
 
     /**
      * Initializes the action.
      */
-    public MasterDataEditorSaveAction() {
+    public EditorSaveAction() {
         putValue(Action.NAME, _("Save"));
     }
 
@@ -155,8 +155,7 @@ public class MasterDataEditorSaveAction extends AbstractAction {
     @SuppressWarnings("unchecked")
     @Override
     public void actionPerformed(ActionEvent e) {
-        MasterDataEditorTab tab = (MasterDataEditorTab) UI.getInstance()
-            .getCurrentTab();
+        EditorTab tab = (EditorTab) UI.getInstance().getCurrentTab();
 
         AbstractModel model = tab.getModel();
 
@@ -178,10 +177,10 @@ public class MasterDataEditorSaveAction extends AbstractAction {
             break;
         }
 
-        List<MasterDataTableModel> tableModels = MasterDataViewerTab.tableModels
-            .get(tab.getType());
+        List<TableModel> tableModels = ViewerTab.tableModels.get(tab
+            .getType());
 
-        for (MasterDataTableModel tableModel : tableModels) {
+        for (TableModel tableModel : tableModels) {
             model.addObserver(tableModel);
         }
 
@@ -197,7 +196,6 @@ public class MasterDataEditorSaveAction extends AbstractAction {
             System.out.println(e1.getMessage());
         }
 
-        UI.getInstance().replaceCurrentTab(
-            new MasterDataViewerTab(tab.getType()));
+        UI.getInstance().replaceCurrentTab(new ViewerTab(tab.getType()));
     }
 }

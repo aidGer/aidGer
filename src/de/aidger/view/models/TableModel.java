@@ -10,24 +10,23 @@ import javax.swing.table.DefaultTableModel;
 import de.aidger.model.AbstractModel;
 
 /**
- * The class represents the abstract table model for the master data.
+ * The class represents the abstract table model.
  * 
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public abstract class MasterDataTableModel extends DefaultTableModel implements
-        Observer {
+public abstract class TableModel extends DefaultTableModel implements Observer {
 
     /**
-     * The master data that is displayed on the table.
+     * The models that are displayed on the table.
      */
     @SuppressWarnings("unchecked")
-    protected List<AbstractModel> masterData = new ArrayList<AbstractModel>();
+    protected List<AbstractModel> models = new ArrayList<AbstractModel>();
 
     /**
-     * Constructs the abstract master data table model.
+     * Constructs the abstract table model.
      */
-    public MasterDataTableModel(String[] columnNames) {
+    public TableModel(String[] columnNames) {
         setColumnIdentifiers(columnNames);
 
         refresh();
@@ -37,7 +36,7 @@ public abstract class MasterDataTableModel extends DefaultTableModel implements
      * Refreshs the whole table.
      */
     public void refresh() {
-        masterData.clear();
+        models.clear();
 
         setRowCount(0);
     }
@@ -49,7 +48,7 @@ public abstract class MasterDataTableModel extends DefaultTableModel implements
      */
     @SuppressWarnings("unchecked")
     public AbstractModel getModel(int i) {
-        return masterData.get(i);
+        return models.get(i);
     }
 
     /*

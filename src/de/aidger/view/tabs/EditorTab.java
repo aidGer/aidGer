@@ -11,8 +11,8 @@ import javax.swing.JPanel;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
-import de.aidger.controller.actions.masterdata.MasterDataEditorCancelAction;
-import de.aidger.controller.actions.masterdata.MasterDataEditorSaveAction;
+import de.aidger.controller.actions.EditorCancelAction;
+import de.aidger.controller.actions.EditorSaveAction;
 import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
@@ -23,7 +23,7 @@ import de.aidger.view.forms.AssistantEditorForm;
 import de.aidger.view.forms.CourseEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
 import de.aidger.view.forms.HourlyWageEditorForm;
-import de.aidger.view.tabs.MasterDataViewerTab.MasterDataType;
+import de.aidger.view.tabs.ViewerTab.MasterDataType;
 
 /**
  * A tab which will be used to add and edit the master data.
@@ -31,7 +31,7 @@ import de.aidger.view.tabs.MasterDataViewerTab.MasterDataType;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class MasterDataEditorTab extends Tab {
+public class EditorTab extends Tab {
 
     /**
      * The master data model for the editor.
@@ -50,7 +50,7 @@ public class MasterDataEditorTab extends Tab {
      * @param type
      *            type of the master data
      */
-    public MasterDataEditorTab(MasterDataType type) {
+    public EditorTab(MasterDataType type) {
         this.type = type;
 
         init();
@@ -65,7 +65,7 @@ public class MasterDataEditorTab extends Tab {
      *            the master data model
      */
     @SuppressWarnings("unchecked")
-    public MasterDataEditorTab(MasterDataType type, AbstractModel model) {
+    public EditorTab(MasterDataType type, AbstractModel model) {
         this.type = type;
         this.model = model;
 
@@ -80,10 +80,10 @@ public class MasterDataEditorTab extends Tab {
 
         try {
             btnSave.setAction(ActionRegistry.getInstance().get(
-                MasterDataEditorSaveAction.class.getName()));
+                EditorSaveAction.class.getName()));
 
             btnCancel.setAction(ActionRegistry.getInstance().get(
-                MasterDataEditorCancelAction.class.getName()));
+                EditorCancelAction.class.getName()));
         } catch (ActionNotFoundException e) {
             UI.displayError(e.getMessage());
         }

@@ -16,7 +16,7 @@ import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class HourlyWageTableModel extends MasterDataTableModel {
+public class HourlyWageTableModel extends TableModel {
     /**
      * Constructs the table model for hourly wages.
      */
@@ -44,7 +44,7 @@ public class HourlyWageTableModel extends MasterDataTableModel {
         }
 
         for (IHourlyWage hw : hws) {
-            masterData.add(new HourlyWage(hw));
+            models.add(new HourlyWage(hw));
 
             addRow(new Object[] { Qualification.valueOf(hw.getQualification()),
                     hw.getMonth(), hw.getYear(), hw.getWage() });

@@ -1,4 +1,4 @@
-package de.aidger.controller.actions.masterdata;
+package de.aidger.controller.actions;
 
 import static de.aidger.utils.Translation._;
 
@@ -8,21 +8,21 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 
 import de.aidger.view.UI;
-import de.aidger.view.tabs.MasterDataEditorTab;
-import de.aidger.view.tabs.MasterDataViewerTab;
+import de.aidger.view.tabs.EditorTab;
+import de.aidger.view.tabs.ViewerTab;
 
 /**
- * This action replaces the current tab with add-tab for each master data type.
+ * This action replaces the current tab with add-tab for each model type.
  * 
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class MasterDataViewerAddAction extends AbstractAction {
+public class ViewerAddAction extends AbstractAction {
 
     /**
      * Initializes the action.
      */
-    public MasterDataViewerAddAction() {
+    public ViewerAddAction() {
         putValue(Action.NAME, _("Add"));
     }
 
@@ -34,10 +34,8 @@ public class MasterDataViewerAddAction extends AbstractAction {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        MasterDataViewerTab tab = (MasterDataViewerTab) UI.getInstance()
-            .getCurrentTab();
+        ViewerTab tab = (ViewerTab) UI.getInstance().getCurrentTab();
 
-        UI.getInstance().replaceCurrentTab(
-            new MasterDataEditorTab(tab.getType()));
+        UI.getInstance().replaceCurrentTab(new EditorTab(tab.getType()));
     }
 }

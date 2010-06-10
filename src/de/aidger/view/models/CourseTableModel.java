@@ -15,7 +15,7 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class CourseTableModel extends MasterDataTableModel {
+public class CourseTableModel extends TableModel {
     /**
      * Constructs the table model for courses.
      */
@@ -45,7 +45,7 @@ public class CourseTableModel extends MasterDataTableModel {
         }
 
         for (ICourse course : courses) {
-            masterData.add(new Course(course));
+            models.add(new Course(course));
 
             addRow(new Object[] { course.getDescription(),
                     course.getSemester(), course.getLecturer(),

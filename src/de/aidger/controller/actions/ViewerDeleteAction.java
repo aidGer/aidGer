@@ -1,4 +1,4 @@
-package de.aidger.controller.actions.masterdata;
+package de.aidger.controller.actions;
 
 import static de.aidger.utils.Translation._;
 
@@ -10,21 +10,21 @@ import javax.swing.JOptionPane;
 
 import de.aidger.model.AbstractModel;
 import de.aidger.view.UI;
-import de.aidger.view.tabs.MasterDataViewerTab;
+import de.aidger.view.tabs.ViewerTab;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
- * This action removes a master data from the table and the database.
+ * This action removes a model from the table and the database.
  * 
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class MasterDataViewerDeleteAction extends AbstractAction {
+public class ViewerDeleteAction extends AbstractAction {
 
     /**
      * Initializes the action.
      */
-    public MasterDataViewerDeleteAction() {
+    public ViewerDeleteAction() {
         putValue(Action.NAME, _("Delete"));
     }
 
@@ -37,8 +37,7 @@ public class MasterDataViewerDeleteAction extends AbstractAction {
     @SuppressWarnings("unchecked")
     @Override
     public void actionPerformed(ActionEvent e) {
-        MasterDataViewerTab tab = (MasterDataViewerTab) UI.getInstance()
-            .getCurrentTab();
+        ViewerTab tab = (ViewerTab) UI.getInstance().getCurrentTab();
 
         if (tab.getTable().getSelectedRow() > -1) {
             int ret = JOptionPane.showConfirmDialog(tab,

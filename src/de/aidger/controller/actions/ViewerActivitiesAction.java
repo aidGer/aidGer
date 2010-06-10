@@ -1,4 +1,4 @@
-package de.aidger.controller.actions.masterdata;
+package de.aidger.controller.actions;
 
 import static de.aidger.utils.Translation._;
 
@@ -8,17 +8,17 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 
 /**
- * This action shows the activities for a given master data.
+ * This action shows the activities for a given model.
  * 
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class MasterDataViewerActivitiesAction extends AbstractAction {
+public class ViewerActivitiesAction extends AbstractAction {
 
     /**
      * Initializes the action.
      */
-    public MasterDataViewerActivitiesAction() {
+    public ViewerActivitiesAction() {
         putValue(Action.NAME, _("Activities"));
     }
 

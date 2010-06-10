@@ -16,7 +16,7 @@ import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class FinancialCategoryTableModel extends MasterDataTableModel {
+public class FinancialCategoryTableModel extends TableModel {
     /**
      * Constructs the table model for financial categories.
      */
@@ -47,7 +47,7 @@ public class FinancialCategoryTableModel extends MasterDataTableModel {
             String funds = String.valueOf(fc.getFunds()[0]);
             String budgetCosts = String.valueOf(fc.getBudgetCosts()[0]);
 
-            masterData.add(new FinancialCategory(fc));
+            models.add(new FinancialCategory(fc));
 
             for (int i = 1; i < fc.getFunds().length; i++) {
                 funds += "\n" + fc.getFunds()[i];

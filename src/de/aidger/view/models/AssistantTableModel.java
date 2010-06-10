@@ -16,7 +16,7 @@ import de.unistuttgart.iste.se.adohive.model.IAssistant;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class AssistantTableModel extends MasterDataTableModel {
+public class AssistantTableModel extends TableModel {
     /**
      * Constructs the table model for assistants.
      */
@@ -44,7 +44,7 @@ public class AssistantTableModel extends MasterDataTableModel {
         }
 
         for (IAssistant assistant : assistants) {
-            masterData.add(new Assistant(assistant));
+            models.add(new Assistant(assistant));
 
             addRow(new Object[] { assistant.getFirstName(),
                     assistant.getLastName(), assistant.getEmail(),

@@ -19,18 +19,18 @@ import javax.swing.table.TableColumn;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
-import de.aidger.controller.actions.masterdata.MasterDataViewerActivitiesAction;
-import de.aidger.controller.actions.masterdata.MasterDataViewerAddAction;
-import de.aidger.controller.actions.masterdata.MasterDataViewerDeleteAction;
-import de.aidger.controller.actions.masterdata.MasterDataViewerEditAction;
-import de.aidger.controller.actions.masterdata.MasterDataViewerViewAction;
+import de.aidger.controller.actions.ViewerActivitiesAction;
+import de.aidger.controller.actions.ViewerAddAction;
+import de.aidger.controller.actions.ViewerDeleteAction;
+import de.aidger.controller.actions.ViewerDetailViewAction;
+import de.aidger.controller.actions.ViewerEditAction;
 import de.aidger.model.Runtime;
 import de.aidger.view.UI;
 import de.aidger.view.models.AssistantTableModel;
 import de.aidger.view.models.CourseTableModel;
 import de.aidger.view.models.FinancialCategoryTableModel;
 import de.aidger.view.models.HourlyWageTableModel;
-import de.aidger.view.models.MasterDataTableModel;
+import de.aidger.view.models.TableModel;
 import de.aidger.view.utils.MultiLineCellRenderer;
 
 /**
@@ -39,7 +39,7 @@ import de.aidger.view.utils.MultiLineCellRenderer;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class MasterDataViewerTab extends Tab {
+public class ViewerTab extends Tab {
     /**
      * The type of the master data that will be viewed.
      */
@@ -65,12 +65,12 @@ public class MasterDataViewerTab extends Tab {
     /**
      * The table model of this viewer tab.
      */
-    private MasterDataTableModel tableModel;
+    private TableModel tableModel;
 
     /**
      * All table models for all types.
      */
-    public static Map<MasterDataType, ArrayList<MasterDataTableModel>> tableModels;
+    public static Map<MasterDataType, ArrayList<TableModel>> tableModels;
 
     /**
      * Constructs the master data viewer tab.
@@ -79,12 +79,12 @@ public class MasterDataViewerTab extends Tab {
      *            the type of the master data
      */
     @SuppressWarnings("unchecked")
-    public MasterDataViewerTab(MasterDataType type) {
+    public ViewerTab(MasterDataType type) {
         this.type = type;
         initComponents();
 
         if (tableModels == null) {
-            tableModels = new HashMap<MasterDataType, ArrayList<MasterDataTableModel>>();
+            tableModels = new HashMap<MasterDataType, ArrayList<TableModel>>();
 
             tableModels.put(MasterDataType.Course, new ArrayList());
             tableModels.put(MasterDataType.Assistant, new ArrayList());
@@ -131,24 +131,24 @@ public class MasterDataViewerTab extends Tab {
         // initializes the button and menu items actions
         try {
             btnView.setAction(ActionRegistry.getInstance().get(
-                MasterDataViewerViewAction.class.getName()));
+                ViewerDetailViewAction.class.getName()));
             btnEdit.setAction(ActionRegistry.getInstance().get(
-                MasterDataViewerEditAction.class.getName()));
+                ViewerEditAction.class.getName()));
             btnAdd.setAction(ActionRegistry.getInstance().get(
-                MasterDataViewerAddAction.class.getName()));
+                ViewerAddAction.class.getName()));
             btnDelete.setAction(ActionRegistry.getInstance().get(
-                MasterDataViewerDeleteAction.class.getName()));
+                ViewerDeleteAction.class.getName()));
             btnActivities.setAction(ActionRegistry.getInstance().get(
-                MasterDataViewerActivitiesAction.class.getName()));
+                ViewerActivitiesAction.class.getName()));
 
             itemView.setAction(ActionRegistry.getInstance().get(
-                MasterDataViewerViewAction.class.getName()));
+                ViewerDetailViewAction.class.getName()));
             itemEdit.setAction(ActionRegistry.getInstance().get(
-                MasterDataViewerEditAction.class.getName()));
+                ViewerEditAction.class.getName()));
             itemDelete.setAction(ActionRegistry.getInstance().get(
-                MasterDataViewerDeleteAction.class.getName()));
+                ViewerDeleteAction.class.getName()));
             itemActivities.setAction(ActionRegistry.getInstance().get(
-                MasterDataViewerActivitiesAction.class.getName()));
+                ViewerActivitiesAction.class.getName()));
 
         } catch (ActionNotFoundException e) {
             UI.displayError(e.getMessage());
@@ -281,7 +281,7 @@ public class MasterDataViewerTab extends Tab {
      * 
      * @return the table model
      */
-    public MasterDataTableModel getTableModel() {
+    public TableModel getTableModel() {
         return tableModel;
     }
 

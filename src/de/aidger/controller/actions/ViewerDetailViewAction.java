@@ -1,4 +1,4 @@
-package de.aidger.controller.actions.masterdata;
+package de.aidger.controller.actions;
 
 import static de.aidger.utils.Translation._;
 
@@ -13,21 +13,21 @@ import de.aidger.view.tabs.CourseViewerTab;
 import de.aidger.view.tabs.EmptyTab;
 import de.aidger.view.tabs.FinancialCategoryViewerTab;
 import de.aidger.view.tabs.HourlyWageViewerTab;
-import de.aidger.view.tabs.MasterDataViewerTab;
 import de.aidger.view.tabs.Tab;
+import de.aidger.view.tabs.ViewerTab;
 
 /**
- * This action shows a master data in the current tab.
+ * This action shows a model in the current tab in detail.
  * 
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class MasterDataViewerViewAction extends AbstractAction {
+public class ViewerDetailViewAction extends AbstractAction {
 
     /**
      * Initializes the action.
      */
-    public MasterDataViewerViewAction() {
+    public ViewerDetailViewAction() {
         putValue(Action.NAME, _("View"));
     }
 
@@ -39,8 +39,7 @@ public class MasterDataViewerViewAction extends AbstractAction {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        MasterDataViewerTab tab = (MasterDataViewerTab) UI.getInstance()
-            .getCurrentTab();
+        ViewerTab tab = (ViewerTab) UI.getInstance().getCurrentTab();
 
         Tab newTab;
 
