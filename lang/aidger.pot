@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-10 00:39+0200\n"
+"POT-Creation-Date: 2010-06-10 01:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,27 @@ msgstr ""
 msgid "The model was not saved because the error list is not empty."
 msgstr ""
 
-#: model/AbstractModel.java:401
+#: model/AbstractModel.java:174
+#, java-format
+msgid "Adding model: {0}"
+msgstr ""
+
+#: model/AbstractModel.java:180
+#, java-format
+msgid "Readding model: {0}"
+msgstr ""
+
+#: model/AbstractModel.java:187
+#, java-format
+msgid "Updating model: {0}"
+msgstr ""
+
+#: model/AbstractModel.java:206
+#, java-format
+msgid "Removing model: {0}"
+msgstr ""
+
+#: model/AbstractModel.java:413
 #, java-format
 msgid "Could not get manager for class \"{0}\". Error: {1}"
 msgstr ""
