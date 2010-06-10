@@ -6,8 +6,6 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
-import javax.swing.JButton;
-import javax.swing.JPanel;
 
 import de.aidger.view.UI;
 import de.aidger.view.tabs.MasterDataEditorTab;
@@ -37,9 +35,8 @@ public class MasterDataEditorCancelAction extends AbstractAction {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        JButton btnCancel = (JButton) e.getSource();
-        JPanel buttons = (JPanel) btnCancel.getParent();
-        MasterDataEditorTab tab = (MasterDataEditorTab) buttons.getParent();
+        MasterDataEditorTab tab = (MasterDataEditorTab) UI.getInstance()
+            .getCurrentTab();
 
         UI.getInstance().replaceCurrentTab(
             new MasterDataViewerTab(tab.getType()));

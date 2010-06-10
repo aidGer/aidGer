@@ -6,9 +6,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.JToolBar;
 
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
@@ -41,9 +39,8 @@ public class MasterDataViewerDeleteAction extends AbstractAction {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        JButton btnEdit = (JButton) e.getSource();
-        JToolBar toolBar = (JToolBar) btnEdit.getParent();
-        MasterDataViewerTab tab = (MasterDataViewerTab) toolBar.getParent();
+        MasterDataViewerTab tab = (MasterDataViewerTab) UI.getInstance()
+            .getCurrentTab();
 
         if (tab.getTable().getSelectedRow() > -1) {
             int ret = JOptionPane.showConfirmDialog(tab,

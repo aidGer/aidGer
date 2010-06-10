@@ -8,8 +8,6 @@ import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
-import javax.swing.JButton;
-import javax.swing.JPanel;
 
 import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Assistant;
@@ -157,9 +155,8 @@ public class MasterDataEditorSaveAction extends AbstractAction {
     @SuppressWarnings("unchecked")
     @Override
     public void actionPerformed(ActionEvent e) {
-        JButton btnSave = (JButton) e.getSource();
-        JPanel buttons = (JPanel) btnSave.getParent();
-        MasterDataEditorTab tab = (MasterDataEditorTab) buttons.getParent();
+        MasterDataEditorTab tab = (MasterDataEditorTab) UI.getInstance()
+            .getCurrentTab();
 
         AbstractModel model = tab.getModel();
 
