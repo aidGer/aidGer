@@ -15,6 +15,10 @@ public class AssistantTest {
 
     protected Assistant assistant = null;
 
+    public AssistantTest() {
+        de.aidger.model.Runtime.getInstance().initialize();
+    }
+
     @Before
     public void setUp() {
         assistant = new Assistant();

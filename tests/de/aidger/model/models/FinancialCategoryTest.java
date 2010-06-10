@@ -19,6 +19,10 @@ public class FinancialCategoryTest {
 
     protected FinancialCategory financial = null;
 
+    public FinancialCategoryTest() {
+        de.aidger.model.Runtime.getInstance().initialize();
+    }
+
     @Before
     public void setUp() {
         financial = new FinancialCategory();

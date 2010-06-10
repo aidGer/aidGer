@@ -16,6 +16,10 @@ public class CourseTest {
     
     protected Course course = null;
 
+    public CourseTest() {
+        de.aidger.model.Runtime.getInstance().initialize();
+    }
+
     @Before
     public void setUp() {
         course = new Course();

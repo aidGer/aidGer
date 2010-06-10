@@ -19,6 +19,10 @@ public class ActivityTest {
 
     private Activity activity = null;
 
+    public ActivityTest() {
+        de.aidger.model.Runtime.getInstance().initialize();
+    }
+
     /**
      * Sets the Activity class up for tests.
      */

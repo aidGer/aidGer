@@ -18,6 +18,10 @@ public class EmploymentTest {
 
     protected Employment employment = null;
 
+    public EmploymentTest() {
+        de.aidger.model.Runtime.getInstance().initialize();
+    }
+
     @Before
     public void setUp() {
         employment = new Employment();

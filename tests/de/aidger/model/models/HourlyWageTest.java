@@ -17,6 +17,10 @@ public class HourlyWageTest {
 
     protected HourlyWage hourly = null;
 
+    public HourlyWageTest() {
+        de.aidger.model.Runtime.getInstance().initialize();
+    }
+
     @Before
     public void setUp() {
         hourly = new HourlyWage();
