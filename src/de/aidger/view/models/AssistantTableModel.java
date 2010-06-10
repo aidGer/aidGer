@@ -1,15 +1,14 @@
 package de.aidger.view.models;
 
 import static de.aidger.utils.Translation._;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 import java.util.List;
 
 import de.aidger.model.models.Assistant;
+import de.aidger.utils.Logger;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * The class represents the table model for the master data assistants.
@@ -37,10 +36,11 @@ public class AssistantTableModel extends MasterDataTableModel {
         super.refresh();
 
         List<IAssistant> assistants = null;
+
         try {
             assistants = (new Assistant()).getAll();
-        } catch (AdoHiveException ex) {
-            Logger.getLogger(AssistantTableModel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (AdoHiveException e) {
+            Logger.error(e.getMessage());
         }
 
         for (IAssistant assistant : assistants) {

@@ -1,14 +1,13 @@
 package de.aidger.view.models;
 
 import static de.aidger.utils.Translation._;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 import java.util.List;
 
 import de.aidger.model.models.FinancialCategory;
+import de.aidger.utils.Logger;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * The class represents the table model for the master data financial
@@ -37,10 +36,11 @@ public class FinancialCategoryTableModel extends MasterDataTableModel {
         super.refresh();
 
         List<IFinancialCategory> fcs = null;
+
         try {
             fcs = (new FinancialCategory()).getAll();
-        } catch (AdoHiveException ex) {
-            Logger.getLogger(FinancialCategoryTableModel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (AdoHiveException e) {
+            Logger.error(e.getMessage());
         }
 
         for (IFinancialCategory fc : fcs) {
