@@ -297,7 +297,8 @@ public final class UI extends JFrame {
      * @return The selected tab
      */
     public Tab getCurrentTab() {
-        return (Tab) tabbedPane.getSelectedComponent();
+        return (Tab) ((JScrollPane) tabbedPane.getSelectedComponent())
+            .getViewport().getView();
     }
 
     /**
