@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-10 22:19+0200\n"
+"POT-Creation-Date: 2010-06-10 22:50+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -160,7 +160,7 @@ msgid "Add hourly wage"
 msgstr "Stundenlohn hinzufügen"
 
 #: view/tabs/EditorTab.java:249
-#: controller/actions/EditorSaveAction.java:42
+#: controller/actions/EditorSaveAction.java:43
 #: controller/actions/SaveSettingsAction.java:29
 msgid "Save"
 msgstr "Speichern"
@@ -202,7 +202,7 @@ msgstr "Emailaddresse"
 #: view/tabs/AssistantViewerTab.java:76
 #: view/tabs/HourlyWageViewerTab.java:64
 #: view/forms/AssistantEditorForm.java:114
-#: view/forms/HourlyWageEditorForm.java:140
+#: view/forms/HourlyWageEditorForm.java:179
 #: view/models/HourlyWageTableModel.java:24
 #: view/models/AssistantTableModel.java:25
 msgid "Qualification"
@@ -509,11 +509,19 @@ msgstr "Geprüft"
 msgid "Bachelor"
 msgstr "Bachelor"
 
-#: view/forms/HourlyWageEditorForm.java:146
+#: view/forms/HourlyWageEditorForm.java:185
 msgid "Date"
 msgstr "Datum"
 
-#: view/forms/HourlyWageEditorForm.java:154
+#: view/forms/HourlyWageEditorForm.java:193
+msgid "Start date"
+msgstr "Anfangsdatum"
+
+#: view/forms/HourlyWageEditorForm.java:201
+msgid "Finish date"
+msgstr "Enddatum"
+
+#: view/forms/HourlyWageEditorForm.java:209
 #: view/models/HourlyWageTableModel.java:25
 msgid "Wage"
 msgstr "Lohn"
@@ -660,11 +668,15 @@ msgstr "Programmeinstellungen anzeigen"
 msgid "Cancel the operation"
 msgstr "Aktion abbrechen"
 
-#: controller/actions/EditorSaveAction.java:196
+#: controller/actions/EditorSaveAction.java:147
+msgid "must be after start date"
+msgstr "muss hinter dem Startdatum liegen"
+
+#: controller/actions/EditorSaveAction.java:208
 msgid "Could not save the model because it already exists in the database."
 msgstr "Das Model konnte nicht gespeichert werden, da es bereits in der Datenbank vorhanden ist."
 
-#: controller/actions/EditorSaveAction.java:198
+#: controller/actions/EditorSaveAction.java:210
 msgid "Could not save the model to database."
 msgstr "Das Model konnte nicht in der Datenbank gespeichert werden."
 

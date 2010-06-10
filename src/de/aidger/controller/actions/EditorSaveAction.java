@@ -5,6 +5,7 @@ import static de.aidger.utils.Translation._;
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.swing.AbstractAction;
@@ -135,8 +136,29 @@ public class EditorSaveAction extends AbstractAction {
      */
     private void setModel(HourlyWage hw, HourlyWageEditorForm form) {
         hw.setQualification(form.getQualification());
-        hw.setMonth(form.getMonth());
-        hw.setYear(form.getYear());
+
+        if (form.isEditMode()) {
+            hw.setMonth(form.getMonth());
+            hw.setYear(form.getYear());
+        } else {
+            Calendar start = Calendar.getInstance();
+            start.setTime(form.getStartDate());
+
+            Calendar finish = Calendar.getInstance();
+            finish.setTime(form.getFinishDate());
+            finish.add(Calendar.MONTH, 1);
+
+            if (start.after(finish)) {
+                hw.addError("end date", _("must be after start date"));
+            } else {
+                while (finish.after(start)) {
+                    System.out.println((start.get(Calendar.MONTH) + 1) + "."
+                            + start.get(Calendar.YEAR));
+
+                    start.add(Calendar.MONTH, 1);
+                }
+            }
+        }
 
         try {
             hw.setWage(new BigDecimal(form.getWage()));

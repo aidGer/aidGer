@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-10 22:19+0200\n"
+"POT-Creation-Date: 2010-06-10 22:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -159,7 +159,7 @@ msgstr ""
 msgid "Add hourly wage"
 msgstr ""
 
-#: view/tabs/EditorTab.java:249 controller/actions/EditorSaveAction.java:42
+#: view/tabs/EditorTab.java:249 controller/actions/EditorSaveAction.java:43
 #: controller/actions/SaveSettingsAction.java:29
 msgid "Save"
 msgstr ""
@@ -197,7 +197,7 @@ msgstr ""
 
 #: view/tabs/AssistantViewerTab.java:76 view/tabs/HourlyWageViewerTab.java:64
 #: view/forms/AssistantEditorForm.java:114
-#: view/forms/HourlyWageEditorForm.java:140
+#: view/forms/HourlyWageEditorForm.java:179
 #: view/models/HourlyWageTableModel.java:24
 #: view/models/AssistantTableModel.java:25
 msgid "Qualification"
@@ -482,11 +482,19 @@ msgstr ""
 msgid "Bachelor"
 msgstr ""
 
-#: view/forms/HourlyWageEditorForm.java:146
+#: view/forms/HourlyWageEditorForm.java:185
 msgid "Date"
 msgstr ""
 
-#: view/forms/HourlyWageEditorForm.java:154
+#: view/forms/HourlyWageEditorForm.java:193
+msgid "Start date"
+msgstr ""
+
+#: view/forms/HourlyWageEditorForm.java:201
+msgid "Finish date"
+msgstr ""
+
+#: view/forms/HourlyWageEditorForm.java:209
 #: view/models/HourlyWageTableModel.java:25
 msgid "Wage"
 msgstr ""
@@ -625,11 +633,15 @@ msgstr ""
 msgid "Cancel the operation"
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:196
+#: controller/actions/EditorSaveAction.java:147
+msgid "must be after start date"
+msgstr ""
+
+#: controller/actions/EditorSaveAction.java:208
 msgid "Could not save the model because it already exists in the database."
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:198
+#: controller/actions/EditorSaveAction.java:210
 msgid "Could not save the model to database."
 msgstr ""
 
