@@ -4,6 +4,7 @@ import static de.aidger.utils.Translation._;
 
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 import javax.swing.AbstractAction;
@@ -177,8 +178,7 @@ public class EditorSaveAction extends AbstractAction {
             break;
         }
 
-        List<TableModel> tableModels = ViewerTab.tableModels.get(tab
-            .getType());
+        List<TableModel> tableModels = ViewerTab.tableModels.get(tab.getType());
 
         for (TableModel tableModel : tableModels) {
             model.addObserver(tableModel);
@@ -191,9 +191,12 @@ public class EditorSaveAction extends AbstractAction {
                 return;
             }
         } catch (AdoHiveException e1) {
-            UI.displayError(_("Could not save the model to database."));
-
-            System.out.println(e1.getMessage());
+            if (e1.getCause().getClass() == SQLIntegrityConstraintViolationException.class) {
+                UI
+                    .displayError(_("Could not save the model because it already exists in the database."));
+            } else {
+                UI.displayError(_("Could not save the model to database."));
+            }
         }
 
         UI.getInstance().replaceCurrentTab(new ViewerTab(tab.getType()));
