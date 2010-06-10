@@ -40,6 +40,8 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      * Initialize the FinancialCategory class.
      */
     public FinancialCategory() {
+        updatePKs = true;
+
         validatePresenceOf(new String[] { "name" });
     }
 
@@ -57,6 +59,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
         setFunds(f.getFunds());
         setName(f.getName());
         setYear(f.getYear());
+        setNew(false);
     }
 
     /**

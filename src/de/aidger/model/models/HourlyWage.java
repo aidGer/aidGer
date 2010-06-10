@@ -39,7 +39,7 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      * Initializes the HourlyWage class.
      */
     public HourlyWage() {
-        removeOnUpdate = true;
+        updatePKs = true;
 
         validatePresenceOf(new String[] { "qualification" });
         validateInclusionOf(new String[] { "qualification" }, new String[] {
@@ -54,12 +54,12 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      */
     public HourlyWage(IHourlyWage h) {
         this();
-        setNew(false);
         setId(h.getId());
         setMonth(h.getMonth());
         setQualification(h.getQualification());
         setWage(h.getWage());
         setYear(h.getYear());
+        setNew(false);
     }
 
     /**

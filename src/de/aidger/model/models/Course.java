@@ -106,6 +106,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
         setSemester(course.getSemester());
         setTargetAudience(course.getTargetAudience());
         setUnqualifiedWorkingHours(course.getUnqualifiedWorkingHours());
+        setNew(false);
     }
 
     /**
@@ -189,6 +190,14 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
         return hash;
     }
 
+    /**
+     * Get a list of all courses with the given financial category.
+     *
+     * @param category
+     *              The given financial category
+     * @return A list of courses
+     * @throws AdoHiveException
+     */
     public List<Course> getCourses(FinancialCategory category) throws AdoHiveException {
         ICourseManager mgr = (ICourseManager) getManager();
         List<ICourse> list = mgr.getCourses(category);

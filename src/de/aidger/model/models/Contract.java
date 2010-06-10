@@ -69,6 +69,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
         setEndDate(c.getEndDate());
         setStartDate(c.getStartDate());
         setType(c.getType());
+        setNew(false);
     }
 
     /**

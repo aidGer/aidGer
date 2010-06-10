@@ -55,6 +55,7 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
         setFirstName(a.getFirstName());
         setLastName(a.getLastName());
         setQualification(a.getQualification());
+        setNew(false);
     }
 
     /**

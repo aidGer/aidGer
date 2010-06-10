@@ -99,6 +99,7 @@ public class Employment extends AbstractModel<IEmployment> implements
         setQualification(e.getQualification());
         setRemark(e.getRemark());
         setYear(e.getYear());
+        setNew(false);
     }
 
     /**
