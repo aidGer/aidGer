@@ -9,7 +9,7 @@ import javax.swing.JPanel;
  * 
  * @author aidGer Team
  */
-public class BalanceReportSemesterViewer extends javax.swing.JPanel {
+public class BalanceReportSemesterPanel extends javax.swing.JPanel {
 
     /**
      * The name of the semester.
@@ -22,7 +22,7 @@ public class BalanceReportSemesterViewer extends javax.swing.JPanel {
      * @param semester
      *            The name of the semester.
      */
-    public BalanceReportSemesterViewer(String semester) {
+    public BalanceReportSemesterPanel(String semester) {
         this.name = semester;
         initComponents();
     }
@@ -46,8 +46,7 @@ public class BalanceReportSemesterViewer extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder(_("Semester")
-                + (" ") + name));
+        setBorder(javax.swing.BorderFactory.createTitledBorder(_("Semester") + (" ") + name));
         setLayout(new java.awt.GridLayout(0, 1));
     }// </editor-fold>//GEN-END:initComponents
 

@@ -23,11 +23,18 @@ public class BalanceCreator {
      * Initializes a new BalanceCreator which creates a new viewer tab and adds
      * the years/semesters.
      */
-    public BalanceCreator() {
+    public BalanceCreator(int index, Object semester) {
         if (balanceViewerTab == null) {
             balanceViewerTab = new BalanceViewerTab();
         }
-        addYear(2009);
+        switch (index) {
+        case 1:
+            addYear(Integer.parseInt("" + semester));
+            break;
+        case 2:
+            addSemester("" + semester);
+            break;
+        }
     }
 
     /**

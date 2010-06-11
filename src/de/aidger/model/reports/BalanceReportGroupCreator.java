@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Employment;
-import de.aidger.view.reports.BalanceReportGroupViewer;
+import de.aidger.view.reports.BalanceReportGroupPanel;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 import de.unistuttgart.iste.se.adohive.model.IEmployment;
@@ -22,7 +22,7 @@ public class BalanceReportGroupCreator {
     /**
      * The balance report group viewer panel, which belongs to this creator.
      */
-    private BalanceReportGroupViewer balanceReportGroupViewer = null;
+    private BalanceReportGroupPanel balanceReportGroupViewer = null;
 
     /**
      * Initializes this BalanceReportGroupCreator and adds the first course.
@@ -32,7 +32,7 @@ public class BalanceReportGroupCreator {
      */
     public BalanceReportGroupCreator(ICourse course) {
         if (balanceReportGroupViewer == null) {
-            balanceReportGroupViewer = new BalanceReportGroupViewer(course
+            balanceReportGroupViewer = new BalanceReportGroupPanel(course
                 .getDescription());
 
         }

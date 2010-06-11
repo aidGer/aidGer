@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class BalanceReportGroupViewer extends javax.swing.JPanel {
+public class BalanceReportGroupPanel extends javax.swing.JPanel {
 
     /**
      * The name of the group.
@@ -40,7 +40,7 @@ public class BalanceReportGroupViewer extends javax.swing.JPanel {
      * @param group
      *            The name of the group.
      */
-    public BalanceReportGroupViewer(String group) {
+    public BalanceReportGroupPanel(String group) {
         this.group = group;
         initComponents();
         contentPanel.add(contentTable.getTableHeader(),

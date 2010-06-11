@@ -6,7 +6,7 @@ import java.util.Vector;
 import javax.swing.JPanel;
 
 import de.aidger.model.models.Course;
-import de.aidger.view.reports.BalanceReportSemesterViewer;
+import de.aidger.view.reports.BalanceReportSemesterPanel;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
@@ -26,7 +26,7 @@ public class BalanceReportSemesterCreator {
     /**
      * The associated BalanceReportSemesterViewer.
      */
-    private BalanceReportSemesterViewer balanceReportSemesterViewer = null;
+    private BalanceReportSemesterPanel balanceReportSemesterViewer = null;
 
     /**
      * Initializes this BalanceReportSemesterCreator and adds the groups of the
@@ -37,7 +37,7 @@ public class BalanceReportSemesterCreator {
      */
     public BalanceReportSemesterCreator(String semester) {
         if (balanceReportSemesterViewer == null) {
-            balanceReportSemesterViewer = new BalanceReportSemesterViewer(
+            balanceReportSemesterViewer = new BalanceReportSemesterPanel(
                 semester);
 
         }
