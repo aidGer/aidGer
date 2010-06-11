@@ -21,6 +21,16 @@ public abstract class Tab extends JPanel {
     }
 
     /**
+     * Get the name of the tab and constructor options if necessary.
+     *
+     * @return A string representation of the class
+     */
+    @Override
+    public String toString() {
+        return getClass().getName();
+    }
+
+    /**
      * Returns the name of the panel.
      * 
      * @return The name of the panel

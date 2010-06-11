@@ -14,6 +14,9 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.MessageFormat;
+import java.util.List;
+import java.util.ArrayList;
+import java.lang.reflect.Constructor;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -155,8 +158,10 @@ public final class UI extends JFrame {
             }
         });
 
-        // Add the welcome tab to the UI.
-        addNewTab(new WelcomeTab());
+        // Try to display saved tabs or add the welcome tab to the UI.
+        if (!displaySavedTabs()) {
+            addNewTab(new WelcomeTab());
+        }
     }
 
     /**
@@ -216,6 +221,7 @@ public final class UI extends JFrame {
         tabbedPane.setSelectedIndex(index);
 
         tabbedPane.addChangeListener(tabbedPaneListener);
+        saveCurrentTabs();
     }
 
     /**
@@ -269,6 +275,7 @@ public final class UI extends JFrame {
         }
 
         tabbedPane.addChangeListener(tabbedPaneListener);
+        saveCurrentTabs();
     }
 
     /**
@@ -514,7 +521,7 @@ public final class UI extends JFrame {
         }
 
         for (int i = 0; i < collapsed.length; ++i) {
-            if (!collapsed[i].isEmpty()) {
+            if (!collapsed[i].isEmpty() && !collapsed[i].equals("null")) {
                 tpc.getTask(Integer.valueOf(collapsed[i])).setExpanded(false);
             }
         }
@@ -571,6 +578,99 @@ public final class UI extends JFrame {
         statusPane.add(new JLabel(_("Ready")));
 
         return statusPane;
+    }
+
+    /**
+     * Save the currently open tabs if required.
+     */
+    private void saveCurrentTabs() {
+        if (!Boolean.valueOf(Runtime.getInstance().getOption("auto-save"))) {
+            return;
+        }
+
+        int count = tabbedPane.getTabCount();
+        String[] list = new String[count - 1]; // -1 because of CloseTabComponent
+
+        for (int i = 0; i < count - 1; ++i) {
+            Tab t = (Tab) ((JScrollPane) tabbedPane.getComponentAt(i)).
+                    getViewport().getView();
+            list[i] = t.toString();
+        }
+
+        Runtime.getInstance().setOptionArray("tablist", list);
+    }
+
+    /**
+     * Retrieve the saved tabs from the config and display them.
+     *
+     * @return True if it succeeded, false if the default should be displayed
+     */
+    private boolean displaySavedTabs() {
+        if (!Boolean.valueOf(Runtime.getInstance().getOption("auto-save"))) {
+            return false;
+        }
+
+        String[] list = Runtime.getInstance().getOptionArray("tablist");
+        if (list.length == 0) {
+            return false;
+        }
+
+        for (String tab : list) {
+            String classname = null;
+            String[] params = new String[0];
+            try {
+                int sep = tab.indexOf('<');
+                if (sep >= 0) {
+                    classname = tab.substring(0, sep).trim();
+                    params = tab.substring(sep + 1).split(",");
+                } else {
+                    classname = tab.trim();
+                }
+
+                if (classname.equals("null")) {
+                    continue;
+                }
+
+                Class clazz = Class.forName(classname);
+                Class[] searchParams = new Class[params.length];
+
+                for (int i = 0; i < params.length; ++i) {
+                    String[] parts = params[i].split("@");
+                    searchParams[i] = Class.forName(parts[i]);
+                }
+
+                Constructor ctr = clazz.getConstructor(searchParams);
+                if (ctr == null) {
+                    Logger.error(_("Couldn't find the correct constructor"));
+                    continue;
+                }
+
+                List<Object> ctrParams = new ArrayList<Object>();
+
+                for (int i = 0; i < params.length; ++i) {
+                    String[] parts = params[i].split("@");
+                    if (ctr.getParameterTypes()[i].equals(
+                            String.class)) {
+                        ctrParams.add(parts[1]);
+                    } else if (ctr.getParameterTypes()[i].isEnum()) {
+                        Class obj = Class.forName(parts[0]);
+                        ctrParams.add(Enum.valueOf(obj, parts[1]));
+                    } else {
+                        Class obj = Class.forName(parts[0]);
+                        ctrParams.add(obj.cast(parts[1]));
+                    }
+                }
+
+                addNewTab((Tab) ctr.newInstance(ctrParams.toArray()));
+            } catch (ClassNotFoundException ex) {
+                Logger.error(MessageFormat.format(_("Could not find tab class {0}"),
+                        new Object[] { ex.getMessage() }));
+            } catch (Exception ex) {
+                Logger.error(ex.getMessage());
+            }
+        }
+
+        return tabbedPane.getTabCount() > 0;
     }
 
 }
