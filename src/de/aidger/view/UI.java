@@ -216,6 +216,7 @@ public final class UI extends JFrame {
         tabbedPane.setSelectedIndex(index);
 
         tabbedPane.addChangeListener(tabbedPaneListener);
+        saveCurrentTabs();
     }
 
     /**
@@ -269,6 +270,7 @@ public final class UI extends JFrame {
         }
 
         tabbedPane.addChangeListener(tabbedPaneListener);
+        saveCurrentTabs();
     }
 
     /**
@@ -571,6 +573,26 @@ public final class UI extends JFrame {
         statusPane.add(new JLabel(_("Ready")));
 
         return statusPane;
+    }
+
+    /**
+     * Save the currently open tabs if required.
+     */
+    private void saveCurrentTabs() {
+        if (!Boolean.valueOf(Runtime.getInstance().getOption("auto-save"))) {
+            return;
+        }
+
+        int count = tabbedPane.getTabCount();
+        String[] list = new String[count];
+
+        for (int i = 0; i < count; ++i) {
+            Tab t = (Tab) ((JScrollPane) tabbedPane.getTabComponentAt(i))
+                    .getViewport().getView();
+            list[i] = t.toString();
+        }
+
+        Runtime.getInstance().setOptionArray("tablist", list);
     }
 
 }
