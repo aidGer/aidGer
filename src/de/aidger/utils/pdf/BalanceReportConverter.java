@@ -163,7 +163,6 @@ public class BalanceReportConverter implements ReportConverter {
                 }
             }
             for (int i = 0; i <= balanceReportGroups.size() - 1; i++) {
-                System.out.println(i);
                 PdfPCell cell = new PdfPCell(
                     (PdfPTable) ((Vector) balanceReportGroups.get(i)).get(0));
                 cell.setBorder(0);

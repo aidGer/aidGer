@@ -8,20 +8,23 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.text.MessageFormat;
-import java.util.List;
-import java.util.ArrayList;
 import java.lang.reflect.Constructor;
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -51,7 +54,11 @@ import de.aidger.controller.actions.SettingsAction;
 import de.aidger.controller.actions.TaskPaneAction;
 import de.aidger.controller.actions.TaskPaneAction.Task;
 import de.aidger.model.Runtime;
+import de.aidger.model.reports.BalanceCreator;
+import de.aidger.model.reports.ProtocolCreator;
 import de.aidger.utils.Logger;
+import de.aidger.utils.pdf.BalanceReportConverter;
+import de.aidger.utils.reports.BalanceHelper;
 import de.aidger.view.tabs.EmptyTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.WelcomeTab;
@@ -129,7 +136,8 @@ public final class UI extends JFrame {
 
                         action.actionPerformed(evt);
                     }
-                } catch (ActionNotFoundException e) {
+                }
+                catch (ActionNotFoundException e) {
                     displayError(e.getMessage());
                 }
             }
@@ -381,7 +389,8 @@ public final class UI extends JFrame {
             menuBar.add(createHelpMenu());
 
             return menuBar;
-        } catch (ActionNotFoundException e) {
+        }
+        catch (ActionNotFoundException e) {
             displayError(e.getMessage());
             return null;
         }
@@ -479,9 +488,66 @@ public final class UI extends JFrame {
 
         TaskPane tpReports = new TaskPane(_("Reports"));
 
-        String[] reports = { _("Annual Balance"), _("Semester Balance"),
+        String[] reports = { _(""), _("Annual Balance"), _("Semester Balance"),
                 _("Partial Balance"), _("Activity Report"), _("Protocol") };
-        tpReports.add(new JComboBox(reports));
+
+        final JComboBox reportsComboBox = new JComboBox(reports);
+        tpReports.add(reportsComboBox);
+
+        String[] reportLists = { _("") };
+        final JComboBox reportListComboBox = new JComboBox(reportLists);
+        tpReports.add(reportListComboBox);
+
+        final JButton reportExportBtn = new JButton(_("Export"));
+        tpReports.add(reportExportBtn);
+
+        reportExportBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new BalanceReportConverter("", reportsComboBox
+                    .getSelectedItem()
+                        + "_" + reportListComboBox.getSelectedItem());
+            }
+        });
+        reportExportBtn.setVisible(false);
+
+        reportListComboBox.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JComboBox reportListComboBox = (JComboBox) e.getSource();
+                if (reportListComboBox.getSelectedIndex() > 0) {
+                    addNewTab(new BalanceCreator(reportsComboBox
+                        .getSelectedIndex(), reportListComboBox
+                        .getSelectedItem()).getViewerTab());
+                }
+            }
+        });
+        reportListComboBox.setVisible(false);
+
+        reportsComboBox.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JComboBox reportsComboBox = (JComboBox) e.getSource();
+                switch (reportsComboBox.getSelectedIndex()) {
+                case 1:
+                case 2:
+                    reportListComboBox.removeAllItems();
+                    Vector semesters = new BalanceHelper().getSemesters();
+                    for (Object semester : semesters) {
+                        reportListComboBox.addItem(semester);
+                    }
+                    reportListComboBox.setVisible(true);
+                    reportExportBtn.setVisible(true);
+                    break;
+                case 5:
+                    addNewTab(new ProtocolCreator().getViewerTab());
+                    reportListComboBox.setVisible(false);
+                    reportExportBtn.setVisible(true);
+                    break;
+                default:
+                    reportListComboBox.setVisible(false);
+                    reportExportBtn.setVisible(false);
+                    break;
+                }
+            }
+        });
 
         TaskPane tpControlling = new TaskPane(_("Controlling"));
         JPanel monthSelection = new JPanel();
@@ -592,8 +658,8 @@ public final class UI extends JFrame {
         String[] list = new String[count - 1]; // -1 because of CloseTabComponent
 
         for (int i = 0; i < count - 1; ++i) {
-            Tab t = (Tab) ((JScrollPane) tabbedPane.getComponentAt(i)).
-                    getViewport().getView();
+            Tab t = (Tab) ((JScrollPane) tabbedPane.getComponentAt(i))
+                .getViewport().getView();
             list[i] = t.toString();
         }
 
@@ -602,7 +668,7 @@ public final class UI extends JFrame {
 
     /**
      * Retrieve the saved tabs from the config and display them.
-     *
+     * 
      * @return True if it succeeded, false if the default should be displayed
      */
     private boolean displaySavedTabs() {
@@ -649,8 +715,7 @@ public final class UI extends JFrame {
 
                 for (int i = 0; i < params.length; ++i) {
                     String[] parts = params[i].split("@");
-                    if (ctr.getParameterTypes()[i].equals(
-                            String.class)) {
+                    if (ctr.getParameterTypes()[i].equals(String.class)) {
                         ctrParams.add(parts[1]);
                     } else if (ctr.getParameterTypes()[i].isEnum()) {
                         Class obj = Class.forName(parts[0]);
@@ -662,10 +727,13 @@ public final class UI extends JFrame {
                 }
 
                 addNewTab((Tab) ctr.newInstance(ctrParams.toArray()));
-            } catch (ClassNotFoundException ex) {
-                Logger.error(MessageFormat.format(_("Could not find tab class {0}"),
-                        new Object[] { ex.getMessage() }));
-            } catch (Exception ex) {
+            }
+            catch (ClassNotFoundException ex) {
+                Logger.error(MessageFormat.format(
+                    _("Could not find tab class {0}"), new Object[] { ex
+                        .getMessage() }));
+            }
+            catch (Exception ex) {
                 Logger.error(ex.getMessage());
             }
         }
