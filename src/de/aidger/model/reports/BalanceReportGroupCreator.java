@@ -33,7 +33,7 @@ public class BalanceReportGroupCreator {
     public BalanceReportGroupCreator(ICourse course) {
         if (balanceReportGroupViewer == null) {
             balanceReportGroupViewer = new BalanceReportGroupPanel(course
-                .getDescription());
+                .getGroup());
 
         }
         addCourse(course);
