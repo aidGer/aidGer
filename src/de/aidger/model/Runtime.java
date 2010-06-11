@@ -222,7 +222,9 @@ public final class Runtime {
         String result = new String("[");
 
         for (String s : values) {
-            result += s + ",";
+            if (s != null && !s.isEmpty()) {
+                result += s + ",";
+            }
         }
 
         if (result.endsWith(",")) {
