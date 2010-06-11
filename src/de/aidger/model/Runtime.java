@@ -219,21 +219,7 @@ public final class Runtime {
      *            Array of all values
      */
     public void setOptionArray(String option, String[] values) {
-        String result = new String("[");
-
-        for (String s : values) {
-            if (s != null && !s.isEmpty()) {
-                result += s + ",";
-            }
-        }
-
-        if (result.endsWith(",")) {
-            result = result.substring(0, result.length() - 1);
-        }
-
-        result += "]";
-
-        setOption(option, result);
+        setOption(option, java.util.Arrays.toString(values));
     }
 
     /**
