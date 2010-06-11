@@ -23,7 +23,7 @@ public abstract class Tab extends JPanel {
     /**
      * Get the name of the tab and constructor options if necessary.
      *
-     * @return
+     * @return A string representation of the class
      */
     @Override
     public String toString() {

@@ -211,6 +211,17 @@ public class ViewerTab extends Tab {
         table.getTableHeader().addMouseListener(new PopupListener(headerMenu));
     }
 
+    /**
+     * Get the name of the tab and constructor options if necessary.
+     *
+     * @return A string representation of the class
+     */
+    @Override
+    public String toString() {
+        return getClass().getName() + "<" + MasterDataType.class.getName() + "@"
+                + type;
+    }
+
     /*
      * (non-Javadoc)
      * 
