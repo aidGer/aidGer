@@ -16,6 +16,7 @@ import java.awt.event.WindowEvent;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.ArrayList;
+import java.lang.reflect.Constructor;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -614,39 +615,56 @@ public final class UI extends JFrame {
             return false;
         }
 
-        for (String s : list) {
+        for (String tab : list) {
             String classname = null;
             String[] params = new String[0];
             try {
-                int sep = s.indexOf('<');
+                int sep = tab.indexOf('<');
                 if (sep >= 0) {
-                    classname = s.substring(0, sep).trim();
-                    params = s.substring(sep + 1).split(",");
+                    classname = tab.substring(0, sep).trim();
+                    params = tab.substring(sep + 1).split(",");
                 } else {
-                    classname = s.trim();
+                    classname = tab.trim();
                 }
 
                 if (classname.equals("null")) {
                     continue;
                 }
 
-                Class c = Class.forName(classname);
-                java.lang.reflect.Constructor[] ctrs = c.getConstructors();
-                for (java.lang.reflect.Constructor ctr : ctrs) {
-                    if (ctr.getParameterTypes().length == params.length) {
-                        List<Object> ctrParams = new ArrayList<Object>();
-                        for (String p : params) {
-                            String[] parts = p.split("@");
-                            Class obj = Class.forName(parts[0]);
-                            ctrParams.add(Enum.valueOf(obj, parts[1]));
-                        }
-                        addNewTab((Tab) ctr.newInstance(ctrParams.toArray()));
-                        break;
+                Class clazz = Class.forName(classname);
+                Class[] searchParams = new Class[params.length];
+
+                for (int i = 0; i < params.length; ++i) {
+                    String[] parts = params[i].split("@");
+                    searchParams[i] = Class.forName(parts[i]);
+                }
+
+                Constructor ctr = clazz.getConstructor(searchParams);
+                if (ctr == null) {
+                    Logger.error(_("Couldn't find the correct constructor"));
+                    continue;
+                }
+
+                List<Object> ctrParams = new ArrayList<Object>();
+
+                for (int i = 0; i < params.length; ++i) {
+                    String[] parts = params[i].split("@");
+                    if (ctr.getParameterTypes()[i].equals(
+                            String.class)) {
+                        ctrParams.add(parts[1]);
+                    } else if (ctr.getParameterTypes()[i].isEnum()) {
+                        Class obj = Class.forName(parts[0]);
+                        ctrParams.add(Enum.valueOf(obj, parts[1]));
+                    } else {
+                        Class obj = Class.forName(parts[0]);
+                        ctrParams.add(obj.cast(parts[1]));
                     }
                 }
+
+                addNewTab((Tab) ctr.newInstance(ctrParams.toArray()));
             } catch (ClassNotFoundException ex) {
                 Logger.error(MessageFormat.format(_("Could not find tab class {0}"),
-                        new Object[] { classname }));
+                        new Object[] { ex.getMessage() }));
             } catch (Exception ex) {
                 Logger.error(ex.getMessage());
             }
