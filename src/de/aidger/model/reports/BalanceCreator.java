@@ -89,9 +89,9 @@ public class BalanceCreator {
         case 6:
         case 7:
         case 8:
-            semesters[1] = "WS 0" + (semester - 1) + "0" + semester;
-            semesters[2] = "SS 0" + semester;
-            semesters[3] = "WS 0" + semester + "0" + (semester + 1);
+            semesters[1] = "WS0" + (semester - 1) + "0" + semester;
+            semesters[2] = "SS0" + semester;
+            semesters[3] = "WS0" + semester + "0" + (semester + 1);
             break;
         /*
          * If the given year is 2009, the previous and current semester will
@@ -99,9 +99,9 @@ public class BalanceCreator {
          * next semester will be 10 and thus needs no adjustments.
          */
         case 9:
-            semesters[1] = "WS 0" + (semester - 1) + "0" + semester;
-            semesters[2] = "SS 0" + semester;
-            semesters[3] = "WS 0" + semester + (semester + 1);
+            semesters[1] = "WS0" + (semester - 1) + "0" + semester;
+            semesters[2] = "SS0" + semester;
+            semesters[3] = "WS0" + semester + (semester + 1);
             break;
         /*
          * If the given year is 2010, the current and next semesters will be 10
@@ -109,18 +109,18 @@ public class BalanceCreator {
          * will be 9 though.
          */
         case 10:
-            semesters[1] = "WS 0" + (semester - 1) + semester;
-            semesters[2] = "SS " + semester;
-            semesters[3] = "WS " + semester + (semester + 1);
+            semesters[1] = "WS0" + (semester - 1) + semester;
+            semesters[2] = "SS" + semester;
+            semesters[3] = "WS" + semester + (semester + 1);
             break;
         /*
          * In all other relevant cases (11 and higher), the semesters can be
          * used the way (year % 100) returns them.
          */
         default:
-            semesters[1] = "WS " + (semester - 1) + semester;
-            semesters[2] = "SS " + semester;
-            semesters[3] = "WS " + semester + (semester + 1);
+            semesters[1] = "WS" + (semester - 1) + semester;
+            semesters[2] = "SS" + semester;
+            semesters[3] = "WS" + semester + (semester + 1);
             break;
         }
         //Check if the semester has a course and add it if it does.

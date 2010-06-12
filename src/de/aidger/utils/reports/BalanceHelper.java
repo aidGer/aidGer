@@ -60,7 +60,7 @@ public class BalanceHelper {
         for (IEmployment employment : employments) {
             if (employment.getCourseId() == course.getId()) {
                 //TODO find out int for student fee funds
-                if (employment.getFunds() == 0) {
+                if (employment.getFunds() == 1) {
                     for (IAssistant assistant : assistants) {
                         if (employment.getAssistantId() == assistant.getId()) {
                             //TODO change to get correct hourly wage
@@ -69,7 +69,7 @@ public class BalanceHelper {
                         }
                     }
                     //TODO find out int for student fee funds
-                } else if (employment.getFunds() == 1) {
+                } else if (employment.getFunds() == 2) {
                     for (IAssistant assistant : assistants) {
                         if (employment.getAssistantId() == assistant.getId()) {
                             //TODO change to get correct hourly wage
