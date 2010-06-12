@@ -2,6 +2,7 @@ package de.aidger.model.models;
 
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -19,13 +20,12 @@ public class ActivityTest {
 
     private Activity activity = null;
 
-    private Assistant assistant = null;
+    private static Assistant assistant = null;
 
-    private Course course = null;
+    private static Course course = null;
 
-    private FinancialCategory financial = null;
-
-    public ActivityTest() throws AdoHiveException {
+    @BeforeClass
+    public static void beforeClassSetUp() throws AdoHiveException {
         de.aidger.model.Runtime.getInstance().initialize();
 
         assistant = new Assistant();
@@ -83,6 +83,63 @@ public class ActivityTest {
 
         assertNotNull(result);
         assertEquals(activity, result);
+    }
+
+    /**
+     * Test of validation, of class Activity.
+     */
+    @Test
+    public void testValidation() throws AdoHiveException {
+        System.out.println("Validation");
+
+        activity.setNew(true);
+
+        activity.setAssistantId(-1);
+        assertFalse(activity.save());
+        activity.resetErrors();
+        activity.setAssistantId(assistant.getId());
+
+        activity.setContent(null);
+        assertFalse(activity.save());
+        activity.resetErrors();
+        activity.setContent("New assistant");
+
+        activity.setCourseId(-1);
+        assertFalse(activity.save());
+        activity.resetErrors();
+        activity.setCourseId(course.getId());
+
+        activity.setDate(null);
+        assertFalse(activity.save());
+        activity.resetErrors();
+        activity.setDate(new Date(100));
+
+        activity.setDocumentType(null);
+        assertFalse(activity.save());
+        activity.resetErrors();
+
+        activity.setDocumentType("012345678901234567890123456789012345678901234567890");
+        assertFalse(activity.save());
+        activity.resetErrors();
+        activity.setDocumentType("Type");
+
+        activity.setProcessor(null);
+        assertFalse(activity.save());
+        activity.resetErrors();
+        activity.setProcessor("Tester");
+
+        activity.setSender(null);
+        assertFalse(activity.save());
+        activity.resetErrors();
+        activity.setSender("Test Sender");
+
+        activity.setType(null);
+        assertFalse(activity.save());
+        activity.resetErrors();
+
+        activity.setType("012345678901234567890");
+        assertFalse(activity.save());
+        activity.resetErrors();
     }
 
     /**

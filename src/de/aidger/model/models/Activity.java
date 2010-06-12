@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Vector;
 
+import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.controller.IActivityManager;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
@@ -68,10 +69,9 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      */
     public Activity() {
         validatePresenceOf(new String[] { "date", "sender", "type",
-                "processor", "content" });
+                "processor", "content", "documentType" });
         validateExistanceOf(new String[] { "assistantId" }, new Assistant());
         validateExistanceOf(new String[] { "courseId" }, new Course());
-        //TODO: Check that documentType and type are correct (need to know what valid values are first)
     }
 
     /**
@@ -163,6 +163,23 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
         hash = 97 * hash + (content != null ? content.hashCode() : 0);
         hash = 97 * hash + (remark != null ? remark.hashCode() : 0);
         return hash;
+    }
+
+    /**
+     * Custom validation function
+     *
+     * @return True if everything is correct
+     */
+    public boolean validate() {
+        if (type.length() > 20) {
+            addError("type", _("is too long"));
+            return false;
+        }
+        if (documentType.length() > 50) {
+            addError("documentType", _("is too long"));
+            return false;
+        }
+        return true;
     }
 
     /**

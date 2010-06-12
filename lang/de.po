@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-12 17:08+0200\n"
+"POT-Creation-Date: 2010-06-12 17:59+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -141,6 +141,11 @@ msgstr "Die Zeitspanne {0} und {1} ist inkorrekt."
 #: model/validators/Validator.java:48
 msgid "Default error"
 msgstr "Standardfehler"
+
+#: model/models/Activity.java:175
+#: model/models/Activity.java:179
+msgid "is too long"
+msgstr "ist zu lang"
 
 #: model/models/FinancialCategory.java:121
 #: model/models/HourlyWage.java:129
