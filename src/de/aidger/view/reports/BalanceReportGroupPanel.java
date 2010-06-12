@@ -22,7 +22,7 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
      */
     private final DefaultTableModel groupTableModel = new DefaultTableModel(
         null, new String[] { _("Title"), _("Part"), _("Lecturer"),
-                _("Target Audience"), _("Planned AWS"), _("Basic AWS"),
+                _("Target Audience"), _("Planned AWS"), _("Basic needed AWS"),
                 _("Budget costs from student fees"),
                 _("Budget costs from resources") }) {
         boolean[] canEdit = new boolean[] { false, false, false, false, false,
