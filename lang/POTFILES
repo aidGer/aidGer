@@ -9,7 +9,7 @@ model/AbstractModel.java
 model/validators/ExistanceValidator.java
 model/validators/InclusionValidator.java
 model/validators/PresenceValidator.java
-model/validators/EmailValidator.java
+model/validators/FormatValidator.java
 model/validators/DateRangeValidator.java
 model/validators/Validator.java
 model/reports/BalanceCourse.java

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-12 16:26+0200\n"
+"POT-Creation-Date: 2010-06-12 17:08+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -67,7 +67,7 @@ msgstr "Zielpublikum"
 msgid "Planned AWS"
 msgstr "Eingeplante HKS"
 
-#: utils/pdf/BalanceReportConverter.java:288
+#: utils/pdf/BalanceReportConverter.java:287
 #: view/reports/BalanceReportGroupPanel.java:25
 msgid "Basic needed AWS"
 msgstr "HKS Grundbedarf"
@@ -111,7 +111,7 @@ msgstr "Update Model: {0}"
 msgid "Removing model: {0}"
 msgstr "Entferne Model: {0}"
 
-#: model/AbstractModel.java:437
+#: model/AbstractModel.java:450
 #, java-format
 msgid "Could not get manager for class \"{0}\". Error: {1}"
 msgstr "Konnte Manager für Klasse \"{0}\" nicht finden. Fehler: {1}"
@@ -124,9 +124,9 @@ msgstr "existiert nicht in der Datenbank"
 msgid "is empty"
 msgstr "ist leer"
 
-#: model/validators/EmailValidator.java:26
-msgid "is an invalid email address"
-msgstr "ist eine ungültige Emailadresse"
+#: model/validators/FormatValidator.java:37
+msgid "has an incorrect format"
+msgstr "hat ein ungültiges Format"
 
 #: model/validators/DateRangeValidator.java:28
 msgid "is an incorrect date range"
@@ -783,6 +783,8 @@ msgstr "Programm beenden"
 msgid "action class {0} not found"
 msgstr "Aktions-Klasse {0} nicht gefunden"
 
+#~ msgid "is an invalid email address"
+#~ msgstr "ist eine ungültige Emailadresse"
 #~ msgid "Readding model: {0}"
 #~ msgstr "Füge Model erneut hinzu: {0}"
 #~ msgid "Caught exception in getActivities(assistant): {0}"

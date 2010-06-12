@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-12 16:26+0200\n"
+"POT-Creation-Date: 2010-06-12 17:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,7 +62,7 @@ msgstr ""
 msgid "Planned AWS"
 msgstr ""
 
-#: utils/pdf/BalanceReportConverter.java:288
+#: utils/pdf/BalanceReportConverter.java:287
 #: view/reports/BalanceReportGroupPanel.java:25
 msgid "Basic needed AWS"
 msgstr ""
@@ -106,7 +106,7 @@ msgstr ""
 msgid "Removing model: {0}"
 msgstr ""
 
-#: model/AbstractModel.java:437
+#: model/AbstractModel.java:450
 #, java-format
 msgid "Could not get manager for class \"{0}\". Error: {1}"
 msgstr ""
@@ -119,8 +119,8 @@ msgstr ""
 msgid "is empty"
 msgstr ""
 
-#: model/validators/EmailValidator.java:26
-msgid "is an invalid email address"
+#: model/validators/FormatValidator.java:37
+msgid "has an incorrect format"
 msgstr ""
 
 #: model/validators/DateRangeValidator.java:28
