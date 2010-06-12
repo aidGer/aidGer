@@ -46,7 +46,7 @@ public class EmploymentTest {
         course.setPart('a');
         course.setRemark("Remark");
         course.setScope("Sniper Scope");
-        course.setSemester("SS 09");
+        course.setSemester("SS09");
         course.setTargetAudience("Testers");
         course.setUnqualifiedWorkingHours(100);
         course.save();
@@ -78,7 +78,7 @@ public class EmploymentTest {
     }
 
     /**
-     * Test of constructor, of class Contract.
+     * Test of constructor, of class Employment.
      */
     @Test
     public void testConstructor() throws AdoHiveException {
@@ -92,6 +92,65 @@ public class EmploymentTest {
 
         assertNotNull(result);
         assertEquals(employment, result);
+    }
+
+    /**
+     * Test of validation, of class Employment.
+     */
+    @Test
+    public void testValidation() throws AdoHiveException {
+        System.out.println("Validation");
+
+        employment.setNew(true);
+        assertTrue(employment.save());
+
+        employment.setAssistantId(-1);
+        assertFalse(employment.save());
+        employment.resetErrors();
+        employment.setAssistantId(assistant.getId());
+
+        employment.setContractId(-1);
+        assertFalse(employment.save());
+        employment.resetErrors();
+        employment.setContractId(contract.getId());
+
+        employment.setCostUnit(null);
+        assertFalse(employment.save());
+        employment.resetErrors();
+        employment.setCostUnit("0711");
+
+        employment.setCourseId(-1);
+        assertFalse(employment.save());
+        employment.resetErrors();
+        employment.setCourseId(course.getId());
+
+        employment.setFunds(0);
+        assertFalse(employment.save());
+        employment.resetErrors();
+        employment.setFunds(1);
+
+        employment.setHourCount(-1.0);
+        assertFalse(employment.save());
+        employment.resetErrors();
+        employment.setHourCount(40);
+
+        employment.setMonth((byte) 0);
+        assertFalse(employment.save());
+        employment.resetErrors();
+        employment.setMonth((byte) 10);
+
+        employment.setQualification(null);
+        assertFalse(employment.save());
+        employment.resetErrors();
+
+        employment.setQualification("Q");
+        assertFalse(employment.save());
+        employment.resetErrors();
+        employment.setQualification("g");
+
+        employment.setYear((short) 999);
+        assertFalse(employment.save());
+        employment.resetErrors();
     }
 
 

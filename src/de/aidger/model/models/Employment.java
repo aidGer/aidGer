@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Calendar;
 import java.util.Vector;
 
+import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.controller.IEmploymentManager;
 import de.unistuttgart.iste.se.adohive.model.IEmployment;
@@ -79,8 +80,6 @@ public class Employment extends AbstractModel<IEmployment> implements
         validateExistanceOf(new String[] { "assistantId" }, new Assistant());
         validateExistanceOf(new String[] { "contractId" }, new Contract());
         validateExistanceOf(new String[] { "courseId" }, new Course());
-        //TODO: Validate the funds
-        //TODO: Validate the hourCount
     }
 
     /**
@@ -174,6 +173,33 @@ public class Employment extends AbstractModel<IEmployment> implements
         hash = 29 * hash + (remark != null ? remark.hashCode() : 0);
         return hash;
     }
+
+    /**
+     * Custom validation function
+     *
+     * @return True if everything is correct
+     */
+    public boolean validate() {
+        boolean ret = true;
+        if (funds <= 0) {
+            addError("funds", _("has to be bigger than 0"));
+            ret = false;
+        }
+        if (hourCount < 0) {
+            addError("hourCount", _("has to be positive"));
+            ret = false;
+        }
+        if (year <= 1000 || year >= 10000) {
+            addError("year", _("is an incorrect year"));
+            ret = false;
+        }
+        if (month <= 0 || month >= 13) {
+            addError("month", _("is an incorrect month"));
+            ret = false;
+        }
+        return ret;
+    }
+
 
     /**
      * Get all employments during the given time.
