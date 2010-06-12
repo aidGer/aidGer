@@ -9,8 +9,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
+ * Tests the Runtime class.
  *
- * @author rmbl
+ * @author aidGer Team
  */
 public class RuntimeTest {
 

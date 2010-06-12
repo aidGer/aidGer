@@ -6,37 +6,26 @@
 package de.aidger.utils;
 
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import de.aidger.model.Runtime;
+import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
+
 /**
+ * Tests the Translation class.
  *
- * @author rmbl
+ * @author aidGer Team
  */
 public class TranslationTest {
 
-    public TranslationTest() {
-    }
-
     @BeforeClass
-    public static void setUpClass() throws Exception {
+    public static void beforeClassSetUp() {
+        Runtime.getInstance().initialize();
     }
 
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
 
     /**
      * Test of _ method, of class Translation.
@@ -57,10 +46,11 @@ public class TranslationTest {
 
         Translation trans = new Translation("", "");
 
-        List result = trans.getLanguages();
+        List<Pair<String, String>> result = trans.getLanguages();
 
         assertNotNull(result);
-        assertTrue(result.size() > 0);        
+        assertTrue(result.size() > 0);
+        assertEquals(result.get(0).fst(), "en");
     }
 
 }

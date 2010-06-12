@@ -2,12 +2,18 @@ package de.aidger.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Locale;
 import java.util.PropertyResourceBundle;
 import java.util.Vector;
+import java.util.Enumeration;
+import java.util.jar.*;
+import java.util.zip.ZipEntry;
 
 import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
+import de.aidger.model.Runtime;
 
 /**
  * Sets the translation of the program. If Strings of the current language can't
@@ -44,13 +50,42 @@ public class Translation {
             System.err.println("Couldn't create directory for translations.");
         }
 
+
         /* Load the language file */
-        try {
-            File inputFile = new File(filePath + language + ".properties");
-            FileInputStream inputStream = new FileInputStream(inputFile);
-            bundle = new PropertyResourceBundle(inputStream);
-            inputStream.close();
-        } catch (Exception e) {
+        InputStream inputStream = null;
+
+        /* Check first in .jar */
+        String jarfile = Runtime.getInstance().getJarLocation();
+        if (jarfile.endsWith(".jar")) {
+            try {
+                JarFile jf = new JarFile(Runtime.getInstance().getJarLocation());
+                ZipEntry ze = jf.getEntry("/de/aidger/lang/" + language +
+                        ".properties");
+                if (ze != null) {
+                    inputStream = jf.getInputStream(ze);
+                }
+            } catch (Exception e) {
+                Logger.error("Loading the translation from .jar failed.");
+            }
+        }
+
+        /* After that check in filesystem */
+        if (inputStream == null) {
+            try {
+                File inputFile = new File(filePath + language + ".properties");
+                inputStream = new FileInputStream(inputFile);
+            } catch (Exception e) {
+                Logger.error("Loading the translation from the filesystem failed. Only english will be available");
+            }
+        }
+
+        /* Finally load the resource */
+        if (inputStream != null) {
+            try {
+                bundle = new PropertyResourceBundle(inputStream);
+                inputStream.close();
+            } catch (IOException ex) {
+            }
         }
     }
 
@@ -81,24 +116,40 @@ public class Translation {
      */
     public List<Pair<String, String>> getLanguages() {
         List<Pair<String, String>> list = new Vector<Pair<String, String>>();
+
         /* Add English as standard language */
         list.add(new Pair<String, String>("en", new Locale("en")
             .getDisplayLanguage()));
 
-        /* Search all files in the lang directory and add them */
-        File dir = new File(filePath);
-        File[] files = dir.listFiles();
-        if (files == null) {
-            return list;
+        /* Search all translations in the jar file */
+        try {
+            JarFile jf = new JarFile(Runtime.getInstance().getJarLocation());
+            Enumeration ress = jf.entries();
+
+            while (ress.hasMoreElements()) {
+                JarEntry je = (JarEntry) ress.nextElement();
+
+                int idx = je.getName().indexOf(".properties");
+                if (idx > -1) {
+                    String lang = je.getName().substring(0, idx);
+                    list.add(new Pair<String, String>(lang, new Locale(lang)
+                            .getDisplayLanguage()));
+                }
+            }
+        } catch (IOException ex) {
         }
-        for (File file : files) {
-            String filename = file.getName();
-            int idx = filename.indexOf(".properties");
-            if (idx > -1) {
-                String lang = filename.substring(0, idx);
-                Locale loc = new Locale(lang);
-                list.add(new Pair<String, String>(lang, loc
-                    .getDisplayLanguage()));
+
+        /* Search all files in the lang directory and add them */
+        File[] files = (new File(filePath)).listFiles();
+        if (files != null) {
+            for (File file : files) {
+                String filename = file.getName();
+                int idx = filename.indexOf(".properties");
+                if (idx > -1) {
+                    String lang = filename.substring(0, idx);
+                    list.add(new Pair<String, String>(lang, new Locale(lang)
+                        .getDisplayLanguage()));
+                }
             }
         }
 
