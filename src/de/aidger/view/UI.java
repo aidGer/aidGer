@@ -505,7 +505,9 @@ public final class UI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 new BalanceReportConverter("", reportsComboBox
                     .getSelectedItem()
-                        + "_" + reportListComboBox.getSelectedItem());
+                        + "_" + reportListComboBox.getSelectedItem(),
+                    reportsComboBox.getSelectedIndex(), reportListComboBox
+                        .getSelectedItem());
             }
         });
         reportExportBtn.setVisible(false);
@@ -527,6 +529,14 @@ public final class UI extends JFrame {
                 JComboBox reportsComboBox = (JComboBox) e.getSource();
                 switch (reportsComboBox.getSelectedIndex()) {
                 case 1:
+                    reportListComboBox.removeAllItems();
+                    Vector years = new BalanceHelper().getYears();
+                    for (Object year : years) {
+                        reportListComboBox.addItem(year);
+                    }
+                    reportListComboBox.setVisible(true);
+                    reportExportBtn.setVisible(true);
+                    break;
                 case 2:
                     reportListComboBox.removeAllItems();
                     Vector semesters = new BalanceHelper().getSemesters();

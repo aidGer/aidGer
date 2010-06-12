@@ -49,13 +49,21 @@ public class BalanceReportConverter implements ReportConverter {
      * @param name
      *            The desired name of the document.
      */
-    public BalanceReportConverter(String path, String name) {
+    public BalanceReportConverter(String path, String name, int index,
+            Object semester) {
         if (document == null) {
             document = new Document(PageSize.A4.rotate());
         }
         makeNewDocument(path, name);
         writeHeader();
-        createYear(2009);
+        switch (index) {
+        case 1:
+            createYear(Integer.parseInt("" + semester));
+            break;
+        case 2:
+            createSemester("" + semester);
+            break;
+        }
         document.close();
     }
 
