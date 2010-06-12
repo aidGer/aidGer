@@ -5,6 +5,7 @@ utils/Configuration.java
 utils/Logger.java
 utils/Translation.java
 model/AbstractModel.java
+model/validators/ExistanceValidator.java
 model/validators/InclusionValidator.java
 model/validators/PresenceValidator.java
 model/validators/EmailValidator.java
@@ -41,8 +42,6 @@ view/forms/AssistantEditorForm.java
 view/forms/HourlyWageEditorForm.java
 view/forms/CourseEditorForm.java
 view/forms/FinancialCategoryEditorForm.java
-view/reports/BalanceReportGroupViewer.java
-view/reports/BalanceReportSemesterViewer.java
 view/CloseTabComponent.java
 view/AboutDialog.java
 view/models/CourseTableModel.java
