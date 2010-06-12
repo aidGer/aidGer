@@ -1,6 +1,7 @@
 utils/pdf/ActivityReportConverter.java
 utils/pdf/BalanceReportConverter.java
 utils/pdf/ReportConverter.java
+utils/reports/BalanceHelper.java
 utils/Configuration.java
 utils/Logger.java
 utils/Translation.java
@@ -14,6 +15,7 @@ model/reports/BalanceCourse.java
 model/reports/BalanceReportGroupCreator.java
 model/reports/BalanceCreator.java
 model/reports/BalanceReportSemesterCreator.java
+model/reports/ProtocolCreator.java
 model/models/Course.java
 model/models/Contract.java
 model/models/Activity.java
@@ -41,8 +43,6 @@ view/forms/AssistantEditorForm.java
 view/forms/HourlyWageEditorForm.java
 view/forms/CourseEditorForm.java
 view/forms/FinancialCategoryEditorForm.java
-view/reports/BalanceReportGroupViewer.java
-view/reports/BalanceReportSemesterViewer.java
 view/CloseTabComponent.java
 view/AboutDialog.java
 view/models/CourseTableModel.java
@@ -50,6 +50,8 @@ view/models/TableModel.java
 view/models/HourlyWageTableModel.java
 view/models/AssistantTableModel.java
 view/models/FinancialCategoryTableModel.java
+view/reports/BalanceReportGroupPanel.java
+view/reports/BalanceReportSemesterPanel.java
 view/SettingsDialog.java
 view/TaskPaneButton.java
 view/TaskPane.java

@@ -284,8 +284,8 @@ public class BalanceReportConverter implements ReportConverter {
             tableTitleFont = new Font(BaseFont.createFont(
                 BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.EMBEDDED), 9);
             String[] courseTitles = { _("Title"), _("Part"), _("Lecturer"),
-                    _("Target Audience"), _("Planned AWS"), _("Basic AWS"),
-                    _("Budget costs from student fees"),
+                    _("Target Audience"), _("Planned AWS"),
+                    _("Basic needed AWS"), _("Budget costs from student fees"),
                     _("Budget costs from resources") };
 
             Font groupTitleFont = new Font(BaseFont.createFont(
