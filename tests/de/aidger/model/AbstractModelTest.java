@@ -14,8 +14,9 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
 
 /**
- * 
- * @author rmbl
+ * Tests the AbstractModel class.
+ *
+ * @author aidGer Team
  */
 public class AbstractModelTest {
 
@@ -342,8 +343,12 @@ public class AbstractModelTest {
         a.setLastName("Tester");
         a.setQualification("g");
 
-        assertEquals("Assistant [ID: 0, Qualification: g, FirstName: Test, " +
-                "LastName: Tester, Email: test@example.com]", a.toString());
+        String result = a.toString();
+
+        assertTrue(result.contains("Email: " + a.getEmail()));
+        assertTrue(result.contains("FirstName: " + a.getFirstName()));
+        assertTrue(result.contains("LastName: " + a.getLastName()));
+        assertTrue(result.contains("Qualification: " + a.getQualification()));
     }
 
     /**
