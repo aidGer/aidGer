@@ -50,9 +50,9 @@ public final class Logger {
             ConsoleHandler chandler = new ConsoleHandler();
             chandler.setFormatter(format);
             if (Boolean.parseBoolean(Runtime.getInstance().getOption("debug"))) {
-                logger.setLevel(Level.ALL);
                 chandler.setLevel(Level.ALL);
             }
+            logger.setLevel(Level.ALL);
             logger.addHandler(chandler);
 
         } catch (IOException ex) {

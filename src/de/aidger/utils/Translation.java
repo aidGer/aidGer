@@ -50,23 +50,14 @@ public class Translation {
             System.err.println("Couldn't create directory for translations.");
         }
 
-
         /* Load the language file */
         InputStream inputStream = null;
 
         /* Check first in .jar */
         String jarfile = Runtime.getInstance().getJarLocation();
         if (jarfile.endsWith(".jar")) {
-            try {
-                JarFile jf = new JarFile(Runtime.getInstance().getJarLocation());
-                ZipEntry ze = jf.getEntry("/de/aidger/lang/" + language +
-                        ".properties");
-                if (ze != null) {
-                    inputStream = jf.getInputStream(ze);
-                }
-            } catch (Exception e) {
-                Logger.error("Loading the translation from .jar failed.");
-            }
+            inputStream = getClass().getClassLoader().
+                    getResourceAsStream("de/aidger/lang/de.properties");
         }
 
         /* After that check in filesystem */
@@ -131,7 +122,7 @@ public class Translation {
 
                 int idx = je.getName().indexOf(".properties");
                 if (idx > -1) {
-                    String lang = je.getName().substring(0, idx);
+                    String lang = je.getName().substring(idx - 2, idx);
                     list.add(new Pair<String, String>(lang, new Locale(lang)
                             .getDisplayLanguage()));
                 }
