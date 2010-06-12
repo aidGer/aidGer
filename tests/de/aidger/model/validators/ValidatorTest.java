@@ -35,6 +35,8 @@ public class ValidatorTest {
      */
     @Test
     public void testSetMessage() {
+        System.out.println("setMessage");
+
         ModelImpl model = new ModelImpl();
 
         Validator valid = new ValidatorImpl(model, new String[] { "notdefined" });
@@ -42,6 +44,19 @@ public class ValidatorTest {
 
         assertFalse(valid.validate());
         assertEquals(model.getErrors().get(0), "notdefined Bla");
+    }
+
+    /**
+     * Test of getMessage method, of class Validator.
+     */
+    @Test
+    public void testGetMessage() {
+        System.out.println("getMessage");
+
+        Validator valid = new ValidatorImpl(null, null);
+        valid.setMessage("Bla");
+
+        assertEquals("Bla", valid.getMessage());
     }
 
     public class ValidatorImpl extends Validator {

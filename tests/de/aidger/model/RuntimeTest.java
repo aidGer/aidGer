@@ -41,9 +41,17 @@ public class RuntimeTest {
         Runtime.getInstance().setOptionArray("test", str);
         String[] result = Runtime.getInstance().getOptionArray("test");
 
-        for (int i = 0; i < 2; ++i) {
+        for (int i = 0; i < result.length; ++i) {
             assertEquals(str[i], result[i]);
         }
+
+        Runtime.getInstance().setOption("test2", "not option array");
+
+        result = Runtime.getInstance().getOptionArray("test2");
+        assertNull(result);
+
+        result = Runtime.getInstance().getOptionArray("non-existent");
+        assertNull(result);
     }
 
     /**

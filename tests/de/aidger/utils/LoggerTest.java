@@ -51,4 +51,49 @@ public class LoggerTest {
         assertTrue(before < file.length());
     }
 
+    /**
+     * Test of debug method, of class Logger.
+     */
+    @Test
+    public void testDebug() {
+        System.out.println("debug");
+
+        File file = new File(Runtime.getInstance().getConfigPath().concat(
+                "/aidger.log"));
+        long before = file.length();
+        Logger.debug("Debug logging message");
+
+        assertTrue(before < file.length());
+    }
+
+    /**
+     * Test of info method, of class Logger.
+     */
+    @Test
+    public void testInfo() {
+        System.out.println("info");
+
+        File file = new File(Runtime.getInstance().getConfigPath().concat(
+                "/aidger.log"));
+        long before = file.length();
+        Logger.info("Info logging message");
+
+        assertTrue(before < file.length());
+    }
+
+    /**
+     * Test of error method, of class Logger.
+     */
+    @Test
+    public void testError() {
+        System.out.println("error");
+
+        File file = new File(Runtime.getInstance().getConfigPath().concat(
+                "/aidger.log"));
+        long before = file.length();
+        Logger.error("Error logging message");
+
+        assertTrue(before < file.length());
+    }
+
 }

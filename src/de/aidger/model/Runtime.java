@@ -135,11 +135,10 @@ public final class Runtime {
         File file = new File(configPath);
 
         if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
-            UI
-                    .displayError(MessageFormat
-                            .format(
-                                    "Could not create directory \"{0}\".\nPlease make sure that you have enough rights to create this directory.",
-                                    new Object[] { file.getPath() }));
+            UI.displayError(MessageFormat.format(
+                    "Could not create directory \"{0}\".\n" +
+                    "Please make sure that you have enough rights to create this directory.",
+                    new Object[] { file.getPath() }));
             System.exit(-1);
         }
 
@@ -235,7 +234,7 @@ public final class Runtime {
     /**
      * Check for a lock file or create it to only allow one running instance.
      *
-     * @return
+     * @return True if no lock file exists and the application can be started
      */
     protected boolean checkLock() {
         File lock = new File(configPath + "/aidger.lock");
