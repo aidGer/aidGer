@@ -20,23 +20,30 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import de.aidger.model.Runtime;
-import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
-import de.aidger.model.models.Employment;
 import de.aidger.model.reports.BalanceCourse;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
+import de.aidger.utils.reports.BalanceHelper;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
-import de.unistuttgart.iste.se.adohive.model.IEmployment;
 
+/**
+ * This class converts balance reports to a format for iText and exports it to a
+ * .pdf file.
+ * 
+ * @author aidGer Team
+ */
 public class BalanceReportConverter implements ReportConverter {
-    /*
+
+    /**
      * The PDF-document which will be created.
      */
     private Document document = null;
 
+    /**
+     * Contains the group tables and their names.
+     */
     private final Vector balanceReportGroups = new Vector<Vector>();
 
-    /*
+    /**
      * The PdfWriter used to write the document.
      */
     private PdfWriter writer = null;
@@ -131,8 +138,39 @@ public class BalanceReportConverter implements ReportConverter {
         }
     }
 
+    /**
+     * Writes a semester table and adds the groups of that semester to it.
+     * 
+     * @param semester
+     *            The name of the semester to be added.
+     */
     private void createSemester(String semester) {
         try {
+            Font semesterTitleFont = new Font(BaseFont.createFont(
+                BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.EMBEDDED),
+                13);
+            Font semesterNameFont = new Font(BaseFont.createFont(
+                BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 13);
+
+            PdfPTable finalSemesterTable = new PdfPTable(1);
+
+            PdfPTable semesterTitleTable = new PdfPTable(new float[] { 0.2f,
+                    0.8f });
+
+            PdfPCell semesterCell = new PdfPCell(new Phrase(_("Semester"),
+                semesterTitleFont));
+            semesterCell.setBorder(0);
+            semesterTitleTable.addCell(semesterCell);
+
+            semesterCell = new PdfPCell(new Phrase(semester, semesterNameFont));
+            semesterCell.setBorder(0);
+            semesterTitleTable.addCell(semesterCell);
+
+            semesterCell = new PdfPCell(semesterTitleTable);
+            semesterCell.setBorder(0);
+            semesterCell.setPaddingTop(7.0f);
+            finalSemesterTable.addCell(semesterCell);
+
             PdfPTable contentTable = new PdfPTable(1);
 
             /*
@@ -174,15 +212,27 @@ public class BalanceReportConverter implements ReportConverter {
                 PdfPCell cell = new PdfPCell(
                     (PdfPTable) ((Vector) balanceReportGroups.get(i)).get(0));
                 cell.setBorder(0);
+                cell.setPaddingBottom(8.0f);
                 contentTable.addCell(cell);
             }
-            document.add(contentTable);
+            PdfPCell contentCell = new PdfPCell(contentTable);
+            contentCell.setPaddingLeft(10.0f);
+            contentCell.setBorder(1);
+            finalSemesterTable.addCell(contentCell);
+            document.add(finalSemesterTable);
         }
         catch (Exception e) {
             System.out.println(e);
         }
     }
 
+    /**
+     * Creates a row with the data of one course and returns it.
+     * 
+     * @param course
+     *            The course of which the data shall be written to a row.
+     * @return The row as a PdfPCell
+     */
     private PdfPCell addRow(ICourse course) {
         PdfPTable groupContentTable = new PdfPTable(new float[] { 0.25f, 0.05f,
                 0.15f, 0.15f, 0.1f, 0.1f, 0.1f, 0.1f });
@@ -190,58 +240,8 @@ public class BalanceReportConverter implements ReportConverter {
         try {
             tableContentFont = new Font(BaseFont.createFont(BaseFont.HELVETICA,
                 BaseFont.CP1252, BaseFont.EMBEDDED), 9);
-            BalanceCourse balanceCourse = new BalanceCourse();
-            balanceCourse.setTitle(course.getDescription());
-            balanceCourse.setPart(course.getPart());
-            balanceCourse.setLecturer(course.getLecturer());
-            balanceCourse.setTargetAudience(course.getTargetAudience());
-            double plannedAWS = 0;
-            double basicAWS = course.getNumberOfGroups()
-                    * course.getUnqualifiedWorkingHours();
-            balanceCourse.setBasicAWS(basicAWS);
-            int studentFees = 0;
-            int resources = 0;
-            List<IEmployment> employments = null;
-            List<IAssistant> assistants = null;
-            try {
-                employments = (new Employment()).getAll();
-                assistants = (new Assistant()).getAll();
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-            for (IEmployment employment : employments) {
-                if (employment.getCourseId() == course.getId()) {
-                    //TODO find out int for student fee funds
-                    if (employment.getFunds() == 0) {
-                        for (IAssistant assistant : assistants) {
-                            if (employment.getAssistantId() == assistant
-                                .getId()) {
-                                //TODO change to get correct hourly wage
-                                studentFees = studentFees
-                                        + (int) (10.0 * employment
-                                            .getHourCount() * 1.28);
-                            }
-                        }
-                        //TODO find out int for student fee funds
-                    } else if (employment.getFunds() == 1) {
-                        for (IAssistant assistant : assistants) {
-                            if (employment.getAssistantId() == assistant
-                                .getId()) {
-                                //TODO change to get correct hourly wage
-                                resources = resources
-                                        + (int) (10.0 * employment
-                                            .getHourCount() * 1.28);
-                            }
-                        }
-                    }
-                    //TODO find out correct calculation
-                    plannedAWS = plannedAWS + employment.getHourCount();
-                }
-            }
-            balanceCourse.setPlannedAWS(plannedAWS);
-            balanceCourse.setStudentFees(studentFees);
-            balanceCourse.setResources(resources);
+            BalanceCourse balanceCourse = BalanceHelper
+                .getBalanceCourse(course);
             int i = 0;
             for (Object courseObject : balanceCourse.getCourseObject()) {
                 PdfPCell cell = new PdfPCell(new Phrase("" + courseObject,
@@ -270,6 +270,14 @@ public class BalanceReportConverter implements ReportConverter {
         }
     }
 
+    /**
+     * Creates a new group table with the title of the group. Adds the table and
+     * its title to the group table vector.
+     * 
+     * @param course
+     *            The course for which a group shall be created.
+     * @return The PdfPTable of the group.
+     */
     private PdfPTable createGroup(ICourse course) {
         Font tableTitleFont;
         try {
@@ -298,7 +306,7 @@ public class BalanceReportConverter implements ReportConverter {
             groupNameTable.addCell(groupName);
             PdfPCell groupContent = new PdfPCell(groupNameTable);
             groupContent.setBorder(0);
-            groupContent.setPaddingTop(10.0f);
+            groupContent.setPaddingTop(3.0f);
             groupContent.setPaddingBottom(2.0f);
             groupTable.addCell(groupContent);
             PdfPTable groupContentTable = new PdfPTable(new float[] { 0.25f,
@@ -341,17 +349,24 @@ public class BalanceReportConverter implements ReportConverter {
         }
     }
 
+    /**
+     * Creates the balance reports of the year by calling the functions to
+     * create all semesters of the year.
+     * 
+     * @param year
+     *            The year to be added.
+     */
     private void createYear(int year) {
         //Lose the first two numbers of the year
         int semester = year % 100;
-        /**
+        /*
          * Contains the year in YYYY form, the previous, current and next
          * semester in that order.
          */
         String[] semesters = new String[4];
         semesters[0] = "" + year;
         switch (semester) {
-        /**
+        /*
          * If the given year is 2000-2008, (year % 100) will give a single
          * number below 9. Therefore, the previous, current and next semester
          * all need a leading 0 added.
@@ -361,7 +376,7 @@ public class BalanceReportConverter implements ReportConverter {
             semesters[2] = "SS 0" + semester;
             semesters[3] = "WS 0" + semester + "0" + (semester + 1);
             break;
-        /**
+        /*
          * If the given year is 2009, the previous and current semester will
          * both be a single number and therefore need a leading 0 added. The
          * next semester will be 10 and thus needs no adjustments.
@@ -371,7 +386,7 @@ public class BalanceReportConverter implements ReportConverter {
             semesters[2] = "SS 0" + semester;
             semesters[3] = "WS 0" + semester + (semester + 1);
             break;
-        /**
+        /*
          * If the given year is 2010, the current and next semesters will be 10
          * and 11 and therefore don't need a leading 0. The previous semester
          * will be 9 though.
@@ -381,7 +396,7 @@ public class BalanceReportConverter implements ReportConverter {
             semesters[2] = "SS " + semester;
             semesters[3] = "WS " + semester + (semester + 1);
             break;
-        /**
+        /*
          * In all other relevant cases (11 and higher), the semesters can be
          * used the way (year % 100) returns them.
          */

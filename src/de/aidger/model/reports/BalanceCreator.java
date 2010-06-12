@@ -68,14 +68,14 @@ public class BalanceCreator {
     public void addYear(int year) {
         //Lose the first two numbers of the year
         int semester = year % 100;
-        /**
+        /*
          * Contains the year in YYYY form, the previous, current and next
          * semester in that order.
          */
         String[] semesters = new String[4];
         semesters[0] = "" + year;
         switch (semester) {
-        /**
+        /*
          * If the given year is 2000-2008, (year % 100) will give a single
          * number below 9. Therefore, the previous, current and next semester
          * all need a leading 0 added.
@@ -85,7 +85,7 @@ public class BalanceCreator {
             semesters[2] = "SS 0" + semester;
             semesters[3] = "WS 0" + semester + "0" + (semester + 1);
             break;
-        /**
+        /*
          * If the given year is 2009, the previous and current semester will
          * both be a single number and therefore need a leading 0 added. The
          * next semester will be 10 and thus needs no adjustments.
@@ -95,7 +95,7 @@ public class BalanceCreator {
             semesters[2] = "SS 0" + semester;
             semesters[3] = "WS 0" + semester + (semester + 1);
             break;
-        /**
+        /*
          * If the given year is 2010, the current and next semesters will be 10
          * and 11 and therefore don't need a leading 0. The previous semester
          * will be 9 though.
@@ -105,7 +105,7 @@ public class BalanceCreator {
             semesters[2] = "SS " + semester;
             semesters[3] = "WS " + semester + (semester + 1);
             break;
-        /**
+        /*
          * In all other relevant cases (11 and higher), the semesters can be
          * used the way (year % 100) returns them.
          */
