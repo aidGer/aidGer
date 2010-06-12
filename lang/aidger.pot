@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-12 19:19+0200\n"
+"POT-Creation-Date: 2010-06-12 20:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,6 +115,10 @@ msgstr ""
 msgid "doesn't exist in the database"
 msgstr ""
 
+#: model/validators/InclusionValidator.java:30
+msgid "has an invalid value"
+msgstr ""
+
 #: model/validators/PresenceValidator.java:26
 msgid "is empty"
 msgstr ""
@@ -136,7 +140,7 @@ msgstr ""
 msgid "Default error"
 msgstr ""
 
-#: model/models/Course.java:205 model/models/Course.java:209
+#: model/models/Course.java:206 model/models/Course.java:210
 #: model/models/Employment.java:185
 msgid "has to be bigger than 0"
 msgstr ""

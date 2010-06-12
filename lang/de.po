@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-12 19:19+0200\n"
+"POT-Creation-Date: 2010-06-12 20:38+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -120,6 +120,10 @@ msgstr "Konnte Manager für Klasse \"{0}\" nicht finden. Fehler: {1}"
 msgid "doesn't exist in the database"
 msgstr "existiert nicht in der Datenbank"
 
+#: model/validators/InclusionValidator.java:30
+msgid "has an invalid value"
+msgstr "hat einen ungültigen Wert"
+
 #: model/validators/PresenceValidator.java:26
 msgid "is empty"
 msgstr "ist leer"
@@ -142,8 +146,8 @@ msgstr "Die Zeitspanne {0} und {1} ist inkorrekt."
 msgid "Default error"
 msgstr "Standardfehler"
 
-#: model/models/Course.java:205
-#: model/models/Course.java:209
+#: model/models/Course.java:206
+#: model/models/Course.java:210
 #: model/models/Employment.java:185
 msgid "has to be bigger than 0"
 msgstr "muss größer als 0 sein"
@@ -801,8 +805,6 @@ msgstr "Programm beenden"
 msgid "action class {0} not found"
 msgstr "Aktions-Klasse {0} nicht gefunden"
 
-#~ msgid "is an invalid email address"
-#~ msgstr "ist eine ungültige Emailadresse"
 #~ msgid "Readding model: {0}"
 #~ msgstr "Füge Model erneut hinzu: {0}"
 #~ msgid "Caught exception in getActivities(assistant): {0}"
