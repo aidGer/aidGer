@@ -39,7 +39,7 @@ public abstract class AbstractModel<T> extends Observable implements
     /**
      * Determines if the model has been saved in the db yet.
      */
-    protected boolean isNew = true;
+    private boolean isNew = true;
 
     /**
      * Used to cache the AdoHiveManagers after getting them the first time.
@@ -186,7 +186,9 @@ public abstract class AbstractModel<T> extends Observable implements
             Logger.info(MessageFormat.format(_("Updating PKs for model: {0}"),
                     new Object[] { toString() }));
 
-            updateKeys();
+            mgr.remove(pkModel);
+            mgr.add(this);
+            pkModel = (AbstractModel<T>) clone();
         } else {
             Logger.info(MessageFormat.format(_("Updating model: {0}"),
                     new Object[] { toString() }));
@@ -215,9 +217,6 @@ public abstract class AbstractModel<T> extends Observable implements
             notifyObservers();
 
             setNew(true);
-            if (updatePKs) {
-                pkModel = null;
-            }
         }
     }
 
@@ -366,6 +365,9 @@ public abstract class AbstractModel<T> extends Observable implements
         isNew = isnew;
         if (isNew) {
             setId(0);
+            if (updatePKs) {
+                pkModel = null;
+            }
         } else if (updatePKs) {
             pkModel = (AbstractModel<T>) clone();
         }
@@ -454,25 +456,4 @@ public abstract class AbstractModel<T> extends Observable implements
         return ret;
     }
 
-    /**
-     * Update the Primary Keys of the model.
-     *
-     * @pre Model needs to set updatePKs to true
-     * @throws AdoHiveException
-     */
-    private void updateKeys() throws AdoHiveException {
-        if (!updatePKs) {
-            return;
-        } else if (pkModel == null) {
-            System.out.println("NOT REALLY");
-            setNew(true);
-            save();
-            return;
-        }
-
-        IAdoHiveManager mgr = getManager();
-        mgr.remove(pkModel);
-        mgr.add(this);
-        pkModel = this;
-    }
 }

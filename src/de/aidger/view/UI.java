@@ -488,13 +488,13 @@ public final class UI extends JFrame {
 
         TaskPane tpReports = new TaskPane(_("Reports"));
 
-        String[] reports = { _(""), _("Annual Balance"), _("Semester Balance"),
+        String[] reports = { "", _("Annual Balance"), _("Semester Balance"),
                 _("Partial Balance"), _("Activity Report"), _("Protocol") };
 
         final JComboBox reportsComboBox = new JComboBox(reports);
         tpReports.add(reportsComboBox);
 
-        String[] reportLists = { _("") };
+        String[] reportLists = { "" };
         final JComboBox reportListComboBox = new JComboBox(reportLists);
         tpReports.add(reportListComboBox);
 

@@ -218,6 +218,11 @@ public class AbstractModelTest {
         a.setFirstName(null);
         assertFalse(a.save());
 
+        /* Test fail with errors */
+        a.resetErrors();
+        a.addError("error message");
+        assertFalse(a.save());
+
         /* Test saving when editing a primary key */
         HourlyWage h = new HourlyWage();
         h.clearTable();

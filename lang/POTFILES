@@ -6,6 +6,7 @@ utils/Configuration.java
 utils/Logger.java
 utils/Translation.java
 model/AbstractModel.java
+model/validators/ExistanceValidator.java
 model/validators/InclusionValidator.java
 model/validators/PresenceValidator.java
 model/validators/EmailValidator.java
