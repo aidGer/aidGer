@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-12 15:29+0200\n"
+"POT-Creation-Date: 2010-06-12 16:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,44 +27,53 @@ msgstr ""
 #: utils/pdf/BalanceReportConverter.java:160
 #: view/tabs/CourseViewerTab.java:174 view/tabs/CourseViewerTab.java:213
 #: view/forms/CourseEditorForm.java:202 view/models/CourseTableModel.java:23
+#: view/reports/BalanceReportSemesterPanel.java:49
 msgid "Semester"
 msgstr ""
 
 #: utils/pdf/BalanceReportConverter.java:286
 #: view/tabs/CourseViewerTab.java:172 view/tabs/CourseViewerTab.java:212
+#: view/reports/BalanceReportGroupPanel.java:24
 msgid "Title"
 msgstr ""
 
 #: utils/pdf/BalanceReportConverter.java:286 view/tabs/CourseViewerTab.java:88
 #: view/tabs/CourseViewerTab.java:123 view/forms/CourseEditorForm.java:302
 #: view/models/CourseTableModel.java:25
+#: view/reports/BalanceReportGroupPanel.java:24
 msgid "Part"
 msgstr ""
 
 #: utils/pdf/BalanceReportConverter.java:286
 #: view/tabs/CourseViewerTab.java:176 view/tabs/CourseViewerTab.java:214
 #: view/forms/CourseEditorForm.java:210 view/models/CourseTableModel.java:23
+#: view/reports/BalanceReportGroupPanel.java:24
 msgid "Lecturer"
 msgstr ""
 
 #: utils/pdf/BalanceReportConverter.java:287
 #: view/forms/CourseEditorForm.java:234 view/models/CourseTableModel.java:24
+#: view/reports/BalanceReportGroupPanel.java:25
 msgid "Target Audience"
 msgstr ""
 
 #: utils/pdf/BalanceReportConverter.java:287
+#: view/reports/BalanceReportGroupPanel.java:25
 msgid "Planned AWS"
 msgstr ""
 
-#: utils/pdf/BalanceReportConverter.java:287
-msgid "Basic AWS"
+#: utils/pdf/BalanceReportConverter.java:288
+#: view/reports/BalanceReportGroupPanel.java:25
+msgid "Basic needed AWS"
 msgstr ""
 
 #: utils/pdf/BalanceReportConverter.java:288
+#: view/reports/BalanceReportGroupPanel.java:26
 msgid "Budget costs from student fees"
 msgstr ""
 
 #: utils/pdf/BalanceReportConverter.java:289
+#: view/reports/BalanceReportGroupPanel.java:27
 msgid "Budget costs from resources"
 msgstr ""
 
@@ -73,31 +82,31 @@ msgstr ""
 msgid "Could not create file \"{0}\"."
 msgstr ""
 
-#: model/AbstractModel.java:173
+#: model/AbstractModel.java:174
 msgid "The model was not saved because the error list is not empty."
 msgstr ""
 
-#: model/AbstractModel.java:180
+#: model/AbstractModel.java:181
 #, java-format
 msgid "Adding model: {0}"
 msgstr ""
 
-#: model/AbstractModel.java:186
+#: model/AbstractModel.java:187
 #, java-format
 msgid "Updating PKs for model: {0}"
 msgstr ""
 
-#: model/AbstractModel.java:193
+#: model/AbstractModel.java:194
 #, java-format
 msgid "Updating model: {0}"
 msgstr ""
 
-#: model/AbstractModel.java:212
+#: model/AbstractModel.java:213
 #, java-format
 msgid "Removing model: {0}"
 msgstr ""
 
-#: model/AbstractModel.java:424
+#: model/AbstractModel.java:437
 #, java-format
 msgid "Could not get manager for class \"{0}\". Error: {1}"
 msgstr ""
@@ -325,6 +334,7 @@ msgstr ""
 
 #: view/tabs/CourseViewerTab.java:90 view/tabs/CourseViewerTab.java:124
 #: view/forms/CourseEditorForm.java:310 view/models/CourseTableModel.java:25
+#: view/reports/BalanceReportGroupPanel.java:74
 msgid "Group"
 msgstr ""
 
