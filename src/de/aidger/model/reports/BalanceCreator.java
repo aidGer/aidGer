@@ -80,7 +80,15 @@ public class BalanceCreator {
          * number below 9. Therefore, the previous, current and next semester
          * all need a leading 0 added.
          */
-        case 0 - 8:
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 8:
             semesters[1] = "WS 0" + (semester - 1) + "0" + semester;
             semesters[2] = "SS 0" + semester;
             semesters[3] = "WS 0" + semester + "0" + (semester + 1);

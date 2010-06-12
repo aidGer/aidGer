@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-06-12 16:26+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
+"Last-Translator: \n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,67 +14,73 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: utils/pdf/BalanceReportConverter.java:118
-#, fuzzy
 msgid "Balance Report"
-msgstr "Stundenlohnanzeige"
+msgstr "Bilanzbericht"
 
 #: utils/pdf/BalanceReportConverter.java:124
 msgid "Author"
 msgstr "Autor"
 
 #: utils/pdf/BalanceReportConverter.java:160
-#: view/tabs/CourseViewerTab.java:174 view/tabs/CourseViewerTab.java:213
-#: view/forms/CourseEditorForm.java:202 view/models/CourseTableModel.java:23
+#: view/tabs/CourseViewerTab.java:174
+#: view/tabs/CourseViewerTab.java:213
+#: view/forms/CourseEditorForm.java:202
+#: view/models/CourseTableModel.java:23
 #: view/reports/BalanceReportSemesterPanel.java:49
 msgid "Semester"
 msgstr "Semester"
 
 #: utils/pdf/BalanceReportConverter.java:286
-#: view/tabs/CourseViewerTab.java:172 view/tabs/CourseViewerTab.java:212
+#: view/tabs/CourseViewerTab.java:172
+#: view/tabs/CourseViewerTab.java:212
 #: view/reports/BalanceReportGroupPanel.java:24
 msgid "Title"
 msgstr "Titel"
 
-#: utils/pdf/BalanceReportConverter.java:286 view/tabs/CourseViewerTab.java:88
-#: view/tabs/CourseViewerTab.java:123 view/forms/CourseEditorForm.java:302
+#: utils/pdf/BalanceReportConverter.java:286
+#: view/tabs/CourseViewerTab.java:88
+#: view/tabs/CourseViewerTab.java:123
+#: view/forms/CourseEditorForm.java:302
 #: view/models/CourseTableModel.java:25
 #: view/reports/BalanceReportGroupPanel.java:24
 msgid "Part"
 msgstr "Teil"
 
 #: utils/pdf/BalanceReportConverter.java:286
-#: view/tabs/CourseViewerTab.java:176 view/tabs/CourseViewerTab.java:214
-#: view/forms/CourseEditorForm.java:210 view/models/CourseTableModel.java:23
+#: view/tabs/CourseViewerTab.java:176
+#: view/tabs/CourseViewerTab.java:214
+#: view/forms/CourseEditorForm.java:210
+#: view/models/CourseTableModel.java:23
 #: view/reports/BalanceReportGroupPanel.java:24
 msgid "Lecturer"
 msgstr "Dozent"
 
 #: utils/pdf/BalanceReportConverter.java:287
-#: view/forms/CourseEditorForm.java:234 view/models/CourseTableModel.java:24
+#: view/forms/CourseEditorForm.java:234
+#: view/models/CourseTableModel.java:24
 #: view/reports/BalanceReportGroupPanel.java:25
 msgid "Target Audience"
 msgstr "Zielpublikum"
 
 #: utils/pdf/BalanceReportConverter.java:287
 #: view/reports/BalanceReportGroupPanel.java:25
-#, fuzzy
 msgid "Planned AWS"
-msgstr "Genehmigte HKS"
+msgstr "Eingeplante HKS"
 
 #: utils/pdf/BalanceReportConverter.java:288
 #: view/reports/BalanceReportGroupPanel.java:25
 msgid "Basic needed AWS"
-msgstr ""
+msgstr "HKS Grundbedarf"
 
 #: utils/pdf/BalanceReportConverter.java:288
 #: view/reports/BalanceReportGroupPanel.java:26
 msgid "Budget costs from student fees"
-msgstr ""
+msgstr "Plankosten aus Studiengebühren"
 
 #: utils/pdf/BalanceReportConverter.java:289
 #: view/reports/BalanceReportGroupPanel.java:27
 msgid "Budget costs from resources"
-msgstr ""
+msgstr "Plankosten aus Haushaltsmitteln"
 
 #: utils/Configuration.java:83
 #, java-format
@@ -91,9 +97,9 @@ msgid "Adding model: {0}"
 msgstr "Füge Model hinzu: {0}"
 
 #: model/AbstractModel.java:187
-#, fuzzy, java-format
+#, java-format
 msgid "Updating PKs for model: {0}"
-msgstr "Update Model: {0}"
+msgstr "Aktualisiere PKs für Model: {0}"
 
 #: model/AbstractModel.java:194
 #, java-format
@@ -127,15 +133,17 @@ msgid "is an incorrect date range"
 msgstr "ist ein ungültiges Datum"
 
 #: model/validators/DateRangeValidator.java:43
-#, fuzzy, java-format
+#, java-format
 msgid "The date range {0} and {1} is incorrect."
-msgstr "Der Datenrange {0} und {1} ist inkorrekt."
+msgstr "Der Zeitspanne {0} und {1} ist inkorrekt."
 
-#: model/validators/Validator.java:34 model/validators/Validator.java:48
+#: model/validators/Validator.java:34
+#: model/validators/Validator.java:48
 msgid "Default error"
 msgstr "Standardfehler"
 
-#: model/models/FinancialCategory.java:121 model/models/HourlyWage.java:129
+#: model/models/FinancialCategory.java:121
+#: model/models/HourlyWage.java:129
 msgid "is an incorrect year"
 msgstr "ist ein ungültiges Jahr"
 
@@ -164,7 +172,8 @@ msgid "Financial Category Viewing"
 msgstr "Finanzkategorieanzeige"
 
 #: view/tabs/FinancialCategoryViewerTab.java:64
-#: view/tabs/AssistantViewerTab.java:68 view/tabs/CourseViewerTab.java:84
+#: view/tabs/AssistantViewerTab.java:68
+#: view/tabs/CourseViewerTab.java:84
 #: view/tabs/HourlyWageViewerTab.java:62
 msgid "Data"
 msgstr "Daten"
@@ -223,12 +232,14 @@ msgstr "Finanzkategorie hinzufügen"
 msgid "Add hourly wage"
 msgstr "Stundenlohn hinzufügen"
 
-#: view/tabs/EditorTab.java:249 controller/actions/EditorSaveAction.java:43
+#: view/tabs/EditorTab.java:249
+#: controller/actions/EditorSaveAction.java:43
 #: controller/actions/SaveSettingsAction.java:29
 msgid "Save"
 msgstr "Speichern"
 
-#: view/tabs/EditorTab.java:252 controller/actions/DialogAbortAction.java:26
+#: view/tabs/EditorTab.java:252
+#: controller/actions/DialogAbortAction.java:26
 #: controller/actions/EditorCancelAction.java:27
 msgid "Cancel"
 msgstr "Abbrechen"
@@ -245,12 +256,14 @@ msgstr "(Unbenannt)"
 msgid "Assistant Viewing"
 msgstr "Hilfskraftanzeige"
 
-#: view/tabs/AssistantViewerTab.java:70 view/forms/AssistantEditorForm.java:92
+#: view/tabs/AssistantViewerTab.java:70
+#: view/forms/AssistantEditorForm.java:92
 #: view/models/AssistantTableModel.java:24
 msgid "First Name"
 msgstr "Vorname"
 
-#: view/tabs/AssistantViewerTab.java:72 view/forms/AssistantEditorForm.java:98
+#: view/tabs/AssistantViewerTab.java:72
+#: view/forms/AssistantEditorForm.java:98
 #: view/models/AssistantTableModel.java:24
 msgid "Last Name"
 msgstr "Nachname"
@@ -259,7 +272,8 @@ msgstr "Nachname"
 msgid "eMail Address"
 msgstr "Emailaddresse"
 
-#: view/tabs/AssistantViewerTab.java:76 view/tabs/HourlyWageViewerTab.java:64
+#: view/tabs/AssistantViewerTab.java:76
+#: view/tabs/HourlyWageViewerTab.java:64
 #: view/forms/AssistantEditorForm.java:114
 #: view/forms/HourlyWageEditorForm.java:179
 #: view/models/HourlyWageTableModel.java:24
@@ -267,14 +281,14 @@ msgstr "Emailaddresse"
 msgid "Qualification"
 msgstr "Qualifikation"
 
-#: view/tabs/AssistantViewerTab.java:161 view/tabs/ViewerTab.java:393
+#: view/tabs/AssistantViewerTab.java:161
+#: view/tabs/ViewerTab.java:393
 msgid "Activites"
 msgstr "Vorgänge"
 
 #: view/tabs/BalanceViewerTab.java:27
-#, fuzzy
 msgid "Balance Viewing"
-msgstr "Stundenlohnanzeige"
+msgstr "Bilanz Anzeige"
 
 #: view/tabs/ViewerTab.java:244
 msgid "Master Data Courses"
@@ -296,27 +310,33 @@ msgstr "Stammdaten Stundenlöhne"
 msgid "Master Data"
 msgstr "Stammdaten"
 
-#: view/tabs/ViewerTab.java:347 view/tabs/ViewerTab.java:365
+#: view/tabs/ViewerTab.java:347
+#: view/tabs/ViewerTab.java:365
 #: controller/actions/ViewerDetailViewAction.java:31
 msgid "View"
 msgstr "Anzeigen"
 
-#: view/tabs/ViewerTab.java:350 view/tabs/ViewerTab.java:372
+#: view/tabs/ViewerTab.java:350
+#: view/tabs/ViewerTab.java:372
 #: controller/actions/ViewerEditAction.java:26
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: view/tabs/ViewerTab.java:353 view/tabs/ViewerTab.java:386
+#: view/tabs/ViewerTab.java:353
+#: view/tabs/ViewerTab.java:386
 #: controller/actions/ViewerDeleteAction.java:28
 msgid "Delete"
 msgstr "Löschen"
 
-#: view/tabs/ViewerTab.java:356 view/tabs/CourseViewerTab.java:309
-#: view/UI.java:483 controller/actions/ViewerActivitiesAction.java:22
+#: view/tabs/ViewerTab.java:356
+#: view/tabs/CourseViewerTab.java:309
+#: view/UI.java:483
+#: controller/actions/ViewerActivitiesAction.java:22
 msgid "Activities"
 msgstr "Vorgänge"
 
-#: view/tabs/ViewerTab.java:379 controller/actions/ViewerAddAction.java:26
+#: view/tabs/ViewerTab.java:379
+#: controller/actions/ViewerAddAction.java:26
 msgid "Add"
 msgstr "Hinzufügen"
 
@@ -328,35 +348,45 @@ msgstr "Suchen"
 msgid "Course Viewing"
 msgstr "Veranstaltungsanzeige"
 
-#: view/tabs/CourseViewerTab.java:86 view/tabs/CourseViewerTab.java:122
+#: view/tabs/CourseViewerTab.java:86
+#: view/tabs/CourseViewerTab.java:122
 msgid "Complexity"
 msgstr "Komplexität"
 
-#: view/tabs/CourseViewerTab.java:90 view/tabs/CourseViewerTab.java:124
-#: view/forms/CourseEditorForm.java:310 view/models/CourseTableModel.java:25
+#: view/tabs/CourseViewerTab.java:90
+#: view/tabs/CourseViewerTab.java:124
+#: view/forms/CourseEditorForm.java:310
+#: view/models/CourseTableModel.java:25
 #: view/reports/BalanceReportGroupPanel.java:74
 msgid "Group"
 msgstr "Gruppe"
 
-#: view/tabs/CourseViewerTab.java:92 view/tabs/CourseViewerTab.java:125
+#: view/tabs/CourseViewerTab.java:92
+#: view/tabs/CourseViewerTab.java:125
 msgid "Comment"
 msgstr "Kommentar"
 
-#: view/tabs/CourseViewerTab.java:94 view/tabs/CourseViewerTab.java:127
-#: view/forms/CourseEditorForm.java:326 view/models/CourseTableModel.java:26
+#: view/tabs/CourseViewerTab.java:94
+#: view/tabs/CourseViewerTab.java:127
+#: view/forms/CourseEditorForm.java:326
+#: view/models/CourseTableModel.java:26
 msgid "Financial Category"
 msgstr "Finanzkategorie"
 
-#: view/tabs/CourseViewerTab.java:178 view/tabs/CourseViewerTab.java:215
-#: view/forms/CourseEditorForm.java:226 view/models/CourseTableModel.java:24
+#: view/tabs/CourseViewerTab.java:178
+#: view/tabs/CourseViewerTab.java:215
+#: view/forms/CourseEditorForm.java:226
+#: view/models/CourseTableModel.java:24
 msgid "Number of Groups"
 msgstr "Gruppenanzahl"
 
-#: view/tabs/CourseViewerTab.java:180 view/tabs/CourseViewerTab.java:216
+#: view/tabs/CourseViewerTab.java:180
+#: view/tabs/CourseViewerTab.java:216
 msgid "Target audience"
 msgstr "Zielpublikum"
 
-#: view/tabs/CourseViewerTab.java:182 view/tabs/CourseViewerTab.java:217
+#: view/tabs/CourseViewerTab.java:182
+#: view/tabs/CourseViewerTab.java:217
 msgid "Approved HKS"
 msgstr "Genehmigte HKS"
 
@@ -399,7 +429,8 @@ msgstr "Momentaner Reiter ist nun \"{0}\""
 msgid "File"
 msgstr "Datei"
 
-#: view/UI.java:424 controller/actions/HelpAction.java:24
+#: view/UI.java:424
+#: controller/actions/HelpAction.java:24
 msgid "Help"
 msgstr "Hilfe"
 
@@ -439,7 +470,8 @@ msgstr "Alle Verträge anzeigen"
 msgid "Create new activity"
 msgstr "Neuer Vorgang anlegen"
 
-#: view/UI.java:486 view/UI.java:501
+#: view/UI.java:486
+#: view/UI.java:501
 msgid "Export"
 msgstr "Exportieren"
 
@@ -508,9 +540,9 @@ msgid "Couldn't find the correct constructor"
 msgstr "Konnte den korrekten Konstruktor nicht finden"
 
 #: view/UI.java:743
-#, fuzzy, java-format
+#, java-format
 msgid "Could not find tab class {0}"
-msgstr "Die Datei \"{0}\" konnte nicht erstellt werden."
+msgstr "Die tab Klasse \"{0}\" konnte nicht gefunden werden."
 
 #: view/forms/AssistantEditorForm.java:106
 #: view/models/AssistantTableModel.java:24
@@ -546,23 +578,28 @@ msgstr "Enddatum"
 msgid "Wage"
 msgstr "Lohn"
 
-#: view/forms/CourseEditorForm.java:196 view/models/CourseTableModel.java:23
+#: view/forms/CourseEditorForm.java:196
+#: view/models/CourseTableModel.java:23
 msgid "Description"
 msgstr "Bezeichnung"
 
-#: view/forms/CourseEditorForm.java:218 view/models/CourseTableModel.java:24
+#: view/forms/CourseEditorForm.java:218
+#: view/models/CourseTableModel.java:24
 msgid "Advisor"
 msgstr "Betreuer"
 
-#: view/forms/CourseEditorForm.java:286 view/models/CourseTableModel.java:25
+#: view/forms/CourseEditorForm.java:286
+#: view/models/CourseTableModel.java:25
 msgid "Granted AWH"
 msgstr "Genehmigte HKS"
 
-#: view/forms/CourseEditorForm.java:294 view/models/CourseTableModel.java:25
+#: view/forms/CourseEditorForm.java:294
+#: view/models/CourseTableModel.java:25
 msgid "Scope"
 msgstr "Umfang"
 
-#: view/forms/CourseEditorForm.java:318 view/models/CourseTableModel.java:26
+#: view/forms/CourseEditorForm.java:318
+#: view/models/CourseTableModel.java:26
 msgid "Remark"
 msgstr "Bemerkung"
 
@@ -610,7 +647,8 @@ msgstr "ID"
 msgid "Month"
 msgstr "Monat"
 
-#: view/SettingsDialog.java:159 controller/actions/SettingsAction.java:27
+#: view/SettingsDialog.java:159
+#: controller/actions/SettingsAction.java:27
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -626,7 +664,8 @@ msgstr "Berichte automatisch nach Generierung öffnen"
 msgid "Name:"
 msgstr "Name:"
 
-#: view/SettingsDialog.java:170 view/SettingsDialog.java:172
+#: view/SettingsDialog.java:170
+#: view/SettingsDialog.java:172
 msgid "The name used in activities."
 msgstr "Name der in Vorgängen verwendet wird."
 
@@ -664,9 +703,7 @@ msgstr "muss hinter dem Startdatum liegen"
 
 #: controller/actions/EditorSaveAction.java:218
 msgid "Could not save the model because it already exists in the database."
-msgstr ""
-"Das Model konnte nicht gespeichert werden, da es bereits in der Datenbank "
-"vorhanden ist."
+msgstr "Das Model konnte nicht gespeichert werden, da es bereits in der Datenbank vorhanden ist."
 
 #: controller/actions/EditorSaveAction.java:220
 msgid "Could not save the model to database."
