@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-12 17:59+0200\n"
+"POT-Creation-Date: 2010-06-12 19:19+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -142,13 +142,21 @@ msgstr "Die Zeitspanne {0} und {1} ist inkorrekt."
 msgid "Default error"
 msgstr "Standardfehler"
 
-#: model/models/Activity.java:175
-#: model/models/Activity.java:179
+#: model/models/Course.java:205
+#: model/models/Course.java:209
+#: model/models/Employment.java:185
+msgid "has to be bigger than 0"
+msgstr "muss größer als 0 sein"
+
+#: model/models/Contract.java:147
+#: model/models/Activity.java:176
+#: model/models/Activity.java:180
 msgid "is too long"
 msgstr "ist zu lang"
 
 #: model/models/FinancialCategory.java:121
 #: model/models/HourlyWage.java:129
+#: model/models/Employment.java:193
 msgid "is an incorrect year"
 msgstr "ist ein ungültiges Jahr"
 
@@ -161,8 +169,13 @@ msgid "has to have a length of 8"
 msgstr "muss eine Länge von 8 haben"
 
 #: model/models/HourlyWage.java:133
+#: model/models/Employment.java:197
 msgid "is an incorrect month"
 msgstr "ist ein ungültiger Monat"
+
+#: model/models/Employment.java:189
+msgid "has to be positive"
+msgstr "muss positiv sein"
 
 #: model/Runtime.java:151
 msgid "Only one instance of aidGer can be run at a time."

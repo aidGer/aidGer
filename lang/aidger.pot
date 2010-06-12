@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-12 17:59+0200\n"
+"POT-Creation-Date: 2010-06-12 19:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -136,11 +136,18 @@ msgstr ""
 msgid "Default error"
 msgstr ""
 
-#: model/models/Activity.java:175 model/models/Activity.java:179
+#: model/models/Course.java:205 model/models/Course.java:209
+#: model/models/Employment.java:185
+msgid "has to be bigger than 0"
+msgstr ""
+
+#: model/models/Contract.java:147 model/models/Activity.java:176
+#: model/models/Activity.java:180
 msgid "is too long"
 msgstr ""
 
 #: model/models/FinancialCategory.java:121 model/models/HourlyWage.java:129
+#: model/models/Employment.java:193
 msgid "is an incorrect year"
 msgstr ""
 
@@ -152,8 +159,12 @@ msgstr ""
 msgid "has to have a length of 8"
 msgstr ""
 
-#: model/models/HourlyWage.java:133
+#: model/models/HourlyWage.java:133 model/models/Employment.java:197
 msgid "is an incorrect month"
+msgstr ""
+
+#: model/models/Employment.java:189
+msgid "has to be positive"
 msgstr ""
 
 #: model/Runtime.java:151
