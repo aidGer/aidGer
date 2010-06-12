@@ -53,9 +53,13 @@ public class BalanceCreator {
      * @param semester
      *            The semester to be added.
      */
-    public void addSemester(String semester) {
-        balanceViewerTab.add(new BalanceReportSemesterCreator(semester)
+    public boolean addSemester(String semester) {
+    	if(courseExists(semester)) {
+    		balanceViewerTab.add(new BalanceReportSemesterCreator(semester)
             .getPanel());
+    		return true;
+    	}
+    	return false;
     }
 
     /**
@@ -65,9 +69,10 @@ public class BalanceCreator {
      * @param year
      *            The year, of which the semester should be added.
      */
-    public void addYear(int year) {
+    public boolean addYear(int year) {
         //Lose the first two numbers of the year
         int semester = year % 100;
+        boolean returnBoolean = false;
         /*
          * Contains the year in YYYY form, the previous, current and next
          * semester in that order.
@@ -125,10 +130,11 @@ public class BalanceCreator {
         }
         //Check if the semester has a course and add it if it does.
         for (String currentSemester : semesters) {
-            if (courseExists(currentSemester)) {
-                addSemester(currentSemester);
+            if (addSemester(currentSemester)) {
+            	returnBoolean = true;
             }
         }
+        return returnBoolean;
     }
 
     /**

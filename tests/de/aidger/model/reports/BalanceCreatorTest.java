@@ -1,43 +1,43 @@
 /**
  * 
  */
-package de.aidger.utils.reports;
+package de.aidger.model.reports;
+
+import static org.junit.Assert.*;
 
 import java.sql.Date;
-import java.util.Calendar;
 import java.util.Vector;
 
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
-import de.aidger.model.reports.BalanceCourse;
+import de.aidger.utils.reports.BalanceHelper;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * @author Phil
  *
  */
-public class BalanceHelperTest {
+public class BalanceCreatorTest {
 	
 	private Course course = null;
 	private Assistant assistant = null;
 	private Employment employment1 = null;
 	private Employment employment2 = null;
 	private Contract contract = null;
+	private BalanceCreator balanceCreator = null; 
 	private BalanceHelper balanceHelper = null;
-	private BalanceCourse balanceCourse = null;
-	
-	public BalanceHelperTest() throws AdoHiveException {
+
+	public BalanceCreatorTest() {
 	}
 	
 	/**
-	 * Sets up the Test of the class BalanceHelper.
-	 * @throws AdoHiveException
+	 * Prepares this test.
+	 * @throws AdoHiveException 
 	 */
 	@Before
 	public void setUp() throws AdoHiveException {
@@ -102,60 +102,42 @@ public class BalanceHelperTest {
         employment2.setYear((short)1970);
         employment2.setNew(true);
         employment2.save();
-        
-		balanceCourse = new BalanceCourse();
-		balanceCourse.setTitle("Description");
-		balanceCourse.setLecturer("Test Tester");
-		balanceCourse.setBasicAWS(course.getNumberOfGroups()
-                * course.getUnqualifiedWorkingHours());
-		balanceCourse.setPart('a');
-		balanceCourse.setPlannedAWS(employment1.getHourCount() + employment2.getHourCount());
-		balanceCourse.setResources((int)(10.0 * employment2.getHourCount() * 1.28));
-		balanceCourse.setStudentFees((int)(10.0 * employment1.getHourCount() * 1.28));
-		balanceCourse.setTargetAudience("Testers");
 	}
 	
 	/**
-	 * Tests the constructor of the class BalanceHelper.
+	 * Tests the constructor and addSemester() of the BalanceCreator class.
 	 */
 	@Test
 	public void testConstructor() {
-		System.out.println("Constructor");
+		System.out.println("Constructor/addSemester()");
 		balanceHelper = new BalanceHelper();
+		balanceCreator = new BalanceCreator(2, course.getSemester());
+		balanceCreator = new BalanceCreator(1, Integer.parseInt("" + balanceHelper.getYears().get(1)));
+		assertNotNull(balanceCreator);
 	}
 	
 	/**
-	 * Tests the method getBalanceCourse() of class BalanceHelper.
+	 * Tests the method addYear() of the class BalanceCreator.
 	 */
 	@Test
-	public void testGetBalanceCourse() {
-		System.out.println("getBalanceCourse()");
+	public void testAddYear() {
+		System.out.println("addYear()");
 		balanceHelper = new BalanceHelper();
-		
-		BalanceCourse result = balanceHelper.getBalanceCourse(course);
-		
-		assertNotNull(result);
-		assertArrayEquals(balanceCourse.getCourseObject(),result.getCourseObject());
+		balanceCreator = new BalanceCreator(2, course.getSemester());
+		assertNotNull(balanceCreator);
+		assertEquals(balanceHelper.getYears().contains(2000),balanceCreator.addYear(2000));
+		assertEquals(balanceHelper.getYears().contains(2010),balanceCreator.addYear(2010));
+		assertEquals(balanceHelper.getYears().contains(2011),balanceCreator.addYear(2011));
+		assertEquals(balanceHelper.getYears().contains(Integer.parseInt("" + balanceHelper.getYears().get(1))),balanceCreator.addYear(Integer.parseInt("" + balanceHelper.getYears().get(1))));
 	}
 	
 	/**
-	 * Tests the method getYears() and getSemesters(), which is called by getYears().
-	 * @throws AdoHiveException
+	 * Tests the method getViewerTab() of the class BalanceCreator.
 	 */
 	@Test
-	public void testGetYears() throws AdoHiveException {
-		System.out.println("getYears(), getSemesters()");
-		balanceHelper = new BalanceHelper();
-		Course course2 = course.clone();
-		course2.setSemester("2009");
-		course2.save();
-		Course course3 = course.clone();
-		course3.setSemester("WS0910");
-		course3.save();
-		Vector years = balanceHelper.getYears();
-		assertNotNull(years);
-		assertEquals(3,years.size());
-		assertEquals(2009,years.get(1));
-		assertEquals(2010,years.get(2));
+	public void testGetViewerTab() {
+		System.out.println("getViewerTab()");
+		balanceCreator = new BalanceCreator(2, course.getSemester());
+		assertNotNull(balanceCreator.getViewerTab());
 	}
 }

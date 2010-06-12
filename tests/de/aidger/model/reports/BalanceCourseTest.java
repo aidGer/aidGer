@@ -40,6 +40,7 @@ public class BalanceCourseTest {
 	 */
 	@Test
 	public void testConstructor() {
+		System.out.println("Constructor");
 		BalanceCourse result = new BalanceCourse();
 		
 		assertNotNull(result);
@@ -58,6 +59,7 @@ public class BalanceCourseTest {
 	 */
 	@Test
 	public void testGetCourseObject() {
+		System.out.println("getCourseObject()");
 		Object[] values = balanceCourse.getCourseObject();
 		
 		assertNotNull(values);
