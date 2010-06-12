@@ -1,5 +1,6 @@
 package de.aidger.model.validators;
 
+import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 
 /**
@@ -25,6 +26,8 @@ public class InclusionValidator extends Validator {
     public InclusionValidator(AbstractModel model, String[] members,
             String[] inc) {
         super(model, members);
+
+        message = _("has an invalid value");
         list = inc;
     }
 
