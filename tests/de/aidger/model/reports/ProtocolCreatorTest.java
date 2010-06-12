@@ -30,6 +30,7 @@ public class ProtocolCreatorTest {
 	@Test
 	public void testConstructor() {
 		System.out.println("Constructor");
+		
 		assertNotNull(protocolCreator);
 	}
 	
@@ -39,8 +40,10 @@ public class ProtocolCreatorTest {
 	@Test
 	public void testNumberOfDays() {
 		System.out.println("createProtocol()");
+		
 		protocolCreator.setNumberOfDays(-1);
 		assertEquals(-1, protocolCreator.getNumberOfDays());
+		
 		protocolCreator.createProtocol();
 		assertNotNull(protocolCreator.getViewerTab());
 	}

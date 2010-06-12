@@ -25,11 +25,17 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 public class BalanceCreatorTest {
 	
 	private Course course = null;
+	
 	private Assistant assistant = null;
+	
 	private Employment employment1 = null;
+	
 	private Employment employment2 = null;
+	
 	private Contract contract = null;
+	
 	private BalanceCreator balanceCreator = null; 
+	
 	private BalanceHelper balanceHelper = null;
 
 	public BalanceCreatorTest() {
@@ -110,9 +116,11 @@ public class BalanceCreatorTest {
 	@Test
 	public void testConstructor() {
 		System.out.println("Constructor/addSemester()");
+		
 		balanceHelper = new BalanceHelper();
 		balanceCreator = new BalanceCreator(2, course.getSemester());
 		balanceCreator = new BalanceCreator(1, Integer.parseInt("" + balanceHelper.getYears().get(1)));
+		
 		assertNotNull(balanceCreator);
 	}
 	
@@ -122,8 +130,11 @@ public class BalanceCreatorTest {
 	@Test
 	public void testAddYear() {
 		System.out.println("addYear()");
+		
 		balanceHelper = new BalanceHelper();
+		
 		balanceCreator = new BalanceCreator(2, course.getSemester());
+		
 		assertNotNull(balanceCreator);
 		assertEquals(balanceHelper.getYears().contains(2000),balanceCreator.addYear(2000));
 		assertEquals(balanceHelper.getYears().contains(2010),balanceCreator.addYear(2010));
@@ -137,7 +148,9 @@ public class BalanceCreatorTest {
 	@Test
 	public void testGetViewerTab() {
 		System.out.println("getViewerTab()");
+		
 		balanceCreator = new BalanceCreator(2, course.getSemester());
+		
 		assertNotNull(balanceCreator.getViewerTab());
 	}
 }
