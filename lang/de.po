@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-06-12 16:26+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: \n"
+"Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -135,7 +135,7 @@ msgstr "ist ein ungültiges Datum"
 #: model/validators/DateRangeValidator.java:43
 #, java-format
 msgid "The date range {0} and {1} is incorrect."
-msgstr "Der Zeitspanne {0} und {1} ist inkorrekt."
+msgstr "Die Zeitspanne {0} und {1} ist inkorrekt."
 
 #: model/validators/Validator.java:34
 #: model/validators/Validator.java:48
@@ -542,7 +542,7 @@ msgstr "Konnte den korrekten Konstruktor nicht finden"
 #: view/UI.java:743
 #, java-format
 msgid "Could not find tab class {0}"
-msgstr "Die tab Klasse \"{0}\" konnte nicht gefunden werden."
+msgstr "Die Reiterklasse \"{0}\" konnte nicht gefunden werden."
 
 #: view/forms/AssistantEditorForm.java:106
 #: view/models/AssistantTableModel.java:24
@@ -785,39 +785,28 @@ msgstr "Aktions-Klasse {0} nicht gefunden"
 
 #~ msgid "Readding model: {0}"
 #~ msgstr "Füge Model erneut hinzu: {0}"
-
 #~ msgid "Caught exception in getActivities(assistant): {0}"
 #~ msgstr "Ausnahme in getActivities(assistant): {0}"
-
 #~ msgid "Caught exception in getActivities(course): {0}"
 #~ msgstr "Ausnahme in getActivities(course): {0}"
-
 #~ msgid "Fonds"
 #~ msgstr "Fonds"
-
 #~ msgid "Validation failed."
 #~ msgstr "Validierung ist fehlgeschlagen."
-
 #~ msgid "Show/Hide Columns"
 #~ msgstr "Spalten ein-/ausblenden"
-
 #~ msgid "Removing tab at position {0}"
 #~ msgstr "{0}. Tab gelöscht"
-
 #~ msgid "Adding new empty tab"
 #~ msgstr "Neuer leerer Tab hinzugefügt"
-
 #~ msgid "More"
 #~ msgstr "Mehr"
-
 #~ msgid "Contracts"
 #~ msgstr "Verträge"
-
 #~ msgid "Abort"
 #~ msgstr "Abbrechen"
-
 #~ msgid "New Tab"
 #~ msgstr "Neuer Reiter"
-
 #~ msgid "Financial Plans"
 #~ msgstr "Finanzpläne"
+
