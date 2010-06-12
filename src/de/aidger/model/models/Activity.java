@@ -171,15 +171,16 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @return True if everything is correct
      */
     public boolean validate() {
+        boolean ret = true;
         if (type.length() > 20) {
             addError("type", _("is too long"));
-            return false;
+            ret = false;
         }
         if (documentType.length() > 50) {
             addError("documentType", _("is too long"));
-            return false;
+            ret = false;
         }
-        return true;
+        return ret;
     }
 
     /**

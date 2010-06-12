@@ -33,13 +33,13 @@ public class CourseTest {
         course.setPart('a');
         course.setRemark("Remark");
         course.setScope("Sniper Scope");
-        course.setSemester("SS 09");
+        course.setSemester("SS09");
         course.setTargetAudience("Testers");
         course.setUnqualifiedWorkingHours(100);
     }
 
     /**
-     * Test of constructor, of class Contract.
+     * Test of constructor, of class Course.
      */
     @Test
     public void testConstructor() throws AdoHiveException {
@@ -53,6 +53,60 @@ public class CourseTest {
 
         assertNotNull(result);
         assertEquals(course, result);
+    }
+
+    /**
+     * Test of validation, of class Course.
+     */
+    @Test
+    public void testValidation() throws AdoHiveException {
+        System.out.println("Validation");
+
+        course.setNew(true);
+        assertTrue(course.save());
+
+        course.setAdvisor(null);
+        assertFalse(course.save());
+        course.resetErrors();
+        course.setAdvisor("Tester");
+
+        course.setDescription(null);
+        assertFalse(course.save());
+        course.resetErrors();
+        course.setDescription("Description");
+
+        course.setGroup(null);
+        assertFalse(course.save());
+        course.resetErrors();
+        course.setGroup("2");
+
+        course.setLecturer(null);
+        assertFalse(course.save());
+        course.resetErrors();
+        course.setLecturer("Test Tester");
+
+        course.setNumberOfGroups(-1);
+        assertFalse(course.save());
+        course.resetErrors();
+        course.setNumberOfGroups(3);
+
+        course.setSemester(null);
+        assertFalse(course.save());
+        course.resetErrors();
+
+        course.setSemester("abc 2000");
+        assertFalse(course.save());
+        course.resetErrors();
+        course.setSemester("SS09");
+
+        course.setTargetAudience(null);
+        assertFalse(course.save());
+        course.resetErrors();
+        course.setTargetAudience("Testers");
+
+        course.setUnqualifiedWorkingHours(0.0);
+        assertFalse(course.save());
+        course.resetErrors();
     }
 
 

@@ -1,5 +1,6 @@
 package de.aidger.model.models;
 
+import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
@@ -84,7 +85,8 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
                 "lecturer", "targetAudience", "group" });
         //validateExistanceOf(new String[] { "financeCategoryId" },
         //       new FinancialCategory());
-        // TODO: Validate the rest of the variables
+        validateFormatOf(new String[] { "semester" },
+                "^(SS[0-9]{2}|WS[0-9]{4}|[0-9]{4})$");
     }
 
     /**
@@ -190,6 +192,24 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
         hash = 67 * hash + (group != null ? group.hashCode() : 0);
         hash = 67 * hash + (remark != null ? remark.hashCode() : 0);
         return hash;
+    }
+
+    /**
+     * Custom validation function
+     *
+     * @return True if everything is correct
+     */
+    public boolean validate() {
+        boolean ret = true;
+        if (numberOfGroups <= 0) {
+            addError("numberOfGroups", _("has to be bigger than 0"));
+            ret = false;
+        }
+        if (unqualifiedWorkingHours <= 0.0) {
+            addError("unqualifiedWorkingHours", _("has to be bigger than 0"));
+            ret = false;
+        }
+        return ret;
     }
 
     /**

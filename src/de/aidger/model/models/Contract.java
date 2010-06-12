@@ -142,11 +142,12 @@ public class Contract extends AbstractModel<IContract> implements IContract {
      * @return True if everything is correct
      */
     public boolean validate() {
+        boolean ret = true;
         if (type.length() > 20) {
             addError("type", _("is too long"));
-            return false;
+            ret = false;
         }
-        return true;
+        return ret;
     }
 
     /**
