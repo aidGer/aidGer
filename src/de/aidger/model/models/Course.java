@@ -20,7 +20,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     /**
      * References the corresponding financial category.
      */
-    private int financeCategoryId;
+    private int financialCategoryId;
 
     /**
      * The advisor of the course.
@@ -83,8 +83,8 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     public Course() {
         validatePresenceOf(new String[] { "advisor", "description", "semester",
                 "lecturer", "targetAudience", "group" });
-        //validateExistanceOf(new String[] { "financeCategoryId" },
-        //       new FinancialCategory());
+        validateExistanceOf(new String[] { "financialCategoryId" },
+               new FinancialCategory());
         validateFormatOf(new String[] { "semester" },
                 "^(SS[0-9]{2}|WS[0-9]{4}|[0-9]{4})$");
     }
@@ -122,7 +122,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
         c.setId(id);
         c.setAdvisor(advisor);
         c.setDescription(description);
-        c.setFinancialCategoryId(financeCategoryId);
+        c.setFinancialCategoryId(financialCategoryId);
         c.setGroup(group);
         c.setLecturer(lecturer);
         c.setNumberOfGroups(numberOfGroups);
@@ -147,14 +147,15 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
         if (o instanceof Course) {
             Course c = (Course) o;
             return c.id == id
-                    && c.numberOfGroups == numberOfGroups
-                    && c.part == part
+                    && c.numberOfGroups == numberOfGroups && c.part == part
+                    && c.financialCategoryId == financialCategoryId
                     && ((Double) c.unqualifiedWorkingHours)
                             .equals(unqualifiedWorkingHours)
                     && (advisor == null ? c.advisor == null : advisor
                             .equals(c.advisor))
                     && (description == null ? c.description == null
                             : description.equals(c.description))
+                    && (group == null ? c.group == null : group.equals(c.group))
                     && (remark == null ? c.remark == null : remark
                             .equals(c.remark))
                     && (scope == null ? c.scope == null : scope.equals(c.scope))
@@ -175,7 +176,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 67 * hash + financeCategoryId;
+        hash = 67 * hash + financialCategoryId;
         hash = 67 * hash + (advisor != null ? advisor.hashCode() : 0);
         hash = 67 * hash + (description != null ? description.hashCode() : 0);
         hash = 67 * hash + (semester != null ? semester.hashCode() : 0);
@@ -258,7 +259,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
      */
     @Override
     public int getFinancialCategoryId() {
-        return financeCategoryId;
+        return financialCategoryId;
     }
 
     /**
@@ -381,7 +382,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
      */
     @Override
     public void setFinancialCategoryId(int id) {
-        financeCategoryId = id;
+        financialCategoryId = id;
     }
 
     /**

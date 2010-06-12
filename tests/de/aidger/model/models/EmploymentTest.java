@@ -25,6 +25,8 @@ public class EmploymentTest {
 
     private static Course course = null;
 
+    private static FinancialCategory financial = null;
+
     @BeforeClass
     public static void beforeClassSetUp() throws AdoHiveException {
         de.aidger.model.Runtime.getInstance().initialize();
@@ -36,10 +38,17 @@ public class EmploymentTest {
         assistant.setQualification("g");
         assistant.save();
 
+        financial = new FinancialCategory();
+        financial.setBudgetCosts(new int[] { 100, 200 });
+        financial.setFunds(new int[] { 10001000, 20002000 });
+        financial.setName("Tester");
+        financial.setYear((short) 2010);
+        financial.save();
+
         course = new Course();
         course.setAdvisor("Tester");
         course.setDescription("Description");
-        course.setFinancialCategoryId(1);
+        course.setFinancialCategoryId(financial.getId());
         course.setGroup("2");
         course.setLecturer("Test Tester");
         course.setNumberOfGroups(3);

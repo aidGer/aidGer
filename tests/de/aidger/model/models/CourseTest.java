@@ -21,12 +21,19 @@ public class CourseTest {
     }
 
     @Before
-    public void setUp() {
+    public void setUp() throws AdoHiveException {
+        FinancialCategory fc = new FinancialCategory();
+        fc.setBudgetCosts(new int[] { 100 });
+        fc.setFunds(new int[] { 10001000 });
+        fc.setName("name");
+        fc.setYear((short) 2010);
+        fc.save();
+
         course = new Course();
         course.setId(1);
         course.setAdvisor("Tester");
         course.setDescription("Description");
-        course.setFinancialCategoryId(1);
+        course.setFinancialCategoryId(fc.getId());
         course.setGroup("2");
         course.setLecturer("Test Tester");
         course.setNumberOfGroups(3);
