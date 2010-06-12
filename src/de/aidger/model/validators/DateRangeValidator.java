@@ -60,7 +60,9 @@ public class DateRangeValidator extends Validator {
      * @return True if the date range validates
      */
     public static boolean validate(Date from, Date to) {
-        if (from.equals(to) || from.after(to)) {
+        if (from == null || to == null) {
+            return false;
+        } else if (from.equals(to) || from.after(to)) {
             return false;
         }
         return true;
