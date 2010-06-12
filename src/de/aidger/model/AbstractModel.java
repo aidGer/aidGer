@@ -11,8 +11,8 @@ import java.util.Observable;
 import java.util.Vector;
 
 import de.aidger.model.validators.DateRangeValidator;
-import de.aidger.model.validators.EmailValidator;
 import de.aidger.model.validators.ExistanceValidator;
+import de.aidger.model.validators.FormatValidator;
 import de.aidger.model.validators.InclusionValidator;
 import de.aidger.model.validators.PresenceValidator;
 import de.aidger.model.validators.Validator;
@@ -306,7 +306,8 @@ public abstract class AbstractModel<T> extends Observable implements
      *            The name of the member variable to validate
      */
     public void validateEmailAddress(String member) {
-        validators.add(new EmailValidator(this, new String[] { member }));
+        validators.add(new FormatValidator(this, new String[] { member },
+                "^[\\w\\-]([\\.\\w])+[\\w]+@([\\w\\-]+\\.)+[A-Z]{2,4}$", false));
     }
 
     /**
@@ -343,6 +344,18 @@ public abstract class AbstractModel<T> extends Observable implements
      */
     public void validateExistanceOf(String[] members, AbstractModel type) {
         validators.add(new ExistanceValidator(this, members, type));
+    }
+
+    /**
+     * Add an format validator to the model.
+     *
+     * @param members
+     *            The name of the member variables to validate
+     * @param format
+     *            THe format to check
+     */
+    public void validateFormatOf(String[] members, String format) {
+        validators.add(new FormatValidator(this, members, format));
     }
 
     /**

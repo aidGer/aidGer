@@ -346,4 +346,39 @@ public class AbstractModelTest {
                 "LastName: Tester, Email: test@example.com]", a.toString());
     }
 
+    /**
+     * Test of validateEmailOf method, of class AbstractModel.
+     */
+    @Test
+    public void testValidateEmailOf() throws AdoHiveException {
+        System.out.println("validateEmailOf");
+
+        Assistant a = new Assistant();
+        a.setFirstName("Test");
+        a.setLastName("Tester");
+        a.setQualification("g");
+        a.setEmail(null);
+
+        assertFalse(a.save());
+
+        a.setEmail("");
+        assertFalse(a.save());
+        a.resetErrors();
+
+        a.setEmail("a@example.com");
+        assertFalse(a.save());
+        a.resetErrors();
+
+        a.setEmail("email@example");
+        assertFalse(a.save());
+        a.resetErrors();
+
+        a.setEmail("email@example.c");
+        assertFalse(a.save());
+        a.resetErrors();
+
+        a.setEmail("email@example.com");
+        assertTrue(a.save());        
+    }
+
 }

@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package de.aidger.model.validators;
 
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
