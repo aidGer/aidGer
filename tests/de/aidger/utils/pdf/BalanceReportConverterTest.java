@@ -1,13 +1,15 @@
 /**
  * 
  */
-package de.aidger.model.reports;
+package de.aidger.utils.pdf;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
+import java.io.File;
 import java.sql.Date;
+import java.util.Vector;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,7 +24,7 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
  * @author Phil
  * 
  */
-public class BalanceCreatorTest {
+public class BalanceReportConverterTest {
 
     private Course course = null;
 
@@ -34,11 +36,10 @@ public class BalanceCreatorTest {
 
     private Contract contract = null;
 
-    private BalanceCreator balanceCreator = null;
+    private BalanceReportConverter balanceReportConverter = null;
 
-    private BalanceHelper balanceHelper = null;
+    public BalanceReportConverterTest() {
 
-    public BalanceCreatorTest() {
     }
 
     /**
@@ -112,53 +113,48 @@ public class BalanceCreatorTest {
     }
 
     /**
-     * Tests the constructor and addSemester() of the BalanceCreator class.
+     * Tests the constructor of the class BalanceReportConverter.
+     * 
+     * @throws AdoHiveException
      */
     @Test
-    public void testConstructor() {
-        System.out.println("Constructor/addSemester()");
+    public void testConstructor() throws AdoHiveException {
+        System.out.println("Constructor");
+        Course course2 = course.clone();
+        course2.setSemester("2009");
+        course2.save();
 
-        balanceHelper = new BalanceHelper();
-        balanceCreator = new BalanceCreator(2, course.getSemester());
-        balanceCreator = new BalanceCreator(1, Integer.parseInt(""
-                + balanceHelper.getYears().get(1)));
+        Course course3 = course2.clone();
+        course3.setGroup("Test group 2");
+        course3.save();
 
-        assertNotNull(balanceCreator);
+        Course course4 = course2.clone();
+        course4.setGroup("Test group 2");
+        course4.save();
+
+        Vector years = new BalanceHelper().getYears();
+
+        for (int i = 1; i < years.size(); i++) {
+            balanceReportConverter = new BalanceReportConverter("",
+                "Test_Report", 1, years.get(i));
+
+            File file = new File("Test_Report.pdf");
+            assertTrue(file.exists());
+        }
+
+        balanceReportConverter = new BalanceReportConverter("", "Test_Report",
+            2, course.getSemester());
+
+        File file = new File("Test_Report.pdf");
+        assertTrue(file.exists());
     }
 
     /**
-     * Tests the method addYear() of the class BalanceCreator.
+     * Cleans up after the test.
      */
-    @Test
-    public void testAddYear() {
-        System.out.println("addYear()");
-
-        balanceHelper = new BalanceHelper();
-
-        balanceCreator = new BalanceCreator(2, course.getSemester());
-
-        assertNotNull(balanceCreator);
-        assertEquals(balanceHelper.getYears().contains(2000), balanceCreator
-            .addYear(2000));
-        assertEquals(balanceHelper.getYears().contains(2010), balanceCreator
-            .addYear(2010));
-        assertEquals(balanceHelper.getYears().contains(2011), balanceCreator
-            .addYear(2011));
-        assertEquals(balanceHelper.getYears().contains(
-            Integer.parseInt("" + balanceHelper.getYears().get(1))),
-            balanceCreator.addYear(Integer.parseInt(""
-                    + balanceHelper.getYears().get(1))));
-    }
-
-    /**
-     * Tests the method getViewerTab() of the class BalanceCreator.
-     */
-    @Test
-    public void testGetViewerTab() {
-        System.out.println("getViewerTab()");
-
-        balanceCreator = new BalanceCreator(2, course.getSemester());
-
-        assertNotNull(balanceCreator.getViewerTab());
+    @After
+    public void cleanUp() {
+        File file = new File("Test_Report.pdf");
+        file.delete();
     }
 }

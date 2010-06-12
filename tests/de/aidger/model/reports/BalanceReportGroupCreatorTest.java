@@ -3,7 +3,6 @@
  */
 package de.aidger.model.reports;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.sql.Date;
@@ -15,14 +14,13 @@ import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
-import de.aidger.utils.reports.BalanceHelper;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * @author Phil
  * 
  */
-public class BalanceCreatorTest {
+public class BalanceReportGroupCreatorTest {
 
     private Course course = null;
 
@@ -34,11 +32,10 @@ public class BalanceCreatorTest {
 
     private Contract contract = null;
 
-    private BalanceCreator balanceCreator = null;
+    private BalanceReportGroupCreator balanceReportGroupCreator = null;
 
-    private BalanceHelper balanceHelper = null;
+    public BalanceReportGroupCreatorTest() {
 
-    public BalanceCreatorTest() {
     }
 
     /**
@@ -112,53 +109,12 @@ public class BalanceCreatorTest {
     }
 
     /**
-     * Tests the constructor and addSemester() of the BalanceCreator class.
+     * Tests the constructor of the class BalanceReportGroupCreator.
      */
     @Test
     public void testConstructor() {
-        System.out.println("Constructor/addSemester()");
+        balanceReportGroupCreator = new BalanceReportGroupCreator(course);
 
-        balanceHelper = new BalanceHelper();
-        balanceCreator = new BalanceCreator(2, course.getSemester());
-        balanceCreator = new BalanceCreator(1, Integer.parseInt(""
-                + balanceHelper.getYears().get(1)));
-
-        assertNotNull(balanceCreator);
-    }
-
-    /**
-     * Tests the method addYear() of the class BalanceCreator.
-     */
-    @Test
-    public void testAddYear() {
-        System.out.println("addYear()");
-
-        balanceHelper = new BalanceHelper();
-
-        balanceCreator = new BalanceCreator(2, course.getSemester());
-
-        assertNotNull(balanceCreator);
-        assertEquals(balanceHelper.getYears().contains(2000), balanceCreator
-            .addYear(2000));
-        assertEquals(balanceHelper.getYears().contains(2010), balanceCreator
-            .addYear(2010));
-        assertEquals(balanceHelper.getYears().contains(2011), balanceCreator
-            .addYear(2011));
-        assertEquals(balanceHelper.getYears().contains(
-            Integer.parseInt("" + balanceHelper.getYears().get(1))),
-            balanceCreator.addYear(Integer.parseInt(""
-                    + balanceHelper.getYears().get(1))));
-    }
-
-    /**
-     * Tests the method getViewerTab() of the class BalanceCreator.
-     */
-    @Test
-    public void testGetViewerTab() {
-        System.out.println("getViewerTab()");
-
-        balanceCreator = new BalanceCreator(2, course.getSemester());
-
-        assertNotNull(balanceCreator.getViewerTab());
+        assertNotNull(balanceReportGroupCreator.getPanel());
     }
 }

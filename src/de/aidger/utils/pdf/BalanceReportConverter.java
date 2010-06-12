@@ -31,7 +31,7 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
  * 
  * @author aidGer Team
  */
-public class BalanceReportConverter implements ReportConverter {
+public class BalanceReportConverter {
 
     /**
      * The PDF-document which will be created.
@@ -88,12 +88,10 @@ public class BalanceReportConverter implements ReportConverter {
             outStream = new FileOutputStream(path + name + ".pdf");
             writer = PdfWriter.getInstance(document, outStream);
             document.open();
-        }
-        catch (FileNotFoundException e1) {
+        } catch (FileNotFoundException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
-        }
-        catch (DocumentException e) {
+        } catch (DocumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
@@ -127,12 +125,10 @@ public class BalanceReportConverter implements ReportConverter {
             head.addCell(left);
             head.addCell(right);
             document.add(head);
-        }
-        catch (DocumentException e1) {
+        } catch (DocumentException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
-        }
-        catch (IOException e1) {
+        } catch (IOException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
@@ -180,8 +176,7 @@ public class BalanceReportConverter implements ReportConverter {
             List<ICourse> courses = null;
             try {
                 courses = (new Course()).getAll();
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             for (ICourse course : courses) {
@@ -220,8 +215,7 @@ public class BalanceReportConverter implements ReportConverter {
             contentCell.setBorder(1);
             finalSemesterTable.addCell(contentCell);
             document.add(finalSemesterTable);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
@@ -257,13 +251,11 @@ public class BalanceReportConverter implements ReportConverter {
             PdfPCell cell = new PdfPCell(groupContentTable);
             cell.setBorder(0);
             return cell;
-        }
-        catch (DocumentException e1) {
+        } catch (DocumentException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
             return null;
-        }
-        catch (IOException e1) {
+        } catch (IOException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
             return null;
@@ -284,8 +276,8 @@ public class BalanceReportConverter implements ReportConverter {
             tableTitleFont = new Font(BaseFont.createFont(
                 BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.EMBEDDED), 9);
             String[] courseTitles = { _("Title"), _("Part"), _("Lecturer"),
-                    _("Target Audience"), _("Planned AWS"), _("Basic needed AWS"),
-                    _("Budget costs from student fees"),
+                    _("Target Audience"), _("Planned AWS"),
+                    _("Basic needed AWS"), _("Budget costs from student fees"),
                     _("Budget costs from resources") };
 
             Font groupTitleFont = new Font(BaseFont.createFont(
@@ -336,13 +328,11 @@ public class BalanceReportConverter implements ReportConverter {
             ((Vector) balanceReportGroups.get(i)).add(course.getGroup());
 
             return groupTable;
-        }
-        catch (DocumentException e) {
+        } catch (DocumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
             return null;
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
             return null;
@@ -357,7 +347,7 @@ public class BalanceReportConverter implements ReportConverter {
      *            The year to be added.
      */
     private void createYear(int year) {
-        //Lose the first two numbers of the year
+        // Lose the first two numbers of the year
         int semester = year % 100;
         /*
          * Contains the year in YYYY form, the previous, current and next
@@ -406,7 +396,7 @@ public class BalanceReportConverter implements ReportConverter {
             semesters[3] = "WS " + semester + (semester + 1);
             break;
         }
-        //Check if the semester has a course and add it if it does.
+        // Check if the semester has a course and add it if it does.
         for (String currentSemester : semesters) {
             if (courseExists(currentSemester)) {
                 createSemester(currentSemester);
@@ -425,11 +415,10 @@ public class BalanceReportConverter implements ReportConverter {
         List<ICourse> courses = null;
         try {
             courses = (new Course()).getAll();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        //Check for every course, if it belongs to the given semester.
+        // Check for every course, if it belongs to the given semester.
         for (ICourse course : courses) {
             if (course.getSemester().equals(semester)) {
                 return true;
