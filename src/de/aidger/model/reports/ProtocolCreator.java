@@ -100,4 +100,12 @@ public class ProtocolCreator {
     public Tab getViewerTab() {
         return protocolViewerTab;
     }
+    
+    public int getNumberOfDays() {
+    	return protocolViewerTab.getSpinnerValue();
+    }
+    
+    public void setNumberOfDays(int value) {
+    	protocolViewerTab.setSpinnerValue(value);
+    }
 }

@@ -88,6 +88,15 @@ public class ProtocolViewerTab extends Tab {
     public int getSpinnerValue() {
         return (Integer) daySpinner.getValue();
     }
+    
+    /**
+     * Sets the value of the spinner.
+     * 
+     * @param value The value to which to set the spinner to.
+     */
+    public void setSpinnerValue(int value) {
+    	daySpinner.setValue(value);
+    }
 
     /*
      * (non-Javadoc)
