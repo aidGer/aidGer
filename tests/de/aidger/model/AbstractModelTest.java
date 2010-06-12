@@ -378,7 +378,7 @@ public class AbstractModelTest {
         a.resetErrors();
 
         a.setEmail("email@example.com");
-        assertTrue(a.save());        
+        assertTrue(a.save());
     }
 
 }

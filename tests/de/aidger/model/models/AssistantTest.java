@@ -58,27 +58,34 @@ public class AssistantTest {
 
         assistant.setEmail(null);
         assertFalse(assistant.save());
+        assistant.resetErrors();
 
         assistant.setEmail("test");
         assertFalse(assistant.save());
+        assistant.resetErrors();
         assistant.setEmail("test@example.com");
 
         assistant.setFirstName(null);
         assertFalse(assistant.save());
+        assistant.resetErrors();
 
         assistant.setFirstName("");
         assertFalse(assistant.save());
+        assistant.resetErrors();
         assistant.setFirstName("Test");
 
         assistant.setLastName(null);
         assertFalse(assistant.save());
+        assistant.resetErrors();
 
         assistant.setLastName("");
         assertFalse(assistant.save());
+        assistant.resetErrors();
         assistant.setLastName("Test");
 
         assistant.setQualification(null);
         assertFalse(assistant.save());
+        assistant.resetErrors();
 
         assistant.setQualification("Q");
         assertFalse(assistant.save());
