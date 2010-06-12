@@ -195,7 +195,7 @@ public final class Runtime {
             return null;
         }
 
-        return str.substring(1, str.length() - 1).split(",");
+        return str.substring(1, str.length() - 1).split(", ");
     }
 
     /**

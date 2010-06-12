@@ -42,7 +42,7 @@ public class RuntimeTest {
         String[] result = Runtime.getInstance().getOptionArray("test");
 
         for (int i = 0; i < 2; ++i) {
-            assertTrue(str[i].equals(result[i]));
+            assertEquals(str[i], result[i]);
         }
     }
 
@@ -58,7 +58,7 @@ public class RuntimeTest {
         Runtime.getInstance().setOptionArray("test", str);
         String result = Runtime.getInstance().getOption("test");
 
-        assertEquals(result, "[test1,test2]");
+        assertEquals(result, "[test1, test2]");
     }
 
 }
