@@ -29,6 +29,16 @@ public class RuntimeTest {
         assertNotNull(rt);
     }
 
+    @Test
+    public void testGetJarLocation() {
+        System.out.println("getJarLocation");
+
+        String location = Runtime.getInstance().getJarLocation();
+
+        assertFalse(location.isEmpty());
+        assertFalse(location.startsWith("file:/"));
+    }
+
     /**
      * Test of getOptionArray method, of class Runtime.
      */

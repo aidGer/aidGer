@@ -164,9 +164,28 @@ public final class Runtime {
 
     /**
      * Returns the operating system of the user.
+     *
+     * @return The operating system
      */
     public OS getOperatingSystem() {
         return operatingSystem;
+    }
+
+    /**
+     * Returns the location and name of the .jar file.
+     *
+     * @return The location
+     */
+    public String getJarLocation() {
+        String location = getClass().getProtectionDomain().getCodeSource().
+                getLocation().toString();
+        int idx = location.indexOf(":");
+        if (idx != location.lastIndexOf(":")) {
+            location = location.substring(idx + 2);
+        } else {
+            location = location.substring(idx + 1);
+        }
+        return location;
     }
 
     /**
