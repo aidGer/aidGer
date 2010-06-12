@@ -42,14 +42,59 @@ public class ContractTest {
         System.out.println("Constructor");
 
         contract.setNew(true);
-        System.out.println(contract.save());
-        System.out.println(contract.getErrors());
+        contract.save();
 
         Contract result = new Contract(contract.getById(
                 contract.getId()));
 
         assertNotNull(result);
         assertEquals(contract, result);
+    }
+
+    /**
+     * Test of validation, of class Contract.
+     */
+    @Test
+    public void testValidation() throws AdoHiveException {
+        System.out.println("Validation");
+
+        contract.setNew(true);
+        assertTrue(contract.save());
+
+        contract.setCompletionDate(null);
+        assertFalse(contract.save());
+        contract.resetErrors();
+        contract.setCompletionDate(new Date(100));
+
+        contract.setConfirmationDate(null);
+        assertFalse(contract.save());
+        contract.resetErrors();
+        contract.setConfirmationDate(new Date(10));
+
+        contract.setEndDate(null);
+        assertFalse(contract.save());
+        contract.resetErrors();
+        contract.setEndDate(new Date(1000));
+
+        contract.setStartDate(null);
+        assertFalse(contract.save());
+        contract.resetErrors();
+        contract.setStartDate(new Date(20));
+
+        contract.setType(null);
+        assertFalse(contract.save());
+        contract.resetErrors();
+        contract.setType("Type");
+
+        contract.setConfirmationDate(new Date(101));
+        assertFalse(contract.save());
+        contract.resetErrors();
+        contract.setConfirmationDate(new Date(10));
+
+        contract.setEndDate(new Date(10));
+        assertFalse(contract.save());
+        contract.resetErrors();
+        contract.setEndDate(new Date(1000));
     }
 
     /**

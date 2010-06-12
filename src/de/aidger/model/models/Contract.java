@@ -2,6 +2,7 @@ package de.aidger.model.models;
 
 import java.sql.Date;
 
+import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.model.IContract;
 
@@ -51,7 +52,6 @@ public class Contract extends AbstractModel<IContract> implements IContract {
                 "endDate", "startDate", "type" });
         validateDateRange("startDate", "endDate");
         validateDateRange("confirmationDate", "completionDate");
-        //TODO: Validate the type
     }
 
     /**
@@ -134,6 +134,19 @@ public class Contract extends AbstractModel<IContract> implements IContract {
         hash = 41 * hash + (startDate != null ? startDate.hashCode() : 0);
         hash = 41 * hash + (type != null ? type.hashCode() : 0);
         return hash;
+    }
+
+    /**
+     * Custom validation function.
+     *
+     * @return True if everything is correct
+     */
+    public boolean validate() {
+        if (type.length() > 20) {
+            addError("type", _("is too long"));
+            return false;
+        }
+        return true;
     }
 
     /**
