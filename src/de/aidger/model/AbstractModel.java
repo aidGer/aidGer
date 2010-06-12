@@ -12,6 +12,7 @@ import java.util.Vector;
 
 import de.aidger.model.validators.DateRangeValidator;
 import de.aidger.model.validators.EmailValidator;
+import de.aidger.model.validators.ExistanceValidator;
 import de.aidger.model.validators.InclusionValidator;
 import de.aidger.model.validators.PresenceValidator;
 import de.aidger.model.validators.Validator;
@@ -330,6 +331,18 @@ public abstract class AbstractModel<T> extends Observable implements
      */
     public void validateInclusionOf(String[] members, String[] inc) {
         validators.add(new InclusionValidator(this, members, inc));
+    }
+
+    /**
+     * Add an existance validator to the model.
+     *
+     * @param members
+     *            The name of the member variables to validate
+     * @param type
+     *            The type to check for
+     */
+    public void validateExistanceOf(String[] members, AbstractModel type) {
+        validators.add(new ExistanceValidator(this, members, type));
     }
 
     /**

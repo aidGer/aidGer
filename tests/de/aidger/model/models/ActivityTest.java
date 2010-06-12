@@ -19,8 +19,36 @@ public class ActivityTest {
 
     private Activity activity = null;
 
-    public ActivityTest() {
+    private Assistant assistant = null;
+
+    private Course course = null;
+
+    private FinancialCategory financial = null;
+
+    public ActivityTest() throws AdoHiveException {
         de.aidger.model.Runtime.getInstance().initialize();
+
+        assistant = new Assistant();
+        assistant.setEmail("test@example.com");
+        assistant.setFirstName("Test");
+        assistant.setLastName("Tester");
+        assistant.setQualification("g");
+        assistant.save();
+
+        course = new Course();
+        course.setAdvisor("Tester");
+        course.setDescription("Description");
+        course.setFinancialCategoryId(1);
+        course.setGroup("2");
+        course.setLecturer("Test Tester");
+        course.setNumberOfGroups(3);
+        course.setPart('a');
+        course.setRemark("Remark");
+        course.setScope("Sniper Scope");
+        course.setSemester("SS 09");
+        course.setTargetAudience("Testers");
+        course.setUnqualifiedWorkingHours(100);
+        course.save();
     }
 
     /**
@@ -30,9 +58,9 @@ public class ActivityTest {
     public void setUp() {
         activity = new Activity();
         activity.setId(1);
-        activity.setAssistantId(1);
+        activity.setAssistantId(assistant.getId());
         activity.setContent("New assistant");
-        activity.setCourseId(1);
+        activity.setCourseId(course.getId());
         activity.setDate(new Date(100));
         activity.setDocumentType("Test Type");
         activity.setProcessor("T");

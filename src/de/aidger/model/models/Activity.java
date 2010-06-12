@@ -69,6 +69,8 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
     public Activity() {
         validatePresenceOf(new String[] { "date", "sender", "type",
                 "processor", "content" });
+        validateExistanceOf(new String[] { "assistantId" }, new Assistant());
+        validateExistanceOf(new String[] { "courseId" }, new Course());
         //TODO: Check that documentType and type are correct (need to know what valid values are first)
     }
 

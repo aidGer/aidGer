@@ -76,8 +76,10 @@ public class Employment extends AbstractModel<IEmployment> implements
         validatePresenceOf(new String[] { "costUnit", "qualification" });
         validateInclusionOf(new String[] { "qualification" }, new String[] {
                 "g", "u", "b"});
-        //TODO: Validate the Ids
-        //TODO: Validate the fonds
+        validateExistanceOf(new String[] { "assistantId" }, new Assistant());
+        validateExistanceOf(new String[] { "contractId" }, new Contract());
+        validateExistanceOf(new String[] { "courseId" }, new Course());
+        //TODO: Validate the funds
         //TODO: Validate the hourCount
     }
 
@@ -93,6 +95,7 @@ public class Employment extends AbstractModel<IEmployment> implements
         setAssistantId(e.getAssistantId());
         setContractId(e.getContractId());
         setCostUnit(e.getCostUnit());
+        setCourseId(e.getCourseId());
         setFunds(e.getFunds());
         setHourCount(e.getHourCount());
         setMonth(e.getMonth());
@@ -111,6 +114,7 @@ public class Employment extends AbstractModel<IEmployment> implements
         e.setId(id);
         e.setAssistantId(assistantId);
         e.setContractId(contractId);
+        e.setCourseId(courseId);
         e.setCostUnit(costUnit);
         e.setFunds(funds);
         e.setHourCount(hourCount);

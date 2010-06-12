@@ -4,6 +4,7 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import java.sql.Date;
 import java.util.List;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -16,19 +17,57 @@ import java.util.GregorianCalendar;
  */
 public class EmploymentTest {
 
-    protected Employment employment = null;
+    private Employment employment = null;
 
-    public EmploymentTest() {
+    private static Assistant assistant = null;
+
+    private static Contract contract = null;
+
+    private static Course course = null;
+
+    @BeforeClass
+    public static void beforeClassSetUp() throws AdoHiveException {
         de.aidger.model.Runtime.getInstance().initialize();
+
+        assistant = new Assistant();
+        assistant.setEmail("test@example.com");
+        assistant.setFirstName("Test");
+        assistant.setLastName("Tester");
+        assistant.setQualification("g");
+        assistant.save();
+
+        course = new Course();
+        course.setAdvisor("Tester");
+        course.setDescription("Description");
+        course.setFinancialCategoryId(1);
+        course.setGroup("2");
+        course.setLecturer("Test Tester");
+        course.setNumberOfGroups(3);
+        course.setPart('a');
+        course.setRemark("Remark");
+        course.setScope("Sniper Scope");
+        course.setSemester("SS 09");
+        course.setTargetAudience("Testers");
+        course.setUnqualifiedWorkingHours(100);
+        course.save();
+
+        contract = new Contract();
+        contract.setCompletionDate(new Date(100));
+        contract.setConfirmationDate(new Date(10));
+        contract.setDelegation(false);
+        contract.setEndDate(new Date(1000));
+        contract.setStartDate(new Date(20));
+        contract.setType("Type");
+        contract.save();
     }
 
     @Before
     public void setUp() {
         employment = new Employment();
         employment.setId(1);
-        employment.setAssistantId(1);
-        employment.setContractId(1);
-        employment.setCourseId(0);
+        employment.setAssistantId(assistant.getId());
+        employment.setContractId(contract.getId());
+        employment.setCourseId(course.getId());
         employment.setCostUnit("0711");
         employment.setFunds(1);
         employment.setHourCount(40);
@@ -157,22 +196,14 @@ public class EmploymentTest {
     public void testGetEmployments_Contract() throws AdoHiveException {
         System.out.println("getEmployments");
 
-        Contract c = new Contract();
-        c.setCompletionDate(new Date(2));
-        c.setConfirmationDate(new Date(1));
-        c.setEndDate(new Date(2));
-        c.setStartDate(new Date(1));
-        c.setType("Type");
-        c.save();
-
         employment.clearTable();
-        employment.setContractId(c.getId());
+        employment.setContractId(contract.getId());
         employment.setMonth((byte) 7);
         employment.setYear((short) 2010);
         employment.setNew(true);
         employment.save();
 
-        List result = employment.getEmployments(c);
+        List result = employment.getEmployments(contract);
 
         assertNotNull(result);
         assertTrue(result.size() == 1);
@@ -186,20 +217,14 @@ public class EmploymentTest {
     public void testGetEmployments_Assistant() throws AdoHiveException {
         System.out.println("getEmployments");
 
-        Assistant a = new Assistant();
-        a.setEmail("test@example.com");
-        a.setFirstName("Test");
-        a.setLastName("Tester");
-        a.setQualification("u");
-
         employment.clearTable();
-        employment.setAssistantId(a.getId());
+        employment.setAssistantId(assistant.getId());
         employment.setMonth((byte) 7);
         employment.setYear((short) 2010);
         employment.setNew(true);
         employment.save();
 
-        List result = employment.getEmployments(a);
+        List result = employment.getEmployments(assistant);
 
         assertNotNull(result);
         assertTrue(result.size() == 1);
@@ -213,28 +238,14 @@ public class EmploymentTest {
     public void testGetEmployments_Course() throws AdoHiveException {
         System.out.println("getEmployments");
 
-        Course c = new Course();
-        c.setAdvisor("Tester");
-        c.setDescription("Description");
-        c.setFinancialCategoryId(1);
-        c.setGroup("2");
-        c.setLecturer("Test Tester");
-        c.setNumberOfGroups(3);
-        c.setPart('a');
-        c.setRemark("Remark");
-        c.setScope("Sniper Scope");
-        c.setSemester("SS 09");
-        c.setTargetAudience("Testers");
-        c.setUnqualifiedWorkingHours(100);
-
         employment.clearTable();
-        employment.setCourseId(c.getId());
+        employment.setCourseId(course.getId());
         employment.setMonth((byte) 7);
         employment.setYear((short) 2010);
         employment.setNew(true);
         employment.save();
 
-        List result = employment.getEmployments(c);
+        List result = employment.getEmployments(course);
 
         assertNotNull(result);
         assertTrue(result.size() == 1);
