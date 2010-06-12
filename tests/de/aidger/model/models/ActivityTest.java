@@ -45,7 +45,7 @@ public class ActivityTest {
         course.setPart('a');
         course.setRemark("Remark");
         course.setScope("Sniper Scope");
-        course.setSemester("SS 09");
+        course.setSemester("SS09");
         course.setTargetAudience("Testers");
         course.setUnqualifiedWorkingHours(100);
         course.save();
@@ -217,21 +217,6 @@ public class ActivityTest {
     @Test
     public void testGetActivities_Course() throws AdoHiveException {
         System.out.println("getActivities");
-
-        Course course = new Course();
-        course.setAdvisor("Tester");
-        course.setDescription("Description");
-        course.setFinancialCategoryId(1);
-        course.setGroup("2");
-        course.setLecturer("Test Tester");
-        course.setNumberOfGroups(3);
-        course.setPart('a');
-        course.setRemark("Remark");
-        course.setScope("Sniper Scope");
-        course.setSemester("SS 09");
-        course.setTargetAudience("Testers");
-        course.setUnqualifiedWorkingHours(100);
-        course.save();
 
         activity.setCourseId(course.getId());
         activity.setNew(true);
