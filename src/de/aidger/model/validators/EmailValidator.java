@@ -37,7 +37,7 @@ public class EmailValidator extends Validator {
     public boolean validateVar(Object o) {
         if (o == null) {
             return false;
-        } else if (!o.getClass().getName().equals(String.class.getName())) {
+        } else if (!(o instanceof String)) {
             return false;
         }
 
