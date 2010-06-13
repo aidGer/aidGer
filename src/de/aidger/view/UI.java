@@ -57,6 +57,7 @@ import de.aidger.controller.actions.PrintAction;
 import de.aidger.controller.actions.SettingsAction;
 import de.aidger.controller.actions.TaskPaneAction;
 import de.aidger.controller.actions.TaskPaneAction.Task;
+import de.aidger.model.AbstractModel;
 import de.aidger.model.Runtime;
 import de.aidger.model.reports.AnnualBalanceCreator;
 import de.aidger.model.reports.ProtocolCreator;
@@ -775,14 +776,16 @@ public final class UI extends JFrame {
             return false;
         }
 
+        /* Loop through all tabs */
         for (String tab : list) {
             String classname = null;
             String[] params = new String[0];
             try {
+                /* Separate classnames and parameters */
                 int sep = tab.indexOf('<');
                 if (sep >= 0) {
                     classname = tab.substring(0, sep).trim();
-                    params = tab.substring(sep + 1).split(",");
+                    params = tab.substring(sep + 1).split("<");
                 } else {
                     classname = tab.trim();
                 }
@@ -791,46 +794,53 @@ public final class UI extends JFrame {
                     continue;
                 }
 
+                /* Initialize the tab class */
                 Class clazz = Class.forName(classname);
                 Class[] searchParams = new Class[params.length];
-
-                for (int i = 0; i < params.length; ++i) {
-                    String[] parts = params[i].split("@");
-                    searchParams[i] = Class.forName(parts[i]);
-                }
-
-                Constructor ctr = clazz.getConstructor(searchParams);
-                if (ctr == null) {
-                    Logger.error(_("Couldn't find the correct constructor"));
-                    continue;
-                }
-
                 List<Object> ctrParams = new ArrayList<Object>();
 
+                /* Convert the string parameter into the correct type */
                 for (int i = 0; i < params.length; ++i) {
                     String[] parts = params[i].split("@");
-                    if (ctr.getParameterTypes()[i].equals(String.class)) {
+                    Class current = Class.forName(parts[0]);
+                    searchParams[i] = current.getSuperclass().equals(
+                            AbstractModel.class) ? AbstractModel.class : current;
+
+                    if (current.isInstance(String.class)) {
                         ctrParams.add(parts[1]);
-                    } else if (ctr.getParameterTypes()[i].isEnum()) {
+                    } else if (current.isEnum()) {
                         Class obj = Class.forName(parts[0]);
                         ctrParams.add(Enum.valueOf(obj, parts[1]));
+                    } else if (current.getSuperclass().equals(
+                            AbstractModel.class)) {
+                        Class obj = Class.forName(parts[0]);
+                        AbstractModel a = (AbstractModel) obj.newInstance();
+                        Object o = a.getById(Integer.parseInt(parts[1]));
+                        ctrParams.add((AbstractModel) obj.getConstructor(
+                                o.getClass().getInterfaces()[0]).newInstance(o));
                     } else {
                         Class obj = Class.forName(parts[0]);
                         ctrParams.add(obj.cast(parts[1]));
                     }
                 }
 
+                /* Get the constructor and create the tab */
+                Constructor ctr = clazz.getConstructor(searchParams);
                 addNewTab((Tab) ctr.newInstance(ctrParams.toArray()));
             } catch (ClassNotFoundException ex) {
                 Logger.error(MessageFormat.format(
                     _("Could not find tab class {0}"), new Object[] { ex
                         .getMessage() }));
+            } catch (NoSuchMethodException ex) {
+                Logger.error(MessageFormat.format(
+                        _("Could not find the correct constructor: {0}"),
+                        new Object[] { ex.getMessage() }));
             } catch (Exception ex) {
                 Logger.error(ex.getMessage());
             }
         }
 
-        return tabbedPane.getTabCount() > 0;
+        return tabbedPane.getTabCount() > 1;
     }
 
 }
