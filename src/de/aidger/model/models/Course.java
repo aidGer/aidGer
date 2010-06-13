@@ -214,6 +214,28 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     }
 
     /**
+     * Custom validation function for remove().
+     *
+     * @return True if everything is correct
+     */
+    public boolean validateOnRemove() throws AdoHiveException {
+        boolean ret = true;
+
+        List act = (new Activity()).getActivities(this);
+        List emp = (new Employment()).getEmployments(this);
+
+        if (act.size() > 0) {
+            addError(_("Course is still linked to an Activity."));
+            ret = false;
+        }
+         if (emp.size() > 0) {
+            addError(_("Course is still linked to an Employment"));
+            ret = false;
+        }
+        return ret;
+    }
+
+    /**
      * Get a list of all courses with the given financial category.
      *
      * @param category

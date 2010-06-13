@@ -1,11 +1,13 @@
 package de.aidger.model.models;
 
 import static de.aidger.utils.Translation._;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 import java.util.Arrays;
 
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
+import java.util.List;
 
 /**
  * Represents a single entry in the financial category column of the database.
@@ -134,6 +136,24 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
                 addError("funds", _("has to have a length of 8"));
                 ret = false;
             }
+        }
+
+        return ret;
+    }
+
+    /**
+     * Custom validation function for remove().
+     *
+     * @return True if everything is correct
+     */
+    public boolean validateOnRemove() throws AdoHiveException {
+        boolean ret = true;
+
+        List courses = (new Course()).getCourses(this);
+
+        if (courses.size() > 0) {
+            addError(_("Financial Category is still linked to a Course."));
+            ret = false;
         }
 
         return ret;

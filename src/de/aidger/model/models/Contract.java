@@ -1,10 +1,12 @@
 package de.aidger.model.models;
 
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import java.sql.Date;
 
 import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.model.IContract;
+import java.util.List;
 
 /**
  * Represents a single entry in the contract column of the database.
@@ -145,6 +147,23 @@ public class Contract extends AbstractModel<IContract> implements IContract {
         boolean ret = true;
         if (type.length() > 20) {
             addError("type", _("is too long"));
+            ret = false;
+        }
+        return ret;
+    }
+
+    /**
+     * Custom validation function for remove().
+     *
+     * @return True if everything is correct
+     */
+    public boolean validateOnRemove() throws AdoHiveException {
+        boolean ret = true;
+
+        List emps = (new Employment()).getEmployments(this);
+
+        if (emps.size() > 0) {
+            addError("Contract is still linked to an Employment");
             ret = false;
         }
         return ret;
