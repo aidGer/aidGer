@@ -113,12 +113,12 @@ public class EmploymentTest {
         employment.setNew(true);
         assertTrue(employment.save());
 
-        employment.setAssistantId(-1);
+        employment.setAssistantId(0);
         assertFalse(employment.save());
         employment.resetErrors();
         employment.setAssistantId(assistant.getId());
 
-        employment.setContractId(-1);
+        employment.setContractId(0);
         assertFalse(employment.save());
         employment.resetErrors();
         employment.setContractId(contract.getId());
@@ -128,7 +128,7 @@ public class EmploymentTest {
         employment.resetErrors();
         employment.setCostUnit("0711");
 
-        employment.setCourseId(-1);
+        employment.setCourseId(0);
         assertFalse(employment.save());
         employment.resetErrors();
         employment.setCourseId(course.getId());

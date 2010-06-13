@@ -103,7 +103,7 @@ public class ActivityTest {
 
         activity.setNew(true);
 
-        activity.setAssistantId(-1);
+        activity.setAssistantId(0);
         assertFalse(activity.save());
         activity.resetErrors();
         activity.setAssistantId(assistant.getId());
@@ -113,7 +113,7 @@ public class ActivityTest {
         activity.resetErrors();
         activity.setContent("New assistant");
 
-        activity.setCourseId(-1);
+        activity.setCourseId(0);
         assertFalse(activity.save());
         activity.resetErrors();
         activity.setCourseId(course.getId());
