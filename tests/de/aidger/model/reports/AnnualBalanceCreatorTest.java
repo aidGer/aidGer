@@ -17,6 +17,7 @@ import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
+import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.reports.BalanceHelper;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
@@ -36,6 +37,8 @@ public class AnnualBalanceCreatorTest {
 
     private Contract contract = null;
 
+    private FinancialCategory financialCategory = null;
+
     private AnnualBalanceCreator balanceCreator = null;
 
     private BalanceHelper balanceHelper = null;
@@ -54,10 +57,17 @@ public class AnnualBalanceCreatorTest {
 
         balanceHelper = new BalanceHelper();
 
+        financialCategory = new FinancialCategory();
+        financialCategory.setBudgetCosts(new int[] { 1000 });
+        financialCategory.setFunds(new int[] { 10000000 });
+        financialCategory.setName("Test Category");
+        financialCategory.setYear((short) 2010);
+        financialCategory.save();
+
         course = new Course();
         course.setAdvisor("Tester");
         course.setDescription("Description");
-        course.setFinancialCategoryId(1);
+        course.setFinancialCategoryId(financialCategory.getId());
         course.setGroup("2");
         course.setLecturer("Test Tester");
         course.setNumberOfGroups(3);
@@ -143,19 +153,40 @@ public class AnnualBalanceCreatorTest {
 
         for (int i = 1; i < years.size(); i++) {
             assertTrue(balanceCreator.addYear(Integer.parseInt(""
-                    + years.get(i))));
+                    + years.get(i)), null));
+        }
+
+        for (int i = 1; i < years.size(); i++) {
+            BalanceFilter testFilter = new BalanceFilter();
+            testFilter.addGroup(course.getGroup());
+            assertTrue(balanceCreator.addYear(Integer.parseInt(""
+                    + years.get(i)), testFilter));
+        }
+
+        for (int i = 1; i < years.size(); i++) {
+            BalanceFilter testFilter = new BalanceFilter();
+            testFilter.addLecturer(course.getLecturer());
+            assertTrue(balanceCreator.addYear(Integer.parseInt(""
+                    + years.get(i)), testFilter));
+        }
+
+        for (int i = 1; i < years.size(); i++) {
+            BalanceFilter testFilter = new BalanceFilter();
+            testFilter.addTargetAudience(course.getTargetAudience());
+            assertTrue(balanceCreator.addYear(Integer.parseInt(""
+                    + years.get(i)), testFilter));
         }
 
         assertEquals(balanceHelper.getYears().contains(2000), balanceCreator
-            .addYear(2000));
+            .addYear(2000, null));
         assertEquals(balanceHelper.getYears().contains(2001), balanceCreator
-            .addYear(2001));
+            .addYear(2001, null));
         assertEquals(balanceHelper.getYears().contains(2010), balanceCreator
-            .addYear(2010));
+            .addYear(2010, null));
         assertEquals(balanceHelper.getYears().contains(2011), balanceCreator
-            .addYear(2011));
+            .addYear(2011, null));
         assertEquals(balanceHelper.getYears().contains(2099), balanceCreator
-            .addYear(2099));
+            .addYear(2099, null));
     }
 
     /**
