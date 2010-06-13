@@ -204,21 +204,36 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Remove the current model from the database.
-     * 
+     *
+     * @return False if the model is new or doesn't validate
      * @throws AdoHiveException
      */
     @SuppressWarnings("unchecked")
-    public void remove() throws AdoHiveException {
-        if (!isNew) {
-            Logger.info(MessageFormat.format(_("Removing model: {0}"),
-                    new Object[] { toString() }));
-
-            getManager().remove(this);
-            clearChanged();
-            notifyObservers();
-
-            setNew(true);
+    public boolean remove() throws AdoHiveException {
+        if (isNew) {
+            return false;
         }
+
+        /* Check if there is a custom validation function */
+        try {
+            java.lang.reflect.Method m = getClass().getDeclaredMethod(
+                    "validateOnRemove");
+            if (!(Boolean) m.invoke(this, new Object[0])) {
+                return false;
+            }
+        } catch (Exception ex) {
+        }
+
+        Logger.info(MessageFormat.format(_("Removing model: {0}"),
+                new Object[] { toString() }));
+
+        getManager().remove(this);
+        clearChanged();
+        notifyObservers();
+
+        setNew(true);
+
+        return true;
     }
 
     /**
