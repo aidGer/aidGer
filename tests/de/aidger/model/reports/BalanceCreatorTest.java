@@ -5,8 +5,10 @@ package de.aidger.model.reports;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
+import java.util.Vector;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -138,12 +140,24 @@ public class BalanceCreatorTest {
         balanceCreator = new BalanceCreator(2, course.getSemester());
 
         assertNotNull(balanceCreator);
+
+        Vector years = new BalanceHelper().getYears();
+
+        for (int i = 1; i < years.size(); i++) {
+            assertTrue(balanceCreator.addYear(Integer.parseInt(""
+                    + years.get(i))));
+        }
+
         assertEquals(balanceHelper.getYears().contains(2000), balanceCreator
             .addYear(2000));
+        assertEquals(balanceHelper.getYears().contains(2001), balanceCreator
+            .addYear(2001));
         assertEquals(balanceHelper.getYears().contains(2010), balanceCreator
             .addYear(2010));
         assertEquals(balanceHelper.getYears().contains(2011), balanceCreator
             .addYear(2011));
+        assertEquals(balanceHelper.getYears().contains(2099), balanceCreator
+            .addYear(2099));
         assertEquals(balanceHelper.getYears().contains(
             Integer.parseInt("" + balanceHelper.getYears().get(1))),
             balanceCreator.addYear(Integer.parseInt(""

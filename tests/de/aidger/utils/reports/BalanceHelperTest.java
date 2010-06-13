@@ -4,8 +4,8 @@
 package de.aidger.utils.reports;
 
 import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
 import java.util.Vector;
@@ -175,9 +175,8 @@ public class BalanceHelperTest {
         Vector years = balanceHelper.getYears();
 
         assertNotNull(years);
-        assertEquals(3, years.size());
-        assertEquals(2009, years.get(1));
-        assertEquals(2010, years.get(2));
+        assertTrue(years.contains(2009));
+        assertTrue(years.contains(2010));
     }
 
     /**

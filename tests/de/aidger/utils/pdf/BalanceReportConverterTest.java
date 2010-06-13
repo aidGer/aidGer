@@ -121,7 +121,7 @@ public class BalanceReportConverterTest {
     public void testConstructor() throws AdoHiveException {
         System.out.println("Constructor");
         Course course2 = course.clone();
-        course2.setSemester("2009");
+        course2.setSemester("WS1011");
         course2.save();
 
         Course course3 = course2.clone();
@@ -132,18 +132,46 @@ public class BalanceReportConverterTest {
         course4.setGroup("Test group 2");
         course4.save();
 
+        Course course5 = course.clone();
+        course5.setSemester("WS0001");
+        course5.save();
+
+        Course course6 = course.clone();
+        course6.setSemester("WS9900");
+        course6.save();
+
         Vector years = new BalanceHelper().getYears();
 
         for (int i = 1; i < years.size(); i++) {
-            balanceReportConverter = new BalanceReportConverter("",
-                "Test_Report", 1, years.get(i));
+            File testFile = new File("Test_Report");
+            balanceReportConverter = new BalanceReportConverter(testFile, 1,
+                years.get(i));
 
             File file = new File("Test_Report.pdf");
             assertTrue(file.exists());
         }
 
-        balanceReportConverter = new BalanceReportConverter("", "Test_Report",
-            2, course.getSemester());
+        for (int i = 1; i < years.size(); i++) {
+            File testFile = new File("Test_Report.pdf");
+            balanceReportConverter = new BalanceReportConverter(testFile, 1,
+                years.get(i));
+
+            File file = new File("Test_Report.pdf");
+            assertTrue(file.exists());
+        }
+
+        for (int i = 1; i < years.size(); i++) {
+            File testFile = new File("Test_Report.test");
+            balanceReportConverter = new BalanceReportConverter(testFile, 1,
+                years.get(i));
+
+            File file = new File("Test_Report.test.pdf");
+            assertTrue(file.exists());
+        }
+
+        File testFile = new File("Test_Report.pdf");
+        balanceReportConverter = new BalanceReportConverter(testFile, 2, course
+            .getSemester());
 
         File file = new File("Test_Report.pdf");
         assertTrue(file.exists());
@@ -155,6 +183,8 @@ public class BalanceReportConverterTest {
     @After
     public void cleanUp() {
         File file = new File("Test_Report.pdf");
+        file.delete();
+        file = new File("Test_Report.test.pdf");
         file.delete();
     }
 }

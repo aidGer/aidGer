@@ -14,6 +14,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
 import java.lang.reflect.Constructor;
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -23,11 +24,13 @@ import java.util.Vector;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ActionMap;
+import javax.swing.ImageIcon;
 import javax.swing.InputMap;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -40,10 +43,10 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
-import javax.swing.ImageIcon;
 import javax.swing.WindowConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.filechooser.FileFilter;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
@@ -137,8 +140,7 @@ public final class UI extends JFrame {
 
                         action.actionPerformed(evt);
                     }
-                }
-                catch (ActionNotFoundException e) {
+                } catch (ActionNotFoundException e) {
                     displayError(e.getMessage());
                 }
             }
@@ -390,8 +392,7 @@ public final class UI extends JFrame {
             menuBar.add(createHelpMenu());
 
             return menuBar;
-        }
-        catch (ActionNotFoundException e) {
+        } catch (ActionNotFoundException e) {
             displayError(e.getMessage());
             return null;
         }
@@ -504,11 +505,62 @@ public final class UI extends JFrame {
 
         reportExportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new BalanceReportConverter("", reportsComboBox
-                    .getSelectedItem()
-                        + "_" + reportListComboBox.getSelectedItem(),
-                    reportsComboBox.getSelectedIndex(), reportListComboBox
-                        .getSelectedItem());
+                JButton reportExportBtn = (JButton) e.getSource();
+                JFileChooser fileChooser = new JFileChooser();
+                File file;
+                FileFilter pdfFilter = new FileFilter() {
+                    @Override
+                    public boolean accept(File arg0) {
+                        String fileName = arg0.getName();
+                        int fileExtensionStart = fileName.lastIndexOf('.');
+                        String fileExtension = fileName
+                            .substring(fileExtensionStart + 1);
+                        return fileExtension.equals("pdf");
+                    }
+
+                    @Override
+                    public String getDescription() {
+                        return _("PDF files");
+                    }
+                };
+
+                fileChooser.addChoosableFileFilter(pdfFilter);
+
+                boolean exit = false;
+
+                do {
+                    int retVal = fileChooser.showDialog(reportExportBtn,
+                        _("Export"));
+
+                    if (retVal == JFileChooser.APPROVE_OPTION) {
+                        file = fileChooser.getSelectedFile();
+                        if (file.isDirectory()) {
+                            // This shouldn't happen but check for it anyways
+                            JOptionPane.showMessageDialog(reportExportBtn,
+                                _("Please choose a file."));
+                        } else if (file.exists()) {
+                            // Ask if the user wants to overwrite the file
+                            retVal = JOptionPane
+                                .showOptionDialog(
+                                    reportExportBtn,
+                                    _("Are you sure you want to overwrite the file?"),
+                                    _("Overwrite file?"),
+                                    JOptionPane.YES_NO_OPTION,
+                                    JOptionPane.QUESTION_MESSAGE, null, null,
+                                    null);
+                            if (retVal == JOptionPane.YES_OPTION) {
+                                exit = true;
+                            }
+                        } else {
+                            exit = true;
+                        }
+                    } else {
+                        return;
+                    }
+                } while (!exit);
+
+                new BalanceReportConverter(file, reportsComboBox
+                    .getSelectedIndex(), reportListComboBox.getSelectedItem());
             }
         });
         reportExportBtn.setVisible(false);
@@ -620,7 +672,7 @@ public final class UI extends JFrame {
         };
 
         tabbedPane.add(new JPanel(), new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/ui-tab--plus.png")));
+            "/de/aidger/view/icons/ui-tab--plus.png")));
         tabbedPane.setToolTipTextAt(0, _("Open a new tab"));
 
         tabbedPane.addChangeListener(tabbedPaneListener);
@@ -667,7 +719,8 @@ public final class UI extends JFrame {
         }
 
         int count = tabbedPane.getTabCount();
-        String[] list = new String[count - 1]; // -1 because of CloseTabComponent
+        String[] list = new String[count - 1]; // -1 because of
+        // CloseTabComponent
 
         for (int i = 0; i < count - 1; ++i) {
             Tab t = (Tab) ((JScrollPane) tabbedPane.getComponentAt(i))
@@ -739,13 +792,11 @@ public final class UI extends JFrame {
                 }
 
                 addNewTab((Tab) ctr.newInstance(ctrParams.toArray()));
-            }
-            catch (ClassNotFoundException ex) {
+            } catch (ClassNotFoundException ex) {
                 Logger.error(MessageFormat.format(
                     _("Could not find tab class {0}"), new Object[] { ex
                         .getMessage() }));
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 Logger.error(ex.getMessage());
             }
         }
