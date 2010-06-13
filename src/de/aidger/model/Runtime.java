@@ -66,7 +66,7 @@ public final class Runtime {
         /* Get the path to the users home or config directory */
         String home = "";
         String os = System.getProperty("os.name").toLowerCase();
-        if (os.indexOf("linux") > -1) {
+        if (os.indexOf("linux") > -1 || os.indexOf("mac") > -1) {
             /*
              * Try using the XDG_CONFIG_DIR variable first. Provides the
              * standard directory according to the desktop guidelines or a user
@@ -101,7 +101,6 @@ public final class Runtime {
              */
             home = System.getProperty("user.home", ".");
         }
-        // TODO: os.indexOf("mac") > -1 :: Add checks for mac and use correct dir
 
         configPath = home + "/aidGer/";
         File file = new File(configPath);
