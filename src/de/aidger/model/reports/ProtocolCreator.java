@@ -33,6 +33,7 @@ public class ProtocolCreator {
 
     /**
      * Initializes a new ProtocolCreator and creates the first protocol.
+     * 
      */
     public ProtocolCreator() {
         if (protocolViewerTab == null) {
@@ -44,6 +45,8 @@ public class ProtocolCreator {
     /**
      * Adds all the activities to the table in the viewer which are in the
      * wanted time frame.
+     * 
+     * @throws AdoHiveException
      */
     public void createProtocol() {
         numberOfDays = protocolViewerTab.getSpinnerValue();
@@ -52,13 +55,12 @@ public class ProtocolCreator {
         List<IActivity> activities = null;
         try {
             activities = new Activity().getAll();
-        }
-        catch (AdoHiveException e) {
+        } catch (AdoHiveException e1) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+            e1.printStackTrace();
         }
         Calendar currentDate = Calendar.getInstance();
-        //Display all activities if numberOfDays == -1.
+        // Display all activities if numberOfDays == -1.
         if (numberOfDays != -1) {
             currentDate.add(Calendar.DATE, (-numberOfDays));
         } else {
@@ -83,8 +85,7 @@ public class ProtocolCreator {
                     addedActivity[6] = activity.getProcessor();
                     addedActivity[7] = activity.getRemark();
                     protocolViewerTab.addActivity(addedActivity);
-                }
-                catch (AdoHiveException e) {
+                } catch (AdoHiveException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
@@ -100,12 +101,12 @@ public class ProtocolCreator {
     public Tab getViewerTab() {
         return protocolViewerTab;
     }
-    
+
     public int getNumberOfDays() {
-    	return protocolViewerTab.getSpinnerValue();
+        return protocolViewerTab.getSpinnerValue();
     }
-    
+
     public void setNumberOfDays(int value) {
-    	protocolViewerTab.setSpinnerValue(value);
+        protocolViewerTab.setSpinnerValue(value);
     }
 }

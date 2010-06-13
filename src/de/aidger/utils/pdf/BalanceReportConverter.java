@@ -42,7 +42,7 @@ public class BalanceReportConverter {
     /**
      * Contains the group tables and their names.
      */
-    private final Vector balanceReportGroups = new Vector<Vector>();
+    private Vector balanceReportGroups = null;
 
     /**
      * The PdfWriter used to write the document.
@@ -66,9 +66,18 @@ public class BalanceReportConverter {
         writeHeader();
         switch (index) {
         case 1:
-            createYear(Integer.parseInt("" + semester));
+            Vector semesters = new BalanceHelper().getSemesters();
+            for (int i = 1; i < semesters.size(); i++) {
+                balanceReportGroups = new Vector<Vector>();
+                createSemester((String) semesters.get(i));
+            }
             break;
         case 2:
+            balanceReportGroups = new Vector<Vector>();
+            createYear((Integer) semester);
+            break;
+        case 3:
+            balanceReportGroups = new Vector<Vector>();
             createSemester("" + semester);
             break;
         }
@@ -192,13 +201,13 @@ public class BalanceReportConverter {
              * As long as there are groups for this Balance report, create new
              * group tables.
              */
-            List<ICourse> courses = null;
+            List<Course> courses = null;
             try {
                 courses = (new Course()).getAll();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            for (ICourse course : courses) {
+            for (Course course : courses) {
                 if (course.getSemester().equals(semester)) {
                     PdfPTable groupTable = null;
                     if (balanceReportGroups.isEmpty()) {
@@ -233,6 +242,7 @@ public class BalanceReportConverter {
             contentCell.setPaddingLeft(10.0f);
             contentCell.setBorder(1);
             finalSemesterTable.addCell(contentCell);
+            finalSemesterTable.setKeepTogether(true);
             document.add(finalSemesterTable);
         } catch (Exception e) {
             System.out.println(e);
@@ -246,7 +256,7 @@ public class BalanceReportConverter {
      *            The course of which the data shall be written to a row.
      * @return The row as a PdfPCell
      */
-    private PdfPCell addRow(ICourse course) {
+    private PdfPCell addRow(Course course) {
         PdfPTable groupContentTable = new PdfPTable(new float[] { 0.25f, 0.05f,
                 0.15f, 0.15f, 0.1f, 0.1f, 0.1f, 0.1f });
         Font tableContentFont;

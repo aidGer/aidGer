@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 
 import de.aidger.model.models.Course;
 import de.aidger.view.reports.BalanceReportSemesterPanel;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
@@ -34,8 +35,10 @@ public class BalanceReportSemesterCreator {
      * 
      * @param semester
      *            The semester of which the groups shall be added.
+     * @throws AdoHiveException
      */
-    public BalanceReportSemesterCreator(String semester) {
+    public BalanceReportSemesterCreator(String semester)
+            throws AdoHiveException {
         if (balanceReportSemesterViewer == null) {
             balanceReportSemesterViewer = new BalanceReportSemesterPanel(
                 semester);
@@ -54,8 +57,8 @@ public class BalanceReportSemesterCreator {
         List<ICourse> courses = null;
         try {
             courses = (new Course()).getAll();
-        }
-        catch (Exception e) {
+        } catch (AdoHiveException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         for (ICourse course : courses) {

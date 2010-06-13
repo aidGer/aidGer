@@ -53,32 +53,31 @@ public class BalanceHelper {
         try {
             employments = (new Employment()).getAll();
             assistants = (new Assistant()).getAll();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         for (IEmployment employment : employments) {
-            if (employment.getCourseId() == course.getId()) {
-                //TODO find out int for student fee funds
+            if (course.getId() == employment.getCourseId()) {
+                // TODO find out int for student fee funds
                 if (employment.getFunds() == 1) {
                     for (IAssistant assistant : assistants) {
                         if (employment.getAssistantId() == assistant.getId()) {
-                            //TODO change to get correct hourly wage
+                            // TODO change to get correct hourly wage
                             studentFees = studentFees
                                     + (int) (10.0 * employment.getHourCount() * 1.28);
                         }
                     }
-                    //TODO find out int for student fee funds
+                    // TODO find out int for student fee funds
                 } else if (employment.getFunds() == 2) {
                     for (IAssistant assistant : assistants) {
                         if (employment.getAssistantId() == assistant.getId()) {
-                            //TODO change to get correct hourly wage
+                            // TODO change to get correct hourly wage
                             resources = resources
                                     + (int) (10.0 * employment.getHourCount() * 1.28);
                         }
                     }
                 }
-                //TODO find out correct calculation
+                // TODO find out correct calculation
                 plannedAWS = plannedAWS + employment.getHourCount();
             }
         }
@@ -100,8 +99,7 @@ public class BalanceHelper {
         semesters.add("");
         try {
             courses = (new Course()).getAll();
-        }
-        catch (AdoHiveException e) {
+        } catch (AdoHiveException e) {
             e.printStackTrace();
         }
         for (ICourse course : courses) {
@@ -131,13 +129,13 @@ public class BalanceHelper {
             char[] semesterChar = ((String) semester).toCharArray();
             int year = 0;
             if (Character.isDigit(semesterChar[0])) {
-                //The semester is in the form YYYY.
+                // The semester is in the form YYYY.
                 for (int i = 0; i < semesterChar.length; i++) {
                     year = year + Character.getNumericValue(semesterChar[i])
                             * (int) Math.pow(10, 3 - i);
                 }
             } else {
-                //The semester is in the form SSYY or WSYYYY.
+                // The semester is in the form SSYY or WSYYYY.
                 int i = 0;
                 while (!Character.isDigit(semesterChar[i])) {
                     i++;
@@ -145,7 +143,7 @@ public class BalanceHelper {
                 int power = 0;
                 switch (semesterChar.length - i) {
                 case 2:
-                    //The semester is in the form SSYY
+                    // The semester is in the form SSYY
                     year = 2000;
                     power = 10;
                     for (int j = i; j < semesterChar.length; j++) {
@@ -189,6 +187,22 @@ public class BalanceHelper {
                 years.add(year);
             }
         }
-        return years;
+        Vector sortedYears = new Vector();
+        sortedYears.add(years.get(0));
+        sortedYears.add(years.get(1));
+        for (int i = 2; i < years.size(); i++) {
+            boolean addedYear = false;
+            for (int j = 1; j < sortedYears.size(); j++) {
+                if ((Integer) years.get(i) <= (Integer) sortedYears.get(j)) {
+                    sortedYears.add(j, years.get(i));
+                    addedYear = true;
+                    break;
+                }
+            }
+            if (!addedYear) {
+                sortedYears.add(years.get(i));
+            }
+        }
+        return sortedYears;
     }
 }

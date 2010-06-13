@@ -58,8 +58,9 @@ import de.aidger.controller.actions.SettingsAction;
 import de.aidger.controller.actions.TaskPaneAction;
 import de.aidger.controller.actions.TaskPaneAction.Task;
 import de.aidger.model.Runtime;
-import de.aidger.model.reports.BalanceCreator;
+import de.aidger.model.reports.AnnualBalanceCreator;
 import de.aidger.model.reports.ProtocolCreator;
+import de.aidger.model.reports.SemesterBalanceCreator;
 import de.aidger.utils.Logger;
 import de.aidger.utils.pdf.BalanceReportConverter;
 import de.aidger.utils.reports.BalanceHelper;
@@ -490,8 +491,9 @@ public final class UI extends JFrame {
 
         TaskPane tpReports = new TaskPane(_("Reports"));
 
-        String[] reports = { "", _("Annual Balance"), _("Semester Balance"),
-                _("Partial Balance"), _("Activity Report"), _("Protocol") };
+        String[] reports = { "", _("Full Balance"), _("Annual Balance"),
+                _("Semester Balance"), _("Partial Balance"),
+                _("Activity Report"), _("Protocol") };
 
         final JComboBox reportsComboBox = new JComboBox(reports);
         tpReports.add(reportsComboBox);
@@ -568,10 +570,28 @@ public final class UI extends JFrame {
         reportListComboBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 JComboBox reportListComboBox = (JComboBox) e.getSource();
+
                 if (reportListComboBox.getSelectedIndex() > 0) {
-                    addNewTab(new BalanceCreator(reportsComboBox
-                        .getSelectedIndex(), reportListComboBox
-                        .getSelectedItem()).getViewerTab());
+                    switch (reportsComboBox.getSelectedIndex()) {
+                    case 2:
+                        AnnualBalanceCreator annualBalanceCreator = new AnnualBalanceCreator();
+                        annualBalanceCreator
+                            .addYear((Integer) reportListComboBox
+                                .getSelectedItem());
+                        addNewTab(annualBalanceCreator.getViewerTab());
+                        reportExportBtn.setVisible(true);
+                        break;
+                    case 3:
+                        SemesterBalanceCreator semesterBalanceCreator = new SemesterBalanceCreator();
+                        semesterBalanceCreator
+                            .addSemester((String) reportListComboBox
+                                .getSelectedItem());
+                        addNewTab(semesterBalanceCreator.getViewerTab());
+                        reportExportBtn.setVisible(true);
+                        break;
+                    default:
+                        break;
+                    }
                 }
             }
         });
@@ -582,15 +602,24 @@ public final class UI extends JFrame {
                 JComboBox reportsComboBox = (JComboBox) e.getSource();
                 switch (reportsComboBox.getSelectedIndex()) {
                 case 1:
+                    SemesterBalanceCreator fullBalanceCreator = new SemesterBalanceCreator();
+                    Vector years = new BalanceHelper().getSemesters();
+                    for (int i = 1; i < years.size(); i++) {
+                        fullBalanceCreator.addSemester((String) years.get(i));
+                    }
+                    addNewTab(fullBalanceCreator.getViewerTab());
+                    reportExportBtn.setVisible(true);
+                    break;
+                case 2:
                     reportListComboBox.removeAllItems();
-                    Vector years = new BalanceHelper().getYears();
-                    for (Object year : years) {
+                    Vector availableYears = new BalanceHelper().getYears();
+                    for (Object year : availableYears) {
                         reportListComboBox.addItem(year);
                     }
                     reportListComboBox.setVisible(true);
                     reportExportBtn.setVisible(true);
                     break;
-                case 2:
+                case 3:
                     reportListComboBox.removeAllItems();
                     Vector semesters = new BalanceHelper().getSemesters();
                     for (Object semester : semesters) {
@@ -599,7 +628,7 @@ public final class UI extends JFrame {
                     reportListComboBox.setVisible(true);
                     reportExportBtn.setVisible(true);
                     break;
-                case 5:
+                case 6:
                     addNewTab(new ProtocolCreator().getViewerTab());
                     reportListComboBox.setVisible(false);
                     reportExportBtn.setVisible(true);
