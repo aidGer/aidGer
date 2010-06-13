@@ -1,7 +1,11 @@
 package de.aidger.model.models;
 
+import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
+
+import java.util.List;
 
 /**
  * Represents a single entry in the assistant column of the database. Contains
@@ -109,6 +113,29 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
         hash = 19 * hash
                 + (qualification != null ? qualification.hashCode() : 0);
         return hash;
+    }
+
+    /**
+     * Custom validation function for remove().
+     *
+     * @return True if everything is okay
+     */
+    public boolean validateOnRemove() throws AdoHiveException {
+        boolean ret = true;
+
+        List act = (new Activity()).getActivities(this);
+        List emp = (new Employment()).getEmployments(this);
+
+        if (act.size() > 0) {
+            addError(_("Assistant is still linked to an Activity"));
+            ret = false;
+        }
+        if (emp.size() > 0) {
+            addError(_("Assistant is still linked to an Employment"));
+            ret = false;
+        }
+
+        return ret;
     }
 
     /**
