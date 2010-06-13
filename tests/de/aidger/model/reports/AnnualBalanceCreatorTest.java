@@ -24,7 +24,7 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
  * @author Phil
  * 
  */
-public class BalanceCreatorTest {
+public class AnnualBalanceCreatorTest {
 
     private Course course = null;
 
@@ -36,11 +36,11 @@ public class BalanceCreatorTest {
 
     private Contract contract = null;
 
-    private BalanceCreator balanceCreator = null;
+    private AnnualBalanceCreator balanceCreator = null;
 
     private BalanceHelper balanceHelper = null;
 
-    public BalanceCreatorTest() {
+    public AnnualBalanceCreatorTest() {
     }
 
     /**
@@ -51,6 +51,8 @@ public class BalanceCreatorTest {
     @Before
     public void setUp() throws AdoHiveException {
         de.aidger.model.Runtime.getInstance().initialize();
+
+        balanceHelper = new BalanceHelper();
 
         course = new Course();
         course.setAdvisor("Tester");
@@ -114,30 +116,26 @@ public class BalanceCreatorTest {
     }
 
     /**
-     * Tests the constructor and addSemester() of the BalanceCreator class.
+     * Tests the constructor and of the AnnualBalanceCreator class.
      */
     @Test
     public void testConstructor() {
-        System.out.println("Constructor/addSemester()");
-
-        balanceHelper = new BalanceHelper();
-        balanceCreator = new BalanceCreator(2, course.getSemester());
-        balanceCreator = new BalanceCreator(1, Integer.parseInt(""
-                + balanceHelper.getYears().get(1)));
+        System.out.println("Constructor");
+        balanceCreator = new AnnualBalanceCreator();
 
         assertNotNull(balanceCreator);
     }
 
     /**
-     * Tests the method addYear() of the class BalanceCreator.
+     * Tests the method addYear() of the class AnnualBalanceCreator.
+     * 
+     * @throws NumberFormatException
      */
     @Test
-    public void testAddYear() {
+    public void testAddYear() throws NumberFormatException {
         System.out.println("addYear()");
 
-        balanceHelper = new BalanceHelper();
-
-        balanceCreator = new BalanceCreator(2, course.getSemester());
+        balanceCreator = new AnnualBalanceCreator();
 
         assertNotNull(balanceCreator);
 
@@ -158,21 +156,18 @@ public class BalanceCreatorTest {
             .addYear(2011));
         assertEquals(balanceHelper.getYears().contains(2099), balanceCreator
             .addYear(2099));
-        assertEquals(balanceHelper.getYears().contains(
-            Integer.parseInt("" + balanceHelper.getYears().get(1))),
-            balanceCreator.addYear(Integer.parseInt(""
-                    + balanceHelper.getYears().get(1))));
     }
 
     /**
-     * Tests the method getViewerTab() of the class BalanceCreator.
+     * Tests the method getViewerTab() of the class AnnualBalanceCreator.
      */
     @Test
     public void testGetViewerTab() {
         System.out.println("getViewerTab()");
 
-        balanceCreator = new BalanceCreator(2, course.getSemester());
+        balanceCreator = new AnnualBalanceCreator();
 
         assertNotNull(balanceCreator.getViewerTab());
     }
+
 }

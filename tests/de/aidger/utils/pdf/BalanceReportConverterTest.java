@@ -144,7 +144,7 @@ public class BalanceReportConverterTest {
 
         for (int i = 1; i < years.size(); i++) {
             File testFile = new File("Test_Report");
-            balanceReportConverter = new BalanceReportConverter(testFile, 1,
+            balanceReportConverter = new BalanceReportConverter(testFile, 2,
                 years.get(i));
 
             File file = new File("Test_Report.pdf");
@@ -153,7 +153,7 @@ public class BalanceReportConverterTest {
 
         for (int i = 1; i < years.size(); i++) {
             File testFile = new File("Test_Report.pdf");
-            balanceReportConverter = new BalanceReportConverter(testFile, 1,
+            balanceReportConverter = new BalanceReportConverter(testFile, 2,
                 years.get(i));
 
             File file = new File("Test_Report.pdf");
@@ -162,7 +162,7 @@ public class BalanceReportConverterTest {
 
         for (int i = 1; i < years.size(); i++) {
             File testFile = new File("Test_Report.test");
-            balanceReportConverter = new BalanceReportConverter(testFile, 1,
+            balanceReportConverter = new BalanceReportConverter(testFile, 2,
                 years.get(i));
 
             File file = new File("Test_Report.test.pdf");
@@ -170,7 +170,7 @@ public class BalanceReportConverterTest {
         }
 
         File testFile = new File("Test_Report.pdf");
-        balanceReportConverter = new BalanceReportConverter(testFile, 2, course
+        balanceReportConverter = new BalanceReportConverter(testFile, 3, course
             .getSemester());
 
         File file = new File("Test_Report.pdf");
