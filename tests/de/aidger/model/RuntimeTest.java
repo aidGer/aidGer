@@ -5,6 +5,7 @@
 
 package de.aidger.model;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -15,7 +16,8 @@ import static org.junit.Assert.*;
  */
 public class RuntimeTest {
 
-    public RuntimeTest() {
+    @BeforeClass
+    public static void beforeClassSetUp() {
         Runtime.getInstance().initialize();
     }
 

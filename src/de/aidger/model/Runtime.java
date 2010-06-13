@@ -20,28 +20,9 @@ import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
 public final class Runtime {
 
     /**
-     * Set of supported operating systems.
-     */
-    public enum OS {
-        /* Any kind of Windows operating system */
-        WINDOWS,
-        /* All systems using a Linux kernel */
-        LINUX,
-        /* MacIntoshs (not necessarily OS X) */
-        MACOSX,
-        /* Unknown operating system */
-        UNKNOWN
-    };
-
-    /**
      * Holds he only instance of the class.
      */
     private static Runtime instance = null;
-
-    /**
-     * The users operating system.
-     */
-    private OS operatingSystem;
 
     /**
      * The path the config is saved in.
@@ -82,21 +63,10 @@ public final class Runtime {
      * Resolves the OS of the user and the file path to the aidGer settings.
      */
     public void initialize() {
-        /* Set the operating system */
-        String os = System.getProperty("os.name").toLowerCase();
-        if (os.indexOf("windows") > -1) {
-            operatingSystem = OS.WINDOWS;
-        } else if (os.indexOf("linux") > -1) {
-            operatingSystem = OS.LINUX;
-        } else if (os.indexOf("mac") > -1) {
-            operatingSystem = OS.MACOSX;
-        } else {
-            operatingSystem = OS.UNKNOWN;
-        }
-
         /* Get the path to the users home or config directory */
         String home = "";
-        if (operatingSystem == OS.LINUX) {
+        String os = System.getProperty("os.name").toLowerCase();
+        if (os.indexOf("linux") > -1) {
             /*
              * Try using the XDG_CONFIG_DIR variable first. Provides the
              * standard directory according to the desktop guidelines or a user
@@ -112,7 +82,7 @@ public final class Runtime {
                 confdir += "/.config/";
             }
             home = confdir;
-        } else if (operatingSystem == OS.WINDOWS) {
+        } else if (os.indexOf("windows") > -1) {
             /*
              * Try using the APPDATA variable first. Should return the
              * ApplicationData folder but may fail on older Windows versions.
@@ -131,6 +101,8 @@ public final class Runtime {
              */
             home = System.getProperty("user.home", ".");
         }
+        // TODO: os.indexOf("mac") > -1 :: Add checks for mac and use correct dir
+
         configPath = home + "/aidGer/";
         File file = new File(configPath);
 
@@ -160,15 +132,6 @@ public final class Runtime {
      */
     public String getConfigPath() {
         return configPath;
-    }
-
-    /**
-     * Returns the operating system of the user.
-     *
-     * @return The operating system
-     */
-    public OS getOperatingSystem() {
-        return operatingSystem;
     }
 
     /**
