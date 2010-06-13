@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.KeyStroke;
+import javax.swing.ImageIcon;
 
 import de.aidger.view.AboutDialog;
 import de.aidger.view.UI;
@@ -28,6 +29,8 @@ public class AboutAction extends AbstractAction {
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_A,
             ActionEvent.CTRL_MASK));
         putValue(Action.SHORT_DESCRIPTION, _("Show about informations"));
+        putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
+                "/de/aidger/view/icons/information.png")));
     }
 
     /*

@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.KeyStroke;
+import javax.swing.ImageIcon;
 
 import de.aidger.view.SettingsDialog;
 import de.aidger.view.UI;
@@ -28,6 +29,8 @@ public class SettingsAction extends AbstractAction {
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_S,
             ActionEvent.CTRL_MASK));
         putValue(Action.SHORT_DESCRIPTION, _("Display program settings"));
+        putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
+                "/de/aidger/view/icons/preferences-desktop.png")));
     }
 
     /*

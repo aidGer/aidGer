@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.KeyStroke;
+import javax.swing.ImageIcon;
 
 /**
  * This action displays the help.
@@ -25,6 +26,8 @@ public class HelpAction extends AbstractAction {
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_H,
             ActionEvent.CTRL_MASK));
         putValue(Action.SHORT_DESCRIPTION, _("Display the help"));
+        putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
+                "/de/aidger/view/icons/question.png")));
     }
 
     /*

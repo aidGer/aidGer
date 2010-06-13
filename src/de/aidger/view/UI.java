@@ -40,6 +40,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
+import javax.swing.ImageIcon;
 import javax.swing.WindowConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -261,7 +262,7 @@ public final class UI extends JFrame {
      */
     public void removeTabAt(int index) {
         Logger.debug(MessageFormat.format(_("Removing {0}. tab"),
-            new Object[] { index }));
+            new Object[] { index + 1 }));
 
         tabbedPane.removeChangeListener(tabbedPaneListener);
 
@@ -618,7 +619,8 @@ public final class UI extends JFrame {
             }
         };
 
-        tabbedPane.add(new JPanel(), "+");
+        tabbedPane.add(new JPanel(), new ImageIcon(getClass().getResource(
+                "/de/aidger/view/icons/ui-tab--plus.png")));
         tabbedPane.setToolTipTextAt(0, _("Open a new tab"));
 
         tabbedPane.addChangeListener(tabbedPaneListener);

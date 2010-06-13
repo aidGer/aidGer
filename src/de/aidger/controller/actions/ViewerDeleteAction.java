@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 
 import de.aidger.model.AbstractModel;
 import de.aidger.view.UI;
@@ -26,6 +27,8 @@ public class ViewerDeleteAction extends AbstractAction {
      */
     public ViewerDeleteAction() {
         putValue(Action.NAME, _("Delete"));
+        putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
+                "/de/aidger/view/icons/minus.png")));
     }
 
     /*

@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.ImageIcon;
 
 import de.aidger.view.UI;
 import de.aidger.view.tabs.EditorTab;
@@ -24,6 +25,9 @@ public class ViewerEditAction extends AbstractAction {
      */
     public ViewerEditAction() {
         putValue(Action.NAME, _("Edit"));
+
+        putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
+                "/de/aidger/view/icons/hammer-screwdriver.png")));
     }
 
     /*

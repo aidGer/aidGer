@@ -14,6 +14,7 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.KeyStroke;
 import javax.swing.RepaintManager;
+import javax.swing.ImageIcon;
 
 import de.aidger.view.UI;
 
@@ -33,6 +34,8 @@ public class PrintAction extends AbstractAction {
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_P,
             ActionEvent.CTRL_MASK));
         putValue(Action.SHORT_DESCRIPTION, _("Print program contents"));
+        putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
+                "/de/aidger/view/icons/printer.png")));
     }
 
     /*

@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.ImageIcon;
 
 import de.aidger.view.UI;
 import de.aidger.view.tabs.EditorTab;
@@ -24,6 +25,8 @@ public class ViewerAddAction extends AbstractAction {
      */
     public ViewerAddAction() {
         putValue(Action.NAME, _("Add"));
+        putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
+                "/de/aidger/view/icons/plus.png")));
     }
 
     /*
