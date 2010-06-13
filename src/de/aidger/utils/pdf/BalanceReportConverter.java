@@ -2,6 +2,7 @@ package de.aidger.utils.pdf;
 
 import static de.aidger.utils.Translation._;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -56,12 +57,12 @@ public class BalanceReportConverter {
      * @param name
      *            The desired name of the document.
      */
-    public BalanceReportConverter(String path, String name, int index,
-            Object semester) {
+    public BalanceReportConverter(File file, int index, Object semester) {
         if (document == null) {
             document = new Document(PageSize.A4.rotate());
         }
-        makeNewDocument(path, name);
+        file = checkExtension(file);
+        makeNewDocument(file);
         writeHeader();
         switch (index) {
         case 1:
@@ -75,6 +76,24 @@ public class BalanceReportConverter {
     }
 
     /**
+     * Checks if the extension of the file is in fact .pdf. If not, it adds the
+     * .pdf extension to the file name.
+     * 
+     * @param file
+     *            The file to check.
+     * @return The file name with the correct extension.
+     */
+    private File checkExtension(File file) {
+        String fileName = file.getName();
+        int fileExtensionStart = fileName.lastIndexOf('.');
+        String fileExtension = fileName.substring(fileExtensionStart + 1);
+        if (!fileExtension.equals("pdf")) {
+            return new File(file.getPath() + ".pdf");
+        }
+        return file;
+    }
+
+    /**
      * Creates a new document.
      * 
      * @param path
@@ -82,10 +101,10 @@ public class BalanceReportConverter {
      * @param name
      *            The desired name of the PDF-file.
      */
-    private void makeNewDocument(String path, String name) {
+    private void makeNewDocument(File file) {
         FileOutputStream outStream = null;
         try {
-            outStream = new FileOutputStream(path + name + ".pdf");
+            outStream = new FileOutputStream(file.getPath());
             writer = PdfWriter.getInstance(document, outStream);
             document.open();
         } catch (FileNotFoundException e1) {
@@ -357,14 +376,26 @@ public class BalanceReportConverter {
         semesters[0] = "" + year;
         switch (semester) {
         /*
-         * If the given year is 2000-2008, (year % 100) will give a single
+         * If the given year is 2001-2008, (year % 100) will give a single
          * number below 9. Therefore, the previous, current and next semester
          * all need a leading 0 added.
          */
-        case 0 - 8:
-            semesters[1] = "WS 0" + (semester - 1) + "0" + semester;
-            semesters[2] = "SS 0" + semester;
-            semesters[3] = "WS 0" + semester + "0" + (semester + 1);
+        case 0:
+            semesters[1] = "WS" + "99" + "00";
+            semesters[2] = "SS" + "00";
+            semesters[3] = "WS" + "00" + "01";
+            break;
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+            semesters[1] = "WS0" + (semester - 1) + "0" + semester;
+            semesters[2] = "SS0" + semester;
+            semesters[3] = "WS0" + semester + "0" + (semester + 1);
             break;
         /*
          * If the given year is 2009, the previous and current semester will
@@ -372,9 +403,9 @@ public class BalanceReportConverter {
          * next semester will be 10 and thus needs no adjustments.
          */
         case 9:
-            semesters[1] = "WS 0" + (semester - 1) + "0" + semester;
-            semesters[2] = "SS 0" + semester;
-            semesters[3] = "WS 0" + semester + (semester + 1);
+            semesters[1] = "WS0" + (semester - 1) + "0" + semester;
+            semesters[2] = "SS0" + semester;
+            semesters[3] = "WS0" + semester + (semester + 1);
             break;
         /*
          * If the given year is 2010, the current and next semesters will be 10
@@ -382,18 +413,23 @@ public class BalanceReportConverter {
          * will be 9 though.
          */
         case 10:
-            semesters[1] = "WS 0" + (semester - 1) + semester;
-            semesters[2] = "SS " + semester;
-            semesters[3] = "WS " + semester + (semester + 1);
+            semesters[1] = "WS0" + (semester - 1) + semester;
+            semesters[2] = "SS" + semester;
+            semesters[3] = "WS" + semester + (semester + 1);
+            break;
+        case 99:
+            semesters[1] = "WS" + (semester - 1) + semester;
+            semesters[2] = "SS" + semester;
+            semesters[3] = "WS" + semester + "00";
             break;
         /*
          * In all other relevant cases (11 and higher), the semesters can be
          * used the way (year % 100) returns them.
          */
         default:
-            semesters[1] = "WS " + (semester - 1) + semester;
-            semesters[2] = "SS " + semester;
-            semesters[3] = "WS " + semester + (semester + 1);
+            semesters[1] = "WS" + (semester - 1) + semester;
+            semesters[2] = "SS" + semester;
+            semesters[3] = "WS" + semester + (semester + 1);
             break;
         }
         // Check if the semester has a course and add it if it does.

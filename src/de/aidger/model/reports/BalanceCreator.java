@@ -54,12 +54,12 @@ public class BalanceCreator {
      *            The semester to be added.
      */
     public boolean addSemester(String semester) {
-    	if(courseExists(semester)) {
-    		balanceViewerTab.add(new BalanceReportSemesterCreator(semester)
-            .getPanel());
-    		return true;
-    	}
-    	return false;
+        if (courseExists(semester)) {
+            balanceViewerTab.add(new BalanceReportSemesterCreator(semester)
+                .getPanel());
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -70,7 +70,7 @@ public class BalanceCreator {
      *            The year, of which the semester should be added.
      */
     public boolean addYear(int year) {
-        //Lose the first two numbers of the year
+        // Lose the first two numbers of the year
         int semester = year % 100;
         boolean returnBoolean = false;
         /*
@@ -81,11 +81,15 @@ public class BalanceCreator {
         semesters[0] = "" + year;
         switch (semester) {
         /*
-         * If the given year is 2000-2008, (year % 100) will give a single
+         * If the given year is 2001-2008, (year % 100) will give a single
          * number below 9. Therefore, the previous, current and next semester
          * all need a leading 0 added.
          */
         case 0:
+            semesters[1] = "WS" + "99" + "00";
+            semesters[2] = "SS" + "00";
+            semesters[3] = "WS" + "00" + "01";
+            break;
         case 1:
         case 2:
         case 3:
@@ -118,6 +122,11 @@ public class BalanceCreator {
             semesters[2] = "SS" + semester;
             semesters[3] = "WS" + semester + (semester + 1);
             break;
+        case 99:
+            semesters[1] = "WS" + (semester - 1) + semester;
+            semesters[2] = "SS" + semester;
+            semesters[3] = "WS" + semester + "00";
+            break;
         /*
          * In all other relevant cases (11 and higher), the semesters can be
          * used the way (year % 100) returns them.
@@ -128,10 +137,10 @@ public class BalanceCreator {
             semesters[3] = "WS" + semester + (semester + 1);
             break;
         }
-        //Check if the semester has a course and add it if it does.
+        // Check if the semester has a course and add it if it does.
         for (String currentSemester : semesters) {
             if (addSemester(currentSemester)) {
-            	returnBoolean = true;
+                returnBoolean = true;
             }
         }
         return returnBoolean;
@@ -148,11 +157,10 @@ public class BalanceCreator {
         List<ICourse> courses = null;
         try {
             courses = (new Course()).getAll();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        //Check for every course, if it belongs to the given semester.
+        // Check for every course, if it belongs to the given semester.
         for (ICourse course : courses) {
             if (course.getSemester().equals(semester)) {
                 return true;
