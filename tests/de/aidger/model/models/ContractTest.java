@@ -7,7 +7,7 @@ import org.junit.Before;
 import static org.junit.Assert.*;
 
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.aidger.model.Runtime;
+import org.junit.BeforeClass;
 
 /**
  * Tests the Contract class.
@@ -18,8 +18,9 @@ public class ContractTest {
     
     protected Contract contract = null;
 
-    public ContractTest() {
-        Runtime.getInstance().initialize();
+    @BeforeClass
+    public static void beforeClassSetUp() {
+        de.aidger.model.Runtime.getInstance().initialize();
     }
 
     @Before

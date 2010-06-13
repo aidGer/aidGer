@@ -6,6 +6,7 @@ import java.util.List;
 import java.math.BigDecimal;
 
 import org.junit.Test;
+import org.junit.BeforeClass;
 
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.HourlyWage;
@@ -20,7 +21,8 @@ import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
  */
 public class AbstractModelTest {
 
-    public AbstractModelTest() {
+    @BeforeClass
+    public static void beforeClassSetUp() {
         Runtime.getInstance().initialize();
     }
 

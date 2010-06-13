@@ -2,9 +2,11 @@ package de.aidger.model.models;
 
 import org.junit.Test;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import static org.junit.Assert.*;
 
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+
 
 /**
  * Tests the Assistant class.
@@ -15,7 +17,8 @@ public class AssistantTest {
 
     protected Assistant assistant = null;
 
-    public AssistantTest() {
+    @BeforeClass
+    public static void beforeClassSetUp() {
         de.aidger.model.Runtime.getInstance().initialize();
     }
 

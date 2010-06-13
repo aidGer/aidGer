@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 import java.math.BigDecimal;
 
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import org.junit.BeforeClass;
 
 /**
  * Tests the HourlyWage class.
@@ -17,7 +18,8 @@ public class HourlyWageTest {
 
     protected HourlyWage hourly = null;
 
-    public HourlyWageTest() {
+    @BeforeClass
+    public static void beforeClassSetUp() {
         de.aidger.model.Runtime.getInstance().initialize();
     }
 

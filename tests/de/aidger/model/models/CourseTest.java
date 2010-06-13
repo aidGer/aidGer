@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import java.util.List;
+import org.junit.BeforeClass;
 
 /**
  * Tests the Course class.
@@ -16,7 +17,8 @@ public class CourseTest {
     
     protected Course course = null;
 
-    public CourseTest() {
+    @BeforeClass
+    public static void beforeClassSetUp() {
         de.aidger.model.Runtime.getInstance().initialize();
     }
 

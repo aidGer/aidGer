@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import org.junit.BeforeClass;
 
 /**
  * Tests the FinancialCategory class.
@@ -19,7 +20,8 @@ public class FinancialCategoryTest {
 
     protected FinancialCategory financial = null;
 
-    public FinancialCategoryTest() {
+    @BeforeClass
+    public static void beforeClassSetUp() {
         de.aidger.model.Runtime.getInstance().initialize();
     }
 
