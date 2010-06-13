@@ -99,6 +99,37 @@ public class ContractTest {
     }
 
     /**
+     * Test of validateOnRemove, of class Contract.
+     */
+    @Test
+    public void testValidateOnRemove() throws AdoHiveException {
+        System.out.println("validateOnRemove");
+        
+        assertTrue(contract.save());
+        assertTrue(contract.remove());
+        
+        contract.save();
+        Employment employment = new Employment();
+        employment.setAssistantId(-1);
+        employment.setContractId(contract.getId());
+        employment.setCourseId(-1);
+        employment.setCostUnit("0711");
+        employment.setFunds(1);
+        employment.setHourCount(40);
+        employment.setMonth((byte) 10);
+        employment.setQualification("g");
+        employment.setRemark("Remark");
+        employment.setYear((short) 2010);
+        employment.save();
+
+        assertFalse(contract.remove());
+        contract.resetErrors();
+        employment.remove();
+
+        assertTrue(contract.remove());
+    }
+
+    /**
      * Test of clone method, of class Contract.
      */
     @Test

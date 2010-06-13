@@ -85,6 +85,40 @@ public class FinancialCategoryTest {
     }
 
     /**
+     * Test of validateOnRemove, of class Contract.
+     */
+    @Test
+    public void testValidateOnRemove() throws AdoHiveException {
+        System.out.println("validateOnRemove");
+
+        financial.clearTable();
+        assertTrue(financial.save());
+        assertTrue(financial.remove());
+
+        financial.save();
+        Course course = new Course();
+        course.setAdvisor("Tester");
+        course.setDescription("Description");
+        course.setFinancialCategoryId(financial.getId());
+        course.setGroup("2");
+        course.setLecturer("Test Tester");
+        course.setNumberOfGroups(3);
+        course.setPart('a');
+        course.setRemark("Remark");
+        course.setScope("Sniper Scope");
+        course.setSemester("SS09");
+        course.setTargetAudience("Testers");
+        course.setUnqualifiedWorkingHours(100);
+        course.save();
+
+        assertFalse(financial.remove());
+        financial.resetErrors();
+        course.remove();
+
+        assertTrue(financial.remove());
+    }
+
+    /**
      * Test of clone method, of class FinancialCategory.
      */
     @Test

@@ -118,6 +118,53 @@ public class CourseTest {
         course.resetErrors();
     }
 
+    /**
+     * Test of validateOnRemove, of class Contract.
+     */
+    @Test
+    public void testValidateOnRemove() throws AdoHiveException {
+        System.out.println("validateOnRemove");
+
+        assertTrue(course.save());
+        assertTrue(course.remove());
+
+        course.save();
+        Activity activity = new Activity();        
+        activity.setAssistantId(-1);
+        activity.setContent("New assistant");
+        activity.setCourseId(course.getId());
+        activity.setDate(new java.sql.Date(100));
+        activity.setDocumentType("Test Type");
+        activity.setProcessor("T");
+        activity.setRemark("Remark");
+        activity.setSender("Test Sender");
+        activity.setType("Test Type");
+        activity.save();
+
+        assertFalse(course.remove());
+        course.resetErrors();
+        activity.remove();
+
+        Employment employment = new Employment();
+        employment.setAssistantId(-1);
+        employment.setContractId(-1);
+        employment.setCourseId(course.getId());
+        employment.setCostUnit("0711");
+        employment.setFunds(1);
+        employment.setHourCount(40);
+        employment.setMonth((byte) 10);
+        employment.setQualification("g");
+        employment.setRemark("Remark");
+        employment.setYear((short) 2010);
+        employment.save();
+
+        assertFalse(course.remove());
+        course.resetErrors();
+        employment.remove();
+
+        assertTrue(course.remove());
+    }
+
 
     /**
      * Test of clone method, of class Course.

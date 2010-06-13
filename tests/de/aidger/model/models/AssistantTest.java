@@ -95,6 +95,54 @@ public class AssistantTest {
     }
 
     /**
+     * Test of validateOnRemove, of class Assistant.
+     */
+    @Test
+    public void testValidateOnRemove() throws AdoHiveException {
+        System.out.println("validateOnRemove");
+
+        assertTrue(assistant.save());
+        assertTrue(assistant.remove());
+
+        assistant.save();
+        Activity activity = new Activity();
+        activity.setAssistantId(assistant.getId());
+        activity.setContent("New assistant");
+        activity.setCourseId(-1);
+        activity.setDate(new java.sql.Date(100));
+        activity.setDocumentType("Test Type");
+        activity.setProcessor("T");
+        activity.setRemark("Remark");
+        activity.setSender("Test Sender");
+        activity.setType("Test Type");
+        activity.save();
+
+        assertFalse(assistant.remove());
+        assistant.resetErrors();
+        activity.remove();
+        activity = null;
+
+        Employment employment = new Employment();
+        employment.setAssistantId(assistant.getId());
+        employment.setContractId(-1);
+        employment.setCourseId(-1);
+        employment.setCostUnit("0711");
+        employment.setFunds(1);
+        employment.setHourCount(40);
+        employment.setMonth((byte) 10);
+        employment.setQualification("g");
+        employment.setRemark("Remark");
+        employment.setYear((short) 2010);
+        employment.save();
+
+        assertFalse(assistant.remove());
+        assistant.resetErrors();
+        employment.remove();
+
+        assertTrue(assistant.remove());
+    }
+
+    /**
      * Test of clone method, of class Assistant.
      */
     @Test
