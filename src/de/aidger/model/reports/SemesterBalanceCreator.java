@@ -29,11 +29,11 @@ public class SemesterBalanceCreator extends BalanceCreator {
      * @param semester
      *            The semester to be added.
      */
-    public boolean addSemester(String semester) {
+    public boolean addSemester(String semester, BalanceFilter filters) {
         try {
-            if (courseExists(semester)) {
-                balanceViewerTab.add(new BalanceReportSemesterCreator(semester)
-                    .getPanel());
+            if (courseExists(semester, filters)) {
+                balanceViewerTab.add(new BalanceReportSemesterCreator(semester,
+                    filters).getPanel());
                 return true;
             }
         } catch (AdoHiveException e) {
@@ -50,7 +50,7 @@ public class SemesterBalanceCreator extends BalanceCreator {
      *            The semester to check
      * @return true if the semester contains one or more courses.
      */
-    private boolean courseExists(String semester) {
+    private boolean courseExists(String semester, BalanceFilter filters) {
         List<ICourse> courses = null;
         try {
             courses = (new Course()).getAll();

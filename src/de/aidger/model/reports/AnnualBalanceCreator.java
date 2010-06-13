@@ -31,7 +31,7 @@ public class AnnualBalanceCreator extends BalanceCreator {
      *            The year, of which the semester should be added.
      * @throws AdoHiveException
      */
-    public boolean addYear(int year) {
+    public boolean addYear(int year, BalanceFilter filters) {
         // Lose the first two numbers of the year
         int semester = year % 100;
         boolean returnBoolean = false;
@@ -101,7 +101,7 @@ public class AnnualBalanceCreator extends BalanceCreator {
         }
         // Check if the semester has a course and add it if it does.
         for (String currentSemester : semesters) {
-            if (semesterBalanceCreator.addSemester(currentSemester)) {
+            if (semesterBalanceCreator.addSemester(currentSemester, filters)) {
                 balanceViewerTab.add(semesterBalanceCreator.getViewerTab());
                 returnBoolean = true;
             }

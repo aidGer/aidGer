@@ -57,6 +57,10 @@ public class BalanceHelper {
             e.printStackTrace();
         }
         for (IEmployment employment : employments) {
+            /*
+             * Sum up the budget costs of the course by multiplying the hours of
+             * the fitting employments.
+             */
             if (course.getId() == employment.getCourseId()) {
                 // TODO find out int for student fee funds
                 if (employment.getFunds() == 1) {

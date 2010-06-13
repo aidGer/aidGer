@@ -201,13 +201,9 @@ public class BalanceReportConverter {
              * As long as there are groups for this Balance report, create new
              * group tables.
              */
-            List<Course> courses = null;
-            try {
-                courses = (new Course()).getAll();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            for (Course course : courses) {
+            List<ICourse> courses = null;
+            courses = (new Course()).getAll();
+            for (ICourse course : courses) {
                 if (course.getSemester().equals(semester)) {
                     PdfPTable groupTable = null;
                     if (balanceReportGroups.isEmpty()) {
@@ -256,7 +252,7 @@ public class BalanceReportConverter {
      *            The course of which the data shall be written to a row.
      * @return The row as a PdfPCell
      */
-    private PdfPCell addRow(Course course) {
+    private PdfPCell addRow(ICourse course) {
         PdfPTable groupContentTable = new PdfPTable(new float[] { 0.25f, 0.05f,
                 0.15f, 0.15f, 0.1f, 0.1f, 0.1f, 0.1f });
         Font tableContentFont;
@@ -280,13 +276,9 @@ public class BalanceReportConverter {
             PdfPCell cell = new PdfPCell(groupContentTable);
             cell.setBorder(0);
             return cell;
-        } catch (DocumentException e1) {
+        } catch (Exception e) {
             // TODO Auto-generated catch block
-            e1.printStackTrace();
-            return null;
-        } catch (IOException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
+            e.printStackTrace();
             return null;
         }
     }
@@ -357,11 +349,7 @@ public class BalanceReportConverter {
             ((Vector) balanceReportGroups.get(i)).add(course.getGroup());
 
             return groupTable;
-        } catch (DocumentException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            return null;
-        } catch (IOException e) {
+        } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
             return null;
