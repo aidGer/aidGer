@@ -32,8 +32,7 @@ public class ExistanceValidatorTest {
 
         assertFalse(val.validateVar(null));
         assertFalse(val.validateVar(new Object()));
-        assertFalse(val.validateVar(-1));
-        assertFalse(val.validateVar(1));
+        assertFalse(val.validateVar(0));
 
         a.setEmail("test@example.com");
         a.setFirstName("Test");
@@ -42,6 +41,7 @@ public class ExistanceValidatorTest {
         a.save();
 
         assertTrue(val.validateVar(a.getId()));
+        assertTrue(val.validateVar(-1));
     }
 
 }
