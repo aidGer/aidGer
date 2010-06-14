@@ -114,6 +114,15 @@ public class BalanceViewerTab extends Tab {
     }
 
     /**
+     * Returns the balance filter.
+     * 
+     * @return The balance filter
+     */
+    public BalanceFilter getBalanceFilter() {
+        return balanceFilter;
+    }
+
+    /**
      * Get the year currently selected-
      * 
      * @return The year

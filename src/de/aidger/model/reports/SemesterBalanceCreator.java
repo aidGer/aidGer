@@ -67,11 +67,14 @@ public class SemesterBalanceCreator extends BalanceCreator {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        List<ICourse> filteredCourses = new Vector();
+        List<ICourse> filteredOnceCourses = new Vector();
+        List<ICourse> filteredTwiceCourses = new Vector();
+        List<ICourse> filteredTriceCourses = new Vector();
         /*
          * Only use courses, which have the filtered criteria.
          */
         if (!(filters == null)) {
+            boolean filterExists = false;
             /*
              * There are existing filters.
              */
@@ -81,60 +84,72 @@ public class SemesterBalanceCreator extends BalanceCreator {
                  */
                 for (Object group : filters.getGroups()) {
                     for (ICourse course : courses) {
-                        if (!filteredCourses.contains(course)) {
+                        if (!filteredOnceCourses.contains(course)) {
                             if (course.getGroup().equals(group)) {
                                 /*
                                  * The course is not already in the filtered
                                  * courses and meets the group criteria.
                                  */
-                                filteredCourses.add(course);
+                                filteredOnceCourses.add(course);
                             }
                         }
                     }
                 }
+                filterExists = true;
+            } else {
+                filteredOnceCourses = courses;
             }
             if (!filters.getLecturers().isEmpty()) {
                 /*
                  * There are existing lecture filters.
                  */
                 for (Object lecturer : filters.getLecturers()) {
-                    for (ICourse course : courses) {
-                        if (!filteredCourses.contains(course)) {
+                    for (ICourse course : filteredOnceCourses) {
+                        if (!filteredTwiceCourses.contains(course)) {
                             if (course.getLecturer().equals(lecturer)) {
                                 /*
                                  * The course is not already in the filtered
                                  * courses and meets the lecturer criteria.
                                  */
-                                filteredCourses.add(course);
+                                filteredTwiceCourses.add(course);
                             }
                         }
                     }
                 }
+                filterExists = true;
+            } else {
+                filteredTwiceCourses = filteredOnceCourses;
             }
             if (!filters.getTargetAudiences().isEmpty()) {
                 /*
                  * There are existing target audience filters.
                  */
                 for (Object lecturer : filters.getTargetAudiences()) {
-                    for (ICourse course : courses) {
-                        if (!filteredCourses.contains(course)) {
+                    for (ICourse course : filteredTwiceCourses) {
+                        if (!filteredTriceCourses.contains(course)) {
                             if (course.getTargetAudience().equals(lecturer)) {
                                 /*
                                  * The course is not already in the filtered
                                  * courses and meets the target audience
                                  * criteria.
                                  */
-                                filteredCourses.add(course);
+                                filteredTriceCourses.add(course);
                             }
                         }
                     }
                 }
+                filterExists = true;
+            } else {
+                filteredTriceCourses = filteredTwiceCourses;
+            }
+            if (!filterExists) {
+                filteredTriceCourses = courses;
             }
         } else {
-            filteredCourses = courses;
+            filteredTriceCourses = courses;
         }
         // Check for every course, if it belongs to the given semester.
-        for (ICourse course : filteredCourses) {
+        for (ICourse course : filteredTriceCourses) {
             if (course.getSemester().equals(semester)) {
                 return true;
             }
