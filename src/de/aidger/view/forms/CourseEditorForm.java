@@ -46,7 +46,6 @@ public class CourseEditorForm extends JPanel {
         }
 
         for (IFinancialCategory fc : fcs) {
-            System.out.println(new FinancialCategory(fc));
             cmbFinancialCategory.addItem(new FinancialCategory(fc) {
                 // prettier output in combobox
                 @Override
@@ -73,8 +72,6 @@ public class CourseEditorForm extends JPanel {
             try {
                 IFinancialCategory fc = (new FinancialCategory())
                     .getById(course.getFinancialCategoryId());
-
-                System.out.println(new FinancialCategory(fc));
 
                 cmbFinancialCategory.setSelectedItem(new FinancialCategory(fc));
             } catch (AdoHiveException e) {
