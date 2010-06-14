@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ImageIcon;
-import javax.swing.JComponent;
 
 import java.util.Vector;
 
@@ -21,12 +20,12 @@ import de.aidger.view.UI;
  *
  * @author aidGer Team
  */
-public class GenerateReportAction extends AbstractAction {
+public class ReportGenerateAction extends AbstractAction {
 
     /**
      * Initializes the action.
      */
-    public GenerateReportAction() {
+    public ReportGenerateAction() {
         putValue(Action.NAME, _("Generate"));
         putValue(Action.SHORT_DESCRIPTION, _("Generate the report"));
 

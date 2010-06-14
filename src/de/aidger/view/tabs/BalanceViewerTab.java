@@ -2,25 +2,19 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
-import java.io.File;
 import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.filechooser.FileFilter;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
-import de.aidger.controller.actions.GenerateReportAction;
+import de.aidger.controller.actions.ReportExportAction;
+import de.aidger.controller.actions.ReportGenerateAction;
 import de.aidger.model.models.Course;
-import de.aidger.model.reports.AnnualBalanceCreator;
 import de.aidger.model.reports.BalanceFilter;
-import de.aidger.model.reports.SemesterBalanceCreator;
-import de.aidger.utils.pdf.BalanceReportConverter;
 import de.aidger.utils.reports.BalanceHelper;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
@@ -47,11 +41,13 @@ public class BalanceViewerTab extends Tab {
      * Initializes a new BalanceViewerTab, which will have the created Semesters
      * added to it.
      */
-    public BalanceViewerTab(int index) {
+    public BalanceViewerTab(Integer index) {
         initComponents();
         try {
             generateButton.setAction(ActionRegistry.getInstance().get(
-                GenerateReportAction.class.getName()));
+                ReportGenerateAction.class.getName()));
+            exportButton.setAction(ActionRegistry.getInstance().get(
+                ReportExportAction.class.getName()));
         } catch (ActionNotFoundException ex) {
             Logger.getLogger(BalanceViewerTab.class.getName()).log(
                 Level.SEVERE, null, ex);
@@ -95,6 +91,17 @@ public class BalanceViewerTab extends Tab {
             existingFilterComboBox.setVisible(false);
             break;
         }
+    }
+
+    /**
+     * Get the name of the tab and constructor options if necessary.
+     * 
+     * @return A string representation of the class
+     */
+    @Override
+    public String toString() {
+        return getClass().getName() + "<" + Integer.class.getName() + "@"
+                + Integer.toString(typeOfBalance);
     }
 
     /**
@@ -177,15 +184,6 @@ public class BalanceViewerTab extends Tab {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed"
-    // <editor-fold defaultstate="collapsed"
-    // <editor-fold defaultstate="collapsed"
-    // <editor-fold defaultstate="collapsed"
-    // <editor-fold defaultstate="collapsed"
-    // <editor-fold defaultstate="collapsed"
-    // <editor-fold defaultstate="collapsed"
-    // desc="Generated Code">
-    // <editor-fold defaultstate="collapsed"
-    // <editor-fold defaultstate="collapsed"
     // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -241,11 +239,6 @@ public class BalanceViewerTab extends Tab {
         exportButton
             .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         exportButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        exportButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exportButtonActionPerformed(evt);
-            }
-        });
         jToolBar1.add(exportButton);
 
         filtersLabel.setText(_("Filters") + ":");
@@ -473,92 +466,6 @@ public class BalanceViewerTab extends Tab {
             break;
         }
     }// GEN-LAST:event_filterNameComboBoxItemStateChanged
-
-    private void exportButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_exportButtonActionPerformed
-
-        JFileChooser fileChooser = new JFileChooser();
-        File file;
-        FileFilter pdfFilter = new FileFilter() {
-            @Override
-            public boolean accept(File arg0) {
-                String fileName = arg0.getName();
-                int fileExtensionStart = fileName.lastIndexOf('.');
-                String fileExtension = fileName
-                    .substring(fileExtensionStart + 1);
-                return fileExtension.equals("pdf");
-            }
-
-            @Override
-            public String getDescription() {
-                return _("PDF files");
-            }
-        };
-
-        fileChooser.addChoosableFileFilter(pdfFilter);
-
-        boolean exit = false;
-
-        do {
-            int retVal = fileChooser.showDialog(exportButton, _("Export"));
-
-            if (retVal == JFileChooser.APPROVE_OPTION) {
-                file = fileChooser.getSelectedFile();
-                if (file.isDirectory()) {
-                    // This shouldn't happen but check for it anyways
-                    JOptionPane.showMessageDialog(exportButton,
-                        _("Please choose a file."));
-                } else if (file.exists()) {
-                    // Ask if the user wants to overwrite the file
-                    retVal = JOptionPane.showOptionDialog(exportButton,
-                        _("Are you sure you want to overwrite the file?"),
-                        _("Overwrite file?"), JOptionPane.YES_NO_OPTION,
-                        JOptionPane.QUESTION_MESSAGE, null, null, null);
-                    if (retVal == JOptionPane.YES_OPTION) {
-                        exit = true;
-                    }
-                } else {
-                    exit = true;
-                }
-            } else {
-                return;
-            }
-        } while (!exit);
-
-        new BalanceReportConverter(file, typeOfBalance, yearComboBox
-            .getSelectedItem());
-
-    }// GEN-LAST:event_exportButtonActionPerformed
-
-    private void generateButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_generateButtonActionPerformed
-        switch (typeOfBalance) {
-        case 1:
-            clearPanel();
-            SemesterBalanceCreator fullBalanceCreator = new SemesterBalanceCreator(
-                this);
-            Vector semesters = new BalanceHelper().getSemesters();
-            for (int i = 1; i < semesters.size(); i++) {
-                fullBalanceCreator.addSemester((String) semesters.get(i), null);
-            }
-            break;
-        case 2:
-            clearPanel();
-            if (yearComboBox.getSelectedIndex() > 0) {
-                AnnualBalanceCreator annualBalanceCreator = new AnnualBalanceCreator(
-                    this);
-                annualBalanceCreator.addYear((Integer) yearComboBox
-                    .getSelectedItem(), null);
-            }
-            break;
-        case 3:
-            clearPanel();
-            if (yearComboBox.getSelectedIndex() > 0) {
-                SemesterBalanceCreator semesterBalanceCreator = new SemesterBalanceCreator(
-                    this);
-                semesterBalanceCreator.addSemester((String) yearComboBox
-                    .getSelectedItem(), null);
-            }
-        }
-    }// GEN-LAST:event_generateButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addFilterButton;

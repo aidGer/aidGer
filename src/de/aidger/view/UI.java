@@ -675,8 +675,8 @@ public final class UI extends JFrame {
                     searchParams[i] = current.getSuperclass().equals(
                         AbstractModel.class) ? AbstractModel.class : current;
 
-                    if (current.isInstance(String.class)) {
-                        ctrParams.add(parts[1]);
+                    if (current.equals(Integer.class)) {
+                        ctrParams.add(Integer.parseInt(parts[1]));
                     } else if (current.isEnum()) {
                         Class obj = Class.forName(parts[0]);
                         ctrParams.add(Enum.valueOf(obj, parts[1]));
