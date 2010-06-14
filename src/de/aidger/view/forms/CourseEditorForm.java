@@ -2,10 +2,16 @@ package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
 
+import java.util.List;
+
 import javax.swing.JPanel;
 
 import de.aidger.model.models.Course;
+import de.aidger.model.models.FinancialCategory;
+import de.aidger.utils.Logger;
 import de.aidger.view.utils.InputPatternFilter;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 
 /**
  * A form used for editing / creating new courses.
@@ -21,6 +27,7 @@ public class CourseEditorForm extends JPanel {
      * @param course
      *            The course that will be edited
      */
+    @SuppressWarnings("unchecked")
     public CourseEditorForm(Course course) {
         initComponents();
 
@@ -29,6 +36,25 @@ public class CourseEditorForm extends JPanel {
         InputPatternFilter.addFilter(txtPart, ".?");
         InputPatternFilter.addFilter(txtSemester,
             "([0-9]{0,4})|(WS?|WS[0-9]{0,4})|(SS?|SS[0-9]{0,2})");
+
+        List<IFinancialCategory> fcs = null;
+
+        try {
+            fcs = (new FinancialCategory()).getAll();
+        } catch (AdoHiveException e) {
+            Logger.error(e.getMessage());
+        }
+
+        for (IFinancialCategory fc : fcs) {
+            System.out.println(new FinancialCategory(fc));
+            cmbFinancialCategory.addItem(new FinancialCategory(fc) {
+                // prettier output in combobox
+                @Override
+                public String toString() {
+                    return getName() + " (" + getYear() + ")";
+                }
+            });
+        }
 
         if (course != null) {
             txtDescription.setText(course.getDescription());
@@ -44,7 +70,16 @@ public class CourseEditorForm extends JPanel {
             txtGroup.setText(course.getGroup());
             txtRemark.setText(course.getRemark());
 
-            // TODO set financial category
+            try {
+                IFinancialCategory fc = (new FinancialCategory())
+                    .getById(course.getFinancialCategoryId());
+
+                System.out.println(new FinancialCategory(fc));
+
+                cmbFinancialCategory.setSelectedItem(new FinancialCategory(fc));
+            } catch (AdoHiveException e) {
+                Logger.error(e.getMessage());
+            }
         }
     }
 
@@ -63,8 +98,8 @@ public class CourseEditorForm extends JPanel {
      * @return The id of the category
      */
     public int getFinancialCategoryId() {
-        // TODO
-        return 0;
+        return ((FinancialCategory) cmbFinancialCategory.getSelectedItem())
+            .getId();
     }
 
     /**
@@ -372,9 +407,6 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtRemark, gridBagConstraints);
-
-        cmbFinancialCategory.setModel(new javax.swing.DefaultComboBoxModel(
-            new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;

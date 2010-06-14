@@ -61,6 +61,7 @@ public class EditorSaveAction extends AbstractAction {
         course.setScope(form.getScope());
         course.setGroup(form.getGroup());
         course.setRemark(form.getRemark());
+        course.setFinancialCategoryId(form.getFinancialCategoryId());
 
         try {
             course
