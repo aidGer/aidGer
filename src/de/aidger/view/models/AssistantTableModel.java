@@ -43,8 +43,11 @@ public class AssistantTableModel extends TableModel {
             Logger.error(e.getMessage());
         }
 
-        for (IAssistant assistant : assistants) {
-            models.add(new Assistant(assistant));
+        for (IAssistant a : assistants) {
+            Assistant assistant = new Assistant(a);
+            assistant.addObserver(this);
+
+            models.add(assistant);
 
             addRow(new Object[] { assistant.getFirstName(),
                     assistant.getLastName(), assistant.getEmail(),

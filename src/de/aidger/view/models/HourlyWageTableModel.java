@@ -43,8 +43,11 @@ public class HourlyWageTableModel extends TableModel {
             Logger.error(e.getMessage());
         }
 
-        for (IHourlyWage hw : hws) {
-            models.add(new HourlyWage(hw));
+        for (IHourlyWage h : hws) {
+            HourlyWage hw = new HourlyWage(h);
+            hw.addObserver(this);
+
+            models.add(hw);
 
             addRow(new Object[] { Qualification.valueOf(hw.getQualification()),
                     hw.getMonth(), hw.getYear(), hw.getWage() });
