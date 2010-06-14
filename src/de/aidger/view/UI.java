@@ -484,33 +484,17 @@ public final class UI extends JFrame {
         tpActivities.add(new JTextField());
 
         TaskPane tpReports = new TaskPane(_("Reports"));
-
-        String[] reports = { "", _("Full Balance"), _("Annual Balance"),
-                _("Semester Balance"), _("Partial Balance"),
-                _("Activity Report"), _("Protocol") };
-
-        final JComboBox reportsComboBox = new JComboBox(reports);
-        tpReports.add(reportsComboBox);
-
-        reportsComboBox.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JComboBox reportsComboBox = (JComboBox) e.getSource();
-                switch (reportsComboBox.getSelectedIndex()) {
-                case 1:
-                    replaceCurrentTab(new BalanceViewerTab(1));
-                    break;
-                case 2:
-                    replaceCurrentTab(new BalanceViewerTab(2));
-                    break;
-                case 3:
-                    replaceCurrentTab(new BalanceViewerTab(3));
-                    break;
-                case 6:
-                    replaceCurrentTab(new ProtocolCreator().getViewerTab());
-                    break;
-                }
-            }
-        });
+        tpReports.add(createTaskPaneButton(_("Full Balance"),
+                Task.ViewFullBalance));
+        tpReports.add(createTaskPaneButton(_("Annual Balance"),
+                Task.ViewAnnualBalance));
+        tpReports.add(createTaskPaneButton(_("Semester Balance"),
+                Task.ViewSemesterBalance));
+        tpReports.add(createTaskPaneButton(_("Partial Balance"),
+                Task.ViewPartialBalance));
+        tpReports.add(createTaskPaneButton(_("Activity Report"),
+                Task.ViewActivityReport));
+        tpReports.add(createTaskPaneButton(_("Protocol"), Task.ViewProtocol));
 
         TaskPane tpControlling = new TaskPane(_("Controlling"));
         JPanel monthSelection = new JPanel();
