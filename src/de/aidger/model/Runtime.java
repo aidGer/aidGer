@@ -130,6 +130,16 @@ public final class Runtime {
     }
 
     /**
+     * Set a custom config path (Only to be used in tests).
+     *
+     * @param path
+     * 			  The new config path
+     */
+    public void setConfigPath(String path) {
+    	configPath = path;
+    }
+
+    /**
      * Returns the location and name of the .jar file.
      *
      * @return The location

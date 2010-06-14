@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -23,11 +24,18 @@ public class ConfigurationTest {
     @BeforeClass
     public static void beforeClassSetUp() {
     	Runtime.getInstance().initialize();
+    	Runtime.getInstance().setConfigPath("./");
     }
 
     @Before
     public void setUp() {
         config = new Configuration();
+    }
+
+    @After
+    public void cleanUp() {
+    	(new File(Runtime.getInstance().getConfigPath() + "settings.cfg")).
+    			delete();
     }
 
     /**
@@ -40,6 +48,10 @@ public class ConfigurationTest {
         File file = new File(Runtime.getInstance().getConfigPath() +
         		"settings.cfg");
         assertTrue(file.exists());
+        assertEquals(config.get("debug"), "false");
+
+        config = new Configuration();
+        assertEquals(config.get("debug"), "false");
     }
 
     /**
@@ -49,8 +61,7 @@ public class ConfigurationTest {
     public void testGet() {
         System.out.println("get");
 
-        config.set("test", "blub");
-        assertEquals(config.get("test"), "blub");
+        assertEquals(config.get("debug"), "false");
     }
 
     /**
@@ -60,7 +71,7 @@ public class ConfigurationTest {
     public void testSet() {
         System.out.println("set");
 
-        assertEquals(config.get("undefined"), null);
+        assertEquals(config.get("test"), null);
 
         config.set("test", "test");
         assertEquals(config.get("test"), "test");
