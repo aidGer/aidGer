@@ -1,13 +1,12 @@
 package de.aidger.model.reports;
 
-import javax.swing.JPanel;
+import java.util.Vector;
 
 import de.aidger.utils.reports.BalanceHelper;
-import de.aidger.view.reports.BalanceReportGroupPanel;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
- * This class manages the BalanceReportGroupViewer which belongs to it. It adds
+ * This class manages the BalanceReportGroupViewer which calls it. It adds
  * courses to the viewer's table.
  * 
  * @author aidGer Team
@@ -15,9 +14,9 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
 public class BalanceReportGroupCreator {
 
     /**
-     * The balance report group viewer panel, which belongs to this creator.
+     * Contains all courses of this group.
      */
-    private BalanceReportGroupPanel balanceReportGroupViewer = null;
+    private final Vector balanceCourses = new Vector();
 
     /**
      * Initializes this BalanceReportGroupCreator and adds the first course.
@@ -26,11 +25,6 @@ public class BalanceReportGroupCreator {
      *            The course to be added.
      */
     public BalanceReportGroupCreator(ICourse course) {
-        if (balanceReportGroupViewer == null) {
-            balanceReportGroupViewer = new BalanceReportGroupPanel(course
-                .getGroup());
-
-        }
         addCourse(course);
     }
 
@@ -42,16 +36,15 @@ public class BalanceReportGroupCreator {
      *            The course to be added.
      */
     public void addCourse(ICourse course) {
-        BalanceCourse balanceCourse = BalanceHelper.getBalanceCourse(course);
-        balanceReportGroupViewer.addCourse(balanceCourse.getCourseObject());
+        balanceCourses.add(BalanceHelper.getBalanceCourse(course));
     }
 
     /**
-     * Returns the JPanel of the associated group viewer.
+     * Returns the courses of this group.
      * 
-     * @return the JPanel
+     * @return The courses
      */
-    public JPanel getPanel() {
-        return balanceReportGroupViewer;
+    public Vector getBalanceCourses() {
+        return balanceCourses;
     }
 }

@@ -3,17 +3,14 @@ package de.aidger.model.reports;
 import java.util.List;
 import java.util.Vector;
 
-import javax.swing.JPanel;
-
 import de.aidger.model.models.Course;
 import de.aidger.utils.reports.BalanceHelper;
-import de.aidger.view.reports.BalanceReportSemesterPanel;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
- * This class manages the BalanceReportSemesterViewer which belongs to it. It
- * adds groups to the viewer's panel.
+ * This class manages the BalanceReportSemesterViewer which calls it. It adds
+ * groups to the viewer's panel.
  * 
  * @author aidGer Team
  */
@@ -31,11 +28,6 @@ public class BalanceReportSemesterCreator {
     private BalanceHelper balanceHelper = null;
 
     /**
-     * The associated BalanceReportSemesterViewer.
-     */
-    private BalanceReportSemesterPanel balanceReportSemesterViewer = null;
-
-    /**
      * Initializes this BalanceReportSemesterCreator and adds the groups of the
      * given semester.
      * 
@@ -45,14 +37,7 @@ public class BalanceReportSemesterCreator {
      */
     public BalanceReportSemesterCreator(String semester, BalanceFilter filters)
             throws AdoHiveException {
-        if (balanceReportSemesterViewer == null) {
-            balanceReportSemesterViewer = new BalanceReportSemesterPanel(
-                semester);
-
-        }
-        if (balanceHelper == null) {
-            balanceHelper = new BalanceHelper();
-        }
+        balanceHelper = new BalanceHelper();
         addGroups(semester, filters);
     }
 
@@ -128,16 +113,16 @@ public class BalanceReportSemesterCreator {
          * Add the name of the group as the second entry of the vector.
          */
         ((Vector) balanceReportGroupCreators.get(i)).add(course.getGroup());
-        balanceReportSemesterViewer.createGroup(balanceReportGroupCreator
-            .getPanel());
+        ((BalanceReportGroupCreator) ((Vector) balanceReportGroupCreators
+            .get(i)).get(0)).addCourse(course);
     }
 
     /**
-     * Returns the JPanel of the associated viewer.
+     * Returns all of the group creators of this semester.
      * 
-     * @return the JPanel
+     * @return The group creators.
      */
-    public JPanel getPanel() {
-        return balanceReportSemesterViewer;
+    public Vector getGroupCreators() {
+        return balanceReportGroupCreators;
     }
 }

@@ -4,10 +4,12 @@
 package de.aidger.utils.reports;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
+import java.util.List;
 import java.util.Vector;
 
 import org.junit.Before;
@@ -19,7 +21,9 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.reports.BalanceCourse;
+import de.aidger.model.reports.BalanceFilter;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
  * @author Phil
@@ -28,6 +32,12 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 public class BalanceHelperTest {
 
     private Course course = null;
+
+    private Course course2 = null;
+
+    private Course course3 = null;
+
+    private Course course4 = null;
 
     private Assistant assistant = null;
 
@@ -42,6 +52,8 @@ public class BalanceHelperTest {
     private BalanceHelper balanceHelper = null;
 
     private BalanceCourse balanceCourse = null;
+
+    private BalanceFilter balanceFilter = null;
 
     public BalanceHelperTest() throws AdoHiveException {
     }
@@ -76,6 +88,18 @@ public class BalanceHelperTest {
         course.setTargetAudience("Testers");
         course.setUnqualifiedWorkingHours(100);
         course.save();
+
+        course2 = course.clone();
+        course2.setLecturer("Test Tester 2");
+        course2.save();
+
+        course3 = course.clone();
+        course3.setTargetAudience("Testers 2");
+        course3.save();
+
+        course4 = course.clone();
+        course4.setGroup("Test group 2");
+        course4.save();
 
         assistant = new Assistant();
         assistant.setEmail("test@example.com");
@@ -148,6 +172,213 @@ public class BalanceHelperTest {
     }
 
     /**
+     * Test the method filterCourses() of class BalanceHelper.
+     * 
+     * @throws AdoHiveException
+     */
+    @Test
+    public void testFilterCourses() throws AdoHiveException {
+        System.out.println("filterCourses()");
+
+        balanceHelper = new BalanceHelper();
+
+        List<ICourse> courses = (new Course()).getAll();
+
+        /*
+         * The course should exist in the course list.
+         */
+        boolean resultBoolean = false;
+        for (ICourse listCourse : courses) {
+            if (new Course(listCourse).equals(course)) {
+                resultBoolean = true;
+            }
+        }
+        assertTrue(resultBoolean);
+
+        List<ICourse> filteredCourses = balanceHelper.filterCourses(courses,
+            null);
+
+        /*
+         * The course should exist, after filtering with a null filter.
+         */
+        resultBoolean = false;
+        for (ICourse listCourse : filteredCourses) {
+            if (new Course(listCourse).equals(course)) {
+                resultBoolean = true;
+            }
+        }
+        assertTrue(resultBoolean);
+
+        balanceFilter = new BalanceFilter();
+
+        filteredCourses = balanceHelper.filterCourses(courses, balanceFilter);
+
+        /*
+         * The course should exist after filtering without any filters.
+         */
+        resultBoolean = false;
+        for (ICourse listCourse : filteredCourses) {
+            if (new Course(listCourse).equals(course)) {
+                resultBoolean = true;
+            }
+        }
+        assertTrue(resultBoolean);
+
+        balanceFilter = new BalanceFilter();
+        balanceFilter.addGroup("Test filter");
+
+        filteredCourses = balanceHelper.filterCourses(courses, balanceFilter);
+
+        /*
+         * The course should not exist after filtering with a filter that it
+         * doesn't contain.
+         */
+        resultBoolean = false;
+        for (ICourse listCourse : filteredCourses) {
+            if (new Course(listCourse).equals(course)) {
+                resultBoolean = true;
+            }
+        }
+        assertTrue(!resultBoolean);
+
+        balanceFilter = new BalanceFilter();
+        balanceFilter.addLecturer("Test filter");
+
+        filteredCourses = balanceHelper.filterCourses(courses, balanceFilter);
+
+        /*
+         * The course should not exist after filtering with a filter that it
+         * doesn't contain.
+         */
+        resultBoolean = false;
+        for (ICourse listCourse : filteredCourses) {
+            if (new Course(listCourse).equals(course)) {
+                resultBoolean = true;
+            }
+        }
+        assertTrue(!resultBoolean);
+
+        balanceFilter = new BalanceFilter();
+        balanceFilter.addTargetAudience("Test filter");
+
+        filteredCourses = balanceHelper.filterCourses(courses, balanceFilter);
+
+        /*
+         * The course should not exist after filtering with a filter that it
+         * doesn't contain.
+         */
+        resultBoolean = false;
+        for (ICourse listCourse : filteredCourses) {
+            if (new Course(listCourse).equals(course)) {
+                resultBoolean = true;
+            }
+        }
+        assertTrue(!resultBoolean);
+
+        balanceFilter = new BalanceFilter();
+        balanceFilter.addGroup(course.getGroup());
+        balanceFilter.addGroup(course2.getGroup());
+        balanceFilter.addGroup(course3.getGroup());
+
+        balanceFilter.addLecturer(course.getLecturer());
+        balanceFilter.addLecturer(course2.getLecturer());
+        balanceFilter.addLecturer(course3.getLecturer());
+
+        balanceFilter.addTargetAudience(course.getTargetAudience());
+        balanceFilter.addTargetAudience(course2.getTargetAudience());
+        balanceFilter.addTargetAudience(course3.getTargetAudience());
+
+        filteredCourses = balanceHelper.filterCourses(courses, balanceFilter);
+
+        /*
+         * The first course should exist after filtering with filters from its
+         * course data.
+         */
+        resultBoolean = false;
+        for (ICourse listCourse : filteredCourses) {
+            if (new Course(listCourse).equals(course)) {
+                resultBoolean = true;
+            }
+        }
+        assertTrue(resultBoolean);
+
+        /*
+         * The second course should exist after filtering with filters from its
+         * course data.
+         */
+        resultBoolean = false;
+        for (ICourse listCourse : filteredCourses) {
+            if (new Course(listCourse).equals(course2)) {
+                resultBoolean = true;
+            }
+        }
+        assertTrue(resultBoolean);
+
+        /*
+         * The third course should exist after filtering with filters from its
+         * course data.
+         */
+        resultBoolean = false;
+        for (ICourse listCourse : filteredCourses) {
+            if (new Course(listCourse).equals(course3)) {
+                resultBoolean = true;
+            }
+        }
+        assertTrue(resultBoolean);
+    }
+
+    /**
+     * Tests the method getYearSemesters() of class BalanceHelper.
+     */
+    @Test
+    public void testGetYearSemesters() {
+        System.out.println("getYearSemesters()");
+        balanceHelper = new BalanceHelper();
+
+        String[] years = balanceHelper.getYearSemesters(2000);
+
+        assertEquals("2000", years[0]);
+        assertEquals("WS9900", years[1]);
+        assertEquals("SS00", years[2]);
+        assertEquals("WS0001", years[3]);
+
+        years = balanceHelper.getYearSemesters(2001);
+
+        assertEquals("2001", years[0]);
+        assertEquals("WS0001", years[1]);
+        assertEquals("SS01", years[2]);
+        assertEquals("WS0102", years[3]);
+
+        years = balanceHelper.getYearSemesters(2009);
+
+        assertEquals("2009", years[0]);
+        assertEquals("WS0809", years[1]);
+        assertEquals("SS09", years[2]);
+        assertEquals("WS0910", years[3]);
+
+        years = balanceHelper.getYearSemesters(2010);
+
+        assertEquals("2010", years[0]);
+        assertEquals("WS0910", years[1]);
+        assertEquals("SS10", years[2]);
+        assertEquals("WS1011", years[3]);
+
+        years = balanceHelper.getYearSemesters(2011);
+
+        assertEquals("2011", years[0]);
+        assertEquals("WS1011", years[1]);
+        assertEquals("SS11", years[2]);
+        assertEquals("WS1112", years[3]);
+
+        years = balanceHelper.getYearSemesters(2099);
+
+        assertEquals("2099", years[0]);
+        assertEquals("WS9899", years[1]);
+        assertEquals("SS99", years[2]);
+        assertEquals("WS9900", years[3]);
+    }
+
+    /**
      * Tests the method getBalanceCourse() of class BalanceHelper.
      */
     @Test
@@ -175,18 +406,30 @@ public class BalanceHelperTest {
         balanceHelper = new BalanceHelper();
 
         Course course2 = course.clone();
-        course2.setSemester("2009");
+        course2.setSemester("WS0910");
         course2.save();
 
         Course course3 = course.clone();
-        course3.setSemester("WS0910");
+        course3.setSemester("2008");
         course3.save();
 
         Vector years = balanceHelper.getYears();
 
+        /*
+         * The years specified above should be available.
+         */
         assertNotNull(years);
+        assertTrue(years.contains(2008));
         assertTrue(years.contains(2009));
         assertTrue(years.contains(2010));
+
+        course.clearTable();
+
+        /*
+         * Without any courses, there shouldn't be any years.
+         */
+        years = balanceHelper.getYears();
+        assertTrue(years.isEmpty());
     }
 
     /**
@@ -201,5 +444,19 @@ public class BalanceHelperTest {
         Vector semesters = balanceHelper.getSemesters();
 
         assertNotNull(semesters);
+    }
+
+    /**
+     * Tests the method courseExists() of class BalanceHelper.
+     */
+    @Test
+    public void testCourseExists() {
+        System.out.println("courseExists()");
+
+        balanceHelper = new BalanceHelper();
+
+        assertTrue(balanceHelper.courseExists(course.getSemester(), null));
+
+        assertTrue(!balanceHelper.courseExists("Test semester", null));
     }
 }
