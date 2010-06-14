@@ -43,38 +43,40 @@ public class ReportGenerateAction extends AbstractAction {
         BalanceViewerTab tab = (BalanceViewerTab) UI.getInstance()
             .getCurrentTab();
 
-        switch (tab.getType()) {
-        case 1:
-            tab.clearPanel();
-            SemesterBalanceCreator fullBalanceCreator = new SemesterBalanceCreator(
-                tab);
-            Vector semesters = new BalanceHelper().getSemesters();
-            for (int i = 1; i < semesters.size(); i++) {
-                fullBalanceCreator.addSemester((String) semesters.get(i), tab
-                    .getBalanceFilter());
-            }
-            break;
-        case 2:
-            tab.clearPanel();
+        if (new BalanceHelper().getSemesters().size() > 0) {
+            switch (tab.getType()) {
+            case 1:
+                tab.clearPanel();
+                SemesterBalanceCreator fullBalanceCreator = new SemesterBalanceCreator();
+                Vector semesters = new BalanceHelper().getSemesters();
+                for (int i = 0; i < semesters.size(); i++) {
+                    fullBalanceCreator.addSemester((String) semesters.get(i),
+                        tab.getBalanceFilter());
+                    tab.addPanel(fullBalanceCreator.getViewerPanel());
+                }
+                break;
+            case 2:
+                tab.clearPanel();
 
-            Object year = tab.getYear();
+                Object year = tab.getYear();
 
-            if (year != null) {
-                AnnualBalanceCreator annualBalanceCreator = new AnnualBalanceCreator(
-                    tab);
-                annualBalanceCreator.addYear((Integer) year, tab
-                    .getBalanceFilter());
-            }
-            break;
-        case 3:
-            tab.clearPanel();
+                if (year != null) {
+                    AnnualBalanceCreator annualBalanceCreator = new AnnualBalanceCreator();
+                    annualBalanceCreator.addYear((Integer) year, tab
+                        .getBalanceFilter());
+                    tab.addPanel(annualBalanceCreator.getViewerPanel());
+                }
+                break;
+            case 3:
+                tab.clearPanel();
 
-            Object year2 = tab.getYear();
-            if (year2 != null) {
-                SemesterBalanceCreator semesterBalanceCreator = new SemesterBalanceCreator(
-                    tab);
-                semesterBalanceCreator.addSemester((String) year2, tab
-                    .getBalanceFilter());
+                Object year2 = tab.getYear();
+                if (year2 != null) {
+                    SemesterBalanceCreator semesterBalanceCreator = new SemesterBalanceCreator();
+                    semesterBalanceCreator.addSemester((String) year2, tab
+                        .getBalanceFilter());
+                    tab.addPanel(semesterBalanceCreator.getViewerPanel());
+                }
             }
         }
     }

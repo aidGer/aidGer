@@ -8,7 +8,6 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseWheelEvent;
@@ -54,9 +53,7 @@ import de.aidger.controller.actions.TaskPaneAction;
 import de.aidger.controller.actions.TaskPaneAction.Task;
 import de.aidger.model.AbstractModel;
 import de.aidger.model.Runtime;
-import de.aidger.model.reports.ProtocolCreator;
 import de.aidger.utils.Logger;
-import de.aidger.view.tabs.BalanceViewerTab;
 import de.aidger.view.tabs.EmptyTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.WelcomeTab;
@@ -65,7 +62,7 @@ import de.aidger.view.tabs.WelcomeTab;
  * The UI manages the main window and all its tabs. The main window consists of
  * the menu bar, the navigation and a tabbed pane which holds all tabs in the
  * center of the main window.
- * 
+ *
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
@@ -171,7 +168,7 @@ public final class UI extends JFrame {
 
     /**
      * Provides access to an instance of this class.
-     * 
+     *
      * @return instance of this UI
      */
     public synchronized static UI getInstance() {
@@ -184,7 +181,7 @@ public final class UI extends JFrame {
 
     /**
      * Display an error message in a dialog window.
-     * 
+     *
      * @param error
      *            The error message to display
      */
@@ -206,7 +203,7 @@ public final class UI extends JFrame {
 
     /**
      * Adds a new tab at the given index to the tabbed plane.
-     * 
+     *
      * @param tab
      *            The tab to be added.
      * @param index
@@ -231,7 +228,7 @@ public final class UI extends JFrame {
 
     /**
      * Adds a new tab at the end of the tabbed pane.
-     * 
+     *
      * @param tab
      *            The tab to be added
      */
@@ -252,7 +249,7 @@ public final class UI extends JFrame {
 
     /**
      * Removes the tab at given index.
-     * 
+     *
      * @param index
      *            The index identifies the tab that will be removed
      */
@@ -292,7 +289,7 @@ public final class UI extends JFrame {
 
     /**
      * Replaces the current tab with the given one. The old tab will be removed.
-     * 
+     *
      * @param tab
      *            the new current tab
      */
@@ -305,7 +302,7 @@ public final class UI extends JFrame {
 
     /**
      * Get the currently selected tab.
-     * 
+     *
      * @return The selected tab
      */
     public Tab getCurrentTab() {
@@ -315,7 +312,7 @@ public final class UI extends JFrame {
 
     /**
      * Sets the current tab on the tabbed plane to the one specified.
-     * 
+     *
      * @param tab
      *            The tab to be set as current. The tab must exist already.
      */
@@ -329,7 +326,7 @@ public final class UI extends JFrame {
 
     /**
      * Sets the current tab to the tab at given position.
-     * 
+     *
      * @param index
      */
     public void setCurrentTabAt(int index) {
@@ -370,7 +367,7 @@ public final class UI extends JFrame {
 
     /**
      * Retrieves the tabbed pane.
-     * 
+     *
      * @return the tabbed pane
      */
     public JTabbedPane getTabbedPane() {
@@ -395,7 +392,7 @@ public final class UI extends JFrame {
 
     /**
      * Sets up the file menu.
-     * 
+     *
      * @throws ActionNotFoundException
      */
     private JMenu createFileMenu() throws ActionNotFoundException {
@@ -414,7 +411,7 @@ public final class UI extends JFrame {
 
     /**
      * Sets up the help menu.
-     * 
+     *
      * @throws ActionNotFoundException
      */
     private JMenu createHelpMenu() throws ActionNotFoundException {
@@ -441,7 +438,7 @@ public final class UI extends JFrame {
 
     /**
      * Creates a button for the task pane.
-     * 
+     *
      * @param name
      *            the button name
      * @param tab
@@ -515,7 +512,7 @@ public final class UI extends JFrame {
                 "auto-save")));
         remember.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(ChangeEvent e) {
-                Runtime.getInstance().setOption("auto-save", 
+                Runtime.getInstance().setOption("auto-save",
                         Boolean.toString(((JCheckBox) e.getSource()).isSelected()));
             }
         });
@@ -639,7 +636,7 @@ public final class UI extends JFrame {
 
     /**
      * Retrieve the saved tabs from the config and display them.
-     * 
+     *
      * @return True if it succeeded, false if the default should be displayed
      */
     private boolean displaySavedTabs() {
@@ -648,7 +645,7 @@ public final class UI extends JFrame {
         }
 
         String[] list = Runtime.getInstance().getOptionArray("tablist");
-        if (list.length == 0) {
+        if (list == null || list.length == 0) {
             return false;
         }
 

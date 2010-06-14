@@ -3,8 +3,10 @@
  */
 package de.aidger.model.reports;
 
-import de.aidger.view.tabs.BalanceViewerTab;
-import de.aidger.view.tabs.Tab;
+import java.awt.BorderLayout;
+
+import javax.swing.JPanel;
+
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
@@ -26,14 +28,11 @@ public class AnnualBalanceCreator extends BalanceCreator {
      * @param balanceViewerTab
      *            The balance viewer tab of this creator.
      */
-    public AnnualBalanceCreator(BalanceViewerTab balanceViewerTab) {
-        if (this.balanceViewerTab == null) {
-            this.balanceViewerTab = balanceViewerTab;
-        }
+    public AnnualBalanceCreator() {
         if (semesterBalanceCreator == null) {
-            semesterBalanceCreator = new SemesterBalanceCreator(
-                balanceViewerTab);
+            semesterBalanceCreator = new SemesterBalanceCreator();
         }
+        balanceViewerPanel = new JPanel(new BorderLayout(0, 1));
     }
 
     /**
@@ -115,6 +114,7 @@ public class AnnualBalanceCreator extends BalanceCreator {
         // Check if the semester has a course and add it if it does.
         for (String currentSemester : semesters) {
             if (semesterBalanceCreator.addSemester(currentSemester, filters)) {
+                balanceViewerPanel.add(semesterBalanceCreator.getViewerPanel());
                 returnBoolean = true;
             }
         }
@@ -122,7 +122,7 @@ public class AnnualBalanceCreator extends BalanceCreator {
     }
 
     @Override
-    public Tab getViewerTab() {
-        return semesterBalanceCreator.getViewerTab();
+    public JPanel getViewerPanel() {
+        return balanceViewerPanel;
     }
 }

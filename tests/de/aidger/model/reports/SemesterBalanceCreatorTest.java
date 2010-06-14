@@ -41,7 +41,7 @@ public class SemesterBalanceCreatorTest {
 
     private SemesterBalanceCreator balanceCreator = null;
 
-    private BalanceViewerTab balanceViewerTab = null;
+    private final BalanceViewerTab balanceViewerTab = null;
 
     private BalanceHelper balanceHelper = null;
 
@@ -56,8 +56,7 @@ public class SemesterBalanceCreatorTest {
      */
     @Before
     public void setUp() throws AdoHiveException {
-        de.aidger.controller.Application.getInstance().initialize();
-        balanceViewerTab = new BalanceViewerTab(1);
+        de.aidger.model.Runtime.getInstance().initialize();
 
         balanceHelper = new BalanceHelper();
 
@@ -136,7 +135,7 @@ public class SemesterBalanceCreatorTest {
     public void testConstructor() {
         System.out.println("Constructor");
 
-        balanceCreator = new SemesterBalanceCreator(balanceViewerTab);
+        balanceCreator = new SemesterBalanceCreator();
 
         assertNotNull(balanceCreator);
     }
@@ -149,17 +148,17 @@ public class SemesterBalanceCreatorTest {
     @Test
     public void testGetSemester() {
         System.out.println("getSemester()");
-        balanceCreator = new SemesterBalanceCreator(balanceViewerTab);
+        balanceCreator = new SemesterBalanceCreator();
 
         assertNotNull(balanceCreator);
 
         Vector semesters = balanceHelper.getSemesters();
 
-        for (int i = 1; i < semesters.size(); i++) {
+        for (int i = 0; i < semesters.size(); i++) {
             assertTrue(balanceCreator.addSemester("" + semesters.get(i), null));
         }
 
-        for (int i = 1; i < semesters.size(); i++) {
+        for (int i = 0; i < semesters.size(); i++) {
             assertTrue(balanceCreator.addSemester("" + semesters.get(i),
                 new BalanceFilter()));
         }
@@ -170,14 +169,14 @@ public class SemesterBalanceCreatorTest {
     }
 
     /**
-     * Tests the method getViewerTab() of the class AnnualBalanceCreator.
+     * Tests the method getViewerPanel() of the class AnnualBalanceCreator.
      */
     @Test
-    public void testGetViewerTab() {
-        System.out.println("getViewerTab()");
+    public void testGetViewerPanel() {
+        System.out.println("getViewerPanel()");
 
-        balanceCreator = new SemesterBalanceCreator(balanceViewerTab);
+        balanceCreator = new SemesterBalanceCreator();
 
-        assertNotNull(balanceCreator.getViewerTab());
+        assertNotNull(balanceCreator.getViewerPanel());
     }
 }

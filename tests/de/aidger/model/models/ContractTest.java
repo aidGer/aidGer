@@ -1,13 +1,17 @@
 package de.aidger.model.models;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.sql.Date;
 
-import org.junit.Test;
 import org.junit.Before;
-import static org.junit.Assert.*;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import org.junit.BeforeClass;
 
 /**
  * Tests the Contract class.
@@ -15,7 +19,7 @@ import org.junit.BeforeClass;
  * @author aidGer Team
  */
 public class ContractTest {
-    
+
     protected Contract contract = null;
 
     @BeforeClass
@@ -85,6 +89,10 @@ public class ContractTest {
         contract.setType(null);
         assertFalse(contract.save());
         contract.resetErrors();
+
+        contract.setType("012345678901234567890");
+        assertFalse(contract.save());
+        contract.resetErrors();
         contract.setType("Type");
 
         contract.setConfirmationDate(new Date(101));
@@ -104,10 +112,10 @@ public class ContractTest {
     @Test
     public void testValidateOnRemove() throws AdoHiveException {
         System.out.println("validateOnRemove");
-        
+
         assertTrue(contract.save());
         assertTrue(contract.remove());
-        
+
         contract.save();
         Employment employment = new Employment();
         employment.setAssistantId(-1);

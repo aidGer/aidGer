@@ -4,21 +4,21 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
 import java.util.PropertyResourceBundle;
 import java.util.Vector;
-import java.util.Enumeration;
-import java.util.jar.*;
-import java.util.zip.ZipEntry;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
-import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
 import de.aidger.model.Runtime;
+import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
 
 /**
  * Sets the translation of the program. If Strings of the current language can't
  * be found, it will fall back to the default language.
- * 
+ *
  * @author aidGer Team
  */
 public class Translation {
@@ -35,15 +35,16 @@ public class Translation {
 
     /**
      * Initializes this class. Resolves the file path of the translation files.
-     * 
+     *
      * @param path
      *            The path of the aidGer settings.
      * @param language
      *            The language to which the program will be translated.
      */
-    public Translation(String path, String language) {
+    public Translation(String language) {
         /* Create path if necessary */
-        filePath = path + "lang/";
+        filePath = Runtime.getInstance().getConfigPath() + "lang/";
+
         File languagePath = new File(filePath);
         if ((!languagePath.exists() || !languagePath.isDirectory())
                 && !languagePath.mkdirs()) {
@@ -82,7 +83,7 @@ public class Translation {
 
     /**
      * Returns the translation of the specified string from the bundle.
-     * 
+     *
      * @param id
      *            The string to translate.
      * @return The translated string or return the id.
@@ -102,7 +103,7 @@ public class Translation {
     /**
      * Get a list of all languages installed on the system. The format is 0 =>
      * short, 1 => long language name.
-     * 
+     *
      * @return The list of all installed languages
      */
     public List<Pair<String, String>> getLanguages() {
