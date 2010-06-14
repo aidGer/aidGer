@@ -46,8 +46,11 @@ public class CourseTableModel extends TableModel {
             Logger.error(e.getMessage());
         }
 
-        for (ICourse course : courses) {
-            models.add(new Course(course));
+        for (ICourse c : courses) {
+            Course course = new Course(c);
+            course.addObserver(this);
+
+            models.add(course);
 
             try {
                 IFinancialCategory fc = (new FinancialCategory())

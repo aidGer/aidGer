@@ -68,8 +68,6 @@ public class ViewerDeleteAction extends AbstractAction {
                         .displayError(_("A database error occurred during removing."));
                 }
             }
-
-            tab.getTableModel().refresh();
         } else {
             UI.displayError(_("Please select an entry from the table."));
         }

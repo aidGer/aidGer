@@ -10,6 +10,7 @@ import java.util.Vector;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -163,7 +164,8 @@ public class FinancialCategoryEditorForm extends JPanel {
             txtBudgetCosts, btnPlusMinus);
 
         if (fundsLines.isEmpty()) {
-            btnPlusMinus.setText("+");
+            btnPlusMinus.setIcon(new ImageIcon(getClass().getResource(
+                "/de/aidger/view/icons/plus.png")));
 
             gridBagConstraints.gridy = 1;
 
@@ -173,8 +175,6 @@ public class FinancialCategoryEditorForm extends JPanel {
                 }
             });
         } else {
-            btnPlusMinus.setText("-");
-
             gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
 
             btnPlusMinus.setAction(new RemoveFundsAction(fl));
@@ -280,7 +280,8 @@ public class FinancialCategoryEditorForm extends JPanel {
          * Initializes the action.
          */
         public RemoveFundsAction(FundsLine fundsLine) {
-            putValue(Action.NAME, "-");
+            putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
+                "/de/aidger/view/icons/minus.png")));
 
             this.fundsLine = fundsLine;
         }

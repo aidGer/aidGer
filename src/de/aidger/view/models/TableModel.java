@@ -57,8 +57,10 @@ public abstract class TableModel extends DefaultTableModel implements Observer {
      * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
      */
     @Override
-    public void update(Observable m, Object o) {
-        refresh();
+    public void update(Observable model, Object o) {
+        removeRow(models.indexOf(model));
+
+        models.remove(model);
     }
 
     /*

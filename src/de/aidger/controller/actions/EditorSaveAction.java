@@ -201,12 +201,6 @@ public class EditorSaveAction extends AbstractAction {
             break;
         }
 
-        List<TableModel> tableModels = ViewerTab.tableModels.get(tab.getType());
-
-        for (TableModel tableModel : tableModels) {
-            model.addObserver(tableModel);
-        }
-
         try {
             if (!model.save()) {
                 tab.updateHints();

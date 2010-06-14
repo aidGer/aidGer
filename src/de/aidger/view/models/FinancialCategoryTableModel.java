@@ -43,11 +43,14 @@ public class FinancialCategoryTableModel extends TableModel {
             Logger.error(e.getMessage());
         }
 
-        for (IFinancialCategory fc : fcs) {
+        for (IFinancialCategory f : fcs) {
+            FinancialCategory fc = new FinancialCategory(f);
+            fc.addObserver(this);
+
             String funds = String.valueOf(fc.getFunds()[0]);
             String budgetCosts = String.valueOf(fc.getBudgetCosts()[0]);
 
-            models.add(new FinancialCategory(fc));
+            models.add(fc);
 
             for (int i = 1; i < fc.getFunds().length; i++) {
                 funds += "\n" + fc.getFunds()[i];
