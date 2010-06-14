@@ -9,12 +9,7 @@ import javax.swing.Action;
 import javax.swing.ImageIcon;
 
 import de.aidger.view.UI;
-import de.aidger.view.tabs.AssistantViewerTab;
-import de.aidger.view.tabs.CourseViewerTab;
-import de.aidger.view.tabs.EmptyTab;
-import de.aidger.view.tabs.FinancialCategoryViewerTab;
-import de.aidger.view.tabs.HourlyWageViewerTab;
-import de.aidger.view.tabs.Tab;
+import de.aidger.view.tabs.DetailViewerTab;
 import de.aidger.view.tabs.ViewerTab;
 
 /**
@@ -31,7 +26,7 @@ public class ViewerDetailViewAction extends AbstractAction {
     public ViewerDetailViewAction() {
         putValue(Action.NAME, _("View"));
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/property.png")));
+            "/de/aidger/view/icons/property.png")));
     }
 
     /*
@@ -44,26 +39,15 @@ public class ViewerDetailViewAction extends AbstractAction {
     public void actionPerformed(ActionEvent e) {
         ViewerTab tab = (ViewerTab) UI.getInstance().getCurrentTab();
 
-        Tab newTab;
+        if (tab.getTable().getSelectedRow() > -1) {
+            int index = tab.getTable().getRowSorter().convertRowIndexToModel(
+                tab.getTable().getSelectedRow());
 
-        switch (tab.getType()) {
-        case Course:
-            newTab = new CourseViewerTab();
-            break;
-        case Assistant:
-            newTab = new AssistantViewerTab();
-            break;
-        case FinancialCategory:
-            newTab = new FinancialCategoryViewerTab();
-            break;
-        case HourlyWage:
-            newTab = new HourlyWageViewerTab();
-            break;
-        default:
-            newTab = new EmptyTab();
-            break;
+            UI.getInstance().replaceCurrentTab(
+                new DetailViewerTab(tab.getType(), tab.getTableModel()
+                    .getModel(index)));
+        } else {
+            UI.displayError(_("Please select an entry from the table."));
         }
-
-        UI.getInstance().replaceCurrentTab(newTab);
     }
 }
