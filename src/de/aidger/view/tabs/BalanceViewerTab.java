@@ -5,12 +5,16 @@ import static de.aidger.utils.Translation._;
 import java.io.File;
 import java.util.List;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileFilter;
 
+import de.aidger.controller.ActionNotFoundException;
+import de.aidger.controller.ActionRegistry;
 import de.aidger.model.models.Course;
 import de.aidger.model.reports.AnnualBalanceCreator;
 import de.aidger.model.reports.BalanceFilter;
@@ -37,6 +41,14 @@ public class BalanceViewerTab extends Tab {
      */
     public BalanceViewerTab(int index) {
         initComponents();
+        try {
+            generateButton.setAction(ActionRegistry.getInstance().get(
+                GenerateReportAction.class.getName()));
+        } catch (ActionNotFoundException ex) {
+            Logger.getLogger(BalanceViewerTab.class.getName()).log(
+                Level.SEVERE, null, ex);
+        }
+
         typeOfBalance = index;
         balanceFilter = new BalanceFilter();
         switch (index) {
@@ -77,13 +89,41 @@ public class BalanceViewerTab extends Tab {
         }
     }
 
+    /**
+     * Get the type of balance.
+     * 
+     * @return The type of balance
+     */
+    public int getType() {
+        return typeOfBalance;
+    }
+
+    /**
+     * Get the year currently selected-
+     * 
+     * @return The year
+     */
+    public Object getYear() {
+        return yearComboBox.getSelectedIndex() > 0 ? yearComboBox
+            .getSelectedItem() : null;
+    }
+
+    /**
+     * Add a new panel
+     * 
+     * @param panel
+     *            The panel to add
+     */
     public void addPanel(JPanel panel) {
         contentPanel.add(panel);
         contentPanel.setVisible(false);
         contentPanel.setVisible(true);
     }
 
-    private void clearPanel() {
+    /**
+     * Clear the panel.
+     */
+    public void clearPanel() {
         contentPanel.removeAll();
     }
 
@@ -142,6 +182,8 @@ public class BalanceViewerTab extends Tab {
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed"
+    // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jTextField3 = new javax.swing.JTextField();
@@ -189,11 +231,6 @@ public class BalanceViewerTab extends Tab {
             .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         generateButton
             .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        generateButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                generateButtonActionPerformed(evt);
-            }
-        });
         jToolBar1.add(generateButton);
 
         exportButton.setText(_("Export"));
@@ -231,6 +268,10 @@ public class BalanceViewerTab extends Tab {
                 addFilterButtonActionPerformed(evt);
             }
         });
+        addFilterButton
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        addFilterButton
+            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(addFilterButton);
 
         existingFilterLabel.setText(_("Existing filters") + ":");
