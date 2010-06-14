@@ -110,6 +110,7 @@ public class ViewerTab extends Tab {
         table.setAutoCreateRowSorter(true);
         table.setDoubleBuffered(true);
         table.setFocusCycleRoot(true);
+        table.getRowSorter().toggleSortOrder(0);
 
         // initializes the button and menu items actions
         try {
