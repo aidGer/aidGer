@@ -333,7 +333,8 @@ public final class UI extends JFrame {
      * @param index
      */
     public void setCurrentTabAt(int index) {
-        Tab newTab = (Tab) tabbedPane.getComponentAt(index);
+        Tab newTab = (Tab) ((JScrollPane) tabbedPane.getComponentAt(index))
+            .getViewport().getView();
 
         Logger.debug(MessageFormat.format(_("Setting current tab to \"{0}\""),
             new Object[] { newTab.getTabName() }));
