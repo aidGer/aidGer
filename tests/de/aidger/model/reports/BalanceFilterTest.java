@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package de.aidger.model.reports;
 
@@ -11,7 +11,7 @@ import org.junit.Test;
 
 /**
  * @author Phil
- * 
+ *
  */
 public class BalanceFilterTest {
     private BalanceFilter balanceFilter = null;
@@ -98,6 +98,7 @@ public class BalanceFilterTest {
 
         assertTrue(balanceFilter.getGroups().contains("Test group"));
 
+        balanceFilter.removeGroup("Not Test group");
         balanceFilter.removeGroup("Test group");
 
         assertTrue(balanceFilter.getGroups().isEmpty());
@@ -116,6 +117,7 @@ public class BalanceFilterTest {
 
         assertTrue(balanceFilter.getLecturers().contains("Test lecturer"));
 
+        balanceFilter.removeLecturer("Not Test lecturer");
         balanceFilter.removeLecturer("Test lecturer");
 
         assertTrue(balanceFilter.getLecturers().isEmpty());
@@ -134,6 +136,7 @@ public class BalanceFilterTest {
 
         assertTrue(balanceFilter.getTargetAudiences().contains("Test audience"));
 
+        balanceFilter.removeTargetAudience("Not Test audience");
         balanceFilter.removeTargetAudience("Test audience");
 
         assertTrue(balanceFilter.getTargetAudiences().isEmpty());
