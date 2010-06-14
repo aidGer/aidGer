@@ -8,6 +8,8 @@ import java.io.FileOutputStream;
 import java.text.MessageFormat;
 import java.util.Properties;
 
+import de.aidger.model.Runtime;
+
 /**
  * Gets and sets the settings
  *
@@ -31,8 +33,8 @@ public final class Configuration {
      * @param path
      *            The path of the configuration.
      */
-    public Configuration(String path) {
-        file = path + "settings.cfg";
+    public Configuration() {
+        file = Runtime.getInstance().getConfigPath() + "settings.cfg";
 
         initialize();
     }

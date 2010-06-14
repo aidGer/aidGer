@@ -109,9 +109,9 @@ public final class Runtime {
             System.exit(-1);
         }
 
-        configuration = new Configuration(configPath);
+        configuration = new Configuration();
 
-        translation = new Translation(configPath, configuration.get("language"));
+        translation = new Translation(configuration.get("language"));
 
         /* Check if an instance of aidGer is already running */
         if (!Boolean.valueOf(getOption("debug")) && !checkLock()) {

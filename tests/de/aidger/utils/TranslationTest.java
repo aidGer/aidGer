@@ -5,11 +5,14 @@
 
 package de.aidger.utils;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 import de.aidger.model.Runtime;
 import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
@@ -44,7 +47,7 @@ public class TranslationTest {
     public void testGetLanguages() {
         System.out.println("getLanguages");
 
-        Translation trans = new Translation("", "");
+        Translation trans = new Translation("");
 
         List<Pair<String, String>> result = trans.getLanguages();
 

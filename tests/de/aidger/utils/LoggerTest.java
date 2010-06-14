@@ -1,13 +1,15 @@
 package de.aidger.utils;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
+import java.util.logging.Level;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 import de.aidger.model.Runtime;
-import java.util.logging.Level;
 
 /**
  * Tests the Logger class.
@@ -27,7 +29,7 @@ public class LoggerTest {
     @Test
     public void testGetInstance() {
         System.out.println("getInstance");
-        
+
         Logger result = Logger.getInstance();
         assertNotNull(result);
 
