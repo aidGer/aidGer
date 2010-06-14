@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-14 00:17+0200\n"
+"POT-Creation-Date: 2010-06-14 04:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,48 +31,52 @@ msgstr ""
 msgid "Semester"
 msgstr ""
 
-#: utils/pdf/BalanceReportConverter.java:307
+#: utils/pdf/BalanceReportConverter.java:299
 #: view/tabs/CourseViewerTab.java:172 view/tabs/CourseViewerTab.java:212
 #: view/reports/BalanceReportGroupPanel.java:24
 msgid "Title"
 msgstr ""
 
-#: utils/pdf/BalanceReportConverter.java:307 view/tabs/CourseViewerTab.java:88
+#: utils/pdf/BalanceReportConverter.java:299 view/tabs/CourseViewerTab.java:88
 #: view/tabs/CourseViewerTab.java:123 view/forms/CourseEditorForm.java:302
 #: view/models/CourseTableModel.java:25
 #: view/reports/BalanceReportGroupPanel.java:24
 msgid "Part"
 msgstr ""
 
-#: utils/pdf/BalanceReportConverter.java:307
-#: view/tabs/CourseViewerTab.java:176 view/tabs/CourseViewerTab.java:214
-#: view/forms/CourseEditorForm.java:210 view/models/CourseTableModel.java:23
+#: utils/pdf/BalanceReportConverter.java:299
+#: view/tabs/BalanceViewerTab.java:56 view/tabs/BalanceViewerTab.java:68
+#: view/tabs/BalanceViewerTab.java:80 view/tabs/CourseViewerTab.java:176
+#: view/tabs/CourseViewerTab.java:214 view/forms/CourseEditorForm.java:210
+#: view/models/CourseTableModel.java:23
 #: view/reports/BalanceReportGroupPanel.java:24
 msgid "Lecturer"
 msgstr ""
 
-#: utils/pdf/BalanceReportConverter.java:308
-#: view/forms/CourseEditorForm.java:234 view/models/CourseTableModel.java:24
+#: utils/pdf/BalanceReportConverter.java:300
+#: view/tabs/BalanceViewerTab.java:57 view/tabs/BalanceViewerTab.java:69
+#: view/tabs/BalanceViewerTab.java:81 view/forms/CourseEditorForm.java:234
+#: view/models/CourseTableModel.java:24
 #: view/reports/BalanceReportGroupPanel.java:25
 msgid "Target Audience"
 msgstr ""
 
-#: utils/pdf/BalanceReportConverter.java:308
+#: utils/pdf/BalanceReportConverter.java:300
 #: view/reports/BalanceReportGroupPanel.java:25
 msgid "Planned AWS"
 msgstr ""
 
-#: utils/pdf/BalanceReportConverter.java:309
+#: utils/pdf/BalanceReportConverter.java:301
 #: view/reports/BalanceReportGroupPanel.java:25
 msgid "Basic needed AWS"
 msgstr ""
 
-#: utils/pdf/BalanceReportConverter.java:309
+#: utils/pdf/BalanceReportConverter.java:301
 #: view/reports/BalanceReportGroupPanel.java:26
 msgid "Budget costs from student fees"
 msgstr ""
 
-#: utils/pdf/BalanceReportConverter.java:310
+#: utils/pdf/BalanceReportConverter.java:302
 #: view/reports/BalanceReportGroupPanel.java:27
 msgid "Budget costs from resources"
 msgstr ""
@@ -225,55 +229,56 @@ msgid "Fund"
 msgstr ""
 
 #: view/tabs/FinancialCategoryViewerTab.java:72
+#: view/tabs/BalanceViewerTab.java:213
 #: view/forms/FinancialCategoryEditorForm.java:209
 #: view/models/HourlyWageTableModel.java:24
 #: view/models/FinancialCategoryTableModel.java:24
 msgid "Year"
 msgstr ""
 
-#: view/tabs/EditorTab.java:140
+#: view/tabs/EditorTab.java:156
 msgid "Edit course"
 msgstr ""
 
-#: view/tabs/EditorTab.java:142
+#: view/tabs/EditorTab.java:158
 msgid "Edit assistant"
 msgstr ""
 
-#: view/tabs/EditorTab.java:144
+#: view/tabs/EditorTab.java:160
 msgid "Edit financial category"
 msgstr ""
 
-#: view/tabs/EditorTab.java:146
+#: view/tabs/EditorTab.java:162
 msgid "Edit hourly wage"
 msgstr ""
 
-#: view/tabs/EditorTab.java:152
+#: view/tabs/EditorTab.java:168
 msgid "Add course"
 msgstr ""
 
-#: view/tabs/EditorTab.java:154
+#: view/tabs/EditorTab.java:170
 msgid "Add assistant"
 msgstr ""
 
-#: view/tabs/EditorTab.java:156
+#: view/tabs/EditorTab.java:172
 msgid "Add financial category"
 msgstr ""
 
-#: view/tabs/EditorTab.java:158
+#: view/tabs/EditorTab.java:174
 msgid "Add hourly wage"
 msgstr ""
 
-#: view/tabs/EditorTab.java:249 controller/actions/EditorSaveAction.java:43
+#: view/tabs/EditorTab.java:265 controller/actions/EditorSaveAction.java:43
 #: controller/actions/SaveSettingsAction.java:29
 msgid "Save"
 msgstr ""
 
-#: view/tabs/EditorTab.java:252 controller/actions/DialogAbortAction.java:26
+#: view/tabs/EditorTab.java:268 controller/actions/DialogAbortAction.java:26
 #: controller/actions/EditorCancelAction.java:27
 msgid "Cancel"
 msgstr ""
 
-#: view/tabs/EditorTab.java:267
+#: view/tabs/EditorTab.java:283
 msgid "Hints"
 msgstr ""
 
@@ -311,8 +316,35 @@ msgstr ""
 msgid "Activites"
 msgstr ""
 
-#: view/tabs/BalanceViewerTab.java:27
+#: view/tabs/BalanceViewerTab.java:55 view/tabs/BalanceViewerTab.java:67
+#: view/tabs/BalanceViewerTab.java:79 view/tabs/CourseViewerTab.java:90
+#: view/tabs/CourseViewerTab.java:124 view/forms/CourseEditorForm.java:310
+#: view/models/CourseTableModel.java:25
+#: view/reports/BalanceReportGroupPanel.java:74
+msgid "Group"
+msgstr ""
+
+#: view/tabs/BalanceViewerTab.java:134
 msgid "Balance Viewing"
+msgstr ""
+
+#: view/tabs/BalanceViewerTab.java:218
+#: controller/actions/ReportGenerateAction.java:29
+msgid "Generate"
+msgstr ""
+
+#: view/tabs/BalanceViewerTab.java:224 view/UI.java:482
+#: controller/actions/ReportExportAction.java:33
+#: controller/actions/ReportExportAction.java:75
+msgid "Export"
+msgstr ""
+
+#: view/tabs/BalanceViewerTab.java:230
+msgid "Filters"
+msgstr ""
+
+#: view/tabs/BalanceViewerTab.java:253
+msgid "Existing filters"
 msgstr ""
 
 #: view/tabs/ViewerTab.java:244
@@ -351,7 +383,7 @@ msgid "Delete"
 msgstr ""
 
 #: view/tabs/ViewerTab.java:356 view/tabs/CourseViewerTab.java:309
-#: view/UI.java:486 controller/actions/ViewerActivitiesAction.java:22
+#: view/UI.java:479 controller/actions/ViewerActivitiesAction.java:22
 msgid "Activities"
 msgstr ""
 
@@ -369,12 +401,6 @@ msgstr ""
 
 #: view/tabs/CourseViewerTab.java:86 view/tabs/CourseViewerTab.java:122
 msgid "Complexity"
-msgstr ""
-
-#: view/tabs/CourseViewerTab.java:90 view/tabs/CourseViewerTab.java:124
-#: view/forms/CourseEditorForm.java:310 view/models/CourseTableModel.java:25
-#: view/reports/BalanceReportGroupPanel.java:74
-msgid "Group"
 msgstr ""
 
 #: view/tabs/CourseViewerTab.java:92 view/tabs/CourseViewerTab.java:125
@@ -415,160 +441,141 @@ msgstr ""
 msgid "Welcome"
 msgstr ""
 
-#: view/UI.java:199
+#: view/UI.java:192
 msgid "Error"
 msgstr ""
 
-#: view/UI.java:224
+#: view/UI.java:217
 #, java-format
 msgid "Adding new tab \"{0}\" at position {1}"
 msgstr ""
 
-#: view/UI.java:267
+#: view/UI.java:260
 #, java-format
 msgid "Removing {0}. tab"
 msgstr ""
 
-#: view/UI.java:345
+#: view/UI.java:338
 #, java-format
 msgid "Setting current tab to \"{0}\""
 msgstr ""
 
-#: view/UI.java:408
+#: view/UI.java:401
 msgid "File"
 msgstr ""
 
-#: view/UI.java:427 controller/actions/HelpAction.java:25
+#: view/UI.java:420 controller/actions/HelpAction.java:25
 msgid "Help"
 msgstr ""
 
-#: view/UI.java:467
+#: view/UI.java:460
 msgid "Master Data Management"
 msgstr ""
 
-#: view/UI.java:469
+#: view/UI.java:462
 msgid "Courses"
 msgstr ""
 
-#: view/UI.java:470
+#: view/UI.java:463
 msgid "Assistants"
 msgstr ""
 
-#: view/UI.java:472
+#: view/UI.java:465
 msgid "Financial Categories"
 msgstr ""
 
-#: view/UI.java:474
+#: view/UI.java:467
 msgid "Hourly Wages"
 msgstr ""
 
-#: view/UI.java:478
+#: view/UI.java:471
 msgid "Employments"
 msgstr ""
 
-#: view/UI.java:480
+#: view/UI.java:473
 msgid "Create new employment"
 msgstr ""
 
-#: view/UI.java:482
+#: view/UI.java:475
 msgid "Show all contracts"
 msgstr ""
 
-#: view/UI.java:487
+#: view/UI.java:480
 msgid "Create new activity"
 msgstr ""
 
-#: view/UI.java:489 view/UI.java:505 view/UI.java:535
-msgid "Export"
-msgstr ""
-
-#: view/UI.java:492
+#: view/UI.java:485
 msgid "Reports"
 msgstr ""
 
-#: view/UI.java:494
+#: view/UI.java:487
 msgid "Full Balance"
 msgstr ""
 
-#: view/UI.java:494
+#: view/UI.java:487
 msgid "Annual Balance"
 msgstr ""
 
-#: view/UI.java:495
+#: view/UI.java:488
 msgid "Semester Balance"
 msgstr ""
 
-#: view/UI.java:495
+#: view/UI.java:488
 msgid "Partial Balance"
 msgstr ""
 
-#: view/UI.java:496
+#: view/UI.java:489
 msgid "Activity Report"
 msgstr ""
 
-#: view/UI.java:496
+#: view/UI.java:489
 msgid "Protocol"
 msgstr ""
 
-#: view/UI.java:525
-msgid "PDF files"
-msgstr ""
-
-#: view/UI.java:542
-msgid "Please choose a file."
-msgstr ""
-
-#: view/UI.java:548
-msgid "Are you sure you want to overwrite the file?"
-msgstr ""
-
-#: view/UI.java:549
-msgid "Overwrite file?"
-msgstr ""
-
-#: view/UI.java:644
+#: view/UI.java:514
 msgid "Controlling"
 msgstr ""
 
-#: view/UI.java:646
+#: view/UI.java:516
 msgid "Choose a month"
 msgstr ""
 
-#: view/UI.java:651
+#: view/UI.java:521
 msgid "Budget Check"
 msgstr ""
 
-#: view/UI.java:653
+#: view/UI.java:523
 msgid "Add Filter"
 msgstr ""
 
-#: view/UI.java:658
+#: view/UI.java:528
 msgid "Quick Settings"
 msgstr ""
 
-#: view/UI.java:659
+#: view/UI.java:529
 msgid "Remember my tabs"
 msgstr ""
 
-#: view/UI.java:660
+#: view/UI.java:530
 msgid "Open reports instantly"
 msgstr ""
 
-#: view/UI.java:705
+#: view/UI.java:575
 msgid "Open a new tab"
 msgstr ""
 
-#: view/UI.java:737
+#: view/UI.java:607
 msgid "Ready"
 msgstr ""
 
-#: view/UI.java:804
-msgid "Couldn't find the correct constructor"
-msgstr ""
-
-#: view/UI.java:826
+#: view/UI.java:701
 #, java-format
 msgid "Could not find tab class {0}"
+msgstr ""
+
+#: view/UI.java:705
+#, java-format
+msgid "Could not find the correct constructor: {0}"
 msgstr ""
 
 #: view/forms/AssistantEditorForm.java:106
@@ -796,6 +803,30 @@ msgstr ""
 
 #: controller/actions/ExitAction.java:28
 msgid "Quit the program"
+msgstr ""
+
+#: controller/actions/ReportExportAction.java:34
+msgid "Export the report to a pdf file"
+msgstr ""
+
+#: controller/actions/ReportExportAction.java:64
+msgid "PDF files"
+msgstr ""
+
+#: controller/actions/ReportExportAction.java:82
+msgid "Please choose a file."
+msgstr ""
+
+#: controller/actions/ReportExportAction.java:86
+msgid "Are you sure you want to overwrite the file?"
+msgstr ""
+
+#: controller/actions/ReportExportAction.java:87
+msgid "Overwrite file?"
+msgstr ""
+
+#: controller/actions/ReportGenerateAction.java:30
+msgid "Generate the report"
 msgstr ""
 
 #: controller/ActionNotFoundException.java:15

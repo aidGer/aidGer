@@ -70,6 +70,8 @@ controller/actions/ViewerDeleteAction.java
 controller/actions/HomepageAction.java
 controller/actions/PrintAction.java
 controller/actions/ExitAction.java
+controller/actions/ReportExportAction.java
+controller/actions/ReportGenerateAction.java
 controller/ActionRegistry.java
 controller/Application.java
 controller/ActionNotFoundException.java
