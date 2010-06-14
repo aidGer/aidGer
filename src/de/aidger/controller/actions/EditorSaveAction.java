@@ -174,12 +174,13 @@ public class EditorSaveAction extends AbstractAction {
 
             Calendar finish = Calendar.getInstance();
             finish.setTime(form.getFinishDate());
-            finish.add(Calendar.MONTH, 1);
 
             if (start.after(finish)) {
                 hw.addError("end date", _("must be after start date"));
             } else {
                 models.clear();
+
+                finish.add(Calendar.MONTH, 1);
 
                 while (finish.after(start)) {
                     HourlyWage clone = hw.clone();
