@@ -6,8 +6,8 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
-import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 import de.aidger.model.AbstractModel;
 import de.aidger.view.UI;
@@ -28,7 +28,7 @@ public class ViewerDeleteAction extends AbstractAction {
     public ViewerDeleteAction() {
         putValue(Action.NAME, _("Delete"));
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/minus.png")));
+            "/de/aidger/view/icons/minus.png")));
     }
 
     /*
@@ -43,24 +43,33 @@ public class ViewerDeleteAction extends AbstractAction {
         ViewerTab tab = (ViewerTab) UI.getInstance().getCurrentTab();
 
         if (tab.getTable().getSelectedRow() > -1) {
-            int ret = JOptionPane.showConfirmDialog(tab,
-                _("Do you really want to delete this entry?"), null,
+            int[] rows = tab.getTable().getSelectedRows();
+
+            String confirmMsg = _("Do you really want to delete this entry?");
+            if (rows.length > 1) {
+                confirmMsg = _("Do you really want to delete the selected entries?");
+            }
+
+            int ret = JOptionPane.showConfirmDialog(tab, confirmMsg, null,
                 JOptionPane.YES_NO_OPTION);
 
             if (ret == JOptionPane.YES_OPTION) {
-                int index = tab.getTable().getRowSorter()
-                    .convertRowIndexToModel(tab.getTable().getSelectedRow());
-
                 try {
-                    AbstractModel model = tab.getTableModel().getModel(index);
+                    for (int row : rows) {
+                        int index = tab.getTable().convertRowIndexToModel(row);
 
-                    model.remove();
+                        AbstractModel model = tab.getTableModel().getModel(
+                            index);
 
-                    tab.getTableModel().removeRow(index);
+                        model.remove();
+                    }
                 } catch (AdoHiveException e1) {
-                    UI.displayError(_("Could not remove model from database."));
+                    UI
+                        .displayError(_("A database error occurred during removing."));
                 }
             }
+
+            tab.getTableModel().refresh();
         } else {
             UI.displayError(_("Please select an entry from the table."));
         }
