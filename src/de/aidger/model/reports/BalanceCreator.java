@@ -1,7 +1,6 @@
 package de.aidger.model.reports;
 
-import de.aidger.view.tabs.BalanceViewerTab;
-import de.aidger.view.tabs.Tab;
+import javax.swing.JPanel;
 
 /**
  * This class manages the BalanceViewerTab and adds years/semesters to it.
@@ -13,14 +12,14 @@ public abstract class BalanceCreator {
     /**
      * The associated BalanceViewerTab.
      */
-    protected BalanceViewerTab balanceViewerTab = null;
+    protected JPanel balanceViewerPanel = null;
 
     /**
      * Returns the balance viewer tab.
      * 
      * @return the balance viewer tab
      */
-    public Tab getViewerTab() {
-        return balanceViewerTab;
+    public JPanel getViewerPanel() {
+        return balanceViewerPanel;
     }
 }

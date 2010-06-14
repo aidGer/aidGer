@@ -19,7 +19,6 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.reports.BalanceHelper;
-import de.aidger.view.tabs.BalanceViewerTab;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
@@ -132,7 +131,7 @@ public class AnnualBalanceCreatorTest {
     @Test
     public void testConstructor() {
         System.out.println("Constructor");
-        balanceCreator = new AnnualBalanceCreator(new BalanceViewerTab(1));
+        balanceCreator = new AnnualBalanceCreator();
 
         assertNotNull(balanceCreator);
     }
@@ -146,32 +145,32 @@ public class AnnualBalanceCreatorTest {
     public void testAddYear() throws NumberFormatException {
         System.out.println("addYear()");
 
-        balanceCreator = new AnnualBalanceCreator(new BalanceViewerTab(1));
+        balanceCreator = new AnnualBalanceCreator();
 
         assertNotNull(balanceCreator);
 
         Vector years = new BalanceHelper().getYears();
 
-        for (int i = 1; i < years.size(); i++) {
+        for (int i = 0; i < years.size(); i++) {
             assertTrue(balanceCreator.addYear(Integer.parseInt(""
                     + years.get(i)), null));
         }
 
-        for (int i = 1; i < years.size(); i++) {
+        for (int i = 0; i < years.size(); i++) {
             BalanceFilter testFilter = new BalanceFilter();
             testFilter.addGroup(course.getGroup());
             assertTrue(balanceCreator.addYear(Integer.parseInt(""
                     + years.get(i)), testFilter));
         }
 
-        for (int i = 1; i < years.size(); i++) {
+        for (int i = 0; i < years.size(); i++) {
             BalanceFilter testFilter = new BalanceFilter();
             testFilter.addLecturer(course.getLecturer());
             assertTrue(balanceCreator.addYear(Integer.parseInt(""
                     + years.get(i)), testFilter));
         }
 
-        for (int i = 1; i < years.size(); i++) {
+        for (int i = 0; i < years.size(); i++) {
             BalanceFilter testFilter = new BalanceFilter();
             testFilter.addTargetAudience(course.getTargetAudience());
             assertTrue(balanceCreator.addYear(Integer.parseInt(""
@@ -191,15 +190,15 @@ public class AnnualBalanceCreatorTest {
     }
 
     /**
-     * Tests the method getViewerTab() of the class AnnualBalanceCreator.
+     * Tests the method getViewerPanel() of the class AnnualBalanceCreator.
      */
     @Test
-    public void testGetViewerTab() {
-        System.out.println("getViewerTab()");
+    public void testGetViewerPanel() {
+        System.out.println("getViewerPanel()");
 
-        balanceCreator = new AnnualBalanceCreator(new BalanceViewerTab(1));
+        balanceCreator = new AnnualBalanceCreator();
 
-        assertNotNull(balanceCreator.getViewerTab());
+        assertNotNull(balanceCreator.getViewerPanel());
     }
 
 }

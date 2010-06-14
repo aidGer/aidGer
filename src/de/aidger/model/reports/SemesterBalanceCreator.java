@@ -5,9 +5,10 @@ package de.aidger.model.reports;
 
 import java.util.List;
 
+import javax.swing.JPanel;
+
 import de.aidger.model.models.Course;
 import de.aidger.utils.reports.BalanceHelper;
-import de.aidger.view.tabs.BalanceViewerTab;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 
@@ -26,9 +27,9 @@ public class SemesterBalanceCreator extends BalanceCreator {
     /**
      * Initializes a new SemesterBalanceCreator along with its viewer tab.
      */
-    public SemesterBalanceCreator(BalanceViewerTab balanceViewerTab) {
-        if (this.balanceViewerTab == null) {
-            this.balanceViewerTab = balanceViewerTab;
+    public SemesterBalanceCreator() {
+        if (this.balanceViewerPanel == null) {
+            this.balanceViewerPanel = new JPanel();
         }
         if (balanceHelper == null) {
             balanceHelper = new BalanceHelper();
@@ -49,8 +50,8 @@ public class SemesterBalanceCreator extends BalanceCreator {
                  * Only create a new semester panel, if a course for this
                  * semester exists.
                  */
-                balanceViewerTab.addPanel(new BalanceReportSemesterCreator(
-                    semester, filters).getPanel());
+                balanceViewerPanel = new BalanceReportSemesterCreator(semester,
+                    filters).getPanel();
                 return true;
             }
         } catch (AdoHiveException e) {

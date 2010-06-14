@@ -47,12 +47,12 @@ public class ReportGenerateAction extends AbstractAction {
             switch (tab.getType()) {
             case 1:
                 tab.clearPanel();
-                SemesterBalanceCreator fullBalanceCreator = new SemesterBalanceCreator(
-                    tab);
+                SemesterBalanceCreator fullBalanceCreator = new SemesterBalanceCreator();
                 Vector semesters = new BalanceHelper().getSemesters();
                 for (int i = 0; i < semesters.size(); i++) {
                     fullBalanceCreator.addSemester((String) semesters.get(i),
                         tab.getBalanceFilter());
+                    tab.addPanel(fullBalanceCreator.getViewerPanel());
                 }
                 break;
             case 2:
@@ -61,10 +61,10 @@ public class ReportGenerateAction extends AbstractAction {
                 Object year = tab.getYear();
 
                 if (year != null) {
-                    AnnualBalanceCreator annualBalanceCreator = new AnnualBalanceCreator(
-                        tab);
+                    AnnualBalanceCreator annualBalanceCreator = new AnnualBalanceCreator();
                     annualBalanceCreator.addYear((Integer) year, tab
                         .getBalanceFilter());
+                    tab.addPanel(annualBalanceCreator.getViewerPanel());
                 }
                 break;
             case 3:
@@ -72,10 +72,10 @@ public class ReportGenerateAction extends AbstractAction {
 
                 Object year2 = tab.getYear();
                 if (year2 != null) {
-                    SemesterBalanceCreator semesterBalanceCreator = new SemesterBalanceCreator(
-                        tab);
+                    SemesterBalanceCreator semesterBalanceCreator = new SemesterBalanceCreator();
                     semesterBalanceCreator.addSemester((String) year2, tab
                         .getBalanceFilter());
+                    tab.addPanel(semesterBalanceCreator.getViewerPanel());
                 }
             }
         }
