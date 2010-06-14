@@ -17,9 +17,9 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
  */
 public class SemesterBalanceCreator extends BalanceCreator {
 
-    public SemesterBalanceCreator() {
-        if (balanceViewerTab == null) {
-            balanceViewerTab = new BalanceViewerTab();
+    public SemesterBalanceCreator(BalanceViewerTab balanceViewerTab) {
+        if (this.balanceViewerTab == null) {
+            this.balanceViewerTab = balanceViewerTab;
         }
     }
 
@@ -31,10 +31,11 @@ public class SemesterBalanceCreator extends BalanceCreator {
      *            The semester to be added.
      */
     public boolean addSemester(String semester, BalanceFilter filters) {
+        System.out.println(semester);
         try {
             if (courseExists(semester, filters)) {
-                balanceViewerTab.add(new BalanceReportSemesterCreator(semester,
-                    filters).getPanel());
+                balanceViewerTab.addPanel(new BalanceReportSemesterCreator(
+                    semester, filters).getPanel());
                 return true;
             }
         } catch (AdoHiveException e) {

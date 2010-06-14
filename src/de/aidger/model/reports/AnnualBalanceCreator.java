@@ -15,12 +15,13 @@ public class AnnualBalanceCreator extends BalanceCreator {
 
     SemesterBalanceCreator semesterBalanceCreator = null;
 
-    public AnnualBalanceCreator() {
-        if (semesterBalanceCreator == null) {
-            semesterBalanceCreator = new SemesterBalanceCreator();
+    public AnnualBalanceCreator(BalanceViewerTab balanceViewerTab) {
+        if (this.balanceViewerTab == null) {
+            this.balanceViewerTab = balanceViewerTab;
         }
-        if (balanceViewerTab == null) {
-            balanceViewerTab = new BalanceViewerTab();
+        if (semesterBalanceCreator == null) {
+            semesterBalanceCreator = new SemesterBalanceCreator(
+                balanceViewerTab);
         }
     }
 

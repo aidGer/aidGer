@@ -14,23 +14,19 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.File;
 import java.lang.reflect.Constructor;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ActionMap;
 import javax.swing.ImageIcon;
 import javax.swing.InputMap;
-import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -46,7 +42,6 @@ import javax.swing.KeyStroke;
 import javax.swing.WindowConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import javax.swing.filechooser.FileFilter;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
@@ -58,12 +53,9 @@ import de.aidger.controller.actions.SettingsAction;
 import de.aidger.controller.actions.TaskPaneAction;
 import de.aidger.controller.actions.TaskPaneAction.Task;
 import de.aidger.model.Runtime;
-import de.aidger.model.reports.AnnualBalanceCreator;
 import de.aidger.model.reports.ProtocolCreator;
-import de.aidger.model.reports.SemesterBalanceCreator;
 import de.aidger.utils.Logger;
-import de.aidger.utils.pdf.BalanceReportConverter;
-import de.aidger.utils.reports.BalanceHelper;
+import de.aidger.view.tabs.BalanceViewerTab;
 import de.aidger.view.tabs.EmptyTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.WelcomeTab;
@@ -498,148 +490,21 @@ public final class UI extends JFrame {
         final JComboBox reportsComboBox = new JComboBox(reports);
         tpReports.add(reportsComboBox);
 
-        String[] reportLists = { "" };
-        final JComboBox reportListComboBox = new JComboBox(reportLists);
-        tpReports.add(reportListComboBox);
-
-        final JButton reportExportBtn = new JButton(_("Export"));
-        tpReports.add(reportExportBtn);
-
-        reportExportBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JButton reportExportBtn = (JButton) e.getSource();
-                JFileChooser fileChooser = new JFileChooser();
-                File file;
-                FileFilter pdfFilter = new FileFilter() {
-                    @Override
-                    public boolean accept(File arg0) {
-                        String fileName = arg0.getName();
-                        int fileExtensionStart = fileName.lastIndexOf('.');
-                        String fileExtension = fileName
-                            .substring(fileExtensionStart + 1);
-                        return fileExtension.equals("pdf");
-                    }
-
-                    @Override
-                    public String getDescription() {
-                        return _("PDF files");
-                    }
-                };
-
-                fileChooser.addChoosableFileFilter(pdfFilter);
-
-                boolean exit = false;
-
-                do {
-                    int retVal = fileChooser.showDialog(reportExportBtn,
-                        _("Export"));
-
-                    if (retVal == JFileChooser.APPROVE_OPTION) {
-                        file = fileChooser.getSelectedFile();
-                        if (file.isDirectory()) {
-                            // This shouldn't happen but check for it anyways
-                            JOptionPane.showMessageDialog(reportExportBtn,
-                                _("Please choose a file."));
-                        } else if (file.exists()) {
-                            // Ask if the user wants to overwrite the file
-                            retVal = JOptionPane
-                                .showOptionDialog(
-                                    reportExportBtn,
-                                    _("Are you sure you want to overwrite the file?"),
-                                    _("Overwrite file?"),
-                                    JOptionPane.YES_NO_OPTION,
-                                    JOptionPane.QUESTION_MESSAGE, null, null,
-                                    null);
-                            if (retVal == JOptionPane.YES_OPTION) {
-                                exit = true;
-                            }
-                        } else {
-                            exit = true;
-                        }
-                    } else {
-                        return;
-                    }
-                } while (!exit);
-
-                new BalanceReportConverter(file, reportsComboBox
-                    .getSelectedIndex(), reportListComboBox.getSelectedItem());
-            }
-        });
-        reportExportBtn.setVisible(false);
-
-        reportListComboBox.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JComboBox reportListComboBox = (JComboBox) e.getSource();
-
-                if (reportListComboBox.getSelectedIndex() > 0) {
-                    switch (reportsComboBox.getSelectedIndex()) {
-                    case 2:
-                        AnnualBalanceCreator annualBalanceCreator = new AnnualBalanceCreator();
-                        annualBalanceCreator.addYear(
-                            (Integer) reportListComboBox.getSelectedItem(),
-                            null);
-                        addNewTab(annualBalanceCreator.getViewerTab());
-                        reportExportBtn.setVisible(true);
-                        break;
-                    case 3:
-                        SemesterBalanceCreator semesterBalanceCreator = new SemesterBalanceCreator();
-                        semesterBalanceCreator
-                            .addSemester((String) reportListComboBox
-                                .getSelectedItem(), null);
-                        addNewTab(semesterBalanceCreator.getViewerTab());
-                        reportExportBtn.setVisible(true);
-                        break;
-                    default:
-                        break;
-                    }
-                }
-            }
-        });
-        reportListComboBox.setVisible(false);
-
         reportsComboBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 JComboBox reportsComboBox = (JComboBox) e.getSource();
                 switch (reportsComboBox.getSelectedIndex()) {
                 case 1:
-                    reportListComboBox.removeAllItems();
-                    SemesterBalanceCreator fullBalanceCreator = new SemesterBalanceCreator();
-                    Vector years = new BalanceHelper().getSemesters();
-                    for (int i = 1; i < years.size(); i++) {
-                        fullBalanceCreator.addSemester((String) years.get(i),
-                            null);
-                    }
-                    addNewTab(fullBalanceCreator.getViewerTab());
-                    reportListComboBox.setVisible(false);
-                    reportExportBtn.setVisible(true);
+                    addNewTab(new BalanceViewerTab(1));
                     break;
                 case 2:
-                    reportListComboBox.removeAllItems();
-                    Vector availableYears = new BalanceHelper().getYears();
-                    for (Object year : availableYears) {
-                        reportListComboBox.addItem(year);
-                    }
-                    reportListComboBox.setVisible(true);
-                    reportExportBtn.setVisible(true);
+                    addNewTab(new BalanceViewerTab(2));
                     break;
                 case 3:
-                    reportListComboBox.removeAllItems();
-                    Vector semesters = new BalanceHelper().getSemesters();
-                    for (Object semester : semesters) {
-                        reportListComboBox.addItem(semester);
-                    }
-                    reportListComboBox.setVisible(true);
-                    reportExportBtn.setVisible(true);
+                    addNewTab(new BalanceViewerTab(3));
                     break;
                 case 6:
-                    reportListComboBox.removeAllItems();
                     addNewTab(new ProtocolCreator().getViewerTab());
-                    reportListComboBox.setVisible(false);
-                    reportExportBtn.setVisible(false);
-                    break;
-                default:
-                    reportListComboBox.setVisible(false);
-                    reportExportBtn.setVisible(false);
                     break;
                 }
             }
