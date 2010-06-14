@@ -12,11 +12,15 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
- * @author Phil
+ * This class creates a semester for balance reports and adds it to a panel.
  * 
+ * @author aidGer Team
  */
 public class SemesterBalanceCreator extends BalanceCreator {
 
+    /**
+     * Initializes a new SemesterBalanceCreator along with its viewer tab.
+     */
     public SemesterBalanceCreator(BalanceViewerTab balanceViewerTab) {
         if (this.balanceViewerTab == null) {
             this.balanceViewerTab = balanceViewerTab;
@@ -31,9 +35,12 @@ public class SemesterBalanceCreator extends BalanceCreator {
      *            The semester to be added.
      */
     public boolean addSemester(String semester, BalanceFilter filters) {
-        System.out.println(semester);
         try {
             if (courseExists(semester, filters)) {
+                /*
+                 * Only create a new semester panel, if a course for this
+                 * semester exists.
+                 */
                 balanceViewerTab.addPanel(new BalanceReportSemesterCreator(
                     semester, filters).getPanel());
                 return true;
@@ -61,12 +68,25 @@ public class SemesterBalanceCreator extends BalanceCreator {
             e.printStackTrace();
         }
         List<ICourse> filteredCourses = new Vector();
+        /*
+         * Only use courses, which have the filtered criteria.
+         */
         if (!(filters == null)) {
+            /*
+             * There are existing filters.
+             */
             if (!filters.getGroups().isEmpty()) {
+                /*
+                 * There are existing group filters.
+                 */
                 for (Object group : filters.getGroups()) {
                     for (ICourse course : courses) {
                         if (!filteredCourses.contains(course)) {
                             if (course.getGroup().equals(group)) {
+                                /*
+                                 * The course is not already in the filtered
+                                 * courses and meets the group criteria.
+                                 */
                                 filteredCourses.add(course);
                             }
                         }
@@ -74,10 +94,17 @@ public class SemesterBalanceCreator extends BalanceCreator {
                 }
             }
             if (!filters.getLecturers().isEmpty()) {
+                /*
+                 * There are existing lecture filters.
+                 */
                 for (Object lecturer : filters.getLecturers()) {
                     for (ICourse course : courses) {
                         if (!filteredCourses.contains(course)) {
                             if (course.getLecturer().equals(lecturer)) {
+                                /*
+                                 * The course is not already in the filtered
+                                 * courses and meets the lecturer criteria.
+                                 */
                                 filteredCourses.add(course);
                             }
                         }
@@ -85,10 +112,18 @@ public class SemesterBalanceCreator extends BalanceCreator {
                 }
             }
             if (!filters.getTargetAudiences().isEmpty()) {
+                /*
+                 * There are existing target audience filters.
+                 */
                 for (Object lecturer : filters.getTargetAudiences()) {
                     for (ICourse course : courses) {
                         if (!filteredCourses.contains(course)) {
                             if (course.getTargetAudience().equals(lecturer)) {
+                                /*
+                                 * The course is not already in the filtered
+                                 * courses and meets the target audience
+                                 * criteria.
+                                 */
                                 filteredCourses.add(course);
                             }
                         }

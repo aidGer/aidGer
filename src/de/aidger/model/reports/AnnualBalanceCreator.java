@@ -8,13 +8,24 @@ import de.aidger.view.tabs.Tab;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
- * @author Phil
+ * This class creates annual balances by creating the semester balances for it.
  * 
+ * @author Phil
  */
 public class AnnualBalanceCreator extends BalanceCreator {
 
+    /**
+     * The semester balance creator used by this class for creating the
+     * semesters of the year.
+     */
     SemesterBalanceCreator semesterBalanceCreator = null;
 
+    /**
+     * Initializes a new AnnualBalanceCreator.
+     * 
+     * @param balanceViewerTab
+     *            The balance viewer tab of this creator.
+     */
     public AnnualBalanceCreator(BalanceViewerTab balanceViewerTab) {
         if (this.balanceViewerTab == null) {
             this.balanceViewerTab = balanceViewerTab;

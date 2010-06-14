@@ -6,8 +6,9 @@ package de.aidger.model.reports;
 import java.util.Vector;
 
 /**
- * @author Phil
+ * This class has all the needed variables and methods for balance filters.
  * 
+ * @author aidGer Team
  */
 public class BalanceFilter {
     /**
@@ -89,5 +90,41 @@ public class BalanceFilter {
      */
     public Vector getTargetAudiences() {
         return targetAudiences;
+    }
+
+    /**
+     * Removes a group filter.
+     * 
+     * @param group
+     *            The group to be removed.
+     */
+    public void removeGroup(String group) {
+        if (groups.contains(group)) {
+            groups.remove(group);
+        }
+    }
+
+    /**
+     * Removes a lecturer filter.
+     * 
+     * @param lecturer
+     *            The lecturer to be removed.
+     */
+    public void removeLecturer(String lecturer) {
+        if (lecturers.contains(lecturer)) {
+            lecturers.remove(lecturer);
+        }
+    }
+
+    /**
+     * Removes a target audience filter.
+     * 
+     * @param audience
+     *            The target audience to be removed.
+     */
+    public void removeTargetAudience(String audience) {
+        if (targetAudiences.contains(audience)) {
+            targetAudiences.remove(audience);
+        }
     }
 }

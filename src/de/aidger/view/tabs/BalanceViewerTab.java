@@ -15,6 +15,7 @@ import javax.swing.filechooser.FileFilter;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
+import de.aidger.controller.actions.GenerateReportAction;
 import de.aidger.model.models.Course;
 import de.aidger.model.reports.AnnualBalanceCreator;
 import de.aidger.model.reports.BalanceFilter;
@@ -31,8 +32,15 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
  */
 public class BalanceViewerTab extends Tab {
 
+    /**
+     * The balanceFilter of this balance.
+     */
     private BalanceFilter balanceFilter = null;
 
+    /**
+     * The type of balance report this is. 1 is full, 2 is annual, 3 is
+     * semester.
+     */
     private int typeOfBalance = 0;
 
     /**
@@ -137,34 +145,28 @@ public class BalanceViewerTab extends Tab {
         return _("Balance Viewing");
     }
 
+    /**
+     * Repaints the label and combo boxes of the existing filters.
+     */
     private void refreshExistingFilters() {
         existingFilterNameComboBox.removeAllItems();
         existingFilterComboBox.removeAllItems();
         if (balanceFilter.getGroups().isEmpty()
-                || balanceFilter.getLecturers().isEmpty()
-                || balanceFilter.getTargetAudiences().isEmpty()) {
+                && balanceFilter.getLecturers().isEmpty()
+                && balanceFilter.getTargetAudiences().isEmpty()) {
+            /**
+             * There are no existing filters.
+             */
             existingFilterLabel.setVisible(false);
             existingFilterNameComboBox.setVisible(false);
             existingFilterComboBox.setVisible(false);
         } else {
-            if (!balanceFilter.getGroups().isEmpty()) {
-                for (Object group : balanceFilter.getGroups()) {
-                    existingFilterNameComboBox.addItem(group);
-                }
-                existingFilterLabel.setVisible(true);
-            }
-            if (!balanceFilter.getLecturers().isEmpty()) {
-                for (Object lecturer : balanceFilter.getLecturers()) {
-                    existingFilterNameComboBox.addItem(lecturer);
-                }
-                existingFilterLabel.setVisible(true);
-            }
-            if (!balanceFilter.getTargetAudiences().isEmpty()) {
-                for (Object targetAudience : balanceFilter.getTargetAudiences()) {
-                    existingFilterNameComboBox.addItem(targetAudience);
-                }
-                existingFilterLabel.setVisible(true);
-            }
+            existingFilterNameComboBox.addItem(_("Group"));
+            existingFilterNameComboBox.addItem(_("Lecturer"));
+            existingFilterNameComboBox.addItem(_("Target audience"));
+            existingFilterLabel.setVisible(true);
+            existingFilterNameComboBox.setVisible(true);
+            existingFilterComboBox.setVisible(true);
         }
     }
 
@@ -181,7 +183,8 @@ public class BalanceViewerTab extends Tab {
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
-    // desc="Generated Code">//GEN-BEGIN:initComponents
+    // desc="Generated Code">
+    // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -268,15 +271,17 @@ public class BalanceViewerTab extends Tab {
                 addFilterButtonActionPerformed(evt);
             }
         });
-        addFilterButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        addFilterButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(addFilterButton);
 
         existingFilterLabel.setText(_("Existing filters") + ":");
         jToolBar1.add(existingFilterLabel);
 
+        existingFilterNameComboBox
+            .addItemListener(new java.awt.event.ItemListener() {
+                public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                    existingFilterNameComboBoxItemStateChanged(evt);
+                }
+            });
         jToolBar1.add(existingFilterNameComboBox);
 
         jToolBar1.add(existingFilterComboBox);
@@ -301,8 +306,41 @@ public class BalanceViewerTab extends Tab {
         add(contentPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void existingFilterNameComboBoxItemStateChanged(
+            java.awt.event.ItemEvent evt) {// GEN-FIRST:event_existingFilterNameComboBoxItemStateChanged
+        switch (existingFilterNameComboBox.getSelectedIndex()) {
+        /*
+         * Remove all objects from the combo box of existing filters and add the
+         * new ones.
+         */
+        case 0:
+            existingFilterComboBox.removeAllItems();
+            for (Object group : balanceFilter.getGroups()) {
+                existingFilterComboBox.addItem(group);
+            }
+            break;
+        case 1:
+            existingFilterComboBox.removeAllItems();
+            for (Object lecturer : balanceFilter.getLecturers()) {
+                existingFilterComboBox.addItem(lecturer);
+            }
+            break;
+        case 2:
+            existingFilterComboBox.removeAllItems();
+            for (Object targetAudience : balanceFilter.getTargetAudiences()) {
+                System.out.println(targetAudience);
+                existingFilterComboBox.addItem(targetAudience);
+            }
+            break;
+        }
+    }// GEN-LAST:event_existingFilterNameComboBoxItemStateChanged
+
     private void addFilterButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addFilterButtonActionPerformed
         switch (filterNameComboBox.getSelectedIndex()) {
+        /*
+         * If the filter doesn't exist, delete it, repaint the combo box and set
+         * the selected index of the name combo box to the type of filter added.
+         */
         case 0:
             if (!balanceFilter.getGroups().contains(
                 filterComboBox.getSelectedItem())) {
@@ -310,31 +348,78 @@ public class BalanceViewerTab extends Tab {
                     .getSelectedItem());
             }
             refreshExistingFilters();
+            existingFilterNameComboBox.setSelectedIndex(0);
             break;
         case 1:
-            if (!balanceFilter.getGroups().contains(
+            if (!balanceFilter.getLecturers().contains(
                 filterComboBox.getSelectedItem())) {
-                balanceFilter.addGroup((String) filterComboBox
+                balanceFilter.addLecturer((String) filterComboBox
                     .getSelectedItem());
             }
+            refreshExistingFilters();
+            existingFilterNameComboBox.setSelectedIndex(1);
             break;
         case 2:
-            if (!balanceFilter.getGroups().contains(
+            if (!balanceFilter.getTargetAudiences().contains(
                 filterComboBox.getSelectedItem())) {
-                balanceFilter.addGroup((String) filterComboBox
+                balanceFilter.addTargetAudience((String) filterComboBox
                     .getSelectedItem());
             }
+            refreshExistingFilters();
+            existingFilterNameComboBox.setSelectedIndex(2);
             break;
         }
     }// GEN-LAST:event_addFilterButtonActionPerformed
 
     private void removeFilterButtonActionPerformed(
             java.awt.event.ActionEvent evt) {// GEN-FIRST:event_removeFilterButtonActionPerformed
-        // TODO add your handling code here:
+        switch (existingFilterNameComboBox.getSelectedIndex()) {
+        /*
+         * If the filter exists, delete it, repaint the combo box and set the
+         * name combo box to the type of filter that was deleted.
+         */
+        case 0:
+            if (balanceFilter.getGroups().contains(
+                existingFilterComboBox.getSelectedItem())) {
+                balanceFilter.removeGroup((String) existingFilterComboBox
+                    .getSelectedItem());
+            }
+            refreshExistingFilters();
+            if (existingFilterNameComboBox.getItemCount() != 0) {
+                existingFilterNameComboBox.setSelectedIndex(0);
+            }
+            break;
+        case 1:
+            if (balanceFilter.getLecturers().contains(
+                existingFilterComboBox.getSelectedItem())) {
+                balanceFilter.removeLecturer((String) existingFilterComboBox
+                    .getSelectedItem());
+            }
+            refreshExistingFilters();
+            if (existingFilterNameComboBox.getItemCount() != 0) {
+                existingFilterNameComboBox.setSelectedIndex(1);
+            }
+            break;
+        case 2:
+            if (balanceFilter.getTargetAudiences().contains(
+                existingFilterComboBox.getSelectedItem())) {
+                balanceFilter
+                    .removeTargetAudience((String) existingFilterComboBox
+                        .getSelectedItem());
+            }
+            refreshExistingFilters();
+            if (existingFilterNameComboBox.getItemCount() != 0) {
+                existingFilterNameComboBox.setSelectedIndex(2);
+            }
+            break;
+        }
     }// GEN-LAST:event_removeFilterButtonActionPerformed
 
     private void filterNameComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {// GEN-FIRST:event_filterNameComboBoxItemStateChanged
         switch (filterNameComboBox.getSelectedIndex()) {
+        /*
+         * Clear the filter combo box and add all entries of this filter type.
+         */
         case 0:
             filterComboBox.removeAllItems();
             List<ICourse> courses = null;

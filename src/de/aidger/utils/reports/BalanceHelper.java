@@ -100,6 +100,10 @@ public class BalanceHelper {
     public Vector getSemesters() {
         Vector semesters = new Vector();
         List<ICourse> courses = null;
+        /*
+         * Add an empty semester string as the first entry. Relevant for the
+         * combo boxes.
+         */
         semesters.add("");
         try {
             courses = (new Course()).getAll();

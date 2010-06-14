@@ -62,52 +62,87 @@ public class BalanceReportSemesterCreator {
             e.printStackTrace();
         }
         List<ICourse> filteredCourses = new Vector();
+        /*
+         * Only use courses, which have the filtered criteria.
+         */
         if (!(filters == null)) {
+            /*
+             * There are existing filters.
+             */
             if (!filters.getGroups().isEmpty()) {
+                /*
+                 * There are existing group filters.
+                 */
                 for (Object group : filters.getGroups()) {
                     for (ICourse course : courses) {
-                        if (!filteredCourses.contains(course)) {
-                            if (course.getGroup().equals(group)) {
-                                filteredCourses.add(course);
-                            }
+                        if (!filteredCourses.contains(course)
+                                && course.getGroup().equals(group)) {
+                            /*
+                             * The course is not already in the filtered courses
+                             * and meets the group criteria.
+                             */
+                            filteredCourses.add(course);
                         }
                     }
                 }
             }
             if (!filters.getLecturers().isEmpty()) {
+                /*
+                 * There are existing lecture filters.
+                 */
                 for (Object lecturer : filters.getLecturers()) {
                     for (ICourse course : courses) {
-                        if (!filteredCourses.contains(course)) {
-                            if (course.getLecturer().equals(lecturer)) {
-                                filteredCourses.add(course);
-                            }
+                        if (!filteredCourses.contains(course)
+                                && course.getLecturer().equals(lecturer)) {
+                            /*
+                             * The course is not already in the filtered courses
+                             * and meets the lecturer criteria.
+                             */
+                            filteredCourses.add(course);
                         }
                     }
                 }
             }
             if (!filters.getTargetAudiences().isEmpty()) {
+                /*
+                 * There are existing target audience filters.
+                 */
                 for (Object lecturer : filters.getTargetAudiences()) {
                     for (ICourse course : courses) {
-                        if (!filteredCourses.contains(course)) {
-                            if (course.getTargetAudience().equals(lecturer)) {
-                                filteredCourses.add(course);
-                            }
+                        if (!filteredCourses.contains(course)
+                                && course.getTargetAudience().equals(lecturer)) {
+                            /*
+                             * The course is not already in the filtered courses
+                             * and meets the target audience criteria.
+                             */
+                            filteredCourses.add(course);
                         }
                     }
                 }
             }
         } else {
+            /*
+             * If there are no filters, use the normal courses.
+             */
             filteredCourses = courses;
         }
         for (ICourse course : filteredCourses) {
             if (course.getSemester().equals(semester)) {
                 if (balanceReportGroupCreators.isEmpty()) {
+                    /*
+                     * If there are no groups in the semester yet, add a new
+                     * one.
+                     */
                     createGroup(course);
                 } else {
                     boolean foundGroup = false;
                     for (int i = 0; i <= balanceReportGroupCreators.size() - 1; i++) {
                         if (((Vector) balanceReportGroupCreators.get(i)).get(1)
                             .equals(course.getGroup())) {
+                            /*
+                             * If the course group already exists in this
+                             * semester, add another row to it with this course.
+                             */
                             ((BalanceReportGroupCreator) ((Vector) balanceReportGroupCreators
                                 .get(i)).get(0)).addCourse(course);
                             foundGroup = true;
@@ -115,6 +150,10 @@ public class BalanceReportSemesterCreator {
                         }
                     }
                     if (!foundGroup) {
+                        /*
+                         * If the course group wasn't in the semester yet, add a
+                         * new group.
+                         */
                         createGroup(course);
                     }
                 }
@@ -133,8 +172,15 @@ public class BalanceReportSemesterCreator {
             course);
         balanceReportGroupCreators.add(new Vector<Object>());
         int i = balanceReportGroupCreators.size() - 1;
+        /*
+         * Add the group creator of this course's group as the first entry of
+         * the vector.
+         */
         ((Vector) balanceReportGroupCreators.get(i))
             .add(balanceReportGroupCreator);
+        /*
+         * Add the name of the group as the second entry of the vector.
+         */
         ((Vector) balanceReportGroupCreators.get(i)).add(course.getGroup());
         balanceReportSemesterViewer.createGroup(balanceReportGroupCreator
             .getPanel());
