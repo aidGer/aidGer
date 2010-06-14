@@ -27,6 +27,8 @@ public class CourseEditorForm extends JPanel {
         // add input filters
         InputPatternFilter.addFilter(txtGrantedAWH, "[0-9]+[.,]?[0-9]*");
         InputPatternFilter.addFilter(txtPart, ".?");
+        InputPatternFilter.addFilter(txtSemester,
+            "([0-9]{0,4})|(WS?|WS[0-9]{0,4})|(SS?|SS[0-9]{0,2})");
 
         if (course != null) {
             txtDescription.setText(course.getDescription());
