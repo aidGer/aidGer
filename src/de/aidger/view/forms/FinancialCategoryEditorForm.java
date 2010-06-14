@@ -165,7 +165,7 @@ public class FinancialCategoryEditorForm extends JPanel {
 
         if (fundsLines.isEmpty()) {
             btnPlusMinus.setIcon(new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/plus.png")));
+                "/de/aidger/view/icons/plus-small.png")));
 
             gridBagConstraints.gridy = 1;
 
@@ -180,7 +180,7 @@ public class FinancialCategoryEditorForm extends JPanel {
             btnPlusMinus.setAction(new RemoveFundsAction(fl));
         }
 
-        add(btnPlusMinus, gridBagConstraints);
+        add(btnPlusMinus, gridBagConstraints);        
 
         fundsLines.add(fl);
     }
@@ -270,7 +270,7 @@ public class FinancialCategoryEditorForm extends JPanel {
      * 
      * @author aidGer Team
      */
-    public class RemoveFundsAction extends AbstractAction {
+    private class RemoveFundsAction extends AbstractAction {
         /**
          * The funds line that will be removed.
          */
@@ -281,7 +281,7 @@ public class FinancialCategoryEditorForm extends JPanel {
          */
         public RemoveFundsAction(FundsLine fundsLine) {
             putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/minus.png")));
+                "/de/aidger/view/icons/minus-small.png")));
 
             this.fundsLine = fundsLine;
         }
