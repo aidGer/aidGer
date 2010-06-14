@@ -496,16 +496,16 @@ public final class UI extends JFrame {
                 JComboBox reportsComboBox = (JComboBox) e.getSource();
                 switch (reportsComboBox.getSelectedIndex()) {
                 case 1:
-                    addNewTab(new BalanceViewerTab(1));
+                    replaceCurrentTab(new BalanceViewerTab(1));
                     break;
                 case 2:
-                    addNewTab(new BalanceViewerTab(2));
+                    replaceCurrentTab(new BalanceViewerTab(2));
                     break;
                 case 3:
-                    addNewTab(new BalanceViewerTab(3));
+                    replaceCurrentTab(new BalanceViewerTab(3));
                     break;
                 case 6:
-                    addNewTab(new ProtocolCreator().getViewerTab());
+                    replaceCurrentTab(new ProtocolCreator().getViewerTab());
                     break;
                 }
             }
@@ -673,7 +673,7 @@ public final class UI extends JFrame {
                     String[] parts = params[i].split("@");
                     Class current = Class.forName(parts[0]);
                     searchParams[i] = current.getSuperclass().equals(
-                            AbstractModel.class) ? AbstractModel.class : current;
+                        AbstractModel.class) ? AbstractModel.class : current;
 
                     if (current.isInstance(String.class)) {
                         ctrParams.add(parts[1]);
@@ -681,12 +681,12 @@ public final class UI extends JFrame {
                         Class obj = Class.forName(parts[0]);
                         ctrParams.add(Enum.valueOf(obj, parts[1]));
                     } else if (current.getSuperclass().equals(
-                            AbstractModel.class)) {
+                        AbstractModel.class)) {
                         Class obj = Class.forName(parts[0]);
                         AbstractModel a = (AbstractModel) obj.newInstance();
                         Object o = a.getById(Integer.parseInt(parts[1]));
-                        ctrParams.add((AbstractModel) obj.getConstructor(
-                                o.getClass().getInterfaces()[0]).newInstance(o));
+                        ctrParams.add(obj.getConstructor(
+                            o.getClass().getInterfaces()[0]).newInstance(o));
                     } else {
                         Class obj = Class.forName(parts[0]);
                         ctrParams.add(obj.cast(parts[1]));
@@ -702,8 +702,8 @@ public final class UI extends JFrame {
                         .getMessage() }));
             } catch (NoSuchMethodException ex) {
                 Logger.error(MessageFormat.format(
-                        _("Could not find the correct constructor: {0}"),
-                        new Object[] { ex.getMessage() }));
+                    _("Could not find the correct constructor: {0}"),
+                    new Object[] { ex.getMessage() }));
             } catch (Exception ex) {
                 Logger.error(ex.getMessage());
             }
