@@ -32,7 +32,7 @@ public class ProtocolViewerTab extends Tab {
     private final DefaultTableModel activityTableModel = new DefaultTableModel(
         null, new String[] { _("Affected assistant"), _("Affected course"),
                 _("Type"), _("Date"), _("Content"), _("Sender"),
-                _("Processer"), _("Remark") }) {
+                _("Processor"), _("Remark") }) {
         boolean[] canEdit = new boolean[] { false, false, false, false, false,
                 false, false, false };
 
