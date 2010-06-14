@@ -34,7 +34,7 @@ public class BalanceViewerTab extends Tab {
      * Initializes a new BalanceViewerTab, which will have the created Semesters
      * added to it.
      */
-    public BalanceViewerTab(int index) {
+    public BalanceViewerTab(Integer index) {
         initComponents();
         try {
             generateButton.setAction(ActionRegistry.getInstance().get(
@@ -84,6 +84,17 @@ public class BalanceViewerTab extends Tab {
             existingFilterComboBox.setVisible(false);
             break;
         }
+    }
+
+    /**
+     * Get the name of the tab and constructor options if necessary.
+     *
+     * @return A string representation of the class
+     */
+    @Override
+    public String toString() {
+        return getClass().getName() + "<" + Integer.class.getName() + "@" +
+            Integer.toString(typeOfBalance);
     }
 
     /**
