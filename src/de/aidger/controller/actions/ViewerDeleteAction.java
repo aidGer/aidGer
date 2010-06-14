@@ -3,6 +3,7 @@ package de.aidger.controller.actions;
 import static de.aidger.utils.Translation._;
 
 import java.awt.event.ActionEvent;
+import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -53,18 +54,26 @@ public class ViewerDeleteAction extends AbstractAction {
 
             if (ret == JOptionPane.YES_OPTION) {
                 try {
-                    int selectedRow = tab.getTable().getSelectedRow();
+                    int numRows = tab.getTable().getSelectedRows().length;
 
-                    while (selectedRow >= 0) {
+                    for (int i = 0; i < numRows; ++i) {
                         int index = tab.getTable().convertRowIndexToModel(
-                            selectedRow);
+                            tab.getTable().getSelectedRow());
 
                         AbstractModel model = tab.getTableModel().getModel(
                             index);
 
-                        model.remove();
+                        if (!model.remove()) {
+                            List<String> errors = model.getErrors();
+                            String errorMessage = "";
 
-                        selectedRow = tab.getTable().getSelectedRow();
+                            for (String error : errors) {
+                                errorMessage += "- " + error + "\n";
+                            }
+
+                            UI.displayError(_("Could not remove the model:")
+                                    + "\n\n" + errorMessage);
+                        }
                     }
                 } catch (AdoHiveException e1) {
                     UI

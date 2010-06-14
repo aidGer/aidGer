@@ -5,9 +5,19 @@
 
 package de.aidger.model;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import java.io.File;
+import java.util.List;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
 
 /**
  * Tests the Runtime class.
@@ -32,6 +42,9 @@ public class RuntimeTest {
         assertNotNull(rt);
     }
 
+    /**
+     * Test of getJarLocation method, of class Runtime.
+     */
     @Test
     public void testGetJarLocation() {
         System.out.println("getJarLocation");
@@ -40,6 +53,35 @@ public class RuntimeTest {
 
         assertFalse(location.isEmpty());
         assertFalse(location.startsWith("file:/"));
+    }
+
+    /**
+     * Test of getLanguages method, of class Runtime.
+     */
+    @Test
+    public void testGetLanguages() {
+        System.out.println("getLanguages");
+
+        List<Pair<String, String>> result = Runtime.getInstance().getLanguages();
+
+        assertNotNull(result);
+        assertTrue(result.size() > 0);
+        assertEquals(result.get(0).fst(), "en");
+    }
+
+    /**
+     * Test of checkLock method, of class Runtime.
+     */
+    @Test
+    public void testCheckLock() {
+    	System.out.println("checkLock");
+
+    	assertTrue(Runtime.getInstance().checkLock());
+
+    	File lockFile = new File(Runtime.getInstance().getConfigPath() + "/aidger.lock");
+    	assertTrue(lockFile.exists());
+
+    	assertFalse(Runtime.getInstance().checkLock());
     }
 
     /**

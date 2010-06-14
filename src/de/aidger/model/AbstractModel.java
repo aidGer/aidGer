@@ -2,7 +2,6 @@ package de.aidger.model;
 
 import static de.aidger.utils.Translation._;
 
-import java.lang.reflect.InvocationTargetException;
 import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.List;
@@ -26,7 +25,7 @@ import de.unistuttgart.iste.se.adohive.model.IAdoHiveModel;
  * AbstractModel contains all important database related functions which all
  * models need to contain. This includes getting instances of models and saving
  * or removing them.
- * 
+ *
  * @author Philipp Gildein
  */
 public abstract class AbstractModel<T> extends Observable implements
@@ -76,7 +75,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Cloneable function inherited from IAdoHiveModel.
-     * 
+     *
      * @return Clone of the model
      */
     @Override
@@ -84,7 +83,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Get all models from the database.
-     * 
+     *
      * @return An array containing all found models or null
      */
     @SuppressWarnings("unchecked")
@@ -94,7 +93,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Get a specific model by specifying its unique id.
-     * 
+     *
      * @param id
      *            The unique id of the model
      * @return The model if one was found or null
@@ -106,7 +105,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Get a specific model by specifying a set of keys.
-     * 
+     *
      * @param o
      *            The set of keys specific to this model
      * @return The model if one was found or null
@@ -118,7 +117,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Get the number of models in the database.
-     * 
+     *
      * @return The number of models
      * @throws AdoHiveException
      */
@@ -128,7 +127,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Returns true if no model has been saved into the database.
-     * 
+     *
      * @return True if no model is in the database
      * @throws AdoHiveException
      */
@@ -138,7 +137,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Checks if the current instance exists in the database.
-     * 
+     *
      * @return True if the instance exists
      * @throws AdoHiveException
      */
@@ -148,7 +147,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Deletes everything from the associated table.
-     * 
+     *
      * @throws AdoHiveException
      */
     public void clearTable() throws AdoHiveException {
@@ -160,7 +159,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Save the current model to the database.
-     * 
+     *
      * @return True if validation succeeds
      * @throws AdoHiveException
      */
@@ -204,7 +203,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Remove the current model from the database.
-     * 
+     *
      * @return False if the model is new or doesn't validate
      * @throws AdoHiveException
      */
@@ -238,7 +237,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Get a list of all errors.
-     * 
+     *
      * @return A list of errors
      */
     public List<String> getErrors() {
@@ -247,7 +246,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Get a list of errors for a specific field.
-     * 
+     *
      * @param field
      *            The field to get the errors for
      * @return A list of errors
@@ -258,7 +257,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Add an error to the list,
-     * 
+     *
      * @param error
      *            The error to add
      */
@@ -268,7 +267,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Add an error for a specific field to the list.
-     * 
+     *
      * @param field
      *            The field on which the error occured
      * @param error
@@ -295,18 +294,8 @@ public abstract class AbstractModel<T> extends Observable implements
     }
 
     /**
-     * Add a validator to the model.
-     * 
-     * @param valid
-     *            The validator to add
-     */
-    public void addValidator(Validator valid) {
-        validators.add(valid);
-    }
-
-    /**
      * Add a presence validator to the model.
-     * 
+     *
      * @param members
      *            The name of the member variables to validate
      */
@@ -316,7 +305,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Add an email validator to the model.
-     * 
+     *
      * @param member
      *            The name of the member variable to validate
      */
@@ -327,7 +316,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Add an date range validator to the model.
-     * 
+     *
      * @param from
      *            The starting date
      * @param to
@@ -339,7 +328,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Add an inclusion validator to the model.
-     * 
+     *
      * @param members
      *            The name of the member variables to validate
      * @param inc
@@ -351,7 +340,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Add an existance validator to the model.
-     * 
+     *
      * @param members
      *            The name of the member variables to validate
      * @param type
@@ -363,7 +352,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Add an format validator to the model.
-     * 
+     *
      * @param members
      *            The name of the member variables to validate
      * @param format
@@ -375,7 +364,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Returns the unique id of the activity.
-     * 
+     *
      * @return The unique id of the activity
      */
     @Override
@@ -385,9 +374,9 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Set the unique id of the assistant.
-     * 
+     *
      * <b>!!! THIS IS FOR INTERNAL ADOHIVE USAGE ONLY !!!</b>
-     * 
+     *
      * @param id
      *            The unique id of the assistant
      */
@@ -398,7 +387,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Set if the model is new and should be added to the database.
-     * 
+     *
      * @param isnew
      *            Is the model new?
      */
@@ -416,7 +405,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Returns a string containing all informations stored in the model.
-     * 
+     *
      * @return A string containing informations on the model
      */
     @Override
@@ -434,11 +423,7 @@ public abstract class AbstractModel<T> extends Observable implements
             if (ret.endsWith(", ")) {
                 ret = ret.substring(0, ret.length() - 2);
             }
-        } catch (InvocationTargetException ex) {
-            System.err.println(ex.getMessage());
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
-        } catch (IllegalAccessException ex) {
+        } catch (Exception ex) {
             System.err.println(ex.getMessage());
         }
         return ret + "]";
@@ -446,7 +431,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Extract the name of the class and return the correct manager.
-     * 
+     *
      * @return The name of the model class
      */
     @SuppressWarnings("unchecked")
@@ -471,7 +456,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Validate the input using the validators and a custom validate function.
-     * 
+     *
      * @return True if everything validates
      */
     protected boolean doValidate() {

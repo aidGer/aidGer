@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package de.aidger.utils.pdf;
 
@@ -23,7 +23,7 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * @author Phil
- * 
+ *
  */
 public class BalanceReportConverterTest {
 
@@ -47,7 +47,7 @@ public class BalanceReportConverterTest {
 
     /**
      * Prepares this test.
-     * 
+     *
      * @throws AdoHiveException
      */
     @Before
@@ -124,7 +124,7 @@ public class BalanceReportConverterTest {
 
     /**
      * Tests the constructor of the class BalanceReportConverter.
-     * 
+     *
      * @throws AdoHiveException
      */
     @Test

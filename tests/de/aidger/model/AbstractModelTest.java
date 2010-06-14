@@ -1,16 +1,20 @@
 package de.aidger.model;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
-import java.util.List;
 import java.math.BigDecimal;
+import java.util.List;
 
-import org.junit.Test;
 import org.junit.BeforeClass;
+import org.junit.Test;
 
+import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.HourlyWage;
-import de.aidger.model.models.Assistant;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
 
@@ -88,7 +92,7 @@ public class AbstractModelTest {
 
         HourlyWage h = new HourlyWage();
         h.clearTable();
-        
+
         h.setQualification("g");
         h.setMonth((byte) 10);
         h.setYear((short) 2010);
@@ -220,6 +224,7 @@ public class AbstractModelTest {
         /* Test fail of doValidate */
         a.setFirstName(null);
         assertFalse(a.save());
+        a.setFirstName("Tester");
 
         /* Test fail with errors */
         a.resetErrors();
@@ -240,7 +245,7 @@ public class AbstractModelTest {
 
         h.setQualification("u");
         assertTrue(h.save());
-        assertTrue(h.getByKeys(g.getQualification(), g.getMonth(), 
+        assertTrue(h.getByKeys(g.getQualification(), g.getMonth(),
                 g.getYear()) == null);
     }
 
@@ -256,6 +261,9 @@ public class AbstractModelTest {
         a.setFirstName("Test");
         a.setLastName("Tester");
         a.setQualification("g");
+
+        assertFalse(a.remove());
+
         a.save();
         int id = a.getId();
 

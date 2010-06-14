@@ -30,7 +30,7 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
 /**
  * This class converts balance reports to a format for iText and exports it to a
  * .pdf file.
- * 
+ *
  * @author aidGer Team
  */
 public class BalanceReportConverter {
@@ -62,7 +62,7 @@ public class BalanceReportConverter {
 
     /**
      * Initializes this BalanceReportConverter with a given path and a name.
-     * 
+     *
      * @param path
      *            The path, at which to save the document.
      * @param name
@@ -105,7 +105,7 @@ public class BalanceReportConverter {
     /**
      * Checks if the extension of the file is in fact .pdf. If not, it adds the
      * .pdf extension to the file name.
-     * 
+     *
      * @param file
      *            The file to check.
      * @return The file name with the correct extension.
@@ -122,7 +122,7 @@ public class BalanceReportConverter {
 
     /**
      * Creates a new document.
-     * 
+     *
      * @param path
      *            The path at which to create the PDF-document.
      * @param name
@@ -182,7 +182,7 @@ public class BalanceReportConverter {
 
     /**
      * Writes a semester table and adds the groups of that semester to it.
-     * 
+     *
      * @param semester
      *            The name of the semester to be added.
      */
@@ -267,7 +267,7 @@ public class BalanceReportConverter {
 
     /**
      * Creates a row with the data of one course and returns it.
-     * 
+     *
      * @param course
      *            The course of which the data shall be written to a row.
      * @return The row as a PdfPCell
@@ -306,7 +306,7 @@ public class BalanceReportConverter {
     /**
      * Creates a new group table with the title of the group. Adds the table and
      * its title to the group table vector.
-     * 
+     *
      * @param course
      *            The course for which a group shall be created.
      * @return The PdfPTable of the group.
@@ -379,7 +379,7 @@ public class BalanceReportConverter {
     /**
      * Creates the balance reports of the year by calling the functions to
      * create all semesters of the year.
-     * 
+     *
      * @param year
      *            The year to be added.
      */
@@ -391,7 +391,7 @@ public class BalanceReportConverter {
          * semester in that order.
          */
         String[] semesters = new String[4];
-        semesters[0] = "" + year;
+        semesters[0] = Integer.toString(year);
         switch (semester) {
         /*
          * If the given year is 2001-2008, (year % 100) will give a single
@@ -460,7 +460,7 @@ public class BalanceReportConverter {
 
     /**
      * Checks if the given semester contains any courses.
-     * 
+     *
      * @param semester
      *            The semester to check
      * @return true if the semester contains one or more courses.

@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Vector;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -22,7 +23,6 @@ import de.aidger.view.forms.AssistantEditorForm;
 import de.aidger.view.forms.CourseEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
 import de.aidger.view.forms.HourlyWageEditorForm;
-import de.aidger.view.models.TableModel;
 import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.ViewerTab;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
@@ -44,14 +44,18 @@ public class EditorSaveAction extends AbstractAction {
     }
 
     /**
-     * Sets the given course model to the values of the form.
+     * Prepares the course model stored in the models list by setting the values
+     * of the course editor form to this model.
      * 
-     * @param course
-     *            the course model
+     * @param models
+     *            a list that contains the course model of the editor
      * @param form
      *            the course editor form
      */
-    private void setModel(Course course, CourseEditorForm form) {
+    @SuppressWarnings("unchecked")
+    private void prepareModels(List<AbstractModel> models, CourseEditorForm form) {
+        Course course = (Course) models.get(0);
+
         course.setDescription(form.getDescription());
         course.setSemester(form.getSemester());
         course.setLecturer(form.getLecturer());
@@ -80,14 +84,19 @@ public class EditorSaveAction extends AbstractAction {
     }
 
     /**
-     * Sets the given assistant model to the values of the form.
+     * Prepares the assistant model stored in the models list by setting the
+     * values of the assistant editor form to this model.
      * 
-     * @param assistant
-     *            the assistant model
+     * @param models
+     *            a list that contains the assistant model of the editor
      * @param form
      *            the assistant editor form
      */
-    private void setModel(Assistant assistant, AssistantEditorForm form) {
+    @SuppressWarnings("unchecked")
+    private void prepareModels(List<AbstractModel> models,
+            AssistantEditorForm form) {
+        Assistant assistant = (Assistant) models.get(0);
+
         assistant.setFirstName(form.getFirstName());
         assistant.setLastName(form.getLastName());
         assistant.setEmail(form.getEmail());
@@ -95,14 +104,20 @@ public class EditorSaveAction extends AbstractAction {
     }
 
     /**
-     * Sets the given financial category model to the values of the form.
+     * Prepares the financial category model stored in the models list by
+     * setting the values of the financial category editor form to this model.
      * 
-     * @param fc
-     *            the financial category model
+     * @param models
+     *            a list that contains the financial category model of the
+     *            editor
      * @param form
      *            the financial category editor form
      */
-    private void setModel(FinancialCategory fc, FinancialCategoryEditorForm form) {
+    @SuppressWarnings("unchecked")
+    private void prepareModels(List<AbstractModel> models,
+            FinancialCategoryEditorForm form) {
+        FinancialCategory fc = (FinancialCategory) models.get(0);
+
         fc.setName(form.getFCName());
 
         try {
@@ -128,15 +143,27 @@ public class EditorSaveAction extends AbstractAction {
     }
 
     /**
-     * Sets the given hourly wage model to the values of the form.
+     * Prepares the hourly wage models by setting the values of the hourly wage
+     * editor form to the models.
      * 
-     * @param hw
-     *            the hourly wage model
+     * @param models
+     *            a list that contains the hourly wage model of the editor
      * @param form
      *            the hourly wage editor form
      */
-    private void setModel(HourlyWage hw, HourlyWageEditorForm form) {
+    @SuppressWarnings("unchecked")
+    private void prepareModels(List<AbstractModel> models,
+            HourlyWageEditorForm form) {
+        HourlyWage hw = (HourlyWage) models.get(0);
+
         hw.setQualification(form.getQualification());
+
+        try {
+            hw.setWage(new BigDecimal(form.getWage()));
+        } catch (NumberFormatException e) {
+            hw.addError("wage", new PresenceValidator(hw, new String[] {})
+                .getMessage());
+        }
 
         if (form.isEditMode()) {
             hw.setMonth(form.getMonth());
@@ -147,25 +174,24 @@ public class EditorSaveAction extends AbstractAction {
 
             Calendar finish = Calendar.getInstance();
             finish.setTime(form.getFinishDate());
-            finish.add(Calendar.MONTH, 1);
 
             if (start.after(finish)) {
                 hw.addError("end date", _("must be after start date"));
             } else {
+                models.clear();
+
+                finish.add(Calendar.MONTH, 1);
+
                 while (finish.after(start)) {
-                    System.out.println((start.get(Calendar.MONTH) + 1) + "."
-                            + start.get(Calendar.YEAR));
+                    HourlyWage clone = hw.clone();
+                    models.add(clone);
+
+                    clone.setMonth((byte) (start.get(Calendar.MONTH) + 1));
+                    clone.setYear((short) start.get(Calendar.YEAR));
 
                     start.add(Calendar.MONTH, 1);
                 }
             }
-        }
-
-        try {
-            hw.setWage(new BigDecimal(form.getWage()));
-        } catch (NumberFormatException e) {
-            hw.addError("wage", new PresenceValidator(hw, new String[] {})
-                .getMessage());
         }
 
     }
@@ -181,38 +207,42 @@ public class EditorSaveAction extends AbstractAction {
     public void actionPerformed(ActionEvent e) {
         EditorTab tab = (EditorTab) UI.getInstance().getCurrentTab();
 
-        AbstractModel model = tab.getModel();
+        List<AbstractModel> models = new Vector<AbstractModel>();
+        models.add(tab.getModel());
 
         switch (tab.getType()) {
         case Course:
-            setModel((Course) model, (CourseEditorForm) tab.getEditorForm());
+            prepareModels(models, (CourseEditorForm) tab.getEditorForm());
             break;
         case Assistant:
-            setModel((Assistant) model, (AssistantEditorForm) tab
-                .getEditorForm());
+            prepareModels(models, (AssistantEditorForm) tab.getEditorForm());
             break;
         case FinancialCategory:
-            setModel((FinancialCategory) model,
-                (FinancialCategoryEditorForm) tab.getEditorForm());
+            prepareModels(models, (FinancialCategoryEditorForm) tab
+                .getEditorForm());
             break;
         case HourlyWage:
-            setModel((HourlyWage) model, (HourlyWageEditorForm) tab
-                .getEditorForm());
+            prepareModels(models, (HourlyWageEditorForm) tab.getEditorForm());
             break;
         }
 
-        try {
-            if (!model.save()) {
-                tab.updateHints();
+        for (AbstractModel model : models) {
 
-                return;
-            }
-        } catch (AdoHiveException e1) {
-            if (e1.getCause().getClass() == SQLIntegrityConstraintViolationException.class) {
-                UI
-                    .displayError(_("Could not save the model because it already exists in the database."));
-            } else {
-                UI.displayError(_("Could not save the model to database."));
+            try {
+                if (!model.save()) {
+                    tab.updateHints();
+
+                    return;
+                }
+            } catch (AdoHiveException e1) {
+                if (e1.getCause().getClass() == SQLIntegrityConstraintViolationException.class) {
+                    UI
+                        .displayError(_("Could not save the model because it already exists in the database."));
+                } else {
+                    UI.displayError(_("Could not save the model to database."));
+                }
+
+                break;
             }
         }
 
