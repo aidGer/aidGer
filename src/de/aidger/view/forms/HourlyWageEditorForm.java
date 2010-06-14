@@ -81,6 +81,8 @@ public class HourlyWageEditorForm extends JPanel {
         } else {
             lblDate.setVisible(false);
             spDate.setVisible(false);
+
+            // TODO: set start and finish date properly
         }
     }
 
