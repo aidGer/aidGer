@@ -3,12 +3,15 @@ package de.aidger.view.tabs;
 import static de.aidger.utils.Translation._;
 
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
-import de.aidger.model.reports.AnnualBalanceCreator;
-import de.aidger.model.reports.SemesterBalanceCreator;
 import de.aidger.utils.reports.BalanceHelper;
+import de.aidger.controller.ActionRegistry;
+import de.aidger.controller.ActionNotFoundException;
+import de.aidger.controller.actions.GenerateReportAction;
 
 /**
  * A tab for viewing balance reports.
@@ -25,6 +28,13 @@ public class BalanceViewerTab extends Tab {
      */
     public BalanceViewerTab(int index) {
         initComponents();
+        try {
+            generateButton.setAction(ActionRegistry.getInstance().get(
+                    GenerateReportAction.class.getName()));
+        } catch (ActionNotFoundException ex) {
+            Logger.getLogger(BalanceViewerTab.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         typeOfBalance = index;
         switch (index) {
         case 1:
@@ -64,13 +74,41 @@ public class BalanceViewerTab extends Tab {
         }
     }
 
+    /**
+     * Get the type of balance.
+     *
+     * @return The type of balance
+     */
+    public int getType() {
+        return typeOfBalance;
+    }
+
+    /**
+     * Get the year currently selected-
+     *
+     * @return The year
+     */
+    public Object getYear() {
+        return yearComboBox.getSelectedIndex() > 0 ?
+                yearComboBox.getSelectedItem() : null;
+    }
+
+    /**
+     * Add a new panel
+     *
+     * @param panel
+     *              The panel to add
+     */
     public void addPanel(JPanel panel) {
         contentPanel.add(panel);
         contentPanel.setVisible(false);
         contentPanel.setVisible(true);
     }
 
-    private void clearPanel() {
+    /**
+     * Clear the panel.
+     */
+    public void clearPanel() {
         contentPanel.removeAll();
     }
 
@@ -94,7 +132,7 @@ public class BalanceViewerTab extends Tab {
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
-    // desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jTextField3 = new javax.swing.JTextField();
@@ -115,15 +153,16 @@ public class BalanceViewerTab extends Tab {
 
         jTextField3.setText("jTextField3");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(
-            jPanel2);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(jPanel2Layout.createParallelGroup(
-            javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 100,
-            Short.MAX_VALUE));
-        jPanel2Layout.setVerticalGroup(jPanel2Layout.createParallelGroup(
-            javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 100,
-            Short.MAX_VALUE));
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setLayout(new java.awt.BorderLayout());
 
@@ -137,21 +176,13 @@ public class BalanceViewerTab extends Tab {
 
         generateButton.setText(_("Generate"));
         generateButton.setFocusable(false);
-        generateButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        generateButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        generateButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                generateButtonActionPerformed(evt);
-            }
-        });
+        generateButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        generateButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(generateButton);
 
         exportButton.setText(_("Export"));
         exportButton.setFocusable(false);
-        exportButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         exportButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(exportButton);
 
@@ -164,10 +195,8 @@ public class BalanceViewerTab extends Tab {
 
         addFilterButton.setText("+");
         addFilterButton.setFocusable(false);
-        addFilterButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        addFilterButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        addFilterButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        addFilterButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(addFilterButton);
 
         existingFilterLabel.setText(_("Existing filters") + ":");
@@ -182,37 +211,6 @@ public class BalanceViewerTab extends Tab {
         contentPanel.setLayout(new java.awt.GridLayout(0, 1));
         add(contentPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void generateButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_generateButtonActionPerformed
-        switch (typeOfBalance) {
-        case 1:
-            clearPanel();
-            SemesterBalanceCreator fullBalanceCreator = new SemesterBalanceCreator(
-                this);
-            Vector semesters = new BalanceHelper().getSemesters();
-            for (int i = 1; i < semesters.size(); i++) {
-                fullBalanceCreator.addSemester((String) semesters.get(i), null);
-            }
-            break;
-        case 2:
-            clearPanel();
-            if (yearComboBox.getSelectedIndex() > 0) {
-                AnnualBalanceCreator annualBalanceCreator = new AnnualBalanceCreator(
-                    this);
-                annualBalanceCreator.addYear((Integer) yearComboBox
-                    .getSelectedItem(), null);
-            }
-            break;
-        case 3:
-            clearPanel();
-            if (yearComboBox.getSelectedIndex() > 0) {
-                SemesterBalanceCreator semesterBalanceCreator = new SemesterBalanceCreator(
-                    this);
-                semesterBalanceCreator.addSemester((String) yearComboBox
-                    .getSelectedItem(), null);
-            }
-        }
-    }// GEN-LAST:event_generateButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addFilterButton;
