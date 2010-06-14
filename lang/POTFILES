@@ -13,9 +13,6 @@ model/validators/Validator.java
 model/reports/BalanceCourse.java
 model/reports/BalanceFilter.java
 model/reports/BalanceReportGroupCreator.java
-model/reports/AnnualBalanceCreator.java
-model/reports/SemesterBalanceCreator.java
-model/reports/BalanceCreator.java
 model/reports/ProtocolCreator.java
 model/reports/BalanceReportSemesterCreator.java
 model/models/Course.java
@@ -29,16 +26,12 @@ model/Runtime.java
 view/utils/MultiLineCellRenderer.java
 view/utils/InputPatternFilter.java
 view/TaskPaneContainer.java
-view/tabs/FinancialCategoryViewerTab.java
 view/tabs/EditorTab.java
 view/tabs/EmptyTab.java
 view/tabs/ProtocolViewerTab.java
 view/tabs/Tab.java
-view/tabs/AssistantViewerTab.java
 view/tabs/BalanceViewerTab.java
 view/tabs/ViewerTab.java
-view/tabs/CourseViewerTab.java
-view/tabs/HourlyWageViewerTab.java
 view/tabs/DetailViewerTab.java
 view/tabs/WelcomeTab.java
 view/TaskPaneTitleBar.java
