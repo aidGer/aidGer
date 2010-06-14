@@ -490,8 +490,6 @@ public final class UI extends JFrame {
                 Task.ViewAnnualBalance));
         tpReports.add(createTaskPaneButton(_("Semester Balance"),
                 Task.ViewSemesterBalance));
-        tpReports.add(createTaskPaneButton(_("Partial Balance"),
-                Task.ViewPartialBalance));
         tpReports.add(createTaskPaneButton(_("Activity Report"),
                 Task.ViewActivityReport));
         tpReports.add(createTaskPaneButton(_("Protocol"), Task.ViewProtocol));

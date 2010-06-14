@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-14 18:38+0200\n"
+"POT-Creation-Date: 2010-06-14 18:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -456,7 +456,7 @@ msgid "Sender"
 msgstr ""
 
 #: view/tabs/ProtocolViewerTab.java:35
-msgid "Processer"
+msgid "Processor"
 msgstr ""
 
 #: view/tabs/ProtocolViewerTab.java:35 view/forms/CourseEditorForm.java:352
@@ -556,59 +556,55 @@ msgid "Semester Balance"
 msgstr ""
 
 #: view/UI.java:493
-msgid "Partial Balance"
-msgstr ""
-
-#: view/UI.java:495
 msgid "Activity Report"
 msgstr ""
 
-#: view/UI.java:497
+#: view/UI.java:495
 msgid "Protocol"
 msgstr ""
 
-#: view/UI.java:499
+#: view/UI.java:497
 msgid "Controlling"
 msgstr ""
 
-#: view/UI.java:501
+#: view/UI.java:499
 msgid "Choose a month"
 msgstr ""
 
-#: view/UI.java:506
+#: view/UI.java:504
 msgid "Budget Check"
 msgstr ""
 
-#: view/UI.java:508
+#: view/UI.java:506
 msgid "Add Filter"
 msgstr ""
 
-#: view/UI.java:513
+#: view/UI.java:511
 msgid "Quick Settings"
 msgstr ""
 
-#: view/UI.java:515
+#: view/UI.java:513
 msgid "Remember my tabs"
 msgstr ""
 
-#: view/UI.java:525
+#: view/UI.java:523
 msgid "Open reports instantly"
 msgstr ""
 
-#: view/UI.java:581
+#: view/UI.java:579
 msgid "Open a new tab"
 msgstr ""
 
-#: view/UI.java:613
+#: view/UI.java:611
 msgid "Ready"
 msgstr ""
 
-#: view/UI.java:707
+#: view/UI.java:705
 #, java-format
 msgid "Could not find tab class {0}"
 msgstr ""
 
-#: view/UI.java:711
+#: view/UI.java:709
 #, java-format
 msgid "Could not find the correct constructor: {0}"
 msgstr ""
