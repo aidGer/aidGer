@@ -5,12 +5,12 @@ package de.aidger.model.reports;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Vector;
 
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
 import de.aidger.view.tabs.ProtocolViewerTab;
-import de.aidger.view.tabs.Tab;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
 
@@ -22,24 +22,15 @@ import de.unistuttgart.iste.se.adohive.model.IActivity;
 public class ProtocolCreator {
 
     /**
-     * The number of days before today of which to display the activities.
-     */
-    private int numberOfDays;
-
-    /**
      * The viewer tab of this protocol.
      */
-    private ProtocolViewerTab protocolViewerTab = null;
+    private final ProtocolViewerTab protocolViewerTab = null;
 
     /**
      * Initializes a new ProtocolCreator and creates the first protocol.
      * 
      */
     public ProtocolCreator() {
-        if (protocolViewerTab == null) {
-            protocolViewerTab = new ProtocolViewerTab(this);
-        }
-        createProtocol();
     }
 
     /**
@@ -48,10 +39,9 @@ public class ProtocolCreator {
      * 
      * @throws AdoHiveException
      */
-    public void createProtocol() {
-        numberOfDays = protocolViewerTab.getSpinnerValue();
-        protocolViewerTab.clearTable();
+    public Vector createProtocol(int numberOfDays) {
         Object[] addedActivity = new Object[8];
+        Vector addedActivities = new Vector();
         List<IActivity> activities = null;
         try {
             activities = new Activity().getAll();
@@ -84,29 +74,13 @@ public class ProtocolCreator {
                     addedActivity[5] = activity.getSender();
                     addedActivity[6] = activity.getProcessor();
                     addedActivity[7] = activity.getRemark();
-                    protocolViewerTab.addActivity(addedActivity);
+                    addedActivities.add(addedActivity);
                 } catch (AdoHiveException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
         }
-    }
-
-    /**
-     * Returns the viewer tab of this report creator.
-     * 
-     * @return The viewer tab
-     */
-    public Tab getViewerTab() {
-        return protocolViewerTab;
-    }
-
-    public int getNumberOfDays() {
-        return protocolViewerTab.getSpinnerValue();
-    }
-
-    public void setNumberOfDays(int value) {
-        protocolViewerTab.setSpinnerValue(value);
+        return addedActivities;
     }
 }

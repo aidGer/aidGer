@@ -8,11 +8,11 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.SwingUtilities;
 
-import de.aidger.model.reports.ProtocolCreator;
 import de.aidger.view.TaskPane;
 import de.aidger.view.UI;
 import de.aidger.view.tabs.BalanceViewerTab;
 import de.aidger.view.tabs.EmptyTab;
+import de.aidger.view.tabs.ProtocolViewerTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
 import de.aidger.view.tabs.ViewerTab.MasterDataType;
@@ -90,7 +90,7 @@ public class TaskPaneAction extends AbstractAction implements MouseListener {
         case ViewSemesterBalance:
             return new BalanceViewerTab(3);
         case ViewProtocol:
-            return new ProtocolCreator().getViewerTab();
+            return new ProtocolViewerTab();
         case ViewActivityReport:
         case ViewEmpty:
             return new EmptyTab();
