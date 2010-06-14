@@ -257,6 +257,8 @@ public class EditorTab extends Tab {
         filler2 = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
+
+        editorForm.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), getTabName()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -279,10 +281,8 @@ public class EditorTab extends Tab {
         gridBagConstraints.weighty = 1.0;
         add(filler, gridBagConstraints);
 
-        hints.setBorder(javax.swing.BorderFactory
-            .createTitledBorder(_("Hints")));
-        hints.setLayout(new javax.swing.BoxLayout(hints,
-            javax.swing.BoxLayout.Y_AXIS));
+        hints.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Hints")));
+        hints.setLayout(new javax.swing.BoxLayout(hints, javax.swing.BoxLayout.Y_AXIS));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
