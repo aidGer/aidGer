@@ -38,8 +38,8 @@ public class BalanceViewerTab extends Tab {
     private int typeOfBalance = 0;
 
     /**
-     * Initializes a new BalanceViewerTab, which will have the created Semesters
-     * added to it.
+     * Initializes a new BalanceViewerTab, which will have the balance
+     * manipulation elements and the created Semesters added to it.
      */
     public BalanceViewerTab(Integer index) {
         initComponents();
@@ -57,40 +57,38 @@ public class BalanceViewerTab extends Tab {
         balanceFilter = new BalanceFilter();
         switch (index) {
         case 1:
+            /*
+             * This is a full balance report.
+             */
             yearLabel.setVisible(false);
             yearComboBox.setVisible(false);
-            filterNameComboBox.addItem(_("Group"));
-            filterNameComboBox.addItem(_("Lecturer"));
-            filterNameComboBox.addItem(_("Target Audience"));
-            existingFilterLabel.setVisible(false);
-            existingFilterNameComboBox.setVisible(false);
-            existingFilterComboBox.setVisible(false);
             break;
         case 2:
+            /*
+             * This is an annual balance report.
+             */
             Vector availableYears = new BalanceHelper().getYears();
             for (Object year : availableYears) {
                 yearComboBox.addItem(year);
             }
-            filterNameComboBox.addItem(_("Group"));
-            filterNameComboBox.addItem(_("Lecturer"));
-            filterNameComboBox.addItem(_("Target Audience"));
-            existingFilterLabel.setVisible(false);
-            existingFilterNameComboBox.setVisible(false);
-            existingFilterComboBox.setVisible(false);
             break;
         case 3:
+            /*
+             * This is a semester balance report.
+             */
             Vector semesters = new BalanceHelper().getSemesters();
             for (Object semester : semesters) {
                 yearComboBox.addItem(semester);
             }
-            filterNameComboBox.addItem(_("Group"));
-            filterNameComboBox.addItem(_("Lecturer"));
-            filterNameComboBox.addItem(_("Target Audience"));
-            existingFilterLabel.setVisible(false);
-            existingFilterNameComboBox.setVisible(false);
-            existingFilterComboBox.setVisible(false);
             break;
         }
+        filterNameComboBox.addItem(_("Group"));
+        filterNameComboBox.addItem(_("Lecturer"));
+        filterNameComboBox.addItem(_("Target Audience"));
+        existingFilterLabel.setVisible(false);
+        existingFilterNameComboBox.setVisible(false);
+        existingFilterComboBox.setVisible(false);
+        removeFilterButton.setVisible(false);
     }
 
     /**
@@ -176,6 +174,7 @@ public class BalanceViewerTab extends Tab {
             existingFilterLabel.setVisible(false);
             existingFilterNameComboBox.setVisible(false);
             existingFilterComboBox.setVisible(false);
+            removeFilterButton.setVisible(false);
         } else {
             existingFilterNameComboBox.addItem(_("Group"));
             existingFilterNameComboBox.addItem(_("Lecturer"));
@@ -183,6 +182,7 @@ public class BalanceViewerTab extends Tab {
             existingFilterLabel.setVisible(true);
             existingFilterNameComboBox.setVisible(true);
             existingFilterComboBox.setVisible(true);
+            removeFilterButton.setVisible(true);
         }
     }
 

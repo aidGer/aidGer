@@ -35,6 +35,7 @@ view/tabs/BalanceViewerTab.java
 view/tabs/ViewerTab.java
 view/tabs/CourseViewerTab.java
 view/tabs/HourlyWageViewerTab.java
+view/tabs/ProtocolViewerTab.java
 view/tabs/WelcomeTab.java
 view/TaskPaneTitleBar.java
 view/UI.java
