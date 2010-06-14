@@ -53,18 +53,16 @@ public class ViewerDeleteAction extends AbstractAction {
 
             if (ret == JOptionPane.YES_OPTION) {
                 try {
-                    int selectedRow = tab.getTable().getSelectedRow();
+                    int numRows = tab.getTable().getSelectedRows().length;
 
-                    while (selectedRow >= 0) {
+                    for (int i = 0; i < numRows; ++i) {
                         int index = tab.getTable().convertRowIndexToModel(
-                            selectedRow);
+                            tab.getTable().getSelectedRow());
 
                         AbstractModel model = tab.getTableModel().getModel(
                             index);
 
                         model.remove();
-
-                        selectedRow = tab.getTable().getSelectedRow();
                     }
                 } catch (AdoHiveException e1) {
                     UI
