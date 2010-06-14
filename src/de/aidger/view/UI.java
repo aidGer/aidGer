@@ -628,7 +628,10 @@ public final class UI extends JFrame {
         for (int i = 0; i < count - 1; ++i) {
             Tab t = (Tab) ((JScrollPane) tabbedPane.getComponentAt(i))
                 .getViewport().getView();
-            list[i] = t.toString();
+            String tab = t.toString();
+            if (tab != null) {
+                list[i] = tab;
+            }
         }
 
         Runtime.getInstance().setOptionArray("tablist", list);

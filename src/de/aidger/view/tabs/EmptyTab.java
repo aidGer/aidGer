@@ -16,6 +16,16 @@ public class EmptyTab extends Tab {
     public EmptyTab() {
     }
 
+    /**
+     * Don't add the empty tab into the saved tabs array.
+     *
+     * @return null
+     */
+    @Override
+    public String toString() {
+        return null;
+    }
+
     /*
      * (non-Javadoc)
      * 
@@ -25,4 +35,5 @@ public class EmptyTab extends Tab {
     public String getTabName() {
         return _("(Unnamed)");
     }
+
 }
