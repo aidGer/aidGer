@@ -13,7 +13,9 @@ import javax.swing.AbstractAction;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.JTable;
+import javax.swing.RowFilter;
 import javax.swing.table.TableColumn;
+import javax.swing.table.TableRowSorter;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
@@ -66,6 +68,11 @@ public class ViewerTab extends Tab {
     private TableModel tableModel;
 
     /**
+     * The row sorter of the table.
+     */
+    private final TableRowSorter<TableModel> sorter;
+
+    /**
      * Constructs the master data viewer tab.
      * 
      * @param type
@@ -98,6 +105,16 @@ public class ViewerTab extends Tab {
 
         table.setModel(tableModel);
 
+        sorter = new TableRowSorter<TableModel>(tableModel);
+        table.setRowSorter(sorter);
+
+        table.setComponentPopupMenu(popupMenu);
+        table.setDoubleBuffered(true);
+        table.setFocusCycleRoot(true);
+
+        // sort on first column by default
+        sorter.toggleSortOrder(0);
+
         // multi line columns for financial category table
         if (type == MasterDataType.FinancialCategory) {
             table.getColumnModel().getColumn(2).setCellRenderer(
@@ -105,13 +122,6 @@ public class ViewerTab extends Tab {
             table.getColumnModel().getColumn(3).setCellRenderer(
                 new MultiLineCellRenderer());
         }
-
-        table.setComponentPopupMenu(popupMenu);
-        table.setAutoCreateRowSorter(true);
-        table.setDoubleBuffered(true);
-        table.setFocusCycleRoot(true);
-        // sort on first column by default
-        table.getRowSorter().toggleSortOrder(0);
 
         // initializes the button and menu items actions
         try {
@@ -194,6 +204,58 @@ public class ViewerTab extends Tab {
         }
 
         table.getTableHeader().addMouseListener(new PopupListener(headerMenu));
+
+        // set up the search field
+        searchField.addFocusListener(new java.awt.event.FocusAdapter() {
+            /*
+             * (non-Javadoc)
+             * 
+             * @see
+             * java.awt.event.FocusAdapter#focusGained(java.awt.event.FocusEvent
+             * )
+             */
+            @Override
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                if (searchField.getText().equals(_("Search"))) {
+                    searchField.setText("");
+                }
+            }
+
+            /*
+             * (non-Javadoc)
+             * 
+             * @see
+             * java.awt.event.FocusAdapter#focusLost(java.awt.event.FocusEvent)
+             */
+            @Override
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                if (searchField.getText().equals("")) {
+                    searchField.setText(_("Search"));
+                }
+            }
+        });
+
+        searchField.addKeyListener(new java.awt.event.KeyAdapter() {
+            /*
+             * (non-Javadoc)
+             * 
+             * @see
+             * java.awt.event.KeyAdapter#keyReleased(java.awt.event.KeyEvent)
+             */
+            @Override
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                String text = searchField.getText();
+                System.out.println(text);
+
+                if (text.length() == 0) {
+                    sorter.setRowFilter(null);
+                } else {
+                    sorter.setRowFilter(RowFilter.regexFilter(searchField
+                        .getText()));
+                }
+
+            }
+        });
     }
 
     /**
