@@ -43,10 +43,8 @@ public class ViewerDeleteAction extends AbstractAction {
         ViewerTab tab = (ViewerTab) UI.getInstance().getCurrentTab();
 
         if (tab.getTable().getSelectedRow() > -1) {
-            int[] rows = tab.getTable().getSelectedRows();
-
             String confirmMsg = _("Do you really want to delete this entry?");
-            if (rows.length > 1) {
+            if (tab.getTable().getSelectedRowCount() > 1) {
                 confirmMsg = _("Do you really want to delete the selected entries?");
             }
 
@@ -55,13 +53,18 @@ public class ViewerDeleteAction extends AbstractAction {
 
             if (ret == JOptionPane.YES_OPTION) {
                 try {
-                    for (int row : rows) {
-                        int index = tab.getTable().convertRowIndexToModel(row);
+                    int selectedRow = tab.getTable().getSelectedRow();
+
+                    while (selectedRow >= 0) {
+                        int index = tab.getTable().convertRowIndexToModel(
+                            selectedRow);
 
                         AbstractModel model = tab.getTableModel().getModel(
                             index);
 
                         model.remove();
+
+                        selectedRow = tab.getTable().getSelectedRow();
                     }
                 } catch (AdoHiveException e1) {
                     UI
