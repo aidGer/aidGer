@@ -6,7 +6,7 @@ all:
 
 install:
 	msgcat --properties-output lang/de.po -o lang/de.properties
-	cp lang/*.properties ~/.config/aidGer/lang/
+	cp lang/*.properties src/de/aidger/lang/
 	
 
 
