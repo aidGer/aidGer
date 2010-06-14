@@ -45,8 +45,7 @@ public abstract class AbstractModel<T> extends Observable implements
     /**
      * Used to cache the AdoHiveManagers after getting them the first time.
      */
-    protected static Map<String, IAdoHiveManager> managers =
-        new HashMap<String, IAdoHiveManager>();
+    protected static Map<String, IAdoHiveManager> managers = new HashMap<String, IAdoHiveManager>();
 
     /**
      * Array containing all validators for that specific model.
@@ -61,8 +60,7 @@ public abstract class AbstractModel<T> extends Observable implements
     /**
      * Map of errors for specific fields.
      */
-    protected Map<String, List<String>> fieldErrors = 
-            new HashMap<String, List<String>>();
+    protected Map<String, List<String>> fieldErrors = new HashMap<String, List<String>>();
 
     /**
      * Should the model first be removed before saveing. Needed for example for
@@ -171,7 +169,8 @@ public abstract class AbstractModel<T> extends Observable implements
         if (!doValidate()) {
             return false;
         } else if (!errors.isEmpty()) {
-            Logger.debug(_("The model was not saved because the error list is not empty."));
+            Logger
+                .debug(_("The model was not saved because the error list is not empty."));
             return false;
         }
 
@@ -179,32 +178,33 @@ public abstract class AbstractModel<T> extends Observable implements
         IAdoHiveManager mgr = getManager();
         if (isNew) {
             Logger.info(MessageFormat.format(_("Adding model: {0}"),
-                    new Object[] { toString() }));
+                new Object[] { toString() }));
 
             mgr.add(this);
             setNew(false);
         } else if (updatePKs) {
             Logger.info(MessageFormat.format(_("Updating PKs for model: {0}"),
-                    new Object[] { toString() }));
+                new Object[] { toString() }));
 
             mgr.remove(pkModel);
             mgr.add(this);
             pkModel = (AbstractModel<T>) clone();
         } else {
             Logger.info(MessageFormat.format(_("Updating model: {0}"),
-                    new Object[] { toString() }));
+                new Object[] { toString() }));
 
             mgr.update(this);
         }
 
-        notifyObservers((Boolean) true);
+        setChanged();
+        notifyObservers(true);
 
         return true;
     }
 
     /**
      * Remove the current model from the database.
-     *
+     * 
      * @return False if the model is new or doesn't validate
      * @throws AdoHiveException
      */
@@ -217,7 +217,7 @@ public abstract class AbstractModel<T> extends Observable implements
         /* Check if there is a custom validation function */
         try {
             java.lang.reflect.Method m = getClass().getDeclaredMethod(
-                    "validateOnRemove");
+                "validateOnRemove");
             if (!(Boolean) m.invoke(this, new Object[0])) {
                 return false;
             }
@@ -225,10 +225,11 @@ public abstract class AbstractModel<T> extends Observable implements
         }
 
         Logger.info(MessageFormat.format(_("Removing model: {0}"),
-                new Object[] { toString() }));
+            new Object[] { toString() }));
 
         getManager().remove(this);
-        notifyObservers((Boolean) false);
+        setChanged();
+        notifyObservers(false);
 
         setNew(true);
 
@@ -321,7 +322,7 @@ public abstract class AbstractModel<T> extends Observable implements
      */
     public void validateEmailAddress(String member) {
         validators.add(new FormatValidator(this, new String[] { member },
-                "^[\\w\\-]([\\.\\w])+[\\w]+@([\\w\\-]+\\.)+[A-Z]{2,4}$", false));
+            "^[\\w\\-]([\\.\\w])+[\\w]+@([\\w\\-]+\\.)+[A-Z]{2,4}$", false));
     }
 
     /**
@@ -350,7 +351,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Add an existance validator to the model.
-     *
+     * 
      * @param members
      *            The name of the member variables to validate
      * @param type
@@ -362,7 +363,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Add an format validator to the model.
-     *
+     * 
      * @param members
      *            The name of the member variables to validate
      * @param format
@@ -384,7 +385,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
     /**
      * Set the unique id of the assistant.
-     *
+     * 
      * <b>!!! THIS IS FOR INTERNAL ADOHIVE USAGE ONLY !!!</b>
      * 
      * @param id
@@ -451,18 +452,17 @@ public abstract class AbstractModel<T> extends Observable implements
     @SuppressWarnings("unchecked")
     protected IAdoHiveManager getManager() {
         String classname = getClass().getSimpleName();
-        if (!managers.containsKey(classname) ||
-                managers.get(classname) == null) {
+        if (!managers.containsKey(classname) || managers.get(classname) == null) {
             /* Try to get the correct manager from the AdoHiveController */
             try {
                 java.lang.reflect.Method m = AdoHiveController.class
-                        .getMethod("get" + classname + "Manager");
+                    .getMethod("get" + classname + "Manager");
                 managers.put(classname, (IAdoHiveManager) m.invoke(
-                        AdoHiveController.getInstance(), new Object[0]));
+                    AdoHiveController.getInstance(), new Object[0]));
             } catch (Exception ex) {
                 Logger.error(MessageFormat.format(
-                                _("Could not get manager for class \"{0}\". Error: {1}"),
-                                new Object[] { classname, ex.getMessage() }));
+                    _("Could not get manager for class \"{0}\". Error: {1}"),
+                    new Object[] { classname, ex.getMessage() }));
             }
         }
 
@@ -486,7 +486,7 @@ public abstract class AbstractModel<T> extends Observable implements
         /* Check if the model got a validate() function */
         try {
             java.lang.reflect.Method m = getClass().getDeclaredMethod(
-                    "validate");
+                "validate");
             if (!(Boolean) m.invoke(this, new Object[0])) {
                 ret = false;
             }
