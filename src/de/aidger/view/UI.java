@@ -527,8 +527,29 @@ public final class UI extends JFrame {
         tpBudgetCheck.add(budgetFilter);
 
         TaskPane tpQuickSettings = new TaskPane(_("Quick Settings"));
-        tpQuickSettings.add(new JCheckBox(_("Remember my tabs")));
-        tpQuickSettings.add(new JCheckBox(_("Open reports instantly")));
+
+        JCheckBox remember = new JCheckBox(_("Remember my tabs"));
+        remember.setSelected(Boolean.valueOf(Runtime.getInstance().getOption(
+                "auto-save")));
+        remember.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                Runtime.getInstance().setOption("auto-save", 
+                        Boolean.toString(((JCheckBox) e.getSource()).isSelected()));
+            }
+        });
+
+        JCheckBox open = new JCheckBox(_("Open reports instantly"));
+        open.setSelected(Boolean.valueOf(Runtime.getInstance().getOption(
+                "auto-open")));
+        open.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                Runtime.getInstance().setOption("auto-open",
+                        Boolean.toString(((JCheckBox) e.getSource()).isSelected()));
+            }
+        });
+
+        tpQuickSettings.add(remember);
+        tpQuickSettings.add(open);
 
         tpc.addTask(tpMasterData);
         tpc.addTask(tpEmployments);
