@@ -50,16 +50,20 @@ public class ReportGenerateAction extends AbstractAction {
                 tab.clearPanel();
                 Vector semesters = new BalanceHelper().getSemesters();
                 for (int i = 0; i < semesters.size(); i++) {
-                    BalanceReportSemesterCreator fullBalanceCreator = null;
-                    try {
-                        fullBalanceCreator = new BalanceReportSemesterCreator(
-                            (String) semesters.get(i), tab.getBalanceFilter());
-                    } catch (AdoHiveException e1) {
-                        // TODO Auto-generated catch block
-                        e1.printStackTrace();
+                    if (new BalanceHelper().courseExists((String) semesters
+                        .get(i), tab.getBalanceFilter())) {
+                        BalanceReportSemesterCreator fullBalanceCreator = null;
+                        try {
+                            fullBalanceCreator = new BalanceReportSemesterCreator(
+                                (String) semesters.get(i), tab
+                                    .getBalanceFilter());
+                        } catch (AdoHiveException e1) {
+                            // TODO Auto-generated catch block
+                            e1.printStackTrace();
+                        }
+                        tab.addPanel(new BalanceReportSemesterPanel(
+                            (String) semesters.get(i), fullBalanceCreator));
                     }
-                    tab.addPanel(new BalanceReportSemesterPanel(
-                        (String) semesters.get(i), fullBalanceCreator));
                 }
                 break;
             case 2:
