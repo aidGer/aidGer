@@ -163,6 +163,10 @@ public class SemesterBalanceCreatorTest {
             assertTrue(balanceCreator.addSemester("" + semesters.get(i),
                 new BalanceFilter()));
         }
+
+        String testSemester = "Test semeser";
+        assertTrue(!balanceCreator.addSemester(testSemester,
+            new BalanceFilter()));
     }
 
     /**

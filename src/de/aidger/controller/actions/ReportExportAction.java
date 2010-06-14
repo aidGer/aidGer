@@ -100,7 +100,7 @@ public class ReportExportAction extends AbstractAction {
         } while (!exit);
 
         new BalanceReportConverter(file, tab.getType(), tab.getYear(), tab
-            .getFilters());
+            .getBalanceFilter());
     }
 
 }
