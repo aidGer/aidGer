@@ -1,6 +1,4 @@
-utils/pdf/ActivityReportConverter.java
 utils/pdf/BalanceReportConverter.java
-utils/pdf/ReportConverter.java
 utils/reports/BalanceHelper.java
 utils/Configuration.java
 utils/Logger.java

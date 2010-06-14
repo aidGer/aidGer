@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-12 20:38+0200\n"
+"POT-Creation-Date: 2010-06-14 00:17+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -13,15 +13,15 @@ msgstr ""
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: utils/pdf/BalanceReportConverter.java:118
+#: utils/pdf/BalanceReportConverter.java:144
 msgid "Balance Report"
 msgstr "Bilanzbericht"
 
-#: utils/pdf/BalanceReportConverter.java:124
+#: utils/pdf/BalanceReportConverter.java:150
 msgid "Author"
 msgstr "Autor"
 
-#: utils/pdf/BalanceReportConverter.java:160
+#: utils/pdf/BalanceReportConverter.java:184
 #: view/tabs/CourseViewerTab.java:174
 #: view/tabs/CourseViewerTab.java:213
 #: view/forms/CourseEditorForm.java:202
@@ -30,14 +30,14 @@ msgstr "Autor"
 msgid "Semester"
 msgstr "Semester"
 
-#: utils/pdf/BalanceReportConverter.java:286
+#: utils/pdf/BalanceReportConverter.java:307
 #: view/tabs/CourseViewerTab.java:172
 #: view/tabs/CourseViewerTab.java:212
 #: view/reports/BalanceReportGroupPanel.java:24
 msgid "Title"
 msgstr "Titel"
 
-#: utils/pdf/BalanceReportConverter.java:286
+#: utils/pdf/BalanceReportConverter.java:307
 #: view/tabs/CourseViewerTab.java:88
 #: view/tabs/CourseViewerTab.java:123
 #: view/forms/CourseEditorForm.java:302
@@ -46,7 +46,7 @@ msgstr "Titel"
 msgid "Part"
 msgstr "Teil"
 
-#: utils/pdf/BalanceReportConverter.java:286
+#: utils/pdf/BalanceReportConverter.java:307
 #: view/tabs/CourseViewerTab.java:176
 #: view/tabs/CourseViewerTab.java:214
 #: view/forms/CourseEditorForm.java:210
@@ -55,29 +55,29 @@ msgstr "Teil"
 msgid "Lecturer"
 msgstr "Dozent"
 
-#: utils/pdf/BalanceReportConverter.java:287
+#: utils/pdf/BalanceReportConverter.java:308
 #: view/forms/CourseEditorForm.java:234
 #: view/models/CourseTableModel.java:24
 #: view/reports/BalanceReportGroupPanel.java:25
 msgid "Target Audience"
 msgstr "Zielpublikum"
 
-#: utils/pdf/BalanceReportConverter.java:287
+#: utils/pdf/BalanceReportConverter.java:308
 #: view/reports/BalanceReportGroupPanel.java:25
 msgid "Planned AWS"
 msgstr "Eingeplante HKS"
 
-#: utils/pdf/BalanceReportConverter.java:287
+#: utils/pdf/BalanceReportConverter.java:309
 #: view/reports/BalanceReportGroupPanel.java:25
 msgid "Basic needed AWS"
 msgstr "HKS Grundbedarf"
 
-#: utils/pdf/BalanceReportConverter.java:288
+#: utils/pdf/BalanceReportConverter.java:309
 #: view/reports/BalanceReportGroupPanel.java:26
 msgid "Budget costs from student fees"
 msgstr "Plankosten aus Studiengebühren"
 
-#: utils/pdf/BalanceReportConverter.java:289
+#: utils/pdf/BalanceReportConverter.java:310
 #: view/reports/BalanceReportGroupPanel.java:27
 msgid "Budget costs from resources"
 msgstr "Plankosten aus Haushaltsmitteln"
@@ -106,12 +106,12 @@ msgstr "Aktualisiere PKs für Model: {0}"
 msgid "Updating model: {0}"
 msgstr "Update Model: {0}"
 
-#: model/AbstractModel.java:213
+#: model/AbstractModel.java:227
 #, java-format
 msgid "Removing model: {0}"
 msgstr "Entferne Model: {0}"
 
-#: model/AbstractModel.java:450
+#: model/AbstractModel.java:465
 #, java-format
 msgid "Could not get manager for class \"{0}\". Error: {1}"
 msgstr "Konnte Manager für Klasse \"{0}\" nicht finden. Fehler: {1}"
@@ -152,25 +152,45 @@ msgstr "Standardfehler"
 msgid "has to be bigger than 0"
 msgstr "muss größer als 0 sein"
 
-#: model/models/Contract.java:147
+#: model/models/Course.java:228
+msgid "Course is still linked to an Activity."
+msgstr "Es besteht noch eine Verbindung zwischen der Veranstaltung und einer Aktivität"
+
+#: model/models/Course.java:232
+msgid "Course is still linked to an Employment"
+msgstr "Es besteht noch eine Verbindung zwischen der Veranstaltung und einer Beschäftigung"
+
+#: model/models/Contract.java:149
 #: model/models/Activity.java:176
 #: model/models/Activity.java:180
 msgid "is too long"
 msgstr "ist zu lang"
 
-#: model/models/FinancialCategory.java:121
+#: model/models/Assistant.java:130
+msgid "Assistant is still linked to an Activity"
+msgstr "Es besteht noch eine Verbindung zwischen der Hilfskraft und einer Aktivität"
+
+#: model/models/Assistant.java:134
+msgid "Assistant is still linked to an Employment"
+msgstr "Es besteht noch eine Verbindung zwischen der Hilfskraft und einer Beschäftigung"
+
+#: model/models/FinancialCategory.java:123
 #: model/models/HourlyWage.java:129
 #: model/models/Employment.java:193
 msgid "is an incorrect year"
 msgstr "ist ein ungültiges Jahr"
 
-#: model/models/FinancialCategory.java:127
+#: model/models/FinancialCategory.java:129
 msgid "can't be zero."
 msgstr "kann nicht 0 sein."
 
-#: model/models/FinancialCategory.java:134
+#: model/models/FinancialCategory.java:136
 msgid "has to have a length of 8"
 msgstr "muss eine Länge von 8 haben"
+
+#: model/models/FinancialCategory.java:155
+msgid "Financial Category is still linked to a Course."
+msgstr "Es besteht noch eine Verbindung zwischen der Finanzkategorie und einer Veranstaltung"
 
 #: model/models/HourlyWage.java:133
 #: model/models/Employment.java:197
@@ -181,11 +201,11 @@ msgstr "ist ein ungültiger Monat"
 msgid "has to be positive"
 msgstr "muss positiv sein"
 
-#: model/Runtime.java:151
+#: model/Runtime.java:122
 msgid "Only one instance of aidGer can be run at a time."
 msgstr "Nur eine Instanz von aidGer darf zur selben Zeit laufen."
 
-#: model/Runtime.java:249
+#: model/Runtime.java:230
 msgid "Couldn't create lockfile"
 msgstr "Konnte Lockdatei nicht erstellen"
 
@@ -334,31 +354,31 @@ msgstr "Stammdaten"
 
 #: view/tabs/ViewerTab.java:347
 #: view/tabs/ViewerTab.java:365
-#: controller/actions/ViewerDetailViewAction.java:31
+#: controller/actions/ViewerDetailViewAction.java:32
 msgid "View"
 msgstr "Anzeigen"
 
 #: view/tabs/ViewerTab.java:350
 #: view/tabs/ViewerTab.java:372
-#: controller/actions/ViewerEditAction.java:26
+#: controller/actions/ViewerEditAction.java:27
 msgid "Edit"
 msgstr "Bearbeiten"
 
 #: view/tabs/ViewerTab.java:353
 #: view/tabs/ViewerTab.java:386
-#: controller/actions/ViewerDeleteAction.java:28
+#: controller/actions/ViewerDeleteAction.java:29
 msgid "Delete"
 msgstr "Löschen"
 
 #: view/tabs/ViewerTab.java:356
 #: view/tabs/CourseViewerTab.java:309
-#: view/UI.java:483
+#: view/UI.java:486
 #: controller/actions/ViewerActivitiesAction.java:22
 msgid "Activities"
 msgstr "Vorgänge"
 
 #: view/tabs/ViewerTab.java:379
-#: controller/actions/ViewerAddAction.java:26
+#: controller/actions/ViewerAddAction.java:27
 msgid "Add"
 msgstr "Hinzufügen"
 
@@ -428,140 +448,161 @@ msgstr "Stundenlohn"
 msgid "Welcome"
 msgstr "Willkommen"
 
-#: view/UI.java:195
+#: view/UI.java:199
 msgid "Error"
 msgstr "Fehler"
 
-#: view/UI.java:220
+#: view/UI.java:224
 #, java-format
 msgid "Adding new tab \"{0}\" at position {1}"
 msgstr "Neuer Tab \"{0}\" an die {1}. Stelle hinzugefügt"
 
-#: view/UI.java:263
+#: view/UI.java:267
 #, java-format
 msgid "Removing {0}. tab"
 msgstr "{0}. Tab gelöscht"
 
-#: view/UI.java:341
+#: view/UI.java:345
 #, java-format
 msgid "Setting current tab to \"{0}\""
 msgstr "Momentaner Reiter ist nun \"{0}\""
 
-#: view/UI.java:405
+#: view/UI.java:408
 msgid "File"
 msgstr "Datei"
 
-#: view/UI.java:424
-#: controller/actions/HelpAction.java:24
+#: view/UI.java:427
+#: controller/actions/HelpAction.java:25
 msgid "Help"
 msgstr "Hilfe"
 
-#: view/UI.java:464
+#: view/UI.java:467
 msgid "Master Data Management"
 msgstr "Stammdatenverwaltung"
 
-#: view/UI.java:466
+#: view/UI.java:469
 msgid "Courses"
 msgstr "Veranstaltungen"
 
-#: view/UI.java:467
+#: view/UI.java:470
 msgid "Assistants"
 msgstr "Hilfskräfte"
 
-#: view/UI.java:469
+#: view/UI.java:472
 msgid "Financial Categories"
 msgstr "Finanzkategorien"
 
-#: view/UI.java:471
+#: view/UI.java:474
 msgid "Hourly Wages"
 msgstr "Stundenlöhne"
 
-#: view/UI.java:475
+#: view/UI.java:478
 msgid "Employments"
 msgstr "Beschäftigungen"
 
-#: view/UI.java:477
+#: view/UI.java:480
 msgid "Create new employment"
 msgstr "Neue Beschäftigung anlegen"
 
-#: view/UI.java:479
+#: view/UI.java:482
 msgid "Show all contracts"
 msgstr "Alle Verträge anzeigen"
 
-#: view/UI.java:484
+#: view/UI.java:487
 msgid "Create new activity"
 msgstr "Neuer Vorgang anlegen"
 
-#: view/UI.java:486
-#: view/UI.java:501
+#: view/UI.java:489
+#: view/UI.java:505
+#: view/UI.java:535
 msgid "Export"
 msgstr "Exportieren"
 
-#: view/UI.java:489
+#: view/UI.java:492
 msgid "Reports"
 msgstr "Berichte"
 
-#: view/UI.java:491
+#: view/UI.java:494
+msgid "Full Balance"
+msgstr "Gesamtbilanz"
+
+#: view/UI.java:494
 msgid "Annual Balance"
 msgstr "Jahresbilanz"
 
-#: view/UI.java:491
+#: view/UI.java:495
 msgid "Semester Balance"
 msgstr "Semesterbilanz"
 
-#: view/UI.java:492
+#: view/UI.java:495
 msgid "Partial Balance"
 msgstr "Teilbilanz"
 
-#: view/UI.java:492
+#: view/UI.java:496
 msgid "Activity Report"
 msgstr "Tätigkeitsnachweis"
 
-#: view/UI.java:492
+#: view/UI.java:496
 msgid "Protocol"
 msgstr "Vorgangsprotokoll"
 
-#: view/UI.java:562
+#: view/UI.java:525
+msgid "PDF files"
+msgstr "PDF Dateien"
+
+#: view/UI.java:542
+msgid "Please choose a file."
+msgstr "Bitte wählen sie eine Datei aus."
+
+#: view/UI.java:548
+msgid "Are you sure you want to overwrite the file?"
+msgstr "Möchten Sie die Datei wirklich überschreiben?"
+
+#: view/UI.java:549
+msgid "Overwrite file?"
+msgstr "Datei überschreiben?"
+
+#: view/UI.java:644
 msgid "Controlling"
 msgstr "Controlling"
 
-#: view/UI.java:564
+#: view/UI.java:646
 msgid "Choose a month"
 msgstr "Wähle einen Monat"
 
-#: view/UI.java:569
+#: view/UI.java:651
 msgid "Budget Check"
 msgstr "Budgetprüfung"
 
-#: view/UI.java:571
+#: view/UI.java:653
 msgid "Add Filter"
 msgstr "Filter hinzufügen"
 
-#: view/UI.java:576
+#: view/UI.java:658
 msgid "Quick Settings"
 msgstr "Schnelleinstellungen"
 
-#: view/UI.java:577
+#: view/UI.java:659
 msgid "Remember my tabs"
 msgstr "Merke meine Reiter"
 
-#: view/UI.java:578
+#: view/UI.java:660
 msgid "Open reports instantly"
 msgstr "Berichte sofort öffnen"
 
-#: view/UI.java:622
+#: view/UI.java:705
 msgid "Open a new tab"
 msgstr "Öffnet einen neuen Tab"
 
-#: view/UI.java:654
+#: view/UI.java:737
 msgid "Ready"
 msgstr "Bereit"
 
-#: view/UI.java:720
+#: view/UI.java:804
 msgid "Couldn't find the correct constructor"
 msgstr "Konnte den korrekten Konstruktor nicht finden"
 
-#: view/UI.java:743
+#: view/UI.java:826
 #, java-format
 msgid "Could not find tab class {0}"
 msgstr "Die Reiterklasse \"{0}\" konnte nicht gefunden werden."
@@ -670,7 +711,7 @@ msgid "Month"
 msgstr "Monat"
 
 #: view/SettingsDialog.java:159
-#: controller/actions/SettingsAction.java:27
+#: controller/actions/SettingsAction.java:28
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -707,11 +748,11 @@ msgstr "Anzahl der Vorgänge die in Detailansichten angezeigt werden"
 msgid "Language:"
 msgstr "Sprache:"
 
-#: controller/actions/HelpAction.java:27
+#: controller/actions/HelpAction.java:28
 msgid "Display the help"
 msgstr "Hilfe anzeigen"
 
-#: controller/actions/SettingsAction.java:30
+#: controller/actions/SettingsAction.java:31
 msgid "Display program settings"
 msgstr "Programmeinstellungen anzeigen"
 
@@ -751,24 +792,24 @@ msgstr "Keine oder falsche Sprache ausgewählt."
 msgid "The number of activities needs to be bigger than 0."
 msgstr "Die Anzahl an Aktivitäten muss größer als 0 sein."
 
-#: controller/actions/AboutAction.java:27
+#: controller/actions/AboutAction.java:28
 msgid "About"
 msgstr "Über"
 
-#: controller/actions/AboutAction.java:30
+#: controller/actions/AboutAction.java:31
 msgid "Show about informations"
 msgstr "Programminformationen anzeigen"
 
-#: controller/actions/ViewerEditAction.java:47
-#: controller/actions/ViewerDeleteAction.java:62
+#: controller/actions/ViewerEditAction.java:51
+#: controller/actions/ViewerDeleteAction.java:65
 msgid "Please select an entry from the table."
 msgstr "Bitte markieren Sie zunächst einen Eintrag aus der Tabelle."
 
-#: controller/actions/ViewerDeleteAction.java:44
+#: controller/actions/ViewerDeleteAction.java:47
 msgid "Do you really want to delete this entry?"
 msgstr "Möchten Sie den Eintrag wirklich löschen?"
 
-#: controller/actions/ViewerDeleteAction.java:58
+#: controller/actions/ViewerDeleteAction.java:61
 msgid "Could not remove model from database."
 msgstr "Das Model konnte nicht aus der Datenbank gelöscht werden."
 
@@ -780,23 +821,23 @@ msgstr "Homepage"
 msgid "Open homepage"
 msgstr "Homepage öffnen"
 
-#: controller/actions/PrintAction.java:32
+#: controller/actions/PrintAction.java:33
 msgid "Print"
 msgstr "Drucken"
 
-#: controller/actions/PrintAction.java:35
+#: controller/actions/PrintAction.java:36
 msgid "Print program contents"
 msgstr "Programminhalt drucken"
 
-#: controller/actions/PrintAction.java:51
+#: controller/actions/PrintAction.java:54
 msgid "Print current tab"
 msgstr "Momentanen Reiter ausdrucken"
 
-#: controller/actions/ExitAction.java:24
+#: controller/actions/ExitAction.java:25
 msgid "Quit"
 msgstr "Beenden"
 
-#: controller/actions/ExitAction.java:27
+#: controller/actions/ExitAction.java:28
 msgid "Quit the program"
 msgstr "Programm beenden"
 

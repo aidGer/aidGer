@@ -73,6 +73,22 @@ public class EditorTab extends Tab {
     }
 
     /**
+     * Return a parseable string that lets the UI initalise the tab.
+     *
+     * @return A parseable string
+     */
+    @Override
+    public String toString() {
+        String ret = getClass().getName() + "<" +
+                MasterDataType.class.getName() + "@"  + type;
+        if (model != null) {
+            ret += "<" + model.getClass().getName() + "@" + model.getId();
+        }
+
+        return ret;
+    }
+
+    /**
      * Initializes the components and the button actions.
      */
     private void init() {
