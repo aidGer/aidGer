@@ -19,6 +19,7 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.reports.BalanceHelper;
+import de.aidger.view.tabs.BalanceViewerTab;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
@@ -131,7 +132,7 @@ public class AnnualBalanceCreatorTest {
     @Test
     public void testConstructor() {
         System.out.println("Constructor");
-        balanceCreator = new AnnualBalanceCreator();
+        balanceCreator = new AnnualBalanceCreator(new BalanceViewerTab(1));
 
         assertNotNull(balanceCreator);
     }
@@ -145,7 +146,7 @@ public class AnnualBalanceCreatorTest {
     public void testAddYear() throws NumberFormatException {
         System.out.println("addYear()");
 
-        balanceCreator = new AnnualBalanceCreator();
+        balanceCreator = new AnnualBalanceCreator(new BalanceViewerTab(1));
 
         assertNotNull(balanceCreator);
 
@@ -196,7 +197,7 @@ public class AnnualBalanceCreatorTest {
     public void testGetViewerTab() {
         System.out.println("getViewerTab()");
 
-        balanceCreator = new AnnualBalanceCreator();
+        balanceCreator = new AnnualBalanceCreator(new BalanceViewerTab(1));
 
         assertNotNull(balanceCreator.getViewerTab());
     }

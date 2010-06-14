@@ -18,6 +18,7 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.reports.BalanceHelper;
+import de.aidger.view.tabs.BalanceViewerTab;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
@@ -130,7 +131,7 @@ public class SemesterBalanceCreatorTest {
     public void testConstructor() {
         System.out.println("Constructor/addSemester()");
 
-        balanceCreator = new SemesterBalanceCreator();
+        balanceCreator = new SemesterBalanceCreator(new BalanceViewerTab(1));
 
         assertNotNull(balanceCreator);
     }
@@ -142,7 +143,7 @@ public class SemesterBalanceCreatorTest {
      */
     @Test
     public void testGetSemester() {
-        balanceCreator = new SemesterBalanceCreator();
+        balanceCreator = new SemesterBalanceCreator(new BalanceViewerTab(1));
 
         assertNotNull(balanceCreator);
 
@@ -160,7 +161,7 @@ public class SemesterBalanceCreatorTest {
     public void testGetViewerTab() {
         System.out.println("getViewerTab()");
 
-        balanceCreator = new SemesterBalanceCreator();
+        balanceCreator = new SemesterBalanceCreator(new BalanceViewerTab(1));
 
         assertNotNull(balanceCreator.getViewerTab());
     }
