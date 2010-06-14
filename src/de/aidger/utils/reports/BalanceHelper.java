@@ -199,7 +199,6 @@ public class BalanceHelper {
          * Add an empty semester string as the first entry. Relevant for the
          * combo boxes.
          */
-        semesters.add("");
         try {
             courses = (new Course()).getAll();
         } catch (AdoHiveException e) {
@@ -221,54 +220,40 @@ public class BalanceHelper {
      */
     public Vector getYears() {
         Vector semesters = getSemesters();
-        semesters.remove(0);
-        Vector years = new Vector();
-        years.add("");
-        /*
-         * Check for every semester out of the semester vector, if the year of
-         * that semester is already noted and add it if it's not.
-         */
-        for (Object semester : semesters) {
-            char[] semesterChar = ((String) semester).toCharArray();
-            int year = 0;
-            if (Character.isDigit(semesterChar[0])) {
-                // The semester is in the form YYYY.
-                for (int i = 0; i < semesterChar.length; i++) {
-                    year = year + Character.getNumericValue(semesterChar[i])
-                            * (int) Math.pow(10, 3 - i);
-                }
-            } else {
-                // The semester is in the form SSYY or WSYYYY.
-                int i = 0;
-                while (!Character.isDigit(semesterChar[i])) {
-                    i++;
-                }
-                int power = 0;
-                switch (semesterChar.length - i) {
-                case 2:
-                    // The semester is in the form SSYY
-                    year = 2000;
-                    power = 10;
-                    for (int j = i; j < semesterChar.length; j++) {
+        if (semesters.size() > 0) {
+            /*
+             * Only get the years, if there are any valid courses with a
+             * semester.
+             */
+            semesters.remove(0);
+            Vector years = new Vector();
+            /*
+             * Check for every semester out of the semester vector, if the year
+             * of that semester is already noted and add it if it's not.
+             */
+            for (Object semester : semesters) {
+                char[] semesterChar = ((String) semester).toCharArray();
+                int year = 0;
+                if (Character.isDigit(semesterChar[0])) {
+                    // The semester is in the form YYYY.
+                    for (int i = 0; i < semesterChar.length; i++) {
                         year = year
-                                + Character.getNumericValue(semesterChar[j])
-                                * power;
-                        if (power == 10) {
-                            power = 1;
-                        } else {
-                            power = 10;
-                        }
+                                + Character.getNumericValue(semesterChar[i])
+                                * (int) Math.pow(10, 3 - i);
                     }
-                    break;
-                case 4:
-                    /*
-                     * The semester is in the form WSYYYY. Both semester years
-                     * must be checked
-                     */
-                    for (int l = 0; l < 3; l = l + 2) {
+                } else {
+                    // The semester is in the form SSYY or WSYYYY.
+                    int i = 0;
+                    while (!Character.isDigit(semesterChar[i])) {
+                        i++;
+                    }
+                    int power = 0;
+                    switch (semesterChar.length - i) {
+                    case 2:
+                        // The semester is in the form SSYY
                         year = 2000;
                         power = 10;
-                        for (int j = i + l; j < semesterChar.length - (2 - l); j++) {
+                        for (int j = i; j < semesterChar.length; j++) {
                             year = year
                                     + Character
                                         .getNumericValue(semesterChar[j])
@@ -279,33 +264,59 @@ public class BalanceHelper {
                                 power = 10;
                             }
                         }
-                        if (!years.contains(year)) {
-                            years.add(year);
+                        break;
+                    case 4:
+                        /*
+                         * The semester is in the form WSYYYY. Both semester
+                         * years must be checked
+                         */
+                        for (int l = 0; l < 3; l = l + 2) {
+                            year = 2000;
+                            power = 10;
+                            for (int j = i + l; j < semesterChar.length
+                                    - (2 - l); j++) {
+                                year = year
+                                        + Character
+                                            .getNumericValue(semesterChar[j])
+                                        * power;
+                                if (power == 10) {
+                                    power = 1;
+                                } else {
+                                    power = 10;
+                                }
+                            }
+                            if (!years.contains(year)) {
+                                years.add(year);
+                            }
                         }
+                        break;
                     }
-                    break;
+                }
+                if (!years.contains(year)) {
+                    years.add(year);
                 }
             }
-            if (!years.contains(year)) {
-                years.add(year);
-            }
-        }
-        Vector sortedYears = new Vector();
-        sortedYears.add(years.get(0));
-        sortedYears.add(years.get(1));
-        for (int i = 2; i < years.size(); i++) {
-            boolean addedYear = false;
-            for (int j = 1; j < sortedYears.size(); j++) {
-                if ((Integer) years.get(i) <= (Integer) sortedYears.get(j)) {
-                    sortedYears.add(j, years.get(i));
-                    addedYear = true;
-                    break;
+            Vector sortedYears = new Vector();
+            sortedYears.add(years.get(0));
+            sortedYears.add(years.get(1));
+            for (int i = 2; i < years.size(); i++) {
+                boolean addedYear = false;
+                for (int j = 1; j < sortedYears.size(); j++) {
+                    if ((Integer) years.get(i) <= (Integer) sortedYears.get(j)) {
+                        sortedYears.add(j, years.get(i));
+                        addedYear = true;
+                        break;
+                    }
+                }
+                if (!addedYear) {
+                    sortedYears.add(years.get(i));
                 }
             }
-            if (!addedYear) {
-                sortedYears.add(years.get(i));
-            }
+            return sortedYears;
+        } else {
+            Vector years = new Vector();
+            years.add("");
+            return years;
         }
-        return sortedYears;
     }
 }

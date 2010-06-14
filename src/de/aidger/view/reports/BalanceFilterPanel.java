@@ -1,30 +1,35 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * BalanceFilterTab.java
- *
- * Created on 14.06.2010, 17:37:32
- */
-
 package de.aidger.view.reports;
 
 import static de.aidger.utils.Translation._;
 import de.aidger.view.tabs.BalanceViewerTab;
 
 /**
+ * This class contains one filter, with its type and value.
  * 
- * @author Phil
+ * @author aidGer Team
  */
 public class BalanceFilterPanel extends javax.swing.JPanel {
 
+    /**
+     * The balanceViewerTab to which this panel belongs.
+     */
     private BalanceViewerTab balanceViewerTab = null;
 
+    /**
+     * The type of this filter. 0 is group, 1 is lecturer, 2 is target audience.
+     */
     private int type = -1;
 
-    /** Creates new form BalanceFilterTab */
+    /**
+     * Initializes a new BalanceFilterPanel with the given filter.
+     * 
+     * @param type
+     *            The type of the filter.
+     * @param value
+     *            The value of the filter.
+     * @param balanceViewerTab
+     *            The balance viewer tab to which this panel belongs.
+     */
     public BalanceFilterPanel(int type, String value,
             BalanceViewerTab balanceViewerTab) {
         if (this.balanceViewerTab == null) {

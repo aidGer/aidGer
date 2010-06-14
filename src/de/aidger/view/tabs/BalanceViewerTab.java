@@ -77,6 +77,7 @@ public class BalanceViewerTab extends Tab {
             /*
              * This is a semester balance report.
              */
+            yearLabel.setText(_("Semester" + ":"));
             Vector semesters = new BalanceHelper().getSemesters();
             for (Object semester : semesters) {
                 yearComboBox.addItem(semester);
@@ -123,7 +124,7 @@ public class BalanceViewerTab extends Tab {
      * @return The year
      */
     public Object getYear() {
-        return yearComboBox.getSelectedIndex() > 0 ? yearComboBox
+        return yearComboBox.getSelectedIndex() > -1 ? yearComboBox
             .getSelectedItem() : null;
     }
 
@@ -146,12 +147,26 @@ public class BalanceViewerTab extends Tab {
         contentPanel.removeAll();
     }
 
+    /**
+     * Removes the given panel from the filter panel.
+     * 
+     * @param panel
+     *            The panel to remove
+     */
     public void removeFilterPanel(JPanel panel) {
         filterContentPanel.remove(panel);
         filterContentPanel.setVisible(false);
         filterContentPanel.setVisible(true);
     }
 
+    /**
+     * Removes the specified filter from the filters list.
+     * 
+     * @param type
+     *            The type of filter.
+     * @param value
+     *            The value of the filter.
+     */
     public void removeFilter(int type, String value) {
         switch (type) {
         case 0:
@@ -294,7 +309,8 @@ public class BalanceViewerTab extends Tab {
          */
         case 0:
             if (!balanceFilter.getGroups().contains(
-                filterComboBox.getSelectedItem())) {
+                filterComboBox.getSelectedItem())
+                    && filterComboBox.getItemCount() > 0) {
                 balanceFilter.addGroup((String) filterComboBox
                     .getSelectedItem());
                 filterContentPanel.add(new BalanceFilterPanel(0,
@@ -303,7 +319,8 @@ public class BalanceViewerTab extends Tab {
             break;
         case 1:
             if (!balanceFilter.getLecturers().contains(
-                filterComboBox.getSelectedItem())) {
+                filterComboBox.getSelectedItem())
+                    && filterComboBox.getItemCount() > 0) {
                 balanceFilter.addLecturer((String) filterComboBox
                     .getSelectedItem());
                 filterContentPanel.add(new BalanceFilterPanel(1,
@@ -312,7 +329,8 @@ public class BalanceViewerTab extends Tab {
             break;
         case 2:
             if (!balanceFilter.getTargetAudiences().contains(
-                filterComboBox.getSelectedItem())) {
+                filterComboBox.getSelectedItem())
+                    && filterComboBox.getItemCount() > 0) {
                 balanceFilter.addTargetAudience((String) filterComboBox
                     .getSelectedItem());
                 filterContentPanel.add(new BalanceFilterPanel(2,
