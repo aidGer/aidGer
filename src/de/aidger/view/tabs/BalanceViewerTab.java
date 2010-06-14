@@ -92,6 +92,13 @@ public class BalanceViewerTab extends Tab {
     }
 
     /**
+     * Get the filters currently selected.
+     */
+    public BalanceFilter getFilters() {
+        return balanceFilter;
+    }
+
+    /**
      * Get the name of the tab and constructor options if necessary.
      * 
      * @return A string representation of the class

@@ -5,11 +5,11 @@
 
 package de.aidger.controller.actions;
 
-import de.aidger.utils.pdf.BalanceReportConverter;
-import de.aidger.view.UI;
-import de.aidger.view.tabs.BalanceViewerTab;
+import static de.aidger.utils.Translation._;
+
 import java.awt.event.ActionEvent;
 import java.io.File;
+
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ImageIcon;
@@ -17,11 +17,13 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 
-import static de.aidger.utils.Translation._;
+import de.aidger.utils.pdf.BalanceReportConverter;
+import de.aidger.view.UI;
+import de.aidger.view.tabs.BalanceViewerTab;
 
 /**
  * This action generates a report.
- *
+ * 
  * @author aidGer Team
  */
 public class ReportExportAction extends AbstractAction {
@@ -34,18 +36,18 @@ public class ReportExportAction extends AbstractAction {
         putValue(Action.SHORT_DESCRIPTION, _("Export the report to a pdf file"));
 
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/report--arrow.png")));
+            "/de/aidger/view/icons/report--arrow.png")));
     }
 
     /*
      * (non-Javadoc)
-     *
+     * 
      * @see
      * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
      */
     public void actionPerformed(ActionEvent e) {
-        BalanceViewerTab tab = (BalanceViewerTab) UI.getInstance().
-            getCurrentTab();
+        BalanceViewerTab tab = (BalanceViewerTab) UI.getInstance()
+            .getCurrentTab();
 
         JFileChooser fileChooser = new JFileChooser();
         File file;
@@ -65,8 +67,8 @@ public class ReportExportAction extends AbstractAction {
             }
         };
 
-        fileChooser.removeChoosableFileFilter(
-            fileChooser.getAcceptAllFileFilter());
+        fileChooser.removeChoosableFileFilter(fileChooser
+            .getAcceptAllFileFilter());
         fileChooser.addChoosableFileFilter(pdfFilter);
 
         boolean exit = false;
@@ -97,7 +99,8 @@ public class ReportExportAction extends AbstractAction {
             }
         } while (!exit);
 
-        new BalanceReportConverter(file, tab.getType(), tab.getYear());
+        new BalanceReportConverter(file, tab.getType(), tab.getYear(), tab
+            .getFilters());
     }
 
 }

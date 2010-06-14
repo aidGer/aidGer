@@ -23,6 +23,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Course;
 import de.aidger.model.reports.BalanceCourse;
+import de.aidger.model.reports.BalanceFilter;
 import de.aidger.utils.reports.BalanceHelper;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 
@@ -50,6 +51,16 @@ public class BalanceReportConverter {
     private PdfWriter writer = null;
 
     /**
+     * The filters to use for this converter.
+     */
+    private BalanceFilter filters = null;
+
+    /**
+     * The balance helper used to filter the courses for this converter.
+     */
+    private BalanceHelper balanceHelper = null;
+
+    /**
      * Initializes this BalanceReportConverter with a given path and a name.
      * 
      * @param path
@@ -57,9 +68,16 @@ public class BalanceReportConverter {
      * @param name
      *            The desired name of the document.
      */
-    public BalanceReportConverter(File file, int index, Object semester) {
+    public BalanceReportConverter(File file, int index, Object semester,
+            BalanceFilter filters) {
         if (document == null) {
             document = new Document(PageSize.A4.rotate());
+        }
+        if (this.filters == null) {
+            this.filters = filters;
+        }
+        if (balanceHelper == null) {
+            balanceHelper = new BalanceHelper();
         }
         file = checkExtension(file);
         makeNewDocument(file);
@@ -203,7 +221,9 @@ public class BalanceReportConverter {
              */
             List<ICourse> courses = null;
             courses = (new Course()).getAll();
-            for (ICourse course : courses) {
+            List<ICourse> filteredCourses = balanceHelper.filterCourses(
+                courses, filters);
+            for (ICourse course : filteredCourses) {
                 if (course.getSemester().equals(semester)) {
                     PdfPTable groupTable = null;
                     if (balanceReportGroups.isEmpty()) {

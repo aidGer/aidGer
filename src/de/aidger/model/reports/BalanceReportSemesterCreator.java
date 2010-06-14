@@ -6,6 +6,7 @@ import java.util.Vector;
 import javax.swing.JPanel;
 
 import de.aidger.model.models.Course;
+import de.aidger.utils.reports.BalanceHelper;
 import de.aidger.view.reports.BalanceReportSemesterPanel;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
@@ -23,6 +24,11 @@ public class BalanceReportSemesterCreator {
      * their groups.
      */
     private final Vector balanceReportGroupCreators = new Vector<Vector>();
+
+    /**
+     * The balance helper used to filter the courses in this creator.
+     */
+    private BalanceHelper balanceHelper = null;
 
     /**
      * The associated BalanceReportSemesterViewer.
@@ -44,6 +50,9 @@ public class BalanceReportSemesterCreator {
                 semester);
 
         }
+        if (balanceHelper == null) {
+            balanceHelper = new BalanceHelper();
+        }
         addGroups(semester, filters);
     }
 
@@ -61,87 +70,9 @@ public class BalanceReportSemesterCreator {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        List<ICourse> filteredOnceCourses = new Vector();
-        List<ICourse> filteredTwiceCourses = new Vector();
-        List<ICourse> filteredTriceCourses = new Vector();
-        /*
-         * Only use courses, which have the filtered criteria.
-         */
-        if (!(filters == null)) {
-            boolean filterExists = false;
-            /*
-             * There are existing filters.
-             */
-            if (!filters.getGroups().isEmpty()) {
-                /*
-                 * There are existing group filters.
-                 */
-                for (Object group : filters.getGroups()) {
-                    for (ICourse course : courses) {
-                        if (!filteredOnceCourses.contains(course)
-                                && course.getGroup().equals(group)) {
-                            /*
-                             * The course is not already in the filtered courses
-                             * and meets the group criteria.
-                             */
-                            filteredOnceCourses.add(course);
-                        }
-                    }
-                }
-                filterExists = true;
-            } else {
-                filteredOnceCourses = courses;
-            }
-            if (!filters.getLecturers().isEmpty()) {
-                /*
-                 * There are existing lecture filters.
-                 */
-                for (Object lecturer : filters.getLecturers()) {
-                    for (ICourse course : filteredOnceCourses) {
-                        if (!filteredTwiceCourses.contains(course)
-                                && course.getLecturer().equals(lecturer)) {
-                            /*
-                             * The course is not already in the filtered courses
-                             * and meets the lecturer criteria.
-                             */
-                            filteredTwiceCourses.add(course);
-                        }
-                    }
-                }
-                filterExists = true;
-            } else {
-                filteredTwiceCourses = filteredOnceCourses;
-            }
-            if (!filters.getTargetAudiences().isEmpty()) {
-                /*
-                 * There are existing target audience filters.
-                 */
-                for (Object lecturer : filters.getTargetAudiences()) {
-                    for (ICourse course : filteredTwiceCourses) {
-                        if (!filteredTriceCourses.contains(course)
-                                && course.getTargetAudience().equals(lecturer)) {
-                            /*
-                             * The course is not already in the filtered courses
-                             * and meets the target audience criteria.
-                             */
-                            filteredTriceCourses.add(course);
-                        }
-                    }
-                }
-                filterExists = true;
-            } else {
-                filteredTriceCourses = filteredTwiceCourses;
-            }
-            if (!filterExists) {
-                filteredTriceCourses = courses;
-            }
-        } else {
-            /*
-             * If there are no filters, use the normal courses.
-             */
-            filteredTriceCourses = courses;
-        }
-        for (ICourse course : filteredTriceCourses) {
+        List<ICourse> filteredCourses = balanceHelper.filterCourses(courses,
+            filters);
+        for (ICourse course : filteredCourses) {
             if (course.getSemester().equals(semester)) {
                 if (balanceReportGroupCreators.isEmpty()) {
                     /*
