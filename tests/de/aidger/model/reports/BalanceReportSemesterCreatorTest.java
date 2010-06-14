@@ -152,12 +152,12 @@ public class BalanceReportSemesterCreatorTest {
         balanceReportSemesterCreator = new BalanceReportSemesterCreator(course
             .getSemester(), null);
 
-        assertNotNull(balanceReportSemesterCreator.getPanel());
+        assertNotNull(balanceReportSemesterCreator.getGroupCreators());
 
         balanceReportSemesterCreator = new BalanceReportSemesterCreator(course
             .getSemester(), balanceFilter);
 
-        assertNotNull(balanceReportSemesterCreator.getPanel());
+        assertNotNull(balanceReportSemesterCreator.getGroupCreators());
 
         balanceFilter.addGroup(course.getGroup());
         balanceFilter.addGroup(course2.getGroup());
@@ -174,6 +174,6 @@ public class BalanceReportSemesterCreatorTest {
         balanceReportSemesterCreator = new BalanceReportSemesterCreator(course
             .getSemester(), balanceFilter);
 
-        assertNotNull(balanceReportSemesterCreator.getPanel());
+        assertNotNull(balanceReportSemesterCreator.getGroupCreators());
     }
 }

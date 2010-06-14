@@ -3,7 +3,7 @@
  */
 package de.aidger.model.reports;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertEquals;
 
 import java.sql.Date;
 
@@ -125,6 +125,6 @@ public class BalanceReportGroupCreatorTest {
     public void testConstructor() {
         balanceReportGroupCreator = new BalanceReportGroupCreator(course);
 
-        assertNotNull(balanceReportGroupCreator.getPanel());
+        assertEquals(1, balanceReportGroupCreator.getBalanceCourses().size());
     }
 }

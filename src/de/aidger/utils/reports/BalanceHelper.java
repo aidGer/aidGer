@@ -296,7 +296,6 @@ public class BalanceHelper {
              * Only get the years, if there are any valid courses with a
              * semester.
              */
-            semesters.remove(0);
             Vector years = new Vector();
             /*
              * Check for every semester out of the semester vector, if the year
@@ -369,10 +368,9 @@ public class BalanceHelper {
             }
             Vector sortedYears = new Vector();
             sortedYears.add(years.get(0));
-            sortedYears.add(years.get(1));
-            for (int i = 2; i < years.size(); i++) {
+            for (int i = 1; i < years.size(); i++) {
                 boolean addedYear = false;
-                for (int j = 1; j < sortedYears.size(); j++) {
+                for (int j = 0; j < sortedYears.size(); j++) {
                     if ((Integer) years.get(i) <= (Integer) sortedYears.get(j)) {
                         sortedYears.add(j, years.get(i));
                         addedYear = true;
@@ -385,8 +383,10 @@ public class BalanceHelper {
             }
             return sortedYears;
         } else {
+            /*
+             * There are no valid courses. Return empty vector.
+             */
             Vector years = new Vector();
-            years.add("");
             return years;
         }
     }
