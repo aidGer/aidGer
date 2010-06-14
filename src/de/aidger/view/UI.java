@@ -576,9 +576,9 @@ public final class UI extends JFrame {
                     switch (reportsComboBox.getSelectedIndex()) {
                     case 2:
                         AnnualBalanceCreator annualBalanceCreator = new AnnualBalanceCreator();
-                        annualBalanceCreator
-                            .addYear((Integer) reportListComboBox
-                                .getSelectedItem());
+                        annualBalanceCreator.addYear(
+                            (Integer) reportListComboBox.getSelectedItem(),
+                            null);
                         addNewTab(annualBalanceCreator.getViewerTab());
                         reportExportBtn.setVisible(true);
                         break;
@@ -586,7 +586,7 @@ public final class UI extends JFrame {
                         SemesterBalanceCreator semesterBalanceCreator = new SemesterBalanceCreator();
                         semesterBalanceCreator
                             .addSemester((String) reportListComboBox
-                                .getSelectedItem());
+                                .getSelectedItem(), null);
                         addNewTab(semesterBalanceCreator.getViewerTab());
                         reportExportBtn.setVisible(true);
                         break;
@@ -603,12 +603,15 @@ public final class UI extends JFrame {
                 JComboBox reportsComboBox = (JComboBox) e.getSource();
                 switch (reportsComboBox.getSelectedIndex()) {
                 case 1:
+                    reportListComboBox.removeAllItems();
                     SemesterBalanceCreator fullBalanceCreator = new SemesterBalanceCreator();
                     Vector years = new BalanceHelper().getSemesters();
                     for (int i = 1; i < years.size(); i++) {
-                        fullBalanceCreator.addSemester((String) years.get(i));
+                        fullBalanceCreator.addSemester((String) years.get(i),
+                            null);
                     }
                     addNewTab(fullBalanceCreator.getViewerTab());
+                    reportListComboBox.setVisible(false);
                     reportExportBtn.setVisible(true);
                     break;
                 case 2:
@@ -630,9 +633,10 @@ public final class UI extends JFrame {
                     reportExportBtn.setVisible(true);
                     break;
                 case 6:
+                    reportListComboBox.removeAllItems();
                     addNewTab(new ProtocolCreator().getViewerTab());
                     reportListComboBox.setVisible(false);
-                    reportExportBtn.setVisible(true);
+                    reportExportBtn.setVisible(false);
                     break;
                 default:
                     reportListComboBox.setVisible(false);

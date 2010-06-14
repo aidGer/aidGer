@@ -4,6 +4,7 @@
 package de.aidger.model.reports;
 
 import de.aidger.view.tabs.BalanceViewerTab;
+import de.aidger.view.tabs.Tab;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
@@ -31,7 +32,7 @@ public class AnnualBalanceCreator extends BalanceCreator {
      *            The year, of which the semester should be added.
      * @throws AdoHiveException
      */
-    public boolean addYear(int year) {
+    public boolean addYear(int year, BalanceFilter filters) {
         // Lose the first two numbers of the year
         int semester = year % 100;
         boolean returnBoolean = false;
@@ -101,11 +102,15 @@ public class AnnualBalanceCreator extends BalanceCreator {
         }
         // Check if the semester has a course and add it if it does.
         for (String currentSemester : semesters) {
-            if (semesterBalanceCreator.addSemester(currentSemester)) {
-                balanceViewerTab.add(semesterBalanceCreator.getViewerTab());
+            if (semesterBalanceCreator.addSemester(currentSemester, filters)) {
                 returnBoolean = true;
             }
         }
         return returnBoolean;
+    }
+
+    @Override
+    public Tab getViewerTab() {
+        return semesterBalanceCreator.getViewerTab();
     }
 }

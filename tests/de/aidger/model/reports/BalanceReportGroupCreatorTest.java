@@ -14,6 +14,7 @@ import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
+import de.aidger.model.models.FinancialCategory;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
@@ -32,6 +33,8 @@ public class BalanceReportGroupCreatorTest {
 
     private Contract contract = null;
 
+    private FinancialCategory financialCategory = null;
+
     private BalanceReportGroupCreator balanceReportGroupCreator = null;
 
     public BalanceReportGroupCreatorTest() {
@@ -47,10 +50,17 @@ public class BalanceReportGroupCreatorTest {
     public void setUp() throws AdoHiveException {
         de.aidger.model.Runtime.getInstance().initialize();
 
+        financialCategory = new FinancialCategory();
+        financialCategory.setBudgetCosts(new int[] { 1000 });
+        financialCategory.setFunds(new int[] { 10000000 });
+        financialCategory.setName("Test Category");
+        financialCategory.setYear((short) 2010);
+        financialCategory.save();
+
         course = new Course();
         course.setAdvisor("Tester");
         course.setDescription("Description");
-        course.setFinancialCategoryId(1);
+        course.setFinancialCategoryId(financialCategory.getId());
         course.setGroup("2");
         course.setLecturer("Test Tester");
         course.setNumberOfGroups(3);

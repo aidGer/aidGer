@@ -17,6 +17,7 @@ import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
+import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.reports.BalanceHelper;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
@@ -36,6 +37,8 @@ public class BalanceReportConverterTest {
 
     private Contract contract = null;
 
+    private FinancialCategory financialCategory = null;
+
     private BalanceReportConverter balanceReportConverter = null;
 
     public BalanceReportConverterTest() {
@@ -51,10 +54,17 @@ public class BalanceReportConverterTest {
     public void setUp() throws AdoHiveException {
         de.aidger.model.Runtime.getInstance().initialize();
 
+        financialCategory = new FinancialCategory();
+        financialCategory.setBudgetCosts(new int[] { 1000 });
+        financialCategory.setFunds(new int[] { 10000000 });
+        financialCategory.setName("Test Category");
+        financialCategory.setYear((short) 2010);
+        financialCategory.save();
+
         course = new Course();
         course.setAdvisor("Tester");
         course.setDescription("Description");
-        course.setFinancialCategoryId(1);
+        course.setFinancialCategoryId(financialCategory.getId());
         course.setGroup("2");
         course.setLecturer("Test Tester");
         course.setNumberOfGroups(3);
@@ -142,38 +152,44 @@ public class BalanceReportConverterTest {
 
         Vector years = new BalanceHelper().getYears();
 
+        File testFile = new File("Test_Report");
+        balanceReportConverter = new BalanceReportConverter(testFile, 1, null);
+
+        File file = new File("Test_Report.pdf");
+        assertTrue(file.exists());
+
         for (int i = 1; i < years.size(); i++) {
-            File testFile = new File("Test_Report");
+            testFile = new File("Test_Report");
             balanceReportConverter = new BalanceReportConverter(testFile, 2,
                 years.get(i));
 
-            File file = new File("Test_Report.pdf");
+            file = new File("Test_Report.pdf");
             assertTrue(file.exists());
         }
 
         for (int i = 1; i < years.size(); i++) {
-            File testFile = new File("Test_Report.pdf");
+            testFile = new File("Test_Report.pdf");
             balanceReportConverter = new BalanceReportConverter(testFile, 2,
                 years.get(i));
 
-            File file = new File("Test_Report.pdf");
+            file = new File("Test_Report.pdf");
             assertTrue(file.exists());
         }
 
         for (int i = 1; i < years.size(); i++) {
-            File testFile = new File("Test_Report.test");
+            testFile = new File("Test_Report.test");
             balanceReportConverter = new BalanceReportConverter(testFile, 2,
                 years.get(i));
 
-            File file = new File("Test_Report.test.pdf");
+            file = new File("Test_Report.test.pdf");
             assertTrue(file.exists());
         }
 
-        File testFile = new File("Test_Report.pdf");
+        testFile = new File("Test_Report.pdf");
         balanceReportConverter = new BalanceReportConverter(testFile, 3, course
             .getSemester());
 
-        File file = new File("Test_Report.pdf");
+        file = new File("Test_Report.pdf");
         assertTrue(file.exists());
     }
 

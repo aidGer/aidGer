@@ -4,6 +4,7 @@
 package de.aidger.model.reports;
 
 import java.util.List;
+import java.util.Vector;
 
 import de.aidger.model.models.Course;
 import de.aidger.view.tabs.BalanceViewerTab;
@@ -29,11 +30,11 @@ public class SemesterBalanceCreator extends BalanceCreator {
      * @param semester
      *            The semester to be added.
      */
-    public boolean addSemester(String semester) {
+    public boolean addSemester(String semester, BalanceFilter filters) {
         try {
-            if (courseExists(semester)) {
-                balanceViewerTab.add(new BalanceReportSemesterCreator(semester)
-                    .getPanel());
+            if (courseExists(semester, filters)) {
+                balanceViewerTab.add(new BalanceReportSemesterCreator(semester,
+                    filters).getPanel());
                 return true;
             }
         } catch (AdoHiveException e) {
@@ -50,7 +51,7 @@ public class SemesterBalanceCreator extends BalanceCreator {
      *            The semester to check
      * @return true if the semester contains one or more courses.
      */
-    private boolean courseExists(String semester) {
+    private boolean courseExists(String semester, BalanceFilter filters) {
         List<ICourse> courses = null;
         try {
             courses = (new Course()).getAll();
@@ -58,8 +59,46 @@ public class SemesterBalanceCreator extends BalanceCreator {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        List<ICourse> filteredCourses = new Vector();
+        if (!(filters == null)) {
+            if (!filters.getGroups().isEmpty()) {
+                for (Object group : filters.getGroups()) {
+                    for (ICourse course : courses) {
+                        if (!filteredCourses.contains(course)) {
+                            if (course.getGroup().equals(group)) {
+                                filteredCourses.add(course);
+                            }
+                        }
+                    }
+                }
+            }
+            if (!filters.getLecturers().isEmpty()) {
+                for (Object lecturer : filters.getLecturers()) {
+                    for (ICourse course : courses) {
+                        if (!filteredCourses.contains(course)) {
+                            if (course.getLecturer().equals(lecturer)) {
+                                filteredCourses.add(course);
+                            }
+                        }
+                    }
+                }
+            }
+            if (!filters.getTargetAudiences().isEmpty()) {
+                for (Object lecturer : filters.getTargetAudiences()) {
+                    for (ICourse course : courses) {
+                        if (!filteredCourses.contains(course)) {
+                            if (course.getTargetAudience().equals(lecturer)) {
+                                filteredCourses.add(course);
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            filteredCourses = courses;
+        }
         // Check for every course, if it belongs to the given semester.
-        for (ICourse course : courses) {
+        for (ICourse course : filteredCourses) {
             if (course.getSemester().equals(semester)) {
                 return true;
             }

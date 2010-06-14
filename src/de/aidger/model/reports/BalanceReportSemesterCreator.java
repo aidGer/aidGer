@@ -37,14 +37,14 @@ public class BalanceReportSemesterCreator {
      *            The semester of which the groups shall be added.
      * @throws AdoHiveException
      */
-    public BalanceReportSemesterCreator(String semester)
+    public BalanceReportSemesterCreator(String semester, BalanceFilter filters)
             throws AdoHiveException {
         if (balanceReportSemesterViewer == null) {
             balanceReportSemesterViewer = new BalanceReportSemesterPanel(
                 semester);
 
         }
-        addGroups(semester);
+        addGroups(semester, filters);
     }
 
     /**
@@ -53,7 +53,7 @@ public class BalanceReportSemesterCreator {
      * @param semester
      *            The semester of which to add the groups.
      */
-    private void addGroups(String semester) {
+    private void addGroups(String semester, BalanceFilter filters) {
         List<ICourse> courses = null;
         try {
             courses = (new Course()).getAll();
@@ -61,7 +61,45 @@ public class BalanceReportSemesterCreator {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        for (ICourse course : courses) {
+        List<ICourse> filteredCourses = new Vector();
+        if (!(filters == null)) {
+            if (!filters.getGroups().isEmpty()) {
+                for (Object group : filters.getGroups()) {
+                    for (ICourse course : courses) {
+                        if (!filteredCourses.contains(course)) {
+                            if (course.getGroup().equals(group)) {
+                                filteredCourses.add(course);
+                            }
+                        }
+                    }
+                }
+            }
+            if (!filters.getLecturers().isEmpty()) {
+                for (Object lecturer : filters.getLecturers()) {
+                    for (ICourse course : courses) {
+                        if (!filteredCourses.contains(course)) {
+                            if (course.getLecturer().equals(lecturer)) {
+                                filteredCourses.add(course);
+                            }
+                        }
+                    }
+                }
+            }
+            if (!filters.getTargetAudiences().isEmpty()) {
+                for (Object lecturer : filters.getTargetAudiences()) {
+                    for (ICourse course : courses) {
+                        if (!filteredCourses.contains(course)) {
+                            if (course.getTargetAudience().equals(lecturer)) {
+                                filteredCourses.add(course);
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            filteredCourses = courses;
+        }
+        for (ICourse course : filteredCourses) {
             if (course.getSemester().equals(semester)) {
                 if (balanceReportGroupCreators.isEmpty()) {
                     createGroup(course);

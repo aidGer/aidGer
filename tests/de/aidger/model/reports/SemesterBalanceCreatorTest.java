@@ -16,6 +16,7 @@ import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
+import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.reports.BalanceHelper;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
@@ -35,6 +36,8 @@ public class SemesterBalanceCreatorTest {
 
     private Contract contract = null;
 
+    private FinancialCategory financialCategory = null;
+
     private SemesterBalanceCreator balanceCreator = null;
 
     private BalanceHelper balanceHelper = null;
@@ -52,10 +55,17 @@ public class SemesterBalanceCreatorTest {
     public void setUp() throws AdoHiveException {
         balanceHelper = new BalanceHelper();
 
+        financialCategory = new FinancialCategory();
+        financialCategory.setBudgetCosts(new int[] { 1000 });
+        financialCategory.setFunds(new int[] { 10000000 });
+        financialCategory.setName("Test Category");
+        financialCategory.setYear((short) 2010);
+        financialCategory.save();
+
         course = new Course();
         course.setAdvisor("Tester");
         course.setDescription("Description");
-        course.setFinancialCategoryId(1);
+        course.setFinancialCategoryId(financialCategory.getId());
         course.setGroup("2");
         course.setLecturer("Test Tester");
         course.setNumberOfGroups(3);
@@ -139,7 +149,7 @@ public class SemesterBalanceCreatorTest {
         Vector semesters = balanceHelper.getSemesters();
 
         for (int i = 1; i < semesters.size(); i++) {
-            assertTrue(balanceCreator.addSemester("" + semesters.get(i)));
+            assertTrue(balanceCreator.addSemester("" + semesters.get(i), null));
         }
     }
 
