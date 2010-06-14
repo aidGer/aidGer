@@ -1,11 +1,12 @@
 package de.aidger.model;
 
+import static de.aidger.utils.Translation._;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.List;
 
-import static de.aidger.utils.Translation._;
 import de.aidger.utils.Configuration;
 import de.aidger.utils.Logger;
 import de.aidger.utils.Translation;
@@ -14,7 +15,7 @@ import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
 
 /**
  * Initializes Configuration and Translation and relays the methods
- * 
+ *
  * @author aidGer Team
  */
 public final class Runtime {
@@ -48,7 +49,7 @@ public final class Runtime {
 
     /**
      * Provides access to an instance of this class.
-     * 
+     *
      * @return Instance of the Runtime class
      */
     public synchronized static Runtime getInstance() {
@@ -94,11 +95,6 @@ public final class Runtime {
             }
             home = confdir;
         } else {
-            /*
-             * We've got no mac so we don't have any idea where to put our
-             * files. Same goes for any other unknown operating systems. That's
-             * why we're simply using the homedir
-             */
             home = System.getProperty("user.home", ".");
         }
 
@@ -126,7 +122,7 @@ public final class Runtime {
 
     /**
      * Get the path the config is saved in.
-     * 
+     *
      * @return The path of the config dir
      */
     public String getConfigPath() {
@@ -142,6 +138,8 @@ public final class Runtime {
         String location = getClass().getProtectionDomain().getCodeSource().
                 getLocation().toString();
         int idx = location.indexOf(":");
+
+        /* Windows uses file:/C:/folder whereas Unix uses file:/folder */
         if (idx != location.lastIndexOf(":")) {
             location = location.substring(idx + 2);
         } else {
@@ -152,7 +150,7 @@ public final class Runtime {
 
     /**
      * Get the value of an option.
-     * 
+     *
      * @param option
      *            The option to get
      * @return The value of the specified option
@@ -163,7 +161,7 @@ public final class Runtime {
 
     /**
      * Get an array of values for the specified option
-     * 
+     *
      * @param option
      *            The option to get
      * @return Array containing all values
@@ -180,7 +178,7 @@ public final class Runtime {
 
     /**
      * Set the value of an option.
-     * 
+     *
      * @param option
      *            The option to set
      * @param value
@@ -192,7 +190,7 @@ public final class Runtime {
 
     /**
      * Sets the value of a property by converting an array into a single string.
-     * 
+     *
      * @param option
      *            The property to change
      * @param values
@@ -205,7 +203,7 @@ public final class Runtime {
     /**
      * Get a list of all languages installed on the system. The format is 0 =>
      * short, 1 => long language name.
-     * 
+     *
      * @return The list of all installed languages
      */
     public List<Pair<String, String>> getLanguages() {

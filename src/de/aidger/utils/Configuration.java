@@ -10,7 +10,7 @@ import java.util.Properties;
 
 /**
  * Gets and sets the settings
- * 
+ *
  * @author aidGer Team
  */
 public final class Configuration {
@@ -27,7 +27,7 @@ public final class Configuration {
 
     /**
      * Initializes this Configuration with a given path.
-     * 
+     *
      * @param path
      *            The path of the configuration.
      */
@@ -40,18 +40,18 @@ public final class Configuration {
     /**
      * Creates the Settings file if it does not exist already, or reads the data
      * from it, if it does.
-     * 
-     * @return If the file was created/read successfully.
+     *
+     * @return True if the file was created/read successfully.
      */
     public boolean initialize() {
         /* Check if the configuration exists and create it if it does not */
-        if (!(new File(file)).exists()) {
+    	File config = new File(file);
+        if (!config.exists()) {
             createFile();
         } else {
             /* Read the settings from the file. */
             try {
-                File inputFile = new File(file);
-                FileInputStream inputStream = new FileInputStream(inputFile);
+                FileInputStream inputStream = new FileInputStream(config);
                 properties.load(inputStream);
                 inputStream.close();
             } catch (Exception e) {
@@ -86,7 +86,7 @@ public final class Configuration {
 
     /**
      * Gets the value of a property.
-     * 
+     *
      * @param option
      *            The property of which to get the value from
      * @return The value of the specified property.
@@ -97,7 +97,7 @@ public final class Configuration {
 
     /**
      * Sets the value of a property.
-     * 
+     *
      * @param option
      *            The property to change.
      * @param value
