@@ -4,10 +4,8 @@
 package de.aidger.model.reports;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
-import java.util.Vector;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -17,17 +15,21 @@ import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
-import de.aidger.utils.reports.BalanceHelper;
-import de.aidger.view.tabs.BalanceViewerTab;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * @author Phil
  * 
  */
-public class SemesterBalanceCreatorTest {
+public class BalanceReportSemesterCreatorTest {
 
     private Course course = null;
+
+    private Course course2 = null;
+
+    private Course course3 = null;
+
+    private Course course4 = null;
 
     private Assistant assistant = null;
 
@@ -39,14 +41,12 @@ public class SemesterBalanceCreatorTest {
 
     private FinancialCategory financialCategory = null;
 
-    private SemesterBalanceCreator balanceCreator = null;
+    private BalanceFilter balanceFilter = null;
 
-    private BalanceViewerTab balanceViewerTab = null;
+    private BalanceReportSemesterCreator balanceReportSemesterCreator = null;
 
-    private BalanceHelper balanceHelper = null;
+    public BalanceReportSemesterCreatorTest() {
 
-    public SemesterBalanceCreatorTest() {
-        de.aidger.model.Runtime.getInstance().initialize();
     }
 
     /**
@@ -56,10 +56,7 @@ public class SemesterBalanceCreatorTest {
      */
     @Before
     public void setUp() throws AdoHiveException {
-        de.aidger.controller.Application.getInstance().initialize();
-        balanceViewerTab = new BalanceViewerTab(1);
-
-        balanceHelper = new BalanceHelper();
+        de.aidger.model.Runtime.getInstance().initialize();
 
         financialCategory = new FinancialCategory();
         financialCategory.setBudgetCosts(new int[] { 1000 });
@@ -82,6 +79,18 @@ public class SemesterBalanceCreatorTest {
         course.setTargetAudience("Testers");
         course.setUnqualifiedWorkingHours(100);
         course.save();
+
+        course2 = course.clone();
+        course2.setLecturer("Test Tester 2");
+        course2.save();
+
+        course3 = course.clone();
+        course3.setTargetAudience("Testers 2");
+        course3.save();
+
+        course4 = course.clone();
+        course4.setGroup("Test group 2");
+        course4.save();
 
         assistant = new Assistant();
         assistant.setEmail("test@example.com");
@@ -127,53 +136,44 @@ public class SemesterBalanceCreatorTest {
         employment2.setYear((short) 1970);
         employment2.setNew(true);
         employment2.save();
+
+        balanceFilter = new BalanceFilter();
     }
 
     /**
-     * Tests the constructor of the SemesterBalanceCreator class.
-     */
-    @Test
-    public void testConstructor() {
-        System.out.println("Constructor");
-
-        balanceCreator = new SemesterBalanceCreator(balanceViewerTab);
-
-        assertNotNull(balanceCreator);
-    }
-
-    /**
-     * Tests the method getSemester() of the SemesterBalanceCreator class.
+     * Tests the constructor of the class BalanceReportSemesterCreator.
      * 
      * @throws AdoHiveException
      */
     @Test
-    public void testGetSemester() {
-        System.out.println("getSemester()");
-        balanceCreator = new SemesterBalanceCreator(balanceViewerTab);
+    public void testConstructor() throws AdoHiveException {
+        System.out.println("Constructor");
 
-        assertNotNull(balanceCreator);
+        balanceReportSemesterCreator = new BalanceReportSemesterCreator(course
+            .getSemester(), null);
 
-        Vector semesters = balanceHelper.getSemesters();
+        assertNotNull(balanceReportSemesterCreator.getPanel());
 
-        for (int i = 1; i < semesters.size(); i++) {
-            assertTrue(balanceCreator.addSemester("" + semesters.get(i), null));
-        }
+        balanceReportSemesterCreator = new BalanceReportSemesterCreator(course
+            .getSemester(), balanceFilter);
 
-        for (int i = 1; i < semesters.size(); i++) {
-            assertTrue(balanceCreator.addSemester("" + semesters.get(i),
-                new BalanceFilter()));
-        }
-    }
+        assertNotNull(balanceReportSemesterCreator.getPanel());
 
-    /**
-     * Tests the method getViewerTab() of the class AnnualBalanceCreator.
-     */
-    @Test
-    public void testGetViewerTab() {
-        System.out.println("getViewerTab()");
+        balanceFilter.addGroup(course.getGroup());
+        balanceFilter.addGroup(course2.getGroup());
+        balanceFilter.addGroup(course3.getGroup());
 
-        balanceCreator = new SemesterBalanceCreator(balanceViewerTab);
+        balanceFilter.addLecturer(course.getLecturer());
+        balanceFilter.addLecturer(course2.getLecturer());
+        balanceFilter.addLecturer(course3.getLecturer());
 
-        assertNotNull(balanceCreator.getViewerTab());
+        balanceFilter.addTargetAudience(course.getTargetAudience());
+        balanceFilter.addTargetAudience(course2.getTargetAudience());
+        balanceFilter.addTargetAudience(course3.getTargetAudience());
+
+        balanceReportSemesterCreator = new BalanceReportSemesterCreator(course
+            .getSemester(), balanceFilter);
+
+        assertNotNull(balanceReportSemesterCreator.getPanel());
     }
 }
