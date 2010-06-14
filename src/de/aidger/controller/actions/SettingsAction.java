@@ -30,7 +30,7 @@ public class SettingsAction extends AbstractAction {
             ActionEvent.CTRL_MASK));
         putValue(Action.SHORT_DESCRIPTION, _("Display program settings"));
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/preferences-desktop.png")));
+                "/de/aidger/view/icons/switch.png")));
     }
 
     /*
