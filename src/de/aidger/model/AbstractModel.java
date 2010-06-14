@@ -196,8 +196,8 @@ public abstract class AbstractModel<T> extends Observable implements
 
             mgr.update(this);
         }
-        setChanged();
-        notifyObservers();
+
+        notifyObservers((Boolean) true);
 
         return true;
     }
@@ -228,8 +228,7 @@ public abstract class AbstractModel<T> extends Observable implements
                 new Object[] { toString() }));
 
         getManager().remove(this);
-        clearChanged();
-        notifyObservers();
+        notifyObservers((Boolean) false);
 
         setNew(true);
 
