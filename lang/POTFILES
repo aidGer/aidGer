@@ -1,5 +1,5 @@
-utils/pdf/BalanceReportConverter.java
 utils/pdf/ProtocolConverter.java
+utils/pdf/BalanceReportConverter.java
 utils/Configuration.java
 utils/Logger.java
 utils/reports/BalanceHelper.java
@@ -37,9 +37,13 @@ view/tabs/DetailViewerTab.java
 view/tabs/WelcomeTab.java
 view/TaskPaneTitleBar.java
 view/UI.java
+view/forms/FinancialCategoryViewerForm.java
+view/forms/AssistantViewerForm.java
+view/forms/CourseViewerForm.java
 view/forms/AssistantEditorForm.java
 view/forms/HourlyWageEditorForm.java
 view/forms/CourseEditorForm.java
+view/forms/HourlyWageViewerForm.java
 view/forms/FinancialCategoryEditorForm.java
 view/reports/BalanceReportGroupPanel.java
 view/reports/BalanceReportSemesterPanel.java
@@ -55,8 +59,11 @@ view/SettingsDialog.java
 view/TaskPaneButton.java
 view/TaskPane.java
 controller/actions/ViewerActivitiesAction.java
+controller/actions/ProtocolExportAction.java
+controller/actions/DetailViewerCancelAction.java
 controller/actions/HelpAction.java
 controller/actions/SettingsAction.java
+controller/actions/DetailViewerEditAction.java
 controller/actions/DialogAbortAction.java
 controller/actions/EditorSaveAction.java
 controller/actions/ReportGenerateAction.java
@@ -70,7 +77,6 @@ controller/actions/ViewerEditAction.java
 controller/actions/ViewerDeleteAction.java
 controller/actions/HomepageAction.java
 controller/actions/ReportExportAction.java
-controller/actions/ProtocolExportAction.java
 controller/actions/PrintAction.java
 controller/actions/ExitAction.java
 controller/ActionRegistry.java

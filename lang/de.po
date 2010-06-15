@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-15 02:52+0200\n"
+"POT-Creation-Date: 2010-06-15 13:20+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
+"Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,16 +13,67 @@ msgstr ""
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
+#: utils/pdf/ProtocolConverter.java:126
+#: view/UI.java:490
+msgid "Activity Protocol"
+msgstr "Vorgangsprotokoll"
+
+#: utils/pdf/ProtocolConverter.java:132
+#: utils/pdf/BalanceReportConverter.java:168
+msgid "Author"
+msgstr "Autor"
+
+#: utils/pdf/ProtocolConverter.java:154
+#: view/tabs/ProtocolViewerTab.java:39
+msgid "Affected assistant"
+msgstr "Betroffene Hilfskraft"
+
+#: utils/pdf/ProtocolConverter.java:155
+#: view/tabs/ProtocolViewerTab.java:39
+msgid "Affected course"
+msgstr "Betroffene Veranstaltung"
+
+#: utils/pdf/ProtocolConverter.java:155
+#: view/tabs/ProtocolViewerTab.java:40
+msgid "Type"
+msgstr "Typ"
+
+#: utils/pdf/ProtocolConverter.java:155
+#: view/tabs/ProtocolViewerTab.java:40
+#: view/forms/HourlyWageEditorForm.java:192
+#: view/forms/HourlyWageViewerForm.java:65
+msgid "Date"
+msgstr "Datum"
+
+#: utils/pdf/ProtocolConverter.java:155
+#: view/tabs/ProtocolViewerTab.java:40
+msgid "Content"
+msgstr "Inhalt"
+
+#: utils/pdf/ProtocolConverter.java:156
+#: view/tabs/ProtocolViewerTab.java:40
+msgid "Sender"
+msgstr "Einsender"
+
+#: utils/pdf/ProtocolConverter.java:156
+#: view/tabs/ProtocolViewerTab.java:41
+msgid "Processor"
+msgstr "Bearbeiter"
+
+#: utils/pdf/ProtocolConverter.java:156
+#: view/tabs/ProtocolViewerTab.java:41
+#: view/forms/CourseViewerForm.java:205
+#: view/forms/CourseEditorForm.java:352
+#: view/models/CourseTableModel.java:28
+msgid "Remark"
+msgstr "Bemerkung"
+
 #: utils/pdf/BalanceReportConverter.java:162
 msgid "Balance Report"
 msgstr "Bilanzbericht"
 
-#: utils/pdf/BalanceReportConverter.java:168
-#: utils/pdf/ProtocolConverter.java:132
-msgid "Author"
-msgstr "Autor"
-
 #: utils/pdf/BalanceReportConverter.java:202
+#: view/forms/CourseViewerForm.java:99
 #: view/forms/CourseEditorForm.java:236
 #: view/reports/BalanceReportSemesterPanel.java:75
 #: view/models/CourseTableModel.java:25
@@ -35,6 +86,7 @@ msgid "Title"
 msgstr "Titel"
 
 #: utils/pdf/BalanceReportConverter.java:319
+#: view/forms/CourseViewerForm.java:189
 #: view/forms/CourseEditorForm.java:336
 #: view/reports/BalanceReportGroupPanel.java:34
 #: view/models/CourseTableModel.java:27
@@ -43,6 +95,7 @@ msgstr "Teil"
 
 #: utils/pdf/BalanceReportConverter.java:319
 #: view/tabs/BalanceViewerTab.java:86
+#: view/forms/CourseViewerForm.java:107
 #: view/forms/CourseEditorForm.java:244
 #: view/reports/BalanceReportGroupPanel.java:34
 #: view/reports/BalanceFilterPanel.java:45
@@ -52,6 +105,7 @@ msgstr "Dozent"
 
 #: utils/pdf/BalanceReportConverter.java:320
 #: view/tabs/BalanceViewerTab.java:87
+#: view/forms/CourseViewerForm.java:131
 #: view/forms/CourseEditorForm.java:268
 #: view/reports/BalanceReportGroupPanel.java:35
 #: view/reports/BalanceFilterPanel.java:48
@@ -81,60 +135,13 @@ msgstr "Plankosten aus Haushaltsmitteln"
 
 #: utils/pdf/BalanceReportConverter.java:332
 #: view/tabs/BalanceViewerTab.java:85
+#: view/forms/CourseViewerForm.java:197
 #: view/forms/CourseEditorForm.java:344
 #: view/reports/BalanceReportGroupPanel.java:98
 #: view/reports/BalanceFilterPanel.java:42
 #: view/models/CourseTableModel.java:27
 msgid "Group"
 msgstr "Gruppe"
-
-#: utils/pdf/ProtocolConverter.java:126
-#: view/UI.java:490
-msgid "Activity Protocol"
-msgstr "Vorgangsprotokoll"
-
-#: utils/pdf/ProtocolConverter.java:154
-#: view/tabs/ProtocolViewerTab.java:39
-msgid "Affected assistant"
-msgstr "Betroffene Hilfskraft"
-
-#: utils/pdf/ProtocolConverter.java:155
-#: view/tabs/ProtocolViewerTab.java:39
-msgid "Affected course"
-msgstr "Betroffene Veranstaltung"
-
-#: utils/pdf/ProtocolConverter.java:155
-#: view/tabs/ProtocolViewerTab.java:40
-msgid "Type"
-msgstr "Typ"
-
-#: utils/pdf/ProtocolConverter.java:155
-#: view/tabs/ProtocolViewerTab.java:40
-#: view/forms/HourlyWageEditorForm.java:192
-msgid "Date"
-msgstr "Datum"
-
-#: utils/pdf/ProtocolConverter.java:155
-#: view/tabs/ProtocolViewerTab.java:40
-msgid "Content"
-msgstr "Inhalt"
-
-#: utils/pdf/ProtocolConverter.java:156
-#: view/tabs/ProtocolViewerTab.java:40
-msgid "Sender"
-msgstr "Einsender"
-
-#: utils/pdf/ProtocolConverter.java:156
-#: view/tabs/ProtocolViewerTab.java:41
-msgid "Processor"
-msgstr "Bearbeiter"
-
-#: utils/pdf/ProtocolConverter.java:156
-#: view/tabs/ProtocolViewerTab.java:41
-#: view/forms/CourseEditorForm.java:352
-#: view/models/CourseTableModel.java:28
-msgid "Remark"
-msgstr "Bemerkung"
 
 #: utils/Configuration.java:85
 #, java-format
@@ -303,6 +310,7 @@ msgstr "Speichern"
 
 #: view/tabs/EditorTab.java:270
 #: view/tabs/DetailViewerTab.java:183
+#: controller/actions/DetailViewerCancelAction.java:27
 #: controller/actions/DialogAbortAction.java:26
 #: controller/actions/EditorCancelAction.java:27
 msgid "Cancel"
@@ -327,10 +335,10 @@ msgstr "Anzahl an Tagen die angezeigt werden soll (nach heute):"
 #: view/tabs/ProtocolViewerTab.java:164
 #: view/tabs/BalanceViewerTab.java:253
 #: view/UI.java:480
-#: controller/actions/ReportExportAction.java:36
-#: controller/actions/ReportExportAction.java:80
 #: controller/actions/ProtocolExportAction.java:28
 #: controller/actions/ProtocolExportAction.java:70
+#: controller/actions/ReportExportAction.java:36
+#: controller/actions/ReportExportAction.java:80
 msgid "Export"
 msgstr "Exportieren"
 
@@ -343,6 +351,7 @@ msgid "Balance Viewing"
 msgstr "Bilanz Anzeige"
 
 #: view/tabs/BalanceViewerTab.java:240
+#: view/forms/FinancialCategoryViewerForm.java:107
 #: view/forms/FinancialCategoryEditorForm.java:209
 #: view/models/HourlyWageTableModel.java:24
 #: view/models/FinancialCategoryTableModel.java:24
@@ -393,6 +402,7 @@ msgstr "Anzeigen"
 #: view/tabs/ViewerTab.java:387
 #: view/tabs/ViewerTab.java:409
 #: view/tabs/DetailViewerTab.java:180
+#: controller/actions/DetailViewerEditAction.java:27
 #: controller/actions/ViewerEditAction.java:27
 msgid "Edit"
 msgstr "Bearbeiten"
@@ -434,45 +444,45 @@ msgstr "Finanzkategorie anzeigen"
 msgid "View hourly wage"
 msgstr "Stundenlohn anzeigen"
 
-#: view/tabs/WelcomeTab.java:82
+#: view/tabs/WelcomeTab.java:90
 #, java-format
 msgid "aidGer has created {0} activities."
 msgstr "aidGer hat {0} Vorgänge erstellt."
 
-#: view/tabs/WelcomeTab.java:85
+#: view/tabs/WelcomeTab.java:93
 #, java-format
 msgid "{0} assistants are working in {1} employments."
 msgstr "{0} Hilfskräfte arbeiten in {1} Beschäftigungen."
 
-#: view/tabs/WelcomeTab.java:88
+#: view/tabs/WelcomeTab.java:96
 #, java-format
 msgid "These employments are part of {0} courses."
 msgstr "Diese Beschäftigungen gehören zu {0} Veranstaltungen."
 
-#: view/tabs/WelcomeTab.java:91
+#: view/tabs/WelcomeTab.java:101
 #, java-format
 msgid "Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."
 msgstr "Von den Hilfskräften sind {0} ungeprüft, {1} geprüft und {2} Bachelors"
 
-#: view/tabs/WelcomeTab.java:94
+#: view/tabs/WelcomeTab.java:104
 #, java-format
 msgid "They are using funds of {0} Euros."
 msgstr "Sie verwenden {0} Euros an Kapital."
 
-#: view/tabs/WelcomeTab.java:121
-#: view/tabs/WelcomeTab.java:228
+#: view/tabs/WelcomeTab.java:129
+#: view/tabs/WelcomeTab.java:258
 msgid "Welcome to aidGer"
 msgstr "Willkommen zu aidGer"
 
-#: view/tabs/WelcomeTab.java:124
+#: view/tabs/WelcomeTab.java:133
 msgid "Last activities"
 msgstr "Letzte Vorgänge"
 
-#: view/tabs/WelcomeTab.java:139
+#: view/tabs/WelcomeTab.java:150
 msgid "Last Changes"
 msgstr "Letzte Änderungen"
 
-#: view/tabs/WelcomeTab.java:152
+#: view/tabs/WelcomeTab.java:163
 msgid "Statistics"
 msgstr "Statistiken"
 
@@ -592,37 +602,104 @@ msgstr "Öffnet einen neuen Tab"
 msgid "Ready"
 msgstr "Bereit"
 
-#: view/UI.java:704
+#: view/UI.java:705
 #, java-format
 msgid "Could not find tab class {0}"
 msgstr "Die Reiterklasse \"{0}\" konnte nicht gefunden werden."
 
-#: view/UI.java:708
+#: view/UI.java:709
 #, java-format
 msgid "Could not find the correct constructor: {0}"
 msgstr "Konnte den korrekten Konstruktor nicht finden: {0}"
 
+#: view/forms/FinancialCategoryViewerForm.java:46
+#: view/forms/FinancialCategoryEditorForm.java:120
+#: view/models/FinancialCategoryTableModel.java:24
+msgid "Funds"
+msgstr "Finanzmittel"
+
+#: view/forms/FinancialCategoryViewerForm.java:62
+#: view/forms/FinancialCategoryEditorForm.java:140
+#: view/models/FinancialCategoryTableModel.java:25
+msgid "Budget Costs"
+msgstr "Budgetkosten"
+
+#: view/forms/FinancialCategoryViewerForm.java:95
+#: view/forms/FinancialCategoryEditorForm.java:203
+#: view/models/FinancialCategoryTableModel.java:24
+msgid "Name"
+msgstr "Name"
+
+#: view/forms/AssistantViewerForm.java:84
 #: view/forms/AssistantEditorForm.java:92
 #: view/models/AssistantTableModel.java:24
 msgid "First Name"
 msgstr "Vorname"
 
+#: view/forms/AssistantViewerForm.java:90
 #: view/forms/AssistantEditorForm.java:98
 #: view/models/AssistantTableModel.java:24
 msgid "Last Name"
 msgstr "Nachname"
 
+#: view/forms/AssistantViewerForm.java:98
 #: view/forms/AssistantEditorForm.java:106
 #: view/models/AssistantTableModel.java:24
 msgid "Email"
 msgstr "Email"
 
+#: view/forms/AssistantViewerForm.java:106
 #: view/forms/AssistantEditorForm.java:114
 #: view/forms/HourlyWageEditorForm.java:186
+#: view/forms/HourlyWageViewerForm.java:59
 #: view/models/HourlyWageTableModel.java:24
 #: view/models/AssistantTableModel.java:25
 msgid "Qualification"
 msgstr "Qualifikation"
+
+#: view/forms/AssistantViewerForm.java:136
+msgid "Related courses"
+msgstr "Zugehörige Veranstaltungen"
+
+#: view/forms/AssistantViewerForm.java:149
+msgid "Related activities"
+msgstr "Zugehörige Vorgänge"
+
+#: view/forms/CourseViewerForm.java:93
+#: view/forms/CourseEditorForm.java:230
+#: view/models/CourseTableModel.java:25
+msgid "Description"
+msgstr "Bezeichnung"
+
+#: view/forms/CourseViewerForm.java:115
+#: view/forms/CourseEditorForm.java:252
+#: view/models/CourseTableModel.java:26
+msgid "Advisor"
+msgstr "Betreuer"
+
+#: view/forms/CourseViewerForm.java:123
+#: view/forms/CourseEditorForm.java:260
+#: view/models/CourseTableModel.java:26
+msgid "Number of Groups"
+msgstr "Gruppenanzahl"
+
+#: view/forms/CourseViewerForm.java:173
+#: view/forms/CourseEditorForm.java:320
+#: view/models/CourseTableModel.java:27
+msgid "Granted AWH"
+msgstr "Genehmigte HKS"
+
+#: view/forms/CourseViewerForm.java:181
+#: view/forms/CourseEditorForm.java:328
+#: view/models/CourseTableModel.java:27
+msgid "Scope"
+msgstr "Umfang"
+
+#: view/forms/CourseViewerForm.java:213
+#: view/forms/CourseEditorForm.java:360
+#: view/models/CourseTableModel.java:28
+msgid "Financial Category"
+msgstr "Finanzkategorie"
 
 #: view/forms/HourlyWageEditorForm.java:24
 msgid "Unchecked"
@@ -645,54 +722,10 @@ msgid "Finish date"
 msgstr "Enddatum"
 
 #: view/forms/HourlyWageEditorForm.java:216
+#: view/forms/HourlyWageViewerForm.java:73
 #: view/models/HourlyWageTableModel.java:25
 msgid "Wage"
 msgstr "Lohn"
-
-#: view/forms/CourseEditorForm.java:230
-#: view/models/CourseTableModel.java:25
-msgid "Description"
-msgstr "Bezeichnung"
-
-#: view/forms/CourseEditorForm.java:252
-#: view/models/CourseTableModel.java:26
-msgid "Advisor"
-msgstr "Betreuer"
-
-#: view/forms/CourseEditorForm.java:260
-#: view/models/CourseTableModel.java:26
-msgid "Number of Groups"
-msgstr "Gruppenanzahl"
-
-#: view/forms/CourseEditorForm.java:320
-#: view/models/CourseTableModel.java:27
-msgid "Granted AWH"
-msgstr "Genehmigte HKS"
-
-#: view/forms/CourseEditorForm.java:328
-#: view/models/CourseTableModel.java:27
-msgid "Scope"
-msgstr "Umfang"
-
-#: view/forms/CourseEditorForm.java:360
-#: view/models/CourseTableModel.java:28
-msgid "Financial Category"
-msgstr "Finanzkategorie"
-
-#: view/forms/FinancialCategoryEditorForm.java:120
-#: view/models/FinancialCategoryTableModel.java:24
-msgid "Funds"
-msgstr "Finanzmittel"
-
-#: view/forms/FinancialCategoryEditorForm.java:140
-#: view/models/FinancialCategoryTableModel.java:25
-msgid "Budget Costs"
-msgstr "Budgetkosten"
-
-#: view/forms/FinancialCategoryEditorForm.java:203
-#: view/models/FinancialCategoryTableModel.java:24
-msgid "Name"
-msgstr "Name"
 
 #: view/reports/BalanceFilterPanel.java:71
 msgid "Filter"
@@ -769,6 +802,30 @@ msgstr "Anzahl der Vorgänge die in Detailansichten angezeigt werden"
 #: view/SettingsDialog.java:180
 msgid "Language:"
 msgstr "Sprache:"
+
+#: controller/actions/ProtocolExportAction.java:29
+msgid "Export the protocol to a pdf file"
+msgstr "Exportiere das Protokoll als PDF Datei"
+
+#: controller/actions/ProtocolExportAction.java:59
+#: controller/actions/ReportExportAction.java:69
+msgid "PDF files"
+msgstr "PDF Dateien"
+
+#: controller/actions/ProtocolExportAction.java:77
+#: controller/actions/ReportExportAction.java:87
+msgid "Please choose a file."
+msgstr "Bitte wählen sie eine Datei aus."
+
+#: controller/actions/ProtocolExportAction.java:81
+#: controller/actions/ReportExportAction.java:91
+msgid "Are you sure you want to overwrite the file?"
+msgstr "Möchten Sie die Datei wirklich überschreiben?"
+
+#: controller/actions/ProtocolExportAction.java:82
+#: controller/actions/ReportExportAction.java:92
+msgid "Overwrite file?"
+msgstr "Datei überschreiben?"
 
 #: controller/actions/HelpAction.java:28
 msgid "Display the help"
@@ -859,30 +916,6 @@ msgstr "Homepage öffnen"
 #: controller/actions/ReportExportAction.java:37
 msgid "Export the report to a pdf file"
 msgstr "Exportiere den Bericht als PDF Datei"
-
-#: controller/actions/ReportExportAction.java:69
-#: controller/actions/ProtocolExportAction.java:59
-msgid "PDF files"
-msgstr "PDF Dateien"
-
-#: controller/actions/ReportExportAction.java:87
-#: controller/actions/ProtocolExportAction.java:77
-msgid "Please choose a file."
-msgstr "Bitte wählen sie eine Datei aus."
-
-#: controller/actions/ReportExportAction.java:91
-#: controller/actions/ProtocolExportAction.java:81
-msgid "Are you sure you want to overwrite the file?"
-msgstr "Möchten Sie die Datei wirklich überschreiben?"
-
-#: controller/actions/ReportExportAction.java:92
-#: controller/actions/ProtocolExportAction.java:82
-msgid "Overwrite file?"
-msgstr "Datei überschreiben?"
-
-#: controller/actions/ProtocolExportAction.java:29
-msgid "Export the protocol to a pdf file"
-msgstr "Exportiere das Protokoll als PDF Datei"
 
 #: controller/actions/PrintAction.java:33
 msgid "Print"
