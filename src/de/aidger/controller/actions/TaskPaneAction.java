@@ -15,7 +15,7 @@ import de.aidger.view.tabs.EmptyTab;
 import de.aidger.view.tabs.ProtocolViewerTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
-import de.aidger.view.tabs.ViewerTab.MasterDataType;
+import de.aidger.view.tabs.ViewerTab.DataType;
 
 /**
  * Base class for all task pane actions.
@@ -30,9 +30,7 @@ public class TaskPaneAction extends AbstractAction implements MouseListener {
      * @author aidGer Team
      */
     public enum Task {
-        ViewCourses, ViewAssistants, ViewFinancialCategories, ViewHourlyWages, 
-        ViewFullBalance, ViewAnnualBalance, ViewSemesterBalance,
-        ViewProtocol, ViewEmpty, Void
+        ViewCourses, ViewAssistants, ViewFinancialCategories, ViewHourlyWages, ViewFullBalance, ViewAnnualBalance, ViewSemesterBalance, ViewProtocol, ViewEmpty, Void
     }
 
     /**
@@ -78,13 +76,13 @@ public class TaskPaneAction extends AbstractAction implements MouseListener {
     private Tab getNewTab() {
         switch (task) {
         case ViewCourses:
-            return new ViewerTab(MasterDataType.Course);
+            return new ViewerTab(DataType.Course);
         case ViewAssistants:
-            return new ViewerTab(MasterDataType.Assistant);
+            return new ViewerTab(DataType.Assistant);
         case ViewFinancialCategories:
-            return new ViewerTab(MasterDataType.FinancialCategory);
+            return new ViewerTab(DataType.FinancialCategory);
         case ViewHourlyWages:
-            return new ViewerTab(MasterDataType.HourlyWage);
+            return new ViewerTab(DataType.HourlyWage);
         case ViewFullBalance:
             return new BalanceViewerTab(1);
         case ViewAnnualBalance:

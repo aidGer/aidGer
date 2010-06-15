@@ -34,16 +34,16 @@ import de.aidger.view.models.TableModel;
 import de.aidger.view.utils.MultiLineCellRenderer;
 
 /**
- * A tab which will be used to display the master data.
+ * A tab which will be used to display the data.
  * 
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
 public class ViewerTab extends Tab {
     /**
-     * The type of the master data that will be viewed.
+     * The type of the data that will be viewed.
      */
-    public enum MasterDataType {
+    public enum DataType {
         Course, Assistant, FinancialCategory, HourlyWage
     }
 
@@ -58,9 +58,9 @@ public class ViewerTab extends Tab {
     private final List<String> hiddenColumns = new ArrayList<String>();
 
     /**
-     * The type of the master data.
+     * The type of the data.
      */
-    private final MasterDataType type;
+    private final DataType type;
 
     /**
      * The table model of this viewer tab.
@@ -73,17 +73,17 @@ public class ViewerTab extends Tab {
     private final TableRowSorter<TableModel> sorter;
 
     /**
-     * Constructs the master data viewer tab.
+     * Constructs the data viewer tab.
      * 
      * @param type
-     *            the type of the master data
+     *            the type of the data
      */
     @SuppressWarnings("unchecked")
-    public ViewerTab(MasterDataType type) {
+    public ViewerTab(DataType type) {
         this.type = type;
         initComponents();
 
-        // use different table model for each master data type
+        // use different table model for each data type
         switch (type) {
         case Course:
             tableModel = new CourseTableModel();
@@ -116,7 +116,7 @@ public class ViewerTab extends Tab {
         sorter.toggleSortOrder(0);
 
         // multi line columns for financial category table
-        if (type == MasterDataType.FinancialCategory) {
+        if (type == DataType.FinancialCategory) {
             table.getColumnModel().getColumn(2).setCellRenderer(
                 new MultiLineCellRenderer());
             table.getColumnModel().getColumn(3).setCellRenderer(
@@ -265,8 +265,8 @@ public class ViewerTab extends Tab {
      */
     @Override
     public String toString() {
-        return getClass().getName() + "<" + MasterDataType.class.getName()
-                + "@" + type;
+        return getClass().getName() + "<" + DataType.class.getName() + "@"
+                + type;
     }
 
     /*
@@ -278,15 +278,15 @@ public class ViewerTab extends Tab {
     public String getTabName() {
         switch (type) {
         case Course:
-            return _("Master Data Courses");
+            return _("data Courses");
         case Assistant:
-            return _("Master Data Assistants");
+            return _("data Assistants");
         case FinancialCategory:
-            return _("Master Data Financial Categories");
+            return _("data Financial Categories");
         case HourlyWage:
-            return _("Master Data Hourly Wages");
+            return _("data Hourly Wages");
         default:
-            return _("Master Data");
+            return _("data");
         }
     }
 
@@ -343,11 +343,11 @@ public class ViewerTab extends Tab {
     }
 
     /**
-     * Returns the type of the master data that is shown.
+     * Returns the type of the data that is shown.
      * 
-     * @return the type of the shown master data
+     * @return the type of the shown data
      */
-    public MasterDataType getType() {
+    public DataType getType() {
         return type;
     }
 

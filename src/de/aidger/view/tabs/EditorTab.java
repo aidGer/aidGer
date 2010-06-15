@@ -23,10 +23,10 @@ import de.aidger.view.forms.AssistantEditorForm;
 import de.aidger.view.forms.CourseEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
 import de.aidger.view.forms.HourlyWageEditorForm;
-import de.aidger.view.tabs.ViewerTab.MasterDataType;
+import de.aidger.view.tabs.ViewerTab.DataType;
 
 /**
- * A tab which will be used to add and edit the master data.
+ * A tab which will be used to add and edit the data.
  * 
  * @author aidGer Team
  */
@@ -34,38 +34,38 @@ import de.aidger.view.tabs.ViewerTab.MasterDataType;
 public class EditorTab extends Tab {
 
     /**
-     * The master data model for the editor.
+     * The data model for the editor.
      */
     @SuppressWarnings("unchecked")
     protected AbstractModel model = null;
 
     /**
-     * The type of the master data.
+     * The type of the data.
      */
-    private final MasterDataType type;
+    private final DataType type;
 
     /**
-     * Constructs a master data editor tab.
+     * Constructs a data editor tab.
      * 
      * @param type
-     *            type of the master data
+     *            type of the data
      */
-    public EditorTab(MasterDataType type) {
+    public EditorTab(DataType type) {
         this.type = type;
 
         init();
     }
 
     /**
-     * Constructs a master data editor tab.
+     * Constructs a data editor tab.
      * 
      * @param type
-     *            type of the master data
+     *            type of the data
      * @param model
-     *            the master data model
+     *            the data model
      */
     @SuppressWarnings("unchecked")
-    public EditorTab(MasterDataType type, AbstractModel model) {
+    public EditorTab(DataType type, AbstractModel model) {
         this.type = type;
         this.model = model;
 
@@ -74,13 +74,13 @@ public class EditorTab extends Tab {
 
     /**
      * Return a parseable string that lets the UI initalise the tab.
-     *
+     * 
      * @return A parseable string
      */
     @Override
     public String toString() {
-        String ret = getClass().getName() + "<" +
-                MasterDataType.class.getName() + "@"  + type;
+        String ret = getClass().getName() + "<" + DataType.class.getName()
+                + "@" + type;
         if (model != null) {
             ret += "<" + model.getClass().getName() + "@" + model.getId();
         }
@@ -106,9 +106,9 @@ public class EditorTab extends Tab {
     }
 
     /**
-     * Returns the master data model.
+     * Returns the data model.
      * 
-     * @return the master data model
+     * @return the data model
      */
     @SuppressWarnings("unchecked")
     public AbstractModel getModel() {
@@ -133,10 +133,10 @@ public class EditorTab extends Tab {
     }
 
     /**
-     * Sets the master data model.
+     * Sets the data model.
      * 
      * @param model
-     *            the master data model that will be set
+     *            the data model that will be set
      */
     @SuppressWarnings("unchecked")
     public void setModel(AbstractModel model) {
@@ -187,18 +187,18 @@ public class EditorTab extends Tab {
     }
 
     /**
-     * Returns the type of the master data that is added or edited.
+     * Returns the type of the data that is added or edited.
      * 
-     * @return the type of the master data
+     * @return the type of the data
      */
-    public MasterDataType getType() {
+    public DataType getType() {
         return type;
     }
 
     /**
-     * Returns the master data editor form.
+     * Returns the data editor form.
      * 
-     * @return the master data editor form.
+     * @return the data editor form.
      */
     public JPanel getEditorForm() {
         if (editorForm != null) {
@@ -258,7 +258,9 @@ public class EditorTab extends Tab {
 
         setLayout(new java.awt.GridBagLayout());
 
-        editorForm.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), getTabName()));
+        editorForm.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            getTabName()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -281,8 +283,11 @@ public class EditorTab extends Tab {
         gridBagConstraints.weighty = 1.0;
         add(filler, gridBagConstraints);
 
-        hints.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Hints")));
-        hints.setLayout(new javax.swing.BoxLayout(hints, javax.swing.BoxLayout.Y_AXIS));
+        hints.setBorder(javax.swing.BorderFactory
+            .createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1,
+                1, 1, 1), _("Hints")));
+        hints.setLayout(new javax.swing.BoxLayout(hints,
+            javax.swing.BoxLayout.Y_AXIS));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;

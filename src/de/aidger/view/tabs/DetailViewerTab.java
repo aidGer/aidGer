@@ -18,7 +18,7 @@ import de.aidger.view.forms.AssistantViewerForm;
 import de.aidger.view.forms.CourseViewerForm;
 import de.aidger.view.forms.FinancialCategoryViewerForm;
 import de.aidger.view.forms.HourlyWageViewerForm;
-import de.aidger.view.tabs.ViewerTab.MasterDataType;
+import de.aidger.view.tabs.ViewerTab.DataType;
 
 /**
  * A tab which will be used to view the model.
@@ -29,26 +29,26 @@ import de.aidger.view.tabs.ViewerTab.MasterDataType;
 public class DetailViewerTab extends Tab {
 
     /**
-     * The master data model for the detail viewer.
+     * The model for the detail viewer.
      */
     @SuppressWarnings("unchecked")
     protected AbstractModel model = null;
 
     /**
-     * The type of the master data.
+     * The type of the data.
      */
-    private final MasterDataType type;
+    private final DataType type;
 
     /**
-     * Constructs a master data detail viewer tab.
+     * Constructs a data detail viewer tab.
      * 
      * @param type
-     *            type of the master data
+     *            type of the data
      * @param model
-     *            the master data model
+     *            the data model
      */
     @SuppressWarnings("unchecked")
-    public DetailViewerTab(MasterDataType type, AbstractModel model) {
+    public DetailViewerTab(DataType type, AbstractModel model) {
         this.type = type;
         this.model = model;
 
@@ -62,9 +62,9 @@ public class DetailViewerTab extends Tab {
      */
     @Override
     public String toString() {
-        String ret = getClass().getName() + "<"
-                + MasterDataType.class.getName() + "@" + type + "<"
-                + model.getClass().getName() + "@" + model.getId();
+        String ret = getClass().getName() + "<" + DataType.class.getName()
+                + "@" + type + "<" + model.getClass().getName() + "@"
+                + model.getId();
 
         return ret;
     }
@@ -88,9 +88,9 @@ public class DetailViewerTab extends Tab {
     }
 
     /**
-     * Returns the master data model.
+     * Returns the data model.
      * 
-     * @return the master data model
+     * @return the data model
      */
     @SuppressWarnings("unchecked")
     public AbstractModel getModel() {
@@ -119,18 +119,18 @@ public class DetailViewerTab extends Tab {
     }
 
     /**
-     * Returns the type of the master data that is added or edited.
+     * Returns the type of the data that is added or edited.
      * 
-     * @return the type of the master data
+     * @return the type of the data
      */
-    public MasterDataType getType() {
+    public DataType getType() {
         return type;
     }
 
     /**
-     * Returns the master data viewer form.
+     * Returns the data viewer form.
      * 
-     * @return the master data editor form.
+     * @return the data editor form.
      */
     public JPanel getViewerForm() {
         if (viewerForm != null) {
