@@ -180,7 +180,7 @@ public class FinancialCategoryEditorForm extends JPanel {
             btnPlusMinus.setAction(new RemoveFundsAction(fl));
         }
 
-        add(btnPlusMinus, gridBagConstraints);        
+        add(btnPlusMinus, gridBagConstraints);
 
         fundsLines.add(fl);
     }

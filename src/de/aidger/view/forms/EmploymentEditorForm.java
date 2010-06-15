@@ -2,13 +2,24 @@ package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
 
+import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Vector;
 
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.text.JTextComponent;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import javax.swing.SpinnerDateModel;
+import javax.swing.text.DefaultFormatter;
 
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
@@ -17,6 +28,7 @@ import de.aidger.model.models.Employment;
 import de.aidger.view.UI;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.utils.AutoCompletion;
+import de.aidger.view.utils.InputPatternFilter;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.IContract;
@@ -48,16 +60,12 @@ public class EmploymentEditorForm extends JPanel {
             }
         });
 
-        cmbAssistant.setEditable(true);
-        cmbCourse.setEditable(true);
-        cmbContract.setEditable(true);
+        AutoCompletion.enable(cmbAssistant);
+        AutoCompletion.enable(cmbCourse);
+        AutoCompletion.enable(cmbContract);
 
-        ((JTextComponent) cmbAssistant.getEditor().getEditorComponent())
-            .setDocument(new AutoCompletion(cmbAssistant));
-        ((JTextComponent) cmbCourse.getEditor().getEditorComponent())
-            .setDocument(new AutoCompletion(cmbCourse));
-        ((JTextComponent) cmbContract.getEditor().getEditorComponent())
-            .setDocument(new AutoCompletion(cmbContract));
+        cmbFunds.setEditable(true);
+        InputPatternFilter.addFilter(cmbFunds, "[0-9]{0,8}");
 
         try {
             List<IAssistant> assistants = (new Assistant()).getAll();
@@ -97,6 +105,8 @@ public class EmploymentEditorForm extends JPanel {
 
         } catch (AdoHiveException e) {
         }
+
+        addNewDate();
     }
 
     /**
@@ -106,6 +116,95 @@ public class EmploymentEditorForm extends JPanel {
      */
     public String getRemark() {
         return txtRemark.getText();
+    }
+
+    /**
+     * Adds a new date line to the form.
+     */
+    private void addNewDate() {
+        GridBagConstraints gridBagConstraints;
+
+        JLabel lblDate = new JLabel();
+        lblDate.setText(_("Date"));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblDate, gridBagConstraints);
+
+        JSpinner spDate = new JSpinner();
+        spDate.setModel(new SpinnerDateModel());
+        spDate.setEditor(new JSpinner.DateEditor(spDate, "MM.yyyy"));
+        ((DefaultFormatter) ((JSpinner.DefaultEditor) spDate.getEditor())
+            .getTextField().getFormatter()).setAllowsInvalid(false);
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(spDate, gridBagConstraints);
+
+        JLabel lblHourCount = new JLabel();
+        lblHourCount.setText(_("Hour count"));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
+        gridBagConstraints.anchor = GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        add(lblHourCount, gridBagConstraints);
+
+        JTextField txtHourCount = new JTextField();
+        txtHourCount.setMinimumSize(new java.awt.Dimension(200, 25));
+        txtHourCount.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtHourCount, gridBagConstraints);
+
+        InputPatternFilter.addFilter(txtHourCount, "[0-9]+");
+
+        JButton btnPlusMinus = new JButton();
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+
+        DateLine dl = new DateLine(lblDate, spDate, lblHourCount, txtHourCount,
+            btnPlusMinus);
+
+        if (dateLines.isEmpty()) {
+            Calendar now = Calendar.getInstance();
+            now.set(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now
+                .get(Calendar.DATE));
+
+            spDate.setValue(now.getTime());
+
+            btnPlusMinus.setIcon(new ImageIcon(getClass().getResource(
+                "/de/aidger/view/icons/plus-small.png")));
+
+            gridBagConstraints.gridy = 4;
+
+            btnPlusMinus.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent evt) {
+                    addNewDate();
+                }
+            });
+        } else {
+            gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
+
+            btnPlusMinus.setAction(new RemoveDateAction(dl));
+
+            Calendar cal = Calendar.getInstance();
+            cal.setTime((Date) dateLines.get(dateLines.size() - 1).spDate
+                .getValue());
+            cal.add(Calendar.MONTH, 1);
+
+            spDate.setValue(cal.getTime());
+        }
+
+        add(btnPlusMinus, gridBagConstraints);
+
+        dateLines.add(dl);
     }
 
     /**
@@ -120,16 +219,19 @@ public class EmploymentEditorForm extends JPanel {
         lblAssistant = new javax.swing.JLabel();
         lblCourse = new javax.swing.JLabel();
         lblContract = new javax.swing.JLabel();
+        lblFunds = new javax.swing.JLabel();
+        lblCostUnit = new javax.swing.JLabel();
+        lblQualification = new javax.swing.JLabel();
+        lblRemark = new javax.swing.JLabel();
         cmbAssistant = new javax.swing.JComboBox();
         cmbCourse = new javax.swing.JComboBox();
         cmbContract = new javax.swing.JComboBox();
         btnContractAdd = new javax.swing.JButton();
-        lblCostUnit = new javax.swing.JLabel();
-        lblQualification = new javax.swing.JLabel();
-        lblRemark = new javax.swing.JLabel();
+        cmbFunds = new javax.swing.JComboBox();
         txtCostUnit = new javax.swing.JTextField();
-        txtRemark = new javax.swing.JTextField();
         cmbQualification = new javax.swing.JComboBox();
+        txtRemark = new javax.swing.JTextField();
+        filler = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -149,11 +251,43 @@ public class EmploymentEditorForm extends JPanel {
 
         lblContract.setText(_("Contract"));
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        add(lblContract, gridBagConstraints);
+
+        lblFunds.setText(_("Funds"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        add(lblFunds, gridBagConstraints);
+
+        lblCostUnit.setText(_("Cost unit"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(lblContract, gridBagConstraints);
+        add(lblCostUnit, gridBagConstraints);
+
+        lblQualification.setText(_("Qualification"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        add(lblQualification, gridBagConstraints);
+
+        lblRemark.setText(_("Remark"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblRemark, gridBagConstraints);
 
         cmbAssistant.setMinimumSize(new java.awt.Dimension(200, 25));
         cmbAssistant.setPreferredSize(new java.awt.Dimension(200, 25));
@@ -170,64 +304,52 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbCourse, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbContract, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        add(btnContractAdd, gridBagConstraints);
-
-        lblCostUnit.setText(_("Cost unit"));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
-        add(lblCostUnit, gridBagConstraints);
-
-        lblQualification.setText(_("Qualification"));
+        add(btnContractAdd, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
-        add(lblQualification, gridBagConstraints);
-
-        lblRemark.setText(_("Remark"));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
-        add(lblRemark, gridBagConstraints);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(cmbFunds, gridBagConstraints);
 
         txtCostUnit.setMinimumSize(new java.awt.Dimension(200, 25));
         txtCostUnit.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(txtCostUnit, gridBagConstraints);
-
-        txtRemark.setMinimumSize(new java.awt.Dimension(200, 25));
-        txtRemark.setPreferredSize(new java.awt.Dimension(200, 25));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(txtRemark, gridBagConstraints);
+        add(txtCostUnit, gridBagConstraints);
 
         cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(
             Qualification.values()));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbQualification, gridBagConstraints);
+
+        txtRemark.setMinimumSize(new java.awt.Dimension(200, 25));
+        txtRemark.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtRemark, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        add(filler, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -235,15 +357,88 @@ public class EmploymentEditorForm extends JPanel {
     private javax.swing.JComboBox cmbAssistant;
     private javax.swing.JComboBox cmbContract;
     private javax.swing.JComboBox cmbCourse;
+    private javax.swing.JComboBox cmbFunds;
     private javax.swing.JComboBox cmbQualification;
+    private javax.swing.JLabel filler;
     private javax.swing.JLabel lblAssistant;
     private javax.swing.JLabel lblContract;
     private javax.swing.JLabel lblCostUnit;
     private javax.swing.JLabel lblCourse;
+    private javax.swing.JLabel lblFunds;
     private javax.swing.JLabel lblQualification;
     private javax.swing.JLabel lblRemark;
     private javax.swing.JTextField txtCostUnit;
     private javax.swing.JTextField txtRemark;
     // End of variables declaration//GEN-END:variables
+
+    private final List<DateLine> dateLines = new Vector<DateLine>();
+
+    /**
+     * This class represents a date line in the form.
+     * 
+     * @author aidGer Team
+     */
+    private class DateLine {
+        public JLabel lblDate;
+        public JSpinner spDate;
+        public JLabel lblHourCount;
+        public JTextField txtHourCount;
+        public JButton btnPlusMinus;
+
+        /**
+         * Initializes a date line.
+         * 
+         */
+        public DateLine(JLabel lblDate, JSpinner spDate, JLabel lblHourCount,
+                JTextField txtHourCount, JButton btnPlusMinus) {
+            this.lblDate = lblDate;
+            this.spDate = spDate;
+            this.lblHourCount = lblHourCount;
+            this.txtHourCount = txtHourCount;
+            this.btnPlusMinus = btnPlusMinus;
+        }
+    }
+
+    /**
+     * Removes a date line from the form by clicking on "-" button.
+     * 
+     * @author aidGer Team
+     */
+    private class RemoveDateAction extends AbstractAction {
+        /**
+         * The date line that will be removed.
+         */
+        private final DateLine dateLine;
+
+        /**
+         * Initializes the action.
+         */
+        public RemoveDateAction(DateLine dateLine) {
+            putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
+                "/de/aidger/view/icons/minus-small.png")));
+
+            this.dateLine = dateLine;
+        }
+
+        /*
+         * (non-Javadoc)
+         * 
+         * @see
+         * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent
+         * )
+         */
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            remove(dateLine.lblDate);
+            remove(dateLine.spDate);
+            remove(dateLine.lblHourCount);
+            remove(dateLine.txtHourCount);
+            remove(dateLine.btnPlusMinus);
+
+            dateLines.remove(dateLine);
+
+            revalidate();
+        }
+    }
 
 }

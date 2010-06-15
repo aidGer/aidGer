@@ -245,30 +245,7 @@ public class AutoCompletion extends PlainDocument {
             }
         }
 
-        // We want to allow manual number entry
-        if (isNumber(pattern)) {
-            return pattern;
-        } else {
-            // no item starts with the pattern => return null
-            return null;
-        }
-    }
-
-    /**
-     * Checks if string is a number
-     * 
-     * @param text
-     * @return true if it is a number and false otherwise
-     */
-    private boolean isNumber(String text) {
-        try {
-            // Need float caus integer doesnt go above 10 numbers (for O2 users)!
-            Float.parseFloat(text);
-
-            return true;
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
+        return null;
     }
 
     // checks if str1 starts with str2 - ignores case
