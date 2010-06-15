@@ -18,7 +18,7 @@ import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
 /**
  * Sets the translation of the program. If Strings of the current language can't
  * be found, it will fall back to the default language.
- *
+ * 
  * @author aidGer Team
  */
 public class Translation {
@@ -35,7 +35,7 @@ public class Translation {
 
     /**
      * Initializes this class. Resolves the file path of the translation files.
-     *
+     * 
      * @param path
      *            The path of the aidGer settings.
      * @param language
@@ -57,8 +57,8 @@ public class Translation {
         /* Check first in .jar */
         String jarfile = Runtime.getInstance().getJarLocation();
         if (jarfile.endsWith(".jar")) {
-            inputStream = getClass().getClassLoader().
-                    getResourceAsStream("de/aidger/lang/de.properties");
+            inputStream = getClass().getClassLoader().getResourceAsStream(
+                "de/aidger/lang/de.properties");
         }
 
         /* After that check in filesystem */
@@ -67,7 +67,8 @@ public class Translation {
                 File inputFile = new File(filePath + language + ".properties");
                 inputStream = new FileInputStream(inputFile);
             } catch (Exception e) {
-                Logger.error("Loading the translation from the filesystem failed. Only english will be available");
+                Logger
+                    .error("Loading the translation from the filesystem failed. Only english will be available");
             }
         }
 
@@ -83,7 +84,7 @@ public class Translation {
 
     /**
      * Returns the translation of the specified string from the bundle.
-     *
+     * 
      * @param id
      *            The string to translate.
      * @return The translated string or return the id.
@@ -103,7 +104,7 @@ public class Translation {
     /**
      * Get a list of all languages installed on the system. The format is 0 =>
      * short, 1 => long language name.
-     *
+     * 
      * @return The list of all installed languages
      */
     public List<Pair<String, String>> getLanguages() {
@@ -121,11 +122,11 @@ public class Translation {
             while (ress.hasMoreElements()) {
                 JarEntry je = (JarEntry) ress.nextElement();
 
-                int idx = je.getName().indexOf(".properties");
-                if (idx > -1) {
+                if (je.getName().matches("de/aidger/lang/[a-z]+.properties")) {
+                    int idx = je.getName().indexOf(".properties");
                     String lang = je.getName().substring(idx - 2, idx);
                     list.add(new Pair<String, String>(lang, new Locale(lang)
-                            .getDisplayLanguage()));
+                        .getDisplayLanguage()));
                 }
             }
         } catch (IOException ex) {
