@@ -62,7 +62,7 @@ import de.aidger.view.tabs.WelcomeTab;
  * The UI manages the main window and all its tabs. The main window consists of
  * the menu bar, the navigation and a tabbed pane which holds all tabs in the
  * center of the main window.
- *
+ * 
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
@@ -168,7 +168,7 @@ public final class UI extends JFrame {
 
     /**
      * Provides access to an instance of this class.
-     *
+     * 
      * @return instance of this UI
      */
     public synchronized static UI getInstance() {
@@ -181,7 +181,7 @@ public final class UI extends JFrame {
 
     /**
      * Display an error message in a dialog window.
-     *
+     * 
      * @param error
      *            The error message to display
      */
@@ -203,7 +203,7 @@ public final class UI extends JFrame {
 
     /**
      * Adds a new tab at the given index to the tabbed plane.
-     *
+     * 
      * @param tab
      *            The tab to be added.
      * @param index
@@ -228,7 +228,7 @@ public final class UI extends JFrame {
 
     /**
      * Adds a new tab at the end of the tabbed pane.
-     *
+     * 
      * @param tab
      *            The tab to be added
      */
@@ -249,7 +249,7 @@ public final class UI extends JFrame {
 
     /**
      * Removes the tab at given index.
-     *
+     * 
      * @param index
      *            The index identifies the tab that will be removed
      */
@@ -289,7 +289,7 @@ public final class UI extends JFrame {
 
     /**
      * Replaces the current tab with the given one. The old tab will be removed.
-     *
+     * 
      * @param tab
      *            the new current tab
      */
@@ -302,7 +302,7 @@ public final class UI extends JFrame {
 
     /**
      * Get the currently selected tab.
-     *
+     * 
      * @return The selected tab
      */
     public Tab getCurrentTab() {
@@ -312,7 +312,7 @@ public final class UI extends JFrame {
 
     /**
      * Sets the current tab on the tabbed plane to the one specified.
-     *
+     * 
      * @param tab
      *            The tab to be set as current. The tab must exist already.
      */
@@ -326,7 +326,7 @@ public final class UI extends JFrame {
 
     /**
      * Sets the current tab to the tab at given position.
-     *
+     * 
      * @param index
      */
     public void setCurrentTabAt(int index) {
@@ -367,7 +367,7 @@ public final class UI extends JFrame {
 
     /**
      * Retrieves the tabbed pane.
-     *
+     * 
      * @return the tabbed pane
      */
     public JTabbedPane getTabbedPane() {
@@ -392,7 +392,7 @@ public final class UI extends JFrame {
 
     /**
      * Sets up the file menu.
-     *
+     * 
      * @throws ActionNotFoundException
      */
     private JMenu createFileMenu() throws ActionNotFoundException {
@@ -411,7 +411,7 @@ public final class UI extends JFrame {
 
     /**
      * Sets up the help menu.
-     *
+     * 
      * @throws ActionNotFoundException
      */
     private JMenu createHelpMenu() throws ActionNotFoundException {
@@ -438,7 +438,7 @@ public final class UI extends JFrame {
 
     /**
      * Creates a button for the task pane.
-     *
+     * 
      * @param name
      *            the button name
      * @param tab
@@ -482,13 +482,13 @@ public final class UI extends JFrame {
 
         TaskPane tpReports = new TaskPane(_("Reports"));
         tpReports.add(createTaskPaneButton(_("Full Balance"),
-                Task.ViewFullBalance));
+            Task.ViewFullBalance));
         tpReports.add(createTaskPaneButton(_("Annual Balance"),
-                Task.ViewAnnualBalance));
+            Task.ViewAnnualBalance));
         tpReports.add(createTaskPaneButton(_("Semester Balance"),
-                Task.ViewSemesterBalance));
+            Task.ViewSemesterBalance));
         tpReports.add(createTaskPaneButton(_("Activity Protocol"),
-                Task.ViewProtocol));
+            Task.ViewProtocol));
 
         TaskPane tpControlling = new TaskPane(_("Controlling"));
         JPanel monthSelection = new JPanel();
@@ -508,21 +508,21 @@ public final class UI extends JFrame {
 
         JCheckBox remember = new JCheckBox(_("Remember my tabs"));
         remember.setSelected(Boolean.valueOf(Runtime.getInstance().getOption(
-                "auto-save")));
+            "auto-save")));
         remember.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 Runtime.getInstance().setOption("auto-save",
-                        Boolean.toString(((JCheckBox) e.getSource()).isSelected()));
+                    Boolean.toString(((JCheckBox) e.getSource()).isSelected()));
             }
         });
 
         JCheckBox open = new JCheckBox(_("Open reports instantly"));
         open.setSelected(Boolean.valueOf(Runtime.getInstance().getOption(
-                "auto-open")));
+            "auto-open")));
         open.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 Runtime.getInstance().setOption("auto-open",
-                        Boolean.toString(((JCheckBox) e.getSource()).isSelected()));
+                    Boolean.toString(((JCheckBox) e.getSource()).isSelected()));
             }
         });
 
@@ -542,7 +542,7 @@ public final class UI extends JFrame {
             "taskPaneCollapsed");
 
         if (collapsed == null) {
-            collapsed = new String[] { "1", "2", "3", "4" };
+            collapsed = new String[] { "1", "2", "3", "4", "5", "6" };
 
             Runtime.getInstance()
                 .setOptionArray("taskPaneCollapsed", collapsed);
@@ -635,9 +635,10 @@ public final class UI extends JFrame {
 
     /**
      * Retrieve the saved tabs from the config and display them.
-     *
+     * 
      * @return True if it succeeded, false if the default should be displayed
      */
+    @SuppressWarnings("unchecked")
     private boolean displaySavedTabs() {
         if (!Boolean.valueOf(Runtime.getInstance().getOption("auto-save"))) {
             return false;
