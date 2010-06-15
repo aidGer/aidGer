@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-15 01:16+0200\n"
+"POT-Creation-Date: 2010-06-15 02:18+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,6 +21,7 @@ msgid "Balance Report"
 msgstr ""
 
 #: utils/pdf/BalanceReportConverter.java:168
+#: utils/pdf/ProtocolConverter.java:132
 msgid "Author"
 msgstr ""
 
@@ -77,6 +78,52 @@ msgstr ""
 #: utils/pdf/BalanceReportConverter.java:322
 #: view/reports/BalanceReportGroupPanel.java:37
 msgid "Budget costs from resources"
+msgstr ""
+
+#: utils/pdf/BalanceReportConverter.java:332
+#: view/tabs/BalanceViewerTab.java:87 view/forms/CourseEditorForm.java:344
+#: view/reports/BalanceReportGroupPanel.java:98
+#: view/reports/BalanceFilterPanel.java:42
+#: view/models/CourseTableModel.java:27
+msgid "Group"
+msgstr ""
+
+#: utils/pdf/ProtocolConverter.java:126
+msgid "Activity Protocol"
+msgstr ""
+
+#: utils/pdf/ProtocolConverter.java:154 view/tabs/ProtocolViewerTab.java:40
+msgid "Affected assistant"
+msgstr ""
+
+#: utils/pdf/ProtocolConverter.java:155 view/tabs/ProtocolViewerTab.java:40
+msgid "Affected course"
+msgstr ""
+
+#: utils/pdf/ProtocolConverter.java:155 view/tabs/ProtocolViewerTab.java:41
+msgid "Type"
+msgstr ""
+
+#: utils/pdf/ProtocolConverter.java:155 view/tabs/ProtocolViewerTab.java:41
+#: view/forms/HourlyWageEditorForm.java:192
+msgid "Date"
+msgstr ""
+
+#: utils/pdf/ProtocolConverter.java:155 view/tabs/ProtocolViewerTab.java:41
+msgid "Content"
+msgstr ""
+
+#: utils/pdf/ProtocolConverter.java:156 view/tabs/ProtocolViewerTab.java:41
+msgid "Sender"
+msgstr ""
+
+#: utils/pdf/ProtocolConverter.java:156 view/tabs/ProtocolViewerTab.java:42
+msgid "Processor"
+msgstr ""
+
+#: utils/pdf/ProtocolConverter.java:156 view/tabs/ProtocolViewerTab.java:42
+#: view/forms/CourseEditorForm.java:352 view/models/CourseTableModel.java:28
+msgid "Remark"
 msgstr ""
 
 #: utils/Configuration.java:85
@@ -252,63 +299,43 @@ msgstr ""
 msgid "(Unnamed)"
 msgstr ""
 
-#: view/tabs/ProtocolViewerTab.java:35
-msgid "Affected assistant"
-msgstr ""
-
-#: view/tabs/ProtocolViewerTab.java:35
-msgid "Affected course"
-msgstr ""
-
-#: view/tabs/ProtocolViewerTab.java:36
-msgid "Type"
-msgstr ""
-
-#: view/tabs/ProtocolViewerTab.java:36
-#: view/forms/HourlyWageEditorForm.java:192
-msgid "Date"
-msgstr ""
-
-#: view/tabs/ProtocolViewerTab.java:36
-msgid "Content"
-msgstr ""
-
-#: view/tabs/ProtocolViewerTab.java:36
-msgid "Sender"
-msgstr ""
-
-#: view/tabs/ProtocolViewerTab.java:37
-msgid "Processor"
-msgstr ""
-
-#: view/tabs/ProtocolViewerTab.java:37 view/forms/CourseEditorForm.java:352
-#: view/models/CourseTableModel.java:28
-msgid "Remark"
-msgstr ""
-
-#: view/tabs/ProtocolViewerTab.java:107
+#: view/tabs/ProtocolViewerTab.java:112
 msgid "Protocol Viewing"
 msgstr ""
 
-#: view/tabs/ProtocolViewerTab.java:132
+#: view/tabs/ProtocolViewerTab.java:138
 msgid "Number of days before today to display: "
 msgstr ""
 
-#: view/tabs/ProtocolViewerTab.java:142 view/tabs/BalanceViewerTab.java:255
-#: view/UI.java:480 controller/actions/ReportExportAction.java:36
+#: view/tabs/ProtocolViewerTab.java:148 view/tabs/ProtocolViewerTab.java:198
+#: view/tabs/BalanceViewerTab.java:255 view/UI.java:480
+#: controller/actions/ReportExportAction.java:36
 #: controller/actions/ReportExportAction.java:80
 msgid "Export"
 msgstr ""
 
-#: view/tabs/BalanceViewerTab.java:80
-msgid "Semester:"
+#: view/tabs/ProtocolViewerTab.java:187
+#: controller/actions/ReportExportAction.java:69
+msgid "PDF files"
 msgstr ""
 
-#: view/tabs/BalanceViewerTab.java:87 view/forms/CourseEditorForm.java:344
-#: view/reports/BalanceReportGroupPanel.java:98
-#: view/reports/BalanceFilterPanel.java:42
-#: view/models/CourseTableModel.java:27
-msgid "Group"
+#: view/tabs/ProtocolViewerTab.java:205
+#: controller/actions/ReportExportAction.java:87
+msgid "Please choose a file."
+msgstr ""
+
+#: view/tabs/ProtocolViewerTab.java:209
+#: controller/actions/ReportExportAction.java:91
+msgid "Are you sure you want to overwrite the file?"
+msgstr ""
+
+#: view/tabs/ProtocolViewerTab.java:210
+#: controller/actions/ReportExportAction.java:92
+msgid "Overwrite file?"
+msgstr ""
+
+#: view/tabs/BalanceViewerTab.java:80
+msgid "Semester:"
 msgstr ""
 
 #: view/tabs/BalanceViewerTab.java:198
@@ -824,22 +851,6 @@ msgstr ""
 
 #: controller/actions/ReportExportAction.java:37
 msgid "Export the report to a pdf file"
-msgstr ""
-
-#: controller/actions/ReportExportAction.java:69
-msgid "PDF files"
-msgstr ""
-
-#: controller/actions/ReportExportAction.java:87
-msgid "Please choose a file."
-msgstr ""
-
-#: controller/actions/ReportExportAction.java:91
-msgid "Are you sure you want to overwrite the file?"
-msgstr ""
-
-#: controller/actions/ReportExportAction.java:92
-msgid "Overwrite file?"
 msgstr ""
 
 #: controller/actions/PrintAction.java:33
