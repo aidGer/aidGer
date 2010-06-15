@@ -1,5 +1,7 @@
 package de.aidger.controller;
 
+import java.awt.Font;
+
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
@@ -118,6 +120,11 @@ public final class Application {
             }
 
         }
+
+        // set some individual look & feel
+        Font oldFont = UIManager.getFont("TitledBorder.font");
+        UIManager.put("TitledBorder.font", new Font(oldFont.getName(), oldFont
+            .getStyle(), 15));
 
         Application.getInstance().initialize();
 
