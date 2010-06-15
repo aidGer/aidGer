@@ -23,7 +23,7 @@ import de.aidger.view.UI;
 import de.aidger.view.tabs.BalanceViewerTab;
 
 /**
- * This action generates a report.
+ * This action exports a report.
  * 
  * @author aidGer Team
  */

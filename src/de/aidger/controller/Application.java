@@ -14,6 +14,7 @@ import de.aidger.controller.actions.ExitAction;
 import de.aidger.controller.actions.HelpAction;
 import de.aidger.controller.actions.HomepageAction;
 import de.aidger.controller.actions.PrintAction;
+import de.aidger.controller.actions.ProtocolExportAction;
 import de.aidger.controller.actions.ReportExportAction;
 import de.aidger.controller.actions.ReportGenerateAction;
 import de.aidger.controller.actions.SaveSettingsAction;
@@ -91,6 +92,7 @@ public final class Application {
 
         ActionRegistry.getInstance().register(new ReportGenerateAction());
         ActionRegistry.getInstance().register(new ReportExportAction());
+        ActionRegistry.getInstance().register(new ProtocolExportAction());
     }
 
     /**

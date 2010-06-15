@@ -4,8 +4,6 @@ import static de.aidger.utils.Translation._;
 
 import java.util.List;
 import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
@@ -16,6 +14,7 @@ import de.aidger.controller.actions.ReportGenerateAction;
 import de.aidger.model.models.Course;
 import de.aidger.model.reports.BalanceFilter;
 import de.aidger.utils.reports.BalanceHelper;
+import de.aidger.view.UI;
 import de.aidger.view.reports.BalanceFilterPanel;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
@@ -50,8 +49,7 @@ public class BalanceViewerTab extends Tab {
             exportButton.setAction(ActionRegistry.getInstance().get(
                 ReportExportAction.class.getName()));
         } catch (ActionNotFoundException ex) {
-            Logger.getLogger(BalanceViewerTab.class.getName()).log(
-                Level.SEVERE, null, ex);
+            UI.displayError(ex.getMessage());
         }
 
         typeOfBalance = index;
