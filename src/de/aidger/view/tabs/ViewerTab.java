@@ -250,7 +250,6 @@ public class ViewerTab extends Tab {
             @Override
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 String text = searchField.getText();
-                System.out.println(text);
 
                 if (text.length() == 0) {
                     sorter.setRowFilter(null);

@@ -24,6 +24,7 @@ import de.aidger.model.Runtime;
 import de.aidger.model.models.Course;
 import de.aidger.model.reports.BalanceCourse;
 import de.aidger.model.reports.BalanceFilter;
+import de.aidger.utils.Logger;
 import de.aidger.utils.reports.BalanceHelper;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 
@@ -261,7 +262,7 @@ public class BalanceReportConverter {
             finalSemesterTable.setKeepTogether(true);
             document.add(finalSemesterTable);
         } catch (Exception e) {
-            System.out.println(e);
+            Logger.error(e.getMessage());
         }
     }
 
