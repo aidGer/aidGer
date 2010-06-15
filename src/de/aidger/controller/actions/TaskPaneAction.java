@@ -30,7 +30,9 @@ public class TaskPaneAction extends AbstractAction implements MouseListener {
      * @author aidGer Team
      */
     public enum Task {
-        ViewCourses, ViewAssistants, ViewFinancialCategories, ViewHourlyWages, ViewFullBalance, ViewAnnualBalance, ViewSemesterBalance, ViewActivityReport, ViewProtocol, ViewEmpty, Void
+        ViewCourses, ViewAssistants, ViewFinancialCategories, ViewHourlyWages, 
+        ViewFullBalance, ViewAnnualBalance, ViewSemesterBalance,
+        ViewProtocol, ViewEmpty, Void
     }
 
     /**
@@ -91,7 +93,6 @@ public class TaskPaneAction extends AbstractAction implements MouseListener {
             return new BalanceViewerTab(3);
         case ViewProtocol:
             return new ProtocolViewerTab();
-        case ViewActivityReport:
         case ViewEmpty:
             return new EmptyTab();
         case Void:
