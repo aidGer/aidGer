@@ -48,7 +48,7 @@ public class Translation {
         File languagePath = new File(filePath);
         if ((!languagePath.exists() || !languagePath.isDirectory())
                 && !languagePath.mkdirs()) {
-            System.err.println("Couldn't create directory for translations.");
+            Logger.error("Couldn't create directory for translations.");
         }
 
         /* Load the language file */
@@ -68,7 +68,7 @@ public class Translation {
                 inputStream = new FileInputStream(inputFile);
             } catch (Exception e) {
                 Logger
-                    .error("Loading the translation from the filesystem failed. Only english will be available");
+                    .info("Loading the translation from the filesystem failed. Only english will be available");
             }
         }
 
