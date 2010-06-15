@@ -15,12 +15,14 @@ import javax.swing.Action;
 import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
+import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.models.HourlyWage;
 import de.aidger.model.validators.PresenceValidator;
 import de.aidger.view.UI;
 import de.aidger.view.forms.AssistantEditorForm;
 import de.aidger.view.forms.CourseEditorForm;
+import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
 import de.aidger.view.forms.HourlyWageEditorForm;
 import de.aidger.view.tabs.EditorTab;
@@ -193,7 +195,25 @@ public class EditorSaveAction extends AbstractAction {
                 }
             }
         }
+    }
 
+    /**
+     * Prepares the employment model stored in the models list by setting the
+     * values of the employment editor form to this model.
+     * 
+     * @param models
+     *            a list that contains the employment model of the editor
+     * @param form
+     *            the employment editor form
+     */
+    @SuppressWarnings("unchecked")
+    private void prepareModels(List<AbstractModel> models,
+            EmploymentEditorForm form) {
+        Employment employment = (Employment) models.get(0);
+
+        employment.setRemark(form.getRemark());
+
+        // TODO set employment
     }
 
     /*
@@ -223,6 +243,9 @@ public class EditorSaveAction extends AbstractAction {
             break;
         case HourlyWage:
             prepareModels(models, (HourlyWageEditorForm) tab.getEditorForm());
+            break;
+        case Employment:
+            prepareModels(models, (EmploymentEditorForm) tab.getEditorForm());
             break;
         }
 

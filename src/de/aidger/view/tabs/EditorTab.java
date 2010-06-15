@@ -16,11 +16,13 @@ import de.aidger.controller.actions.EditorSaveAction;
 import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
+import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.models.HourlyWage;
 import de.aidger.view.UI;
 import de.aidger.view.forms.AssistantEditorForm;
 import de.aidger.view.forms.CourseEditorForm;
+import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
 import de.aidger.view.forms.HourlyWageEditorForm;
 import de.aidger.view.tabs.ViewerTab.DataType;
@@ -126,6 +128,9 @@ public class EditorTab extends Tab {
             case HourlyWage:
                 model = new HourlyWage();
                 break;
+            case Employment:
+                model = new Employment();
+                break;
             }
         }
 
@@ -160,6 +165,8 @@ public class EditorTab extends Tab {
                 return _("Edit financial category");
             case HourlyWage:
                 return _("Edit hourly wage");
+            case Employment:
+                return _("Edit employment");
             }
         }
 
@@ -172,6 +179,8 @@ public class EditorTab extends Tab {
             return _("Add financial category");
         case HourlyWage:
             return _("Add hourly wage");
+        case Employment:
+            return _("Add employment");
         }
 
         return "";
@@ -214,6 +223,8 @@ public class EditorTab extends Tab {
             return new FinancialCategoryEditorForm((FinancialCategory) model);
         case HourlyWage:
             return new HourlyWageEditorForm((HourlyWage) model);
+        case Employment:
+            return new EmploymentEditorForm((Employment) model);
         default:
             return new JPanel();
         }
