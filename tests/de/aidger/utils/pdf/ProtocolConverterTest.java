@@ -1,13 +1,12 @@
 /**
  * 
  */
-package de.aidger.model.reports;
+package de.aidger.utils.pdf;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
 import java.sql.Date;
-import java.util.Vector;
 
 import org.junit.After;
 import org.junit.Before;
@@ -23,7 +22,7 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
  * @author Phil
  * 
  */
-public class ProtocolCreatorTest {
+public class ProtocolConverterTest {
 
     private static Activity activity = null;
 
@@ -33,9 +32,10 @@ public class ProtocolCreatorTest {
 
     private static FinancialCategory financial = null;
 
-    private static ProtocolCreator protocolCreator = null;
+    private ProtocolConverter protocolConverter = null;
 
-    public ProtocolCreatorTest() {
+    public ProtocolConverterTest() {
+
     }
 
     @After
@@ -49,6 +49,10 @@ public class ProtocolCreatorTest {
 
         financial.remove();
 
+        File file = new File("Test_Report.pdf");
+        file.delete();
+        file = new File("Test_Report.test.pdf");
+        file.delete();
     }
 
     /**
@@ -102,55 +106,27 @@ public class ProtocolCreatorTest {
         activity.setSender("Test Sender");
         activity.setType("Test Type");
         activity.save();
-
-        protocolCreator = new ProtocolCreator();
     }
 
     /**
-     * Tests the constructor of the class ProtocolCreator.
-     */
-    @Test
-    public void testConstructor() {
-        System.out.println("Constructor");
-
-        assertNotNull(protocolCreator);
-    }
-
-    /**
-     * Tests the createProtocol method of ProtocolCreator.
+     * Tests the constructor of the class ProtocolConverter.
      * 
      * @throws AdoHiveException
      */
     @Test
-    public void testCreateProtocol() throws AdoHiveException {
-        System.out.println("createProtocol()");
+    public void testConstructor() throws AdoHiveException {
+        System.out.println("Constructor");
 
-        Vector activities = protocolCreator.createProtocol(-1);
+        File testFile = new File("Test_Report");
+        protocolConverter = new ProtocolConverter(testFile, -1);
 
-        Object[] resultActivity = {
-                (new Assistant().getById(activity.getAssistantId()))
-                    .getFirstName()
-                        + " "
-                        + (new Assistant().getById(activity.getAssistantId()))
-                            .getLastName(),
-                (new Course().getById(activity.getCourseId())).getDescription(),
-                activity.getType(), activity.getDate(), activity.getContent(),
-                activity.getSender(), activity.getProcessor(),
-                activity.getRemark() };
+        File file = new File("Test_Report.pdf");
+        assertTrue(file.exists());
 
-        boolean resultBoolean = false;
+        testFile = new File("Test_Report.test");
+        protocolConverter = new ProtocolConverter(testFile, -1);
 
-        for (Object listActivity : activities) {
-            for (int i = 0; i < 8; i++) {
-                if (((Object[]) listActivity)[i].equals(resultActivity[i])) {
-                    resultBoolean = true;
-                } else {
-                    resultBoolean = false;
-                }
-            }
-        }
-
-        assertTrue(resultBoolean);
-
+        file = new File("Test_Report.test.pdf");
+        assertTrue(file.exists());
     }
 }

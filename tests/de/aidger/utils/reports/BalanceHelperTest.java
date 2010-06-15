@@ -12,6 +12,7 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Vector;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -56,6 +57,28 @@ public class BalanceHelperTest {
     private BalanceFilter balanceFilter = null;
 
     public BalanceHelperTest() throws AdoHiveException {
+    }
+
+    @After
+    public void cleanUp() throws AdoHiveException {
+
+        course.remove();
+
+        course2.remove();
+
+        course3.remove();
+
+        course4.remove();
+
+        assistant.remove();
+
+        employment1.remove();
+
+        employment2.remove();
+
+        contract.remove();
+
+        financialCategory.remove();
     }
 
     /**

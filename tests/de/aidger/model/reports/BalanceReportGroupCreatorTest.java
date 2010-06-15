@@ -7,7 +7,8 @@ import static org.junit.Assert.assertEquals;
 
 import java.sql.Date;
 
-import org.junit.Before;
+import org.junit.After;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.aidger.model.models.Assistant;
@@ -23,17 +24,17 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
  */
 public class BalanceReportGroupCreatorTest {
 
-    private Course course = null;
+    private static Course course = null;
 
-    private Assistant assistant = null;
+    private static Assistant assistant = null;
 
-    private Employment employment1 = null;
+    private static Employment employment1 = null;
 
-    private Employment employment2 = null;
+    private static Employment employment2 = null;
 
-    private Contract contract = null;
+    private static Contract contract = null;
 
-    private FinancialCategory financialCategory = null;
+    private static FinancialCategory financialCategory = null;
 
     private BalanceReportGroupCreator balanceReportGroupCreator = null;
 
@@ -41,13 +42,29 @@ public class BalanceReportGroupCreatorTest {
 
     }
 
+    @After
+    public void cleanUp() throws AdoHiveException {
+
+        course.remove();
+
+        assistant.remove();
+
+        employment1.remove();
+
+        employment2.remove();
+
+        contract.remove();
+
+        financialCategory.remove();
+    }
+
     /**
      * Prepares this test.
      * 
      * @throws AdoHiveException
      */
-    @Before
-    public void setUp() throws AdoHiveException {
+    @BeforeClass
+    public static void beforeClassSetUp() throws AdoHiveException {
         de.aidger.model.Runtime.getInstance().initialize();
 
         financialCategory = new FinancialCategory();
