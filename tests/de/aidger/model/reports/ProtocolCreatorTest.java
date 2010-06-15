@@ -152,5 +152,9 @@ public class ProtocolCreatorTest {
 
         assertTrue(resultBoolean);
 
+        activities = protocolCreator.createProtocol(0);
+
+        assertTrue(activities.isEmpty());
+
     }
 }
