@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-15 02:18+0200\n"
+"POT-Creation-Date: 2010-06-15 02:52+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -42,7 +42,7 @@ msgid "Part"
 msgstr "Teil"
 
 #: utils/pdf/BalanceReportConverter.java:319
-#: view/tabs/BalanceViewerTab.java:88
+#: view/tabs/BalanceViewerTab.java:86
 #: view/forms/CourseEditorForm.java:244
 #: view/reports/BalanceReportGroupPanel.java:34
 #: view/reports/BalanceFilterPanel.java:45
@@ -51,7 +51,7 @@ msgid "Lecturer"
 msgstr "Dozent"
 
 #: utils/pdf/BalanceReportConverter.java:320
-#: view/tabs/BalanceViewerTab.java:89
+#: view/tabs/BalanceViewerTab.java:87
 #: view/forms/CourseEditorForm.java:268
 #: view/reports/BalanceReportGroupPanel.java:35
 #: view/reports/BalanceFilterPanel.java:48
@@ -80,7 +80,7 @@ msgid "Budget costs from resources"
 msgstr "Plankosten aus Haushaltsmitteln"
 
 #: utils/pdf/BalanceReportConverter.java:332
-#: view/tabs/BalanceViewerTab.java:87
+#: view/tabs/BalanceViewerTab.java:85
 #: view/forms/CourseEditorForm.java:344
 #: view/reports/BalanceReportGroupPanel.java:98
 #: view/reports/BalanceFilterPanel.java:42
@@ -89,47 +89,48 @@ msgid "Group"
 msgstr "Gruppe"
 
 #: utils/pdf/ProtocolConverter.java:126
+#: view/UI.java:490
 msgid "Activity Protocol"
 msgstr "Vorgangsprotokoll"
 
 #: utils/pdf/ProtocolConverter.java:154
-#: view/tabs/ProtocolViewerTab.java:40
+#: view/tabs/ProtocolViewerTab.java:39
 msgid "Affected assistant"
 msgstr "Betroffene Hilfskraft"
 
 #: utils/pdf/ProtocolConverter.java:155
-#: view/tabs/ProtocolViewerTab.java:40
+#: view/tabs/ProtocolViewerTab.java:39
 msgid "Affected course"
 msgstr "Betroffene Veranstaltung"
 
 #: utils/pdf/ProtocolConverter.java:155
-#: view/tabs/ProtocolViewerTab.java:41
+#: view/tabs/ProtocolViewerTab.java:40
 msgid "Type"
 msgstr "Typ"
 
 #: utils/pdf/ProtocolConverter.java:155
-#: view/tabs/ProtocolViewerTab.java:41
+#: view/tabs/ProtocolViewerTab.java:40
 #: view/forms/HourlyWageEditorForm.java:192
 msgid "Date"
 msgstr "Datum"
 
 #: utils/pdf/ProtocolConverter.java:155
-#: view/tabs/ProtocolViewerTab.java:41
+#: view/tabs/ProtocolViewerTab.java:40
 msgid "Content"
 msgstr "Inhalt"
 
 #: utils/pdf/ProtocolConverter.java:156
-#: view/tabs/ProtocolViewerTab.java:41
+#: view/tabs/ProtocolViewerTab.java:40
 msgid "Sender"
 msgstr "Einsender"
 
 #: utils/pdf/ProtocolConverter.java:156
-#: view/tabs/ProtocolViewerTab.java:42
+#: view/tabs/ProtocolViewerTab.java:41
 msgid "Processor"
 msgstr "Bearbeiter"
 
 #: utils/pdf/ProtocolConverter.java:156
-#: view/tabs/ProtocolViewerTab.java:42
+#: view/tabs/ProtocolViewerTab.java:41
 #: view/forms/CourseEditorForm.java:352
 #: view/models/CourseTableModel.java:28
 msgid "Remark"
@@ -315,64 +316,45 @@ msgstr "Hinweise"
 msgid "(Unnamed)"
 msgstr "(Unbenannt)"
 
-#: view/tabs/ProtocolViewerTab.java:112
+#: view/tabs/ProtocolViewerTab.java:100
 msgid "Protocol Viewing"
 msgstr "Protokollanzeige"
 
-#: view/tabs/ProtocolViewerTab.java:138
+#: view/tabs/ProtocolViewerTab.java:154
 msgid "Number of days before today to display: "
 msgstr "Anzahl an Tagen die angezeigt werden soll (nach heute):"
 
-#: view/tabs/ProtocolViewerTab.java:148
-#: view/tabs/ProtocolViewerTab.java:198
-#: view/tabs/BalanceViewerTab.java:255
+#: view/tabs/ProtocolViewerTab.java:164
+#: view/tabs/BalanceViewerTab.java:253
 #: view/UI.java:480
 #: controller/actions/ReportExportAction.java:36
 #: controller/actions/ReportExportAction.java:80
+#: controller/actions/ProtocolExportAction.java:28
+#: controller/actions/ProtocolExportAction.java:70
 msgid "Export"
 msgstr "Exportieren"
 
-#: view/tabs/ProtocolViewerTab.java:187
-#: controller/actions/ReportExportAction.java:69
-msgid "PDF files"
-msgstr "PDF Dateien"
-
-#: view/tabs/ProtocolViewerTab.java:205
-#: controller/actions/ReportExportAction.java:87
-msgid "Please choose a file."
-msgstr "Bitte wählen sie eine Datei aus."
-
-#: view/tabs/ProtocolViewerTab.java:209
-#: controller/actions/ReportExportAction.java:91
-msgid "Are you sure you want to overwrite the file?"
-msgstr "Möchten Sie die Datei wirklich überschreiben?"
-
-#: view/tabs/ProtocolViewerTab.java:210
-#: controller/actions/ReportExportAction.java:92
-msgid "Overwrite file?"
-msgstr "Datei überschreiben?"
-
-#: view/tabs/BalanceViewerTab.java:80
+#: view/tabs/BalanceViewerTab.java:78
 msgid "Semester:"
 msgstr "Semester:"
 
-#: view/tabs/BalanceViewerTab.java:198
+#: view/tabs/BalanceViewerTab.java:196
 msgid "Balance Viewing"
 msgstr "Bilanz Anzeige"
 
-#: view/tabs/BalanceViewerTab.java:242
+#: view/tabs/BalanceViewerTab.java:240
 #: view/forms/FinancialCategoryEditorForm.java:209
 #: view/models/HourlyWageTableModel.java:24
 #: view/models/FinancialCategoryTableModel.java:24
 msgid "Year"
 msgstr "Jahr"
 
-#: view/tabs/BalanceViewerTab.java:247
+#: view/tabs/BalanceViewerTab.java:245
 #: controller/actions/ReportGenerateAction.java:30
 msgid "Generate"
 msgstr "Generiere"
 
-#: view/tabs/BalanceViewerTab.java:272
+#: view/tabs/BalanceViewerTab.java:270
 msgid "Filters"
 msgstr "Filter"
 
@@ -574,56 +556,48 @@ msgstr "Jahresbilanz"
 msgid "Semester Balance"
 msgstr "Semesterbilanz"
 
-#: view/UI.java:490
-msgid "Activity Report"
-msgstr "Tätigkeitsnachweis"
-
-#: view/UI.java:492
-msgid "Protocol"
-msgstr "Vorgangsprotokoll"
-
-#: view/UI.java:494
+#: view/UI.java:493
 msgid "Controlling"
 msgstr "Controlling"
 
-#: view/UI.java:496
+#: view/UI.java:495
 msgid "Choose a month"
 msgstr "Wähle einen Monat"
 
-#: view/UI.java:501
+#: view/UI.java:500
 msgid "Budget Check"
 msgstr "Budgetprüfung"
 
-#: view/UI.java:503
+#: view/UI.java:502
 msgid "Add Filter"
 msgstr "Filter hinzufügen"
 
-#: view/UI.java:508
+#: view/UI.java:507
 msgid "Quick Settings"
 msgstr "Schnelleinstellungen"
 
-#: view/UI.java:510
+#: view/UI.java:509
 msgid "Remember my tabs"
 msgstr "Merke meine Reiter"
 
-#: view/UI.java:520
+#: view/UI.java:519
 msgid "Open reports instantly"
 msgstr "Berichte sofort öffnen"
 
-#: view/UI.java:576
+#: view/UI.java:575
 msgid "Open a new tab"
 msgstr "Öffnet einen neuen Tab"
 
-#: view/UI.java:608
+#: view/UI.java:607
 msgid "Ready"
 msgstr "Bereit"
 
-#: view/UI.java:705
+#: view/UI.java:704
 #, java-format
 msgid "Could not find tab class {0}"
 msgstr "Die Reiterklasse \"{0}\" konnte nicht gefunden werden."
 
-#: view/UI.java:709
+#: view/UI.java:708
 #, java-format
 msgid "Could not find the correct constructor: {0}"
 msgstr "Konnte den korrekten Konstruktor nicht finden: {0}"
@@ -886,6 +860,30 @@ msgstr "Homepage öffnen"
 msgid "Export the report to a pdf file"
 msgstr "Exportiere den Bericht als PDF Datei"
 
+#: controller/actions/ReportExportAction.java:69
+#: controller/actions/ProtocolExportAction.java:59
+msgid "PDF files"
+msgstr "PDF Dateien"
+
+#: controller/actions/ReportExportAction.java:87
+#: controller/actions/ProtocolExportAction.java:77
+msgid "Please choose a file."
+msgstr "Bitte wählen sie eine Datei aus."
+
+#: controller/actions/ReportExportAction.java:91
+#: controller/actions/ProtocolExportAction.java:81
+msgid "Are you sure you want to overwrite the file?"
+msgstr "Möchten Sie die Datei wirklich überschreiben?"
+
+#: controller/actions/ReportExportAction.java:92
+#: controller/actions/ProtocolExportAction.java:82
+msgid "Overwrite file?"
+msgstr "Datei überschreiben?"
+
+#: controller/actions/ProtocolExportAction.java:29
+msgid "Export the protocol to a pdf file"
+msgstr "Exportiere das Protokoll als PDF Datei"
+
 #: controller/actions/PrintAction.java:33
 msgid "Print"
 msgstr "Drucken"
@@ -911,6 +909,10 @@ msgstr "Programm beenden"
 msgid "action class {0} not found"
 msgstr "Aktions-Klasse {0} nicht gefunden"
 
+#~ msgid "Activity Report"
+#~ msgstr "Tätigkeitsnachweis"
+#~ msgid "Protocol"
+#~ msgstr "Vorgangsprotokoll"
 #~ msgid "Financial Category Viewing"
 #~ msgstr "Finanzkategorieanzeige"
 #~ msgid "Data"
