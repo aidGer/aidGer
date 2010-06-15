@@ -13,13 +13,18 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
+import java.io.File;
 import java.util.Vector;
 
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.filechooser.FileFilter;
 import javax.swing.table.DefaultTableModel;
 
 import de.aidger.model.reports.ProtocolCreator;
+import de.aidger.utils.pdf.ProtocolConverter;
 
 /**
  * This tab displays the activity protocol in a table.
@@ -114,6 +119,7 @@ public class ProtocolViewerTab extends Tab {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
     // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -145,6 +151,12 @@ public class ProtocolViewerTab extends Tab {
             .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         exportProtocolButton
             .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        exportProtocolButton
+            .addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    exportProtocolButtonActionPerformed(evt);
+                }
+            });
         jToolBar1.add(exportProtocolButton);
 
         add(jToolBar1, java.awt.BorderLayout.PAGE_START);
@@ -154,6 +166,61 @@ public class ProtocolViewerTab extends Tab {
 
         add(contentScrollPane, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void exportProtocolButtonActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_exportProtocolButtonActionPerformed
+
+        JFileChooser fileChooser = new JFileChooser();
+        File file;
+        FileFilter pdfFilter = new FileFilter() {
+            @Override
+            public boolean accept(File arg0) {
+                String fileName = arg0.getName();
+                int fileExtensionStart = fileName.lastIndexOf('.');
+                String fileExtension = fileName
+                    .substring(fileExtensionStart + 1);
+                return arg0.isDirectory() || fileExtension.equals("pdf");
+            }
+
+            @Override
+            public String getDescription() {
+                return _("PDF files");
+            }
+        };
+
+        fileChooser.removeChoosableFileFilter(fileChooser
+            .getAcceptAllFileFilter());
+        fileChooser.addChoosableFileFilter(pdfFilter);
+
+        boolean exit = false;
+
+        do {
+            int retVal = fileChooser.showDialog(this, _("Export"));
+
+            if (retVal == JFileChooser.APPROVE_OPTION) {
+                file = fileChooser.getSelectedFile();
+                if (file.isDirectory()) {
+                    // This shouldn't happen but check for it anyways
+                    JOptionPane.showMessageDialog(this,
+                        _("Please choose a file."));
+                } else if (file.exists()) {
+                    // Ask if the user wants to overwrite the file
+                    retVal = JOptionPane.showOptionDialog(this,
+                        _("Are you sure you want to overwrite the file?"),
+                        _("Overwrite file?"), JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE, null, null, null);
+                    if (retVal == JOptionPane.YES_OPTION) {
+                        exit = true;
+                    }
+                } else {
+                    exit = true;
+                }
+            } else {
+                return;
+            }
+        } while (!exit);
+        new ProtocolConverter(file, -1);
+    }// GEN-LAST:event_exportProtocolButtonActionPerformed
 
     private void daySpinnerStateChanged(javax.swing.event.ChangeEvent evt) {// GEN-FIRST:event_daySpinnerStateChanged
         daySpinner.setVisible(false);

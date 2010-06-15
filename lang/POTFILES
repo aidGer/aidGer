@@ -1,4 +1,5 @@
 utils/pdf/BalanceReportConverter.java
+utils/pdf/ProtocolConverter.java
 utils/Configuration.java
 utils/Logger.java
 utils/reports/BalanceHelper.java

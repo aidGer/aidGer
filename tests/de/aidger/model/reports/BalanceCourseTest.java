@@ -6,7 +6,8 @@ package de.aidger.model.reports;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import org.junit.Before;
+import org.junit.After;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
@@ -15,17 +16,21 @@ import org.junit.Test;
  */
 public class BalanceCourseTest {
 
-    private BalanceCourse balanceCourse = null;
+    private static BalanceCourse balanceCourse = null;
 
     public BalanceCourseTest() {
         new BalanceCourse();
     }
 
+    @After
+    public void cleanUp() {
+    }
+
     /**
-     * Sets up the balance course for testing.
+     * Prepares this test.
      */
-    @Before
-    public void setUp() {
+    @BeforeClass
+    public static void beforeClassSetUp() {
         balanceCourse = new BalanceCourse();
         balanceCourse.setTitle("Test title");
         balanceCourse.setLecturer("Test Lecturer");

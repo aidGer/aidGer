@@ -40,7 +40,7 @@ public class ProtocolCreator {
      * @throws AdoHiveException
      */
     public Vector createProtocol(int numberOfDays) {
-        Object[] addedActivity = new Object[8];
+        Object[] addedActivity;
         Vector addedActivities = new Vector();
         List<IActivity> activities = null;
         try {
@@ -64,10 +64,14 @@ public class ProtocolCreator {
             if (currentDate.getTime().before(activity.getDate())
                     || activity.getDate().equals(currentDate.getTime())) {
                 try {
-                    addedActivity[0] = new Assistant().getById(activity
-                        .getAssistantId());
-                    addedActivity[1] = new Course().getById(activity
-                        .getCourseId());
+                    addedActivity = new Object[8];
+                    addedActivity[0] = (new Assistant().getById(activity
+                        .getAssistantId())).getFirstName()
+                            + " "
+                            + (new Assistant().getById(activity
+                                .getAssistantId())).getLastName();
+                    addedActivity[1] = (new Course().getById(activity
+                        .getCourseId())).getDescription();
                     addedActivity[2] = activity.getType();
                     addedActivity[3] = activity.getDate();
                     addedActivity[4] = activity.getContent();

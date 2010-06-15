@@ -6,12 +6,12 @@ package de.aidger.model.reports;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Before;
+import org.junit.After;
 import org.junit.Test;
 
 /**
  * @author Phil
- *
+ * 
  */
 public class BalanceFilterTest {
     private BalanceFilter balanceFilter = null;
@@ -20,12 +20,8 @@ public class BalanceFilterTest {
 
     }
 
-    /**
-     * Prepares this test
-     */
-    @Before
-    public void setUp() {
-
+    @After
+    public void cleanUp() {
     }
 
     /**
