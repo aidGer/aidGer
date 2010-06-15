@@ -90,6 +90,25 @@ public class ProtocolViewerTab extends Tab {
         }
     }
 
+    /*
+     * (non-Javadoc)
+     *
+     * @see de.aidger.view.tabs.Tab#getTabName()
+     */
+    @Override
+    public String getTabName() {
+        return _("Protocol Viewing");
+    }
+
+    /**
+     * Get the amount of days selected.
+     *
+     * @return The amount of days
+     */
+    public int getDays() {
+        return (Integer) daySpinner.getValue();
+    }
+
     /**
      * Removes all the rows from the content table.
      */
@@ -107,16 +126,6 @@ public class ProtocolViewerTab extends Tab {
      */
     private void addActivity(Object[] activity) {
         activityTableModel.addRow(activity);
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see de.aidger.view.tabs.Tab#getTabName()
-     */
-    @Override
-    public String getTabName() {
-        return _("Protocol Viewing");
     }
 
     /**

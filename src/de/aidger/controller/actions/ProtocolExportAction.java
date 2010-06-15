@@ -92,7 +92,7 @@ public class ProtocolExportAction extends AbstractAction{
             }
         } while (!exit);
 
-        new ProtocolConverter(file, -1);
+        new ProtocolConverter(file, tab.getDays());
     }
 
 }
