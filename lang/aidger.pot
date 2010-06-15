@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-15 13:20+0200\n"
+"POT-Creation-Date: 2010-06-15 13:47+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,6 +58,7 @@ msgstr ""
 #: utils/pdf/ProtocolConverter.java:156 view/tabs/ProtocolViewerTab.java:41
 #: view/forms/CourseViewerForm.java:205 view/forms/CourseEditorForm.java:352
 #: view/models/CourseTableModel.java:28
+#: view/models/EmploymentTableModel.java:25
 msgid "Remark"
 msgstr ""
 
@@ -285,19 +286,19 @@ msgstr ""
 msgid "Add hourly wage"
 msgstr ""
 
-#: view/tabs/EditorTab.java:267 controller/actions/EditorSaveAction.java:43
+#: view/tabs/EditorTab.java:269 controller/actions/EditorSaveAction.java:43
 #: controller/actions/SaveSettingsAction.java:29
 msgid "Save"
 msgstr ""
 
-#: view/tabs/EditorTab.java:270 view/tabs/DetailViewerTab.java:183
+#: view/tabs/EditorTab.java:272 view/tabs/DetailViewerTab.java:183
 #: controller/actions/DetailViewerCancelAction.java:27
 #: controller/actions/DialogAbortAction.java:26
 #: controller/actions/EditorCancelAction.java:27
 msgid "Cancel"
 msgstr ""
 
-#: view/tabs/EditorTab.java:284
+#: view/tabs/EditorTab.java:288
 msgid "Hints"
 msgstr ""
 
@@ -333,6 +334,7 @@ msgstr ""
 #: view/forms/FinancialCategoryViewerForm.java:107
 #: view/forms/FinancialCategoryEditorForm.java:209
 #: view/models/HourlyWageTableModel.java:24
+#: view/models/EmploymentTableModel.java:24
 #: view/models/FinancialCategoryTableModel.java:24
 msgid "Year"
 msgstr ""
@@ -346,58 +348,62 @@ msgstr ""
 msgid "Filters"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:219 view/tabs/ViewerTab.java:233
-#: view/tabs/ViewerTab.java:457
+#: view/tabs/ViewerTab.java:224 view/tabs/ViewerTab.java:238
+#: view/tabs/ViewerTab.java:464
 msgid "Search"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:281
+#: view/tabs/ViewerTab.java:286
 msgid "Master Data Courses"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:283
+#: view/tabs/ViewerTab.java:288
 msgid "Master Data Assistants"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:285
+#: view/tabs/ViewerTab.java:290
 msgid "Master Data Financial Categories"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:287
+#: view/tabs/ViewerTab.java:292
 msgid "Master Data Hourly Wages"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:289
-msgid "Master Data"
+#: view/tabs/ViewerTab.java:294 view/UI.java:469
+msgid "Employments"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:384 view/tabs/ViewerTab.java:402
+#: view/tabs/ViewerTab.java:296
+msgid "Data"
+msgstr ""
+
+#: view/tabs/ViewerTab.java:391 view/tabs/ViewerTab.java:409
 #: controller/actions/ViewerDetailViewAction.java:27
 msgid "View"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:387 view/tabs/ViewerTab.java:409
+#: view/tabs/ViewerTab.java:394 view/tabs/ViewerTab.java:416
 #: view/tabs/DetailViewerTab.java:180
 #: controller/actions/DetailViewerEditAction.java:27
 #: controller/actions/ViewerEditAction.java:27
 msgid "Edit"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:390 view/tabs/ViewerTab.java:423
+#: view/tabs/ViewerTab.java:397 view/tabs/ViewerTab.java:430
 #: controller/actions/ViewerDeleteAction.java:30
 msgid "Delete"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:393 view/UI.java:477
+#: view/tabs/ViewerTab.java:400 view/UI.java:477
 #: controller/actions/ViewerActivitiesAction.java:22
 msgid "Activities"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:416 controller/actions/ViewerAddAction.java:27
+#: view/tabs/ViewerTab.java:423 controller/actions/ViewerAddAction.java:27
 msgid "Add"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:430
+#: view/tabs/ViewerTab.java:437
 msgid "Activites"
 msgstr ""
 
@@ -506,10 +512,6 @@ msgstr ""
 msgid "Hourly Wages"
 msgstr ""
 
-#: view/UI.java:469
-msgid "Employments"
-msgstr ""
-
 #: view/UI.java:471
 msgid "Create new employment"
 msgstr ""
@@ -602,38 +604,39 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: view/forms/AssistantViewerForm.java:84
+#: view/forms/AssistantViewerForm.java:85
 #: view/forms/AssistantEditorForm.java:92
 #: view/models/AssistantTableModel.java:24
 msgid "First Name"
 msgstr ""
 
-#: view/forms/AssistantViewerForm.java:90
+#: view/forms/AssistantViewerForm.java:91
 #: view/forms/AssistantEditorForm.java:98
 #: view/models/AssistantTableModel.java:24
 msgid "Last Name"
 msgstr ""
 
-#: view/forms/AssistantViewerForm.java:98
+#: view/forms/AssistantViewerForm.java:99
 #: view/forms/AssistantEditorForm.java:106
 #: view/models/AssistantTableModel.java:24
 msgid "Email"
 msgstr ""
 
-#: view/forms/AssistantViewerForm.java:106
+#: view/forms/AssistantViewerForm.java:107
 #: view/forms/AssistantEditorForm.java:114
 #: view/forms/HourlyWageEditorForm.java:186
 #: view/forms/HourlyWageViewerForm.java:59
 #: view/models/HourlyWageTableModel.java:24
 #: view/models/AssistantTableModel.java:25
+#: view/models/EmploymentTableModel.java:25
 msgid "Qualification"
 msgstr ""
 
-#: view/forms/AssistantViewerForm.java:136
+#: view/forms/AssistantViewerForm.java:143
 msgid "Related courses"
 msgstr ""
 
-#: view/forms/AssistantViewerForm.java:149
+#: view/forms/AssistantViewerForm.java:156
 msgid "Related activities"
 msgstr ""
 
@@ -723,12 +726,34 @@ msgstr ""
 
 #: view/models/CourseTableModel.java:28
 #: view/models/AssistantTableModel.java:25
+#: view/models/EmploymentTableModel.java:25
 #: view/models/FinancialCategoryTableModel.java:25
 msgid "ID"
 msgstr ""
 
 #: view/models/HourlyWageTableModel.java:24
+#: view/models/EmploymentTableModel.java:24
 msgid "Month"
+msgstr ""
+
+#: view/models/EmploymentTableModel.java:23
+msgid "Assistant"
+msgstr ""
+
+#: view/models/EmploymentTableModel.java:23
+msgid "Course"
+msgstr ""
+
+#: view/models/EmploymentTableModel.java:23
+msgid "Contract"
+msgstr ""
+
+#: view/models/EmploymentTableModel.java:24
+msgid "Hour count"
+msgstr ""
+
+#: view/models/EmploymentTableModel.java:24
+msgid "Cost unit"
 msgstr ""
 
 #: view/SettingsDialog.java:159 controller/actions/SettingsAction.java:28

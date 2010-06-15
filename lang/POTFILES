@@ -54,6 +54,7 @@ view/models/CourseTableModel.java
 view/models/TableModel.java
 view/models/HourlyWageTableModel.java
 view/models/AssistantTableModel.java
+view/models/EmploymentTableModel.java
 view/models/FinancialCategoryTableModel.java
 view/SettingsDialog.java
 view/TaskPaneButton.java

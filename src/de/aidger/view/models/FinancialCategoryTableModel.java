@@ -28,7 +28,7 @@ public class FinancialCategoryTableModel extends TableModel {
     /*
      * (non-Javadoc)
      * 
-     * @see de.aidger.view.models.MasterDataTableModel#refresh()
+     * @see de.aidger.view.models.TableModel#refresh()
      */
     @Override
     @SuppressWarnings("unchecked")

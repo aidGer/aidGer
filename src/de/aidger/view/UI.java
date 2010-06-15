@@ -466,7 +466,7 @@ public final class UI extends JFrame {
             Task.ViewHourlyWages));
 
         TaskPane tpEmployments = new TaskPane(new TaskPaneAction(
-            _("Employments"), Task.ViewEmpty));
+            _("Employments"), Task.ViewEmployments));
 
         tpEmployments.add(createTaskPaneButton(_("Create new employment"),
             Task.ViewEmpty));
