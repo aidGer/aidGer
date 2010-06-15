@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
@@ -211,9 +212,47 @@ public class EditorSaveAction extends AbstractAction {
             EmploymentEditorForm form) {
         Employment employment = (Employment) models.get(0);
 
+        employment.setAssistantId(form.getAssistantId());
+        employment.setCourseId(form.getCourseId());
+        employment.setContractId(form.getContractId());
+        employment.setCostUnit(form.getCostUnit());
+        employment.setQualification(form.getQualification());
         employment.setRemark(form.getRemark());
 
-        // TODO set employment
+        try {
+            employment.setFunds(form.getFunds());
+        } catch (NumberFormatException e) {
+            employment.addError("funds", new PresenceValidator(employment,
+                new String[] {}).getMessage());
+        }
+
+        List<Date> dates = form.getDates();
+        List<Double> hcs = new Vector<Double>();
+
+        try {
+            hcs = form.getHourCounts();
+        } catch (NumberFormatException e) {
+            employment.addError("hourCount", new PresenceValidator(employment,
+                new String[] {}).getMessage());
+
+            return;
+        }
+
+        models.clear();
+
+        for (int i = 0; i < dates.size(); ++i) {
+            Employment clone = employment.clone();
+            models.add(clone);
+
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(dates.get(i));
+
+            clone.setMonth((byte) (cal.get(Calendar.MONTH) + 1));
+            clone.setYear((short) cal.get(Calendar.YEAR));
+            clone.setHourCount(hcs.get(i));
+        }
+
+        // TODO handling edit mode
     }
 
     /*

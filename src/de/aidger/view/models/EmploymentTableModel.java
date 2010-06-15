@@ -4,9 +4,16 @@ import static de.aidger.utils.Translation._;
 
 import java.util.List;
 
+import de.aidger.model.models.Assistant;
+import de.aidger.model.models.Contract;
+import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.utils.Logger;
+import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.unistuttgart.iste.se.adohive.model.IAssistant;
+import de.unistuttgart.iste.se.adohive.model.IContract;
+import de.unistuttgart.iste.se.adohive.model.ICourse;
 import de.unistuttgart.iste.se.adohive.model.IEmployment;
 
 /**
@@ -49,12 +56,41 @@ public class EmploymentTableModel extends TableModel {
 
             models.add(employment);
 
-            addRow(new Object[] { employment.getAssistantId(),
-                    employment.getContractId(), employment.getContractId(),
-                    employment.getMonth(), employment.getYear(),
-                    employment.getHourCount(), employment.getCostUnit(),
-                    employment.getQualification(), employment.getRemark(),
-                    employment.getId() });
+            try {
+                IAssistant assistant = (new Assistant()).getById(employment
+                    .getAssistantId());
+                ICourse course = (new Course()).getById(employment
+                    .getCourseId());
+                IContract contract = (new Contract()).getById(employment
+                    .getContractId());
+
+                addRow(new Object[] {
+                        new Assistant(assistant) {
+                            @Override
+                            public String toString() {
+                                return getFirstName() + " " + getLastName();
+                            }
+                        },
+                        new Course(course) {
+                            @Override
+                            public String toString() {
+                                return getDescription() + " (" + getSemester()
+                                        + ", " + getLecturer() + ")";
+                            }
+                        },
+                        new Contract(contract) {
+                            @Override
+                            public String toString() {
+                                return getType() + " (" + getStartDate()
+                                        + " - " + getEndDate() + ")";
+                            }
+                        }, employment.getMonth(), employment.getYear(),
+                        employment.getHourCount(), employment.getCostUnit(),
+                        Qualification.valueOf(employment.getQualification()),
+                        employment.getRemark(), employment.getId() });
+            } catch (AdoHiveException e1) {
+                Logger.error(e1.getMessage());
+            }
         }
     }
 }

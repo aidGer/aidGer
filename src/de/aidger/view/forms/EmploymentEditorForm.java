@@ -110,12 +110,102 @@ public class EmploymentEditorForm extends JPanel {
     }
 
     /**
+     * Get the id referencing the assistant.
+     * 
+     * @return The id of the assistant
+     */
+    public int getAssistantId() {
+        return ((Assistant) cmbAssistant.getSelectedItem()).getId();
+    }
+
+    /**
+     * Get the id referencing the contract.
+     * 
+     * @return The id of the contract
+     */
+    public int getContractId() {
+        if (cmbContract.getSelectedItem() != null) {
+            return ((Contract) cmbContract.getSelectedItem()).getId();
+        }
+
+        return 0;
+    }
+
+    /**
+     * Get the cost unit of the contract.
+     * 
+     * @return The cost unit of the contract
+     */
+    public String getCostUnit() {
+        return txtCostUnit.getText();
+    }
+
+    /**
+     * Get the id referencing the course.
+     * 
+     * @return The id of the course
+     */
+    public int getCourseId() {
+        return ((Course) cmbCourse.getSelectedItem()).getId();
+    }
+
+    /**
+     * Get the funds of the employment.
+     * 
+     * @return The funds of the employment
+     * @throws NumberFormatException
+     */
+    public int getFunds() throws NumberFormatException {
+        return Integer.valueOf((String) cmbFunds.getSelectedItem());
+    }
+
+    /**
+     * Get the qualification of the employment.
+     * 
+     * @return The qualification of the employment
+     */
+    public String getQualification() {
+        return ((Qualification) cmbQualification.getSelectedItem()).name();
+    }
+
+    /**
      * Get the remarks regarding the employment.
      * 
      * @return The remarks regarding the employment
      */
     public String getRemark() {
         return txtRemark.getText();
+    }
+
+    /**
+     * Get the dates of the employment.
+     * 
+     * @return The dates of the employment
+     */
+    public List<Date> getDates() {
+        List<Date> dates = new Vector<Date>();
+
+        for (DateLine dl : dateLines) {
+            dates.add((Date) dl.spDate.getValue());
+        }
+
+        return dates;
+    }
+
+    /**
+     * Get the hour counts worked during the employment.
+     * 
+     * @return The hour counts worked during the employment
+     * @throws NumberFormatException
+     */
+    public List<Double> getHourCounts() throws NumberFormatException {
+        List<Double> hcs = new Vector<Double>();
+
+        for (DateLine dl : dateLines) {
+            hcs.add(Double.valueOf(dl.txtHourCount.getText()));
+        }
+
+        return hcs;
     }
 
     /**
@@ -163,7 +253,7 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtHourCount, gridBagConstraints);
 
-        InputPatternFilter.addFilter(txtHourCount, "[0-9]+");
+        InputPatternFilter.addFilter(txtHourCount, "[0-9]+[.,]?[0-9]*");
 
         JButton btnPlusMinus = new JButton();
         gridBagConstraints = new GridBagConstraints();
@@ -325,6 +415,7 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtCostUnit, gridBagConstraints);
 
@@ -342,6 +433,7 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtRemark, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
