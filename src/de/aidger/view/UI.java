@@ -265,9 +265,9 @@ public final class UI extends JFrame {
         tabbedPane.remove(index);
 
         if (tabbedPane.getTabCount() == 1) {
-            Tab emptyTab = new EmptyTab();
-            tabbedPane.add(new JScrollPane(emptyTab), 0);
-            tabbedPane.setTabComponentAt(0, new CloseTabComponent(emptyTab
+            Tab welcomeTab = new WelcomeTab();
+            tabbedPane.add(new JScrollPane(welcomeTab), 0);
+            tabbedPane.setTabComponentAt(0, new CloseTabComponent(welcomeTab
                 .getTabName()));
 
             tabbedPane.setSelectedIndex(0);
