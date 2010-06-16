@@ -9,6 +9,7 @@ import javax.swing.Action;
 
 import de.aidger.view.UI;
 import de.aidger.view.tabs.DetailViewerTab;
+import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
 
 /**
@@ -38,6 +39,12 @@ public class DetailViewerCancelAction extends AbstractAction {
         DetailViewerTab tab = (DetailViewerTab) UI.getInstance()
             .getCurrentTab();
 
-        UI.getInstance().replaceCurrentTab(new ViewerTab(tab.getType()));
+        Tab next = tab.getPredecessorOf(ViewerTab.class);
+
+        if (next == null) {
+            next = new ViewerTab(tab.getType());
+        }
+
+        UI.getInstance().replaceCurrentTab(next);
     }
 }

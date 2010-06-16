@@ -4,6 +4,7 @@ import static de.aidger.utils.Translation._;
 
 import java.util.List;
 
+import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
@@ -35,13 +36,11 @@ public class EmploymentTableModel extends TableModel {
     /*
      * (non-Javadoc)
      * 
-     * @see de.aidger.view.models.TableModel#refresh()
+     * @see de.aidger.view.models.TableModel#getAllModels()
      */
     @Override
     @SuppressWarnings("unchecked")
-    public void refresh() {
-        super.refresh();
-
+    public void getAllModels() {
         List<IEmployment> employments = null;
 
         try {
@@ -52,45 +51,59 @@ public class EmploymentTableModel extends TableModel {
 
         for (IEmployment e : employments) {
             Employment employment = new Employment(e);
+
             employment.addObserver(this);
-
             models.add(employment);
-
-            try {
-                IAssistant assistant = (new Assistant()).getById(employment
-                    .getAssistantId());
-                ICourse course = (new Course()).getById(employment
-                    .getCourseId());
-                IContract contract = (new Contract()).getById(employment
-                    .getContractId());
-
-                addRow(new Object[] {
-                        new Assistant(assistant) {
-                            @Override
-                            public String toString() {
-                                return getFirstName() + " " + getLastName();
-                            }
-                        },
-                        new Course(course) {
-                            @Override
-                            public String toString() {
-                                return getDescription() + " (" + getSemester()
-                                        + ", " + getLecturer() + ")";
-                            }
-                        },
-                        new Contract(contract) {
-                            @Override
-                            public String toString() {
-                                return getType() + " (" + getStartDate()
-                                        + " - " + getEndDate() + ")";
-                            }
-                        }, employment.getMonth(), employment.getYear(),
-                        employment.getHourCount(), employment.getCostUnit(),
-                        Qualification.valueOf(employment.getQualification()),
-                        employment.getRemark(), employment.getId() });
-            } catch (AdoHiveException e1) {
-                Logger.error(e1.getMessage());
-            }
         }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @seede.aidger.view.models.TableModel#convertModelToRow(de.aidger.model.
+     * AbstractModel)
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    protected Object[] convertModelToRow(AbstractModel model) {
+        Employment employment = (Employment) model;
+
+        try {
+            IAssistant assistant = (new Assistant()).getById(employment
+                .getAssistantId());
+            ICourse course = (new Course()).getById(employment.getCourseId());
+            IContract contract = (new Contract()).getById(employment
+                .getContractId());
+
+            return new Object[] {
+                    new Assistant(assistant) {
+                        @Override
+                        public String toString() {
+                            return getFirstName() + " " + getLastName();
+                        }
+                    },
+                    new Course(course) {
+                        @Override
+                        public String toString() {
+                            return getDescription() + " (" + getSemester()
+                                    + ", " + getLecturer() + ")";
+                        }
+                    },
+                    new Contract(contract) {
+                        @Override
+                        public String toString() {
+                            return getType() + " (" + getStartDate() + " - "
+                                    + getEndDate() + ")";
+                        }
+                    }, employment.getMonth(), employment.getYear(),
+                    employment.getHourCount(), employment.getCostUnit(),
+                    Qualification.valueOf(employment.getQualification()),
+                    employment.getRemark(), employment.getId() };
+        } catch (AdoHiveException e1) {
+            Logger.error(e1.getMessage());
+
+            return new Object[] {};
+        }
+
     }
 }

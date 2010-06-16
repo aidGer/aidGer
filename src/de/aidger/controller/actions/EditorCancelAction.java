@@ -9,6 +9,7 @@ import javax.swing.Action;
 
 import de.aidger.view.UI;
 import de.aidger.view.tabs.EditorTab;
+import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
 
 /**
@@ -37,6 +38,12 @@ public class EditorCancelAction extends AbstractAction {
     public void actionPerformed(ActionEvent e) {
         EditorTab tab = (EditorTab) UI.getInstance().getCurrentTab();
 
-        UI.getInstance().replaceCurrentTab(new ViewerTab(tab.getType()));
+        Tab next = tab.getPredecessor();
+
+        if (next == null) {
+            next = new ViewerTab(tab.getType());
+        }
+
+        UI.getInstance().replaceCurrentTab(next);
     }
 }

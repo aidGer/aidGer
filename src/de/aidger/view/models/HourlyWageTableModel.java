@@ -4,6 +4,7 @@ import static de.aidger.utils.Translation._;
 
 import java.util.List;
 
+import de.aidger.model.AbstractModel;
 import de.aidger.model.models.HourlyWage;
 import de.aidger.utils.Logger;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
@@ -28,13 +29,11 @@ public class HourlyWageTableModel extends TableModel {
     /*
      * (non-Javadoc)
      * 
-     * @see de.aidger.view.models.TableModel#refresh()
+     * @see de.aidger.view.models.TableModel#getAllModels()
      */
     @Override
     @SuppressWarnings("unchecked")
-    public void refresh() {
-        super.refresh();
-
+    public void getAllModels() {
         List<IHourlyWage> hws = null;
 
         try {
@@ -45,12 +44,23 @@ public class HourlyWageTableModel extends TableModel {
 
         for (IHourlyWage h : hws) {
             HourlyWage hw = new HourlyWage(h);
-            hw.addObserver(this);
 
             models.add(hw);
-
-            addRow(new Object[] { Qualification.valueOf(hw.getQualification()),
-                    hw.getMonth(), hw.getYear(), hw.getWage() });
         }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.aidger.view.models.TableModel#addRow(de.aidger.model.AbstractModel)
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    protected Object[] convertModelToRow(AbstractModel model) {
+        HourlyWage hw = (HourlyWage) model;
+
+        return new Object[] { Qualification.valueOf(hw.getQualification()),
+                hw.getMonth(), hw.getYear(), hw.getWage() };
     }
 }

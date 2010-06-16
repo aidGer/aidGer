@@ -4,6 +4,7 @@ import static de.aidger.utils.Translation._;
 
 import java.util.List;
 
+import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.Logger;
@@ -31,13 +32,11 @@ public class CourseTableModel extends TableModel {
     /*
      * (non-Javadoc)
      * 
-     * @see de.aidger.view.models.TableModel#refresh()
+     * @see de.aidger.view.models.TableModel#getAllModels()
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void refresh() {
-        super.refresh();
-
+    public void getAllModels() {
         List<ICourse> courses = null;
 
         try {
@@ -48,29 +47,44 @@ public class CourseTableModel extends TableModel {
 
         for (ICourse c : courses) {
             Course course = new Course(c);
+
             course.addObserver(this);
-
             models.add(course);
-
-            try {
-                IFinancialCategory fc = (new FinancialCategory())
-                    .getById(course.getFinancialCategoryId());
-
-                addRow(new Object[] { course.getDescription(),
-                        course.getSemester(), course.getLecturer(),
-                        course.getAdvisor(), course.getNumberOfGroups(),
-                        course.getTargetAudience(),
-                        course.getUnqualifiedWorkingHours(), course.getScope(),
-                        course.getPart(), course.getGroup(),
-                        course.getRemark(), new FinancialCategory(fc) {
-                            @Override
-                            public String toString() {
-                                return getName() + " (" + getYear() + ")";
-                            }
-                        }, course.getId() });
-            } catch (AdoHiveException e) {
-                Logger.error(e.getMessage());
-            }
         }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @seede.aidger.view.models.TableModel#convertModelToRow(de.aidger.model.
+     * AbstractModel)
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    protected Object[] convertModelToRow(AbstractModel model) {
+        Course course = (Course) model;
+
+        try {
+            IFinancialCategory fc = (new FinancialCategory()).getById(course
+                .getFinancialCategoryId());
+
+            return new Object[] { course.getDescription(),
+                    course.getSemester(), course.getLecturer(),
+                    course.getAdvisor(), course.getNumberOfGroups(),
+                    course.getTargetAudience(),
+                    course.getUnqualifiedWorkingHours(), course.getScope(),
+                    course.getPart(), course.getGroup(), course.getRemark(),
+                    new FinancialCategory(fc) {
+                        @Override
+                        public String toString() {
+                            return getName() + " (" + getYear() + ")";
+                        }
+                    }, course.getId() };
+        } catch (AdoHiveException e) {
+            Logger.error(e.getMessage());
+
+            return new Object[] {};
+        }
+
     }
 }

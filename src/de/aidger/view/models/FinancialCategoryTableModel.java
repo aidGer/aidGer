@@ -4,6 +4,7 @@ import static de.aidger.utils.Translation._;
 
 import java.util.List;
 
+import de.aidger.model.AbstractModel;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.Logger;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
@@ -28,13 +29,11 @@ public class FinancialCategoryTableModel extends TableModel {
     /*
      * (non-Javadoc)
      * 
-     * @see de.aidger.view.models.TableModel#refresh()
+     * @see de.aidger.view.models.TableModel#getAllModels()
      */
     @Override
     @SuppressWarnings("unchecked")
-    public void refresh() {
-        super.refresh();
-
+    public void getAllModels() {
         List<IFinancialCategory> fcs = null;
 
         try {
@@ -45,20 +44,32 @@ public class FinancialCategoryTableModel extends TableModel {
 
         for (IFinancialCategory f : fcs) {
             FinancialCategory fc = new FinancialCategory(f);
+
             fc.addObserver(this);
-
-            String funds = String.valueOf(fc.getFunds()[0]);
-            String budgetCosts = String.valueOf(fc.getBudgetCosts()[0]);
-
             models.add(fc);
-
-            for (int i = 1; i < fc.getFunds().length; i++) {
-                funds += "\n" + fc.getFunds()[i];
-                budgetCosts += "\n" + fc.getBudgetCosts()[i];
-            }
-
-            addRow(new Object[] { fc.getName(), fc.getYear(), funds,
-                    budgetCosts, fc.getId() });
         }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @seede.aidger.view.models.TableModel#convertModelToRow(de.aidger.model.
+     * AbstractModel)
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    protected Object[] convertModelToRow(AbstractModel model) {
+        FinancialCategory fc = (FinancialCategory) model;
+
+        String funds = String.valueOf(fc.getFunds()[0]);
+        String budgetCosts = String.valueOf(fc.getBudgetCosts()[0]);
+
+        for (int i = 1; i < fc.getFunds().length; i++) {
+            funds += "\n" + fc.getFunds()[i];
+            budgetCosts += "\n" + fc.getBudgetCosts()[i];
+        }
+
+        return new Object[] { fc.getName(), fc.getYear(), funds, budgetCosts,
+                fc.getId() };
     }
 }

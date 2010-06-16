@@ -27,6 +27,7 @@ import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
 import de.aidger.view.forms.HourlyWageEditorForm;
 import de.aidger.view.tabs.EditorTab;
+import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
@@ -266,6 +267,12 @@ public class EditorSaveAction extends AbstractAction {
     public void actionPerformed(ActionEvent e) {
         EditorTab tab = (EditorTab) UI.getInstance().getCurrentTab();
 
+        ViewerTab next = (ViewerTab) tab.getPredecessorOf(ViewerTab.class);
+
+        if (next == null) {
+            next = new ViewerTab(tab.getType());
+        }
+
         List<AbstractModel> models = new Vector<AbstractModel>();
         models.add(tab.getModel());
 
@@ -290,6 +297,19 @@ public class EditorSaveAction extends AbstractAction {
 
         for (AbstractModel model : models) {
 
+            model.addObserver(next.getTableModel());
+
+            /*
+             * model should also be observed by the already existing table
+             * models of the same type
+             */
+            for (Tab t : UI.getInstance().getTabs()) {
+                if (t instanceof ViewerTab
+                        && ((ViewerTab) t).getType() == tab.getType()) {
+                    model.addObserver(((ViewerTab) t).getTableModel());
+                }
+            }
+
             try {
                 if (!model.save()) {
                     tab.updateHints();
@@ -308,6 +328,6 @@ public class EditorSaveAction extends AbstractAction {
             }
         }
 
-        UI.getInstance().replaceCurrentTab(new ViewerTab(tab.getType()));
+        UI.getInstance().replaceCurrentTab(next);
     }
 }

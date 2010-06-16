@@ -1,7 +1,9 @@
 package de.aidger.view.models;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -18,28 +20,55 @@ import de.aidger.model.AbstractModel;
 public abstract class TableModel extends DefaultTableModel implements Observer {
 
     /**
-     * The models that are displayed on the table.
+     * The static map of models. Each data type has its own list of models.
      */
     @SuppressWarnings("unchecked")
-    protected List<AbstractModel> models = new ArrayList<AbstractModel>();
+    protected static Map<String, List<AbstractModel>> mapModels = new HashMap<String, List<AbstractModel>>();
 
     /**
-     * Constructs the abstract table model.
+     * The data type specific models that are displayed on the table.
      */
+    @SuppressWarnings("unchecked")
+    protected List<AbstractModel> models;
+
+    /**
+     * Constructs the table model.
+     */
+    @SuppressWarnings("unchecked")
     public TableModel(String[] columnNames) {
         setColumnIdentifiers(columnNames);
+
+        String className = this.getClass().getName();
+
+        // get all models just once from database
+        if (mapModels.get(className) == null) {
+            models = new ArrayList<AbstractModel>();
+
+            mapModels.put(className, models);
+
+            getAllModels();
+        } else {
+            // models are already gotten
+            models = mapModels.get(className);
+        }
 
         refresh();
     }
 
     /**
-     * Refreshs the whole table.
+     * Converts the model to a row.
+     * 
+     * @param model
+     *            the model that will be converted
+     * @return the row that is converted from the model
      */
-    public void refresh() {
-        models.clear();
+    @SuppressWarnings("unchecked")
+    protected abstract Object[] convertModelToRow(AbstractModel model);
 
-        setRowCount(0);
-    }
+    /**
+     * Gets all models from database and stores them in the table model.
+     */
+    protected abstract void getAllModels();
 
     /**
      * Returns the model at the given index.
@@ -51,16 +80,44 @@ public abstract class TableModel extends DefaultTableModel implements Observer {
         return models.get(i);
     }
 
+    /**
+     * Refreshes the table.
+     */
+    @SuppressWarnings("unchecked")
+    private void refresh() {
+        setRowCount(0);
+
+        for (AbstractModel model : models) {
+            // each model is observed by the table model
+            model.addObserver(this);
+
+            // each model is added as a row to the table
+            addRow(convertModelToRow(model));
+        }
+    }
+
     /*
      * (non-Javadoc)
      * 
      * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
      */
+    @SuppressWarnings("unchecked")
     @Override
-    public void update(Observable model, Object o) {
-        removeRow(models.indexOf(model));
+    public void update(Observable m, Object arg) {
+        AbstractModel model = (AbstractModel) m;
+        Boolean save = (Boolean) arg;
 
-        models.remove(model);
+        int index = models.indexOf(model);
+
+        if (save) {
+            if (index == -1) {
+                models.add(model);
+            }
+        } else {
+            models.remove(model);
+        }
+
+        refresh();
     }
 
     /*

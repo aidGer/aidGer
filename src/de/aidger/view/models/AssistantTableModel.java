@@ -4,6 +4,7 @@ import static de.aidger.utils.Translation._;
 
 import java.util.List;
 
+import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Assistant;
 import de.aidger.utils.Logger;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
@@ -28,13 +29,11 @@ public class AssistantTableModel extends TableModel {
     /*
      * (non-Javadoc)
      * 
-     * @see de.aidger.view.models.TableModel#refresh()
+     * @see de.aidger.view.models.TableModel#getAllModels()
      */
     @Override
     @SuppressWarnings("unchecked")
-    public void refresh() {
-        super.refresh();
-
+    protected void getAllModels() {
         List<IAssistant> assistants = null;
 
         try {
@@ -45,14 +44,26 @@ public class AssistantTableModel extends TableModel {
 
         for (IAssistant a : assistants) {
             Assistant assistant = new Assistant(a);
+
             assistant.addObserver(this);
-
             models.add(assistant);
-
-            addRow(new Object[] { assistant.getFirstName(),
-                    assistant.getLastName(), assistant.getEmail(),
-                    Qualification.valueOf(assistant.getQualification()),
-                    assistant.getId() });
         }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @seede.aidger.view.models.TableModel#convertModelToRow(de.aidger.model.
+     * AbstractModel)
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    protected Object[] convertModelToRow(AbstractModel model) {
+        Assistant assistant = (Assistant) model;
+
+        return new Object[] { assistant.getFirstName(),
+                assistant.getLastName(), assistant.getEmail(),
+                Qualification.valueOf(assistant.getQualification()),
+                assistant.getId() };
     }
 }

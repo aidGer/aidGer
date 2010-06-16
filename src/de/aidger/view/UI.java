@@ -83,6 +83,11 @@ public final class UI extends JFrame {
     private ChangeListener tabbedPaneListener;
 
     /**
+     * A list that contains the tabs.
+     */
+    private final List<Tab> tabs = new ArrayList<Tab>();
+
+    /**
      * Creates the main window of the application.
      */
     private UI() {
@@ -224,6 +229,10 @@ public final class UI extends JFrame {
 
         tabbedPane.addChangeListener(tabbedPaneListener);
         saveCurrentTabs();
+
+        if (!tabs.contains(tab)) {
+            tabs.add(tab);
+        }
     }
 
     /**
@@ -252,15 +261,18 @@ public final class UI extends JFrame {
      * 
      * @param index
      *            The index identifies the tab that will be removed
+     * @return the removed tab
      */
-    public void removeTabAt(int index) {
+    public Tab removeTabAt(int index) {
         Logger.debug(MessageFormat.format(_("Removing {0}. tab"),
             new Object[] { index + 1 }));
 
         tabbedPane.removeChangeListener(tabbedPaneListener);
 
-        ((Tab) ((JScrollPane) tabbedPane.getComponentAt(index)).getViewport()
-            .getView()).performBeforeClose();
+        Tab old = ((Tab) ((JScrollPane) tabbedPane.getComponentAt(index))
+            .getViewport().getView());
+
+        old.performBeforeClose();
 
         tabbedPane.remove(index);
 
@@ -278,13 +290,17 @@ public final class UI extends JFrame {
 
         tabbedPane.addChangeListener(tabbedPaneListener);
         saveCurrentTabs();
+
+        return old;
     }
 
     /**
      * Removes the current tab.
+     * 
+     * @return the removed tab
      */
-    public void removeCurrentTab() {
-        removeTabAt(tabbedPane.getSelectedIndex());
+    public Tab removeCurrentTab() {
+        return removeTabAt(tabbedPane.getSelectedIndex());
     }
 
     /**
@@ -297,7 +313,8 @@ public final class UI extends JFrame {
         int index = tabbedPane.getSelectedIndex();
 
         addNewTab(tab, index);
-        removeTabAt(index + 1);
+        Tab predecessor = removeTabAt(index + 1);
+        tab.addPredecessor(predecessor);
     }
 
     /**
@@ -308,6 +325,15 @@ public final class UI extends JFrame {
     public Tab getCurrentTab() {
         return (Tab) ((JScrollPane) tabbedPane.getSelectedComponent())
             .getViewport().getView();
+    }
+
+    /**
+     * Returns all opened tabs.
+     * 
+     * @return all opened tabs.
+     */
+    public List<Tab> getTabs() {
+        return tabs;
     }
 
     /**

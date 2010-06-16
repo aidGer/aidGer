@@ -1,5 +1,8 @@
 package de.aidger.view.tabs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
@@ -14,6 +17,11 @@ import javax.swing.JPanel;
 public abstract class Tab extends JPanel {
 
     /**
+     * The predecessor tabs.
+     */
+    private final List<Tab> predecessors = new ArrayList<Tab>();
+
+    /**
      * Constructs a tab.
      */
     public Tab() {
@@ -22,7 +30,7 @@ public abstract class Tab extends JPanel {
 
     /**
      * Get the name of the tab and constructor options if necessary.
-     *
+     * 
      * @return A string representation of the class
      */
     @Override
@@ -41,6 +49,45 @@ public abstract class Tab extends JPanel {
      * Tab can perform actions before it is closed.
      */
     public void performBeforeClose() {
+    }
+
+    /**
+     * Adds a predecessor.
+     * 
+     * @param predecessor
+     *            the predecessor to be added
+     */
+    public void addPredecessor(Tab predecessor) {
+        predecessors.remove(predecessor);
+
+        predecessors.add(0, predecessor);
+    }
+
+    /**
+     * Returns the last predecessor. If there is no predecessor found it is
+     * returned null
+     * 
+     * @return the last predecessor or null
+     */
+    public Tab getPredecessor() {
+        return predecessors.get(0);
+    }
+
+    /**
+     * Returns the last predecessor of the class. If there is no predecessor of
+     * the class found it is returned null.
+     * 
+     * @return the last predecessor or null
+     */
+    @SuppressWarnings("unchecked")
+    public Tab getPredecessorOf(Class c) {
+        for (Tab predecessor : predecessors) {
+            if (predecessor.getClass() == c) {
+                return predecessor;
+            }
+        }
+
+        return null;
     }
 
 }
