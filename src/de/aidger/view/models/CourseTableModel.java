@@ -48,7 +48,6 @@ public class CourseTableModel extends TableModel {
         for (ICourse c : courses) {
             Course course = new Course(c);
 
-            course.addObserver(this);
             models.add(course);
         }
     }

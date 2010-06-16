@@ -45,7 +45,6 @@ public class FinancialCategoryTableModel extends TableModel {
         for (IFinancialCategory f : fcs) {
             FinancialCategory fc = new FinancialCategory(f);
 
-            fc.addObserver(this);
             models.add(fc);
         }
     }

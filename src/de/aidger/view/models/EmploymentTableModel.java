@@ -52,7 +52,6 @@ public class EmploymentTableModel extends TableModel {
         for (IEmployment e : employments) {
             Employment employment = new Employment(e);
 
-            employment.addObserver(this);
             models.add(employment);
         }
     }

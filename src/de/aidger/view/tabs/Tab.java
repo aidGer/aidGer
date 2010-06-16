@@ -70,6 +70,10 @@ public abstract class Tab extends JPanel {
      * @return the last predecessor or null
      */
     public Tab getPredecessor() {
+        if (predecessors.isEmpty()) {
+            return null;
+        }
+
         return predecessors.get(0);
     }
 

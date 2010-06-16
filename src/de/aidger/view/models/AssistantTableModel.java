@@ -45,7 +45,6 @@ public class AssistantTableModel extends TableModel {
         for (IAssistant a : assistants) {
             Assistant assistant = new Assistant(a);
 
-            assistant.addObserver(this);
             models.add(assistant);
         }
     }
