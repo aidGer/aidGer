@@ -55,8 +55,10 @@ public class BalanceReportSemesterCreator {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        System.out.println(courses);
         List<ICourse> filteredCourses = balanceHelper.filterCourses(courses,
             filters);
+        System.out.println(filteredCourses);
         for (ICourse course : filteredCourses) {
             if (course.getSemester().equals(semester)) {
                 if (balanceReportGroupCreators.isEmpty()) {
@@ -113,8 +115,6 @@ public class BalanceReportSemesterCreator {
          * Add the name of the group as the second entry of the vector.
          */
         ((Vector) balanceReportGroupCreators.get(i)).add(course.getGroup());
-        ((BalanceReportGroupCreator) ((Vector) balanceReportGroupCreators
-            .get(i)).get(0)).addCourse(course);
     }
 
     /**
