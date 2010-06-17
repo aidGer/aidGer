@@ -26,6 +26,7 @@ import de.aidger.view.forms.CourseEditorForm;
 import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
 import de.aidger.view.forms.HourlyWageEditorForm;
+import de.aidger.view.models.TableModel;
 import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
@@ -269,6 +270,13 @@ public class EditorSaveAction extends AbstractAction {
 
         ViewerTab next = (ViewerTab) tab.getPredecessorOf(ViewerTab.class);
 
+        if (next == null) {
+            next = new ViewerTab(tab.getType());
+        }
+
+        next.getTableModel().setModelBeforeEdit(
+            (AbstractModel) tab.getModel().clone());
+
         List<AbstractModel> models = new Vector<AbstractModel>();
         models.add(tab.getModel());
 
@@ -293,9 +301,7 @@ public class EditorSaveAction extends AbstractAction {
 
         for (AbstractModel model : models) {
 
-            if (next != null) {
-                model.addObserver(next.getTableModel());
-            }
+            model.addObserver(next.getTableModel());
 
             /*
              * model should also be observed by the already existing table
@@ -304,7 +310,12 @@ public class EditorSaveAction extends AbstractAction {
             for (Tab t : UI.getInstance().getTabs()) {
                 if (t instanceof ViewerTab
                         && ((ViewerTab) t).getType() == tab.getType()) {
-                    model.addObserver(((ViewerTab) t).getTableModel());
+                    TableModel tM = ((ViewerTab) t).getTableModel();
+
+                    tM.setModelBeforeEdit(next.getTableModel()
+                        .getModelBeforeEdit());
+
+                    model.addObserver(tM);
                 }
             }
 
@@ -324,10 +335,6 @@ public class EditorSaveAction extends AbstractAction {
 
                 break;
             }
-        }
-
-        if (next == null) {
-            next = new ViewerTab(tab.getType());
         }
 
         UI.getInstance().replaceCurrentTab(next);

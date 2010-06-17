@@ -33,6 +33,12 @@ public abstract class TableModel extends DefaultTableModel implements Observer {
     protected List<AbstractModel> models;
 
     /**
+     * The model before it was edited.
+     */
+    @SuppressWarnings("unchecked")
+    private AbstractModel modelBeforeEdit;
+
+    /**
      * Constructs the table model.
      */
     @SuppressWarnings("unchecked")
@@ -82,6 +88,27 @@ public abstract class TableModel extends DefaultTableModel implements Observer {
     }
 
     /**
+     * Sets the model before it was edited.
+     * 
+     * @param m
+     *            the model before it was edited
+     */
+    @SuppressWarnings("unchecked")
+    public void setModelBeforeEdit(AbstractModel m) {
+        modelBeforeEdit = m;
+    }
+
+    /**
+     * Returns the model before it was edited.
+     * 
+     * @return the model before it was edited
+     */
+    @SuppressWarnings("unchecked")
+    public AbstractModel getModelBeforeEdit() {
+        return modelBeforeEdit;
+    }
+
+    /**
      * Refreshes the table.
      */
     @SuppressWarnings("unchecked")
@@ -117,6 +144,13 @@ public abstract class TableModel extends DefaultTableModel implements Observer {
                 // the model was added
                 if (models.size() != model.size()) {
                     models.add(model);
+                } else {
+                    // the model was edited
+                    if (!models.contains(model)) {
+                        models.remove(modelBeforeEdit);
+
+                        models.add(model);
+                    }
                 }
             } else {
                 // the model was removed
