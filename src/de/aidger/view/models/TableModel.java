@@ -142,7 +142,7 @@ public abstract class TableModel extends DefaultTableModel implements Observer {
         try {
             if (save) {
                 // the model was added
-                if (models.size() != model.size()) {
+                if (models.size() < model.size()) {
                     models.add(model);
                 } else {
                     // the model was edited
