@@ -114,13 +114,16 @@ public abstract class TableModel extends DefaultTableModel implements Observer {
 
         try {
             if (save) {
+                // the model was added
                 if (models.size() != model.size()) {
                     models.add(model);
                 }
             } else {
+                // the model was removed
                 models.remove(model);
             }
 
+            // refresh only the table
             refresh();
         } catch (AdoHiveException e) {
 

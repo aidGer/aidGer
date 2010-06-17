@@ -269,10 +269,6 @@ public class EditorSaveAction extends AbstractAction {
 
         ViewerTab next = (ViewerTab) tab.getPredecessorOf(ViewerTab.class);
 
-        if (next == null) {
-            next = new ViewerTab(tab.getType());
-        }
-
         List<AbstractModel> models = new Vector<AbstractModel>();
         models.add(tab.getModel());
 
@@ -297,7 +293,9 @@ public class EditorSaveAction extends AbstractAction {
 
         for (AbstractModel model : models) {
 
-            model.addObserver(next.getTableModel());
+            if (next != null) {
+                model.addObserver(next.getTableModel());
+            }
 
             /*
              * model should also be observed by the already existing table
@@ -326,6 +324,10 @@ public class EditorSaveAction extends AbstractAction {
 
                 break;
             }
+        }
+
+        if (next == null) {
+            next = new ViewerTab(tab.getType());
         }
 
         UI.getInstance().replaceCurrentTab(next);
