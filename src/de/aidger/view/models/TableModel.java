@@ -86,7 +86,9 @@ public abstract class TableModel extends DefaultTableModel implements Observer {
      */
     @SuppressWarnings("unchecked")
     private void refresh() {
-        setRowCount(0);
+        getDataVector().removeAllElements();
+
+        fireTableDataChanged();
 
         for (AbstractModel model : models) {
             // each model is observed by the table model
@@ -95,6 +97,8 @@ public abstract class TableModel extends DefaultTableModel implements Observer {
             // each model is added as a row to the table
             addRow(convertModelToRow(model));
         }
+
+        fireTableDataChanged();
     }
 
     /*

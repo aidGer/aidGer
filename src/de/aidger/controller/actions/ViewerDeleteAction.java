@@ -3,6 +3,7 @@ package de.aidger.controller.actions;
 import static de.aidger.utils.Translation._;
 
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.AbstractAction;
@@ -54,15 +55,15 @@ public class ViewerDeleteAction extends AbstractAction {
 
             if (ret == JOptionPane.YES_OPTION) {
                 try {
-                    int numRows = tab.getTable().getSelectedRows().length;
+                    List<AbstractModel> models = new ArrayList<AbstractModel>();
 
-                    for (int i = 0; i < numRows; ++i) {
-                        int index = tab.getTable().convertRowIndexToModel(
-                            tab.getTable().getSelectedRow());
+                    for (int row : tab.getTable().getSelectedRows()) {
+                        int index = tab.getTable().convertRowIndexToModel(row);
 
-                        AbstractModel model = tab.getTableModel().getModel(
-                            index);
+                        models.add(tab.getTableModel().getModel(index));
+                    }
 
+                    for (AbstractModel model : models) {
                         if (!model.remove()) {
                             List<String> errors = model.getErrors();
                             String errorMessage = "";
