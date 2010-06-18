@@ -3,6 +3,7 @@
  */
 package de.aidger.model.reports;
 
+import java.math.BigDecimal;
 import java.util.Vector;
 
 /**
@@ -197,10 +198,11 @@ public class BalanceCourse {
         /**
          * The value of this budget cost.
          */
-        int value;
+        BigDecimal value;
 
         public BudgetCost() {
-            id = value = 0;
+            id = 0;
+            value = null;
             name = null;
         }
 
@@ -245,11 +247,12 @@ public class BalanceCourse {
         /**
          * Sets the value of this budget cost.
          * 
-         * @param value
+         * @param budgetCost2
          *            The value to set it to.
          */
-        public void setValue(int value) {
-            this.value = value;
+        public void setValue(double budgetCost2) {
+            this.value = new BigDecimal(budgetCost2).setScale(2,
+                BigDecimal.ROUND_HALF_EVEN);
         }
 
         /**
@@ -257,7 +260,7 @@ public class BalanceCourse {
          * 
          * @return the value
          */
-        public int getValue() {
+        public BigDecimal getValue() {
             return value;
         }
     }
@@ -268,11 +271,11 @@ public class BalanceCourse {
      * @param budgetCost
      *            The budget cost to be added to this course.
      */
-    public void addBudgetCost(int id, String name, int value) {
+    public void addBudgetCost(int id, String name, double budgetCost2) {
         BudgetCost budgetCost = new BudgetCost();
         budgetCost.setId(id);
         budgetCost.setName(name);
-        budgetCost.setValue(value);
+        budgetCost.setValue(budgetCost2);
         budgetCosts.add(budgetCost);
     }
 
