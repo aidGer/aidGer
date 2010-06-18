@@ -140,7 +140,7 @@ public class BalanceReportGroupCreatorTest {
      */
     @Test
     public void testConstructor() {
-        balanceReportGroupCreator = new BalanceReportGroupCreator(course);
+        balanceReportGroupCreator = new BalanceReportGroupCreator(course, 0);
 
         assertEquals(1, balanceReportGroupCreator.getBalanceCourses().size());
     }

@@ -6,9 +6,13 @@ package de.aidger.model.reports;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.math.BigDecimal;
+
 import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import de.aidger.model.reports.BalanceCourse.BudgetCost;
 
 /**
  * @author Phil
@@ -37,8 +41,7 @@ public class BalanceCourseTest {
         balanceCourse.setBasicAWS(100);
         balanceCourse.setPart('t');
         balanceCourse.setPlannedAWS(100);
-        balanceCourse.setResources(100);
-        balanceCourse.setStudentFees(100);
+        balanceCourse.addBudgetCost(11111111, "Test cost", 120);
         balanceCourse.setTargetAudience("Test Audience");
     }
 
@@ -57,8 +60,11 @@ public class BalanceCourseTest {
         assertEquals(result.getLecturer(), "");
         assertEquals(result.getPart(), '-');
         assertEquals(result.getPlannedAWS(), 0.0, 0);
-        assertEquals(result.getResources(), 0);
-        assertEquals(result.getStudentFees(), 0);
+        BudgetCost resultBudgetCost = balanceCourse.getBudgetCosts().get(0);
+        assertEquals(11111111, resultBudgetCost.getId());
+        assertEquals("Test cost", resultBudgetCost.getName());
+        assertEquals(new BigDecimal(120).setScale(2), resultBudgetCost
+            .getValue());
         assertEquals(result.getTargetAudience(), "");
     }
 
@@ -78,8 +84,7 @@ public class BalanceCourseTest {
         assertEquals(values[3], balanceCourse.getTargetAudience());
         assertEquals(values[4], balanceCourse.getPlannedAWS());
         assertEquals(values[5], balanceCourse.getBasicAWS());
-        assertEquals(values[6], balanceCourse.getStudentFees());
-        assertEquals(values[7], balanceCourse.getResources());
+        assertEquals(values[6], balanceCourse.getBudgetCosts());
     }
 
 }

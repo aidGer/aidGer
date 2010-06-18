@@ -174,7 +174,7 @@ public class BalanceReportConverterTest {
 
         File testFile = new File("Test_Report");
         balanceReportConverter = new BalanceReportConverter(testFile, 1, null,
-            null);
+            null, 0);
 
         File file = new File("Test_Report.pdf");
         assertTrue(file.exists());
@@ -182,7 +182,7 @@ public class BalanceReportConverterTest {
         for (int i = 0; i < years.size(); i++) {
             testFile = new File("Test_Report");
             balanceReportConverter = new BalanceReportConverter(testFile, 2,
-                years.get(i), null);
+                years.get(i), null, 0);
 
             file = new File("Test_Report.pdf");
             assertTrue(file.exists());
@@ -191,7 +191,7 @@ public class BalanceReportConverterTest {
         for (int i = 0; i < years.size(); i++) {
             testFile = new File("Test_Report.pdf");
             balanceReportConverter = new BalanceReportConverter(testFile, 2,
-                years.get(i), null);
+                years.get(i), null, 0);
 
             file = new File("Test_Report.pdf");
             assertTrue(file.exists());
@@ -200,7 +200,7 @@ public class BalanceReportConverterTest {
         for (int i = 0; i < years.size(); i++) {
             testFile = new File("Test_Report.test");
             balanceReportConverter = new BalanceReportConverter(testFile, 2,
-                years.get(i), null);
+                years.get(i), null, 0);
 
             file = new File("Test_Report.test.pdf");
             assertTrue(file.exists());
@@ -208,7 +208,7 @@ public class BalanceReportConverterTest {
 
         testFile = new File("Test_Report.pdf");
         balanceReportConverter = new BalanceReportConverter(testFile, 3, course
-            .getSemester(), null);
+            .getSemester(), null, 0);
 
         file = new File("Test_Report.pdf");
         assertTrue(file.exists());

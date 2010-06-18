@@ -173,12 +173,12 @@ public class BalanceReportSemesterCreatorTest {
         System.out.println("Constructor");
 
         balanceReportSemesterCreator = new BalanceReportSemesterCreator(course
-            .getSemester(), null);
+            .getSemester(), null, 0);
 
         assertNotNull(balanceReportSemesterCreator.getGroupCreators());
 
         balanceReportSemesterCreator = new BalanceReportSemesterCreator(course
-            .getSemester(), balanceFilter);
+            .getSemester(), balanceFilter, 0);
 
         assertNotNull(balanceReportSemesterCreator.getGroupCreators());
 
@@ -195,7 +195,7 @@ public class BalanceReportSemesterCreatorTest {
         balanceFilter.addTargetAudience(course3.getTargetAudience());
 
         balanceReportSemesterCreator = new BalanceReportSemesterCreator(course
-            .getSemester(), balanceFilter);
+            .getSemester(), balanceFilter, 0);
 
         assertNotNull(balanceReportSemesterCreator.getGroupCreators());
     }

@@ -3,11 +3,11 @@
  */
 package de.aidger.utils.reports;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.List;
 import java.util.Vector;
@@ -23,6 +23,7 @@ import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.reports.BalanceCourse;
 import de.aidger.model.reports.BalanceFilter;
+import de.aidger.model.reports.BalanceCourse.BudgetCost;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 
@@ -177,11 +178,11 @@ public class BalanceHelperTest {
         balanceCourse.setPart('a');
         balanceCourse.setPlannedAWS(employment1.getHourCount()
                 + employment2.getHourCount());
-        balanceCourse
-            .setResources((int) (10.0 * employment2.getHourCount() * 1.28));
-        balanceCourse
-            .setStudentFees((int) (10.0 * employment1.getHourCount() * 1.28));
         balanceCourse.setTargetAudience("Testers");
+        balanceCourse.addBudgetCost(employment1.getFunds(), employment1
+            .getCostUnit(), 120);
+        balanceCourse.addBudgetCost(employment2.getFunds(), employment2
+            .getCostUnit(), 120);
     }
 
     /**
@@ -410,11 +411,26 @@ public class BalanceHelperTest {
 
         balanceHelper = new BalanceHelper();
 
-        BalanceCourse result = balanceHelper.getBalanceCourse(course);
+        BalanceCourse result = balanceHelper.getBalanceCourse(course, 0);
 
         assertNotNull(result);
-        assertArrayEquals(balanceCourse.getCourseObject(), result
-            .getCourseObject());
+
+        Object[] resultCourseObject = balanceCourse.getCourseObject();
+        for (int i = 0; i < resultCourseObject.length - 2; i++) {
+            assertEquals(balanceCourse.getCourseObject()[i],
+                resultCourseObject[i]);
+        }
+        Vector<BudgetCost> resultBudgetCosts = (Vector<BudgetCost>) resultCourseObject[resultCourseObject.length - 1];
+        assertEquals(employment1.getFunds(), resultBudgetCosts.get(0).getId());
+        assertEquals(employment1.getCostUnit(), resultBudgetCosts.get(0)
+            .getName());
+        assertEquals(new BigDecimal(120.0).setScale(2), resultBudgetCosts
+            .get(0).getValue());
+        assertEquals(employment2.getFunds(), resultBudgetCosts.get(1).getId());
+        assertEquals(employment2.getCostUnit(), resultBudgetCosts.get(1)
+            .getName());
+        assertEquals(new BigDecimal(120.0).setScale(2), resultBudgetCosts
+            .get(1).getValue());
     }
 
     /**
