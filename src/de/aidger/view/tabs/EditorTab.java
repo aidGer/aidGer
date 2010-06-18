@@ -232,9 +232,12 @@ public class EditorTab extends Tab {
 
     /**
      * Updates the hints panel due to validation failures.
+     * 
+     * @param model
+     *            the model whose validation failed
      */
     @SuppressWarnings("unchecked")
-    public void updateHints() {
+    public void updateHints(AbstractModel model) {
         List<String> hints = model.getErrors();
 
         this.hints.removeAll();
