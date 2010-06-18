@@ -27,6 +27,12 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
 public class BalanceViewerTab extends Tab {
 
     /**
+     * States which calculation method should be used. 0 - neutral, 1 -
+     * pessimistic, 0 - historicl
+     */
+    private int calculationMethod = 0;
+
+    /**
      * The balanceFilter of this balance.
      */
     private BalanceFilter balanceFilter = null;
@@ -158,6 +164,15 @@ public class BalanceViewerTab extends Tab {
     }
 
     /**
+     * Get the calculation method to be used with this balance.
+     * 
+     * @return 0 if neutral, 1 if pessimistic, 2 if historical
+     */
+    public int getCalculationMethod() {
+        return calculationMethod;
+    }
+
+    /**
      * Removes the specified filter from the filters list.
      * 
      * @param type
@@ -209,6 +224,7 @@ public class BalanceViewerTab extends Tab {
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
+    // <editor-fold defaultstate="collapsed"
     // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -226,6 +242,8 @@ public class BalanceViewerTab extends Tab {
         filterNameComboBox = new javax.swing.JComboBox();
         filterComboBox = new javax.swing.JComboBox();
         addFilterButton = new javax.swing.JButton();
+        pessimisticCalculationRadio = new javax.swing.JRadioButton();
+        historicalCalculationRadio = new javax.swing.JRadioButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -292,12 +310,50 @@ public class BalanceViewerTab extends Tab {
         });
         filterCreationPanel.add(addFilterButton);
 
+        pessimisticCalculationRadio.setText(_("Pessimistic calculation"));
+        pessimisticCalculationRadio
+            .addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    pessimisticCalculationRadioActionPerformed(evt);
+                }
+            });
+        filterCreationPanel.add(pessimisticCalculationRadio);
+
+        historicalCalculationRadio.setText(_("Historical calculation"));
+        historicalCalculationRadio
+            .addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    historicalCalculationRadioActionPerformed(evt);
+                }
+            });
+        filterCreationPanel.add(historicalCalculationRadio);
+
         filtersPanel.add(filterCreationPanel, java.awt.BorderLayout.PAGE_START);
 
         jPanel1.add(filtersPanel, java.awt.BorderLayout.CENTER);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void pessimisticCalculationRadioActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_pessimisticCalculationRadioActionPerformed
+        if (pessimisticCalculationRadio.isSelected()) {
+            historicalCalculationRadio.setSelected(false);
+            calculationMethod = 1;
+        } else {
+            calculationMethod = 0;
+        }
+    }// GEN-LAST:event_pessimisticCalculationRadioActionPerformed
+
+    private void historicalCalculationRadioActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_historicalCalculationRadioActionPerformed
+        if (historicalCalculationRadio.isSelected()) {
+            pessimisticCalculationRadio.setSelected(false);
+            calculationMethod = 2;
+        } else {
+            calculationMethod = 0;
+        }
+    }// GEN-LAST:event_historicalCalculationRadioActionPerformed
 
     private void addFilterButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addFilterButtonActionPerformed
         switch (filterNameComboBox.getSelectedIndex()) {
@@ -410,8 +466,10 @@ public class BalanceViewerTab extends Tab {
     private javax.swing.JLabel filtersLabel;
     private javax.swing.JPanel filtersPanel;
     private javax.swing.JButton generateButton;
+    private javax.swing.JRadioButton historicalCalculationRadio;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JRadioButton pessimisticCalculationRadio;
     private javax.swing.JComboBox yearComboBox;
     private javax.swing.JLabel yearLabel;
     // End of variables declaration//GEN-END:variables

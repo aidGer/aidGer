@@ -56,7 +56,8 @@ public class ReportGenerateAction extends AbstractAction {
                         try {
                             fullBalanceCreator = new BalanceReportSemesterCreator(
                                 (String) semesters.get(i), tab
-                                    .getBalanceFilter());
+                                    .getBalanceFilter(), tab
+                                    .getCalculationMethod());
                         } catch (AdoHiveException e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -77,7 +78,8 @@ public class ReportGenerateAction extends AbstractAction {
                         .getBalanceFilter())) {
                         try {
                             BalanceReportSemesterCreator yearBalanceCreator = new BalanceReportSemesterCreator(
-                                yearSemesters[i], tab.getBalanceFilter());
+                                yearSemesters[i], tab.getBalanceFilter(), tab
+                                    .getCalculationMethod());
                             tab.addPanel(new BalanceReportSemesterPanel(
                                 yearSemesters[i], yearBalanceCreator));
                         } catch (AdoHiveException e1) {
@@ -95,7 +97,8 @@ public class ReportGenerateAction extends AbstractAction {
                     BalanceReportSemesterCreator fullBalanceCreator = null;
                     try {
                         fullBalanceCreator = new BalanceReportSemesterCreator(
-                            (String) year2, tab.getBalanceFilter());
+                            (String) year2, tab.getBalanceFilter(), tab
+                                .getCalculationMethod());
                     } catch (AdoHiveException e1) {
                         // TODO Auto-generated catch block
                         e1.printStackTrace();

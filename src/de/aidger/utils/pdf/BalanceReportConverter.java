@@ -24,8 +24,11 @@ import de.aidger.model.Runtime;
 import de.aidger.model.models.Course;
 import de.aidger.model.reports.BalanceCourse;
 import de.aidger.model.reports.BalanceFilter;
+import de.aidger.model.reports.BalanceReportGroupCreator;
+import de.aidger.model.reports.BalanceCourse.BudgetCost;
 import de.aidger.utils.Logger;
 import de.aidger.utils.reports.BalanceHelper;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
@@ -35,6 +38,11 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
  * @author aidGer Team
  */
 public class BalanceReportConverter {
+
+    /**
+     * The calculation method to be used for this balance report.
+     */
+    private int calculationMethod = 0;
 
     /**
      * The PDF-document which will be created.
@@ -62,6 +70,11 @@ public class BalanceReportConverter {
     private BalanceHelper balanceHelper = null;
 
     /**
+     * The group creators of this balance report.
+     */
+    private BalanceReportGroupCreator balanceReportGroupCreator = null;
+
+    /**
      * Initializes this BalanceReportConverter with a given path and a name.
      * 
      * @param path
@@ -70,23 +83,18 @@ public class BalanceReportConverter {
      *            The desired name of the document.
      */
     public BalanceReportConverter(File file, int index, Object semester,
-            BalanceFilter filters) {
-        if (document == null) {
-            document = new Document(PageSize.A4.rotate());
-        }
-        if (this.filters == null) {
-            this.filters = filters;
-        }
-        if (balanceHelper == null) {
-            balanceHelper = new BalanceHelper();
-        }
+            BalanceFilter filters, int calculationMethod) {
+        document = new Document(PageSize.A4.rotate());
+        this.filters = filters;
+        balanceHelper = new BalanceHelper();
+        this.calculationMethod = calculationMethod;
         file = checkExtension(file);
         makeNewDocument(file);
         writeHeader();
         switch (index) {
         case 1:
             Vector semesters = new BalanceHelper().getSemesters();
-            for (int i = 1; i < semesters.size(); i++) {
+            for (int i = 0; i < semesters.size(); i++) {
                 balanceReportGroups = new Vector<Vector>();
                 createSemester((String) semesters.get(i));
             }
@@ -234,8 +242,6 @@ public class BalanceReportConverter {
                         for (int i = 0; i <= balanceReportGroups.size() - 1; i++) {
                             if (((Vector) balanceReportGroups.get(i)).get(1)
                                 .equals(course.getGroup())) {
-                                groupTable = (PdfPTable) ((Vector) balanceReportGroups
-                                    .get(i)).get(0);
                                 foundGroup = true;
                                 break;
                             }
@@ -244,8 +250,6 @@ public class BalanceReportConverter {
                             groupTable = createGroup(course);
                         }
                     }
-                    groupTable.addCell(addRow(course));
-                    groupTable.setKeepTogether(true);
                 }
             }
             for (int i = 0; i <= balanceReportGroups.size() - 1; i++) {
@@ -273,19 +277,38 @@ public class BalanceReportConverter {
      *            The course of which the data shall be written to a row.
      * @return The row as a PdfPCell
      */
-    private PdfPCell addRow(ICourse course) {
-        PdfPTable groupContentTable = new PdfPTable(new float[] { 0.25f, 0.05f,
-                0.15f, 0.15f, 0.1f, 0.1f, 0.1f, 0.1f });
+    private PdfPCell addRow(BalanceCourse balanceCourse, float[] columnwidths,
+            Vector<Integer> costUnits) {
+        PdfPTable groupContentTable = new PdfPTable(columnwidths);
+        Vector<Object> rowObjectVector = new Vector<Object>();
         Font tableContentFont;
         try {
             tableContentFont = new Font(BaseFont.createFont(BaseFont.HELVETICA,
                 BaseFont.CP1252, BaseFont.EMBEDDED), 9);
-            BalanceCourse balanceCourse = BalanceHelper
-                .getBalanceCourse(course);
+            for (int i = 0; i < 6; i++) {
+                rowObjectVector.add((balanceCourse).getCourseObject()[i]);
+            }
             int i = 0;
-            for (Object courseObject : balanceCourse.getCourseObject()) {
-                PdfPCell cell = new PdfPCell(new Phrase("" + courseObject,
-                    tableContentFont));
+            for (Integer costUnit : costUnits) {
+                boolean foundCostUnit = false;
+                for (BudgetCost budgetCost : balanceCourse.getBudgetCosts()) {
+                    int budgetCostId = budgetCost.getId();
+                    /*
+                     * Set the budget cost of the cost unit to the one
+                     * specified.
+                     */
+                    if (budgetCostId == costUnit) {
+                        rowObjectVector.add(budgetCost.getValue());
+                        foundCostUnit = true;
+                    }
+                }
+                if (!foundCostUnit) {
+                    rowObjectVector.add("0.00");
+                }
+            }
+            for (Object courseObject : rowObjectVector.toArray()) {
+                PdfPCell cell = new PdfPCell(new Phrase(
+                    courseObject.toString(), tableContentFont));
                 if (i != 0) {
                     cell.setBorder(4);
                 } else {
@@ -313,14 +336,52 @@ public class BalanceReportConverter {
      * @return The PdfPTable of the group.
      */
     private PdfPTable createGroup(ICourse course) {
+        balanceReportGroupCreator = new BalanceReportGroupCreator(course,
+            calculationMethod);
+        List<ICourse> courses = null;
+        try {
+            courses = (new Course()).getAll();
+        } catch (AdoHiveException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        List<ICourse> filteredCourses = balanceHelper.filterCourses(courses,
+            filters);
+        Vector<Integer> addedCourses = new Vector<Integer>();
+        addedCourses.add(course.getId());
+        for (ICourse filteredCourse : filteredCourses) {
+            if (filteredCourse.getSemester().equals(course.getSemester())
+                    && !addedCourses.contains(filteredCourse.getId())
+                    && filteredCourse.getGroup().equals(course.getGroup())) {
+                balanceReportGroupCreator.addCourse(filteredCourse);
+                addedCourses.add(filteredCourse.getId());
+            }
+        }
+        Vector<Integer> costUnits = new Vector<Integer>();
+        Vector<BalanceCourse> balanceCourses = balanceReportGroupCreator
+            .getBalanceCourses();
+        Vector<String> titles = new Vector<String>();
+        String[] courseTitles = { _("Title"), _("Part"), _("Lecturer"),
+                _("Target Audience"), _("Planned AWS"), _("Basic needed AWS") };
+        for (int i = 0; i < courseTitles.length; i++) {
+            titles.add(courseTitles[i]);
+        }
+        for (Object balanceCourse : balanceCourses) {
+            for (BudgetCost budgetCost : ((BalanceCourse) balanceCourse)
+                .getBudgetCosts()) {
+                int budgetCostId = budgetCost.getId();
+                String budgetCostName = budgetCost.getName();
+                if (!costUnits.contains(budgetCostId)) {
+                    costUnits.add(budgetCostId);
+                    titles.add(_("Budget costs from") + " " + budgetCostName);
+                }
+            }
+        }
+        int columnCount = titles.size();
         Font tableTitleFont;
         try {
             tableTitleFont = new Font(BaseFont.createFont(
                 BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.EMBEDDED), 9);
-            String[] courseTitles = { _("Title"), _("Part"), _("Lecturer"),
-                    _("Target Audience"), _("Planned AWS"),
-                    _("Basic needed AWS"), _("Budget costs from student fees"),
-                    _("Budget costs from resources") };
 
             Font groupTitleFont = new Font(BaseFont.createFont(
                 BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.EMBEDDED),
@@ -343,13 +404,21 @@ public class BalanceReportConverter {
             groupContent.setPaddingTop(3.0f);
             groupContent.setPaddingBottom(2.0f);
             groupTable.addCell(groupContent);
-            PdfPTable groupContentTable = new PdfPTable(new float[] { 0.25f,
-                    0.05f, 0.15f, 0.15f, 0.1f, 0.1f, 0.1f, 0.1f });
+            float[] columnWidths = new float[columnCount];
+            columnWidths[0] = (200 / columnCount);
+            columnWidths[1] = (50 / columnCount);
+            columnWidths[2] = (100 / columnCount);
+            columnWidths[3] = (150 / columnCount);
+            columnWidths[4] = (100 / columnCount);
+            for (int i = 5; i < columnCount; i++) {
+                columnWidths[i] = (100 / columnCount);
+            }
+            PdfPTable groupContentTable = new PdfPTable(columnWidths);
             /*
              * Create the titles of the table entries.
              */
-            for (int i = 0; i < courseTitles.length; i++) {
-                PdfPCell cell = new PdfPCell(new Phrase(courseTitles[i],
+            for (int i = 0; i < titles.size(); i++) {
+                PdfPCell cell = new PdfPCell(new Phrase(titles.get(i),
                     tableTitleFont));
                 if (i != 0) {
                     cell.setBorder(6);
@@ -362,6 +431,10 @@ public class BalanceReportConverter {
             PdfPCell cell = new PdfPCell(groupContentTable);
             cell.setBorder(0);
             groupTable.addCell(cell);
+            for (Object balanceCourse : balanceCourses) {
+                groupTable.addCell(addRow((BalanceCourse) balanceCourse,
+                    columnWidths, costUnits));
+            }
             groupTable.setKeepTogether(true);
 
             balanceReportGroups.add(new Vector<Object>());

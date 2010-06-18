@@ -204,7 +204,8 @@ public class BalanceHelper {
      *            The course to be calculated.
      * @return The balance course model.
      */
-    public static BalanceCourse getBalanceCourse(ICourse course) {
+    public static BalanceCourse getBalanceCourse(ICourse course,
+            int calculationMethod) {
         BalanceCourse balanceCourse = new BalanceCourse();
         balanceCourse.setTitle(course.getDescription());
         balanceCourse.setPart(course.getPart());
@@ -235,8 +236,8 @@ public class BalanceHelper {
                     if (employment.getAssistantId() == assistant.getId()) {
                         budgetCost = budgetCost.add(new BigDecimal(
                             calculateBudgetCost(employment, assistant
-                                .getQualification())).setScale(2,
-                            BigDecimal.ROUND_HALF_EVEN));
+                                .getQualification(), calculationMethod))
+                            .setScale(2, BigDecimal.ROUND_HALF_EVEN));
                     }
                 }
                 if (balanceCourse.budgetCostExists(employment.getFunds())) {
@@ -257,7 +258,15 @@ public class BalanceHelper {
      * Calculates the budget costs of this employment
      */
     private static double calculateBudgetCost(IEmployment employment,
-            String qualification) {
+            String qualification, int calculationMethod) {
+        double calculationFactor = 0;
+        if (calculationMethod == 1) {
+            calculationFactor = 1.28;
+        } else if (calculationMethod == 2) {
+            calculationFactor = 1.15;
+        } else {
+            calculationFactor = 1;
+        }
         List<IHourlyWage> hourlyWages;
         double budgetCost = 0.0;
         try {
@@ -266,8 +275,8 @@ public class BalanceHelper {
                 if (hourlyWage.getMonth() == employment.getMonth()
                         && hourlyWage.getYear() == employment.getYear()
                         && hourlyWage.getQualification().equals(qualification)) {
-                    budgetCost = hourlyWage.getWage().doubleValue() * 1.28
-                            * employment.getHourCount();
+                    budgetCost = hourlyWage.getWage().doubleValue()
+                            * calculationFactor * employment.getHourCount();
                 }
             }
         } catch (AdoHiveException e) {

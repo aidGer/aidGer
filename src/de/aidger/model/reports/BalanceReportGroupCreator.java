@@ -14,6 +14,11 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
 public class BalanceReportGroupCreator {
 
     /**
+     * The calculation method to be used for this balance report.
+     */
+    private int calculationMethod = 0;
+
+    /**
      * Contains all courses of this group.
      */
     private final Vector<BalanceCourse> balanceCourses = new Vector<BalanceCourse>();
@@ -24,7 +29,8 @@ public class BalanceReportGroupCreator {
      * @param course
      *            The course to be added.
      */
-    public BalanceReportGroupCreator(ICourse course) {
+    public BalanceReportGroupCreator(ICourse course, int calculationMethod) {
+        this.calculationMethod = calculationMethod;
         addCourse(course);
     }
 
@@ -36,7 +42,8 @@ public class BalanceReportGroupCreator {
      *            The course to be added.
      */
     public void addCourse(ICourse course) {
-        balanceCourses.add(BalanceHelper.getBalanceCourse(course));
+        balanceCourses.add(BalanceHelper.getBalanceCourse(course,
+            calculationMethod));
     }
 
     /**

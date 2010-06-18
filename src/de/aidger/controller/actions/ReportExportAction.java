@@ -27,6 +27,7 @@ import de.aidger.view.tabs.BalanceViewerTab;
  * 
  * @author aidGer Team
  */
+@SuppressWarnings("serial")
 public class ReportExportAction extends AbstractAction {
 
     /**
@@ -103,7 +104,7 @@ public class ReportExportAction extends AbstractAction {
             } while (!exit);
 
             new BalanceReportConverter(file, tab.getType(), tab.getYear(), tab
-                .getBalanceFilter());
+                .getBalanceFilter(), tab.getCalculationMethod());
         }
     }
 

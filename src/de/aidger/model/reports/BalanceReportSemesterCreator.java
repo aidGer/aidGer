@@ -17,6 +17,11 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
 public class BalanceReportSemesterCreator {
 
     /**
+     * The calculation method to be used for this balance report.
+     */
+    private int calculationMethod = 0;
+
+    /**
      * The vector containing the balanceReportGroupCreators and the names of
      * their groups.
      */
@@ -35,8 +40,9 @@ public class BalanceReportSemesterCreator {
      *            The semester of which the groups shall be added.
      * @throws AdoHiveException
      */
-    public BalanceReportSemesterCreator(String semester, BalanceFilter filters)
-            throws AdoHiveException {
+    public BalanceReportSemesterCreator(String semester, BalanceFilter filters,
+            int calculationMethod) throws AdoHiveException {
+        this.calculationMethod = calculationMethod;
         balanceHelper = new BalanceHelper();
         addGroups(semester, filters);
     }
@@ -101,7 +107,7 @@ public class BalanceReportSemesterCreator {
      */
     private void createGroup(ICourse course) {
         BalanceReportGroupCreator balanceReportGroupCreator = new BalanceReportGroupCreator(
-            course);
+            course, calculationMethod);
         balanceReportGroupCreators.add(new Vector<Object>());
         int i = balanceReportGroupCreators.size() - 1;
         /*

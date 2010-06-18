@@ -89,7 +89,7 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
                  * in the table. If not, add it.
                  */
                 if (!costUnits.contains(budgetCostId)) {
-                    costUnits.add(budgetCost.getId());
+                    costUnits.add(budgetCostId);
                     rowObjectVector.add("");
                     addEmptyColumn(budgetCostName);
                 }
@@ -110,7 +110,7 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
      *            The title of the column.
      */
     private void addEmptyColumn(String name) {
-        groupTableModel.addColumn(_("Budget costs from ") + name);
+        groupTableModel.addColumn(_("Budget costs from") + " " +  name);
     }
 
     /**
