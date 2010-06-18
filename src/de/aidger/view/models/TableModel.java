@@ -78,34 +78,6 @@ public abstract class TableModel extends DefaultTableModel implements Observer {
     protected abstract void getAllModels();
 
     /**
-     * Adds the model to the table.
-     */
-    @SuppressWarnings("unchecked")
-    public void addModel(AbstractModel model) {
-        models.add(model);
-    }
-
-    /**
-     * Removes the model from the table.
-     */
-    @SuppressWarnings("unchecked")
-    public void removeModel(AbstractModel model) {
-        models.remove(model);
-    }
-
-    /**
-     * Returns whether the table contains the model.
-     * 
-     * @param model
-     *            the model
-     * @return whether the table contains the model
-     */
-    @SuppressWarnings("unchecked")
-    public boolean containsModel(AbstractModel model) {
-        return models.contains(model);
-    }
-
-    /**
      * Returns the model at the given index.
      * 
      * @return the model at the given index
@@ -168,30 +140,26 @@ public abstract class TableModel extends DefaultTableModel implements Observer {
         Boolean save = (Boolean) arg;
 
         try {
-            if (save) {
-                // the model was saved
+            if (save) { // the model was saved
                 if (!model.isInDatabase()) {
                     return;
                 }
 
-                // the model was added
-                if (models.size() < model.size()) {
-                    addModel(model);
-                } else {
-                    // the model was edited
+                if (models.size() < model.size()) { // the model was added
+                    models.add(model);
+                } else { // the model was edited
                     if (!models.contains(model)) {
-                        removeModel(modelBeforeEdit);
+                        models.remove(modelBeforeEdit);
 
-                        addModel(model);
+                        models.add(model);
                     }
                 }
-            } else {
-                // the model was removed
+            } else { // the model was removed
                 if (model.isInDatabase()) {
                     return;
                 }
 
-                removeModel(model);
+                models.remove(model);
             }
 
             // refresh only the table
