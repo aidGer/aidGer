@@ -94,6 +94,18 @@ public abstract class TableModel extends DefaultTableModel implements Observer {
     }
 
     /**
+     * Returns whether the table contains the model.
+     * 
+     * @param model
+     *            the model
+     * @return whether the table contains the model
+     */
+    @SuppressWarnings("unchecked")
+    public boolean containsModel(AbstractModel model) {
+        return models.contains(model);
+    }
+
+    /**
      * Returns the model at the given index.
      * 
      * @return the model at the given index

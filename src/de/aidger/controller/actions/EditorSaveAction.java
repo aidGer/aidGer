@@ -276,11 +276,19 @@ public class EditorSaveAction extends AbstractAction {
 
         TableModel tableModel = next.getTableModel();
 
-        AbstractModel modelBeforeEdit = (AbstractModel) tab.getModel().clone();
+        // use a cloned model
+        AbstractModel clone = (AbstractModel) tab.getModel().clone();
+
+        // TODO we need a better solution here
+        try {
+            clone.setNew(!tab.getModel().isInDatabase());
+        } catch (AdoHiveException e2) {
+        }
 
         List<AbstractModel> models = new Vector<AbstractModel>();
-        models.add(tab.getModel());
+        models.add(clone);
 
+        // preparation of the models (type specific)
         switch (tab.getType()) {
         case Course:
             prepareModels(models, (CourseEditorForm) tab.getEditorForm());
@@ -300,9 +308,13 @@ public class EditorSaveAction extends AbstractAction {
             break;
         }
 
+        // save all prepared models
         for (AbstractModel model : models) {
 
-            tableModel.setModelBeforeEdit(modelBeforeEdit);
+            // table model needs the model before it was edited 
+            tableModel.setModelBeforeEdit(tab.getModel());
+
+            // the model is observed by the table model
             model.addObserver(tableModel);
 
             /*
@@ -314,18 +326,17 @@ public class EditorSaveAction extends AbstractAction {
                         && ((ViewerTab) t).getType() == tab.getType()) {
                     TableModel tM = ((ViewerTab) t).getTableModel();
 
-                    tM.setModelBeforeEdit(modelBeforeEdit);
+                    tM.setModelBeforeEdit(tab.getModel());
 
                     model.addObserver(tM);
                 }
             }
 
             try {
+                // finally try to save the model to database
                 if (!model.save()) {
-                    tab.updateHints();
-
-                    tableModel.removeModel(model);
-                    tableModel.addModel(modelBeforeEdit);
+                    // validation has failed
+                    tab.updateHints(model);
 
                     return;
                 }
