@@ -347,14 +347,9 @@ public class EditorSaveAction extends AbstractAction {
 
         TableModel tableModel = next.getTableModel();
 
-        // use a cloned model
+        // if something went wrong just the clone model is affected
         AbstractModel clone = (AbstractModel) tab.getModel().clone();
-
-        // TODO we need a better solution here
-        try {
-            clone.setNew(!tab.getModel().isInDatabase());
-        } catch (AdoHiveException e2) {
-        }
+        clone.setNew(!tab.isEditMode());
 
         List<AbstractModel> models = new Vector<AbstractModel>();
         models.add(clone);

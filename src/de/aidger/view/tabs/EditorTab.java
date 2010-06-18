@@ -47,6 +47,11 @@ public class EditorTab extends Tab {
     private final DataType type;
 
     /**
+     * A flag whether the tab is in edit mode.
+     */
+    private boolean editMode = false;
+
+    /**
      * Constructs a data editor tab.
      * 
      * @param type
@@ -70,6 +75,7 @@ public class EditorTab extends Tab {
     public EditorTab(DataType type, AbstractModel model) {
         this.type = type;
         this.model = model;
+        editMode = true;
 
         init();
     }
@@ -137,17 +143,6 @@ public class EditorTab extends Tab {
         return model;
     }
 
-    /**
-     * Sets the data model.
-     * 
-     * @param model
-     *            the data model that will be set
-     */
-    @SuppressWarnings("unchecked")
-    public void setModel(AbstractModel model) {
-        this.model = model;
-    }
-
     /*
      * (non-Javadoc)
      * 
@@ -192,7 +187,7 @@ public class EditorTab extends Tab {
      * @return whether the tab is in edit mode
      */
     public boolean isEditMode() {
-        return model != null;
+        return editMode;
     }
 
     /**

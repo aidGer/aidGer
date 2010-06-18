@@ -143,7 +143,6 @@ public abstract class TableModel extends DefaultTableModel implements Observer {
             models.remove(modelBeforeEdit);
 
             if (!models.contains(model)) {
-
                 models.add(model);
             }
         } else { // the model was removed
