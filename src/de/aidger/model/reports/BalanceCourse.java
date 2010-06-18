@@ -271,12 +271,37 @@ public class BalanceCourse {
      * @param budgetCost
      *            The budget cost to be added to this course.
      */
-    public void addBudgetCost(int id, String name, double budgetCost2) {
+    public void addBudgetCost(int id, String name, double value) {
         BudgetCost budgetCost = new BudgetCost();
         budgetCost.setId(id);
         budgetCost.setName(name);
-        budgetCost.setValue(budgetCost2);
+        budgetCost.setValue(value);
         budgetCosts.add(budgetCost);
+    }
+
+    public void addBudgetCostvalue(int id, double value) {
+        for (BudgetCost budgetCost : budgetCosts) {
+            if (budgetCost.getId() == id) {
+                budgetCost
+                    .setValue(budgetCost.getValue().doubleValue() + value);
+            }
+        }
+    }
+
+    /**
+     * Checks if the budget cost of the given id already exists.
+     * 
+     * @param id
+     *            The id to check
+     * @return Wheter the budget cost exists or not
+     */
+    public boolean budgetCostExists(int id) {
+        for (BudgetCost budgetCost : budgetCosts) {
+            if (budgetCost.getId() == id) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
