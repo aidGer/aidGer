@@ -10,7 +10,6 @@ import java.util.Observer;
 import javax.swing.table.DefaultTableModel;
 
 import de.aidger.model.AbstractModel;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * The class represents the abstract table model.
@@ -139,34 +138,21 @@ public abstract class TableModel extends DefaultTableModel implements Observer {
         AbstractModel model = (AbstractModel) m;
         Boolean save = (Boolean) arg;
 
-        try {
-            if (save) { // the model was saved
-                if (!model.isInDatabase()) {
-                    return;
-                }
+        if (save) { // the model was saved
 
-                if (models.size() < model.size()) { // the model was added
-                    models.add(model);
-                } else { // the model was edited
-                    if (!models.contains(model)) {
-                        models.remove(modelBeforeEdit);
+            models.remove(modelBeforeEdit);
 
-                        models.add(model);
-                    }
-                }
-            } else { // the model was removed
-                if (model.isInDatabase()) {
-                    return;
-                }
+            if (!models.contains(model)) {
 
-                models.remove(model);
+                models.add(model);
             }
+        } else { // the model was removed
 
-            // refresh only the table
-            refresh();
-        } catch (AdoHiveException e) {
-
+            models.remove(model);
         }
+
+        // refresh only the table
+        refresh();
     }
 
     /*
