@@ -78,6 +78,22 @@ public abstract class TableModel extends DefaultTableModel implements Observer {
     protected abstract void getAllModels();
 
     /**
+     * Adds the model to the table.
+     */
+    @SuppressWarnings("unchecked")
+    public void addModel(AbstractModel model) {
+        models.add(model);
+    }
+
+    /**
+     * Removes the model from the table.
+     */
+    @SuppressWarnings("unchecked")
+    public void removeModel(AbstractModel model) {
+        models.remove(model);
+    }
+
+    /**
      * Returns the model at the given index.
      * 
      * @return the model at the given index
@@ -141,20 +157,29 @@ public abstract class TableModel extends DefaultTableModel implements Observer {
 
         try {
             if (save) {
+                // the model was saved
+                if (!model.isInDatabase()) {
+                    return;
+                }
+
                 // the model was added
                 if (models.size() < model.size()) {
-                    models.add(model);
+                    addModel(model);
                 } else {
                     // the model was edited
                     if (!models.contains(model)) {
-                        models.remove(modelBeforeEdit);
+                        removeModel(modelBeforeEdit);
 
-                        models.add(model);
+                        addModel(model);
                     }
                 }
             } else {
                 // the model was removed
-                models.remove(model);
+                if (model.isInDatabase()) {
+                    return;
+                }
+
+                removeModel(model);
             }
 
             // refresh only the table

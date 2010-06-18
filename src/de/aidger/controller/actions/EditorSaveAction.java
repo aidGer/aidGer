@@ -274,8 +274,9 @@ public class EditorSaveAction extends AbstractAction {
             next = new ViewerTab(tab.getType());
         }
 
-        next.getTableModel().setModelBeforeEdit(
-            (AbstractModel) tab.getModel().clone());
+        TableModel tableModel = next.getTableModel();
+
+        AbstractModel modelBeforeEdit = (AbstractModel) tab.getModel().clone();
 
         List<AbstractModel> models = new Vector<AbstractModel>();
         models.add(tab.getModel());
@@ -301,7 +302,8 @@ public class EditorSaveAction extends AbstractAction {
 
         for (AbstractModel model : models) {
 
-            model.addObserver(next.getTableModel());
+            tableModel.setModelBeforeEdit(modelBeforeEdit);
+            model.addObserver(tableModel);
 
             /*
              * model should also be observed by the already existing table
@@ -312,8 +314,7 @@ public class EditorSaveAction extends AbstractAction {
                         && ((ViewerTab) t).getType() == tab.getType()) {
                     TableModel tM = ((ViewerTab) t).getTableModel();
 
-                    tM.setModelBeforeEdit(next.getTableModel()
-                        .getModelBeforeEdit());
+                    tM.setModelBeforeEdit(modelBeforeEdit);
 
                     model.addObserver(tM);
                 }
@@ -322,6 +323,9 @@ public class EditorSaveAction extends AbstractAction {
             try {
                 if (!model.save()) {
                     tab.updateHints();
+
+                    tableModel.removeModel(model);
+                    tableModel.addModel(modelBeforeEdit);
 
                     return;
                 }
