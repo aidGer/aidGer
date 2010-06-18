@@ -20,7 +20,7 @@ public class BalanceReportSemesterCreator {
      * The vector containing the balanceReportGroupCreators and the names of
      * their groups.
      */
-    private final Vector balanceReportGroupCreators = new Vector<Vector>();
+    private final Vector<Vector<Object>> balanceReportGroupCreators = new Vector<Vector<Object>>();
 
     /**
      * The balance helper used to filter the courses in this creator.
@@ -55,10 +55,8 @@ public class BalanceReportSemesterCreator {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        System.out.println(courses);
         List<ICourse> filteredCourses = balanceHelper.filterCourses(courses,
             filters);
-        System.out.println(filteredCourses);
         for (ICourse course : filteredCourses) {
             if (course.getSemester().equals(semester)) {
                 if (balanceReportGroupCreators.isEmpty()) {
@@ -70,13 +68,13 @@ public class BalanceReportSemesterCreator {
                 } else {
                     boolean foundGroup = false;
                     for (int i = 0; i <= balanceReportGroupCreators.size() - 1; i++) {
-                        if (((Vector) balanceReportGroupCreators.get(i)).get(1)
-                            .equals(course.getGroup())) {
+                        if ((balanceReportGroupCreators.get(i)).get(1).equals(
+                            course.getGroup())) {
                             /*
                              * If the course group already exists in this
                              * semester, add another row to it with this course.
                              */
-                            ((BalanceReportGroupCreator) ((Vector) balanceReportGroupCreators
+                            ((BalanceReportGroupCreator) (balanceReportGroupCreators
                                 .get(i)).get(0)).addCourse(course);
                             foundGroup = true;
                             break;
@@ -96,6 +94,7 @@ public class BalanceReportSemesterCreator {
 
     /**
      * Creates a new group and adds it to the balanceReportGroupCreators vector.
+     * Also adds the first course of the group to the group.
      * 
      * @param course
      *            The first course, which the group contains.
@@ -109,12 +108,11 @@ public class BalanceReportSemesterCreator {
          * Add the group creator of this course's group as the first entry of
          * the vector.
          */
-        ((Vector) balanceReportGroupCreators.get(i))
-            .add(balanceReportGroupCreator);
+        (balanceReportGroupCreators.get(i)).add(balanceReportGroupCreator);
         /*
          * Add the name of the group as the second entry of the vector.
          */
-        ((Vector) balanceReportGroupCreators.get(i)).add(course.getGroup());
+        (balanceReportGroupCreators.get(i)).add(course.getGroup());
     }
 
     /**
@@ -122,7 +120,7 @@ public class BalanceReportSemesterCreator {
      * 
      * @return The group creators.
      */
-    public Vector getGroupCreators() {
+    public Vector<Vector<Object>> getGroupCreators() {
         return balanceReportGroupCreators;
     }
 }

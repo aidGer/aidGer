@@ -14,25 +14,25 @@ public class BalanceFilter {
     /**
      * The groups to be filtered.
      */
-    private final Vector groups;
+    private final Vector<String> groups;
 
     /**
      * The lecturers to be filtered.
      */
-    private final Vector lecturers;
+    private final Vector<String> lecturers;
 
     /**
      * The target audiences to be filtered.
      */
-    private final Vector targetAudiences;
+    private final Vector<String> targetAudiences;
 
     /**
      * Initializes a new BalanceFilter.
      */
     public BalanceFilter() {
-        groups = new Vector();
-        lecturers = new Vector();
-        targetAudiences = new Vector();
+        groups = new Vector<String>();
+        lecturers = new Vector<String>();
+        targetAudiences = new Vector<String>();
     }
 
     /**
@@ -70,7 +70,7 @@ public class BalanceFilter {
      * 
      * @return groups the group filters to be returned.
      */
-    public Vector getGroups() {
+    public Vector<String> getGroups() {
         return groups;
     }
 
@@ -79,7 +79,7 @@ public class BalanceFilter {
      * 
      * @return lecturers the lecturer filters to be returned.
      */
-    public Vector getLecturers() {
+    public Vector<String> getLecturers() {
         return lecturers;
     }
 
@@ -88,7 +88,7 @@ public class BalanceFilter {
      * 
      * @return targetAudience the target audience filters to be returned.
      */
-    public Vector getTargetAudiences() {
+    public Vector<String> getTargetAudiences() {
         return targetAudiences;
     }
 

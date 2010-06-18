@@ -40,9 +40,9 @@ public class BalanceHelper {
      */
     public List<ICourse> filterCourses(List<ICourse> courses,
             BalanceFilter filters) {
-        List<ICourse> filteredOnceCourses = new Vector();
-        List<ICourse> filteredTwiceCourses = new Vector();
-        List<ICourse> filteredTriceCourses = new Vector();
+        List<ICourse> filteredOnceCourses = new Vector<ICourse>();
+        List<ICourse> filteredTwiceCourses = new Vector<ICourse>();
+        List<ICourse> filteredTriceCourses = new Vector<ICourse>();
         /*
          * Only use courses, which have the filtered criteria.
          */
@@ -126,7 +126,6 @@ public class BalanceHelper {
     public String[] getYearSemesters(int year) {
         // Lose the first two numbers of the year
         int semester = year % 100;
-        boolean returnBoolean = false;
         /*
          * Contains the year in YYYY form, the previous, current and next
          * semester in that order.
@@ -212,8 +211,6 @@ public class BalanceHelper {
         double basicAWS = course.getNumberOfGroups()
                 * course.getUnqualifiedWorkingHours();
         balanceCourse.setBasicAWS(basicAWS);
-        int studentFees = 0;
-        int resources = 0;
         List<IEmployment> employments = null;
         List<IAssistant> assistants = null;
         try {
@@ -228,32 +225,25 @@ public class BalanceHelper {
              * the fitting employments.
              */
             if (course.getId() == employment.getCourseId()) {
-                // TODO find out int for student fee funds
-                if (employment.getFunds() == 1) {
+                if (balanceCourse.getBudgetCosts().isEmpty()
+                        || !balanceCourse.getBudgetCosts().contains(
+                            employment.getFunds())) {
+                    int budgetCost = 0;
                     for (IAssistant assistant : assistants) {
                         if (employment.getAssistantId() == assistant.getId()) {
                             // TODO change to get correct hourly wage
-                            studentFees = studentFees
+                            budgetCost = budgetCost
                                     + (int) (10.0 * employment.getHourCount() * 1.28);
                         }
                     }
-                    // TODO find out int for student fee funds
-                } else if (employment.getFunds() == 2) {
-                    for (IAssistant assistant : assistants) {
-                        if (employment.getAssistantId() == assistant.getId()) {
-                            // TODO change to get correct hourly wage
-                            resources = resources
-                                    + (int) (10.0 * employment.getHourCount() * 1.28);
-                        }
-                    }
+                    balanceCourse.addBudgetCost(employment.getFunds(),
+                        employment.getCostUnit(), budgetCost);
                 }
                 // TODO find out correct calculation
                 plannedAWS = plannedAWS + employment.getHourCount();
             }
         }
         balanceCourse.setPlannedAWS(plannedAWS);
-        balanceCourse.setStudentFees(studentFees);
-        balanceCourse.setResources(resources);
         return balanceCourse;
     }
 
@@ -263,8 +253,8 @@ public class BalanceHelper {
      * 
      * @return A Vector containing the semesters as Strings.
      */
-    public Vector getSemesters() {
-        Vector semesters = new Vector();
+    public Vector<String> getSemesters() {
+        Vector<String> semesters = new Vector<String>();
         List<ICourse> courses = null;
         /*
          * Add an empty semester string as the first entry. Relevant for the
@@ -289,14 +279,14 @@ public class BalanceHelper {
      * 
      * @return The vector of years as ints.
      */
-    public Vector getYears() {
-        Vector semesters = getSemesters();
+    public Vector<Integer> getYears() {
+        Vector<String> semesters = getSemesters();
         if (semesters.size() > 0) {
             /*
              * Only get the years, if there are any valid courses with a
              * semester.
              */
-            Vector years = new Vector();
+            Vector<Integer> years = new Vector<Integer>();
             /*
              * Check for every semester out of the semester vector, if the year
              * of that semester is already noted and add it if it's not.
@@ -366,7 +356,7 @@ public class BalanceHelper {
                     years.add(year);
                 }
             }
-            Vector sortedYears = new Vector();
+            Vector<Integer> sortedYears = new Vector<Integer>();
             sortedYears.add(years.get(0));
             for (int i = 1; i < years.size(); i++) {
                 boolean addedYear = false;
@@ -386,7 +376,7 @@ public class BalanceHelper {
             /*
              * There are no valid courses. Return empty vector.
              */
-            Vector years = new Vector();
+            Vector<Integer> years = new Vector<Integer>();
             return years;
         }
     }

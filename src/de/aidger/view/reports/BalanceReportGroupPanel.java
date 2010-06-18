@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 
 import de.aidger.model.reports.BalanceCourse;
 import de.aidger.model.reports.BalanceReportGroupCreator;
+import de.aidger.model.reports.BalanceCourse.BudgetCost;
 
 /**
  * A JPanel which has the courses of a group in it.
@@ -32,15 +33,11 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
      */
     private final DefaultTableModel groupTableModel = new DefaultTableModel(
         null, new String[] { _("Title"), _("Part"), _("Lecturer"),
-                _("Target Audience"), _("Planned AWS"), _("Basic needed AWS"),
-                _("Budget costs from student fees"),
-                _("Budget costs from resources") }) {
-        boolean[] canEdit = new boolean[] { false, false, false, false, false,
-                false, false, false };
+                _("Target Audience"), _("Planned AWS"), _("Basic needed AWS") }) {
 
         @Override
         public boolean isCellEditable(int rowIndex, int columnIndex) {
-            return canEdit[columnIndex];
+            return false;
         }
     };
 
@@ -64,10 +61,56 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
      * Adds the courses of this group.
      */
     private void addCourses() {
-        Vector balanceCourses = groupCreator.getBalanceCourses();
+        Vector<Integer> costUnits = new Vector<Integer>();
+        Vector<BalanceCourse> balanceCourses = groupCreator.getBalanceCourses();
         for (Object balanceCourse : balanceCourses) {
-            addCourse(((BalanceCourse) balanceCourse).getCourseObject());
+            Vector<Object> rowObjectVector = new Vector<Object>();
+            /*
+             * Add the first 6 columns to the table, whose names are always the
+             * same.
+             */
+            for (int i = 0; i < 6; i++) {
+                rowObjectVector.add(((BalanceCourse) balanceCourse)
+                    .getCourseObject()[i]);
+            }
+            /*
+             * If there are additional columns already, add empty strings to
+             * them.
+             */
+            while (rowObjectVector.size() < costUnits.size() + 6) {
+                rowObjectVector.add("");
+            }
+            for (BudgetCost budgetCost : ((BalanceCourse) balanceCourse)
+                .getBudgetCosts()) {
+                String budgetCostName = budgetCost.getName();
+                int budgetCostId = budgetCost.getId();
+                /*
+                 * Check by the id of the cost unit if that cost unit is already
+                 * in the table. If not, add it.
+                 */
+                if (!costUnits.contains(budgetCostId)) {
+                    costUnits.add(budgetCost.getId());
+                    rowObjectVector.add("");
+                    addEmptyColumn(budgetCostName);
+                }
+                /*
+                 * Set the budget cost of the cost unit to the one specified.
+                 */
+                rowObjectVector.set(costUnits.indexOf(budgetCostId) + 6,
+                    budgetCost.getValue());
+            }
+            addCourse(rowObjectVector.toArray());
         }
+    }
+
+    /**
+     * Add an empty column to the table with the given name as title.
+     * 
+     * @param name
+     *            The title of the column.
+     */
+    private void addEmptyColumn(String name) {
+        groupTableModel.addColumn(_("Budget costs from ") + name);
     }
 
     /**

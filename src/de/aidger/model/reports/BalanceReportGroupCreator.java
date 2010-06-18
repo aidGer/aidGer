@@ -16,7 +16,7 @@ public class BalanceReportGroupCreator {
     /**
      * Contains all courses of this group.
      */
-    private final Vector balanceCourses = new Vector();
+    private final Vector<BalanceCourse> balanceCourses = new Vector<BalanceCourse>();
 
     /**
      * Initializes this BalanceReportGroupCreator and adds the first course.
@@ -44,7 +44,7 @@ public class BalanceReportGroupCreator {
      * 
      * @return The courses
      */
-    public Vector getBalanceCourses() {
+    public Vector<BalanceCourse> getBalanceCourses() {
         return balanceCourses;
     }
 }

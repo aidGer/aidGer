@@ -3,6 +3,8 @@
  */
 package de.aidger.model.reports;
 
+import java.util.Vector;
+
 /**
  * Represents a course in a balance report with all it's variables.
  * 
@@ -44,19 +46,14 @@ public class BalanceCourse {
     /**
      * The budget costs paid with student fees.
      */
-    private int StudentFees;
-
-    /**
-     * The budget costs paid with resources.
-     */
-    private int Resources;
+    private final Vector<BudgetCost> budgetCosts;
 
     /**
      * Initializes a new BalanceCourse, which contains all the necessary
      * variables of a course in a balance report.
      */
     public BalanceCourse() {
-        StudentFees = Resources = 0;
+        budgetCosts = new Vector<BudgetCost>();
         Title = Lecturer = TargetAudience = "";
         PlannedAWS = BasicAWS = 0.0;
         Part = '-';
@@ -69,7 +66,7 @@ public class BalanceCourse {
      */
     public Object[] getCourseObject() {
         return new Object[] { Title, Part, Lecturer, TargetAudience,
-                PlannedAWS, BasicAWS, StudentFees, Resources };
+                PlannedAWS, BasicAWS, budgetCosts };
     }
 
     /**
@@ -186,41 +183,105 @@ public class BalanceCourse {
         return BasicAWS;
     }
 
-    /**
-     * Sets the budget costs from student fees of the course.
-     * 
-     * @param studentFees
-     *            the studentFees to set
-     */
-    public void setStudentFees(int studentFees) {
-        StudentFees = studentFees;
+    public class BudgetCost {
+        /**
+         * The cost unit of this budget cost.
+         */
+        int id;
+
+        /**
+         * The name of this budget cost.
+         */
+        String name;
+
+        /**
+         * The value of this budget cost.
+         */
+        int value;
+
+        public BudgetCost() {
+            id = value = 0;
+            name = null;
+        }
+
+        /**
+         * Sets the cost unit of this budget cost.
+         * 
+         * @param id
+         *            The cost unit to set it to.
+         */
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        /**
+         * Returns the cost unit of this budget cost.
+         * 
+         * @return the cost unit
+         */
+        public int getId() {
+            return id;
+        }
+
+        /**
+         * Sets the name of this budget cost.
+         * 
+         * @param name
+         *            The name to set it to.
+         */
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        /**
+         * Returns the name of this budget cost.
+         * 
+         * @return the name
+         */
+        public String getName() {
+            return name;
+        }
+
+        /**
+         * Sets the value of this budget cost.
+         * 
+         * @param value
+         *            The value to set it to.
+         */
+        public void setValue(int value) {
+            this.value = value;
+        }
+
+        /**
+         * Returns the value of this budget cost.
+         * 
+         * @return the value
+         */
+        public int getValue() {
+            return value;
+        }
     }
 
     /**
-     * Returns the budget costs from student fees of the course.
+     * Add budget costs of the course.
      * 
-     * @return the studentFees
+     * @param budgetCost
+     *            The budget cost to be added to this course.
      */
-    public int getStudentFees() {
-        return StudentFees;
+    public void addBudgetCost(int id, String name, int value) {
+        BudgetCost budgetCost = new BudgetCost();
+        budgetCost.setId(id);
+        budgetCost.setName(name);
+        budgetCost.setValue(value);
+        budgetCosts.add(budgetCost);
     }
 
     /**
-     * Sets the budget costs from resources of the course.
+     * Returns the budget costs of the course.
      * 
-     * @param resources
-     *            the resources to set
+     * @return the budget costs
      */
-    public void setResources(int resources) {
-        Resources = resources;
-    }
-
-    /**
-     * Returns the budget costs from resources of the course.
-     * 
-     * @return the resources
-     */
-    public int getResources() {
-        return Resources;
+    public Vector<BudgetCost> getBudgetCosts() {
+        return budgetCosts;
     }
 }

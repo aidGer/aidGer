@@ -10,7 +10,6 @@ import java.util.Vector;
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
-import de.aidger.view.tabs.ProtocolViewerTab;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
 
@@ -20,11 +19,6 @@ import de.unistuttgart.iste.se.adohive.model.IActivity;
  * @author aidGer Team
  */
 public class ProtocolCreator {
-
-    /**
-     * The viewer tab of this protocol.
-     */
-    private final ProtocolViewerTab protocolViewerTab = null;
 
     /**
      * Initializes a new ProtocolCreator and creates the first protocol.
@@ -39,9 +33,9 @@ public class ProtocolCreator {
      * 
      * @throws AdoHiveException
      */
-    public Vector createProtocol(int numberOfDays) {
+    public Vector<Object[]> createProtocol(int numberOfDays) {
         Object[] addedActivity;
-        Vector addedActivities = new Vector();
+        Vector<Object[]> addedActivities = new Vector<Object[]>();
         List<IActivity> activities = null;
         try {
             activities = new Activity().getAll();

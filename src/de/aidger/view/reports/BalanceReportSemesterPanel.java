@@ -14,6 +14,7 @@ import de.aidger.model.reports.BalanceReportSemesterCreator;
  * 
  * @author aidGer Team
  */
+@SuppressWarnings("serial")
 public class BalanceReportSemesterPanel extends javax.swing.JPanel {
 
     /**
@@ -44,11 +45,13 @@ public class BalanceReportSemesterPanel extends javax.swing.JPanel {
      * Adds all the groups of this semester to the panel.
      */
     public void addGroups() {
-        Vector groupCreators = semesterCreator.getGroupCreators();
+        Vector<Vector<Object>> groupCreators = semesterCreator
+            .getGroupCreators();
         for (Object groupCreator : groupCreators) {
             createGroup(new BalanceReportGroupPanel(
-                ((String) ((Vector) groupCreator).get(1)),
-                (BalanceReportGroupCreator) ((Vector) groupCreator).get(0)));
+                ((String) ((Vector<Object>) groupCreator).get(1)),
+                (BalanceReportGroupCreator) ((Vector<Object>) groupCreator)
+                    .get(0)));
         }
     }
 
