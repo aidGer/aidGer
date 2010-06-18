@@ -31,6 +31,11 @@ import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.unistuttgart.iste.se.adohive.model.IAssistant;
+import de.unistuttgart.iste.se.adohive.model.ICourse;
+import de.unistuttgart.iste.se.adohive.model.IEmployment;
+import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
+import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
 
 /**
  * This action saves the model and replaces the current tab with the model
@@ -50,16 +55,22 @@ public class EditorSaveAction extends AbstractAction {
 
     /**
      * Prepares the course model stored in the models list by setting the values
-     * of the course editor form to this model.
+     * of the course editor form to this model. Returns the model from the
+     * database before it is edited. If a database error occurs the model before
+     * it was edited is returned.
      * 
      * @param models
      *            a list that contains the course model of the editor
      * @param form
      *            the course editor form
+     * @return the model from database before it is edited
      */
     @SuppressWarnings("unchecked")
-    private void prepareModels(List<AbstractModel> models, CourseEditorForm form) {
+    private AbstractModel prepareModels(List<AbstractModel> models,
+            CourseEditorForm form) {
         Course course = (Course) models.get(0);
+
+        Course courseBeforeEdit = course.clone();
 
         course.setDescription(form.getDescription());
         course.setSemester(form.getSemester());
@@ -86,42 +97,68 @@ public class EditorSaveAction extends AbstractAction {
             course.addError("part", new PresenceValidator(course,
                 new String[] {}).getMessage());
         }
+
+        try {
+            ICourse c = course.getById(course.getId());
+
+            return c == null ? courseBeforeEdit : new Course(c);
+        } catch (AdoHiveException e) {
+            return courseBeforeEdit;
+        }
     }
 
     /**
      * Prepares the assistant model stored in the models list by setting the
-     * values of the assistant editor form to this model.
+     * values of the assistant editor form to this model. Returns the model from
+     * the database before it is edited. If a database error occurs the model
+     * before it was edited is returned.
      * 
      * @param models
      *            a list that contains the assistant model of the editor
      * @param form
      *            the assistant editor form
+     * @return the model from database before it is edited
      */
     @SuppressWarnings("unchecked")
-    private void prepareModels(List<AbstractModel> models,
+    private AbstractModel prepareModels(List<AbstractModel> models,
             AssistantEditorForm form) {
         Assistant assistant = (Assistant) models.get(0);
+
+        Assistant assistantBeforeEdit = assistant.clone();
 
         assistant.setFirstName(form.getFirstName());
         assistant.setLastName(form.getLastName());
         assistant.setEmail(form.getEmail());
         assistant.setQualification(form.getQualification());
+
+        try {
+            IAssistant a = assistant.getById(assistant.getId());
+
+            return a == null ? assistantBeforeEdit : new Assistant(a);
+        } catch (AdoHiveException e) {
+            return assistantBeforeEdit;
+        }
     }
 
     /**
      * Prepares the financial category model stored in the models list by
      * setting the values of the financial category editor form to this model.
+     * Returns the model from the database before it is edited. If a database
+     * error occurs the model before it was edited is returned.
      * 
      * @param models
      *            a list that contains the financial category model of the
      *            editor
      * @param form
      *            the financial category editor form
+     * @return the model from database before it is edited
      */
     @SuppressWarnings("unchecked")
-    private void prepareModels(List<AbstractModel> models,
+    private AbstractModel prepareModels(List<AbstractModel> models,
             FinancialCategoryEditorForm form) {
         FinancialCategory fc = (FinancialCategory) models.get(0);
+
+        FinancialCategory fcBeforeEdit = fc.clone();
 
         fc.setName(form.getFCName());
 
@@ -145,21 +182,34 @@ public class EditorSaveAction extends AbstractAction {
             fc.addError("year", new PresenceValidator(fc, new String[] {})
                 .getMessage());
         }
+
+        try {
+            IFinancialCategory f = fc.getByKeys(fc.getId(), fc.getFunds());
+
+            return f == null ? fcBeforeEdit : new FinancialCategory(f);
+        } catch (AdoHiveException e) {
+            return fcBeforeEdit;
+        }
     }
 
     /**
      * Prepares the hourly wage models by setting the values of the hourly wage
-     * editor form to the models.
+     * editor form to the models. Returns the model from the database before it
+     * is edited. If a database error occurs the model before it was edited is
+     * returned.
      * 
      * @param models
      *            a list that contains the hourly wage model of the editor
      * @param form
      *            the hourly wage editor form
+     * @return the model from database before it is edited
      */
     @SuppressWarnings("unchecked")
-    private void prepareModels(List<AbstractModel> models,
+    private AbstractModel prepareModels(List<AbstractModel> models,
             HourlyWageEditorForm form) {
         HourlyWage hw = (HourlyWage) models.get(0);
+
+        HourlyWage hwBeforeEdit = hw.clone();
 
         hw.setQualification(form.getQualification());
 
@@ -198,21 +248,36 @@ public class EditorSaveAction extends AbstractAction {
                 }
             }
         }
+
+        try {
+            IHourlyWage h = hwBeforeEdit.getByKeys(hwBeforeEdit
+                .getQualification(), hwBeforeEdit.getMonth(), hwBeforeEdit
+                .getYear());
+
+            return h == null ? hwBeforeEdit : new HourlyWage(h);
+        } catch (AdoHiveException e) {
+            return hwBeforeEdit;
+        }
     }
 
     /**
-     * Prepares the employment model stored in the models list by setting the
-     * values of the employment editor form to this model.
+     * Prepares the employment models by setting the values of the employment
+     * editor form to this model. Returns the model from the database before it
+     * is edited. If a database error occurs the model before it was edited is
+     * returned.
      * 
      * @param models
      *            a list that contains the employment model of the editor
      * @param form
      *            the employment editor form
+     * @return the model from database before it is edited
      */
     @SuppressWarnings("unchecked")
-    private void prepareModels(List<AbstractModel> models,
+    private AbstractModel prepareModels(List<AbstractModel> models,
             EmploymentEditorForm form) {
         Employment employment = (Employment) models.get(0);
+
+        Employment employmentBeforeEdit = employment.clone();
 
         employment.setAssistantId(form.getAssistantId());
         employment.setCourseId(form.getCourseId());
@@ -233,28 +298,34 @@ public class EditorSaveAction extends AbstractAction {
 
         try {
             hcs = form.getHourCounts();
+
+            models.clear();
+
+            for (int i = 0; i < dates.size(); ++i) {
+                Employment clone = employment.clone();
+                models.add(clone);
+
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(dates.get(i));
+
+                clone.setMonth((byte) (cal.get(Calendar.MONTH) + 1));
+                clone.setYear((short) cal.get(Calendar.YEAR));
+                clone.setHourCount(hcs.get(i));
+            }
         } catch (NumberFormatException e) {
             employment.addError("hourCount", new PresenceValidator(employment,
                 new String[] {}).getMessage());
-
-            return;
-        }
-
-        models.clear();
-
-        for (int i = 0; i < dates.size(); ++i) {
-            Employment clone = employment.clone();
-            models.add(clone);
-
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(dates.get(i));
-
-            clone.setMonth((byte) (cal.get(Calendar.MONTH) + 1));
-            clone.setYear((short) cal.get(Calendar.YEAR));
-            clone.setHourCount(hcs.get(i));
         }
 
         // TODO handling edit mode
+
+        try {
+            IEmployment e = employment.getById(employment.getId());
+
+            return e == null ? employmentBeforeEdit : new Employment(e);
+        } catch (AdoHiveException e) {
+            return employmentBeforeEdit;
+        }
     }
 
     /*
@@ -276,35 +347,36 @@ public class EditorSaveAction extends AbstractAction {
 
         TableModel tableModel = next.getTableModel();
 
-        // use a cloned model
+        // if something went wrong just the clone model is affected
         AbstractModel clone = (AbstractModel) tab.getModel().clone();
-
-        // TODO we need a better solution here
-        try {
-            clone.setNew(!tab.getModel().isInDatabase());
-        } catch (AdoHiveException e2) {
-        }
+        clone.setNew(!tab.isEditMode());
 
         List<AbstractModel> models = new Vector<AbstractModel>();
         models.add(clone);
 
+        AbstractModel modelBeforeEdit = tab.getModel();
+
         // preparation of the models (type specific)
         switch (tab.getType()) {
         case Course:
-            prepareModels(models, (CourseEditorForm) tab.getEditorForm());
-            break;
-        case Assistant:
-            prepareModels(models, (AssistantEditorForm) tab.getEditorForm());
-            break;
-        case FinancialCategory:
-            prepareModels(models, (FinancialCategoryEditorForm) tab
+            modelBeforeEdit = prepareModels(models, (CourseEditorForm) tab
                 .getEditorForm());
             break;
+        case Assistant:
+            modelBeforeEdit = prepareModels(models, (AssistantEditorForm) tab
+                .getEditorForm());
+            break;
+        case FinancialCategory:
+            modelBeforeEdit = prepareModels(models,
+                (FinancialCategoryEditorForm) tab.getEditorForm());
+            break;
         case HourlyWage:
-            prepareModels(models, (HourlyWageEditorForm) tab.getEditorForm());
+            modelBeforeEdit = prepareModels(models, (HourlyWageEditorForm) tab
+                .getEditorForm());
             break;
         case Employment:
-            prepareModels(models, (EmploymentEditorForm) tab.getEditorForm());
+            modelBeforeEdit = prepareModels(models, (EmploymentEditorForm) tab
+                .getEditorForm());
             break;
         }
 
@@ -312,7 +384,7 @@ public class EditorSaveAction extends AbstractAction {
         for (AbstractModel model : models) {
 
             // table model needs the model before it was edited 
-            tableModel.setModelBeforeEdit(tab.getModel());
+            tableModel.setModelBeforeEdit(modelBeforeEdit);
 
             // the model is observed by the table model
             model.addObserver(tableModel);
@@ -326,13 +398,14 @@ public class EditorSaveAction extends AbstractAction {
                         && ((ViewerTab) t).getType() == tab.getType()) {
                     TableModel tM = ((ViewerTab) t).getTableModel();
 
-                    tM.setModelBeforeEdit(tab.getModel());
+                    tM.setModelBeforeEdit(modelBeforeEdit);
 
                     model.addObserver(tM);
                 }
             }
 
             try {
+
                 // finally try to save the model to database
                 if (!model.save()) {
                     // validation has failed
