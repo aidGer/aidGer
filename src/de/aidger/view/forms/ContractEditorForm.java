@@ -30,7 +30,13 @@ public class ContractEditorForm extends JPanel {
         cmbDelegation.setRenderer(new BooleanListRenderer());
 
         if (contract != null) {
-            // TODO
+            spCompletionDate.setValue(contract.getCompletionDate());
+            spConfirmationDate.setValue(contract.getConfirmationDate());
+            spStartDate.setValue(contract.getStartDate());
+            spEndDate.setValue(contract.getEndDate());
+            txtType.setText(contract.getType());
+            cmbDelegation.setSelectedItem(Boolean.valueOf(contract
+                .isDelegation()));
         }
     }
 
