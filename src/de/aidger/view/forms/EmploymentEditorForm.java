@@ -26,6 +26,8 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.view.UI;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
+import de.aidger.view.tabs.EditorTab;
+import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.AutoCompletion;
 import de.aidger.view.utils.InputPatternFilter;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
@@ -55,7 +57,8 @@ public class EmploymentEditorForm extends JPanel {
             "/de/aidger/view/icons/plus-small.png")));
         btnContractAdd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                UI.displayError("Hallo Phil :-)");
+                UI.getInstance().replaceCurrentTab(
+                    new EditorTab(DataType.Contract));
             }
         });
 

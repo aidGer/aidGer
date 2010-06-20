@@ -29,6 +29,7 @@ import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
 import de.aidger.view.forms.HourlyWageEditorForm;
 import de.aidger.view.models.TableModel;
+import de.aidger.view.tabs.DetailViewerTab;
 import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
@@ -389,13 +390,8 @@ public class EditorSaveAction extends AbstractAction {
     public void actionPerformed(ActionEvent e) {
         EditorTab tab = (EditorTab) UI.getInstance().getCurrentTab();
 
-        ViewerTab next = (ViewerTab) tab.getPredecessorOf(ViewerTab.class);
-
-        if (next == null) {
-            next = new ViewerTab(tab.getType());
-        }
-
-        TableModel tableModel = next.getTableModel();
+        ViewerTab viewerTab = new ViewerTab(tab.getType());
+        TableModel tableModel = viewerTab.getTableModel();
 
         // if something went wrong just the clone model is affected
         AbstractModel clone = (AbstractModel) tab.getModel().clone();
@@ -476,6 +472,13 @@ public class EditorSaveAction extends AbstractAction {
 
                 break;
             }
+        }
+
+        Tab next = tab.getPredecessor();
+
+        // go to viewer tab if there is no predecessor or if predecessor is the detail viewer tab
+        if (next == null || next instanceof DetailViewerTab) {
+            next = viewerTab;
         }
 
         UI.getInstance().replaceCurrentTab(next);

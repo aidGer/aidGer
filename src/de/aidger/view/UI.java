@@ -221,6 +221,8 @@ public final class UI extends JFrame {
 
         tabbedPane.removeChangeListener(tabbedPaneListener);
 
+        tab.performBeforeOpen();
+
         tabbedPane.add(new JScrollPane(tab), index);
         tabbedPane.setTabComponentAt(index, new CloseTabComponent(tab
             .getTabName()));

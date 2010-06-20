@@ -130,13 +130,18 @@ public class DetailViewerTab extends Tab {
     /**
      * Returns the data viewer form.
      * 
-     * @return the data editor form.
+     * @return the data viewer form.
      */
     public JPanel getViewerForm() {
-        if (viewerForm != null) {
-            return viewerForm;
-        }
+        return viewerForm;
+    }
 
+    /**
+     * Creates a new viewer form.
+     * 
+     * @return the created viewer form
+     */
+    public JPanel createViewerForm() {
         switch (type) {
         case Course:
             return new CourseViewerForm((Course) model);
@@ -160,7 +165,7 @@ public class DetailViewerTab extends Tab {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        viewerForm = getViewerForm();
+        viewerForm = createViewerForm();
         buttons = new javax.swing.JPanel();
         btnEdit = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
