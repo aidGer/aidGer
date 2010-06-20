@@ -19,7 +19,6 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
-import javax.swing.text.DefaultFormatter;
 
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
@@ -226,8 +225,6 @@ public class EmploymentEditorForm extends JPanel {
         JSpinner spDate = new JSpinner();
         spDate.setModel(new SpinnerDateModel());
         spDate.setEditor(new JSpinner.DateEditor(spDate, "MM.yyyy"));
-        ((DefaultFormatter) ((JSpinner.DefaultEditor) spDate.getEditor())
-            .getTextField().getFormatter()).setAllowsInvalid(false);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;

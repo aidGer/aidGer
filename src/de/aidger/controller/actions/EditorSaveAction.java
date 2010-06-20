@@ -15,6 +15,7 @@ import javax.swing.Action;
 
 import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Assistant;
+import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
@@ -22,6 +23,7 @@ import de.aidger.model.models.HourlyWage;
 import de.aidger.model.validators.PresenceValidator;
 import de.aidger.view.UI;
 import de.aidger.view.forms.AssistantEditorForm;
+import de.aidger.view.forms.ContractEditorForm;
 import de.aidger.view.forms.CourseEditorForm;
 import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
@@ -32,6 +34,7 @@ import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
+import de.unistuttgart.iste.se.adohive.model.IContract;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 import de.unistuttgart.iste.se.adohive.model.IEmployment;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
@@ -310,6 +313,11 @@ public class EditorSaveAction extends AbstractAction {
 
             for (int i = 0; i < dates.size(); ++i) {
                 Employment clone = employment.clone();
+
+                for (String error : employment.getErrors()) {
+                    clone.addError(error);
+                }
+
                 models.add(clone);
 
                 Calendar cal = Calendar.getInstance();
@@ -332,6 +340,41 @@ public class EditorSaveAction extends AbstractAction {
             return e == null ? employmentBeforeEdit : new Employment(e);
         } catch (AdoHiveException e) {
             return employmentBeforeEdit;
+        }
+    }
+
+    /**
+     * Prepares the contract model by setting the values of the contract editor
+     * form to this model. Returns the model from the database before it is
+     * edited. If a database error occurs the model before it was edited is
+     * returned.
+     * 
+     * @param models
+     *            a list that contains the course model of the editor
+     * @param form
+     *            the course editor form
+     * @return the model from database before it is edited
+     */
+    @SuppressWarnings("unchecked")
+    private AbstractModel prepareModels(List<AbstractModel> models,
+            ContractEditorForm form) {
+        Contract contract = (Contract) models.get(0);
+
+        Contract contractBeforeEdit = contract.clone();
+
+        contract.setCompletionDate(form.getCompletionDate());
+        contract.setConfirmationDate(form.getConfirmationDate());
+        contract.setStartDate(form.getStartDate());
+        contract.setEndDate(form.getEndDate());
+        contract.setType(form.getType());
+        contract.setDelegation(form.isDelegation());
+
+        try {
+            IContract c = contract.getById(contract.getId());
+
+            return c == null ? contractBeforeEdit : new Contract(c);
+        } catch (AdoHiveException e) {
+            return contractBeforeEdit;
         }
     }
 
@@ -385,6 +428,9 @@ public class EditorSaveAction extends AbstractAction {
             modelBeforeEdit = prepareModels(models, (EmploymentEditorForm) tab
                 .getEditorForm());
             break;
+        case Contract:
+            modelBeforeEdit = prepareModels(models, (ContractEditorForm) tab
+                .getEditorForm());
         }
 
         // save all prepared models

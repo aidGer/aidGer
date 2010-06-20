@@ -24,7 +24,9 @@ model/models/FinancialCategory.java
 model/models/HourlyWage.java
 model/models/Employment.java
 model/Runtime.java
+view/utils/DateRenderer.java
 view/utils/MultiLineCellRenderer.java
+view/utils/BooleanRenderer.java
 view/utils/AutoCompletion.java
 view/utils/InputPatternFilter.java
 view/TaskPaneContainer.java
@@ -43,6 +45,7 @@ view/forms/AssistantViewerForm.java
 view/forms/CourseViewerForm.java
 view/forms/AssistantEditorForm.java
 view/forms/HourlyWageEditorForm.java
+view/forms/ContractEditorForm.java
 view/forms/CourseEditorForm.java
 view/forms/HourlyWageViewerForm.java
 view/forms/FinancialCategoryEditorForm.java

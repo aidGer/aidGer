@@ -33,7 +33,9 @@ import de.aidger.view.models.EmploymentTableModel;
 import de.aidger.view.models.FinancialCategoryTableModel;
 import de.aidger.view.models.HourlyWageTableModel;
 import de.aidger.view.models.TableModel;
-import de.aidger.view.utils.MultiLineCellRenderer;
+import de.aidger.view.utils.BooleanTableRenderer;
+import de.aidger.view.utils.DateTableRenderer;
+import de.aidger.view.utils.MultiLineTableRenderer;
 
 /**
  * A tab which will be used to display the data.
@@ -130,9 +132,20 @@ public class ViewerTab extends Tab {
         // multi line columns for financial category table
         if (type == DataType.FinancialCategory) {
             table.getColumnModel().getColumn(2).setCellRenderer(
-                new MultiLineCellRenderer());
+                new MultiLineTableRenderer());
             table.getColumnModel().getColumn(3).setCellRenderer(
-                new MultiLineCellRenderer());
+                new MultiLineTableRenderer());
+        }
+
+        // date and boolean renderers for contract table
+        if (type == DataType.Contract) {
+            for (int i = 0; i < 4; ++i) {
+                table.getColumnModel().getColumn(i).setCellRenderer(
+                    new DateTableRenderer());
+            }
+
+            table.getColumnModel().getColumn(5).setCellRenderer(
+                new BooleanTableRenderer());
         }
 
         // initializes the button and menu items actions

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-20 19:51+0200\n"
+"POT-Creation-Date: 2010-06-20 20:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,6 +34,7 @@ msgid "Affected course"
 msgstr ""
 
 #: utils/pdf/ProtocolConverter.java:155 view/tabs/ProtocolViewerTab.java:40
+#: view/forms/ContractEditorForm.java:93
 #: view/models/ContractTableModel.java:25
 msgid "Type"
 msgstr ""
@@ -252,59 +253,75 @@ msgstr ""
 msgid "Couldn't create lockfile"
 msgstr ""
 
-#: view/tabs/EditorTab.java:156
+#: view/utils/BooleanRenderer.java:28
+msgid "no"
+msgstr ""
+
+#: view/utils/BooleanRenderer.java:31
+msgid "yes"
+msgstr ""
+
+#: view/tabs/EditorTab.java:161
 msgid "Edit course"
 msgstr ""
 
-#: view/tabs/EditorTab.java:158
+#: view/tabs/EditorTab.java:163
 msgid "Edit assistant"
 msgstr ""
 
-#: view/tabs/EditorTab.java:160
+#: view/tabs/EditorTab.java:165
 msgid "Edit financial category"
 msgstr ""
 
-#: view/tabs/EditorTab.java:162
+#: view/tabs/EditorTab.java:167
 msgid "Edit hourly wage"
 msgstr ""
 
-#: view/tabs/EditorTab.java:164
+#: view/tabs/EditorTab.java:169
 msgid "Edit employment"
 msgstr ""
 
-#: view/tabs/EditorTab.java:170
+#: view/tabs/EditorTab.java:171
+msgid "Edit contract"
+msgstr ""
+
+#: view/tabs/EditorTab.java:177
 msgid "Add course"
 msgstr ""
 
-#: view/tabs/EditorTab.java:172
+#: view/tabs/EditorTab.java:179
 msgid "Add assistant"
 msgstr ""
 
-#: view/tabs/EditorTab.java:174
+#: view/tabs/EditorTab.java:181
 msgid "Add financial category"
 msgstr ""
 
-#: view/tabs/EditorTab.java:176
+#: view/tabs/EditorTab.java:183
 msgid "Add hourly wage"
 msgstr ""
 
-#: view/tabs/EditorTab.java:178
+#: view/tabs/EditorTab.java:185
 msgid "Add employment"
 msgstr ""
 
-#: view/tabs/EditorTab.java:278 controller/actions/EditorSaveAction.java:53
+#: view/tabs/EditorTab.java:187
+msgid "Add contract"
+msgstr ""
+
+#: view/tabs/EditorTab.java:289 controller/actions/EditorSaveAction.java:53
 #: controller/actions/SaveSettingsAction.java:29
 msgid "Save"
 msgstr ""
 
-#: view/tabs/EditorTab.java:281 view/tabs/DetailViewerTab.java:183
+#: view/tabs/EditorTab.java:292 view/tabs/DetailViewerTab.java:183
 #: controller/actions/DetailViewerCancelAction.java:28
 #: controller/actions/DialogAbortAction.java:26
 #: controller/actions/EditorCancelAction.java:28
 msgid "Cancel"
 msgstr ""
 
-#: view/tabs/EditorTab.java:297
+#: view/tabs/EditorTab.java:308
 msgid "Hints"
 msgstr ""
 
@@ -362,66 +379,66 @@ msgstr ""
 msgid "Historical calculation"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:229 view/tabs/ViewerTab.java:243
-#: view/tabs/ViewerTab.java:470
+#: view/tabs/ViewerTab.java:240 view/tabs/ViewerTab.java:254
+#: view/tabs/ViewerTab.java:481
 msgid "Search"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:290
+#: view/tabs/ViewerTab.java:301
 msgid "Master Data Courses"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:292
+#: view/tabs/ViewerTab.java:303
 msgid "Master Data Assistants"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:294
+#: view/tabs/ViewerTab.java:305
 msgid "Master Data Financial Categories"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:296
+#: view/tabs/ViewerTab.java:307
 msgid "Master Data Hourly Wages"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:298 view/UI.java:495
+#: view/tabs/ViewerTab.java:309 view/UI.java:495
 msgid "Employments"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:300
+#: view/tabs/ViewerTab.java:311
 msgid "Contracts"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:302
+#: view/tabs/ViewerTab.java:313
 msgid "Data"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:397 view/tabs/ViewerTab.java:415
+#: view/tabs/ViewerTab.java:408 view/tabs/ViewerTab.java:426
 #: controller/actions/ViewerDetailViewAction.java:27
 msgid "View"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:400 view/tabs/ViewerTab.java:422
+#: view/tabs/ViewerTab.java:411 view/tabs/ViewerTab.java:433
 #: view/tabs/DetailViewerTab.java:180
 #: controller/actions/DetailViewerEditAction.java:27
 #: controller/actions/ViewerEditAction.java:27
 msgid "Edit"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:403 view/tabs/ViewerTab.java:436
+#: view/tabs/ViewerTab.java:414 view/tabs/ViewerTab.java:447
 #: controller/actions/ViewerDeleteAction.java:31
 msgid "Delete"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:406 view/UI.java:503
+#: view/tabs/ViewerTab.java:417 view/UI.java:503
 #: controller/actions/ViewerActivitiesAction.java:22
 msgid "Activities"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:429 controller/actions/ViewerAddAction.java:27
+#: view/tabs/ViewerTab.java:440 controller/actions/ViewerAddAction.java:27
 msgid "Add"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:443
+#: view/tabs/ViewerTab.java:454
 msgid "Activites"
 msgstr ""
 
@@ -703,6 +720,7 @@ msgid "Bachelor"
 msgstr ""
 
 #: view/forms/HourlyWageEditorForm.java:200
+#: view/forms/ContractEditorForm.java:77
 #: view/models/ContractTableModel.java:25
 msgid "Start date"
 msgstr ""
@@ -715,6 +733,26 @@ msgstr ""
 #: view/forms/HourlyWageViewerForm.java:73
 #: view/models/HourlyWageTableModel.java:26
 msgid "Wage"
+msgstr ""
+
+#: view/forms/ContractEditorForm.java:61
+#: view/models/ContractTableModel.java:24
+msgid "Completion date"
+msgstr ""
+
+#: view/forms/ContractEditorForm.java:69
+#: view/models/ContractTableModel.java:24
+msgid "Confirmation date"
+msgstr ""
+
+#: view/forms/ContractEditorForm.java:85
+#: view/models/ContractTableModel.java:25
+msgid "End date"
+msgstr ""
+
+#: view/forms/ContractEditorForm.java:101
+#: view/models/ContractTableModel.java:25
+msgid "Delegation"
 msgstr ""
 
 #: view/forms/EmploymentEditorForm.java:239
@@ -775,22 +813,6 @@ msgstr ""
 #: view/models/EmploymentTableModel.java:33
 #: view/models/FinancialCategoryTableModel.java:26
 msgid "ID"
-msgstr ""
-
-#: view/models/ContractTableModel.java:24
-msgid "Completion Date"
-msgstr ""
-
-#: view/models/ContractTableModel.java:24
-msgid "Confirmation date"
-msgstr ""
-
-#: view/models/ContractTableModel.java:25
-msgid "End date"
-msgstr ""
-
-#: view/models/ContractTableModel.java:25
-msgid "Delegation"
 msgstr ""
 
 #: view/models/HourlyWageTableModel.java:25

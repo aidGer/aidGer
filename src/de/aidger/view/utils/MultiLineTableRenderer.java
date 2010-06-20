@@ -16,13 +16,13 @@ import javax.swing.text.View;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class MultiLineCellRenderer extends JTextArea implements
+public class MultiLineTableRenderer extends JTextArea implements
         TableCellRenderer {
 
     /**
      * Constructs the mulit line cell renderer.
      */
-    public MultiLineCellRenderer() {
+    public MultiLineTableRenderer() {
         setLineWrap(true);
         setWrapStyleWord(true);
         setOpaque(true);

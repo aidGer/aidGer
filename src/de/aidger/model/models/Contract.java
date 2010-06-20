@@ -1,17 +1,18 @@
 package de.aidger.model.models;
 
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import java.sql.Date;
-
 import static de.aidger.utils.Translation._;
-import de.aidger.model.AbstractModel;
-import de.unistuttgart.iste.se.adohive.model.IContract;
+
+import java.sql.Date;
 import java.util.List;
 
+import de.aidger.model.AbstractModel;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.unistuttgart.iste.se.adohive.model.IContract;
+
 /**
- * Represents a single entry in the contract column of the database.
- * Contains functions to retrieve and change the data in the database.
- *
+ * Represents a single entry in the contract column of the database. Contains
+ * functions to retrieve and change the data in the database.
+ * 
  * @author aidGer Team
  */
 public class Contract extends AbstractModel<IContract> implements IContract {
@@ -53,12 +54,12 @@ public class Contract extends AbstractModel<IContract> implements IContract {
         validatePresenceOf(new String[] { "completionDate", "confirmationDate",
                 "endDate", "startDate", "type" });
         validateDateRange("startDate", "endDate");
-        validateDateRange("confirmationDate", "completionDate");
+        validateDateRange("completionDate", "confirmationDate");
     }
 
     /**
      * Initializes the Contract class with the given contract model.
-     *
+     * 
      * @param c
      *            the contract model
      */
@@ -78,7 +79,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
      * Clone the current contract
      */
     @Override
-    public Contract clone()	{
+    public Contract clone() {
         Contract c = new Contract();
         c.setId(id);
         c.setCompletionDate(completionDate);
@@ -92,7 +93,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
 
     /**
      * Check if two objects are equal.
-     *
+     * 
      * @param o
      *            The other object
      * @return True if both are equal
@@ -101,19 +102,19 @@ public class Contract extends AbstractModel<IContract> implements IContract {
     public boolean equals(Object o) {
         if (o instanceof Contract) {
             Contract c = (Contract) o;
-            return c.id == id && c.delegation == delegation &&
-                    (completionDate == null ? c.completionDate == null : 
-                            c.completionDate.toString().equals(
-                            completionDate.toString())) &&
-                    (confirmationDate == null ? c.confirmationDate == null :
-                            c.confirmationDate.toString().equals(
-                            confirmationDate.toString())) &&
-                    (endDate == null ? c.endDate == null : 
-                            c.endDate.toString().equals(endDate.toString())) &&
-                    (startDate == null ? c.startDate == null : 
-                            c.startDate.toString().equals(
-                            startDate.toString())) &&
-                    (type == null ? c.type == null : c.type.equals(type));
+            return c.id == id
+                    && c.delegation == delegation
+                    && (completionDate == null ? c.completionDate == null
+                            : c.completionDate.toString().equals(
+                                completionDate.toString()))
+                    && (confirmationDate == null ? c.confirmationDate == null
+                            : c.confirmationDate.toString().equals(
+                                confirmationDate.toString()))
+                    && (endDate == null ? c.endDate == null : c.endDate
+                        .toString().equals(endDate.toString()))
+                    && (startDate == null ? c.startDate == null : c.startDate
+                        .toString().equals(startDate.toString()))
+                    && (type == null ? c.type == null : c.type.equals(type));
         } else {
             return false;
         }
@@ -121,16 +122,16 @@ public class Contract extends AbstractModel<IContract> implements IContract {
 
     /**
      * Generate a unique hashcode for this instance.
-     *
+     * 
      * @return The hashcode
      */
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 41 * hash + (completionDate != null ?
-                completionDate.hashCode() : 0);
-        hash = 41 * hash + (confirmationDate != null ?
-                confirmationDate.hashCode() : 0);
+        hash = 41 * hash
+                + (completionDate != null ? completionDate.hashCode() : 0);
+        hash = 41 * hash
+                + (confirmationDate != null ? confirmationDate.hashCode() : 0);
         hash = 41 * hash + (delegation ? 1 : 0);
         hash = 41 * hash + (endDate != null ? endDate.hashCode() : 0);
         hash = 41 * hash + (startDate != null ? startDate.hashCode() : 0);
@@ -140,7 +141,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
 
     /**
      * Custom validation function.
-     *
+     * 
      * @return True if everything is correct
      */
     public boolean validate() {
@@ -154,7 +155,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
 
     /**
      * Custom validation function for remove().
-     *
+     * 
      * @return True if everything is correct
      */
     public boolean validateOnRemove() throws AdoHiveException {
@@ -171,7 +172,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
 
     /**
      * Get the date the contract was completed.
-     *
+     * 
      * @return The date the contract was completed
      */
     @Override
@@ -181,7 +182,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
 
     /**
      * Get the date the contract was confirmed.
-     *
+     * 
      * @return The date the contract was confirmed
      */
     @Override
@@ -191,7 +192,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
 
     /**
      * Get the date the contract ends.
-     *
+     * 
      * @return The date the contract ends.
      */
     @Override
@@ -201,7 +202,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
 
     /**
      * Get the date the contract starts.
-     *
+     * 
      * @return The date the contract starts
      */
     @Override
@@ -211,7 +212,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
 
     /**
      * Get the type of the contract.
-     *
+     * 
      * @return The type of the contract
      */
     @Override
@@ -221,7 +222,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
 
     /**
      * Has the contract been delegated.
-     *
+     * 
      * @return True if the contract has been delegated
      */
     @Override
@@ -231,8 +232,9 @@ public class Contract extends AbstractModel<IContract> implements IContract {
 
     /**
      * Set the date the contract was completed.
-     *
-     * @param date The date the contract was completed
+     * 
+     * @param date
+     *            The date the contract was completed
      */
     @Override
     public void setCompletionDate(Date date) {
@@ -241,8 +243,9 @@ public class Contract extends AbstractModel<IContract> implements IContract {
 
     /**
      * Set the date the contract was confirmed.
-     *
-     * @param date The date the contract was confirmed
+     * 
+     * @param date
+     *            The date the contract was confirmed
      */
     @Override
     public void setConfirmationDate(Date date) {
@@ -251,8 +254,9 @@ public class Contract extends AbstractModel<IContract> implements IContract {
 
     /**
      * Has the contract been delegated?
-     *
-     * @param del True if the contract has been delegated
+     * 
+     * @param del
+     *            True if the contract has been delegated
      */
     @Override
     public void setDelegation(boolean del) {
@@ -261,8 +265,9 @@ public class Contract extends AbstractModel<IContract> implements IContract {
 
     /**
      * Set the date the contract ends.
-     *
-     * @param date The date the contract ends
+     * 
+     * @param date
+     *            The date the contract ends
      */
     @Override
     public void setEndDate(Date date) {
@@ -271,8 +276,9 @@ public class Contract extends AbstractModel<IContract> implements IContract {
 
     /**
      * Set the date the contract starts.
-     *
-     * @param date The date the contract starts
+     * 
+     * @param date
+     *            The date the contract starts
      */
     @Override
     public void setStartDate(Date date) {
@@ -281,8 +287,9 @@ public class Contract extends AbstractModel<IContract> implements IContract {
 
     /**
      * Set the type of the contract.
-     *
-     * @param tp The type of the contract
+     * 
+     * @param tp
+     *            The type of the contract
      */
     @Override
     public void setType(String tp) {

@@ -6,8 +6,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 import javax.swing.JPanel;
-import javax.swing.JSpinner;
-import javax.swing.text.DefaultFormatter;
 
 import de.aidger.model.models.HourlyWage;
 import de.aidger.view.utils.InputPatternFilter;
@@ -60,9 +58,6 @@ public class HourlyWageEditorForm extends JPanel {
 
         // add input filters
         InputPatternFilter.addFilter(txtWage, "[0-9]+[.,]?[0-9]{0,2}");
-
-        ((DefaultFormatter) ((JSpinner.DefaultEditor) spDate.getEditor())
-            .getTextField().getFormatter()).setAllowsInvalid(false);
 
         if (hw != null) {
             cmbQualification.setSelectedItem(Qualification.valueOf(hw
