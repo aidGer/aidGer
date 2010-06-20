@@ -14,7 +14,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import de.aidger.model.models.FinancialCategory;
@@ -26,7 +25,7 @@ import de.aidger.view.utils.InputPatternFilter;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class FinancialCategoryEditorForm extends JPanel {
+public class FinancialCategoryEditorForm extends Form {
 
     /**
      * Constructs a financial category editor form.

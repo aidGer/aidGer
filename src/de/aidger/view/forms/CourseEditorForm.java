@@ -4,8 +4,6 @@ import static de.aidger.utils.Translation._;
 
 import java.util.List;
 
-import javax.swing.JPanel;
-
 import de.aidger.model.models.Course;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.Logger;
@@ -19,7 +17,7 @@ import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class CourseEditorForm extends JPanel {
+public class CourseEditorForm extends Form {
 
     /**
      * Constructs a course editor form.

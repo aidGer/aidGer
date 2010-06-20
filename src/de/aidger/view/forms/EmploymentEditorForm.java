@@ -15,7 +15,6 @@ import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
@@ -27,6 +26,7 @@ import de.aidger.model.models.Employment;
 import de.aidger.view.UI;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.tabs.EditorTab;
+import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.AutoCompletion;
 import de.aidger.view.utils.InputPatternFilter;
@@ -41,7 +41,7 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class EmploymentEditorForm extends JPanel {
+public class EmploymentEditorForm extends Form {
 
     /**
      * Constructs an employment editor tab.
@@ -49,7 +49,6 @@ public class EmploymentEditorForm extends JPanel {
      * @param employment
      *            The employment that will be edited
      */
-    @SuppressWarnings("unchecked")
     public EmploymentEditorForm(Employment employment) {
         initComponents();
 
@@ -57,8 +56,10 @@ public class EmploymentEditorForm extends JPanel {
             "/de/aidger/view/icons/plus-small.png")));
         btnContractAdd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                UI.getInstance().replaceCurrentTab(
-                    new EditorTab(DataType.Contract));
+                Tab tab = new EditorTab(DataType.Contract);
+                tab.markAsNoPredecessor();
+
+                UI.getInstance().replaceCurrentTab(tab);
             }
         });
 
@@ -68,6 +69,21 @@ public class EmploymentEditorForm extends JPanel {
 
         cmbFunds.setEditable(true);
         InputPatternFilter.addFilter(cmbFunds, "[0-9]{0,8}");
+
+        addNewDate();
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.forms.Form#update()
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public void update() {
+        cmbAssistant.removeAllItems();
+        cmbCourse.removeAllItems();
+        cmbContract.removeAllItems();
 
         try {
             List<IAssistant> assistants = (new Assistant()).getAll();
@@ -107,8 +123,6 @@ public class EmploymentEditorForm extends JPanel {
 
         } catch (AdoHiveException e) {
         }
-
-        addNewDate();
     }
 
     /**

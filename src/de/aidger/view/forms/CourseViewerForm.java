@@ -1,9 +1,6 @@
 package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
-
-import javax.swing.JPanel;
-
 import de.aidger.model.models.Course;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.Logger;
@@ -16,7 +13,7 @@ import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class CourseViewerForm extends JPanel {
+public class CourseViewerForm extends Form {
 
     /**
      * Constructs a course viewer form.

@@ -5,7 +5,6 @@ import static de.aidger.utils.Translation._;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
-import javax.swing.JPanel;
 
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
@@ -20,7 +19,7 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class AssistantViewerForm extends JPanel {
+public class AssistantViewerForm extends Form {
 
     /**
      * Constructs an assistant viewer tab.
@@ -140,8 +139,11 @@ public class AssistantViewerForm extends JPanel {
         gridBagConstraints.weighty = 1.0;
         add(filler, gridBagConstraints);
 
-        courses.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Related courses")));
-        courses.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
+        courses.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            _("Related courses")));
+        courses.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
+            0, 0));
 
         scrollPane.setViewportView(listCourses);
 
@@ -153,8 +155,11 @@ public class AssistantViewerForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 50, 0, 0);
         add(courses, gridBagConstraints);
 
-        activities.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Related activities")));
-        activities.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
+        activities.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            _("Related activities")));
+        activities.setLayout(new java.awt.FlowLayout(
+            java.awt.FlowLayout.CENTER, 0, 0));
 
         scrollPane2.setViewportView(listActivities);
 

@@ -474,13 +474,12 @@ public class EditorSaveAction extends AbstractAction {
             }
         }
 
-        Tab next = tab.getPredecessor();
+        Tab p = tab.getPredecessor();
 
-        // go to viewer tab if there is no predecessor or if predecessor is the detail viewer tab
-        if (next == null || next instanceof DetailViewerTab) {
-            next = viewerTab;
+        if (p instanceof DetailViewerTab) {
+            p = viewerTab;
         }
 
-        UI.getInstance().replaceCurrentTab(next);
+        UI.getInstance().replaceCurrentTab(p);
     }
 }

@@ -5,8 +5,6 @@ import static de.aidger.utils.Translation._;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import javax.swing.JPanel;
-
 import de.aidger.model.models.HourlyWage;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 
@@ -16,7 +14,7 @@ import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class HourlyWageViewerForm extends JPanel {
+public class HourlyWageViewerForm extends Form {
 
     /**
      * Constructs a hourly wage viewer form.

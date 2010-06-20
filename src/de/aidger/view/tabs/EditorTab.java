@@ -26,6 +26,7 @@ import de.aidger.view.forms.ContractEditorForm;
 import de.aidger.view.forms.CourseEditorForm;
 import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
+import de.aidger.view.forms.Form;
 import de.aidger.view.forms.HourlyWageEditorForm;
 import de.aidger.view.tabs.ViewerTab.DataType;
 
@@ -96,6 +97,32 @@ public class EditorTab extends Tab {
         }
 
         return ret;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.tabs.Tab#performBeforeOpen()
+     */
+    @Override
+    public void performBeforeOpen() {
+        ((Form) editorForm).update();
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.tabs.Tab#getPredecessor()
+     */
+    @Override
+    public Tab getPredecessor() {
+        Tab p = super.getPredecessor();
+
+        if (p == null) {
+            p = new ViewerTab(getType());
+        }
+
+        return p;
     }
 
     /**
@@ -214,10 +241,15 @@ public class EditorTab extends Tab {
      * @return the data editor form.
      */
     public JPanel getEditorForm() {
-        if (editorForm != null) {
-            return editorForm;
-        }
+        return editorForm;
+    }
 
+    /**
+     * Creates the editor form.
+     * 
+     * @return the created editor form
+     */
+    public JPanel createEditorForm() {
         switch (type) {
         case Course:
             return new CourseEditorForm((Course) model);
@@ -268,7 +300,7 @@ public class EditorTab extends Tab {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        editorForm = getEditorForm();
+        editorForm = createEditorForm();
         buttons = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();

@@ -316,7 +316,7 @@ public final class UI extends JFrame {
 
         addNewTab(tab, index);
         Tab predecessor = removeTabAt(index + 1);
-        tab.addPredecessor(predecessor);
+        tab.setPredecessor(predecessor);
     }
 
     /**

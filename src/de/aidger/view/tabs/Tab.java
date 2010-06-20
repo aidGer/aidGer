@@ -1,8 +1,5 @@
 package de.aidger.view.tabs;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
@@ -17,9 +14,14 @@ import javax.swing.JPanel;
 public abstract class Tab extends JPanel {
 
     /**
-     * The predecessor tabs.
+     * The predecessor tab.
      */
-    private final List<Tab> predecessors = new ArrayList<Tab>();
+    private Tab predecessor;
+
+    /**
+     * A flag whether the tab can be a predecessor or not.
+     */
+    private boolean noPredecessor = false;
 
     /**
      * Constructs a tab.
@@ -39,9 +41,9 @@ public abstract class Tab extends JPanel {
     }
 
     /**
-     * Returns the name of the panel.
+     * Returns the name of the tab.
      * 
-     * @return The name of the panel
+     * @return The name of the tab
      */
     public abstract String getTabName();
 
@@ -58,29 +60,29 @@ public abstract class Tab extends JPanel {
     }
 
     /**
-     * Adds a predecessor.
+     * Sets the last predecessor.
      * 
-     * @param predecessor
-     *            the predecessor to be added
+     * @param p
+     *            the last predecessor
      */
-    public void addPredecessor(Tab predecessor) {
-        predecessors.remove(predecessor);
-
-        predecessors.add(0, predecessor);
+    public void setPredecessor(Tab p) {
+        if (!p.noPredecessor) {
+            predecessor = p;
+        }
     }
 
     /**
-     * Returns the last predecessor. If there is no predecessor found it is
-     * returned null
-     * 
-     * @return the last predecessor or null
+     * Returns the last predecessor.
      */
     public Tab getPredecessor() {
-        if (predecessors.isEmpty()) {
-            return null;
-        }
+        return predecessor;
+    }
 
-        return predecessors.get(0);
+    /**
+     * Marks the tab as no predecessor.
+     */
+    public void markAsNoPredecessor() {
+        noPredecessor = true;
     }
 
 }

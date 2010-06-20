@@ -9,9 +9,6 @@ import javax.swing.Action;
 
 import de.aidger.view.UI;
 import de.aidger.view.tabs.DetailViewerTab;
-import de.aidger.view.tabs.EditorTab;
-import de.aidger.view.tabs.Tab;
-import de.aidger.view.tabs.ViewerTab;
 
 /**
  * This action replaces the current tab with the model viewer tab when user
@@ -40,12 +37,6 @@ public class DetailViewerCancelAction extends AbstractAction {
         DetailViewerTab tab = (DetailViewerTab) UI.getInstance()
             .getCurrentTab();
 
-        Tab next = tab.getPredecessor();
-
-        if (next == null || next instanceof EditorTab) {
-            next = new ViewerTab(tab.getType());
-        }
-
-        UI.getInstance().replaceCurrentTab(next);
+        UI.getInstance().replaceCurrentTab(tab.getPredecessor());
     }
 }

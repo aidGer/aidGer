@@ -10,6 +10,7 @@ import javax.swing.Action;
 import de.aidger.view.UI;
 import de.aidger.view.tabs.DetailViewerTab;
 import de.aidger.view.tabs.EditorTab;
+import de.aidger.view.tabs.Tab;
 
 /**
  * This action replaces the current tab with the model editor tab when user
@@ -38,7 +39,9 @@ public class DetailViewerEditAction extends AbstractAction {
         DetailViewerTab tab = (DetailViewerTab) UI.getInstance()
             .getCurrentTab();
 
-        UI.getInstance().replaceCurrentTab(
-            new EditorTab(tab.getType(), tab.getModel()));
+        Tab next = new EditorTab(tab.getType(), tab.getModel());
+        next.markAsNoPredecessor();
+
+        UI.getInstance().replaceCurrentTab(next);
     }
 }
