@@ -184,7 +184,8 @@ public class EditorSaveAction extends AbstractAction {
         }
 
         try {
-            IFinancialCategory f = fc.getByKeys(fc.getId(), fc.getFunds());
+            // fc.getByKeys expects only the ID as key
+            IFinancialCategory f = fc.getByKeys(fc.getId());
 
             return f == null ? fcBeforeEdit : new FinancialCategory(f);
         } catch (AdoHiveException e) {
