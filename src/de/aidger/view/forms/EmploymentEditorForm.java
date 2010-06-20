@@ -49,6 +49,7 @@ public class EmploymentEditorForm extends Form {
      * @param employment
      *            The employment that will be edited
      */
+    @SuppressWarnings("unchecked")
     public EmploymentEditorForm(Employment employment) {
         initComponents();
 
@@ -69,21 +70,6 @@ public class EmploymentEditorForm extends Form {
 
         cmbFunds.setEditable(true);
         InputPatternFilter.addFilter(cmbFunds, "[0-9]{0,8}");
-
-        addNewDate();
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see de.aidger.view.forms.Form#update()
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public void update() {
-        cmbAssistant.removeAllItems();
-        cmbCourse.removeAllItems();
-        cmbContract.removeAllItems();
 
         try {
             List<IAssistant> assistants = (new Assistant()).getAll();
@@ -120,6 +106,39 @@ public class EmploymentEditorForm extends Form {
                     }
                 });
             }
+
+        } catch (AdoHiveException e) {
+        }
+
+        addNewDate();
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.forms.Form#update()
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public void update() {
+        try {
+            Contract oldContract = (Contract) cmbContract.getSelectedItem();
+
+            cmbContract.removeAllItems();
+
+            List<IContract> contracts = (new Contract()).getAll();
+
+            for (IContract contract : contracts) {
+                cmbContract.addItem(new Contract(contract) {
+                    @Override
+                    public String toString() {
+                        return getType() + " (" + getStartDate() + " - "
+                                + getEndDate() + ")";
+                    }
+                });
+            }
+
+            cmbContract.setSelectedItem(oldContract);
 
         } catch (AdoHiveException e) {
         }
