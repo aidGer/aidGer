@@ -25,7 +25,7 @@ import de.unistuttgart.iste.se.adohive.model.IEmployment;
 @SuppressWarnings("serial")
 public class EmploymentTableModel extends TableModel {
     /**
-     * Constructs the table model for assistants.
+     * Constructs the table model for employments.
      */
     public EmploymentTableModel() {
         super(new String[] { _("Assistant"), _("Course"), _("Contract"),

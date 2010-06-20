@@ -27,6 +27,7 @@ import de.aidger.controller.actions.ViewerEditAction;
 import de.aidger.model.Runtime;
 import de.aidger.view.UI;
 import de.aidger.view.models.AssistantTableModel;
+import de.aidger.view.models.ContractTableModel;
 import de.aidger.view.models.CourseTableModel;
 import de.aidger.view.models.EmploymentTableModel;
 import de.aidger.view.models.FinancialCategoryTableModel;
@@ -45,7 +46,7 @@ public class ViewerTab extends Tab {
      * The type of the data that will be viewed.
      */
     public enum DataType {
-        Course, Assistant, FinancialCategory, HourlyWage, Employment
+        Course, Assistant, FinancialCategory, HourlyWage, Employment, Contract
     }
 
     /**
@@ -106,6 +107,12 @@ public class ViewerTab extends Tab {
             tableModel = new EmploymentTableModel();
             btnActivities.setVisible(false);
             separator5.setVisible(false);
+            break;
+        case Contract:
+            tableModel = new ContractTableModel();
+            btnActivities.setVisible(false);
+            separator5.setVisible(false);
+            break;
         }
 
         table.setModel(tableModel);
@@ -291,6 +298,8 @@ public class ViewerTab extends Tab {
             return _("Master Data Hourly Wages");
         case Employment:
             return _("Employments");
+        case Contract:
+            return _("Contracts");
         default:
             return _("Data");
         }

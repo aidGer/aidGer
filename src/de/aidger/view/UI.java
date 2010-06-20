@@ -495,9 +495,9 @@ public final class UI extends JFrame {
             _("Employments"), Task.ViewEmployments));
 
         tpEmployments.add(createTaskPaneButton(_("Create new employment"),
-            Task.ViewEmpty));
+            Task.CreateNewEmployment));
         tpEmployments.add(createTaskPaneButton(_("Show all contracts"),
-            Task.ViewEmpty));
+            Task.ViewContracts));
         tpEmployments.add(new JTextField());
 
         TaskPane tpActivities = new TaskPane(_("Activities"));

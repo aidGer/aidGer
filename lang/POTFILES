@@ -53,6 +53,7 @@ view/reports/BalanceFilterPanel.java
 view/CloseTabComponent.java
 view/AboutDialog.java
 view/models/CourseTableModel.java
+view/models/ContractTableModel.java
 view/models/TableModel.java
 view/models/HourlyWageTableModel.java
 view/models/AssistantTableModel.java
