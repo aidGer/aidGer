@@ -81,6 +81,13 @@ public abstract class Tab extends JPanel {
     /**
      * Marks the tab as no predecessor.
      */
+    public void markAsPredecessor() {
+        noPredecessor = false;
+    }
+
+    /**
+     * Marks the tab as no predecessor.
+     */
     public void markAsNoPredecessor() {
         noPredecessor = true;
     }

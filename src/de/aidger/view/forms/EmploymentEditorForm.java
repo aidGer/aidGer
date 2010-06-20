@@ -57,10 +57,15 @@ public class EmploymentEditorForm extends Form {
             "/de/aidger/view/icons/plus-small.png")));
         btnContractAdd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                Tab tab = new EditorTab(DataType.Contract);
-                tab.markAsNoPredecessor();
+                Tab current = UI.getInstance().getCurrentTab();
+                Tab next = new EditorTab(DataType.Contract);
 
-                UI.getInstance().replaceCurrentTab(tab);
+                current.markAsPredecessor();
+                next.markAsNoPredecessor();
+
+                UI.getInstance().replaceCurrentTab(next);
+
+                current.markAsNoPredecessor();
             }
         });
 
