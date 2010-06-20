@@ -240,6 +240,12 @@ public class EditorSaveAction extends AbstractAction {
 
                 while (finish.after(start)) {
                     HourlyWage clone = hw.clone();
+
+                    // add also previous errors to clone
+                    for (String error : hw.getErrors()) {
+                        clone.addError(error);
+                    }
+
                     models.add(clone);
 
                     clone.setMonth((byte) (start.get(Calendar.MONTH) + 1));
