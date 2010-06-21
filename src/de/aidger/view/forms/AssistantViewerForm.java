@@ -48,6 +48,8 @@ public class AssistantViewerForm extends Form {
             }
         });
 
+        // TODO mouse listener for activities
+
         firstName.setText(assistant.getFirstName());
         lastName.setText(assistant.getLastName());
         email.setText(assistant.getEmail());

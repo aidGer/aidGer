@@ -3,6 +3,7 @@ package de.aidger.view.tabs;
 import static de.aidger.utils.Translation._;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import javax.swing.AbstractAction;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.JTable;
+import javax.swing.KeyStroke;
 import javax.swing.RowFilter;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableRowSorter;
@@ -185,6 +187,29 @@ public class ViewerTab extends Tab {
                 ViewerDeleteAction.class.getName()));
             itemActivities.setAction(ActionRegistry.getInstance().get(
                 ViewerActivitiesAction.class.getName()));
+
+            // shortcuts for table
+            table.getInputMap().put(
+                KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "viewEntry");
+            table.getInputMap().put(
+                KeyStroke.getKeyStroke(KeyEvent.VK_DELETE, 0), "removeEntry");
+            table.getInputMap().put(
+                KeyStroke.getKeyStroke(KeyEvent.VK_A, ActionEvent.CTRL_MASK),
+                "selectAllEntries");
+
+            table.getActionMap().put(
+                "viewEntry",
+                ActionRegistry.getInstance().get(
+                    ViewerDetailViewAction.class.getName()));
+            table.getActionMap().put(
+                "removeEntry",
+                ActionRegistry.getInstance().get(
+                    ViewerDeleteAction.class.getName()));
+            table.getActionMap().put("selectAllEntries", new AbstractAction() {
+                public void actionPerformed(ActionEvent e) {
+                    table.selectAll();
+                }
+            });
 
         } catch (ActionNotFoundException e) {
             UI.displayError(e.getMessage());
