@@ -28,6 +28,7 @@ import de.aidger.view.forms.CourseEditorForm;
 import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
 import de.aidger.view.forms.HourlyWageEditorForm;
+import de.aidger.view.models.ListModel;
 import de.aidger.view.models.TableModel;
 import de.aidger.view.tabs.DetailViewerTab;
 import de.aidger.view.tabs.EditorTab;
@@ -448,6 +449,14 @@ public class EditorSaveAction extends AbstractAction {
                     tM.setModelBeforeEdit(modelBeforeEdit);
 
                     model.addObserver(tM);
+                } else if (t instanceof DetailViewerTab) {
+                    List<ListModel> lMs = ((DetailViewerTab) t).getListModels();
+
+                    for (ListModel lM : lMs) {
+                        lM.setModelBeforeEdit(modelBeforeEdit);
+
+                        model.addObserver(lM);
+                    }
                 }
             }
 

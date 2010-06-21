@@ -2,14 +2,19 @@ package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
-
-import javax.swing.DefaultListModel;
 
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
+import de.aidger.view.UI;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
+import de.aidger.view.models.ListModel;
+import de.aidger.view.models.UICourse;
+import de.aidger.view.tabs.DetailViewerTab;
+import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 
@@ -30,6 +35,15 @@ public class AssistantViewerForm extends Form {
     public AssistantViewerForm(Assistant assistant) {
         initComponents();
 
+        listCourses.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent evt) {
+                UI.getInstance().addNewTab(
+                    new DetailViewerTab(DataType.Course, (Course) listCourses
+                        .getSelectedValue()));
+            }
+        });
+
         firstName.setText(assistant.getFirstName());
         lastName.setText(assistant.getLastName());
         email.setText(assistant.getEmail());
@@ -40,17 +54,29 @@ public class AssistantViewerForm extends Form {
             List<Employment> employments = (new Employment())
                 .getEmployments(assistant);
 
-            DefaultListModel listModel = new DefaultListModel();
+            ListModel listCoursesModel = new ListModel();
 
             for (Employment employment : employments) {
-                ICourse course = (new Course()).getById(employment
-                    .getCourseId());
+                ICourse c = (new Course()).getById(employment.getCourseId());
 
-                listModel.addElement(new Course(course));
+                Course course = new UICourse(c);
+
+                if (!listCoursesModel.contains(course)) {
+                    listCoursesModel.addElement(course);
+                }
             }
 
-            listCourses.setModel(listModel);
+            listCourses.setModel(listCoursesModel);
+            listModels.add(listCoursesModel);
         } catch (AdoHiveException e) {
+        }
+
+        if (listCourses.getModel().getSize() == 0) {
+            courses.setVisible(false);
+        }
+
+        if (listActivities.getModel().getSize() == 0) {
+            activities.setVisible(false);
         }
     }
 
@@ -142,9 +168,11 @@ public class AssistantViewerForm extends Form {
         courses.setBorder(javax.swing.BorderFactory.createTitledBorder(
             javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
             _("Related courses")));
-        courses.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
-            0, 0));
+        courses.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0,
+            0));
 
+        listCourses.setMinimumSize(new java.awt.Dimension(300, 150));
+        listCourses.setPreferredSize(new java.awt.Dimension(300, 150));
         scrollPane.setViewportView(listCourses);
 
         courses.add(scrollPane);
@@ -158,9 +186,11 @@ public class AssistantViewerForm extends Form {
         activities.setBorder(javax.swing.BorderFactory.createTitledBorder(
             javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
             _("Related activities")));
-        activities.setLayout(new java.awt.FlowLayout(
-            java.awt.FlowLayout.CENTER, 0, 0));
+        activities.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT,
+            0, 0));
 
+        listActivities.setMinimumSize(new java.awt.Dimension(300, 150));
+        listActivities.setPreferredSize(new java.awt.Dimension(300, 150));
         scrollPane2.setViewportView(listActivities);
 
         activities.add(scrollPane2);

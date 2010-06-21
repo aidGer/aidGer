@@ -2,6 +2,8 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
+import java.util.List;
+
 import javax.swing.JPanel;
 
 import de.aidger.controller.ActionNotFoundException;
@@ -21,7 +23,9 @@ import de.aidger.view.forms.ContractViewerForm;
 import de.aidger.view.forms.CourseViewerForm;
 import de.aidger.view.forms.EmploymentViewerForm;
 import de.aidger.view.forms.FinancialCategoryViewerForm;
+import de.aidger.view.forms.Form;
 import de.aidger.view.forms.HourlyWageViewerForm;
+import de.aidger.view.models.ListModel;
 import de.aidger.view.tabs.ViewerTab.DataType;
 
 /**
@@ -140,6 +144,15 @@ public class DetailViewerTab extends Tab {
         default:
             return "";
         }
+    }
+
+    /**
+     * Returns all list models of the tab.
+     * 
+     * @return all list models
+     */
+    public List<ListModel> getListModels() {
+        return ((Form) viewerForm).getListModels();
     }
 
     /**
