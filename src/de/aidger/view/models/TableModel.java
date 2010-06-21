@@ -117,9 +117,6 @@ public abstract class TableModel extends DefaultTableModel implements Observer {
         fireTableDataChanged();
 
         for (AbstractModel model : models) {
-            // each model is observed by the table model
-            model.addObserver(this);
-
             // each model is added as a row to the table
             addRow(convertModelToRow(model));
         }

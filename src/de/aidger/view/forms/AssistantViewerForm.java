@@ -13,6 +13,7 @@ import de.aidger.view.UI;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.models.ListModel;
 import de.aidger.view.models.UICourse;
+import de.aidger.view.models.ListModel.ListModelType;
 import de.aidger.view.tabs.DetailViewerTab;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
@@ -54,7 +55,8 @@ public class AssistantViewerForm extends Form {
             List<Employment> employments = (new Employment())
                 .getEmployments(assistant);
 
-            ListModel listCoursesModel = new ListModel();
+            ListModel listCoursesModel = new ListModel(ListModelType.List,
+                DataType.Course);
 
             for (Employment employment : employments) {
                 ICourse c = (new Course()).getById(employment.getCourseId());

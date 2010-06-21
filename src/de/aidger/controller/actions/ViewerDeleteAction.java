@@ -64,6 +64,9 @@ public class ViewerDeleteAction extends AbstractAction {
                     }
 
                     for (AbstractModel model : models) {
+                        UI.getInstance().addObserversTo(model, null,
+                            tab.getType());
+
                         if (!model.remove()) {
                             List<String> errors = model.getErrors();
                             String errorMessage = "";

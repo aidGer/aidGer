@@ -28,7 +28,6 @@ import de.aidger.view.forms.CourseEditorForm;
 import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
 import de.aidger.view.forms.HourlyWageEditorForm;
-import de.aidger.view.models.ListModel;
 import de.aidger.view.models.TableModel;
 import de.aidger.view.tabs.DetailViewerTab;
 import de.aidger.view.tabs.EditorTab;
@@ -437,28 +436,8 @@ public class EditorSaveAction extends AbstractAction {
             // the model is observed by the table model
             model.addObserver(tableModel);
 
-            /*
-             * model should also be observed by the already existing table
-             * models of the same type
-             */
-            for (Tab t : UI.getInstance().getTabs()) {
-                if (t instanceof ViewerTab
-                        && ((ViewerTab) t).getType() == tab.getType()) {
-                    TableModel tM = ((ViewerTab) t).getTableModel();
-
-                    tM.setModelBeforeEdit(modelBeforeEdit);
-
-                    model.addObserver(tM);
-                } else if (t instanceof DetailViewerTab) {
-                    List<ListModel> lMs = ((DetailViewerTab) t).getListModels();
-
-                    for (ListModel lM : lMs) {
-                        lM.setModelBeforeEdit(modelBeforeEdit);
-
-                        model.addObserver(lM);
-                    }
-                }
-            }
+            UI.getInstance().addObserversTo(model, modelBeforeEdit,
+                tab.getType());
 
             try {
 

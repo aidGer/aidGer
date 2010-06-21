@@ -28,6 +28,7 @@ import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
 import de.aidger.view.forms.Form;
 import de.aidger.view.forms.HourlyWageEditorForm;
+import de.aidger.view.models.ListModel;
 import de.aidger.view.tabs.ViewerTab.DataType;
 
 /**
@@ -99,14 +100,13 @@ public class EditorTab extends Tab {
         return ret;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Returns all list models of the tab.
      * 
-     * @see de.aidger.view.tabs.Tab#performBeforeOpen()
+     * @return all list models
      */
-    @Override
-    public void performBeforeOpen() {
-        ((Form) editorForm).update();
+    public List<ListModel> getListModels() {
+        return ((Form) editorForm).getListModels();
     }
 
     /*

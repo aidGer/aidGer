@@ -54,9 +54,15 @@ import de.aidger.controller.actions.TaskPaneAction.Task;
 import de.aidger.model.AbstractModel;
 import de.aidger.model.Runtime;
 import de.aidger.utils.Logger;
+import de.aidger.view.models.ListModel;
+import de.aidger.view.models.TableModel;
+import de.aidger.view.tabs.DetailViewerTab;
+import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.EmptyTab;
 import de.aidger.view.tabs.Tab;
+import de.aidger.view.tabs.ViewerTab;
 import de.aidger.view.tabs.WelcomeTab;
+import de.aidger.view.tabs.ViewerTab.DataType;
 
 /**
  * The UI manages the main window and all its tabs. The main window consists of
@@ -400,6 +406,50 @@ public final class UI extends JFrame {
      */
     public JTabbedPane getTabbedPane() {
         return tabbedPane;
+    }
+
+    /**
+     * Adds all existing observers to the given model.
+     * 
+     * @param model
+     *            the observerd model
+     * @param modelBeforeEdit
+     *            the observerd model before it is edited
+     * @param type
+     *            the type of the observed model
+     */
+    @SuppressWarnings("unchecked")
+    public void addObserversTo(AbstractModel model,
+            AbstractModel modelBeforeEdit, DataType type) {
+        /*
+         * model should also be observed by the already existing table and list
+         * models of the same type
+         */
+        for (Tab t : getTabs()) {
+            if (t instanceof ViewerTab && ((ViewerTab) t).getType() == type) {
+                TableModel tM = ((ViewerTab) t).getTableModel();
+
+                tM.setModelBeforeEdit(modelBeforeEdit);
+
+                model.addObserver(tM);
+            } else if (t instanceof DetailViewerTab || t instanceof EditorTab) {
+                List<ListModel> lMs;
+
+                if (t instanceof DetailViewerTab) {
+                    lMs = ((DetailViewerTab) t).getListModels();
+                } else {
+                    lMs = ((EditorTab) t).getListModels();
+                }
+
+                for (ListModel lM : lMs) {
+                    if (lM.getDataType() == type) {
+                        lM.setModelBeforeEdit(modelBeforeEdit);
+
+                        model.addObserver(lM);
+                    }
+                }
+            }
+        }
     }
 
     /**

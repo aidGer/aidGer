@@ -25,9 +25,11 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.view.UI;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
+import de.aidger.view.models.ListModel;
 import de.aidger.view.models.UIAssistant;
 import de.aidger.view.models.UIContract;
 import de.aidger.view.models.UICourse;
+import de.aidger.view.models.ListModel.ListModelType;
 import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab.DataType;
@@ -117,16 +119,22 @@ public class EmploymentEditorForm extends Form {
 
             List<IContract> contracts = (new Contract()).getAll();
 
+            ListModel cmbContractModel = new ListModel(ListModelType.ComboBox,
+                DataType.Contract);
+
             for (IContract c : contracts) {
                 Contract contract = new UIContract(c);
 
-                cmbContract.addItem(contract);
+                cmbContractModel.addElement(contract);
 
                 if (employment != null
                         && contract.getId() == employment.getContractId()) {
                     cmbContract.setSelectedItem(contract);
                 }
             }
+
+            cmbContract.setModel(cmbContractModel);
+            listModels.add(cmbContractModel);
 
             addNewDate();
 
@@ -147,31 +155,6 @@ public class EmploymentEditorForm extends Form {
                 dl.txtHourCount.setText(String.valueOf(employment
                     .getHourCount()));
             }
-
-        } catch (AdoHiveException e) {
-        }
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see de.aidger.view.forms.Form#update()
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public void update() {
-        try {
-            Contract oldContract = (Contract) cmbContract.getSelectedItem();
-
-            cmbContract.removeAllItems();
-
-            List<IContract> contracts = (new Contract()).getAll();
-
-            for (IContract contract : contracts) {
-                cmbContract.addItem(new UIContract(contract));
-            }
-
-            cmbContract.setSelectedItem(oldContract);
 
         } catch (AdoHiveException e) {
         }
