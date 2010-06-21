@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -210,6 +211,9 @@ public class ViewerTab extends Tab {
                     table.selectAll();
                 }
             });
+
+            table.addMouseListener((MouseListener) ActionRegistry.getInstance()
+                .get(ViewerDetailViewAction.class.getName()));
 
         } catch (ActionNotFoundException e) {
             UI.displayError(e.getMessage());
