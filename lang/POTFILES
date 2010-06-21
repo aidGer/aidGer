@@ -41,12 +41,14 @@ view/tabs/DetailViewerTab.java
 view/tabs/WelcomeTab.java
 view/TaskPaneTitleBar.java
 view/UI.java
+view/forms/ContractViewerForm.java
 view/forms/FinancialCategoryViewerForm.java
 view/forms/AssistantViewerForm.java
 view/forms/CourseViewerForm.java
 view/forms/AssistantEditorForm.java
 view/forms/HourlyWageEditorForm.java
 view/forms/ContractEditorForm.java
+view/forms/EmploymentViewerForm.java
 view/forms/CourseEditorForm.java
 view/forms/HourlyWageViewerForm.java
 view/forms/FinancialCategoryEditorForm.java
@@ -78,6 +80,7 @@ controller/actions/EditorSaveAction.java
 controller/actions/ReportGenerateAction.java
 controller/actions/EditorCancelAction.java
 controller/actions/SaveSettingsAction.java
+controller/actions/ViewerContractAction.java
 controller/actions/ViewerAddAction.java
 controller/actions/TaskPaneAction.java
 controller/actions/AboutAction.java

@@ -21,6 +21,7 @@ import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
 import de.aidger.controller.actions.ViewerActivitiesAction;
 import de.aidger.controller.actions.ViewerAddAction;
+import de.aidger.controller.actions.ViewerContractAction;
 import de.aidger.controller.actions.ViewerDeleteAction;
 import de.aidger.controller.actions.ViewerDetailViewAction;
 import de.aidger.controller.actions.ViewerEditAction;
@@ -87,33 +88,36 @@ public class ViewerTab extends Tab {
         this.type = type;
         initComponents();
 
+        btnActivities.setVisible(false);
+        btnContract.setVisible(false);
+        separator5.setVisible(false);
+        separator6.setVisible(false);
+
         // use different table model for each data type
         switch (type) {
         case Course:
             tableModel = new CourseTableModel();
+            btnActivities.setVisible(true);
+            separator5.setVisible(true);
             break;
         case Assistant:
             tableModel = new AssistantTableModel();
+            btnActivities.setVisible(true);
+            separator5.setVisible(true);
             break;
         case FinancialCategory:
             tableModel = new FinancialCategoryTableModel();
-            btnActivities.setVisible(false);
-            separator5.setVisible(false);
             break;
         case HourlyWage:
             tableModel = new HourlyWageTableModel();
-            btnActivities.setVisible(false);
-            separator5.setVisible(false);
             break;
         case Employment:
             tableModel = new EmploymentTableModel();
-            btnActivities.setVisible(false);
-            separator5.setVisible(false);
+            btnContract.setVisible(true);
+            separator6.setVisible(true);
             break;
         case Contract:
             tableModel = new ContractTableModel();
-            btnActivities.setVisible(false);
-            separator5.setVisible(false);
             break;
         }
 
@@ -170,6 +174,8 @@ public class ViewerTab extends Tab {
                 ViewerDeleteAction.class.getName()));
             btnActivities.setAction(ActionRegistry.getInstance().get(
                 ViewerActivitiesAction.class.getName()));
+            btnContract.setAction(ActionRegistry.getInstance().get(
+                ViewerContractAction.class.getName()));
 
             itemView.setAction(ActionRegistry.getInstance().get(
                 ViewerDetailViewAction.class.getName()));
@@ -415,6 +421,8 @@ public class ViewerTab extends Tab {
         separator4 = new javax.swing.JToolBar.Separator();
         btnActivities = new javax.swing.JButton();
         separator5 = new javax.swing.JToolBar.Separator();
+        btnContract = new javax.swing.JButton();
+        separator6 = new javax.swing.JToolBar.Separator();
         scrollPane = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         searchField = new javax.swing.JTextField();
@@ -474,6 +482,14 @@ public class ViewerTab extends Tab {
         toolBar.add(btnActivities);
         toolBar.add(separator5);
 
+        btnContract.setText(_("Contract"));
+        btnContract.setFocusable(false);
+        btnContract
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnContract.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toolBar.add(btnContract);
+        toolBar.add(separator6);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -505,6 +521,7 @@ public class ViewerTab extends Tab {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActivities;
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnContract;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnView;
@@ -521,6 +538,7 @@ public class ViewerTab extends Tab {
     private javax.swing.JToolBar.Separator separator3;
     private javax.swing.JToolBar.Separator separator4;
     private javax.swing.JToolBar.Separator separator5;
+    private javax.swing.JToolBar.Separator separator6;
     private javax.swing.JTable table;
     private javax.swing.JToolBar toolBar;
 
