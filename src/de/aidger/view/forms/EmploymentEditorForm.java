@@ -93,10 +93,13 @@ public class EmploymentEditorForm extends Form {
         try {
             List<IAssistant> assistants = (new Assistant()).getAll();
 
+            ListModel cmbAssistantModel = new ListModel(ListModelType.ComboBox,
+                DataType.Assistant);
+
             for (IAssistant a : assistants) {
                 Assistant assistant = new UIAssistant(a);
 
-                cmbAssistant.addItem(assistant);
+                cmbAssistantModel.addElement(assistant);
 
                 if (employment != null
                         && assistant.getId() == employment.getAssistantId()) {
@@ -106,10 +109,13 @@ public class EmploymentEditorForm extends Form {
 
             List<ICourse> courses = (new Course()).getAll();
 
+            ListModel cmbCourseModel = new ListModel(ListModelType.ComboBox,
+                DataType.Course);
+
             for (ICourse c : courses) {
                 Course course = new UICourse(c);
 
-                cmbCourse.addItem(course);
+                cmbCourseModel.addElement(course);
 
                 if (employment != null
                         && course.getId() == employment.getCourseId()) {
@@ -133,7 +139,12 @@ public class EmploymentEditorForm extends Form {
                 }
             }
 
+            cmbAssistant.setModel(cmbAssistantModel);
+            cmbCourse.setModel(cmbCourseModel);
             cmbContract.setModel(cmbContractModel);
+
+            listModels.add(cmbAssistantModel);
+            listModels.add(cmbCourseModel);
             listModels.add(cmbContractModel);
 
             addNewDate();
