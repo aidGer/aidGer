@@ -297,15 +297,6 @@ public class EmploymentEditorForm extends Form {
     }
 
     /**
-     * Returns if form is in edit mode.
-     * 
-     * @return if form is in edit mode.
-     */
-    public boolean isEditMode() {
-        return editMode;
-    }
-
-    /**
      * Adds a new date line to the form.
      */
     private void addNewDate() {

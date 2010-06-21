@@ -333,8 +333,6 @@ public class EditorSaveAction extends AbstractAction {
                 new String[] {}).getMessage());
         }
 
-        // TODO handling edit mode
-
         try {
             IEmployment e = employment.getById(employment.getId());
 
