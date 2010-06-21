@@ -38,15 +38,17 @@ public class ViewerDetailViewAction extends AbstractAction implements
     private void displayEntry() {
         ViewerTab tab = (ViewerTab) UI.getInstance().getCurrentTab();
 
-        if (tab.getTable().getSelectedRow() > -1) {
+        if (tab.getTable().getSelectedRow() == -1) {
+            UI.displayError(_("Please select an entry from the table."));
+        } else if (tab.getTable().getSelectedRowCount() > 1) {
+            UI.displayError(_("Please select only one entry from the table."));
+        } else {
             int index = tab.getTable().getRowSorter().convertRowIndexToModel(
                 tab.getTable().getSelectedRow());
 
             UI.getInstance().replaceCurrentTab(
                 new DetailViewerTab(tab.getType(), tab.getTableModel()
                     .getModel(index)));
-        } else {
-            UI.displayError(_("Please select an entry from the table."));
         }
     }
 
