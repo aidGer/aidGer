@@ -10,11 +10,13 @@ import de.aidger.controller.actions.DetailViewerCancelAction;
 import de.aidger.controller.actions.DetailViewerEditAction;
 import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Assistant;
+import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.models.HourlyWage;
 import de.aidger.view.UI;
 import de.aidger.view.forms.AssistantViewerForm;
+import de.aidger.view.forms.ContractViewerForm;
 import de.aidger.view.forms.CourseViewerForm;
 import de.aidger.view.forms.FinancialCategoryViewerForm;
 import de.aidger.view.forms.HourlyWageViewerForm;
@@ -129,6 +131,10 @@ public class DetailViewerTab extends Tab {
             return _("View financial category");
         case HourlyWage:
             return _("View hourly wage");
+        case Employment:
+            return _("View employment");
+        case Contract:
+            return _("View contract");
         default:
             return "";
         }
@@ -167,6 +173,8 @@ public class DetailViewerTab extends Tab {
             return new FinancialCategoryViewerForm((FinancialCategory) model);
         case HourlyWage:
             return new HourlyWageViewerForm((HourlyWage) model);
+        case Contract:
+            return new ContractViewerForm((Contract) model);
         default:
             return new JPanel();
         }

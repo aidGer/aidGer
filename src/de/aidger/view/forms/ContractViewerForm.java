@@ -2,106 +2,48 @@ package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
 
-import java.util.Calendar;
-import java.util.Date;
-
-import javax.swing.DefaultComboBoxModel;
+import java.text.SimpleDateFormat;
 
 import de.aidger.model.models.Contract;
-import de.aidger.view.utils.BooleanListRenderer;
 
 /**
- * A form used for editing / creating new contracts.
+ * A form used for viewing contracts in detail.
  * 
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class ContractEditorForm extends Form {
+public class ContractViewerForm extends Form {
 
     /**
-     * Constructs a contract editor form.
+     * Constructs a contract viewer form.
      * 
      * @param contract
-     *            the contract that will be edited
+     *            the contract that will be displayed
      */
-    public ContractEditorForm(Contract contract) {
+    public ContractViewerForm(Contract contract) {
         initComponents();
 
-        cmbDelegation.setRenderer(new BooleanListRenderer());
+        String f = "dd.MM.yyyy";
 
-        if (contract != null) {
-            spCompletionDate.setValue(contract.getCompletionDate());
-            spConfirmationDate.setValue(contract.getConfirmationDate());
-            spStartDate.setValue(contract.getStartDate());
-            spEndDate.setValue(contract.getEndDate());
-            txtType.setText(contract.getType());
-            cmbDelegation.setSelectedItem(Boolean.valueOf(contract
-                .isDelegation()));
-        } else {
-            Calendar now = Calendar.getInstance();
-            now.set(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now
-                .get(Calendar.DATE));
+        completionDate.setText((new SimpleDateFormat(f)).format(contract
+            .getCompletionDate()));
+        confirmationDate.setText((new SimpleDateFormat(f)).format(contract
+            .getConfirmationDate()));
+        startDate.setText((new SimpleDateFormat(f)).format(contract
+            .getStartDate()));
+        endDate
+            .setText((new SimpleDateFormat(f)).format(contract.getEndDate()));
 
-            spCompletionDate.setValue(now.getTime());
-            spConfirmationDate.setValue(now.getTime());
-            spStartDate.setValue(now.getTime());
-            spEndDate.setValue(now.getTime());
+        type.setText(contract.getType());
+
+        boolean d = contract.isDelegation();
+
+        String strDelegation = _("no");
+        if (d) {
+            strDelegation = _("yes");
         }
-    }
 
-    /**
-     * Get the date the contract was completed.
-     * 
-     * @return The date the contract was completed
-     */
-    public java.sql.Date getCompletionDate() {
-        return new java.sql.Date(((Date) spCompletionDate.getValue()).getTime());
-    }
-
-    /**
-     * Get the date the contract was confirmed.
-     * 
-     * @return The date the contract was confirmed
-     */
-    public java.sql.Date getConfirmationDate() {
-        return new java.sql.Date(((Date) spConfirmationDate.getValue())
-            .getTime());
-    }
-
-    /**
-     * Get the date the contract starts.
-     * 
-     * @return The date the contract starts
-     */
-    public java.sql.Date getStartDate() {
-        return new java.sql.Date(((Date) spStartDate.getValue()).getTime());
-    }
-
-    /**
-     * Get the date the contract ends.
-     * 
-     * @return The date the contract ends.
-     */
-    public java.sql.Date getEndDate() {
-        return new java.sql.Date(((Date) spEndDate.getValue()).getTime());
-    }
-
-    /**
-     * Get the type of the contract.
-     * 
-     * @return The type of the contract
-     */
-    public String getType() {
-        return txtType.getText();
-    }
-
-    /**
-     * Has the contract been delegated.
-     * 
-     * @return True if the contract has been delegated
-     */
-    public boolean isDelegation() {
-        return (Boolean) cmbDelegation.getSelectedItem();
+        delegation.setText(strDelegation);
     }
 
     /**
@@ -119,12 +61,12 @@ public class ContractEditorForm extends Form {
         lblEndDate = new javax.swing.JLabel();
         lblType = new javax.swing.JLabel();
         lblDelegation = new javax.swing.JLabel();
-        spCompletionDate = new javax.swing.JSpinner();
-        spConfirmationDate = new javax.swing.JSpinner();
-        spStartDate = new javax.swing.JSpinner();
-        spEndDate = new javax.swing.JSpinner();
-        txtType = new javax.swing.JTextField();
-        cmbDelegation = new javax.swing.JComboBox();
+        completionDate = new javax.swing.JLabel();
+        confirmationDate = new javax.swing.JLabel();
+        startDate = new javax.swing.JLabel();
+        endDate = new javax.swing.JLabel();
+        type = new javax.swing.JLabel();
+        delegation = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -176,77 +118,68 @@ public class ContractEditorForm extends Form {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblDelegation, gridBagConstraints);
 
-        spCompletionDate.setModel(new javax.swing.SpinnerDateModel());
-        spCompletionDate.setEditor(new javax.swing.JSpinner.DateEditor(
-            spCompletionDate, "dd.MM.yyyy"));
+        completionDate.setText(_("Delegation"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(spCompletionDate, gridBagConstraints);
+        add(completionDate, gridBagConstraints);
 
-        spConfirmationDate.setModel(new javax.swing.SpinnerDateModel());
-        spConfirmationDate.setEditor(new javax.swing.JSpinner.DateEditor(
-            spConfirmationDate, "dd.MM.yyyy"));
+        confirmationDate.setText(_("Delegation"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(spConfirmationDate, gridBagConstraints);
+        add(confirmationDate, gridBagConstraints);
 
-        spStartDate.setModel(new javax.swing.SpinnerDateModel());
-        spStartDate.setEditor(new javax.swing.JSpinner.DateEditor(spStartDate,
-            "dd.MM.yyyy"));
+        startDate.setText(_("Delegation"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(spStartDate, gridBagConstraints);
+        add(startDate, gridBagConstraints);
 
-        spEndDate.setModel(new javax.swing.SpinnerDateModel());
-        spEndDate.setEditor(new javax.swing.JSpinner.DateEditor(spEndDate,
-            "dd.MM.yyyy"));
+        endDate.setText(_("Delegation"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(spEndDate, gridBagConstraints);
+        add(endDate, gridBagConstraints);
 
-        txtType.setMinimumSize(new java.awt.Dimension(200, 25));
-        txtType.setPreferredSize(new java.awt.Dimension(200, 25));
+        type.setText(_("Delegation"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(txtType, gridBagConstraints);
+        add(type, gridBagConstraints);
 
-        cmbDelegation.setModel(new DefaultComboBoxModel(new Object[] {
-                Boolean.FALSE, Boolean.TRUE }));
+        delegation.setText(_("Delegation"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(cmbDelegation, gridBagConstraints);
+        add(delegation, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox cmbDelegation;
+    private javax.swing.JLabel completionDate;
+    private javax.swing.JLabel confirmationDate;
+    private javax.swing.JLabel delegation;
+    private javax.swing.JLabel endDate;
     private javax.swing.JLabel lblCompletionDate;
     private javax.swing.JLabel lblConfirmationDate;
     private javax.swing.JLabel lblDelegation;
     private javax.swing.JLabel lblEndDate;
     private javax.swing.JLabel lblStartDate;
     private javax.swing.JLabel lblType;
-    private javax.swing.JSpinner spCompletionDate;
-    private javax.swing.JSpinner spConfirmationDate;
-    private javax.swing.JSpinner spEndDate;
-    private javax.swing.JSpinner spStartDate;
-    private javax.swing.JTextField txtType;
+    private javax.swing.JLabel startDate;
+    private javax.swing.JLabel type;
     // End of variables declaration//GEN-END:variables
 
 }

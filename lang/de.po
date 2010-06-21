@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-21 17:13+0200\n"
+"POT-Creation-Date: 2010-06-21 17:53+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -44,7 +44,9 @@ msgstr "Typ"
 #: view/tabs/ProtocolViewerTab.java:40
 #: view/forms/HourlyWageEditorForm.java:185
 #: view/forms/HourlyWageViewerForm.java:63
-#: view/forms/EmploymentEditorForm.java:293
+#: view/forms/EmploymentEditorForm.java:306
+#: view/models/HourlyWageTableModel.java:26
+#: view/models/EmploymentTableModel.java:33
 msgid "Date"
 msgstr "Datum"
 
@@ -67,9 +69,9 @@ msgstr "Bearbeiter"
 #: view/tabs/ProtocolViewerTab.java:41
 #: view/forms/CourseViewerForm.java:202
 #: view/forms/CourseEditorForm.java:350
-#: view/forms/EmploymentEditorForm.java:447
+#: view/forms/EmploymentEditorForm.java:464
 #: view/models/CourseTableModel.java:29
-#: view/models/EmploymentTableModel.java:33
+#: view/models/EmploymentTableModel.java:34
 msgid "Remark"
 msgstr "Bemerkung"
 
@@ -336,7 +338,7 @@ msgid "Save"
 msgstr "Speichern"
 
 #: view/tabs/EditorTab.java:324
-#: view/tabs/DetailViewerTab.java:204
+#: view/tabs/DetailViewerTab.java:208
 #: controller/actions/DetailViewerCancelAction.java:26
 #: controller/actions/DialogAbortAction.java:26
 #: controller/actions/EditorCancelAction.java:26
@@ -380,8 +382,6 @@ msgstr "Bilanz Anzeige"
 #: view/tabs/BalanceViewerTab.java:258
 #: view/forms/FinancialCategoryViewerForm.java:106
 #: view/forms/FinancialCategoryEditorForm.java:208
-#: view/models/HourlyWageTableModel.java:25
-#: view/models/EmploymentTableModel.java:32
 #: view/models/FinancialCategoryTableModel.java:25
 msgid "Year"
 msgstr "Jahr"
@@ -403,73 +403,73 @@ msgstr ""
 msgid "Historical calculation"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:244
-#: view/tabs/ViewerTab.java:258
-#: view/tabs/ViewerTab.java:485
+#: view/tabs/ViewerTab.java:254
+#: view/tabs/ViewerTab.java:268
+#: view/tabs/ViewerTab.java:495
 msgid "Search"
 msgstr "Suchen"
 
-#: view/tabs/ViewerTab.java:305
+#: view/tabs/ViewerTab.java:315
 msgid "Master Data Courses"
 msgstr "Stammdaten Veranstaltungen"
 
-#: view/tabs/ViewerTab.java:307
+#: view/tabs/ViewerTab.java:317
 msgid "Master Data Assistants"
 msgstr "Stammdaten Hilfskräfte"
 
-#: view/tabs/ViewerTab.java:309
+#: view/tabs/ViewerTab.java:319
 msgid "Master Data Financial Categories"
 msgstr "Stammdaten Finanzkategorien"
 
-#: view/tabs/ViewerTab.java:311
+#: view/tabs/ViewerTab.java:321
 msgid "Master Data Hourly Wages"
 msgstr "Stammdaten Stundenlöhne"
 
-#: view/tabs/ViewerTab.java:313
+#: view/tabs/ViewerTab.java:323
 #: view/UI.java:497
 msgid "Employments"
 msgstr "Beschäftigungen"
 
-#: view/tabs/ViewerTab.java:315
+#: view/tabs/ViewerTab.java:325
 msgid "Contracts"
 msgstr "Verträge"
 
-#: view/tabs/ViewerTab.java:317
+#: view/tabs/ViewerTab.java:327
 msgid "Data"
 msgstr "Daten"
 
-#: view/tabs/ViewerTab.java:412
-#: view/tabs/ViewerTab.java:430
+#: view/tabs/ViewerTab.java:422
+#: view/tabs/ViewerTab.java:440
 #: controller/actions/ViewerDetailViewAction.java:27
 msgid "View"
 msgstr "Anzeigen"
 
-#: view/tabs/ViewerTab.java:415
-#: view/tabs/ViewerTab.java:437
-#: view/tabs/DetailViewerTab.java:201
+#: view/tabs/ViewerTab.java:425
+#: view/tabs/ViewerTab.java:447
+#: view/tabs/DetailViewerTab.java:205
 #: controller/actions/DetailViewerEditAction.java:28
 #: controller/actions/ViewerEditAction.java:27
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: view/tabs/ViewerTab.java:418
-#: view/tabs/ViewerTab.java:451
+#: view/tabs/ViewerTab.java:428
+#: view/tabs/ViewerTab.java:461
 #: controller/actions/ViewerDeleteAction.java:31
 msgid "Delete"
 msgstr "Löschen"
 
-#: view/tabs/ViewerTab.java:421
+#: view/tabs/ViewerTab.java:431
 #: view/UI.java:505
 #: controller/actions/ViewerActivitiesAction.java:22
 msgid "Activities"
 msgstr "Vorgänge"
 
-#: view/tabs/ViewerTab.java:444
+#: view/tabs/ViewerTab.java:454
 #: controller/actions/ViewerAddAction.java:27
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: view/tabs/ViewerTab.java:458
+#: view/tabs/ViewerTab.java:468
 msgid "Activites"
 msgstr "Vorgänge"
 
@@ -488,6 +488,14 @@ msgstr "Finanzkategorie anzeigen"
 #: view/tabs/DetailViewerTab.java:131
 msgid "View hourly wage"
 msgstr "Stundenlohn anzeigen"
+
+#: view/tabs/DetailViewerTab.java:133
+msgid "View employment"
+msgstr "Beschäftigung anzeigen"
+
+#: view/tabs/DetailViewerTab.java:135
+msgid "View contract"
+msgstr "Vertrag anzeigen"
 
 #: view/tabs/WelcomeTab.java:90
 #, java-format
@@ -655,7 +663,8 @@ msgstr "Konnte den korrekten Konstruktor nicht finden: {0}"
 
 #: view/forms/FinancialCategoryViewerForm.java:45
 #: view/forms/FinancialCategoryEditorForm.java:119
-#: view/forms/EmploymentEditorForm.java:423
+#: view/forms/EmploymentEditorForm.java:440
+#: view/models/EmploymentTableModel.java:33
 #: view/models/FinancialCategoryTableModel.java:25
 msgid "Funds"
 msgstr "Finanzmittel"
@@ -694,10 +703,10 @@ msgstr "Email"
 #: view/forms/AssistantEditorForm.java:111
 #: view/forms/HourlyWageEditorForm.java:179
 #: view/forms/HourlyWageViewerForm.java:57
-#: view/forms/EmploymentEditorForm.java:439
-#: view/models/HourlyWageTableModel.java:25
+#: view/forms/EmploymentEditorForm.java:456
+#: view/models/HourlyWageTableModel.java:26
 #: view/models/AssistantTableModel.java:26
-#: view/models/EmploymentTableModel.java:33
+#: view/models/EmploymentTableModel.java:34
 msgid "Qualification"
 msgstr "Qualifikation"
 
@@ -793,28 +802,28 @@ msgstr "Enddatum"
 msgid "Delegation"
 msgstr "Delegation"
 
-#: view/forms/EmploymentEditorForm.java:312
-#: view/models/EmploymentTableModel.java:32
+#: view/forms/EmploymentEditorForm.java:325
+#: view/models/EmploymentTableModel.java:33
 msgid "Hour count"
 msgstr "Stundenanzahl"
 
-#: view/forms/EmploymentEditorForm.java:401
-#: view/models/EmploymentTableModel.java:31
+#: view/forms/EmploymentEditorForm.java:418
+#: view/models/EmploymentTableModel.java:32
 msgid "Assistant"
 msgstr "Hilfskraft"
 
-#: view/forms/EmploymentEditorForm.java:407
-#: view/models/EmploymentTableModel.java:31
+#: view/forms/EmploymentEditorForm.java:424
+#: view/models/EmploymentTableModel.java:32
 msgid "Course"
 msgstr "Veranstaltung"
 
-#: view/forms/EmploymentEditorForm.java:415
-#: view/models/EmploymentTableModel.java:31
+#: view/forms/EmploymentEditorForm.java:432
+#: view/models/EmploymentTableModel.java:32
 msgid "Contract"
 msgstr "Vertrag"
 
-#: view/forms/EmploymentEditorForm.java:431
-#: view/models/EmploymentTableModel.java:32
+#: view/forms/EmploymentEditorForm.java:448
+#: view/models/EmploymentTableModel.java:33
 msgid "Cost unit"
 msgstr "Kostenstelle"
 
@@ -848,15 +857,10 @@ msgstr "Öffne Browser auf http://www.aidger.de"
 
 #: view/models/CourseTableModel.java:29
 #: view/models/AssistantTableModel.java:26
-#: view/models/EmploymentTableModel.java:33
+#: view/models/EmploymentTableModel.java:34
 #: view/models/FinancialCategoryTableModel.java:26
 msgid "ID"
 msgstr "ID"
-
-#: view/models/HourlyWageTableModel.java:25
-#: view/models/EmploymentTableModel.java:32
-msgid "Month"
-msgstr "Monat"
 
 #: view/SettingsDialog.java:159
 #: controller/actions/SettingsAction.java:28
@@ -936,11 +940,11 @@ msgstr "Aktion abbrechen"
 msgid "must be after start date"
 msgstr "muss hinter dem Startdatum liegen"
 
-#: controller/actions/EditorSaveAction.java:468
+#: controller/actions/EditorSaveAction.java:466
 msgid "Could not save the model because it already exists in the database."
 msgstr "Das Model konnte nicht gespeichert werden, da es bereits in der Datenbank vorhanden ist."
 
-#: controller/actions/EditorSaveAction.java:470
+#: controller/actions/EditorSaveAction.java:468
 msgid "Could not save the model to database."
 msgstr "Das Model konnte nicht in der Datenbank gespeichert werden."
 
@@ -1039,6 +1043,8 @@ msgstr "Programm beenden"
 msgid "action class {0} not found"
 msgstr "Aktions-Klasse {0} nicht gefunden"
 
+#~ msgid "Month"
+#~ msgstr "Monat"
 #~ msgid "Budget costs from student fees"
 #~ msgstr "Plankosten aus Studiengebühren"
 #~ msgid "Budget costs from resources"
