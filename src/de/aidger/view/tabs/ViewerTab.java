@@ -49,7 +49,7 @@ public class ViewerTab extends Tab {
      * The type of the data that will be viewed.
      */
     public enum DataType {
-        Course, Assistant, FinancialCategory, HourlyWage, Employment, Contract
+        Course, Assistant, FinancialCategory, HourlyWage, Employment, Contract, Activity
     }
 
     /**

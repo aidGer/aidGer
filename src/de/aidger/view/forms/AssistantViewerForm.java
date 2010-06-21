@@ -6,6 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 
+import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
@@ -70,8 +71,21 @@ public class AssistantViewerForm extends Form {
                 }
             }
 
+            List<Activity> activities = (new Activity())
+                .getActivities(assistant);
+
+            ListModel listActivitiesModel = new ListModel(ListModelType.List,
+                DataType.Activity);
+
+            for (Activity activity : activities) {
+                listActivitiesModel.addElement(activity);
+            }
+
             listCourses.setModel(listCoursesModel);
+            listActivities.setModel(listActivitiesModel);
+
             listModels.add(listCoursesModel);
+            listModels.add(listActivitiesModel);
         } catch (AdoHiveException e) {
         }
 
