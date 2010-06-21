@@ -22,7 +22,7 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
 public class AssistantViewerForm extends Form {
 
     /**
-     * Constructs an assistant viewer tab.
+     * Constructs an assistant viewer form.
      * 
      * @param assistant
      *            The assistant who will be displayed

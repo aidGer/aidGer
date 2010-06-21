@@ -49,7 +49,7 @@ public class EmploymentEditorForm extends Form {
     private boolean editMode = false;
 
     /**
-     * Constructs an employment editor tab.
+     * Constructs an employment editor form.
      * 
      * @param employment
      *            The employment that will be edited

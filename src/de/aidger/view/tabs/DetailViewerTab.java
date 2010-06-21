@@ -12,12 +12,14 @@ import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
+import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.models.HourlyWage;
 import de.aidger.view.UI;
 import de.aidger.view.forms.AssistantViewerForm;
 import de.aidger.view.forms.ContractViewerForm;
 import de.aidger.view.forms.CourseViewerForm;
+import de.aidger.view.forms.EmploymentViewerForm;
 import de.aidger.view.forms.FinancialCategoryViewerForm;
 import de.aidger.view.forms.HourlyWageViewerForm;
 import de.aidger.view.tabs.ViewerTab.DataType;
@@ -173,6 +175,8 @@ public class DetailViewerTab extends Tab {
             return new FinancialCategoryViewerForm((FinancialCategory) model);
         case HourlyWage:
             return new HourlyWageViewerForm((HourlyWage) model);
+        case Employment:
+            return new EmploymentViewerForm((Employment) model);
         case Contract:
             return new ContractViewerForm((Contract) model);
         default:

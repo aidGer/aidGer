@@ -13,7 +13,7 @@ import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 public class AssistantEditorForm extends Form {
 
     /**
-     * Constructs an assistant editor tab.
+     * Constructs an assistant editor form.
      * 
      * @param assistant
      *            The assistant who will be edited
