@@ -39,9 +39,11 @@ public class AssistantViewerForm extends Form {
         listCourses.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent evt) {
-                UI.getInstance().addNewTab(
-                    new DetailViewerTab(DataType.Course, (Course) listCourses
-                        .getSelectedValue()));
+                if (evt.getClickCount() == 2) {
+                    UI.getInstance().addNewTab(
+                        new DetailViewerTab(DataType.Course,
+                            (Course) listCourses.getSelectedValue()));
+                }
             }
         });
 

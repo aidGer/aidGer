@@ -7,7 +7,10 @@ import java.util.List;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.Logger;
+import de.aidger.view.models.ListModel;
 import de.aidger.view.models.UIFinancialCategory;
+import de.aidger.view.models.ListModel.ListModelType;
+import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.InputPatternFilter;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
@@ -44,9 +47,16 @@ public class CourseEditorForm extends Form {
             Logger.error(e.getMessage());
         }
 
+        ListModel cmbFinancialCategoryModel = new ListModel(
+            ListModelType.ComboBox, DataType.FinancialCategory);
+
         for (IFinancialCategory fc : fcs) {
-            cmbFinancialCategory.addItem(new UIFinancialCategory(fc));
+            cmbFinancialCategoryModel.addElement(new UIFinancialCategory(fc));
         }
+
+        cmbFinancialCategory.setModel(cmbFinancialCategoryModel);
+
+        listModels.add(cmbFinancialCategoryModel);
 
         if (course != null) {
             txtDescription.setText(course.getDescription());
