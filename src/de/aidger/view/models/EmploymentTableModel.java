@@ -2,6 +2,7 @@ package de.aidger.view.models;
 
 import static de.aidger.utils.Translation._;
 
+import java.util.Calendar;
 import java.util.List;
 
 import de.aidger.model.AbstractModel;
@@ -29,7 +30,7 @@ public class EmploymentTableModel extends TableModel {
      */
     public EmploymentTableModel() {
         super(new String[] { _("Assistant"), _("Course"), _("Contract"),
-                _("Month"), _("Year"), _("Hour count"), _("Cost unit"),
+                _("Date"), _("Hour count"), _("Funds"), _("Cost unit"),
                 _("Qualification"), _("Remark"), _("ID") });
     }
 
@@ -74,6 +75,10 @@ public class EmploymentTableModel extends TableModel {
             IContract contract = (new Contract()).getById(employment
                 .getContractId());
 
+            Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.MONTH, employment.getMonth() - 1);
+            cal.set(Calendar.YEAR, employment.getYear());
+
             return new Object[] {
                     new Assistant(assistant) {
                         @Override
@@ -94,8 +99,9 @@ public class EmploymentTableModel extends TableModel {
                             return getType() + " (" + getStartDate() + " - "
                                     + getEndDate() + ")";
                         }
-                    }, employment.getMonth(), employment.getYear(),
-                    employment.getHourCount(), employment.getCostUnit(),
+                    }, cal.getTime(), employment.getHourCount(),
+                    employment.getFunds(),
+                    employment.getCostUnit(),
                     Qualification.valueOf(employment.getQualification()),
                     employment.getRemark(), employment.getId() };
         } catch (AdoHiveException e1) {

@@ -9,14 +9,18 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
 /**
- * Renders a date in the format "dd.MM.yyyy" on a table.
+ * Renders a date in the given format on a table.
  * 
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
 public class DateTableRenderer extends DefaultTableCellRenderer {
 
-    private final DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+    private final DateFormat format;
+
+    public DateTableRenderer(String f) {
+        format = new SimpleDateFormat(f);
+    }
 
     /*
      * (non-Javadoc)

@@ -24,11 +24,12 @@ model/models/FinancialCategory.java
 model/models/HourlyWage.java
 model/models/Employment.java
 model/Runtime.java
-view/utils/DateRenderer.java
-view/utils/MultiLineCellRenderer.java
-view/utils/BooleanRenderer.java
+view/utils/BooleanTableRenderer.java
 view/utils/AutoCompletion.java
 view/utils/InputPatternFilter.java
+view/utils/MultiLineTableRenderer.java
+view/utils/DateTableRenderer.java
+view/utils/BooleanListRenderer.java
 view/TaskPaneContainer.java
 view/tabs/EditorTab.java
 view/tabs/EmptyTab.java
@@ -49,6 +50,7 @@ view/forms/ContractEditorForm.java
 view/forms/CourseEditorForm.java
 view/forms/HourlyWageViewerForm.java
 view/forms/FinancialCategoryEditorForm.java
+view/forms/Form.java
 view/forms/EmploymentEditorForm.java
 view/reports/BalanceReportGroupPanel.java
 view/reports/BalanceReportSemesterPanel.java

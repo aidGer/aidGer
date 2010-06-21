@@ -129,7 +129,13 @@ public class ViewerTab extends Tab {
         // sort on first column by default
         sorter.toggleSortOrder(0);
 
-        // multi line columns for financial category table
+        // type specific cell rendering
+
+        if (type == DataType.HourlyWage) {
+            table.getColumnModel().getColumn(1).setCellRenderer(
+                new DateTableRenderer("MM.yyyy"));
+        }
+
         if (type == DataType.FinancialCategory) {
             table.getColumnModel().getColumn(2).setCellRenderer(
                 new MultiLineTableRenderer());
@@ -137,11 +143,15 @@ public class ViewerTab extends Tab {
                 new MultiLineTableRenderer());
         }
 
-        // date and boolean renderers for contract table
+        if (type == DataType.Employment) {
+            table.getColumnModel().getColumn(3).setCellRenderer(
+                new DateTableRenderer("MM.yyyy"));
+        }
+
         if (type == DataType.Contract) {
             for (int i = 0; i < 4; ++i) {
                 table.getColumnModel().getColumn(i).setCellRenderer(
-                    new DateTableRenderer());
+                    new DateTableRenderer("dd.MM.yyyy"));
             }
 
             table.getColumnModel().getColumn(5).setCellRenderer(

@@ -44,6 +44,11 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
 public class EmploymentEditorForm extends Form {
 
     /**
+     * A flag whether the form is in edit mode.
+     */
+    private boolean editMode = false;
+
+    /**
      * Constructs an employment editor tab.
      * 
      * @param employment
@@ -51,6 +56,10 @@ public class EmploymentEditorForm extends Form {
      */
     @SuppressWarnings("unchecked")
     public EmploymentEditorForm(Employment employment) {
+        if (employment != null) {
+            editMode = true;
+        }
+
         initComponents();
 
         btnContractAdd.setIcon(new ImageIcon(getClass().getResource(
@@ -79,43 +88,82 @@ public class EmploymentEditorForm extends Form {
         try {
             List<IAssistant> assistants = (new Assistant()).getAll();
 
-            for (IAssistant assistant : assistants) {
-                cmbAssistant.addItem(new Assistant(assistant) {
+            for (IAssistant a : assistants) {
+                Assistant assistant = new Assistant(a) {
                     @Override
                     public String toString() {
                         return getFirstName() + " " + getLastName();
                     }
-                });
+                };
+
+                cmbAssistant.addItem(assistant);
+
+                if (employment != null
+                        && assistant.getId() == employment.getAssistantId()) {
+                    cmbAssistant.setSelectedItem(assistant);
+                }
             }
 
             List<ICourse> courses = (new Course()).getAll();
 
-            for (ICourse course : courses) {
-                cmbCourse.addItem(new Course(course) {
+            for (ICourse c : courses) {
+                Course course = new Course(c) {
                     @Override
                     public String toString() {
                         return getDescription() + " (" + getSemester() + ", "
                                 + getLecturer() + ")";
                     }
-                });
+                };
+
+                cmbCourse.addItem(course);
+
+                if (employment != null
+                        && course.getId() == employment.getCourseId()) {
+                    cmbCourse.setSelectedItem(course);
+                }
             }
 
             List<IContract> contracts = (new Contract()).getAll();
 
-            for (IContract contract : contracts) {
-                cmbContract.addItem(new Contract(contract) {
+            for (IContract c : contracts) {
+                Contract contract = new Contract(c) {
                     @Override
                     public String toString() {
                         return getType() + " (" + getStartDate() + " - "
                                 + getEndDate() + ")";
                     }
-                });
+                };
+
+                cmbContract.addItem(contract);
+
+                if (employment != null
+                        && contract.getId() == employment.getContractId()) {
+                    cmbContract.setSelectedItem(contract);
+                }
+            }
+
+            addNewDate();
+
+            if (employment != null) {
+                cmbFunds.setSelectedItem(String.valueOf(employment.getFunds()));
+                txtCostUnit.setText(employment.getCostUnit());
+                cmbQualification.setSelectedItem(Qualification
+                    .valueOf(employment.getQualification()));
+                txtRemark.setText(employment.getRemark());
+
+                DateLine dl = dateLines.get(0);
+
+                Calendar cal = Calendar.getInstance();
+                cal.set(Calendar.MONTH, employment.getMonth() - 1);
+                cal.set(Calendar.YEAR, employment.getYear());
+                dl.spDate.setValue(cal.getTime());
+
+                dl.txtHourCount.setText(String.valueOf(employment
+                    .getHourCount()));
             }
 
         } catch (AdoHiveException e) {
         }
-
-        addNewDate();
     }
 
     /*
@@ -249,6 +297,15 @@ public class EmploymentEditorForm extends Form {
     }
 
     /**
+     * Returns if form is in edit mode.
+     * 
+     * @return if form is in edit mode.
+     */
+    public boolean isEditMode() {
+        return editMode;
+    }
+
+    /**
      * Adds a new date line to the form.
      */
     private void addNewDate() {
@@ -317,6 +374,10 @@ public class EmploymentEditorForm extends Form {
                     addNewDate();
                 }
             });
+
+            if (editMode) {
+                btnPlusMinus.setVisible(false);
+            }
         } else {
             gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
 

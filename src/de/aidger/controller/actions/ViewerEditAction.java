@@ -27,7 +27,7 @@ public class ViewerEditAction extends AbstractAction {
         putValue(Action.NAME, _("Edit"));
 
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/hammer-screwdriver.png")));
+            "/de/aidger/view/icons/hammer-screwdriver.png")));
     }
 
     /*
@@ -40,15 +40,17 @@ public class ViewerEditAction extends AbstractAction {
     public void actionPerformed(ActionEvent e) {
         ViewerTab tab = (ViewerTab) UI.getInstance().getCurrentTab();
 
-        if (tab.getTable().getSelectedRow() > -1) {
+        if (tab.getTable().getSelectedRow() == -1) {
+            UI.displayError(_("Please select an entry from the table."));
+        } else if (tab.getTable().getSelectedRowCount() > 1) {
+            UI.displayError(_("Please select only one entry from the table."));
+        } else {
             int index = tab.getTable().getRowSorter().convertRowIndexToModel(
                 tab.getTable().getSelectedRow());
 
             UI.getInstance().replaceCurrentTab(
                 new EditorTab(tab.getType(), tab.getTableModel()
                     .getModel(index)));
-        } else {
-            UI.displayError(_("Please select an entry from the table."));
         }
     }
 }

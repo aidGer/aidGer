@@ -2,6 +2,7 @@ package de.aidger.view.models;
 
 import static de.aidger.utils.Translation._;
 
+import java.util.Calendar;
 import java.util.List;
 
 import de.aidger.model.AbstractModel;
@@ -22,8 +23,7 @@ public class HourlyWageTableModel extends TableModel {
      * Constructs the table model for hourly wages.
      */
     public HourlyWageTableModel() {
-        super(new String[] { _("Qualification"), _("Month"), _("Year"),
-                _("Wage") });
+        super(new String[] { _("Qualification"), _("Date"), _("Wage") });
     }
 
     /*
@@ -60,7 +60,11 @@ public class HourlyWageTableModel extends TableModel {
     protected Object[] convertModelToRow(AbstractModel model) {
         HourlyWage hw = (HourlyWage) model;
 
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.MONTH, hw.getMonth() - 1);
+        cal.set(Calendar.YEAR, hw.getYear());
+
         return new Object[] { Qualification.valueOf(hw.getQualification()),
-                hw.getMonth(), hw.getYear(), hw.getWage() };
+                cal.getTime(), hw.getWage() };
     }
 }
