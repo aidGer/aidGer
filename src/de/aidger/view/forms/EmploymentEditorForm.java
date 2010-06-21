@@ -25,6 +25,9 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.view.UI;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
+import de.aidger.view.models.UIAssistant;
+import de.aidger.view.models.UIContract;
+import de.aidger.view.models.UICourse;
 import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab.DataType;
@@ -89,12 +92,7 @@ public class EmploymentEditorForm extends Form {
             List<IAssistant> assistants = (new Assistant()).getAll();
 
             for (IAssistant a : assistants) {
-                Assistant assistant = new Assistant(a) {
-                    @Override
-                    public String toString() {
-                        return getFirstName() + " " + getLastName();
-                    }
-                };
+                Assistant assistant = new UIAssistant(a);
 
                 cmbAssistant.addItem(assistant);
 
@@ -107,13 +105,7 @@ public class EmploymentEditorForm extends Form {
             List<ICourse> courses = (new Course()).getAll();
 
             for (ICourse c : courses) {
-                Course course = new Course(c) {
-                    @Override
-                    public String toString() {
-                        return getDescription() + " (" + getSemester() + ", "
-                                + getLecturer() + ")";
-                    }
-                };
+                Course course = new UICourse(c);
 
                 cmbCourse.addItem(course);
 
@@ -126,13 +118,7 @@ public class EmploymentEditorForm extends Form {
             List<IContract> contracts = (new Contract()).getAll();
 
             for (IContract c : contracts) {
-                Contract contract = new Contract(c) {
-                    @Override
-                    public String toString() {
-                        return getType() + " (" + getStartDate() + " - "
-                                + getEndDate() + ")";
-                    }
-                };
+                Contract contract = new UIContract(c);
 
                 cmbContract.addItem(contract);
 
@@ -182,13 +168,7 @@ public class EmploymentEditorForm extends Form {
             List<IContract> contracts = (new Contract()).getAll();
 
             for (IContract contract : contracts) {
-                cmbContract.addItem(new Contract(contract) {
-                    @Override
-                    public String toString() {
-                        return getType() + " (" + getStartDate() + " - "
-                                + getEndDate() + ")";
-                    }
-                });
+                cmbContract.addItem(new UIContract(contract));
             }
 
             cmbContract.setSelectedItem(oldContract);

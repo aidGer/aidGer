@@ -7,6 +7,7 @@ import java.util.List;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.Logger;
+import de.aidger.view.models.UIFinancialCategory;
 import de.aidger.view.utils.InputPatternFilter;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
@@ -44,13 +45,7 @@ public class CourseEditorForm extends Form {
         }
 
         for (IFinancialCategory fc : fcs) {
-            cmbFinancialCategory.addItem(new FinancialCategory(fc) {
-                // prettier output in combobox
-                @Override
-                public String toString() {
-                    return getName() + " (" + getYear() + ")";
-                }
-            });
+            cmbFinancialCategory.addItem(new UIFinancialCategory(fc));
         }
 
         if (course != null) {

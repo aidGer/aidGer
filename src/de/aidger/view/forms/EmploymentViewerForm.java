@@ -10,6 +10,9 @@ import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
+import de.aidger.view.models.UIAssistant;
+import de.aidger.view.models.UIContract;
+import de.aidger.view.models.UICourse;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.IContract;
@@ -36,33 +39,16 @@ public class EmploymentViewerForm extends Form {
             IAssistant a_ = (new Assistant()).getById(employment
                 .getAssistantId());
 
-            Assistant a = new Assistant(a_) {
-                @Override
-                public String toString() {
-                    return getFirstName() + " " + getLastName();
-                }
-            };
+            Assistant a = new UIAssistant(a_);
 
             ICourse c_ = (new Course()).getById(employment.getCourseId());
 
-            Course c = new Course(c_) {
-                @Override
-                public String toString() {
-                    return getDescription() + " (" + getSemester() + ", "
-                            + getLecturer() + ")";
-                }
-            };
+            Course c = new UICourse(c_);
 
             IContract co_ = (new Contract())
                 .getById(employment.getContractId());
 
-            Contract co = new Contract(co_) {
-                @Override
-                public String toString() {
-                    return getType() + " (" + getStartDate() + " - "
-                            + getEndDate() + ")";
-                }
-            };
+            Contract co = new UIContract(co_);
 
             Calendar cal = Calendar.getInstance();
             cal.set(Calendar.MONTH, employment.getMonth() - 1);

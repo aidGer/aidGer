@@ -4,6 +4,7 @@ import static de.aidger.utils.Translation._;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.Logger;
+import de.aidger.view.models.UIFinancialCategory;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 
@@ -40,12 +41,7 @@ public class CourseViewerForm extends Form {
             IFinancialCategory fc = (new FinancialCategory()).getById(course
                 .getFinancialCategoryId());
 
-            financialCategory.setText(new FinancialCategory(fc) {
-                @Override
-                public String toString() {
-                    return getName() + " (" + getYear() + ")";
-                }
-            }.toString());
+            financialCategory.setText(new UIFinancialCategory(fc).toString());
         } catch (AdoHiveException e) {
             Logger.error(e.getMessage());
         }

@@ -79,29 +79,10 @@ public class EmploymentTableModel extends TableModel {
             cal.set(Calendar.MONTH, employment.getMonth() - 1);
             cal.set(Calendar.YEAR, employment.getYear());
 
-            return new Object[] {
-                    new Assistant(assistant) {
-                        @Override
-                        public String toString() {
-                            return getFirstName() + " " + getLastName();
-                        }
-                    },
-                    new Course(course) {
-                        @Override
-                        public String toString() {
-                            return getDescription() + " (" + getSemester()
-                                    + ", " + getLecturer() + ")";
-                        }
-                    },
-                    new Contract(contract) {
-                        @Override
-                        public String toString() {
-                            return getType() + " (" + getStartDate() + " - "
-                                    + getEndDate() + ")";
-                        }
-                    }, cal.getTime(), employment.getHourCount(),
-                    employment.getFunds(),
-                    employment.getCostUnit(),
+            return new Object[] { new UIAssistant(assistant),
+                    new UICourse(course), new UIContract(contract),
+                    cal.getTime(), employment.getHourCount(),
+                    employment.getFunds(), employment.getCostUnit(),
                     Qualification.valueOf(employment.getQualification()),
                     employment.getRemark(), employment.getId() };
         } catch (AdoHiveException e1) {

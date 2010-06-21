@@ -73,12 +73,7 @@ public class CourseTableModel extends TableModel {
                     course.getTargetAudience(),
                     course.getUnqualifiedWorkingHours(), course.getScope(),
                     course.getPart(), course.getGroup(), course.getRemark(),
-                    new FinancialCategory(fc) {
-                        @Override
-                        public String toString() {
-                            return getName() + " (" + getYear() + ")";
-                        }
-                    }, course.getId() };
+                    new UIFinancialCategory(fc), course.getId() };
         } catch (AdoHiveException e) {
             Logger.error(e.getMessage());
 
