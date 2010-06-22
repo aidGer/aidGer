@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.ImageIcon;
 
 /**
  * This action shows the activities for a given model.
@@ -20,6 +21,8 @@ public class ViewerActivitiesAction extends AbstractAction {
      */
     public ViewerActivitiesAction() {
         putValue(Action.NAME, _("Activities"));
+        putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
+                "/de/aidger/view/icons/party-hat.png")));
     }
 
     /*
