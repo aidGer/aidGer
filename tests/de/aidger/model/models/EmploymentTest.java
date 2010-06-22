@@ -126,6 +126,10 @@ public class EmploymentTest {
         employment.setCostUnit(null);
         assertFalse(employment.save());
         employment.resetErrors();
+
+        employment.setCostUnit("01234567890");
+        assertFalse(employment.save());
+        employment.resetErrors();
         employment.setCostUnit("0711");
 
         employment.setCourseId(0);

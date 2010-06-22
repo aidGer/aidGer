@@ -197,6 +197,10 @@ public class Employment extends AbstractModel<IEmployment> implements
             addError("month", _("is an incorrect month"));
             ret = false;
         }
+        if (costUnit.length() > 10) {
+            addError("costUnit", _("can't be longer than 10 characters"));
+            ret = false;
+        }
         return ret;
     }
 
