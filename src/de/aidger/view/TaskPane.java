@@ -4,15 +4,12 @@ import java.awt.AlphaComposite;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Insets;
 import java.awt.Paint;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Box;
@@ -152,21 +149,8 @@ public class TaskPane extends JComponent {
         titleBar.setMargin(new Insets(3, 5, 3, 5));
 
         a.setTaskPane(this);
-        titleBar.addMouseListener(a);
-
-        // use different cursors for the title bar
-        titleBar.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                e.getComponent().setCursor(
-                    Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                e.getComponent().setCursor(Cursor.getDefaultCursor());
-            }
-        });
+        titleBar.getToogleIcon().addMouseListener(a);
+        titleBar.getTitleLabel().addMouseListener(a);
 
         super.addImpl(titleBar, BorderLayout.NORTH, -1);
         super.addImpl(this.contentPane, null, -1);

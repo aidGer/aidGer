@@ -88,7 +88,9 @@ public class EmploymentEditorForm extends Form {
         AutoCompletion.enable(cmbContract);
 
         cmbFunds.setEditable(true);
+
         InputPatternFilter.addFilter(cmbFunds, "[0-9]{0,8}");
+        InputPatternFilter.addFilter(txtCostUnit, ".{0,10}");
 
         try {
             List<IAssistant> assistants = (new Assistant()).getAll();
@@ -355,6 +357,10 @@ public class EmploymentEditorForm extends Form {
             cal.add(Calendar.MONTH, 1);
 
             spDate.setValue(cal.getTime());
+
+            txtHourCount
+                .setText(dateLines.get(dateLines.size() - 1).txtHourCount
+                    .getText());
         }
 
         add(btnPlusMinus, gridBagConstraints);

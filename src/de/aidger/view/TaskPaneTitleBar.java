@@ -66,8 +66,21 @@ public class TaskPaneTitleBar extends JComponent {
     public TaskPaneTitleBar(String title) {
         setLayout(new BorderLayout());
 
+        // title label in bold font
+        titleLabel = new JLabel(title) {
+            @Override
+            public void updateUI() {
+                super.updateUI();
+
+                Font font = getFont();
+                if (font != null) {
+                    setFont(font.deriveFont(Font.BOLD, font.getSize()));
+                }
+            }
+        };
+
         // change foreground if mouse hovers or leaves the title bar
-        addMouseListener(new MouseAdapter() {
+        titleLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 titleLabel.setForeground(activeFg);
@@ -82,19 +95,6 @@ public class TaskPaneTitleBar extends JComponent {
                 repaint();
             }
         });
-
-        // title label in bold font
-        titleLabel = new JLabel(title) {
-            @Override
-            public void updateUI() {
-                super.updateUI();
-
-                Font font = getFont();
-                if (font != null) {
-                    setFont(font.deriveFont(Font.BOLD, font.getSize()));
-                }
-            }
-        };
 
         titleLabel.setForeground(fg);
 
@@ -119,6 +119,24 @@ public class TaskPaneTitleBar extends JComponent {
         }
 
         return paint;
+    }
+
+    /**
+     * Returns the title label of the bar.
+     * 
+     * @return the title label of the bar
+     */
+    public JLabel getTitleLabel() {
+        return titleLabel;
+    }
+
+    /**
+     * Returns the toogle icon of the bar.
+     * 
+     * @return the toggle icon of the bar
+     */
+    public JLabel getToogleIcon() {
+        return toggleIcon;
     }
 
     /**

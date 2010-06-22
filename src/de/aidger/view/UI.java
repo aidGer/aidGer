@@ -36,7 +36,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
-import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
 import javax.swing.WindowConstants;
@@ -546,20 +545,19 @@ public final class UI extends JFrame {
         tpMasterData.add(createTaskPaneButton(_("Hourly Wages"),
             Task.ViewHourlyWages));
 
-        TaskPane tpEmployments = new TaskPane(new TaskPaneAction(
-            _("Employments"), Task.ViewEmployments));
+        TaskPane tpEmployments = new TaskPane(_("Employments"));
 
-        tpEmployments.add(createTaskPaneButton(_("Create new employment"),
+        tpEmployments.add(createTaskPaneButton(_("Show employments"),
+            Task.ViewEmployments));
+        tpEmployments.add(createTaskPaneButton(_("Hire assistant"),
             Task.CreateNewEmployment));
-        tpEmployments.add(createTaskPaneButton(_("Show all contracts"),
+        tpEmployments.add(createTaskPaneButton(_("Show contracts"),
             Task.ViewContracts));
-        tpEmployments.add(new JTextField());
 
         TaskPane tpActivities = new TaskPane(_("Activities"));
         tpActivities.add(createTaskPaneButton(_("Create new activity"),
             Task.ViewEmpty));
         tpActivities.add(createTaskPaneButton(_("Export"), Task.ViewEmpty));
-        tpActivities.add(new JTextField());
 
         TaskPane tpReports = new TaskPane(_("Reports"));
         tpReports.add(createTaskPaneButton(_("Full Balance"),
@@ -773,11 +771,11 @@ public final class UI extends JFrame {
 
                         if (current.equals(HourlyWage.class)) {
                             o = a.getByKeys(parts[1], Byte.valueOf(parts[2]),
-                                    Short.valueOf(parts[3]));
+                                Short.valueOf(parts[3]));
                         } else {
                             o = a.getById(Integer.parseInt(parts[1]));
                         }
-                         
+
                         ctrParams.add(obj.getConstructor(
                             o.getClass().getInterfaces()[0]).newInstance(o));
                     } else {
@@ -799,8 +797,8 @@ public final class UI extends JFrame {
                     new Object[] { ex.getMessage() }));
             } catch (InstantiationException ex) {
                 Logger.error(MessageFormat.format(
-                        _("Instantiating the class {0} failed"),
-                        new Object[] { ex.getMessage() }));
+                    _("Instantiating the class {0} failed"), new Object[] { ex
+                        .getMessage() }));
             } catch (IllegalAccessException ex) {
                 Logger.error(_("Can't access a needed function"));
             } catch (IllegalArgumentException ex) {
