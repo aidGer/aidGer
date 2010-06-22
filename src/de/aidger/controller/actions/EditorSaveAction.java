@@ -393,7 +393,6 @@ public class EditorSaveAction extends AbstractAction {
 
         // if something went wrong just the clone model is affected
         AbstractModel clone = (AbstractModel) tab.getModel().clone();
-        clone.setNew(!tab.isEditMode());
 
         List<AbstractModel> models = new Vector<AbstractModel>();
         models.add(clone);
