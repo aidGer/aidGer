@@ -98,6 +98,10 @@ public class CourseEditorForm extends Form {
      * @return The id of the category
      */
     public int getFinancialCategoryId() {
+        if (cmbFinancialCategory.getSelectedItem() == null) {
+            return 0;
+        }
+
         return ((FinancialCategory) cmbFinancialCategory.getSelectedItem())
             .getId();
     }
