@@ -357,6 +357,10 @@ public class EmploymentEditorForm extends Form {
             cal.add(Calendar.MONTH, 1);
 
             spDate.setValue(cal.getTime());
+
+            txtHourCount
+                .setText(dateLines.get(dateLines.size() - 1).txtHourCount
+                    .getText());
         }
 
         add(btnPlusMinus, gridBagConstraints);
