@@ -5,6 +5,7 @@ import static de.aidger.utils.Translation._;
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.text.MessageFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -28,11 +29,14 @@ import de.aidger.view.forms.CourseEditorForm;
 import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
 import de.aidger.view.forms.HourlyWageEditorForm;
+import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.models.TableModel;
+import de.aidger.view.models.UIAssistant;
 import de.aidger.view.tabs.DetailViewerTab;
 import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
+import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.IContract;
@@ -290,7 +294,7 @@ public class EditorSaveAction extends AbstractAction {
 
         Employment employmentBeforeEdit = employment.clone();
 
-        employment.setAssistantId(form.getAssistantId());
+        employment.setAssistantId(form.getAssistant().getId());
         employment.setCourseId(form.getCourseId());
         employment.setContractId(form.getContractId());
         employment.setCostUnit(form.getCostUnit());
@@ -377,6 +381,52 @@ public class EditorSaveAction extends AbstractAction {
         }
     }
 
+    /**
+     * Checks the 6 year employment limit for an assistant.
+     * 
+     * @param assistant
+     *            the assistant
+     */
+    private void checkEmploymentLimit(Assistant assistant) {
+        int limit = 6 * 12;
+
+        try {
+            List<Employment> employments = (new Employment())
+                .getEmployments(assistant);
+
+            int unchecked = 0, checked = 0;
+
+            for (Employment employment : employments) {
+                if (Qualification.valueOf(employment.getQualification()) == Qualification.u
+                        || Qualification.valueOf(employment.getQualification()) == Qualification.b) {
+                    ++unchecked;
+                }
+
+                if (Qualification.valueOf(employment.getQualification()) == Qualification.g) {
+                    ++checked;
+                }
+            }
+
+            if (checked > limit || unchecked > limit) {
+                String qualification = Qualification.u.toString();
+
+                if (checked > limit) {
+                    qualification = Qualification.g.toString();
+                }
+
+                UI
+                    .displayInfo(MessageFormat
+                        .format(
+                            _("You have hired {0} with qualification {1} more than 6 years."),
+                            new Object[] {
+                                    (new UIAssistant(assistant)).toString(),
+                                    qualification }));
+            }
+
+        } catch (AdoHiveException e1) {
+        }
+    }
+
     /*
      * (non-Javadoc)
      * 
@@ -393,7 +443,6 @@ public class EditorSaveAction extends AbstractAction {
 
         // if something went wrong just the clone model is affected
         AbstractModel clone = (AbstractModel) tab.getModel().clone();
-        clone.setNew(!tab.isEditMode());
 
         List<AbstractModel> models = new Vector<AbstractModel>();
         models.add(clone);
@@ -458,6 +507,12 @@ public class EditorSaveAction extends AbstractAction {
 
                 break;
             }
+        }
+
+        // some checks after saving an employment
+        if (tab.getType() == DataType.Employment) {
+            checkEmploymentLimit(((EmploymentEditorForm) tab.getEditorForm())
+                .getAssistant());
         }
 
         Tab p = tab.getPredecessor();

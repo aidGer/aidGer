@@ -23,12 +23,14 @@ import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
+import de.aidger.model.models.FinancialCategory;
 import de.aidger.view.UI;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.models.ListModel;
 import de.aidger.view.models.UIAssistant;
 import de.aidger.view.models.UIContract;
 import de.aidger.view.models.UICourse;
+import de.aidger.view.models.UIFinancialCategory;
 import de.aidger.view.models.ListModel.ListModelType;
 import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.Tab;
@@ -39,6 +41,7 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.IContract;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
+import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 
 /**
  * A form used for editing / creating new employments.
@@ -86,10 +89,8 @@ public class EmploymentEditorForm extends Form {
         AutoCompletion.enable(cmbAssistant);
         AutoCompletion.enable(cmbCourse);
         AutoCompletion.enable(cmbContract);
+        AutoCompletion.enable(cmbFunds);
 
-        cmbFunds.setEditable(true);
-
-        InputPatternFilter.addFilter(cmbFunds, "[0-9]{0,8}");
         InputPatternFilter.addFilter(txtCostUnit, ".{0,10}");
 
         try {
@@ -141,9 +142,26 @@ public class EmploymentEditorForm extends Form {
                 }
             }
 
+            List<IFinancialCategory> fcs = (new FinancialCategory()).getAll();
+
+            ListModel cmbFundsModel = new ListModel(ListModelType.ComboBox,
+                DataType.FinancialCategory);
+
+            for (IFinancialCategory f : fcs) {
+                FinancialCategory fc = new UIFinancialCategory(f);
+
+                for (int funds : fc.getFunds()) {
+                    String fundsStr = String.valueOf(funds);
+                    if (!cmbFundsModel.contains(fundsStr)) {
+                        cmbFundsModel.addElement(fundsStr);
+                    }
+                }
+            }
+
             cmbAssistant.setModel(cmbAssistantModel);
             cmbCourse.setModel(cmbCourseModel);
             cmbContract.setModel(cmbContractModel);
+            cmbFunds.setModel(cmbFundsModel);
 
             listModels.add(cmbAssistantModel);
             listModels.add(cmbCourseModel);
@@ -178,8 +196,8 @@ public class EmploymentEditorForm extends Form {
      * 
      * @return The id of the assistant
      */
-    public int getAssistantId() {
-        return ((Assistant) cmbAssistant.getSelectedItem()).getId();
+    public Assistant getAssistant() {
+        return (Assistant) cmbAssistant.getSelectedItem();
     }
 
     /**
