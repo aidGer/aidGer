@@ -1,5 +1,6 @@
 package de.aidger.controller.actions;
 
+import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -24,7 +25,8 @@ import de.aidger.view.tabs.ViewerTab.DataType;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class TaskPaneAction extends AbstractAction implements MouseListener {
+public class TaskPaneAction extends AbstractAction implements MouseListener,
+        Cloneable {
     /**
      * All possible tasks that can open tabs.
      * 
@@ -45,6 +47,11 @@ public class TaskPaneAction extends AbstractAction implements MouseListener {
     private TaskPane taskPane;
 
     /**
+     * A flag whether the task pane link should be opened.
+     */
+    private boolean openLink = true;
+
+    /**
      * Constructs a task pane action.
      * 
      * @param name
@@ -58,6 +65,16 @@ public class TaskPaneAction extends AbstractAction implements MouseListener {
         this.task = task;
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see javax.swing.AbstractAction#clone()
+     */
+    @Override
+    public TaskPaneAction clone() {
+        return new TaskPaneAction((String) getValue(Action.NAME), task);
+    }
+
     /**
      * Sets the task pane of the action.
      * 
@@ -66,6 +83,13 @@ public class TaskPaneAction extends AbstractAction implements MouseListener {
      */
     public void setTaskPane(TaskPane tp) {
         taskPane = tp;
+    }
+
+    /**
+     * The task pane link will not be opened after click.
+     */
+    public void dropLink() {
+        openLink = false;
     }
 
     /**
@@ -114,17 +138,15 @@ public class TaskPaneAction extends AbstractAction implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         if (SwingUtilities.isLeftMouseButton(e)) {
-            // handling for click on title bar
             if (taskPane != null) {
-                if (taskPane.isExpanded()) {
-                    taskPane.setExpanded(false);
+                // handling for click on the +/- buttons on title bar
+                if (!openLink || task == Task.Void) {
+                    taskPane.setExpanded(!taskPane.isExpanded());
 
                     UI.getInstance().validate();
 
-                    // the current tab will not be replaced if the content pane
-                    // of this task pane was expanded
                     return;
-                } else {
+                } else if (!taskPane.isExpanded()) {
                     taskPane.setExpanded(true);
 
                     UI.getInstance().validate();
@@ -152,6 +174,8 @@ public class TaskPaneAction extends AbstractAction implements MouseListener {
      */
     @Override
     public void mouseEntered(MouseEvent e) {
+        e.getComponent().setCursor(
+            Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }
 
     /*
@@ -161,6 +185,7 @@ public class TaskPaneAction extends AbstractAction implements MouseListener {
      */
     @Override
     public void mouseExited(MouseEvent e) {
+        e.getComponent().setCursor(Cursor.getDefaultCursor());
     }
 
     /*
