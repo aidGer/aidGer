@@ -77,6 +77,8 @@ public final class Configuration {
             properties.setProperty("activities", "10");
             properties.setProperty("auto-open", "n");
             properties.setProperty("auto-save", "n");
+            properties.setProperty("pessimistic-factor", "1.0");
+            properties.setProperty("historic-factor", "1.0");
             properties.setProperty("debug", "false");
             properties.store(outputStream, "");
             outputStream.close();
