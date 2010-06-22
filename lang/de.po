@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-22 17:52+0200\n"
+"POT-Creation-Date: 2010-06-22 21:22+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
+"Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: utils/pdf/ProtocolConverter.java:126
-#: view/UI.java:569
+#: view/UI.java:581
 msgid "Activity Protocol"
 msgstr "Vorgangsprotokoll"
 
@@ -46,7 +46,7 @@ msgstr "Typ"
 #: view/forms/HourlyWageEditorForm.java:185
 #: view/forms/EmploymentViewerForm.java:125
 #: view/forms/HourlyWageViewerForm.java:63
-#: view/forms/EmploymentEditorForm.java:282
+#: view/forms/EmploymentEditorForm.java:300
 #: view/models/HourlyWageTableModel.java:26
 #: view/models/EmploymentTableModel.java:33
 msgid "Date"
@@ -72,7 +72,7 @@ msgstr "Bearbeiter"
 #: view/forms/CourseViewerForm.java:198
 #: view/forms/EmploymentViewerForm.java:165
 #: view/forms/CourseEditorForm.java:359
-#: view/forms/EmploymentEditorForm.java:445
+#: view/forms/EmploymentEditorForm.java:463
 #: view/models/CourseTableModel.java:29
 #: view/models/EmploymentTableModel.java:34
 msgid "Remark"
@@ -148,7 +148,7 @@ msgstr "Budgetkosten von"
 msgid "Group"
 msgstr "Gruppe"
 
-#: utils/Configuration.java:85
+#: utils/Configuration.java:87
 #, java-format
 msgid "Could not create file \"{0}\"."
 msgstr "Die Datei \"{0}\" konnte nicht erstellt werden."
@@ -340,7 +340,7 @@ msgid "Add contract"
 msgstr "Vertrag hinzufügen"
 
 #: view/tabs/EditorTab.java:327
-#: controller/actions/EditorSaveAction.java:57
+#: controller/actions/EditorSaveAction.java:61
 #: controller/actions/SaveSettingsAction.java:29
 msgid "Save"
 msgstr "Speichern"
@@ -371,7 +371,7 @@ msgstr "Anzahl an Tagen die angezeigt werden soll (nach heute):"
 
 #: view/tabs/ProtocolViewerTab.java:164
 #: view/tabs/BalanceViewerTab.java:269
-#: view/UI.java:560
+#: view/UI.java:572
 #: controller/actions/ProtocolExportAction.java:28
 #: controller/actions/ProtocolExportAction.java:70
 #: controller/actions/ReportExportAction.java:37
@@ -434,7 +434,7 @@ msgid "Master Data Hourly Wages"
 msgstr "Stammdaten Stundenlöhne"
 
 #: view/tabs/ViewerTab.java:358
-#: view/UI.java:548
+#: view/UI.java:560
 msgid "Employments"
 msgstr "Beschäftigungen"
 
@@ -467,7 +467,7 @@ msgid "Delete"
 msgstr "Löschen"
 
 #: view/tabs/ViewerTab.java:468
-#: view/UI.java:557
+#: view/UI.java:569
 #: controller/actions/ViewerActivitiesAction.java:23
 msgid "Activities"
 msgstr "Vorgänge"
@@ -483,7 +483,7 @@ msgstr "Vorgänge"
 
 #: view/tabs/ViewerTab.java:514
 #: view/forms/EmploymentViewerForm.java:117
-#: view/forms/EmploymentEditorForm.java:413
+#: view/forms/EmploymentEditorForm.java:431
 #: view/models/EmploymentTableModel.java:32
 #: controller/actions/ViewerContractAction.java:31
 msgid "Contract"
@@ -559,142 +559,146 @@ msgstr "Statistiken"
 msgid "Error"
 msgstr "Fehler"
 
-#: view/UI.java:227
+#: view/UI.java:214
+msgid "Info"
+msgstr "Info"
+
+#: view/UI.java:239
 #, java-format
 msgid "Adding new tab \"{0}\" at position {1}"
 msgstr "Neuer Tab \"{0}\" an die {1}. Stelle hinzugefügt"
 
-#: view/UI.java:277
+#: view/UI.java:289
 #, java-format
 msgid "Removing {0}. tab"
 msgstr "{0}. Tab gelöscht"
 
-#: view/UI.java:372
+#: view/UI.java:384
 #, java-format
 msgid "Setting current tab to \"{0}\""
 msgstr "Momentaner Reiter ist nun \"{0}\""
 
-#: view/UI.java:479
+#: view/UI.java:491
 msgid "File"
 msgstr "Datei"
 
-#: view/UI.java:498
+#: view/UI.java:510
 #: controller/actions/HelpAction.java:25
 msgid "Help"
 msgstr "Hilfe"
 
-#: view/UI.java:538
+#: view/UI.java:550
 msgid "Master Data Management"
 msgstr "Stammdatenverwaltung"
 
-#: view/UI.java:540
+#: view/UI.java:552
 msgid "Courses"
 msgstr "Veranstaltungen"
 
-#: view/UI.java:541
+#: view/UI.java:553
 msgid "Assistants"
 msgstr "Hilfskräfte"
 
-#: view/UI.java:543
+#: view/UI.java:555
 msgid "Financial Categories"
 msgstr "Finanzkategorien"
 
-#: view/UI.java:545
+#: view/UI.java:557
 msgid "Hourly Wages"
 msgstr "Stundenlöhne"
 
-#: view/UI.java:550
+#: view/UI.java:562
 msgid "Show employments"
 msgstr "Beschäftigungen anzeigen"
 
-#: view/UI.java:552
+#: view/UI.java:564
 msgid "Hire assistant"
 msgstr "Hilfskraft einstellen"
 
-#: view/UI.java:554
+#: view/UI.java:566
 msgid "Show contracts"
 msgstr "Verträge anzeigen"
 
-#: view/UI.java:558
+#: view/UI.java:570
 msgid "Create new activity"
 msgstr "Neuer Vorgang anlegen"
 
-#: view/UI.java:562
+#: view/UI.java:574
 msgid "Reports"
 msgstr "Berichte"
 
-#: view/UI.java:563
+#: view/UI.java:575
 msgid "Full Balance"
 msgstr "Gesamtbilanz"
 
-#: view/UI.java:565
+#: view/UI.java:577
 msgid "Annual Balance"
 msgstr "Jahresbilanz"
 
-#: view/UI.java:567
+#: view/UI.java:579
 msgid "Semester Balance"
 msgstr "Semesterbilanz"
 
-#: view/UI.java:572
+#: view/UI.java:584
 msgid "Controlling"
 msgstr "Controlling"
 
-#: view/UI.java:574
+#: view/UI.java:586
 msgid "Choose a month"
 msgstr "Wähle einen Monat"
 
-#: view/UI.java:579
+#: view/UI.java:591
 msgid "Budget Check"
 msgstr "Budgetprüfung"
 
-#: view/UI.java:581
+#: view/UI.java:593
 msgid "Add Filter"
 msgstr "Filter hinzufügen"
 
-#: view/UI.java:586
+#: view/UI.java:598
 msgid "Quick Settings"
 msgstr "Schnelleinstellungen"
 
-#: view/UI.java:588
+#: view/UI.java:600
 msgid "Remember my tabs"
 msgstr "Merke meine Reiter"
 
-#: view/UI.java:598
+#: view/UI.java:610
 msgid "Open reports instantly"
 msgstr "Berichte sofort öffnen"
 
-#: view/UI.java:654
+#: view/UI.java:666
 msgid "Open a new tab"
 msgstr "Öffnet einen neuen Tab"
 
-#: view/UI.java:686
+#: view/UI.java:698
 msgid "Ready"
 msgstr "Bereit"
 
-#: view/UI.java:792
+#: view/UI.java:804
 #, java-format
 msgid "Could not find tab class {0}"
 msgstr "Die Reiterklasse \"{0}\" konnte nicht gefunden werden."
 
-#: view/UI.java:796
+#: view/UI.java:808
 #, java-format
 msgid "Could not find the correct constructor: {0}"
 msgstr "Konnte den korrekten Konstruktor nicht finden: {0}"
 
-#: view/UI.java:800
+#: view/UI.java:812
 #, java-format
 msgid "Instantiating the class {0} failed"
 msgstr "Instanzierung der Klasse {0} ist fehlgeschlagen"
 
-#: view/UI.java:803
+#: view/UI.java:815
 msgid "Can't access a needed function"
 msgstr "Kann nicht auf eine benötigte Funktion zugreifen"
 
-#: view/UI.java:805
+#: view/UI.java:817
 msgid "Incorrect arguments saved for a tab"
 msgstr "Inkorrekte Argumente wurden für den Reiter gespeichert"
 
-#: view/UI.java:810
+#: view/UI.java:822
 msgid "Getting the model from the database failed"
 msgstr "Das Model konnte nicht aus der Datenbank geholt werden"
 
@@ -732,7 +736,7 @@ msgstr "Delegation"
 #: view/forms/FinancialCategoryViewerForm.java:45
 #: view/forms/EmploymentViewerForm.java:141
 #: view/forms/FinancialCategoryEditorForm.java:119
-#: view/forms/EmploymentEditorForm.java:421
+#: view/forms/EmploymentEditorForm.java:439
 #: view/models/EmploymentTableModel.java:33
 #: view/models/FinancialCategoryTableModel.java:25
 msgid "Funds"
@@ -773,7 +777,7 @@ msgstr "Email"
 #: view/forms/HourlyWageEditorForm.java:179
 #: view/forms/EmploymentViewerForm.java:157
 #: view/forms/HourlyWageViewerForm.java:57
-#: view/forms/EmploymentEditorForm.java:437
+#: view/forms/EmploymentEditorForm.java:455
 #: view/models/HourlyWageTableModel.java:26
 #: view/models/AssistantTableModel.java:26
 #: view/models/EmploymentTableModel.java:34
@@ -847,25 +851,25 @@ msgid "Wage"
 msgstr "Lohn"
 
 #: view/forms/EmploymentViewerForm.java:103
-#: view/forms/EmploymentEditorForm.java:399
+#: view/forms/EmploymentEditorForm.java:417
 #: view/models/EmploymentTableModel.java:32
 msgid "Assistant"
 msgstr "Hilfskraft"
 
 #: view/forms/EmploymentViewerForm.java:109
-#: view/forms/EmploymentEditorForm.java:405
+#: view/forms/EmploymentEditorForm.java:423
 #: view/models/EmploymentTableModel.java:32
 msgid "Course"
 msgstr "Veranstaltung"
 
 #: view/forms/EmploymentViewerForm.java:133
-#: view/forms/EmploymentEditorForm.java:301
+#: view/forms/EmploymentEditorForm.java:319
 #: view/models/EmploymentTableModel.java:33
 msgid "Hour count"
 msgstr "Stundenanzahl"
 
 #: view/forms/EmploymentViewerForm.java:149
-#: view/forms/EmploymentEditorForm.java:429
+#: view/forms/EmploymentEditorForm.java:447
 #: view/models/EmploymentTableModel.java:33
 msgid "Cost unit"
 msgstr "Kostenstelle"
@@ -987,15 +991,20 @@ msgstr "Programmeinstellungen anzeigen"
 msgid "Cancel the operation"
 msgstr "Aktion abbrechen"
 
-#: controller/actions/EditorSaveAction.java:239
+#: controller/actions/EditorSaveAction.java:243
 msgid "must be after start date"
 msgstr "muss hinter dem Startdatum liegen"
 
-#: controller/actions/EditorSaveAction.java:454
+#: controller/actions/EditorSaveAction.java:420
+#, java-format
+msgid "You have hired {0} with qualification {1} more than 6 years."
+msgstr "Sie haben {0} mit der Qualifikation {1} mehr als 6 Jahre eingestellt."
+
+#: controller/actions/EditorSaveAction.java:503
 msgid "Could not save the model because it already exists in the database."
 msgstr "Das Model konnte nicht gespeichert werden, da es bereits in der Datenbank vorhanden ist."
 
-#: controller/actions/EditorSaveAction.java:456
+#: controller/actions/EditorSaveAction.java:505
 msgid "Could not save the model to database."
 msgstr "Das Model konnte nicht in der Datenbank gespeichert werden."
 
@@ -1105,6 +1114,11 @@ msgstr "Programm beenden"
 msgid "action class {0} not found"
 msgstr "Aktions-Klasse {0} nicht gefunden"
 
+#~ msgid ""
+#~ "You have hired the unchecked or bachelor assistant more than 6 years."
+#~ msgstr ""
+#~ "Sie haben die ungeprüfte oder Bachelor Hilfskraft mehr als 6 Jahre "
+#~ "eingestellt."
 #~ msgid "Create new employment"
 #~ msgstr "Neue Beschäftigung anlegen"
 #~ msgid "Month"

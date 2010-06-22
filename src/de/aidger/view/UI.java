@@ -205,6 +205,18 @@ public final class UI extends JFrame {
     }
 
     /**
+     * Display an info message in a dialog window.
+     * 
+     * @param error
+     *            The info message to display
+     */
+    public static void displayInfo(String info) {
+        JOptionPane.showMessageDialog(instance, info, _("Info"),
+            JOptionPane.INFORMATION_MESSAGE);
+        Logger.info(info);
+    }
+
+    /**
      * Runs and displays the graphical user interface.
      */
     public void run() {

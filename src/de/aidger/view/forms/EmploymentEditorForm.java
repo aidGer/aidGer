@@ -196,8 +196,8 @@ public class EmploymentEditorForm extends Form {
      * 
      * @return The id of the assistant
      */
-    public int getAssistantId() {
-        return ((Assistant) cmbAssistant.getSelectedItem()).getId();
+    public Assistant getAssistant() {
+        return (Assistant) cmbAssistant.getSelectedItem();
     }
 
     /**
