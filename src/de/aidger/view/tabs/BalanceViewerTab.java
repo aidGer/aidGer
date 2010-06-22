@@ -225,7 +225,7 @@ public class BalanceViewerTab extends Tab {
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
-    // desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         contentPanel = new javax.swing.JPanel();
@@ -247,7 +247,7 @@ public class BalanceViewerTab extends Tab {
 
         setLayout(new java.awt.BorderLayout());
 
-        contentPanel.setLayout(new java.awt.GridLayout(0, 1));
+        contentPanel.setLayout(new javax.swing.BoxLayout(contentPanel, javax.swing.BoxLayout.Y_AXIS));
         add(contentPanel, java.awt.BorderLayout.CENTER);
 
         jPanel1.setLayout(new java.awt.BorderLayout());
@@ -262,16 +262,13 @@ public class BalanceViewerTab extends Tab {
 
         generateButton.setText(_("Generate"));
         generateButton.setFocusable(false);
-        generateButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        generateButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        generateButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        generateButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(generateButton);
 
         exportButton.setText(_("Export"));
         exportButton.setFocusable(false);
-        exportButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         exportButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(exportButton);
 
@@ -282,8 +279,7 @@ public class BalanceViewerTab extends Tab {
         filterContentPanel.setLayout(new java.awt.GridLayout(0, 1));
         filtersPanel.add(filterContentPanel, java.awt.BorderLayout.PAGE_END);
 
-        filterCreationPanel.setLayout(new java.awt.FlowLayout(
-            java.awt.FlowLayout.LEFT));
+        filterCreationPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         filtersLabel.setText(_("Filters") + ":");
         filterCreationPanel.add(filtersLabel);
@@ -299,10 +295,8 @@ public class BalanceViewerTab extends Tab {
 
         addFilterButton.setText("+");
         addFilterButton.setFocusable(false);
-        addFilterButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        addFilterButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        addFilterButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        addFilterButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         addFilterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addFilterButtonActionPerformed(evt);
@@ -311,21 +305,19 @@ public class BalanceViewerTab extends Tab {
         filterCreationPanel.add(addFilterButton);
 
         pessimisticCalculationRadio.setText(_("Pessimistic calculation"));
-        pessimisticCalculationRadio
-            .addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    pessimisticCalculationRadioActionPerformed(evt);
-                }
-            });
+        pessimisticCalculationRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pessimisticCalculationRadioActionPerformed(evt);
+            }
+        });
         filterCreationPanel.add(pessimisticCalculationRadio);
 
         historicalCalculationRadio.setText(_("Historical calculation"));
-        historicalCalculationRadio
-            .addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    historicalCalculationRadioActionPerformed(evt);
-                }
-            });
+        historicalCalculationRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                historicalCalculationRadioActionPerformed(evt);
+            }
+        });
         filterCreationPanel.add(historicalCalculationRadio);
 
         filtersPanel.add(filterCreationPanel, java.awt.BorderLayout.PAGE_START);
