@@ -88,7 +88,9 @@ public class EmploymentEditorForm extends Form {
         AutoCompletion.enable(cmbContract);
 
         cmbFunds.setEditable(true);
+
         InputPatternFilter.addFilter(cmbFunds, "[0-9]{0,8}");
+        InputPatternFilter.addFilter(txtCostUnit, ".{0,10}");
 
         try {
             List<IAssistant> assistants = (new Assistant()).getAll();
