@@ -261,9 +261,11 @@ public class BalanceHelper {
             String qualification, int calculationMethod) {
         double calculationFactor = 0;
         if (calculationMethod == 1) {
-            calculationFactor = 1.28;
+            calculationFactor = Double.parseDouble(de.aidger.model.Runtime
+                .getInstance().getOption("pessimistic-factor"));
         } else if (calculationMethod == 2) {
-            calculationFactor = 1.15;
+            calculationFactor = Double.parseDouble(de.aidger.model.Runtime
+                .getInstance().getOption("historic-factor"));
         } else {
             calculationFactor = 1;
         }
