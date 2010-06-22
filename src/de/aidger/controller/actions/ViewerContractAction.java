@@ -14,6 +14,7 @@ import de.aidger.view.tabs.DetailViewerTab;
 import de.aidger.view.tabs.ViewerTab;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import javax.swing.ImageIcon;
 
 /**
  * This action shows the contract for a given model.
@@ -28,6 +29,8 @@ public class ViewerContractAction extends AbstractAction {
      */
     public ViewerContractAction() {
         putValue(Action.NAME, _("Contract"));
+        putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
+                "/de/aidger/view/icons/document-text.png")));
     }
 
     /*
