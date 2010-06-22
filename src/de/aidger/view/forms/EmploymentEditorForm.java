@@ -26,12 +26,11 @@ import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.view.UI;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
-import de.aidger.view.models.ListModel;
+import de.aidger.view.models.ComboBoxModel;
 import de.aidger.view.models.UIAssistant;
 import de.aidger.view.models.UIContract;
 import de.aidger.view.models.UICourse;
 import de.aidger.view.models.UIFinancialCategory;
-import de.aidger.view.models.ListModel.ListModelType;
 import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab.DataType;
@@ -96,7 +95,7 @@ public class EmploymentEditorForm extends Form {
         try {
             List<IAssistant> assistants = (new Assistant()).getAll();
 
-            ListModel cmbAssistantModel = new ListModel(ListModelType.ComboBox,
+            ComboBoxModel cmbAssistantModel = new ComboBoxModel(
                 DataType.Assistant);
 
             for (IAssistant a : assistants) {
@@ -112,8 +111,7 @@ public class EmploymentEditorForm extends Form {
 
             List<ICourse> courses = (new Course()).getAll();
 
-            ListModel cmbCourseModel = new ListModel(ListModelType.ComboBox,
-                DataType.Course);
+            ComboBoxModel cmbCourseModel = new ComboBoxModel(DataType.Course);
 
             for (ICourse c : courses) {
                 Course course = new UICourse(c);
@@ -128,7 +126,7 @@ public class EmploymentEditorForm extends Form {
 
             List<IContract> contracts = (new Contract()).getAll();
 
-            ListModel cmbContractModel = new ListModel(ListModelType.ComboBox,
+            ComboBoxModel cmbContractModel = new ComboBoxModel(
                 DataType.Contract);
 
             for (IContract c : contracts) {
@@ -144,7 +142,7 @@ public class EmploymentEditorForm extends Form {
 
             List<IFinancialCategory> fcs = (new FinancialCategory()).getAll();
 
-            ListModel cmbFundsModel = new ListModel(ListModelType.ComboBox,
+            ComboBoxModel cmbFundsModel = new ComboBoxModel(
                 DataType.FinancialCategory);
 
             for (IFinancialCategory f : fcs) {

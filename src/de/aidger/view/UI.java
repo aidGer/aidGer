@@ -55,7 +55,7 @@ import de.aidger.model.AbstractModel;
 import de.aidger.model.Runtime;
 import de.aidger.model.models.HourlyWage;
 import de.aidger.utils.Logger;
-import de.aidger.view.models.ListModel;
+import de.aidger.view.models.GenericListModel;
 import de.aidger.view.models.TableModel;
 import de.aidger.view.tabs.DetailViewerTab;
 import de.aidger.view.tabs.EditorTab;
@@ -447,7 +447,7 @@ public final class UI extends JFrame {
 
                 model.addObserver(tM);
             } else if (t instanceof DetailViewerTab || t instanceof EditorTab) {
-                List<ListModel> lMs;
+                List<GenericListModel> lMs;
 
                 if (t instanceof DetailViewerTab) {
                     lMs = ((DetailViewerTab) t).getListModels();
@@ -455,7 +455,7 @@ public final class UI extends JFrame {
                     lMs = ((EditorTab) t).getListModels();
                 }
 
-                for (ListModel lM : lMs) {
+                for (GenericListModel lM : lMs) {
                     if (lM.getDataType() == type) {
                         lM.setModelBeforeEdit(modelBeforeEdit);
 

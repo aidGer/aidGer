@@ -25,7 +25,7 @@ import de.aidger.view.forms.EmploymentViewerForm;
 import de.aidger.view.forms.FinancialCategoryViewerForm;
 import de.aidger.view.forms.Form;
 import de.aidger.view.forms.HourlyWageViewerForm;
-import de.aidger.view.models.ListModel;
+import de.aidger.view.models.GenericListModel;
 import de.aidger.view.tabs.ViewerTab.DataType;
 
 /**
@@ -74,8 +74,8 @@ public class DetailViewerTab extends Tab {
                 + "@" + type + "<" + model.getClass().getName();
         if (model.getClass().equals(HourlyWage.class)) {
             HourlyWage h = (HourlyWage) model;
-            ret += "@" + h.getQualification() + "@" + h.getMonth() + "@" +
-                    h.getYear();
+            ret += "@" + h.getQualification() + "@" + h.getMonth() + "@"
+                    + h.getYear();
         } else {
             ret += "@" + model.getId();
         }
@@ -157,7 +157,7 @@ public class DetailViewerTab extends Tab {
      * 
      * @return all list models
      */
-    public List<ListModel> getListModels() {
+    public List<GenericListModel> getListModels() {
         return ((Form) viewerForm).getListModels();
     }
 
