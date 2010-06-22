@@ -14,6 +14,7 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +54,7 @@ import de.aidger.controller.actions.TaskPaneAction;
 import de.aidger.controller.actions.TaskPaneAction.Task;
 import de.aidger.model.AbstractModel;
 import de.aidger.model.Runtime;
+import de.aidger.model.models.HourlyWage;
 import de.aidger.utils.Logger;
 import de.aidger.view.models.ListModel;
 import de.aidger.view.models.TableModel;
@@ -63,6 +65,7 @@ import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
 import de.aidger.view.tabs.WelcomeTab;
 import de.aidger.view.tabs.ViewerTab.DataType;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * The UI manages the main window and all its tabs. The main window consists of
@@ -766,7 +769,15 @@ public final class UI extends JFrame {
                         AbstractModel.class)) {
                         Class obj = Class.forName(parts[0]);
                         AbstractModel a = (AbstractModel) obj.newInstance();
-                        Object o = a.getById(Integer.parseInt(parts[1]));
+                        Object o;
+
+                        if (current.equals(HourlyWage.class)) {
+                            o = a.getByKeys(parts[1], Byte.valueOf(parts[2]),
+                                    Short.valueOf(parts[3]));
+                        } else {
+                            o = a.getById(Integer.parseInt(parts[1]));
+                        }
+                         
                         ctrParams.add(obj.getConstructor(
                             o.getClass().getInterfaces()[0]).newInstance(o));
                     } else {
@@ -786,8 +797,19 @@ public final class UI extends JFrame {
                 Logger.error(MessageFormat.format(
                     _("Could not find the correct constructor: {0}"),
                     new Object[] { ex.getMessage() }));
-            } catch (Exception ex) {
+            } catch (InstantiationException ex) {
+                Logger.error(MessageFormat.format(
+                        _("Instantiating the class {0} failed"),
+                        new Object[] { ex.getMessage() }));
+            } catch (IllegalAccessException ex) {
+                Logger.error(_("Can't access a needed function"));
+            } catch (IllegalArgumentException ex) {
+                Logger.error(_("Incorrect arguments saved for a tab"));
                 Logger.error(ex.getMessage());
+            } catch (InvocationTargetException ex) {
+                Logger.error(ex.getMessage());
+            } catch (AdoHiveException ex) {
+                Logger.error(_("Getting the model from the database failed"));
             }
         }
 

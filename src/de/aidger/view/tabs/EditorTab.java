@@ -94,7 +94,13 @@ public class EditorTab extends Tab {
         String ret = getClass().getName() + "<" + DataType.class.getName()
                 + "@" + type;
         if (model != null) {
-            ret += "<" + model.getClass().getName() + "@" + model.getId();
+            if (model.getClass().equals(HourlyWage.class)) {
+                HourlyWage h = (HourlyWage) model;
+                ret += "<" + h.getClass().getName() + "@" + h.getQualification()
+                        + "@" + h.getMonth() + "@" + h.getYear();
+            } else {
+                ret += "<" + model.getClass().getName() + "@" + model.getId();
+            }
         }
 
         return ret;

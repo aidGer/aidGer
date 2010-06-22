@@ -71,8 +71,14 @@ public class DetailViewerTab extends Tab {
     @Override
     public String toString() {
         String ret = getClass().getName() + "<" + DataType.class.getName()
-                + "@" + type + "<" + model.getClass().getName() + "@"
-                + model.getId();
+                + "@" + type + "<" + model.getClass().getName();
+        if (model.getClass().equals(HourlyWage.class)) {
+            HourlyWage h = (HourlyWage) model;
+            ret += "@" + h.getQualification() + "@" + h.getMonth() + "@" +
+                    h.getYear();
+        } else {
+            ret += "@" + model.getId();
+        }
 
         return ret;
     }
