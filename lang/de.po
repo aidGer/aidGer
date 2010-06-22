@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-22 17:19+0200\n"
+"POT-Creation-Date: 2010-06-22 17:52+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
+"Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,7 +72,7 @@ msgstr "Bearbeiter"
 #: view/forms/CourseViewerForm.java:198
 #: view/forms/EmploymentViewerForm.java:165
 #: view/forms/CourseEditorForm.java:359
-#: view/forms/EmploymentEditorForm.java:441
+#: view/forms/EmploymentEditorForm.java:445
 #: view/models/CourseTableModel.java:29
 #: view/models/EmploymentTableModel.java:34
 msgid "Remark"
@@ -142,7 +142,7 @@ msgstr "Budgetkosten von"
 #: view/tabs/BalanceViewerTab.java:91
 #: view/forms/CourseViewerForm.java:190
 #: view/forms/CourseEditorForm.java:351
-#: view/reports/BalanceReportGroupPanel.java:141
+#: view/reports/BalanceReportGroupPanel.java:142
 #: view/reports/BalanceFilterPanel.java:43
 #: view/models/CourseTableModel.java:28
 msgid "Group"
@@ -269,7 +269,7 @@ msgstr "muss positiv sein"
 
 #: model/models/Employment.java:201
 msgid "can't be longer than 10 characters"
-msgstr ""
+msgstr "darf nicht länger als 10 Zeichen sein"
 
 #: model/Runtime.java:118
 msgid "Only one instance of aidGer can be run at a time."
@@ -370,7 +370,7 @@ msgid "Number of days before today to display: "
 msgstr "Anzahl an Tagen die angezeigt werden soll (nach heute):"
 
 #: view/tabs/ProtocolViewerTab.java:164
-#: view/tabs/BalanceViewerTab.java:271
+#: view/tabs/BalanceViewerTab.java:269
 #: view/UI.java:560
 #: controller/actions/ProtocolExportAction.java:28
 #: controller/actions/ProtocolExportAction.java:70
@@ -399,15 +399,15 @@ msgstr "Jahr"
 msgid "Generate"
 msgstr "Generiere"
 
-#: view/tabs/BalanceViewerTab.java:288
+#: view/tabs/BalanceViewerTab.java:284
 msgid "Filters"
 msgstr "Filter"
 
-#: view/tabs/BalanceViewerTab.java:313
+#: view/tabs/BalanceViewerTab.java:307
 msgid "Pessimistic calculation"
 msgstr "Pessimistische Berechnung"
 
-#: view/tabs/BalanceViewerTab.java:322
+#: view/tabs/BalanceViewerTab.java:315
 msgid "Historical calculation"
 msgstr "Historische Berechnung"
 
@@ -483,7 +483,7 @@ msgstr "Vorgänge"
 
 #: view/tabs/ViewerTab.java:514
 #: view/forms/EmploymentViewerForm.java:117
-#: view/forms/EmploymentEditorForm.java:409
+#: view/forms/EmploymentEditorForm.java:413
 #: view/models/EmploymentTableModel.java:32
 #: controller/actions/ViewerContractAction.java:31
 msgid "Contract"
@@ -684,19 +684,19 @@ msgstr "Konnte den korrekten Konstruktor nicht finden: {0}"
 #: view/UI.java:800
 #, java-format
 msgid "Instantiating the class {0} failed"
-msgstr ""
+msgstr "Instanzierung der Klasse {0} ist fehlgeschlagen"
 
 #: view/UI.java:803
 msgid "Can't access a needed function"
-msgstr ""
+msgstr "Kann nicht auf eine benötigte Funktion zugreifen"
 
 #: view/UI.java:805
 msgid "Incorrect arguments saved for a tab"
-msgstr ""
+msgstr "Inkorrekte Argumente wurden für den Reiter gespeichert"
 
 #: view/UI.java:810
 msgid "Getting the model from the database failed"
-msgstr ""
+msgstr "Das Model konnte nicht aus der Datenbank geholt werden"
 
 #: view/forms/ContractViewerForm.java:73
 #: view/forms/ContractEditorForm.java:131
@@ -732,7 +732,7 @@ msgstr "Delegation"
 #: view/forms/FinancialCategoryViewerForm.java:45
 #: view/forms/EmploymentViewerForm.java:141
 #: view/forms/FinancialCategoryEditorForm.java:119
-#: view/forms/EmploymentEditorForm.java:417
+#: view/forms/EmploymentEditorForm.java:421
 #: view/models/EmploymentTableModel.java:33
 #: view/models/FinancialCategoryTableModel.java:25
 msgid "Funds"
@@ -773,7 +773,7 @@ msgstr "Email"
 #: view/forms/HourlyWageEditorForm.java:179
 #: view/forms/EmploymentViewerForm.java:157
 #: view/forms/HourlyWageViewerForm.java:57
-#: view/forms/EmploymentEditorForm.java:433
+#: view/forms/EmploymentEditorForm.java:437
 #: view/models/HourlyWageTableModel.java:26
 #: view/models/AssistantTableModel.java:26
 #: view/models/EmploymentTableModel.java:34
@@ -847,13 +847,13 @@ msgid "Wage"
 msgstr "Lohn"
 
 #: view/forms/EmploymentViewerForm.java:103
-#: view/forms/EmploymentEditorForm.java:395
+#: view/forms/EmploymentEditorForm.java:399
 #: view/models/EmploymentTableModel.java:32
 msgid "Assistant"
 msgstr "Hilfskraft"
 
 #: view/forms/EmploymentViewerForm.java:109
-#: view/forms/EmploymentEditorForm.java:401
+#: view/forms/EmploymentEditorForm.java:405
 #: view/models/EmploymentTableModel.java:32
 msgid "Course"
 msgstr "Veranstaltung"
@@ -865,7 +865,7 @@ msgid "Hour count"
 msgstr "Stundenanzahl"
 
 #: view/forms/EmploymentViewerForm.java:149
-#: view/forms/EmploymentEditorForm.java:425
+#: view/forms/EmploymentEditorForm.java:429
 #: view/models/EmploymentTableModel.java:33
 msgid "Cost unit"
 msgstr "Kostenstelle"
@@ -905,43 +905,51 @@ msgstr "Öffne Browser auf http://www.aidger.de"
 msgid "ID"
 msgstr "ID"
 
-#: view/SettingsDialog.java:159
+#: view/SettingsDialog.java:192
 #: controller/actions/SettingsAction.java:28
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: view/SettingsDialog.java:165
-msgid "Save Tabs when quitting"
-msgstr "Reiter bei Verlassen speichern"
+#: view/SettingsDialog.java:196
+msgid "Language:"
+msgstr "Sprache:"
 
-#: view/SettingsDialog.java:167
-msgid "Open reports automatically after generating"
-msgstr "Berichte automatisch nach Generierung öffnen"
-
-#: view/SettingsDialog.java:169
-msgid "Name:"
-msgstr "Name:"
-
-#: view/SettingsDialog.java:170
-#: view/SettingsDialog.java:172
-msgid "The name used in activities."
-msgstr "Name der in Vorgängen verwendet wird."
-
-#: view/SettingsDialog.java:174
-msgid "PDF Viewer:"
-msgstr "PDF Anzeiger:"
-
-#: view/SettingsDialog.java:176
+#: view/SettingsDialog.java:198
 msgid "Amount of activities:"
 msgstr "Anzahl der Vorgänge:"
 
-#: view/SettingsDialog.java:178
+#: view/SettingsDialog.java:199
 msgid "The amount of activities shown in detailviews."
 msgstr "Anzahl der Vorgänge die in Detailansichten angezeigt werden"
 
-#: view/SettingsDialog.java:180
-msgid "Language:"
-msgstr "Sprache:"
+#: view/SettingsDialog.java:201
+msgid "Name:"
+msgstr "Name:"
+
+#: view/SettingsDialog.java:202
+#: view/SettingsDialog.java:204
+msgid "The name used in activities."
+msgstr "Name der in Vorgängen verwendet wird."
+
+#: view/SettingsDialog.java:206
+msgid "PDF Viewer:"
+msgstr "PDF Anzeiger:"
+
+#: view/SettingsDialog.java:208
+msgid "Open reports automatically after generating"
+msgstr "Berichte automatisch nach Generierung öffnen"
+
+#: view/SettingsDialog.java:210
+msgid "Save Tabs when quitting"
+msgstr "Reiter bei Verlassen speichern"
+
+#: view/SettingsDialog.java:277
+msgid "Pessimistic Factor:"
+msgstr "Pessimistischer Faktor:"
+
+#: view/SettingsDialog.java:279
+msgid "Historical Factor:"
+msgstr "Historischer Faktor:"
 
 #: controller/actions/ProtocolExportAction.java:29
 msgid "Export the protocol to a pdf file"
@@ -1014,6 +1022,10 @@ msgstr "Keine oder falsche Sprache ausgewählt."
 #: controller/actions/SaveSettingsAction.java:71
 msgid "The number of activities needs to be bigger than 0."
 msgstr "Die Anzahl an Aktivitäten muss größer als 0 sein."
+
+#: controller/actions/SaveSettingsAction.java:90
+msgid "Factors need to be a floating point number."
+msgstr "Faktoren müssen Gleitkommazahlen sein."
 
 #: controller/actions/ViewerContractAction.java:47
 #: controller/actions/ViewerDetailViewAction.java:42

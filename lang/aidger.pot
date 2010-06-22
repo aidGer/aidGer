@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-22 17:19+0200\n"
+"POT-Creation-Date: 2010-06-22 17:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,7 +66,7 @@ msgstr ""
 #: view/forms/CourseViewerForm.java:198
 #: view/forms/EmploymentViewerForm.java:165
 #: view/forms/CourseEditorForm.java:359
-#: view/forms/EmploymentEditorForm.java:441
+#: view/forms/EmploymentEditorForm.java:445
 #: view/models/CourseTableModel.java:29
 #: view/models/EmploymentTableModel.java:34
 msgid "Remark"
@@ -131,7 +131,7 @@ msgstr ""
 #: utils/pdf/BalanceReportConverter.java:394
 #: view/tabs/BalanceViewerTab.java:91 view/forms/CourseViewerForm.java:190
 #: view/forms/CourseEditorForm.java:351
-#: view/reports/BalanceReportGroupPanel.java:141
+#: view/reports/BalanceReportGroupPanel.java:142
 #: view/reports/BalanceFilterPanel.java:43
 #: view/models/CourseTableModel.java:28
 msgid "Group"
@@ -351,7 +351,7 @@ msgstr ""
 msgid "Number of days before today to display: "
 msgstr ""
 
-#: view/tabs/ProtocolViewerTab.java:164 view/tabs/BalanceViewerTab.java:271
+#: view/tabs/ProtocolViewerTab.java:164 view/tabs/BalanceViewerTab.java:269
 #: view/UI.java:560 controller/actions/ProtocolExportAction.java:28
 #: controller/actions/ProtocolExportAction.java:70
 #: controller/actions/ReportExportAction.java:37
@@ -379,15 +379,15 @@ msgstr ""
 msgid "Generate"
 msgstr ""
 
-#: view/tabs/BalanceViewerTab.java:288
+#: view/tabs/BalanceViewerTab.java:284
 msgid "Filters"
 msgstr ""
 
-#: view/tabs/BalanceViewerTab.java:313
+#: view/tabs/BalanceViewerTab.java:307
 msgid "Pessimistic calculation"
 msgstr ""
 
-#: view/tabs/BalanceViewerTab.java:322
+#: view/tabs/BalanceViewerTab.java:315
 msgid "Historical calculation"
 msgstr ""
 
@@ -455,7 +455,7 @@ msgid "Activites"
 msgstr ""
 
 #: view/tabs/ViewerTab.java:514 view/forms/EmploymentViewerForm.java:117
-#: view/forms/EmploymentEditorForm.java:409
+#: view/forms/EmploymentEditorForm.java:413
 #: view/models/EmploymentTableModel.java:32
 #: controller/actions/ViewerContractAction.java:31
 msgid "Contract"
@@ -703,7 +703,7 @@ msgstr ""
 #: view/forms/FinancialCategoryViewerForm.java:45
 #: view/forms/EmploymentViewerForm.java:141
 #: view/forms/FinancialCategoryEditorForm.java:119
-#: view/forms/EmploymentEditorForm.java:417
+#: view/forms/EmploymentEditorForm.java:421
 #: view/models/EmploymentTableModel.java:33
 #: view/models/FinancialCategoryTableModel.java:25
 msgid "Funds"
@@ -744,7 +744,7 @@ msgstr ""
 #: view/forms/HourlyWageEditorForm.java:179
 #: view/forms/EmploymentViewerForm.java:157
 #: view/forms/HourlyWageViewerForm.java:57
-#: view/forms/EmploymentEditorForm.java:433
+#: view/forms/EmploymentEditorForm.java:437
 #: view/models/HourlyWageTableModel.java:26
 #: view/models/AssistantTableModel.java:26
 #: view/models/EmploymentTableModel.java:34
@@ -812,13 +812,13 @@ msgid "Wage"
 msgstr ""
 
 #: view/forms/EmploymentViewerForm.java:103
-#: view/forms/EmploymentEditorForm.java:395
+#: view/forms/EmploymentEditorForm.java:399
 #: view/models/EmploymentTableModel.java:32
 msgid "Assistant"
 msgstr ""
 
 #: view/forms/EmploymentViewerForm.java:109
-#: view/forms/EmploymentEditorForm.java:401
+#: view/forms/EmploymentEditorForm.java:405
 #: view/models/EmploymentTableModel.java:32
 msgid "Course"
 msgstr ""
@@ -830,7 +830,7 @@ msgid "Hour count"
 msgstr ""
 
 #: view/forms/EmploymentViewerForm.java:149
-#: view/forms/EmploymentEditorForm.java:425
+#: view/forms/EmploymentEditorForm.java:429
 #: view/models/EmploymentTableModel.java:33
 msgid "Cost unit"
 msgstr ""
@@ -870,40 +870,48 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: view/SettingsDialog.java:159 controller/actions/SettingsAction.java:28
+#: view/SettingsDialog.java:192 controller/actions/SettingsAction.java:28
 msgid "Settings"
 msgstr ""
 
-#: view/SettingsDialog.java:165
-msgid "Save Tabs when quitting"
+#: view/SettingsDialog.java:196
+msgid "Language:"
 msgstr ""
 
-#: view/SettingsDialog.java:167
-msgid "Open reports automatically after generating"
-msgstr ""
-
-#: view/SettingsDialog.java:169
-msgid "Name:"
-msgstr ""
-
-#: view/SettingsDialog.java:170 view/SettingsDialog.java:172
-msgid "The name used in activities."
-msgstr ""
-
-#: view/SettingsDialog.java:174
-msgid "PDF Viewer:"
-msgstr ""
-
-#: view/SettingsDialog.java:176
+#: view/SettingsDialog.java:198
 msgid "Amount of activities:"
 msgstr ""
 
-#: view/SettingsDialog.java:178
+#: view/SettingsDialog.java:199
 msgid "The amount of activities shown in detailviews."
 msgstr ""
 
-#: view/SettingsDialog.java:180
-msgid "Language:"
+#: view/SettingsDialog.java:201
+msgid "Name:"
+msgstr ""
+
+#: view/SettingsDialog.java:202 view/SettingsDialog.java:204
+msgid "The name used in activities."
+msgstr ""
+
+#: view/SettingsDialog.java:206
+msgid "PDF Viewer:"
+msgstr ""
+
+#: view/SettingsDialog.java:208
+msgid "Open reports automatically after generating"
+msgstr ""
+
+#: view/SettingsDialog.java:210
+msgid "Save Tabs when quitting"
+msgstr ""
+
+#: view/SettingsDialog.java:277
+msgid "Pessimistic Factor:"
+msgstr ""
+
+#: view/SettingsDialog.java:279
+msgid "Historical Factor:"
 msgstr ""
 
 #: controller/actions/ProtocolExportAction.java:29
@@ -976,6 +984,10 @@ msgstr ""
 
 #: controller/actions/SaveSettingsAction.java:71
 msgid "The number of activities needs to be bigger than 0."
+msgstr ""
+
+#: controller/actions/SaveSettingsAction.java:90
+msgid "Factors need to be a floating point number."
 msgstr ""
 
 #: controller/actions/ViewerContractAction.java:47
