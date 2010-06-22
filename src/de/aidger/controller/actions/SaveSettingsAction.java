@@ -79,6 +79,19 @@ public class SaveSettingsAction extends AbstractAction {
         Runtime.getInstance().setOption("auto-save",
             Boolean.toString(dlg.isSaveSelected()));
 
+        try {
+            float tmp = Float.parseFloat(dlg.getPessimisticFactor());
+            tmp = Float.parseFloat(dlg.getHistoricFactor());
+            Runtime.getInstance().setOption("pessimistic-factor",
+                    dlg.getPessimisticFactor());
+            Runtime.getInstance().setOption("historic-factor",
+                    dlg.getHistoricFactor());
+        } catch (NumberFormatException ex) {
+            UI.displayError(_("Factors need to be a floating point number."));
+            return;
+        }
+
+
         dlg.setVisible(false);
         dlg.dispose();
     }
