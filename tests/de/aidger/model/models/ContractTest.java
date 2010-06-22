@@ -31,8 +31,8 @@ public class ContractTest {
     public void setUp() {
         contract = new Contract();
         contract.setId(1);
-        contract.setCompletionDate(new Date(100));
-        contract.setConfirmationDate(new Date(10));
+        contract.setCompletionDate(new Date(10));
+        contract.setConfirmationDate(new Date(100));
         contract.setDelegation(false);
         contract.setEndDate(new Date(1000));
         contract.setStartDate(new Date(20));
@@ -69,12 +69,12 @@ public class ContractTest {
         contract.setCompletionDate(null);
         assertFalse(contract.save());
         contract.resetErrors();
-        contract.setCompletionDate(new Date(100));
+        contract.setCompletionDate(new Date(10));
 
         contract.setConfirmationDate(null);
         assertFalse(contract.save());
         contract.resetErrors();
-        contract.setConfirmationDate(new Date(10));
+        contract.setConfirmationDate(new Date(100));
 
         contract.setEndDate(null);
         assertFalse(contract.save());
@@ -95,7 +95,7 @@ public class ContractTest {
         contract.resetErrors();
         contract.setType("Type");
 
-        contract.setConfirmationDate(new Date(101));
+        contract.setConfirmationDate(new Date(1));
         assertFalse(contract.save());
         contract.resetErrors();
         contract.setConfirmationDate(new Date(10));
