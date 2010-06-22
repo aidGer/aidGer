@@ -138,8 +138,8 @@ public class TaskPaneAction extends AbstractAction implements MouseListener,
     @Override
     public void mouseClicked(MouseEvent e) {
         if (SwingUtilities.isLeftMouseButton(e)) {
+            // handling for a click on the title bar
             if (taskPane != null) {
-                // handling for click on the +/- buttons on title bar
                 if (!openLink || task == Task.Void) {
                     taskPane.setExpanded(!taskPane.isExpanded());
 

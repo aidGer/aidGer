@@ -149,12 +149,8 @@ public class TaskPane extends JComponent {
         titleBar.setMargin(new Insets(3, 5, 3, 5));
 
         a.setTaskPane(this);
-        a.dropLink();
         titleBar.getToogleIcon().addMouseListener(a);
-
-        TaskPaneAction aClone = a.clone();
-        aClone.setTaskPane(this);
-        titleBar.getTitleLabel().addMouseListener(aClone);
+        titleBar.getTitleLabel().addMouseListener(a);
 
         super.addImpl(titleBar, BorderLayout.NORTH, -1);
         super.addImpl(this.contentPane, null, -1);
