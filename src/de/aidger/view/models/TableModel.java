@@ -1,11 +1,13 @@
 package de.aidger.view.models;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Vector;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -139,16 +141,56 @@ public abstract class TableModel extends DefaultTableModel implements Observer {
 
             models.remove(modelBeforeEdit);
 
+            int index = indexOf(modelBeforeEdit);
+
+            if (index != -1) {
+                removeRow(index);
+            }
+
             if (!models.contains(model)) {
                 models.add(model);
             }
+
+            addRow(convertModelToRow(model));
         } else { // the model was removed
 
             models.remove(model);
+
+            int index = indexOf(model);
+
+            if (index != -1) {
+                removeRow(index);
+            }
+        }
+    }
+
+    /**
+     * Returns the row index of the given model on the table.
+     * 
+     * @param model
+     *            the model on the table
+     * @return the row index and -1 if model was not found or is null
+     */
+    @SuppressWarnings("unchecked")
+    private int indexOf(AbstractModel model) {
+        if (model == null) {
+            return -1;
         }
 
-        // refresh only the table
-        refresh();
+        Object[] row = new Object[] {};
+
+        try {
+            row = convertModelToRow(model);
+        } catch (NullPointerException e) {
+        }
+
+        for (int i = 0; i < getDataVector().size(); ++i) {
+            if (Arrays.equals(row, ((Vector) getDataVector().get(i)).toArray())) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     /*
