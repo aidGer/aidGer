@@ -10,8 +10,7 @@ import de.aidger.model.models.Employment;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
- * This class is used to get the budget of all courses. It is also used to check
- * if the budget of a course is overbooked.
+ * This class is used to get the budget of all courses.
  * 
  * @author aidGer Team
  */
@@ -21,7 +20,6 @@ public class BudgetChecker {
      * Initializes a new BudgetChecker
      */
     public BudgetChecker() {
-
     }
 
     /**
@@ -32,12 +30,7 @@ public class BudgetChecker {
      * @return False if the course is over booked.
      */
     public static boolean checkBudget(Course course) {
-        double plannedBudget = course.getUnqualifiedWorkingHours()
-                * course.getNumberOfGroups();
-        if (plannedBudget > getActualBudget(course)) {
-            return true;
-        }
-        return false;
+        return checkBudget(course, 0);
     }
 
     /**
@@ -66,14 +59,13 @@ public class BudgetChecker {
      *            The course of which to calculate the actual budget.
      * @return The actual budget.
      */
-    private static double getActualBudget(Course course) {
+    public static double getActualBudget(Course course) {
         double actualBudget = 0;
         try {
-            List<Employment> employments = new Employment().getAll();
+            List<Employment> employments = new Employment()
+                .getEmployments(course);
             for (Employment employment : employments) {
-                if (employment.getCourseId() == course.getId()) {
-                    actualBudget = actualBudget + employment.getHourCount();
-                }
+                actualBudget = actualBudget + employment.getHourCount();
             }
         } catch (AdoHiveException e) {
             // TODO Auto-generated catch block
