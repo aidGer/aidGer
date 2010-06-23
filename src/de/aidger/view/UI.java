@@ -55,6 +55,7 @@ import de.aidger.model.AbstractModel;
 import de.aidger.model.Runtime;
 import de.aidger.model.models.HourlyWage;
 import de.aidger.utils.Logger;
+import de.aidger.view.FirstStartDialog;
 import de.aidger.view.models.GenericListModel;
 import de.aidger.view.models.TableModel;
 import de.aidger.view.tabs.DetailViewerTab;
@@ -224,6 +225,13 @@ public final class UI extends JFrame {
 
         // start maximized
         setExtendedState(Frame.MAXIMIZED_BOTH);
+
+        // Display the first start dialog on first start
+        if (Runtime.getInstance().isFirstStart()) {
+            FirstStartDialog dlg = new FirstStartDialog(this, true);
+            dlg.setLocationRelativeTo(null);
+            dlg.setVisible(true);
+        }
     }
 
     /**

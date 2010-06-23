@@ -41,6 +41,11 @@ public final class Runtime {
     private Translation translation = null;
 
     /**
+     * Is this the first start of aidGer?
+     */
+    private boolean firstStart = false;
+
+    /**
      * Constructor must be private and does nothing.
      */
     private Runtime() {
@@ -101,12 +106,15 @@ public final class Runtime {
         configPath = home + "/aidGer/";
         File file = new File(configPath);
 
-        if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
-            UI.displayError(MessageFormat.format(
-                    "Could not create directory \"{0}\".\n" +
-                    "Please make sure that you have enough rights to create this directory.",
-                    new Object[] { file.getPath() }));
-            System.exit(-1);
+        if (!file.exists() || !file.isDirectory()) {
+            firstStart = true;
+            if (!file.mkdirs()) {
+                  UI.displayError(MessageFormat.format(
+                        "Could not create directory \"{0}\".\n" +
+                        "Please make sure that you have enough rights to create this directory.",
+                        new Object[] { file.getPath() }));
+                System.exit(-1);
+            }
         }
 
         configuration = new Configuration();
@@ -137,6 +145,15 @@ public final class Runtime {
      */
     public void setConfigPath(String path) {
     	configPath = path;
+    }
+
+    /**
+     * Is this the first start of aidGer?
+     *
+     * @return True if this is the first start
+     */
+    public boolean isFirstStart() {
+        return firstStart;
     }
 
     /**
