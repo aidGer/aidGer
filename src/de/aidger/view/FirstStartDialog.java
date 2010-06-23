@@ -4,6 +4,13 @@ import static de.aidger.utils.Translation._;
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
 import de.aidger.controller.actions.FirstStartCloseAction;
+import de.aidger.model.models.Activity;
+
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import java.awt.Color;
+
+import java.util.List;
+
 
 /**
  * Displays a dialog to enter the name on the first start
@@ -28,6 +35,9 @@ public class FirstStartDialog extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.
                 DO_NOTHING_ON_CLOSE);
+
+        BackgroundThread thread = new BackgroundThread();
+        thread.start();
     }
 
     /**
@@ -55,7 +65,7 @@ public class FirstStartDialog extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         nameTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        connectLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle(_("First Start"));
@@ -73,12 +83,12 @@ public class FirstStartDialog extends javax.swing.JDialog {
 
         jButton1.setText(_("Close"));
 
-        jLabel4.setText("Name:");
+        jLabel4.setText(_("Name:"));
 
         jLabel5.setText("While you enter your name, aidGer will try to connect to the database.");
 
-        jLabel6.setForeground(new java.awt.Color(255, 4, 4));
-        jLabel6.setText("Trying to connect ...");
+        connectLabel.setForeground(new java.awt.Color(255, 4, 4));
+        connectLabel.setText(_("Trying to connect ..."));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,7 +106,7 @@ public class FirstStartDialog extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel5)
-                    .addComponent(jLabel6))
+                    .addComponent(connectLabel))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -115,7 +125,7 @@ public class FirstStartDialog extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6)
+                .addComponent(connectLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
@@ -125,14 +135,35 @@ public class FirstStartDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel connectLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField nameTextField;
     // End of variables declaration//GEN-END:variables
+
+
+    private class BackgroundThread extends Thread {
+
+        @Override
+        public void run() {
+            List lst = null;
+            try {
+                 lst = (new Activity()).getAll();
+            } catch (AdoHiveException ex) {
+            }
+
+            if (lst == null) {
+                connectLabel.setText(
+                        _("Connection failed. Please check with your Administrator"));
+            } else {
+                connectLabel.setForeground(Color.green);
+                connectLabel.setText(_("Connection successfull."));
+            }
+        }
+    }
 
 }
