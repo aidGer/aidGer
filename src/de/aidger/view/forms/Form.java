@@ -5,7 +5,7 @@ import java.util.Vector;
 
 import javax.swing.JPanel;
 
-import de.aidger.view.models.ListModel;
+import de.aidger.view.models.GenericListModel;
 
 /**
  * Form is the abstract class of all forms.
@@ -16,9 +16,9 @@ import de.aidger.view.models.ListModel;
 public abstract class Form extends JPanel {
 
     /**
-     * The list models of the form.
+     * The swing models of the form.
      */
-    protected final List<ListModel> listModels = new Vector<ListModel>();
+    protected final List<GenericListModel> listModels = new Vector<GenericListModel>();
 
     /**
      * Updates the form. Do nothing by default.
@@ -27,11 +27,11 @@ public abstract class Form extends JPanel {
     }
 
     /**
-     * Returns the list models of the form.
+     * Returns the swing models of the form.
      * 
-     * @return the list models of the form.
+     * @return the swing models of the form.
      */
-    public List<ListModel> getListModels() {
+    public List<GenericListModel> getListModels() {
         return listModels;
     }
 }

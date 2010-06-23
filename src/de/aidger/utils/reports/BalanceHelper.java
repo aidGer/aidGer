@@ -235,8 +235,7 @@ public class BalanceHelper {
                 for (IAssistant assistant : assistants) {
                     if (employment.getAssistantId() == assistant.getId()) {
                         budgetCost = budgetCost.add(new BigDecimal(
-                            calculateBudgetCost(employment, assistant
-                                .getQualification(), calculationMethod))
+                            calculateBudgetCost(employment, calculationMethod))
                             .setScale(2, BigDecimal.ROUND_HALF_EVEN));
                     }
                 }
@@ -258,12 +257,15 @@ public class BalanceHelper {
      * Calculates the budget costs of this employment
      */
     private static double calculateBudgetCost(IEmployment employment,
-            String qualification, int calculationMethod) {
+            int calculationMethod) {
+        String qualification = employment.getQualification();
         double calculationFactor = 0;
         if (calculationMethod == 1) {
-            calculationFactor = 1.28;
+            calculationFactor = Double.parseDouble(de.aidger.model.Runtime
+                .getInstance().getOption("pessimistic-factor"));
         } else if (calculationMethod == 2) {
-            calculationFactor = 1.15;
+            calculationFactor = Double.parseDouble(de.aidger.model.Runtime
+                .getInstance().getOption("historic-factor"));
         } else {
             calculationFactor = 1;
         }

@@ -55,7 +55,7 @@ import de.aidger.model.AbstractModel;
 import de.aidger.model.Runtime;
 import de.aidger.model.models.HourlyWage;
 import de.aidger.utils.Logger;
-import de.aidger.view.models.ListModel;
+import de.aidger.view.models.GenericListModel;
 import de.aidger.view.models.TableModel;
 import de.aidger.view.tabs.DetailViewerTab;
 import de.aidger.view.tabs.EditorTab;
@@ -202,6 +202,18 @@ public final class UI extends JFrame {
         JOptionPane.showMessageDialog(instance, error, _("Error"),
             JOptionPane.ERROR_MESSAGE);
         Logger.error(error);
+    }
+
+    /**
+     * Display an info message in a dialog window.
+     * 
+     * @param error
+     *            The info message to display
+     */
+    public static void displayInfo(String info) {
+        JOptionPane.showMessageDialog(instance, info, _("Info"),
+            JOptionPane.INFORMATION_MESSAGE);
+        Logger.info(info);
     }
 
     /**
@@ -435,7 +447,7 @@ public final class UI extends JFrame {
 
                 model.addObserver(tM);
             } else if (t instanceof DetailViewerTab || t instanceof EditorTab) {
-                List<ListModel> lMs;
+                List<GenericListModel> lMs;
 
                 if (t instanceof DetailViewerTab) {
                     lMs = ((DetailViewerTab) t).getListModels();
@@ -443,7 +455,7 @@ public final class UI extends JFrame {
                     lMs = ((EditorTab) t).getListModels();
                 }
 
-                for (ListModel lM : lMs) {
+                for (GenericListModel lM : lMs) {
                     if (lM.getDataType() == type) {
                         lM.setModelBeforeEdit(modelBeforeEdit);
 

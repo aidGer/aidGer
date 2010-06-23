@@ -2,13 +2,14 @@ package de.aidger.view.models;
 
 import java.util.Observable;
 
-import javax.swing.DefaultListModel;
+import javax.swing.DefaultComboBoxModel;
 
 import de.aidger.model.AbstractModel;
 import de.aidger.view.tabs.ViewerTab.DataType;
 
 @SuppressWarnings("serial")
-public class ListModel extends DefaultListModel implements GenericListModel {
+public class ComboBoxModel extends DefaultComboBoxModel implements
+        GenericListModel {
 
     /**
      * The model before it was edited.
@@ -27,7 +28,7 @@ public class ListModel extends DefaultListModel implements GenericListModel {
      * @param dateType
      *            the type of the displayed data
      */
-    public ListModel(DataType dataType) {
+    public ComboBoxModel(DataType dataType) {
         this.dataType = dataType;
     }
 
@@ -91,5 +92,16 @@ public class ListModel extends DefaultListModel implements GenericListModel {
         }
 
         fireContentsChanged(this, 0, getSize());
+    }
+
+    /**
+     * Returns whether the model contains the object.
+     * 
+     * @param o
+     *            the object
+     * @return whether the model contains the object
+     */
+    public boolean contains(Object o) {
+        return getIndexOf(o) > -1;
     }
 }
