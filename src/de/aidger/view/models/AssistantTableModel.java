@@ -65,4 +65,19 @@ public class AssistantTableModel extends TableModel {
                 Qualification.valueOf(assistant.getQualification()),
                 assistant.getId() };
     }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see javax.swing.table.AbstractTableModel#getColumnClass(int)
+     */
+    @Override
+    public Class<?> getColumnClass(int column) {
+        // sort specific columns properly
+        if (column == 4) {
+            return Integer.class;
+        }
+
+        return super.getColumnClass(column);
+    }
 }

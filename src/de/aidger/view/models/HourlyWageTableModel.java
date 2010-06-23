@@ -3,6 +3,7 @@ package de.aidger.view.models;
 import static de.aidger.utils.Translation._;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import de.aidger.model.AbstractModel;
@@ -67,5 +68,22 @@ public class HourlyWageTableModel extends TableModel {
 
         return new Object[] { Qualification.valueOf(hw.getQualification()),
                 cal.getTime(), hw.getWage() };
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see javax.swing.table.AbstractTableModel#getColumnClass(int)
+     */
+    @Override
+    public Class<?> getColumnClass(int column) {
+        // sort specific columns properly
+        if (column == 1) {
+            return Date.class;
+        } else if (column == 2) {
+            return Double.class;
+        }
+
+        return super.getColumnClass(column);
     }
 }

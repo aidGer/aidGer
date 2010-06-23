@@ -71,4 +71,19 @@ public class FinancialCategoryTableModel extends TableModel {
         return new Object[] { fc.getName(), fc.getYear(), funds, budgetCosts,
                 fc.getId() };
     }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see javax.swing.table.AbstractTableModel#getColumnClass(int)
+     */
+    @Override
+    public Class<?> getColumnClass(int column) {
+        // sort specific columns properly
+        if (column == 4) {
+            return Integer.class;
+        }
+
+        return super.getColumnClass(column);
+    }
 }

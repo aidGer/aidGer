@@ -3,6 +3,7 @@ package de.aidger.view.models;
 import static de.aidger.utils.Translation._;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import de.aidger.model.AbstractModel;
@@ -91,6 +92,22 @@ public class EmploymentTableModel extends TableModel {
 
             return new Object[] {};
         }
+    }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see javax.swing.table.AbstractTableModel#getColumnClass(int)
+     */
+    @Override
+    public Class<?> getColumnClass(int column) {
+        // sort specific columns properly
+        if (column == 4 || column == 5 || column == 9) {
+            return Integer.class;
+        } else if (column == 3) {
+            return Date.class;
+        }
+
+        return super.getColumnClass(column);
     }
 }

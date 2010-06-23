@@ -79,6 +79,22 @@ public class CourseTableModel extends TableModel {
 
             return new Object[] {};
         }
+    }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see javax.swing.table.AbstractTableModel#getColumnClass(int)
+     */
+    @Override
+    public Class<?> getColumnClass(int column) {
+        // sort specific columns properly
+        if (column == 4 || column == 12) {
+            return Integer.class;
+        } else if (column == 6) {
+            return Double.class;
+        }
+
+        return super.getColumnClass(column);
     }
 }

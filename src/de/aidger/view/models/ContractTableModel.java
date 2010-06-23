@@ -2,6 +2,7 @@ package de.aidger.view.models;
 
 import static de.aidger.utils.Translation._;
 
+import java.util.Date;
 import java.util.List;
 
 import de.aidger.model.AbstractModel;
@@ -63,6 +64,20 @@ public class ContractTableModel extends TableModel {
                 contract.getConfirmationDate(), contract.getStartDate(),
                 contract.getEndDate(), contract.getType(),
                 contract.isDelegation() };
+    }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see javax.swing.table.AbstractTableModel#getColumnClass(int)
+     */
+    @Override
+    public Class<?> getColumnClass(int column) {
+        // sort specific columns properly
+        if (column == 0 || column == 1 || column == 2 || column == 3) {
+            return Date.class;
+        }
+
+        return super.getColumnClass(column);
     }
 }
