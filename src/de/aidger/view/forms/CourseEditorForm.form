@@ -170,10 +170,10 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblGrantedAWH">
+    <Component class="javax.swing.JLabel" name="lblAWHperGroup">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="_(&quot;Granted AWH&quot;)" type="code"/>
+          <Connection code="_(&quot;AWH per group&quot;)" type="code"/>
         </Property>
       </Properties>
       <Constraints>
@@ -242,7 +242,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtGrantedAWH">
+    <Component class="javax.swing.JTextField" name="txtAWHperGroup">
       <Properties>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[200, 25]"/>

@@ -25,7 +25,7 @@ public class CourseTableModel extends TableModel {
     public CourseTableModel() {
         super(new String[] { _("Description"), _("Semester"), _("Lecturer"),
                 _("Advisor"), _("Number of Groups"), _("Target Audience"),
-                _("Granted AWH"), _("Scope"), _("Part"), _("Group"),
+                _("AWH per group"), _("Scope"), _("Part"), _("Group"),
                 _("Remark"), _("Financial Category"), _("ID") });
     }
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-23 18:43+0200\n"
+"POT-Creation-Date: 2010-06-23 18:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -275,67 +275,67 @@ msgstr ""
 msgid "yes"
 msgstr ""
 
-#: view/tabs/EditorTab.java:195
+#: view/tabs/EditorTab.java:207
 msgid "Edit course"
 msgstr ""
 
-#: view/tabs/EditorTab.java:197
+#: view/tabs/EditorTab.java:209
 msgid "Edit assistant"
 msgstr ""
 
-#: view/tabs/EditorTab.java:199
+#: view/tabs/EditorTab.java:211
 msgid "Edit financial category"
 msgstr ""
 
-#: view/tabs/EditorTab.java:201
+#: view/tabs/EditorTab.java:213
 msgid "Edit hourly wage"
 msgstr ""
 
-#: view/tabs/EditorTab.java:203
+#: view/tabs/EditorTab.java:215
 msgid "Edit employment"
 msgstr ""
 
-#: view/tabs/EditorTab.java:205
+#: view/tabs/EditorTab.java:217
 msgid "Edit contract"
 msgstr ""
 
-#: view/tabs/EditorTab.java:211
+#: view/tabs/EditorTab.java:223
 msgid "Add course"
 msgstr ""
 
-#: view/tabs/EditorTab.java:213
+#: view/tabs/EditorTab.java:225
 msgid "Add assistant"
 msgstr ""
 
-#: view/tabs/EditorTab.java:215
+#: view/tabs/EditorTab.java:227
 msgid "Add financial category"
 msgstr ""
 
-#: view/tabs/EditorTab.java:217
+#: view/tabs/EditorTab.java:229
 msgid "Add hourly wage"
 msgstr ""
 
-#: view/tabs/EditorTab.java:219
+#: view/tabs/EditorTab.java:231
 msgid "Add employment"
 msgstr ""
 
-#: view/tabs/EditorTab.java:221
+#: view/tabs/EditorTab.java:233
 msgid "Add contract"
 msgstr ""
 
-#: view/tabs/EditorTab.java:328 controller/actions/EditorSaveAction.java:61
+#: view/tabs/EditorTab.java:340 controller/actions/EditorSaveAction.java:61
 #: controller/actions/SaveSettingsAction.java:29
 msgid "Save"
 msgstr ""
 
-#: view/tabs/EditorTab.java:331 view/tabs/DetailViewerTab.java:235
+#: view/tabs/EditorTab.java:343 view/tabs/DetailViewerTab.java:235
 #: controller/actions/DetailViewerCancelAction.java:26
 #: controller/actions/DialogAbortAction.java:26
 #: controller/actions/EditorCancelAction.java:26
 msgid "Cancel"
 msgstr ""
 
-#: view/tabs/EditorTab.java:347
+#: view/tabs/EditorTab.java:359
 msgid "Hints"
 msgstr ""
 
@@ -822,7 +822,7 @@ msgstr ""
 
 #: view/forms/CourseViewerForm.java:166 view/forms/CourseEditorForm.java:326
 #: view/models/CourseTableModel.java:28
-msgid "Granted AWH"
+msgid "AWH per group"
 msgstr ""
 
 #: view/forms/CourseViewerForm.java:174 view/forms/CourseEditorForm.java:334

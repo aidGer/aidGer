@@ -33,7 +33,7 @@ public class CourseEditorForm extends Form {
         initComponents();
 
         // add input filters
-        InputPatternFilter.addFilter(txtGrantedAWH, "[0-9]+[.]?[0-9]*");
+        InputPatternFilter.addFilter(txtAWHperGroup, "[0-9]+[.]?[0-9]*");
         InputPatternFilter.addFilter(txtPart, ".?");
         InputPatternFilter.addFilter(txtSemester,
             "([0-9]{0,4})|(WS?|WS[0-9]{0,4})|(SS?|SS[0-9]{0,2})");
@@ -64,7 +64,7 @@ public class CourseEditorForm extends Form {
             txtAdvisor.setText(course.getAdvisor());
             txtTargetAudience.setText(course.getTargetAudience());
             spNumberOfGroups.setValue(course.getNumberOfGroups());
-            txtGrantedAWH.setText(String.valueOf(course
+            txtAWHperGroup.setText(String.valueOf(course
                 .getUnqualifiedWorkingHours()));
             txtScope.setText(course.getScope());
             txtPart.setText(String.valueOf(course.getPart()));
@@ -194,7 +194,7 @@ public class CourseEditorForm extends Form {
      * @throws NumberFormatException
      */
     public double getUnqualifiedWorkingHours() throws NumberFormatException {
-        return Double.valueOf(txtGrantedAWH.getText());
+        return Double.valueOf(txtAWHperGroup.getText());
     }
 
     /**
@@ -218,13 +218,13 @@ public class CourseEditorForm extends Form {
         txtAdvisor = new javax.swing.JTextField();
         spNumberOfGroups = new javax.swing.JSpinner();
         txtTargetAudience = new javax.swing.JTextField();
-        lblGrantedAWH = new javax.swing.JLabel();
+        lblAWHperGroup = new javax.swing.JLabel();
         lblScope = new javax.swing.JLabel();
         lblPart = new javax.swing.JLabel();
         lblGroup = new javax.swing.JLabel();
         lblRemark = new javax.swing.JLabel();
         lblFinancialCategory = new javax.swing.JLabel();
-        txtGrantedAWH = new javax.swing.JTextField();
+        txtAWHperGroup = new javax.swing.JTextField();
         txtScope = new javax.swing.JTextField();
         txtPart = new javax.swing.JTextField();
         txtGroup = new javax.swing.JTextField();
@@ -323,13 +323,13 @@ public class CourseEditorForm extends Form {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtTargetAudience, gridBagConstraints);
 
-        lblGrantedAWH.setText(_("Granted AWH"));
+        lblAWHperGroup.setText(_("AWH per group"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
-        add(lblGrantedAWH, gridBagConstraints);
+        add(lblAWHperGroup, gridBagConstraints);
 
         lblScope.setText(_("Scope"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -371,13 +371,13 @@ public class CourseEditorForm extends Form {
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
         add(lblFinancialCategory, gridBagConstraints);
 
-        txtGrantedAWH.setMinimumSize(new java.awt.Dimension(200, 25));
-        txtGrantedAWH.setPreferredSize(new java.awt.Dimension(200, 25));
+        txtAWHperGroup.setMinimumSize(new java.awt.Dimension(200, 25));
+        txtAWHperGroup.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(txtGrantedAWH, gridBagConstraints);
+        add(txtAWHperGroup, gridBagConstraints);
 
         txtScope.setMinimumSize(new java.awt.Dimension(200, 25));
         txtScope.setPreferredSize(new java.awt.Dimension(200, 25));
@@ -420,10 +420,10 @@ public class CourseEditorForm extends Form {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cmbFinancialCategory;
+    private javax.swing.JLabel lblAWHperGroup;
     private javax.swing.JLabel lblAdvisor;
     private javax.swing.JLabel lblDescription;
     private javax.swing.JLabel lblFinancialCategory;
-    private javax.swing.JLabel lblGrantedAWH;
     private javax.swing.JLabel lblGroup;
     private javax.swing.JLabel lblLecturer;
     private javax.swing.JLabel lblNumberOfGroups;
@@ -433,9 +433,9 @@ public class CourseEditorForm extends Form {
     private javax.swing.JLabel lblSemester;
     private javax.swing.JLabel lblTargetAudience;
     private javax.swing.JSpinner spNumberOfGroups;
+    private javax.swing.JTextField txtAWHperGroup;
     private javax.swing.JTextField txtAdvisor;
     private javax.swing.JTextField txtDescription;
-    private javax.swing.JTextField txtGrantedAWH;
     private javax.swing.JTextField txtGroup;
     private javax.swing.JTextField txtLecturer;
     private javax.swing.JTextField txtPart;

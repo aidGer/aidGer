@@ -31,7 +31,7 @@ public class CourseViewerForm extends Form {
         advisor.setText(course.getAdvisor());
         targetAudience.setText(course.getTargetAudience());
         numberOfGroups.setText(String.valueOf(course.getNumberOfGroups()));
-        grantedAWH.setText(String.valueOf(course.getUnqualifiedWorkingHours()));
+        AWHperGroup.setText(String.valueOf(course.getUnqualifiedWorkingHours()));
         scope.setText(course.getScope());
         part.setText(String.valueOf(course.getPart()));
         group.setText(course.getGroup());
@@ -68,13 +68,13 @@ public class CourseViewerForm extends Form {
         advisor = new javax.swing.JLabel();
         numberOfGroups = new javax.swing.JLabel();
         targetAudience = new javax.swing.JLabel();
-        lblGrantedAWH = new javax.swing.JLabel();
+        lblAWHperGroup = new javax.swing.JLabel();
         lblScope = new javax.swing.JLabel();
         lblPart = new javax.swing.JLabel();
         lblGroup = new javax.swing.JLabel();
         lblRemark = new javax.swing.JLabel();
         lblFinancialCategory = new javax.swing.JLabel();
-        grantedAWH = new javax.swing.JLabel();
+        AWHperGroup = new javax.swing.JLabel();
         scope = new javax.swing.JLabel();
         part = new javax.swing.JLabel();
         group = new javax.swing.JLabel();
@@ -163,13 +163,13 @@ public class CourseViewerForm extends Form {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(targetAudience, gridBagConstraints);
 
-        lblGrantedAWH.setText(_("Granted AWH"));
+        lblAWHperGroup.setText(_("AWH per group"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
-        add(lblGrantedAWH, gridBagConstraints);
+        add(lblAWHperGroup, gridBagConstraints);
 
         lblScope.setText(_("Scope"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -213,7 +213,7 @@ public class CourseViewerForm extends Form {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(grantedAWH, gridBagConstraints);
+        add(AWHperGroup, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
@@ -247,15 +247,15 @@ public class CourseViewerForm extends Form {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AWHperGroup;
     private javax.swing.JLabel advisor;
     private javax.swing.JLabel description;
     private javax.swing.JLabel financialCategory;
-    private javax.swing.JLabel grantedAWH;
     private javax.swing.JLabel group;
+    private javax.swing.JLabel lblAWHperGroup;
     private javax.swing.JLabel lblAdvisor;
     private javax.swing.JLabel lblDescription;
     private javax.swing.JLabel lblFinancialCategory;
-    private javax.swing.JLabel lblGrantedAWH;
     private javax.swing.JLabel lblGroup;
     private javax.swing.JLabel lblLecturer;
     private javax.swing.JLabel lblNumberOfGroups;
