@@ -3,11 +3,14 @@ package de.aidger.view.tabs;
 import static de.aidger.utils.Translation._;
 
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
 import java.util.List;
 
 import javax.swing.Box;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
@@ -144,6 +147,15 @@ public class EditorTab extends Tab {
 
             btnCancel.setAction(ActionRegistry.getInstance().get(
                 EditorCancelAction.class.getName()));
+
+            // shortcuts
+            getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+                KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "saveModel");
+
+            getActionMap().put(
+                "saveModel",
+                ActionRegistry.getInstance().get(
+                    EditorSaveAction.class.getName()));
         } catch (ActionNotFoundException e) {
             UI.displayError(e.getMessage());
         }
