@@ -3,7 +3,7 @@ package de.aidger.view;
 import static de.aidger.utils.Translation._;
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
-import de.aidger.controller.actions.DialogAbortAction;
+import de.aidger.controller.actions.FirstStartCloseAction;
 
 /**
  * Displays a dialog to enter the name on the first start
@@ -12,18 +12,31 @@ import de.aidger.controller.actions.DialogAbortAction;
  */
 public class FirstStartDialog extends javax.swing.JDialog {
 
-    /** Creates new form FirstStartDialog */
+    /** 
+     * Creates new form FirstStartDialog
+     */
     public FirstStartDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
 
         try {
             jButton1.setAction(ActionRegistry.getInstance().get(
-                    DialogAbortAction.class.getName()));
-            jButton1.setText(_("Close"));
+                    FirstStartCloseAction.class.getName()));
         } catch (ActionNotFoundException ex) {
             UI.displayError(ex.getMessage());
         }
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.
+                DO_NOTHING_ON_CLOSE);
+    }
+
+    /**
+     * Get the entered name.
+     *
+     * @return The entered name
+     */
+    public String getEnteredName() {
+        return nameTextField.getText();
     }
 
     /** This method is called from within the constructor to
@@ -40,12 +53,15 @@ public class FirstStartDialog extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        nameTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle(_("First Start"));
+        setAlwaysOnTop(true);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setModal(true);
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -78,7 +94,7 @@ public class FirstStartDialog extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
                 .addContainerGap())
@@ -95,7 +111,7 @@ public class FirstStartDialog extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
@@ -116,7 +132,7 @@ public class FirstStartDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField nameTextField;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -13,6 +13,7 @@ import de.aidger.controller.actions.DialogAbortAction;
 import de.aidger.controller.actions.EditorCancelAction;
 import de.aidger.controller.actions.EditorSaveAction;
 import de.aidger.controller.actions.ExitAction;
+import de.aidger.controller.actions.FirstStartCloseAction;
 import de.aidger.controller.actions.HelpAction;
 import de.aidger.controller.actions.HomepageAction;
 import de.aidger.controller.actions.PrintAction;
@@ -98,6 +99,8 @@ public final class Application {
         ActionRegistry.getInstance().register(new ReportGenerateAction());
         ActionRegistry.getInstance().register(new ReportExportAction());
         ActionRegistry.getInstance().register(new ProtocolExportAction());
+
+        ActionRegistry.getInstance().register(new FirstStartCloseAction());
     }
 
     /**
