@@ -50,9 +50,9 @@ public class SettingsDialog extends JDialog {
         String lang = Runtime.getInstance().getOption("language");
 
         try {
-            jButton2.setAction(ActionRegistry.getInstance().get(
-                DialogAbortAction.class.getName()));
             jButton1.setAction(ActionRegistry.getInstance().get(
+                DialogAbortAction.class.getName()));
+            jButton2.setAction(ActionRegistry.getInstance().get(
                 SaveSettingsAction.class.getName()));
         } catch (ActionNotFoundException e) {
             UI.displayError(e.getMessage());
