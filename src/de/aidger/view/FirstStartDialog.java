@@ -77,15 +77,15 @@ public class FirstStartDialog extends javax.swing.JDialog {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText(_("Welcome to aidGer"));
 
-        jLabel2.setText("Before you can start working, please enter your Name.");
+        jLabel2.setText(_("Before you can start working, please enter your Name."));
 
-        jLabel3.setText("It will be used in all your activities.");
+        jLabel3.setText(_("It will be used in all your activities."));
 
         jButton1.setText(_("Close"));
 
         jLabel4.setText(_("Name:"));
 
-        jLabel5.setText("While you enter your name, aidGer will try to connect to the database.");
+        jLabel5.setText(_("While you enter your name, aidGer will try to connect to the database."));
 
         connectLabel.setForeground(new java.awt.Color(255, 4, 4));
         connectLabel.setText(_("Trying to connect ..."));

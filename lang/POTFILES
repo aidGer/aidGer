@@ -41,6 +41,7 @@ view/tabs/DetailViewerTab.java
 view/tabs/WelcomeTab.java
 view/TaskPaneTitleBar.java
 view/UI.java
+view/FirstStartDialog.java
 view/forms/ContractViewerForm.java
 view/forms/FinancialCategoryViewerForm.java
 view/forms/AssistantViewerForm.java
@@ -91,6 +92,7 @@ controller/actions/HomepageAction.java
 controller/actions/ReportExportAction.java
 controller/actions/PrintAction.java
 controller/actions/ExitAction.java
+controller/actions/FirstStartCloseAction.java
 controller/ActionRegistry.java
 controller/Application.java
 controller/ActionNotFoundException.java
