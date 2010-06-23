@@ -61,6 +61,7 @@ public class HourlyWageTableModel extends TableModel {
         HourlyWage hw = (HourlyWage) model;
 
         Calendar cal = Calendar.getInstance();
+        cal.clear();
         cal.set(Calendar.MONTH, hw.getMonth() - 1);
         cal.set(Calendar.YEAR, hw.getYear());
 
