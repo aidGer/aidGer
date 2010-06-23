@@ -223,7 +223,8 @@ public class EditorSaveAction extends AbstractAction {
         hw.setQualification(form.getQualification());
 
         try {
-            hw.setWage(new BigDecimal(form.getWage()));
+            hw.setWage(new BigDecimal(form.getWage()).setScale(2,
+                BigDecimal.ROUND_HALF_EVEN));
         } catch (NumberFormatException e) {
             hw.addError("wage", new PresenceValidator(hw, new String[] {})
                 .getMessage());
