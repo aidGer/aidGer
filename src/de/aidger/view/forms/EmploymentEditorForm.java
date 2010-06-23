@@ -105,7 +105,7 @@ public class EmploymentEditorForm extends Form {
 
                 if (employment != null
                         && assistant.getId() == employment.getAssistantId()) {
-                    cmbAssistant.setSelectedItem(assistant);
+                    cmbAssistantModel.setSelectedItem(assistant);
                 }
             }
 
@@ -120,7 +120,7 @@ public class EmploymentEditorForm extends Form {
 
                 if (employment != null
                         && course.getId() == employment.getCourseId()) {
-                    cmbCourse.setSelectedItem(course);
+                    cmbCourseModel.setSelectedItem(course);
                 }
             }
 
@@ -136,7 +136,7 @@ public class EmploymentEditorForm extends Form {
 
                 if (employment != null
                         && contract.getId() == employment.getContractId()) {
-                    cmbContract.setSelectedItem(contract);
+                    cmbContractModel.setSelectedItem(contract);
                 }
             }
 
