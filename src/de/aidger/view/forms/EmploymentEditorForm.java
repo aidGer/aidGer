@@ -332,7 +332,7 @@ public class EmploymentEditorForm extends Form {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtHourCount, gridBagConstraints);
 
-        InputPatternFilter.addFilter(txtHourCount, "[0-9]+[.,]?[0-9]*");
+        InputPatternFilter.addFilter(txtHourCount, "[0-9]+[.]?[0-9]*");
 
         JButton btnPlusMinus = new JButton();
         gridBagConstraints = new GridBagConstraints();

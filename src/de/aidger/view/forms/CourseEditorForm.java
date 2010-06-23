@@ -33,7 +33,7 @@ public class CourseEditorForm extends Form {
         initComponents();
 
         // add input filters
-        InputPatternFilter.addFilter(txtGrantedAWH, "[0-9]+[.,]?[0-9]*");
+        InputPatternFilter.addFilter(txtGrantedAWH, "[0-9]+[.]?[0-9]*");
         InputPatternFilter.addFilter(txtPart, ".?");
         InputPatternFilter.addFilter(txtSemester,
             "([0-9]{0,4})|(WS?|WS[0-9]{0,4})|(SS?|SS[0-9]{0,2})");

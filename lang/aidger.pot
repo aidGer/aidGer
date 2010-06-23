@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-23 16:04+0200\n"
+"POT-Creation-Date: 2010-06-23 18:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -988,20 +988,20 @@ msgstr ""
 msgid "Cancel the operation"
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:243
+#: controller/actions/EditorSaveAction.java:244
 msgid "must be after start date"
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:420
+#: controller/actions/EditorSaveAction.java:421
 #, java-format
 msgid "You have hired {0} with qualification {1} more than 6 years."
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:503
+#: controller/actions/EditorSaveAction.java:504
 msgid "Could not save the model because it already exists in the database."
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:505
+#: controller/actions/EditorSaveAction.java:506
 msgid "Could not save the model to database."
 msgstr ""
 

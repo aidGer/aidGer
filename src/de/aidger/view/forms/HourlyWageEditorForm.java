@@ -55,7 +55,7 @@ public class HourlyWageEditorForm extends Form {
         initComponents();
 
         // add input filters
-        InputPatternFilter.addFilter(txtWage, "[0-9]+[.,]?[0-9]{0,2}");
+        InputPatternFilter.addFilter(txtWage, "[0-9]+[.]?[0-9]{0,2}");
 
         if (hw != null) {
             cmbQualification.setSelectedItem(Qualification.valueOf(hw
