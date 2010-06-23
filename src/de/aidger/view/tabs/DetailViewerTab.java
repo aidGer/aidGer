@@ -2,6 +2,8 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 
 import javax.swing.JPanel;
@@ -11,6 +13,7 @@ import de.aidger.controller.ActionRegistry;
 import de.aidger.controller.actions.DetailViewerCancelAction;
 import de.aidger.controller.actions.DetailViewerEditAction;
 import de.aidger.model.AbstractModel;
+import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
@@ -26,7 +29,11 @@ import de.aidger.view.forms.FinancialCategoryViewerForm;
 import de.aidger.view.forms.Form;
 import de.aidger.view.forms.HourlyWageViewerForm;
 import de.aidger.view.models.GenericListModel;
+import de.aidger.view.models.ListModel;
+import de.aidger.view.models.UICourse;
 import de.aidger.view.tabs.ViewerTab.DataType;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
  * A tab which will be used to view the model.
@@ -61,6 +68,70 @@ public class DetailViewerTab extends Tab {
         this.model = model;
 
         init();
+
+        // TODO just temporary
+        if (type == DataType.Assistant) {
+
+            Assistant assistant = (Assistant) model;
+
+            list1.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mousePressed(MouseEvent evt) {
+                    if (evt.getClickCount() == 2) {
+                        UI.getInstance().addNewTab(
+                            new DetailViewerTab(DataType.Course, (Course) list1
+                                .getSelectedValue()));
+                    }
+                }
+            });
+
+            try {
+                List<Employment> employments = (new Employment())
+                    .getEmployments(assistant);
+
+                ListModel listCoursesModel = new ListModel(DataType.Course);
+
+                for (Employment employment : employments) {
+                    ICourse c = (new Course())
+                        .getById(employment.getCourseId());
+
+                    Course course = new UICourse(c);
+
+                    if (!listCoursesModel.contains(course)) {
+                        listCoursesModel.addElement(course);
+                    }
+                }
+
+                List<Activity> activities = (new Activity())
+                    .getActivities(assistant);
+
+                ListModel listActivitiesModel = new ListModel(DataType.Activity);
+
+                for (Activity activity : activities) {
+                    listActivitiesModel.addElement(activity);
+                }
+
+                list1.setModel(listCoursesModel);
+                list2.setModel(listActivitiesModel);
+
+                // TODO list model in tab
+                //listModels.add(listCoursesModel);
+                //listModels.add(listActivitiesModel);
+            } catch (AdoHiveException e) {
+            }
+
+            if (list1.getModel().getSize() == 0) {
+                panelList1.setVisible(false);
+            }
+
+            if (list2.getModel().getSize() == 0) {
+                panelList2.setVisible(false);
+            }
+        } else {
+            panelList1.setVisible(false);
+            panelList2.setVisible(false);
+        }
+
     }
 
     /**
@@ -218,6 +289,12 @@ public class DetailViewerTab extends Tab {
         btnCancel = new javax.swing.JButton();
         filler = new javax.swing.JLabel();
         filler2 = new javax.swing.JLabel();
+        panelList1 = new javax.swing.JPanel();
+        scrollPane = new javax.swing.JScrollPane();
+        list1 = new javax.swing.JList();
+        panelList2 = new javax.swing.JPanel();
+        scrollPane2 = new javax.swing.JScrollPane();
+        list2 = new javax.swing.JList();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -243,14 +320,57 @@ public class DetailViewerTab extends Tab {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.weighty = 1.0;
         add(filler, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 3;
         gridBagConstraints.weightx = 1.0;
         add(filler2, gridBagConstraints);
+
+        panelList1.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            _("Related courses")));
+        panelList1.setLayout(new java.awt.GridBagLayout());
+
+        list1.setMinimumSize(new java.awt.Dimension(300, 150));
+        list1.setPreferredSize(new java.awt.Dimension(300, 150));
+        scrollPane.setViewportView(list1);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        panelList1.add(scrollPane, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(0, 50, 0, 0);
+        add(panelList1, gridBagConstraints);
+
+        panelList2.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            _("Related activities")));
+        panelList2.setLayout(new java.awt.GridBagLayout());
+
+        list2.setMinimumSize(new java.awt.Dimension(300, 150));
+        list2.setPreferredSize(new java.awt.Dimension(300, 150));
+        scrollPane2.setViewportView(list2);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        panelList2.add(scrollPane2, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(0, 50, 0, 0);
+        add(panelList2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -259,6 +379,12 @@ public class DetailViewerTab extends Tab {
     private javax.swing.JPanel buttons;
     private javax.swing.JLabel filler;
     private javax.swing.JLabel filler2;
+    private javax.swing.JList list1;
+    private javax.swing.JList list2;
+    private javax.swing.JPanel panelList1;
+    private javax.swing.JPanel panelList2;
+    private javax.swing.JScrollPane scrollPane;
+    private javax.swing.JScrollPane scrollPane2;
     private javax.swing.JPanel viewerForm;
     // End of variables declaration//GEN-END:variables
 

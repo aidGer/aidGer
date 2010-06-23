@@ -1,23 +1,8 @@
 package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
-
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.List;
-
-import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
-import de.aidger.model.models.Course;
-import de.aidger.model.models.Employment;
-import de.aidger.view.UI;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
-import de.aidger.view.models.ListModel;
-import de.aidger.view.models.UICourse;
-import de.aidger.view.tabs.DetailViewerTab;
-import de.aidger.view.tabs.ViewerTab.DataType;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
  * A form used for viewing assistants in detail.
@@ -36,65 +21,11 @@ public class AssistantViewerForm extends Form {
     public AssistantViewerForm(Assistant assistant) {
         initComponents();
 
-        listCourses.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent evt) {
-                if (evt.getClickCount() == 2) {
-                    UI.getInstance().addNewTab(
-                        new DetailViewerTab(DataType.Course,
-                            (Course) listCourses.getSelectedValue()));
-                }
-            }
-        });
-
-        // TODO mouse listener for activities
-
         firstName.setText(assistant.getFirstName());
         lastName.setText(assistant.getLastName());
         email.setText(assistant.getEmail());
         qualification.setText(Qualification.valueOf(
             assistant.getQualification()).toString());
-
-        try {
-            List<Employment> employments = (new Employment())
-                .getEmployments(assistant);
-
-            ListModel listCoursesModel = new ListModel(DataType.Course);
-
-            for (Employment employment : employments) {
-                ICourse c = (new Course()).getById(employment.getCourseId());
-
-                Course course = new UICourse(c);
-
-                if (!listCoursesModel.contains(course)) {
-                    listCoursesModel.addElement(course);
-                }
-            }
-
-            List<Activity> activities = (new Activity())
-                .getActivities(assistant);
-
-            ListModel listActivitiesModel = new ListModel(DataType.Activity);
-
-            for (Activity activity : activities) {
-                listActivitiesModel.addElement(activity);
-            }
-
-            listCourses.setModel(listCoursesModel);
-            listActivities.setModel(listActivitiesModel);
-
-            listModels.add(listCoursesModel);
-            listModels.add(listActivitiesModel);
-        } catch (AdoHiveException e) {
-        }
-
-        if (listCourses.getModel().getSize() == 0) {
-            courses.setVisible(false);
-        }
-
-        if (listActivities.getModel().getSize() == 0) {
-            activities.setVisible(false);
-        }
     }
 
     /**
@@ -115,12 +46,6 @@ public class AssistantViewerForm extends Form {
         email = new javax.swing.JLabel();
         qualification = new javax.swing.JLabel();
         filler = new javax.swing.JLabel();
-        courses = new javax.swing.JPanel();
-        scrollPane = new javax.swing.JScrollPane();
-        listCourses = new javax.swing.JList();
-        activities = new javax.swing.JPanel();
-        scrollPane2 = new javax.swing.JScrollPane();
-        listActivities = new javax.swing.JList();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -181,49 +106,9 @@ public class AssistantViewerForm extends Form {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.weighty = 1.0;
         add(filler, gridBagConstraints);
-
-        courses.setBorder(javax.swing.BorderFactory.createTitledBorder(
-            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
-            _("Related courses")));
-        courses.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0,
-            0));
-
-        listCourses.setMinimumSize(new java.awt.Dimension(300, 150));
-        listCourses.setPreferredSize(new java.awt.Dimension(300, 150));
-        scrollPane.setViewportView(listCourses);
-
-        courses.add(scrollPane);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridheight = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(0, 50, 0, 0);
-        add(courses, gridBagConstraints);
-
-        activities.setBorder(javax.swing.BorderFactory.createTitledBorder(
-            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
-            _("Related activities")));
-        activities.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT,
-            0, 0));
-
-        listActivities.setMinimumSize(new java.awt.Dimension(300, 150));
-        listActivities.setPreferredSize(new java.awt.Dimension(300, 150));
-        scrollPane2.setViewportView(listActivities);
-
-        activities.add(scrollPane2);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(0, 50, 0, 0);
-        add(activities, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel activities;
-    private javax.swing.JPanel courses;
     private javax.swing.JLabel email;
     private javax.swing.JLabel filler;
     private javax.swing.JLabel firstName;
@@ -232,11 +117,7 @@ public class AssistantViewerForm extends Form {
     private javax.swing.JLabel lblFirstName;
     private javax.swing.JLabel lblLastName;
     private javax.swing.JLabel lblQualification;
-    private javax.swing.JList listActivities;
-    private javax.swing.JList listCourses;
     private javax.swing.JLabel qualification;
-    private javax.swing.JScrollPane scrollPane;
-    private javax.swing.JScrollPane scrollPane2;
     // End of variables declaration//GEN-END:variables
 
 }
