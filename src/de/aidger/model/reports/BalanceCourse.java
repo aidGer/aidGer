@@ -279,6 +279,14 @@ public class BalanceCourse {
         budgetCosts.add(budgetCost);
     }
 
+    /**
+     * Adds the given cost to an already existing budget cost.
+     * 
+     * @param id
+     *            The id of the budget cost
+     * @param value
+     *            The cost to be added.
+     */
     public void addBudgetCostvalue(int id, double value) {
         for (BudgetCost budgetCost : budgetCosts) {
             if (budgetCost.getId() == id) {

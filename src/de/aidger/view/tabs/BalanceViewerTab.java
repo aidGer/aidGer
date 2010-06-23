@@ -24,11 +24,11 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
  * 
  * @author aidGer Team
  */
-public class BalanceViewerTab extends Tab {
+public class BalanceViewerTab extends ReportTab {
 
     /**
      * States which calculation method should be used. 0 - neutral, 1 -
-     * pessimistic, 0 - historicl
+     * pessimistic, 0 - historical
      */
     private int calculationMethod = 0;
 
@@ -157,6 +157,7 @@ public class BalanceViewerTab extends Tab {
      * @param panel
      *            The panel to remove
      */
+    @Override
     public void removeFilterPanel(JPanel panel) {
         filterContentPanel.remove(panel);
         filterContentPanel.setVisible(false);
@@ -180,25 +181,21 @@ public class BalanceViewerTab extends Tab {
      * @param value
      *            The value of the filter.
      */
-    public void removeFilter(int type, String value) {
-        switch (type) {
-        case 0:
+    @Override
+    public void removeFilter(String name, String value) {
+        if (name.equals(_("Group"))) {
             if (balanceFilter.getGroups().contains(value)) {
                 balanceFilter.removeGroup(value);
             }
-            break;
-        case 1:
+        } else if (name.equals(_("Lecturer"))) {
             if (balanceFilter.getLecturers().contains(value)) {
                 balanceFilter.removeLecturer(value);
             }
-            break;
-        case 2:
+        } else if (name.equals(_("Target audience"))) {
             if (balanceFilter.getTargetAudiences().contains(value)) {
                 balanceFilter.removeTargetAudience(value);
             }
-            break;
         }
-
     }
 
     /*
@@ -247,7 +244,8 @@ public class BalanceViewerTab extends Tab {
 
         setLayout(new java.awt.BorderLayout());
 
-        contentPanel.setLayout(new javax.swing.BoxLayout(contentPanel, javax.swing.BoxLayout.Y_AXIS));
+        contentPanel.setLayout(new javax.swing.BoxLayout(contentPanel,
+            javax.swing.BoxLayout.Y_AXIS));
         add(contentPanel, java.awt.BorderLayout.CENTER);
 
         jPanel1.setLayout(new java.awt.BorderLayout());
@@ -262,13 +260,16 @@ public class BalanceViewerTab extends Tab {
 
         generateButton.setText(_("Generate"));
         generateButton.setFocusable(false);
-        generateButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        generateButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        generateButton
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        generateButton
+            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(generateButton);
 
         exportButton.setText(_("Export"));
         exportButton.setFocusable(false);
-        exportButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportButton
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         exportButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(exportButton);
 
@@ -279,7 +280,8 @@ public class BalanceViewerTab extends Tab {
         filterContentPanel.setLayout(new java.awt.GridLayout(0, 1));
         filtersPanel.add(filterContentPanel, java.awt.BorderLayout.PAGE_END);
 
-        filterCreationPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        filterCreationPanel.setLayout(new java.awt.FlowLayout(
+            java.awt.FlowLayout.LEFT));
 
         filtersLabel.setText(_("Filters") + ":");
         filterCreationPanel.add(filtersLabel);
@@ -295,8 +297,10 @@ public class BalanceViewerTab extends Tab {
 
         addFilterButton.setText("+");
         addFilterButton.setFocusable(false);
-        addFilterButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        addFilterButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        addFilterButton
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        addFilterButton
+            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         addFilterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addFilterButtonActionPerformed(evt);
@@ -305,19 +309,21 @@ public class BalanceViewerTab extends Tab {
         filterCreationPanel.add(addFilterButton);
 
         pessimisticCalculationRadio.setText(_("Pessimistic calculation"));
-        pessimisticCalculationRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pessimisticCalculationRadioActionPerformed(evt);
-            }
-        });
+        pessimisticCalculationRadio
+            .addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    pessimisticCalculationRadioActionPerformed(evt);
+                }
+            });
         filterCreationPanel.add(pessimisticCalculationRadio);
 
         historicalCalculationRadio.setText(_("Historical calculation"));
-        historicalCalculationRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                historicalCalculationRadioActionPerformed(evt);
-            }
-        });
+        historicalCalculationRadio
+            .addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    historicalCalculationRadioActionPerformed(evt);
+                }
+            });
         filterCreationPanel.add(historicalCalculationRadio);
 
         filtersPanel.add(filterCreationPanel, java.awt.BorderLayout.PAGE_START);
@@ -350,36 +356,39 @@ public class BalanceViewerTab extends Tab {
     private void addFilterButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addFilterButtonActionPerformed
         switch (filterNameComboBox.getSelectedIndex()) {
         /*
-         * If the filter doesn't exist, delete it, repaint the combo box and set
+         * If the filter doesn't exist, add it, repaint the combo box and set
          * the selected index of the name combo box to the type of filter added.
          */
         case 0:
             if (!balanceFilter.getGroups().contains(
-                filterComboBox.getSelectedItem())
+                filterComboBox.getSelectedItem().toString())
                     && filterComboBox.getItemCount() > 0) {
                 balanceFilter.addGroup((String) filterComboBox
                     .getSelectedItem());
-                filterContentPanel.add(new BalanceFilterPanel(0,
+                filterContentPanel.add(new BalanceFilterPanel(
+                    filterNameComboBox.getItemAt(0).toString(),
                     (String) filterComboBox.getSelectedItem(), this));
             }
             break;
         case 1:
             if (!balanceFilter.getLecturers().contains(
-                filterComboBox.getSelectedItem())
+                filterComboBox.getSelectedItem().toString())
                     && filterComboBox.getItemCount() > 0) {
                 balanceFilter.addLecturer((String) filterComboBox
                     .getSelectedItem());
-                filterContentPanel.add(new BalanceFilterPanel(1,
+                filterContentPanel.add(new BalanceFilterPanel(
+                    filterNameComboBox.getItemAt(1).toString(),
                     (String) filterComboBox.getSelectedItem(), this));
             }
             break;
         case 2:
             if (!balanceFilter.getTargetAudiences().contains(
-                filterComboBox.getSelectedItem())
+                filterComboBox.getSelectedItem().toString())
                     && filterComboBox.getItemCount() > 0) {
                 balanceFilter.addTargetAudience((String) filterComboBox
                     .getSelectedItem());
-                filterContentPanel.add(new BalanceFilterPanel(2,
+                filterContentPanel.add(new BalanceFilterPanel(
+                    filterNameComboBox.getItemAt(2).toString(),
                     (String) filterComboBox.getSelectedItem(), this));
             }
             break;
@@ -402,7 +411,7 @@ public class BalanceViewerTab extends Tab {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-            Vector courseGroups = new Vector();
+            Vector<String> courseGroups = new Vector<String>();
             for (ICourse course : courses) {
                 if (!courseGroups.contains(course.getGroup())) {
                     courseGroups.add(course.getGroup());

@@ -39,6 +39,8 @@
         </Property>
       </Properties>
     </Component>
+    <Component class="javax.swing.JLabel" name="budgetFilterLabel">
+    </Component>
     <Component class="javax.swing.JButton" name="removeFilterButton">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">

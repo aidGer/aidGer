@@ -1,7 +1,7 @@
 package de.aidger.view.reports;
 
 import static de.aidger.utils.Translation._;
-import de.aidger.view.tabs.BalanceViewerTab;
+import de.aidger.view.tabs.ReportTab;
 
 /**
  * This class contains one filter, with its type and value.
@@ -12,14 +12,14 @@ import de.aidger.view.tabs.BalanceViewerTab;
 public class BalanceFilterPanel extends javax.swing.JPanel {
 
     /**
-     * The balanceViewerTab to which this panel belongs.
+     * The name of this filter panel.
      */
-    private BalanceViewerTab balanceViewerTab = null;
+    private String name = null;
 
     /**
-     * The type of this filter. 0 is group, 1 is lecturer, 2 is target audience.
+     * The balanceViewerTab to which this panel belongs.
      */
-    private int type = -1;
+    private ReportTab viewerTab = null;
 
     /**
      * Initializes a new BalanceFilterPanel with the given filter.
@@ -31,24 +31,40 @@ public class BalanceFilterPanel extends javax.swing.JPanel {
      * @param balanceViewerTab
      *            The balance viewer tab to which this panel belongs.
      */
-    public BalanceFilterPanel(int type, String value,
-            BalanceViewerTab balanceViewerTab) {
-        if (this.balanceViewerTab == null) {
-            this.balanceViewerTab = balanceViewerTab;
-        }
-        this.type = type;
+    public BalanceFilterPanel(String name, String value, ReportTab viewerTab) {
+        this.viewerTab = viewerTab;
+        this.name = name;
         initComponents();
-        switch (type) {
-        case 0:
-            filterNameLabel.setText(_("Group"));
-            break;
-        case 1:
-            filterNameLabel.setText(_("Lecturer"));
-            break;
-        case 2:
-            filterNameLabel.setText(_("Target Audience"));
-        }
+        filterNameLabel.setText(name);
         filterLabel.setText(value);
+        budgetFilterLabel.setVisible(false);
+    }
+
+    /**
+     * Sets the text in the filter label.
+     * 
+     * @param name
+     *            The name to set it to.
+     */
+    public void setFilterLabel(String name) {
+        filterLabel.setText(name);
+    }
+
+    /**
+     * Sets the text in the budget filter label.
+     * 
+     * @param name
+     *            The name to set it to.
+     */
+    public void setBudgetLabel(String name) {
+        budgetFilterLabel.setText(name);
+        budgetFilterLabel.setVisible(false);
+        budgetFilterLabel.setVisible(true);
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
     /**
@@ -58,12 +74,13 @@ public class BalanceFilterPanel extends javax.swing.JPanel {
      */
     // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed"
-    // desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         filterNameDescriptionLabel = new javax.swing.JLabel();
         filterNameLabel = new javax.swing.JLabel();
         filterLabel = new javax.swing.JLabel();
+        budgetFilterLabel = new javax.swing.JLabel();
         removeFilterButton = new javax.swing.JButton();
 
         setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
@@ -76,6 +93,7 @@ public class BalanceFilterPanel extends javax.swing.JPanel {
 
         filterLabel.setText("");
         add(filterLabel);
+        add(budgetFilterLabel);
 
         removeFilterButton.setText("-");
         removeFilterButton
@@ -89,11 +107,12 @@ public class BalanceFilterPanel extends javax.swing.JPanel {
 
     private void removeFilterButtonActionPerformed(
             java.awt.event.ActionEvent evt) {// GEN-FIRST:event_removeFilterButtonActionPerformed
-        balanceViewerTab.removeFilter(type, filterLabel.getText());
-        balanceViewerTab.removeFilterPanel(this);
+        viewerTab.removeFilter(name, filterLabel.getText());
+        viewerTab.removeFilterPanel(this);
     }// GEN-LAST:event_removeFilterButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel budgetFilterLabel;
     private javax.swing.JLabel filterLabel;
     private javax.swing.JLabel filterNameDescriptionLabel;
     private javax.swing.JLabel filterNameLabel;
