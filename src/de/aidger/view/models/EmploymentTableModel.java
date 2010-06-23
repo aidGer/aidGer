@@ -76,6 +76,7 @@ public class EmploymentTableModel extends TableModel {
                 .getContractId());
 
             Calendar cal = Calendar.getInstance();
+            cal.clear();
             cal.set(Calendar.MONTH, employment.getMonth() - 1);
             cal.set(Calendar.YEAR, employment.getYear());
 
