@@ -6,6 +6,7 @@ import java.text.MessageFormat;
 import java.util.List;
 import java.util.Vector;
 
+import de.aidger.model.Runtime;
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
@@ -33,75 +34,82 @@ public class WelcomeTab extends Tab {
     public WelcomeTab() {
         initComponents();
 
-        List<IActivity> activities = null;
-        List<IAssistant> assistants = null;
-        List<IEmployment> employments = null;
-        List<ICourse> courses = null;
-        List<IFinancialCategory> financials = null;
-        try {
-            activities = (new Activity()).getAll();
-            assistants = (new Assistant()).getAll();
-            employments = (new Employment()).getAll();
-            courses = (new Course()).getAll();
-            financials = (new FinancialCategory()).getAll();
-        } catch (AdoHiveException ex) {
+        if (Runtime.getInstance().isFirstStart()) {
+            statisticsLabel1.setText(_("Currently no statistics are available."));
+            statisticsLabel2.setText("");
+            statisticsLabel3.setText("");
+            statisticsLabel4.setText("");
+            statisticsLabel5.setText("");
+        } else {
+            List<IActivity> activities = null;
+            List<IAssistant> assistants = null;
+            List<IEmployment> employments = null;
+            List<ICourse> courses = null;
+            List<IFinancialCategory> financials = null;
+            try {
+                activities = (new Activity()).getAll();
+                assistants = (new Assistant()).getAll();
+                employments = (new Employment()).getAll();
+                courses = (new Course()).getAll();
+                financials = (new FinancialCategory()).getAll();
+            } catch (AdoHiveException ex) {
+            }
+
+            final List<String> listAct = new Vector<String>();
+            if (activities != null) {
+                int min = activities.size() > 20 ? activities.size() - 20 : 0;
+
+                for (int i = activities.size() - 1; i >= min; --i) {
+                    listAct.add(activities.get(i).getContent());
+                }
+            }
+
+            activitiesList.setModel(new javax.swing.AbstractListModel() {
+                String[] strings = listAct.toArray(new String[0]);
+
+                public int getSize() {
+                    return strings.length;
+                }
+
+                public Object getElementAt(int i) {
+                    return strings[i];
+                }
+            });
+
+            Integer[] qualifications = new Integer[] { 0, 0, 0 };
+            for (IAssistant a : assistants) {
+                if (a.getQualification().equals("u")) {
+                    ++qualifications[0];
+                } else if (a.getQualification().equals("c")) {
+                    ++qualifications[1];
+                } else {
+                    ++qualifications[2];
+                }
+            }
+
+            int funds = 0;
+            for (IFinancialCategory f : financials) {
+                for (int b : f.getBudgetCosts()) {
+                    funds += b;
+                }
+            }
+
+            statisticsLabel1.setText(MessageFormat.format(
+                _("aidGer has created {0} activities."), new Object[] { activities
+                    .size() }));
+            statisticsLabel2.setText(MessageFormat.format(
+                _("{0} assistants are working in {1} employments."), new Object[] {
+                        assistants.size(), employments.size() }));
+            statisticsLabel3.setText(MessageFormat.format(
+                _("These employments are part of {0} courses."),
+                new Object[] { courses.size() }));
+            statisticsLabel4
+                .setText(MessageFormat.format(
+                        _("Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."),
+                        (Object[]) qualifications));
+            statisticsLabel5.setText(MessageFormat.format(
+                _("They are using funds of {0} Euros."), new Object[] { funds }));
         }
-
-        final List<String> listAct = new Vector<String>();
-        if (activities != null) {
-            int min = activities.size() > 20 ? activities.size() - 20 : 0;
-
-            for (int i = activities.size() - 1; i >= min; --i) {
-                listAct.add(activities.get(i).getContent());
-            }
-        }
-
-        activitiesList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = listAct.toArray(new String[0]);
-
-            public int getSize() {
-                return strings.length;
-            }
-
-            public Object getElementAt(int i) {
-                return strings[i];
-            }
-        });
-
-        Integer[] qualifications = new Integer[] { 0, 0, 0 };
-        for (IAssistant a : assistants) {
-            if (a.getQualification().equals("u")) {
-                ++qualifications[0];
-            } else if (a.getQualification().equals("c")) {
-                ++qualifications[1];
-            } else {
-                ++qualifications[2];
-            }
-        }
-
-        int funds = 0;
-        for (IFinancialCategory f : financials) {
-            for (int b : f.getBudgetCosts()) {
-                funds += b;
-            }
-        }
-
-        statisticsLabel1.setText(MessageFormat.format(
-            _("aidGer has created {0} activities."), new Object[] { activities
-                .size() }));
-        statisticsLabel2.setText(MessageFormat.format(
-            _("{0} assistants are working in {1} employments."), new Object[] {
-                    assistants.size(), employments.size() }));
-        statisticsLabel3.setText(MessageFormat.format(
-            _("These employments are part of {0} courses."),
-            new Object[] { courses.size() }));
-        statisticsLabel4
-            .setText(MessageFormat
-                .format(
-                    _("Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."),
-                    (Object[]) qualifications));
-        statisticsLabel5.setText(MessageFormat.format(
-            _("They are using funds of {0} Euros."), new Object[] { funds }));
     }
 
     /**
