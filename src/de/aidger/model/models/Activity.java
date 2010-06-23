@@ -102,7 +102,6 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
     @Override
     public Activity clone() {
         Activity a = new Activity();
-        a.setId(id);
         a.setAssistantId(assistantId);
         a.setContent(content);
         a.setCourseId(courseId);
@@ -112,6 +111,7 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
         a.setRemark(remark);
         a.setSender(sender);
         a.setType(type);
+        a.doClone(this);
         return a;
     }
 

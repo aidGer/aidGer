@@ -70,11 +70,11 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
     @Override
     public FinancialCategory clone() {
         FinancialCategory f = new FinancialCategory();
-        f.setId(id);
         f.setBudgetCosts(budgetCosts);
         f.setFunds(funds);
         f.setName(name);
         f.setYear(year);
+        f.doClone(this);
         return f;
     }
 

@@ -68,11 +68,11 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
     @Override
     public Assistant clone() {
         Assistant a = new Assistant();
-        a.setId(id);
         a.setEmail(email);
         a.setFirstName(firstName);
         a.setLastName(lastName);
         a.setQualification(qualification);
+        a.doClone(this);
         return a;
     }
 

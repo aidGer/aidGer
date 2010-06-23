@@ -404,6 +404,15 @@ public abstract class AbstractModel<T> extends Observable implements
     }
 
     /**
+     * Get the state of the model in the db.
+     *
+     * @return True if the model is new
+     */
+    protected boolean isNew() {
+        return isNew;
+    }
+
+    /**
      * Returns a string containing all informations stored in the model.
      *
      * @return A string containing informations on the model
@@ -479,6 +488,22 @@ public abstract class AbstractModel<T> extends Observable implements
         }
 
         return ret;
+    }
+
+    /**
+     * Protected helper method to correctly clone models with updatePKs = true.
+     *
+     * @param toClone
+     *              The model that gets cloned
+     */
+    protected void doClone(AbstractModel toClone) {
+        isNew = toClone.isNew;
+        if (isNew) {
+            pkModel = null;
+        } else if (updatePKs) {
+            pkModel = toClone.pkModel;
+        }
+        setId(toClone.getId());
     }
 
 }

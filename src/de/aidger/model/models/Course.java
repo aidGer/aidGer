@@ -119,7 +119,6 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     @Override
     public Course clone() {
         Course c = new Course();
-        c.setId(id);
         c.setAdvisor(advisor);
         c.setDescription(description);
         c.setFinancialCategoryId(financialCategoryId);
@@ -132,6 +131,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
         c.setSemester(semester);
         c.setTargetAudience(targetAudience);
         c.setUnqualifiedWorkingHours(unqualifiedWorkingHours);
+        c.doClone(this);
         return c;
     }
 

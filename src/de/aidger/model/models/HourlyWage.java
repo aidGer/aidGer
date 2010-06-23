@@ -68,11 +68,11 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
     @Override
     public HourlyWage clone() {
         HourlyWage h = new HourlyWage();
-        h.setId(id);
         h.setMonth(month);
         h.setQualification(qualification);
         h.setWage(wage);
         h.setYear(year);
+        h.doClone(this);
         return h;
     }
 

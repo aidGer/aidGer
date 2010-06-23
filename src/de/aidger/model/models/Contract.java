@@ -81,13 +81,13 @@ public class Contract extends AbstractModel<IContract> implements IContract {
     @Override
     public Contract clone() {
         Contract c = new Contract();
-        c.setId(id);
         c.setCompletionDate(completionDate);
         c.setConfirmationDate(confirmationDate);
         c.setDelegation(delegation);
         c.setEndDate(endDate);
         c.setStartDate(startDate);
         c.setType(type);
+        c.doClone(this);
         return c;
     }
 

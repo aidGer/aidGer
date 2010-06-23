@@ -121,6 +121,7 @@ public class Employment extends AbstractModel<IEmployment> implements
         e.setQualification(qualification);
         e.setRemark(remark);
         e.setYear(year);
+        e.doClone(this);
         return e;
     }
 
