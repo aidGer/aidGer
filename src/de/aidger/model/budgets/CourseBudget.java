@@ -16,6 +16,16 @@ public class CourseBudget {
     private String name;
 
     /**
+     * The semester of this budget's course.
+     */
+    private String semester;
+
+    /**
+     * The lecturer of this course.
+     */
+    private String lecturer;
+
+    /**
      * The booked budget of this course budget.
      */
     private double bookedBudget;
@@ -40,6 +50,8 @@ public class CourseBudget {
      */
     public CourseBudget() {
         setName(null);
+        setSemester(null);
+        setLecturer(null);
         setBookedBudget(setAvailableBudget(setTotalBudget(0)));
         setOverBooked(false);
     }
@@ -139,5 +151,43 @@ public class CourseBudget {
      */
     public boolean isOverBooked() {
         return overBooked;
+    }
+
+    /**
+     * Sets the semester of this budget's course.
+     * 
+     * @param semester
+     *            The semester.
+     */
+    public void setSemester(String semester) {
+        this.semester = semester;
+    }
+
+    /**
+     * Returns the semester of this course.
+     * 
+     * @return the semester
+     */
+    public String getSemester() {
+        return semester;
+    }
+
+    /**
+     * Sets the lecturer of this course.
+     * 
+     * @param lecturer
+     *            The lecturer of this course.
+     */
+    public void setLecturer(String lecturer) {
+        this.lecturer = lecturer;
+    }
+
+    /**
+     * Returns the lecturer of this course.
+     * 
+     * @return the lecturer
+     */
+    public String getLecturer() {
+        return lecturer;
     }
 }

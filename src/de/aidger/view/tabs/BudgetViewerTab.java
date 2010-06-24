@@ -6,10 +6,16 @@ import java.util.List;
 import java.util.Vector;
 
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
+import de.aidger.controller.ActionNotFoundException;
+import de.aidger.controller.ActionRegistry;
+import de.aidger.controller.actions.BudgetGenerateAction;
 import de.aidger.model.budgets.BudgetFilter;
 import de.aidger.model.budgets.BudgetFilter.Comparison;
 import de.aidger.model.models.Course;
+import de.aidger.utils.reports.BalanceHelper;
+import de.aidger.view.UI;
 import de.aidger.view.reports.BalanceFilterPanel;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
@@ -32,18 +38,69 @@ public class BudgetViewerTab extends ReportTab {
     private Vector<BalanceFilterPanel> filterPanels = null;
 
     /**
-     * Initializes a new BudgetViewerTab.
+     * The table model of the content table.
+     */
+    private final DefaultTableModel contentTableModel = new DefaultTableModel(
+        null,
+        new String[] { _("Course"), _("Semester"), _("Lecturer"),
+                _("Booked budgets"), _("Availabel budgets"), _("Total budgets") }) {
+
+        @Override
+        public boolean isCellEditable(int rowIndex, int columnIndex) {
+            return false;
+        }
+    };
+
+    /**
+     * Initializes a new BudgetViewerTab with the available filters.
      */
     public BudgetViewerTab() {
         initComponents();
         budgetFilter = new BudgetFilter();
         filterPanels = new Vector<BalanceFilterPanel>();
         budgetFilterText.setVisible(false);
-        String[] filterNames = { _("Lecturer"), _("Available budgets"),
-                _("Booked budgets"), _("Total budgets") };
+        try {
+            generateButton.setAction(ActionRegistry.getInstance().get(
+                BudgetGenerateAction.class.getName()));
+        } catch (ActionNotFoundException ex) {
+            ex.printStackTrace();
+            UI.displayError(ex.getMessage());
+        }
+        String[] filterNames = { _("Lecturer"), _("Semester"),
+                _("Available budgets"), _("Booked budgets"), _("Total budgets") };
         for (int i = 0; i < filterNames.length; i++) {
             filterNameComboBox.addItem(filterNames[i]);
         }
+    }
+
+    /**
+     * Returns the budget filter of this budget report.
+     * 
+     * @return The budget filter
+     */
+    public BudgetFilter getBudgetFilter() {
+        return budgetFilter;
+    }
+
+    /**
+     * Removes all rows of the table.
+     */
+    public void clearTable() {
+        while (contentTableModel.getRowCount() > 0) {
+            contentTableModel.removeRow(0);
+        }
+    }
+
+    /**
+     * Adds a row, with a budget course, to the table of budget courses.
+     * 
+     * @param objectArray
+     *            The budget course to add.
+     */
+    public void addRow(Object[] objectArray) {
+        contentTableModel.addRow(objectArray);
+        contentTable.setVisible(false);
+        contentTable.setVisible(true);
     }
 
     /**
@@ -70,15 +127,38 @@ public class BudgetViewerTab extends ReportTab {
     @Override
     public void removeFilter(String name, String value) {
         if (name.equals(_("Lecturer"))) {
+            /*
+             * The filter is a filter for lecturers. Check if it is contained in
+             * the filter list and then remove it.
+             */
             if (budgetFilter.getLecturers().contains(value)) {
                 budgetFilter.removeLecturer(value);
             }
+        } else if (name.equals(_("Semester"))) {
+            /*
+             * The filter is a filter for semesters. Check if it is contained in
+             * teh filter list and the remove it.
+             */
+            if (budgetFilter.getSemesters().contains(value)) {
+                budgetFilter.removeSemester(value);
+            }
         } else {
+            /*
+             * The filter is a filter for a specific budget. Remove the filter
+             * panel of that filter and set its comparison method to none.
+             */
             for (BalanceFilterPanel filterPanel : filterPanels) {
                 if (filterPanel.getName().equals(name)) {
                     filterPanels.remove(filterPanel);
                     break;
                 }
+            }
+            if (name.equals(_("Available budgets"))) {
+                budgetFilter.setAvailableComparison(Comparison.NONE);
+            } else if (name.equals(_("Booked budgets"))) {
+                budgetFilter.setBookedComparison(Comparison.NONE);
+            } else if (name.equals(_("Total budgets"))) {
+                budgetFilter.setTotalComparison(Comparison.NONE);
             }
         }
     }
@@ -105,6 +185,8 @@ public class BudgetViewerTab extends ReportTab {
         addFilterButton = new javax.swing.JButton();
         filterContentPanel = new javax.swing.JPanel();
         contentPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        contentTable = new javax.swing.JTable();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -117,6 +199,11 @@ public class BudgetViewerTab extends ReportTab {
             .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         generateButton
             .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        generateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generateButtonActionPerformed(evt);
+            }
+        });
         jToolBar1.add(generateButton);
 
         exportButton.setText(_("Export"));
@@ -171,8 +258,13 @@ public class BudgetViewerTab extends ReportTab {
 
         jPanel1.add(filtersPanel, java.awt.BorderLayout.PAGE_START);
 
-        contentPanel.setLayout(new javax.swing.BoxLayout(contentPanel,
-            javax.swing.BoxLayout.LINE_AXIS));
+        contentPanel.setLayout(new java.awt.GridLayout(0, 1));
+
+        contentTable.setModel(contentTableModel);
+        jScrollPane1.setViewportView(contentTable);
+
+        contentPanel.add(jScrollPane1);
+
         jPanel1.add(contentPanel, java.awt.BorderLayout.CENTER);
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -181,7 +273,8 @@ public class BudgetViewerTab extends ReportTab {
     private void filterNameComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_filterNameComboBoxItemStateChanged
         switch (filterNameComboBox.getSelectedIndex()) {
         /*
-         * Clear the filter combo box and add all entries of this filter type.
+         * Clear the filter combo box and add all entries of the selected filter
+         * type.
          */
         case 0:
             filterComboBox.removeAllItems();
@@ -202,9 +295,33 @@ public class BudgetViewerTab extends ReportTab {
                 }
             }
             break;
+        /*
+         * Clear the filter combo box and add all entries of the selected filter
+         * type.
+         */
         case 1:
+            filterComboBox.removeAllItems();
+            budgetFilterText.setVisible(false);
+            budgetFilterText.setText("");
+            try {
+                courses = (new Course()).getAll();
+                Vector<String> courseSemesters = new BalanceHelper()
+                    .getSemesters();
+                for (String semester : courseSemesters) {
+                    filterComboBox.addItem(semester);
+                }
+            } catch (AdoHiveException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            break;
+        /*
+         * Clear the filter combo box and add all entries of the selected filter
+         * type. Cases 2-4 are the same, as they compare numbers.
+         */
         case 2:
         case 3:
+        case 4:
             filterComboBox.removeAllItems();
             filterComboBox.addItem(Comparison.LESS);
             filterComboBox.addItem(Comparison.LESSEQUAL);
@@ -220,8 +337,8 @@ public class BudgetViewerTab extends ReportTab {
     private void addFilterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFilterButtonActionPerformed
         switch (filterNameComboBox.getSelectedIndex()) {
         /*
-         * If the filter doesn't exist, add it, repaint the combo box and set
-         * the selected index of the name combo box to the type of filter added.
+         * Add the filter to the filter list if it doesn't exist yet and create
+         * a new panel that displays the filter.
          */
         case 0:
             if (!budgetFilter.getLecturers().contains(
@@ -234,7 +351,27 @@ public class BudgetViewerTab extends ReportTab {
                     (String) filterComboBox.getSelectedItem(), this));
             }
             break;
+        /*
+         * Add the filter to the filter list if it doesn't exist yet and create
+         * a new panel that displays the filter.
+         */
         case 1:
+            if (!budgetFilter.getSemesters().contains(
+                filterComboBox.getSelectedItem().toString())
+                    && filterComboBox.getItemCount() > 0) {
+                budgetFilter.addSemester((String) filterComboBox
+                    .getSelectedItem());
+                filterContentPanel.add(new BalanceFilterPanel(
+                    filterNameComboBox.getItemAt(1).toString(),
+                    (String) filterComboBox.getSelectedItem(), this));
+            }
+            break;
+        /*
+         * Change the value and comparison method of the budget filter to the
+         * ones given. If there already is a panel containing a filter of this
+         * type, update it. Otherwise create one.
+         */
+        case 2:
             if (!budgetFilterText.getText().equals("")) {
                 budgetFilter.setAvailableBudget(Double
                     .parseDouble(budgetFilterText.getText()));
@@ -265,11 +402,16 @@ public class BudgetViewerTab extends ReportTab {
                 }
             }
             break;
-        case 2:
+        /*
+         * Change the value and comparison method of the budget filter to the
+         * ones given. If there already is a panel containing a filter of this
+         * type, update it. Otherwise create one.
+         */
+        case 3:
             if (!budgetFilterText.getText().equals("")) {
-                budgetFilter.setAvailableBudget(Double
+                budgetFilter.setBookedBudget(Double
                     .parseDouble(budgetFilterText.getText()));
-                budgetFilter.setAvailableComparison((Comparison) filterComboBox
+                budgetFilter.setBookedComparison((Comparison) filterComboBox
                     .getSelectedItem());
                 int i = 0;
                 boolean filterPanelFound = false;
@@ -296,11 +438,16 @@ public class BudgetViewerTab extends ReportTab {
                 }
             }
             break;
-        case 3:
+        /*
+         * Change the value and comparison method of the budget filter to the
+         * ones given. If there already is a panel containing a filter of this
+         * type, update it. Otherwise create one.
+         */
+        case 4:
             if (!budgetFilterText.getText().equals("")) {
-                budgetFilter.setAvailableBudget(Double
-                    .parseDouble(budgetFilterText.getText()));
-                budgetFilter.setAvailableComparison((Comparison) filterComboBox
+                budgetFilter.setTotalBudget(Double.parseDouble(budgetFilterText
+                    .getText()));
+                budgetFilter.setTotalComparison((Comparison) filterComboBox
                     .getSelectedItem());
                 int i = 0;
                 boolean filterPanelFound = false;
@@ -332,6 +479,9 @@ public class BudgetViewerTab extends ReportTab {
         filterContentPanel.setVisible(true);
     }//GEN-LAST:event_addFilterButtonActionPerformed
 
+    private void generateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateButtonActionPerformed
+    }//GEN-LAST:event_generateButtonActionPerformed
+
     /*
      * (non-Javadoc)
      * 
@@ -346,6 +496,7 @@ public class BudgetViewerTab extends ReportTab {
     private javax.swing.JButton addFilterButton;
     private javax.swing.JTextField budgetFilterText;
     private javax.swing.JPanel contentPanel;
+    private javax.swing.JTable contentTable;
     private javax.swing.JButton exportButton;
     private javax.swing.JComboBox filterComboBox;
     private javax.swing.JPanel filterContentPanel;
@@ -355,6 +506,7 @@ public class BudgetViewerTab extends ReportTab {
     private javax.swing.JPanel filtersPanel;
     private javax.swing.JButton generateButton;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 

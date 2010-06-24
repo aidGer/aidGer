@@ -17,7 +17,8 @@ public class BudgetFilter {
      * @author aidGer Team
      */
     public enum Comparison {
-        LESS("<"), LESSEQUAL("<="), EQUAL("="), GREATEREQUAL(">="), GREATER(">");
+        NONE(""), LESS("<"), LESSEQUAL("<="), EQUAL("="), GREATEREQUAL(">="), GREATER(
+                ">");
 
         /**
          * The display name of an item.
@@ -49,6 +50,11 @@ public class BudgetFilter {
      * The lecturers to be filtered.
      */
     private final Vector<String> lecturers;
+
+    /**
+     * The semesters to be filtered.
+     */
+    private final Vector<String> semesters;
 
     /**
      * The available budget to be filtered.
@@ -85,8 +91,9 @@ public class BudgetFilter {
      */
     public BudgetFilter() {
         lecturers = new Vector<String>();
+        semesters = new Vector<String>();
         availableBudget = bookedBudget = totalBudget = 0;
-        availableComparison = bookedComparison = totalComparison = Comparison.GREATER;
+        availableComparison = bookedComparison = totalComparison = Comparison.NONE;
     }
 
     /**
@@ -118,6 +125,37 @@ public class BudgetFilter {
      */
     public Vector<String> getLecturers() {
         return lecturers;
+    }
+
+    /**
+     * Adds a semester filter.
+     * 
+     * @param semester
+     *            The semester to filter.
+     */
+    public void addSemester(String semester) {
+        semesters.add(semester);
+    }
+
+    /**
+     * Removes a semester from the filters list.
+     * 
+     * @param semester
+     *            The semester to remove.
+     */
+    public void removeSemester(String semester) {
+        if (semesters.contains(semester)) {
+            semesters.remove(semester);
+        }
+    }
+
+    /**
+     * Returns the vector of semester filters.
+     * 
+     * @return The semester filters.
+     */
+    public Vector<String> getSemesters() {
+        return semesters;
     }
 
     /**
