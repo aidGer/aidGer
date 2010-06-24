@@ -26,11 +26,11 @@ msgstr "Programminformationen anzeigen"
 #: view/tabs/BalanceViewerTab.java:261
 #: view/tabs/BudgetViewerTab.java:196
 msgid "Generate"
-msgstr "Generiere"
+msgstr "Generieren"
 
 #: controller/actions/BudgetGenerateAction.java:35
 msgid "Generate the budget report"
-msgstr "Bericht generieren"
+msgstr "Budgetbericht generieren"
 
 #: controller/actions/DetailViewerCancelAction.java:26
 #: controller/actions/DialogAbortAction.java:26
