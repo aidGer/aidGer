@@ -1,13 +1,14 @@
 package de.aidger.model.models;
 
 import static de.aidger.utils.Translation._;
-import de.aidger.model.AbstractModel;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
-import de.unistuttgart.iste.se.adohive.controller.ICourseManager;
 
 import java.util.List;
 import java.util.Vector;
+
+import de.aidger.model.AbstractModel;
+import de.unistuttgart.iste.se.adohive.controller.ICourseManager;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
  * Represents a single entry in the course column of the database. Contains
@@ -85,10 +86,11 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
                 "lecturer", "targetAudience", "group" }, new String[] {
                 _("Advisor"), _("Description"), _("Semester"), _("Lecturer"),
                 _("Target Audience"), _("Group") });
-        validateExistanceOf(new String[] { "financialCategoryId" }, new String[] {
-                _("Financial Category")  }, new FinancialCategory());
-        validateFormatOf(new String[] { "semester" }, new String[] { _("Semester") },
-                "^(SS[0-9]{2}|WS[0-9]{4}|[0-9]{4})$");
+        validateExistanceOf(new String[] { "financialCategoryId" },
+            new String[] { _("Financial Category") }, new FinancialCategory());
+        validateFormatOf(new String[] { "semester" },
+            new String[] { _("Semester") },
+            "^(SS[0-9]{2}|WS[0-9]{4}|[0-9]{4})$");
     }
 
     /**
@@ -149,20 +151,21 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
         if (o instanceof Course) {
             Course c = (Course) o;
             return c.id == id
-                    && c.numberOfGroups == numberOfGroups && c.part == part
+                    && c.numberOfGroups == numberOfGroups
+                    && c.part == part
                     && c.financialCategoryId == financialCategoryId
                     && ((Double) c.unqualifiedWorkingHours)
-                            .equals(unqualifiedWorkingHours)
+                        .equals(unqualifiedWorkingHours)
                     && (advisor == null ? c.advisor == null : advisor
-                            .equals(c.advisor))
+                        .equals(c.advisor))
                     && (description == null ? c.description == null
                             : description.equals(c.description))
                     && (group == null ? c.group == null : group.equals(c.group))
                     && (remark == null ? c.remark == null : remark
-                            .equals(c.remark))
+                        .equals(c.remark))
                     && (scope == null ? c.scope == null : scope.equals(c.scope))
                     && (semester == null ? c.semester == null : semester
-                            .equals(c.semester))
+                        .equals(c.semester))
                     && (targetAudience == null ? c.targetAudience == null
                             : targetAudience.equals(c.targetAudience));
         } else {
@@ -189,7 +192,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
         hash = 67
                 * hash
                 + (int) (Double.doubleToLongBits(unqualifiedWorkingHours) ^ (Double
-                        .doubleToLongBits(unqualifiedWorkingHours) >>> 32));
+                    .doubleToLongBits(unqualifiedWorkingHours) >>> 32));
         hash = 67 * hash + (scope != null ? scope.hashCode() : 0);
         hash = 67 * hash + part;
         hash = 67 * hash + (group != null ? group.hashCode() : 0);
@@ -199,19 +202,19 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Custom validation function
-     *
+     * 
      * @return True if everything is correct
      */
     public boolean validate() {
         boolean ret = true;
         if (numberOfGroups <= 0) {
-            addError("numberOfGroups", _("Number Of Groups"),
-                    _("has to be bigger than 0"));
+            addError("numberOfGroups", _("Number of Groups"),
+                _("has to be bigger than 0"));
             ret = false;
         }
         if (unqualifiedWorkingHours <= 0.0) {
-            addError("unqualifiedWorkingHours", _("Unqualified Working Hours"),
-                    _("has to be bigger than 0"));
+            addError("unqualifiedWorkingHours", _("AWH per group"),
+                _("has to be bigger than 0"));
             ret = false;
         }
         return ret;
@@ -219,7 +222,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Custom validation function for remove().
-     *
+     * 
      * @return True if everything is correct
      */
     public boolean validateOnRemove() throws AdoHiveException {
@@ -232,7 +235,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
             addError(_("Course is still linked to an Activity."));
             ret = false;
         }
-         if (emp.size() > 0) {
+        if (emp.size() > 0) {
             addError(_("Course is still linked to an Employment"));
             ret = false;
         }
@@ -241,16 +244,17 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Get a list of all courses with the given financial category.
-     *
+     * 
      * @param category
-     *              The given financial category
+     *            The given financial category
      * @return A list of courses
      * @throws AdoHiveException
      */
-    public List<Course> getCourses(FinancialCategory category) throws AdoHiveException {
+    public List<Course> getCourses(FinancialCategory category)
+            throws AdoHiveException {
         ICourseManager mgr = (ICourseManager) getManager();
         List<ICourse> list = mgr.getCourses(category);
-        
+
         List<Course> ret = new Vector<Course>();
         for (ICourse course : list) {
             ret.add(new Course(course));

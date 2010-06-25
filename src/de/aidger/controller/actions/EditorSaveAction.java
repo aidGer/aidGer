@@ -95,8 +95,8 @@ public class EditorSaveAction extends AbstractAction {
             course
                 .setUnqualifiedWorkingHours(form.getUnqualifiedWorkingHours());
         } catch (NumberFormatException e) {
-            course.addError("unqualifiedWorkingHours", _("Unqualified Working Hours"), 
-                    new PresenceValidator(course, new String[0], new String[0])
+            course.addError("unqualifiedWorkingHours", _("AWH per group"),
+                new PresenceValidator(course, new String[0], new String[0])
                     .getMessage());
         }
 
@@ -174,22 +174,23 @@ public class EditorSaveAction extends AbstractAction {
         try {
             fc.setBudgetCosts(form.getBudgetCosts());
         } catch (NumberFormatException e) {
-            fc.addError("budgetCosts", _("Budget Costs"), new PresenceValidator(fc,
-                new String[0], new String[0]).getMessage());
+            fc.addError("budgetCosts", _("Budget Costs"),
+                new PresenceValidator(fc, new String[0], new String[0])
+                    .getMessage());
         }
 
         try {
             fc.setFunds(form.getFunds());
         } catch (NumberFormatException e) {
-            fc.addError("funds", _("Funds"), new PresenceValidator(fc, new String[0],
-                    new String[0]).getMessage());
+            fc.addError("funds", _("Funds"), new PresenceValidator(fc,
+                new String[0], new String[0]).getMessage());
         }
 
         try {
             fc.setYear(form.getYear());
         } catch (NumberFormatException e) {
-            fc.addError("year", _("Year"), new PresenceValidator(fc, new String[0],
-                    new String[0]).getMessage());
+            fc.addError("year", _("Year"), new PresenceValidator(fc,
+                new String[0], new String[0]).getMessage());
         }
 
         try {
@@ -227,8 +228,8 @@ public class EditorSaveAction extends AbstractAction {
             hw.setWage(new BigDecimal(form.getWage()).setScale(2,
                 BigDecimal.ROUND_HALF_EVEN));
         } catch (NumberFormatException e) {
-            hw.addError("wage", _("Wage"), new PresenceValidator(hw, new String[0],
-                    new String[0]).getMessage());
+            hw.addError("wage", _("Wage"), new PresenceValidator(hw,
+                new String[0], new String[0]).getMessage());
         }
 
         if (form.isEditMode()) {
@@ -242,8 +243,8 @@ public class EditorSaveAction extends AbstractAction {
             finish.setTime(form.getFinishDate());
 
             if (start.after(finish)) {
-                hw.addError("end date", _("End Date"),
-                        _("must be after start date"));
+                hw.addError("end date", _("End date"),
+                    _("must be after start date"));
             } else {
                 models.clear();
 
@@ -308,7 +309,7 @@ public class EditorSaveAction extends AbstractAction {
             employment.setFunds(form.getFunds());
         } catch (NumberFormatException e) {
             employment.addError("funds", _("Funds"), new PresenceValidator(
-                    employment, new String[0], new String[0]).getMessage());
+                employment, new String[0], new String[0]).getMessage());
         }
 
         List<Date> dates = form.getDates();
@@ -336,8 +337,8 @@ public class EditorSaveAction extends AbstractAction {
                 clone.setHourCount(hcs.get(i));
             }
         } catch (NumberFormatException e) {
-            employment.addError("hourCount", _("Hour Count"), new
-                    PresenceValidator(employment, new String[0], new String[0])
+            employment.addError("hourCount", _("Hour count"),
+                new PresenceValidator(employment, new String[0], new String[0])
                     .getMessage());
         }
 
