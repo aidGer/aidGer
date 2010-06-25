@@ -33,6 +33,7 @@ import de.aidger.controller.actions.ViewerDetailViewAction;
 import de.aidger.controller.actions.ViewerEditAction;
 import de.aidger.model.Runtime;
 import de.aidger.view.UI;
+import de.aidger.view.models.ActivityTableModel;
 import de.aidger.view.models.AssistantTableModel;
 import de.aidger.view.models.ContractTableModel;
 import de.aidger.view.models.CourseTableModel;
@@ -156,6 +157,9 @@ public class ViewerTab extends Tab {
             break;
         case Contract:
             tableModel = new ContractTableModel();
+            break;
+        case Activity:
+            tableModel = new ActivityTableModel();
             break;
         }
 
@@ -414,6 +418,8 @@ public class ViewerTab extends Tab {
             return _("Employments");
         case Contract:
             return _("Contracts");
+        case Activity:
+            return _("Activities");
         default:
             return _("Data");
         }

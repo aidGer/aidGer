@@ -17,6 +17,7 @@ import de.aidger.controller.ActionRegistry;
 import de.aidger.controller.actions.EditorCancelAction;
 import de.aidger.controller.actions.EditorSaveAction;
 import de.aidger.model.AbstractModel;
+import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
@@ -177,6 +178,9 @@ public class EditorTab extends Tab {
             case Contract:
                 model = new Contract();
                 break;
+            case Activity:
+                model = new Activity();
+                break;
             }
         }
 
@@ -204,6 +208,8 @@ public class EditorTab extends Tab {
                 return _("Edit employment");
             case Contract:
                 return _("Edit contract");
+            case Activity:
+                return _("Edit activity");
             }
         }
 
@@ -220,6 +226,8 @@ public class EditorTab extends Tab {
             return _("Add employment");
         case Contract:
             return _("Add contract");
+        case Activity:
+            return _("Add activity");
         }
 
         return "";

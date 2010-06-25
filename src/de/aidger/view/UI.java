@@ -610,9 +610,12 @@ public final class UI extends JFrame {
             Task.ViewContracts));
 
         TaskPane tpActivities = new TaskPane(_("Activities"));
-        tpActivities.add(createTaskPaneButton(_("Create new activity"),
-            Task.ViewEmpty));
-        tpActivities.add(createTaskPaneButton(_("Export"), Task.ViewEmpty));
+        tpActivities.add(createTaskPaneButton(_("Show activities"),
+            Task.ViewActivities));
+        tpActivities.add(createTaskPaneButton(_("Create activity"),
+            Task.CreateNewActivity));
+        tpActivities.add(createTaskPaneButton(_("Export activities"),
+            Task.ExportActivities));
 
         TaskPane tpReports = new TaskPane(_("Reports"));
         tpReports.add(createTaskPaneButton(_("Full Balance"),

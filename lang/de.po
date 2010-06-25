@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-26 00:30+0200\n"
+"POT-Creation-Date: 2010-06-26 01:17+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -35,16 +35,16 @@ msgstr "Budgetbericht generieren"
 #: controller/actions/DetailViewerCancelAction.java:26
 #: controller/actions/DialogAbortAction.java:26
 #: controller/actions/EditorCancelAction.java:26
-#: view/tabs/DetailViewerTab.java:465
-#: view/tabs/EditorTab.java:332
+#: view/tabs/DetailViewerTab.java:469
+#: view/tabs/EditorTab.java:340
 msgid "Cancel"
 msgstr "Abbrechen"
 
 #: controller/actions/DetailViewerEditAction.java:28
 #: controller/actions/ViewerEditAction.java:27
-#: view/tabs/DetailViewerTab.java:462
-#: view/tabs/ViewerTab.java:519
-#: view/tabs/ViewerTab.java:544
+#: view/tabs/DetailViewerTab.java:466
+#: view/tabs/ViewerTab.java:525
+#: view/tabs/ViewerTab.java:550
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -54,7 +54,7 @@ msgstr "Aktion abbrechen"
 
 #: controller/actions/EditorSaveAction.java:61
 #: controller/actions/SaveSettingsAction.java:29
-#: view/tabs/EditorTab.java:329
+#: view/tabs/EditorTab.java:337
 msgid "Save"
 msgstr "Speichern"
 
@@ -213,7 +213,6 @@ msgstr "Momentanen Reiter ausdrucken"
 #: view/tabs/BalanceViewerTab.java:270
 #: view/tabs/BudgetViewerTab.java:208
 #: view/tabs/ProtocolViewerTab.java:164
-#: view/UI.java:615
 msgid "Export"
 msgstr "Exportieren"
 
@@ -301,13 +300,14 @@ msgid "Please select an executable."
 msgstr "Bitte wählen sie eine ausführbare Datei aus."
 
 #: controller/actions/ViewerActivitiesAction.java:23
-#: view/tabs/ViewerTab.java:525
+#: view/tabs/ViewerTab.java:422
+#: view/tabs/ViewerTab.java:531
 #: view/UI.java:612
 msgid "Activities"
 msgstr "Vorgänge"
 
 #: controller/actions/ViewerAddAction.java:27
-#: view/tabs/ViewerTab.java:551
+#: view/tabs/ViewerTab.java:557
 msgid "Add"
 msgstr "Hinzufügen"
 
@@ -316,9 +316,9 @@ msgstr "Hinzufügen"
 #: view/forms/EmploymentEditorForm.java:450
 #: view/forms/EmploymentViewerForm.java:119
 #: view/models/EmploymentTableModel.java:33
-#: view/tabs/ViewerTab.java:60
-#: view/tabs/ViewerTab.java:528
-#: view/tabs/ViewerTab.java:574
+#: view/tabs/ViewerTab.java:61
+#: view/tabs/ViewerTab.java:534
+#: view/tabs/ViewerTab.java:580
 msgid "Contract"
 msgstr "Vertrag"
 
@@ -340,8 +340,8 @@ msgid "The related contract could not be displayed."
 msgstr "Der zugehörige Vertrag konnte nicht angezeigt werden."
 
 #: controller/actions/ViewerDeleteAction.java:32
-#: view/tabs/ViewerTab.java:522
-#: view/tabs/ViewerTab.java:558
+#: view/tabs/ViewerTab.java:528
+#: view/tabs/ViewerTab.java:564
 msgid "Delete"
 msgstr "Löschen"
 
@@ -368,8 +368,8 @@ msgid "A database error occurred during removing."
 msgstr "Es ist ein Datenbankfehler beim Löschen aufgetreten."
 
 #: controller/actions/ViewerDetailViewAction.java:30
-#: view/tabs/ViewerTab.java:516
-#: view/tabs/ViewerTab.java:537
+#: view/tabs/ViewerTab.java:522
+#: view/tabs/ViewerTab.java:543
 msgid "View"
 msgstr "Anzeigen"
 
@@ -430,7 +430,7 @@ msgstr "Dokumenttyp"
 #: view/forms/EmploymentEditorForm.java:436
 #: view/forms/EmploymentViewerForm.java:105
 #: view/models/EmploymentTableModel.java:33
-#: view/tabs/ViewerTab.java:58
+#: view/tabs/ViewerTab.java:59
 msgid "Assistant"
 msgstr "Hilfskraft"
 
@@ -440,7 +440,7 @@ msgstr "Hilfskraft"
 #: view/forms/EmploymentViewerForm.java:111
 #: view/models/EmploymentTableModel.java:33
 #: view/tabs/BudgetViewerTab.java:47
-#: view/tabs/ViewerTab.java:58
+#: view/tabs/ViewerTab.java:59
 msgid "Course"
 msgstr "Veranstaltung"
 
@@ -589,7 +589,7 @@ msgstr "Gruppe"
 #: view/forms/CourseEditorForm.java:375
 #: view/forms/CourseViewerForm.java:203
 #: view/models/CourseTableModel.java:29
-#: view/tabs/ViewerTab.java:59
+#: view/tabs/ViewerTab.java:60
 msgid "Financial Category"
 msgstr "Finanzkategorie"
 
@@ -798,7 +798,7 @@ msgid "Budget costs from"
 msgstr "Budgetkosten von"
 
 #: utils/pdf/ProtocolConverter.java:82
-#: view/UI.java:624
+#: view/UI.java:627
 msgid "Activity Protocol"
 msgstr "Vorgangsprotokoll"
 
@@ -999,60 +999,72 @@ msgstr "Beschäftigung anzeigen"
 msgid "View contract"
 msgstr "Vertrag anzeigen"
 
-#: view/tabs/DetailViewerTab.java:500
-#: view/tabs/DetailViewerTab.java:539
+#: view/tabs/DetailViewerTab.java:379
+msgid "View activity"
+msgstr "Vorgang anzeigen"
+
+#: view/tabs/DetailViewerTab.java:504
+#: view/tabs/DetailViewerTab.java:543
 msgid "None"
 msgstr "Keine"
 
-#: view/tabs/EditorTab.java:196
+#: view/tabs/EditorTab.java:200
 msgid "Edit course"
 msgstr "Veranstaltung bearbeiten"
 
-#: view/tabs/EditorTab.java:198
+#: view/tabs/EditorTab.java:202
 msgid "Edit assistant"
 msgstr "Hilfskraft bearbeiten"
 
-#: view/tabs/EditorTab.java:200
+#: view/tabs/EditorTab.java:204
 msgid "Edit financial category"
 msgstr "Finanzkategorie bearbeiten"
 
-#: view/tabs/EditorTab.java:202
+#: view/tabs/EditorTab.java:206
 msgid "Edit hourly wage"
 msgstr "Stundenlohn bearbeiten"
 
-#: view/tabs/EditorTab.java:204
+#: view/tabs/EditorTab.java:208
 msgid "Edit employment"
 msgstr "Beschäftigung bearbeiten"
 
-#: view/tabs/EditorTab.java:206
+#: view/tabs/EditorTab.java:210
 msgid "Edit contract"
 msgstr "Vertrag bearbeiten"
 
 #: view/tabs/EditorTab.java:212
+msgid "Edit activity"
+msgstr "Vorgang bearbeiten"
+
+#: view/tabs/EditorTab.java:218
 msgid "Add course"
 msgstr "Veranstaltung hinzufügen"
 
-#: view/tabs/EditorTab.java:214
+#: view/tabs/EditorTab.java:220
 msgid "Add assistant"
 msgstr "Hilfskraft hinzufügen"
 
-#: view/tabs/EditorTab.java:216
+#: view/tabs/EditorTab.java:222
 msgid "Add financial category"
 msgstr "Finanzkategorie hinzufügen"
 
-#: view/tabs/EditorTab.java:218
+#: view/tabs/EditorTab.java:224
 msgid "Add hourly wage"
 msgstr "Stundenlohn hinzufügen"
 
-#: view/tabs/EditorTab.java:220
+#: view/tabs/EditorTab.java:226
 msgid "Add employment"
 msgstr "Beschäftigung hinzufügen"
 
-#: view/tabs/EditorTab.java:222
+#: view/tabs/EditorTab.java:228
 msgid "Add contract"
 msgstr "Vertrag hinzufügen"
 
-#: view/tabs/EditorTab.java:348
+#: view/tabs/EditorTab.java:230
+msgid "Add activity"
+msgstr "Vorgang hinzufügen"
+
+#: view/tabs/EditorTab.java:356
 msgid "Hints"
 msgstr "Hinweise"
 
@@ -1068,63 +1080,63 @@ msgstr "Protokollanzeige"
 msgid "Number of days before today to display: "
 msgstr "Anzahl an Tagen die angezeigt werden soll (nach heute):"
 
-#: view/tabs/ViewerTab.java:59
+#: view/tabs/ViewerTab.java:60
 msgid "Hourly Wage"
 msgstr "Stundenlohn"
 
-#: view/tabs/ViewerTab.java:60
+#: view/tabs/ViewerTab.java:61
 msgid "Employment"
 msgstr "Beschäftigung"
 
-#: view/tabs/ViewerTab.java:61
+#: view/tabs/ViewerTab.java:62
 msgid "Activity"
 msgstr "Vorgang"
 
-#: view/tabs/ViewerTab.java:326
-#: view/tabs/ViewerTab.java:340
-#: view/tabs/ViewerTab.java:600
+#: view/tabs/ViewerTab.java:330
+#: view/tabs/ViewerTab.java:344
+#: view/tabs/ViewerTab.java:606
 msgid "Search"
 msgstr "Suchen"
 
-#: view/tabs/ViewerTab.java:373
+#: view/tabs/ViewerTab.java:377
 msgid "1 entity selected."
 msgstr "1 Objekt selektiert."
 
-#: view/tabs/ViewerTab.java:377
+#: view/tabs/ViewerTab.java:381
 #, java-format
 msgid "{0} entities selected."
 msgstr "{0} Objekte selektiert."
 
-#: view/tabs/ViewerTab.java:406
+#: view/tabs/ViewerTab.java:410
 msgid "Master Data Courses"
 msgstr "Stammdaten Veranstaltungen"
 
-#: view/tabs/ViewerTab.java:408
+#: view/tabs/ViewerTab.java:412
 msgid "Master Data Assistants"
 msgstr "Stammdaten Hilfskräfte"
 
-#: view/tabs/ViewerTab.java:410
+#: view/tabs/ViewerTab.java:414
 msgid "Master Data Financial Categories"
 msgstr "Stammdaten Finanzkategorien"
 
-#: view/tabs/ViewerTab.java:412
+#: view/tabs/ViewerTab.java:416
 msgid "Master Data Hourly Wages"
 msgstr "Stammdaten Stundenlöhne"
 
-#: view/tabs/ViewerTab.java:414
+#: view/tabs/ViewerTab.java:418
 #: view/UI.java:603
 msgid "Employments"
 msgstr "Beschäftigungen"
 
-#: view/tabs/ViewerTab.java:416
+#: view/tabs/ViewerTab.java:420
 msgid "Contracts"
 msgstr "Verträge"
 
-#: view/tabs/ViewerTab.java:418
+#: view/tabs/ViewerTab.java:424
 msgid "Data"
 msgstr "Daten"
 
-#: view/tabs/ViewerTab.java:565
+#: view/tabs/ViewerTab.java:571
 msgid "Activites"
 msgstr "Vorgänge"
 
@@ -1298,7 +1310,7 @@ msgid "Setting current tab to \"{0}\""
 msgstr "Momentaner Reiter ist nun \"{0}\""
 
 #: view/UI.java:507
-#: view/UI.java:738
+#: view/UI.java:741
 msgid "Ready"
 msgstr "Bereit"
 
@@ -1339,81 +1351,89 @@ msgid "Show contracts"
 msgstr "Verträge anzeigen"
 
 #: view/UI.java:613
-msgid "Create new activity"
-msgstr "Neuer Vorgang anlegen"
+msgid "Show activities"
+msgstr "Vorgänge anzeigen"
+
+#: view/UI.java:615
+msgid "Create activity"
+msgstr "Vorgang anlegen"
 
 #: view/UI.java:617
+msgid "Export activities"
+msgstr "Vorgänge exportieren"
+
+#: view/UI.java:620
 msgid "Reports"
 msgstr "Berichte"
 
-#: view/UI.java:618
+#: view/UI.java:621
 msgid "Full Balance"
 msgstr "Gesamtbilanz"
 
-#: view/UI.java:620
+#: view/UI.java:623
 msgid "Annual Balance"
 msgstr "Jahresbilanz"
 
-#: view/UI.java:622
+#: view/UI.java:625
 msgid "Semester Balance"
 msgstr "Semesterbilanz"
 
-#: view/UI.java:627
+#: view/UI.java:630
 msgid "Controlling"
 msgstr "Controlling"
 
-#: view/UI.java:629
+#: view/UI.java:632
 msgid "Choose a month"
 msgstr "Wähle einen Monat"
 
-#: view/UI.java:634
+#: view/UI.java:637
 msgid "Budget Check"
 msgstr "Budgetprüfung"
 
-#: view/UI.java:635
+#: view/UI.java:638
 msgid "View budget checks"
 msgstr "Budgetprüfung anzeigen"
 
-#: view/UI.java:638
+#: view/UI.java:641
 msgid "Quick Settings"
 msgstr "Schnelleinstellungen"
 
-#: view/UI.java:640
+#: view/UI.java:643
 msgid "Remember my tabs"
 msgstr "Merke meine Reiter"
 
-#: view/UI.java:650
+#: view/UI.java:653
 msgid "Open reports instantly"
 msgstr "Berichte sofort öffnen"
 
-#: view/UI.java:706
+#: view/UI.java:709
 msgid "Open a new tab"
 msgstr "Öffnet einen neuen Tab"
 
-#: view/UI.java:854
+#: view/UI.java:857
 #, java-format
 msgid "Could not find tab class {0}"
 msgstr "Die Reiterklasse \"{0}\" konnte nicht gefunden werden."
 
-#: view/UI.java:858
+#: view/UI.java:861
 #, java-format
 msgid "Could not find the correct constructor: {0}"
 msgstr "Konnte den korrekten Konstruktor nicht finden: {0}"
 
-#: view/UI.java:862
+#: view/UI.java:865
 #, java-format
 msgid "Instantiating the class {0} failed"
 msgstr "Instanzierung der Klasse {0} ist fehlgeschlagen"
 
-#: view/UI.java:865
+#: view/UI.java:868
 msgid "Can't access a needed function"
 msgstr "Kann nicht auf eine benötigte Funktion zugreifen"
 
-#: view/UI.java:867
+#: view/UI.java:870
 msgid "Incorrect arguments saved for a tab"
 msgstr "Inkorrekte Argumente wurden für den Reiter gespeichert"
 
-#: view/UI.java:872
+#: view/UI.java:875
 msgid "Getting the model from the database failed"
 msgstr "Das Model konnte nicht aus der Datenbank geholt werden"
 
