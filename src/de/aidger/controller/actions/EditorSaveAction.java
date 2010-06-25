@@ -517,12 +517,22 @@ public class EditorSaveAction extends AbstractAction {
 
                     return;
                 }
+
+                UI.getInstance().setStatusMessage(
+                    MessageFormat.format(
+                        _("The entity {0} was saved successfully."),
+                        new Object[] { tab.getType().getDisplayName() }));
             } catch (AdoHiveException e1) {
                 if (e1.getCause().getClass() == SQLIntegrityConstraintViolationException.class) {
                     UI
-                        .displayError(_("Could not save the model because it already exists in the database."));
+                        .displayError(MessageFormat
+                            .format(
+                                _("Could not save the entity {0} because it already exists in the database."),
+                                new Object[] { tab.getType().getDisplayName() }));
                 } else {
-                    UI.displayError(_("Could not save the model to database."));
+                    UI.displayError(MessageFormat.format(
+                        _("Could not save the entity {0} to database."),
+                        new Object[] { tab.getType().getDisplayName() }));
                 }
 
                 break;

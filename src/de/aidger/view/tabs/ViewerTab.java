@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -17,6 +18,8 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTable;
 import javax.swing.KeyStroke;
 import javax.swing.RowFilter;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableRowSorter;
 
@@ -52,7 +55,34 @@ public class ViewerTab extends Tab {
      * The type of the data that will be viewed.
      */
     public enum DataType {
-        Course, Assistant, FinancialCategory, HourlyWage, Employment, Contract, Activity
+        Course(_("Course")), Assistant(_("Assistant")), FinancialCategory(
+                _("Financial Category")), HourlyWage(_("Hourly Wage")), Employment(
+                _("Employment")), Contract(_("Contract")), Activity(
+                _("Activity"));
+
+        /**
+         * The display name of an item.
+         */
+        private final String displayName;
+
+        /**
+         * Constructs a qualification item.
+         * 
+         * @param displayName
+         *            the display name of the item
+         */
+        DataType(final String displayName) {
+            this.displayName = displayName;
+        }
+
+        /**
+         * Returns the display name.
+         * 
+         * @return the display name
+         */
+        public String getDisplayName() {
+            return displayName;
+        }
     }
 
     /**
@@ -332,6 +362,25 @@ public class ViewerTab extends Tab {
 
             }
         });
+
+        // selection listener for table
+        table.getSelectionModel().addListSelectionListener(
+            new ListSelectionListener() {
+                @Override
+                public void valueChanged(ListSelectionEvent e) {
+                    int rowCount = table.getSelectedRowCount();
+
+                    String message = _("1 entity selected.");
+
+                    if (rowCount > 1) {
+                        message = MessageFormat.format(
+                            _("{0} entities selected."),
+                            new Object[] { rowCount });
+                    }
+
+                    UI.getInstance().setStatusMessage(message);
+                }
+            });
     }
 
     /**
