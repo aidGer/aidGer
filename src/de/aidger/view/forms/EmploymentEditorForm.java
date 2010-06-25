@@ -92,6 +92,15 @@ public class EmploymentEditorForm extends Form {
 
         InputPatternFilter.addFilter(txtCostUnit, ".{0,10}");
 
+        cmbAssistant.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cmbQualification.setSelectedItem(Qualification
+                    .valueOf(((Assistant) cmbAssistant.getSelectedItem())
+                        .getQualification()));
+            }
+        });
+
         try {
             List<IAssistant> assistants = (new Assistant()).getAll();
 
@@ -165,9 +174,13 @@ public class EmploymentEditorForm extends Form {
             listModels.add(cmbCourseModel);
             listModels.add(cmbContractModel);
 
+            cmbQualification.setSelectedItem(Qualification
+                .valueOf(((Assistant) cmbAssistant.getSelectedItem())
+                    .getQualification()));
+
             addNewDate();
 
-            if (employment != null) {
+            if (editMode) {
                 cmbFunds.setSelectedItem(String.valueOf(employment.getFunds()));
                 txtCostUnit.setText(employment.getCostUnit());
                 cmbQualification.setSelectedItem(Qualification
