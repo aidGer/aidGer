@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-25 01:12+0200\n"
+"POT-Creation-Date: 2010-06-25 10:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,16 +61,18 @@ msgstr ""
 msgid "must be after start date"
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:421
+#: controller/actions/EditorSaveAction.java:434
 #, java-format
-msgid "You have hired {0} with qualification {1} more than 6 years."
+msgid ""
+"You have hired {0} with qualification {1} more than 6 years. The employments "
+"were created anyway."
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:504
+#: controller/actions/EditorSaveAction.java:517
 msgid "Could not save the model because it already exists in the database."
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:506
+#: controller/actions/EditorSaveAction.java:519
 msgid "Could not save the model to database."
 msgstr ""
 
@@ -127,7 +129,7 @@ msgstr ""
 #: controller/actions/ProtocolExportAction.java:70
 #: controller/actions/ReportExportAction.java:37
 #: controller/actions/ReportExportAction.java:81
-#: view/tabs/BalanceViewerTab.java:269 view/tabs/BudgetViewerTab.java:202
+#: view/tabs/BalanceViewerTab.java:269 view/tabs/BudgetViewerTab.java:204
 #: view/tabs/ProtocolViewerTab.java:164 view/UI.java:579
 msgid "Export"
 msgstr ""
@@ -708,7 +710,7 @@ msgstr ""
 msgid "Balance Viewing"
 msgstr ""
 
-#: view/tabs/BalanceViewerTab.java:286 view/tabs/BudgetViewerTab.java:216
+#: view/tabs/BalanceViewerTab.java:286 view/tabs/BudgetViewerTab.java:220
 msgid "Filters"
 msgstr ""
 
@@ -725,8 +727,9 @@ msgstr ""
 msgid "Booked budgets"
 msgstr ""
 
-#: view/tabs/BudgetViewerTab.java:46
-msgid "Availabel budgets"
+#: view/tabs/BudgetViewerTab.java:46 view/tabs/BudgetViewerTab.java:70
+#: view/tabs/BudgetViewerTab.java:156
+msgid "Available budgets"
 msgstr ""
 
 #: view/tabs/BudgetViewerTab.java:46 view/tabs/BudgetViewerTab.java:70
@@ -734,11 +737,7 @@ msgstr ""
 msgid "Total budgets"
 msgstr ""
 
-#: view/tabs/BudgetViewerTab.java:70 view/tabs/BudgetViewerTab.java:156
-msgid "Available budgets"
-msgstr ""
-
-#: view/tabs/BudgetViewerTab.java:478
+#: view/tabs/BudgetViewerTab.java:484
 msgid "Budget viewing"
 msgstr ""
 

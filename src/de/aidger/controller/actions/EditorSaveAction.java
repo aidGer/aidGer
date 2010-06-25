@@ -395,18 +395,33 @@ public class EditorSaveAction extends AbstractAction {
             List<Employment> employments = (new Employment())
                 .getEmployments(assistant);
 
+            List<Date> dates = new Vector<Date>();
+
             int unchecked = 0, checked = 0;
 
             for (Employment employment : employments) {
-                if (Qualification.valueOf(employment.getQualification()) == Qualification.u
-                        || Qualification.valueOf(employment.getQualification()) == Qualification.b) {
-                    ++unchecked;
-                }
+                Calendar cal = Calendar.getInstance();
+                cal.clear();
 
-                if (Qualification.valueOf(employment.getQualification()) == Qualification.g) {
-                    ++checked;
+                cal.set(Calendar.MONTH, employment.getMonth() - 1);
+                cal.set(Calendar.YEAR, employment.getYear());
+
+                if (!dates.contains(cal.getTime())) {
+                    if (Qualification.valueOf(employment.getQualification()) == Qualification.u
+                            || Qualification.valueOf(employment
+                                .getQualification()) == Qualification.b) {
+                        ++unchecked;
+                    }
+
+                    if (Qualification.valueOf(employment.getQualification()) == Qualification.g) {
+                        ++checked;
+                    }
+
+                    dates.add(cal.getTime());
                 }
             }
+
+            System.out.println(unchecked);
 
             if (checked > limit || unchecked > limit) {
                 String qualification = Qualification.u.toString();
@@ -418,7 +433,7 @@ public class EditorSaveAction extends AbstractAction {
                 UI
                     .displayInfo(MessageFormat
                         .format(
-                            _("You have hired {0} with qualification {1} more than 6 years."),
+                            _("You have hired {0} with qualification {1} more than 6 years. The employments were created anyway."),
                             new Object[] {
                                     (new UIAssistant(assistant)).toString(),
                                     qualification }));
