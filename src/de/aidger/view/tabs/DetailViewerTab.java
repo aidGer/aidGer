@@ -56,7 +56,7 @@ public class DetailViewerTab extends Tab {
     private final DataType type;
 
     private class ListProperty {
-        public String borderName;
+        public String borderName = new String();
         public DataType type;
     }
 
@@ -91,6 +91,9 @@ public class DetailViewerTab extends Tab {
             break;
         case Assistant:
             initLists((Assistant) model);
+            break;
+        case FinancialCategory:
+            initLists((FinancialCategory) model);
             break;
         }
 
@@ -211,6 +214,7 @@ public class DetailViewerTab extends Tab {
      * Initializes the lists for a course.
      * 
      * @param course
+     *            the course
      */
     private void initLists(Course course) {
         listProperties[0].borderName = _("Related assistants");
@@ -290,6 +294,34 @@ public class DetailViewerTab extends Tab {
 
             list1.setModel(listCoursesModel);
             list2.setModel(listActivitiesModel);
+        } catch (AdoHiveException e) {
+        }
+    }
+
+    /**
+     * Initializes the lists for a financial category.
+     * 
+     * @param fc
+     *            the financial category
+     */
+    private void initLists(FinancialCategory fc) {
+        listProperties[0].borderName = _("Related courses");
+        listProperties[0].type = DataType.Course;
+
+        try {
+            List<Course> courses = (new Course()).getCourses(fc);
+
+            ListModel listCoursesModel = new ListModel(DataType.Course);
+
+            for (Course c : courses) {
+                Course course = new UICourse(c);
+
+                if (!listCoursesModel.contains(course)) {
+                    listCoursesModel.addElement(course);
+                }
+            }
+
+            list1.setModel(listCoursesModel);
         } catch (AdoHiveException e) {
         }
     }
@@ -402,7 +434,9 @@ public class DetailViewerTab extends Tab {
 
         setLayout(new java.awt.GridBagLayout());
 
-        viewerForm.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), getTabName()));
+        viewerForm.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            getTabName()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
