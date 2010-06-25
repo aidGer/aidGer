@@ -76,6 +76,11 @@ public class BalanceReportConverter {
     private BalanceReportGroupCreator balanceReportGroupCreator = null;
 
     /**
+     * Whether the file was created successfully.
+     */
+    private boolean fileCreated = false;
+
+    /**
      * Initializes this BalanceReportConverter with a given path and a name.
      * 
      * @param path
@@ -91,37 +96,39 @@ public class BalanceReportConverter {
         this.calculationMethod = calculationMethod;
         file = checkExtension(file);
         makeNewDocument(file);
-        writeHeader();
-        switch (index) {
-        case 1:
-            Vector semesters = new BalanceHelper().getSemesters();
-            for (int i = 0; i < semesters.size(); i++) {
+        if (fileCreated) {
+            writeHeader();
+            switch (index) {
+            case 1:
+                Vector semesters = new BalanceHelper().getSemesters();
+                for (int i = 0; i < semesters.size(); i++) {
+                    balanceReportGroups = new Vector<Vector>();
+                    createSemester((String) semesters.get(i));
+                }
+                break;
+            case 2:
                 balanceReportGroups = new Vector<Vector>();
-                createSemester((String) semesters.get(i));
+                createYear((Integer) semester);
+                break;
+            case 3:
+                balanceReportGroups = new Vector<Vector>();
+                createSemester("" + semester);
+                break;
             }
-            break;
-        case 2:
-            balanceReportGroups = new Vector<Vector>();
-            createYear((Integer) semester);
-            break;
-        case 3:
-            balanceReportGroups = new Vector<Vector>();
-            createSemester("" + semester);
-            break;
-        }
-        document.close();
-        /*
-         * Open the created document if the setting is enabled with the
-         * specified pdf viewer.
-         */
-        if (Runtime.getInstance().getOption("auto-open").equals("true")) {
-            try {
-                java.lang.Runtime.getRuntime().exec(
-                    new String[] {
-                            Runtime.getInstance().getOption("pdf-viewer"),
-                            file.getAbsolutePath() });
-            } catch (IOException e) {
-                UI.displayError(_("Pdf viewer could not be found!"));
+            document.close();
+            /*
+             * Open the created document if the setting is enabled with the
+             * specified pdf viewer.
+             */
+            if (Runtime.getInstance().getOption("auto-open").equals("true")) {
+                try {
+                    java.lang.Runtime.getRuntime().exec(
+                        new String[] {
+                                Runtime.getInstance().getOption("pdf-viewer"),
+                                file.getAbsolutePath() });
+                } catch (IOException e) {
+                    UI.displayError(_("Pdf viewer could not be found!"));
+                }
             }
         }
     }
@@ -158,9 +165,10 @@ public class BalanceReportConverter {
             outStream = new FileOutputStream(file.getPath());
             writer = PdfWriter.getInstance(document, outStream);
             document.open();
+            fileCreated = true;
         } catch (FileNotFoundException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
+            UI.displayError(_("File could not be created.") + " "
+                    + _("Please close all processes that are using the file."));
         } catch (DocumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -196,8 +204,6 @@ public class BalanceReportConverter {
             head.addCell(right);
             document.add(head);
         } catch (DocumentException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
         } catch (IOException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

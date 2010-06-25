@@ -50,6 +50,11 @@ public class ProtocolConverter {
     private int numberOfDays = 0;
 
     /**
+     * Whether the file was created successfully.
+     */
+    private boolean fileCreated = false;
+
+    /**
      * Initializes a new ProtocolConverter and creates the .pdf file.
      * 
      * @param file
@@ -62,21 +67,23 @@ public class ProtocolConverter {
         document = new Document(PageSize.A4.rotate());
         file = checkExtension(file);
         makeNewDocument(file);
-        writeHeader();
-        writeTable();
-        document.close();
-        /*
-         * Open the created document if the setting is enabled with the
-         * specified pdf viewer.
-         */
-        if (Runtime.getInstance().getOption("auto-open").equals("true")) {
-            try {
-                java.lang.Runtime.getRuntime().exec(
-                    new String[] {
-                            Runtime.getInstance().getOption("pdf-viewer"),
-                            file.getAbsolutePath() });
-            } catch (IOException e) {
-                UI.displayError(_("Pdf viewer could not be found!"));
+        if (fileCreated) {
+            writeHeader();
+            writeTable();
+            document.close();
+            /*
+             * Open the created document if the setting is enabled with the
+             * specified pdf viewer.
+             */
+            if (Runtime.getInstance().getOption("auto-open").equals("true")) {
+                try {
+                    java.lang.Runtime.getRuntime().exec(
+                        new String[] {
+                                Runtime.getInstance().getOption("pdf-viewer"),
+                                file.getAbsolutePath() });
+                } catch (IOException e) {
+                    UI.displayError(_("Pdf viewer could not be found!"));
+                }
             }
         }
     }
@@ -113,9 +120,10 @@ public class ProtocolConverter {
             outStream = new FileOutputStream(file.getPath());
             writer = PdfWriter.getInstance(document, outStream);
             document.open();
+            fileCreated = true;
         } catch (FileNotFoundException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
+            UI.displayError(_("File could not be created.") + " "
+                    + _("Please close all processes that are using the file."));
         } catch (DocumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

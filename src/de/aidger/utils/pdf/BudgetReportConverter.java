@@ -53,6 +53,11 @@ public class BudgetReportConverter {
     private BudgetFilter filters = null;
 
     /**
+     * Whether the file was created successfully.
+     */
+    private boolean fileCreated = false;
+
+    /**
      * Initializes this BalanceReportConverter with a given path and a name.
      * 
      * @param path
@@ -65,21 +70,23 @@ public class BudgetReportConverter {
         this.filters = filters;
         file = checkExtension(file);
         makeNewDocument(file);
-        writeHeader();
-        createCourses();
-        document.close();
-        /*
-         * Open the created document if the setting is enabled with the
-         * specified pdf viewer.
-         */
-        if (Runtime.getInstance().getOption("auto-open").equals("true")) {
-            try {
-                java.lang.Runtime.getRuntime().exec(
-                    new String[] {
-                            Runtime.getInstance().getOption("pdf-viewer"),
-                            file.getAbsolutePath() });
-            } catch (IOException e) {
-                UI.displayError(_("Pdf viewer could not be found!"));
+        if (fileCreated) {
+            writeHeader();
+            createCourses();
+            document.close();
+            /*
+             * Open the created document if the setting is enabled with the
+             * specified pdf viewer.
+             */
+            if (Runtime.getInstance().getOption("auto-open").equals("true")) {
+                try {
+                    java.lang.Runtime.getRuntime().exec(
+                        new String[] {
+                                Runtime.getInstance().getOption("pdf-viewer"),
+                                file.getAbsolutePath() });
+                } catch (IOException e) {
+                    UI.displayError(_("Pdf viewer could not be found!"));
+                }
             }
         }
     }
@@ -116,9 +123,10 @@ public class BudgetReportConverter {
             outStream = new FileOutputStream(file.getPath());
             writer = PdfWriter.getInstance(document, outStream);
             document.open();
+            fileCreated = true;
         } catch (FileNotFoundException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
+            UI.displayError(_("File could not be created.") + " "
+                    + _("Please close all processes that are using the file."));
         } catch (DocumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
