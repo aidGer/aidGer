@@ -59,6 +59,8 @@ public class HourlyWageEditorForm extends JPanel {
         // add input filters
         InputPatternFilter.addFilter(txtWage, "[0-9]+[.]?[0-9]{0,2}");
 
+        txtWage.setToolTipText(_("Only a valid currency format is allowed."));
+
         if (hw != null) {
             cmbQualification.setSelectedItem(Qualification.valueOf(hw
                 .getQualification()));

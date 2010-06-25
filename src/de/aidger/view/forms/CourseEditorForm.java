@@ -41,6 +41,12 @@ public class CourseEditorForm extends JPanel {
         InputPatternFilter.addFilter(txtSemester,
             "([0-9]{0,4})|(WS?|WS[0-9]{0,4})|(SS?|SS[0-9]{0,2})");
 
+        // info for user
+        txtAWHperGroup.setToolTipText(_("Only a decimal number is allowed."));
+        txtPart.setToolTipText(_("Only one character is allowed."));
+        txtSemester
+            .setToolTipText(_("Only the format SS[XX], WS[XXXX] and year in 4 digits is allowed."));
+
         List<IFinancialCategory> fcs = null;
 
         try {

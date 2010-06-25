@@ -95,6 +95,9 @@ public class EmploymentEditorForm extends JPanel {
 
         InputPatternFilter.addFilter(txtCostUnit, ".{0,10}");
 
+        txtCostUnit
+            .setToolTipText(_("Only a maximum length of 10 is allowed."));
+
         cmbAssistant.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -349,6 +352,8 @@ public class EmploymentEditorForm extends JPanel {
         add(txtHourCount, gridBagConstraints);
 
         InputPatternFilter.addFilter(txtHourCount, "[0-9]+[.]?[0-9]*");
+
+        txtHourCount.setToolTipText(_("Only a decimal number is allowed."));
 
         JButton btnPlusMinus = new JButton();
         gridBagConstraints = new GridBagConstraints();

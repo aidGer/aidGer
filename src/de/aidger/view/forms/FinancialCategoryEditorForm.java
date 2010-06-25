@@ -40,6 +40,8 @@ public class FinancialCategoryEditorForm extends JPanel {
         // add input filters
         InputPatternFilter.addFilter(txtYear, "[0-9]{0,4}");
 
+        txtYear.setToolTipText(_("Only a year in 4 digits is allowed."));
+
         if (fc != null) {
             txtName.setText(fc.getName());
             txtYear.setText(String.valueOf(fc.getYear()));
@@ -136,6 +138,8 @@ public class FinancialCategoryEditorForm extends JPanel {
 
         InputPatternFilter.addFilter(cmbFunds, "[0-9]{0,8}");
 
+        cmbFunds.setToolTipText(_("Only a number with 8 digits is allowed."));
+
         JLabel lblBudgetCosts = new JLabel();
         lblBudgetCosts.setText(_("Budget Costs"));
         gridBagConstraints = new GridBagConstraints();
@@ -155,6 +159,8 @@ public class FinancialCategoryEditorForm extends JPanel {
         add(txtBudgetCosts, gridBagConstraints);
 
         InputPatternFilter.addFilter(txtBudgetCosts, "[0-9]+");
+
+        txtBudgetCosts.setToolTipText(_("Only a number is allowed."));
 
         JButton btnPlusMinus = new JButton();
         gridBagConstraints = new GridBagConstraints();
