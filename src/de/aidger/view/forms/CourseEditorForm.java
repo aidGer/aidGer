@@ -10,6 +10,7 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.Logger;
 import de.aidger.view.models.ComboBoxModel;
+import de.aidger.view.models.GenericListModel;
 import de.aidger.view.models.UIFinancialCategory;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.InputPatternFilter;
@@ -31,7 +32,7 @@ public class CourseEditorForm extends JPanel {
      *            The course that will be edited
      */
     @SuppressWarnings("unchecked")
-    public CourseEditorForm(Course course) {
+    public CourseEditorForm(Course course, List<GenericListModel> listModels) {
         initComponents();
 
         // add input filters
@@ -57,8 +58,7 @@ public class CourseEditorForm extends JPanel {
 
         cmbFinancialCategory.setModel(cmbFinancialCategoryModel);
 
-        // TODO
-        //listModels.add(cmbFinancialCategoryModel);
+        listModels.add(cmbFinancialCategoryModel);
 
         if (course != null) {
             txtDescription.setText(course.getDescription());

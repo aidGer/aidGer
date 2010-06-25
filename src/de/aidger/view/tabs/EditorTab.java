@@ -260,7 +260,7 @@ public class EditorTab extends Tab {
     public JPanel createEditorForm() {
         switch (type) {
         case Course:
-            return new CourseEditorForm((Course) model);
+            return new CourseEditorForm((Course) model, listModels);
         case Assistant:
             return new AssistantEditorForm((Assistant) model);
         case FinancialCategory:
@@ -268,7 +268,7 @@ public class EditorTab extends Tab {
         case HourlyWage:
             return new HourlyWageEditorForm((HourlyWage) model);
         case Employment:
-            return new EmploymentEditorForm((Employment) model);
+            return new EmploymentEditorForm((Employment) model, listModels);
         case Contract:
             return new ContractEditorForm((Contract) model);
         default:

@@ -28,6 +28,7 @@ import de.aidger.model.models.FinancialCategory;
 import de.aidger.view.UI;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.models.ComboBoxModel;
+import de.aidger.view.models.GenericListModel;
 import de.aidger.view.models.UIAssistant;
 import de.aidger.view.models.UIContract;
 import de.aidger.view.models.UICourse;
@@ -63,7 +64,8 @@ public class EmploymentEditorForm extends JPanel {
      *            The employment that will be edited
      */
     @SuppressWarnings("unchecked")
-    public EmploymentEditorForm(Employment employment) {
+    public EmploymentEditorForm(Employment employment,
+            List<GenericListModel> listModels) {
         if (employment != null) {
             editMode = true;
         }
@@ -171,10 +173,9 @@ public class EmploymentEditorForm extends JPanel {
             cmbContract.setModel(cmbContractModel);
             cmbFunds.setModel(cmbFundsModel);
 
-            // TODO
-            //listModels.add(cmbAssistantModel);
-            //listModels.add(cmbCourseModel);
-            //listModels.add(cmbContractModel);
+            listModels.add(cmbAssistantModel);
+            listModels.add(cmbCourseModel);
+            listModels.add(cmbContractModel);
 
             cmbQualification.setSelectedItem(Qualification
                 .valueOf(((Assistant) cmbAssistant.getSelectedItem())
