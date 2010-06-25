@@ -110,6 +110,10 @@ public class BalanceReportConverter {
             break;
         }
         document.close();
+        /*
+         * Open the created document if the setting is enabled with the
+         * specified pdf viewer.
+         */
         if (Runtime.getInstance().getOption("auto-open").equals("true")) {
             try {
                 java.lang.Runtime.getRuntime().exec(

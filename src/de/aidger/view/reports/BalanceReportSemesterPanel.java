@@ -76,7 +76,7 @@ public class BalanceReportSemesterPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         setBorder(javax.swing.BorderFactory.createTitledBorder(_("Semester") + (" ") + name));
-        setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.Y_AXIS));
+        setLayout(new java.awt.GridLayout(0, 1, 0, 10));
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
