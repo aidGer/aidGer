@@ -91,6 +91,15 @@ public class SaveSettingsAction extends AbstractAction {
             return;
         }
 
+        try {
+            int anon = Integer.parseInt(dlg.getAnonymizationTime());
+            Runtime.getInstance().setOption("anonymize-time",
+                    dlg.getAnonymizationTime());
+        } catch (NumberFormatException ex) {
+            UI.displayError(_("Anonymization time needs to be an integer."));
+            return;
+        }
+
         dlg.setVisible(false);
         dlg.dispose();
     }
