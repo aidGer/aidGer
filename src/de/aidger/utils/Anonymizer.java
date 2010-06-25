@@ -33,6 +33,10 @@ public class Anonymizer {
             List<IAssistant> assistants = (new Assistant()).getAll();
 
             for (IAssistant a : assistants) {
+                if (a.getFirstName().equals("*****")) {
+                    continue;
+                }
+
                 Date latest = new Date(1);
                 List<Employment> employments = (new Employment())
                         .getEmployments(new Assistant(a));
