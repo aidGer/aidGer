@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-25 14:48+0200\n"
+"POT-Creation-Date: 2010-06-25 15:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,13 +37,13 @@ msgstr ""
 #: controller/actions/DetailViewerCancelAction.java:26
 #: controller/actions/DialogAbortAction.java:26
 #: controller/actions/EditorCancelAction.java:26
-#: view/tabs/DetailViewerTab.java:413 view/tabs/EditorTab.java:332
+#: view/tabs/DetailViewerTab.java:414 view/tabs/EditorTab.java:332
 msgid "Cancel"
 msgstr ""
 
 #: controller/actions/DetailViewerEditAction.java:28
 #: controller/actions/ViewerEditAction.java:27
-#: view/tabs/DetailViewerTab.java:410 view/tabs/ViewerTab.java:462
+#: view/tabs/DetailViewerTab.java:411 view/tabs/ViewerTab.java:462
 #: view/tabs/ViewerTab.java:484
 msgid "Edit"
 msgstr ""
@@ -57,22 +57,87 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:244
+#: controller/actions/EditorSaveAction.java:98 model/models/Course.java:216
+#: view/forms/CourseEditorForm.java:329 view/forms/CourseViewerForm.java:170
+#: view/models/CourseTableModel.java:28
+msgid "AWH per group"
+msgstr ""
+
+#: controller/actions/EditorSaveAction.java:106
+#: utils/pdf/BalanceReportConverter.java:364
+#: view/forms/CourseEditorForm.java:345 view/forms/CourseViewerForm.java:186
+#: view/models/CourseTableModel.java:28
+#: view/reports/BalanceReportGroupPanel.java:35
+msgid "Part"
+msgstr ""
+
+#: controller/actions/EditorSaveAction.java:177
+#: model/models/FinancialCategory.java:129
+#: view/forms/FinancialCategoryEditorForm.java:140
+#: view/forms/FinancialCategoryViewerForm.java:62
+#: view/models/FinancialCategoryTableModel.java:26
+msgid "Budget Costs"
+msgstr ""
+
+#: controller/actions/EditorSaveAction.java:185
+#: controller/actions/EditorSaveAction.java:311
+#: model/models/Employment.java:197 model/models/FinancialCategory.java:136
+#: view/forms/EmploymentEditorForm.java:453
+#: view/forms/EmploymentViewerForm.java:143
+#: view/forms/FinancialCategoryEditorForm.java:120
+#: view/forms/FinancialCategoryViewerForm.java:46
+#: view/models/EmploymentTableModel.java:34
+#: view/models/FinancialCategoryTableModel.java:25
+msgid "Funds"
+msgstr ""
+
+#: controller/actions/EditorSaveAction.java:192
+#: model/models/Employment.java:205 model/models/FinancialCategory.java:123
+#: model/models/HourlyWage.java:130
+#: view/forms/FinancialCategoryEditorForm.java:209
+#: view/forms/FinancialCategoryViewerForm.java:107
+#: view/models/FinancialCategoryTableModel.java:25
+#: view/tabs/BalanceViewerTab.java:256
+msgid "Year"
+msgstr ""
+
+#: controller/actions/EditorSaveAction.java:231
+#: view/forms/HourlyWageEditorForm.java:211
+#: view/forms/HourlyWageViewerForm.java:73
+#: view/models/HourlyWageTableModel.java:27
+msgid "Wage"
+msgstr ""
+
+#: controller/actions/EditorSaveAction.java:246 model/models/Contract.java:56
+#: model/models/Contract.java:58 view/forms/ContractEditorForm.java:156
+#: view/forms/ContractViewerForm.java:99
+#: view/models/ContractTableModel.java:26
+msgid "End date"
+msgstr ""
+
+#: controller/actions/EditorSaveAction.java:247
 msgid "must be after start date"
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:436
+#: controller/actions/EditorSaveAction.java:340
+#: model/models/Employment.java:201 view/forms/EmploymentEditorForm.java:333
+#: view/forms/EmploymentViewerForm.java:135
+#: view/models/EmploymentTableModel.java:34
+msgid "Hour count"
+msgstr ""
+
+#: controller/actions/EditorSaveAction.java:440
 #, java-format
 msgid ""
 "You have hired {0} with qualification {1} more than 6 years. The employments "
 "were created anyway."
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:519
+#: controller/actions/EditorSaveAction.java:523
 msgid "Could not save the model because it already exists in the database."
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:521
+#: controller/actions/EditorSaveAction.java:525
 msgid "Could not save the model to database."
 msgstr ""
 
@@ -208,7 +273,7 @@ msgid "Add"
 msgstr ""
 
 #: controller/actions/ViewerContractAction.java:31
-#: view/forms/EmploymentEditorForm.java:445
+#: model/models/Employment.java:85 view/forms/EmploymentEditorForm.java:445
 #: view/forms/EmploymentViewerForm.java:119
 #: view/models/EmploymentTableModel.java:33 view/tabs/ViewerTab.java:514
 msgid "Contract"
@@ -262,47 +327,229 @@ msgstr ""
 msgid "action class {0} not found"
 msgstr ""
 
-#: model/models/Activity.java:176 model/models/Activity.java:180
-#: model/models/Contract.java:150
+#: model/models/Activity.java:73 utils/pdf/ProtocolConverter.java:155
+#: view/forms/EmploymentEditorForm.java:314
+#: view/forms/EmploymentViewerForm.java:127
+#: view/forms/HourlyWageEditorForm.java:187
+#: view/forms/HourlyWageViewerForm.java:65
+#: view/models/EmploymentTableModel.java:34
+#: view/models/HourlyWageTableModel.java:27
+#: view/tabs/ProtocolViewerTab.java:40
+msgid "Date"
+msgstr ""
+
+#: model/models/Activity.java:73 utils/pdf/ProtocolConverter.java:156
+#: view/tabs/ProtocolViewerTab.java:40
+msgid "Sender"
+msgstr ""
+
+#: model/models/Activity.java:73 model/models/Activity.java:180
+#: model/models/Contract.java:57 model/models/Contract.java:154
+#: utils/pdf/ProtocolConverter.java:155 view/forms/ContractEditorForm.java:164
+#: view/forms/ContractViewerForm.java:107
+#: view/models/ContractTableModel.java:26 view/tabs/ProtocolViewerTab.java:40
+msgid "Type"
+msgstr ""
+
+#: model/models/Activity.java:73 utils/pdf/ProtocolConverter.java:156
+#: view/tabs/ProtocolViewerTab.java:41
+msgid "Processor"
+msgstr ""
+
+#: model/models/Activity.java:74 utils/pdf/ProtocolConverter.java:155
+#: view/tabs/ProtocolViewerTab.java:40
+msgid "Content"
+msgstr ""
+
+#: model/models/Activity.java:74 model/models/Activity.java:184
+msgid "Document Type"
+msgstr ""
+
+#: model/models/Activity.java:76 model/models/Employment.java:83
+#: view/forms/EmploymentEditorForm.java:431
+#: view/forms/EmploymentViewerForm.java:105
+#: view/models/EmploymentTableModel.java:33
+msgid "Assistant"
+msgstr ""
+
+#: model/models/Activity.java:78 model/models/Employment.java:87
+#: view/forms/EmploymentEditorForm.java:437
+#: view/forms/EmploymentViewerForm.java:111
+#: view/models/EmploymentTableModel.java:33 view/tabs/BudgetViewerTab.java:45
+msgid "Course"
+msgstr ""
+
+#: model/models/Activity.java:180 model/models/Activity.java:184
+#: model/models/Contract.java:154
 msgid "is too long"
 msgstr ""
 
-#: model/models/Assistant.java:130
+#: model/models/Assistant.java:43 model/models/Assistant.java:45
+#: view/forms/AssistantEditorForm.java:106
+#: view/forms/AssistantViewerForm.java:69
+#: view/models/AssistantTableModel.java:25
+msgid "Email"
+msgstr ""
+
+#: model/models/Assistant.java:43 view/forms/AssistantEditorForm.java:92
+#: view/forms/AssistantViewerForm.java:55
+#: view/models/AssistantTableModel.java:25
+msgid "First Name"
+msgstr ""
+
+#: model/models/Assistant.java:44 view/forms/AssistantEditorForm.java:98
+#: view/forms/AssistantViewerForm.java:61
+#: view/models/AssistantTableModel.java:25
+msgid "Last Name"
+msgstr ""
+
+#: model/models/Assistant.java:44 model/models/Assistant.java:47
+#: model/models/Employment.java:79 model/models/Employment.java:81
+#: model/models/HourlyWage.java:45 model/models/HourlyWage.java:47
+#: view/forms/AssistantEditorForm.java:114
+#: view/forms/AssistantViewerForm.java:77
+#: view/forms/EmploymentEditorForm.java:469
+#: view/forms/EmploymentViewerForm.java:159
+#: view/forms/HourlyWageEditorForm.java:181
+#: view/forms/HourlyWageViewerForm.java:59
+#: view/models/AssistantTableModel.java:26
+#: view/models/EmploymentTableModel.java:35
+#: view/models/HourlyWageTableModel.java:27
+msgid "Qualification"
+msgstr ""
+
+#: model/models/Assistant.java:131
 msgid "Assistant is still linked to an Activity"
 msgstr ""
 
-#: model/models/Assistant.java:134
+#: model/models/Assistant.java:135
 msgid "Assistant is still linked to an Employment"
 msgstr ""
 
-#: model/models/Course.java:206 model/models/Course.java:210
-#: model/models/Employment.java:186
+#: model/models/Contract.java:56 model/models/Contract.java:61
+#: view/forms/ContractEditorForm.java:132
+#: view/forms/ContractViewerForm.java:75
+#: view/models/ContractTableModel.java:25
+msgid "Completion date"
+msgstr ""
+
+#: model/models/Contract.java:56 model/models/Contract.java:61
+#: view/forms/ContractEditorForm.java:140
+#: view/forms/ContractViewerForm.java:83
+#: view/models/ContractTableModel.java:25
+msgid "Confirmation date"
+msgstr ""
+
+#: model/models/Contract.java:57 model/models/Contract.java:59
+#: view/forms/ContractEditorForm.java:148
+#: view/forms/ContractViewerForm.java:91
+#: view/forms/HourlyWageEditorForm.java:195
+#: view/models/ContractTableModel.java:26
+msgid "Start date"
+msgstr ""
+
+#: model/models/Course.java:87 view/forms/CourseEditorForm.java:261
+#: view/forms/CourseViewerForm.java:112 view/models/CourseTableModel.java:27
+msgid "Advisor"
+msgstr ""
+
+#: model/models/Course.java:87 view/forms/CourseEditorForm.java:239
+#: view/forms/CourseViewerForm.java:90 view/models/CourseTableModel.java:26
+msgid "Description"
+msgstr ""
+
+#: model/models/Course.java:87 model/models/Course.java:92
+#: utils/pdf/BalanceReportConverter.java:211
+#: view/forms/CourseEditorForm.java:245 view/forms/CourseViewerForm.java:96
+#: view/models/CourseTableModel.java:26
+#: view/reports/BalanceReportSemesterPanel.java:78
+#: view/tabs/BudgetViewerTab.java:45 view/tabs/BudgetViewerTab.java:69
+#: view/tabs/BudgetViewerTab.java:137
+msgid "Semester"
+msgstr ""
+
+#: model/models/Course.java:87 utils/pdf/BalanceReportConverter.java:364
+#: view/forms/CourseEditorForm.java:253 view/forms/CourseViewerForm.java:104
+#: view/models/CourseTableModel.java:26
+#: view/reports/BalanceReportGroupPanel.java:35
+#: view/tabs/BalanceViewerTab.java:92 view/tabs/BalanceViewerTab.java:190
+#: view/tabs/BudgetViewerTab.java:45 view/tabs/BudgetViewerTab.java:69
+#: view/tabs/BudgetViewerTab.java:129
+msgid "Lecturer"
+msgstr ""
+
+#: model/models/Course.java:88 utils/pdf/BalanceReportConverter.java:365
+#: view/forms/CourseEditorForm.java:277 view/forms/CourseViewerForm.java:128
+#: view/models/CourseTableModel.java:27
+#: view/reports/BalanceReportGroupPanel.java:36
+#: view/tabs/BalanceViewerTab.java:93
+msgid "Target Audience"
+msgstr ""
+
+#: model/models/Course.java:88 utils/pdf/BalanceReportConverter.java:394
+#: view/forms/CourseEditorForm.java:353 view/forms/CourseViewerForm.java:194
+#: view/models/CourseTableModel.java:28
+#: view/reports/BalanceReportGroupPanel.java:142
+#: view/tabs/BalanceViewerTab.java:91 view/tabs/BalanceViewerTab.java:186
+msgid "Group"
+msgstr ""
+
+#: model/models/Course.java:90 view/forms/CourseEditorForm.java:369
+#: view/forms/CourseViewerForm.java:210 view/models/CourseTableModel.java:29
+msgid "Financial Category"
+msgstr ""
+
+#: model/models/Course.java:211 view/forms/CourseEditorForm.java:269
+#: view/forms/CourseViewerForm.java:120 view/models/CourseTableModel.java:27
+msgid "Number of Groups"
+msgstr ""
+
+#: model/models/Course.java:212 model/models/Course.java:217
+#: model/models/Employment.java:197
 msgid "has to be bigger than 0"
 msgstr ""
 
-#: model/models/Course.java:228
+#: model/models/Course.java:235
 msgid "Course is still linked to an Activity."
 msgstr ""
 
-#: model/models/Course.java:232
+#: model/models/Course.java:239
 msgid "Course is still linked to an Employment"
 msgstr ""
 
-#: model/models/Employment.java:190
+#: model/models/Employment.java:79 model/models/Employment.java:213
+#: view/forms/EmploymentEditorForm.java:461
+#: view/forms/EmploymentViewerForm.java:151
+#: view/models/EmploymentTableModel.java:34
+msgid "Cost unit"
+msgstr ""
+
+#: model/models/Employment.java:201
 msgid "has to be positive"
 msgstr ""
 
-#: model/models/Employment.java:194 model/models/FinancialCategory.java:123
-#: model/models/HourlyWage.java:129
+#: model/models/Employment.java:205 model/models/FinancialCategory.java:123
+#: model/models/HourlyWage.java:130
 msgid "is an incorrect year"
 msgstr ""
 
-#: model/models/Employment.java:198 model/models/HourlyWage.java:133
+#: model/models/Employment.java:209 model/models/HourlyWage.java:134
+msgid "Month"
+msgstr ""
+
+#: model/models/Employment.java:209 model/models/HourlyWage.java:134
 msgid "is an incorrect month"
 msgstr ""
 
-#: model/models/Employment.java:202
+#: model/models/Employment.java:214
 msgid "can't be longer than 10 characters"
+msgstr ""
+
+#: model/models/FinancialCategory.java:47
+#: view/forms/FinancialCategoryEditorForm.java:203
+#: view/forms/FinancialCategoryViewerForm.java:95
+#: view/models/FinancialCategoryTableModel.java:25
+msgid "Name"
 msgstr ""
 
 #: model/models/FinancialCategory.java:129
@@ -317,32 +564,32 @@ msgstr ""
 msgid "Financial Category is still linked to a Course."
 msgstr ""
 
-#: model/validators/DateRangeValidator.java:28
+#: model/validators/DateRangeValidator.java:34
 msgid "is an incorrect date range"
 msgstr ""
 
-#: model/validators/DateRangeValidator.java:43
+#: model/validators/DateRangeValidator.java:49
 #, java-format
 msgid "The date range {0} and {1} is incorrect."
 msgstr ""
 
-#: model/validators/ExistanceValidator.java:33
+#: model/validators/ExistanceValidator.java:35
 msgid "doesn't exist in the database"
 msgstr ""
 
-#: model/validators/FormatValidator.java:37
+#: model/validators/FormatValidator.java:39
 msgid "has an incorrect format"
 msgstr ""
 
-#: model/validators/InclusionValidator.java:30
+#: model/validators/InclusionValidator.java:34
 msgid "has an invalid value"
 msgstr ""
 
-#: model/validators/PresenceValidator.java:26
+#: model/validators/PresenceValidator.java:31
 msgid "is empty"
 msgstr ""
 
-#: model/validators/Validator.java:34 model/validators/Validator.java:48
+#: model/validators/Validator.java:40 model/validators/Validator.java:57
 msgid "Default error"
 msgstr ""
 
@@ -370,7 +617,7 @@ msgstr ""
 msgid "Removing model: {0}"
 msgstr ""
 
-#: model/AbstractModel.java:458
+#: model/AbstractModel.java:478
 #, java-format
 msgid "Could not get manager for class \"{0}\". Error: {1}"
 msgstr ""
@@ -392,43 +639,9 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: utils/pdf/BalanceReportConverter.java:211
-#: view/forms/CourseEditorForm.java:245 view/forms/CourseViewerForm.java:96
-#: view/models/CourseTableModel.java:26
-#: view/reports/BalanceReportSemesterPanel.java:78
-#: view/tabs/BudgetViewerTab.java:45 view/tabs/BudgetViewerTab.java:69
-#: view/tabs/BudgetViewerTab.java:137
-msgid "Semester"
-msgstr ""
-
 #: utils/pdf/BalanceReportConverter.java:364
 #: view/reports/BalanceReportGroupPanel.java:35
 msgid "Title"
-msgstr ""
-
-#: utils/pdf/BalanceReportConverter.java:364
-#: view/forms/CourseEditorForm.java:345 view/forms/CourseViewerForm.java:186
-#: view/models/CourseTableModel.java:28
-#: view/reports/BalanceReportGroupPanel.java:35
-msgid "Part"
-msgstr ""
-
-#: utils/pdf/BalanceReportConverter.java:364
-#: view/forms/CourseEditorForm.java:253 view/forms/CourseViewerForm.java:104
-#: view/models/CourseTableModel.java:26
-#: view/reports/BalanceReportGroupPanel.java:35
-#: view/tabs/BalanceViewerTab.java:92 view/tabs/BalanceViewerTab.java:190
-#: view/tabs/BudgetViewerTab.java:45 view/tabs/BudgetViewerTab.java:69
-#: view/tabs/BudgetViewerTab.java:129
-msgid "Lecturer"
-msgstr ""
-
-#: utils/pdf/BalanceReportConverter.java:365
-#: view/forms/CourseEditorForm.java:277 view/forms/CourseViewerForm.java:128
-#: view/models/CourseTableModel.java:27
-#: view/reports/BalanceReportGroupPanel.java:36
-#: view/tabs/BalanceViewerTab.java:93
-msgid "Target Audience"
 msgstr ""
 
 #: utils/pdf/BalanceReportConverter.java:365
@@ -446,14 +659,6 @@ msgstr ""
 msgid "Budget costs from"
 msgstr ""
 
-#: utils/pdf/BalanceReportConverter.java:394
-#: view/forms/CourseEditorForm.java:353 view/forms/CourseViewerForm.java:194
-#: view/models/CourseTableModel.java:28
-#: view/reports/BalanceReportGroupPanel.java:142
-#: view/tabs/BalanceViewerTab.java:91 view/tabs/BalanceViewerTab.java:186
-msgid "Group"
-msgstr ""
-
 #: utils/pdf/ProtocolConverter.java:126 view/UI.java:582
 msgid "Activity Protocol"
 msgstr ""
@@ -464,35 +669,6 @@ msgstr ""
 
 #: utils/pdf/ProtocolConverter.java:155 view/tabs/ProtocolViewerTab.java:39
 msgid "Affected course"
-msgstr ""
-
-#: utils/pdf/ProtocolConverter.java:155 view/forms/ContractEditorForm.java:164
-#: view/forms/ContractViewerForm.java:107
-#: view/models/ContractTableModel.java:26 view/tabs/ProtocolViewerTab.java:40
-msgid "Type"
-msgstr ""
-
-#: utils/pdf/ProtocolConverter.java:155
-#: view/forms/EmploymentEditorForm.java:314
-#: view/forms/EmploymentViewerForm.java:127
-#: view/forms/HourlyWageEditorForm.java:187
-#: view/forms/HourlyWageViewerForm.java:65
-#: view/models/EmploymentTableModel.java:34
-#: view/models/HourlyWageTableModel.java:27
-#: view/tabs/ProtocolViewerTab.java:40
-msgid "Date"
-msgstr ""
-
-#: utils/pdf/ProtocolConverter.java:155 view/tabs/ProtocolViewerTab.java:40
-msgid "Content"
-msgstr ""
-
-#: utils/pdf/ProtocolConverter.java:156 view/tabs/ProtocolViewerTab.java:40
-msgid "Sender"
-msgstr ""
-
-#: utils/pdf/ProtocolConverter.java:156 view/tabs/ProtocolViewerTab.java:41
-msgid "Processor"
 msgstr ""
 
 #: utils/pdf/ProtocolConverter.java:156 view/forms/CourseEditorForm.java:361
@@ -508,61 +684,6 @@ msgstr ""
 #: utils/Configuration.java:87
 #, java-format
 msgid "Could not create file \"{0}\"."
-msgstr ""
-
-#: view/forms/AssistantEditorForm.java:92
-#: view/forms/AssistantViewerForm.java:55
-#: view/models/AssistantTableModel.java:25
-msgid "First Name"
-msgstr ""
-
-#: view/forms/AssistantEditorForm.java:98
-#: view/forms/AssistantViewerForm.java:61
-#: view/models/AssistantTableModel.java:25
-msgid "Last Name"
-msgstr ""
-
-#: view/forms/AssistantEditorForm.java:106
-#: view/forms/AssistantViewerForm.java:69
-#: view/models/AssistantTableModel.java:25
-msgid "Email"
-msgstr ""
-
-#: view/forms/AssistantEditorForm.java:114
-#: view/forms/AssistantViewerForm.java:77
-#: view/forms/EmploymentEditorForm.java:469
-#: view/forms/EmploymentViewerForm.java:159
-#: view/forms/HourlyWageEditorForm.java:181
-#: view/forms/HourlyWageViewerForm.java:59
-#: view/models/AssistantTableModel.java:26
-#: view/models/EmploymentTableModel.java:35
-#: view/models/HourlyWageTableModel.java:27
-msgid "Qualification"
-msgstr ""
-
-#: view/forms/ContractEditorForm.java:132
-#: view/forms/ContractViewerForm.java:75
-#: view/models/ContractTableModel.java:25
-msgid "Completion date"
-msgstr ""
-
-#: view/forms/ContractEditorForm.java:140
-#: view/forms/ContractViewerForm.java:83
-#: view/models/ContractTableModel.java:25
-msgid "Confirmation date"
-msgstr ""
-
-#: view/forms/ContractEditorForm.java:148
-#: view/forms/ContractViewerForm.java:91
-#: view/forms/HourlyWageEditorForm.java:195
-#: view/models/ContractTableModel.java:26
-msgid "Start date"
-msgstr ""
-
-#: view/forms/ContractEditorForm.java:156
-#: view/forms/ContractViewerForm.java:99
-#: view/models/ContractTableModel.java:26
-msgid "End date"
 msgstr ""
 
 #: view/forms/ContractEditorForm.java:172
@@ -583,86 +704,9 @@ msgstr ""
 msgid "yes"
 msgstr ""
 
-#: view/forms/CourseEditorForm.java:239 view/forms/CourseViewerForm.java:90
-#: view/models/CourseTableModel.java:26
-msgid "Description"
-msgstr ""
-
-#: view/forms/CourseEditorForm.java:261 view/forms/CourseViewerForm.java:112
-#: view/models/CourseTableModel.java:27
-msgid "Advisor"
-msgstr ""
-
-#: view/forms/CourseEditorForm.java:269 view/forms/CourseViewerForm.java:120
-#: view/models/CourseTableModel.java:27
-msgid "Number of Groups"
-msgstr ""
-
-#: view/forms/CourseEditorForm.java:329 view/forms/CourseViewerForm.java:170
-#: view/models/CourseTableModel.java:28
-msgid "AWH per group"
-msgstr ""
-
 #: view/forms/CourseEditorForm.java:337 view/forms/CourseViewerForm.java:178
 #: view/models/CourseTableModel.java:28
 msgid "Scope"
-msgstr ""
-
-#: view/forms/CourseEditorForm.java:369 view/forms/CourseViewerForm.java:210
-#: view/models/CourseTableModel.java:29
-msgid "Financial Category"
-msgstr ""
-
-#: view/forms/EmploymentEditorForm.java:333
-#: view/forms/EmploymentViewerForm.java:135
-#: view/models/EmploymentTableModel.java:34
-msgid "Hour count"
-msgstr ""
-
-#: view/forms/EmploymentEditorForm.java:431
-#: view/forms/EmploymentViewerForm.java:105
-#: view/models/EmploymentTableModel.java:33
-msgid "Assistant"
-msgstr ""
-
-#: view/forms/EmploymentEditorForm.java:437
-#: view/forms/EmploymentViewerForm.java:111
-#: view/models/EmploymentTableModel.java:33 view/tabs/BudgetViewerTab.java:45
-msgid "Course"
-msgstr ""
-
-#: view/forms/EmploymentEditorForm.java:453
-#: view/forms/EmploymentViewerForm.java:143
-#: view/forms/FinancialCategoryEditorForm.java:120
-#: view/forms/FinancialCategoryViewerForm.java:46
-#: view/models/EmploymentTableModel.java:34
-#: view/models/FinancialCategoryTableModel.java:25
-msgid "Funds"
-msgstr ""
-
-#: view/forms/EmploymentEditorForm.java:461
-#: view/forms/EmploymentViewerForm.java:151
-#: view/models/EmploymentTableModel.java:34
-msgid "Cost unit"
-msgstr ""
-
-#: view/forms/FinancialCategoryEditorForm.java:140
-#: view/forms/FinancialCategoryViewerForm.java:62
-#: view/models/FinancialCategoryTableModel.java:26
-msgid "Budget Costs"
-msgstr ""
-
-#: view/forms/FinancialCategoryEditorForm.java:203
-#: view/forms/FinancialCategoryViewerForm.java:95
-#: view/models/FinancialCategoryTableModel.java:25
-msgid "Name"
-msgstr ""
-
-#: view/forms/FinancialCategoryEditorForm.java:209
-#: view/forms/FinancialCategoryViewerForm.java:107
-#: view/models/FinancialCategoryTableModel.java:25
-#: view/tabs/BalanceViewerTab.java:256
-msgid "Year"
 msgstr ""
 
 #: view/forms/HourlyWageEditorForm.java:22
@@ -679,12 +723,6 @@ msgstr ""
 
 #: view/forms/HourlyWageEditorForm.java:203
 msgid "Finish date"
-msgstr ""
-
-#: view/forms/HourlyWageEditorForm.java:211
-#: view/forms/HourlyWageViewerForm.java:73
-#: view/models/HourlyWageTableModel.java:27
-msgid "Wage"
 msgstr ""
 
 #: view/models/AssistantTableModel.java:26
@@ -777,7 +815,7 @@ msgstr ""
 msgid "View contract"
 msgstr ""
 
-#: view/tabs/DetailViewerTab.java:448 view/tabs/DetailViewerTab.java:489
+#: view/tabs/DetailViewerTab.java:449 view/tabs/DetailViewerTab.java:488
 msgid "None"
 msgstr ""
 
