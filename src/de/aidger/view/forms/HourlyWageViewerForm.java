@@ -53,6 +53,7 @@ public class HourlyWageViewerForm extends JPanel {
         qualification = new javax.swing.JLabel();
         date = new javax.swing.JLabel();
         wage = new javax.swing.JLabel();
+        filler = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -93,10 +94,18 @@ public class HourlyWageViewerForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(wage, gridBagConstraints);
+
+        filler.setPreferredSize(new java.awt.Dimension(200, 0));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        add(filler, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel date;
+    private javax.swing.JLabel filler;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblQualification;
     private javax.swing.JLabel lblWage;
