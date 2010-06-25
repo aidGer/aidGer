@@ -10,6 +10,8 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
  */
 public class UICourse extends Course {
 
+    public UICourse() { }
+
     /**
      * Initializes the Course class with the given course model.
      * 

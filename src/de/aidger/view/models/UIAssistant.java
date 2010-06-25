@@ -10,6 +10,8 @@ import de.unistuttgart.iste.se.adohive.model.IAssistant;
  */
 public class UIAssistant extends Assistant {
 
+    public UIAssistant() { }
+
     /**
      * Initializes the Assistant class with the given assistant model.
      * 

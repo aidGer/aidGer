@@ -774,7 +774,7 @@ public final class UI extends JFrame {
                         Class obj = Class.forName(parts[0]);
                         ctrParams.add(Enum.valueOf(obj, parts[1]));
                     } else if (current.getSuperclass().equals(
-                        AbstractModel.class)) {
+                            AbstractModel.class)) {
                         Class obj = Class.forName(parts[0]);
                         AbstractModel a = (AbstractModel) obj.newInstance();
                         Object o;
@@ -788,6 +788,15 @@ public final class UI extends JFrame {
 
                         ctrParams.add(obj.getConstructor(
                             o.getClass().getInterfaces()[0]).newInstance(o));
+                    } else if (current.getSuperclass().
+                            getSuperclass().equals(AbstractModel.class)) {
+                        Class obj = Class.forName(parts[0]);
+                        AbstractModel a = (AbstractModel) obj.getSuperclass()
+                                .newInstance();
+                        Object o = a.getById(Integer.parseInt(parts[1]));
+                        ctrParams.add(obj.getConstructor(o.getClass()
+                                .getInterfaces()[0]).newInstance(o));
+                        searchParams[i] = AbstractModel.class;
                     } else {
                         Class obj = Class.forName(parts[0]);
                         ctrParams.add(obj.cast(parts[1]));
