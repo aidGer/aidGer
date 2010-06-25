@@ -19,7 +19,7 @@ public class PresenceValidatorTest {
     public void testValidateVar() {
         System.out.println("validateVar");
 
-        PresenceValidator val = new PresenceValidator(null, null);
+        PresenceValidator val = new PresenceValidator(null, null, null);
 
         assertFalse(val.validateVar(null));
         assertFalse(val.validateVar(""));

@@ -348,8 +348,8 @@ public abstract class AbstractModel<T> extends Observable implements
      * @param inc
      *            The list to check for inclusion
      */
-    public void validateInclusionOf(String[] members, String[] inc,
-            String[] trans) {
+    public void validateInclusionOf(String[] members, String[] trans,
+            String[] inc) {
         validators.add(new InclusionValidator(this, members, trans, inc));
     }
 

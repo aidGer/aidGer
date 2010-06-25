@@ -62,7 +62,7 @@ public class ValidatorTest {
     public class ValidatorImpl extends Validator {
 
         public ValidatorImpl(AbstractModel model, String[] members) {
-            super(model, members);
+            super(model, members, members);
         }
 
         public boolean validateVar(Object o) {

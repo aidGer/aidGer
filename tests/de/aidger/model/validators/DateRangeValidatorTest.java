@@ -22,7 +22,8 @@ public class DateRangeValidatorTest {
         System.out.println("validate");
 
         ModelImpl model = new ModelImpl();
-        DateRangeValidator val = new DateRangeValidator(model, "from", "to");
+        DateRangeValidator val = new DateRangeValidator(model, "from", "to",
+                "from", "to");
 
         assertTrue(val.validate());
 
@@ -52,7 +53,7 @@ public class DateRangeValidatorTest {
     public void testValidateVar() {
         System.out.println("validateVar");
 
-        DateRangeValidator val = new DateRangeValidator(null, "", "");
+        DateRangeValidator val = new DateRangeValidator(null, "", "", "", "");
         assertFalse(val.validateVar(new Object()));
     }
 
