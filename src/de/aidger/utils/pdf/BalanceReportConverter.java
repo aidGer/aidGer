@@ -28,6 +28,7 @@ import de.aidger.model.reports.BalanceReportGroupCreator;
 import de.aidger.model.reports.BalanceCourse.BudgetCost;
 import de.aidger.utils.Logger;
 import de.aidger.utils.reports.BalanceHelper;
+import de.aidger.view.UI;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 
@@ -109,6 +110,16 @@ public class BalanceReportConverter {
             break;
         }
         document.close();
+        if (Runtime.getInstance().getOption("auto-open").equals("true")) {
+            try {
+                java.lang.Runtime.getRuntime().exec(
+                    new String[] {
+                            Runtime.getInstance().getOption("pdf-viewer"),
+                            file.getAbsolutePath() });
+            } catch (IOException e) {
+                UI.displayError(_("Pdf viewer could not be found!"));
+            }
+        }
     }
 
     /**

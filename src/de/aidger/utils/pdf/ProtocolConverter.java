@@ -24,6 +24,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 import de.aidger.model.Runtime;
 import de.aidger.model.reports.ProtocolCreator;
+import de.aidger.view.UI;
 
 /**
  * This class converts protocols to a format for iText and exports it to a .pdf
@@ -64,6 +65,16 @@ public class ProtocolConverter {
         writeHeader();
         writeTable();
         document.close();
+        if (Runtime.getInstance().getOption("auto-open").equals("true")) {
+            try {
+                java.lang.Runtime.getRuntime().exec(
+                    new String[] {
+                            Runtime.getInstance().getOption("pdf-viewer"),
+                            file.getAbsolutePath() });
+            } catch (IOException e) {
+                UI.displayError(_("Pdf viewer could not be found!"));
+            }
+        }
     }
 
     /**

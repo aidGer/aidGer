@@ -28,6 +28,7 @@ import de.aidger.model.budgets.BudgetCreator;
 import de.aidger.model.budgets.BudgetFilter;
 import de.aidger.model.budgets.CourseBudget;
 import de.aidger.model.models.Course;
+import de.aidger.view.UI;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 
@@ -67,6 +68,16 @@ public class BudgetReportConverter {
         writeHeader();
         createCourses();
         document.close();
+        if (Runtime.getInstance().getOption("auto-open").equals("true")) {
+            try {
+                java.lang.Runtime.getRuntime().exec(
+                    new String[] {
+                            Runtime.getInstance().getOption("pdf-viewer"),
+                            file.getAbsolutePath() });
+            } catch (IOException e) {
+                UI.displayError(_("Pdf viewer could not be found!"));
+            }
+        }
     }
 
     /**
