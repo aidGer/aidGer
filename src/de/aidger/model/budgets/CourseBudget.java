@@ -3,6 +3,8 @@
  */
 package de.aidger.model.budgets;
 
+import java.math.BigDecimal;
+
 import de.aidger.model.models.Course;
 
 /**
@@ -101,7 +103,8 @@ public class CourseBudget {
      * @return the booked budget
      */
     public double getBookedBudget() {
-        return bookedBudget;
+        return (new BigDecimal(bookedBudget)).setScale(2,
+            BigDecimal.ROUND_HALF_EVEN).doubleValue();
     }
 
     /**
@@ -121,7 +124,8 @@ public class CourseBudget {
      * @return the total budget
      */
     public double getTotalBudget() {
-        return totalBudget;
+        return (new BigDecimal(totalBudget)).setScale(2,
+            BigDecimal.ROUND_HALF_EVEN).doubleValue();
     }
 
     /**
@@ -141,7 +145,8 @@ public class CourseBudget {
      * @return the available budget
      */
     public double getAvailableBudget() {
-        return availableBudget;
+        return (new BigDecimal(availableBudget)).setScale(2,
+            BigDecimal.ROUND_HALF_EVEN).doubleValue();
     }
 
     /**
