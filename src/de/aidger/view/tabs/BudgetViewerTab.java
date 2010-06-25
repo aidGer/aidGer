@@ -384,7 +384,7 @@ public class BudgetViewerTab extends ReportTab {
                 }
                 if (i == filterPanels.size() || !filterPanelFound) {
                     BalanceFilterPanel filterPanel = new BalanceFilterPanel(
-                        filterNameComboBox.getItemAt(1).toString(),
+                        filterNameComboBox.getItemAt(2).toString(),
                         filterComboBox.getSelectedItem().toString(), this);
                     filterPanel.setBudgetLabel(budgetFilterText.getText());
                     filterPanels.add(filterPanel);
@@ -420,7 +420,7 @@ public class BudgetViewerTab extends ReportTab {
                 }
                 if (i == filterPanels.size() || !filterPanelFound) {
                     BalanceFilterPanel filterPanel = new BalanceFilterPanel(
-                        filterNameComboBox.getItemAt(2).toString(),
+                        filterNameComboBox.getItemAt(3).toString(),
                         filterComboBox.getSelectedItem().toString(), this);
                     filterPanel.setBudgetLabel(budgetFilterText.getText());
                     filterPanels.add(filterPanel);
@@ -456,7 +456,7 @@ public class BudgetViewerTab extends ReportTab {
                 }
                 if (i == filterPanels.size() || !filterPanelFound) {
                     BalanceFilterPanel filterPanel = new BalanceFilterPanel(
-                        filterNameComboBox.getItemAt(3).toString(),
+                        filterNameComboBox.getItemAt(4).toString(),
                         filterComboBox.getSelectedItem().toString(), this);
                     filterPanel.setBudgetLabel(budgetFilterText.getText());
                     filterPanels.add(filterPanel);
