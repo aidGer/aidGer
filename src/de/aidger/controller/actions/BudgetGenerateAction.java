@@ -50,7 +50,7 @@ public class BudgetGenerateAction extends AbstractAction {
         try {
             viewerTab.clearTable();
             BudgetCreator budgetCreator = new BudgetCreator();
-            List<ICourse> courses = new Course().getAll();
+            List<ICourse> courses = (new Course()).getAll();
             /*
              * Get course budgets for all courses along with the filter
              * criteria.
