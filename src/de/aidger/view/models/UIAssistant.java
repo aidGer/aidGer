@@ -34,7 +34,7 @@ public class UIAssistant extends Assistant {
     /**
      * Sets the total hours for this assistant.
      * 
-     * @param budget
+     * @param totalHours
      *            the total hours
      */
     public void setTotalHours(double totalHours) {

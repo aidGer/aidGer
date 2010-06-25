@@ -35,12 +35,14 @@ public class CourseViewerForm extends JPanel {
         advisor.setText(course.getAdvisor());
         targetAudience.setText(course.getTargetAudience());
         numberOfGroups.setText(String.valueOf(course.getNumberOfGroups()));
-        AWHperGroup
-            .setText(String.valueOf(course.getUnqualifiedWorkingHours()));
+        AWHperGroup.setText(String.valueOf(course.getUnqualifiedWorkingHours())
+                + "h");
         bookedBudget.setText(String.valueOf((new CourseBudget(course))
-            .getBookedBudget()));
+            .getBookedBudget())
+                + "h");
         totalBudget.setText(String.valueOf(course.getNumberOfGroups()
-                * course.getUnqualifiedWorkingHours()));
+                * course.getUnqualifiedWorkingHours())
+                + "h");
         scope.setText(course.getScope());
         part.setText(String.valueOf(course.getPart()));
         group.setText(course.getGroup());

@@ -10,7 +10,11 @@ import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
  */
 public class UIFinancialCategory extends FinancialCategory {
 
-    public UIFinancialCategory() { }
+    /**
+     * Initializes the Financial Category class.
+     */
+    public UIFinancialCategory() {
+    }
 
     /**
      * Initializes the Financial Category class with the given financial
