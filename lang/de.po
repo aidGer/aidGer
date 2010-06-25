@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-25 17:42+0200\n"
+"POT-Creation-Date: 2010-06-25 19:52+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
+"Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -221,6 +221,7 @@ msgstr "PDF Dateien"
 
 #: controller/actions/ProtocolExportAction.java:77
 #: controller/actions/ReportExportAction.java:88
+#: controller/actions/SettingsBrowseAction.java:57
 msgid "Please choose a file."
 msgstr "Bitte wählen sie eine Datei aus."
 
@@ -267,13 +268,26 @@ msgid "Factors need to be a floating point number."
 msgstr "Faktoren müssen Gleitkommazahlen sein."
 
 #: controller/actions/SettingsAction.java:28
-#: view/SettingsDialog.java:192
+#: view/SettingsDialog.java:207
 msgid "Settings"
 msgstr "Einstellungen"
 
 #: controller/actions/SettingsAction.java:31
 msgid "Display program settings"
 msgstr "Programmeinstellungen anzeigen"
+
+#: controller/actions/SettingsBrowseAction.java:27
+#: view/SettingsDialog.java:227
+msgid "Browse"
+msgstr "Durchsuchen"
+
+#: controller/actions/SettingsBrowseAction.java:28
+msgid "Browse for a pdf viewer"
+msgstr "Nach einem PDF Anzeiger suchen"
+
+#: controller/actions/SettingsBrowseAction.java:60
+msgid "Please select an executable."
+msgstr "Bitte wählen sie eine ausführbare Datei aus."
 
 #: controller/actions/ViewerActivitiesAction.java:23
 #: view/tabs/ViewerTab.java:468
@@ -1128,7 +1142,7 @@ msgid "It will be used in all your activities."
 msgstr "Dieser wird in allen Aktivitäten verwendet."
 
 #: view/FirstStartDialog.java:86
-#: view/SettingsDialog.java:201
+#: view/SettingsDialog.java:214
 msgid "Name:"
 msgstr "Name:"
 
@@ -1148,40 +1162,40 @@ msgstr "Verbindung fehlgeschlagen. Bitte kontaktieren sie ihren Administrator."
 msgid "Connection successfull."
 msgstr "Verbindung erfolgreich."
 
-#: view/SettingsDialog.java:196
+#: view/SettingsDialog.java:209
 msgid "Language:"
 msgstr "Sprache:"
 
-#: view/SettingsDialog.java:198
+#: view/SettingsDialog.java:211
 msgid "Amount of activities:"
 msgstr "Anzahl der Vorgänge:"
 
-#: view/SettingsDialog.java:199
+#: view/SettingsDialog.java:212
 msgid "The amount of activities shown in detailviews."
 msgstr "Anzahl der Vorgänge die in Detailansichten angezeigt werden"
 
-#: view/SettingsDialog.java:202
-#: view/SettingsDialog.java:204
+#: view/SettingsDialog.java:215
+#: view/SettingsDialog.java:217
 msgid "The name used in activities."
 msgstr "Name der in Vorgängen verwendet wird."
 
-#: view/SettingsDialog.java:206
+#: view/SettingsDialog.java:219
 msgid "PDF Viewer:"
 msgstr "PDF Anzeiger:"
 
-#: view/SettingsDialog.java:208
+#: view/SettingsDialog.java:223
 msgid "Open reports automatically after generating"
 msgstr "Berichte automatisch nach Generierung öffnen"
 
-#: view/SettingsDialog.java:210
+#: view/SettingsDialog.java:225
 msgid "Save Tabs when quitting"
 msgstr "Reiter bei Verlassen speichern"
 
-#: view/SettingsDialog.java:277
+#: view/SettingsDialog.java:292
 msgid "Pessimistic Factor:"
 msgstr "Pessimistischer Faktor:"
 
-#: view/SettingsDialog.java:279
+#: view/SettingsDialog.java:294
 msgid "Historical Factor:"
 msgstr "Historischer Faktor:"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-25 17:42+0200\n"
+"POT-Creation-Date: 2010-06-25 19:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -210,6 +210,7 @@ msgstr ""
 
 #: controller/actions/ProtocolExportAction.java:77
 #: controller/actions/ReportExportAction.java:88
+#: controller/actions/SettingsBrowseAction.java:57
 msgid "Please choose a file."
 msgstr ""
 
@@ -255,12 +256,25 @@ msgstr ""
 msgid "Factors need to be a floating point number."
 msgstr ""
 
-#: controller/actions/SettingsAction.java:28 view/SettingsDialog.java:192
+#: controller/actions/SettingsAction.java:28 view/SettingsDialog.java:207
 msgid "Settings"
 msgstr ""
 
 #: controller/actions/SettingsAction.java:31
 msgid "Display program settings"
+msgstr ""
+
+#: controller/actions/SettingsBrowseAction.java:27
+#: view/SettingsDialog.java:227
+msgid "Browse"
+msgstr ""
+
+#: controller/actions/SettingsBrowseAction.java:28
+msgid "Browse for a pdf viewer"
+msgstr ""
+
+#: controller/actions/SettingsBrowseAction.java:60
+msgid "Please select an executable."
 msgstr ""
 
 #: controller/actions/ViewerActivitiesAction.java:23
@@ -1047,7 +1061,7 @@ msgstr ""
 msgid "It will be used in all your activities."
 msgstr ""
 
-#: view/FirstStartDialog.java:86 view/SettingsDialog.java:201
+#: view/FirstStartDialog.java:86 view/SettingsDialog.java:214
 msgid "Name:"
 msgstr ""
 
@@ -1067,39 +1081,39 @@ msgstr ""
 msgid "Connection successfull."
 msgstr ""
 
-#: view/SettingsDialog.java:196
+#: view/SettingsDialog.java:209
 msgid "Language:"
 msgstr ""
 
-#: view/SettingsDialog.java:198
+#: view/SettingsDialog.java:211
 msgid "Amount of activities:"
 msgstr ""
 
-#: view/SettingsDialog.java:199
+#: view/SettingsDialog.java:212
 msgid "The amount of activities shown in detailviews."
 msgstr ""
 
-#: view/SettingsDialog.java:202 view/SettingsDialog.java:204
+#: view/SettingsDialog.java:215 view/SettingsDialog.java:217
 msgid "The name used in activities."
 msgstr ""
 
-#: view/SettingsDialog.java:206
+#: view/SettingsDialog.java:219
 msgid "PDF Viewer:"
 msgstr ""
 
-#: view/SettingsDialog.java:208
+#: view/SettingsDialog.java:223
 msgid "Open reports automatically after generating"
 msgstr ""
 
-#: view/SettingsDialog.java:210
+#: view/SettingsDialog.java:225
 msgid "Save Tabs when quitting"
 msgstr ""
 
-#: view/SettingsDialog.java:277
+#: view/SettingsDialog.java:292
 msgid "Pessimistic Factor:"
 msgstr ""
 
-#: view/SettingsDialog.java:279
+#: view/SettingsDialog.java:294
 msgid "Historical Factor:"
 msgstr ""
 

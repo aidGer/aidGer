@@ -15,6 +15,7 @@ controller/actions/ReportExportAction.java
 controller/actions/ReportGenerateAction.java
 controller/actions/SaveSettingsAction.java
 controller/actions/SettingsAction.java
+controller/actions/SettingsBrowseAction.java
 controller/actions/ViewerActivitiesAction.java
 controller/actions/ViewerAddAction.java
 controller/actions/ViewerContractAction.java
