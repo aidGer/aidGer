@@ -5,7 +5,6 @@ import static de.aidger.utils.Translation._;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -92,6 +91,11 @@ public final class UI extends JFrame {
      * A list that contains the tabs.
      */
     private final List<Tab> tabs = new ArrayList<Tab>();
+
+    /**
+     * The label containing a status message.
+     */
+    private JLabel statusLabel;
 
     /**
      * Creates the main window of the application.
@@ -468,6 +472,16 @@ public final class UI extends JFrame {
     }
 
     /**
+     * Set the message of the status pane.
+     *
+     * @param message
+     *              The message to set
+     */
+    public void setStatusMessage(String message) {
+        statusLabel.setText(message);
+    }
+
+    /**
      * Sets up the main menu bar.
      */
     private JMenuBar createMainMenuBar() {
@@ -691,9 +705,10 @@ public final class UI extends JFrame {
      */
     private JPanel createStatusPane() {
         JPanel statusPane = new JPanel();
-        statusPane.setLayout(new FlowLayout(FlowLayout.LEFT));
+        statusPane.setLayout(new javax.swing.BoxLayout(statusPane, WIDTH));
 
-        statusPane.add(new JLabel(_("Ready")));
+        statusLabel = new JLabel(_("Ready"));
+        statusPane.add(statusLabel);
 
         return statusPane;
     }
@@ -774,7 +789,7 @@ public final class UI extends JFrame {
                         Class obj = Class.forName(parts[0]);
                         ctrParams.add(Enum.valueOf(obj, parts[1]));
                     } else if (current.getSuperclass().equals(
-                        AbstractModel.class)) {
+                            AbstractModel.class)) {
                         Class obj = Class.forName(parts[0]);
                         AbstractModel a = (AbstractModel) obj.newInstance();
                         Object o;
@@ -788,6 +803,15 @@ public final class UI extends JFrame {
 
                         ctrParams.add(obj.getConstructor(
                             o.getClass().getInterfaces()[0]).newInstance(o));
+                    } else if (current.getSuperclass().
+                            getSuperclass().equals(AbstractModel.class)) {
+                        Class obj = Class.forName(parts[0]);
+                        AbstractModel a = (AbstractModel) obj.getSuperclass()
+                                .newInstance();
+                        Object o = a.getById(Integer.parseInt(parts[1]));
+                        ctrParams.add(obj.getConstructor(o.getClass()
+                                .getInterfaces()[0]).newInstance(o));
+                        searchParams[i] = AbstractModel.class;
                     } else {
                         Class obj = Class.forName(parts[0]);
                         ctrParams.add(obj.cast(parts[1]));

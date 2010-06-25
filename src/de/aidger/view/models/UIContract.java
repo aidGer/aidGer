@@ -12,6 +12,8 @@ import de.unistuttgart.iste.se.adohive.model.IContract;
  */
 public class UIContract extends Contract {
 
+    public UIContract() { }
+
     /**
      * Initializes the Contract class with the given contract model.
      * 
