@@ -4,7 +4,11 @@ import static de.aidger.utils.Translation._;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.swing.JPanel;
 
@@ -229,15 +233,30 @@ public class DetailViewerTab extends Tab {
 
             ListModel listAssistantsModel = new ListModel(DataType.Assistant);
 
+            Map<Integer, Double> totalHours = new HashMap<Integer, Double>();
+
             for (Employment employment : employments) {
-                IAssistant a = (new Assistant()).getById(employment
-                    .getAssistantId());
-
-                Assistant assistant = new UIAssistant(a);
-
-                if (!listAssistantsModel.contains(assistant)) {
-                    listAssistantsModel.addElement(assistant);
+                if (totalHours.get(employment.getAssistantId()) == null) {
+                    totalHours.put(employment.getAssistantId(), employment
+                        .getHourCount());
+                } else {
+                    totalHours.put(employment.getAssistantId(), totalHours
+                        .get(employment.getAssistantId())
+                            + employment.getHourCount());
                 }
+            }
+
+            Set<Integer> set = totalHours.keySet();
+
+            for (Integer assistantId : set) {
+                IAssistant a = (new Assistant()).getById(assistantId);
+
+                UIAssistant assistant = new UIAssistant(a);
+                assistant.setTotalHours(new BigDecimal(totalHours
+                    .get(assistantId)).setScale(2, BigDecimal.ROUND_HALF_EVEN)
+                    .doubleValue());
+
+                listAssistantsModel.addElement(assistant);
             }
 
             List<Activity> activities = (new Activity()).getActivities(course);

@@ -54,31 +54,39 @@ public class Translation {
         /* Load the language file */
         InputStream inputStream = null;
 
-        /* Check first in .jar */
-        String jarfile = Runtime.getInstance().getJarLocation();
-        if (jarfile.endsWith(".jar")) {
-            inputStream = getClass().getClassLoader().getResourceAsStream(
-                "de/aidger/lang/" + language + ".properties");
-        }
-
-        /* After that check in filesystem */
-        if (inputStream == null) {
-            try {
-                File inputFile = new File(filePath + language + ".properties");
-                inputStream = new FileInputStream(inputFile);
-            } catch (Exception e) {
-                Logger
-                    .info("Loading the translation from the filesystem failed. Only english will be available");
+        if (!language.isEmpty()) {
+            /* Check first in .jar */
+            String jarfile = Runtime.getInstance().getJarLocation();
+            if (jarfile.endsWith(".jar")) {
+                inputStream = getClass().getClassLoader().getResourceAsStream(
+                    "de/aidger/lang/" + language + ".properties");
             }
-        }
 
-        /* Finally load the resource */
-        if (inputStream != null) {
-            try {
-                bundle = new PropertyResourceBundle(inputStream);
-                inputStream.close();
-            } catch (IOException ex) {
+            /* After that check in filesystem */
+            if (inputStream == null) {
+                try {
+                    File inputFile = new File(filePath + language + ".properties");
+                    inputStream = new FileInputStream(inputFile);
+                } catch (Exception e) {
+                    Logger
+                        .info("Loading the translation from the filesystem failed. Only english will be available");
+                }
             }
+
+            /* Finally load the resource */
+            if (inputStream != null) {
+                try {
+                    bundle = new PropertyResourceBundle(inputStream);
+                    inputStream.close();
+                } catch (IOException ex) {
+                }
+            }
+
+            /* Instanciate the selected locale and set it as the default for the jvm */
+            Locale def = new Locale(language);
+            Locale.setDefault(def);
+        } else {
+            Runtime.getInstance().setOption("language", "en");
         }
     }
 
