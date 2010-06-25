@@ -84,14 +84,7 @@ public class BudgetCreator {
              * If this course passed all the filters, it can be added to the
              * list of courses that passed as well.
              */
-            CourseBudget courseBudget = new CourseBudget();
-            courseBudget.setName(course.getDescription());
-            courseBudget.setSemester(course.getSemester());
-            courseBudget.setLecturer(course.getLecturer());
-            courseBudget.setTotalBudget(totalBudget);
-            courseBudget.setBookedBudget(bookedBudget);
-            courseBudget.setAvailableBudget(availableBudget);
-            courseBudget.setOverBooked(BudgetChecker.checkBudget(course));
+            CourseBudget courseBudget = new CourseBudget(course);
             courseBudgets.add(courseBudget);
         }
     }

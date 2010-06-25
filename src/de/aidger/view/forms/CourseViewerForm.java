@@ -4,6 +4,7 @@ import static de.aidger.utils.Translation._;
 
 import javax.swing.JPanel;
 
+import de.aidger.model.budgets.CourseBudget;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.Logger;
@@ -36,6 +37,10 @@ public class CourseViewerForm extends JPanel {
         numberOfGroups.setText(String.valueOf(course.getNumberOfGroups()));
         AWHperGroup
             .setText(String.valueOf(course.getUnqualifiedWorkingHours()));
+        bookedBudget.setText(String.valueOf((new CourseBudget(course))
+            .getBookedBudget()));
+        totalBudget.setText(String.valueOf(course.getNumberOfGroups()
+                * course.getUnqualifiedWorkingHours()));
         scope.setText(course.getScope());
         part.setText(String.valueOf(course.getPart()));
         group.setText(course.getGroup());
@@ -66,19 +71,23 @@ public class CourseViewerForm extends JPanel {
         lblAdvisor = new javax.swing.JLabel();
         lblNumberOfGroups = new javax.swing.JLabel();
         lblTargetAudience = new javax.swing.JLabel();
+        lblAWHperGroup = new javax.swing.JLabel();
+        lblBookedBudget = new javax.swing.JLabel();
+        lblTotalBudget = new javax.swing.JLabel();
+        lblScope = new javax.swing.JLabel();
+        lblPart = new javax.swing.JLabel();
+        lblGroup = new javax.swing.JLabel();
+        lblRemark = new javax.swing.JLabel();
+        lblFinancialCategory = new javax.swing.JLabel();
         description = new javax.swing.JLabel();
         semester = new javax.swing.JLabel();
         lecturer = new javax.swing.JLabel();
         advisor = new javax.swing.JLabel();
         numberOfGroups = new javax.swing.JLabel();
         targetAudience = new javax.swing.JLabel();
-        lblAWHperGroup = new javax.swing.JLabel();
-        lblScope = new javax.swing.JLabel();
-        lblPart = new javax.swing.JLabel();
-        lblGroup = new javax.swing.JLabel();
-        lblRemark = new javax.swing.JLabel();
-        lblFinancialCategory = new javax.swing.JLabel();
         AWHperGroup = new javax.swing.JLabel();
+        bookedBudget = new javax.swing.JLabel();
+        totalBudget = new javax.swing.JLabel();
         scope = new javax.swing.JLabel();
         part = new javax.swing.JLabel();
         group = new javax.swing.JLabel();
@@ -132,6 +141,70 @@ public class CourseViewerForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblTargetAudience, gridBagConstraints);
+
+        lblAWHperGroup.setText(_("AWH per group"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblAWHperGroup, gridBagConstraints);
+
+        lblBookedBudget.setText(_("Booked budgets"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblBookedBudget, gridBagConstraints);
+
+        lblTotalBudget.setText(_("Total budgets"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblTotalBudget, gridBagConstraints);
+
+        lblScope.setText(_("Scope"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblScope, gridBagConstraints);
+
+        lblPart.setText(_("Part"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblPart, gridBagConstraints);
+
+        lblGroup.setText(_("Group"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblGroup, gridBagConstraints);
+
+        lblRemark.setText(_("Remark"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblRemark, gridBagConstraints);
+
+        lblFinancialCategory.setText(_("Financial Category"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblFinancialCategory, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -166,54 +239,6 @@ public class CourseViewerForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(targetAudience, gridBagConstraints);
-
-        lblAWHperGroup.setText(_("AWH per group"));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(lblAWHperGroup, gridBagConstraints);
-
-        lblScope.setText(_("Scope"));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(lblScope, gridBagConstraints);
-
-        lblPart.setText(_("Part"));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(lblPart, gridBagConstraints);
-
-        lblGroup.setText(_("Group"));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(lblGroup, gridBagConstraints);
-
-        lblRemark.setText(_("Remark"));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(lblRemark, gridBagConstraints);
-
-        lblFinancialCategory.setText(_("Financial Category"));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(lblFinancialCategory, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -225,28 +250,40 @@ public class CourseViewerForm extends JPanel {
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(scope, gridBagConstraints);
+        add(bookedBudget, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(part, gridBagConstraints);
+        add(totalBudget, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(group, gridBagConstraints);
+        add(scope, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(remark, gridBagConstraints);
+        add(part, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(group, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(remark, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(financialCategory, gridBagConstraints);
@@ -255,11 +292,13 @@ public class CourseViewerForm extends JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AWHperGroup;
     private javax.swing.JLabel advisor;
+    private javax.swing.JLabel bookedBudget;
     private javax.swing.JLabel description;
     private javax.swing.JLabel financialCategory;
     private javax.swing.JLabel group;
     private javax.swing.JLabel lblAWHperGroup;
     private javax.swing.JLabel lblAdvisor;
+    private javax.swing.JLabel lblBookedBudget;
     private javax.swing.JLabel lblDescription;
     private javax.swing.JLabel lblFinancialCategory;
     private javax.swing.JLabel lblGroup;
@@ -270,6 +309,7 @@ public class CourseViewerForm extends JPanel {
     private javax.swing.JLabel lblScope;
     private javax.swing.JLabel lblSemester;
     private javax.swing.JLabel lblTargetAudience;
+    private javax.swing.JLabel lblTotalBudget;
     private javax.swing.JLabel lecturer;
     private javax.swing.JLabel numberOfGroups;
     private javax.swing.JLabel part;
@@ -277,6 +317,7 @@ public class CourseViewerForm extends JPanel {
     private javax.swing.JLabel scope;
     private javax.swing.JLabel semester;
     private javax.swing.JLabel targetAudience;
+    private javax.swing.JLabel totalBudget;
     // End of variables declaration//GEN-END:variables
 
 }
