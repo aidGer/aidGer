@@ -296,8 +296,8 @@ public class AbstractModelTest {
         System.out.println("addError_field");
 
         Employment e = new Employment();
-        e.addError("field", "error message");
-        e.addError("other-field", "other error message");
+        e.addError("field", "field", "error message");
+        e.addError("other-field", "other-field", "other error message");
 
         List<String> result = e.getErrorsFor("field");
 
@@ -315,7 +315,7 @@ public class AbstractModelTest {
 
         Employment e = new Employment();
         e.addError("error message");
-        e.addError("field", "error message");
+        e.addError("field", "field", "error message");
 
         assertTrue(e.getErrors().size() == 2);
         assertTrue(e.getErrorsFor("field").size() == 1);

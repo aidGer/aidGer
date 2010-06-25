@@ -22,10 +22,14 @@ public class InclusionValidator extends Validator {
      *            The model to validate
      * @param members
      *            The members of the model to validate
+     * @param trans
+     *            The translated names
+     * @param inc
+     *            Array of possible values
      */
-    public InclusionValidator(AbstractModel model, String[] members,
+    public InclusionValidator(AbstractModel model, String[] members, String[] trans,
             String[] inc) {
-        super(model, members);
+        super(model, members, trans);
 
         message = _("has an invalid value");
         list = inc;

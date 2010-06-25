@@ -44,7 +44,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
     public FinancialCategory() {
         updatePKs = true;
 
-        validatePresenceOf(new String[] { "name" });
+        validatePresenceOf(new String[] { "name" }, new String[] { _("Name") });
     }
 
     /**
@@ -120,20 +120,20 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
     public boolean validate() {
         boolean ret = true;
         if (year <= 1000 || year >= 10000) {
-            addError("year", _("is an incorrect year"));
+            addError("year", _("Year"), _("is an incorrect year"));
             ret = false;
         }
 
         for (int b : budgetCosts) {
             if (b <= 0) {
-                addError("budgetCosts", _("can't be zero."));
+                addError("budgetCosts", _("Budget Costs"), _("can't be zero."));
                 ret = false;
             }
         }
 
         for (int f : funds) {
             if (String.valueOf(f).length() != 8) {
-                addError("funds", _("has to have a length of 8"));
+                addError("funds", _("Funds"), _("has to have a length of 8"));
                 ret = false;
             }
         }

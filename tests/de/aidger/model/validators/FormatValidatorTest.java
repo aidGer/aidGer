@@ -18,7 +18,7 @@ public class FormatValidatorTest {
     public void testValidateVar() {
         System.out.println("validateVar");
 
-        FormatValidator val = new FormatValidator(null, null, "[abc]*");
+        FormatValidator val = new FormatValidator(null, null, null, "[abc]*");
 
         assertFalse(val.validateVar(null));
         assertFalse(val.validateVar(new Object()));

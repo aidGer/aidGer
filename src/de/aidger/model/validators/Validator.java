@@ -21,6 +21,11 @@ public abstract class Validator {
     protected String[] members;
 
     /**
+     * The translated names of members.
+     */
+    protected String[] trans;
+
+    /**
      * The error message.
      */
     protected String message;
@@ -31,6 +36,7 @@ public abstract class Validator {
     public Validator() {
         this.model = null;
         this.members = new String[0];
+        this.trans = new String[0];
         this.message = _("Default error");
     }
 
@@ -41,10 +47,13 @@ public abstract class Validator {
      *            The model to validate
      * @param members
      *            The members of the model to validate
+     * @param trans
+     *            The translated names
      */
-    public Validator(AbstractModel model, String[] members) {
+    public Validator(AbstractModel model, String[] members, String[] trans) {
         this.model = model;
         this.members = members;
+        this.trans = trans;
         this.message = _("Default error");
     }
 
@@ -55,12 +64,12 @@ public abstract class Validator {
      */
     public boolean validate() {
         boolean ret = true;
-        for (String member : members) {
-            Object value = getValueOf(member);
+        for (int i = 0; i < members.length; ++i) {
+            Object value = getValueOf(members[i]);
             if (!validateVar(value)) {
                 ret = false;
                 if (model != null) {
-                    model.addError(member, message);
+                    model.addError(members[i], trans[i], message);
                 }
             }
         }

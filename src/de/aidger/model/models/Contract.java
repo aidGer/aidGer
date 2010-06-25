@@ -52,9 +52,12 @@ public class Contract extends AbstractModel<IContract> implements IContract {
      */
     public Contract() {
         validatePresenceOf(new String[] { "completionDate", "confirmationDate",
-                "endDate", "startDate", "type" });
-        validateDateRange("startDate", "endDate");
-        validateDateRange("completionDate", "confirmationDate");
+                "endDate", "startDate", "type" }, new String[] {
+                _("Completion Date"), _("Confirmation Date"), _("End Date"),
+                _("Start Date"), _("Type") });
+        validateDateRange("startDate", "endDate", _("End Date"), _("Start Date"));
+        validateDateRange("completionDate", "confirmationDate",
+                _("Completion Date"), _("Confirmation Date"));
     }
 
     /**
@@ -147,7 +150,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
     public boolean validate() {
         boolean ret = true;
         if (type.length() > 20) {
-            addError("type", _("is too long"));
+            addError("type", _("Type"), _("is too long"));
             ret = false;
         }
         return ret;

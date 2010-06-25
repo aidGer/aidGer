@@ -95,15 +95,16 @@ public class EditorSaveAction extends AbstractAction {
             course
                 .setUnqualifiedWorkingHours(form.getUnqualifiedWorkingHours());
         } catch (NumberFormatException e) {
-            course.addError("unqualifiedWorkingHours", new PresenceValidator(
-                course, new String[] {}).getMessage());
+            course.addError("unqualifiedWorkingHours", _("Unqualified Working Hours"), 
+                    new PresenceValidator(course, new String[0], new String[0])
+                    .getMessage());
         }
 
         try {
             course.setPart(form.getPart());
         } catch (StringIndexOutOfBoundsException e) {
-            course.addError("part", new PresenceValidator(course,
-                new String[] {}).getMessage());
+            course.addError("part", _("Part"), new PresenceValidator(course,
+                new String[0], new String[0]).getMessage());
         }
 
         try {
@@ -173,22 +174,22 @@ public class EditorSaveAction extends AbstractAction {
         try {
             fc.setBudgetCosts(form.getBudgetCosts());
         } catch (NumberFormatException e) {
-            fc.addError("budgetCosts", new PresenceValidator(fc,
-                new String[] {}).getMessage());
+            fc.addError("budgetCosts", _("Budget Costs"), new PresenceValidator(fc,
+                new String[0], new String[0]).getMessage());
         }
 
         try {
             fc.setFunds(form.getFunds());
         } catch (NumberFormatException e) {
-            fc.addError("funds", new PresenceValidator(fc, new String[] {})
-                .getMessage());
+            fc.addError("funds", _("Funds"), new PresenceValidator(fc, new String[0],
+                    new String[0]).getMessage());
         }
 
         try {
             fc.setYear(form.getYear());
         } catch (NumberFormatException e) {
-            fc.addError("year", new PresenceValidator(fc, new String[] {})
-                .getMessage());
+            fc.addError("year", _("Year"), new PresenceValidator(fc, new String[0],
+                    new String[0]).getMessage());
         }
 
         try {
@@ -226,8 +227,8 @@ public class EditorSaveAction extends AbstractAction {
             hw.setWage(new BigDecimal(form.getWage()).setScale(2,
                 BigDecimal.ROUND_HALF_EVEN));
         } catch (NumberFormatException e) {
-            hw.addError("wage", new PresenceValidator(hw, new String[] {})
-                .getMessage());
+            hw.addError("wage", _("Wage"), new PresenceValidator(hw, new String[0],
+                    new String[0]).getMessage());
         }
 
         if (form.isEditMode()) {
@@ -241,7 +242,8 @@ public class EditorSaveAction extends AbstractAction {
             finish.setTime(form.getFinishDate());
 
             if (start.after(finish)) {
-                hw.addError("end date", _("must be after start date"));
+                hw.addError("end date", _("End Date"),
+                        _("must be after start date"));
             } else {
                 models.clear();
 
@@ -305,8 +307,8 @@ public class EditorSaveAction extends AbstractAction {
         try {
             employment.setFunds(form.getFunds());
         } catch (NumberFormatException e) {
-            employment.addError("funds", new PresenceValidator(employment,
-                new String[] {}).getMessage());
+            employment.addError("funds", _("Funds"), new PresenceValidator(
+                    employment, new String[0], new String[0]).getMessage());
         }
 
         List<Date> dates = form.getDates();
@@ -334,8 +336,9 @@ public class EditorSaveAction extends AbstractAction {
                 clone.setHourCount(hcs.get(i));
             }
         } catch (NumberFormatException e) {
-            employment.addError("hourCount", new PresenceValidator(employment,
-                new String[] {}).getMessage());
+            employment.addError("hourCount", _("Hour Count"), new
+                    PresenceValidator(employment, new String[0], new String[0])
+                    .getMessage());
         }
 
         try {
