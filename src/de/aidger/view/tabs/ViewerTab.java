@@ -95,6 +95,8 @@ public class ViewerTab extends Tab {
         btnContract.setVisible(false);
         separator5.setVisible(false);
         separator6.setVisible(false);
+        itemActivities.setVisible(false);
+        itemContract.setVisible(false);
 
         // use different table model for each data type
         switch (type) {
@@ -102,11 +104,13 @@ public class ViewerTab extends Tab {
             tableModel = new CourseTableModel();
             btnActivities.setVisible(true);
             separator5.setVisible(true);
+            itemActivities.setVisible(true);
             break;
         case Assistant:
             tableModel = new AssistantTableModel();
             btnActivities.setVisible(true);
             separator5.setVisible(true);
+            itemActivities.setVisible(true);
             break;
         case FinancialCategory:
             tableModel = new FinancialCategoryTableModel();
@@ -118,6 +122,7 @@ public class ViewerTab extends Tab {
             tableModel = new EmploymentTableModel();
             btnContract.setVisible(true);
             separator6.setVisible(true);
+            itemContract.setVisible(true);
             break;
         case Contract:
             tableModel = new ContractTableModel();
@@ -188,6 +193,8 @@ public class ViewerTab extends Tab {
                 ViewerDeleteAction.class.getName()));
             itemActivities.setAction(ActionRegistry.getInstance().get(
                 ViewerActivitiesAction.class.getName()));
+            itemContract.setAction(ActionRegistry.getInstance().get(
+                ViewerContractAction.class.getName()));
 
             // shortcuts for table
             table.getInputMap().put(
@@ -438,6 +445,7 @@ public class ViewerTab extends Tab {
         itemEdit = new javax.swing.JMenuItem();
         itemDelete = new javax.swing.JMenuItem();
         itemActivities = new javax.swing.JMenuItem();
+        itemContract = new javax.swing.JMenuItem();
         toolBar = new javax.swing.JToolBar();
         separator = new javax.swing.JToolBar.Separator();
         btnView = new javax.swing.JButton();
@@ -467,6 +475,9 @@ public class ViewerTab extends Tab {
 
         itemActivities.setText(_("Activities"));
         popupMenu.add(itemActivities);
+
+        itemContract.setText(_("Contract"));
+        popupMenu.add(itemContract);
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -555,6 +566,7 @@ public class ViewerTab extends Tab {
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnView;
     private javax.swing.JMenuItem itemActivities;
+    private javax.swing.JMenuItem itemContract;
     private javax.swing.JMenuItem itemDelete;
     private javax.swing.JMenuItem itemEdit;
     private javax.swing.JMenuItem itemView;
