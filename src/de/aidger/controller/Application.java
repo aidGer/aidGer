@@ -24,6 +24,7 @@ import de.aidger.controller.actions.ReportExportAction;
 import de.aidger.controller.actions.ReportGenerateAction;
 import de.aidger.controller.actions.SaveSettingsAction;
 import de.aidger.controller.actions.SettingsAction;
+import de.aidger.controller.actions.SettingsBrowseAction;
 import de.aidger.controller.actions.ViewerActivitiesAction;
 import de.aidger.controller.actions.ViewerAddAction;
 import de.aidger.controller.actions.ViewerContractAction;
@@ -80,6 +81,7 @@ public final class Application {
         ActionRegistry.getInstance().register(new ExitAction());
         ActionRegistry.getInstance().register(new PrintAction());
         ActionRegistry.getInstance().register(new SettingsAction());
+        ActionRegistry.getInstance().register(new SettingsBrowseAction());
         ActionRegistry.getInstance().register(new SaveSettingsAction());
         ActionRegistry.getInstance().register(new HelpAction());
         ActionRegistry.getInstance().register(new HomepageAction());
