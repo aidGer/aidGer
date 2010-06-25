@@ -115,14 +115,17 @@ public class BalanceHelperTest {
 
         course2 = course.clone();
         course2.setLecturer("Test Tester 2");
+        course2.setNew(true);
         course2.save();
 
         course3 = course.clone();
         course3.setTargetAudience("Testers 2");
+        course3.setNew(true);
         course3.save();
 
         course4 = course.clone();
         course4.setGroup("Test group 2");
+        course4.setNew(true);
         course4.save();
 
         assistant = new Assistant();
@@ -214,6 +217,9 @@ public class BalanceHelperTest {
         boolean resultBoolean = false;
         for (ICourse listCourse : courses) {
             if (new Course(listCourse).equals(course)) {
+                System.out.println("----------");
+                System.out.println(listCourse);
+                System.out.println(course);
                 resultBoolean = true;
             }
         }
@@ -446,10 +452,12 @@ public class BalanceHelperTest {
 
         Course course2 = course.clone();
         course2.setSemester("WS0910");
+        course2.setNew(true);
         course2.save();
 
         Course course3 = course.clone();
         course3.setSemester("2008");
+        course3.setNew(true);
         course3.save();
 
         Vector years = balanceHelper.getYears();
