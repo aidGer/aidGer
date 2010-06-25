@@ -36,9 +36,10 @@ public class Anonymizer {
                 Date latest = new Date(1);
                 List<Employment> employments = (new Employment())
                         .getEmployments(new Assistant(a));
+
                 for (Employment e : employments) {
-                    Calendar gc = new GregorianCalendar(e.getYear(), e.getMonth(), 0);
-                    if (gc.after(latest)) {
+                    Calendar gc = new GregorianCalendar(e.getYear(), e.getMonth(), 1);
+                    if (gc.getTime().after(latest)) {
                         latest = gc.getTime();
                     }
                 }
