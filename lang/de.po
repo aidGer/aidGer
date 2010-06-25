@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-25 17:35+0200\n"
+"POT-Creation-Date: 2010-06-25 17:42+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -67,7 +67,7 @@ msgid "AWH per group"
 msgstr "HKS pro Gruppe"
 
 #: controller/actions/EditorSaveAction.java:106
-#: utils/pdf/BalanceReportConverter.java:379
+#: utils/pdf/BalanceReportConverter.java:385
 #: view/forms/CourseEditorForm.java:351
 #: view/forms/CourseViewerForm.java:186
 #: view/models/CourseTableModel.java:28
@@ -100,7 +100,7 @@ msgstr "Finanzmittel"
 #: model/models/Employment.java:205
 #: model/models/FinancialCategory.java:123
 #: model/models/HourlyWage.java:130
-#: view/forms/FinancialCategoryEditorForm.java:216
+#: view/forms/FinancialCategoryEditorForm.java:215
 #: view/forms/FinancialCategoryViewerForm.java:107
 #: view/models/FinancialCategoryTableModel.java:25
 #: view/tabs/BalanceViewerTab.java:256
@@ -346,7 +346,7 @@ msgid "action class {0} not found"
 msgstr "Aktions-Klasse {0} nicht gefunden"
 
 #: model/models/Activity.java:73
-#: utils/pdf/ProtocolConverter.java:170
+#: utils/pdf/ProtocolConverter.java:178
 #: view/forms/EmploymentEditorForm.java:317
 #: view/forms/EmploymentViewerForm.java:127
 #: view/forms/HourlyWageEditorForm.java:189
@@ -358,7 +358,7 @@ msgid "Date"
 msgstr "Datum"
 
 #: model/models/Activity.java:73
-#: utils/pdf/ProtocolConverter.java:171
+#: utils/pdf/ProtocolConverter.java:179
 #: view/tabs/ProtocolViewerTab.java:40
 msgid "Sender"
 msgstr "Einsender"
@@ -367,7 +367,7 @@ msgstr "Einsender"
 #: model/models/Activity.java:180
 #: model/models/Contract.java:57
 #: model/models/Contract.java:154
-#: utils/pdf/ProtocolConverter.java:170
+#: utils/pdf/ProtocolConverter.java:178
 #: view/forms/ContractEditorForm.java:164
 #: view/forms/ContractViewerForm.java:107
 #: view/models/ContractTableModel.java:26
@@ -376,13 +376,13 @@ msgid "Type"
 msgstr "Typ"
 
 #: model/models/Activity.java:73
-#: utils/pdf/ProtocolConverter.java:171
+#: utils/pdf/ProtocolConverter.java:179
 #: view/tabs/ProtocolViewerTab.java:41
 msgid "Processor"
 msgstr "Bearbeiter"
 
 #: model/models/Activity.java:74
-#: utils/pdf/ProtocolConverter.java:170
+#: utils/pdf/ProtocolConverter.java:178
 #: view/tabs/ProtocolViewerTab.java:40
 msgid "Content"
 msgstr "Inhalt"
@@ -504,7 +504,7 @@ msgstr "Bezeichnung"
 
 #: model/models/Course.java:87
 #: model/models/Course.java:92
-#: utils/pdf/BalanceReportConverter.java:226
+#: utils/pdf/BalanceReportConverter.java:232
 #: view/forms/CourseEditorForm.java:251
 #: view/forms/CourseViewerForm.java:96
 #: view/models/CourseTableModel.java:26
@@ -516,7 +516,7 @@ msgid "Semester"
 msgstr "Semester"
 
 #: model/models/Course.java:87
-#: utils/pdf/BalanceReportConverter.java:379
+#: utils/pdf/BalanceReportConverter.java:385
 #: view/forms/CourseEditorForm.java:259
 #: view/forms/CourseViewerForm.java:104
 #: view/models/CourseTableModel.java:26
@@ -530,7 +530,7 @@ msgid "Lecturer"
 msgstr "Dozent"
 
 #: model/models/Course.java:88
-#: utils/pdf/BalanceReportConverter.java:380
+#: utils/pdf/BalanceReportConverter.java:386
 #: view/forms/CourseEditorForm.java:283
 #: view/forms/CourseViewerForm.java:128
 #: view/models/CourseTableModel.java:27
@@ -540,7 +540,7 @@ msgid "Target Audience"
 msgstr "Zielpublikum"
 
 #: model/models/Course.java:88
-#: utils/pdf/BalanceReportConverter.java:409
+#: utils/pdf/BalanceReportConverter.java:415
 #: view/forms/CourseEditorForm.java:359
 #: view/forms/CourseViewerForm.java:194
 #: view/models/CourseTableModel.java:28
@@ -611,7 +611,7 @@ msgid "can't be longer than 10 characters"
 msgstr "darf nicht länger als 10 Zeichen sein"
 
 #: model/models/FinancialCategory.java:47
-#: view/forms/FinancialCategoryEditorForm.java:210
+#: view/forms/FinancialCategoryEditorForm.java:209
 #: view/forms/FinancialCategoryViewerForm.java:95
 #: view/models/FinancialCategoryTableModel.java:25
 msgid "Name"
@@ -696,56 +696,66 @@ msgstr "Nur eine Instanz von aidGer darf zur selben Zeit laufen."
 msgid "Couldn't create lockfile"
 msgstr "Konnte Lockdatei nicht erstellen"
 
-#: utils/pdf/BalanceReportConverter.java:124
-#: utils/pdf/ProtocolConverter.java:79
+#: utils/pdf/BalanceReportConverter.java:130
+#: utils/pdf/ProtocolConverter.java:85
 msgid "Pdf viewer could not be found!"
 msgstr "Der PDF-Anzeiger konnte nicht gefunden werden."
 
-#: utils/pdf/BalanceReportConverter.java:186
+#: utils/pdf/BalanceReportConverter.java:170
+#: utils/pdf/ProtocolConverter.java:125
+msgid "File could not be created."
+msgstr "Datei konnte nicht erstellt werden."
+
+#: utils/pdf/BalanceReportConverter.java:171
+#: utils/pdf/ProtocolConverter.java:126
+msgid "Please close all processes that are using the file."
+msgstr "Bitte schließen Sie alle Prozesse, die die Datei benutzen."
+
+#: utils/pdf/BalanceReportConverter.java:194
 msgid "Balance Report"
 msgstr "Bilanzbericht"
 
-#: utils/pdf/BalanceReportConverter.java:192
-#: utils/pdf/ProtocolConverter.java:147
+#: utils/pdf/BalanceReportConverter.java:200
+#: utils/pdf/ProtocolConverter.java:155
 msgid "Author"
 msgstr "Autor"
 
-#: utils/pdf/BalanceReportConverter.java:379
+#: utils/pdf/BalanceReportConverter.java:385
 #: view/reports/BalanceReportGroupPanel.java:35
 msgid "Title"
 msgstr "Titel"
 
-#: utils/pdf/BalanceReportConverter.java:380
+#: utils/pdf/BalanceReportConverter.java:386
 #: view/reports/BalanceReportGroupPanel.java:36
 msgid "Planned AWS"
 msgstr "Eingeplante HKS"
 
-#: utils/pdf/BalanceReportConverter.java:380
+#: utils/pdf/BalanceReportConverter.java:386
 #: view/reports/BalanceReportGroupPanel.java:36
 msgid "Basic needed AWS"
 msgstr "HKS Grundbedarf"
 
-#: utils/pdf/BalanceReportConverter.java:391
+#: utils/pdf/BalanceReportConverter.java:397
 #: view/reports/BalanceReportGroupPanel.java:113
 msgid "Budget costs from"
 msgstr "Budgetkosten von"
 
-#: utils/pdf/ProtocolConverter.java:141
+#: utils/pdf/ProtocolConverter.java:149
 #: view/UI.java:596
 msgid "Activity Protocol"
 msgstr "Vorgangsprotokoll"
 
-#: utils/pdf/ProtocolConverter.java:169
+#: utils/pdf/ProtocolConverter.java:177
 #: view/tabs/ProtocolViewerTab.java:39
 msgid "Affected assistant"
 msgstr "Betroffene Hilfskraft"
 
-#: utils/pdf/ProtocolConverter.java:170
+#: utils/pdf/ProtocolConverter.java:178
 #: view/tabs/ProtocolViewerTab.java:39
 msgid "Affected course"
 msgstr "Betroffene Veranstaltung"
 
-#: utils/pdf/ProtocolConverter.java:171
+#: utils/pdf/ProtocolConverter.java:179
 #: view/forms/CourseEditorForm.java:367
 #: view/forms/CourseViewerForm.java:202
 #: view/forms/EmploymentEditorForm.java:482
@@ -810,9 +820,9 @@ msgstr "Nur ein Jahr in 4 Stellen ist erlaubt."
 msgid "Only a number with 8 digits is allowed."
 msgstr "Nur eine Zahl mit 8 Stellen ist erlaubt."
 
-#: view/forms/FinancialCategoryEditorForm.java:164
-msgid "Only a number with maximum length of 9 is allowed."
-msgstr "Nur eine Zahl mit einer Maximallänge von 9 ist erlaubt."
+#: view/forms/FinancialCategoryEditorForm.java:163
+msgid "Only a number is allowed."
+msgstr "Nur eine Zahl ist erlaubt."
 
 #: view/forms/HourlyWageEditorForm.java:22
 msgid "Unchecked"
@@ -1317,6 +1327,8 @@ msgstr "Inkorrekte Argumente wurden für den Reiter gespeichert"
 msgid "Getting the model from the database failed"
 msgstr "Das Model konnte nicht aus der Datenbank geholt werden"
 
+#~ msgid "Only a number with maximum length of 9 is allowed."
+#~ msgstr "Nur eine Zahl mit einer Maximallänge von 9 ist erlaubt."
 #~ msgid "Add Filter"
 #~ msgstr "Filter hinzufügen"
 #~ msgid "Granted AWH"

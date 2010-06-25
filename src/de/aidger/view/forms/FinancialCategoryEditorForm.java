@@ -160,8 +160,7 @@ public class FinancialCategoryEditorForm extends JPanel {
 
         InputPatternFilter.addFilter(txtBudgetCosts, "[0-9]+");
 
-        txtBudgetCosts
-            .setToolTipText(_("Only a number with maximum length of 9 is allowed."));
+        txtBudgetCosts.setToolTipText(_("Only a number is allowed."));
 
         JButton btnPlusMinus = new JButton();
         gridBagConstraints = new GridBagConstraints();
