@@ -126,6 +126,13 @@ public class BalanceHelper {
         return filteredTriceCourses;
     }
 
+    /**
+     * Gets all the years of a semester.
+     * 
+     * @param year
+     *            The semester to check.
+     * @return The years of the semester.
+     */
     public String[] getYearSemesters(int year) {
         // Lose the first two numbers of the year
         int semester = year % 100;
@@ -231,12 +238,12 @@ public class BalanceHelper {
             if (course.getId() == employment.getCourseId()
                     && (balanceCourse.getBudgetCosts().isEmpty() || !balanceCourse
                         .getBudgetCosts().contains(employment.getFunds()))) {
-                BigDecimal budgetCost = new BigDecimal("0.00");
+                Double budgetCost = 0.0;
                 for (IAssistant assistant : assistants) {
                     if (employment.getAssistantId() == assistant.getId()) {
-                        budgetCost = budgetCost.add(new BigDecimal(
-                            calculateBudgetCost(employment, calculationMethod))
-                            .setScale(2, BigDecimal.ROUND_HALF_EVEN));
+                        budgetCost = budgetCost
+                                + calculateBudgetCost(employment,
+                                    calculationMethod);
                     }
                 }
                 if (balanceCourse.budgetCostExists(employment.getFunds())) {
@@ -249,7 +256,8 @@ public class BalanceHelper {
                 plannedAWS = plannedAWS + employment.getHourCount();
             }
         }
-        balanceCourse.setPlannedAWS(plannedAWS);
+        balanceCourse.setPlannedAWS(new BigDecimal(plannedAWS).setScale(2,
+            BigDecimal.ROUND_HALF_EVEN).doubleValue());
         return balanceCourse;
     }
 

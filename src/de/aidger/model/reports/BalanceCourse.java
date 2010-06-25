@@ -162,7 +162,8 @@ public class BalanceCourse {
      * @return the plannedAWS
      */
     public double getPlannedAWS() {
-        return PlannedAWS;
+        return (new BigDecimal(PlannedAWS)).setScale(2,
+            BigDecimal.ROUND_HALF_EVEN).doubleValue();
     }
 
     /**
@@ -181,7 +182,8 @@ public class BalanceCourse {
      * @return the basicAWS
      */
     public double getBasicAWS() {
-        return BasicAWS;
+        return (new BigDecimal(BasicAWS)).setScale(2,
+            BigDecimal.ROUND_HALF_EVEN).doubleValue();
     }
 
     public class BudgetCost {
@@ -198,11 +200,11 @@ public class BalanceCourse {
         /**
          * The value of this budget cost.
          */
-        BigDecimal value;
+        double value;
 
         public BudgetCost() {
             id = 0;
-            value = null;
+            value = 0;
             name = null;
         }
 
@@ -250,18 +252,27 @@ public class BalanceCourse {
          * @param budgetCost2
          *            The value to set it to.
          */
-        public void setValue(double budgetCost2) {
-            this.value = new BigDecimal(budgetCost2).setScale(2,
-                BigDecimal.ROUND_HALF_EVEN);
+        public void setValue(double value) {
+            this.value = value;
         }
 
         /**
-         * Returns the value of this budget cost.
+         * Returns the unrounded value of this budget cost.
+         * 
+         * @return The value
+         */
+        public double getUnroundedValue() {
+            return value;
+        }
+
+        /**
+         * Returns the rounded value of this budget cost.
          * 
          * @return the value
          */
-        public BigDecimal getValue() {
-            return value;
+        public double getValue() {
+            return new BigDecimal(value)
+                .setScale(2, BigDecimal.ROUND_HALF_EVEN).doubleValue();
         }
     }
 
@@ -291,7 +302,7 @@ public class BalanceCourse {
         for (BudgetCost budgetCost : budgetCosts) {
             if (budgetCost.getId() == id) {
                 budgetCost
-                    .setValue(budgetCost.getValue().doubleValue() + value);
+                    .setValue(budgetCost.getUnroundedValue() + value);
             }
         }
     }
