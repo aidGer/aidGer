@@ -2,6 +2,7 @@ package de.aidger.utils.pdf;
 
 import static de.aidger.utils.Translation._;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -16,8 +17,10 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.ColumnText;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfPageEventHelper;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import de.aidger.model.Runtime;
@@ -127,7 +130,11 @@ public class BalanceReportConverter {
                                 Runtime.getInstance().getOption("pdf-viewer"),
                                 file.getAbsolutePath() });
                 } catch (IOException e) {
-                    UI.displayError(_("Pdf viewer could not be found!"));
+                    try {
+                        Desktop.getDesktop().open(file);
+                    } catch (IOException e1) {
+                        UI.displayError(_("No pdf viewer could be found!"));
+                    }
                 }
             }
         }
@@ -164,7 +171,9 @@ public class BalanceReportConverter {
         try {
             outStream = new FileOutputStream(file.getPath());
             writer = PdfWriter.getInstance(document, outStream);
+            HeaderFooter event = new HeaderFooter();
             document.open();
+            writer.setPageEvent(event);
             fileCreated = true;
         } catch (FileNotFoundException e1) {
             UI.displayError(_("File could not be created.") + " "
@@ -172,6 +181,17 @@ public class BalanceReportConverter {
         } catch (DocumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+        }
+    }
+
+    static class HeaderFooter extends PdfPageEventHelper {
+        @Override
+        public void onEndPage(PdfWriter writer, Document document) {
+            ColumnText.showTextAligned(writer.getDirectContent(),
+                Element.ALIGN_RIGHT, new Phrase(_("Page") + ": "
+                        + writer.getCurrentPageNumber() + "/"
+                        + writer.getPageNumber()), writer.getPageSize()
+                    .getRight() - 75, 30, 0);
         }
     }
 

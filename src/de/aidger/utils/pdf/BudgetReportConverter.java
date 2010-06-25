@@ -5,6 +5,7 @@ package de.aidger.utils.pdf;
 
 import static de.aidger.utils.Translation._;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -85,7 +86,11 @@ public class BudgetReportConverter {
                                 Runtime.getInstance().getOption("pdf-viewer"),
                                 file.getAbsolutePath() });
                 } catch (IOException e) {
-                    UI.displayError(_("Pdf viewer could not be found!"));
+                    try {
+                        Desktop.getDesktop().open(file);
+                    } catch (IOException e1) {
+                        UI.displayError(_("No pdf viewer could be found!"));
+                    }
                 }
             }
         }
