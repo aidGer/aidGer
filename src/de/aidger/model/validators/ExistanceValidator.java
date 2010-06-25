@@ -23,12 +23,14 @@ public class ExistanceValidator extends Validator {
      *              The model to validate
      * @param members
      *              The member variables to check
+     * @param trans
+     *              The translated names
      * @param type
      *              The type of model to check for
      */
     public ExistanceValidator(AbstractModel model, String[] members,
-            AbstractModel type) {
-        super(model, members);
+            String[] trans, AbstractModel type) {
+        super(model, members, trans);
 
         this.message = _("doesn't exist in the database");
         this.type = type;

@@ -18,11 +18,16 @@ public class PresenceValidator extends Validator {
     /**
      * Initialize the PresenceValidator class.
      *
-     * @param model The model to validate
-     * @param members The members of the model to validate
+     * @param model
+     *              The model to validate
+     * @param members
+     *              The members of the model to validate
+     * @param trans
+     *              The translated names
      */
-    public PresenceValidator(AbstractModel model, String[] members) {
-        super(model, members);
+    public PresenceValidator(AbstractModel model, String[] members,
+            String[] trans) {
+        super(model, members, trans);
         message = _("is empty");
     }
 

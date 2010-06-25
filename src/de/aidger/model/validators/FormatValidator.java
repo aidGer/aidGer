@@ -25,14 +25,16 @@ public class FormatValidator extends Validator {
      *              The model to validate
      * @param members
      *              The member variables to check
+     * @param trans
+     *              The translated names
      * @param format
      *              The format to check for
      * @param casesensitive
      *              Is the regex string casesensitive or not
      */
-    public FormatValidator(AbstractModel model, String[] members,
+    public FormatValidator(AbstractModel model, String[] members, String[] trans,
             String format, boolean casesensitive) {
-        super(model, members);
+        super(model, members, trans);
 
         this.message = _("has an incorrect format");
         
@@ -52,12 +54,14 @@ public class FormatValidator extends Validator {
      *              The model to validate
      * @param members
      *              The member variables to check
+     * @param trans
+     *              The translated names
      * @param format
      *              The format to check for
      */
-    public FormatValidator(AbstractModel model, String[] members,
+    public FormatValidator(AbstractModel model, String[] members, String[] trans,
            String format) {
-        this(model, members, format, true);
+        this(model, members, trans, format, true);
     }
 
     /**

@@ -270,11 +270,13 @@ public abstract class AbstractModel<T> extends Observable implements
      *
      * @param field
      *            The field on which the error occured
+     * @param trans
+     *            The translated field name
      * @param error
      *            The error to add
      */
-    public void addError(String field, String error) {
-        error = field + " " + error;
+    public void addError(String field, String trans, String error) {
+        error = trans + " " + error;
         errors.add(error);
         if (fieldErrors.containsKey(field)) {
             fieldErrors.get(field).add(error);
@@ -298,9 +300,11 @@ public abstract class AbstractModel<T> extends Observable implements
      *
      * @param members
      *            The name of the member variables to validate
+     * @param trans
+     *            The translated names
      */
-    public void validatePresenceOf(String[] members) {
-        validators.add(new PresenceValidator(this, members));
+    public void validatePresenceOf(String[] members, String[] trans) {
+        validators.add(new PresenceValidator(this, members, trans));
     }
 
     /**
@@ -308,10 +312,13 @@ public abstract class AbstractModel<T> extends Observable implements
      *
      * @param member
      *            The name of the member variable to validate
+     * @param trans
+     *            The translated name
      */
-    public void validateEmailAddress(String member) {
+    public void validateEmailAddress(String member, String trans) {
         validators.add(new FormatValidator(this, new String[] { member },
-            "^[\\w\\-]([\\.\\w])+[\\w]+@([\\w\\-]+\\.)+[A-Z]{2,4}$", false));
+                new String[] { trans },
+                "^[\\w\\-]([\\.\\w])+[\\w]+@([\\w\\-]+\\.)+[A-Z]{2,4}$", false));
     }
 
     /**
@@ -321,9 +328,14 @@ public abstract class AbstractModel<T> extends Observable implements
      *            The starting date
      * @param to
      *            The end date
+     * @param transFrom
+     *            Translated from date
+     * @param transTo
+     *            Translated to date
      */
-    public void validateDateRange(String from, String to) {
-        validators.add(new DateRangeValidator(this, from, to));
+    public void validateDateRange(String from, String to, String transFrom,
+            String transTo) {
+        validators.add(new DateRangeValidator(this, from, to, transFrom, transTo));
     }
 
     /**
@@ -331,11 +343,14 @@ public abstract class AbstractModel<T> extends Observable implements
      *
      * @param members
      *            The name of the member variables to validate
+     * @param trans
+     *            The translated names
      * @param inc
      *            The list to check for inclusion
      */
-    public void validateInclusionOf(String[] members, String[] inc) {
-        validators.add(new InclusionValidator(this, members, inc));
+    public void validateInclusionOf(String[] members, String[] inc,
+            String[] trans) {
+        validators.add(new InclusionValidator(this, members, trans, inc));
     }
 
     /**
@@ -345,9 +360,12 @@ public abstract class AbstractModel<T> extends Observable implements
      *            The name of the member variables to validate
      * @param type
      *            The type to check for
+     * @param trans
+     *            The translated names
      */
-    public void validateExistanceOf(String[] members, AbstractModel type) {
-        validators.add(new ExistanceValidator(this, members, type));
+    public void validateExistanceOf(String[] members, String[] trans,
+            AbstractModel type) {
+        validators.add(new ExistanceValidator(this, members, trans, type));
     }
 
     /**
@@ -355,11 +373,13 @@ public abstract class AbstractModel<T> extends Observable implements
      *
      * @param members
      *            The name of the member variables to validate
+     * @param trans
+     *            The translated names
      * @param format
      *            THe format to check
      */
-    public void validateFormatOf(String[] members, String format) {
-        validators.add(new FormatValidator(this, members, format));
+    public void validateFormatOf(String[] members, String[] trans, String format) {
+        validators.add(new FormatValidator(this, members, trans, format));
     }
 
     /**

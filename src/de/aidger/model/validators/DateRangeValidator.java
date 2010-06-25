@@ -22,9 +22,15 @@ public class DateRangeValidator extends Validator {
      *            The from date
      * @param to
      *            The to date
+     * @param transFrom
+     *            Translated from date
+     * @param transTo
+     *            Translated to date
      */
-    public DateRangeValidator(AbstractModel model, String from, String to) {
-        super(model, new String[] { from, to });
+    public DateRangeValidator(AbstractModel model, String from, String to,
+            String transFrom, String transTo) {
+        super(model, new String[] { from, to },
+                new String[] { transFrom, transTo });
         message = _("is an incorrect date range");
     }
 
@@ -41,7 +47,7 @@ public class DateRangeValidator extends Validator {
             if (model != null) {
                 model.addError(MessageFormat.format(
                         _("The date range {0} and {1} is incorrect."),
-                        (Object[])members));
+                        (Object[])trans));
             }
             return false;
         }
