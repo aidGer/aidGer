@@ -82,10 +82,12 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
      */
     public Course() {
         validatePresenceOf(new String[] { "advisor", "description", "semester",
-                "lecturer", "targetAudience", "group" });
-        validateExistanceOf(new String[] { "financialCategoryId" },
-               new FinancialCategory());
-        validateFormatOf(new String[] { "semester" },
+                "lecturer", "targetAudience", "group" }, new String[] {
+                _("Advisor"), _("Description"), _("Semester"), _("Lecturer"),
+                _("Target Audience"), _("Group") });
+        validateExistanceOf(new String[] { "financialCategoryId" }, new String[] {
+                _("Financial Category")  }, new FinancialCategory());
+        validateFormatOf(new String[] { "semester" }, new String[] { _("Semester") },
                 "^(SS[0-9]{2}|WS[0-9]{4}|[0-9]{4})$");
     }
 
@@ -203,11 +205,13 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     public boolean validate() {
         boolean ret = true;
         if (numberOfGroups <= 0) {
-            addError("numberOfGroups", _("has to be bigger than 0"));
+            addError("numberOfGroups", _("Number Of Groups"),
+                    _("has to be bigger than 0"));
             ret = false;
         }
         if (unqualifiedWorkingHours <= 0.0) {
-            addError("unqualifiedWorkingHours", _("has to be bigger than 0"));
+            addError("unqualifiedWorkingHours", _("Unqualified Working Hours"),
+                    _("has to be bigger than 0"));
             ret = false;
         }
         return ret;

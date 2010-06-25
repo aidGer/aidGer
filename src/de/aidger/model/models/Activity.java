@@ -69,9 +69,13 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      */
     public Activity() {
         validatePresenceOf(new String[] { "date", "sender", "type",
-                "processor", "content", "documentType" });
-        validateExistanceOf(new String[] { "assistantId" }, new Assistant());
-        validateExistanceOf(new String[] { "courseId" }, new Course());
+                "processor", "content", "documentType" },
+                new String[] { _("Date"), _("Sender"), _("Type"), _("Processor"),
+                _("Content"), _("Document Type") });
+        validateExistanceOf(new String[] { "assistantId" }, new String[] {
+                _("Assistant") }, new Assistant());
+        validateExistanceOf(new String[] { "courseId" }, new String[] {
+                _("Course") }, new Course());
     }
 
     /**
@@ -173,11 +177,11 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
     public boolean validate() {
         boolean ret = true;
         if (type.length() > 20) {
-            addError("type", _("is too long"));
+            addError("type", _("Type"), _("is too long"));
             ret = false;
         }
         if (documentType.length() > 50) {
-            addError("documentType", _("is too long"));
+            addError("documentType", _("Document Type"), _("is too long"));
             ret = false;
         }
         return ret;

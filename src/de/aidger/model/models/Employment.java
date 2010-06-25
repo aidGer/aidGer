@@ -74,12 +74,16 @@ public class Employment extends AbstractModel<IEmployment> implements
      * Initializes the Employment class.
      */
     public Employment() {
-        validatePresenceOf(new String[] { "costUnit", "qualification" });
+        validatePresenceOf(new String[] { "costUnit", "qualification" },
+                new String[] { _("Cost Unit"), _("Qualification") });
         validateInclusionOf(new String[] { "qualification" }, new String[] {
-                "g", "u", "b"});
-        validateExistanceOf(new String[] { "assistantId" }, new Assistant());
-        validateExistanceOf(new String[] { "contractId" }, new Contract());
-        validateExistanceOf(new String[] { "courseId" }, new Course());
+                _("Qualification") }, new String[] { "g", "u", "b"});
+        validateExistanceOf(new String[] { "assistantId" }, new String[] {
+                _("Assistant") }, new Assistant());
+        validateExistanceOf(new String[] { "contractId" }, new String[] {
+                _("Contract") }, new Contract());
+        validateExistanceOf(new String[] { "courseId" }, new String[] {
+                _("Course") }, new Course());
     }
 
     /**
@@ -183,23 +187,24 @@ public class Employment extends AbstractModel<IEmployment> implements
     public boolean validate() {
         boolean ret = true;
         if (funds <= 0) {
-            addError("funds", _("has to be bigger than 0"));
+            addError("funds", _("Funds"), _("has to be bigger than 0"));
             ret = false;
         }
         if (hourCount < 0) {
-            addError("hourCount", _("has to be positive"));
+            addError("hourCount", _("Hour Count"), _("has to be positive"));
             ret = false;
         }
         if (year <= 1000 || year >= 10000) {
-            addError("year", _("is an incorrect year"));
+            addError("year", _("Year"), _("is an incorrect year"));
             ret = false;
         }
         if (month <= 0 || month >= 13) {
-            addError("month", _("is an incorrect month"));
+            addError("month", _("Month"), _("is an incorrect month"));
             ret = false;
         }
         if (costUnit.length() > 10) {
-            addError("costUnit", _("can't be longer than 10 characters"));
+            addError("costUnit", _("Cost Unit"),
+                    _("can't be longer than 10 characters"));
             ret = false;
         }
         return ret;

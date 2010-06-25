@@ -41,9 +41,10 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
     public HourlyWage() {
         updatePKs = true;
 
-        validatePresenceOf(new String[] { "qualification" });
+        validatePresenceOf(new String[] { "qualification" }, new String[] {
+                _("Qualification") });
         validateInclusionOf(new String[] { "qualification" }, new String[] {
-                "g", "u", "b"});
+                _("Qualification") }, new String[] {"g", "u", "b"});
     }
 
     /**
@@ -126,11 +127,11 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
     public boolean validate() {
         boolean ret = true;
         if (year <= 1000 || year >= 10000) {
-            addError("year", _("is an incorrect year"));
+            addError("year", _("Year"), _("is an incorrect year"));
             ret = false;
         }
         if (month <= 0 || month >= 13) {
-            addError("month", _("is an incorrect month"));
+            addError("month", _("Month"), _("is an incorrect month"));
             ret = false;
         }
         return ret;
