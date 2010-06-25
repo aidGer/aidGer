@@ -21,6 +21,7 @@ public class SettingsDialog extends JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner activitiesSpinner;
+    private javax.swing.JTextField anonTextField;
     private javax.swing.JButton browseButton;
     private javax.swing.JTextField historicTextField;
     private javax.swing.JButton jButton1;
@@ -31,6 +32,7 @@ public class SettingsDialog extends JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -72,6 +74,7 @@ public class SettingsDialog extends JDialog {
                 "pessimistic-factor"));
         historicTextField.setText(Runtime.getInstance().getOption(
                 "historic-factor"));
+        anonTextField.setText(Runtime.getInstance().getOption("anonymize-time"));
         activitiesSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer
             .valueOf(Runtime.getInstance().getOption("activities")), null,
             null, Integer.valueOf(1)));
@@ -126,6 +129,15 @@ public class SettingsDialog extends JDialog {
      */
     public String getHistoricFactor() {
         return historicTextField.getText();
+    }
+
+    /**
+     * Get the time until assistants get anonymized.
+     *
+     * @return The anonymization time
+     */
+    public String getAnonymizationTime() {
+        return anonTextField.getText();
     }
 
     /**
@@ -200,6 +212,8 @@ public class SettingsDialog extends JDialog {
         jLabel6 = new javax.swing.JLabel();
         pessimisticTextField = new javax.swing.JTextField();
         historicTextField = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        anonTextField = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
@@ -293,6 +307,8 @@ public class SettingsDialog extends JDialog {
 
         jLabel6.setText(_("Historical Factor:"));
 
+        jLabel7.setText(_("Time until anonymization in days:"));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -301,9 +317,11 @@ public class SettingsDialog extends JDialog {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(anonTextField)
                     .addComponent(historicTextField)
                     .addComponent(pessimisticTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
                 .addContainerGap())
@@ -319,7 +337,11 @@ public class SettingsDialog extends JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(historicTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(anonTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Reports", jPanel2);

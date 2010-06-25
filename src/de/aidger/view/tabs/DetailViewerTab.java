@@ -453,9 +453,7 @@ public class DetailViewerTab extends Tab {
 
         setLayout(new java.awt.GridBagLayout());
 
-        viewerForm.setBorder(javax.swing.BorderFactory.createTitledBorder(
-            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
-            getTabName()));
+        viewerForm.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), getTabName()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
