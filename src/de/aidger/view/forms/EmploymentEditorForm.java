@@ -15,6 +15,7 @@ import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
@@ -27,6 +28,7 @@ import de.aidger.model.models.FinancialCategory;
 import de.aidger.view.UI;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.models.ComboBoxModel;
+import de.aidger.view.models.GenericListModel;
 import de.aidger.view.models.UIAssistant;
 import de.aidger.view.models.UIContract;
 import de.aidger.view.models.UICourse;
@@ -48,7 +50,7 @@ import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class EmploymentEditorForm extends Form {
+public class EmploymentEditorForm extends JPanel {
 
     /**
      * A flag whether the form is in edit mode.
@@ -62,7 +64,8 @@ public class EmploymentEditorForm extends Form {
      *            The employment that will be edited
      */
     @SuppressWarnings("unchecked")
-    public EmploymentEditorForm(Employment employment) {
+    public EmploymentEditorForm(Employment employment,
+            List<GenericListModel> listModels) {
         if (employment != null) {
             editMode = true;
         }

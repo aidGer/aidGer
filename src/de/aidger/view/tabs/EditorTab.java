@@ -29,9 +29,7 @@ import de.aidger.view.forms.ContractEditorForm;
 import de.aidger.view.forms.CourseEditorForm;
 import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
-import de.aidger.view.forms.Form;
 import de.aidger.view.forms.HourlyWageEditorForm;
-import de.aidger.view.models.GenericListModel;
 import de.aidger.view.tabs.ViewerTab.DataType;
 
 /**
@@ -108,15 +106,6 @@ public class EditorTab extends Tab {
         }
 
         return ret;
-    }
-
-    /**
-     * Returns all list models of the tab.
-     * 
-     * @return all list models
-     */
-    public List<GenericListModel> getListModels() {
-        return ((Form) editorForm).getListModels();
     }
 
     /*
@@ -271,7 +260,7 @@ public class EditorTab extends Tab {
     public JPanel createEditorForm() {
         switch (type) {
         case Course:
-            return new CourseEditorForm((Course) model);
+            return new CourseEditorForm((Course) model, listModels);
         case Assistant:
             return new AssistantEditorForm((Assistant) model);
         case FinancialCategory:
@@ -279,7 +268,7 @@ public class EditorTab extends Tab {
         case HourlyWage:
             return new HourlyWageEditorForm((HourlyWage) model);
         case Employment:
-            return new EmploymentEditorForm((Employment) model);
+            return new EmploymentEditorForm((Employment) model, listModels);
         case Contract:
             return new ContractEditorForm((Contract) model);
         default:

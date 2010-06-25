@@ -4,6 +4,8 @@ import static de.aidger.utils.Translation._;
 
 import java.text.SimpleDateFormat;
 
+import javax.swing.JPanel;
+
 import de.aidger.model.models.Contract;
 
 /**
@@ -12,7 +14,7 @@ import de.aidger.model.models.Contract;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class ContractViewerForm extends Form {
+public class ContractViewerForm extends JPanel {
 
     /**
      * Constructs a contract viewer form.

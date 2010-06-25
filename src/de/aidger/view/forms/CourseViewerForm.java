@@ -1,6 +1,9 @@
 package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
+
+import javax.swing.JPanel;
+
 import de.aidger.model.models.Course;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.Logger;
@@ -14,7 +17,7 @@ import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class CourseViewerForm extends Form {
+public class CourseViewerForm extends JPanel {
 
     /**
      * Constructs a course viewer form.
@@ -31,7 +34,8 @@ public class CourseViewerForm extends Form {
         advisor.setText(course.getAdvisor());
         targetAudience.setText(course.getTargetAudience());
         numberOfGroups.setText(String.valueOf(course.getNumberOfGroups()));
-        AWHperGroup.setText(String.valueOf(course.getUnqualifiedWorkingHours()));
+        AWHperGroup
+            .setText(String.valueOf(course.getUnqualifiedWorkingHours()));
         scope.setText(course.getScope());
         part.setText(String.valueOf(course.getPart()));
         group.setText(course.getGroup());

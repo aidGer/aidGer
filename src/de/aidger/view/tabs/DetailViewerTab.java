@@ -26,13 +26,14 @@ import de.aidger.view.forms.ContractViewerForm;
 import de.aidger.view.forms.CourseViewerForm;
 import de.aidger.view.forms.EmploymentViewerForm;
 import de.aidger.view.forms.FinancialCategoryViewerForm;
-import de.aidger.view.forms.Form;
 import de.aidger.view.forms.HourlyWageViewerForm;
 import de.aidger.view.models.GenericListModel;
 import de.aidger.view.models.ListModel;
+import de.aidger.view.models.UIAssistant;
 import de.aidger.view.models.UICourse;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
@@ -54,6 +55,16 @@ public class DetailViewerTab extends Tab {
      */
     private final DataType type;
 
+    private class ListProperty {
+        public String borderName;
+        public DataType type;
+    }
+
+    /**
+     * The names of the list borders.
+     */
+    private final ListProperty[] listProperties = new ListProperty[2];
+
     /**
      * Constructs a data detail viewer tab.
      * 
@@ -69,69 +80,61 @@ public class DetailViewerTab extends Tab {
 
         init();
 
-        // TODO just temporary
-        if (type == DataType.Assistant) {
+        // init the related lists
 
-            Assistant assistant = (Assistant) model;
+        listProperties[0] = new ListProperty();
+        listProperties[1] = new ListProperty();
+
+        switch (type) {
+        case Course:
+            initLists((Course) model);
+            break;
+        case Assistant:
+            initLists((Assistant) model);
+            break;
+        }
+
+        if (list1.getModel().getSize() > 0) {
+            panelList1.setBorder(javax.swing.BorderFactory.createTitledBorder(
+                javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+                listProperties[0].borderName));
+
+            listModels.add((GenericListModel) list1.getModel());
 
             list1.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mousePressed(MouseEvent evt) {
                     if (evt.getClickCount() == 2) {
                         UI.getInstance().addNewTab(
-                            new DetailViewerTab(DataType.Course, (Course) list1
-                                .getSelectedValue()));
+                            new DetailViewerTab(listProperties[0].type,
+                                (AbstractModel) list1.getSelectedValue()));
                     }
                 }
             });
-
-            try {
-                List<Employment> employments = (new Employment())
-                    .getEmployments(assistant);
-
-                ListModel listCoursesModel = new ListModel(DataType.Course);
-
-                for (Employment employment : employments) {
-                    ICourse c = (new Course())
-                        .getById(employment.getCourseId());
-
-                    Course course = new UICourse(c);
-
-                    if (!listCoursesModel.contains(course)) {
-                        listCoursesModel.addElement(course);
-                    }
-                }
-
-                List<Activity> activities = (new Activity())
-                    .getActivities(assistant);
-
-                ListModel listActivitiesModel = new ListModel(DataType.Activity);
-
-                for (Activity activity : activities) {
-                    listActivitiesModel.addElement(activity);
-                }
-
-                list1.setModel(listCoursesModel);
-                list2.setModel(listActivitiesModel);
-
-                // TODO list model in tab
-                //listModels.add(listCoursesModel);
-                //listModels.add(listActivitiesModel);
-            } catch (AdoHiveException e) {
-            }
-
-            if (list1.getModel().getSize() == 0) {
-                panelList1.setVisible(false);
-            }
-
-            if (list2.getModel().getSize() == 0) {
-                panelList2.setVisible(false);
-            }
         } else {
             panelList1.setVisible(false);
-            panelList2.setVisible(false);
         }
 
+        if (list2.getModel().getSize() > 0) {
+            panelList2.setBorder(javax.swing.BorderFactory.createTitledBorder(
+                javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+                listProperties[1].borderName));
+
+            listModels.add((GenericListModel) list2.getModel());
+
+            list2.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mousePressed(MouseEvent evt) {
+                    if (evt.getClickCount() == 2) {
+                        UI.getInstance().addNewTab(
+                            new DetailViewerTab(listProperties[1].type,
+                                (AbstractModel) list2.getSelectedValue()));
+                    }
+                }
+            });
+        } else {
+            panelList2.setVisible(false);
+        }
     }
 
     /**
@@ -189,6 +192,93 @@ public class DetailViewerTab extends Tab {
     }
 
     /**
+     * Initializes the lists for a course.
+     * 
+     * @param course
+     */
+    private void initLists(Course course) {
+        listProperties[0].borderName = _("Related assistants");
+        listProperties[0].type = DataType.Assistant;
+
+        listProperties[1].borderName = _("Related activities");
+        listProperties[1].type = DataType.Activity;
+
+        try {
+            List<Employment> employments = (new Employment())
+                .getEmployments(course);
+
+            ListModel listAssistantsModel = new ListModel(DataType.Assistant);
+
+            for (Employment employment : employments) {
+                IAssistant a = (new Assistant()).getById(employment
+                    .getAssistantId());
+
+                Assistant assistant = new UIAssistant(a);
+
+                if (!listAssistantsModel.contains(assistant)) {
+                    listAssistantsModel.addElement(assistant);
+                }
+            }
+
+            List<Activity> activities = (new Activity()).getActivities(course);
+
+            ListModel listActivitiesModel = new ListModel(DataType.Activity);
+
+            for (Activity activity : activities) {
+                listActivitiesModel.addElement(activity);
+            }
+
+            list1.setModel(listAssistantsModel);
+            list2.setModel(listActivitiesModel);
+        } catch (AdoHiveException e) {
+        }
+    }
+
+    /**
+     * Initializes the lists for an assistant.
+     * 
+     * @param assistant
+     *            the assisant
+     */
+    private void initLists(Assistant assistant) {
+        listProperties[0].borderName = _("Related courses");
+        listProperties[0].type = DataType.Course;
+
+        listProperties[1].borderName = _("Related activities");
+        listProperties[1].type = DataType.Activity;
+
+        try {
+            List<Employment> employments = (new Employment())
+                .getEmployments(assistant);
+
+            ListModel listCoursesModel = new ListModel(DataType.Course);
+
+            for (Employment employment : employments) {
+                ICourse c = (new Course()).getById(employment.getCourseId());
+
+                Course course = new UICourse(c);
+
+                if (!listCoursesModel.contains(course)) {
+                    listCoursesModel.addElement(course);
+                }
+            }
+
+            List<Activity> activities = (new Activity())
+                .getActivities(assistant);
+
+            ListModel listActivitiesModel = new ListModel(DataType.Activity);
+
+            for (Activity activity : activities) {
+                listActivitiesModel.addElement(activity);
+            }
+
+            list1.setModel(listCoursesModel);
+            list2.setModel(listActivitiesModel);
+        } catch (AdoHiveException e) {
+        }
+    }
+
+    /**
      * Returns the data model.
      * 
      * @return the data model
@@ -221,15 +311,6 @@ public class DetailViewerTab extends Tab {
         default:
             return "";
         }
-    }
-
-    /**
-     * Returns all list models of the tab.
-     * 
-     * @return all list models
-     */
-    public List<GenericListModel> getListModels() {
-        return ((Form) viewerForm).getListModels();
     }
 
     /**
@@ -330,9 +411,6 @@ public class DetailViewerTab extends Tab {
         gridBagConstraints.weightx = 1.0;
         add(filler2, gridBagConstraints);
 
-        panelList1.setBorder(javax.swing.BorderFactory.createTitledBorder(
-            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
-            _("Related courses")));
         panelList1.setLayout(new java.awt.GridBagLayout());
 
         list1.setMinimumSize(new java.awt.Dimension(300, 150));
@@ -351,9 +429,6 @@ public class DetailViewerTab extends Tab {
         gridBagConstraints.insets = new java.awt.Insets(0, 50, 0, 0);
         add(panelList1, gridBagConstraints);
 
-        panelList2.setBorder(javax.swing.BorderFactory.createTitledBorder(
-            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
-            _("Related activities")));
         panelList2.setLayout(new java.awt.GridBagLayout());
 
         list2.setMinimumSize(new java.awt.Dimension(300, 150));

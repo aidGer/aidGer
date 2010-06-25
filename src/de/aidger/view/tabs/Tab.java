@@ -1,7 +1,12 @@
 package de.aidger.view.tabs;
 
+import java.util.List;
+import java.util.Vector;
+
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+
+import de.aidger.view.models.GenericListModel;
 
 /**
  * Tab is the abstract class of all tabs that are located in the tabbed pane on
@@ -22,6 +27,11 @@ public abstract class Tab extends JPanel {
      * A flag whether the tab can be a predecessor or not.
      */
     private boolean noPredecessor = false;
+
+    /**
+     * The list models of the tab.
+     */
+    protected final List<GenericListModel> listModels = new Vector<GenericListModel>();
 
     /**
      * Constructs a tab.
@@ -92,4 +102,12 @@ public abstract class Tab extends JPanel {
         noPredecessor = true;
     }
 
+    /**
+     * Returns the list models of the tab.
+     * 
+     * @return the list models of the tab.
+     */
+    public List<GenericListModel> getListModels() {
+        return listModels;
+    }
 }
