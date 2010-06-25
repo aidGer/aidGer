@@ -5,6 +5,7 @@ import static de.aidger.utils.Translation._;
 import java.util.List;
 import java.util.Vector;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import de.aidger.controller.ActionNotFoundException;
@@ -295,7 +296,8 @@ public class BalanceViewerTab extends ReportTab {
 
         filterCreationPanel.add(filterComboBox);
 
-        addFilterButton.setText("+");
+        addFilterButton.setIcon(new ImageIcon(getClass().getResource(
+            "/de/aidger/view/icons/plus-small.png")));
         addFilterButton.setFocusable(false);
         addFilterButton
             .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

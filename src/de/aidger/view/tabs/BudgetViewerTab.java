@@ -5,6 +5,7 @@ import static de.aidger.utils.Translation._;
 import java.util.List;
 import java.util.Vector;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -198,13 +199,16 @@ public class BudgetViewerTab extends ReportTab {
 
         generateButton.setText(_("Generate"));
         generateButton.setFocusable(false);
-        generateButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        generateButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        generateButton
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        generateButton
+            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(generateButton);
 
         exportButton.setText(_("Export"));
         exportButton.setFocusable(false);
-        exportButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportButton
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         exportButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(exportButton);
 
@@ -214,7 +218,8 @@ public class BudgetViewerTab extends ReportTab {
 
         filtersPanel.setLayout(new java.awt.BorderLayout());
 
-        filterCreationPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        filterCreationPanel.setLayout(new java.awt.FlowLayout(
+            java.awt.FlowLayout.LEFT));
 
         filtersLabel.setText(_("Filters") + ":");
         filterCreationPanel.add(filtersLabel);
@@ -232,10 +237,13 @@ public class BudgetViewerTab extends ReportTab {
         budgetFilterText.setPreferredSize(new java.awt.Dimension(40, 25));
         filterCreationPanel.add(budgetFilterText);
 
-        addFilterButton.setText("+");
+        addFilterButton.setIcon(new ImageIcon(getClass().getResource(
+            "/de/aidger/view/icons/plus-small.png")));
         addFilterButton.setFocusable(false);
-        addFilterButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        addFilterButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        addFilterButton
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        addFilterButton
+            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         addFilterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addFilterButtonActionPerformed(evt);
