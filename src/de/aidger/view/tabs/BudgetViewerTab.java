@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
+import de.aidger.controller.actions.BudgetExportAction;
 import de.aidger.controller.actions.BudgetGenerateAction;
 import de.aidger.model.budgets.BudgetFilter;
 import de.aidger.model.budgets.BudgetFilter.Comparison;
@@ -62,6 +63,8 @@ public class BudgetViewerTab extends ReportTab {
         try {
             generateButton.setAction(ActionRegistry.getInstance().get(
                 BudgetGenerateAction.class.getName()));
+            exportButton.setAction(ActionRegistry.getInstance().get(
+                BudgetExportAction.class.getName()));
         } catch (ActionNotFoundException ex) {
             ex.printStackTrace();
             UI.displayError(ex.getMessage());
@@ -195,16 +198,13 @@ public class BudgetViewerTab extends ReportTab {
 
         generateButton.setText(_("Generate"));
         generateButton.setFocusable(false);
-        generateButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        generateButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        generateButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        generateButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(generateButton);
 
         exportButton.setText(_("Export"));
         exportButton.setFocusable(false);
-        exportButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         exportButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(exportButton);
 
@@ -214,8 +214,7 @@ public class BudgetViewerTab extends ReportTab {
 
         filtersPanel.setLayout(new java.awt.BorderLayout());
 
-        filterCreationPanel.setLayout(new java.awt.FlowLayout(
-            java.awt.FlowLayout.LEFT));
+        filterCreationPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         filtersLabel.setText(_("Filters") + ":");
         filterCreationPanel.add(filtersLabel);
@@ -235,10 +234,8 @@ public class BudgetViewerTab extends ReportTab {
 
         addFilterButton.setText("+");
         addFilterButton.setFocusable(false);
-        addFilterButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        addFilterButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        addFilterButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        addFilterButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         addFilterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addFilterButtonActionPerformed(evt);
@@ -384,7 +381,7 @@ public class BudgetViewerTab extends ReportTab {
                 }
                 if (i == filterPanels.size() || !filterPanelFound) {
                     BalanceFilterPanel filterPanel = new BalanceFilterPanel(
-                        filterNameComboBox.getItemAt(1).toString(),
+                        filterNameComboBox.getItemAt(2).toString(),
                         filterComboBox.getSelectedItem().toString(), this);
                     filterPanel.setBudgetLabel(budgetFilterText.getText());
                     filterPanels.add(filterPanel);
@@ -420,7 +417,7 @@ public class BudgetViewerTab extends ReportTab {
                 }
                 if (i == filterPanels.size() || !filterPanelFound) {
                     BalanceFilterPanel filterPanel = new BalanceFilterPanel(
-                        filterNameComboBox.getItemAt(2).toString(),
+                        filterNameComboBox.getItemAt(3).toString(),
                         filterComboBox.getSelectedItem().toString(), this);
                     filterPanel.setBudgetLabel(budgetFilterText.getText());
                     filterPanels.add(filterPanel);
@@ -456,7 +453,7 @@ public class BudgetViewerTab extends ReportTab {
                 }
                 if (i == filterPanels.size() || !filterPanelFound) {
                     BalanceFilterPanel filterPanel = new BalanceFilterPanel(
-                        filterNameComboBox.getItemAt(3).toString(),
+                        filterNameComboBox.getItemAt(4).toString(),
                         filterComboBox.getSelectedItem().toString(), this);
                     filterPanel.setBudgetLabel(budgetFilterText.getText());
                     filterPanels.add(filterPanel);
