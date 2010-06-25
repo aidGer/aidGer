@@ -17,11 +17,16 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.ColumnText;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfPageEventHelper;
+import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import de.aidger.model.Runtime;
@@ -59,6 +64,11 @@ public class BudgetReportConverter {
     private boolean fileCreated = false;
 
     /**
+     * The name of this report.
+     */
+    private static String name;
+
+    /**
      * Initializes this BalanceReportConverter with a given path and a name.
      * 
      * @param path
@@ -68,11 +78,13 @@ public class BudgetReportConverter {
      */
     public BudgetReportConverter(File file, BudgetFilter filters) {
         document = new Document(PageSize.A4);
+        document.setMargins(document.leftMargin(), document.rightMargin(),
+            document.topMargin() + 15, document.bottomMargin());
         this.filters = filters;
         file = checkExtension(file);
+        name = _("Budget report");
         makeNewDocument(file);
         if (fileCreated) {
-            writeHeader();
             createCourses();
             document.close();
             /*
@@ -127,6 +139,8 @@ public class BudgetReportConverter {
         try {
             outStream = new FileOutputStream(file.getPath());
             writer = PdfWriter.getInstance(document, outStream);
+            HeaderFooter event = new HeaderFooter();
+            writer.setPageEvent(event);
             document.open();
             fileCreated = true;
         } catch (FileNotFoundException e1) {
@@ -139,39 +153,135 @@ public class BudgetReportConverter {
     }
 
     /**
-     * Writes the Header of the document on the first page only.
+     * This class is used to write the headers and footers of every page.
+     * 
+     * @author aidGer Team
      */
-    private void writeHeader() {
-        PdfPTable head = new PdfPTable(new float[] { 0.8f, 0.2f });
-        try {
-            Font pageTitleFont = new Font(BaseFont.createFont(
-                BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.EMBEDDED),
-                18);
-            Font authorNameFont = new Font(BaseFont.createFont(
-                BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 8);
+    static class HeaderFooter extends PdfPageEventHelper {
 
-            PdfPCell left = new PdfPCell();
-            left.setHorizontalAlignment(Element.ALIGN_LEFT);
-            left.setVerticalAlignment(Element.ALIGN_BOTTOM);
-            left.setBorder(0);
-            left.addElement(new Phrase(_("Budget Report"), pageTitleFont));
+        /**
+         * The template containing the total number of pages.
+         */
+        PdfTemplate total;
 
-            PdfPCell right = new PdfPCell();
-            right.setHorizontalAlignment(Element.ALIGN_RIGHT);
-            right.setVerticalAlignment(Element.ALIGN_BOTTOM);
-            right.setBorder(0);
-            right.addElement(new Phrase(_("Author") + ": "
-                    + Runtime.getInstance().getOption("name"), authorNameFont));
+        /*
+         * (non-Javadoc)
+         * 
+         * @see
+         * com.itextpdf.text.pdf.PdfPageEventHelper#onOpenDocument(com.itextpdf
+         * .text.pdf.PdfWriter, com.itextpdf.text.Document)
+         */
+        @Override
+        public void onOpenDocument(PdfWriter writer, Document document) {
+            total = writer.getDirectContent().createTemplate(30, 16);
+        }
 
-            head.addCell(left);
-            head.addCell(right);
-            document.add(head);
-        } catch (DocumentException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        } catch (IOException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
+        /*
+         * (non-Javadoc)
+         * 
+         * @see
+         * com.itextpdf.text.pdf.PdfPageEventHelper#onStartPage(com.itextpdf
+         * .text.pdf.PdfWriter, com.itextpdf.text.Document)
+         */
+        @Override
+        public void onStartPage(PdfWriter writer, Document document) {
+            PdfPTable table = new PdfPTable(new float[] { 0.8f, 0.2f });
+            table.setTotalWidth(writer.getPageSize().getRight()
+                    - document.rightMargin() - document.leftMargin());
+            try {
+                Font pageTitleFont = new Font(BaseFont
+                    .createFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252,
+                        BaseFont.EMBEDDED), 18);
+                Font authorNameFont = new Font(BaseFont.createFont(
+                    BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 8);
+
+                PdfPCell left = new PdfPCell();
+                left.setHorizontalAlignment(Element.ALIGN_LEFT);
+                left.setVerticalAlignment(Element.ALIGN_BOTTOM);
+                left.setBorder(Rectangle.BOTTOM);
+                if (writer.getCurrentPageNumber() == 1) {
+                    left.addElement(new Phrase(name, pageTitleFont));
+                } else {
+                    left.addElement(new Phrase(""));
+                }
+
+                PdfPCell right = new PdfPCell(new Phrase(_("Author") + ": "
+                        + Runtime.getInstance().getOption("name"),
+                    authorNameFont));
+                right.setVerticalAlignment(Element.ALIGN_BOTTOM);
+                right.setHorizontalAlignment(Element.ALIGN_RIGHT);
+                right.setBorder(Rectangle.BOTTOM);
+
+                table.addCell(left);
+                table.addCell(right);
+                table.writeSelectedRows(0, -1, document.leftMargin(), document
+                    .getPageSize().getTop() - 15, writer.getDirectContent());
+            } catch (DocumentException e1) {
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+        }
+
+        /*
+         * (non-Javadoc)
+         * 
+         * @see
+         * com.itextpdf.text.pdf.PdfPageEventHelper#onEndPage(com.itextpdf.text
+         * .pdf.PdfWriter, com.itextpdf.text.Document)
+         */
+        @Override
+        public void onEndPage(PdfWriter writer, Document document) {
+            PdfPTable table = new PdfPTable(2);
+            try {
+                Font pageFont = new Font(BaseFont.createFont(
+                    BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 12);
+                table.setWidths(new int[] { 48, 2 });
+                table.setTotalWidth(writer.getPageSize().getRight()
+                        - document.rightMargin() - document.leftMargin());
+                table.setLockedWidth(true);
+                table.getDefaultCell().setBorder(Rectangle.BOTTOM);
+                table.getDefaultCell().setFixedHeight(20);
+                table.getDefaultCell().setHorizontalAlignment(
+                    Element.ALIGN_RIGHT);
+                table.addCell(new Phrase(_("Page") + ": "
+                        + writer.getCurrentPageNumber() + _(" of"), pageFont));
+                PdfPCell cell = new PdfPCell(Image.getInstance(total));
+                cell.setBorder(Rectangle.BOTTOM);
+                table.addCell(cell);
+                table.writeSelectedRows(0, -1, document.leftMargin(), 50,
+                    writer.getDirectContent());
+            } catch (DocumentException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+
+        /*
+         * (non-Javadoc)
+         * 
+         * @see
+         * com.itextpdf.text.pdf.PdfPageEventHelper#onCloseDocument(com.itextpdf
+         * .text.pdf.PdfWriter, com.itextpdf.text.Document)
+         */
+        @Override
+        public void onCloseDocument(PdfWriter writer, Document document) {
+            try {
+                Font pageFont = new Font(BaseFont.createFont(
+                    BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 12);
+                ColumnText.showTextAligned(total, Element.ALIGN_LEFT,
+                    new Phrase(String.valueOf(writer.getPageNumber() - 1),
+                        pageFont), 2, 2, 0);
+            } catch (DocumentException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         }
     }
 
@@ -183,8 +293,7 @@ public class BudgetReportConverter {
             PdfPTable contentTable = new PdfPTable(1);
             PdfPCell contentCell = new PdfPCell(createTableHeader());
 
-            contentCell.setBorder(1);
-            contentCell.setPaddingTop(10);
+            contentCell.setBorder(0);
             contentTable.addCell(contentCell);
 
             BudgetCreator budgetCreator = new BudgetCreator();
