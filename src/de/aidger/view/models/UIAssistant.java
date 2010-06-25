@@ -10,7 +10,16 @@ import de.unistuttgart.iste.se.adohive.model.IAssistant;
  */
 public class UIAssistant extends Assistant {
 
-    public UIAssistant() { }
+    /**
+     * The total hours the assistant is employed for a course.
+     */
+    private double totalHours = 0.0;
+
+    /**
+     * Initializes the Assistant class.
+     */
+    public UIAssistant() {
+    }
 
     /**
      * Initializes the Assistant class with the given assistant model.
@@ -22,6 +31,16 @@ public class UIAssistant extends Assistant {
         super(a);
     }
 
+    /**
+     * Sets the total hours for this assistant.
+     * 
+     * @param totalHours
+     *            the total hours
+     */
+    public void setTotalHours(double totalHours) {
+        this.totalHours = totalHours;
+    }
+
     /*
      * (non-Javadoc)
      * 
@@ -29,6 +48,12 @@ public class UIAssistant extends Assistant {
      */
     @Override
     public String toString() {
-        return getFirstName() + " " + getLastName();
+        String name = getFirstName() + " " + getLastName();
+
+        if (totalHours == 0.0) {
+            return name;
+        } else {
+            return name + " (" + totalHours + "h)";
+        }
     }
 }
