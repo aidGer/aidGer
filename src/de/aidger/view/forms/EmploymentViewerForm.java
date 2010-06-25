@@ -5,6 +5,8 @@ import static de.aidger.utils.Translation._;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import javax.swing.JPanel;
+
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
@@ -24,7 +26,7 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class EmploymentViewerForm extends Form {
+public class EmploymentViewerForm extends JPanel {
 
     /**
      * Constructs an employment viewer form.

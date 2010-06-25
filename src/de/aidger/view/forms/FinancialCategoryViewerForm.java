@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import de.aidger.model.models.FinancialCategory;
 
@@ -16,7 +17,7 @@ import de.aidger.model.models.FinancialCategory;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class FinancialCategoryViewerForm extends Form {
+public class FinancialCategoryViewerForm extends JPanel {
 
     /**
      * Constructs a financial category viewer form.

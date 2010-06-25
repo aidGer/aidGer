@@ -5,6 +5,8 @@ import static de.aidger.utils.Translation._;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.swing.JPanel;
+
 import de.aidger.model.models.HourlyWage;
 import de.aidger.view.utils.InputPatternFilter;
 
@@ -14,7 +16,7 @@ import de.aidger.view.utils.InputPatternFilter;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class HourlyWageEditorForm extends Form {
+public class HourlyWageEditorForm extends JPanel {
 
     public enum Qualification {
         u(_("Unchecked")), g(_("Checked")), b(_("Bachelor"));

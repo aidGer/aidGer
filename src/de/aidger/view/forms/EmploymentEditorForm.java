@@ -15,6 +15,7 @@ import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
@@ -48,7 +49,7 @@ import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class EmploymentEditorForm extends Form {
+public class EmploymentEditorForm extends JPanel {
 
     /**
      * A flag whether the form is in edit mode.
@@ -170,9 +171,10 @@ public class EmploymentEditorForm extends Form {
             cmbContract.setModel(cmbContractModel);
             cmbFunds.setModel(cmbFundsModel);
 
-            listModels.add(cmbAssistantModel);
-            listModels.add(cmbCourseModel);
-            listModels.add(cmbContractModel);
+            // TODO
+            //listModels.add(cmbAssistantModel);
+            //listModels.add(cmbCourseModel);
+            //listModels.add(cmbContractModel);
 
             cmbQualification.setSelectedItem(Qualification
                 .valueOf(((Assistant) cmbAssistant.getSelectedItem())

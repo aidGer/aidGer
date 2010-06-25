@@ -57,8 +57,6 @@ import de.aidger.model.models.HourlyWage;
 import de.aidger.utils.Logger;
 import de.aidger.view.models.GenericListModel;
 import de.aidger.view.models.TableModel;
-import de.aidger.view.tabs.DetailViewerTab;
-import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.EmptyTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
@@ -447,27 +445,23 @@ public final class UI extends JFrame {
          * models of the same type
          */
         for (Tab t : getTabs()) {
+            // table models
             if (t instanceof ViewerTab && ((ViewerTab) t).getType() == type) {
                 TableModel tM = ((ViewerTab) t).getTableModel();
 
                 tM.setModelBeforeEdit(modelBeforeEdit);
 
                 model.addObserver(tM);
-            } else if (t instanceof DetailViewerTab || t instanceof EditorTab) {
-                List<GenericListModel> lMs;
+            }
 
-                if (t instanceof DetailViewerTab) {
-                    lMs = ((DetailViewerTab) t).getListModels();
-                } else {
-                    lMs = ((EditorTab) t).getListModels();
-                }
+            // list models
+            List<GenericListModel> lMs = t.getListModels();
 
-                for (GenericListModel lM : lMs) {
-                    if (lM.getDataType() == type) {
-                        lM.setModelBeforeEdit(modelBeforeEdit);
+            for (GenericListModel lM : lMs) {
+                if (lM.getDataType() == type) {
+                    lM.setModelBeforeEdit(modelBeforeEdit);
 
-                        model.addObserver(lM);
-                    }
+                    model.addObserver(lM);
                 }
             }
         }

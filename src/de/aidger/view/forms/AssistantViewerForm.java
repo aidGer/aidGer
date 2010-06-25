@@ -1,6 +1,9 @@
 package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
+
+import javax.swing.JPanel;
+
 import de.aidger.model.models.Assistant;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 
@@ -10,7 +13,7 @@ import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class AssistantViewerForm extends Form {
+public class AssistantViewerForm extends JPanel {
 
     /**
      * Constructs an assistant viewer form.

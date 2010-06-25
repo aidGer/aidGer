@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JPanel;
 
 import de.aidger.model.models.Contract;
 import de.aidger.view.utils.BooleanListRenderer;
@@ -16,7 +17,7 @@ import de.aidger.view.utils.BooleanListRenderer;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class ContractEditorForm extends Form {
+public class ContractEditorForm extends JPanel {
 
     /**
      * Constructs a contract editor form.

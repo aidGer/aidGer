@@ -29,9 +29,7 @@ import de.aidger.view.forms.ContractEditorForm;
 import de.aidger.view.forms.CourseEditorForm;
 import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
-import de.aidger.view.forms.Form;
 import de.aidger.view.forms.HourlyWageEditorForm;
-import de.aidger.view.models.GenericListModel;
 import de.aidger.view.tabs.ViewerTab.DataType;
 
 /**
@@ -108,15 +106,6 @@ public class EditorTab extends Tab {
         }
 
         return ret;
-    }
-
-    /**
-     * Returns all list models of the tab.
-     * 
-     * @return all list models
-     */
-    public List<GenericListModel> getListModels() {
-        return ((Form) editorForm).getListModels();
     }
 
     /*
