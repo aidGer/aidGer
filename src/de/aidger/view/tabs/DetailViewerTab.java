@@ -220,7 +220,16 @@ public class DetailViewerTab extends Tab {
                 }
             }
 
+            List<Activity> activities = (new Activity()).getActivities(course);
+
+            ListModel listActivitiesModel = new ListModel(DataType.Activity);
+
+            for (Activity activity : activities) {
+                listActivitiesModel.addElement(activity);
+            }
+
             list1.setModel(listAssistantsModel);
+            list2.setModel(listActivitiesModel);
         } catch (AdoHiveException e) {
         }
     }
