@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-25 13:11+0200\n"
+"POT-Creation-Date: 2010-06-25 14:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -35,14 +35,14 @@ msgstr "Budgetbericht generieren"
 #: controller/actions/DetailViewerCancelAction.java:26
 #: controller/actions/DialogAbortAction.java:26
 #: controller/actions/EditorCancelAction.java:26
-#: view/tabs/DetailViewerTab.java:384
+#: view/tabs/DetailViewerTab.java:413
 #: view/tabs/EditorTab.java:332
 msgid "Cancel"
 msgstr "Abbrechen"
 
 #: controller/actions/DetailViewerEditAction.java:28
 #: controller/actions/ViewerEditAction.java:27
-#: view/tabs/DetailViewerTab.java:381
+#: view/tabs/DetailViewerTab.java:410
 #: view/tabs/ViewerTab.java:462
 #: view/tabs/ViewerTab.java:484
 msgid "Edit"
@@ -214,7 +214,7 @@ msgid "Add"
 msgstr "Hinzufügen"
 
 #: controller/actions/ViewerContractAction.java:31
-#: view/forms/EmploymentEditorForm.java:444
+#: view/forms/EmploymentEditorForm.java:445
 #: view/forms/EmploymentViewerForm.java:119
 #: view/models/EmploymentTableModel.java:33
 #: view/tabs/ViewerTab.java:514
@@ -501,7 +501,7 @@ msgid "Type"
 msgstr "Typ"
 
 #: utils/pdf/ProtocolConverter.java:155
-#: view/forms/EmploymentEditorForm.java:313
+#: view/forms/EmploymentEditorForm.java:314
 #: view/forms/EmploymentViewerForm.java:127
 #: view/forms/HourlyWageEditorForm.java:187
 #: view/forms/HourlyWageViewerForm.java:65
@@ -529,7 +529,7 @@ msgstr "Bearbeiter"
 #: utils/pdf/ProtocolConverter.java:156
 #: view/forms/CourseEditorForm.java:361
 #: view/forms/CourseViewerForm.java:202
-#: view/forms/EmploymentEditorForm.java:476
+#: view/forms/EmploymentEditorForm.java:477
 #: view/forms/EmploymentViewerForm.java:167
 #: view/models/CourseTableModel.java:29
 #: view/models/EmploymentTableModel.java:35
@@ -562,7 +562,7 @@ msgstr "Email"
 
 #: view/forms/AssistantEditorForm.java:114
 #: view/forms/AssistantViewerForm.java:77
-#: view/forms/EmploymentEditorForm.java:468
+#: view/forms/EmploymentEditorForm.java:469
 #: view/forms/EmploymentViewerForm.java:159
 #: view/forms/HourlyWageEditorForm.java:181
 #: view/forms/HourlyWageViewerForm.java:59
@@ -651,26 +651,26 @@ msgstr "Umfang"
 msgid "Financial Category"
 msgstr "Finanzkategorie"
 
-#: view/forms/EmploymentEditorForm.java:332
+#: view/forms/EmploymentEditorForm.java:333
 #: view/forms/EmploymentViewerForm.java:135
 #: view/models/EmploymentTableModel.java:34
 msgid "Hour count"
 msgstr "Stundenanzahl"
 
-#: view/forms/EmploymentEditorForm.java:430
+#: view/forms/EmploymentEditorForm.java:431
 #: view/forms/EmploymentViewerForm.java:105
 #: view/models/EmploymentTableModel.java:33
 msgid "Assistant"
 msgstr "Hilfskraft"
 
-#: view/forms/EmploymentEditorForm.java:436
+#: view/forms/EmploymentEditorForm.java:437
 #: view/forms/EmploymentViewerForm.java:111
 #: view/models/EmploymentTableModel.java:33
 #: view/tabs/BudgetViewerTab.java:45
 msgid "Course"
 msgstr "Veranstaltung"
 
-#: view/forms/EmploymentEditorForm.java:452
+#: view/forms/EmploymentEditorForm.java:453
 #: view/forms/EmploymentViewerForm.java:143
 #: view/forms/FinancialCategoryEditorForm.java:120
 #: view/forms/FinancialCategoryViewerForm.java:46
@@ -679,7 +679,7 @@ msgstr "Veranstaltung"
 msgid "Funds"
 msgstr "Finanzmittel"
 
-#: view/forms/EmploymentEditorForm.java:460
+#: view/forms/EmploymentEditorForm.java:461
 #: view/forms/EmploymentViewerForm.java:151
 #: view/models/EmploymentTableModel.java:34
 msgid "Cost unit"
@@ -784,42 +784,47 @@ msgstr "Gesamt verfügbare HKS"
 msgid "Budget viewing"
 msgstr "Budgetanzeige"
 
-#: view/tabs/DetailViewerTab.java:200
+#: view/tabs/DetailViewerTab.java:216
 msgid "Related assistants"
 msgstr "Zugehörige Hilfskräfte"
 
-#: view/tabs/DetailViewerTab.java:203
-#: view/tabs/DetailViewerTab.java:238
+#: view/tabs/DetailViewerTab.java:219
+#: view/tabs/DetailViewerTab.java:263
 msgid "Related activities"
 msgstr "Zugehörige Vorgänge"
 
-#: view/tabs/DetailViewerTab.java:235
+#: view/tabs/DetailViewerTab.java:260
 msgid "Related courses"
 msgstr "Zugehörige Veranstaltungen"
 
-#: view/tabs/DetailViewerTab.java:291
+#: view/tabs/DetailViewerTab.java:316
 msgid "View course"
 msgstr "Veranstaltung anzeigen"
 
-#: view/tabs/DetailViewerTab.java:293
+#: view/tabs/DetailViewerTab.java:318
 msgid "View assistant"
 msgstr "Hilfskraft anzeigen"
 
-#: view/tabs/DetailViewerTab.java:295
+#: view/tabs/DetailViewerTab.java:320
 msgid "View financial category"
 msgstr "Finanzkategorie anzeigen"
 
-#: view/tabs/DetailViewerTab.java:297
+#: view/tabs/DetailViewerTab.java:322
 msgid "View hourly wage"
 msgstr "Stundenlohn anzeigen"
 
-#: view/tabs/DetailViewerTab.java:299
+#: view/tabs/DetailViewerTab.java:324
 msgid "View employment"
 msgstr "Beschäftigung anzeigen"
 
-#: view/tabs/DetailViewerTab.java:301
+#: view/tabs/DetailViewerTab.java:326
 msgid "View contract"
 msgstr "Vertrag anzeigen"
+
+#: view/tabs/DetailViewerTab.java:448
+#: view/tabs/DetailViewerTab.java:489
+msgid "None"
+msgstr "Keine"
 
 #: view/tabs/EditorTab.java:196
 msgid "Edit course"
