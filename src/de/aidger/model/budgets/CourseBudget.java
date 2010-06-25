@@ -3,6 +3,8 @@
  */
 package de.aidger.model.budgets;
 
+import de.aidger.model.models.Course;
+
 /**
  * Represents a course in the budget report table.
  * 
@@ -54,6 +56,33 @@ public class CourseBudget {
         setLecturer(null);
         setBookedBudget(setAvailableBudget(setTotalBudget(0)));
         setOverBooked(false);
+    }
+
+    /**
+     * Creates a new course budget from a given course.
+     * 
+     * @param course
+     *            The course of which to create it.
+     */
+    public CourseBudget(Course course) {
+        double totalBudget = course.getUnqualifiedWorkingHours()
+                * course.getNumberOfGroups();
+        double bookedBudget = BudgetChecker.getActualBudget(course);
+        double availableBudget = 0;
+        if (totalBudget - bookedBudget > 0) {
+            /*
+             * If there are more budgets booked for this course than there are
+             * in total, the available budget shall be 0.
+             */
+            availableBudget = totalBudget - bookedBudget;
+        }
+        setName(course.getDescription());
+        setSemester(course.getSemester());
+        setLecturer(course.getLecturer());
+        setTotalBudget(totalBudget);
+        setBookedBudget(bookedBudget);
+        setAvailableBudget(availableBudget);
+        setOverBooked(BudgetChecker.checkBudget(course));
     }
 
     /**
