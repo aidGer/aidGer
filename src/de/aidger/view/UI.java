@@ -17,6 +17,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -96,6 +98,11 @@ public final class UI extends JFrame {
      * The label containing a status message.
      */
     private JLabel statusLabel;
+
+    /**
+     * A timer used for status messages.
+     */
+    private Timer statusTimer = new Timer();
 
     /**
      * Creates the main window of the application.
@@ -201,6 +208,7 @@ public final class UI extends JFrame {
      *            The error message to display
      */
     public static void displayError(String error) {
+        UI.getInstance().setStatusMessage(error);
         JOptionPane.showMessageDialog(instance, error, _("Error"),
             JOptionPane.ERROR_MESSAGE);
         Logger.error(error);
@@ -213,6 +221,7 @@ public final class UI extends JFrame {
      *            The info message to display
      */
     public static void displayInfo(String info) {
+        UI.getInstance().setStatusMessage(info);
         JOptionPane.showMessageDialog(instance, info, _("Info"),
             JOptionPane.INFORMATION_MESSAGE);
         Logger.info(info);
@@ -487,6 +496,16 @@ public final class UI extends JFrame {
      */
     public void setStatusMessage(String message) {
         statusLabel.setText(message);
+
+        statusTimer.cancel();
+
+        statusTimer = new Timer();
+        statusTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                setStatusMessage(_("Ready"));
+            }
+        }, 3000);
     }
 
     /**
@@ -590,9 +609,12 @@ public final class UI extends JFrame {
             Task.ViewContracts));
 
         TaskPane tpActivities = new TaskPane(_("Activities"));
-        tpActivities.add(createTaskPaneButton(_("Create new activity"),
-            Task.ViewEmpty));
-        tpActivities.add(createTaskPaneButton(_("Export"), Task.ViewEmpty));
+        tpActivities.add(createTaskPaneButton(_("Show activities"),
+            Task.ViewActivities));
+        tpActivities.add(createTaskPaneButton(_("Create activity"),
+            Task.CreateNewActivity));
+        tpActivities.add(createTaskPaneButton(_("Export activities"),
+            Task.ExportActivities));
 
         TaskPane tpReports = new TaskPane(_("Reports"));
         tpReports.add(createTaskPaneButton(_("Full Balance"),

@@ -35,7 +35,9 @@ public class TaskPaneAction extends AbstractAction implements MouseListener,
      * @author aidGer Team
      */
     public enum Task {
-        ViewCourses, ViewAssistants, ViewFinancialCategories, ViewHourlyWages, ViewEmployments, CreateNewEmployment, ViewContracts, ViewFullBalance, ViewAnnualBalance, ViewSemesterBalance, ViewBudgetCheck, ViewProtocol, ViewEmpty, Void, ViewControlling
+
+        ViewCourses, ViewAssistants, ViewFinancialCategories, ViewHourlyWages, ViewEmployments, CreateNewEmployment, ViewContracts, ViewActivities, CreateNewActivity, ExportActivities, ViewFullBalance, ViewAnnualBalance, ViewSemesterBalance, ViewControlling, ViewBudgetCheck, ViewProtocol, ViewEmpty, Void
+
     }
 
     /**
@@ -116,6 +118,10 @@ public class TaskPaneAction extends AbstractAction implements MouseListener,
             return new EditorTab(DataType.Employment);
         case ViewContracts:
             return new ViewerTab(DataType.Contract);
+        case ViewActivities:
+            return new ViewerTab(DataType.Activity);
+        case CreateNewActivity:
+            return new EditorTab(DataType.Activity);
         case ViewFullBalance:
             return new BalanceViewerTab(1);
         case ViewAnnualBalance:
@@ -129,6 +135,7 @@ public class TaskPaneAction extends AbstractAction implements MouseListener,
         case ViewProtocol:
             return new ProtocolViewerTab();
         case ViewEmpty:
+        case ExportActivities: // TODO
             return new EmptyTab();
         case Void:
         default:

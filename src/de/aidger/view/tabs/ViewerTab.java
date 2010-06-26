@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -17,12 +18,13 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTable;
 import javax.swing.KeyStroke;
 import javax.swing.RowFilter;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableRowSorter;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
-import de.aidger.controller.actions.ViewerActivitiesAction;
 import de.aidger.controller.actions.ViewerAddAction;
 import de.aidger.controller.actions.ViewerContractAction;
 import de.aidger.controller.actions.ViewerDeleteAction;
@@ -30,6 +32,7 @@ import de.aidger.controller.actions.ViewerDetailViewAction;
 import de.aidger.controller.actions.ViewerEditAction;
 import de.aidger.model.Runtime;
 import de.aidger.view.UI;
+import de.aidger.view.models.ActivityTableModel;
 import de.aidger.view.models.AssistantTableModel;
 import de.aidger.view.models.ContractTableModel;
 import de.aidger.view.models.CourseTableModel;
@@ -52,7 +55,34 @@ public class ViewerTab extends Tab {
      * The type of the data that will be viewed.
      */
     public enum DataType {
-        Course, Assistant, FinancialCategory, HourlyWage, Employment, Contract, Activity
+        Course(_("Course")), Assistant(_("Assistant")), FinancialCategory(
+                _("Financial Category")), HourlyWage(_("Hourly Wage")), Employment(
+                _("Employment")), Contract(_("Contract")), Activity(
+                _("Activity"));
+
+        /**
+         * The display name of an item.
+         */
+        private final String displayName;
+
+        /**
+         * Constructs a qualification item.
+         * 
+         * @param displayName
+         *            the display name of the item
+         */
+        DataType(final String displayName) {
+            this.displayName = displayName;
+        }
+
+        /**
+         * Returns the display name.
+         * 
+         * @return the display name
+         */
+        public String getDisplayName() {
+            return displayName;
+        }
     }
 
     /**
@@ -91,26 +121,17 @@ public class ViewerTab extends Tab {
         this.type = type;
         initComponents();
 
-        btnActivities.setVisible(false);
         btnContract.setVisible(false);
         separator5.setVisible(false);
-        separator6.setVisible(false);
-        itemActivities.setVisible(false);
         itemContract.setVisible(false);
 
         // use different table model for each data type
         switch (type) {
         case Course:
             tableModel = new CourseTableModel();
-            btnActivities.setVisible(true);
-            separator5.setVisible(true);
-            itemActivities.setVisible(true);
             break;
         case Assistant:
             tableModel = new AssistantTableModel();
-            btnActivities.setVisible(true);
-            separator5.setVisible(true);
-            itemActivities.setVisible(true);
             break;
         case FinancialCategory:
             tableModel = new FinancialCategoryTableModel();
@@ -121,11 +142,14 @@ public class ViewerTab extends Tab {
         case Employment:
             tableModel = new EmploymentTableModel();
             btnContract.setVisible(true);
-            separator6.setVisible(true);
+            separator5.setVisible(true);
             itemContract.setVisible(true);
             break;
         case Contract:
             tableModel = new ContractTableModel();
+            break;
+        case Activity:
+            tableModel = new ActivityTableModel();
             break;
         }
 
@@ -180,8 +204,6 @@ public class ViewerTab extends Tab {
                 ViewerAddAction.class.getName()));
             btnDelete.setAction(ActionRegistry.getInstance().get(
                 ViewerDeleteAction.class.getName()));
-            btnActivities.setAction(ActionRegistry.getInstance().get(
-                ViewerActivitiesAction.class.getName()));
             btnContract.setAction(ActionRegistry.getInstance().get(
                 ViewerContractAction.class.getName()));
 
@@ -191,8 +213,6 @@ public class ViewerTab extends Tab {
                 ViewerEditAction.class.getName()));
             itemDelete.setAction(ActionRegistry.getInstance().get(
                 ViewerDeleteAction.class.getName()));
-            itemActivities.setAction(ActionRegistry.getInstance().get(
-                ViewerActivitiesAction.class.getName()));
             itemContract.setAction(ActionRegistry.getInstance().get(
                 ViewerContractAction.class.getName()));
 
@@ -332,6 +352,25 @@ public class ViewerTab extends Tab {
 
             }
         });
+
+        // selection listener for table
+        table.getSelectionModel().addListSelectionListener(
+            new ListSelectionListener() {
+                @Override
+                public void valueChanged(ListSelectionEvent e) {
+                    int rowCount = table.getSelectedRowCount();
+
+                    String message = _("1 entity selected.");
+
+                    if (rowCount > 1) {
+                        message = MessageFormat.format(
+                            _("{0} entities selected."),
+                            new Object[] { rowCount });
+                    }
+
+                    UI.getInstance().setStatusMessage(message);
+                }
+            });
     }
 
     /**
@@ -365,6 +404,8 @@ public class ViewerTab extends Tab {
             return _("Employments");
         case Contract:
             return _("Contracts");
+        case Activity:
+            return _("Activities");
         default:
             return _("Data");
         }
@@ -444,7 +485,6 @@ public class ViewerTab extends Tab {
         itemView = new javax.swing.JMenuItem();
         itemEdit = new javax.swing.JMenuItem();
         itemDelete = new javax.swing.JMenuItem();
-        itemActivities = new javax.swing.JMenuItem();
         itemContract = new javax.swing.JMenuItem();
         toolBar = new javax.swing.JToolBar();
         separator = new javax.swing.JToolBar.Separator();
@@ -456,10 +496,8 @@ public class ViewerTab extends Tab {
         separator3 = new javax.swing.JToolBar.Separator();
         btnDelete = new javax.swing.JButton();
         separator4 = new javax.swing.JToolBar.Separator();
-        btnActivities = new javax.swing.JButton();
-        separator5 = new javax.swing.JToolBar.Separator();
         btnContract = new javax.swing.JButton();
-        separator6 = new javax.swing.JToolBar.Separator();
+        separator5 = new javax.swing.JToolBar.Separator();
         scrollPane = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         searchField = new javax.swing.JTextField();
@@ -472,9 +510,6 @@ public class ViewerTab extends Tab {
 
         itemDelete.setText(_("Delete"));
         popupMenu.add(itemDelete);
-
-        itemActivities.setText(_("Activities"));
-        popupMenu.add(itemActivities);
 
         itemContract.setText(_("Contract"));
         popupMenu.add(itemContract);
@@ -513,22 +548,13 @@ public class ViewerTab extends Tab {
         toolBar.add(btnDelete);
         toolBar.add(separator4);
 
-        btnActivities.setText(_("Activites"));
-        btnActivities.setFocusable(false);
-        btnActivities
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnActivities
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        toolBar.add(btnActivities);
-        toolBar.add(separator5);
-
         btnContract.setText(_("Contract"));
         btnContract.setFocusable(false);
         btnContract
             .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnContract.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(btnContract);
-        toolBar.add(separator6);
+        toolBar.add(separator5);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -559,13 +585,11 @@ public class ViewerTab extends Tab {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActivities;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnContract;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnView;
-    private javax.swing.JMenuItem itemActivities;
     private javax.swing.JMenuItem itemContract;
     private javax.swing.JMenuItem itemDelete;
     private javax.swing.JMenuItem itemEdit;
@@ -579,7 +603,6 @@ public class ViewerTab extends Tab {
     private javax.swing.JToolBar.Separator separator3;
     private javax.swing.JToolBar.Separator separator4;
     private javax.swing.JToolBar.Separator separator5;
-    private javax.swing.JToolBar.Separator separator6;
     private javax.swing.JTable table;
     private javax.swing.JToolBar toolBar;
 

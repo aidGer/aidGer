@@ -25,7 +25,6 @@ import de.aidger.controller.actions.ReportGenerateAction;
 import de.aidger.controller.actions.SaveSettingsAction;
 import de.aidger.controller.actions.SettingsAction;
 import de.aidger.controller.actions.SettingsBrowseAction;
-import de.aidger.controller.actions.ViewerActivitiesAction;
 import de.aidger.controller.actions.ViewerAddAction;
 import de.aidger.controller.actions.ViewerContractAction;
 import de.aidger.controller.actions.ViewerDeleteAction;
@@ -92,7 +91,6 @@ public final class Application {
         ActionRegistry.getInstance().register(new ViewerEditAction());
         ActionRegistry.getInstance().register(new ViewerAddAction());
         ActionRegistry.getInstance().register(new ViewerDeleteAction());
-        ActionRegistry.getInstance().register(new ViewerActivitiesAction());
         ActionRegistry.getInstance().register(new ViewerContractAction());
 
         ActionRegistry.getInstance().register(new EditorSaveAction());
