@@ -10,7 +10,7 @@ import javax.swing.JDialog;
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
 import de.aidger.controller.actions.DialogAbortAction;
-import de.aidger.controller.actions.SaveSettingsAction;
+import de.aidger.controller.actions.SettingsSaveAction;
 import de.aidger.controller.actions.SettingsBrowseAction;
 import de.aidger.model.Runtime;
 import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
@@ -57,7 +57,7 @@ public class SettingsDialog extends JDialog {
             jButton1.setAction(ActionRegistry.getInstance().get(
                     DialogAbortAction.class.getName()));
             jButton2.setAction(ActionRegistry.getInstance().get(
-                    SaveSettingsAction.class.getName()));
+                    SettingsSaveAction.class.getName()));
             browseButton.setAction(ActionRegistry.getInstance().get(
                     SettingsBrowseAction.class.getName()));
         } catch (ActionNotFoundException e) {

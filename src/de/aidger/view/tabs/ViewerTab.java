@@ -129,6 +129,9 @@ public class ViewerTab extends Tab {
         separator6.setVisible(false);
         btnContract.setVisible(false);
         separator7.setVisible(false);
+
+        itemCourse.setVisible(false);
+        itemAssistant.setVisible(false);
         itemContract.setVisible(false);
 
         // use different table model for each data type
@@ -154,6 +157,9 @@ public class ViewerTab extends Tab {
             separator6.setVisible(true);
             btnContract.setVisible(true);
             separator7.setVisible(true);
+
+            itemCourse.setVisible(true);
+            itemAssistant.setVisible(true);
             itemContract.setVisible(true);
             break;
         case Contract:

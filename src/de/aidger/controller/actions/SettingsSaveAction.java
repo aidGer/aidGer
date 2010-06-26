@@ -20,12 +20,12 @@ import de.aidger.view.UI;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class SaveSettingsAction extends AbstractAction {
+public class SettingsSaveAction extends AbstractAction {
 
     /**
      * Initializes the save settings action.
      */
-    public SaveSettingsAction() {
+    public SettingsSaveAction() {
         putValue(Action.NAME, _("Save"));
         putValue(Action.SHORT_DESCRIPTION, _("Save settings"));
     }
@@ -102,5 +102,8 @@ public class SaveSettingsAction extends AbstractAction {
 
         dlg.setVisible(false);
         dlg.dispose();
+
+        // Refresh Quick Settings
+        UI.getInstance().refreshQuickSettings();
     }
 }
