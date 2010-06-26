@@ -4,6 +4,7 @@
 package de.aidger.model.reports;
 
 import java.math.BigDecimal;
+import java.util.Vector;
 
 /**
  * This model represents the employments of one course for one time-frame for
@@ -13,24 +14,14 @@ import java.math.BigDecimal;
  */
 public class ActivityEmployment {
     /**
-     * The year in which these employments began.
+     * The years in which these employments take place.
      */
-    private short startYear;
-
-    /**
-     * The year in which these employments ended.
-     */
-    private short endYear;
-
-    /**
-     * The month in which these employments began.
-     */
-    private byte startMonth;
+    private final Vector<Short> years;
 
     /**
      * The month in which these employments ended.
      */
-    private byte endMonth;
+    private final Vector<Byte> months;
 
     /**
      * The name of the course of these employments.
@@ -46,68 +37,63 @@ public class ActivityEmployment {
      * Initializes a new ActivityEmployment.
      */
     public ActivityEmployment() {
-        startYear = endYear = 0;
-        startMonth = endMonth = 0;
+        years = new Vector<Short>();
+        months = new Vector<Byte>();
         course = "";
         hours = 0;
     }
 
-    /**
-     * Sets the starting year of these employments.
+    /*
+     * (non-Javadoc)
      * 
-     * @param startYear
-     *            the startYear to set
+     * @see java.lang.Object#toString()
      */
-    public void setStartYear(short startYear) {
-        this.startYear = startYear;
+    @Override
+    public String toString() {
+        return course;
     }
 
     /**
-     * Returns the starting year of these employments.
+     * Adds a year to the vector of years if it doesn't exist yet.
      * 
-     * @return the startYear
+     * @param value
+     *            The year to add
      */
-    public short getStartYear() {
-        return startYear;
+    public void addYear(short value) {
+        if (!years.contains(value)) {
+            years.add(value);
+        }
     }
 
     /**
-     * Sets the ending year of these employments.
+     * Returns the years of these employments.
      * 
-     * @param endYear
-     *            the endYear to set
+     * @return The years
      */
-    public short setEndYear(short endYear) {
-        this.endYear = endYear;
-        return endYear;
+    public Vector<Short> getYears() {
+        return years;
     }
 
     /**
-     * Returns the ending year of these employments.
+     * Adds a month to the vector of months of these employments if it doesn't
+     * exist yet.
      * 
-     * @return the endYear
+     * @param value
+     *            The month
      */
-    public short getEndYear() {
-        return endYear;
+    public void addMonth(byte value) {
+        if (!months.contains(value)) {
+            months.add(value);
+        }
     }
 
     /**
-     * Sets the starting month of these employments.
+     * Returns the months of these employments.
      * 
-     * @param startMonth
-     *            the startMonth to set
+     * @return The months
      */
-    public void setStartMonth(byte startMonth) {
-        this.startMonth = startMonth;
-    }
-
-    /**
-     * Returns the starting month of these employments.
-     * 
-     * @return the startMonth
-     */
-    public byte getStartMonth() {
-        return startMonth;
+    public Vector<Byte> getMonths() {
+        return months;
     }
 
     /**
@@ -127,26 +113,6 @@ public class ActivityEmployment {
      */
     public String getCourse() {
         return course;
-    }
-
-    /**
-     * Sets the ending month of these employments.
-     * 
-     * @param endMonth
-     *            the endMonth to set
-     */
-    public byte setEndMonth(byte endMonth) {
-        this.endMonth = endMonth;
-        return endMonth;
-    }
-
-    /**
-     * Returns the ending month of these employments.
-     * 
-     * @return the endMonth
-     */
-    public byte getEndMonth() {
-        return endMonth;
     }
 
     /**

@@ -7,6 +7,7 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
 import de.aidger.controller.actions.AboutAction;
+import de.aidger.controller.actions.ActivityReportGenerateAction;
 import de.aidger.controller.actions.BudgetExportAction;
 import de.aidger.controller.actions.BudgetGenerateAction;
 import de.aidger.controller.actions.ControllingExportAllAction;
@@ -110,6 +111,8 @@ public final class Application {
         ActionRegistry.getInstance().register(new ReportGenerateAction());
         ActionRegistry.getInstance().register(new ReportExportAction());
         ActionRegistry.getInstance().register(new ProtocolExportAction());
+        ActionRegistry.getInstance().register(
+            new ActivityReportGenerateAction());
 
         ActionRegistry.getInstance().register(new ControllingGenerateAction());
         ActionRegistry.getInstance().register(new ControllingExportAllAction());

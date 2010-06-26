@@ -2,7 +2,20 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
+import java.util.List;
+import java.util.Vector;
+
 import javax.swing.table.DefaultTableModel;
+
+import de.aidger.controller.ActionNotFoundException;
+import de.aidger.controller.ActionRegistry;
+import de.aidger.controller.actions.ActivityReportGenerateAction;
+import de.aidger.model.models.Assistant;
+import de.aidger.model.reports.ActivityEmployment;
+import de.aidger.utils.reports.ActivityReportHelper;
+import de.aidger.view.UI;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.unistuttgart.iste.se.adohive.model.IAssistant;
 
 /**
  * This class is used to display the activity report of one assistant.
@@ -23,13 +36,59 @@ public class ActivityReportViewerTab extends Tab {
         }
     };
 
+    private Vector<IAssistant> assistants;
+
     /** Creates new form ActivityReportViewerTab */
     public ActivityReportViewerTab() {
         initComponents();
+        fillAssistants();
+        try {
+            generateButton.setAction(ActionRegistry.getInstance().get(
+                ActivityReportGenerateAction.class.getName()));
+        } catch (ActionNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    private void clearTable() {
+        while (contentTableModel.getRowCount() > 0) {
+            contentTableModel.removeRow(0);
+        }
     }
 
     public void createReport(Assistant assistant) {
+        clearTable();
+        ActivityReportHelper reportHelper = new ActivityReportHelper();
+        Vector<ActivityEmployment> activityEmployments = reportHelper
+            .getEmployments(assistant);
+        for (ActivityEmployment activityEmployment : activityEmployments) {
+            addRow(reportHelper.getEmploymentArray(activityEmployment));
+        }
+    }
 
+    public Assistant getSelectedAssistant() {
+        return new Assistant(assistants.get(assistantComboBox
+            .getSelectedIndex()));
+    }
+
+    private void fillAssistants() {
+        List<IAssistant> fillingAssistants;
+        assistants = new Vector<IAssistant>();
+        try {
+            fillingAssistants = new Assistant().getAll();
+            for (IAssistant assistant : fillingAssistants) {
+                assistantComboBox.addItem(assistant.getFirstName() + " "
+                        + assistant.getLastName());
+                assistants.add(assistant);
+            }
+        } catch (AdoHiveException e) {
+            UI.displayError(e.toString());
+        }
+    }
+
+    private void addRow(Object[] rowObject) {
+        contentTableModel.addRow(rowObject);
     }
 
     /**
@@ -64,7 +123,7 @@ public class ActivityReportViewerTab extends Tab {
         jToolBar1.setRollover(true);
         jToolBar1.add(jSeparator1);
 
-        assistantLabel.setText(_("Assistang") + ":");
+        assistantLabel.setText(_("Assistant") + ":");
         jToolBar1.add(assistantLabel);
 
         jToolBar1.add(assistantComboBox);

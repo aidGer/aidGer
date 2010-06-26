@@ -64,6 +64,8 @@ public class ViewerActivityReportAction extends AbstractAction {
 
             ActivityReportViewerTab activityTab = new ActivityReportViewerTab();
 
+            activityTab.createReport(assistant);
+
             UI.getInstance().addNewTab(activityTab);
         }
     }
