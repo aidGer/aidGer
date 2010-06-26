@@ -100,6 +100,14 @@ public class SettingsSaveAction extends AbstractAction {
             return;
         }
 
+        try {
+            double tol = Double.parseDouble(dlg.getTolerance());
+            Runtime.getInstance().setOption("tolerance", dlg.getTolerance());
+        } catch (NumberFormatException ex) {
+            UI.displayError(_("Tolerance needs to be a floating point number."));
+            return;
+        }
+
         dlg.setVisible(false);
         dlg.dispose();
 
