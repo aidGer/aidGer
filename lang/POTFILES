@@ -93,6 +93,7 @@ view/TaskPane.java
 controller/actions/ProtocolExportAction.java
 controller/actions/ControllingGenerateAction.java
 controller/actions/SettingsBrowseAction.java
+controller/actions/SettingsSaveAction.java
 controller/actions/ViewerCourseAction.java
 controller/actions/FirstStartCloseAction.java
 controller/actions/ControllingExportAction.java
@@ -105,7 +106,6 @@ controller/actions/EditorSaveAction.java
 controller/actions/ReportGenerateAction.java
 controller/actions/BudgetExportAction.java
 controller/actions/EditorCancelAction.java
-controller/actions/SaveSettingsAction.java
 controller/actions/ViewerContractAction.java
 controller/actions/ViewerAddAction.java
 controller/actions/ViewerAssistantAction.java

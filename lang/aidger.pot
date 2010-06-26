@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-26 15:17+0200\n"
+"POT-Creation-Date: 2010-06-26 16:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: utils/pdf/ControllingConverter.java:79
-#: view/tabs/ControllingViewerTab.java:370
 msgid "Controlling report"
 msgstr ""
 
@@ -64,7 +63,7 @@ msgstr ""
 
 #: utils/pdf/ControllingConverter.java:287 model/models/Activity.java:76
 #: model/models/Employment.java:83 view/tabs/ViewerTab.java:60
-#: view/tabs/ViewerTab.java:542 view/tabs/ViewerTab.java:589
+#: view/tabs/ViewerTab.java:548 view/tabs/ViewerTab.java:595
 #: view/tabs/ControllingViewerTab.java:43
 #: view/forms/EmploymentViewerForm.java:105
 #: view/forms/EmploymentEditorForm.java:459
@@ -94,7 +93,7 @@ msgstr ""
 msgid "Remark"
 msgstr ""
 
-#: utils/pdf/ProtocolConverter.java:82 view/UI.java:626
+#: utils/pdf/ProtocolConverter.java:82
 msgid "Activity Protocol"
 msgstr ""
 
@@ -157,8 +156,8 @@ msgstr ""
 
 #: utils/pdf/BalanceReportConverter.java:365
 #: utils/pdf/BudgetReportConverter.java:340 model/models/Course.java:87
-#: model/models/Course.java:92 view/tabs/BudgetViewerTab.java:48
-#: view/tabs/BudgetViewerTab.java:74 view/tabs/BudgetViewerTab.java:142
+#: model/models/Course.java:92 view/tabs/BudgetViewerTab.java:47
+#: view/tabs/BudgetViewerTab.java:74 view/tabs/BudgetViewerTab.java:143
 #: view/forms/CourseViewerForm.java:107 view/forms/CourseEditorForm.java:251
 #: view/reports/BalanceReportSemesterPanel.java:78
 #: view/models/CourseTableModel.java:26
@@ -180,8 +179,8 @@ msgstr ""
 
 #: utils/pdf/BalanceReportConverter.java:520
 #: utils/pdf/BudgetReportConverter.java:340 model/models/Course.java:87
-#: view/tabs/BudgetViewerTab.java:48 view/tabs/BudgetViewerTab.java:74
-#: view/tabs/BudgetViewerTab.java:134 view/tabs/BalanceViewerTab.java:94
+#: view/tabs/BudgetViewerTab.java:47 view/tabs/BudgetViewerTab.java:74
+#: view/tabs/BudgetViewerTab.java:135 view/tabs/BalanceViewerTab.java:94
 #: view/tabs/BalanceViewerTab.java:192 view/forms/CourseViewerForm.java:115
 #: view/forms/CourseEditorForm.java:259
 #: view/reports/BalanceReportGroupPanel.java:35
@@ -225,9 +224,9 @@ msgid "Budget report"
 msgstr ""
 
 #: utils/pdf/BudgetReportConverter.java:340 model/models/Activity.java:78
-#: model/models/Employment.java:87 view/tabs/BudgetViewerTab.java:48
-#: view/tabs/ViewerTab.java:60 view/tabs/ViewerTab.java:539
-#: view/tabs/ViewerTab.java:582 view/forms/EmploymentViewerForm.java:111
+#: model/models/Employment.java:87 view/tabs/BudgetViewerTab.java:47
+#: view/tabs/ViewerTab.java:60 view/tabs/ViewerTab.java:545
+#: view/tabs/ViewerTab.java:588 view/forms/EmploymentViewerForm.java:111
 #: view/forms/EmploymentEditorForm.java:465
 #: view/models/EmploymentTableModel.java:33
 #: view/models/ActivityTableModel.java:29
@@ -235,14 +234,14 @@ msgstr ""
 msgid "Course"
 msgstr ""
 
-#: utils/pdf/BudgetReportConverter.java:341 view/tabs/BudgetViewerTab.java:49
-#: view/tabs/BudgetViewerTab.java:75 view/tabs/BudgetViewerTab.java:163
+#: utils/pdf/BudgetReportConverter.java:341 view/tabs/BudgetViewerTab.java:48
+#: view/tabs/BudgetViewerTab.java:75 view/tabs/BudgetViewerTab.java:164
 #: view/forms/CourseViewerForm.java:155
 msgid "Booked budgets"
 msgstr ""
 
 #: utils/pdf/BudgetReportConverter.java:341 view/tabs/BudgetViewerTab.java:49
-#: view/tabs/BudgetViewerTab.java:75 view/tabs/BudgetViewerTab.java:161
+#: view/tabs/BudgetViewerTab.java:76 view/tabs/BudgetViewerTab.java:162
 msgid "Available budgets"
 msgstr ""
 
@@ -250,12 +249,12 @@ msgstr ""
 msgid "Total Budgets"
 msgstr ""
 
-#: utils/Configuration.java:88
+#: utils/Configuration.java:89
 #, java-format
 msgid "Could not create file \"{0}\"."
 msgstr ""
 
-#: utils/Anonymizer.java:63
+#: utils/Anonymizer.java:66
 msgid "Anonymizing Assistants failed because of a database error"
 msgstr ""
 
@@ -447,8 +446,8 @@ msgid "Name"
 msgstr ""
 
 #: model/models/FinancialCategory.java:123 model/models/HourlyWage.java:130
-#: model/models/Employment.java:205 view/tabs/BalanceViewerTab.java:249
-#: view/tabs/ControllingViewerTab.java:258
+#: model/models/Employment.java:205 view/tabs/BalanceViewerTab.java:250
+#: view/tabs/ControllingViewerTab.java:288
 #: view/forms/FinancialCategoryViewerForm.java:107
 #: view/forms/FinancialCategoryEditorForm.java:215
 #: view/models/FinancialCategoryTableModel.java:25
@@ -474,7 +473,7 @@ msgid "can't be zero."
 msgstr ""
 
 #: model/models/FinancialCategory.java:136 model/models/Employment.java:197
-#: view/tabs/ControllingViewerTab.java:278
+#: view/tabs/ControllingViewerTab.java:308
 #: view/forms/FinancialCategoryViewerForm.java:46
 #: view/forms/EmploymentViewerForm.java:143
 #: view/forms/FinancialCategoryEditorForm.java:122
@@ -495,7 +494,7 @@ msgid "Financial Category is still linked to a Course."
 msgstr ""
 
 #: model/models/HourlyWage.java:134 model/models/Employment.java:209
-#: view/tabs/ControllingViewerTab.java:268
+#: view/tabs/ControllingViewerTab.java:298
 msgid "Month"
 msgstr ""
 
@@ -511,7 +510,7 @@ msgid "Cost unit"
 msgstr ""
 
 #: model/models/Employment.java:85 view/tabs/ViewerTab.java:62
-#: view/tabs/ViewerTab.java:545 view/tabs/ViewerTab.java:597
+#: view/tabs/ViewerTab.java:551 view/tabs/ViewerTab.java:603
 #: view/forms/EmploymentViewerForm.java:119
 #: view/forms/EmploymentEditorForm.java:473
 #: view/models/EmploymentTableModel.java:33
@@ -554,21 +553,24 @@ msgstr ""
 msgid "yes"
 msgstr ""
 
-#: view/tabs/BudgetViewerTab.java:49 view/tabs/BudgetViewerTab.java:75
-#: view/tabs/BudgetViewerTab.java:165 view/forms/CourseViewerForm.java:163
+#: view/tabs/BudgetViewerTab.java:48 view/tabs/BudgetViewerTab.java:75
+msgid "Remaining budgets"
+msgstr ""
+
+#: view/tabs/BudgetViewerTab.java:166 view/forms/CourseViewerForm.java:163
 msgid "Total budgets"
 msgstr ""
 
-#: view/tabs/BudgetViewerTab.java:200 view/tabs/BalanceViewerTab.java:254
-#: view/tabs/ControllingViewerTab.java:288
+#: view/tabs/BudgetViewerTab.java:202 view/tabs/BalanceViewerTab.java:256
+#: view/tabs/ControllingViewerTab.java:260
 #: controller/actions/ControllingGenerateAction.java:29
 #: controller/actions/ReportGenerateAction.java:30
 #: controller/actions/BudgetGenerateAction.java:35
 msgid "Generate"
 msgstr ""
 
-#: view/tabs/BudgetViewerTab.java:208 view/tabs/ProtocolViewerTab.java:164
-#: view/tabs/BalanceViewerTab.java:262 view/tabs/ControllingViewerTab.java:296
+#: view/tabs/BudgetViewerTab.java:211 view/tabs/ProtocolViewerTab.java:164
+#: view/tabs/BalanceViewerTab.java:263 view/tabs/ControllingViewerTab.java:269
 #: controller/actions/ProtocolExportAction.java:28
 #: controller/actions/ProtocolExportAction.java:70
 #: controller/actions/ControllingExportAction.java:35
@@ -580,12 +582,12 @@ msgstr ""
 msgid "Export"
 msgstr ""
 
-#: view/tabs/BudgetViewerTab.java:224 view/tabs/BalanceViewerTab.java:279
+#: view/tabs/BudgetViewerTab.java:227 view/tabs/BalanceViewerTab.java:278
 msgid "Filters"
 msgstr ""
 
-#: view/tabs/BudgetViewerTab.java:487
-msgid "Budget viewing"
+#: view/tabs/BudgetViewerTab.java:490
+msgid "Course budgets"
 msgstr ""
 
 #: view/tabs/EditorTab.java:198
@@ -644,8 +646,8 @@ msgstr ""
 msgid "Add activity"
 msgstr ""
 
-#: view/tabs/EditorTab.java:337 controller/actions/EditorSaveAction.java:69
-#: controller/actions/SaveSettingsAction.java:29
+#: view/tabs/EditorTab.java:337 controller/actions/SettingsSaveAction.java:29
+#: controller/actions/EditorSaveAction.java:69
 msgid "Save"
 msgstr ""
 
@@ -665,7 +667,7 @@ msgid "(Unnamed)"
 msgstr ""
 
 #: view/tabs/ProtocolViewerTab.java:101
-msgid "Protocol Viewing"
+msgid "Activity export"
 msgstr ""
 
 #: view/tabs/ProtocolViewerTab.java:154
@@ -684,11 +686,11 @@ msgstr ""
 msgid "Balance Viewing"
 msgstr ""
 
-#: view/tabs/BalanceViewerTab.java:305
+#: view/tabs/BalanceViewerTab.java:302
 msgid "Pessimistic calculation"
 msgstr ""
 
-#: view/tabs/BalanceViewerTab.java:314
+#: view/tabs/BalanceViewerTab.java:310
 msgid "Historical calculation"
 msgstr ""
 
@@ -704,70 +706,70 @@ msgstr ""
 msgid "Activity"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:335 view/tabs/ViewerTab.java:349
-#: view/tabs/ViewerTab.java:623
+#: view/tabs/ViewerTab.java:341 view/tabs/ViewerTab.java:355
+#: view/tabs/ViewerTab.java:629
 msgid "Search"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:382
+#: view/tabs/ViewerTab.java:388
 msgid "1 entity selected."
 msgstr ""
 
-#: view/tabs/ViewerTab.java:386
+#: view/tabs/ViewerTab.java:392
 #, java-format
 msgid "{0} entities selected."
 msgstr ""
 
-#: view/tabs/ViewerTab.java:415
+#: view/tabs/ViewerTab.java:421
 msgid "Master Data Courses"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:417
+#: view/tabs/ViewerTab.java:423
 msgid "Master Data Assistants"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:419
+#: view/tabs/ViewerTab.java:425
 msgid "Master Data Financial Categories"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:421
+#: view/tabs/ViewerTab.java:427
 msgid "Master Data Hourly Wages"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:423 view/UI.java:602
+#: view/tabs/ViewerTab.java:429 view/UI.java:622
 msgid "Employments"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:425
+#: view/tabs/ViewerTab.java:431
 msgid "Contracts"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:427 view/UI.java:611
+#: view/tabs/ViewerTab.java:433 view/UI.java:631
 msgid "Activities"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:429
+#: view/tabs/ViewerTab.java:435
 msgid "Data"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:530 view/tabs/ViewerTab.java:554
+#: view/tabs/ViewerTab.java:536 view/tabs/ViewerTab.java:560
 #: controller/actions/ViewerDetailViewAction.java:30
 msgid "View"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:533 view/tabs/ViewerTab.java:561
+#: view/tabs/ViewerTab.java:539 view/tabs/ViewerTab.java:567
 #: view/tabs/DetailViewerTab.java:466
 #: controller/actions/DetailViewerEditAction.java:28
 #: controller/actions/ViewerEditAction.java:27
 msgid "Edit"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:536 view/tabs/ViewerTab.java:575
+#: view/tabs/ViewerTab.java:542 view/tabs/ViewerTab.java:581
 #: controller/actions/ViewerDeleteAction.java:32
 msgid "Delete"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:568 controller/actions/ViewerAddAction.java:27
+#: view/tabs/ViewerTab.java:574 controller/actions/ViewerAddAction.java:27
 msgid "Add"
 msgstr ""
 
@@ -786,6 +788,10 @@ msgstr ""
 
 #: view/tabs/ControllingViewerTab.java:91
 msgid "Wrong format!"
+msgstr ""
+
+#: view/tabs/ControllingViewerTab.java:380
+msgid "Assistant budgets"
 msgstr ""
 
 #: view/tabs/DetailViewerTab.java:224
@@ -879,158 +885,154 @@ msgstr ""
 msgid "Statistics"
 msgstr ""
 
-#: view/UI.java:212
+#: view/UI.java:222
 msgid "Error"
 msgstr ""
 
-#: view/UI.java:225
+#: view/UI.java:235
 msgid "Info"
 msgstr ""
 
-#: view/UI.java:250
+#: view/UI.java:260
 #, java-format
 msgid "{0} assistants have been anonymized"
 msgstr ""
 
-#: view/UI.java:265
+#: view/UI.java:275
 #, java-format
 msgid "Adding new tab \"{0}\" at position {1}"
 msgstr ""
 
-#: view/UI.java:315
+#: view/UI.java:325
 #, java-format
 msgid "Removing {0}. tab"
 msgstr ""
 
-#: view/UI.java:410
+#: view/UI.java:420
 #, java-format
 msgid "Setting current tab to \"{0}\""
 msgstr ""
 
-#: view/UI.java:506 view/UI.java:734
+#: view/UI.java:516 view/UI.java:748
 msgid "Ready"
 msgstr ""
 
-#: view/UI.java:533
+#: view/UI.java:553
 msgid "File"
 msgstr ""
 
-#: view/UI.java:552 controller/actions/HelpAction.java:25
+#: view/UI.java:572 controller/actions/HelpAction.java:25
 msgid "Help"
 msgstr ""
 
-#: view/UI.java:592
+#: view/UI.java:612
 msgid "Master Data Management"
 msgstr ""
 
-#: view/UI.java:594
+#: view/UI.java:614
 msgid "Courses"
 msgstr ""
 
-#: view/UI.java:595
+#: view/UI.java:615
 msgid "Assistants"
 msgstr ""
 
-#: view/UI.java:597
+#: view/UI.java:617
 msgid "Financial Categories"
 msgstr ""
 
-#: view/UI.java:599
+#: view/UI.java:619
 msgid "Hourly Wages"
 msgstr ""
 
-#: view/UI.java:604
+#: view/UI.java:624
 msgid "Show employments"
 msgstr ""
 
-#: view/UI.java:606
+#: view/UI.java:626
 msgid "Hire assistant"
 msgstr ""
 
-#: view/UI.java:608
+#: view/UI.java:628
 msgid "Show contracts"
 msgstr ""
 
-#: view/UI.java:612
+#: view/UI.java:632
 msgid "Show activities"
 msgstr ""
 
-#: view/UI.java:614
-msgid "Create activity"
-msgstr ""
-
-#: view/UI.java:616
+#: view/UI.java:634
 msgid "Export activities"
 msgstr ""
 
-#: view/UI.java:619
+#: view/UI.java:637 view/SettingsDialog.java:369
 msgid "Reports"
 msgstr ""
 
-#: view/UI.java:620
+#: view/UI.java:638
 msgid "Full Balance"
 msgstr ""
 
-#: view/UI.java:622
+#: view/UI.java:640
 msgid "Annual Balance"
 msgstr ""
 
-#: view/UI.java:624
+#: view/UI.java:642
 msgid "Semester Balance"
 msgstr ""
 
-#: view/UI.java:629
+#: view/UI.java:645
 msgid "Controlling"
 msgstr ""
 
-#: view/UI.java:630
+#: view/UI.java:646
 msgid "Check courses"
 msgstr ""
 
-#: view/UI.java:632
+#: view/UI.java:648
 msgid "Check assistants"
 msgstr ""
 
-#: view/UI.java:635
+#: view/UI.java:651
 msgid "Quick Settings"
 msgstr ""
 
-#: view/UI.java:637
+#: view/UI.java:653
 msgid "Remember my tabs"
 msgstr ""
 
-#: view/UI.java:647
+#: view/UI.java:661
 msgid "Open reports instantly"
 msgstr ""
 
-#: view/UI.java:702
+#: view/UI.java:716
 msgid "Open a new tab"
 msgstr ""
 
-#: view/UI.java:850
+#: view/UI.java:864
 #, java-format
 msgid "Could not find tab class {0}"
 msgstr ""
 
-#: view/UI.java:854
+#: view/UI.java:868
 #, java-format
 msgid "Could not find the correct constructor: {0}"
 msgstr ""
 
-#: view/UI.java:858
+#: view/UI.java:872
 #, java-format
 msgid "Instantiating the class {0} failed"
 msgstr ""
 
-#: view/UI.java:861
+#: view/UI.java:875
 msgid "Can't access a needed function"
 msgstr ""
 
-#: view/UI.java:863
+#: view/UI.java:877
 msgid "Incorrect arguments saved for a tab"
 msgstr ""
 
-#: view/UI.java:868
+#: view/UI.java:882
 msgid "Getting the model from the database failed"
 msgstr ""
 
@@ -1118,7 +1120,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: view/FirstStartDialog.java:86 view/SettingsDialog.java:228
+#: view/FirstStartDialog.java:86 view/SettingsDialog.java:242
 msgid "Name:"
 msgstr ""
 
@@ -1170,53 +1172,61 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: view/SettingsDialog.java:221 controller/actions/SettingsAction.java:28
+#: view/SettingsDialog.java:235 controller/actions/SettingsAction.java:28
 msgid "Settings"
 msgstr ""
 
-#: view/SettingsDialog.java:223
+#: view/SettingsDialog.java:237
 msgid "Language:"
 msgstr ""
 
-#: view/SettingsDialog.java:225
+#: view/SettingsDialog.java:239
 msgid "Amount of activities:"
 msgstr ""
 
-#: view/SettingsDialog.java:226
+#: view/SettingsDialog.java:240
 msgid "The amount of activities shown in detailviews."
 msgstr ""
 
-#: view/SettingsDialog.java:229 view/SettingsDialog.java:231
+#: view/SettingsDialog.java:243 view/SettingsDialog.java:245
 msgid "The name used in activities."
 msgstr ""
 
-#: view/SettingsDialog.java:233
+#: view/SettingsDialog.java:247
 msgid "PDF Viewer:"
 msgstr ""
 
-#: view/SettingsDialog.java:237
+#: view/SettingsDialog.java:251
 msgid "Open reports automatically after generating"
 msgstr ""
 
-#: view/SettingsDialog.java:239
+#: view/SettingsDialog.java:253
 msgid "Save Tabs when quitting"
 msgstr ""
 
-#: view/SettingsDialog.java:241
+#: view/SettingsDialog.java:255
 #: controller/actions/SettingsBrowseAction.java:27
 msgid "Browse"
 msgstr ""
 
-#: view/SettingsDialog.java:306
+#: view/SettingsDialog.java:318
+msgid "General"
+msgstr ""
+
+#: view/SettingsDialog.java:320
 msgid "Pessimistic Factor:"
 msgstr ""
 
-#: view/SettingsDialog.java:308
+#: view/SettingsDialog.java:322
 msgid "Historical Factor:"
 msgstr ""
 
-#: view/SettingsDialog.java:310
+#: view/SettingsDialog.java:324
 msgid "Time until anonymization in days:"
+msgstr ""
+
+#: view/SettingsDialog.java:326
+msgid "Tolerance of Controlling:"
 msgstr ""
 
 #: controller/actions/ProtocolExportAction.java:29
@@ -1262,6 +1272,38 @@ msgstr ""
 
 #: controller/actions/SettingsBrowseAction.java:60
 msgid "Please select an executable."
+msgstr ""
+
+#: controller/actions/SettingsSaveAction.java:30
+msgid "Save settings"
+msgstr ""
+
+#: controller/actions/SettingsSaveAction.java:45
+msgid "Username is empty."
+msgstr ""
+
+#: controller/actions/SettingsSaveAction.java:53
+msgid "PDF Viewer points to nonexistant file."
+msgstr ""
+
+#: controller/actions/SettingsSaveAction.java:61
+msgid "No Language selected or incorrect language selected."
+msgstr ""
+
+#: controller/actions/SettingsSaveAction.java:71
+msgid "The number of activities needs to be bigger than 0."
+msgstr ""
+
+#: controller/actions/SettingsSaveAction.java:90
+msgid "Factors need to be a floating point number."
+msgstr ""
+
+#: controller/actions/SettingsSaveAction.java:99
+msgid "Anonymization time needs to be an integer."
+msgstr ""
+
+#: controller/actions/SettingsSaveAction.java:107
+msgid "Tolerance needs to be a floating point number."
 msgstr ""
 
 #: controller/actions/ViewerCourseAction.java:47
@@ -1361,34 +1403,6 @@ msgstr ""
 
 #: controller/actions/ReportGenerateAction.java:31
 msgid "Generate the report"
-msgstr ""
-
-#: controller/actions/SaveSettingsAction.java:30
-msgid "Save settings"
-msgstr ""
-
-#: controller/actions/SaveSettingsAction.java:45
-msgid "Username is empty."
-msgstr ""
-
-#: controller/actions/SaveSettingsAction.java:53
-msgid "PDF Viewer points to nonexistant file."
-msgstr ""
-
-#: controller/actions/SaveSettingsAction.java:61
-msgid "No Language selected or incorrect language selected."
-msgstr ""
-
-#: controller/actions/SaveSettingsAction.java:71
-msgid "The number of activities needs to be bigger than 0."
-msgstr ""
-
-#: controller/actions/SaveSettingsAction.java:90
-msgid "Factors need to be a floating point number."
-msgstr ""
-
-#: controller/actions/SaveSettingsAction.java:99
-msgid "Anonymization time needs to be an integer."
 msgstr ""
 
 #: controller/actions/ViewerContractAction.java:65
