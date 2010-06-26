@@ -105,6 +105,16 @@ public final class UI extends JFrame {
     private Timer statusTimer = new Timer();
 
     /**
+     * Quick Settings CheckBox for the remember tabs setting.
+     */
+    private JCheckBox rememberCheckBox;
+
+    /**
+     * Quick Settings CheckBox for the open reports setting.
+     */
+    private JCheckBox openCheckBox;
+
+    /**
      * Creates the main window of the application.
      */
     private UI() {
@@ -509,6 +519,16 @@ public final class UI extends JFrame {
     }
 
     /**
+     * Refresh the Quick Settings CheckBoxes.
+     */
+    public void refreshQuickSettings() {
+        rememberCheckBox.setSelected(Boolean.valueOf(Runtime.getInstance().getOption(
+            "auto-save")));
+        openCheckBox.setSelected(Boolean.valueOf(Runtime.getInstance().getOption(
+            "auto-open")));
+    }
+
+    /**
      * Sets up the main menu bar.
      */
     private JMenuBar createMainMenuBar() {
@@ -630,28 +650,26 @@ public final class UI extends JFrame {
 
         TaskPane tpQuickSettings = new TaskPane(_("Quick Settings"));
 
-        JCheckBox remember = new JCheckBox(_("Remember my tabs"));
-        remember.setSelected(Boolean.valueOf(Runtime.getInstance().getOption(
-            "auto-save")));
-        remember.addChangeListener(new javax.swing.event.ChangeListener() {
+        rememberCheckBox = new JCheckBox(_("Remember my tabs"));
+        rememberCheckBox.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 Runtime.getInstance().setOption("auto-save",
                     Boolean.toString(((JCheckBox) e.getSource()).isSelected()));
             }
         });
 
-        JCheckBox open = new JCheckBox(_("Open reports instantly"));
-        open.setSelected(Boolean.valueOf(Runtime.getInstance().getOption(
-            "auto-open")));
-        open.addChangeListener(new javax.swing.event.ChangeListener() {
+        openCheckBox = new JCheckBox(_("Open reports instantly"));
+        openCheckBox.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 Runtime.getInstance().setOption("auto-open",
                     Boolean.toString(((JCheckBox) e.getSource()).isSelected()));
             }
         });
 
-        tpQuickSettings.add(remember);
-        tpQuickSettings.add(open);
+        refreshQuickSettings();
+
+        tpQuickSettings.add(rememberCheckBox);
+        tpQuickSettings.add(openCheckBox);
 
         tpc.addTask(tpMasterData);
         tpc.addTask(tpEmployments);

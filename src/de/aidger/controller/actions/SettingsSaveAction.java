@@ -102,5 +102,8 @@ public class SettingsSaveAction extends AbstractAction {
 
         dlg.setVisible(false);
         dlg.dispose();
+
+        // Refresh Quick Settings
+        UI.getInstance().refreshQuickSettings();
     }
 }
