@@ -13,6 +13,7 @@ import de.aidger.view.TaskPane;
 import de.aidger.view.UI;
 import de.aidger.view.tabs.BalanceViewerTab;
 import de.aidger.view.tabs.BudgetViewerTab;
+import de.aidger.view.tabs.ControllingViewerTab;
 import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.EmptyTab;
 import de.aidger.view.tabs.ProtocolViewerTab;
@@ -34,7 +35,7 @@ public class TaskPaneAction extends AbstractAction implements MouseListener,
      * @author aidGer Team
      */
     public enum Task {
-        ViewCourses, ViewAssistants, ViewFinancialCategories, ViewHourlyWages, ViewEmployments, CreateNewEmployment, ViewContracts, ViewFullBalance, ViewAnnualBalance, ViewSemesterBalance, ViewBudgetCheck, ViewProtocol, ViewEmpty, Void
+        ViewCourses, ViewAssistants, ViewFinancialCategories, ViewHourlyWages, ViewEmployments, CreateNewEmployment, ViewContracts, ViewFullBalance, ViewAnnualBalance, ViewSemesterBalance, ViewBudgetCheck, ViewProtocol, ViewEmpty, Void, ViewControlling
     }
 
     /**
@@ -121,6 +122,8 @@ public class TaskPaneAction extends AbstractAction implements MouseListener,
             return new BalanceViewerTab(2);
         case ViewSemesterBalance:
             return new BalanceViewerTab(3);
+        case ViewControlling:
+            return new ControllingViewerTab();
         case ViewBudgetCheck:
             return new BudgetViewerTab();
         case ViewProtocol:
