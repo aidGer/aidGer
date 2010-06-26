@@ -106,7 +106,7 @@
           <SpinnerModel initial="now" stepSize="5" type="date"/>
         </Property>
         <Property name="editor" type="javax.swing.JComponent" editor="org.netbeans.modules.form.editors.SpinnerEditorEditor">
-          <SpinnerEditor format="MM.yyyy" type="1"/>
+          <SpinnerEditor format="dd.MM.yyyy" type="1"/>
         </Property>
       </Properties>
       <Constraints>

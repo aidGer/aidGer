@@ -375,7 +375,7 @@ public class ActivityEditorForm extends JPanel {
         add(lblContent, gridBagConstraints);
 
         spDate.setModel(new javax.swing.SpinnerDateModel());
-        spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate, "MM.yyyy"));
+        spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate, "dd.MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
