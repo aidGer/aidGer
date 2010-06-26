@@ -36,9 +36,14 @@ public class ActivityReportViewerTab extends Tab {
         }
     };
 
+    /**
+     * The assistants in the combo box.
+     */
     private Vector<IAssistant> assistants;
 
-    /** Creates new form ActivityReportViewerTab */
+    /**
+     * Initializes a new AcitivityReportViewerTab.
+     */
     public ActivityReportViewerTab() {
         initComponents();
         fillAssistants();
@@ -51,12 +56,21 @@ public class ActivityReportViewerTab extends Tab {
         }
     }
 
+    /**
+     * Removes all entries from the table
+     */
     private void clearTable() {
         while (contentTableModel.getRowCount() > 0) {
             contentTableModel.removeRow(0);
         }
     }
 
+    /**
+     * Creates the activity report for a given assistant.
+     * 
+     * @param assistant
+     *            The assistant
+     */
     public void createReport(Assistant assistant) {
         clearTable();
         ActivityReportHelper reportHelper = new ActivityReportHelper();
@@ -67,11 +81,19 @@ public class ActivityReportViewerTab extends Tab {
         }
     }
 
+    /**
+     * Returns the assistant that is currently selected in the combo box.
+     * 
+     * @return The assistant.
+     */
     public Assistant getSelectedAssistant() {
         return new Assistant(assistants.get(assistantComboBox
             .getSelectedIndex()));
     }
 
+    /**
+     * Adds all of the assistants into the combo box.
+     */
     private void fillAssistants() {
         List<IAssistant> fillingAssistants;
         assistants = new Vector<IAssistant>();
@@ -87,6 +109,12 @@ public class ActivityReportViewerTab extends Tab {
         }
     }
 
+    /**
+     * Adds a new row to the table.
+     * 
+     * @param rowObject
+     *            The row data
+     */
     private void addRow(Object[] rowObject) {
         contentTableModel.addRow(rowObject);
     }
@@ -197,8 +225,7 @@ public class ActivityReportViewerTab extends Tab {
      */
     @Override
     public String getTabName() {
-        // TODO Auto-generated method stub
-        return null;
+        return _("Activity report");
     }
 
 }
