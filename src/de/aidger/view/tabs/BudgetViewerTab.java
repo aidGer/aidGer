@@ -178,9 +178,11 @@ public class BudgetViewerTab extends ReportTab {
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
+        jSeparator3 = new javax.swing.JToolBar.Separator();
         generateButton = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
         exportButton = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JToolBar.Separator();
         jPanel1 = new javax.swing.JPanel();
         filtersPanel = new javax.swing.JPanel();
         filterCreationPanel = new javax.swing.JPanel();
@@ -198,22 +200,21 @@ public class BudgetViewerTab extends ReportTab {
 
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
+        jToolBar1.add(jSeparator3);
 
         generateButton.setText(_("Generate"));
         generateButton.setFocusable(false);
-        generateButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        generateButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        generateButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        generateButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(generateButton);
         jToolBar1.add(jSeparator1);
 
         exportButton.setText(_("Export"));
         exportButton.setFocusable(false);
-        exportButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         exportButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(exportButton);
+        jToolBar1.add(jSeparator2);
 
         add(jToolBar1, java.awt.BorderLayout.PAGE_START);
 
@@ -221,8 +222,7 @@ public class BudgetViewerTab extends ReportTab {
 
         filtersPanel.setLayout(new java.awt.BorderLayout());
 
-        filterCreationPanel.setLayout(new java.awt.FlowLayout(
-            java.awt.FlowLayout.LEFT));
+        filterCreationPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         filtersLabel.setText(_("Filters") + ":");
         filterCreationPanel.add(filtersLabel);
@@ -242,35 +242,33 @@ public class BudgetViewerTab extends ReportTab {
 
         addFilterButton.setIcon(new ImageIcon(getClass().getResource(
             "/de/aidger/view/icons/plus-small.png")));
-        addFilterButton.setFocusable(false);
-        addFilterButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        addFilterButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        addFilterButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addFilterButtonActionPerformed(evt);
-            }
-        });
-        filterCreationPanel.add(addFilterButton);
+addFilterButton.setFocusable(false);
+addFilterButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+addFilterButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+addFilterButton.addActionListener(new java.awt.event.ActionListener() {
+    public void actionPerformed(java.awt.event.ActionEvent evt) {
+        addFilterButtonActionPerformed(evt);
+    }
+    });
+    filterCreationPanel.add(addFilterButton);
 
-        filtersPanel.add(filterCreationPanel, java.awt.BorderLayout.PAGE_START);
+    filtersPanel.add(filterCreationPanel, java.awt.BorderLayout.PAGE_START);
 
-        filterContentPanel.setLayout(new java.awt.GridLayout(0, 1));
-        filtersPanel.add(filterContentPanel, java.awt.BorderLayout.CENTER);
+    filterContentPanel.setLayout(new java.awt.GridLayout(0, 1));
+    filtersPanel.add(filterContentPanel, java.awt.BorderLayout.CENTER);
 
-        jPanel1.add(filtersPanel, java.awt.BorderLayout.PAGE_START);
+    jPanel1.add(filtersPanel, java.awt.BorderLayout.PAGE_START);
 
-        contentPanel.setLayout(new java.awt.GridLayout(0, 1));
+    contentPanel.setLayout(new java.awt.GridLayout(0, 1));
 
-        contentTable.setModel(contentTableModel);
-        jScrollPane1.setViewportView(contentTable);
+    contentTable.setModel(contentTableModel);
+    jScrollPane1.setViewportView(contentTable);
 
-        contentPanel.add(jScrollPane1);
+    contentPanel.add(jScrollPane1);
 
-        jPanel1.add(contentPanel, java.awt.BorderLayout.CENTER);
+    jPanel1.add(contentPanel, java.awt.BorderLayout.CENTER);
 
-        add(jPanel1, java.awt.BorderLayout.CENTER);
+    add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void filterNameComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_filterNameComboBoxItemStateChanged
@@ -506,6 +504,8 @@ public class BudgetViewerTab extends ReportTab {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator2;
+    private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 

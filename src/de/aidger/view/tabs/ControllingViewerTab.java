@@ -11,7 +11,8 @@ import javax.swing.table.DefaultTableModel;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
-import de.aidger.controller.actions.ControllingExportAction;
+import de.aidger.controller.actions.ControllingExportAllAction;
+import de.aidger.controller.actions.ControllingExportDifferencesAction;
 import de.aidger.controller.actions.ControllingGenerateAction;
 import de.aidger.model.controlling.ControllingAssistant;
 import de.aidger.model.controlling.ControllingCreator;
@@ -98,11 +99,31 @@ public class ControllingViewerTab extends ReportTab {
         try {
             generateButton.setAction(ActionRegistry.getInstance().get(
                 ControllingGenerateAction.class.getName()));
-            exportButton.setAction(ActionRegistry.getInstance().get(
-                ControllingExportAction.class.getName()));
+            exportAllButton.setAction(ActionRegistry.getInstance().get(
+                ControllingExportAllAction.class.getName()));
+            exportDifferencesButton.setAction(ActionRegistry.getInstance().get(
+                ControllingExportDifferencesAction.class.getName()));
         } catch (ActionNotFoundException e) {
             UI.displayError(e.getMessage());
         }
+        exportAllButton.setVisible(false);
+        exportDifferencesButton.setVisible(false);
+        jSeparator2.setVisible(false);
+        jSeparator4.setVisible(false);
+    }
+
+    /**
+     * Sets the export buttons and their separators visible.
+     */
+    public void visualizeButtons() {
+        exportAllButton.setVisible(false);
+        exportAllButton.setVisible(true);
+        exportDifferencesButton.setVisible(false);
+        exportDifferencesButton.setVisible(true);
+        jSeparator2.setVisible(false);
+        jSeparator2.setVisible(true);
+        jSeparator4.setVisible(false);
+        jSeparator4.setVisible(true);
     }
 
     /**
@@ -237,9 +258,13 @@ public class ControllingViewerTab extends ReportTab {
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
+        jSeparator3 = new javax.swing.JToolBar.Separator();
         generateButton = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
-        exportButton = new javax.swing.JButton();
+        exportAllButton = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JToolBar.Separator();
+        exportDifferencesButton = new javax.swing.JButton();
+        jSeparator4 = new javax.swing.JToolBar.Separator();
         contentPanel = new javax.swing.JPanel();
         filtersPanel = new javax.swing.JPanel();
         yearLabel = new javax.swing.JLabel();
@@ -256,6 +281,7 @@ public class ControllingViewerTab extends ReportTab {
 
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
+        jToolBar1.add(jSeparator3);
 
         generateButton.setText(_("Generate"));
         generateButton.setFocusable(false);
@@ -266,17 +292,28 @@ public class ControllingViewerTab extends ReportTab {
         jToolBar1.add(generateButton);
         jToolBar1.add(jSeparator1);
 
-        exportButton.setText(_("Export"));
-        exportButton.setFocusable(false);
-        exportButton
+        exportAllButton.setText(_("Export"));
+        exportAllButton.setFocusable(false);
+        exportAllButton
             .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        exportButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        exportButton.addActionListener(new java.awt.event.ActionListener() {
+        exportAllButton
+            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        exportAllButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exportButtonActionPerformed(evt);
+                exportAllButtonActionPerformed(evt);
             }
         });
-        jToolBar1.add(exportButton);
+        jToolBar1.add(exportAllButton);
+        jToolBar1.add(jSeparator2);
+
+        exportDifferencesButton.setText(_("Export differences"));
+        exportDifferencesButton.setFocusable(false);
+        exportDifferencesButton
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportDifferencesButton
+            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(exportDifferencesButton);
+        jToolBar1.add(jSeparator4);
 
         add(jToolBar1, java.awt.BorderLayout.PAGE_START);
 
@@ -349,18 +386,22 @@ public class ControllingViewerTab extends ReportTab {
         }
     }//GEN-LAST:event_fundsComboBoxItemStateChanged
 
-    private void exportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportButtonActionPerformed
-    }//GEN-LAST:event_exportButtonActionPerformed
+    private void exportAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportAllButtonActionPerformed
+    }//GEN-LAST:event_exportAllButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentPanel;
-    private javax.swing.JButton exportButton;
+    private javax.swing.JButton exportAllButton;
+    private javax.swing.JButton exportDifferencesButton;
     private javax.swing.JPanel filtersPanel;
     private javax.swing.JComboBox fundsComboBox;
     private javax.swing.JLabel fundsLabel;
     private javax.swing.JButton generateButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator2;
+    private javax.swing.JToolBar.Separator jSeparator3;
+    private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JTable jTable1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JComboBox monthComboBox;

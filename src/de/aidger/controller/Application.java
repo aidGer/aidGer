@@ -9,7 +9,8 @@ import javax.swing.UIManager.LookAndFeelInfo;
 import de.aidger.controller.actions.AboutAction;
 import de.aidger.controller.actions.BudgetExportAction;
 import de.aidger.controller.actions.BudgetGenerateAction;
-import de.aidger.controller.actions.ControllingExportAction;
+import de.aidger.controller.actions.ControllingExportAllAction;
+import de.aidger.controller.actions.ControllingExportDifferencesAction;
 import de.aidger.controller.actions.ControllingGenerateAction;
 import de.aidger.controller.actions.DetailViewerCancelAction;
 import de.aidger.controller.actions.DetailViewerEditAction;
@@ -24,9 +25,9 @@ import de.aidger.controller.actions.PrintAction;
 import de.aidger.controller.actions.ProtocolExportAction;
 import de.aidger.controller.actions.ReportExportAction;
 import de.aidger.controller.actions.ReportGenerateAction;
-import de.aidger.controller.actions.SettingsSaveAction;
 import de.aidger.controller.actions.SettingsAction;
 import de.aidger.controller.actions.SettingsBrowseAction;
+import de.aidger.controller.actions.SettingsSaveAction;
 import de.aidger.controller.actions.ViewerAddAction;
 import de.aidger.controller.actions.ViewerAssistantAction;
 import de.aidger.controller.actions.ViewerContractAction;
@@ -109,7 +110,9 @@ public final class Application {
         ActionRegistry.getInstance().register(new ProtocolExportAction());
 
         ActionRegistry.getInstance().register(new ControllingGenerateAction());
-        ActionRegistry.getInstance().register(new ControllingExportAction());
+        ActionRegistry.getInstance().register(new ControllingExportAllAction());
+        ActionRegistry.getInstance().register(
+            new ControllingExportDifferencesAction());
 
         ActionRegistry.getInstance().register(new BudgetGenerateAction());
         ActionRegistry.getInstance().register(new BudgetExportAction());

@@ -69,6 +69,7 @@ public class BalanceViewerTab extends ReportTab {
              */
             yearLabel.setVisible(false);
             yearComboBox.setVisible(false);
+            jSeparator4.setVisible(false);
             break;
         case 2:
             /*
@@ -221,12 +222,14 @@ public class BalanceViewerTab extends ReportTab {
         contentPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
+        jSeparator4 = new javax.swing.JToolBar.Separator();
         yearLabel = new javax.swing.JLabel();
         yearComboBox = new javax.swing.JComboBox();
         jSeparator2 = new javax.swing.JToolBar.Separator();
         generateButton = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
         exportButton = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JToolBar.Separator();
         filtersPanel = new javax.swing.JPanel();
         filterContentPanel = new javax.swing.JPanel();
         filterCreationPanel = new javax.swing.JPanel();
@@ -246,6 +249,7 @@ public class BalanceViewerTab extends ReportTab {
 
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
+        jToolBar1.add(jSeparator4);
 
         yearLabel.setText(_("Year") + ":");
         jToolBar1.add(yearLabel);
@@ -265,6 +269,7 @@ public class BalanceViewerTab extends ReportTab {
         exportButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         exportButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(exportButton);
+        jToolBar1.add(jSeparator3);
 
         jPanel1.add(jToolBar1, java.awt.BorderLayout.PAGE_START);
 
@@ -457,6 +462,8 @@ addFilterButton.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
+    private javax.swing.JToolBar.Separator jSeparator3;
+    private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JRadioButton pessimisticCalculationRadio;
     private javax.swing.JComboBox yearComboBox;

@@ -26,14 +26,15 @@ import de.aidger.view.tabs.ControllingViewerTab;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class ControllingExportAction extends AbstractAction {
+public class ControllingExportAllAction extends AbstractAction {
 
     /**
      * Initializes the action.
      */
-    public ControllingExportAction() {
-        putValue(Action.NAME, _("Export"));
-        putValue(Action.SHORT_DESCRIPTION, _("Export the report to a pdf file"));
+    public ControllingExportAllAction() {
+        putValue(Action.NAME, _("Export all"));
+        putValue(Action.SHORT_DESCRIPTION,
+            _("Export the whole report to a pdf file"));
 
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
             "/de/aidger/view/icons/report--arrow.png")));
@@ -100,8 +101,7 @@ public class ControllingExportAction extends AbstractAction {
                 }
             } while (!exit);
 
-            new ControllingConverter(file, tab.getRows(_("Costs don't match!")));
+            new ControllingConverter(file, tab.getRows(null));
         }
     }
-
 }
