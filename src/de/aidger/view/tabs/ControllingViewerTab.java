@@ -14,6 +14,7 @@ import de.aidger.controller.ActionRegistry;
 import de.aidger.controller.actions.ControllingExportAllAction;
 import de.aidger.controller.actions.ControllingExportDifferencesAction;
 import de.aidger.controller.actions.ControllingGenerateAction;
+import de.aidger.model.Runtime;
 import de.aidger.model.controlling.ControllingAssistant;
 import de.aidger.model.controlling.ControllingCreator;
 import de.aidger.utils.controlling.ControllingHelper;
@@ -31,11 +32,6 @@ public class ControllingViewerTab extends ReportTab {
      * The year, month and funds to be used with the controlling report.
      */
     private int year, month, funds;
-
-    /**
-     * The tolerance of the costs.
-     */
-    private final double epsilon = 0;
 
     /**
      * The table model of the content table.
@@ -72,6 +68,13 @@ public class ControllingViewerTab extends ReportTab {
             public void tableChanged(TableModelEvent e) {
                 int row = e.getFirstRow();
                 int column = e.getColumn();
+                double epsilon;
+                try {
+                    epsilon = Double.parseDouble(Runtime.getInstance()
+                        .getOption("tolerance"));
+                } catch (NumberFormatException ex) {
+                    epsilon = 0;
+                }
                 DefaultTableModel model = (DefaultTableModel) e.getSource();
                 if (column == 2) {
                     try {
@@ -96,6 +99,9 @@ public class ControllingViewerTab extends ReportTab {
             }
 
         });
+        /*
+         * Assign the actions to the buttons.
+         */
         try {
             generateButton.setAction(ActionRegistry.getInstance().get(
                 ControllingGenerateAction.class.getName()));
@@ -106,6 +112,10 @@ public class ControllingViewerTab extends ReportTab {
         } catch (ActionNotFoundException e) {
             UI.displayError(e.getMessage());
         }
+        /*
+         * The export buttons should not be visible before a report has been
+         * generated.
+         */
         exportAllButton.setVisible(false);
         exportDifferencesButton.setVisible(false);
         jSeparator2.setVisible(false);
@@ -285,19 +295,15 @@ public class ControllingViewerTab extends ReportTab {
 
         generateButton.setText(_("Generate"));
         generateButton.setFocusable(false);
-        generateButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        generateButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        generateButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        generateButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(generateButton);
         jToolBar1.add(jSeparator1);
 
         exportAllButton.setText(_("Export"));
         exportAllButton.setFocusable(false);
-        exportAllButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        exportAllButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        exportAllButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportAllButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         exportAllButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exportAllButtonActionPerformed(evt);
@@ -308,10 +314,8 @@ public class ControllingViewerTab extends ReportTab {
 
         exportDifferencesButton.setText(_("Export differences"));
         exportDifferencesButton.setFocusable(false);
-        exportDifferencesButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        exportDifferencesButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        exportDifferencesButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportDifferencesButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(exportDifferencesButton);
         jToolBar1.add(jSeparator4);
 
@@ -319,8 +323,7 @@ public class ControllingViewerTab extends ReportTab {
 
         contentPanel.setLayout(new java.awt.BorderLayout());
 
-        filtersPanel
-            .setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        filtersPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         yearLabel.setText(_("Year") + ":");
         filtersPanel.add(yearLabel);
@@ -409,7 +412,6 @@ public class ControllingViewerTab extends ReportTab {
     private javax.swing.JPanel tablePanel;
     private javax.swing.JComboBox yearComboBox;
     private javax.swing.JLabel yearLabel;
-
     // End of variables declaration//GEN-END:variables
     /*
      * (non-Javadoc)
