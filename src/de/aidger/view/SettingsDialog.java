@@ -33,6 +33,7 @@ public class SettingsDialog extends JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -42,6 +43,7 @@ public class SettingsDialog extends JDialog {
     private javax.swing.JTextField pdfTextField;
     private javax.swing.JTextField pessimisticTextField;
     private javax.swing.JCheckBox saveCheckBox;
+    private javax.swing.JTextField toleranceTextField;
     // End of variables declaration//GEN-END:variables
 
     /**
@@ -75,6 +77,7 @@ public class SettingsDialog extends JDialog {
         historicTextField.setText(Runtime.getInstance().getOption(
                 "historic-factor"));
         anonTextField.setText(Runtime.getInstance().getOption("anonymize-time"));
+        toleranceTextField.setText(Runtime.getInstance().getOption("tolerance"));
         activitiesSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer
             .valueOf(Runtime.getInstance().getOption("activities")), null,
             null, Integer.valueOf(1)));
@@ -138,6 +141,15 @@ public class SettingsDialog extends JDialog {
      */
     public String getAnonymizationTime() {
         return anonTextField.getText();
+    }
+
+    /**
+     * Get the tolerance for controlling currently entered.
+     *
+     * @return The tolerance
+     */
+    public String getTolerance() {
+        return toleranceTextField.getText();
     }
 
     /**
@@ -214,6 +226,8 @@ public class SettingsDialog extends JDialog {
         historicTextField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         anonTextField = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        toleranceTextField = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
@@ -252,16 +266,16 @@ public class SettingsDialog extends JDialog {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel1))
-                                .addGap(111, 111, 111)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(langComboBox, 0, 203, Short.MAX_VALUE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(langComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(pdfTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                                        .addComponent(pdfTextField)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(browseButton))
-                                    .addComponent(nameTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)))
+                                    .addComponent(nameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
@@ -301,13 +315,15 @@ public class SettingsDialog extends JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("General", jPanel1);
+        jTabbedPane1.addTab(_("General"), jPanel1);
 
         jLabel5.setText(_("Pessimistic Factor:"));
 
         jLabel6.setText(_("Historical Factor:"));
 
         jLabel7.setText(_("Time until anonymization in days:"));
+
+        jLabel8.setText(_("Tolerance of Controlling:"));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -318,12 +334,14 @@ public class SettingsDialog extends JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(anonTextField)
+                    .addComponent(toleranceTextField)
+                    .addComponent(anonTextField, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(historicTextField)
-                    .addComponent(pessimisticTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
+                    .addComponent(pessimisticTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -337,14 +355,18 @@ public class SettingsDialog extends JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(historicTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(anonTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(toleranceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Reports", jPanel2);
+        jTabbedPane1.addTab(_("Reports"), jPanel2);
 
         jButton2.setText("Speichern");
 
