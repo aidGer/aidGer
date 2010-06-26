@@ -25,9 +25,12 @@ public class Anonymizer {
      */
     public static int anonymizeAssistants() {
         int count = 0;
-        int time = Integer.parseInt(Runtime.getInstance().getOption(
+        int time = -1 * Integer.parseInt(Runtime.getInstance().getOption(
                 "anonymize-time"));
-        Date checkDate = new Date((new Date()).getTime() + time * 3600 * 24);
+
+        Calendar checkCal = new GregorianCalendar();
+        checkCal.add(Calendar.DAY_OF_YEAR, time);
+        Date checkDate = checkCal.getTime();
 
         try {
             List<IAssistant> assistants = (new Assistant()).getAll();

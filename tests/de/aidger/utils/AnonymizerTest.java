@@ -42,10 +42,9 @@ public class AnonymizerTest {
         String old = Runtime.getInstance().getOption("anonymize-time");
         Runtime.getInstance().setOption("anonymize-time", "365");
 
-        Date anonymizeDate = new Date((new java.util.Date()).getTime() - 
-                3600 * 24 * 366);
         Calendar cal = new GregorianCalendar();
-        cal.setTime(anonymizeDate);
+        cal.add(Calendar.YEAR, -1);
+        Calendar now = new GregorianCalendar();
 
         Assistant a = new Assistant();
         a.clearTable();
@@ -55,6 +54,13 @@ public class AnonymizerTest {
         a.setLastName("Tester");
         a.setQualification("g");
         a.save();
+
+        Assistant b = new Assistant();
+        b.setEmail("test@example.com");
+        b.setFirstName("Test2");
+        b.setLastName("Tester2");
+        b.setQualification("u");
+        b.save();
 
         FinancialCategory financial = new FinancialCategory();
         financial.setBudgetCosts(new int[] { 100, 200 });
@@ -100,6 +106,12 @@ public class AnonymizerTest {
         employment.setYear((short) cal.get(Calendar.YEAR));
         employment.save();
 
+        employment.setNew(true);
+        employment.setMonth((byte) now.get(Calendar.MONTH));
+        employment.setYear((short) now.get(Calendar.YEAR));
+        employment.setAssistantId(b.getId());
+        employment.save();
+
         Anonymizer.anonymizeAssistants();
 
         Assistant assi = new Assistant(a.getById(a.getId()));
@@ -107,6 +119,10 @@ public class AnonymizerTest {
         assertFalse(assi.getFirstName().equals(a.getFirstName()));
         assertFalse(assi.getLastName().equals(a.getLastName()));
         assertFalse(assi.getEmail().equals(a.getEmail()));
+
+        assi = new Assistant(a.getById(b.getId()));
+
+        assertEquals(assi, b);
 
         Runtime.getInstance().setOption("anonymize-time", old);
     }
