@@ -318,8 +318,7 @@ public class BudgetReportConverter {
             }
             document.add(contentTable);
         } catch (AdoHiveException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            UI.displayError(e.toString());
         } catch (DocumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

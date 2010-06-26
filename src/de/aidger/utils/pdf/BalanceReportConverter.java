@@ -465,11 +465,14 @@ public class BalanceReportConverter {
             PdfPCell cell = new PdfPCell(groupContentTable);
             cell.setBorder(0);
             return cell;
-        } catch (Exception e) {
+        } catch (DocumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            return null;
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
+        return null;
     }
 
     /**
@@ -486,9 +489,8 @@ public class BalanceReportConverter {
         List<ICourse> courses = null;
         try {
             courses = (new Course()).getAll();
-        } catch (AdoHiveException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
+        } catch (AdoHiveException e) {
+            UI.displayError(e.toString());
         }
         List<ICourse> filteredCourses = balanceHelper.filterCourses(courses,
             filters);
@@ -588,11 +590,14 @@ public class BalanceReportConverter {
             ((Vector) balanceReportGroups.get(i)).add(course.getGroup());
 
             return groupTable;
-        } catch (Exception e) {
+        } catch (DocumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            return null;
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
+        return null;
     }
 
     /**
@@ -698,11 +703,5 @@ public class BalanceReportConverter {
             }
         }
         return false;
-    }
-
-    /**
-     * Writes the Footer on every page of the document.
-     */
-    private void writeFooter() {
     }
 }

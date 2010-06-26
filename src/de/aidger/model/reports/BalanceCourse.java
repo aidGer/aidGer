@@ -67,7 +67,7 @@ public class BalanceCourse {
      */
     public Object[] getCourseObject() {
         return new Object[] { Title, Part, Lecturer, TargetAudience,
-                PlannedAWS, BasicAWS, budgetCosts };
+                getPlannedAWS(), getBasicAWS(), budgetCosts };
     }
 
     /**
@@ -301,8 +301,7 @@ public class BalanceCourse {
     public void addBudgetCostvalue(int id, double value) {
         for (BudgetCost budgetCost : budgetCosts) {
             if (budgetCost.getId() == id) {
-                budgetCost
-                    .setValue(budgetCost.getUnroundedValue() + value);
+                budgetCost.setValue(budgetCost.getUnroundedValue() + value);
             }
         }
     }
