@@ -15,6 +15,7 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 
 import de.aidger.model.AbstractModel;
+import de.aidger.model.budgets.CourseBudget;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
@@ -22,6 +23,7 @@ import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.models.HourlyWage;
 import de.aidger.model.validators.PresenceValidator;
+import de.aidger.utils.reports.BalanceHelper;
 import de.aidger.view.UI;
 import de.aidger.view.forms.AssistantEditorForm;
 import de.aidger.view.forms.ContractEditorForm;
@@ -32,6 +34,7 @@ import de.aidger.view.forms.HourlyWageEditorForm;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.models.TableModel;
 import de.aidger.view.models.UIAssistant;
+import de.aidger.view.models.UICourse;
 import de.aidger.view.tabs.DetailViewerTab;
 import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.Tab;
@@ -225,8 +228,7 @@ public class EditorSaveAction extends AbstractAction {
         hw.setQualification(form.getQualification());
 
         try {
-            hw.setWage(new BigDecimal(form.getWage()).setScale(2,
-                BigDecimal.ROUND_HALF_EVEN));
+            hw.setWage(round(form.getWage(), 2));
         } catch (NumberFormatException e) {
             hw.addError("wage", _("Wage"), new PresenceValidator(hw,
                 new String[0], new String[0]).getMessage());
@@ -299,7 +301,7 @@ public class EditorSaveAction extends AbstractAction {
         Employment employmentBeforeEdit = employment.clone();
 
         employment.setAssistantId(form.getAssistant().getId());
-        employment.setCourseId(form.getCourseId());
+        employment.setCourseId(form.getCourse().getId());
         employment.setContractId(form.getContractId());
         employment.setCostUnit(form.getCostUnit());
         employment.setQualification(form.getQualification());
@@ -387,6 +389,19 @@ public class EditorSaveAction extends AbstractAction {
     }
 
     /**
+     * Returns the rounded double as BigDecimal.
+     * 
+     * @param d
+     *            the double value
+     * @param scale
+     *            the scale
+     * @return the rounded BigDecimal value
+     */
+    private BigDecimal round(double d, int scale) {
+        return (new BigDecimal(d).setScale(scale, BigDecimal.ROUND_HALF_EVEN));
+    }
+
+    /**
      * Checks the 6 year employment limit for an assistant.
      * 
      * @param assistant
@@ -425,8 +440,6 @@ public class EditorSaveAction extends AbstractAction {
                 }
             }
 
-            System.out.println(unchecked);
-
             if (checked > limit || unchecked > limit) {
                 String qualification = Qualification.u.toString();
 
@@ -444,6 +457,71 @@ public class EditorSaveAction extends AbstractAction {
             }
 
         } catch (AdoHiveException e1) {
+        }
+    }
+
+    /**
+     * Checks the budget limit for the given course.
+     * 
+     * @param course
+     *            the course
+     */
+    private void checkCourseBudgetLimit(Course course) {
+        CourseBudget courseBudget = new CourseBudget(course);
+
+        if (courseBudget.getBookedBudget() > courseBudget.getTotalBudget()) {
+
+            UI
+                .displayInfo(MessageFormat
+                    .format(
+                        _("The budget limit for course {0} exceeded ({1}h / {2}h). The employments were created anyway."),
+                        new Object[] { (new UICourse(course)).toString(),
+                                round(courseBudget.getBookedBudget(), 2),
+                                round(courseBudget.getTotalBudget(), 2) }));
+        }
+    }
+
+    private void checkFinancialCategoryBudgetLimit(Course course,
+            Assistant assistant, int funds) {
+        try {
+            double bookedBudgetCosts = 0.0, maxBudgetCosts = 0.0;
+
+            FinancialCategory fc = new FinancialCategory(
+                (new FinancialCategory()).getById(course
+                    .getFinancialCategoryId()));
+
+            for (int i = 0; i < fc.getFunds().length; ++i) {
+                if (fc.getFunds()[i] == funds) {
+                    maxBudgetCosts = fc.getBudgetCosts()[i];
+
+                    break;
+                }
+            }
+
+            List<Course> courses = (new Course()).getCourses(fc);
+
+            for (Course curCourse : courses) {
+                List<Employment> employments = (new Employment())
+                    .getEmployments(curCourse);
+
+                for (Employment curEmployment : employments) {
+                    if (curEmployment.getFunds() == funds) {
+                        bookedBudgetCosts += BalanceHelper.calculateBudgetCost(
+                            curEmployment, 1);
+                    }
+                }
+            }
+
+            if (bookedBudgetCosts > maxBudgetCosts) {
+                UI
+                    .displayInfo(MessageFormat
+                        .format(
+                            _("The budget costs limit for funds {0} exceeded ({1}€ / {2}€). The employments were created anyway."),
+                            new Object[] { String.valueOf(funds),
+                                    round(bookedBudgetCosts, 2),
+                                    round(maxBudgetCosts, 2) }));
+            }
+        } catch (AdoHiveException e) {
         }
     }
 
@@ -541,8 +619,15 @@ public class EditorSaveAction extends AbstractAction {
 
         // some checks after saving an employment
         if (tab.getType() == DataType.Employment) {
-            checkEmploymentLimit(((EmploymentEditorForm) tab.getEditorForm())
-                .getAssistant());
+            EmploymentEditorForm editorForm = (EmploymentEditorForm) tab
+                .getEditorForm();
+
+            checkEmploymentLimit(editorForm.getAssistant());
+
+            checkCourseBudgetLimit(editorForm.getCourse());
+
+            checkFinancialCategoryBudgetLimit(editorForm.getCourse(),
+                editorForm.getAssistant(), editorForm.getFunds());
         }
 
         Tab p = tab.getPredecessor();

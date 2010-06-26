@@ -225,7 +225,7 @@ public class EmploymentEditorForm extends JPanel {
             cmbFundsModel.removeAllElements();
 
             for (int funds : fc.getFunds()) {
-                cmbFundsModel.addElement(funds);
+                cmbFundsModel.addElement(String.valueOf(funds));
             }
         } catch (AdoHiveException e) {
         }
