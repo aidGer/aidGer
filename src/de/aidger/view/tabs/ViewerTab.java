@@ -26,7 +26,9 @@ import javax.swing.table.TableRowSorter;
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
 import de.aidger.controller.actions.ViewerAddAction;
+import de.aidger.controller.actions.ViewerAssistantAction;
 import de.aidger.controller.actions.ViewerContractAction;
+import de.aidger.controller.actions.ViewerCourseAction;
 import de.aidger.controller.actions.ViewerDeleteAction;
 import de.aidger.controller.actions.ViewerDetailViewAction;
 import de.aidger.controller.actions.ViewerEditAction;
@@ -121,8 +123,12 @@ public class ViewerTab extends Tab {
         this.type = type;
         initComponents();
 
-        btnContract.setVisible(false);
+        btnCourse.setVisible(false);
         separator5.setVisible(false);
+        btnAssistant.setVisible(false);
+        separator6.setVisible(false);
+        btnContract.setVisible(false);
+        separator7.setVisible(false);
         itemContract.setVisible(false);
 
         // use different table model for each data type
@@ -141,8 +147,13 @@ public class ViewerTab extends Tab {
             break;
         case Employment:
             tableModel = new EmploymentTableModel();
-            btnContract.setVisible(true);
+
+            btnCourse.setVisible(true);
             separator5.setVisible(true);
+            btnAssistant.setVisible(true);
+            separator6.setVisible(true);
+            btnContract.setVisible(true);
+            separator7.setVisible(true);
             itemContract.setVisible(true);
             break;
         case Contract:
@@ -204,6 +215,10 @@ public class ViewerTab extends Tab {
                 ViewerAddAction.class.getName()));
             btnDelete.setAction(ActionRegistry.getInstance().get(
                 ViewerDeleteAction.class.getName()));
+            btnCourse.setAction(ActionRegistry.getInstance().get(
+                ViewerCourseAction.class.getName()));
+            btnAssistant.setAction(ActionRegistry.getInstance().get(
+                ViewerAssistantAction.class.getName()));
             btnContract.setAction(ActionRegistry.getInstance().get(
                 ViewerContractAction.class.getName()));
 
@@ -213,6 +228,10 @@ public class ViewerTab extends Tab {
                 ViewerEditAction.class.getName()));
             itemDelete.setAction(ActionRegistry.getInstance().get(
                 ViewerDeleteAction.class.getName()));
+            itemCourse.setAction(ActionRegistry.getInstance().get(
+                ViewerCourseAction.class.getName()));
+            itemAssistant.setAction(ActionRegistry.getInstance().get(
+                ViewerAssistantAction.class.getName()));
             itemContract.setAction(ActionRegistry.getInstance().get(
                 ViewerContractAction.class.getName()));
 
@@ -485,6 +504,8 @@ public class ViewerTab extends Tab {
         itemView = new javax.swing.JMenuItem();
         itemEdit = new javax.swing.JMenuItem();
         itemDelete = new javax.swing.JMenuItem();
+        itemCourse = new javax.swing.JMenuItem();
+        itemAssistant = new javax.swing.JMenuItem();
         itemContract = new javax.swing.JMenuItem();
         toolBar = new javax.swing.JToolBar();
         separator = new javax.swing.JToolBar.Separator();
@@ -496,8 +517,12 @@ public class ViewerTab extends Tab {
         separator3 = new javax.swing.JToolBar.Separator();
         btnDelete = new javax.swing.JButton();
         separator4 = new javax.swing.JToolBar.Separator();
-        btnContract = new javax.swing.JButton();
+        btnCourse = new javax.swing.JButton();
         separator5 = new javax.swing.JToolBar.Separator();
+        btnAssistant = new javax.swing.JButton();
+        separator6 = new javax.swing.JToolBar.Separator();
+        btnContract = new javax.swing.JButton();
+        separator7 = new javax.swing.JToolBar.Separator();
         scrollPane = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         searchField = new javax.swing.JTextField();
@@ -510,6 +535,12 @@ public class ViewerTab extends Tab {
 
         itemDelete.setText(_("Delete"));
         popupMenu.add(itemDelete);
+
+        itemCourse.setText(_("Course"));
+        popupMenu.add(itemCourse);
+
+        itemAssistant.setText(_("Assistant"));
+        popupMenu.add(itemAssistant);
 
         itemContract.setText(_("Contract"));
         popupMenu.add(itemContract);
@@ -548,13 +579,28 @@ public class ViewerTab extends Tab {
         toolBar.add(btnDelete);
         toolBar.add(separator4);
 
+        btnCourse.setText(_("Course"));
+        btnCourse.setFocusable(false);
+        btnCourse.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCourse.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toolBar.add(btnCourse);
+        toolBar.add(separator5);
+
+        btnAssistant.setText(_("Assistant"));
+        btnAssistant.setFocusable(false);
+        btnAssistant
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAssistant.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toolBar.add(btnAssistant);
+        toolBar.add(separator6);
+
         btnContract.setText(_("Contract"));
         btnContract.setFocusable(false);
         btnContract
             .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnContract.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(btnContract);
-        toolBar.add(separator5);
+        toolBar.add(separator7);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -586,11 +632,15 @@ public class ViewerTab extends Tab {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnAssistant;
     private javax.swing.JButton btnContract;
+    private javax.swing.JButton btnCourse;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnView;
+    private javax.swing.JMenuItem itemAssistant;
     private javax.swing.JMenuItem itemContract;
+    private javax.swing.JMenuItem itemCourse;
     private javax.swing.JMenuItem itemDelete;
     private javax.swing.JMenuItem itemEdit;
     private javax.swing.JMenuItem itemView;
@@ -603,6 +653,8 @@ public class ViewerTab extends Tab {
     private javax.swing.JToolBar.Separator separator3;
     private javax.swing.JToolBar.Separator separator4;
     private javax.swing.JToolBar.Separator separator5;
+    private javax.swing.JToolBar.Separator separator6;
+    private javax.swing.JToolBar.Separator separator7;
     private javax.swing.JTable table;
     private javax.swing.JToolBar toolBar;
 
