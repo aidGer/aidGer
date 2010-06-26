@@ -35,6 +35,7 @@ import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.models.TableModel;
 import de.aidger.view.models.UIAssistant;
 import de.aidger.view.models.UICourse;
+import de.aidger.view.models.UIFinancialCategory;
 import de.aidger.view.tabs.DetailViewerTab;
 import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.Tab;
@@ -461,7 +462,7 @@ public class EditorSaveAction extends AbstractAction {
     }
 
     /**
-     * Checks the budget limit for the given course.
+     * Checks the budget limit in h for the given course.
      * 
      * @param course
      *            the course
@@ -481,8 +482,15 @@ public class EditorSaveAction extends AbstractAction {
         }
     }
 
-    private void checkFinancialCategoryBudgetLimit(Course course,
-            Assistant assistant, int funds) {
+    /**
+     * Checks the budget limit in € for the funds.
+     * 
+     * @param course
+     *            the course
+     * @param funds
+     *            the funds
+     */
+    private void checkFundsBudgetLimit(Course course, int funds) {
         try {
             double bookedBudgetCosts = 0.0, maxBudgetCosts = 0.0;
 
@@ -516,8 +524,9 @@ public class EditorSaveAction extends AbstractAction {
                 UI
                     .displayInfo(MessageFormat
                         .format(
-                            _("The budget costs limit for funds {0} exceeded ({1}€ / {2}€). The employments were created anyway."),
+                            _("The budget costs limit for funds {0} in financial category {1} exceeded ({2}€ / {3}€). The employments were created anyway."),
                             new Object[] { String.valueOf(funds),
+                                    new UIFinancialCategory(fc).toString(),
                                     round(bookedBudgetCosts, 2),
                                     round(maxBudgetCosts, 2) }));
             }
@@ -626,8 +635,7 @@ public class EditorSaveAction extends AbstractAction {
 
             checkCourseBudgetLimit(editorForm.getCourse());
 
-            checkFinancialCategoryBudgetLimit(editorForm.getCourse(),
-                editorForm.getAssistant(), editorForm.getFunds());
+            checkFundsBudgetLimit(editorForm.getCourse(), editorForm.getFunds());
         }
 
         Tab p = tab.getPredecessor();

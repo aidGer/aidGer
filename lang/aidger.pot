@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-26 13:15+0200\n"
+"POT-Creation-Date: 2010-06-26 13:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -112,18 +112,18 @@ msgstr ""
 msgid "Cancel the operation"
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:64
+#: controller/actions/EditorSaveAction.java:65
 #: controller/actions/SaveSettingsAction.java:29 view/tabs/EditorTab.java:337
 msgid "Save"
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:101 model/models/Course.java:216
+#: controller/actions/EditorSaveAction.java:102 model/models/Course.java:216
 #: view/forms/CourseEditorForm.java:335 view/forms/CourseViewerForm.java:147
 #: view/models/CourseTableModel.java:28
 msgid "AWH per group"
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:109
+#: controller/actions/EditorSaveAction.java:110
 #: utils/pdf/BalanceReportConverter.java:520
 #: view/forms/CourseEditorForm.java:351 view/forms/CourseViewerForm.java:179
 #: view/models/CourseTableModel.java:28
@@ -131,7 +131,7 @@ msgstr ""
 msgid "Part"
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:180
+#: controller/actions/EditorSaveAction.java:181
 #: model/models/FinancialCategory.java:129
 #: view/forms/FinancialCategoryEditorForm.java:144
 #: view/forms/FinancialCategoryViewerForm.java:62
@@ -139,7 +139,7 @@ msgstr ""
 msgid "Budget Costs"
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:188
+#: controller/actions/EditorSaveAction.java:189
 #: controller/actions/EditorSaveAction.java:314
 #: model/models/Employment.java:197 model/models/FinancialCategory.java:136
 #: view/forms/EmploymentEditorForm.java:481
@@ -152,7 +152,7 @@ msgstr ""
 msgid "Funds"
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:195
+#: controller/actions/EditorSaveAction.java:196
 #: model/models/Employment.java:205 model/models/FinancialCategory.java:123
 #: model/models/HourlyWage.java:130
 #: view/forms/FinancialCategoryEditorForm.java:215
@@ -187,39 +187,39 @@ msgstr ""
 msgid "Hour count"
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:441
+#: controller/actions/EditorSaveAction.java:454
 #, java-format
 msgid ""
 "You have hired {0} with qualification {1} more than 6 years. The employments "
 "were created anyway."
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:464
+#: controller/actions/EditorSaveAction.java:478
 #, java-format
 msgid ""
 "The budget limit for course {0} exceeded ({1}h / {2}h). The employments were "
 "created anyway."
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:508
+#: controller/actions/EditorSaveAction.java:527
 #, java-format
 msgid ""
-"The budget costs limit for funds {0} exceeded ({1}€ / {2}€). The employments "
-"were created anyway."
+"The budget costs limit for funds {0} in financial category {1} exceeded ({2}"
+"€ / {3}€). The employments were created anyway."
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:588
+#: controller/actions/EditorSaveAction.java:610
 #, java-format
 msgid "The entity {0} was saved successfully."
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:595
+#: controller/actions/EditorSaveAction.java:617
 #, java-format
 msgid ""
 "Could not save the entity {0} because it already exists in the database."
 msgstr ""
 
-#: controller/actions/EditorSaveAction.java:599
+#: controller/actions/EditorSaveAction.java:621
 #, java-format
 msgid "Could not save the entity {0} to database."
 msgstr ""
