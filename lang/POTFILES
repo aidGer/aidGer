@@ -20,6 +20,7 @@ controller/actions/ReportGenerateAction.java
 controller/actions/SettingsAction.java
 controller/actions/SettingsBrowseAction.java
 controller/actions/SettingsSaveAction.java
+controller/actions/ViewerActivityReportAction.java
 controller/actions/ViewerAddAction.java
 controller/actions/ViewerAssistantAction.java
 controller/actions/ViewerContractAction.java
@@ -49,6 +50,7 @@ utils/pdf/ControllingConverter.java
 utils/pdf/ProtocolConverter.java
 utils/Anonymizer.java
 utils/Configuration.java
+view/forms/ActivityEditorForm.java
 view/forms/AssistantEditorForm.java
 view/forms/AssistantViewerForm.java
 view/forms/ContractEditorForm.java
@@ -71,6 +73,7 @@ view/models/HourlyWageTableModel.java
 view/reports/BalanceFilterPanel.java
 view/reports/BalanceReportGroupPanel.java
 view/reports/BalanceReportSemesterPanel.java
+view/tabs/ActivityReportViewerTab.java
 view/tabs/BalanceViewerTab.java
 view/tabs/BudgetViewerTab.java
 view/tabs/ControllingViewerTab.java
