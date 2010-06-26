@@ -111,7 +111,7 @@ msgstr "Kostenabweichung"
 
 #: controller/actions/ControllingGenerateAction.java:30
 msgid "Generate the controlling report"
-msgstr "Generiert den Controlling-Bericht"
+msgstr "Generiert den Controlling Bericht"
 
 #: controller/actions/DetailViewerCancelAction.java:26
 #: controller/actions/DialogAbortAction.java:26
@@ -923,7 +923,7 @@ msgstr "Verfügbare HKS"
 
 #: utils/pdf/ControllingConverter.java:79
 msgid "Controlling report"
-msgstr "Controlling-Bericht"
+msgstr "Controlling Bericht"
 
 #: utils/pdf/ControllingConverter.java:288
 msgid "Planned costs(pre-tax)"
@@ -1092,7 +1092,7 @@ msgstr "Übrige HKS"
 
 #: view/tabs/BudgetViewerTab.java:494
 msgid "Course controlling"
-msgstr "Controlling der Veranstaltungen"
+msgstr "Controlling Veranstaltungen"
 
 #: view/tabs/ControllingViewerTab.java:44
 msgid "Planned costs (pre-tax)"
@@ -1108,7 +1108,7 @@ msgstr "Falsche Format!"
 
 #: view/tabs/ControllingViewerTab.java:421
 msgid "Assistant controlling"
-msgstr "Controlling der Hilfskräfte"
+msgstr "Controlling Hilfskräfte"
 
 #: view/tabs/DetailViewerTab.java:224
 msgid "Related assistants"
