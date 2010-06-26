@@ -4,8 +4,13 @@ import static de.aidger.utils.Translation._;
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Employment;
+import de.aidger.view.UI;
+import de.aidger.view.models.AssistantTableModel;
+import de.aidger.view.tabs.Tab;
+import de.aidger.view.tabs.ViewerTab;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -31,6 +36,19 @@ public class Anonymizer {
         Calendar checkCal = new GregorianCalendar();
         checkCal.add(Calendar.DAY_OF_YEAR, time);
         Date checkDate = checkCal.getTime();
+
+
+        // Try to find any existing Assistant Viewer Tabs to update them correctly
+        List<AssistantTableModel> models = new ArrayList<AssistantTableModel>();
+        for (Tab t : UI.getInstance().getTabs()) {
+            if (t instanceof ViewerTab) {
+                ViewerTab v = (ViewerTab) t;
+                if (v.getTableModel() instanceof AssistantTableModel) {
+                    models.add((AssistantTableModel) v.getTableModel());
+                }
+            }
+        }
+
 
         try {
             List<IAssistant> assistants = (new Assistant()).getAll();
@@ -59,13 +77,16 @@ public class Anonymizer {
                     ass.setLastName("*****");
                     ass.setEmail("ano@nym.com");
                     ass.save();
+
+                    for (AssistantTableModel m : models) {
+                        m.update(ass, (Boolean) true);
+                    }
                 }
             }
         } catch (AdoHiveException ex) {
             Logger.error(
                     _("Anonymizing Assistants failed because of a database error"));
         }
-
 
         return count;
     }
