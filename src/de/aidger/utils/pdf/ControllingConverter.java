@@ -285,7 +285,7 @@ public class ControllingConverter {
             Font tableTitleFont = new Font(BaseFont.createFont(
                 BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.EMBEDDED), 9);
             String[] courseTitles = { _("Assistant"),
-                    _("Planned cost(pre-tax)"), _("Actual cost(pre-tax)"),
+                    _("Planned costs(pre-tax)"), _("Actual costs(pre-tax)"),
                     _("Remark") };
             PdfPTable contentTable = new PdfPTable(1);
             PdfPTable titleTable = new PdfPTable(4);
