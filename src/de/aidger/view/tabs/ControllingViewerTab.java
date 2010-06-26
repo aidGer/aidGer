@@ -2,6 +2,8 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
+import java.util.Vector;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
@@ -9,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
+import de.aidger.controller.actions.ControllingExportAction;
 import de.aidger.controller.actions.ControllingGenerateAction;
 import de.aidger.model.controlling.ControllingAssistant;
 import de.aidger.model.controlling.ControllingCreator;
@@ -21,7 +24,7 @@ import de.aidger.view.UI;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class ControllingViewerTab extends Tab {
+public class ControllingViewerTab extends ReportTab {
 
     /**
      * The year, month and funds to be used with the controlling report.
@@ -95,9 +98,47 @@ public class ControllingViewerTab extends Tab {
         try {
             generateButton.setAction(ActionRegistry.getInstance().get(
                 ControllingGenerateAction.class.getName()));
+            exportButton.setAction(ActionRegistry.getInstance().get(
+                ControllingExportAction.class.getName()));
         } catch (ActionNotFoundException e) {
             UI.displayError(e.getMessage());
         }
+    }
+
+    /**
+     * Returns all of the rows of the table that meet the filter criteria.
+     * 
+     * @param filter
+     *            The filter to use
+     * @return The rows of the table.
+     */
+    public Vector<String[]> getRows(String filter) {
+        Vector<String[]> returnVector = new Vector<String[]>();
+        if (filter == null) {
+            for (int i = 0; i < controllingTableModel.getRowCount(); i++) {
+                String[] returnString = new String[controllingTableModel
+                    .getColumnCount()];
+                for (int j = 0; j < controllingTableModel.getColumnCount(); j++) {
+                    returnString[j] = controllingTableModel.getValueAt(i, j)
+                        .toString();
+                }
+                returnVector.add(returnString);
+            }
+        } else {
+            for (int i = 0; i < controllingTableModel.getRowCount(); i++) {
+                String[] returnString = new String[controllingTableModel
+                    .getColumnCount()];
+                if (filter.equals(controllingTableModel.getValueAt(i,
+                    controllingTableModel.getColumnCount() - 1).toString())) {
+                    for (int j = 0; j < controllingTableModel.getColumnCount(); j++) {
+                        returnString[j] = controllingTableModel
+                            .getValueAt(i, j).toString();
+                    }
+                    returnVector.add(returnString);
+                }
+            }
+        }
+        return returnVector;
     }
 
     /**
@@ -120,7 +161,15 @@ public class ControllingViewerTab extends Tab {
      *            The assistant to add.
      */
     private void addRow(Object[] assistant) {
-        controllingTableModel.addRow(assistant);
+        Object[] rowArray = new Object[controllingTableModel.getColumnCount()];
+        for (int i = 0; i < rowArray.length; i++) {
+            if (i < assistant.length) {
+                rowArray[i] = assistant[i];
+            } else {
+                rowArray[i] = "";
+            }
+        }
+        controllingTableModel.addRow(rowArray);
     }
 
     /**
@@ -197,6 +246,7 @@ public class ControllingViewerTab extends Tab {
         generateButton = new javax.swing.JButton();
         exportButton = new javax.swing.JButton();
         contentPanel = new javax.swing.JPanel();
+        tablePanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -248,16 +298,25 @@ public class ControllingViewerTab extends Tab {
         exportButton
             .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         exportButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        exportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportButtonActionPerformed(evt);
+            }
+        });
         jToolBar1.add(exportButton);
 
         add(jToolBar1, java.awt.BorderLayout.PAGE_START);
 
-        contentPanel.setLayout(new java.awt.GridLayout(1, 0));
+        contentPanel.setLayout(new java.awt.GridLayout());
+
+        tablePanel.setLayout(new java.awt.GridLayout(1, 0));
 
         jTable1.setModel(controllingTableModel);
         jScrollPane1.setViewportView(jTable1);
 
-        contentPanel.add(jScrollPane1);
+        tablePanel.add(jScrollPane1);
+
+        contentPanel.add(tablePanel);
 
         add(contentPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -282,6 +341,9 @@ public class ControllingViewerTab extends Tab {
         }
     }//GEN-LAST:event_fundsComboBoxItemStateChanged
 
+    private void exportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportButtonActionPerformed
+    }//GEN-LAST:event_exportButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentPanel;
     private javax.swing.JButton exportButton;
@@ -293,6 +355,7 @@ public class ControllingViewerTab extends Tab {
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JComboBox monthComboBox;
     private javax.swing.JLabel monthLabel;
+    private javax.swing.JPanel tablePanel;
     private javax.swing.JComboBox yearComboBox;
     private javax.swing.JLabel yearLabel;
 

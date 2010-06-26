@@ -9,6 +9,7 @@ import javax.swing.UIManager.LookAndFeelInfo;
 import de.aidger.controller.actions.AboutAction;
 import de.aidger.controller.actions.BudgetExportAction;
 import de.aidger.controller.actions.BudgetGenerateAction;
+import de.aidger.controller.actions.ControllingExportAction;
 import de.aidger.controller.actions.ControllingGenerateAction;
 import de.aidger.controller.actions.DetailViewerCancelAction;
 import de.aidger.controller.actions.DetailViewerEditAction;
@@ -104,6 +105,7 @@ public final class Application {
         ActionRegistry.getInstance().register(new ProtocolExportAction());
 
         ActionRegistry.getInstance().register(new ControllingGenerateAction());
+        ActionRegistry.getInstance().register(new ControllingExportAction());
 
         ActionRegistry.getInstance().register(new BudgetGenerateAction());
         ActionRegistry.getInstance().register(new BudgetExportAction());

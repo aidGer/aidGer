@@ -86,15 +86,24 @@ public class BalanceReportConverter {
      */
     private boolean fileCreated = false;
 
+    /**
+     * The name of this report
+     */
     private static String name;
 
     /**
      * Initializes this BalanceReportConverter with a given path and a name.
      * 
-     * @param path
-     *            The path, at which to save the document.
-     * @param name
-     *            The desired name of the document.
+     * @param file
+     *            The file of this report.
+     * @param index
+     *            What kind of report this is.
+     * @param semester
+     *            The semester of the report.
+     * @param filters
+     *            The filters for the report.
+     * @param calculationMethod
+     *            The calculation method of this report.
      */
     public BalanceReportConverter(File file, int index, Object semester,
             BalanceFilter filters, int calculationMethod) {
