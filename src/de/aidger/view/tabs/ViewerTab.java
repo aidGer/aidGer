@@ -25,6 +25,7 @@ import javax.swing.table.TableRowSorter;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
+import de.aidger.controller.actions.ViewerActivityReportAction;
 import de.aidger.controller.actions.ViewerAddAction;
 import de.aidger.controller.actions.ViewerAssistantAction;
 import de.aidger.controller.actions.ViewerContractAction;
@@ -129,10 +130,13 @@ public class ViewerTab extends Tab {
         separator6.setVisible(false);
         btnContract.setVisible(false);
         separator7.setVisible(false);
+        btnActivityReport.setVisible(false);
+        separator8.setVisible(false);
 
         itemCourse.setVisible(false);
         itemAssistant.setVisible(false);
         itemContract.setVisible(false);
+        itemActivityReport.setVisible(false);
 
         // use different table model for each data type
         switch (type) {
@@ -141,6 +145,10 @@ public class ViewerTab extends Tab {
             break;
         case Assistant:
             tableModel = new AssistantTableModel();
+
+            btnActivityReport.setVisible(true);
+            separator8.setVisible(true);
+            itemActivityReport.setVisible(true);
             break;
         case FinancialCategory:
             tableModel = new FinancialCategoryTableModel();
@@ -227,6 +235,8 @@ public class ViewerTab extends Tab {
                 ViewerAssistantAction.class.getName()));
             btnContract.setAction(ActionRegistry.getInstance().get(
                 ViewerContractAction.class.getName()));
+            btnActivityReport.setAction(ActionRegistry.getInstance().get(
+                ViewerActivityReportAction.class.getName()));
 
             itemView.setAction(ActionRegistry.getInstance().get(
                 ViewerDetailViewAction.class.getName()));
@@ -240,6 +250,8 @@ public class ViewerTab extends Tab {
                 ViewerAssistantAction.class.getName()));
             itemContract.setAction(ActionRegistry.getInstance().get(
                 ViewerContractAction.class.getName()));
+            itemActivityReport.setAction(ActionRegistry.getInstance().get(
+                ViewerActivityReportAction.class.getName()));
 
             // shortcuts for table
             table.getInputMap().put(
@@ -513,6 +525,7 @@ public class ViewerTab extends Tab {
         itemCourse = new javax.swing.JMenuItem();
         itemAssistant = new javax.swing.JMenuItem();
         itemContract = new javax.swing.JMenuItem();
+        itemActivityReport = new javax.swing.JMenuItem();
         toolBar = new javax.swing.JToolBar();
         separator = new javax.swing.JToolBar.Separator();
         btnView = new javax.swing.JButton();
@@ -529,6 +542,8 @@ public class ViewerTab extends Tab {
         separator6 = new javax.swing.JToolBar.Separator();
         btnContract = new javax.swing.JButton();
         separator7 = new javax.swing.JToolBar.Separator();
+        btnActivityReport = new javax.swing.JButton();
+        separator8 = new javax.swing.JToolBar.Separator();
         scrollPane = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         searchField = new javax.swing.JTextField();
@@ -550,6 +565,9 @@ public class ViewerTab extends Tab {
 
         itemContract.setText(_("Contract"));
         popupMenu.add(itemContract);
+
+        itemActivityReport.setText(_("Activity Report"));
+        popupMenu.add(itemActivityReport);
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -608,6 +626,15 @@ public class ViewerTab extends Tab {
         toolBar.add(btnContract);
         toolBar.add(separator7);
 
+        btnActivityReport.setText(_("Activity Report"));
+        btnActivityReport.setFocusable(false);
+        btnActivityReport
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnActivityReport
+            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toolBar.add(btnActivityReport);
+        toolBar.add(separator8);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -637,6 +664,7 @@ public class ViewerTab extends Tab {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActivityReport;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAssistant;
     private javax.swing.JButton btnContract;
@@ -644,6 +672,7 @@ public class ViewerTab extends Tab {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnView;
+    private javax.swing.JMenuItem itemActivityReport;
     private javax.swing.JMenuItem itemAssistant;
     private javax.swing.JMenuItem itemContract;
     private javax.swing.JMenuItem itemCourse;
@@ -661,6 +690,7 @@ public class ViewerTab extends Tab {
     private javax.swing.JToolBar.Separator separator5;
     private javax.swing.JToolBar.Separator separator6;
     private javax.swing.JToolBar.Separator separator7;
+    private javax.swing.JToolBar.Separator separator8;
     private javax.swing.JTable table;
     private javax.swing.JToolBar toolBar;
 

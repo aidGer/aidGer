@@ -28,7 +28,7 @@ import de.aidger.view.UI;
 /**
  * This tab displays the activity protocol in a table.
  * 
- * @author Phil
+ * @author aidGer Team
  */
 @SuppressWarnings("serial")
 public class ProtocolViewerTab extends Tab {
@@ -140,9 +140,12 @@ public class ProtocolViewerTab extends Tab {
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
+        jSeparator3 = new javax.swing.JToolBar.Separator();
         spinnerLabel = new javax.swing.JLabel();
         daySpinner = new javax.swing.JSpinner();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
         exportProtocolButton = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JToolBar.Separator();
         contentScrollPane = new javax.swing.JScrollPane();
         contentTable = new javax.swing.JTable();
 
@@ -150,6 +153,7 @@ public class ProtocolViewerTab extends Tab {
 
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
+        jToolBar1.add(jSeparator3);
 
         spinnerLabel.setText(_("Number of days before today to display: "));
         jToolBar1.add(spinnerLabel);
@@ -160,14 +164,14 @@ public class ProtocolViewerTab extends Tab {
             }
         });
         jToolBar1.add(daySpinner);
+        jToolBar1.add(jSeparator1);
 
         exportProtocolButton.setText(_("Export"));
         exportProtocolButton.setFocusable(false);
-        exportProtocolButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        exportProtocolButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        exportProtocolButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportProtocolButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(exportProtocolButton);
+        jToolBar1.add(jSeparator2);
 
         add(jToolBar1, java.awt.BorderLayout.PAGE_START);
 
@@ -187,6 +191,9 @@ public class ProtocolViewerTab extends Tab {
     private javax.swing.JTable contentTable;
     private javax.swing.JSpinner daySpinner;
     private javax.swing.JButton exportProtocolButton;
+    private javax.swing.JToolBar.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator2;
+    private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel spinnerLabel;
     // End of variables declaration//GEN-END:variables
