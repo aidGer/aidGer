@@ -223,7 +223,9 @@ public class BalanceViewerTab extends ReportTab {
         jToolBar1 = new javax.swing.JToolBar();
         yearLabel = new javax.swing.JLabel();
         yearComboBox = new javax.swing.JComboBox();
+        jSeparator2 = new javax.swing.JToolBar.Separator();
         generateButton = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
         exportButton = new javax.swing.JButton();
         filtersPanel = new javax.swing.JPanel();
         filterContentPanel = new javax.swing.JPanel();
@@ -237,8 +239,7 @@ public class BalanceViewerTab extends ReportTab {
 
         setLayout(new java.awt.BorderLayout());
 
-        contentPanel.setLayout(new javax.swing.BoxLayout(contentPanel,
-            javax.swing.BoxLayout.Y_AXIS));
+        contentPanel.setLayout(new javax.swing.BoxLayout(contentPanel, javax.swing.BoxLayout.Y_AXIS));
         add(contentPanel, java.awt.BorderLayout.CENTER);
 
         jPanel1.setLayout(new java.awt.BorderLayout());
@@ -250,19 +251,18 @@ public class BalanceViewerTab extends ReportTab {
         jToolBar1.add(yearLabel);
 
         jToolBar1.add(yearComboBox);
+        jToolBar1.add(jSeparator2);
 
         generateButton.setText(_("Generate"));
         generateButton.setFocusable(false);
-        generateButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        generateButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        generateButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        generateButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(generateButton);
+        jToolBar1.add(jSeparator1);
 
         exportButton.setText(_("Export"));
         exportButton.setFocusable(false);
-        exportButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         exportButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(exportButton);
 
@@ -273,8 +273,7 @@ public class BalanceViewerTab extends ReportTab {
         filterContentPanel.setLayout(new java.awt.GridLayout(0, 1));
         filtersPanel.add(filterContentPanel, java.awt.BorderLayout.PAGE_END);
 
-        filterCreationPanel.setLayout(new java.awt.FlowLayout(
-            java.awt.FlowLayout.LEFT));
+        filterCreationPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         filtersLabel.setText(_("Filters") + ":");
         filterCreationPanel.add(filtersLabel);
@@ -290,41 +289,37 @@ public class BalanceViewerTab extends ReportTab {
 
         addFilterButton.setIcon(new ImageIcon(getClass().getResource(
             "/de/aidger/view/icons/plus-small.png")));
-        addFilterButton.setFocusable(false);
-        addFilterButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        addFilterButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        addFilterButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addFilterButtonActionPerformed(evt);
-            }
-        });
-        filterCreationPanel.add(addFilterButton);
+addFilterButton.setFocusable(false);
+addFilterButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+addFilterButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+addFilterButton.addActionListener(new java.awt.event.ActionListener() {
+    public void actionPerformed(java.awt.event.ActionEvent evt) {
+        addFilterButtonActionPerformed(evt);
+    }
+    });
+    filterCreationPanel.add(addFilterButton);
 
-        pessimisticCalculationRadio.setText(_("Pessimistic calculation"));
-        pessimisticCalculationRadio
-            .addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    pessimisticCalculationRadioActionPerformed(evt);
-                }
-            });
-        filterCreationPanel.add(pessimisticCalculationRadio);
+    pessimisticCalculationRadio.setText(_("Pessimistic calculation"));
+    pessimisticCalculationRadio.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            pessimisticCalculationRadioActionPerformed(evt);
+        }
+    });
+    filterCreationPanel.add(pessimisticCalculationRadio);
 
-        historicalCalculationRadio.setText(_("Historical calculation"));
-        historicalCalculationRadio
-            .addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    historicalCalculationRadioActionPerformed(evt);
-                }
-            });
-        filterCreationPanel.add(historicalCalculationRadio);
+    historicalCalculationRadio.setText(_("Historical calculation"));
+    historicalCalculationRadio.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            historicalCalculationRadioActionPerformed(evt);
+        }
+    });
+    filterCreationPanel.add(historicalCalculationRadio);
 
-        filtersPanel.add(filterCreationPanel, java.awt.BorderLayout.PAGE_START);
+    filtersPanel.add(filterCreationPanel, java.awt.BorderLayout.PAGE_START);
 
-        jPanel1.add(filtersPanel, java.awt.BorderLayout.CENTER);
+    jPanel1.add(filtersPanel, java.awt.BorderLayout.CENTER);
 
-        add(jPanel1, java.awt.BorderLayout.PAGE_START);
+    add(jPanel1, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
 
     private void pessimisticCalculationRadioActionPerformed(
@@ -460,6 +455,8 @@ public class BalanceViewerTab extends ReportTab {
     private javax.swing.JButton generateButton;
     private javax.swing.JRadioButton historicalCalculationRadio;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JToolBar.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JRadioButton pessimisticCalculationRadio;
     private javax.swing.JComboBox yearComboBox;

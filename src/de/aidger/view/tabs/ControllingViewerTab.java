@@ -237,15 +237,17 @@ public class ControllingViewerTab extends ReportTab {
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
+        generateButton = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
+        exportButton = new javax.swing.JButton();
+        contentPanel = new javax.swing.JPanel();
+        filtersPanel = new javax.swing.JPanel();
         yearLabel = new javax.swing.JLabel();
         yearComboBox = new javax.swing.JComboBox();
         monthLabel = new javax.swing.JLabel();
         monthComboBox = new javax.swing.JComboBox();
         fundsLabel = new javax.swing.JLabel();
         fundsComboBox = new javax.swing.JComboBox();
-        generateButton = new javax.swing.JButton();
-        exportButton = new javax.swing.JButton();
-        contentPanel = new javax.swing.JPanel();
         tablePanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -255,36 +257,6 @@ public class ControllingViewerTab extends ReportTab {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        yearLabel.setText(_("Year") + ":");
-        jToolBar1.add(yearLabel);
-
-        yearComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                yearComboBoxItemStateChanged(evt);
-            }
-        });
-        jToolBar1.add(yearComboBox);
-
-        monthLabel.setText(_("Month") + ":");
-        jToolBar1.add(monthLabel);
-
-        monthComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                monthComboBoxItemStateChanged(evt);
-            }
-        });
-        jToolBar1.add(monthComboBox);
-
-        fundsLabel.setText(_("Funds") + ":");
-        jToolBar1.add(fundsLabel);
-
-        fundsComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                fundsComboBoxItemStateChanged(evt);
-            }
-        });
-        jToolBar1.add(fundsComboBox);
-
         generateButton.setText(_("Generate"));
         generateButton.setFocusable(false);
         generateButton
@@ -292,6 +264,7 @@ public class ControllingViewerTab extends ReportTab {
         generateButton
             .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(generateButton);
+        jToolBar1.add(jSeparator1);
 
         exportButton.setText(_("Export"));
         exportButton.setFocusable(false);
@@ -307,7 +280,42 @@ public class ControllingViewerTab extends ReportTab {
 
         add(jToolBar1, java.awt.BorderLayout.PAGE_START);
 
-        contentPanel.setLayout(new java.awt.GridLayout());
+        contentPanel.setLayout(new java.awt.BorderLayout());
+
+        filtersPanel
+            .setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        yearLabel.setText(_("Year") + ":");
+        filtersPanel.add(yearLabel);
+
+        yearComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                yearComboBoxItemStateChanged(evt);
+            }
+        });
+        filtersPanel.add(yearComboBox);
+
+        monthLabel.setText(_("Month") + ":");
+        filtersPanel.add(monthLabel);
+
+        monthComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                monthComboBoxItemStateChanged(evt);
+            }
+        });
+        filtersPanel.add(monthComboBox);
+
+        fundsLabel.setText(_("Funds") + ":");
+        filtersPanel.add(fundsLabel);
+
+        fundsComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                fundsComboBoxItemStateChanged(evt);
+            }
+        });
+        filtersPanel.add(fundsComboBox);
+
+        contentPanel.add(filtersPanel, java.awt.BorderLayout.PAGE_START);
 
         tablePanel.setLayout(new java.awt.GridLayout(1, 0));
 
@@ -316,7 +324,7 @@ public class ControllingViewerTab extends ReportTab {
 
         tablePanel.add(jScrollPane1);
 
-        contentPanel.add(tablePanel);
+        contentPanel.add(tablePanel, java.awt.BorderLayout.CENTER);
 
         add(contentPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -347,10 +355,12 @@ public class ControllingViewerTab extends ReportTab {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentPanel;
     private javax.swing.JButton exportButton;
+    private javax.swing.JPanel filtersPanel;
     private javax.swing.JComboBox fundsComboBox;
     private javax.swing.JLabel fundsLabel;
     private javax.swing.JButton generateButton;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JComboBox monthComboBox;
@@ -367,7 +377,7 @@ public class ControllingViewerTab extends ReportTab {
      */
     @Override
     public String getTabName() {
-        return _("Controlling report");
+        return _("Assistant budgets");
     }
 
 }

@@ -98,7 +98,7 @@ public class ProtocolViewerTab extends Tab {
      */
     @Override
     public String getTabName() {
-        return _("Protocol Viewing");
+        return _("Activity export");
     }
 
     /**

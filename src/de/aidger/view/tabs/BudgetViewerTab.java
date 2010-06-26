@@ -44,9 +44,9 @@ public class BudgetViewerTab extends ReportTab {
      * The table model of the content table.
      */
     private final DefaultTableModel contentTableModel = new DefaultTableModel(
-        null,
-        new String[] { _("Course"), _("Semester"), _("Lecturer"),
-                _("Booked budgets"), _("Available budgets"), _("Total budgets") }) {
+        null, new String[] { _("Course"), _("Semester"), _("Lecturer"),
+                _("Booked budgets"), _("Remaining budgets"),
+                _("Available budgets") }) {
 
         @Override
         public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -72,7 +72,8 @@ public class BudgetViewerTab extends ReportTab {
             UI.displayError(ex.getMessage());
         }
         String[] filterNames = { _("Lecturer"), _("Semester"),
-                _("Available budgets"), _("Booked budgets"), _("Total budgets") };
+                _("Remaining budgets"), _("Booked budgets"),
+                _("Available budgets") };
         for (int i = 0; i < filterNames.length; i++) {
             filterNameComboBox.addItem(filterNames[i]);
         }
@@ -178,6 +179,7 @@ public class BudgetViewerTab extends ReportTab {
 
         jToolBar1 = new javax.swing.JToolBar();
         generateButton = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
         exportButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         filtersPanel = new javax.swing.JPanel();
@@ -204,6 +206,7 @@ public class BudgetViewerTab extends ReportTab {
         generateButton
             .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(generateButton);
+        jToolBar1.add(jSeparator1);
 
         exportButton.setText(_("Export"));
         exportButton.setFocusable(false);
@@ -484,7 +487,7 @@ public class BudgetViewerTab extends ReportTab {
      */
     @Override
     public String getTabName() {
-        return _("Budget viewing");
+        return _("Course budgets");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -502,6 +505,7 @@ public class BudgetViewerTab extends ReportTab {
     private javax.swing.JButton generateButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 
