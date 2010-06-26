@@ -9,6 +9,7 @@ import javax.swing.Action;
 
 import de.aidger.model.models.Assistant;
 import de.aidger.view.UI;
+import de.aidger.view.tabs.ActivityReportViewerTab;
 import de.aidger.view.tabs.ViewerTab;
 
 /**
@@ -28,6 +29,17 @@ public class ViewerActivityReportAction extends AbstractAction {
         //putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
         //        "/de/aidger/view/icons/")));
     }
+
+    /**
+     * Whether this activity report is being created from the assistant viewer
+     * or the taskpane.
+     * 
+     * @author aidGer Team
+     * 
+     */
+    public enum type {
+        assistantViewer, taskPane
+    };
 
     /*
      * (non-Javadoc)
@@ -50,7 +62,9 @@ public class ViewerActivityReportAction extends AbstractAction {
             Assistant assistant = (Assistant) tab.getTableModel().getModel(
                 index);
 
-            // TODO
+            ActivityReportViewerTab activityTab = new ActivityReportViewerTab();
+
+            UI.getInstance().addNewTab(activityTab);
         }
     }
 }
