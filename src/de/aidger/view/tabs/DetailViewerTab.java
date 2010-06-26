@@ -25,6 +25,7 @@ import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.models.HourlyWage;
 import de.aidger.view.UI;
+import de.aidger.view.forms.ActivityViewerForm;
 import de.aidger.view.forms.AssistantViewerForm;
 import de.aidger.view.forms.ContractViewerForm;
 import de.aidger.view.forms.CourseViewerForm;
@@ -420,6 +421,8 @@ public class DetailViewerTab extends Tab {
             return new EmploymentViewerForm((Employment) model);
         case Contract:
             return new ContractViewerForm((Contract) model);
+        case Activity:
+            return new ActivityViewerForm((Activity) model);
         default:
             return new JPanel();
         }

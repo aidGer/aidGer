@@ -4,6 +4,8 @@ import static de.aidger.utils.Translation._;
 
 import javax.swing.table.DefaultTableModel;
 
+import de.aidger.model.models.Assistant;
+
 /**
  * This class is used to display the activity report of one assistant.
  * 
