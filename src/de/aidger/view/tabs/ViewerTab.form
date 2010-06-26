@@ -29,6 +29,20 @@
             </Property>
           </Properties>
         </MenuItem>
+        <MenuItem class="javax.swing.JMenuItem" name="itemCourse">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="_(&quot;Course&quot;)" type="code"/>
+            </Property>
+          </Properties>
+        </MenuItem>
+        <MenuItem class="javax.swing.JMenuItem" name="itemAssistant">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="_(&quot;Assistant&quot;)" type="code"/>
+            </Property>
+          </Properties>
+        </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="itemContract">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -117,6 +131,30 @@
         </Component>
         <Component class="javax.swing.JToolBar$Separator" name="separator4">
         </Component>
+        <Component class="javax.swing.JButton" name="btnCourse">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="_(&quot;Course&quot;)" type="code"/>
+            </Property>
+            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="verticalTextPosition" type="int" value="3"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JToolBar$Separator" name="separator5">
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAssistant">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="_(&quot;Assistant&quot;)" type="code"/>
+            </Property>
+            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="verticalTextPosition" type="int" value="3"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JToolBar$Separator" name="separator6">
+        </Component>
         <Component class="javax.swing.JButton" name="btnContract">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -127,7 +165,7 @@
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToolBar$Separator" name="separator5">
+        <Component class="javax.swing.JToolBar$Separator" name="separator7">
         </Component>
       </SubComponents>
     </Container>
