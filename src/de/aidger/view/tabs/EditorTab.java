@@ -2,11 +2,9 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
-import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.util.List;
 
-import javax.swing.Box;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -292,17 +290,19 @@ public class EditorTab extends Tab {
      */
     @SuppressWarnings("unchecked")
     public void updateHints(AbstractModel model) {
-        List<String> hints = model.getErrors();
+        List<String> errors = model.getErrors();
 
-        this.hints.removeAll();
+        String htmlList = "<html><style type=\"text/css\">ul { margin-left: 20px; list-style-type: square; } li { padding-left: 5px; margin-bottom: 10px; }</style><ul>";
 
-        for (String hint : hints) {
-            this.hints.add(new JLabel(hint));
-
-            this.hints.add(Box.createRigidArea(new Dimension(0, 5)));
+        for (String error : errors) {
+            htmlList += "<li>" + error + "</li>";
         }
 
-        this.hints.revalidate();
+        htmlList += "</ul></html>";
+
+        hints.removeAll();
+        hints.add(new JLabel(htmlList));
+        hints.revalidate();
 
         model.resetErrors();
     }
