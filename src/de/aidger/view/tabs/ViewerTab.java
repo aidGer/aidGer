@@ -169,12 +169,22 @@ public class ViewerTab extends Tab {
             itemCourse.setVisible(true);
             itemAssistant.setVisible(true);
             itemContract.setVisible(true);
+
             break;
         case Contract:
             tableModel = new ContractTableModel();
             break;
         case Activity:
             tableModel = new ActivityTableModel();
+
+            btnCourse.setVisible(true);
+            separator5.setVisible(true);
+            btnAssistant.setVisible(true);
+            separator6.setVisible(true);
+
+            itemCourse.setVisible(true);
+            itemAssistant.setVisible(true);
+
             break;
         }
 

@@ -24,7 +24,7 @@ public class UIAssistant extends Assistant {
     /**
      * Initializes the Assistant class with the given assistant model.
      * 
-     * @param c
+     * @param a
      *            the assistant model
      */
     public UIAssistant(IAssistant a) {

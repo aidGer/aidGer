@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 
+import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Employment;
 import de.aidger.view.UI;
@@ -14,6 +15,7 @@ import de.aidger.view.tabs.DetailViewerTab;
 import de.aidger.view.tabs.ViewerTab;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.unistuttgart.iste.se.adohive.model.IAssistant;
 
 /**
  * This action shows the assistant for a given model.
@@ -51,15 +53,33 @@ public class ViewerAssistantAction extends AbstractAction {
             int index = tab.getTable().getRowSorter().convertRowIndexToModel(
                 tab.getTable().getSelectedRow());
 
-            Employment employment = (Employment) tab.getTableModel().getModel(
-                index);
-
             try {
-                Assistant assistant = new Assistant((new Assistant())
-                    .getById(employment.getAssistantId()));
+                Assistant assistant = null;
 
-                UI.getInstance().replaceCurrentTab(
-                    new DetailViewerTab(DataType.Assistant, assistant));
+                switch (tab.getType()) {
+                case Employment:
+                    Employment employment = (Employment) tab.getTableModel()
+                        .getModel(index);
+
+                    assistant = new Assistant((new Assistant())
+                        .getById(employment.getAssistantId()));
+
+                    break;
+                case Activity:
+                    Activity activity = (Activity) tab.getTableModel()
+                        .getModel(index);
+
+                    IAssistant a = ((new Assistant()).getById(activity
+                        .getAssistantId()));
+                    assistant = (a == null) ? null : new Assistant(a);
+
+                    break;
+                }
+
+                if (assistant != null) {
+                    UI.getInstance().replaceCurrentTab(
+                        new DetailViewerTab(DataType.Assistant, assistant));
+                }
             } catch (AdoHiveException e1) {
                 UI
                     .displayError(_("The related assistant could not be displayed."));

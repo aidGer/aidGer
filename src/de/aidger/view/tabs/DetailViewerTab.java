@@ -25,6 +25,7 @@ import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.models.HourlyWage;
 import de.aidger.view.UI;
+import de.aidger.view.forms.ActivityViewerForm;
 import de.aidger.view.forms.AssistantViewerForm;
 import de.aidger.view.forms.ContractViewerForm;
 import de.aidger.view.forms.CourseViewerForm;
@@ -33,6 +34,7 @@ import de.aidger.view.forms.FinancialCategoryViewerForm;
 import de.aidger.view.forms.HourlyWageViewerForm;
 import de.aidger.view.models.GenericListModel;
 import de.aidger.view.models.ListModel;
+import de.aidger.view.models.UIActivity;
 import de.aidger.view.models.UIAssistant;
 import de.aidger.view.models.UICourse;
 import de.aidger.view.tabs.ViewerTab.DataType;
@@ -264,7 +266,7 @@ public class DetailViewerTab extends Tab {
             ListModel listActivitiesModel = new ListModel(DataType.Activity);
 
             for (Activity activity : activities) {
-                listActivitiesModel.addElement(activity);
+                listActivitiesModel.addElement(new UIActivity(activity));
             }
 
             list1.setModel(listAssistantsModel);
@@ -308,7 +310,7 @@ public class DetailViewerTab extends Tab {
             ListModel listActivitiesModel = new ListModel(DataType.Activity);
 
             for (Activity activity : activities) {
-                listActivitiesModel.addElement(activity);
+                listActivitiesModel.addElement(new UIActivity(activity));
             }
 
             list1.setModel(listCoursesModel);
@@ -419,6 +421,8 @@ public class DetailViewerTab extends Tab {
             return new EmploymentViewerForm((Employment) model);
         case Contract:
             return new ContractViewerForm((Contract) model);
+        case Activity:
+            return new ActivityViewerForm((Activity) model);
         default:
             return new JPanel();
         }
