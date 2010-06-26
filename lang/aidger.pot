@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-26 15:02+0200\n"
+"POT-Creation-Date: 2010-06-26 15:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -907,7 +907,7 @@ msgstr ""
 msgid "Setting current tab to \"{0}\""
 msgstr ""
 
-#: view/UI.java:506 view/UI.java:737
+#: view/UI.java:506 view/UI.java:734
 msgid "Ready"
 msgstr ""
 
@@ -984,57 +984,53 @@ msgid "Controlling"
 msgstr ""
 
 #: view/UI.java:630
-msgid "View controlling reports"
+msgid "Check courses"
 msgstr ""
 
-#: view/UI.java:633
-msgid "Budget Check"
+#: view/UI.java:632
+msgid "Check assistants"
 msgstr ""
 
-#: view/UI.java:634
-msgid "View budget checks"
-msgstr ""
-
-#: view/UI.java:637
+#: view/UI.java:635
 msgid "Quick Settings"
 msgstr ""
 
-#: view/UI.java:639
+#: view/UI.java:637
 msgid "Remember my tabs"
 msgstr ""
 
-#: view/UI.java:649
+#: view/UI.java:647
 msgid "Open reports instantly"
 msgstr ""
 
-#: view/UI.java:705
+#: view/UI.java:702
 msgid "Open a new tab"
 msgstr ""
 
-#: view/UI.java:853
+#: view/UI.java:850
 #, java-format
 msgid "Could not find tab class {0}"
 msgstr ""
 
-#: view/UI.java:857
+#: view/UI.java:854
 #, java-format
 msgid "Could not find the correct constructor: {0}"
 msgstr ""
 
-#: view/UI.java:861
+#: view/UI.java:858
 #, java-format
 msgid "Instantiating the class {0} failed"
 msgstr ""
 
-#: view/UI.java:864
+#: view/UI.java:861
 msgid "Can't access a needed function"
 msgstr ""
 
-#: view/UI.java:866
+#: view/UI.java:863
 msgid "Incorrect arguments saved for a tab"
 msgstr ""
 
-#: view/UI.java:871
+#: view/UI.java:868
 msgid "Getting the model from the database failed"
 msgstr ""
 

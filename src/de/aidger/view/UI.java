@@ -611,8 +611,6 @@ public final class UI extends JFrame {
         TaskPane tpActivities = new TaskPane(_("Activities"));
         tpActivities.add(createTaskPaneButton(_("Show activities"),
             Task.ViewActivities));
-        tpActivities.add(createTaskPaneButton(_("Create activity"),
-            Task.CreateNewActivity));
         tpActivities.add(createTaskPaneButton(_("Export activities"),
             Task.ExportActivities));
 
@@ -623,16 +621,12 @@ public final class UI extends JFrame {
             Task.ViewAnnualBalance));
         tpReports.add(createTaskPaneButton(_("Semester Balance"),
             Task.ViewSemesterBalance));
-        tpReports.add(createTaskPaneButton(_("Activity Protocol"),
-            Task.ViewProtocol));
 
         TaskPane tpControlling = new TaskPane(_("Controlling"));
-        tpControlling.add(createTaskPaneButton(_("View controlling reports"),
-            Task.ViewControlling));
-
-        TaskPane tpBudgetCheck = new TaskPane(_("Budget Check"));
-        tpBudgetCheck.add(createTaskPaneButton(_("View budget checks"),
-            Task.ViewBudgetCheck));
+        tpControlling.add(createTaskPaneButton(_("Check courses"),
+            Task.CheckCourses));
+        tpControlling.add(createTaskPaneButton(_("Check assistants"),
+            Task.CheckAssistants));
 
         TaskPane tpQuickSettings = new TaskPane(_("Quick Settings"));
 
@@ -664,7 +658,6 @@ public final class UI extends JFrame {
         tpc.addTask(tpActivities);
         tpc.addTask(tpReports);
         tpc.addTask(tpControlling);
-        tpc.addTask(tpBudgetCheck);
         tpc.addTask(tpQuickSettings);
         tpc.addFiller();
 
@@ -672,7 +665,7 @@ public final class UI extends JFrame {
             "taskPaneCollapsed");
 
         if (collapsed == null) {
-            collapsed = new String[] { "1", "2", "3", "4", "5", "6" };
+            collapsed = new String[] { "1", "2", "3", "4", "5" };
 
             Runtime.getInstance()
                 .setOptionArray("taskPaneCollapsed", collapsed);
