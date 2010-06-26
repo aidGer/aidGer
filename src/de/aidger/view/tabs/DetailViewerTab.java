@@ -33,6 +33,7 @@ import de.aidger.view.forms.FinancialCategoryViewerForm;
 import de.aidger.view.forms.HourlyWageViewerForm;
 import de.aidger.view.models.GenericListModel;
 import de.aidger.view.models.ListModel;
+import de.aidger.view.models.UIActivity;
 import de.aidger.view.models.UIAssistant;
 import de.aidger.view.models.UICourse;
 import de.aidger.view.tabs.ViewerTab.DataType;
@@ -264,7 +265,7 @@ public class DetailViewerTab extends Tab {
             ListModel listActivitiesModel = new ListModel(DataType.Activity);
 
             for (Activity activity : activities) {
-                listActivitiesModel.addElement(activity);
+                listActivitiesModel.addElement(new UIActivity(activity));
             }
 
             list1.setModel(listAssistantsModel);
@@ -308,7 +309,7 @@ public class DetailViewerTab extends Tab {
             ListModel listActivitiesModel = new ListModel(DataType.Activity);
 
             for (Activity activity : activities) {
-                listActivitiesModel.addElement(activity);
+                listActivitiesModel.addElement(new UIActivity(activity));
             }
 
             list1.setModel(listCoursesModel);
