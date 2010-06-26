@@ -204,14 +204,17 @@ public class BudgetViewerTab extends ReportTab {
 
         generateButton.setText(_("Generate"));
         generateButton.setFocusable(false);
-        generateButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        generateButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        generateButton
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        generateButton
+            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(generateButton);
         jToolBar1.add(jSeparator1);
 
         exportButton.setText(_("Export"));
         exportButton.setFocusable(false);
-        exportButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportButton
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         exportButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(exportButton);
         jToolBar1.add(jSeparator2);
@@ -222,7 +225,8 @@ public class BudgetViewerTab extends ReportTab {
 
         filtersPanel.setLayout(new java.awt.BorderLayout());
 
-        filterCreationPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        filterCreationPanel.setLayout(new java.awt.FlowLayout(
+            java.awt.FlowLayout.LEFT));
 
         filtersLabel.setText(_("Filters") + ":");
         filterCreationPanel.add(filtersLabel);
@@ -242,33 +246,35 @@ public class BudgetViewerTab extends ReportTab {
 
         addFilterButton.setIcon(new ImageIcon(getClass().getResource(
             "/de/aidger/view/icons/plus-small.png")));
-addFilterButton.setFocusable(false);
-addFilterButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-addFilterButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-addFilterButton.addActionListener(new java.awt.event.ActionListener() {
-    public void actionPerformed(java.awt.event.ActionEvent evt) {
-        addFilterButtonActionPerformed(evt);
-    }
-    });
-    filterCreationPanel.add(addFilterButton);
+        addFilterButton.setFocusable(false);
+        addFilterButton
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        addFilterButton
+            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        addFilterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addFilterButtonActionPerformed(evt);
+            }
+        });
+        filterCreationPanel.add(addFilterButton);
 
-    filtersPanel.add(filterCreationPanel, java.awt.BorderLayout.PAGE_START);
+        filtersPanel.add(filterCreationPanel, java.awt.BorderLayout.PAGE_START);
 
-    filterContentPanel.setLayout(new java.awt.GridLayout(0, 1));
-    filtersPanel.add(filterContentPanel, java.awt.BorderLayout.CENTER);
+        filterContentPanel.setLayout(new java.awt.GridLayout(0, 1));
+        filtersPanel.add(filterContentPanel, java.awt.BorderLayout.CENTER);
 
-    jPanel1.add(filtersPanel, java.awt.BorderLayout.PAGE_START);
+        jPanel1.add(filtersPanel, java.awt.BorderLayout.PAGE_START);
 
-    contentPanel.setLayout(new java.awt.GridLayout(0, 1));
+        contentPanel.setLayout(new java.awt.GridLayout(0, 1));
 
-    contentTable.setModel(contentTableModel);
-    jScrollPane1.setViewportView(contentTable);
+        contentTable.setModel(contentTableModel);
+        jScrollPane1.setViewportView(contentTable);
 
-    contentPanel.add(jScrollPane1);
+        contentPanel.add(jScrollPane1);
 
-    jPanel1.add(contentPanel, java.awt.BorderLayout.CENTER);
+        jPanel1.add(contentPanel, java.awt.BorderLayout.CENTER);
 
-    add(jPanel1, java.awt.BorderLayout.CENTER);
+        add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void filterNameComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_filterNameComboBoxItemStateChanged
@@ -485,7 +491,7 @@ addFilterButton.addActionListener(new java.awt.event.ActionListener() {
      */
     @Override
     public String getTabName() {
-        return _("Course budgets");
+        return _("Course controlling");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
