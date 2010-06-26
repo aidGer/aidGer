@@ -32,7 +32,6 @@ import de.aidger.view.models.GenericListModel;
 import de.aidger.view.models.UIAssistant;
 import de.aidger.view.models.UIContract;
 import de.aidger.view.models.UICourse;
-import de.aidger.view.models.UIFinancialCategory;
 import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab.DataType;
@@ -101,9 +100,14 @@ public class EmploymentEditorForm extends JPanel {
         cmbAssistant.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cmbQualification.setSelectedItem(Qualification
-                    .valueOf(((Assistant) cmbAssistant.getSelectedItem())
-                        .getQualification()));
+                refreshQualification((Assistant) cmbAssistant.getSelectedItem());
+            }
+        });
+
+        cmbCourse.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                refreshFunds((Course) cmbCourse.getSelectedItem());
             }
         });
 
@@ -155,21 +159,8 @@ public class EmploymentEditorForm extends JPanel {
                 }
             }
 
-            List<IFinancialCategory> fcs = (new FinancialCategory()).getAll();
-
             ComboBoxModel cmbFundsModel = new ComboBoxModel(
                 DataType.FinancialCategory);
-
-            for (IFinancialCategory f : fcs) {
-                FinancialCategory fc = new UIFinancialCategory(f);
-
-                for (int funds : fc.getFunds()) {
-                    String fundsStr = String.valueOf(funds);
-                    if (!cmbFundsModel.contains(fundsStr)) {
-                        cmbFundsModel.addElement(fundsStr);
-                    }
-                }
-            }
 
             cmbAssistant.setModel(cmbAssistantModel);
             cmbCourse.setModel(cmbCourseModel);
@@ -180,9 +171,8 @@ public class EmploymentEditorForm extends JPanel {
             listModels.add(cmbCourseModel);
             listModels.add(cmbContractModel);
 
-            cmbQualification.setSelectedItem(Qualification
-                .valueOf(((Assistant) cmbAssistant.getSelectedItem())
-                    .getQualification()));
+            refreshQualification((Assistant) cmbAssistant.getSelectedItem());
+            refreshFunds((Course) cmbCourse.getSelectedItem());
 
             addNewDate();
 
@@ -204,6 +194,39 @@ public class EmploymentEditorForm extends JPanel {
                     .getHourCount()));
             }
 
+        } catch (AdoHiveException e) {
+        }
+    }
+
+    /**
+     * Refreshs the qualification model.
+     * 
+     * @param assistant
+     *            the new assistant
+     */
+    private void refreshQualification(Assistant assistant) {
+        cmbQualification.setSelectedItem(Qualification.valueOf(assistant
+            .getQualification()));
+    }
+
+    /**
+     * Refreshs the funds model.
+     * 
+     * @param course
+     *            the new course
+     */
+    private void refreshFunds(Course course) {
+        try {
+            IFinancialCategory fc = (new FinancialCategory()).getById(course
+                .getFinancialCategoryId());
+
+            ComboBoxModel cmbFundsModel = (ComboBoxModel) cmbFunds.getModel();
+
+            cmbFundsModel.removeAllElements();
+
+            for (int funds : fc.getFunds()) {
+                cmbFundsModel.addElement(funds);
+            }
         } catch (AdoHiveException e) {
         }
     }
@@ -244,8 +267,8 @@ public class EmploymentEditorForm extends JPanel {
      * 
      * @return The id of the course
      */
-    public int getCourseId() {
-        return ((Course) cmbCourse.getSelectedItem()).getId();
+    public Course getCourse() {
+        return (Course) cmbCourse.getSelectedItem();
     }
 
     /**
