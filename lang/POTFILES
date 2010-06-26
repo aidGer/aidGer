@@ -1,5 +1,8 @@
 controller/actions/AboutAction.java
+controller/actions/BudgetExportAction.java
 controller/actions/BudgetGenerateAction.java
+controller/actions/ControllingExportAction.java
+controller/actions/ControllingGenerateAction.java
 controller/actions/DetailViewerCancelAction.java
 controller/actions/DetailViewerEditAction.java
 controller/actions/DialogAbortAction.java
@@ -16,7 +19,6 @@ controller/actions/ReportGenerateAction.java
 controller/actions/SaveSettingsAction.java
 controller/actions/SettingsAction.java
 controller/actions/SettingsBrowseAction.java
-controller/actions/ViewerActivitiesAction.java
 controller/actions/ViewerAddAction.java
 controller/actions/ViewerContractAction.java
 controller/actions/ViewerDeleteAction.java
@@ -39,7 +41,10 @@ model/validators/Validator.java
 model/AbstractModel.java
 model/Runtime.java
 utils/pdf/BalanceReportConverter.java
+utils/pdf/BudgetReportConverter.java
+utils/pdf/ControllingConverter.java
 utils/pdf/ProtocolConverter.java
+utils/Anonymizer.java
 utils/Configuration.java
 view/forms/AssistantEditorForm.java
 view/forms/AssistantViewerForm.java
@@ -53,6 +58,7 @@ view/forms/FinancialCategoryEditorForm.java
 view/forms/FinancialCategoryViewerForm.java
 view/forms/HourlyWageEditorForm.java
 view/forms/HourlyWageViewerForm.java
+view/models/ActivityTableModel.java
 view/models/AssistantTableModel.java
 view/models/ContractTableModel.java
 view/models/CourseTableModel.java
@@ -64,6 +70,7 @@ view/reports/BalanceReportGroupPanel.java
 view/reports/BalanceReportSemesterPanel.java
 view/tabs/BalanceViewerTab.java
 view/tabs/BudgetViewerTab.java
+view/tabs/ControllingViewerTab.java
 view/tabs/DetailViewerTab.java
 view/tabs/EditorTab.java
 view/tabs/EmptyTab.java
