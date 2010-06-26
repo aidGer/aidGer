@@ -17,6 +17,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -24,7 +26,6 @@ import javax.swing.ActionMap;
 import javax.swing.ImageIcon;
 import javax.swing.InputMap;
 import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -97,6 +98,11 @@ public final class UI extends JFrame {
      * The label containing a status message.
      */
     private JLabel statusLabel;
+
+    /**
+     * A timer used for status messages.
+     */
+    private Timer statusTimer = new Timer();
 
     /**
      * Creates the main window of the application.
@@ -202,6 +208,7 @@ public final class UI extends JFrame {
      *            The error message to display
      */
     public static void displayError(String error) {
+        UI.getInstance().setStatusMessage(error);
         JOptionPane.showMessageDialog(instance, error, _("Error"),
             JOptionPane.ERROR_MESSAGE);
         Logger.error(error);
@@ -214,6 +221,7 @@ public final class UI extends JFrame {
      *            The info message to display
      */
     public static void displayInfo(String info) {
+        UI.getInstance().setStatusMessage(info);
         JOptionPane.showMessageDialog(instance, info, _("Info"),
             JOptionPane.INFORMATION_MESSAGE);
         Logger.info(info);
@@ -239,8 +247,8 @@ public final class UI extends JFrame {
         int count = Anonymizer.anonymizeAssistants();
         if (count > 0) {
             JOptionPane.showMessageDialog(this, MessageFormat.format(
-                    _("{0} assistants have been anonymized"),
-                    new Object[] { count } ));
+                _("{0} assistants have been anonymized"),
+                new Object[] { count }));
         }
     }
 
@@ -482,12 +490,22 @@ public final class UI extends JFrame {
 
     /**
      * Set the message of the status pane.
-     *
+     * 
      * @param message
-     *              The message to set
+     *            The message to set
      */
     public void setStatusMessage(String message) {
         statusLabel.setText(message);
+
+        statusTimer.cancel();
+
+        statusTimer = new Timer();
+        statusTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                setStatusMessage(_("Ready"));
+            }
+        }, 3000);
     }
 
     /**
@@ -591,9 +609,10 @@ public final class UI extends JFrame {
             Task.ViewContracts));
 
         TaskPane tpActivities = new TaskPane(_("Activities"));
-        tpActivities.add(createTaskPaneButton(_("Create new activity"),
-            Task.ViewEmpty));
-        tpActivities.add(createTaskPaneButton(_("Export"), Task.ViewEmpty));
+        tpActivities.add(createTaskPaneButton(_("Show activities"),
+            Task.ViewActivities));
+        tpActivities.add(createTaskPaneButton(_("Export activities"),
+            Task.ExportActivities));
 
         TaskPane tpReports = new TaskPane(_("Reports"));
         tpReports.add(createTaskPaneButton(_("Full Balance"),
@@ -602,19 +621,12 @@ public final class UI extends JFrame {
             Task.ViewAnnualBalance));
         tpReports.add(createTaskPaneButton(_("Semester Balance"),
             Task.ViewSemesterBalance));
-        tpReports.add(createTaskPaneButton(_("Activity Protocol"),
-            Task.ViewProtocol));
 
         TaskPane tpControlling = new TaskPane(_("Controlling"));
-        JPanel monthSelection = new JPanel();
-        monthSelection.add(new JLabel(_("Choose a month") + ":"));
-        monthSelection.add(new JComboBox(new String[] { "" }));
-        monthSelection.setOpaque(false);
-        tpControlling.add(monthSelection);
-
-        TaskPane tpBudgetCheck = new TaskPane(_("Budget Check"));
-        tpBudgetCheck.add(createTaskPaneButton(_("View budget checks"),
-            Task.ViewBudgetCheck));
+        tpControlling.add(createTaskPaneButton(_("Check courses"),
+            Task.CheckCourses));
+        tpControlling.add(createTaskPaneButton(_("Check assistants"),
+            Task.CheckAssistants));
 
         TaskPane tpQuickSettings = new TaskPane(_("Quick Settings"));
 
@@ -646,7 +658,6 @@ public final class UI extends JFrame {
         tpc.addTask(tpActivities);
         tpc.addTask(tpReports);
         tpc.addTask(tpControlling);
-        tpc.addTask(tpBudgetCheck);
         tpc.addTask(tpQuickSettings);
         tpc.addFiller();
 
@@ -654,7 +665,7 @@ public final class UI extends JFrame {
             "taskPaneCollapsed");
 
         if (collapsed == null) {
-            collapsed = new String[] { "1", "2", "3", "4", "5", "6" };
+            collapsed = new String[] { "1", "2", "3", "4", "5" };
 
             Runtime.getInstance()
                 .setOptionArray("taskPaneCollapsed", collapsed);
@@ -798,7 +809,7 @@ public final class UI extends JFrame {
                         Class obj = Class.forName(parts[0]);
                         ctrParams.add(Enum.valueOf(obj, parts[1]));
                     } else if (current.getSuperclass().equals(
-                            AbstractModel.class)) {
+                        AbstractModel.class)) {
                         Class obj = Class.forName(parts[0]);
                         AbstractModel a = (AbstractModel) obj.newInstance();
                         Object o;
@@ -812,14 +823,14 @@ public final class UI extends JFrame {
 
                         ctrParams.add(obj.getConstructor(
                             o.getClass().getInterfaces()[0]).newInstance(o));
-                    } else if (current.getSuperclass().
-                            getSuperclass().equals(AbstractModel.class)) {
+                    } else if (current.getSuperclass().getSuperclass().equals(
+                        AbstractModel.class)) {
                         Class obj = Class.forName(parts[0]);
                         AbstractModel a = (AbstractModel) obj.getSuperclass()
-                                .newInstance();
+                            .newInstance();
                         Object o = a.getById(Integer.parseInt(parts[1]));
-                        ctrParams.add(obj.getConstructor(o.getClass()
-                                .getInterfaces()[0]).newInstance(o));
+                        ctrParams.add(obj.getConstructor(
+                            o.getClass().getInterfaces()[0]).newInstance(o));
                         searchParams[i] = AbstractModel.class;
                     } else {
                         Class obj = Class.forName(parts[0]);

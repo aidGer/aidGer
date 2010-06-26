@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 /**
  * @author aidGer Team
  */
+@SuppressWarnings("serial")
 public abstract class ReportTab extends Tab {
 
     /**

@@ -126,10 +126,8 @@ public class ProtocolConverter {
     /**
      * Creates a new document.
      * 
-     * @param path
-     *            The path at which to create the PDF-document.
-     * @param name
-     *            The desired name of the PDF-file.
+     * @param file
+     *            The file to create.
      */
     private void makeNewDocument(File file) {
         FileOutputStream outStream = null;

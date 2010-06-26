@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.List;
 import java.util.Vector;
 
 import com.itextpdf.text.Document;
@@ -30,20 +29,15 @@ import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import de.aidger.model.Runtime;
-import de.aidger.model.budgets.BudgetCreator;
-import de.aidger.model.budgets.BudgetFilter;
-import de.aidger.model.budgets.CourseBudget;
-import de.aidger.model.models.Course;
 import de.aidger.view.UI;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
- * This class converts budget reports to a format for itext and exports it.
+ * This class converts controlling reports to a format for itext and exports
+ * them
  * 
  * @author aidGer Team
  */
-public class BudgetReportConverter {
+public class ControllingConverter {
 
     /**
      * The PDF-document which will be created.
@@ -56,11 +50,6 @@ public class BudgetReportConverter {
     private PdfWriter writer = null;
 
     /**
-     * The filters used for this budget report.
-     */
-    private BudgetFilter filters = null;
-
-    /**
      * Whether the file was created successfully.
      */
     private boolean fileCreated = false;
@@ -71,24 +60,26 @@ public class BudgetReportConverter {
     private static String name;
 
     /**
-     * Initializes this BalanceReportConverter with a given file and filters for
-     * the courses.
+     * The table rows that this report should contain.
+     */
+    private final Vector<String[]> tableRows;
+
+    /**
+     * Initializes a new ControllingConverter and creates the .pdf file.
      * 
      * @param file
-     *            The file to create the pdf in.
-     * @param filters
-     *            The filters with which to filter the courses.
+     *            The file for the report.
      */
-    public BudgetReportConverter(File file, BudgetFilter filters) {
+    public ControllingConverter(File file, Vector<String[]> tableRows) {
+        this.tableRows = tableRows;
         document = new Document(PageSize.A4);
         document.setMargins(document.leftMargin(), document.rightMargin(),
             document.topMargin() + 15, document.bottomMargin());
-        this.filters = filters;
         file = checkExtension(file);
-        name = _("Budget report");
+        name = _("Controlling report");
         makeNewDocument(file);
         if (fileCreated) {
-            createCourses();
+            createTable();
             document.close();
             /*
              * Open the created document if the setting is enabled with the
@@ -133,7 +124,7 @@ public class BudgetReportConverter {
      * Creates a new document.
      * 
      * @param file
-     *            The file.
+     *            The file to create.
      */
     private void makeNewDocument(File file) {
         FileOutputStream outStream = null;
@@ -287,102 +278,57 @@ public class BudgetReportConverter {
     }
 
     /**
-     * Creates all the course budgets and writes them into a table.
+     * Creates the table of assistants.
      */
-    private void createCourses() {
-        try {
-            PdfPTable contentTable = new PdfPTable(1);
-            PdfPCell contentCell = new PdfPCell(createTableHeader());
-
-            contentCell.setBorder(0);
-            contentTable.addCell(contentCell);
-
-            BudgetCreator budgetCreator = new BudgetCreator();
-            List<ICourse> courses = (new Course()).getAll();
-            /*
-             * Get course budgets for all courses along with the filter
-             * criteria.
-             */
-            for (ICourse course : courses) {
-                budgetCreator.addCourseBudget(new Course(course), filters);
-            }
-            Vector<CourseBudget> courseBudgets = budgetCreator
-                .getCourseBudgets();
-            /*
-             * Add a new row for every course that passed the filters.
-             */
-            for (CourseBudget courseBudget : courseBudgets) {
-                contentCell = new PdfPCell(addRow(budgetCreator
-                    .getObjectArray(courseBudget)));
-                contentCell.setBorder(0);
-                contentTable.addCell(contentCell);
-            }
-            document.add(contentTable);
-        } catch (AdoHiveException e) {
-            UI.displayError(e.toString());
-        } catch (DocumentException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Creates the titles of the table.
-     * 
-     * @return The table with the titles.
-     */
-    private PdfPTable createTableHeader() {
+    private void createTable() {
         try {
             Font tableTitleFont = new Font(BaseFont.createFont(
                 BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.EMBEDDED), 9);
-            PdfPTable tableHeader = new PdfPTable(new float[] { 0.3f, 0.15f,
-                    0.15f, 0.15f, 0.15f, 0.10f });
-            String[] titles = { _("Course"), _("Semester"), _("Lecturer"),
-                    _("Booked budgets"), _("Available budgets"),
-                    _("Total Budgets") };
+            String[] courseTitles = { _("Assistant"),
+                    _("Planned cost(pre-tax)"), _("Actual cost(pre-tax)"),
+                    _("Remark") };
+            PdfPTable contentTable = new PdfPTable(1);
+            PdfPTable titleTable = new PdfPTable(4);
             /*
-             * Add the title of every column.
+             * Create the titles of the table entries.
              */
-            for (int i = 0; i < titles.length; i++) {
-                PdfPCell cell = new PdfPCell(new Phrase(titles[i],
+            for (int i = 0; i < courseTitles.length; i++) {
+                PdfPCell cell = new PdfPCell(new Phrase(courseTitles[i],
                     tableTitleFont));
-                tableHeader.addCell(cell);
+                titleTable.addCell(cell);
             }
-            PdfPTable tableHeaderTable = new PdfPTable(1);
-            PdfPCell cell = new PdfPCell(tableHeader);
-            cell.setPaddingBottom(1);
+            PdfPCell cell = new PdfPCell(titleTable);
+            cell.setPaddingTop(10.0f);
+            cell.setPaddingBottom(2.0f);
             cell.setBorder(0);
-            tableHeaderTable.addCell(cell);
-            return tableHeaderTable;
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            contentTable.addCell(cell);
+            document.add(contentTable);
+            addRows();
         } catch (DocumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
-        return null;
     }
 
     /**
-     * Adds a row, containing a course budget, to the table.
-     * 
-     * @param objectArray
-     *            The course budget.
-     * @return The table containing the row.
+     * Adds the rows of assistants to the table.
      */
-    private PdfPTable addRow(Object[] objectArray) {
+    private void addRows() {
         try {
             Font tableContentFont = new Font(BaseFont.createFont(
                 BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 9);
-            PdfPTable tableContent = new PdfPTable(new float[] { 0.3f, 0.15f,
-                    0.15f, 0.15f, 0.15f, 0.10f });
-            for (int i = 0; i < objectArray.length; i++) {
-                PdfPCell cell = new PdfPCell(new Phrase(objectArray[i]
-                    .toString(), tableContentFont));
-                tableContent.addCell(cell);
+            PdfPTable contentTable = new PdfPTable(4);
+            for (String[] row : tableRows) {
+                for (int i = 0; i < row.length; i++) {
+                    PdfPCell cell = new PdfPCell(new Phrase(row[i],
+                        tableContentFont));
+                    contentTable.addCell(cell);
+                }
             }
-            return tableContent;
+            document.add(contentTable);
         } catch (DocumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -390,7 +336,6 @@ public class BudgetReportConverter {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return null;
     }
 
 }

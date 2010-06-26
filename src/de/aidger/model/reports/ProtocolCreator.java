@@ -10,11 +10,12 @@ import java.util.Vector;
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
+import de.aidger.view.UI;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
 
 /**
- * This class creates the activity protocol and adds it to the its viewer tab.
+ * This class creates the activities for an activity protocol.
  * 
  * @author aidGer Team
  */
@@ -22,16 +23,16 @@ public class ProtocolCreator {
 
     /**
      * Initializes a new ProtocolCreator and creates the first protocol.
-     * 
      */
     public ProtocolCreator() {
     }
 
     /**
-     * Adds all the activities to the table in the viewer which are in the
-     * wanted time frame.
+     * Returns all the activities to the which are in the given time frame.
      * 
-     * @throws AdoHiveException
+     * @param numberOfDays
+     *            The number of days, of which to display activities.
+     * @return The activities
      */
     public Vector<Object[]> createProtocol(int numberOfDays) {
         Object[] addedActivity;
@@ -39,9 +40,8 @@ public class ProtocolCreator {
         List<IActivity> activities = null;
         try {
             activities = new Activity().getAll();
-        } catch (AdoHiveException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
+        } catch (AdoHiveException e) {
+            UI.displayError(e.toString());
         }
         Calendar currentDate = Calendar.getInstance();
         // Display all activities if numberOfDays == -1.
@@ -74,8 +74,7 @@ public class ProtocolCreator {
                     addedActivity[7] = activity.getRemark();
                     addedActivities.add(addedActivity);
                 } catch (AdoHiveException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    UI.displayError(e.toString());
                 }
             }
         }

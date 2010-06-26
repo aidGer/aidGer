@@ -26,6 +26,7 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
  * 
  * @author aidGer Team
  */
+@SuppressWarnings("serial")
 public class BudgetGenerateAction extends AbstractAction {
     /**
      * Initializes the action.

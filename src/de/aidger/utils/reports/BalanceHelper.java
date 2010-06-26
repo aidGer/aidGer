@@ -13,6 +13,7 @@ import de.aidger.model.models.Employment;
 import de.aidger.model.models.HourlyWage;
 import de.aidger.model.reports.BalanceCourse;
 import de.aidger.model.reports.BalanceFilter;
+import de.aidger.view.UI;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
@@ -126,6 +127,13 @@ public class BalanceHelper {
         return filteredTriceCourses;
     }
 
+    /**
+     * Gets all the years of a semester.
+     * 
+     * @param year
+     *            The semester to check.
+     * @return The years of the semester.
+     */
     public String[] getYearSemesters(int year) {
         // Lose the first two numbers of the year
         int semester = year % 100;
@@ -231,12 +239,12 @@ public class BalanceHelper {
             if (course.getId() == employment.getCourseId()
                     && (balanceCourse.getBudgetCosts().isEmpty() || !balanceCourse
                         .getBudgetCosts().contains(employment.getFunds()))) {
-                BigDecimal budgetCost = new BigDecimal("0.00");
+                Double budgetCost = 0.0;
                 for (IAssistant assistant : assistants) {
                     if (employment.getAssistantId() == assistant.getId()) {
-                        budgetCost = budgetCost.add(new BigDecimal(
-                            calculateBudgetCost(employment, calculationMethod))
-                            .setScale(2, BigDecimal.ROUND_HALF_EVEN));
+                        budgetCost = budgetCost
+                                + calculateBudgetCost(employment,
+                                    calculationMethod);
                     }
                 }
                 if (balanceCourse.budgetCostExists(employment.getFunds())) {
@@ -249,14 +257,15 @@ public class BalanceHelper {
                 plannedAWS = plannedAWS + employment.getHourCount();
             }
         }
-        balanceCourse.setPlannedAWS(plannedAWS);
+        balanceCourse.setPlannedAWS(new BigDecimal(plannedAWS).setScale(2,
+            BigDecimal.ROUND_HALF_EVEN).doubleValue());
         return balanceCourse;
     }
 
     /**
      * Calculates the budget costs of this employment
      */
-    private static double calculateBudgetCost(IEmployment employment,
+    public static double calculateBudgetCost(IEmployment employment,
             int calculationMethod) {
         String qualification = employment.getQualification();
         double calculationFactor = 0;
@@ -270,22 +279,20 @@ public class BalanceHelper {
             calculationFactor = 1;
         }
         List<IHourlyWage> hourlyWages;
-        double budgetCost = 0.0;
         try {
             hourlyWages = new HourlyWage().getAll();
             for (IHourlyWage hourlyWage : hourlyWages) {
                 if (hourlyWage.getMonth() == employment.getMonth()
                         && hourlyWage.getYear() == employment.getYear()
                         && hourlyWage.getQualification().equals(qualification)) {
-                    budgetCost = hourlyWage.getWage().doubleValue()
+                    return hourlyWage.getWage().doubleValue()
                             * calculationFactor * employment.getHourCount();
                 }
             }
         } catch (AdoHiveException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            UI.displayError(e.toString());
         }
-        return budgetCost;
+        return 0;
     }
 
     /**
@@ -434,8 +441,7 @@ public class BalanceHelper {
         try {
             courses = (new Course()).getAll();
         } catch (AdoHiveException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            UI.displayError(e.toString());
         }
         List<ICourse> filteredCourses = this.filterCourses(courses, filters);
         for (ICourse course : filteredCourses) {

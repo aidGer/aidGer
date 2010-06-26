@@ -9,6 +9,8 @@ import javax.swing.UIManager.LookAndFeelInfo;
 import de.aidger.controller.actions.AboutAction;
 import de.aidger.controller.actions.BudgetExportAction;
 import de.aidger.controller.actions.BudgetGenerateAction;
+import de.aidger.controller.actions.ControllingExportAction;
+import de.aidger.controller.actions.ControllingGenerateAction;
 import de.aidger.controller.actions.DetailViewerCancelAction;
 import de.aidger.controller.actions.DetailViewerEditAction;
 import de.aidger.controller.actions.DialogAbortAction;
@@ -25,9 +27,10 @@ import de.aidger.controller.actions.ReportGenerateAction;
 import de.aidger.controller.actions.SaveSettingsAction;
 import de.aidger.controller.actions.SettingsAction;
 import de.aidger.controller.actions.SettingsBrowseAction;
-import de.aidger.controller.actions.ViewerActivitiesAction;
 import de.aidger.controller.actions.ViewerAddAction;
+import de.aidger.controller.actions.ViewerAssistantAction;
 import de.aidger.controller.actions.ViewerContractAction;
+import de.aidger.controller.actions.ViewerCourseAction;
 import de.aidger.controller.actions.ViewerDeleteAction;
 import de.aidger.controller.actions.ViewerDetailViewAction;
 import de.aidger.controller.actions.ViewerEditAction;
@@ -92,7 +95,8 @@ public final class Application {
         ActionRegistry.getInstance().register(new ViewerEditAction());
         ActionRegistry.getInstance().register(new ViewerAddAction());
         ActionRegistry.getInstance().register(new ViewerDeleteAction());
-        ActionRegistry.getInstance().register(new ViewerActivitiesAction());
+        ActionRegistry.getInstance().register(new ViewerCourseAction());
+        ActionRegistry.getInstance().register(new ViewerAssistantAction());
         ActionRegistry.getInstance().register(new ViewerContractAction());
 
         ActionRegistry.getInstance().register(new EditorSaveAction());
@@ -103,6 +107,9 @@ public final class Application {
         ActionRegistry.getInstance().register(new ReportGenerateAction());
         ActionRegistry.getInstance().register(new ReportExportAction());
         ActionRegistry.getInstance().register(new ProtocolExportAction());
+
+        ActionRegistry.getInstance().register(new ControllingGenerateAction());
+        ActionRegistry.getInstance().register(new ControllingExportAction());
 
         ActionRegistry.getInstance().register(new BudgetGenerateAction());
         ActionRegistry.getInstance().register(new BudgetExportAction());

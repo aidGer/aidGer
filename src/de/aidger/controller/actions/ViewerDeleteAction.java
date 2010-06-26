@@ -3,6 +3,7 @@ package de.aidger.controller.actions;
 import static de.aidger.utils.Translation._;
 
 import java.awt.event.ActionEvent;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,9 +76,23 @@ public class ViewerDeleteAction extends AbstractAction {
                                 errorMessage += "- " + error + "\n";
                             }
 
-                            UI.displayError(_("Could not remove the model:")
+                            UI.displayError(MessageFormat
+                                .format(_("Could not remove the entity {0}:"),
+                                    new Object[] { tab.getType()
+                                        .getDisplayName() })
                                     + "\n\n" + errorMessage);
+
+                            return;
                         }
+
+                        UI
+                            .getInstance()
+                            .setStatusMessage(
+                                MessageFormat
+                                    .format(
+                                        _("The entity {0} was removed successfully."),
+                                        new Object[] { tab.getType()
+                                            .getDisplayName() }));
                     }
                 } catch (AdoHiveException e1) {
                     UI

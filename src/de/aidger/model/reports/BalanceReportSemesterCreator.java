@@ -5,6 +5,7 @@ import java.util.Vector;
 
 import de.aidger.model.models.Course;
 import de.aidger.utils.reports.BalanceHelper;
+import de.aidger.view.UI;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 
@@ -58,8 +59,7 @@ public class BalanceReportSemesterCreator {
         try {
             courses = (new Course()).getAll();
         } catch (AdoHiveException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            UI.displayError(e.toString());
         }
         List<ICourse> filteredCourses = balanceHelper.filterCourses(courses,
             filters);

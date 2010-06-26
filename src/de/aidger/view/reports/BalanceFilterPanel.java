@@ -1,6 +1,9 @@
 package de.aidger.view.reports;
 
 import static de.aidger.utils.Translation._;
+
+import javax.swing.ImageIcon;
+
 import de.aidger.view.tabs.ReportTab;
 
 /**
@@ -95,7 +98,8 @@ public class BalanceFilterPanel extends javax.swing.JPanel {
         add(filterLabel);
         add(budgetFilterLabel);
 
-        removeFilterButton.setText("-");
+        removeFilterButton.setIcon(new ImageIcon(getClass().getResource(
+            "/de/aidger/view/icons/minus-small.png")));
         removeFilterButton
             .addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
