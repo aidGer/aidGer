@@ -33,7 +33,11 @@ public class UICourse extends Course {
      */
     @Override
     public String toString() {
-        return getDescription() + " (" + getSemester() + ", " + getLecturer()
-                + ")";
+        if (getDescription() == null) {
+            return "";
+        } else {
+            return getDescription() + " (" + getSemester() + ", "
+                    + getLecturer() + ")";
+        }
     }
 }

@@ -20,6 +20,7 @@ import javax.swing.Action;
 
 import de.aidger.model.AbstractModel;
 import de.aidger.model.budgets.CourseBudget;
+import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
@@ -29,6 +30,7 @@ import de.aidger.model.models.HourlyWage;
 import de.aidger.model.validators.PresenceValidator;
 import de.aidger.utils.reports.BalanceHelper;
 import de.aidger.view.UI;
+import de.aidger.view.forms.ActivityEditorForm;
 import de.aidger.view.forms.AssistantEditorForm;
 import de.aidger.view.forms.ContractEditorForm;
 import de.aidger.view.forms.CourseEditorForm;
@@ -46,6 +48,7 @@ import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.unistuttgart.iste.se.adohive.model.IActivity;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.IContract;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
@@ -394,6 +397,70 @@ public class EditorSaveAction extends AbstractAction {
     }
 
     /**
+     * Prepares the activity models by setting the values of the activity editor
+     * form to this model. Returns the model from the database before it is
+     * edited. If a database error occurs the model before it was edited is
+     * returned.
+     * 
+     * @param models
+     *            a list that contains the activity model of the editor
+     * @param form
+     *            the activity editor form
+     * @return the model from database before it is edited
+     */
+    @SuppressWarnings("unchecked")
+    private AbstractModel prepareModels(List<AbstractModel> models,
+            ActivityEditorForm form) {
+        Activity activity = (Activity) models.get(0);
+
+        Activity activityBeforeEdit = activity.clone();
+
+        activity.setDate(form.getDate());
+        activity.setProcessor(form.getProcessor());
+        activity.setSender(form.getSender());
+        activity.setType(form.getType());
+        activity.setDocumentType(form.getDocumentType());
+        activity.setContent(form.getContent());
+        activity.setRemark(form.getRemark());
+
+        List<Course> courses = form.getCourses();
+        List<Assistant> assistants = form.getAssistants();
+
+        models.clear();
+
+        for (int i = 0; i < courses.size(); ++i) {
+            Activity clone = activity.clone();
+
+            for (String error : activity.getErrors()) {
+                clone.addError(error);
+            }
+
+            models.add(clone);
+
+            int courseId = courses.get(i).getId();
+            int assistantId = assistants.get(i).getId();
+
+            if (courseId == 0) {
+                courseId = -1;
+            }
+            if (assistantId == 0) {
+                assistantId = -1;
+            }
+
+            clone.setCourseId(courseId);
+            clone.setAssistantId(assistantId);
+        }
+
+        try {
+            IActivity a = activity.getById(activity.getId());
+
+            return a == null ? activityBeforeEdit : new Activity(a);
+        } catch (AdoHiveException e) {
+            return activityBeforeEdit;
+        }
+    }
+
+    /**
      * Returns the rounded double as BigDecimal.
      * 
      * @param d
@@ -581,6 +648,7 @@ public class EditorSaveAction extends AbstractAction {
 
                 for (Employment curEmployment : employments) {
                     if (curEmployment.getFunds() == funds) {
+                        // TODO
                         bookedBudgetCosts += BalanceHelper.calculateBudgetCost(
                             curEmployment, 1);
                     }
@@ -648,6 +716,11 @@ public class EditorSaveAction extends AbstractAction {
         case Contract:
             modelBeforeEdit = prepareModels(models, (ContractEditorForm) tab
                 .getEditorForm());
+            break;
+        case Activity:
+            modelBeforeEdit = prepareModels(models, (ActivityEditorForm) tab
+                .getEditorForm());
+            break;
         }
 
         // save all prepared models
@@ -685,8 +758,9 @@ public class EditorSaveAction extends AbstractAction {
                                 new Object[] { tab.getType().getDisplayName() }));
                 } else {
                     UI.displayError(MessageFormat.format(
-                        _("Could not save the entity {0} to database."),
-                        new Object[] { tab.getType().getDisplayName() }));
+                        _("Could not save the entity {0} to database: {1}"),
+                        new Object[] { tab.getType().getDisplayName(),
+                                e1.getMessage() }));
                 }
 
                 break;

@@ -67,14 +67,17 @@ public class ActivityTableModel extends TableModel {
 
         try {
             IAssistant a = (new Assistant()).getById(activity.getAssistantId());
-
             ICourse c = (new Course()).getById(activity.getCourseId());
 
-            return new Object[] { new UIAssistant(a), new UICourse(c),
-                    activity.getDate(), activity.getSender(),
-                    activity.getProcessor(), activity.getType(),
-                    activity.getDocumentType(), activity.getContent(),
-                    activity.getRemark(), activity.getId() };
+            UIAssistant assistant = (a == null) ? new UIAssistant()
+                    : new UIAssistant(a);
+            UICourse course = (c == null) ? new UICourse() : new UICourse(c);
+
+            return new Object[] { assistant, course, activity.getDate(),
+                    activity.getSender(), activity.getProcessor(),
+                    activity.getType(), activity.getDocumentType(),
+                    activity.getContent(), activity.getRemark(),
+                    activity.getId() };
         } catch (AdoHiveException e) {
             return new Object[] {};
         }

@@ -23,6 +23,7 @@ import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.models.HourlyWage;
 import de.aidger.view.UI;
+import de.aidger.view.forms.ActivityEditorForm;
 import de.aidger.view.forms.AssistantEditorForm;
 import de.aidger.view.forms.ContractEditorForm;
 import de.aidger.view.forms.CourseEditorForm;
@@ -277,6 +278,8 @@ public class EditorTab extends Tab {
             return new EmploymentEditorForm((Employment) model, listModels);
         case Contract:
             return new ContractEditorForm((Contract) model);
+        case Activity:
+            return new ActivityEditorForm((Activity) model);
         default:
             return new JPanel();
         }

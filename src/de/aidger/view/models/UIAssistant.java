@@ -50,7 +50,9 @@ public class UIAssistant extends Assistant {
     public String toString() {
         String name = getFirstName() + " " + getLastName();
 
-        if (totalHours == 0.0) {
+        if (getFirstName() == null || getLastName() == null) {
+            return "";
+        } else if (totalHours == 0.0) {
             return name;
         } else {
             return name + " (" + totalHours + "h)";
