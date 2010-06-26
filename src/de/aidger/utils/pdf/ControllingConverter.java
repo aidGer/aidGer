@@ -10,6 +10,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Vector;
 
 import com.itextpdf.text.Document;
@@ -224,11 +226,11 @@ public class ControllingConverter {
          */
         @Override
         public void onEndPage(PdfWriter writer, Document document) {
-            PdfPTable table = new PdfPTable(2);
+            PdfPTable table = new PdfPTable(3);
             try {
                 Font pageFont = new Font(BaseFont.createFont(
                     BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 12);
-                table.setWidths(new int[] { 48, 2 });
+                table.setWidths(new int[] { 20, 28, 2 });
                 table.setTotalWidth(writer.getPageSize().getRight()
                         - document.rightMargin() - document.leftMargin());
                 table.setLockedWidth(true);
@@ -236,6 +238,13 @@ public class ControllingConverter {
                 table.getDefaultCell().setFixedHeight(20);
                 table.getDefaultCell().setHorizontalAlignment(
                     Element.ALIGN_RIGHT);
+                Calendar calendar = Calendar.getInstance();
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+                PdfPCell dateCell = new PdfPCell(new Phrase(dateFormat
+                    .format(calendar.getTime())));
+                dateCell.setHorizontalAlignment(Element.ALIGN_LEFT);
+                dateCell.setBorder(Rectangle.BOTTOM);
+                table.addCell(dateCell);
                 table.addCell(new Phrase(_("Page") + ": "
                         + writer.getCurrentPageNumber() + _(" of"), pageFont));
                 PdfPCell cell = new PdfPCell(Image.getInstance(total));
