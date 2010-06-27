@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-27 22:17+0200\n"
+"POT-Creation-Date: 2010-06-27 22:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -610,6 +610,10 @@ msgstr ""
 #: view/forms/HourlyWageEditorForm.java:197
 #: view/models/ContractTableModel.java:26
 msgid "Start date"
+msgstr ""
+
+#: model/models/Contract.java:171
+msgid "Contract is still linked to an Employment"
 msgstr ""
 
 #: model/models/Course.java:87 view/forms/CourseEditorForm.java:267

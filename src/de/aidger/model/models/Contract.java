@@ -168,7 +168,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
         List emps = (new Employment()).getEmployments(this);
 
         if (emps.size() > 0) {
-            addError("Contract is still linked to an Employment");
+            addError(_("Contract is still linked to an Employment"));
             ret = false;
         }
         return ret;
