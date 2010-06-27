@@ -2,6 +2,7 @@ package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
 
+import java.awt.Color;
 import java.text.SimpleDateFormat;
 
 import javax.swing.JPanel;
@@ -211,9 +212,12 @@ public class ActivityViewerForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(remark, gridBagConstraints);
 
+        content.setBackground(new Color(0,0,0,0));
         content.setColumns(20);
         content.setEditable(false);
         content.setRows(5);
+        content.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        content.setOpaque(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
