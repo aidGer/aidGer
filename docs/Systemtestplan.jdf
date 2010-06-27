@@ -1311,13 +1311,13 @@
 
 * Benutzer gibt das Bestätigungsdatum "12.10.2010" ein
 
-* Benutzer setzt "Delegation" auf "Nein"
-
 * Benutzer lässt den Standardwert bei Beschätigungsbeginn
 
 * Benutzer erhöht Beschäftigungsende um 1
 
 * Benutzer gibt bei Art des Vertrags "Neuvertrag" ein
+
+* Benutzer setzt "Delegation" auf "Nein"
 
 * Benutzer klickt auf den Button "Speichern"</actions>
 <post>Der Vertrag wurde im System mit den korrekten Werten vollständig gespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehrt zum Menüpunkt Beschäftigungen im alten Reiter zurück.</post>
@@ -1330,13 +1330,13 @@
 
 * Benutzer gibt das Bestätigungsdatum "15.12.2009" ein
 
-* Benutzer setzt "Delegation" auf "Ja"
-
 * Benutzer lässt den Standardwert bei Beschätigungsbeginn
 
 * Benutzer erhöht Beschäftigungsende um 1
 
 * Benutzer gibt bei Art des Vertrags "Aufstockung" ein
+
+* Benutzer setzt "Delegation" auf "Ja"
 
 * Benutzer klickt auf den Button "Speichern"</actions>
 <post>Der Vertrag wurde im System mit den korrekten Werten vollständig gespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehrt zum Menüpunkt Beschäftigungen im alten Reiter zurück.</post>
@@ -1345,11 +1345,9 @@
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="166" priority="A" title="Vertragsdaten inkorrekt erstellen">
 <description>Es wird ein neuer Vertrag erstellt. Die darin befindlichen Daten sind jedoch in einer inkorrekten Reihenfolge.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
-<actions>* Benutzer lässt das Abschlußdatum leer
+<actions>* Benutzer gibt das Abschlußdatum "01.10.2010" ein
 
-* Benutzer lässt das Bestätigungsdatum leer
-
-* Benutzer setzt "Delegation" auf "Ja"
+* Benutzer gibt das Bestätigungsdatum "01.09.2010" ein
 
 * Benutzer gibt den Beschäftigungsbeginn "01.11.2010" ein
 
@@ -1357,8 +1355,11 @@
 
 * Benutzer gibt bei Art des Vertrags "Aufstockung" ein
 
+* Benutzer setzt "Delegation" auf "Ja"
+
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Der Benutzer wird informiert, dass er Falscheingaben gemacht hat: Das Beschäftigungsende liegt vor dem Beschäftigungsbeginn und wurden weder Abschluß- noch Bestätigungsdatum angegeben. Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</post>
+<post>Der Benutzer wird informiert, dass er Falscheingaben gemacht hat: Das Beschäftigungsende liegt vor dem Beschäftigungsbeginn und das Bestätigungsdatum vor dem Abschlussdatum. 
+Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</post>
 <tags/>
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="286" priority="A" title="Vertragsdaten inkorrekt erstellen">
@@ -1366,18 +1367,19 @@
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
 <actions>* Benutzer gibt das Abschlußdatum "01.10.2010" an
 
-* Benutzer gibt das Bestätigungsdatum "01.05.2010" an
-
-* Benutzer setzt "Delegation" auf "Nein"
+* Benutzer gibt das Bestätigungsdatum "05.10.2010" an
 
 * Benutzer gibt den Beschäftigungsbeginn "01.11.2010" ein
 
 * Benutzer gibt das Beschäftigungsende "01.05.2011" ein
 
-* Benutzer gibt bei Art des Vertrags "Neuanstellung" ein
+* Benutzer lässt den Vertragstyp leer.
+
+* Benutzer setzt "Delegation" auf "Nein"
 
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Der Benutzer wird informiert, dass er Falscheingaben gemacht hat: Das Bestätigungsdatum liegt vor dem Abschlußdatum. Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</post>
+<post>Der Benutzer wird informiert, dass er Falscheingaben gemacht hat: Der Vertragstyp ist leer. 
+Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</post>
 <tags/>
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="289" priority="A" title="Abbruch: Vertrag erstellen">
@@ -1386,8 +1388,6 @@
 <actions>* Benutzer gibt das Abschlußdatum "11.12.2009" ein
 
 * Benutzer gibt das Bestätigungsdatum "15.12.2009" ein
-
-* Benutzer setzt "Delegation" auf "Ja"
 
 * Benutzer lässt den Standardwert bei Beschätigungsbeginn
 
@@ -1445,6 +1445,63 @@
 <tags/>
 </testcase>
 </sequence>
+<sequence created="27.06.2010" creator="aidGerTeam" name="Suchen" number="284">
+<description>Die Testsequenz enthält Testfälle zum Suchen eines Vertrags in der Datenbank.</description>
+<pre/>
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="299" priority="C" title="Vertrag suchen">
+<description/>
+<pre>Der Testfall 287 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt "Neuvertrag" ins Suchfeld ein
+
+* System aktualisiert die Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich der gesuchte Vertrag (Testfall 287). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="298" priority="C" title="Suchfilter entfernen">
+<description>Der angewandte Suchfilter soll entfernt werden.</description>
+<pre>Der Testfall 299 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt auf den Button neben dem Suchfeld</actions>
+<post>Die Anzeige-Tabelle zeigt alle Beschäftigungen an. Das Suchfeld wurde geleert.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="27.06.2010" creator="aidGerTeam" name="Anzeigen" number="283">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen eines Vertrags aus der Datenbank.</description>
+<pre/>
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="295" priority="C" title="Vertrag anzeigen und schließen">
+<description>Ein Vertrag soll angezeigt werden und die Anzeige direkt danach wieder geschlossen werden.</description>
+<pre>Der Testfall 287 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert Vertrag aus 287
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet den Anzeigentab mit dem gewählten Vertrag
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Der Anzeigentab wird geschlossen und der Benutzer befindet sich wieder im zuletzt offenen Tab.</post>
+<tags/>
+</testcase>
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="296" priority="C" title="Vertrag anzeigen und bearbeiten">
+<description>Ein Vertrag soll angezeigt werden und daraufhin bearbeitet werden.</description>
+<pre>Der Testfall 287 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert Vertrag aus 287
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet den Anzeigentab mit dem gewählten Vertrag
+
+* Benutzer klickt auf den Button "Bearbeiten		"</actions>
+<post>Der Bearbeitentab für den gewählten Vertrag wird geöffnet.</post>
+<tags/>
+</testcase>
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="297" priority="C" title="Vertrag anzeigen ohne Auswahl">
+<description>Ein Vertrag soll angezeigt werden, es ist jedoch keiner ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen und es erscheint eine entsprechende Fehlermeldung.</post>
+<tags/>
+</testcase>
+</sequence>
 <sequence created="27.06.2010" creator="aidGerTeam" name="Löschen" number="282">
 <description>Die Testsequenz enthält Testfälle zum Löschen eines Vertrags aus der Datenbank.</description>
 <pre/>
@@ -1498,63 +1555,6 @@
 
 * Benutzer klickt auf den Button "Nein"</actions>
 <post>Das Bestätigungs-Popup wird geschlossen und der Vertrag ist weiterhin in der Datenbank vorhanden.</post>
-<tags/>
-</testcase>
-</sequence>
-<sequence created="27.06.2010" creator="aidGerTeam" name="Anzeigen" number="283">
-<description>Die Testsequenz enthält Testfälle zum Anzeigen eines Vertrags aus der Datenbank.</description>
-<pre/>
-<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="295" priority="C" title="Vertrag anzeigen und schließen">
-<description>Ein Vertrag soll angezeigt werden und die Anzeige direkt danach wieder geschlossen werden.</description>
-<pre>Der Testfall 287 wurde ausgeführt.</pre>
-<actions>* Benutzer markiert Vertrag aus 287
-
-* Benutzer klickt auf den Button "Anzeigen"
-
-* System öffnet den Anzeigentab mit dem gewählten Vertrag
-
-* Benutzer klickt auf den Button "Abbrechen"</actions>
-<post>Der Anzeigentab wird geschlossen und der Benutzer befindet sich wieder im zuletzt offenen Tab.</post>
-<tags/>
-</testcase>
-<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="296" priority="C" title="Vertrag anzeigen und bearbeiten">
-<description>Ein Vertrag soll angezeigt werden und daraufhin bearbeitet werden.</description>
-<pre>Der Testfall 287 wurde ausgeführt.</pre>
-<actions>* Benutzer markiert Vertrag aus 287
-
-* Benutzer klickt auf den Button "Anzeigen"
-
-* System öffnet den Anzeigentab mit dem gewählten Vertrag
-
-* Benutzer klickt auf den Button "Bearbeiten		"</actions>
-<post>Der Bearbeitentab für den gewählten Vertrag wird geöffnet.</post>
-<tags/>
-</testcase>
-<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="297" priority="C" title="Vertrag anzeigen ohne Auswahl">
-<description>Ein Vertrag soll angezeigt werden, es ist jedoch keiner ausgewählt.</description>
-<pre/>
-<actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
-<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen und es erscheint eine entsprechende Fehlermeldung.</post>
-<tags/>
-</testcase>
-</sequence>
-<sequence created="27.06.2010" creator="aidGerTeam" name="Suchen" number="284">
-<description>Die Testsequenz enthält Testfälle zum Suchen eines Vertrags in der Datenbank.</description>
-<pre/>
-<testcase created="27.06.2010" creator="aidGerTeam" effort="00:00" number="299" priority="C" title="Vertrag suchen">
-<description/>
-<pre>Der Testfall 287 wurde ausgeführt.</pre>
-<actions>* Benutzer gibt "287" ins Suchfeld ein
-
-* System aktualisiert die Tabelle</actions>
-<post/>
-<tags/>
-</testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="298" priority="C" title="Suchfilter entfernen">
-<description>Der angewandte Suchfilter soll entfernt werden.</description>
-<pre>Der Testfall 299 wurde ausgeführt.</pre>
-<actions>* Benutzer klickt auf den Button neben dem Suchfeld</actions>
-<post>Die Anzeige-Tabelle zeigt alle Beschäftigungen an. Das Suchfeld wurde geleert.</post>
 <tags/>
 </testcase>
 </sequence>
@@ -1858,69 +1858,6 @@
 <tags/>
 </testcase>
 </sequence>
-<sequence created="13.05.2010" creator="aidGerTeam" name="Löschen" number="104">
-<description>Die Testsequenz enthält Testfälle zum Löschen einer Beschäftigung in die Datenbank.</description>
-<pre>Benutzer möchte eine Beschäftigung löschen.</pre>
-<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="178" priority="C" title="Abbruch: Beschäftigung entfernen">
-<description>Es soll eine Beschäftigung gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
-<pre>Der Testfall 159 wurde ausgeführt.</pre>
-<actions>* Benutzer markiert die Beschäftigung "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
-
-* Benutzer klickt auf den Button "Löschen"
-
-* System öffnet das Bestätigungs-Popup
-
-* Benutzer klickt auf den Button "Abbrechen"</actions>
-<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen.</post>
-<tags/>
-</testcase>
-<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="175" priority="C" title="Beschäftigung inkl. Vertrag entfernen">
-<description>Es soll eine Beschäftigung gelöscht werden, was korrekt funktioniert. Der Vertrag wird in Folge dessen ebenfalls entfernt.</description>
-<pre>Der Testfall 168 wurde ausgeführt, der Testfall 177 wurde noch nicht ausgeführt.</pre>
-<actions>* Benutzer markiert die Beschäftigung "Peter Planlos - Laufende Forschung"
-
-* Benutzer klickt auf den Button "Löschen"
-
-* System öffnet das Bestätigungs-Popup
-
-* Benutzer klickt auf den Button "OK"</actions>
-<post>Die Beschäftigung wird aus der Datenbank gelöscht. Da der Vertrag nicht von einer anderen Beschäftigung referenziert wird, wird auch dieser entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen.</post>
-<tags/>
-</testcase>
-<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="176" priority="C" title="Beschäftigung ohne Vertrag entfernen">
-<description>Es soll eine Beschäftigung gelöscht werden, was korrekt funktioniert. Der Vertrag bleibt jedoch im System erhalten.</description>
-<pre>Der Testfall 168 und 177 wurde ausgeführt.</pre>
-<actions>* Benutzer markiert die Beschäftigung "Peter Planlos -  Mensa überleben für Pizza-Fans"
-
-* Benutzer klickt auf den Button "Löschen"
-
-* System öffnet das Bestätigungs-Popup
-
-* Benutzer klickt auf den Button "OK"</actions>
-<post>Die Beschäftigung wird aus der Datenbank gelöscht. Da der Vertrag von Testfall 168 weiterhin referenziert wird, wird dieser nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen.</post>
-<tags/>
-</testcase>
-<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="180" priority="C" title="Beschäftigung entfernen mit Taste Entf">
-<description>Es soll eine Beschäftigung gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet. Der Vertrag wird dabei ebenfalls gelöscht.</description>
-<pre>Der Testfall 159 wurde ausgeführt.</pre>
-<actions>* Benutzer markiert die Beschäftigung "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
-
-* Benutzer drückt die Taste "Entf"
-
-* System öffnet das Bestätigungs-Popup
-
-* Benutzer klickt auf den Button "OK"</actions>
-<post>Der Datensatz (Beschäftigung + Vertragsdaten) wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen.</post>
-<tags/>
-</testcase>
-<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="179" priority="C" title="Beschäftigung entfernen ohne Auswahl">
-<description>Es soll eine Beschäftigung gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
-<pre/>
-<actions>* Benutzer klickt auf den Button "Löschen"</actions>
-<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen.</post>
-<tags/>
-</testcase>
-</sequence>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Anzeigen" number="105">
 <description>Die Testsequenz enthält Testfälle zum Anzeigen einer Beschäftigung in die Datenbank.</description>
 <pre>Benutzer möchte eine Beschäftigung anzeigen.</pre>
@@ -2001,6 +1938,69 @@
 <pre>Der Testfall 187 wurde ausgeführt.</pre>
 <actions>* Benutzer klickt auf den Button neben dem Suchfeld</actions>
 <post>Die Anzeige-Tabelle zeigt alle Beschäftigungen an. Das Suchfeld wurde geleert.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Löschen" number="104">
+<description>Die Testsequenz enthält Testfälle zum Löschen einer Beschäftigung in die Datenbank.</description>
+<pre>Benutzer möchte eine Beschäftigung löschen.</pre>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="178" priority="C" title="Abbruch: Beschäftigung entfernen">
+<description>Es soll eine Beschäftigung gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
+<pre>Der Testfall 159 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Beschäftigung "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen.</post>
+<tags/>
+</testcase>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="175" priority="C" title="Beschäftigung inkl. Vertrag entfernen">
+<description>Es soll eine Beschäftigung gelöscht werden, was korrekt funktioniert. Der Vertrag wird in Folge dessen ebenfalls entfernt.</description>
+<pre>Der Testfall 168 wurde ausgeführt, der Testfall 177 wurde noch nicht ausgeführt.</pre>
+<actions>* Benutzer markiert die Beschäftigung "Peter Planlos - Laufende Forschung"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Die Beschäftigung wird aus der Datenbank gelöscht. Da der Vertrag nicht von einer anderen Beschäftigung referenziert wird, wird auch dieser entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen.</post>
+<tags/>
+</testcase>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="176" priority="C" title="Beschäftigung ohne Vertrag entfernen">
+<description>Es soll eine Beschäftigung gelöscht werden, was korrekt funktioniert. Der Vertrag bleibt jedoch im System erhalten.</description>
+<pre>Der Testfall 168 und 177 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Beschäftigung "Peter Planlos -  Mensa überleben für Pizza-Fans"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Die Beschäftigung wird aus der Datenbank gelöscht. Da der Vertrag von Testfall 168 weiterhin referenziert wird, wird dieser nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen.</post>
+<tags/>
+</testcase>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="180" priority="C" title="Beschäftigung entfernen mit Taste Entf">
+<description>Es soll eine Beschäftigung gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet. Der Vertrag wird dabei ebenfalls gelöscht.</description>
+<pre>Der Testfall 159 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Beschäftigung "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
+
+* Benutzer drückt die Taste "Entf"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz (Beschäftigung + Vertragsdaten) wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen.</post>
+<tags/>
+</testcase>
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="179" priority="C" title="Beschäftigung entfernen ohne Auswahl">
+<description>Es soll eine Beschäftigung gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Löschen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen.</post>
 <tags/>
 </testcase>
 </sequence>
@@ -3209,9 +3209,397 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <tsa name="Suchen" number="284" revId="2">
 <relatedsequence>284</relatedsequence>
 </tsa>
+<testrun enddate="27.06.2010 22:21" priority="E" startdate="27.06.2010 22:11" tester="aidGerTeam">
+<description>Perfect ... :)</description>
+<sut/>
+<executedsequence>
+<sequence created="27.06.2010" creator="aidGerTeam" name="Verträge" number="279">
+<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten, Löschen, Anzeigen und Suchen von Verträgen.</description>
+<pre/>
+</sequence>
+<pre/>
+<executedsequence>
+<sequence created="27.06.2010" creator="aidGerTeam" name="Hinzufügen" number="280">
+<description>Die Testsequenz enthält Testfälle zum Hinzufügen eines Vertrags zur die Datenbank.</description>
+<pre/>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:12" outcome="Ok" postok="Y" preok="Y" starttime="22:11">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="287" priority="A" title="Vertrag korrekt erstellen">
+<description>Es soll ein Vertrag erstellt werden. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. </pre>
+<actions>* Benutzer gibt das Abschlußdatum "10.10.2010" ein
+
+* Benutzer gibt das Bestätigungsdatum "12.10.2010" ein
+
+* Benutzer setzt "Delegation" auf "Nein"
+
+* Benutzer lässt den Standardwert bei Beschätigungsbeginn
+
+* Benutzer erhöht Beschäftigungsende um 1
+
+* Benutzer gibt bei Art des Vertrags "Neuvertrag" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Vertrag wurde im System mit den korrekten Werten vollständig gespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehrt zum Menüpunkt Beschäftigungen im alten Reiter zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:12" outcome="Ok" postok="Y" preok="Y" starttime="22:12">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="288" priority="A" title="Vertrag korrekt erstellen">
+<description>Es soll ein Vertrag erstellt werden. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 39 wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Abschlußdatum "11.12.2009" ein
+
+* Benutzer gibt das Bestätigungsdatum "15.12.2009" ein
+
+* Benutzer setzt "Delegation" auf "Ja"
+
+* Benutzer lässt den Standardwert bei Beschätigungsbeginn
+
+* Benutzer erhöht Beschäftigungsende um 1
+
+* Benutzer gibt bei Art des Vertrags "Aufstockung" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Vertrag wurde im System mit den korrekten Werten vollständig gespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehrt zum Menüpunkt Beschäftigungen im alten Reiter zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:13" outcome="Ok" postok="Y" preok="Y" starttime="22:12">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="166" priority="A" title="Vertragsdaten inkorrekt erstellen">
+<description>Es wird ein neuer Vertrag erstellt. Die darin befindlichen Daten sind jedoch in einer inkorrekten Reihenfolge.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer lässt das Abschlußdatum leer
+
+* Benutzer lässt das Bestätigungsdatum leer
+
+* Benutzer setzt "Delegation" auf "Ja"
+
+* Benutzer gibt den Beschäftigungsbeginn "01.11.2010" ein
+
+* Benutzer gibt das Beschäftigungsende "01.05.2010" ein
+
+* Benutzer gibt bei Art des Vertrags "Aufstockung" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Benutzer wird informiert, dass er Falscheingaben gemacht hat: Das Beschäftigungsende liegt vor dem Beschäftigungsbeginn und wurden weder Abschluß- noch Bestätigungsdatum angegeben. Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:14" outcome="Ok" postok="Y" preok="Y" starttime="22:13">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="286" priority="A" title="Vertragsdaten inkorrekt erstellen">
+<description>Es wird ein neuer Vertrag erstellt. Die darin befindlichen Daten sind jedoch in einer inkorrekten Reihenfolge.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt das Abschlußdatum "01.10.2010" an
+
+* Benutzer gibt das Bestätigungsdatum "01.05.2010" an
+
+* Benutzer setzt "Delegation" auf "Nein"
+
+* Benutzer gibt den Beschäftigungsbeginn "01.11.2010" ein
+
+* Benutzer gibt das Beschäftigungsende "01.05.2011" ein
+
+* Benutzer gibt bei Art des Vertrags "Neuanstellung" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Benutzer wird informiert, dass er Falscheingaben gemacht hat: Das Bestätigungsdatum liegt vor dem Abschlußdatum. Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:15" outcome="Ok" postok="Y" preok="Y" starttime="22:14">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="289" priority="A" title="Abbruch: Vertrag erstellen">
+<description>Es soll ein Vertrag erstellt werden. Die Erstellung wird jedoch abgebrochen.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt das Abschlußdatum "11.12.2009" ein
+
+* Benutzer gibt das Bestätigungsdatum "15.12.2009" ein
+
+* Benutzer setzt "Delegation" auf "Ja"
+
+* Benutzer lässt den Standardwert bei Beschätigungsbeginn
+
+* Benutzer erhöht Beschäftigungsende um 1
+
+* Benutzer gibt bei Art des Vertrags "Aufstockung" ein
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Die Vertragsdaten wurden verworfen. Das Tab-Fenster wird geschloßen und der Benutzer kehrt zum zuvor angezeigten Reiter zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="27.06.2010" creator="aidGerTeam" name="Bearbeiten" number="281">
+<description>Die Testsequenz enthält Testfälle zur Bearbeitung eines Vertrags in der Datenbank.</description>
+<pre/>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:17" outcome="Ok" postok="Y" preok="Y" starttime="22:15">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="172" priority="B" title="Vertrag korrekt bearbeiten">
+<description>Die Vertragsdaten sollen editiert werden. Alle Eingaben sind dabei korrekt.</description>
+<pre>Der Testfall 287 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den in 287 erstellten Vertrag
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer gibt das Bestätigungsdatum "16.12.2009" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die geänderten Vertragsdaten werden in der Datenbank hinterlegt und das System kehrt zum vorher angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:17" outcome="Ok" postok="Y" preok="Y" starttime="22:17">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="174" priority="B" title="Vertrag inkorrekt bearbeiten">
+<description>Die Vertragsdaten sollen editiert werden. Es wurden falsche Eingaben gemacht.</description>
+<pre>Der Testfall 287 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den in 287 erstellten Vertrag
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer gibt das Bestätigungsdatum "03.12.2009" ein
+
+* Benutzer gibt als Beschäftigungsende "01.12.2009" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die geänderten Vertragsdaten werden verworfen und der Benutzer wird darüber informiert, dass das Bestätigungsdatum nicht vor dem Abschlußdatum liegen kann. Außerdem erhält er die Meldung, dass das Beschäftigungsende nicht vor dem Beschäftigungsstart möglich ist. Der Benutzer befindet sich weiterhin im Vertragstab und kann seine Eingabe korrigieren.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:17" outcome="Ok" postok="Y" preok="Y" starttime="22:17">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="173" priority="B" title="Abbruch: Vertrag bearbeiten">
+<description>Die Vertragsdaten sollen editiert werden. Dieser Vorgang wird jedoch abgebrochen.</description>
+<pre>Der Testfall 287 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den in 287 erstellten Vertrag
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer gibt das Bestätigungsdatum "19.12.2009" ein
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Die geänderten Vertragsdaten werden verworfen und das System kehrt zum vorher angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="27.06.2010" creator="aidGerTeam" name="Suchen" number="284">
+<description>Die Testsequenz enthält Testfälle zum Suchen eines Vertrags in der Datenbank.</description>
+<pre/>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:18" outcome="Ok" postok="Y" preok="Y" starttime="22:17">
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="299" priority="C" title="Vertrag suchen">
+<description/>
+<pre>Der Testfall 287 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt "287" ins Suchfeld ein
+
+* System aktualisiert die Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich der gesuchte Vertrag (Testfall 287). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:19" outcome="Ok" postok="Y" preok="Y" starttime="22:18">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="298" priority="C" title="Suchfilter entfernen">
+<description>Der angewandte Suchfilter soll entfernt werden.</description>
+<pre>Der Testfall 299 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt auf den Button neben dem Suchfeld</actions>
+<post>Die Anzeige-Tabelle zeigt alle Beschäftigungen an. Das Suchfeld wurde geleert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="27.06.2010" creator="aidGerTeam" name="Anzeigen" number="283">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen eines Vertrags aus der Datenbank.</description>
+<pre/>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:19">
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="295" priority="C" title="Vertrag anzeigen und schließen">
+<description>Ein Vertrag soll angezeigt werden und die Anzeige direkt danach wieder geschlossen werden.</description>
+<pre>Der Testfall 287 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert Vertrag aus 287
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet den Anzeigentab mit dem gewählten Vertrag
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Der Anzeigentab wird geschlossen und der Benutzer befindet sich wieder im zuletzt offenen Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:20">
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="296" priority="C" title="Vertrag anzeigen und bearbeiten">
+<description>Ein Vertrag soll angezeigt werden und daraufhin bearbeitet werden.</description>
+<pre>Der Testfall 287 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert Vertrag aus 287
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet den Anzeigentab mit dem gewählten Vertrag
+
+* Benutzer klickt auf den Button "Bearbeiten		"</actions>
+<post>Der Bearbeitentab für den gewählten Vertrag wird geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:20">
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="297" priority="C" title="Vertrag anzeigen ohne Auswahl">
+<description>Ein Vertrag soll angezeigt werden, es ist jedoch keiner ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen und es erscheint eine entsprechende Fehlermeldung.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="27.06.2010" creator="aidGerTeam" name="Löschen" number="282">
+<description>Die Testsequenz enthält Testfälle zum Löschen eines Vertrags aus der Datenbank.</description>
+<pre/>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:20">
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="291" priority="C" title="Vertrag löschen ohne Referenz">
+<description>Es soll ein Vertrag gelöscht werden, was korrekt funktioniert. </description>
+<pre>Der Testfall 287 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den in 287 erstellten Vertrag
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im selben Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:21" outcome="Ok" postok="Y" preok="Y" starttime="22:21">
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="292" priority="C" title="Vertrag löschen mit Referenz">
+<description>Es soll ein Vertrag gelöscht werden, der noch von einer Beschäftigung referenziert wird.</description>
+<pre>Der Testfall 287 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den in 287 erstellten Vertrag
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Ein Fehler-Popup wird angezeigt, da der Vertrag noch mit einer Beschäftigung verknüpft ist.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:21" outcome="Ok" postok="Y" preok="Y" starttime="22:21">
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="293" priority="C" title="Vertrag löschen mit Taste Entf">
+<description>Es soll ein Vertrag durch Drücken der Taste Entf gelöscht werden.</description>
+<pre>Der Testfall 287 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den in 287 erstellten Vertrag
+
+* Benutzer drückt die Entf-Taste
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im selben Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:21" outcome="Ok" postok="Y" preok="Y" starttime="22:21">
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="294" priority="C" title="Abbruch: Vertrag löschen">
+<description>Es soll ein Vertrag gelöscht werden. Dies wird jedoch abgebrochen</description>
+<pre>Der Testfall 287 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den in 287 erstellten Vertrag
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Nein"</actions>
+<post>Das Bestätigungs-Popup wird geschlossen und der Vertrag ist weiterhin in der Datenbank vorhanden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+</executedsequence>
+</testrun>
 </tsa>
 <tsa name="Beschäftigungen" number="7" revId="2">
 <relatedsequence>7</relatedsequence>
+<tsa name="Löschen" number="104" revId="1">
+<relatedsequence>104</relatedsequence>
+</tsa>
 </tsa>
 </tsa>
 </tsa>
