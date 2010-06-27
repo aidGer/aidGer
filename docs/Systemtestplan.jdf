@@ -1565,200 +1565,86 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 <sequence created="13.05.2010" creator="aidGerTeam" name="Hinzufügen" number="102">
 <description>Die Testsequenz enthält Testfälle zum Hinzufügen einer Beschäftigung in die Datenbank.</description>
 <pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:10" number="159" priority="A" title="Beschäftigung mit neuem Vertrag korrekt buchen">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:10" number="159" priority="A" title="Beschäftigung korrekt buchen">
 <description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt. Dabei wird ein neuer Vertrag zur Beschäftigung angelegt.</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44 und 28 wurden ausgeführt.</pre>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 28, 44, 287 wurden ausgeführt.</pre>
 <actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
 
 * Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
 
 * Benutzer gibt den Fonds "12345678" ein
 
-* Benutzer gibt die Kostenstelle "Studiengebühren" ein
+* Benutzer gibt die Kostenstelle "Studiengeb" ein
 
 * Benutzer gibt die Bemerkung "keine" ein
 
-* Benutzer wählt den Startmonat "November" aus
+* Benutzer fügt das Datum "11.2010" mit 30 HKS hinzu
 
-* Benutzer wählt das Startjahr "2010" aus
+* Benutzer fügt das Datum "12.2010" mit 20 HKS hinzu
 
-* Benutzer wählt den Endmonat "Januar" aus
+* Benutzer fügt das Datum "01.2010" mit 45 HKS hinzu
 
-* Benutzer wählt das Endjahr "2011" aus
-
-* Benutzer gibt für November 2010 30 HKS ein.
-
-* Benutzer gibt für Dezember 2010 20 HKS ein.
-
-* Benutzer gibt für Januar 2010 45 HKS ein.
-
-* Benutzer klickt auf den Button "+", um einen Vertrag der Beschäftigung hinzuzufügen
-
-* Benutzer gibt das Abschlußdatum "10.10.2010" ein
-
-* Benutzer lässt das Bestätigungsdatum leer
-
-* Benutzer setzt nicht das Häkchen bei "Einstellung nach Delegationsverfahren"
-
-* Benutzer lässt den Standardwert bei Beschätigungsbeginn
-
-* Benutzer lässt den Standardwert bei Beschäftigungsende
-
-* Benutzer gibt bei Art des Vertrags "Neuvertrag" ein
-
-* Benutzer klickt auf den Button "Speichern"
-
-* Benutzer wählt den neu erstellten Vertrag aus
+* Benutzer wählt den Vertrag aus Testfall 287
 
 * Benutzer klickt auf den Button "Speichern"</actions>
 <post>Die Beschäftigung wurde im System mit den korrekten Werten vollständig gespeichert. Die Vertragsdaten wurden außerdem zur Beschäftigung korrekt zugeordnet und abgespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehrt zum Menüpunkt Beschäftigungen im alten Reiter zurück.</post>
 <tags/>
 </testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:10" number="168" priority="A" title="Beschäftigung mit neuem Vertrag korrekt buchen">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:10" number="168" priority="A" title="Beschäftigung korrekt buchen">
 <description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt. Dabei wird ein neuer Vertrag zur Beschäftigung angelegt.</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 39 wurden ausgeführt.</pre>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 39, 45 und 287 wurden ausgeführt.</pre>
 <actions>* Benutzer wählt die Hilfskraft "Peter Planlos" aus
 
 * Benutzer wählt die Veranstaltung "Laufende Forschung" aus
 
 * Benutzer gibt den Fonds "87654321" ein
 
-* Benutzer gibt die Kostenstelle "Studiengebühren" ein
+* Benutzer gibt die Kostenstelle "Studiengeb" ein
 
 * Benutzer lässt das Bemerkungsfeld leer
 
-* Benutzer wählt den Startmonat "Januar" aus
+* Benutzer fügt das Datum "01.2010 mit "10" HKS hinzu
 
-* Benutzer wählt das Startjahr "2010" aus
+* Benutzer fügt das Datum "02.2010" mit "10" HKS hinzu
 
-* Benutzer wählt den Endmonat "April" aus
+* Benutzer fügt das Datum "03.2010" mit "15" HKS hinzu
 
-* Benutzer wählt das Endjahr "2010" aus
+* Benutzer fügt das Datum "04.2010" mit "12" HKS hinzu
 
-* Benutzer gibt für Januar 2010 "10" HKS ein
-
-* Benutzer gibt für Februar 2010 "10" HKS ein
-
-* Benutzer gibt für März 2010 "15" HKS ein
-
-* Benutzer gibt für April 2010 "12" HKS ein
-
-* Benutzer klickt auf den Button "+", um einen neuen Vertrag anzulegen
-
-* Benutzer gibt das Abschlußdatum "11.12.2009" ein
-
-* Benutzer lässt das Bestätigungsdatum leer
-
-* Benutzer setzt das Häkchen bei "Einstellung nach Delegationsverfahren"
-
-* Benutzer lässt den Standardwert bei Beschätigungsbeginn
-
-* Benutzer lässt den Standardwert bei Beschäftigungsende
-
-* Benutzer gibt bei Art des Vertrags "Aufstockung" ein
-
-* Benutzer klickt auf den Button "Speichern"
+* Benutzer wählt den Vertrag aus Testfall 287
 
 * Benutzer klickt auf den Button "Speichern"</actions>
 <post>Die Beschäftigung wurde im System mit den korrekten Werten vollständig gespeichert. Die Vertragsdaten wurden außerdem zur Beschäftigung korrekt zugeordnet und abgespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehrt zum Menüpunkt Beschäftigungen im alten Reiter zurück.</post>
 <tags/>
 </testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:10" number="177" priority="A" title="Beschäftigung mit bestehenden Vertrag korrekt buchen">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:10" number="177" priority="A" title="Beschäftigung korrekt buchen">
 <description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt. Dabei wird ein neuer Vertrag zur Beschäftigung angelegt.</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45, 38 und 168 wurden ausgeführt.</pre>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 38, 45 und 287 wurden ausgeführt.</pre>
 <actions>* Benutzer wählt die Hilfskraft "Peter Planlos" aus
 
 * Benutzer wählt die Veranstaltung "Mensa überleben für Pizza-Fans" aus
 
 * Benutzer gibt den Fonds "87654321" ein
 
-* Benutzer gibt die Kostenstelle "Studiengebühren" ein
+* Benutzer gibt die Kostenstelle "Studiengeb" ein
 
 * Benutzer lässt das Bemerkungsfeld leer
 
-* Benutzer wählt den Startmonat "Januar" aus
+* Benutzer fügt das Datum "01.2010" mit "10" HKS hinzu
 
-* Benutzer wählt das Startjahr "2010" aus
+* Benutzer fügt das Datum "02.2010" mit "10" HKS hinzu
 
-* Benutzer wählt den Endmonat "April" aus
+* Benutzer fügt das Datum "03.2010" mit "15" HKS hinzu
 
-* Benutzer wählt das Endjahr "2010" aus
+* Benutzer fügt das Datum "04.2010" mit "12" HKS hinzu
 
-* Benutzer gibt für Januar 2010 "10" HKS ein
-
-* Benutzer gibt für Februar 2010 "10" HKS ein
-
-* Benutzer gibt für März 2010 "15" HKS ein
-
-* Benutzer gibt für April 2010 "12" HKS ein
-
-* Benutzer wählt den Vertrag aus Testfall 168 aus
+* Benutzer wählt den Vertrag aus Testfall 287 aus
 
 * Benutzer klickt auf den Button "Speichern"</actions>
 <post>Die Beschäftigung wurde im System mit den korrekten Werten vollständig gespeichert. Die bestehenden Vertragsdaten wurden außerdem zur Beschäftigung korrekt zugeordnet und abgespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehrt zum Menüpunkt Beschäftigungen im alten Reiter zurück.</post>
 <tags/>
 </testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="161" priority="A" title="Beschäftigung inkorrekt buchen">
-<description>Es soll eine Beschäftigung gebucht werden. Es wurden falsche Eingaben gemacht.</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 38 wurden ausgeführt.</pre>
-<actions>* Benutzer wählt die Hilfskraft "Peter Planlos" aus
-
-* Benutzer wählt die Veranstaltung "Mensa überleben für Pizza-Fans" aus
-
-* Benutzer gibt den Fonds "1234" ein
-
-* Benutzer gibt die Kostenstelle "Studiengebühren" ein
-
-* Benutzer gibt die Bemerkung "keine" ein
-
-* Benutzer wählt den Startmonat "November" aus
-
-* Benutzer wählt das Startjahr "2010" aus
-
-* Benutzer wählt den Endmonat "Mai" aus
-
-* Benutzer wählt das Endjahr "2010" aus
-
-* Benutzer wählt keinen Vertrag aus oder fügt einen neuen hinzu
-
-* Benutzer klickt auf den Button "Speichern"</actions>
-<post>Die Beschätigung wurde nicht gespeichert. Der Benutzer wird darüber informiert, dass das Format des Fonds nicht stimmt. Des weiteren bekommt er die Fehlermeldung, dass das Enddatum vor dem Startdatum liegt. Zudem wird er darüber informiert, dass er keine Vertragsdaten angegeben wurden. Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</post>
-<tags/>
-</testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="162" priority="A" title="Beschäftigung inkorrekt buchen">
-<description>Es soll eine Beschäftigung gebucht werden. Es wurden falsche Eingaben gemacht.</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 38 wurden ausgeführt.</pre>
-<actions>* Benutzer wählt die Hilfskraft "Peter Planlos" aus
-
-* Benutzer gibt den Fonds "12344321" ein
-
-* Benutzer gibt die Kostenstelle "kein Plan" ein
-
-* Benutzer gibt die Bemerkung "wer will den überhaupt einstellen?" ein
-
-* Benutzer wählt den Startmonat "Mai" aus
-
-* Benutzer wählt das Startjahr "2010" aus
-
-* Benutzer wählt den Endmonat "August" aus
-
-* Benutzer wählt das Endjahr "2010" aus
-
-* Benutzer gibt für Mai 2010 "10" HKS ein
-
-* Benutzer gibt für Juni 2010 "viele" HKS ein
-
-* Benutzer gibt für Juli 2010 "einige" HKS ein
-
-* Benutzer gibt für August 2010 "33" HKS ein
-
-* Benutzer wählt keinen Vertrag aus oder fügt einen neuen hinzu
-
-* Benutzer klickt auf den Button "Weiter"</actions>
-<post>Die Beschätigung wurde nicht gespeichert. Der Benutzer wird darüber informiert, dass er keine Veranstaltung ausgewählt hat. Des weiteren bekommt er die Fehlermeldung, dass er das Format der HKS-Felder nicht eingehalten hat. Zudem wird er darüber informiert, dass er keine Vertragsdaten angegeben wurden. Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</post>
-<tags/>
-</testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="164" priority="A" title="Beschäftigung korrekt buchen, aber nicht möglich">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="164" priority="A" title="Beschäftigung korrekt buchen mit HKS-Übschreitung">
 <description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt. Die Buchung ist dennoch nicht möglich (gebuchte HKS &gt; genehmigte HKS).</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44, 28 und 168 wurden ausgeführt.</pre>
 <actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
@@ -1767,28 +1653,48 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 
 * Benutzer gibt den Fonds "12345678" ein
 
-* Benutzer gibt die Kostenstelle "Studiengebühren" ein
+* Benutzer gibt die Kostenstelle "Studiengeb" ein
 
 * Benutzer gibt die Bemerkung "leer" ein
 
-* Benutzer wählt den Startmonat "November" aus
+* Benutzer fügt das Datum "11.2010" mit 100 HKS hinzu
 
-* Benutzer wählt das Startjahr "2010" aus
+* Benutzer fügt das Datum "12.2010" mit 100 HKS hinzu
 
-* Benutzer wählt den Endmonat "Januar" aus
-
-* Benutzer wählt das Endjahr "2011" aus
-
-* Benutzer gibt für November 2010 100 HKS ein.
-
-* Benutzer gibt für Dezember 2010 100 HKS ein.
-
-* Benutzer gibt für Januar 2010 100 HKS ein.
+* Benutzer fügt das Datum "01.2010" mit 100 HKS hinzu
 
 * Benutzer wählt den Vertrag aus Testfall 168 aus.
 
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Die Beschäftigung wurde im System nicht gespeichert. Die gebuchen HKS sind größer als die genehmigten HKS für diese Veranstaltung. Der Benutzer wird darüber informiert.</post>
+<post>Die Beschäftigung wurde im System gespeichert. Da die gebuchten HKS größer sind als die genehmigten HKS der Veranstaltung wird eine Warnung für den Benutzer ausgegeben.</post>
+<tags/>
+</testcase>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="161" priority="A" title="Beschäftigung inkorrekt buchen">
+<description>Es soll eine Beschäftigung gebucht werden. Es wurden falsche Eingaben gemacht.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 38, 45 und 287 wurden ausgeführt.</pre>
+<actions>* Benutzer wählt die Hilfskraft "Peter Planlos" aus
+
+* Benutzer wählt die Veranstaltung "Mensa überleben für Pizza-Fans" aus
+
+* Benutzer gibt den Fonds "12344321" ein
+
+* Benutzer lässt die Kostenstelle leer
+
+* Benutzer gibt die Bemerkung "keine" ein
+
+* Benutzer fügt das Datum "01.2010 ohne HKS hinzu
+
+* Benutzer fügt das Datum "02.2010" mit "10" HKS hinzu
+
+* Benutzer fügt das Datum "03.2010" mit "15" HKS hinzu
+
+* Benutzer fügt das Datum "04.2010" mit "12" HKS hinzu
+
+* Benutzer wählt den Vertrag aus Testfall 287
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Beschäftigung wurde nicht gespeichert. Der Benutzer wird darüber informiert, dass die Kostenstelle leer ist und das eine Stundenanzahl fehlt.
+Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</post>
 <tags/>
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="163" priority="A" title="Abbruch: Beschäftigung buchen">
@@ -1800,7 +1706,7 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 
 * Benutzer gibt den Fonds "12345678" ein
 
-* Benutzer gibt die Kostenstelle "Studiengebühren" ein
+* Benutzer gibt die Kostenstelle "Studiengeb" ein
 
 * Benutzer gibt die Bemerkung "keine" ein
 
@@ -1821,8 +1727,6 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 
 * Benutzer klickt auf den Button "Bearbeiten"
 
-* Benutzer gibt den neuen Fonds "87655678" ein
-
 * Benutzer gibt die Bemerkung "Er forscht gut." ein
 
 * Benutzer klickt auf den Button "Speichern"</actions>
@@ -1836,12 +1740,10 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 
 * Benutzer klickt auf den Button "Bearbeiten"
 
-* Benutzer gibt den neuen Fonds "irgendeine Nummer" ein
-
-* Benutzer gibt für Dezember 2010 "keine" HKS ein
+* Benutzer gibt für Dezember 2010 "zwanzig" ein
 
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Die geänderte Beschäftigung wurde in der Datenbank nicht gespeichert. Der Benutzer wird darüber informiert, dass er das Format des Fonds nicht erfüllt hat. Außerdem bekommt er die Meldung, dass für die HKS-Angabe nur Zahlen erlaubt sind. Das Bearbeiten-Tab bleibt offen, damit er seine Eingaben verbessern kann.</post>
+<post>Die geänderte Beschäftigung wurde in der Datenbank nicht gespeichert. Der Benutzer wird darüber informiert, dass für die HKS-Angabe nur Zahlen erlaubt sind. Das Bearbeiten-Tab bleibt offen, damit er seine Eingaben verbessern kann.</post>
 <tags/>
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="170" priority="B" title="Abbruch: Beschäftigung bearbeiten">
@@ -1851,7 +1753,7 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 
 * Benutzer klickt auf den Button "Bearbeiten"
 
-* Benutzer gibt den neuen Fonds "11112222" ein
+* Benutzer gibt die Bemerkung "Er forscht gut." ein
 
 * Benutzer klickt auf den Button "Abbrechen"</actions>
 <post>Die geänderte Beschäftigung wird nicht in der Datenbank hinterlegt und das System kehrt zum vorher angezeigten Tab zurück.</post>
@@ -1887,7 +1789,7 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 
 * System geht in den "Bearbeiten"-Tab über
 
-* Benutzer gibt den Fonds "77774444" ein
+* Benutzer gibt die Bemerkung "Er forscht gut." ein
 
 * Benutzer gibt die Kostenstelle "Sonstiges" ein
 
