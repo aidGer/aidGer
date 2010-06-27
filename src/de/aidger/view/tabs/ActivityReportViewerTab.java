@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
+import de.aidger.controller.actions.ActivityReportExportAction;
 import de.aidger.controller.actions.ActivityReportGenerateAction;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.reports.ActivityEmployment;
@@ -50,10 +51,46 @@ public class ActivityReportViewerTab extends Tab {
         try {
             generateButton.setAction(ActionRegistry.getInstance().get(
                 ActivityReportGenerateAction.class.getName()));
+            exportButton.setAction(ActionRegistry.getInstance().get(
+                ActivityReportExportAction.class.getName()));
         } catch (ActionNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        exportButton.setVisible(false);
+        jSeparator3.setVisible(false);
+    }
+
+    public String getAssistantName() {
+        return assistantNameContentLabel.getText();
+    }
+
+    /**
+     * Sets the export button and its separator to be visible.
+     */
+    public void visualizeExportButton() {
+        exportButton.setVisible(false);
+        exportButton.setVisible(true);
+        jSeparator3.setVisible(false);
+        jSeparator3.setVisible(true);
+    }
+
+    /**
+     * Returns all the rows of the table.
+     * 
+     * @return The rows of the table.
+     */
+    public Vector<String[]> getRows() {
+        Vector<String[]> returnVector = new Vector<String[]>();
+        for (int i = 0; i < contentTableModel.getRowCount(); i++) {
+            String[] returnString = new String[contentTableModel
+                .getColumnCount()];
+            for (int j = 0; j < contentTableModel.getColumnCount(); j++) {
+                returnString[j] = contentTableModel.getValueAt(i, j).toString();
+            }
+            returnVector.add(returnString);
+        }
+        return returnVector;
     }
 
     /**
