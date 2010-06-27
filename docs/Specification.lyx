@@ -791,25 +791,8 @@ Vertrag
 \end_layout
 
 \begin_layout Standard
-Bei Budgetüberschreitungen, d.h.
- die gebuchten HKS einer Veranstaltung sind größer als die eingeplanten
- HKS, soll eine (
-\begin_inset Quotes gld
-\end_inset
-
-softe
-\begin_inset Quotes grd
-\end_inset
-
-) Warnung ausgegeben werden.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-Es müssen Beschäftigungen einzeln gelöscht werden können (siehe auch 
+Es müssen zudem Beschäftigungen einzeln gelöscht werden können (siehe auch
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Stammdatenverwaltung"
@@ -817,6 +800,44 @@ reference "sub:Stammdatenverwaltung"
 \end_inset
 
 ).
+\end_layout
+
+\begin_layout Subsubsection
+Überprüfen von Limits
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Überprüfen-von-Limits"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Beim Anlegen von Beschäftigungen müssen die folgende Limits eingehalten
+ und daher von aidGer automatisch geprüft werden:
+\end_layout
+
+\begin_layout Itemize
+Hat die Hilfskraft die Beschäftigungsgrenze von 6 Jahre überschritten? (Überprüf
+ung für beide Qualifikationen: Ungeprüft / Bachelor und Geprüft) 
+\end_layout
+
+\begin_layout Itemize
+Hat die Hilfskraft durch die neuen Beschäftigungen in den angegeben Zeitpunkte
+ mehr als eine Stundenanzahl von 85h? (Die vorherigen Beschäftigungen müssen
+ dabei berücksichtigt werden.)
+\end_layout
+
+\begin_layout Itemize
+Sind durch die Beschäftigung die gebuchten HKS der Veranstaltung größer
+ als die gesamt verfügbaren HKS?
+\end_layout
+
+\begin_layout Itemize
+Wurden die Budgetkosten eines Finanzmittels aus der Finanzkategorie der
+ Veranstaltung der Beschäftigung durch die neuen Beschäftigungen überschritten,
+ die auch dem Funds zugeordnet sind?
 \end_layout
 
 \begin_layout Subsection
@@ -858,27 +879,6 @@ Art des Vertrags (z.B.
 
 \begin_layout Itemize
 Einstellung nach Delegationsverfahren (ja / nein)
-\end_layout
-
-\begin_layout Standard
-Bei folgenden Ereignissen sollen (
-\begin_inset Quotes gld
-\end_inset
-
-softe
-\begin_inset Quotes grd
-\end_inset
-
-) Warnungen ausgegeben werden:
-\end_layout
-
-\begin_layout Itemize
-Bei überlappenden Verträgen in einem Zeitraum
-\end_layout
-
-\begin_layout Itemize
-Wenn eine Hilfskraft mit einem Vertrag insgesamt mehr als 6 Jahre beschäftigt
- wäre
 \end_layout
 
 \begin_layout Subsection
@@ -9767,6 +9767,29 @@ Versionshistorie
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Versionshistorie"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Version 0.4.1 (27.06.2010)
+\end_layout
+
+\begin_layout Itemize
+Ausführlichere Beschreibung der Überprüfungen des Budgetlimits in den Abschnitte
+n  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Buchung-von-Beschäftigungen"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Überprüfen-von-Limits"
 
 \end_inset
 
