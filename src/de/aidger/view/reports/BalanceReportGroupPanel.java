@@ -61,6 +61,16 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
      * Adds the courses of this group.
      */
     private void addCourses() {
+        Vector<Object> sums = new Vector<Object>();
+        /*
+         * Create the row for the sums.
+         */
+        sums.add(_("Sum"));
+        sums.add("");
+        sums.add("");
+        sums.add("");
+        sums.add(0.0);
+        sums.add(0.0);
         Vector<Integer> costUnits = new Vector<Integer>();
         Vector<BalanceCourse> balanceCourses = groupCreator.getBalanceCourses();
         for (Object balanceCourse : balanceCourses) {
@@ -73,6 +83,8 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
                 rowObjectVector.add(((BalanceCourse) balanceCourse)
                     .getCourseObject()[i]);
             }
+            sums.set(4, (Double) sums.get(4) + (Double) rowObjectVector.get(4));
+            sums.set(5, (Double) sums.get(5) + (Double) rowObjectVector.get(5));
             /*
              * If there are additional columns already, add empty strings to
              * them.
@@ -99,8 +111,25 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
                 rowObjectVector.set(costUnits.indexOf(budgetCostId) + 6,
                     budgetCost.getValue());
             }
+            for (int i = 6; i < rowObjectVector.size(); i++) {
+                if (sums.size() < i + 1) {
+                    if (!rowObjectVector.get(i).equals("")) {
+                        sums.add(rowObjectVector.get(i));
+                    }
+                } else {
+                    if (!rowObjectVector.get(i).equals("")) {
+                        sums.set(i, (Double) sums.get(i)
+                                + (Double) rowObjectVector.get(i));
+                    }
+                }
+            }
             addCourse(rowObjectVector.toArray());
         }
+        /*
+         * Add the sums of the costs and hours after an empty row.
+         */
+        addCourse(null);
+        addCourse(sums.toArray());
     }
 
     /**
@@ -110,7 +139,7 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
      *            The title of the column.
      */
     private void addEmptyColumn(String name) {
-        groupTableModel.addColumn(_("Budget costs from") + " " +  name);
+        groupTableModel.addColumn(_("Budget costs from") + " " + name);
     }
 
     /**
