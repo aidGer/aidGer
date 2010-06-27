@@ -1,4 +1,5 @@
 controller/actions/AboutAction.java
+controller/actions/ActivityReportGenerateAction.java
 controller/actions/BudgetExportAction.java
 controller/actions/BudgetGenerateAction.java
 controller/actions/ControllingExportAllAction.java
@@ -51,6 +52,7 @@ utils/pdf/ProtocolConverter.java
 utils/Anonymizer.java
 utils/Configuration.java
 view/forms/ActivityEditorForm.java
+view/forms/ActivityViewerForm.java
 view/forms/AssistantEditorForm.java
 view/forms/AssistantViewerForm.java
 view/forms/ContractEditorForm.java
