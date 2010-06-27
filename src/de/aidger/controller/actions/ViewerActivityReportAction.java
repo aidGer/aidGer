@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.ImageIcon;
 
 import de.aidger.model.models.Assistant;
 import de.aidger.view.UI;
@@ -25,9 +26,8 @@ public class ViewerActivityReportAction extends AbstractAction {
      */
     public ViewerActivityReportAction() {
         putValue(Action.NAME, _("Activity Report"));
-        // TODO
-        //putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-        //        "/de/aidger/view/icons/")));
+        putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
+            "/de/aidger/view/icons/report.png")));
     }
 
     /**

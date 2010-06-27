@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-06-26 20:22+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
+"Last-Translator: \n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1086,12 +1086,11 @@ msgstr "Filter"
 
 #: view/tabs/ActivityReportViewerTab.java:18
 msgid "Period"
-msgstr ""
+msgstr "Zeitraum"
 
 #: view/tabs/ActivityReportViewerTab.java:18
-#, fuzzy
 msgid "Extent"
-msgstr "Inhalt"
+msgstr "Umfang"
 
 #: view/tabs/ActivityReportViewerTab.java:67
 #, fuzzy
@@ -1099,9 +1098,8 @@ msgid "Assistang"
 msgstr "Hilfskraft"
 
 #: view/tabs/ActivityReportViewerTab.java:97
-#, fuzzy
 msgid "Assistant name"
-msgstr "Hilfskraft"
+msgstr "Name der Hilfskraft"
 
 #: view/tabs/BalanceViewerTab.java:87
 msgid "Semester:"
@@ -1637,89 +1635,127 @@ msgstr "Das Model konnte nicht aus der Datenbank geholt werden"
 #, fuzzy
 #~ msgid "Assistant budgets"
 #~ msgstr "Hilfskräfte"
+
 #~ msgid "Budget viewing"
 #~ msgstr "Budgetanzeige"
+
 #~ msgid "Protocol Viewing"
 #~ msgstr "Protokollanzeige"
+
 #~ msgid "Create activity"
 #~ msgstr "Vorgang anlegen"
+
 #~ msgid "Budget Check"
 #~ msgstr "Budgetprüfung"
+
 #~ msgid "View budget checks"
 #~ msgstr "Budgetprüfung anzeigen"
+
 #~ msgid "Activites"
 #~ msgstr "Vorgänge"
+
 #~ msgid "Choose a month"
 #~ msgstr "Wähle einen Monat"
+
 #~ msgid "Only a number with maximum length of 9 is allowed."
 #~ msgstr "Nur eine Zahl mit einer Maximallänge von 9 ist erlaubt."
+
 #~ msgid "Add Filter"
 #~ msgstr "Filter hinzufügen"
+
 #~ msgid "Granted AWH"
 #~ msgstr "Genehmigte HKS"
+
 #~ msgid ""
 #~ "You have hired the unchecked or bachelor assistant more than 6 years."
 #~ msgstr ""
 #~ "Sie haben die ungeprüfte oder Bachelor Hilfskraft mehr als 6 Jahre "
 #~ "eingestellt."
+
 #~ msgid "Create new employment"
 #~ msgstr "Neue Beschäftigung anlegen"
+
 #~ msgid "Budget costs from student fees"
 #~ msgstr "Plankosten aus Studiengebühren"
+
 #~ msgid "Budget costs from resources"
 #~ msgstr "Plankosten aus Haushaltsmitteln"
 
 #, fuzzy
 #~ msgid "Cost Unit"
 #~ msgstr "Kostenstelle"
+
 #~ msgid "Master Data"
 #~ msgstr "Stammdaten"
+
 #~ msgid "Protocol"
 #~ msgstr "Vorgangsprotokoll"
+
 #~ msgid "Financial Category Viewing"
 #~ msgstr "Finanzkategorieanzeige"
+
 #~ msgid "Fund"
 #~ msgstr "Fund"
+
 #~ msgid "eMail Address"
 #~ msgstr "Emailaddresse"
+
 #~ msgid "Comment"
 #~ msgstr "Kommentar"
+
 #~ msgid "Approved HKS"
 #~ msgstr "Genehmigte HKS"
+
 #~ msgid "Hourly Wage Viewing"
 #~ msgstr "Stundenlohnanzeige"
+
 #~ msgid "Effective Date"
 #~ msgstr "Zeitpunkt der Inkrafttretung"
+
 #~ msgid "Welcome"
 #~ msgstr "Willkommen"
+
 #~ msgid "Partial Balance"
 #~ msgstr "Teilbilanz"
+
 #~ msgid "Existing filters"
 #~ msgstr "Existierende Filter"
+
 #~ msgid "Could not remove model from database."
 #~ msgstr "Das Model konnte nicht aus der Datenbank gelöscht werden."
+
 #~ msgid "Readding model: {0}"
 #~ msgstr "Füge Model erneut hinzu: {0}"
+
 #~ msgid "Caught exception in getActivities(assistant): {0}"
 #~ msgstr "Ausnahme in getActivities(assistant): {0}"
+
 #~ msgid "Caught exception in getActivities(course): {0}"
 #~ msgstr "Ausnahme in getActivities(course): {0}"
+
 #~ msgid "Fonds"
 #~ msgstr "Fonds"
+
 #~ msgid "Validation failed."
 #~ msgstr "Validierung ist fehlgeschlagen."
+
 #~ msgid "Show/Hide Columns"
 #~ msgstr "Spalten ein-/ausblenden"
+
 #~ msgid "Removing tab at position {0}"
 #~ msgstr "{0}. Tab gelöscht"
+
 #~ msgid "Adding new empty tab"
 #~ msgstr "Neuer leerer Tab hinzugefügt"
+
 #~ msgid "More"
 #~ msgstr "Mehr"
+
 #~ msgid "Abort"
 #~ msgstr "Abbrechen"
+
 #~ msgid "New Tab"
 #~ msgstr "Neuer Reiter"
+
 #~ msgid "Financial Plans"
 #~ msgstr "Finanzpläne"
-

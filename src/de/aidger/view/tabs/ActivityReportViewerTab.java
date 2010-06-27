@@ -73,6 +73,8 @@ public class ActivityReportViewerTab extends Tab {
      */
     public void createReport(Assistant assistant) {
         clearTable();
+        assistantNameContentLabel.setText(assistant.getFirstName() + " "
+                + assistant.getLastName());
         ActivityReportHelper reportHelper = new ActivityReportHelper();
         Vector<ActivityEmployment> activityEmployments = reportHelper
             .getEmployments(assistant);
