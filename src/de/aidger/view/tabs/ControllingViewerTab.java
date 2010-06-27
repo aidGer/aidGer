@@ -295,15 +295,19 @@ public class ControllingViewerTab extends ReportTab {
 
         generateButton.setText(_("Generate"));
         generateButton.setFocusable(false);
-        generateButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        generateButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        generateButton
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        generateButton
+            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(generateButton);
         jToolBar1.add(jSeparator1);
 
         exportAllButton.setText(_("Export"));
         exportAllButton.setFocusable(false);
-        exportAllButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        exportAllButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        exportAllButton
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportAllButton
+            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         exportAllButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exportAllButtonActionPerformed(evt);
@@ -314,8 +318,10 @@ public class ControllingViewerTab extends ReportTab {
 
         exportDifferencesButton.setText(_("Export differences"));
         exportDifferencesButton.setFocusable(false);
-        exportDifferencesButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        exportDifferencesButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        exportDifferencesButton
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportDifferencesButton
+            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(exportDifferencesButton);
         jToolBar1.add(jSeparator4);
 
@@ -323,7 +329,8 @@ public class ControllingViewerTab extends ReportTab {
 
         contentPanel.setLayout(new java.awt.BorderLayout());
 
-        filtersPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        filtersPanel
+            .setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         yearLabel.setText(_("Year") + ":");
         filtersPanel.add(yearLabel);
@@ -412,6 +419,7 @@ public class ControllingViewerTab extends ReportTab {
     private javax.swing.JPanel tablePanel;
     private javax.swing.JComboBox yearComboBox;
     private javax.swing.JLabel yearLabel;
+
     // End of variables declaration//GEN-END:variables
     /*
      * (non-Javadoc)

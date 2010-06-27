@@ -94,6 +94,11 @@ public class BalanceReportConverter {
     private static String name;
 
     /**
+     * The sums of this report.
+     */
+    private Vector<Object> sums;
+
+    /**
      * Initializes this BalanceReportConverter with a given path and a name.
      * 
      * @param file
@@ -451,6 +456,10 @@ public class BalanceReportConverter {
             for (int i = 0; i < 6; i++) {
                 rowObjectVector.add((balanceCourse).getCourseObject()[i]);
             }
+
+            sums.set(4, (Double) sums.get(4) + (Double) rowObjectVector.get(4));
+            sums.set(5, (Double) sums.get(5) + (Double) rowObjectVector.get(5));
+
             int i = 0;
             for (Integer costUnit : costUnits) {
                 boolean foundCostUnit = false;
@@ -466,7 +475,15 @@ public class BalanceReportConverter {
                     }
                 }
                 if (!foundCostUnit) {
-                    rowObjectVector.add("0.00");
+                    rowObjectVector.add(0.0);
+                }
+                if (sums.size() < rowObjectVector.size()) {
+                    sums.add(rowObjectVector.get(rowObjectVector.size() - 1));
+                } else {
+                    sums.set(rowObjectVector.size() - 1, (Double) sums
+                        .get(rowObjectVector.size() - 1)
+                            + (Double) rowObjectVector.get(rowObjectVector
+                                .size() - 1));
                 }
             }
             for (Object courseObject : rowObjectVector.toArray()) {
@@ -505,6 +522,7 @@ public class BalanceReportConverter {
         balanceReportGroupCreator = new BalanceReportGroupCreator(course,
             calculationMethod);
         List<ICourse> courses = null;
+        sums = new Vector<Object>();
         try {
             courses = (new Course()).getAll();
         } catch (AdoHiveException e) {
@@ -544,7 +562,10 @@ public class BalanceReportConverter {
         }
         int columnCount = titles.size();
         Font tableTitleFont;
+        Font tableContentFont;
         try {
+            tableContentFont = new Font(BaseFont.createFont(BaseFont.HELVETICA,
+                BaseFont.CP1252, BaseFont.EMBEDDED), 9);
             tableTitleFont = new Font(BaseFont.createFont(
                 BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.EMBEDDED), 9);
 
@@ -596,10 +617,41 @@ public class BalanceReportConverter {
             PdfPCell cell = new PdfPCell(groupContentTable);
             cell.setBorder(0);
             groupTable.addCell(cell);
+            sums.add(_("Sum"));
+            sums.add("");
+            sums.add("");
+            sums.add("");
+            sums.add(0.0);
+            sums.add(0.0);
             for (Object balanceCourse : balanceCourses) {
                 groupTable.addCell(addRow((BalanceCourse) balanceCourse,
                     columnWidths, costUnits));
             }
+            PdfPTable emptyRow = new PdfPTable(columnWidths);
+            PdfPTable sumRow = new PdfPTable(columnWidths);
+            for (int i = 0; i < sums.size(); i++) {
+                cell = new PdfPCell(new Phrase(""));
+                if (i != 0) {
+                    cell.setBorder(Rectangle.TOP + Rectangle.LEFT);
+                } else {
+                    cell.setBorder(Rectangle.TOP);
+                }
+                emptyRow.addCell(cell);
+                cell = new PdfPCell(new Phrase(new Phrase(sums.get(i)
+                    .toString(), tableContentFont)));
+                if (i != 0) {
+                    cell.setBorder(Rectangle.TOP + Rectangle.LEFT);
+                } else {
+                    cell.setBorder(Rectangle.TOP);
+                }
+                sumRow.addCell(cell);
+            }
+            cell = new PdfPCell(emptyRow);
+            cell.setBorder(0);
+            groupTable.addCell(cell);
+            cell = new PdfPCell(sumRow);
+            cell.setBorder(0);
+            groupTable.addCell(cell);
             groupTable.setKeepTogether(true);
 
             balanceReportGroups.add(new Vector<Object>());
