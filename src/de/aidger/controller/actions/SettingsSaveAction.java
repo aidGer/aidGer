@@ -108,6 +108,9 @@ public class SettingsSaveAction extends AbstractAction {
             return;
         }
 
+        Runtime.getInstance().setOption("calc-method", Integer.toString(
+                dlg.getSelectedMethod()));
+
         dlg.setVisible(false);
         dlg.dispose();
 

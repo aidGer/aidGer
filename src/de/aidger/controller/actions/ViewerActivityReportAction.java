@@ -30,17 +30,6 @@ public class ViewerActivityReportAction extends AbstractAction {
             "/de/aidger/view/icons/report.png")));
     }
 
-    /**
-     * Whether this activity report is being created from the assistant viewer
-     * or the taskpane.
-     * 
-     * @author aidGer Team
-     * 
-     */
-    public enum type {
-        assistantViewer, taskPane
-    };
-
     /*
      * (non-Javadoc)
      * 
