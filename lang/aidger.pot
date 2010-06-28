@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-28 16:20+0200\n"
+"POT-Creation-Date: 2010-06-28 16:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -274,7 +274,7 @@ msgid "Quit the program"
 msgstr ""
 
 #: controller/actions/FirstStartCloseAction.java:25 view/AboutDialog.java:37
-#: view/FirstStartDialog.java:84
+#: view/FirstStartDialog.java:87
 msgid "Close"
 msgstr ""
 
@@ -283,7 +283,7 @@ msgid "Close the dialog"
 msgstr ""
 
 #: controller/actions/FirstStartCloseAction.java:40
-msgid "The name can't be empty"
+msgid "No initials entered"
 msgstr ""
 
 #: controller/actions/HelpAction.java:34 view/UI.java:572
@@ -1327,7 +1327,7 @@ msgid "They are using funds of {0} Euros."
 msgstr ""
 
 #: view/tabs/WelcomeTab.java:137 view/tabs/WelcomeTab.java:266
-#: view/FirstStartDialog.java:78
+#: view/FirstStartDialog.java:81
 msgid "Welcome to aidGer"
 msgstr ""
 
@@ -1363,35 +1363,35 @@ msgstr ""
 msgid "Close tab"
 msgstr ""
 
-#: view/FirstStartDialog.java:71
+#: view/FirstStartDialog.java:74
 msgid "First Start"
 msgstr ""
 
-#: view/FirstStartDialog.java:80
+#: view/FirstStartDialog.java:83
 msgid "Before you can start working, please enter your Name."
 msgstr ""
 
-#: view/FirstStartDialog.java:82
+#: view/FirstStartDialog.java:85
 msgid "It will be used in all your activities."
 msgstr ""
 
-#: view/FirstStartDialog.java:86
-msgid "Name:"
-msgstr ""
-
-#: view/FirstStartDialog.java:88
-msgid "While you enter your name, aidGer will try to connect to the database."
+#: view/FirstStartDialog.java:89 view/SettingsDialog.java:245
+msgid "Initials:"
 msgstr ""
 
 #: view/FirstStartDialog.java:91
+msgid "While you enter your name, aidGer will try to connect to the database."
+msgstr ""
+
+#: view/FirstStartDialog.java:94
 msgid "Trying to connect ..."
 msgstr ""
 
-#: view/FirstStartDialog.java:161
+#: view/FirstStartDialog.java:164
 msgid "Connection failed. Please check with your Administrator"
 msgstr ""
 
-#: view/FirstStartDialog.java:164
+#: view/FirstStartDialog.java:167
 msgid "Connection successfull."
 msgstr ""
 
@@ -1405,10 +1405,6 @@ msgstr ""
 
 #: view/SettingsDialog.java:243
 msgid "The amount of activities shown in detailviews."
-msgstr ""
-
-#: view/SettingsDialog.java:245
-msgid "Initials:"
 msgstr ""
 
 #: view/SettingsDialog.java:246 view/SettingsDialog.java:248

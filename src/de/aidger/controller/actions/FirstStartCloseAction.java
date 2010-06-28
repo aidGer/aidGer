@@ -37,7 +37,7 @@ public class FirstStartCloseAction extends AbstractAction {
             .getTopLevelAncestor();
 
         if (dlg.getEnteredName().isEmpty()) {
-            UI.displayError(_("The name can't be empty"));
+            UI.displayError(_("No initials entered"));
         } else {
             Runtime.getInstance().setOption("name", dlg.getEnteredName());
 

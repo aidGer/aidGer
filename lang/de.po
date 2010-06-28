@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-28 16:20+0200\n"
+"POT-Creation-Date: 2010-06-28 16:23+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -277,7 +277,7 @@ msgstr "Programm beenden"
 
 #: controller/actions/FirstStartCloseAction.java:25
 #: view/AboutDialog.java:37
-#: view/FirstStartDialog.java:84
+#: view/FirstStartDialog.java:87
 msgid "Close"
 msgstr "Schließen"
 
@@ -286,8 +286,8 @@ msgid "Close the dialog"
 msgstr "Den Dialog schließen"
 
 #: controller/actions/FirstStartCloseAction.java:40
-msgid "The name can't be empty"
-msgstr "Der Name darf nicht leer sein"
+msgid "No initials entered"
+msgstr "Keine Initialen eingegeben"
 
 #: controller/actions/HelpAction.java:34
 #: view/UI.java:572
@@ -1413,7 +1413,7 @@ msgstr "Sie verwenden {0} Euros an Kapital."
 
 #: view/tabs/WelcomeTab.java:137
 #: view/tabs/WelcomeTab.java:266
-#: view/FirstStartDialog.java:78
+#: view/FirstStartDialog.java:81
 msgid "Welcome to aidGer"
 msgstr "Willkommen zu aidGer"
 
@@ -1449,35 +1449,36 @@ msgstr "Öffne Browser auf http://www.aidger.de"
 msgid "Close tab"
 msgstr "Tab schließen"
 
-#: view/FirstStartDialog.java:71
+#: view/FirstStartDialog.java:74
 msgid "First Start"
 msgstr "Erster Start"
 
-#: view/FirstStartDialog.java:80
+#: view/FirstStartDialog.java:83
 msgid "Before you can start working, please enter your Name."
 msgstr "Bevor sie mit der Arbeit beginnen können, geben sie bitte ihren Namen an."
 
-#: view/FirstStartDialog.java:82
+#: view/FirstStartDialog.java:85
 msgid "It will be used in all your activities."
 msgstr "Dieser wird in allen Aktivitäten verwendet."
 
-#: view/FirstStartDialog.java:86
-msgid "Name:"
-msgstr "Name:"
+#: view/FirstStartDialog.java:89
+#: view/SettingsDialog.java:245
+msgid "Initials:"
+msgstr "Initialen"
 
-#: view/FirstStartDialog.java:88
+#: view/FirstStartDialog.java:91
 msgid "While you enter your name, aidGer will try to connect to the database."
 msgstr "Während sie ihren Namen eingeben, wird aidGer versuchen zur Datenbank zu verbinden."
 
-#: view/FirstStartDialog.java:91
+#: view/FirstStartDialog.java:94
 msgid "Trying to connect ..."
 msgstr "Versuche zur Datenbank zu verbinden ..."
 
-#: view/FirstStartDialog.java:161
+#: view/FirstStartDialog.java:164
 msgid "Connection failed. Please check with your Administrator"
 msgstr "Verbindung fehlgeschlagen. Bitte kontaktieren sie ihren Administrator."
 
-#: view/FirstStartDialog.java:164
+#: view/FirstStartDialog.java:167
 msgid "Connection successfull."
 msgstr "Verbindung erfolgreich."
 
@@ -1492,10 +1493,6 @@ msgstr "Anzahl der Vorgänge:"
 #: view/SettingsDialog.java:243
 msgid "The amount of activities shown in detailviews."
 msgstr "Anzahl der Vorgänge die in Detailansichten angezeigt werden"
-
-#: view/SettingsDialog.java:245
-msgid "Initials:"
-msgstr "Initialen"
 
 #: view/SettingsDialog.java:246
 #: view/SettingsDialog.java:248
@@ -1683,6 +1680,10 @@ msgstr "Inkorrekte Argumente wurden für den Reiter gespeichert"
 msgid "Getting the model from the database failed"
 msgstr "Das Model konnte nicht aus der Datenbank geholt werden"
 
+#~ msgid "The name can't be empty"
+#~ msgstr "Der Name darf nicht leer sein"
+#~ msgid "Name:"
+#~ msgstr "Name:"
 #~ msgid "Username is empty."
 #~ msgstr "Name ist leer."
 

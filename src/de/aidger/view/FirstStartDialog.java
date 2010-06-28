@@ -5,6 +5,7 @@ import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
 import de.aidger.controller.actions.FirstStartCloseAction;
 import de.aidger.model.models.Activity;
+import de.aidger.view.utils.InputPatternFilter;
 
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import java.awt.Color;
@@ -32,6 +33,8 @@ public class FirstStartDialog extends javax.swing.JDialog {
         } catch (ActionNotFoundException ex) {
             UI.displayError(ex.getMessage());
         }
+
+        InputPatternFilter.addFilter(nameTextField, "[a-zA-Z]{0,2}");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.
                 DO_NOTHING_ON_CLOSE);
@@ -73,7 +76,7 @@ public class FirstStartDialog extends javax.swing.JDialog {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setModal(true);
 
-        jLabel1.setFont(new java.awt.Font("DejaVu Sans", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("DejaVu Sans", 0, 24));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText(_("Welcome to aidGer"));
 
@@ -83,7 +86,7 @@ public class FirstStartDialog extends javax.swing.JDialog {
 
         jButton1.setText(_("Close"));
 
-        jLabel4.setText(_("Name:"));
+        jLabel4.setText(_("Initials:"));
 
         jLabel5.setText(_("While you enter your name, aidGer will try to connect to the database."));
 
