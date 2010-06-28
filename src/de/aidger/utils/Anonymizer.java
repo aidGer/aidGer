@@ -37,18 +37,19 @@ public class Anonymizer {
         checkCal.add(Calendar.DAY_OF_YEAR, time);
         Date checkDate = checkCal.getTime();
 
-
         // Try to find any existing Assistant Viewer Tabs to update them correctly
         List<AssistantTableModel> models = new ArrayList<AssistantTableModel>();
-        for (Tab t : UI.getInstance().getTabs()) {
-            if (t instanceof ViewerTab) {
-                ViewerTab v = (ViewerTab) t;
-                if (v.getTableModel() instanceof AssistantTableModel) {
-                    models.add((AssistantTableModel) v.getTableModel());
+
+        if (UI.getWindows().length > 0) {
+            for (Tab t : UI.getInstance().getTabs()) {
+                if (t instanceof ViewerTab) {
+                    ViewerTab v = (ViewerTab) t;
+                    if (v.getTableModel() instanceof AssistantTableModel) {
+                        models.add((AssistantTableModel) v.getTableModel());
+                    }
                 }
             }
         }
-
 
         try {
             List<IAssistant> assistants = (new Assistant()).getAll();
