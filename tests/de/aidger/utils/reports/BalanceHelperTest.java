@@ -417,7 +417,7 @@ public class BalanceHelperTest {
 
         balanceHelper = new BalanceHelper();
 
-        BalanceCourse result = balanceHelper.getBalanceCourse(course, 0);
+        BalanceCourse result = balanceHelper.getBalanceCourse(course);
 
         assertNotNull(result);
 
