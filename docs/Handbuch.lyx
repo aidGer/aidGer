@@ -1,0 +1,239 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass scrbook
+\use_default_options true
+\language ngerman
+\inputencoding utf8
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "Benutzerhandbuch aidGer"
+\pdf_author "aidGer Team"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref section
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language polish
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Benutzerhandbuch 
+\begin_inset Quotes pld
+\end_inset
+
+aidGer
+\begin_inset Quotes prd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Publishers
+aidGer Team 
+\end_layout
+
+\begin_layout Date
+28.06.2010
+\end_layout
+
+\begin_layout Author
+
+\lang english
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Authorgroup
+
+\lang english
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+
+\lang english
+Hinweise
+\end_layout
+
+\begin_layout Section
+
+\lang english
+Autoren und Webseite
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Autoren-und-Webseite"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+aidGer wurde im Rahmen des Software-Praktikums 2010 entwickelt von Christian
+ Buchgraber, Philipp Gildein und Philipp Pirrung.
+ Geleitet wurde das Praktikum von Daniel Kulesz als Kunde sowie Bla und
+ Blub als Betreuer.
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\lang english
+Die Webseite von aidGer, auf der es auch heruntergeladen werden kann befindet
+ sich unter folgender Adresse:
+\end_layout
+
+\begin_layout Quote
+\noindent
+
+\lang english
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.aidger.de
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Dort finden Sie auch Kontaktinformationen.
+\end_layout
+
+\begin_layout Section
+
+\lang english
+Leserkreis
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Dieses Benutzerhandbuch richtet sich in erster Linie an Benutzer von aidGer,
+ sowie an zukünftige Betreuer des Projektes.
+\end_layout
+
+\begin_layout Section
+
+\lang english
+Unterstützte Plattformen
+\end_layout
+
+\begin_layout Standard
+aidGer wurde in Java geschrieben und läuft auf jedem System, das Java 1.5
+ oder höher unterstützt.
+ Um den vollen Programmumfang nutzen zu können wird ein PDF-Betrachter wie
+ z.B.
+ Adobe Acrobat Reader benötigt.
+ Einige wenige Funktionen benötigen zudem Funktionen von Java 6.
+\end_layout
+
+\begin_layout Chapter
+Download und Installation
+\end_layout
+
+\begin_layout Section
+Download des Programms
+\end_layout
+
+\begin_layout Standard
+aidGer kann von der Webseite des Programms (siehe 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Autoren-und-Webseite"
+
+\end_inset
+
+) bezogen werden.
+\end_layout
+
+\begin_layout Section
+Installation und Programmstart
+\end_layout
+
+\begin_layout Standard
+Das plattformübergreifende 
+\emph on
+JAR-Archiv
+\emph default
+ benötigt keine Installation.
+ Auf den meisten System sollte das Programm mit einem Doppelklick auf das
+ 
+\emph on
+JAR-Archiv
+\emph default
+ gestartet werden können.
+\end_layout
+
+\begin_layout Standard
+\noindent
+Über die Kommandozeile kann aidGer mit 
+\family typewriter
+java -jar aidGer.jar
+\family default
+ gestartet werden.
+ Hierbei werden bei der Nutzung des Programms auftretende Fehler auf die
+ Konsole ausgegeben.
+\end_layout
+
+\end_body
+\end_document
