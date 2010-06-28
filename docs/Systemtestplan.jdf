@@ -78,7 +78,7 @@
 
 * Benutzer wählt das Enddatum "12.2008" aus
 
-* Benutzer klickt auf den Button "Abbrechen"	</actions>
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
 <post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
 <tags/>
 </testcase>
@@ -326,7 +326,7 @@
 
 * Benutzer gibt die Budgetkosten "6000" ein
 
-* Benutzer klickt auf den Button "Abbrechen"	</actions>
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
 <post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
 <tags/>
 </testcase>
@@ -605,7 +605,7 @@
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
 <actions>* Benutzer gibt den Vornamen "Trick" ein
 
-* Benutzer klickt auf den Button "Abbrechen"	</actions>
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
 <post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
 <tags/>
 </testcase>
@@ -984,7 +984,7 @@
 
 * Benutzer wählt die Finanzkategorie "Forschung" aus
 
-* Benutzer klickt auf den Button "Abbrechen"	</actions>
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
 <post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
 <tags/>
 </testcase>
@@ -1310,7 +1310,7 @@
 * Benutzer setzt "Delegation" auf "Ja"
 
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Der Benutzer wird informiert, dass er Falscheingaben gemacht hat: Das Beschäftigungsende liegt vor dem Beschäftigungsbeginn und das Bestätigungsdatum vor dem Abschlussdatum. 
+<post>Der Benutzer wird informiert, dass er Falscheingaben gemacht hat: Das Beschäftigungsende liegt vor dem Beschäftigungsbeginn und das Bestätigungsdatum vor dem Abschlussdatum.
 Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</post>
 <tags/>
 </testcase>
@@ -1330,7 +1330,7 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 * Benutzer setzt "Delegation" auf "Nein"
 
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Der Benutzer wird informiert, dass er Falscheingaben gemacht hat: Der Vertragstyp ist leer. 
+<post>Der Benutzer wird informiert, dass er Falscheingaben gemacht hat: Der Vertragstyp ist leer.
 Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</post>
 <tags/>
 </testcase>
@@ -1442,7 +1442,7 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 
 * System öffnet den Anzeigentab mit dem gewählten Vertrag
 
-* Benutzer klickt auf den Button "Bearbeiten		"</actions>
+* Benutzer klickt auf den Button "Bearbeiten        "</actions>
 <post>Der Bearbeitentab für den gewählten Vertrag wird geöffnet.</post>
 <tags/>
 </testcase>
@@ -1530,9 +1530,11 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 
 * Benutzer gibt die Bemerkung "keine" ein
 
-* Benutzer fügt das Datum "11.2010" mit 30 HKS hinzu
+* Benutzer wählt die Qualifikation "Geprüft" aus
 
-* Benutzer fügt das Datum "12.2010" mit 20 HKS hinzu
+* Benutzer fügt das Datum "11.2009" mit 30 HKS hinzu
+
+* Benutzer fügt das Datum "12.2009" mit 20 HKS hinzu
 
 * Benutzer fügt das Datum "01.2010" mit 45 HKS hinzu
 
@@ -1554,6 +1556,8 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 * Benutzer gibt die Kostenstelle "Studiengeb" ein
 
 * Benutzer lässt das Bemerkungsfeld leer
+
+* Benutzer wählt die Qualifikation "Ungeprüft" aus
 
 * Benutzer fügt das Datum "01.2010 mit "10" HKS hinzu
 
@@ -1582,6 +1586,8 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 
 * Benutzer lässt das Bemerkungsfeld leer
 
+* Benutzer wählt die Qualifikation "Bachelor" aus
+
 * Benutzer fügt das Datum "01.2010" mit "10" HKS hinzu
 
 * Benutzer fügt das Datum "02.2010" mit "10" HKS hinzu
@@ -1609,16 +1615,19 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 
 * Benutzer gibt die Bemerkung "leer" ein
 
-* Benutzer fügt das Datum "11.2010" mit 100 HKS hinzu
+* Benutzer wählt die Qualifikation "Geprüft" aus
 
-* Benutzer fügt das Datum "12.2010" mit 100 HKS hinzu
+* Benutzer fügt das Datum "11.2009" mit 100 HKS hinzu
+
+* Benutzer fügt das Datum "12.2009" mit 100 HKS hinzu
 
 * Benutzer fügt das Datum "01.2010" mit 100 HKS hinzu
 
 * Benutzer wählt den Vertrag aus Testfall 168 aus.
 
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Die Beschäftigung wurde im System gespeichert. Da die gebuchten HKS größer sind als die genehmigten HKS der Veranstaltung wird eine Warnung für den Benutzer ausgegeben.</post>
+<post>Die Beschäftigung wurde im System gespeichert. Zuerst wird der Benutzer darauf hingewiesen, dass der Benutzer mehr als 85 Stunden pro Woche arbeiten. Danach, dass die gebuchten HKS größer sind als die genehmigten HKS der Veranstaltung.
+Gespeichert wird die Beschäftigung trotzdem.</post>
 <tags/>
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="161" priority="A" title="Beschäftigung inkorrekt buchen">
@@ -1633,6 +1642,8 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 * Benutzer lässt die Kostenstelle leer
 
 * Benutzer gibt die Bemerkung "keine" ein
+
+* Benutzer wählt die Qualifikation "Geprüft" aus
 
 * Benutzer fügt das Datum "01.2010 ohne HKS hinzu
 
@@ -1692,10 +1703,10 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 
 * Benutzer klickt auf den Button "Bearbeiten"
 
-* Benutzer gibt für Dezember 2010 "zwanzig" ein
+* Benutzer lässt das Stundenfeld für "12.2009" leer.
 
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Die geänderte Beschäftigung wurde in der Datenbank nicht gespeichert. Der Benutzer wird darüber informiert, dass für die HKS-Angabe nur Zahlen erlaubt sind. Das Bearbeiten-Tab bleibt offen, damit er seine Eingaben verbessern kann.</post>
+<post>Die geänderte Beschäftigung wurde in der Datenbank nicht gespeichert. Der Benutzer wird darüber informiert, dass die HKS-Angabe leer sein muss. Das Bearbeiten-Tab bleibt offen, damit er seine Eingaben verbessern kann.</post>
 <tags/>
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="170" priority="B" title="Abbruch: Beschäftigung bearbeiten">
@@ -1965,7 +1976,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 
 * Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
 
-* Benutzer klickt auf den Button "Abbrechen"	</actions>
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
 <post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
 <tags/>
 </testcase>
@@ -4019,7 +4030,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 
 * System öffnet den Anzeigentab mit dem gewählten Vertrag
 
-* Benutzer klickt auf den Button "Bearbeiten		"</actions>
+* Benutzer klickt auf den Button "Bearbeiten        "</actions>
 <post>Der Bearbeitentab für den gewählten Vertrag wird geöffnet.</post>
 <tags/>
 </testcase>
@@ -4299,7 +4310,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
 <actions>* Benutzer gibt den Vornamen "Trick" ein
 
-* Benutzer klickt auf den Button "Abbrechen"	</actions>
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
 <post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
 <tags/>
 </testcase>
@@ -4809,7 +4820,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 
 * Benutzer wählt das Enddatum "12.2008" aus
 
-* Benutzer klickt auf den Button "Abbrechen"	</actions>
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
 <post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
 <tags/>
 </testcase>
