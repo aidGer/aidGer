@@ -3361,6 +3361,56 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </tsa>
 <tsa name="Navigationsleiste" number="269" revId="1">
 <relatedsequence>269</relatedsequence>
+<testrun enddate="28.06.2010 21:35" priority="E" startdate="28.06.2010 21:32" tester="aidGerTeam">
+<description/>
+<sut>aidGer</sut>
+<executedsequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Navigationsleiste" number="269">
+<description>Die Testsequenz dient zum Testen des Navigationsleiste im Programm.</description>
+<pre>Der Benutzer möchte zwischen den verschiedenen Ansichten navigieren.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="21:32" outcome="Ok" postok="Y" preok="Y" starttime="21:32">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="270" priority="C" title="Verhalten bei Programmstart">
+<description>Das Verhalten der Navigationsleiste beim Programmstart soll getestet werden.</description>
+<pre>Das Programm wurde gestartet.</pre>
+<actions/>
+<post>Der Menüpunkt Stammdatenverwaltung ist geöffnet, d.h. dem Benutzer wird der Menükontext der Stammdatenverwaltung angezeigt. Alle anderen Menüpunkte sind beim Programmstart noch geschlossen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Menüpunkt Stammdatenverwaltung ist geöffnet, d.h. dem Benutzer wird der Menükontext der Stammdatenverwaltung angezeigt. Alle anderen Menüpunkte sind beim Programmstart noch geschlossen.</post>
+<comment>Die TaskPane Einstellung wird von aidGer gespeichert. So kann es u.U. sein, dass andere TaskPanes beim Starten geöffnet sind.</comment>
+</result>
+<result actionok="Y" endtime="21:34" outcome="Ok" postok="Y" preok="Y" starttime="21:33">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="271" priority="C" title="Klick auf geschlossenen Menüpunkt">
+<description>Das Verhalten beim Klick auf einen geschlossenen Menüpunkt soll getestet werden.</description>
+<pre>Benutzer möchte einen Menüpunkt öffnen, um weitere Navigationsmöglichkeiten zu diesem Menüpunkt zu bekommen.</pre>
+<actions>* Benutzer klickt auf einen geschlossenen Menüpunkt</actions>
+<post>Der geschlossene Menüpunkt öffnet seinen untergeordneten Menükontext. Falls beim Klick auf den Menüpunkt der Content-Frame bzw. das aktuelle Tab geändert werden muss, wird dies getan. Der Benutzer kann zudem im geöffneten Menükontext weiter navigieren.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der geschlossene Menüpunkt öffnet seinen untergeordneten Menükontext. Eine weitere Navigation ist auch möglich.</post>
+<comment>Eine Änderung des Content-Frames beim Klick des Menüpunktes ist prinzipiell möglich, wird aber beim jetzigen Stand nicht verwendet.</comment>
+</result>
+<result actionok="Y" endtime="21:35" outcome="Ok" postok="Y" preok="Y" starttime="21:35">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="272" priority="C" title="Klick auf aktivem Menüpunkt">
+<description/>
+<pre>Ein Menüpunkt ist bereits offen, d.h. sein Menükontext wird angezeigt.</pre>
+<actions>* Benutzer klickt erneut auf den offenen Menüpunkt</actions>
+<post>Der Menüpunkt schließt sich, d.h. sein Menükontext wird nicht mehr angezeigt. Der Content-Frame ändert sich dabei nicht. Andere offene Menüpunkte ändern ihren Zustand nicht.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Menüpunkt schließt sich, d.h. sein Menükontext wird nicht mehr angezeigt. Der Content-Frame ändert sich dabei nicht. Andere offene Menüpunkte ändern ihren Zustand nicht.</post>
+<comment/>
+</result>
+</executedsequence>
+</testrun>
 </tsa>
 <tsa name="Überschreiten von Limits" number="261" revId="1">
 <relatedsequence>261</relatedsequence>
