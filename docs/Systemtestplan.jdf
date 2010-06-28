@@ -316,7 +316,7 @@
 * Benutzer versucht das Jahr "Zukunft" einzugeben
 
 * Benutzer drückt auf den Button "Speichern"</actions>
-<post>Die Finanzkategorie wurde nicht hinzugefügt und der Benutzer befindet sich weiterhin im Hinzufügen-Tab, da er für die Felder Budgetkosten und Jahr ungültige Eingaben gemacht hat. Er wird darüber informiert.</post>
+<post>Die Finanzkategorie wurde nicht hinzugefügt und der Benutzer befindet sich weiterhin im Hinzufügen-Tab, da er für die Felder Budgetkosten und Jahr ungültige Eingaben gemacht hat.</post>
 <tags/>
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="65" priority="D" title="Abbruch: Finanzkategorie hinzufügen">
@@ -1051,7 +1051,7 @@
 
 * Benutzer klickt auf den Button "Speichern"
 </actions>
-<post>Der Datensatz wird nicht bearbeitet. Der Benutzer wird darüber informiert, dass das Format für das Feld eMail-Adresse nicht eingehalten wurde. Er befindet sich weiterhin im Bearbeiten-Tab, um seine Eingabe korrigieren zu können.</post>
+<post>Der Datensatz wird nicht bearbeitet. Der Benutzer  befindet sich weiterhin im Bearbeiten-Tab, um seine Eingabe korrigieren zu können.</post>
 <tags/>
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="55" priority="C" title="Abbruch: Hilfskraft bearbeiten">
@@ -1105,7 +1105,7 @@
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="139" priority="C" title="Hilfskraft anzeigen und Vorgang anzeigen">
 <description>Es soll eine Hilfskraft angezeigt werden. Anschließend soll ein Vorgang zur Hilfskraft angezeigt werden.</description>
-<pre>Der Testfall 44 und 191 wurden ausgeführt.</pre>
+<pre>Der Testfall 44 wurde ausgeführt. Es wurde der benötigte Vorgan zu dieser Hilfskraft korrekt hinzugefügt.</pre>
 <actions>* Benutzer markiert die Hilfskraft "Carl Coder"
 
 * Benutzer klickt auf den Button "Anzeigen"
@@ -1145,7 +1145,7 @@
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="142" priority="C" title="Suchfilter entfernen">
 <description>Der angewandte Suchfilter soll entfernt werden.</description>
 <pre>Der Testfall 141 wurde ausgeführt.</pre>
-<actions>* Benutzer klickt auf den Button neben dem Suchfeld</actions>
+<actions>* Benutzer leert das Suchfeld</actions>
 <post>Die Anzeige-Tabelle zeigt alle Hilfskräfte an. Das Suchfeld wurde geleert.</post>
 <tags/>
 </testcase>
@@ -1155,12 +1155,12 @@
 <pre/>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="143" priority="C" title="Vorgänge anzeigen und schließen">
 <description>Es sollen Vorgänge zu einer Hilfskraft angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
-<pre>Der Testfälle 44, 189, 191 und 193 wurden ausgeführt.</pre>
+<pre>Der Testfälle 44 wurde ausgeführt. Es wurden die benötigten Vorgänge zu dieser Hilfskraft korrekt hinzugefügt.</pre>
 <actions>* Benutzer markiert die Hilfskraft "Carl Coder"
 
-* Benutzer klickt auf den Button "Vorgänge"
+* Benutzer klickt auf den Button "Anzeigen"
 
-* System öffnet das "Vorgänge"-Tab
+* System öffnet das "Anzeigen"-Tab
 
 * Benutzer klickt auf den Button "Schließen"</actions>
 <post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Hilfskraft erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum zuvor angezeigten Tab zurück.</post>
@@ -1171,9 +1171,9 @@
 <pre>Der Testfälle 44, 189, 191 und 193 wurden ausgeführt.</pre>
 <actions>* Benutzer markiert die Hilfskraft "Carl Coder"
 
-* Benutzer klickt auf den Button "Vorgänge"
+* Benutzer klickt auf den Button "Anzeigen"
 
-* System öffnet das "Vorgänge"-Tab
+* System öffnet das "Anzeigen"-Tab
 
 * Benutzer klickt auf den Vorgang "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
 
@@ -1183,13 +1183,6 @@
 
 * Benutzer drückt auf den Button "Schließen"</actions>
 <post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Hilfskraft erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Anschließend konnte er sich über einen einzelen Vorgang in einer Detailsicht informieren. Die beiden Reiter-Fenster sind geschloßen und der Benutzer kehrt zum zuvor angezeigten Reiter zurück.</post>
-<tags/>
-</testcase>
-<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="145" priority="C" title="Vorgänge anzeigen ohne Auswahl">
-<description>Es sollen Vorgänge zu einer Hilfskraft angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
-<pre/>
-<actions>* Benutzer klickt auf den Button "Vorgänge"</actions>
-<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte und es erscheint eine entsprechende Fehlermeldung.</post>
 <tags/>
 </testcase>
 </sequence>
