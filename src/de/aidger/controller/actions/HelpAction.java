@@ -1,9 +1,18 @@
 package de.aidger.controller.actions;
 
+import de.aidger.view.UI;
+import de.aidger.model.Runtime;
 import static de.aidger.utils.Translation._;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -38,7 +47,41 @@ public class HelpAction extends AbstractAction {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Display the help
+        InputStream input = getClass().getResourceAsStream(
+                "/de/aidger/help/Handbuch.pdf");
+        try {
+            File tempFile = File.createTempFile("manual", "pdf");
+            tempFile.deleteOnExit();
+
+            FileOutputStream out = new FileOutputStream(tempFile);
+            byte buffer[] = new byte[1024];
+            int len;
+            while ((len = input.read(buffer)) > 0) {
+                out.write(buffer, 0, len);
+            }
+
+            out.close();
+            input.close();
+
+            /* Open the manual in the specified pdf viewer or try
+             * the default one.
+             */
+            try
+            {
+                java.lang.Runtime.getRuntime().exec(new String[] {
+                            Runtime.getInstance().getOption("pdf-viewer"),
+                            tempFile.getAbsolutePath() });
+            } catch (IOException ex) {
+                try {
+                    Desktop.getDesktop().open(tempFile);
+                } catch (IOException e1) {
+                    UI.displayError(_("No pdf viewer could be found!"));
+                }
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(HelpAction.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
 }
