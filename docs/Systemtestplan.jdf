@@ -3026,6 +3026,108 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <relatedsequence>10</relatedsequence>
 <tsa name="Veranstaltungen prüfen" number="305" revId="1">
 <relatedsequence>305</relatedsequence>
+<testrun enddate="28.06.2010 22:30" priority="E" startdate="28.06.2010 22:20" tester="aidGerTeam">
+<description/>
+<sut>aidGer</sut>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Veranstaltungen prüfen" number="305">
+<description>Die Testsequenz dient zum Prüfen von Veranstaltungen. Es können standardmäßig alle Veranstaltungen angezeigt werden. Über einen Filter können nur spezifische Veranstaltungen (z.B. Veranstaltungen in einem Semester) betrachtet werden. Die Liste kann zudem exportiert werden.</description>
+<pre>Der Benutzer möchte Veranstaltungen prüfen und klickt auf den Menüpunkt "Veranstaltungen prüfen". Es sind die Default-Einstellungen ausgewählt.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:24" outcome="Ok" postok="Y" preok="Y" starttime="22:21">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="244" priority="C" title="Alle Veranstaltungen anzeigen">
+<description>Für die Budgetprüfung sollen alle Veranstaltungen angezeigt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Es wird eine Tabelle angeigt, in der alle Veranstaltungen mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet sind. Es müssen 3 Veranstaltungen angezeigt werden:
+
+Nutzlose Betriebssysteme in der Praxis: 95 / 157,5
+Laufende Forschung: 47 / 45
+Mensa überleben für Pizza-Fan: 47 / 120
+
+Die Zeile "Laufende Forschung" muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Alle eingetragenen Veranstaltungen werden angezeigt. Alle Spalten werden korrekt angezeigt. Spalten mit Übrige HKS von 0.0 sind farblich hinterlegt.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:26" outcome="Ok" postok="Y" preok="Y" starttime="22:24">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="245" priority="C" title="Veranstaltungen via Filter (Dozent) anzeigen">
+<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter über Dozent benutzt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Dozent" hinzu
+
+* Benutzer gibt die Veranstaltung "Gustav" ein
+
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Es wird nur die Veranstaltung "Laufende Forschung" mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet.
+
+Laufende Forschung: 47 / 45
+
+Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions>Da die Filter mittlerweile via ComboBox implementiert sind, wurde der Dozent direkt aus der Liste ausgewählt.</actions>
+<post>Der Filter funktioniert korrekt. Farbliche Markierung funktioniert auch mit Filter.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:28" outcome="Ok" postok="Y" preok="Y" starttime="22:26">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="247" priority="C" title="Veranstaltungen via Filter (Übrige HKS) anzeigen">
+<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter über Übrige HKS benutzt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Übrige HKS" hinzu
+
+* Benutzer gibt die die übrige HKS kleiner als "0"
+
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Es wird nur die Veranstaltung "Laufende Forschung" mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet.
+
+Laufende Forschung: 47 / 45
+
+Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Es werden keine Veranstaltungen angezeigt.</post>
+<comment>Tatsächliches Resultat weicht zwar ab, eine negative Angabe der übrigen HKS macht jedoch wenig Sinn. </comment>
+</result>
+<result actionok="Y" endtime="22:30" outcome="Ok" postok="Y" preok="Y" starttime="22:28">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="246" priority="C" title="Veranstaltungsliste in PDF-Format exportieren">
+<description>Eine Veranstaltungsliste soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 244 wurde bereits ausgeführt. Benutzer befindet sich im "Controlling Veranstaltungen"-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
+<post>Die bereits dargestellte Veranstaltungsliste wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden. Veranstaltungen mit negativen übrigen HKS werden auch in der PDF hervorgehoben.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions>Zuerst wurde Button "Generieren" aufgerufen.</actions>
+<post>Die bereits dargestellte Veranstaltungsliste wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden. Veranstaltungen mit negativen übrigen HKS werden auch in der PDF hervorgehoben.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:30" outcome="Ok" postok="Y" preok="Y" starttime="22:30">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="249" priority="C" title="Budgetprüfung ohne Veranstaltungen">
+<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter benutzt. Dieser Filter führt jedoch zu keinem Ergebnis.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Semester" hinzu
+
+* Benutzer gibt das Semester "Dumbdidum" ein
+
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Der Benutzer soll nicht die Möglichkeit haben, diese Falscheingabe durchzuführen. Daher wird ebenfalls keine neue Veranstaltungstabelle angezeigt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Filter konnte nicht angelegt werden. Daher wurde die Veranstaltungstabelle nicht aktualisiert.</post>
+<comment/>
+</result>
+</executedsequence>
+</testrun>
 </tsa>
 <tsa name="Hilfskräfte prüfen" number="306" revId="1">
 <relatedsequence>306</relatedsequence>
