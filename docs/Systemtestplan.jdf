@@ -2897,13 +2897,6 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <sequence created="28.06.2010" creator="aidGerTeam" name="Allgemein" number="309">
 <description>Die Testsequenz dient zum Testen allgemeiner Funktionalitäten der Software.</description>
 <pre/>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="262" priority="C" title="Programm beenden">
-<description>Das Programm soll beendet werden.</description>
-<pre>Benutzer möchte das Programm beenden.</pre>
-<actions>* Benutzer drückt auf den "X"-Button</actions>
-<post>Alle Ressourcen müssen freigegeben werden. Die Reiter müssen je nach Einstellung gespeichert werden. Die Konfiguration muss geschrieben werden. Das Fenster soll verschwinden.</post>
-<tags/>
-</testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="88" priority="C" title="Programmstart mit offenen Tabs">
 <description>Das Programm wird gestartet, wobei beim letzten Programmstart Tabs offen gelassen wurden.</description>
 <pre>Die Einstellung "Reiter bei Verlassen speichern" ist aktiviert.</pre>
@@ -2970,6 +2963,13 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 
 * Benutzer drückt den Button "Exportieren"</actions>
 <post>Die Vorgänge der letzten 5 Tage werden in der Tabelle angezeigt. Die angezeigten Vorgänge werden im PDF-Format exportiert. In einer späteren SUT sollte hier ein für das Ticket-System verständliches Format benutzt werden.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="262" priority="C" title="Programm beenden">
+<description>Das Programm soll beendet werden.</description>
+<pre>Benutzer möchte das Programm beenden.</pre>
+<actions>* Benutzer drückt auf den "X"-Button</actions>
+<post>Alle Ressourcen müssen freigegeben werden. Die Reiter müssen je nach Einstellung gespeichert werden. Die Konfiguration muss geschrieben werden. Das Fenster soll verschwinden.</post>
 <tags/>
 </testcase>
 </sequence>
