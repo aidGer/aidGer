@@ -236,4 +236,17 @@ public class ActivityTest {
         assertTrue(result.size() > 0);
     }
 
+    /**
+     * Test of getActivities method, of class Activity.
+     */
+    @Test
+    public void testGetActivities_Date_Date() throws AdoHiveException {
+        System.out.println("getActivities");
+
+        List result = activity.getActivities(new Date(99), new Date(101));
+
+        assertNotNull(result);
+        assertTrue(result.size() >= 3);
+    }
+
 }

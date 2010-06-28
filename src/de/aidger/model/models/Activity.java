@@ -219,6 +219,20 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
     }
 
     /**
+     * Get all activities for a specified date range
+     *
+     * @param from
+     *            Start of the date range
+     * @param to
+     *            End of the date range
+     * @return All activities that occured during that date range
+     */
+    public List<Activity> getActivities(Date from, Date to) throws AdoHiveException {
+        IActivityManager mgr = (IActivityManager) getManager();
+        return castList(mgr.getActivities(from, to));
+    }
+
+    /**
      * Get the id of the referenced assistant.
      *
      * @return The id of the referenced assistant

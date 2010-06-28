@@ -203,7 +203,7 @@ public class CourseTest {
     }
 
     /**
-     * Test of hashCode method, of class Assistant.
+     * Test of hashCode method, of class Course.
      */
     @Test
     public void testHashCode() {
@@ -214,7 +214,7 @@ public class CourseTest {
     }
 
      /**
-     * Test of getCourses method, of class Assistant.
+     * Test of getCourses method, of class Course.
      */
     @Test
     public void testGetCourses_FinancialCategory() throws AdoHiveException {
@@ -228,6 +228,7 @@ public class CourseTest {
         fc.save();
 
         course.clearTable();
+        course.setNew(true);
         course.setFinancialCategoryId(fc.getId());
         course.save();
 
@@ -236,6 +237,72 @@ public class CourseTest {
         assertNotNull(result);
         assertTrue(result.size() == 1);
         assertEquals(course, result.get(0));
+    }
+
+    /**
+     * Test of getCoursesBySemester method, of class Course.
+     */
+    @Test
+    public void testGetCoursesBySemester() throws AdoHiveException {
+        System.out.println("getCoursesBySemester");
+
+        course.setNew(true);
+        course.save();
+
+        List result = course.getCoursesBySemester(course.getSemester());
+
+        assertNotNull(result);
+        assertTrue(result.size() > 0);
+    }
+
+    /**
+     * Test of getCoursesByGroup method, of class Course.
+     */
+    @Test
+    public void testGetCoursesByGroup() throws AdoHiveException {
+        System.out.println("getCoursesByGroup");
+
+        course.setNew(true);
+        course.save();
+
+        List result = course.getCoursesByGroup(course.getGroup());
+
+        assertNotNull(result);
+        assertTrue(result.size() > 0);
+    }
+
+    /**
+     * Test of getDistinctSemesters method, of class Course.
+     */
+    @Test
+    public void testGetDistinctSemesters() throws AdoHiveException {
+        System.out.println("getDistinctSemesters");
+
+        course.setSemester("SS10");
+        course.setNew(true);
+        course.save();
+
+        List result = course.getDistinctSemesters();
+
+        assertNotNull(result);
+        assertTrue(result.contains(course.getSemester()));
+    }
+
+    /**
+     * Test of getDistinctGroups method, of class Course.
+     */
+    @Test
+    public void testGetDistinctGroups() throws AdoHiveException {
+        System.out.println("getDistinctGroups");
+
+        course.setGroup("A");
+        course.setNew(true);
+        course.save();
+
+        List result = course.getDistinctGroups();
+
+        assertNotNull(result);
+        assertTrue(result.contains(course.getGroup()));
     }
 
 }

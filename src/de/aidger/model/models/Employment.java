@@ -303,6 +303,20 @@ public class Employment extends AbstractModel<IEmployment> implements
     }
 
     /**
+     * Get all employments in the given semester
+     *
+     * @param semester
+     *            The given semester
+     * @return The employments in the given semester
+     * @throws AdoHiveException
+     */
+    public List<Employment> getEmployments(String semester)
+            throws AdoHiveException {
+        IEmploymentManager mgr = (IEmploymentManager) getManager();
+        return castList(mgr.getEmployments(semester));
+    }
+
+    /**
      * Get the id referencing the assistant.
      * 
      * @return The id of the assistant

@@ -12,6 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import java.util.List;
 
 /**
  * Tests the Contract class.
@@ -191,6 +192,22 @@ public class ContractTest {
         Contract result = contract.clone();
 
         assertEquals(contract.hashCode(), result.hashCode());
+    }
+
+    /**
+     * Test of getContracts method, of class Contract.
+     */
+    @Test
+    public void testGetContracts() throws AdoHiveException {
+        System.out.println("getContracts");
+
+        contract.setNew(true);
+        contract.save();
+
+        List result = contract.getContracts(new Date(20), new Date(1000));
+
+        assertNotNull(result);
+        assertTrue(result.size() > 0);
     }
 
 }

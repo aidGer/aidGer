@@ -6,8 +6,10 @@ import java.sql.Date;
 import java.util.List;
 
 import de.aidger.model.AbstractModel;
+import de.unistuttgart.iste.se.adohive.controller.IContractManager;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IContract;
+import java.util.Vector;
 
 /**
  * Represents a single entry in the contract column of the database. Contains
@@ -181,6 +183,24 @@ public class Contract extends AbstractModel<IContract> implements IContract {
         if (emps.size() > 0) {
             addError(_("Contract is still linked to an Employment"));
             ret = false;
+        }
+        return ret;
+    }
+
+    /**
+     * Get a list of contracts valid in the date range
+     *
+     * @param start
+     *            Start of the date range
+     * @param end
+     *            End of the date range
+     * @return List of contracts
+     */
+    public List<Contract> getContracts(Date start, Date end) throws AdoHiveException {
+        IContractManager mgr = (IContractManager) getManager();
+        List<Contract> ret = new Vector<Contract>();
+        for (IContract c : mgr.getContracts(start, end)) {
+            ret.add(new Contract(c));
         }
         return ret;
     }

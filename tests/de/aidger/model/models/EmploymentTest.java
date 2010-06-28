@@ -325,4 +325,21 @@ public class EmploymentTest {
         assertEquals(employment, result.get(0));
     }
 
+    /**
+     * Test of getEmployments method, of class Employment.
+     */
+    @Test
+    public void testGetEmployments_String() throws AdoHiveException {
+        System.out.println("getEmployments");
+
+        employment.clearTable();
+        employment.setNew(true);
+        employment.save();
+
+        List result = employment.getEmployments("SS09");
+
+        assertNotNull(result);
+        assertTrue(result.size() > 0);
+    }
+
 }

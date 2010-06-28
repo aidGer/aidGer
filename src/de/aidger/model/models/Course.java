@@ -253,13 +253,54 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     public List<Course> getCourses(FinancialCategory category)
             throws AdoHiveException {
         ICourseManager mgr = (ICourseManager) getManager();
-        List<ICourse> list = mgr.getCourses(category);
+        return castList(mgr.getCourses(category));
+    }
 
-        List<Course> ret = new Vector<Course>();
-        for (ICourse course : list) {
-            ret.add(new Course(course));
-        }
-        return ret;
+    /**
+     * Get a list of all courses for a given semester.
+     *
+     * @param semester
+     *            The given semester
+     * @return List of courses
+     * @throws AdoHiveException
+     */
+    public List<Course> getCoursesBySemester(String semester) 
+            throws AdoHiveException {
+        ICourseManager mgr = (ICourseManager) getManager();
+        return castList(mgr.getCoursesBySemester(semester));
+    }
+
+    /**
+     * Get a list of all courses belonging to the specified group.
+     *
+     * @param group
+     *            The given group
+     * @return List of courses
+     * @throws AdoHiveException
+     */
+    public List<Course> getCoursesByGroup(String group) throws AdoHiveException {
+        ICourseManager mgr = (ICourseManager) getManager();
+        return castList(mgr.getCoursesByGroup(group));
+    }
+
+    /**
+     * Get a list of distinct semesters.
+     *
+     * @return List of semesters
+     * @throws AdoHiveException
+     */
+    public List<String> getDistinctSemesters() throws AdoHiveException {
+        return ((ICourseManager) getManager()).getDistinctSemesters();
+    }
+
+    /**
+     * Get a list of distinct groups.
+     *
+     * @return List of groups
+     * @throws AdoHiveException
+     */
+    public List<String> getDistinctGroups() throws AdoHiveException {
+        return ((ICourseManager) getManager()).getDistinctGroups();
     }
 
     /**
@@ -512,6 +553,21 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     @Override
     public void setUnqualifiedWorkingHours(Double hours) {
         unqualifiedWorkingHours = hours;
+    }
+
+    /**
+     * Cast from interface to correct class
+     *
+     * @param list
+     *            The list to cast
+     * @return The casted list
+     */
+    protected List<Course> castList(List<ICourse> list) {
+        List<Course> ret = new Vector<Course>();
+        for (ICourse course : list) {
+            ret.add(new Course(course));
+        }
+        return ret;
     }
 
 }
