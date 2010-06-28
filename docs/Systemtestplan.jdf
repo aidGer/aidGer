@@ -3131,6 +3131,103 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 </tsa>
 <tsa name="Hilfskräfte prüfen" number="306" revId="1">
 <relatedsequence>306</relatedsequence>
+<testrun enddate="28.06.2010 22:46" priority="E" startdate="28.06.2010 22:31" tester="aidGerTeam">
+<description/>
+<sut>aidGer</sut>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Hilfskräfte prüfen" number="306">
+<description>Die Testsequenz dient zum Prüfen von Hilfskräften. Es können Monatsauszüge der angestellten Hilfskräfte angezeigt und exportiert werden. Zwischen den Monaten kann leicht navigiert werden. Außerdem müssen komfortabel die realen Kosten in die Tabelle eingetragen werden können. Desweiteren werden bei Soll-Ist-Abweichungen Warnungen angezeigt.</description>
+<pre>Der Benutzer möchte Hilfskräfte prüfen und klickt auf den Menüpunkt "Hilfskräfte prüfen". Es sind die Default-Einstellungen ausgewählt.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:40" outcome="Ok" postok="Y" preok="Y" starttime="22:32">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="242" priority="C" title="Monatsauszug für ein Monat anzeigen">
+<description>Es soll eine Monatsauszug für einen Monat angezeigt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt in der Dropdown-Liste den Monat "November 2010" aus
+
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Der Monatsauszug wird für den angegebenen Monat dargestellt. Es wird die Hilfskraft "Carl Coder" angezeigt. Dabei werden die Plankosten korrekt berrechnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die Plankosten sind korrekt für Carl Coder und alle Finanzmittel, aus denen er bezahlt wird, berechnet. </post>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:40" outcome="Ok" postok="Y" preok="Y" starttime="22:40">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="248" priority="C" title="Monatsauszug ohne Hilfskräfte anzeigen">
+<description>Es soll eine Monatsauszug für einen Monat angezeigt werden. Das Problem tritt auf, dass für diesen Monat keine Hilfskräfte beschäftigt sind.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt in der Dropdown-Liste den Monat "Oktober 2010" aus</actions>
+<post>Der Benutzer soll nicht die Möglichkeit haben, diesen Monat auszuwählen, da keine Beschäftigungen in diesem Monat stattfanden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Oktober 2010 konnte nicht ausgewählt werden.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:42" outcome="Ok" postok="Y" preok="Y" starttime="22:40">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="238" priority="C" title="Monatsauszug in PDF-Format exportieren">
+<description>Eine generierter Monatsauszug soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 236 wurde bereits ausgeführt. Benutzer befindet sich im "Controlling Hilfskräfte"-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
+<post>Der bereits dargestellte Monatsauszug wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions>Es wurde auf den Button "Alles exportieren" geklickt</actions>
+<post>PDF-Datei wurde korrekt erstellt und PDF-Viewer wurde direkt geöffnet. (Einstellung war aktiv)</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:43" outcome="Ok" postok="Y" preok="Y" starttime="22:42">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="240" priority="C" title="Reale Kosten eintragen und keine Abweichung">
+<description>Im aktuellen Monatsauszug sollen die realen Kosten eingetragen werden. Es gibt keine Abweichung zwischen Soll und Ist.</description>
+<pre>Testfall 236 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt die Zelle "Reale Kosten" bei der Hilfskraft "Carl Coder" an
+
+* Benutzer gibt die Reale Kosten 315 ein</actions>
+<post>Die realen Kosten für die Hilfskraft werden in der Tabelle angezeigt. Es besteht keine Abweichung zwischen Soll und Ist. Der Benutzer kann sich den Auszug ins PDF-Format exportieren lassen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die realen Kosten wurden angezeigt und ein korrekter Export war auch möglich.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:44" outcome="Ok" postok="Y" preok="Y" starttime="22:43">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="241" priority="C" title="Reale Kosten eintragen und eine Abweichung">
+<description>Im aktuellen Monatsauszug sollen die realen Kosten eingetragen werden. Es gibt eine Abweichung zwischen Soll und Ist.</description>
+<pre>Testfall 236 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt die Zelle "Reale Kosten" bei der Hilfskraft "Carl Coder" an
+
+* Benutzer gibt die Reale Kosten 1000 ein</actions>
+<post>Die realen Kosten für die Hilfskraft werden in der Tabelle angezeigt. Es besteht eine Abweichung zwischen geplanten und realen Kosten, worüber der Benutzer durch eine softe Warnung informiert wird. Der Benutzer kann sich trotzdem den Auszug ins PDF-Format exportieren lassen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die Warnung wird in der letzten Spalte angezeigt. Der Benutzer kann entweder alle Hilfskräfte exportieren oder nur diejenigen, die eine Abweichung, also Carl Coder, aufweisen.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:46" outcome="Comment" postok="Y" preok="Y" starttime="22:44">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="243" priority="C" title="Reale Kosten inkorrekt eintragen">
+<description>Im aktuellen Monatsauszug sollen die realen Kosten eingetragen werden. Das Format wurde dabei jedoch nicht eingehalten.</description>
+<pre>Testfall 236 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt die Zelle "Reale Kosten" bei der Hilfskraft "Carl Coder" an
+
+* Benutzer gibt die Reale Kosten "viel zu viel" ein</actions>
+<post>Der Benutzer bekommt die Fehlermeldung, dass er das Format für die realen Kosten nicht eingehalten hat. Die Zelle wird geleert und der Benutzer kann die Kosten erneut eingeben.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Benutzer wird über das falsche Format in der letzten Spalte informiert. Die Zeile wird nicht geleert.</post>
+<comment>Die falsch eingegebenen Buchstaben wurden nicht geleert. Die falsche Eingabe wurde jedoch korrekt erkannt.</comment>
+</result>
+</executedsequence>
+</testrun>
 </tsa>
 </tsa>
 <tsa name="Allgemeines" number="87" revId="1">
