@@ -3361,6 +3361,73 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 </tsa>
 <tsa name="Vorgangsprotokolle" number="116" revId="1">
 <relatedsequence>116</relatedsequence>
+<testrun enddate="29.06.2010 01:12" priority="E" startdate="29.06.2010 01:09" tester="aidGerTeam">
+<description/>
+<sut>aidGer</sut>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Vorgangsprotokolle" number="116">
+<description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren eines Vorgangprotokolls.</description>
+<pre>* Benutzer klickt auf den Link "Vorgänge exportieren" in der TaskPane Vorgänge.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="01:10" outcome="Ok" postok="Y" preok="Y" starttime="01:09">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="225" priority="C" title="Vorgangsprotokoll für einen Tag generieren">
+<description>Es soll eine Vorgangsprotokoll für einen Tag generiert und anschließend dargestellt werden.</description>
+<pre>Es wurde ein Vorgang heute angelegt.</pre>
+<actions>* Benutzer wählt die Tagesanzahl "0" aus
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Das erstellte Vorgangsprotokoll wird für den heutigen Tag im Frame intern angezeigt. Es sollen dabei so viele Informationen wie möglich dargestellt werden. Alle Vorgänge von heute werden angezeigt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions>Es gibt kein Button "Generieren" mehr. Die Tabelle wird bei sofortiger Änderung der Tagesanzahl aktualisiert.</actions>
+<post>Alle Vorgänge von heute wurden angezeigt.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="01:10" outcome="Ok" postok="Y" preok="Y" starttime="01:10">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="229" priority="C" title="Vorgangsprotokoll für einen Tag in PDF-Format exportieren">
+<description>Ein generiertes Vorgangsprotokoll soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 225 wurde bereits ausgeführt. Benutzer befindet sich im Vorgangsprotokoll-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
+<post>Das bereits dargestellte Vorgangsprotokoll wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Das bereits dargestellte Vorgangsprotokoll wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="01:11" outcome="Ok" postok="Y" preok="Y" starttime="01:10">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="230" priority="C" title="Vorgangsprotokoll für einen Zeitraum generieren">
+<description>Es soll eine Vorgangsprotokoll für einen Zeitraum generiert und anschließend dargestellt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Vorgängen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt die Tagesanzahl "5" aus
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Das erstellte Vorgangsprotokoll für den Zeitraum im Frame intern angezeigt. Es sollen dabei so viele Informationen wie möglich dargestellt werden. Es werden ausschließlich die Vorgänge aus Testfall 191 angezeigt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Alle Vorgänge der letzten 5 Tage wurden angezeigt.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="01:12" outcome="Ok" postok="Y" preok="Y" starttime="01:11">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="232" priority="C" title="Vorgangsprotokoll für einen Zeitraum in PDF-Format exportieren">
+<description>Ein generiertes Vorgangsprotokoll soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 230 wurde bereits ausgeführt. Benutzer befindet sich im Vorgangsprotokoll-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
+<post>Das bereits dargestellte Vorgangsprotokoll wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Das bereits dargestellte Vorgangsprotokoll wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
+<comment/>
+</result>
+</executedsequence>
+</testrun>
 </tsa>
 <tsa name="Jahresbilanzen" number="114" revId="1">
 <relatedsequence>114</relatedsequence>
