@@ -237,8 +237,6 @@ public class BalanceViewerTab extends ReportTab {
         filterNameComboBox = new javax.swing.JComboBox();
         filterComboBox = new javax.swing.JComboBox();
         addFilterButton = new javax.swing.JButton();
-        pessimisticCalculationRadio = new javax.swing.JRadioButton();
-        historicalCalculationRadio = new javax.swing.JRadioButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -304,48 +302,12 @@ addFilterButton.addActionListener(new java.awt.event.ActionListener() {
     });
     filterCreationPanel.add(addFilterButton);
 
-    pessimisticCalculationRadio.setText(_("Pessimistic calculation"));
-    pessimisticCalculationRadio.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            pessimisticCalculationRadioActionPerformed(evt);
-        }
-    });
-    filterCreationPanel.add(pessimisticCalculationRadio);
-
-    historicalCalculationRadio.setText(_("Historical calculation"));
-    historicalCalculationRadio.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            historicalCalculationRadioActionPerformed(evt);
-        }
-    });
-    filterCreationPanel.add(historicalCalculationRadio);
-
     filtersPanel.add(filterCreationPanel, java.awt.BorderLayout.PAGE_START);
 
     jPanel1.add(filtersPanel, java.awt.BorderLayout.CENTER);
 
     add(jPanel1, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void pessimisticCalculationRadioActionPerformed(
-            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_pessimisticCalculationRadioActionPerformed
-        if (pessimisticCalculationRadio.isSelected()) {
-            historicalCalculationRadio.setSelected(false);
-            calculationMethod = 1;
-        } else {
-            calculationMethod = 0;
-        }
-    }// GEN-LAST:event_pessimisticCalculationRadioActionPerformed
-
-    private void historicalCalculationRadioActionPerformed(
-            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_historicalCalculationRadioActionPerformed
-        if (historicalCalculationRadio.isSelected()) {
-            pessimisticCalculationRadio.setSelected(false);
-            calculationMethod = 2;
-        } else {
-            calculationMethod = 0;
-        }
-    }// GEN-LAST:event_historicalCalculationRadioActionPerformed
 
     private void addFilterButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addFilterButtonActionPerformed
         switch (filterNameComboBox.getSelectedIndex()) {
@@ -458,14 +420,12 @@ addFilterButton.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JLabel filtersLabel;
     private javax.swing.JPanel filtersPanel;
     private javax.swing.JButton generateButton;
-    private javax.swing.JRadioButton historicalCalculationRadio;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JRadioButton pessimisticCalculationRadio;
     private javax.swing.JComboBox yearComboBox;
     private javax.swing.JLabel yearLabel;
     // End of variables declaration//GEN-END:variables
