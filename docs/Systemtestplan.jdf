@@ -1880,7 +1880,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 
 * Benutzer gibt die Art des Vorgangsdokument "eMail" ein
 
-* Benutzer lässt den Vorgangstext leer
+* Benutzer gibt den Inhalt "nichts" ein
 
 * Benutzer gibt keine Bemerkung ein
 
@@ -1909,7 +1909,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 
 * Benutzer gibt die Art des Vorgangsdokument "Arbeitsvertrag" ein
 
-* Benutzer lässt den Vorgangstext leer
+* Benutzer gibt den Inhalt "nichts" ein
 
 * Benutzer gibt keine Bemerkung ein
 
@@ -1936,7 +1936,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 
 * Benutzer gibt die Art des Vorgangsdokument "Gehaltsabrechnung" ein
 
-* Benutzer lässt den Vorgangstext leer
+* Benutzer gibt den Inhalt "nichts" ein
 
 * Benutzer gibt keine Bemerkung ein
 
@@ -1947,26 +1947,27 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:05" number="192" priority="B" title="Vorgang inkorrekt hinzufügen">
 <description>Es wird ein Vorgang zur Datenbank hinzugefügt. Es wurden falsche Eingaben gemacht.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 28 wurden ausgeführt.</pre>
-<actions>* Benutzer gibt das Datum "In ferner Zukunft" ein
+<actions>* Benutzer gibt das Datum "01.01.2010" ein
 
 * Benutzer wählt die Hilfskraft "Peter Planlos" aus
 
 * Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
 
-* Benutzer gibt den Bearbeiter "Chris" ein
+* Benutzer gibt den Bearbeiter "PG" ein
 
-* Benutzer gibt den Sender "Bart Simpson" ein
+* Benutzer lässt den Sender leer
 
 * Benutzer gibt die Vorgangsart "Postausgang" ein
 
 * Benutzer gibt die Art des Vorgangsdokument "Lohnsteuerkarte" ein
 
-* Benutzer lässt den Vorgangstext leer
+* Benutzer gibt den Inhalt "nichts" ein
 
 * Benutzer gibt keine Bemerkung ein
 
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Der Vorgang wurde in der Datenbank nicht abgelegt. Der Benutzer wird darüber informiert, dass das Datumsformat falsch ist und der Bearbeiter zu lang ist. Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.</post>
+<post>Der Vorgang wurde in der Datenbank nicht abgelegt. Der Benutzer wird darüber informiert, dass Inhalt und Sender leer sind.
+Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.</post>
 <tags/>
 </testcase>
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="194" priority="D" title="Abbruch: Vorgang hinzufügen">
@@ -1997,7 +1998,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post>Die geänderten Daten werden in der Datenbank hinterlegt und das System kehrt zum vorher angezeigten Tab zurück.</post>
 <tags/>
 </testcase>
-<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="196" priority="C" title="Vorgang unvollständig bearbeiten">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="196" priority="C" title="Vorgang inkorrekt bearbeiten">
 <description>Es soll ein Vorgang  bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 191 wurde bereits ausgeführt.</pre>
 <actions>* Benutzer markiert den Vorgang "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
@@ -2006,24 +2007,10 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 
 * Benutzer löscht den Inhalt des Felds Bearbeiter
 
-* Benutzer löscht den Inhalt des Felds Datum
+* Benutzer löscht den Inhalt des Felds Inhalt
 
 * Benutzer klickt auf den Button "Speichern"</actions>
 <post>Der Datensatz wird nicht editiert. Der Benutzer bleibt im Bearbeiten-Tab und wird über die leer gelassenen Felder informiert.</post>
-<tags/>
-</testcase>
-<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="197" priority="C" title="Vorgang inkorrekt bearbeiten">
-<description>Es soll ein Vorgang bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
-<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 193 wurde bereits ausgeführt.</pre>
-<actions>* Benutzer markiert den Vorgang "Fred Feuerstein - Laufende Forschung"
-
-* Benutzer klickt auf den Button "Bearbeiten"
-
-* Benutzer ändert den Bearbeiter zu "Neuer"
-
-* Benutzer klickt auf den Button "Speichern"
-</actions>
-<post>Der Datensatz wird nicht bearbeitet. Der Benutzer wird darüber informiert, dass Bearbeiter nur 2 Zeichen lang sein darf. Er befindet sich weiterhin im Bearbeiten-Tab, um seine Eingabe korrigieren zu können.</post>
 <tags/>
 </testcase>
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="198" priority="C" title="Abbruch: Vorgang bearbeiten">
@@ -2125,20 +2112,14 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post>Der Benutzer hat eine Einsicht über alle Vorgangsdaten erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 193 übereinstimmen. Nach dem Bearbeiten wurde der Datensatz korrekt geändert und gespeichert. Der Benutzer befindet sich im vorher angezeigten Reiter wieder.</post>
 <tags/>
 </testcase>
-<testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="205" priority="C" title="Vorgang anzeigen und anschließend Hilfskraft anzeigen">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="205" priority="C" title="Hilfskraft aus Vorgang anzeigen">
 <description>Es soll ein Vorgang angezeigt werden. Anschließend soll die Hilfskraft zum Vorgang angezeigt werden.</description>
 <pre>Der Testfall 191 ausgeführt.</pre>
 <actions>* Benutzer markiert den Vorgang "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
 
-* Benutzer klickt auf den Button "Anzeigen"
-
-* System öffnet das "Anzeigen"-Tab
-
-* Benutzer klickt die Hilfskraft an
+* Benutzer klickt auf den Button "Hilfskraft"
 
 * System öffnet die Hilfskraft in einem neuen "Anzeigen"-Tab
-
-* Benutzer schließt den Vorgangsreiter
 
 * Benutzer klickt auf den Button "Schließen"</actions>
 <post>Der Benutzer hat eine Einsicht über alle Vorgangsdaten erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 191 übereinstimmen. Des weiteren konnte er sich über die ausgewählte Hilfskraft informieren. Der Benutzer befindet sich wieder im zuvor angezeigten Reiter.</post>
@@ -2158,7 +2139,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="207" priority="C" title="Vorgang suchen nach Bearbeiter">
 <description>Es soll eine Vorgang gesucht werden. Es wird nach dem Bearbeiter gesucht.</description>
 <pre>Der Testfall 193 wurde ausgeführt.</pre>
-<actions>* Benutzer gibt im Suchfeld "Philly" ein
+<actions>* Benutzer gibt im Suchfeld "PG" ein
 
 * System aktualisiert die Anzeige-Tabelle</actions>
 <post>In der Anzeige-Tabelle erscheinen 3 Vorgänge (Testfall 193). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
@@ -4819,7 +4800,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 
 * Benutzer gibt die Budgetkosten "6000" ein
 
-* Benutzer klickt auf den Button "Abbrechen"	</actions>
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
 <post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
 <tags/>
 </testcase>
