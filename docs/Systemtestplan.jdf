@@ -2882,22 +2882,11 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 * Benutzer stellt seinen bereits konfigurierten Drucker ein
 
 * Benutzer drückt auf den Button "Drucken"</actions>
-<post>Es soll der angezeigte Monatsauszug am Drucker gedruckt werden. Dabei hat der gedruckte Auszug das selbe Format wie sein PDF-Exemplar.</post>
+<post>Es soll der angezeigte Monatsauszug am Drucker gedruckt werden. Dabei wird der gerenderte Tab gedruckt.</post>
 <tags/>
 </testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="250" priority="C" title="Drucken eines Berichts nach Budgetprüfung via Shortcut">
-<description>Es soll die Druckmöglichkeit in der Software getestet werden. Es wird hierfür ein Shortcut benutzt. Es wird ein Budgetprüfungsbericht gedruckt.</description>
-<pre>Testfall 244 (Budgetprüfung) wurde ausgeführt. Der Budgetprüfung-Tab ist vom Benutzer geöffnet.</pre>
-<actions>* Benutzer gibt den Shortcut "STRG + P" ein
-
-* Benutzer stellt seinen bereits konfigurierten Drucker ein
-
-* Benutzer drückt auf den Button "Drucken"</actions>
-<post>Es soll die angezeigte Veranstaltungsliste am Drucker gedruckt werden. Dabei hat die gedruckte Liste das selbe Format wie sein PDF-Exemplar.</post>
-<tags/>
-</testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="254" priority="C" title="Drucken der Beschäftigungen ohne PDF-Export">
-<description>Es soll die Druckmöglichkeit in der Software getestet werden. Es werden die angezeigten Beschäftigungen gedruckt, wofür kein PDF-Export existiert.</description>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="254" priority="C" title="Drucken der Beschäftigungen">
+<description>Es soll die Druckmöglichkeit in der Software getestet werden. Es werden die angezeigten Beschäftigungen gedruckt.</description>
 <pre>Die Testfälle zum Hinzufügen von Beschäftigungen wurden ausgeführt. Der Beschäftigungen-Tab ist vom Benutzer geöffnet.</pre>
 <actions>* Benutzer klickt auf den Menüeintrag "Datei"
 
@@ -2906,16 +2895,18 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 * Benutzer stellt seinen bereits konfigurierten Drucker ein
 
 * Benutzer drückt auf den Button "Drucken"</actions>
-<post>Es wird die angezeigte Beschäftigungsliste gedruckt. Da es hierfür jedoch kein PDF-Export existiert, wird der gerenderte Tab gedruckt. Unter Umständen kann die gedruckte Seite daher nicht "schön" sein.</post>
+<post>Es wird die angezeigte Beschäftigungsliste gedruckt. Der gerenderte Tab wird gedruckt.</post>
 <tags/>
 </testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="253" priority="C" title="Drucken eines leeren Reiters">
-<description>Es soll die Druckmöglichkeit in der Software getestet werden. Es wird jedoch ein leerer Reiter angezeigt.</description>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="253" priority="C" title="Drucken mit Shortcut">
+<description>Es soll die Druckmöglichkeit in der Software getestet werden. Das Drucken wird durch den Shortcut ausgelöst.</description>
 <pre/>
 <actions>* Benutzer klickt auf den "+" Button bei den Reitern
 
-* Benutzer drückt den Shortcut "STRG + P"</actions>
-<post>Es sol eine Meldung angezeigt werden, dass es nicht sinnvoll ist, eine leere Seite zu drucken. Der Benutzer soll jedoch weiterhiin die Möglichkeit haben, mit dem Drucken fortzusetzen.</post>
+* Benutzer drückt den Shortcut "STRG + P"
+
+* Benutzer drückt auf den Button "Abbrechen"</actions>
+<post>Der Druckdialog wird geöffnet und wieder geschlossen.</post>
 <tags/>
 </testcase>
 </sequence>
