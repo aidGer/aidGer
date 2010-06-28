@@ -3319,6 +3319,45 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 <relatedsequence>9</relatedsequence>
 <tsa name="Tätigkeitsnachweise" number="115" revId="1">
 <relatedsequence>115</relatedsequence>
+<testrun enddate="29.06.2010 01:08" priority="E" startdate="29.06.2010 01:06" tester="aidGerTeam">
+<description/>
+<sut>aidGer</sut>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Tätigkeitsnachweise" number="115">
+<description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von eines Tätigkeitsnachweises.</description>
+<pre>* Benutzer klickt auf den Link "Tätigkeitsnachweis" in der TaskPane Berichte.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="01:07" outcome="Ok" postok="Y" preok="Y" starttime="01:06">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="218" priority="C" title="Tätigkeitsnachweis für eine Hilfskraft generieren (alle Beschäftigungen)">
+<description>Es soll ein Tätigkeitsnachweis für eine Hilfskraft generiert und anschließend dargestellt werden. Es werden alle Beschäftigungen angezeigt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Der erstellte Tätigkeitsnachweis wird für das angegebene Jahr im Frame intern angezeigt. Es wird eine Beschäftigung dargestellt. Es müssen mindestens die Spalten Zeitraum, Veranstaltung und Umfang angezeigt werden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Alle spezifizierten Spalten werden angezeigt und beinhalten die korrekt berechneten Werte aus der Datenbank.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="01:08" outcome="Comment" postok="Y" preok="Y" starttime="01:07">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="220" priority="C" title="Tätigkeitsnachweis in PDF-Format exportieren">
+<description>Ein generierter Tätigkeitsnachweis soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 218 wurde bereits ausgeführt. Benutzer befindet sich im Tätigkeitsnachweis-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
+<post>Der bereits dargestellte Tätigkeitsnachweis wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der bereits dargestellte Tätigkeitsnachweis wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
+<comment>Übersetzung fehlt noch. Das Layout des Nachweises muss ebenfalls noch verbessert werden.</comment>
+</result>
+</executedsequence>
+</testrun>
 </tsa>
 <tsa name="Vorgangsprotokolle" number="116" revId="1">
 <relatedsequence>116</relatedsequence>
