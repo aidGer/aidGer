@@ -3281,6 +3281,72 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </tsa>
 <tsa name="Drucken" number="251" revId="1">
 <relatedsequence>251</relatedsequence>
+<testrun enddate="28.06.2010 21:38" priority="E" startdate="28.06.2010 21:36" tester="aidGerTeam">
+<description/>
+<sut>aidGer</sut>
+<executedsequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Drucken" number="251">
+<description>Die Testsequenz dient zum Testen der Druckmöglichkeit in der Software.</description>
+<pre>Der Benutzer möchte angezeigte Daten drucken.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="21:37" outcome="Ok" postok="Y" preok="Y" starttime="21:36">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="117" priority="C" title="Drucken eines Monatsauszuges">
+<description>Es soll die Druckmöglichkeit in der Software getestet werden. Es wird ein Monatsauszug gedruckt.</description>
+<pre>Testfall 242 (Controlliing) wurde ausgeführt. Der Controlling-Tab ist vom Benutzer geöffnet.</pre>
+<actions>* Benutzer klickt auf den Menüeintrag "Datei"
+
+* Benutzer klickt auf den Menüeintrag "Drucken"
+
+* Benutzer stellt seinen bereits konfigurierten Drucker ein
+
+* Benutzer drückt auf den Button "Drucken"</actions>
+<post>Es soll der angezeigte Monatsauszug am Drucker gedruckt werden. Dabei wird der gerenderte Tab gedruckt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Es soll der angezeigte Monatsauszug am Drucker gedruckt werden. Dabei wird der gerenderte Tab gedruckt.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:37" outcome="Ok" postok="Y" preok="Y" starttime="21:37">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="254" priority="C" title="Drucken der Beschäftigungen">
+<description>Es soll die Druckmöglichkeit in der Software getestet werden. Es werden die angezeigten Beschäftigungen gedruckt.</description>
+<pre>Die Testfälle zum Hinzufügen von Beschäftigungen wurden ausgeführt. Der Beschäftigungen-Tab ist vom Benutzer geöffnet.</pre>
+<actions>* Benutzer klickt auf den Menüeintrag "Datei"
+
+* Benutzer klickt auf den Menüeintrag "Drucken"
+
+* Benutzer stellt seinen bereits konfigurierten Drucker ein
+
+* Benutzer drückt auf den Button "Drucken"</actions>
+<post>Es wird die angezeigte Beschäftigungsliste gedruckt. Der gerenderte Tab wird gedruckt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Es wird die angezeigte Beschäftigungsliste gedruckt. Der gerenderte Tab wird gedruckt.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:38" outcome="Ok" postok="Y" preok="Y" starttime="21:37">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="253" priority="C" title="Drucken mit Shortcut">
+<description>Es soll die Druckmöglichkeit in der Software getestet werden. Das Drucken wird durch den Shortcut ausgelöst.</description>
+<pre/>
+<actions>* Benutzer klickt auf den "+" Button bei den Reitern
+
+* Benutzer drückt den Shortcut "STRG + P"
+
+* Benutzer drückt auf den Button "Abbrechen"</actions>
+<post>Der Druckdialog wird geöffnet und wieder geschlossen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Druckdialog wird geöffnet und wieder geschlossen.</post>
+<comment/>
+</result>
+</executedsequence>
+</testrun>
 </tsa>
 <tsa name="Tabbing" number="264" revId="1">
 <relatedsequence>264</relatedsequence>
