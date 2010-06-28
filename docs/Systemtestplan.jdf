@@ -78,7 +78,7 @@
 
 * Benutzer wählt das Enddatum "12.2008" aus
 
-* Benutzer klickt auf den Button "Abbrechen"	</actions>
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
 <post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
 <tags/>
 </testcase>
@@ -326,7 +326,7 @@
 
 * Benutzer gibt die Budgetkosten "6000" ein
 
-* Benutzer klickt auf den Button "Abbrechen"	</actions>
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
 <post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
 <tags/>
 </testcase>
@@ -605,7 +605,7 @@
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
 <actions>* Benutzer gibt den Vornamen "Trick" ein
 
-* Benutzer klickt auf den Button "Abbrechen"	</actions>
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
 <post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
 <tags/>
 </testcase>
@@ -984,7 +984,7 @@
 
 * Benutzer wählt die Finanzkategorie "Forschung" aus
 
-* Benutzer klickt auf den Button "Abbrechen"	</actions>
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
 <post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
 <tags/>
 </testcase>
@@ -1310,7 +1310,7 @@
 * Benutzer setzt "Delegation" auf "Ja"
 
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Der Benutzer wird informiert, dass er Falscheingaben gemacht hat: Das Beschäftigungsende liegt vor dem Beschäftigungsbeginn und das Bestätigungsdatum vor dem Abschlussdatum. 
+<post>Der Benutzer wird informiert, dass er Falscheingaben gemacht hat: Das Beschäftigungsende liegt vor dem Beschäftigungsbeginn und das Bestätigungsdatum vor dem Abschlussdatum.
 Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</post>
 <tags/>
 </testcase>
@@ -1330,7 +1330,7 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 * Benutzer setzt "Delegation" auf "Nein"
 
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Der Benutzer wird informiert, dass er Falscheingaben gemacht hat: Der Vertragstyp ist leer. 
+<post>Der Benutzer wird informiert, dass er Falscheingaben gemacht hat: Der Vertragstyp ist leer.
 Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</post>
 <tags/>
 </testcase>
@@ -1442,7 +1442,7 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 
 * System öffnet den Anzeigentab mit dem gewählten Vertrag
 
-* Benutzer klickt auf den Button "Bearbeiten		"</actions>
+* Benutzer klickt auf den Button "Bearbeiten        "</actions>
 <post>Der Bearbeitentab für den gewählten Vertrag wird geöffnet.</post>
 <tags/>
 </testcase>
@@ -1530,9 +1530,11 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 
 * Benutzer gibt die Bemerkung "keine" ein
 
-* Benutzer fügt das Datum "11.2010" mit 30 HKS hinzu
+* Benutzer wählt die Qualifikation "Geprüft" aus
 
-* Benutzer fügt das Datum "12.2010" mit 20 HKS hinzu
+* Benutzer fügt das Datum "11.2009" mit 30 HKS hinzu
+
+* Benutzer fügt das Datum "12.2009" mit 20 HKS hinzu
 
 * Benutzer fügt das Datum "01.2010" mit 45 HKS hinzu
 
@@ -1554,6 +1556,8 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 * Benutzer gibt die Kostenstelle "Studiengeb" ein
 
 * Benutzer lässt das Bemerkungsfeld leer
+
+* Benutzer wählt die Qualifikation "Ungeprüft" aus
 
 * Benutzer fügt das Datum "01.2010 mit "10" HKS hinzu
 
@@ -1582,6 +1586,8 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 
 * Benutzer lässt das Bemerkungsfeld leer
 
+* Benutzer wählt die Qualifikation "Bachelor" aus
+
 * Benutzer fügt das Datum "01.2010" mit "10" HKS hinzu
 
 * Benutzer fügt das Datum "02.2010" mit "10" HKS hinzu
@@ -1609,16 +1615,19 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 
 * Benutzer gibt die Bemerkung "leer" ein
 
-* Benutzer fügt das Datum "11.2010" mit 100 HKS hinzu
+* Benutzer wählt die Qualifikation "Geprüft" aus
 
-* Benutzer fügt das Datum "12.2010" mit 100 HKS hinzu
+* Benutzer fügt das Datum "11.2009" mit 100 HKS hinzu
+
+* Benutzer fügt das Datum "12.2009" mit 100 HKS hinzu
 
 * Benutzer fügt das Datum "01.2010" mit 100 HKS hinzu
 
 * Benutzer wählt den Vertrag aus Testfall 168 aus.
 
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Die Beschäftigung wurde im System gespeichert. Da die gebuchten HKS größer sind als die genehmigten HKS der Veranstaltung wird eine Warnung für den Benutzer ausgegeben.</post>
+<post>Die Beschäftigung wurde im System gespeichert. Zuerst wird der Benutzer darauf hingewiesen, dass der Benutzer mehr als 85 Stunden pro Woche arbeiten. Danach, dass die gebuchten HKS größer sind als die genehmigten HKS der Veranstaltung.
+Gespeichert wird die Beschäftigung trotzdem.</post>
 <tags/>
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="161" priority="A" title="Beschäftigung inkorrekt buchen">
@@ -1633,6 +1642,8 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 * Benutzer lässt die Kostenstelle leer
 
 * Benutzer gibt die Bemerkung "keine" ein
+
+* Benutzer wählt die Qualifikation "Geprüft" aus
 
 * Benutzer fügt das Datum "01.2010 ohne HKS hinzu
 
@@ -1692,10 +1703,10 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 
 * Benutzer klickt auf den Button "Bearbeiten"
 
-* Benutzer gibt für Dezember 2010 "zwanzig" ein
+* Benutzer lässt das Stundenfeld für "12.2009" leer.
 
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Die geänderte Beschäftigung wurde in der Datenbank nicht gespeichert. Der Benutzer wird darüber informiert, dass für die HKS-Angabe nur Zahlen erlaubt sind. Das Bearbeiten-Tab bleibt offen, damit er seine Eingaben verbessern kann.</post>
+<post>Die geänderte Beschäftigung wurde in der Datenbank nicht gespeichert. Der Benutzer wird darüber informiert, dass die HKS-Angabe leer sein muss. Das Bearbeiten-Tab bleibt offen, damit er seine Eingaben verbessern kann.</post>
 <tags/>
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="170" priority="B" title="Abbruch: Beschäftigung bearbeiten">
@@ -1869,7 +1880,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 
 * Benutzer gibt die Art des Vorgangsdokument "eMail" ein
 
-* Benutzer lässt den Vorgangstext leer
+* Benutzer gibt den Inhalt "nichts" ein
 
 * Benutzer gibt keine Bemerkung ein
 
@@ -1898,7 +1909,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 
 * Benutzer gibt die Art des Vorgangsdokument "Arbeitsvertrag" ein
 
-* Benutzer lässt den Vorgangstext leer
+* Benutzer gibt den Inhalt "nichts" ein
 
 * Benutzer gibt keine Bemerkung ein
 
@@ -1925,7 +1936,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 
 * Benutzer gibt die Art des Vorgangsdokument "Gehaltsabrechnung" ein
 
-* Benutzer lässt den Vorgangstext leer
+* Benutzer gibt den Inhalt "nichts" ein
 
 * Benutzer gibt keine Bemerkung ein
 
@@ -1936,26 +1947,27 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:05" number="192" priority="B" title="Vorgang inkorrekt hinzufügen">
 <description>Es wird ein Vorgang zur Datenbank hinzugefügt. Es wurden falsche Eingaben gemacht.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 28 wurden ausgeführt.</pre>
-<actions>* Benutzer gibt das Datum "In ferner Zukunft" ein
+<actions>* Benutzer gibt das Datum "01.01.2010" ein
 
 * Benutzer wählt die Hilfskraft "Peter Planlos" aus
 
 * Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
 
-* Benutzer gibt den Bearbeiter "Chris" ein
+* Benutzer gibt den Bearbeiter "PG" ein
 
-* Benutzer gibt den Sender "Bart Simpson" ein
+* Benutzer lässt den Sender leer
 
 * Benutzer gibt die Vorgangsart "Postausgang" ein
 
 * Benutzer gibt die Art des Vorgangsdokument "Lohnsteuerkarte" ein
 
-* Benutzer lässt den Vorgangstext leer
+* Benutzer gibt den Inhalt "nichts" ein
 
 * Benutzer gibt keine Bemerkung ein
 
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Der Vorgang wurde in der Datenbank nicht abgelegt. Der Benutzer wird darüber informiert, dass das Datumsformat falsch ist und der Bearbeiter zu lang ist. Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.</post>
+<post>Der Vorgang wurde in der Datenbank nicht abgelegt. Der Benutzer wird darüber informiert, dass Inhalt und Sender leer sind.
+Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.</post>
 <tags/>
 </testcase>
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="194" priority="D" title="Abbruch: Vorgang hinzufügen">
@@ -1965,7 +1977,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 
 * Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
 
-* Benutzer klickt auf den Button "Abbrechen"	</actions>
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
 <post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
 <tags/>
 </testcase>
@@ -1986,7 +1998,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post>Die geänderten Daten werden in der Datenbank hinterlegt und das System kehrt zum vorher angezeigten Tab zurück.</post>
 <tags/>
 </testcase>
-<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="196" priority="C" title="Vorgang unvollständig bearbeiten">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="196" priority="C" title="Vorgang inkorrekt bearbeiten">
 <description>Es soll ein Vorgang  bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 191 wurde bereits ausgeführt.</pre>
 <actions>* Benutzer markiert den Vorgang "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
@@ -1995,24 +2007,10 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 
 * Benutzer löscht den Inhalt des Felds Bearbeiter
 
-* Benutzer löscht den Inhalt des Felds Datum
+* Benutzer löscht den Inhalt des Felds Inhalt
 
 * Benutzer klickt auf den Button "Speichern"</actions>
 <post>Der Datensatz wird nicht editiert. Der Benutzer bleibt im Bearbeiten-Tab und wird über die leer gelassenen Felder informiert.</post>
-<tags/>
-</testcase>
-<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="197" priority="C" title="Vorgang inkorrekt bearbeiten">
-<description>Es soll ein Vorgang bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
-<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 193 wurde bereits ausgeführt.</pre>
-<actions>* Benutzer markiert den Vorgang "Fred Feuerstein - Laufende Forschung"
-
-* Benutzer klickt auf den Button "Bearbeiten"
-
-* Benutzer ändert den Bearbeiter zu "Neuer"
-
-* Benutzer klickt auf den Button "Speichern"
-</actions>
-<post>Der Datensatz wird nicht bearbeitet. Der Benutzer wird darüber informiert, dass Bearbeiter nur 2 Zeichen lang sein darf. Er befindet sich weiterhin im Bearbeiten-Tab, um seine Eingabe korrigieren zu können.</post>
 <tags/>
 </testcase>
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="198" priority="C" title="Abbruch: Vorgang bearbeiten">
@@ -2114,20 +2112,14 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post>Der Benutzer hat eine Einsicht über alle Vorgangsdaten erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 193 übereinstimmen. Nach dem Bearbeiten wurde der Datensatz korrekt geändert und gespeichert. Der Benutzer befindet sich im vorher angezeigten Reiter wieder.</post>
 <tags/>
 </testcase>
-<testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="205" priority="C" title="Vorgang anzeigen und anschließend Hilfskraft anzeigen">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="205" priority="C" title="Hilfskraft aus Vorgang anzeigen">
 <description>Es soll ein Vorgang angezeigt werden. Anschließend soll die Hilfskraft zum Vorgang angezeigt werden.</description>
 <pre>Der Testfall 191 ausgeführt.</pre>
 <actions>* Benutzer markiert den Vorgang "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
 
-* Benutzer klickt auf den Button "Anzeigen"
-
-* System öffnet das "Anzeigen"-Tab
-
-* Benutzer klickt die Hilfskraft an
+* Benutzer klickt auf den Button "Hilfskraft"
 
 * System öffnet die Hilfskraft in einem neuen "Anzeigen"-Tab
-
-* Benutzer schließt den Vorgangsreiter
 
 * Benutzer klickt auf den Button "Schließen"</actions>
 <post>Der Benutzer hat eine Einsicht über alle Vorgangsdaten erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 191 übereinstimmen. Des weiteren konnte er sich über die ausgewählte Hilfskraft informieren. Der Benutzer befindet sich wieder im zuvor angezeigten Reiter.</post>
@@ -2147,7 +2139,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="207" priority="C" title="Vorgang suchen nach Bearbeiter">
 <description>Es soll eine Vorgang gesucht werden. Es wird nach dem Bearbeiter gesucht.</description>
 <pre>Der Testfall 193 wurde ausgeführt.</pre>
-<actions>* Benutzer gibt im Suchfeld "Philly" ein
+<actions>* Benutzer gibt im Suchfeld "PG" ein
 
 * System aktualisiert die Anzeige-Tabelle</actions>
 <post>In der Anzeige-Tabelle erscheinen 3 Vorgänge (Testfall 193). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
@@ -4019,7 +4011,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 
 * System öffnet den Anzeigentab mit dem gewählten Vertrag
 
-* Benutzer klickt auf den Button "Bearbeiten		"</actions>
+* Benutzer klickt auf den Button "Bearbeiten        "</actions>
 <post>Der Bearbeitentab für den gewählten Vertrag wird geöffnet.</post>
 <tags/>
 </testcase>
@@ -4879,7 +4871,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
 <actions>* Benutzer gibt den Vornamen "Trick" ein
 
-* Benutzer klickt auf den Button "Abbrechen"	</actions>
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
 <post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
 <tags/>
 </testcase>
@@ -5388,7 +5380,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 
 * Benutzer gibt die Budgetkosten "6000" ein
 
-* Benutzer klickt auf den Button "Abbrechen"	</actions>
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
 <post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
 <tags/>
 </testcase>
@@ -5808,7 +5800,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 
 * Benutzer wählt das Enddatum "12.2008" aus
 
-* Benutzer klickt auf den Button "Abbrechen"	</actions>
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
 <post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
 <tags/>
 </testcase>
