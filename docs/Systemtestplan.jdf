@@ -3534,6 +3534,136 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </tsa>
 <tsa name="Allgemein" number="309" revId="3">
 <relatedsequence>309</relatedsequence>
+<testrun enddate="28.06.2010 22:15" priority="E" startdate="28.06.2010 22:01" tester="aidGerTeam">
+<description/>
+<sut>aidGer</sut>
+<executedsequence>
+<sequence created="28.06.2010" creator="aidGerTeam" name="Allgemein" number="309">
+<description>Die Testsequenz dient zum Testen allgemeiner Funktionalitäten der Software.</description>
+<pre/>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:02" outcome="Ok" postok="Y" preok="Y" starttime="22:01">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="88" priority="C" title="Programmstart mit offenen Tabs">
+<description>Das Programm wird gestartet, wobei beim letzten Programmstart Tabs offen gelassen wurden.</description>
+<pre>Die Einstellung "Reiter bei Verlassen speichern" ist aktiviert.</pre>
+<actions>* Benutzer öffnet den Menüpunkt Veranstaltungen in einem neuen Tab
+
+* Benutzer drückt den Button "Hinzufügen"
+
+* System öffnet das "Hinzufügen"-Tab
+
+* Benutzer gibt die Bezeichnung "Veranstaltung YXZ" ein
+
+* Benutzer öffnet den Menüpunkt Vorgänge in einem neuen Tab
+
+* Benutzer schließt das Programm
+
+* Benutzer startet das Programm erneut</actions>
+<post>Die Tabs "Veranstaltungen", "Veranstaltungen - Hinzufügen" und "Vorgänge" sind nach dem Programmstart erneut offen. Die Eingabe im Veranstaltungen-Hinzufügen-Formular ging jedoch dabei verloren.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die Tabs "Veranstaltungen - Hinzufügen" und "Vorgänge" sind nach dem Programmstart erneut offen. Die Eingabe im Veranstaltungen-Hinzufügen-Formular ging jedoch dabei verloren.</post>
+<comment>Der Toolbar-Button "Hinzufügen" öffnet das Formular im selben Tab.</comment>
+</result>
+<result actionok="Y" endtime="22:04" outcome="Ok" postok="Y" preok="Y" starttime="22:02">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="90" priority="C" title="Änderung der Fenstergröße">
+<description>Es soll das Verhalten bei einer Veränderung der Fenstergröße getestet werden.</description>
+<pre/>
+<actions>* Benutzer zieht das Programmfenster breiter
+
+* Benutzer zieht das Programmfenster höher</actions>
+<post>Bei einer Veränderung der Fenstergröße in der Breite wird nur der Inhaltsbereich verändert, um mehr Platz für Informationen/Formulare zu bekommen. Die Navigationsleiste wird höchstens so breit wie das breiteste Element in ihr.
+
+Sollte sich die Fenstergröße in der Höhe verändern, ändert sich die Größe beider Elemente gleichmäßig.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Bei einer Veränderung der Fenstergröße in der Breite wird nur der Inhaltsbereich verändert, um mehr Platz für Informationen/Formulare zu bekommen. Die Navigationsleiste wird höchstens so breit wie das breiteste Element in ihr.
+
+Sollte sich die Fenstergröße in der Höhe verändern, ändert sich die Größe beider Elemente gleichmäßig.</post>
+<comment>Ab einer gewissen Größe konnte das Fenster nicht mehr verkleinert werden, so dass stets der Inhalt noch gut zu lesen war.</comment>
+</result>
+<result actionok="Y" endtime="22:08" outcome="Ok" postok="Y" preok="Y" starttime="22:04">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="91" priority="C" title="Auswahl eines Elements in der Navigationsleiste">
+<description>Es wird die Auswahl eines Menüeintrags in der Navigationsleiste getestet. Es gibt Unterschiede zwischen einem linken und einen mittleren Mausklick.</description>
+<pre/>
+<actions>* Benutzer drückt mit der linken Maustaste auf den Menüpunkt Berichte
+
+* Benutzer drückt mit der mittleren Maustaste auf den Menüpunkt Controlling</actions>
+<post>Wird vom Benutzer ein Element in der Navigationsleiste mit der linken Maustaste ausgewählt, wird der aktuelle Inhalt des Inhaltsbereichs verworfen und durch den Inhalt des neuen Elements ersetzt.
+
+Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen, wird ein neuer Reiter geöffnet und der Inhalt des Elements in diesem neuen Reiter dargestellt. Der aktuelle Reiter bleibt dabei vollständig erhalten, gerät jedoch in den Hintergrund (ist also nicht mehr sichtbar).</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Das Tab Berichte hat sich im selben Tab geöffnet. Das Tab "Controlling - Hilfskräfte" hat sich im neuen Tab geöffnet und ist in den Vordergrund gekommen (wurde also sichtbar).</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:09" outcome="Ok" postok="Y" preok="Y" starttime="22:08">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="263" priority="C" title="Willkommensreiter anzeigen">
+<description>Der Willkommensreiter soll beim Programmstart angezeigt werden. Die Einstellung "Merke meine Reiter" ist nicht gesetzt.</description>
+<pre>Die Einstellung "Merke meine Reiter" ist nicht gesetzt.</pre>
+<actions>* Benutzer startet das Programm neu</actions>
+<post>In einem einzigen Reiter ist das Willkommen-Tab geöffnet. Der Willkommensreiter enthält Informationen über die letzten Ereignisse (z.b. Berichte oder Vorgänge), Hinweise und Statistiken.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>In einem einzigen Reiter ist das Willkommen-Tab geöffnet. Der Willkommensreiter enthält Informationen über die letzten Ereignisse (z.b. Berichte oder Vorgänge), Hinweise und Statistiken.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:10" outcome="Ok" postok="Y" preok="Y" starttime="22:09">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="304" priority="C" title="Willkommensreiter nicht anzeigen">
+<description>Der Willkommensreiter soll beim Programmstart angezeigt werden. Die Einstellung "Merke meine Reiter" ist gesetzt.</description>
+<pre>Die Einstellung "Merke meine Reiter" ist gesetzt.</pre>
+<actions>* Benutzer öffnet die Reiter "Veranstaltungen", "Controlling Hilfskräfte" und "Beschäftigungen"
+
+* Benutzer startet das Programm neu</actions>
+<post>Der Willkommensreiter wird nicht geöffnet. Es werden ausschließlich die 3 geöffneten Reiter vor dem Programmneustart angezeigt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Willkommensreiter wird nicht geöffnet. Es werden ausschließlich die 3 geöffneten Reiter vor dem Programmneustart angezeigt.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:15" outcome="Ok" postok="Y" preok="Y" starttime="22:10">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="119" priority="C" title="Export-Schnittstelle für Vorgänge">
+<description>Der Export von Vorgängen (z.B. zur möglichen Benutzung im Ticket-System) muss getestet werden.</description>
+<pre>Testfälle zum Hinzufügen von Vorgängen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt im Menü den Punkt "Vorgang exportieren"
+
+* Benutzer wählt die Tagesanzahl "5" aus
+
+* Benutzer drückt den Button "Exportieren"</actions>
+<post>Die Vorgänge der letzten 5 Tage werden in der Tabelle angezeigt. Die angezeigten Vorgänge werden im PDF-Format exportiert. In einer späteren SUT sollte hier ein für das Ticket-System verständliches Format benutzt werden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die Vorgänge der letzten 5 Tage werden in der Tabelle angezeigt. Die angezeigten Vorgänge werden im PDF-Format exportiert.</post>
+<comment>In einer späteren SUT sollte hier ein für das Ticket-System verständliches Format benutzt werden.</comment>
+</result>
+<result actionok="Y" endtime="22:15" outcome="Ok" postok="Y" preok="Y" starttime="22:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="262" priority="C" title="Programm beenden">
+<description>Das Programm soll beendet werden.</description>
+<pre>Benutzer möchte das Programm beenden.</pre>
+<actions>* Benutzer drückt auf den "X"-Button</actions>
+<post>Alle Ressourcen müssen freigegeben werden. Die Reiter müssen je nach Einstellung gespeichert werden. Die Konfiguration muss geschrieben werden. Das Fenster soll verschwinden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Alle Ressourcen wurden freigegeben und das Programm wurde korrekt beendet.</post>
+<comment/>
+</result>
+</executedsequence>
+</testrun>
 </tsa>
 </tsa>
 <tsa name="Verträge" number="279" revId="1">
