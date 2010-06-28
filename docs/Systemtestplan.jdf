@@ -2185,99 +2185,69 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Das Programm wurde gestartet und Benutzer befindet sich im Menüpunkt Berichte.</pre>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Jahresbilanzen" number="114">
 <description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von einer Jahresbilanz.</description>
-<pre>Der Benutzer möchte eine Jahresbilanz generieren.</pre>
+<pre>* Benutzer klickt auf den Link "Jahresbilanz" in der TaskPane Berichte.</pre>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="211" priority="C" title="Jahresbilanz für ein Jahr generieren">
 <description>Es soll eine Jahresbilanz generiert und anschließend dargestellt werden.</description>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
-<actions>* Benutzer wählt in der Dropdown-Liste den Bericht "Jahresbilanz"
-
-* Benutzer drückt auf den Button "Mehr"
-
-* System zeigt die Einstellungsmöglichkeiten zu diesem Bericht an
-
-* Benutzer gibt das Jahr "2010" ein
+<actions>* Benutzer gibt das Jahr "2010" ein
 
 * Benutzer klickt auf den Button "Generieren"</actions>
-<post>Es wurde ein neues Berichte-Tab geöffnet und die erstellte Jahresbilanz wird für das angegebene Jahr im Frame intern angezeigt. Es müssen drei Veranstaltungen in der Bilanz auftauchen für dieses Jahr. Die eingeplante HKS und der HKS Grundbedarf sowie die Plankosten müssen alle korrekt berechnet sein.</post>
+<post>Die erstellte Jahresbilanz wird für das angegebene Jahr im Frame intern angezeigt. Es müssen drei Veranstaltungen in der Bilanz auftauchen für dieses Jahr. Die eingeplante HKS und der HKS Grundbedarf sowie die Plankosten müssen alle korrekt berechnet sein.</post>
 <tags/>
 </testcase>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="213" priority="C" title="Jahresbilanz für ein Jahr ohne Beschäftigungen generieren">
 <description>Es soll eine Jahresbilanz generiert und anschließend dargestellt werden. Problem ist, dass es keine Bescheschäftigungen in diesem Jahr gibt.</description>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
-<actions>* Benutzer wählt in der Dropdown-Liste den Bericht "Jahresbilanz"
-
-* Benutzer drückt auf den Button "Mehr"
-
-* System zeigt die Einstellungsmöglichkeiten zu diesem Bericht an
-
-* Benutzer gibt das Jahr "2009" ein
+<actions>* Benutzer gibt das Jahr "2009" ein
 
 * Benutzer klickt auf den Button "Generieren"</actions>
-<post>Es wird eine Meldung gebracht, dass für das angegebene Jahr keine Jahresbilanz erstellet werden kann, da keine Beschäftigung hierzu im Systen hinterlegt wurde. Es hat sich kein neuer Reiter geöffnet.</post>
+<post>Der Benutzer soll nicht die Möglichkeit haben, dieses Jahr auszuwählen, da keine Veranstaltungen in der Datenbank hierfür existieren.</post>
 <tags/>
 </testcase>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="212" priority="C" title="Jahresbilanz in PDF-Format exportieren">
 <description>Eine generierte Jahresbilanz soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
 <pre>Der Testfall 211 wurde bereits ausgeführt. Benutzer befindet sich im Jahresbilanz-Reiter.</pre>
-<actions>* Benutzer klickt auf den Button "Exportieren" bzw. "Anzeigen"</actions>
+<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
 <post>Die bereits dargestellte Jahresbilanz wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
 <tags/>
 </testcase>
 </sequence>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Semesterbilanzen" number="123">
 <description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von einer Semesterbilanz.</description>
-<pre>Der Benutzer möchte eine Semesterbilanz generieren.</pre>
+<pre>* Benutzer klickt auf den Link "Semesterbilanz" in der TaskPane Berichte.</pre>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="214" priority="C" title="Semesterbilanz für ein Semester generieren">
 <description>Es soll eine Semesterbilanz generiert und anschließend dargestellt werden.</description>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
-<actions>* Benutzer wählt in der Dropdown-Liste den Bericht "Semesterbilanz"
-
-* Benutzer drückt auf den Button "Mehr"
-
-* System zeigt die Einstellungsmöglichkeiten zu diesem Bericht an
-
-* Benutzer gibt das Semester "WS0809" ein
+<actions>* Benutzer gibt das Semester "WS0809" ein
 
 * Benutzer klickt auf den Button "Generieren"</actions>
-<post>Es wurde ein neues Berichte-Tab geöffnet und die erstellte Semesterbilanz wird für das angegebene Jahr im Frame intern angezeigt. Die Semesterbilanz umfasst eine Veranstaltung im WS0809. Dabei wurden die eingeplanten HKS, der HKS Grundbedarf sowie die Plankosten korrekt bestimmt. Es ist hierbei irrelevant, dass die Veranstaltung laut Beschäftigung erst November 2010 beginnt. Diese Überprüfung hat nicht stattgefunden.</post>
+<post>Die erstellte Semesterbilanz wird für das angegebene Jahr im Frame intern angezeigt. Die Semesterbilanz umfasst eine Veranstaltung im WS0809. Dabei wurden die eingeplanten HKS, der HKS Grundbedarf sowie die Plankosten korrekt bestimmt. Es ist hierbei irrelevant, dass die Veranstaltung laut Beschäftigung erst November 2010 beginnt. Diese Überprüfung hat nicht stattgefunden.</post>
 <tags/>
 </testcase>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="215" priority="C" title="Semesterbilanz für ein Semester ohne Veranstaltungen generieren">
 <description>Es soll eine Semesterbilanz generiert und anschließend dargestellt werden. Problem ist, dass es keine Veranstaltungen in diesem Semester gibt.</description>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
-<actions>* Benutzer wählt in der Dropdown-Liste den Bericht "Semesterbilanz"
-
-* Benutzer drückt auf den Button "Mehr"
-
-* System zeigt die Einstellungsmöglichkeiten zu diesem Bericht an
-
-* Benutzer gibt das Semester "SS05" ein
+<actions>* Benutzer gibt das Semester "SS05" ein
 
 * Benutzer klickt auf den Button "Generieren"</actions>
-<post>Es wird eine Meldung gebracht, dass für das angegebene Semester keine Semesterbilanz erstellet werden kann, da keine Veranstaltung hierzu im Systen hinterlegt wurde. Es hat sich kein neuer Reiter geöffnet.</post>
+<post>Der Benutzer soll nicht die Möglichkeit haben, dieses Semester auszuwählen, da keine Veranstaltungen in der Datenbank hierfür existieren.</post>
 <tags/>
 </testcase>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="216" priority="C" title="Semesterbilanz in PDF-Format exportieren">
 <description>Eine generierte Semesterbilanz soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
 <pre>Der Testfall 214 wurde bereits ausgeführt. Benutzer befindet sich im Semesterbilanz-Reiter.</pre>
-<actions>* Benutzer klickt auf den Button "Exportieren" bzw. "Anzeigen"</actions>
+<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
 <post>Die bereits dargestellte Semesterbilanz wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
 <tags/>
 </testcase>
 </sequence>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Teilbilanzen via Filter" number="124">
 <description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von einer Teilbilanz.</description>
-<pre>Der Benutzer möchte eine Teilbilanz generieren.</pre>
+<pre>* Benutzer klickt auf den Link "Gesamtbilanz" in der TaskPane Berichte.</pre>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="217" priority="C" title="Teilbilanz für ein Zeitraum mit bestimmten Dozent generieren">
 <description>Es soll eine Teilbilanz für einen angegebenen Zeitraum generiert und anschließend dargestellt werden.</description>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
-<actions>* Benutzer wählt in der Dropdown-Liste den Bericht "Teilbilanz"
-
-* Benutzer drückt auf den Button "Mehr"
-
-* System zeigt die Einstellungsmöglichkeiten zu diesem Bericht an
-
-* Benutzer fügt den Filter "Dozent" hinzu
+<actions>* Benutzer fügt den Filter "Dozent" hinzu
 
 * Benutzer gibt den Dozent "B. Gates" ein
 
@@ -2286,187 +2256,83 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 * Benutzer gibt das Jahr "2010" hinzu
 
 * Benutzer klickt auf den Button "Generieren"</actions>
-<post>Es wurde ein neues Berichte-Tab geöffnet und die erstellte Teilbilanz wird für das angegebene Jahr im Frame intern angezeigt. Die Teilbilanz umfasst eine Veranstaltung aus Testfall 159.</post>
+<post>Die erstellte Teilbilanz wird für das angegebene Jahr im Frame intern angezeigt. Die Teilbilanz umfasst eine Veranstaltung aus Testfall 159.</post>
 <tags/>
 </testcase>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="233" priority="C" title="Teilbilanz mit Filter findet keine Veranstaltungen">
 <description>Es soll eine Teilbilanz für einen angegebenen Zeitraum generiert und anschließend dargestellt werden. Mit der Filterung wurde jedoch keine Veranstaltung gefunden.</description>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
-<actions>* Benutzer wählt in der Dropdown-Liste den Bericht "Teilbilanz"
-
-* Benutzer drückt auf den Button "Mehr"
-
-* System zeigt die Einstellungsmöglichkeiten zu diesem Bericht an
-
-* Benutzer fügt den Filter "Gruppe" hinzu
+<actions>* Benutzer fügt den Filter "Gruppe" hinzu
 
 * Benutzer gibt den Gruppe "Tolle Gruppe" ein
 
 * Benutzer klickt auf den Button "Generieren"</actions>
-<post>Es wird eine Meldung gebracht, dass mit dem aktuellen Filter keine Teilbilanz generiert werden kann, da keine Veranstaltungen gefunden wurden. Es hat sich daher kein neuer Reiter geöffnet.</post>
+<post>Der Benutzer soll nicht die Möglichkeit haben, diese Gruppe auszuwählen, da keine solche Gruppe in der Datenbank existiert.</post>
 <tags/>
 </testcase>
-<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="234" priority="C" title="Semesterbilanz in PDF-Format exportieren">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="234" priority="C" title="Teilbilanz in PDF-Format exportieren">
 <description>Eine generierte Teilbilanz soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
-<pre>Der Testfall 217 wurde bereits ausgeführt. Benutzer befindet sich im Teilrbilanz-Reiter.</pre>
-<actions>* Benutzer klickt auf den Button "Exportieren" bzw. "Anzeigen"</actions>
+<pre>Der Testfall 217 wurde bereits ausgeführt. Benutzer befindet sich im Teilbilanz-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
 <post>Die bereits dargestellte Teilbilanz wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
 <tags/>
 </testcase>
 </sequence>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Tätigkeitsnachweise" number="115">
 <description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von eines Tätigkeitsnachweises.</description>
-<pre>Der Benutzer möchte einen Tätigkeitsnachweis generieren.</pre>
+<pre>* Benutzer klickt auf den Link "Tätigkeitsnachweis" in der TaskPane Berichte.</pre>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="218" priority="C" title="Tätigkeitsnachweis für eine Hilfskraft generieren (alle Beschäftigungen)">
 <description>Es soll ein Tätigkeitsnachweis für eine Hilfskraft generiert und anschließend dargestellt werden. Es werden alle Beschäftigungen angezeigt.</description>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
-<actions>* Benutzer wählt in der Dropdown-Liste den Bericht "Tätigkeitsnachweis"
-
-* Benutzer drückt auf den Button "Mehr"
-
-* System zeigt die Einstellungsmöglichkeiten zu diesem Bericht an
-
-* Benutzer wählt die Hilfskraft "Carl Coder" aus
+<actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
 
 * Benutzer klickt auf den Button "Generieren"</actions>
-<post>Es wurde ein neues Berichte-Tab geöffnet und der erstellte Tätigkeitsnachweis wird für das angegebene Jahr im Frame intern angezeigt. Es wird eine Beschäftigung dargestellt. Es müssen mindestens die Spalten Zeitraum, Veranstaltung und Umfang angezeigt werden.</post>
-<tags/>
-</testcase>
-<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="221" priority="C" title="Tätigkeitsnachweis für eine Hilfskraft generieren (Zeitraumangabe)">
-<description>Es soll ein Tätigkeitsnachweis für eine Hilfskraft generiert und anschließend dargestellt werden. Der Benutzer gibt einen Zeitraum für den Nachweis ein.</description>
-<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
-<actions>* Benutzer wählt in der Dropdown-Liste den Bericht "Tätigkeitsnachweis"
-
-* Benutzer drückt auf den Button "Mehr"
-
-* System zeigt die Einstellungsmöglichkeiten zu diesem Bericht an
-
-* Benutzer wählt die Hilfskraft "Carl Coder" aus
-
-* Benutzer gibt das Anfangsdatum "01.10" ein
-
-* Benutzer gibt das Enddatum "12.10" ein
-
-* Benutzer klickt auf den Button "Generieren"</actions>
-<post>Es wurde ein neues Berichte-Tab geöffnet und der erstellte Tätigkeitsnachweis wird für das angegebene Jahr im Frame intern angezeigt. Es wird eine Beschäftigung dargestellt. Es müssen mindestens die Spalten Zeitraum, Veranstaltung und Umfang angezeigt werden.</post>
-<tags/>
-</testcase>
-<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="222" priority="C" title="Tätigkeitsnachweis für eine Hilfskraft ohne Beschäftigungen generieren">
-<description>Es soll ein Tätigkeitsnachweis für eine Hilfskraft generiert und anschließend dargestellt werden. Der Benutzer gibt einen Zeitraum für den Nachweis ein. Es wurde keine Beschäftigung gefunden.</description>
-<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
-<actions>* Benutzer wählt in der Dropdown-Liste den Bericht "Tätigkeitsnachweis"
-
-* Benutzer drückt auf den Button "Mehr"
-
-* System zeigt die Einstellungsmöglichkeiten zu diesem Bericht an
-
-* Benutzer wählt die Hilfskraft "Carl Coder" aus
-
-* Benutzer gibt das Anfangsdatum "01.09" ein
-
-* Benutzer gibt das Enddatum "12.09" ein
-
-* Benutzer klickt auf den Button "Generieren"</actions>
-<post>Der Benutzer bekommt die Fehlermeldung zu sehen, dass kein Tätigkeitsnachweis für den angegebenen Zeitraum gefunden wurde. Es wurde kein Tätigkeitsnachweisreiter geöffnet.</post>
+<post>Der erstellte Tätigkeitsnachweis wird für das angegebene Jahr im Frame intern angezeigt. Es wird eine Beschäftigung dargestellt. Es müssen mindestens die Spalten Zeitraum, Veranstaltung und Umfang angezeigt werden.</post>
 <tags/>
 </testcase>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="220" priority="C" title="Tätigkeitsnachweis in PDF-Format exportieren">
 <description>Ein generierter Tätigkeitsnachweis soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
 <pre>Der Testfall 218 wurde bereits ausgeführt. Benutzer befindet sich im Tätigkeitsnachweis-Reiter.</pre>
-<actions>* Benutzer klickt auf den Button "Exportieren" bzw. "Anzeigen"</actions>
+<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
 <post>Der bereits dargestellte Tätigkeitsnachweis wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
 <tags/>
 </testcase>
 </sequence>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Vorgangsprotokolle" number="116">
-<description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von eines Vorgangprotokolls.</description>
-<pre>Der Benutzer möchte ein Vorgangsprotokoll generieren.</pre>
-<sequence created="17.05.2010" creator="aidGerTeam" name="Für einen Zeitpunkt" number="223">
-<description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von eines Vorgangprotokolls von einem Tag.</description>
-<pre>Der Benutzer möchte ein Vorgangsprotokoll von einem Tag generieren.</pre>
+<description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren eines Vorgangprotokolls.</description>
+<pre>* Benutzer klickt auf den Link "Vorgänge exportieren" in der TaskPane Vorgänge.</pre>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="225" priority="C" title="Vorgangsprotokoll für einen Tag generieren">
 <description>Es soll eine Vorgangsprotokoll für einen Tag generiert und anschließend dargestellt werden.</description>
 <pre>Es wurde ein Vorgang heute angelegt.</pre>
-<actions>* Benutzer wählt in der Dropdown-Liste den Bericht "Vorgangsprotokoll (Tag)"
-
-* Benutzer drückt auf den Button "Mehr"
-
-* System zeigt die Einstellungsmöglichkeiten zu diesem Bericht an
-
-* Benutzer wählt den Tag "Heute" aus
+<actions>* Benutzer wählt die Tagesanzahl "0" aus
 
 * Benutzer klickt auf den Button "Generieren"</actions>
-<post>Es wurde ein neues Berichte-Tab geöffnet und das erstellte Vorgangsprotokoll für den heutigen Tag im Frame intern angezeigt. Es sollen dabei so viele Informationen wie möglich dargestellt werden.</post>
-<tags/>
-</testcase>
-<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="228" priority="C" title="Vorgangsprotokoll für einen Tag ohne Vorgänge generieren">
-<description>Es soll eine Vorgangsprotokoll für einen Tag generiert und anschließend dargestellt werden. Es wurden jedoch keine Vorgänge für den Tag gefunden.</description>
-<pre>Die Testfälle zum Hinzufügen von Vorgängen wurden ausgeführt.</pre>
-<actions>* Benutzer wählt in der Dropdown-Liste den Bericht "Vorgangsprotokoll (Tag)"
-
-* Benutzer drückt auf den Button "Mehr"
-
-* System zeigt die Einstellungsmöglichkeiten zu diesem Bericht an
-
-* Benutzer wählt den Tag "24.12.07" aus
-
-* Benutzer klickt auf den Button "Generieren"</actions>
-<post>Der Benutzer wird darüber informiert, dass an diesem Tag keine Vorgänge in die Datenbank aufgenommen wurden. Es hat sich kein Reiter geöffnet.</post>
+<post>Das erstellte Vorgangsprotokoll wird für den heutigen Tag im Frame intern angezeigt. Es sollen dabei so viele Informationen wie möglich dargestellt werden. Alle Vorgänge von heute werden angezeigt.</post>
 <tags/>
 </testcase>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="229" priority="C" title="Vorgangsprotokoll für einen Tag in PDF-Format exportieren">
 <description>Ein generiertes Vorgangsprotokoll soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
 <pre>Der Testfall 225 wurde bereits ausgeführt. Benutzer befindet sich im Vorgangsprotokoll-Reiter.</pre>
-<actions>* Benutzer klickt auf den Button "Exportieren" bzw. "Anzeigen"</actions>
+<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
 <post>Das bereits dargestellte Vorgangsprotokoll wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
 <tags/>
 </testcase>
-</sequence>
-<sequence created="17.05.2010" creator="aidGerTeam" name="Für einen Zeitraum" number="224">
-<description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von eines Vorgangprotokolls von einem Zeitraum.</description>
-<pre>Der Benutzer möchte ein Vorgangsprotokoll von einem Zeitraum generieren.</pre>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="230" priority="C" title="Vorgangsprotokoll für einen Zeitraum generieren">
 <description>Es soll eine Vorgangsprotokoll für einen Zeitraum generiert und anschließend dargestellt werden.</description>
 <pre>Die Testfälle zum Hinzufügen von Vorgängen wurden ausgeführt.</pre>
-<actions>* Benutzer wählt in der Dropdown-Liste den Bericht "Vorgangsprotokoll (Zeitraum)"
-
-* Benutzer drückt auf den Button "Mehr"
-
-* System zeigt die Einstellungsmöglichkeiten zu diesem Bericht an
-
-* Benutzer wählt das Anfangsdatum "01.03.2009" aus
-
-* Benutzer wählt das Enddatum "31.03.2009" aus
+<actions>* Benutzer wählt die Tagesanzahl "5" aus
 
 * Benutzer klickt auf den Button "Generieren"</actions>
-<post>Es wurde ein neues Berichte-Tab geöffnet und das erstellte Vorgangsprotokoll für denZeitraum im Frame intern angezeigt. Es sollen dabei so viele Informationen wie möglich dargestellt werden. Es werden ausschließlich die Vorgänge aus Testfall 191 angezeigt.</post>
-<tags/>
-</testcase>
-<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="231" priority="C" title="Vorgangsprotokoll für einen Zeitraum ohne Vorgänge generieren">
-<description>Es soll eine Vorgangsprotokoll für einen Zeitraum generiert und anschließend dargestellt werden. Es wurden jedoch keine Vorgänge für den Zeitraum gefunden.</description>
-<pre>Die Testfälle zum Hinzufügen von Vorgängen wurden ausgeführt.</pre>
-<actions>* Benutzer wählt in der Dropdown-Liste den Bericht "Vorgangsprotokoll (Zeitraum)"
-
-* Benutzer drückt auf den Button "Mehr"
-
-* System zeigt die Einstellungsmöglichkeiten zu diesem Bericht an
-
-* Benutzer wählt das Anfangsdatum "01.06.2004" aus
-
-* Benutzer wählt das Enddatum "31.06.2004" aus
-
-* Benutzer klickt auf den Button "Generieren"</actions>
-<post>Der Benutzer wird darüber informiert, dass in diesem Zeitraum keine Vorgänge in die Datenbank aufgenommen wurden. Es hat sich kein Reiter geöffnet.</post>
+<post>Das erstellte Vorgangsprotokoll für den Zeitraum im Frame intern angezeigt. Es sollen dabei so viele Informationen wie möglich dargestellt werden. Es werden ausschließlich die Vorgänge aus Testfall 191 angezeigt.</post>
 <tags/>
 </testcase>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="232" priority="C" title="Vorgangsprotokoll für einen Zeitraum in PDF-Format exportieren">
 <description>Ein generiertes Vorgangsprotokoll soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
 <pre>Der Testfall 230 wurde bereits ausgeführt. Benutzer befindet sich im Vorgangsprotokoll-Reiter.</pre>
-<actions>* Benutzer klickt auf den Button "Exportieren" bzw. "Anzeigen"</actions>
+<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
 <post>Das bereits dargestellte Vorgangsprotokoll wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
 <tags/>
 </testcase>
-</sequence>
 </sequence>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Controlling" number="10">
@@ -3005,12 +2871,6 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </tsa>
 <tsa name="Vorgangsprotokolle" number="116" revId="1">
 <relatedsequence>116</relatedsequence>
-<tsa name="Für einen Zeitraum" number="224" revId="1">
-<relatedsequence>224</relatedsequence>
-</tsa>
-<tsa name="Für einen Zeitpunkt" number="223" revId="1">
-<relatedsequence>223</relatedsequence>
-</tsa>
 </tsa>
 <tsa name="Jahresbilanzen" number="114" revId="1">
 <relatedsequence>114</relatedsequence>
@@ -5630,5 +5490,5 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
 <extension name="standarduser" value="Y"/>
 </author>
-<extension name="maxid" value="310"/>
+<extension name="maxid" value="311"/>
 </tests>
