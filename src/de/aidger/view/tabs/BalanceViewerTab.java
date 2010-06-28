@@ -32,7 +32,7 @@ public class BalanceViewerTab extends ReportTab {
      * States which calculation method should be used. 0 - neutral, 1 -
      * pessimistic, 0 - historical
      */
-    private int calculationMethod = 0;
+    private final int calculationMethod = 0;
 
     /**
      * The balanceFilter of this balance.
@@ -152,6 +152,8 @@ public class BalanceViewerTab extends ReportTab {
      */
     public void clearPanel() {
         contentPanel.removeAll();
+        contentPanel.setVisible(false);
+        contentPanel.setVisible(true);
     }
 
     /**
@@ -240,7 +242,8 @@ public class BalanceViewerTab extends ReportTab {
 
         setLayout(new java.awt.BorderLayout());
 
-        contentPanel.setLayout(new javax.swing.BoxLayout(contentPanel, javax.swing.BoxLayout.Y_AXIS));
+        contentPanel.setLayout(new javax.swing.BoxLayout(contentPanel,
+            javax.swing.BoxLayout.Y_AXIS));
         add(contentPanel, java.awt.BorderLayout.CENTER);
 
         jPanel1.setLayout(new java.awt.BorderLayout());
@@ -257,14 +260,17 @@ public class BalanceViewerTab extends ReportTab {
 
         generateButton.setText(_("Generate"));
         generateButton.setFocusable(false);
-        generateButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        generateButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        generateButton
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        generateButton
+            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(generateButton);
         jToolBar1.add(jSeparator1);
 
         exportButton.setText(_("Export"));
         exportButton.setFocusable(false);
-        exportButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportButton
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         exportButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(exportButton);
         jToolBar1.add(jSeparator3);
@@ -276,7 +282,8 @@ public class BalanceViewerTab extends ReportTab {
         filterContentPanel.setLayout(new java.awt.GridLayout(0, 1));
         filtersPanel.add(filterContentPanel, java.awt.BorderLayout.PAGE_END);
 
-        filterCreationPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        filterCreationPanel.setLayout(new java.awt.FlowLayout(
+            java.awt.FlowLayout.LEFT));
 
         filtersLabel.setText(_("Filters") + ":");
         filterCreationPanel.add(filtersLabel);
@@ -292,21 +299,23 @@ public class BalanceViewerTab extends ReportTab {
 
         addFilterButton.setIcon(new ImageIcon(getClass().getResource(
             "/de/aidger/view/icons/plus-small.png")));
-addFilterButton.setFocusable(false);
-addFilterButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-addFilterButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-addFilterButton.addActionListener(new java.awt.event.ActionListener() {
-    public void actionPerformed(java.awt.event.ActionEvent evt) {
-        addFilterButtonActionPerformed(evt);
-    }
-    });
-    filterCreationPanel.add(addFilterButton);
+        addFilterButton.setFocusable(false);
+        addFilterButton
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        addFilterButton
+            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        addFilterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addFilterButtonActionPerformed(evt);
+            }
+        });
+        filterCreationPanel.add(addFilterButton);
 
-    filtersPanel.add(filterCreationPanel, java.awt.BorderLayout.PAGE_START);
+        filtersPanel.add(filterCreationPanel, java.awt.BorderLayout.PAGE_START);
 
-    jPanel1.add(filtersPanel, java.awt.BorderLayout.CENTER);
+        jPanel1.add(filtersPanel, java.awt.BorderLayout.CENTER);
 
-    add(jPanel1, java.awt.BorderLayout.PAGE_START);
+        add(jPanel1, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
 
     private void addFilterButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addFilterButtonActionPerformed
