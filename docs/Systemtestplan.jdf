@@ -2872,11 +2872,11 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Der Benutzer wird beim Erstellen der Beschäftigung darüber informiert, dass das Budget für die Veranstaltung überschritten wurde. Die Beschäftigung wird dennoch in der Datenbank angelegt.</post>
 <tags/>
 </testcase>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="277" priority="C" title="Budgetüberschreitung einer Finanzkategorie">
-<description/>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="277" priority="C" title="Budgetüberschreitung eines Funds einer Finanzkategorie">
+<description>Es soll das Erscheinen einer Warnung bei der Budgetüberschreitung eines Funds einer Finanzkategorie getestet werden.</description>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Finanzkategorie wurden ausgeführt.</pre>
-<actions>* Benutzer erstellt eine neue korrekt eingegebene Veranstaltung und weist dieser eine existierende Finanzkategorie zu. Er gibt hierbei zudem die Genehmigte HKS "1000" ein.</actions>
-<post>Der Benutzer wird darüber informiert, dass das Budget der Finanzkategorie durch das Erstellen der Veranstaltung überschritten wurde. Die Veranstaltung wird dennoch in der Datenbank angelegt.</post>
+<actions>* Benutzer erstellt 10 neue Beschäftigung und weist diesen eine Veranstaltung zu, die eine existierende Finanzkategorie hat und deren Budget bei 400€ liegt. Die geprüfte Hilfskraft arbeitet jeden Monat 84 Stunden.</actions>
+<post>Der Benutzer wird darüber informiert, dass das Budget der Finanzkategorie durch das Erstellen der Beschäftigungen überschritten wurde. Die Beschäftigung wird dennoch in der Datenbank angelegt.</post>
 <tags/>
 </testcase>
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="275" priority="A" title="Überschreitung der Beschäftigungsgrenze einer Hilfskraft">
@@ -3473,6 +3473,69 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </tsa>
 <tsa name="Überschreiten von Limits" number="261" revId="1">
 <relatedsequence>261</relatedsequence>
+<testrun enddate="28.06.2010 21:53" priority="E" startdate="28.06.2010 21:47" tester="aidGerTeam">
+<description/>
+<sut>aidGer</sut>
+<executedsequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Überschreiten von Limits" number="261">
+<description>Die Testsequenz dient zum Testen des Erscheines spezifizierter Warnungen beim Überschreiten von Limits.</description>
+<pre>Warnungen wurden spezifiziert, die in bestimmten Situationen erscheinen müssen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="21:47" outcome="Ok" postok="Y" preok="Y" starttime="21:47">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:04" number="274" priority="A" title="Budgetüberschreitung einer Veranstaltung">
+<description>Es soll das Erscheinen einer Warnung bei der Budgetüberschreitung einer Veranstaltung getestet werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Beschäftigungen und Veranstaltungen wurden ausgeführt.</pre>
+<actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung für eine existierende Veranstaltung. Die Hilfskraft arbeitet monatlich 1000 HKS.</actions>
+<post>Der Benutzer wird beim Erstellen der Beschäftigung darüber informiert, dass das Budget für die Veranstaltung überschritten wurde. Die Beschäftigung wird dennoch in der Datenbank angelegt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Benutzer wird beim Erstellen der Beschäftigung darüber informiert, dass das Budget für die Veranstaltung überschritten wurde. Die Beschäftigung wird dennoch in der Datenbank angelegt.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:49" outcome="Ok" postok="Y" preok="Y" starttime="21:47">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="277" priority="C" title="Budgetüberschreitung eines Funds einer Finanzkategorie">
+<description>Es soll das Erscheinen einer Warnung bei der Budgetüberschreitung eines Funds einer Finanzkategorie getestet werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Finanzkategorie wurden ausgeführt.</pre>
+<actions>* Benutzer erstellt 10 neue Beschäftigung und weist diesen eine Veranstaltung zu, die eine existierende Finanzkategorie hat und deren Budget bei 400€ liegt. Die geprüfte Hilfskraft arbeitet jeden Monat 84 Stunden.</actions>
+<post>Der Benutzer wird darüber informiert, dass das Budget der Finanzkategorie durch das Erstellen der Beschäftigungen überschritten wurde. Die Beschäftigung wird dennoch in der Datenbank angelegt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Benutzer wird darüber informiert, dass das Budget der Finanzkategorie durch das Erstellen der Beschäftigungen überschritten wurde. Die Beschäftigung wird dennoch in der Datenbank angelegt.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:50" outcome="Ok" postok="Y" preok="Y" starttime="21:49">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="275" priority="A" title="Überschreitung der Beschäftigungsgrenze einer Hilfskraft">
+<description>Es soll das Erscheinen einer Warnung bei einer Überschreitung der Beschäftigungsgrenze einer Hilfskraft getestet werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Hilfskräften, Beschäftigungen und Veranstaltungen wurden ausgeführt.</pre>
+<actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung für eine existierende Hilfskraft und weist dieser für zwei Monate 90 HKS zu.</actions>
+<post>Der Benutzer wird darüber informiert, dass die Beschäftigungsgrenze von 85h in den entsprechenden Monaten überschritten wurden. Die Beschäftigung wird dennoch angelegt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Benutzer wird darüber informiert, dass die Beschäftigungsgrenze von 85h in den entsprechenden Monaten überschritten wurden. Die Beschäftigung wird dennoch angelegt.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:53" outcome="Ok" postok="Y" preok="Y" starttime="21:50">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="276" priority="C" title="Hilfskraft mehr als 6 Jahre angestellt">
+<description>Es soll das Erscheinen einer Warnung getestet werden, wenn die Hilfskraft mehr als 6 Jahre angestellt ist.</description>
+<pre>Die Testfälle zum Hinzufügen von Hilfskräften, Beschäftigungen und Veranstaltungen wurden ausgeführt. Die Hilfskraft "Peter Planlos" ist bereits 5 1/2 Jahre angestellt.</pre>
+<actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung, um somit die Hilfskraft Peter Plan für ein weiteres Jahr einzustellen.</actions>
+<post>Der Benutzer bekommt die Warnung angezeigt, dass durch die Beschäftigung die Hilfskraft für mehr als 6 Jahre angestellt ist. Die Beschäftigung wird dennoch im System abgespeichert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Benutzer bekommt die Warnung angezeigt, dass durch die Beschäftigung die Hilfskraft für mehr als 6 Jahre angestellt ist. Die Beschäftigung wird dennoch im System abgespeichert.</post>
+<comment/>
+</result>
+</executedsequence>
+</testrun>
 </tsa>
 </tsa>
 <tsa name="Verträge" number="279" revId="1">
