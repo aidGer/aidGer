@@ -3386,6 +3386,60 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 </tsa>
 <tsa name="Semesterbilanzen" number="123" revId="1">
 <relatedsequence>123</relatedsequence>
+<testrun enddate="29.06.2010 00:59" priority="E" startdate="29.06.2010 00:53" tester="aidGerTeam">
+<description/>
+<sut>aidGer</sut>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Semesterbilanzen" number="123">
+<description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von einer Semesterbilanz.</description>
+<pre>* Benutzer klickt auf den Link "Semesterbilanz" in der TaskPane Berichte.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="00:58" outcome="Ok" postok="Y" preok="Y" starttime="00:54">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="214" priority="C" title="Semesterbilanz für ein Semester generieren">
+<description>Es soll eine Semesterbilanz generiert und anschließend dargestellt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Semester "WS0809" ein
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Die erstellte Semesterbilanz wird für das angegebene Jahr im Frame intern angezeigt. Die Semesterbilanz umfasst eine Veranstaltung im WS0809. Dabei wurden die eingeplanten HKS, der HKS Grundbedarf sowie die Plankosten korrekt bestimmt. Es ist hierbei irrelevant, dass die Veranstaltung laut Beschäftigung erst November 2010 beginnt. Diese Überprüfung hat nicht stattgefunden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Zu allen Gruppen der Veranstaltungen wurden die korrekten Veranstaltung mit den richtigen Daten (eingeplante HKS, HKS Grundbedarf sowie die Budgetgruppe pro Kostenstelle) angezeigt.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="00:58" outcome="Ok" postok="Y" preok="Y" starttime="00:58">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="215" priority="C" title="Semesterbilanz für ein Semester ohne Veranstaltungen generieren">
+<description>Es soll eine Semesterbilanz generiert und anschließend dargestellt werden. Problem ist, dass es keine Veranstaltungen in diesem Semester gibt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Semester "SS05" ein
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Der Benutzer soll nicht die Möglichkeit haben, dieses Semester auszuwählen, da keine Veranstaltungen in der Datenbank hierfür existieren.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Keine Auswahlmöglichkeit für SS05.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="00:59" outcome="Ok" postok="Y" preok="Y" starttime="00:58">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="216" priority="C" title="Semesterbilanz in PDF-Format exportieren">
+<description>Eine generierte Semesterbilanz soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 214 wurde bereits ausgeführt. Benutzer befindet sich im Semesterbilanz-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
+<post>Die bereits dargestellte Semesterbilanz wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die bereits dargestellte Semesterbilanz wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
+<comment/>
+</result>
+</executedsequence>
+</testrun>
 </tsa>
 <tsa name="Teilbilanzen via Filter" number="124" revId="1">
 <relatedsequence>124</relatedsequence>
