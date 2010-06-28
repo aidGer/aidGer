@@ -558,7 +558,7 @@
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:10" number="38" priority="B" title="Veranstaltung korrekt hinzufügen">
 <description>Es wird eine Veranstaltung zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Finanzkategorie "Lehre SS10" wurde korrekt hinzugefügt.</pre>
 <actions>* Benutzer gibt die Bezeichnung "Mensa überleben für Pizza-Fans" ein
 
 * Benutzer gibt das Semester "SS10" ein
@@ -587,7 +587,7 @@
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:10" number="39" priority="B" title="Veranstaltung korrekt hinzufügen">
 <description>Es wird eine Veranstaltung zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Finanzkategorie "Forschung" wurde korrekt hinzugefügt.</pre>
 <actions>* Benutzer gibt die Bezeichnung "Laufende Forschung" ein
 
 * Benutzer gibt das Semester "2009" ein
@@ -626,10 +626,10 @@
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="29" priority="B" title="Veranstaltung inkorrekt hinzufügen">
 <description>Es wird eine Veranstaltung zum System hinzugefügt. Dabei werden falsche Eingaben gemacht.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
-<actions>* Benutzer gibt die HKS "zwölf" ein
+<actions>* Benutzer versucht die HKS "zwölf" einzugeben
 
 * Benutzer drückt auf den Button "Speichern"</actions>
-<post>Die Veranstaltung wurde nicht hinzugefügt und der Benutzer befindet sich weiterhin im Hinzufügen-Tab, um seine Eingabe korrigieren zu können. Das Feld "HKS" soll hervorgehoben werden.</post>
+<post>Die Veranstaltung wurde nicht hinzugefügt und der Benutzer befindet sich weiterhin im Hinzufügen-Tab, um seine Eingabe korrigieren zu können.</post>
 <tags/>
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="33" priority="B" title="Veranstaltung inkorrekt hinzufügen">
@@ -639,10 +639,10 @@
 
 * Benutzer gibt das Semester "SS09" ein
 
-* Benutzer gibt die Gruppenanzahl "abc" ein
+* Benutzer versucht die Gruppenanzahl "abc" einzugeben
 
 * Benutzer drückt auf den Button "Speichern"</actions>
-<post>Benutzer wird darüber informiert, dass die Gruppenanzahl eine Zahl sein muss. Die Veranstaltung wird nicht gespeichert und der Benutzer befindet sich weiterhin im Hinzufügen-Tab.</post>
+<post>Die Veranstaltung wird nicht gespeichert und der Benutzer befindet sich weiterhin im Hinzufügen-Tab.</post>
 <tags/>
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="31" priority="D" title="Abbruch: Veranstaltung hinzufügen">
@@ -699,11 +699,11 @@
 
 * Benutzer klickt auf den Button "Bearbeiten"
 
-* Benutzer ändert das Semester zu "XYZ"
+* Benutzer versucht das Semester zu "XYZ" zu ändern
 
 * Benutzer klickt auf den Button "Speichern"
 </actions>
-<post>Der Datensatz wird nicht bearbeitet. Der Benutzer wird darüber informiert, dass das Format für das Feld Semester nicht eingehalten wurde. Er befindet sich weiterhin im Bearbeiten-Tab, um seine Eingabe korrigieren zu können.</post>
+<post>Der Datensatz wird nicht bearbeitet. Die Eingabe des Semesters wurde verweigert. Er befindet sich weiterhin im Bearbeiten-Tab, um seine Eingabe korrigieren zu können.</post>
 <tags/>
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="37" priority="C" title="Abbruch: Veranstaltung bearbeiten">
@@ -717,69 +717,6 @@
 
 * Benutzer klickt auf den Button "Abbrechen"</actions>
 <post>Die Änderungen am Datensatz werden verworfen, das Bearbeiten-Tab wird geschloßen und der Benutzer befindet sich erneut im davor angezeigten Tab.</post>
-<tags/>
-</testcase>
-</sequence>
-<sequence created="11.05.2010" creator="aidGerTeam" name="Löschen" number="18">
-<description>Die Testsequenz enthält Testfälle zum Löschen einer Veranstaltung in die Datenbank.</description>
-<pre>Benutzer möchte eine Veranstaltung löschen.</pre>
-<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="40" priority="C" title="Veranstaltung entfernen ohne Referenz">
-<description>Es soll eine Veranstaltung gelöscht werden, was korrekt funktioniert.</description>
-<pre>Der Testfall 28 wurde ausgeführt.</pre>
-<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
-
-* Benutzer klickt auf den Button "Löschen"
-
-* System öffnet das Bestätigungs-Popup
-
-* Benutzer klickt auf den Button "OK"</actions>
-<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
-<tags/>
-</testcase>
-<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="97" priority="C" title="Veranstaltung entfernen mit Taste Entf">
-<description>Es soll eine Veranstaltung gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
-<pre>Der Testfall 39 wurde ausgeführt.</pre>
-<actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
-
-* Benutzer drückt die Taste "Ent"
-
-* System öffnet das Bestätigungs-Popup
-
-* Benutzer klickt auf den Button "OK"</actions>
-<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
-<tags/>
-</testcase>
-<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="41" priority="C" title="Veranstaltung entfernen mit Referenz">
-<description>Es soll eine Veranstaltung gelöscht werden. Das Datum wird noch referenziert.</description>
-<pre>Der Testfall 28 und 159 wurden ausgeführt.</pre>
-<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
-
-* Benutzer klickt auf den Button "Löschen"
-
-* System öffnet das Bestätigungs-Popup
-
-* Benutzer klickt auf den Button "OK"</actions>
-<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
-<tags/>
-</testcase>
-<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="42" priority="C" title="Abbruch: Veranstaltung entfernen">
-<description>Es soll eine Veranstaltung gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
-<pre>Der Testfall 39 wurde ausgeführt.</pre>
-<actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
-
-* Benutzer klickt auf den Button "Löschen"
-
-* System öffnet das Bestätigungs-Popup
-
-* Benutzer klickt auf den Button "Abbrechen"</actions>
-<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
-<tags/>
-</testcase>
-<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="43" priority="C" title="Veranstaltung entfernen ohne Auswahl">
-<description>Es soll eine Veranstaltung gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
-<pre/>
-<actions>* Benutzer klickt auf den Button "Löschen"</actions>
-<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
 <tags/>
 </testcase>
 </sequence>
@@ -812,7 +749,7 @@
 
 * System geht in den "Bearbeiten"-Tab über
 
-* Benutzer gibt den neuen Dozent "B. Gates, S. Ballmer" ein
+* Benutzer gibt den neuen Dozent "B. Dates, S. Ballmer" ein
 
 * Benutzer drückt auf den Button "Speichern"</actions>
 <post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 39 übereinstimmen. Nach dem Bearbeiten wurde der Datensatz korrekt geändert und gespeichert. Der Benutzer befindet sich im vorher angezeigten Reiter wieder.</post>
@@ -820,7 +757,7 @@
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="127" priority="C" title="Veranstaltung anzeigen und Vorgang anzeigen">
 <description>Es soll eine Veranstaltung angezeigt werden. Anschließend soll ein Vorgang zur Veranstaltung angezeigt werden.</description>
-<pre>Der Testfall 28 und 191 wurden ausgeführt.</pre>
+<pre>Der Testfall 28 wurde ausgeführt. Der benütigte Vorgang wurde korrekt erstellt.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
 
 * Benutzer klickt auf den Button "Anzeigen"
@@ -842,13 +779,6 @@
 <pre/>
 <actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
 <post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen und es erscheint eine entsprechende Fehlermeldung.</post>
-<tags/>
-</testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="122" priority="C" title="Spaltenauswahl über Kontextmenü">
-<description>Es soll individuell die Spalten in der Anzeige-Tabelle der Veranstaltungen ausgewählt werden können.</description>
-<pre>Der Testfall 28 wurde ausgeführt.</pre>
-<actions>* Benutzer wählt zusätzlich die Spalte "Umfang" aus</actions>
-<post>Die Spalte wird mit den bereits dargestellten Spalten in der Anzeige-Tabelle für die Veranstaltungen dargestellt. Der Benutzer hat einen höheren Informationsgehalt erhalten.</post>
 <tags/>
 </testcase>
 </sequence>
@@ -885,7 +815,7 @@
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="129" priority="C" title="Suchfilter entfernen">
 <description>Der angewandte Suchfilter soll entfernt werden.</description>
 <pre>Der Testfall 128 wurde ausgeführt.</pre>
-<actions>* Benutzer klickt auf den Button neben dem Suchfeld</actions>
+<actions>* Benutzer leert das Suchfeld</actions>
 <post>Die Anzeige-Tabelle zeigt alle Veranstaltungen an. Das Suchfeld wurde geleert.</post>
 <tags/>
 </testcase>
@@ -895,12 +825,12 @@
 <pre>Benutzer möchte Vorgänge zu einer Veranstaltung anzeigen.</pre>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="133" priority="C" title="Vorgänge anzeigen und schließen">
 <description>Es sollen Vorgänge zu einer Veranstaltung angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
-<pre>Der Testfälle 28, 189, 191 und 193 wurden ausgeführt.</pre>
+<pre>Der Testfälle 28 wurde ausgeführt. Es wurden alle nötigen Vorgänge für diese Veranstaltung korrekt erstellt.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
 
-* Benutzer klickt auf den Button "Vorgänge"
+* Benutzer klickt auf den Button "Anzeigen"
 
-* System öffnet das "Vorgänge"-Tab
+* System öffnet das "Anzeigen"-Tab
 
 * Benutzer klickt auf den Button "Schließen"</actions>
 <post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Veranstaltung erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum zuvor angezeigten Tab zurück.</post>
@@ -908,12 +838,12 @@
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="134" priority="C" title="Vorgänge anzeigen und Detailansicht">
 <description>Es sollen Vorgänge zu einer Veranstaltung angezeigt werden. Ein einzelner Vorgang soll daraufhin angezeigt werden.</description>
-<pre>Der Testfälle 38 und 193 wurden ausgeführt.</pre>
+<pre>Der Testfälle 38 wurde ausgeführt. Die nötigen Vorgänge zu dieser Veranstaltung wurden korrekt hinzugefügt.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Mensa überleben für Pizza-Fans"
 
-* Benutzer klickt auf den Button "Vorgänge"
+* Benutzer klickt auf den Button "Anzeigen"
 
-* System öffnet das "Vorgänge"-Tab
+* System öffnet das "Anzeigen"-Tab
 
 * Benutzer klickt auf den Vorgang "Fred Feuerstein - Mensa überleben für Pizza-Fans"
 
@@ -925,11 +855,67 @@
 <post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Veranstaltung erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Anschließend konnte er sich über einen einzelen Vorgang in einer Detailsicht informieren. Die beiden Reiter-Fenster sind geschloßen und der Benutzer kehrt zum zuvor angezeigten Reiter zurück.</post>
 <tags/>
 </testcase>
-<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="135" priority="C" title="Vorgänge anzeigen ohne Auswahl">
-<description>Es sollen Vorgänge zu einer Veranstaltung angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
+</sequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Löschen" number="18">
+<description>Die Testsequenz enthält Testfälle zum Löschen einer Veranstaltung in die Datenbank.</description>
+<pre>Benutzer möchte eine Veranstaltung löschen.</pre>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="40" priority="C" title="Veranstaltung entfernen ohne Referenz">
+<description>Es soll eine Veranstaltung gelöscht werden, was korrekt funktioniert.</description>
+<pre>Der Testfall 28 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="97" priority="C" title="Veranstaltung entfernen mit Taste Entf">
+<description>Es soll eine Veranstaltung gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
+<pre>Der Testfall 39 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
+
+* Benutzer drückt die Taste "Entf"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="41" priority="C" title="Veranstaltung entfernen mit Referenz">
+<description>Es soll eine Veranstaltung gelöscht werden. Das Datum wird noch referenziert.</description>
+<pre>Der Testfall 28 wurde ausgeführt. Es wurde eine Hilfskraft korrekt hinzugefügt und eine Beschäftigung zur Veranstaltung aus 28.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen. Der Benutzer wird darüber informiert, dass die Veranstaltung eine Referenz zu einer Beschäftigung hat.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="42" priority="C" title="Abbruch: Veranstaltung entfernen">
+<description>Es soll eine Veranstaltung gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
+<pre>Der Testfall 39 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
+<tags/>
+</testcase>
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="43" priority="C" title="Veranstaltung entfernen ohne Auswahl">
+<description>Es soll eine Veranstaltung gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
 <pre/>
-<actions>* Benutzer klickt auf den Button "Vorgänge"</actions>
-<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen und es erscheint eine entsprechende Fehlermeldung.</post>
+<actions>* Benutzer klickt auf den Button "Löschen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
 <tags/>
 </testcase>
 </sequence>
@@ -3492,9 +3478,6 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <tsa name="Bearbeiten" number="17" revId="1">
 <relatedsequence>17</relatedsequence>
 </tsa>
-<tsa name="Löschen" number="18" revId="1">
-<relatedsequence>18</relatedsequence>
-</tsa>
 <tsa name="Anzeigen" number="98" revId="1">
 <relatedsequence>98</relatedsequence>
 </tsa>
@@ -3503,6 +3486,9 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </tsa>
 <tsa name="Vorgänge" number="132" revId="1">
 <relatedsequence>132</relatedsequence>
+</tsa>
+<tsa name="Löschen" number="18" revId="1">
+<relatedsequence>18</relatedsequence>
 </tsa>
 </tsa>
 <tsa name="Hilfskräfte" number="13" revId="1">
