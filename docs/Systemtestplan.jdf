@@ -2894,6 +2894,16 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <tags/>
 </testcase>
 </sequence>
+<sequence created="28.06.2010" creator="aidGerTeam" name="Allgemein" number="309">
+<description>Die Testsequenz dient zum Testen allgemeiner Funktionalitäten der Software.</description>
+<pre/>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="262" priority="C" title="Programm beenden">
+<description>Das Programm soll beendet werden.</description>
+<pre>Benutzer möchte das Programm beenden.</pre>
+<actions>* Benutzer drückt auf den "X"-Button</actions>
+<post>Alle Ressourcen müssen freigegeben werden. Die Reiter müssen je nach Einstellung gespeichert werden. Die Konfiguration muss geschrieben werden. Das Fenster soll verschwinden.</post>
+<tags/>
+</testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="88" priority="C" title="Programmstart mit offenen Tabs">
 <description>Das Programm wird gestartet, wobei beim letzten Programmstart Tabs offen gelassen wurden.</description>
 <pre>Die Einstellung "Reiter bei Verlassen speichern" ist aktiviert.</pre>
@@ -2962,22 +2972,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post>Die Vorgänge der letzten 5 Tage werden in der Tabelle angezeigt. Die angezeigten Vorgänge werden im PDF-Format exportiert. In einer späteren SUT sollte hier ein für das Ticket-System verständliches Format benutzt werden.</post>
 <tags/>
 </testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="120" priority="C" title="Die Hilfe bzw. das Benutzerhandbuch anzeigen">
-<description>Es soll die Hilfe bzw. das Benutzerhandbuch für aidGer angezeigt werden.</description>
-<pre>Benutzer möchte sich die Hilfe anzeigen lassen.</pre>
-<actions>* Benutzer wählt den Menüeintrag "Hilfe"
-
-* Benutzer wählt den Menüeintrag "Hilfe"</actions>
-<post>Das Benutzerhandbuch von aidGer wird gestartet.</post>
-<tags/>
-</testcase>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="262" priority="C" title="Programm beenden">
-<description>Das Programm soll beendet werden.</description>
-<pre>Benutzer möchte das Programm beenden.</pre>
-<actions>* Benutzer drückt auf den "X"-Button</actions>
-<post>Alle Ressourcen müssen freigegeben werden. Die Reiter müssen je nach Einstellung gespeichert werden. Die Konfiguration muss geschrieben werden. Das Fenster soll verschwinden.</post>
-<tags/>
-</testcase>
+</sequence>
 </sequence>
 </sequence>
 </sequence>
@@ -3537,6 +3532,9 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </executedsequence>
 </testrun>
 </tsa>
+<tsa name="Allgemein" number="309" revId="3">
+<relatedsequence>309</relatedsequence>
+</tsa>
 </tsa>
 <tsa name="Verträge" number="279" revId="1">
 <relatedsequence>279</relatedsequence>
@@ -4030,5 +4028,5 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
 <extension name="standarduser" value="Y"/>
 </author>
-<extension name="maxid" value="308"/>
+<extension name="maxid" value="310"/>
 </tests>
