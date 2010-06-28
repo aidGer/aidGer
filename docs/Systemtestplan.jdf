@@ -2619,12 +2619,12 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <sequence created="18.05.2010" creator="aidGerTeam" name="Programmeinstellungen" number="252">
 <description>Die Testsequenz dient zum Testen der Wirksamkeit der Programmeinstellungen in der Software.</description>
 <pre>Benutzer möchte das Programm individuell einstellen.</pre>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="260" priority="C" title="Name des Barbeiters bei Vorgangserfassung">
-<description>Die Wirksamkeit der Einstellung "Name des Bearbeiters" bei der Vorgangserfassung soll getestet werden.</description>
-<pre>Benutzer möchte den Namen des Bearbeiters ändern. Der Name ist bislang auf "B1" eingestellt. Alle bisherigen Vorgänge wurden korrekt mit diesem Namen abgespeichert.</pre>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="260" priority="C" title="Initialen des Barbeiters bei Vorgangserfassung">
+<description>Die Wirksamkeit der Einstellung "Initialen des Bearbeiters" bei der Vorgangserfassung soll getestet werden.</description>
+<pre>Benutzer möchte die Initialen des Bearbeiters ändern. Die Initialen sind bislang auf "B1" eingestellt. Alle bisherigen Vorgänge wurden korrekt mit diesem Namen abgespeichert.</pre>
 <actions>* Benutzer öffnet den Einstellungsdialog
 
-* Benutzer gibt den Namen des Bearbeiters "B2" ein
+* Benutzer gibt die Initialen "B2" ein
 
 * Benutzer drückt auf den Button "Speichern"
 
@@ -3002,7 +3002,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </sequence>
 </sequence>
 </sequence>
-<tsa name="Projekt" number="0" revId="0">
+<tsa name="Project" number="0" revId="0">
 <relatedsequence>0</relatedsequence>
 <tsa name="Systemtest" number="3" revId="1">
 <relatedsequence>3</relatedsequence>
@@ -3107,7 +3107,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="10:12" outcome="Ok" postok="Y" preok="Y" starttime="10:11">
+<result actionok="Y" endtime="22:12" outcome="Ok" postok="Y" preok="Y" starttime="22:11">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="287" priority="A" title="Vertrag korrekt erstellen">
 <description>Es soll ein Vertrag erstellt werden. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. </pre>
@@ -3132,7 +3132,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:12" outcome="Ok" postok="Y" preok="Y" starttime="10:12">
+<result actionok="Y" endtime="22:12" outcome="Ok" postok="Y" preok="Y" starttime="22:12">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="288" priority="A" title="Vertrag korrekt erstellen">
 <description>Es soll ein Vertrag erstellt werden. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 39 wurden ausgeführt.</pre>
@@ -3157,7 +3157,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:13" outcome="Ok" postok="Y" preok="Y" starttime="10:12">
+<result actionok="Y" endtime="22:13" outcome="Ok" postok="Y" preok="Y" starttime="22:12">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="166" priority="A" title="Vertragsdaten inkorrekt erstellen">
 <description>Es wird ein neuer Vertrag erstellt. Die darin befindlichen Daten sind jedoch in einer inkorrekten Reihenfolge.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -3182,7 +3182,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:14" outcome="Ok" postok="Y" preok="Y" starttime="10:13">
+<result actionok="Y" endtime="22:14" outcome="Ok" postok="Y" preok="Y" starttime="22:13">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="286" priority="A" title="Vertragsdaten inkorrekt erstellen">
 <description>Es wird ein neuer Vertrag erstellt. Die darin befindlichen Daten sind jedoch in einer inkorrekten Reihenfolge.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -3207,7 +3207,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:15" outcome="Ok" postok="Y" preok="Y" starttime="10:14">
+<result actionok="Y" endtime="22:15" outcome="Ok" postok="Y" preok="Y" starttime="22:14">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="289" priority="A" title="Abbruch: Vertrag erstellen">
 <description>Es soll ein Vertrag erstellt werden. Die Erstellung wird jedoch abgebrochen.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -3239,7 +3239,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="10:17" outcome="Ok" postok="Y" preok="Y" starttime="10:15">
+<result actionok="Y" endtime="22:17" outcome="Ok" postok="Y" preok="Y" starttime="22:15">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="172" priority="B" title="Vertrag korrekt bearbeiten">
 <description>Die Vertragsdaten sollen editiert werden. Alle Eingaben sind dabei korrekt.</description>
 <pre>Der Testfall 287 wurde bereits ausgeführt.</pre>
@@ -3258,7 +3258,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:17" outcome="Ok" postok="Y" preok="Y" starttime="10:17">
+<result actionok="Y" endtime="22:17" outcome="Ok" postok="Y" preok="Y" starttime="22:17">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="174" priority="B" title="Vertrag inkorrekt bearbeiten">
 <description>Die Vertragsdaten sollen editiert werden. Es wurden falsche Eingaben gemacht.</description>
 <pre>Der Testfall 287 wurde bereits ausgeführt.</pre>
@@ -3279,7 +3279,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:17" outcome="Ok" postok="Y" preok="Y" starttime="10:17">
+<result actionok="Y" endtime="22:17" outcome="Ok" postok="Y" preok="Y" starttime="22:17">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="173" priority="B" title="Abbruch: Vertrag bearbeiten">
 <description>Die Vertragsdaten sollen editiert werden. Dieser Vorgang wird jedoch abgebrochen.</description>
 <pre>Der Testfall 287 wurde bereits ausgeführt.</pre>
@@ -3305,7 +3305,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="10:18" outcome="Ok" postok="Y" preok="Y" starttime="10:17">
+<result actionok="Y" endtime="22:18" outcome="Ok" postok="Y" preok="Y" starttime="22:17">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="299" priority="C" title="Vertrag suchen">
 <description/>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3320,7 +3320,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:19" outcome="Ok" postok="Y" preok="Y" starttime="10:18">
+<result actionok="Y" endtime="22:19" outcome="Ok" postok="Y" preok="Y" starttime="22:18">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="298" priority="C" title="Suchfilter entfernen">
 <description>Der angewandte Suchfilter soll entfernt werden.</description>
 <pre>Der Testfall 299 wurde ausgeführt.</pre>
@@ -3340,7 +3340,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="10:20" outcome="Ok" postok="Y" preok="Y" starttime="10:19">
+<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:19">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="295" priority="C" title="Vertrag anzeigen und schließen">
 <description>Ein Vertrag soll angezeigt werden und die Anzeige direkt danach wieder geschlossen werden.</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3359,7 +3359,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:20" outcome="Ok" postok="Y" preok="Y" starttime="10:20">
+<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:20">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="296" priority="C" title="Vertrag anzeigen und bearbeiten">
 <description>Ein Vertrag soll angezeigt werden und daraufhin bearbeitet werden.</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3378,7 +3378,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:20" outcome="Ok" postok="Y" preok="Y" starttime="10:20">
+<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:20">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="297" priority="C" title="Vertrag anzeigen ohne Auswahl">
 <description>Ein Vertrag soll angezeigt werden, es ist jedoch keiner ausgewählt.</description>
 <pre/>
@@ -3398,7 +3398,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="10:20" outcome="Ok" postok="Y" preok="Y" starttime="10:20">
+<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:20">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="291" priority="C" title="Vertrag löschen ohne Referenz">
 <description>Es soll ein Vertrag gelöscht werden, was korrekt funktioniert. </description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3417,7 +3417,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:21" outcome="Ok" postok="Y" preok="Y" starttime="10:21">
+<result actionok="Y" endtime="22:21" outcome="Ok" postok="Y" preok="Y" starttime="22:21">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="292" priority="C" title="Vertrag löschen mit Referenz">
 <description>Es soll ein Vertrag gelöscht werden, der noch von einer Beschäftigung referenziert wird.</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3436,7 +3436,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:21" outcome="Ok" postok="Y" preok="Y" starttime="10:21">
+<result actionok="Y" endtime="22:21" outcome="Ok" postok="Y" preok="Y" starttime="22:21">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="293" priority="C" title="Vertrag löschen mit Taste Entf">
 <description>Es soll ein Vertrag durch Drücken der Taste Entf gelöscht werden.</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3455,7 +3455,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:21" outcome="Ok" postok="Y" preok="Y" starttime="10:21">
+<result actionok="Y" endtime="22:21" outcome="Ok" postok="Y" preok="Y" starttime="22:21">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="294" priority="C" title="Abbruch: Vertrag löschen">
 <description>Es soll ein Vertrag gelöscht werden. Dies wird jedoch abgebrochen</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3540,7 +3540,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="01:29" outcome="Ok" postok="Y" preok="Y" starttime="01:28">
+<result actionok="Y" endtime="13:29" outcome="Ok" postok="Y" preok="Y" starttime="13:28">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="44" priority="B" title="Hilfskraft korrekt hinzufügen">
 <description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -3561,7 +3561,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="01:29" outcome="Ok" postok="Y" preok="Y" starttime="01:29">
+<result actionok="Y" endtime="13:29" outcome="Ok" postok="Y" preok="Y" starttime="13:29">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="45" priority="B" title="Hilfskraft korrekt hinzufügen">
 <description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -3582,7 +3582,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="01:29" outcome="Ok" postok="Y" preok="Y" starttime="01:29">
+<result actionok="Y" endtime="13:29" outcome="Ok" postok="Y" preok="Y" starttime="13:29">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="46" priority="B" title="Hilfskraft korrekt hinzufügen">
 <description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -3603,7 +3603,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="01:30" outcome="Ok" postok="Y" preok="Y" starttime="01:29">
+<result actionok="Y" endtime="13:30" outcome="Ok" postok="Y" preok="Y" starttime="13:29">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="47" priority="B" title="Hilfskraft unvollständig hinzufügen">
 <description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Es sind Eingaben unvollständig.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -3624,7 +3624,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="01:30" outcome="Ok" postok="Y" preok="Y" starttime="01:30">
+<result actionok="Y" endtime="13:30" outcome="Ok" postok="Y" preok="Y" starttime="13:30">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="49" priority="B" title="Hilfskraft inkorrekt hinzufügen">
 <description>Es soll eine Hilfskraft hinzugefügt werden. Es werden Felder falsch eingegeben.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -3643,7 +3643,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="01:30" outcome="Ok" postok="Y" preok="Y" starttime="01:30">
+<result actionok="Y" endtime="13:30" outcome="Ok" postok="Y" preok="Y" starttime="13:30">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="51" priority="D" title="Abbruch: Hilfskraft hinzufügen">
 <description>Es soll eine Veranstaltung hinzugefügt werden. Dieser Vorgang wird abgebrochen</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -3665,7 +3665,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Benutzer möchte eine Hilfskraft bearbeiten.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="01:30" outcome="Ok" postok="Y" preok="Y" starttime="01:30">
+<result actionok="Y" endtime="13:30" outcome="Ok" postok="Y" preok="Y" starttime="13:30">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="52" priority="C" title="Hilfskraft korrekt bearbeiten">
 <description>Es soll eine Hilfskraft bearbeitet werden. Alle Eingaben sind korrekt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde bereits ausgeführt.</pre>
@@ -3686,7 +3686,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="01:30" outcome="Ok" postok="Y" preok="Y" starttime="01:30">
+<result actionok="Y" endtime="13:30" outcome="Ok" postok="Y" preok="Y" starttime="13:30">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="53" priority="C" title="Hilfskraft unvollständig bearbeiten">
 <description>Es soll eine Hilfskraft bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 44 wurde bereits ausgeführt.</pre>
@@ -3705,7 +3705,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="01:31" outcome="Ok" postok="Y" preok="Y" starttime="01:30">
+<result actionok="Y" endtime="13:31" outcome="Ok" postok="Y" preok="Y" starttime="13:30">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="54" priority="C" title="Hilfskraft inkorrekt bearbeiten">
 <description>Es soll eine Hilfskraft bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 46 wurde bereits ausgeführt.</pre>
@@ -3725,7 +3725,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="01:31" outcome="Ok" postok="Y" preok="Y" starttime="01:31">
+<result actionok="Y" endtime="13:31" outcome="Ok" postok="Y" preok="Y" starttime="13:31">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="55" priority="C" title="Abbruch: Hilfskraft bearbeiten">
 <description>Es soll eine Hilfskraft bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde bereits ausgeführt.</pre>
@@ -3751,7 +3751,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Benutzer möchte eine Hilfskraft anzeigen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="01:31" outcome="Ok" postok="Y" preok="Y" starttime="01:31">
+<result actionok="Y" endtime="13:31" outcome="Ok" postok="Y" preok="Y" starttime="13:31">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="137" priority="C" title="Hilfskraft anzeigen und schließen">
 <description>Es soll eine Hilfskraft angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
 <pre>Der Testfall 46 wurde ausgeführt.</pre>
@@ -3770,7 +3770,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="01:31" outcome="Ok" postok="Y" preok="Y" starttime="01:31">
+<result actionok="Y" endtime="13:31" outcome="Ok" postok="Y" preok="Y" starttime="13:31">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="138" priority="C" title="Hilfskraft anzeigen und bearbeiten">
 <description>Es soll eine Hilfskraft angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
 <pre>Der Testfall 45 wurde ausgeführt.</pre>
@@ -3795,7 +3795,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="01:34" outcome="Ok" postok="Y" preok="Y" starttime="01:32">
+<result actionok="Y" endtime="13:34" outcome="Ok" postok="Y" preok="Y" starttime="13:32">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="139" priority="C" title="Hilfskraft anzeigen und Vorgang anzeigen">
 <description>Es soll eine Hilfskraft angezeigt werden. Anschließend soll ein Vorgang zur Hilfskraft angezeigt werden.</description>
 <pre>Der Testfall 44 und 191 wurden ausgeführt.</pre>
@@ -3820,7 +3820,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="01:34" outcome="Ok" postok="Y" preok="Y" starttime="01:34">
+<result actionok="Y" endtime="13:34" outcome="Ok" postok="Y" preok="Y" starttime="13:34">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="140" priority="C" title="Hilfskraft anzeigen ohne Auswahl">
 <description>Es soll eine Hilfskraft angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
 <pre/>
@@ -3840,7 +3840,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Benutzer möchte eine Hilfskraft suchen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="01:34" outcome="Ok" postok="Y" preok="Y" starttime="01:34">
+<result actionok="Y" endtime="13:34" outcome="Ok" postok="Y" preok="Y" starttime="13:34">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="141" priority="C" title="Hilfskraft suchen nach Nachname">
 <description>Es soll eine Hilfskraft gesucht werden. Es wird nach dem Nachnamen gesucht.</description>
 <pre>Der Testfall 45 wurde ausgeführt.</pre>
@@ -3855,7 +3855,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="01:34" outcome="Ok" postok="Y" preok="Y" starttime="01:34">
+<result actionok="Y" endtime="13:34" outcome="Ok" postok="Y" preok="Y" starttime="13:34">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="142" priority="C" title="Suchfilter entfernen">
 <description>Der angewandte Suchfilter soll entfernt werden.</description>
 <pre>Der Testfall 141 wurde ausgeführt.</pre>
@@ -3875,7 +3875,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="01:35" outcome="Ok" postok="Y" preok="Y" starttime="01:34">
+<result actionok="Y" endtime="13:35" outcome="Ok" postok="Y" preok="Y" starttime="13:34">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="143" priority="C" title="Vorgänge anzeigen und schließen">
 <description>Es sollen Vorgänge zu einer Hilfskraft angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
 <pre>Der Testfälle 44, 189, 191 und 193 wurden ausgeführt.</pre>
@@ -3892,7 +3892,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="01:36" outcome="Ok" postok="Y" preok="Y" starttime="01:35">
+<result actionok="Y" endtime="13:36" outcome="Ok" postok="Y" preok="Y" starttime="13:35">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="144" priority="C" title="Vorgänge anzeigen und Detailansicht">
 <description>Es sollen Vorgänge zu einer Hilfskraft angezeigt werden. Ein einzelner Vorgang soll daraufhin angezeigt werden.</description>
 <pre>Der Testfälle 44, 189, 191 und 193 wurden ausgeführt.</pre>
@@ -3922,7 +3922,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Benutzer möchte eine Hilfskraft löschen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="01:37" outcome="Ok" postok="Y" preok="Y" starttime="01:36">
+<result actionok="Y" endtime="13:37" outcome="Ok" postok="Y" preok="Y" starttime="13:36">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="56" priority="C" title="Hilfskraft entfernen ohne Referenz">
 <description>Es soll eine Hilfskraft gelöscht werden, was korrekt funktioniert.</description>
 <pre>Der Testfall 45 wurde ausgeführt.</pre>
@@ -3941,7 +3941,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="01:37" outcome="Ok" postok="Y" preok="Y" starttime="01:37">
+<result actionok="Y" endtime="13:37" outcome="Ok" postok="Y" preok="Y" starttime="13:37">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="146" priority="C" title="Hilfskraft entfernen mit Taste Entf">
 <description>Es soll eine Hilfskraft gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
 <pre>Der Testfall 45 wurde ausgeführt.</pre>
@@ -3960,7 +3960,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="01:42" outcome="Ok" postok="Y" preok="Y" starttime="01:38">
+<result actionok="Y" endtime="13:42" outcome="Ok" postok="Y" preok="Y" starttime="13:38">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="57" priority="C" title="Hilfskraft entfernen mit Referenz">
 <description>Es soll eine Hilfskraft gelöscht werden. Das Datum wird noch referenziert.</description>
 <pre>Der Testfall 45 und 168 wurden ausgeführt.</pre>
@@ -3979,7 +3979,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="01:42" outcome="Ok" postok="Y" preok="Y" starttime="01:42">
+<result actionok="Y" endtime="13:42" outcome="Ok" postok="Y" preok="Y" starttime="13:42">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="58" priority="C" title="Abbruch: Hilfskraft entfernen">
 <description>Es soll eine Hilfskraft gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
 <pre>Der Testfall 44 wurde ausgeführt.</pre>
@@ -3998,7 +3998,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="01:42" outcome="Ok" postok="Y" preok="Y" starttime="01:42">
+<result actionok="Y" endtime="13:42" outcome="Ok" postok="Y" preok="Y" starttime="13:42">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="59" priority="C" title="Hilfskraft entfernen ohne Auswahl">
 <description>Es soll eine Hilfskraft gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
 <pre/>
@@ -4047,7 +4047,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="00:47" outcome="Ok" postok="Y" preok="Y" starttime="00:47">
+<result actionok="Y" endtime="12:47" outcome="Ok" postok="Y" preok="Y" starttime="12:47">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="60" priority="B" title="Finanzkategorie korrekt hinzufügen">
 <description>Es wird eine Finanzkategorie zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -4068,7 +4068,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:48" outcome="Ok" postok="Y" preok="Y" starttime="00:47">
+<result actionok="Y" endtime="12:48" outcome="Ok" postok="Y" preok="Y" starttime="12:47">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="61" priority="B" title="Finanzkategorie korrekt hinzufügen">
 <description>Es wird eine Finanzkategorie zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -4089,7 +4089,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:48" outcome="Ok" postok="Y" preok="Y" starttime="00:48">
+<result actionok="Y" endtime="12:48" outcome="Ok" postok="Y" preok="Y" starttime="12:48">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="62" priority="B" title="Finanzkategorie korrekt hinzufügen">
 <description>Es wird eine Finanzkategorie zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -4110,7 +4110,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:49" outcome="Ok" postok="Y" preok="Y" starttime="00:48">
+<result actionok="Y" endtime="12:49" outcome="Ok" postok="Y" preok="Y" starttime="12:48">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="63" priority="B" title="Finanzkategorie inkorrekt hinzufügen">
 <description>Es wird eine Finanzkategorie zum System hinzugefügt. Dabei werden falsche Eingaben gemacht.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -4127,7 +4127,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:49" outcome="Ok" postok="Y" preok="Y" starttime="00:49">
+<result actionok="Y" endtime="12:49" outcome="Ok" postok="Y" preok="Y" starttime="12:49">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:04" number="64" priority="B" title="Finanzkategorie inkorrekt hinzufügen">
 <description>Es wird eine Finanzkategorie zum System hinzugefügt. Dabei werden falsche Eingaben gemacht.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -4146,7 +4146,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:49" outcome="Ok" postok="Y" preok="Y" starttime="00:49">
+<result actionok="Y" endtime="12:49" outcome="Ok" postok="Y" preok="Y" starttime="12:49">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="65" priority="D" title="Abbruch: Finanzkategorie hinzufügen">
 <description>Es soll eine Finanzkategorie hinzugefügt werden. Dieser Vorgang wird abgebrochen.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -4170,7 +4170,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Benutzer möchte eine Finanzkategorie bearbeiten.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="00:50" outcome="Ok" postok="Y" preok="Y" starttime="00:50">
+<result actionok="Y" endtime="12:50" outcome="Ok" postok="Y" preok="Y" starttime="12:50">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="66" priority="C" title="Finanzkategorie korrekt bearbeiten">
 <description>Es soll eine Finanzkategorie bearbeitet werden. Alle Eingaben sind korrekt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 61 wurde bereits ausgeführt.</pre>
@@ -4191,7 +4191,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:50" outcome="Ok" postok="Y" preok="Y" starttime="00:50">
+<result actionok="Y" endtime="12:50" outcome="Ok" postok="Y" preok="Y" starttime="12:50">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="67" priority="C" title="Finanzkategorie unvollständig bearbeiten">
 <description>Es soll eine Finanzkategorie bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 61 wurde bereits ausgeführt.</pre>
@@ -4212,7 +4212,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:51" outcome="Ok" postok="Y" preok="Y" starttime="00:50">
+<result actionok="Y" endtime="12:51" outcome="Ok" postok="Y" preok="Y" starttime="12:50">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="68" priority="C" title="Finanzkategorie inkorrekt bearbeiten">
 <description>Es soll eine Finanzkategorie bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 60 wurde bereits ausgeführt.</pre>
@@ -4234,7 +4234,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:51" outcome="Ok" postok="Y" preok="Y" starttime="00:51">
+<result actionok="Y" endtime="12:51" outcome="Ok" postok="Y" preok="Y" starttime="12:51">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="69" priority="C" title="Abbruch: Finanzkategorie bearbeiten">
 <description>Es soll eine Finanzkategorie bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 62 wurde bereits ausgeführt.</pre>
@@ -4260,7 +4260,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Benutzer möchte eine Finanzkategorie anzeigen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="00:52" outcome="Ok" postok="Y" preok="Y" starttime="00:51">
+<result actionok="Y" endtime="12:52" outcome="Ok" postok="Y" preok="Y" starttime="12:51">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="149" priority="C" title="Finanzkategorie anzeigen und schließen">
 <description>Es soll eine Finanzkategorie angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
 <pre>Der Testfall 60 wurde ausgeführt.</pre>
@@ -4279,7 +4279,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:53" outcome="Ok" postok="Y" preok="Y" starttime="00:52">
+<result actionok="Y" endtime="12:53" outcome="Ok" postok="Y" preok="Y" starttime="12:52">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="150" priority="C" title="Finanzkategorie anzeigen und bearbeiten">
 <description>Es soll eine Finanzkategorie angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
 <pre>Der Testfall 62 wurde ausgeführt.</pre>
@@ -4304,7 +4304,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:53" outcome="Ok" postok="Y" preok="Y" starttime="00:53">
+<result actionok="Y" endtime="12:53" outcome="Ok" postok="Y" preok="Y" starttime="12:53">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="151" priority="C" title="Finanzkategorie anzeigen ohne Auswahl">
 <description>Es soll eine Finanzkategorie angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
 <pre/>
@@ -4324,7 +4324,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Benutzer möchte eine Finanzkategorie suchen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="00:53" outcome="Ok" postok="Y" preok="Y" starttime="00:53">
+<result actionok="Y" endtime="12:53" outcome="Ok" postok="Y" preok="Y" starttime="12:53">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="152" priority="C" title="Finanzkategorie suchen nach Budgetkosten">
 <description>Es soll eine Finanzkategorie gesucht werden. Es wird nach den Budgetkosten gesucht.</description>
 <pre>Der Testfall 61 wurde ausgeführt.</pre>
@@ -4339,7 +4339,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:54" outcome="Ok" postok="Y" preok="Y" starttime="00:53">
+<result actionok="Y" endtime="12:54" outcome="Ok" postok="Y" preok="Y" starttime="12:53">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="153" priority="C" title="Suchfilter entfernen">
 <description>Der angewandte Suchfilter soll entfernt werden.</description>
 <pre>Der Testfall 152 wurde ausgeführt.</pre>
@@ -4359,7 +4359,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Benutzer möchte eine Finanzkategorie löschen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="00:54" outcome="Ok" postok="Y" preok="Y" starttime="00:54">
+<result actionok="Y" endtime="12:54" outcome="Ok" postok="Y" preok="Y" starttime="12:54">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="70" priority="C" title="Finanzkategorie entfernen ohne Referenz">
 <description>Es soll eine Finanzkategorie gelöscht werden, was korrekt funktioniert.</description>
 <pre>Der Testfall 60 wurde ausgeführt.</pre>
@@ -4378,7 +4378,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:54" outcome="Ok" postok="Y" preok="Y" starttime="00:54">
+<result actionok="Y" endtime="12:54" outcome="Ok" postok="Y" preok="Y" starttime="12:54">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="147" priority="C" title="Finanzkategorie entfernen mit Taste Entf">
 <description>Es soll eine Finanzkategorie gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
 <pre>Der Testfall 60 wurde ausgeführt.</pre>
@@ -4397,7 +4397,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:55" outcome="Ok" postok="Y" preok="Y" starttime="00:54">
+<result actionok="Y" endtime="12:55" outcome="Ok" postok="Y" preok="Y" starttime="12:54">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="71" priority="C" title="Finanzkategorie entfernen mit Referenz">
 <description>Es soll eine Finanzkategorie gelöscht werden. Das Datum wird noch referenziert.</description>
 <pre>Der Testfall 61 und 28 wurde ausgeführt.</pre>
@@ -4416,7 +4416,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:55" outcome="Ok" postok="Y" preok="Y" starttime="00:55">
+<result actionok="Y" endtime="12:55" outcome="Ok" postok="Y" preok="Y" starttime="12:55">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="72" priority="C" title="Abbruch: Finanzkategorie entfernen">
 <description>Es soll eine Finanzkategorie gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
 <pre>Der Testfall 62 wurde ausgeführt.</pre>
@@ -4435,7 +4435,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:55" outcome="Ok" postok="Y" preok="Y" starttime="00:55">
+<result actionok="Y" endtime="12:55" outcome="Ok" postok="Y" preok="Y" starttime="12:55">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="73" priority="C" title="Finanzkategorie entfernen ohne Auswahl">
 <description>Es soll eine Finanzkategorie gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
 <pre/>
@@ -4484,7 +4484,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="00:12" outcome="Ok" postok="Y" preok="Y" starttime="00:11">
+<result actionok="Y" endtime="12:12" outcome="Ok" postok="Y" preok="Y" starttime="12:11">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:04" number="74" priority="B" title="Stundenlohn korrekt hinzufügen">
 <description>Es wird ein Stundenlohn zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -4505,7 +4505,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:12" outcome="Ok" postok="Y" preok="Y" starttime="00:12">
+<result actionok="Y" endtime="12:12" outcome="Ok" postok="Y" preok="Y" starttime="12:12">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:04" number="75" priority="B" title="Stundenlohn korrekt hinzufügen">
 <description>Es wird ein Stundenlohn zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -4526,7 +4526,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:13" outcome="Ok" postok="Y" preok="Y" starttime="00:12">
+<result actionok="Y" endtime="12:13" outcome="Ok" postok="Y" preok="Y" starttime="12:12">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:04" number="76" priority="B" title="Stundenlohn korrekt hinzufügen">
 <description>Es wird ein Stundenlohn zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -4547,7 +4547,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:13" outcome="Ok" postok="Y" preok="Y" starttime="00:13">
+<result actionok="Y" endtime="12:13" outcome="Ok" postok="Y" preok="Y" starttime="12:13">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="77" priority="B" title="Stundenlohn inkorrekt hinzufügen">
 <description>Es wird ein Stundenlohn zum System hinzugefügt. Dabei werden falsche Eingaben gemacht.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -4564,7 +4564,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:13" outcome="Ok" postok="Y" preok="Y" starttime="00:13">
+<result actionok="Y" endtime="12:13" outcome="Ok" postok="Y" preok="Y" starttime="12:13">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="78" priority="D" title="Abbruch: Stundenlohn hinzufügen">
 <description>Es soll ein Stundenlohn hinzugefügt werden. Dieser Vorgang wird abgebrochen.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -4590,7 +4590,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Benutzer möchte einen Stundenlohn bearbeiten.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="00:14" outcome="Ok" postok="Y" preok="Y" starttime="00:14">
+<result actionok="Y" endtime="12:14" outcome="Ok" postok="Y" preok="Y" starttime="12:14">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="79" priority="C" title="Stundenlohn korrekt bearbeiten">
 <description>Es soll ein Stundenlohn bearbeitet werden. Alle Eingaben sind korrekt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 74 wurde bereits ausgeführt.</pre>
@@ -4609,7 +4609,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:14" outcome="Ok" postok="Y" preok="Y" starttime="00:14">
+<result actionok="Y" endtime="12:14" outcome="Ok" postok="Y" preok="Y" starttime="12:14">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="80" priority="C" title="Stundenlohn unvollständig bearbeiten">
 <description>Es soll ein Stundenlohn bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 75 wurde bereits ausgeführt.</pre>
@@ -4630,7 +4630,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:15" outcome="Ok" postok="Y" preok="Y" starttime="00:15">
+<result actionok="Y" endtime="12:15" outcome="Ok" postok="Y" preok="Y" starttime="12:15">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="82" priority="C" title="Abbruch: Stundenlohn bearbeiten">
 <description>Es soll ein Stundenlohn bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 76 wurde bereits ausgeführt.</pre>
@@ -4658,7 +4658,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Benutzer möchte eine Veranstaltung anzeigen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="00:16" outcome="Ok" postok="Y" preok="Y" starttime="00:15">
+<result actionok="Y" endtime="12:16" outcome="Ok" postok="Y" preok="Y" starttime="12:15">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="154" priority="C" title="Stundenlohn anzeigen und schließen">
 <description>Es soll ein Stundenlohn angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
 <pre>Der Testfall 75 wurde ausgeführt.</pre>
@@ -4677,7 +4677,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:16" outcome="Ok" postok="Y" preok="Y" starttime="00:16">
+<result actionok="Y" endtime="12:16" outcome="Ok" postok="Y" preok="Y" starttime="12:16">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="155" priority="C" title="Stundenlohn anzeigen und bearbeiten">
 <description>Es soll ein Stundenlohn angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
 <pre>Der Testfall 76 wurde ausgeführt.</pre>
@@ -4702,7 +4702,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:16" outcome="Ok" postok="Y" preok="Y" starttime="00:16">
+<result actionok="Y" endtime="12:16" outcome="Ok" postok="Y" preok="Y" starttime="12:16">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="156" priority="C" title="Stundenlohn anzeigen ohne Auswahl">
 <description>Es soll ein Stundenlohn angezeigt werden. Es wurde jedoch keiner ausgewählt.</description>
 <pre/>
@@ -4722,7 +4722,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Benutzer möchte einen Stundenlohn suchen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="00:17" outcome="Ok" postok="Y" preok="Y" starttime="00:16">
+<result actionok="Y" endtime="12:17" outcome="Ok" postok="Y" preok="Y" starttime="12:16">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="157" priority="C" title="Stundenlohn suchen nach Qualifikation">
 <description>Es soll ein Stundenlohn gesucht werden. Es wird nach der Qualifikation gesucht.</description>
 <pre>Der Testfall 74 wurde ausgeführt.</pre>
@@ -4737,7 +4737,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:17" outcome="Ok" postok="Y" preok="Y" starttime="00:17">
+<result actionok="Y" endtime="12:17" outcome="Ok" postok="Y" preok="Y" starttime="12:17">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="158" priority="C" title="Suchfilter entfernen">
 <description>Der angewandte Suchfilter soll entfernt werden.</description>
 <pre>Der Testfall 152 wurde ausgeführt.</pre>
@@ -4757,7 +4757,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Benutzer möchte einen Stundenlohn löschen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="00:18" outcome="Ok" postok="Y" preok="Y" starttime="00:17">
+<result actionok="Y" endtime="12:18" outcome="Ok" postok="Y" preok="Y" starttime="12:17">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="83" priority="C" title="Stundenlohn entfernen ohne Referenz">
 <description>Es soll ein Stundenlohn gelöscht werden, was korrekt funktioniert.</description>
 <pre>Der Testfall 75 wurde ausgeführt.</pre>
@@ -4776,7 +4776,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:18" outcome="Ok" postok="Y" preok="Y" starttime="00:18">
+<result actionok="Y" endtime="12:18" outcome="Ok" postok="Y" preok="Y" starttime="12:18">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="148" priority="C" title="Stundenlohn entfernen mit Taste Entf">
 <description>Es soll ein Stundenlohn gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
 <pre>Der Testfall 75 wurde ausgeführt.</pre>
@@ -4795,7 +4795,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:18" outcome="Ok" postok="Y" preok="Y" starttime="00:18">
+<result actionok="Y" endtime="12:18" outcome="Ok" postok="Y" preok="Y" starttime="12:18">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="85" priority="C" title="Abbruch: Stundenlohn entfernen">
 <description>Es soll ein Stundenlohn gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
 <pre>Der Testfall 76 wurde ausgeführt.</pre>
@@ -4814,7 +4814,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:18" outcome="Ok" postok="Y" preok="Y" starttime="00:18">
+<result actionok="Y" endtime="12:18" outcome="Ok" postok="Y" preok="Y" starttime="12:18">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="86" priority="C" title="Stundenlohn entfernen ohne Auswahl">
 <description>Es soll ein Stundenlohn gelöscht werden. Es wurde jedoch keiner ausgewählt.</description>
 <pre/>
