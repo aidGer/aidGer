@@ -31,7 +31,7 @@ public class ReportGenerateAction extends AbstractAction {
         putValue(Action.SHORT_DESCRIPTION, _("Generate the report"));
 
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/report.png")));
+            "/de/aidger/view/icons/calculator.png")));
     }
 
     /*
