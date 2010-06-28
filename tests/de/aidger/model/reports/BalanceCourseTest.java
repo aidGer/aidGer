@@ -63,8 +63,8 @@ public class BalanceCourseTest {
         BudgetCost resultBudgetCost = balanceCourse.getBudgetCosts().get(0);
         assertEquals(11111111, resultBudgetCost.getId());
         assertEquals("Test cost", resultBudgetCost.getName());
-        assertEquals(new BigDecimal(120).setScale(2), resultBudgetCost
-            .getValue());
+        assertEquals(new BigDecimal(120).setScale(2).doubleValue(),
+                (double)resultBudgetCost.getValue(), 0.001);
         assertEquals(result.getTargetAudience(), "");
     }
 

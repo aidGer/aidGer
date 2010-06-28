@@ -25,8 +25,8 @@ public class CourseTest {
     @Before
     public void setUp() throws AdoHiveException {
         FinancialCategory fc = new FinancialCategory();
-        fc.setBudgetCosts(new int[] { 100 });
-        fc.setFunds(new int[] { 10001000 });
+        fc.setBudgetCosts(new Integer[] { 100 });
+        fc.setFunds(new Integer[] { 10001000 });
         fc.setName("name");
         fc.setYear((short) 2010);
         fc.save();
@@ -44,7 +44,7 @@ public class CourseTest {
         course.setScope("Sniper Scope");
         course.setSemester("SS09");
         course.setTargetAudience("Testers");
-        course.setUnqualifiedWorkingHours(100);
+        course.setUnqualifiedWorkingHours(100.0);
     }
 
     /**
@@ -151,7 +151,7 @@ public class CourseTest {
         employment.setCourseId(course.getId());
         employment.setCostUnit("0711");
         employment.setFunds(1);
-        employment.setHourCount(40);
+        employment.setHourCount(40.0);
         employment.setMonth((byte) 10);
         employment.setQualification("g");
         employment.setRemark("Remark");
@@ -221,8 +221,8 @@ public class CourseTest {
         System.out.println("getCourses");
 
         FinancialCategory fc = new FinancialCategory();
-        fc.setBudgetCosts(new int[] { 100, 200 });
-        fc.setFunds(new int[] { 10001000, 20002000 });
+        fc.setBudgetCosts(new Integer[] { 100, 200 });
+        fc.setFunds(new Integer[] { 10001000, 20002000 });
         fc.setName("Tester");
         fc.setYear((short) 2010);
         fc.save();

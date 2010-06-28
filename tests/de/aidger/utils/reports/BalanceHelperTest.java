@@ -92,8 +92,8 @@ public class BalanceHelperTest {
         de.aidger.model.Runtime.getInstance().initialize();
 
         financialCategory = new FinancialCategory();
-        financialCategory.setBudgetCosts(new int[] { 1000 });
-        financialCategory.setFunds(new int[] { 10000000 });
+        financialCategory.setBudgetCosts(new Integer[] { 1000 });
+        financialCategory.setFunds(new Integer[] { 10000000 });
         financialCategory.setName("Test Category");
         financialCategory.setYear((short) 2010);
         financialCategory.save();
@@ -110,7 +110,7 @@ public class BalanceHelperTest {
         course.setScope("Sniper Scope");
         course.setSemester("SS09");
         course.setTargetAudience("Testers");
-        course.setUnqualifiedWorkingHours(100);
+        course.setUnqualifiedWorkingHours(100.0);
         course.save();
 
         course2 = course.clone();
@@ -427,16 +427,17 @@ public class BalanceHelperTest {
                 resultCourseObject[i]);
         }
         Vector<BudgetCost> resultBudgetCosts = (Vector<BudgetCost>) resultCourseObject[resultCourseObject.length - 1];
-        assertEquals(employment1.getFunds(), resultBudgetCosts.get(0).getId());
+        assertEquals((double)employment1.getFunds(), resultBudgetCosts.get(0).getId(), 0.001);
         assertEquals(employment1.getCostUnit(), resultBudgetCosts.get(0)
             .getName());
-        assertEquals(new BigDecimal(120.0).setScale(2), resultBudgetCosts
-            .get(0).getValue());
-        assertEquals(employment2.getFunds(), resultBudgetCosts.get(1).getId());
+        assertEquals(new BigDecimal(120.0).setScale(2).doubleValue(), resultBudgetCosts
+            .get(0).getValue(), 0.001);
+        assertEquals((double)employment2.getFunds(), resultBudgetCosts.get(1).getId(),
+                0.001);
         assertEquals(employment2.getCostUnit(), resultBudgetCosts.get(1)
             .getName());
-        assertEquals(new BigDecimal(120.0).setScale(2), resultBudgetCosts
-            .get(1).getValue());
+        assertEquals(new BigDecimal(120.0).setScale(2).doubleValue(), resultBudgetCosts
+            .get(1).getValue(), 0.001);
     }
 
     /**

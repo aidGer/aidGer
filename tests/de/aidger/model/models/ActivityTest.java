@@ -38,8 +38,8 @@ public class ActivityTest {
         assistant.save();
 
         financial = new FinancialCategory();
-        financial.setBudgetCosts(new int[] { 100, 200 });
-        financial.setFunds(new int[] { 10001000, 20002000 });
+        financial.setBudgetCosts(new Integer[] { 100, 200 });
+        financial.setFunds(new Integer[] { 10001000, 20002000 });
         financial.setName("Tester");
         financial.setYear((short) 2010);
         financial.save();
@@ -56,7 +56,7 @@ public class ActivityTest {
         course.setScope("Sniper Scope");
         course.setSemester("SS09");
         course.setTargetAudience("Testers");
-        course.setUnqualifiedWorkingHours(100);
+        course.setUnqualifiedWorkingHours(100.0);
         course.save();
     }
 
