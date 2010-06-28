@@ -43,7 +43,5 @@ public class ActivityReportGenerateAction extends AbstractAction {
             .getInstance().getCurrentTab();
 
         viewerTab.createReport(viewerTab.getSelectedAssistant());
-
-        viewerTab.visualizeExportButton();
     }
 }

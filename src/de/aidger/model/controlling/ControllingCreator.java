@@ -81,8 +81,9 @@ public class ControllingCreator {
                                     + " " + assistant.getLastName());
                         }
                         new BalanceHelper();
-                        double costs = BalanceHelper.calculateBudgetCost(
-                            employment, 0);
+                        // Costs are need pre-tax for this.
+                        double costs = BalanceHelper
+                            .calculatePreTaxBudgetCost(employment);
                         controllingAssistant.setCosts(controllingAssistant
                             .getCosts()
                                 + costs);

@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Vector;
 
+import de.aidger.model.Runtime;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
@@ -212,8 +213,7 @@ public class BalanceHelper {
      *            The course to be calculated.
      * @return The balance course model.
      */
-    public static BalanceCourse getBalanceCourse(ICourse course,
-            int calculationMethod) {
+    public static BalanceCourse getBalanceCourse(ICourse course) {
         BalanceCourse balanceCourse = new BalanceCourse();
         balanceCourse.setTitle(course.getDescription());
         balanceCourse.setPart(course.getPart());
@@ -243,8 +243,7 @@ public class BalanceHelper {
                 for (IAssistant assistant : assistants) {
                     if (employment.getAssistantId() == assistant.getId()) {
                         budgetCost = budgetCost
-                                + calculateBudgetCost(employment,
-                                    calculationMethod);
+                                + calculateBudgetCost(employment);
                     }
                 }
                 if (balanceCourse.budgetCostExists(employment.getFunds())) {
@@ -265,19 +264,41 @@ public class BalanceHelper {
     /**
      * Calculates the budget costs of this employment
      */
-    public static double calculateBudgetCost(IEmployment employment,
-            int calculationMethod) {
+    public static double calculateBudgetCost(IEmployment employment) {
         String qualification = employment.getQualification();
-        double calculationFactor = 0;
+        double calculationFactor = 1.0;
+        double calculationMethod = Integer.parseInt(Runtime.getInstance()
+            .getOption("calc-method"));
         if (calculationMethod == 1) {
             calculationFactor = Double.parseDouble(de.aidger.model.Runtime
                 .getInstance().getOption("pessimistic-factor"));
-        } else if (calculationMethod == 2) {
+        } else {
             calculationFactor = Double.parseDouble(de.aidger.model.Runtime
                 .getInstance().getOption("historic-factor"));
-        } else {
-            calculationFactor = 1;
         }
+        List<IHourlyWage> hourlyWages;
+        try {
+            hourlyWages = new HourlyWage().getAll();
+            for (IHourlyWage hourlyWage : hourlyWages) {
+                if (hourlyWage.getMonth() == employment.getMonth()
+                        && hourlyWage.getYear() == employment.getYear()
+                        && hourlyWage.getQualification().equals(qualification)) {
+                    return hourlyWage.getWage().doubleValue()
+                            * calculationFactor * employment.getHourCount();
+                }
+            }
+        } catch (AdoHiveException e) {
+            UI.displayError(e.toString());
+        }
+        return 0;
+    }
+
+    /**
+     * Calculates the budget costs of this employment as pre-tax.
+     */
+    public static double calculatePreTaxBudgetCost(IEmployment employment) {
+        String qualification = employment.getQualification();
+        double calculationFactor = 1.0;
         List<IHourlyWage> hourlyWages;
         try {
             hourlyWages = new HourlyWage().getAll();

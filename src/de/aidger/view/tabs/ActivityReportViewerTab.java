@@ -40,7 +40,7 @@ public class ActivityReportViewerTab extends Tab {
     /**
      * The assistants in the combo box.
      */
-    private Vector<IAssistant> assistants;
+    private Vector<Assistant> assistants;
 
     /**
      * Initializes a new AcitivityReportViewerTab.
@@ -68,7 +68,7 @@ public class ActivityReportViewerTab extends Tab {
     /**
      * Sets the export button and its separator to be visible.
      */
-    public void visualizeExportButton() {
+    private void visualizeExportButton() {
         exportButton.setVisible(false);
         exportButton.setVisible(true);
         jSeparator3.setVisible(false);
@@ -118,6 +118,8 @@ public class ActivityReportViewerTab extends Tab {
         for (ActivityEmployment activityEmployment : activityEmployments) {
             addRow(reportHelper.getEmploymentArray(activityEmployment));
         }
+        visualizeExportButton();
+        assistantComboBox.setSelectedIndex(assistants.indexOf(assistant));
     }
 
     /**
@@ -135,13 +137,13 @@ public class ActivityReportViewerTab extends Tab {
      */
     private void fillAssistants() {
         List<IAssistant> fillingAssistants;
-        assistants = new Vector<IAssistant>();
+        assistants = new Vector<Assistant>();
         try {
             fillingAssistants = new Assistant().getAll();
             for (IAssistant assistant : fillingAssistants) {
                 assistantComboBox.addItem(assistant.getFirstName() + " "
                         + assistant.getLastName());
-                assistants.add(assistant);
+                assistants.add(new Assistant(assistant));
             }
         } catch (AdoHiveException e) {
             UI.displayError(e.toString());

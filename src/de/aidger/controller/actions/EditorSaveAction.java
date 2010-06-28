@@ -648,9 +648,8 @@ public class EditorSaveAction extends AbstractAction {
 
                 for (Employment curEmployment : employments) {
                     if (curEmployment.getFunds() == funds) {
-                        // TODO
-                        bookedBudgetCosts += BalanceHelper.calculateBudgetCost(
-                            curEmployment, 1);
+                        bookedBudgetCosts += BalanceHelper
+                            .calculateBudgetCost(curEmployment);
                     }
                 }
             }

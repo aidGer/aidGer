@@ -213,8 +213,10 @@ public class ControllingViewerTab extends ReportTab {
             yearObjects[i] = years[i];
         }
         yearComboBox.setModel(new DefaultComboBoxModel(yearObjects));
-        year = (Integer) yearComboBox.getSelectedItem();
-        createMonthItems(year);
+        if (yearComboBox.getItemCount() > 0) {
+            year = (Integer) yearComboBox.getSelectedItem();
+            createMonthItems(year);
+        }
     }
 
     /**
@@ -232,8 +234,10 @@ public class ControllingViewerTab extends ReportTab {
                 monthObjects[i] = months[i];
             }
             monthComboBox.setModel(new DefaultComboBoxModel(monthObjects));
-            month = (Integer) monthComboBox.getSelectedItem();
-            createFundsItems(year, month);
+            if (monthComboBox.getItemCount() > 0) {
+                month = (Integer) monthComboBox.getSelectedItem();
+                createFundsItems(year, month);
+            }
         }
     }
 
@@ -254,7 +258,9 @@ public class ControllingViewerTab extends ReportTab {
                 fundsObjects[i] = funds[i];
             }
             fundsComboBox.setModel(new DefaultComboBoxModel(fundsObjects));
-            this.funds = (Integer) fundsComboBox.getSelectedItem();
+            if (fundsComboBox.getItemCount() > 0) {
+                this.funds = (Integer) fundsComboBox.getSelectedItem();
+            }
         }
 
     }

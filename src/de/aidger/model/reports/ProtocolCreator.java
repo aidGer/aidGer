@@ -56,7 +56,6 @@ public class ProtocolCreator {
             // Remove the milliseconds that it took to calculate the time.
             checkDate.setTime(checkDate.getTime() - checkDate.getTime() % 1000);
         } else {
-            calendar = Calendar.getInstance();
             calendar.set(1, 1, 1970, 0, 0, 0);
             checkDate = calendar.getTime();
         }

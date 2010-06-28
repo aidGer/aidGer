@@ -146,47 +146,53 @@ public class ProtocolViewerTab extends Tab {
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
-        jSeparator3 = new javax.swing.JToolBar.Separator();
-        spinnerLabel = new javax.swing.JLabel();
-        daySpinner = new javax.swing.JSpinner();
         jSeparator1 = new javax.swing.JToolBar.Separator();
         exportProtocolButton = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
+        contentPanel = new javax.swing.JPanel();
         contentScrollPane = new javax.swing.JScrollPane();
         contentTable = new javax.swing.JTable();
+        filterLabel = new javax.swing.JPanel();
+        spinnerLabel = new javax.swing.JLabel();
+        daySpinner = new javax.swing.JSpinner();
 
         setLayout(new java.awt.BorderLayout());
 
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
-        jToolBar1.add(jSeparator3);
+        jToolBar1.add(jSeparator1);
+
+        exportProtocolButton.setText(_("Export"));
+        exportProtocolButton.setFocusable(false);
+        exportProtocolButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportProtocolButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(exportProtocolButton);
+        jToolBar1.add(jSeparator2);
+
+        add(jToolBar1, java.awt.BorderLayout.PAGE_START);
+
+        contentPanel.setLayout(new java.awt.BorderLayout());
+
+        contentTable.setModel(activityTableModel);
+        contentScrollPane.setViewportView(contentTable);
+
+        contentPanel.add(contentScrollPane, java.awt.BorderLayout.CENTER);
+
+        filterLabel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         spinnerLabel.setText(_("Number of days before today to display: "));
-        jToolBar1.add(spinnerLabel);
+        filterLabel.add(spinnerLabel);
 
         daySpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 daySpinnerStateChanged(evt);
             }
         });
-        jToolBar1.add(daySpinner);
-        jToolBar1.add(jSeparator1);
+        filterLabel.add(daySpinner);
 
-        exportProtocolButton.setText(_("Export"));
-        exportProtocolButton.setFocusable(false);
-        exportProtocolButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        exportProtocolButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(exportProtocolButton);
-        jToolBar1.add(jSeparator2);
+        contentPanel.add(filterLabel, java.awt.BorderLayout.PAGE_START);
 
-        add(jToolBar1, java.awt.BorderLayout.PAGE_START);
-
-        contentTable.setModel(activityTableModel);
-        contentScrollPane.setViewportView(contentTable);
-
-        add(contentScrollPane, java.awt.BorderLayout.CENTER);
+        add(contentPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void daySpinnerStateChanged(javax.swing.event.ChangeEvent evt) {// GEN-FIRST:event_daySpinnerStateChanged
@@ -195,13 +201,14 @@ public class ProtocolViewerTab extends Tab {
     }// GEN-LAST:event_daySpinnerStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel contentPanel;
     private javax.swing.JScrollPane contentScrollPane;
     private javax.swing.JTable contentTable;
     private javax.swing.JSpinner daySpinner;
     private javax.swing.JButton exportProtocolButton;
+    private javax.swing.JPanel filterLabel;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
-    private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel spinnerLabel;
     // End of variables declaration//GEN-END:variables
