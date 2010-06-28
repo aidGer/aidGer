@@ -529,7 +529,7 @@
 <pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:10" number="28" priority="B" title="Veranstaltung korrekt hinzufügen">
 <description>Es wird eine Veranstaltung zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Finanzkategorie "Lehre 0809" wurde korrekt erstellt.</pre>
 <actions>* Benutzer gibt die Bezeichnung "Nutzlose Betriebssysteme in der Praxis" ein
 
 * Benutzer gibt das Semester "WS0809" ein
