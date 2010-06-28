@@ -26,17 +26,17 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
     /**
      * The budget costs of the category.
      */
-    private int[] budgetCosts;
+    private Integer[] budgetCosts;
 
     /**
      * The fonds of the category.
      */
-    private int[] funds;
+    private Integer[] funds;
 
     /**
      * The year the category is valid.
      */
-    private short year;
+    private Short year;
 
     /**
      * Initialize the FinancialCategory class.
@@ -89,8 +89,10 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
     public boolean equals(Object o) {
         if (o instanceof FinancialCategory) {
             FinancialCategory f = (FinancialCategory) o;
-            return f.id == id && Arrays.equals(f.budgetCosts, budgetCosts)
-                    && Arrays.equals(f.funds, funds) && f.year == year
+            return (id == null ? f.id == null : id.equals(f.id))
+                    && Arrays.equals(f.budgetCosts, budgetCosts)
+                    && Arrays.equals(f.funds, funds)
+                    && (year == null ? f.year == null : year.equals(f.year))
                     && (name == null ? f.name == null : f.name.equals(name));
         } else {
             return false;
@@ -108,7 +110,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
         hash = 37 * hash + (name != null ? name.hashCode() : 0);
         hash = 37 * hash + Arrays.hashCode(budgetCosts);
         hash = 37 * hash + Arrays.hashCode(funds);
-        hash = 37 * hash + year;
+        hash = 37 * hash + (year != null ? year.hashCode() : 0);
         return hash;
     }
 
@@ -165,7 +167,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      * @return The budget costs of the category
      */
     @Override
-    public int[] getBudgetCosts() {
+    public Integer[] getBudgetCosts() {
         return budgetCosts;
     }
 
@@ -175,7 +177,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      * @return The funds of the category
      */
     @Override
-    public int[] getFunds() {
+    public Integer[] getFunds() {
         return funds;
     }
 
@@ -195,7 +197,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      * @return The year the category is valid
      */
     @Override
-    public short getYear() {
+    public Short getYear() {
         return year;
     }
 
@@ -206,7 +208,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      *            The budget costs of the category
      */
     @Override
-    public void setBudgetCosts(int[] costs) {
+    public void setBudgetCosts(Integer[] costs) {
         budgetCosts = costs;
     }
 
@@ -217,7 +219,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      *            The funds of the category
      */
     @Override
-    public void setFunds(int[] funds) {
+    public void setFunds(Integer[] funds) {
         this.funds = funds;
     }
 
@@ -239,7 +241,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      *            The year the category is valid.
      */
     @Override
-    public void setYear(short year) {
+    public void setYear(Short year) {
         this.year = year;
     }
 

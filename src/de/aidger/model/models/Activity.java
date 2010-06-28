@@ -22,12 +22,12 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
     /**
      * References the corresponding assistant.
      */
-    private int assistantId;
+    private Integer assistantId;
 
     /**
      * References the course by its unique id.
      */
-    private int courseId;
+    private Integer courseId;
 
     /**
      * The date on which this activity took place.
@@ -130,20 +130,24 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
     public boolean equals(Object o) {
         if (o instanceof Activity) {
             Activity a = (Activity) o;
-            return a.assistantId == assistantId && a.id == id &&
-                    a.courseId == courseId &&
-                    (date == null ? a.date == null : a.date.toString().equals(date.toString())) &&
+            return (assistantId == null ? a.assistantId == null :
+                            assistantId.equals(a.assistantId)) &&
+                    (id == null ? a.id == null : id.equals(a.id)) &&
+                    (courseId == null ? a.courseId == null : courseId
+                            .equals(a.courseId)) &&
+                    (date == null ? a.date == null : date.toString().equals(
+                            a.date.toString())) &&
                     (content == null ? a.content == null :
-                            a.content.equals(content)) &&
+                            content.equals(a.content)) &&
                     (documentType == null ? a.documentType == null :
-                            a.documentType.equals(documentType)) &&
+                            documentType.equals(a.documentType)) &&
                     (processor == null ? a.processor == null :
-                            a.processor.equals(processor)) &&
+                            processor.equals(a.processor)) &&
                     (remark == null ? a.remark == null :
-                            a.remark.equals(remark)) &&
+                            remark.equals(a.remark)) &&
                     (sender == null ? a.sender == null :
-                            a.sender.equals(sender)) &&
-                    (type == null ? a.type == null : a.type.equals(type));
+                            sender.equals(a.sender)) &&
+                    (type == null ? a.type == null : type.equals(a.type));
         } else {
             return false;
         }
@@ -220,7 +224,7 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @return The id of the referenced assistant
      */
     @Override
-    public int getAssistantId() {
+    public Integer getAssistantId() {
         return assistantId;
     }
 
@@ -240,7 +244,7 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @return The id of the referenced course.
      */
     @Override
-    public int getCourseId() {
+    public Integer getCourseId() {
         return courseId;
     }
 
@@ -310,7 +314,7 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @param id The id of the assistant
      */
     @Override
-    public void setAssistantId(int id) {
+    public void setAssistantId(Integer id) {
         assistantId = id;
     }
 
@@ -330,7 +334,7 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @param id The id of the course
      */
     @Override
-    public void setCourseId(int id) {
+    public void setCourseId(Integer id) {
         courseId = id;
     }
 

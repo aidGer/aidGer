@@ -88,7 +88,7 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
     public boolean equals(Object o) {
         if (o instanceof Assistant) {
             Assistant a = (Assistant) o;
-            return a.id == id
+            return (id == null ? a.id == null : id.equals(a.id))
                     && (firstName == null ? a.firstName == null : a.firstName
                             .equals(firstName))
                     && (lastName == null ? a.lastName == null : a.lastName

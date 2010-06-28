@@ -34,7 +34,7 @@ public abstract class AbstractModel<T> extends Observable implements
     /**
      * The unique id of the model in the database.
      */
-    protected int id = 0;
+    protected Integer id = 0;
 
     /**
      * Determines if the model has been saved in the db yet.
@@ -388,7 +388,7 @@ public abstract class AbstractModel<T> extends Observable implements
      * @return The unique id of the activity
      */
     @Override
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -401,7 +401,7 @@ public abstract class AbstractModel<T> extends Observable implements
      *            The unique id of the assistant
      */
     @Override
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
