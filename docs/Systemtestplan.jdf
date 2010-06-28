@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE tests SYSTEM "project.dtd">
 <tests product="TestDataManager" team="05" version="1.0">
-<sequence created="27.06.2010" creator="aidGerTeam" name="Project" number="0">
-<description>This is the root node of the project. It contains all test sequences and test cases.</description>
+<sequence created="28.06.2010" creator="aidGerTeam" name="Projekt" number="0">
+<description>Dies ist der Wurzelknoten des Projekts. Er enthält alle anderen Testsequenzen und Testfälle</description>
 <pre/>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Systemtest" number="3">
 <description/>
@@ -2518,40 +2518,95 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 </sequence>
 </sequence>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Controlling" number="10">
-<description>Die Testsequenz dient zum Testen des Controllings. Es können Monatsauszüge der angestellten Hilfskräfte angezeigt und exportiert werden. Zwischen den Monaten kann leicht navigiert werden. Außerdem müssen komfortabel die realen Kosten in die Tabelle eingetragen werden können. Desweiteren werden bei Soll-Ist-Abweichungen Warnungen angezeigt.</description>
+<description>Die Testsequenz dient zum Testen des Controllings.</description>
 <pre>Das Programm wurde gestartet und der Benutzer befindet sich im Menüpunkt Controlling.</pre>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Veranstaltungen prüfen" number="305">
+<description>Die Testsequenz dient zum Prüfen von Veranstaltungen. Es können standardmäßig alle Veranstaltungen angezeigt werden. Über einen Filter können nur spezifische Veranstaltungen (z.B. Veranstaltungen in einem Semester) betrachtet werden. Die Liste kann zudem exportiert werden.</description>
+<pre>Der Benutzer möchte Veranstaltungen prüfen und klickt auf den Menüpunkt "Veranstaltungen prüfen". Es sind die Default-Einstellungen ausgewählt.</pre>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="244" priority="C" title="Alle Veranstaltungen anzeigen">
+<description>Für die Budgetprüfung sollen alle Veranstaltungen angezeigt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Es wird eine Tabelle angeigt, in der alle Veranstaltungen mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet sind. Es müssen 3 Veranstaltungen angezeigt werden:
+
+Nutzlose Betriebssysteme in der Praxis: 95 / 157,5
+Laufende Forschung: 47 / 45
+Mensa überleben für Pizza-Fan: 47 / 120
+
+Die Zeile "Laufende Forschung" muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="245" priority="C" title="Veranstaltungen via Filter (Dozent) anzeigen">
+<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter über Dozent benutzt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Dozent" hinzu
+
+* Benutzer gibt die Veranstaltung "Gustav" ein
+
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Es wird nur die Veranstaltung "Laufende Forschung" mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet.
+
+Laufende Forschung: 47 / 45
+
+Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="247" priority="C" title="Veranstaltungen via Filter (Übrige HKS) anzeigen">
+<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter über Übrige HKS benutzt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Übrige HKS" hinzu
+
+* Benutzer gibt die die übrige HKS kleiner als "0"
+
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Es wird nur die Veranstaltung "Laufende Forschung" mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet.
+
+Laufende Forschung: 47 / 45
+
+Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="246" priority="C" title="Veranstaltungsliste in PDF-Format exportieren">
+<description>Eine Veranstaltungsliste soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 244 wurde bereits ausgeführt. Benutzer befindet sich im "Controlling Veranstaltungen"-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
+<post>Die bereits dargestellte Veranstaltungsliste wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden. Veranstaltungen mit negativen übrigen HKS werden auch in der PDF hervorgehoben.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="249" priority="C" title="Budgetprüfung ohne Veranstaltungen">
+<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter benutzt. Dieser Filter führt jedoch zu keinem Ergebnis.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Semester" hinzu
+
+* Benutzer gibt das Semester "Dumbdidum" ein
+
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Der Benutzer soll nicht die Möglichkeit haben, diese Falscheingabe durchzuführen. Daher wird ebenfalls keine neue Veranstaltungstabelle angezeigt.</post>
+<tags/>
+</testcase>
+</sequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Hilfskräfte prüfen" number="306">
+<description>Die Testsequenz dient zum Prüfen von Hilfskräften. Es können Monatsauszüge der angestellten Hilfskräfte angezeigt und exportiert werden. Zwischen den Monaten kann leicht navigiert werden. Außerdem müssen komfortabel die realen Kosten in die Tabelle eingetragen werden können. Desweiteren werden bei Soll-Ist-Abweichungen Warnungen angezeigt.</description>
+<pre>Der Benutzer möchte Hilfskräfte prüfen und klickt auf den Menüpunkt "Hilfskräfte prüfen". Es sind die Default-Einstellungen ausgewählt.</pre>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="242" priority="C" title="Monatsauszug für ein Monat anzeigen">
 <description>Es soll eine Monatsauszug für einen Monat angezeigt werden.</description>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
 <actions>* Benutzer wählt in der Dropdown-Liste den Monat "November 2010" aus
 
-* Benutzer drückt auf den Button "Auszug anzeigen"</actions>
-<post>Es wurde ein neues Controlling-Tab geöffnet und der Monatsauszug wird für den angegebenen Monat dargestellt. Es wird die Hilfskraft "Carl Coder" angezeigt. Dabei werden die Plankosten korrekt berrechnet.</post>
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Der Monatsauszug wird für den angegebenen Monat dargestellt. Es wird die Hilfskraft "Carl Coder" angezeigt. Dabei werden die Plankosten korrekt berrechnet.</post>
 <tags/>
 </testcase>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="248" priority="C" title="Monatsauszug ohne Hilfskräfte anzeigen">
 <description>Es soll eine Monatsauszug für einen Monat angezeigt werden. Das Problem tritt auf, dass für diesen Monat keine Hilfskräfte beschäftigt sind.</description>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
-<actions>* Benutzer wählt in der Dropdown-Liste den Monat "Oktober 2010" aus
-
-* Benutzer drückt auf den Button "Auszug anzeigen"</actions>
-<post>Es wurde kein neues Controlling-Tab geöffnet. Der Benutzer bekommt die Meldung zu sehen, dass für diesen Monat keine Hilfskräfte beschäftigt waren. Er kann nun seinen Monatsfilter anpassen oder Hilfskräfte für diesen Zeitraum in der Datenbank einpflegen.</post>
-<tags/>
-</testcase>
-<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="239" priority="C" title="Monatsauszug wechseln bzw. navigieren">
-<description>Der aktuelle Monatsauszug soll gewechselt bzw. navigiert werden. Der Benutzer geht ein Monat zurück und zwei Monate vor.</description>
-<pre>Testfall 236 wurde ausgeführt.</pre>
-<actions>* Benutzer drückt den Button "Oktober 2010"
-
-* Benutzer drückt den Button "November 2010"
-
-* Benutzer drückt den Button "Dezember 2010"</actions>
-<post>Die Montsauszüge der 3 Monate wurden jeweils nach den Buttonklicks angezeigt. Die angezeigten Plankosten müssen korrekt berrechnet sein. Für Oktober 2010 und Dezember 2010 dürfen keine Hilfskräfte eingetragen sein.</post>
+<actions>* Benutzer wählt in der Dropdown-Liste den Monat "Oktober 2010" aus</actions>
+<post>Der Benutzer soll nicht die Möglichkeit haben, diesen Monat auszuwählen, da keine Beschäftigungen in diesem Monat stattfanden.</post>
 <tags/>
 </testcase>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="238" priority="C" title="Monatsauszug in PDF-Format exportieren">
 <description>Eine generierter Monatsauszug soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
-<pre>Der Testfall 236 wurde bereits ausgeführt. Benutzer befindet sich im Controlling-Reiter.</pre>
+<pre>Der Testfall 236 wurde bereits ausgeführt. Benutzer befindet sich im "Controlling Hilfskräfte"-Reiter.</pre>
 <actions>* Benutzer klickt auf den Button "Exportieren"</actions>
 <post>Der bereits dargestellte Monatsauszug wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
 <tags/>
@@ -2583,92 +2638,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post>Der Benutzer bekommt die Fehlermeldung, dass er das Format für die realen Kosten nicht eingehalten hat. Die Zelle wird geleert und der Benutzer kann die Kosten erneut eingeben.</post>
 <tags/>
 </testcase>
-<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="236" priority="C" title="Aktueller Monatsauszug anzeigen">
-<description>Es soll der aktuelle Monatsauszug angezeigt werden.</description>
-<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
-<actions>* Benutzer drückt auf den Menüpunkt "Controlling"</actions>
-<post>* Der aktuelle Monatsauszug öffnet sich. Es werden mit hoher Wahrscheinlichkeit keine Hilfskräfte für den jetzigen Monat angezeigt.</post>
-<tags/>
-</testcase>
 </sequence>
-<sequence created="11.05.2010" creator="aidGerTeam" name="Budgetprüfung" number="5">
-<description>Die Testsequenz dient zum Testen der Budgetprüfung. Es können standardmäßig alle Veranstaltungen angezeigt werden. Über einen Filter können zudem nur spezifische Veranstaltungen oder Veranstaltungen in einem Jahr bzw. Semester betrachtet werden. Die Liste kann zudem exportiert werden.</description>
-<pre>Das Programm wurde gestartet und der Benutzer befindet sich im Menüpunkt Budgetprüfung.</pre>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="244" priority="C" title="Alle Veranstaltungen anzeigen">
-<description>Für die Budgetprüfung sollen alle Veranstaltungen angezeigt werden.</description>
-<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
-<actions>* Benutzer klickt auf den Menüpunkt "Veranstaltungen"
-
-* System öffnet in der Navigationsleiste weitere Einstellmöglichkeiten</actions>
-<post>Ein weiteres Budgetprüfungstab wird geöffnet. In diesem sind alle Veranstaltungen mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet. Es müssen 3 Veranstaltungen angezeigt werden:
-
-Nutzlose Betriebssysteme in der Praxis: 95 / 157,5
-Laufende Forschung: 47 / 45
-Mensa überleben für Pizza-Fan: 47 / 120
-
-Die Zeile "Laufende Forschung" muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
-<tags/>
-</testcase>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="245" priority="C" title="Veranstaltungen via Filter (Veranstaltung) anzeigen">
-<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter über Veranstaltung benutzt.</description>
-<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
-<actions>* Benutzer klickt auf den Menüpunkt "Veranstaltungen"
-
-* System öffnet in der Navigationsleiste weitere Einstellmöglichkeiten
-
-* Benutzer fügt den Filter "Veranstaltung" hinzu
-
-* Benutzer gibt die Veranstaltung "Forsch" ein
-
-* Benutzer drückt auf den Button "Prüfen"</actions>
-<post>Ein weiteres Budgetprüfungstab wird geöffnet. In diesem wird nur die Veranstaltung "Laufende Forschung" mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet.
-
-Laufende Forschung: 47 / 45
-
-Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
-<tags/>
-</testcase>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="247" priority="C" title="Veranstaltungen via Filter (Übrige HKS) anzeigen">
-<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter über Übrige HKS benutzt.</description>
-<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
-<actions>* Benutzer klickt auf den Menüpunkt "Veranstaltungen"
-
-* System öffnet in der Navigationsleiste weitere Einstellmöglichkeiten
-
-* Benutzer fügt den Filter "Übrige HKS" hinzu
-
-* Benutzer gibt die die übrige HKS kleiner als "0"
-
-* Benutzer drückt auf den Button "Prüfen"</actions>
-<post>Ein weiteres Budgetprüfungstab wird geöffnet. In diesem wird nur die Veranstaltung "Laufende Forschung" mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet.
-
-Laufende Forschung: 47 / 45
-
-Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
-<tags/>
-</testcase>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="249" priority="C" title="Budgetprüfung ohne Veranstaltungen">
-<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter benutzt. Dieser Filter führt jedoch zu keinem Ergebnis.</description>
-<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
-<actions>* Benutzer klickt auf den Menüpunkt "Veranstaltungen"
-
-* System öffnet in der Navigationsleiste weitere Einstellmöglichkeiten
-
-* Benutzer fügt den Filter "Veranstaltung" hinzu
-
-* Benutzer gibt die Veranstaltung "Dumbdidum" ein
-
-* Benutzer drückt auf den Button "Prüfen"</actions>
-<post>Es wurde kein neues Budgetprüfung-Tab geöffnet. Der Benutzer wird darüber informiert, dass mit diesem Veranstaltungsfilter keine Budgetprüfung durchzuführen ist.</post>
-<tags/>
-</testcase>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="246" priority="C" title="Veranstaltungsliste in PDF-Format exportieren">
-<description>Eine Veranstaltungsliste soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
-<pre>Der Testfall 244 wurde bereits ausgeführt. Benutzer befindet sich im Budgetprüfung-Reiter.</pre>
-<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
-<post>Die bereits dargestellte Veranstaltungsliste wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden. Veranstaltungen mit negativen übrigen HKS werden auch in der PDF hervorgehoben.</post>
-<tags/>
-</testcase>
 </sequence>
 <sequence created="13.05.2010" creator="aidGerTeam" name="Allgemeines" number="87">
 <description>Die Testsequenz dient zum Testen allgemeiner Funktionalitäten der Software.</description>
@@ -2678,10 +2648,10 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <pre>Benutzer möchte das Programm individuell einstellen.</pre>
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="260" priority="C" title="Name des Barbeiters bei Vorgangserfassung">
 <description>Die Wirksamkeit der Einstellung "Name des Bearbeiters" bei der Vorgangserfassung soll getestet werden.</description>
-<pre>Benutzer möchte den Namen des Bearbeiters ändern. Der Name ist bislang auf "Bearbeiter 1" eingestellt. Alle bisherigen Vorgänge wurden korrekt mit diesem Namen abgespeichert.</pre>
+<pre>Benutzer möchte den Namen des Bearbeiters ändern. Der Name ist bislang auf "B1" eingestellt. Alle bisherigen Vorgänge wurden korrekt mit diesem Namen abgespeichert.</pre>
 <actions>* Benutzer öffnet den Einstellungsdialog
 
-* Benutzer gibt den Namen des Bearbeiters "Bearbeiter 2" ein
+* Benutzer gibt den Namen des Bearbeiters "B2" ein
 
 * Benutzer drückt auf den Button "Speichern"
 
@@ -2775,6 +2745,66 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 
 * Benutzer startet das Programm</actions>
 <post>Die geöffneten Reiter wurden nicht wieder geöffnet. Der Benutzer wird ausschließlich mit dem Willkommen-Reiter begrüßt.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="301" priority="C" title="Pessimistischer Faktor">
+<description>Die Wirksamkeit der Einstellung "Pessimistischer Faktor" soll getestet werden.</description>
+<pre>Benutzer möchte den pessimistischen Faktor ändern. Die jetzige Einstellung ist 1.0. In der Schnelleinstellung ist die pessimistische Berechnung ausgewählt.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer geht in den Tab "Berichte"
+
+* Benutzer gibt den neuen pessimistischen Faktor "1.3" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer generiert eine Semesterbilanz</actions>
+<post>Die angezeigten Budgetkosten der Gruppen wurden korrekt mit dem neuen Faktor berechnet.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="302" priority="C" title="Historischer Faktor">
+<description>Die Wirksamkeit der Einstellung "Historischer Faktor" soll getestet werden.</description>
+<pre>Benutzer möchte den historischen Faktor ändern. Die jetzige Einstellung ist 1.0. In der Schnelleinstellung ist die historische Berechnung ausgewählt.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer geht in den Tab "Berichte"
+
+* Benutzer gibt den neuen historiscen Faktor "1.4" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer generiert eine Gesamtbilanz</actions>
+<post>Die angezeigten Budgetkosten der Gruppen wurden korrekt mit dem neuen Faktor berechnet.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="300" priority="C" title="Zeit bis zur Anonymisierung">
+<description>Die Wirksamkeit der Einstellung "Zeit bis zur Anonymisierung" soll getestet werden.</description>
+<pre>Benutzer möchte die Zeit bis zur Anonymisierung ändern. Die jetzige Einstellung ist 365 Tage. Es gibt 2 Hilfskräfte, deren letzte Beschäftigung 50 Tage her ist.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer gibt die neue Zeit "50" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer startet das Programm neu</actions>
+<post>Die 2 Hilfskräfte wurden anonymisiert, d.h. ihre Namen und ihre Email wurden mit "****" ersetzt.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="303" priority="C" title="Controllingtoleranz">
+<description>Die Wirksamkeit der Einstellung "Controllingtoleranz" soll getestet werden.</description>
+<pre>Benutzer möchte die Controllingtoleranz ändern. Die jetzige Einstellung ist 0.0. Die Testfälle zum Hinzufügen von Beschäftigungen wurden ausgeführt. Die realen Kosten sind bei allen Hilfskräften mit den Plankosten identisch.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer gibt die neue Toleranz "10" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer prüft die Hilfskräfte
+
+* Benutzer gibt die realen Kosten für eine Hilfskraft mit einer absichtlichen Abweichung von 16€ ein.
+
+* Benutzer gibt die realen Kosten für eine andere Hilfskraft mit einer absichtlichen Abweichung von 8€ ein.</actions>
+<post>Ausschließlich die Hilfskraft mit der 16€ Abweichung wird als Unstimmigkeit angezeigt.</post>
 <tags/>
 </testcase>
 </sequence>
@@ -2889,8 +2919,8 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <tags/>
 </testcase>
 </sequence>
-<sequence created="18.05.2010" creator="aidGerTeam" name="Warnungen" number="261">
-<description>Die Testsequenz dient zum Testen des Erscheines spezifizierter Warnungen.</description>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Überschreiten von Limits" number="261">
+<description>Die Testsequenz dient zum Testen des Erscheines spezifizierter Warnungen beim Überschreiten von Limits.</description>
 <pre>Warnungen wurden spezifiziert, die in bestimmten Situationen erscheinen müssen.</pre>
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:04" number="274" priority="A" title="Budgetüberschreitung einer Veranstaltung">
 <description>Es soll das Erscheinen einer Warnung bei der Budgetüberschreitung einer Veranstaltung getestet werden.</description>
@@ -2899,21 +2929,21 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Der Benutzer wird beim Erstellen der Beschäftigung darüber informiert, dass das Budget für die Veranstaltung überschritten wurde. Die Beschäftigung wird dennoch in der Datenbank angelegt.</post>
 <tags/>
 </testcase>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="277" priority="C" title="Budgetüberschreitung einer Finanzkategorie">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="277" priority="C" title="Budgetüberschreitung einer Finanzkategorie">
 <description/>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Finanzkategorie wurden ausgeführt.</pre>
 <actions>* Benutzer erstellt eine neue korrekt eingegebene Veranstaltung und weist dieser eine existierende Finanzkategorie zu. Er gibt hierbei zudem die Genehmigte HKS "1000" ein.</actions>
 <post>Der Benutzer wird darüber informiert, dass das Budget der Finanzkategorie durch das Erstellen der Veranstaltung überschritten wurde. Die Veranstaltung wird dennoch in der Datenbank angelegt.</post>
 <tags/>
 </testcase>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="275" priority="A" title="Überlappende Verträge in einem Zeitraum">
-<description>Es soll das Erscheinen einer Warnung bei überlappende Verträge in einem Zeitraum getestet werden.</description>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="275" priority="A" title="Überschreitung der Beschäftigungsgrenze einer Hilfskraft">
+<description>Es soll das Erscheinen einer Warnung bei einer Überschreitung der Beschäftigungsgrenze einer Hilfskraft getestet werden.</description>
 <pre>Die Testfälle zum Hinzufügen von Hilfskräften, Beschäftigungen und Veranstaltungen wurden ausgeführt.</pre>
-<actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung für eine existierende Hilfskraft und weist dieser einen neuen Vertrag mit den selben Daten des Vertrags der alten Beschäftigung hinzu</actions>
-<post>Der Benutzer wird darüber informiert, dass sich in dem für die Beschäftigung eingegebenen Zeitraum die Verträge überlappen. Die Beschäftigung wird dennoch angelegt.</post>
+<actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung für eine existierende Hilfskraft und weist dieser für zwei Monate 90 HKS zu.</actions>
+<post>Der Benutzer wird darüber informiert, dass die Beschäftigungsgrenze von 85h in den entsprechenden Monaten überschritten wurden. Die Beschäftigung wird dennoch angelegt.</post>
 <tags/>
 </testcase>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="276" priority="C" title="Hilfskraft mehr als 6 Jahre angestellt">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="276" priority="C" title="Hilfskraft mehr als 6 Jahre angestellt">
 <description>Es soll das Erscheinen einer Warnung getestet werden, wenn die Hilfskraft mehr als 6 Jahre angestellt ist.</description>
 <pre>Die Testfälle zum Hinzufügen von Hilfskräften, Beschäftigungen und Veranstaltungen wurden ausgeführt. Die Hilfskraft "Peter Planlos" ist bereits 5 1/2 Jahre angestellt.</pre>
 <actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung, um somit die Hilfskraft Peter Plan für ein weiteres Jahr einzustellen.</actions>
@@ -2940,15 +2970,6 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Die Tabs "Veranstaltungen", "Veranstaltungen - Hinzufügen" und "Vorgänge" sind nach dem Programmstart erneut offen. Die Eingabe im Veranstaltungen-Hinzufügen-Formular ging jedoch dabei verloren.</post>
 <tags/>
 </testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="89" priority="C" title="Bewegliche, vertikale Leiste">
-<description>Um die Größe der Navigationsleiste und des Inhaltbereichs individuell anpassen zu können, soll die Trennleiste zwischen beiden beweglich sein.</description>
-<pre/>
-<actions>* Benutzer zieht die Leiste nach links
-
-* Benutzer zieht die Leiste nach rechts</actions>
-<post>Bei beiden Aktionen soll sich jeweils die Größe der beiden Bereiche mittels der vertikalen Leiste angepasst haben.</post>
-<tags/>
-</testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="90" priority="C" title="Änderung der Fenstergröße">
 <description>Es soll das Verhalten bei einer Veränderung der Fenstergröße getestet werden.</description>
 <pre/>
@@ -2971,29 +2992,40 @@ Sollte sich die Fenstergröße in der Höhe verändern, ändert sich die Größe
 Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen, wird ein neuer Reiter geöffnet und der Inhalt des Elements in diesem neuen Reiter dargestellt. Der aktuelle Reiter bleibt dabei vollständig erhalten, gerät jedoch in den Hintergrund (ist also nicht mehr sichtbar).</post>
 <tags/>
 </testcase>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="263" priority="C" title="Willkommensreiter beim Programmstart">
-<description>Der Willkommensreiter soll beim Programmstart angezeigt werden.</description>
-<pre/>
-<actions>* Benutzer startet das Programm
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="263" priority="C" title="Willkommensreiter anzeigen">
+<description>Der Willkommensreiter soll beim Programmstart angezeigt werden. Die Einstellung "Merke meine Reiter" ist nicht gesetzt.</description>
+<pre>Die Einstellung "Merke meine Reiter" ist nicht gesetzt.</pre>
+<actions>* Benutzer startet das Programm neu</actions>
+<post>In einem einzigen Reiter ist das Willkommen-Tab geöffnet. Der Willkommensreiter enthält Informationen über die letzten Ereignisse (z.b. Berichte oder Vorgänge), Hinweise und Statistiken.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="304" priority="C" title="Willkommensreiter nicht anzeigen">
+<description>Der Willkommensreiter soll beim Programmstart angezeigt werden. Die Einstellung "Merke meine Reiter" ist gesetzt.</description>
+<pre>Die Einstellung "Merke meine Reiter" ist gesetzt.</pre>
+<actions>* Benutzer öffnet die Reiter "Veranstaltungen", "Controlling Hilfskräfte" und "Beschäftigungen"
 
-* System öffnet je nach Einstellung die gespeicherten Reiter</actions>
-<post>In einem neuen Reiter wird zusätzlich der Willkommensdialog geöffnet. Die Einstellung "Reiter bei Verlassen speichern" spielt hierbei keine Rolle. Der Willkommensreiter enthält Informationen über die letzten Ereignisse (z.b. Berichte oder Vorgänge), Hinweise und Statistiken.</post>
+* Benutzer startet das Programm neu</actions>
+<post>Der Willkommensreiter wird nicht geöffnet. Es werden ausschließlich die 3 geöffneten Reiter vor dem Programmneustart angezeigt.</post>
 <tags/>
 </testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="119" priority="C" title="Ticket-System: Export-Schnittstelle für Vorgänge">
-<description>Die Schnittstelle zum Ticket-System muss gewährleistet sein. Hierfür können Vorgänge vorerst nur exportiert werden.</description>
-<pre>Testfälle zum Hinzufügen von Vorgängen wurden ausgeführt. Der Benutzer befindet sich im Anzeige-Tab von Vorgängen.</pre>
-<actions>Benutzer drückt auf den Button "Exportieren"</actions>
-<post>Die angezeigten Vorgänge werden in ein für das Ticket-System verständliches Format exportiert (z.B. das XML-Format). Der angewendete Filter wird beim Export berücksichtigt, so dass nur Teilmengen an Vorgängen exportiert werden können. Die Filterung findet hierbei über das Suchfeld statt.</post>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="119" priority="C" title="Export-Schnittstelle für Vorgänge">
+<description>Der Export von Vorgängen (z.B. zur möglichen Benutzung im Ticket-System) muss getestet werden.</description>
+<pre>Testfälle zum Hinzufügen von Vorgängen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt im Menü den Punkt "Vorgang exportieren"
+
+* Benutzer wählt die Tagesanzahl "5" aus
+
+* Benutzer drückt den Button "Exportieren"</actions>
+<post>Die Vorgänge der letzten 5 Tage werden in der Tabelle angezeigt. Die angezeigten Vorgänge werden im PDF-Format exportiert. In einer späteren SUT sollte hier ein für das Ticket-System verständliches Format benutzt werden.</post>
 <tags/>
 </testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="120" priority="C" title="Die Hilfe bzw. das Benutzerhandbuch anzeigen">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="120" priority="C" title="Die Hilfe bzw. das Benutzerhandbuch anzeigen">
 <description>Es soll die Hilfe bzw. das Benutzerhandbuch für aidGer angezeigt werden.</description>
 <pre>Benutzer möchte sich die Hilfe anzeigen lassen.</pre>
 <actions>* Benutzer wählt den Menüeintrag "Hilfe"
 
 * Benutzer wählt den Menüeintrag "Hilfe"</actions>
-<post>Die PDF-Datei des Benutzerhandbuchs wird im Programm intern angezeigt. Über den Button "Extern öffnen" kann das Handbuch auch mit dem eingestellten PDF-Viewer extern betrachtet werden.</post>
+<post>Das Benutzerhandbuch von aidGer wird gestartet.</post>
 <tags/>
 </testcase>
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="262" priority="C" title="Programm beenden">
@@ -3006,13 +3038,10 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </sequence>
 </sequence>
 </sequence>
-<tsa name="Project" number="0" revId="0">
+<tsa name="Projekt" number="0" revId="0">
 <relatedsequence>0</relatedsequence>
 <tsa name="Systemtest" number="3" revId="1">
 <relatedsequence>3</relatedsequence>
-<tsa name="Budgetprüfung" number="5" revId="1">
-<relatedsequence>5</relatedsequence>
-</tsa>
 <tsa name="Vorgänge" number="8" revId="1">
 <relatedsequence>8</relatedsequence>
 <tsa name="Hinzufügen" number="108" revId="1">
@@ -3057,6 +3086,12 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </tsa>
 <tsa name="Controlling" number="10" revId="1">
 <relatedsequence>10</relatedsequence>
+<tsa name="Veranstaltungen prüfen" number="305" revId="1">
+<relatedsequence>305</relatedsequence>
+</tsa>
+<tsa name="Hilfskräfte prüfen" number="306" revId="1">
+<relatedsequence>306</relatedsequence>
+</tsa>
 </tsa>
 <tsa name="Allgemeines" number="87" revId="1">
 <relatedsequence>87</relatedsequence>
@@ -3066,14 +3101,14 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <tsa name="Drucken" number="251" revId="1">
 <relatedsequence>251</relatedsequence>
 </tsa>
-<tsa name="Warnungen" number="261" revId="1">
-<relatedsequence>261</relatedsequence>
-</tsa>
 <tsa name="Tabbing" number="264" revId="1">
 <relatedsequence>264</relatedsequence>
 </tsa>
 <tsa name="Navigationsleiste" number="269" revId="1">
 <relatedsequence>269</relatedsequence>
+</tsa>
+<tsa name="Überschreiten von Limits" number="261" revId="1">
+<relatedsequence>261</relatedsequence>
 </tsa>
 </tsa>
 <tsa name="Stammdatenverwaltung" number="4" revId="1">
@@ -3081,19 +3116,19 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </tsa>
 <tsa name="Verträge" number="279" revId="1">
 <relatedsequence>279</relatedsequence>
-<tsa name="Hinzufügen" number="280" revId="2">
+<tsa name="Hinzufügen" number="280" revId="1">
 <relatedsequence>280</relatedsequence>
 </tsa>
-<tsa name="Bearbeiten" number="281" revId="2">
+<tsa name="Bearbeiten" number="281" revId="1">
 <relatedsequence>281</relatedsequence>
 </tsa>
-<tsa name="Löschen" number="282" revId="2">
+<tsa name="Löschen" number="282" revId="1">
 <relatedsequence>282</relatedsequence>
 </tsa>
-<tsa name="Anzeigen" number="283" revId="2">
+<tsa name="Anzeigen" number="283" revId="1">
 <relatedsequence>283</relatedsequence>
 </tsa>
-<tsa name="Suchen" number="284" revId="2">
+<tsa name="Suchen" number="284" revId="1">
 <relatedsequence>284</relatedsequence>
 </tsa>
 <testrun enddate="27.06.2010 22:21" priority="E" startdate="27.06.2010 22:11" tester="aidGerTeam">
@@ -3482,7 +3517,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </executedsequence>
 </testrun>
 </tsa>
-<tsa name="Beschäftigungen" number="7" revId="2">
+<tsa name="Beschäftigungen" number="7" revId="1">
 <relatedsequence>7</relatedsequence>
 <tsa name="Löschen" number="104" revId="1">
 <relatedsequence>104</relatedsequence>
@@ -3493,5 +3528,5 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
 <extension name="standarduser" value="Y"/>
 </author>
-<extension name="maxid" value="299"/>
+<extension name="maxid" value="308"/>
 </tests>
