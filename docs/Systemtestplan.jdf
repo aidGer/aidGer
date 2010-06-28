@@ -2648,10 +2648,10 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <pre>Benutzer möchte das Programm individuell einstellen.</pre>
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="260" priority="C" title="Name des Barbeiters bei Vorgangserfassung">
 <description>Die Wirksamkeit der Einstellung "Name des Bearbeiters" bei der Vorgangserfassung soll getestet werden.</description>
-<pre>Benutzer möchte den Namen des Bearbeiters ändern. Der Name ist bislang auf "Bearbeiter 1" eingestellt. Alle bisherigen Vorgänge wurden korrekt mit diesem Namen abgespeichert.</pre>
+<pre>Benutzer möchte den Namen des Bearbeiters ändern. Der Name ist bislang auf "B1" eingestellt. Alle bisherigen Vorgänge wurden korrekt mit diesem Namen abgespeichert.</pre>
 <actions>* Benutzer öffnet den Einstellungsdialog
 
-* Benutzer gibt den Namen des Bearbeiters "Bearbeiter 2" ein
+* Benutzer gibt den Namen des Bearbeiters "B2" ein
 
 * Benutzer drückt auf den Button "Speichern"
 
@@ -3016,7 +3016,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 * Benutzer wählt die Tagesanzahl "5" aus
 
 * Benutzer drückt den Button "Exportieren"</actions>
-<post>Die Vorgänge der letzten 5 Tage werden in der Tabelle angezeigt. Die angezeigten Vorgänge werden zudem in ein für das Ticket-System verständliches Format exportiert (z.B. das XML-Format).</post>
+<post>Die Vorgänge der letzten 5 Tage werden in der Tabelle angezeigt. Die angezeigten Vorgänge werden im PDF-Format exportiert. In einer späteren SUT sollte hier ein für das Ticket-System verständliches Format benutzt werden.</post>
 <tags/>
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="120" priority="C" title="Die Hilfe bzw. das Benutzerhandbuch anzeigen">
