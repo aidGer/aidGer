@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE tests SYSTEM "project.dtd">
 <tests product="TestDataManager" team="05" version="1.0">
-<sequence created="27.06.2010" creator="aidGerTeam" name="Project" number="0">
-<description>This is the root node of the project. It contains all test sequences and test cases.</description>
+<sequence created="28.06.2010" creator="aidGerTeam" name="Projekt" number="0">
+<description>Dies ist der Wurzelknoten des Projekts. Er enthält alle anderen Testsequenzen und Testfälle</description>
 <pre/>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Systemtest" number="3">
 <description/>
@@ -2777,6 +2777,66 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Die geöffneten Reiter wurden nicht wieder geöffnet. Der Benutzer wird ausschließlich mit dem Willkommen-Reiter begrüßt.</post>
 <tags/>
 </testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="301" priority="C" title="Pessimistischer Faktor">
+<description>Die Wirksamkeit der Einstellung "Pessimistischer Faktor" soll getestet werden.</description>
+<pre>Benutzer möchte den pessimistischen Faktor ändern. Die jetzige Einstellung ist 1.0. In der Schnelleinstellung ist die pessimistische Berechnung ausgewählt.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer geht in den Tab "Berichte"
+
+* Benutzer gibt den neuen pessimistischen Faktor "1.3" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer generiert eine Semesterbilanz</actions>
+<post>Die angezeigten Budgetkosten der Gruppen wurden korrekt mit dem neuen Faktor berechnet.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="302" priority="C" title="Historischer Faktor">
+<description>Die Wirksamkeit der Einstellung "Historischer Faktor" soll getestet werden.</description>
+<pre>Benutzer möchte den historischen Faktor ändern. Die jetzige Einstellung ist 1.0. In der Schnelleinstellung ist die historische Berechnung ausgewählt.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer geht in den Tab "Berichte"
+
+* Benutzer gibt den neuen historiscen Faktor "1.4" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer generiert eine Gesamtbilanz</actions>
+<post>Die angezeigten Budgetkosten der Gruppen wurden korrekt mit dem neuen Faktor berechnet.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="300" priority="C" title="Zeit bis zur Anonymisierung">
+<description>Die Wirksamkeit der Einstellung "Zeit bis zur Anonymisierung" soll getestet werden.</description>
+<pre>Benutzer möchte die Zeit bis zur Anonymisierung ändern. Die jetzige Einstellung ist 365 Tage. Es gibt 2 Hilfskräfte, deren letzte Beschäftigung 50 Tage her ist.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer gibt die neue Zeit "50" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer startet das Programm neu</actions>
+<post>Die 2 Hilfskräfte wurden anonymisiert, d.h. ihre Namen und ihre Email wurden mit "****" ersetzt.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="303" priority="C" title="Controllingtoleranz">
+<description>Die Wirksamkeit der Einstellung "Controllingtoleranz" soll getestet werden.</description>
+<pre>Benutzer möchte die Controllingtoleranz ändern. Die jetzige Einstellung ist 0.0. Die Testfälle zum Hinzufügen von Beschäftigungen wurden ausgeführt. Die realen Kosten sind bei allen Hilfskräften mit den Plankosten identisch.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer gibt die neue Toleranz "10" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer prüft die Hilfskräfte
+
+* Benutzer gibt die realen Kosten für eine Hilfskraft mit einer absichtlichen Abweichung von 16€ ein.
+
+* Benutzer gibt die realen Kosten für eine andere Hilfskraft mit einer absichtlichen Abweichung von 8€ ein.</actions>
+<post>Ausschließlich die Hilfskraft mit der 16€ Abweichung wird als Unstimmigkeit angezeigt.</post>
+<tags/>
+</testcase>
 </sequence>
 <sequence created="18.05.2010" creator="aidGerTeam" name="Tabbing" number="264">
 <description>Die Testsequenz dient zum Testen des Tabbings im Programm.</description>
@@ -2889,8 +2949,8 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <tags/>
 </testcase>
 </sequence>
-<sequence created="18.05.2010" creator="aidGerTeam" name="Warnungen" number="261">
-<description>Die Testsequenz dient zum Testen des Erscheines spezifizierter Warnungen.</description>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Überschreiten von Limits" number="261">
+<description>Die Testsequenz dient zum Testen des Erscheines spezifizierter Warnungen beim Überschreiten von Limits.</description>
 <pre>Warnungen wurden spezifiziert, die in bestimmten Situationen erscheinen müssen.</pre>
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:04" number="274" priority="A" title="Budgetüberschreitung einer Veranstaltung">
 <description>Es soll das Erscheinen einer Warnung bei der Budgetüberschreitung einer Veranstaltung getestet werden.</description>
@@ -2899,21 +2959,21 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Der Benutzer wird beim Erstellen der Beschäftigung darüber informiert, dass das Budget für die Veranstaltung überschritten wurde. Die Beschäftigung wird dennoch in der Datenbank angelegt.</post>
 <tags/>
 </testcase>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="277" priority="C" title="Budgetüberschreitung einer Finanzkategorie">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="277" priority="C" title="Budgetüberschreitung einer Finanzkategorie">
 <description/>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Finanzkategorie wurden ausgeführt.</pre>
 <actions>* Benutzer erstellt eine neue korrekt eingegebene Veranstaltung und weist dieser eine existierende Finanzkategorie zu. Er gibt hierbei zudem die Genehmigte HKS "1000" ein.</actions>
 <post>Der Benutzer wird darüber informiert, dass das Budget der Finanzkategorie durch das Erstellen der Veranstaltung überschritten wurde. Die Veranstaltung wird dennoch in der Datenbank angelegt.</post>
 <tags/>
 </testcase>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="275" priority="A" title="Überlappende Verträge in einem Zeitraum">
-<description>Es soll das Erscheinen einer Warnung bei überlappende Verträge in einem Zeitraum getestet werden.</description>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="275" priority="A" title="Überschreitung der Beschäftigungsgrenze einer Hilfskraft">
+<description>Es soll das Erscheinen einer Warnung bei einer Überschreitung der Beschäftigungsgrenze einer Hilfskraft getestet werden.</description>
 <pre>Die Testfälle zum Hinzufügen von Hilfskräften, Beschäftigungen und Veranstaltungen wurden ausgeführt.</pre>
-<actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung für eine existierende Hilfskraft und weist dieser einen neuen Vertrag mit den selben Daten des Vertrags der alten Beschäftigung hinzu</actions>
-<post>Der Benutzer wird darüber informiert, dass sich in dem für die Beschäftigung eingegebenen Zeitraum die Verträge überlappen. Die Beschäftigung wird dennoch angelegt.</post>
+<actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung für eine existierende Hilfskraft und weist dieser für zwei Monate 90 HKS zu.</actions>
+<post>Der Benutzer wird darüber informiert, dass die Beschäftigungsgrenze von 85h in den entsprechenden Monaten überschritten wurden. Die Beschäftigung wird dennoch angelegt.</post>
 <tags/>
 </testcase>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="276" priority="C" title="Hilfskraft mehr als 6 Jahre angestellt">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="276" priority="C" title="Hilfskraft mehr als 6 Jahre angestellt">
 <description>Es soll das Erscheinen einer Warnung getestet werden, wenn die Hilfskraft mehr als 6 Jahre angestellt ist.</description>
 <pre>Die Testfälle zum Hinzufügen von Hilfskräften, Beschäftigungen und Veranstaltungen wurden ausgeführt. Die Hilfskraft "Peter Planlos" ist bereits 5 1/2 Jahre angestellt.</pre>
 <actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung, um somit die Hilfskraft Peter Plan für ein weiteres Jahr einzustellen.</actions>
@@ -2940,15 +3000,6 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Die Tabs "Veranstaltungen", "Veranstaltungen - Hinzufügen" und "Vorgänge" sind nach dem Programmstart erneut offen. Die Eingabe im Veranstaltungen-Hinzufügen-Formular ging jedoch dabei verloren.</post>
 <tags/>
 </testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="89" priority="C" title="Bewegliche, vertikale Leiste">
-<description>Um die Größe der Navigationsleiste und des Inhaltbereichs individuell anpassen zu können, soll die Trennleiste zwischen beiden beweglich sein.</description>
-<pre/>
-<actions>* Benutzer zieht die Leiste nach links
-
-* Benutzer zieht die Leiste nach rechts</actions>
-<post>Bei beiden Aktionen soll sich jeweils die Größe der beiden Bereiche mittels der vertikalen Leiste angepasst haben.</post>
-<tags/>
-</testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="90" priority="C" title="Änderung der Fenstergröße">
 <description>Es soll das Verhalten bei einer Veränderung der Fenstergröße getestet werden.</description>
 <pre/>
@@ -2971,29 +3022,40 @@ Sollte sich die Fenstergröße in der Höhe verändern, ändert sich die Größe
 Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen, wird ein neuer Reiter geöffnet und der Inhalt des Elements in diesem neuen Reiter dargestellt. Der aktuelle Reiter bleibt dabei vollständig erhalten, gerät jedoch in den Hintergrund (ist also nicht mehr sichtbar).</post>
 <tags/>
 </testcase>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="263" priority="C" title="Willkommensreiter beim Programmstart">
-<description>Der Willkommensreiter soll beim Programmstart angezeigt werden.</description>
-<pre/>
-<actions>* Benutzer startet das Programm
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="263" priority="C" title="Willkommensreiter anzeigen">
+<description>Der Willkommensreiter soll beim Programmstart angezeigt werden. Die Einstellung "Merke meine Reiter" ist nicht gesetzt.</description>
+<pre>Die Einstellung "Merke meine Reiter" ist nicht gesetzt.</pre>
+<actions>* Benutzer startet das Programm neu</actions>
+<post>In einem einzigen Reiter ist das Willkommen-Tab geöffnet. Der Willkommensreiter enthält Informationen über die letzten Ereignisse (z.b. Berichte oder Vorgänge), Hinweise und Statistiken.</post>
+<tags/>
+</testcase>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="304" priority="C" title="Willkommensreiter nicht anzeigen">
+<description>Der Willkommensreiter soll beim Programmstart angezeigt werden. Die Einstellung "Merke meine Reiter" ist gesetzt.</description>
+<pre>Die Einstellung "Merke meine Reiter" ist gesetzt.</pre>
+<actions>* Benutzer öffnet die Reiter "Veranstaltungen", "Controlling Hilfskräfte" und "Beschäftigungen"
 
-* System öffnet je nach Einstellung die gespeicherten Reiter</actions>
-<post>In einem neuen Reiter wird zusätzlich der Willkommensdialog geöffnet. Die Einstellung "Reiter bei Verlassen speichern" spielt hierbei keine Rolle. Der Willkommensreiter enthält Informationen über die letzten Ereignisse (z.b. Berichte oder Vorgänge), Hinweise und Statistiken.</post>
+* Benutzer startet das Programm neu</actions>
+<post>Der Willkommensreiter wird nicht geöffnet. Es werden ausschließlich die 3 geöffneten Reiter vor dem Programmneustart angezeigt.</post>
 <tags/>
 </testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="119" priority="C" title="Ticket-System: Export-Schnittstelle für Vorgänge">
-<description>Die Schnittstelle zum Ticket-System muss gewährleistet sein. Hierfür können Vorgänge vorerst nur exportiert werden.</description>
-<pre>Testfälle zum Hinzufügen von Vorgängen wurden ausgeführt. Der Benutzer befindet sich im Anzeige-Tab von Vorgängen.</pre>
-<actions>Benutzer drückt auf den Button "Exportieren"</actions>
-<post>Die angezeigten Vorgänge werden in ein für das Ticket-System verständliches Format exportiert (z.B. das XML-Format). Der angewendete Filter wird beim Export berücksichtigt, so dass nur Teilmengen an Vorgängen exportiert werden können. Die Filterung findet hierbei über das Suchfeld statt.</post>
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="119" priority="C" title="Export-Schnittstelle für Vorgänge">
+<description>Der Export von Vorgängen (z.B. zur Benutzung im Ticket-System) muss getestet werden.</description>
+<pre>Testfälle zum Hinzufügen von Vorgängen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt im Menü den Punkt "Vorgang exportieren"
+
+* Benutzer wählt die Tagesanzahl "5" aus
+
+* Benutzer drückt den Button "Exportieren"</actions>
+<post>Die Vorgänge der letzten 5 Tage werden in der Tabelle angezeigt. Die angezeigten Vorgänge werden zudem in ein für das Ticket-System verständliches Format exportiert (z.B. das XML-Format).</post>
 <tags/>
 </testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="120" priority="C" title="Die Hilfe bzw. das Benutzerhandbuch anzeigen">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="120" priority="C" title="Die Hilfe bzw. das Benutzerhandbuch anzeigen">
 <description>Es soll die Hilfe bzw. das Benutzerhandbuch für aidGer angezeigt werden.</description>
 <pre>Benutzer möchte sich die Hilfe anzeigen lassen.</pre>
 <actions>* Benutzer wählt den Menüeintrag "Hilfe"
 
 * Benutzer wählt den Menüeintrag "Hilfe"</actions>
-<post>Die PDF-Datei des Benutzerhandbuchs wird im Programm intern angezeigt. Über den Button "Extern öffnen" kann das Handbuch auch mit dem eingestellten PDF-Viewer extern betrachtet werden.</post>
+<post>Das Benutzerhandbuch von aidGer wird gestartet.</post>
 <tags/>
 </testcase>
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="262" priority="C" title="Programm beenden">
@@ -3006,7 +3068,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </sequence>
 </sequence>
 </sequence>
-<tsa name="Project" number="0" revId="0">
+<tsa name="Projekt" number="0" revId="0">
 <relatedsequence>0</relatedsequence>
 <tsa name="Systemtest" number="3" revId="1">
 <relatedsequence>3</relatedsequence>
@@ -3066,14 +3128,14 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <tsa name="Drucken" number="251" revId="1">
 <relatedsequence>251</relatedsequence>
 </tsa>
-<tsa name="Warnungen" number="261" revId="1">
-<relatedsequence>261</relatedsequence>
-</tsa>
 <tsa name="Tabbing" number="264" revId="1">
 <relatedsequence>264</relatedsequence>
 </tsa>
 <tsa name="Navigationsleiste" number="269" revId="1">
 <relatedsequence>269</relatedsequence>
+</tsa>
+<tsa name="Überschreiten von Limits" number="261" revId="6">
+<relatedsequence>261</relatedsequence>
 </tsa>
 </tsa>
 <tsa name="Stammdatenverwaltung" number="4" revId="1">
@@ -3081,19 +3143,19 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </tsa>
 <tsa name="Verträge" number="279" revId="1">
 <relatedsequence>279</relatedsequence>
-<tsa name="Hinzufügen" number="280" revId="2">
+<tsa name="Hinzufügen" number="280" revId="1">
 <relatedsequence>280</relatedsequence>
 </tsa>
-<tsa name="Bearbeiten" number="281" revId="2">
+<tsa name="Bearbeiten" number="281" revId="1">
 <relatedsequence>281</relatedsequence>
 </tsa>
-<tsa name="Löschen" number="282" revId="2">
+<tsa name="Löschen" number="282" revId="1">
 <relatedsequence>282</relatedsequence>
 </tsa>
-<tsa name="Anzeigen" number="283" revId="2">
+<tsa name="Anzeigen" number="283" revId="1">
 <relatedsequence>283</relatedsequence>
 </tsa>
-<tsa name="Suchen" number="284" revId="2">
+<tsa name="Suchen" number="284" revId="1">
 <relatedsequence>284</relatedsequence>
 </tsa>
 <testrun enddate="27.06.2010 22:21" priority="E" startdate="27.06.2010 22:11" tester="aidGerTeam">
@@ -3111,7 +3173,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="22:12" outcome="Ok" postok="Y" preok="Y" starttime="22:11">
+<result actionok="Y" endtime="10:12" outcome="Ok" postok="Y" preok="Y" starttime="10:11">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="287" priority="A" title="Vertrag korrekt erstellen">
 <description>Es soll ein Vertrag erstellt werden. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. </pre>
@@ -3136,7 +3198,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:12" outcome="Ok" postok="Y" preok="Y" starttime="22:12">
+<result actionok="Y" endtime="10:12" outcome="Ok" postok="Y" preok="Y" starttime="10:12">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="288" priority="A" title="Vertrag korrekt erstellen">
 <description>Es soll ein Vertrag erstellt werden. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 39 wurden ausgeführt.</pre>
@@ -3161,7 +3223,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:13" outcome="Ok" postok="Y" preok="Y" starttime="22:12">
+<result actionok="Y" endtime="10:13" outcome="Ok" postok="Y" preok="Y" starttime="10:12">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="166" priority="A" title="Vertragsdaten inkorrekt erstellen">
 <description>Es wird ein neuer Vertrag erstellt. Die darin befindlichen Daten sind jedoch in einer inkorrekten Reihenfolge.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -3186,7 +3248,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:14" outcome="Ok" postok="Y" preok="Y" starttime="22:13">
+<result actionok="Y" endtime="10:14" outcome="Ok" postok="Y" preok="Y" starttime="10:13">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="286" priority="A" title="Vertragsdaten inkorrekt erstellen">
 <description>Es wird ein neuer Vertrag erstellt. Die darin befindlichen Daten sind jedoch in einer inkorrekten Reihenfolge.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -3211,7 +3273,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:15" outcome="Ok" postok="Y" preok="Y" starttime="22:14">
+<result actionok="Y" endtime="10:15" outcome="Ok" postok="Y" preok="Y" starttime="10:14">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="289" priority="A" title="Abbruch: Vertrag erstellen">
 <description>Es soll ein Vertrag erstellt werden. Die Erstellung wird jedoch abgebrochen.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -3243,7 +3305,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="22:17" outcome="Ok" postok="Y" preok="Y" starttime="22:15">
+<result actionok="Y" endtime="10:17" outcome="Ok" postok="Y" preok="Y" starttime="10:15">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="172" priority="B" title="Vertrag korrekt bearbeiten">
 <description>Die Vertragsdaten sollen editiert werden. Alle Eingaben sind dabei korrekt.</description>
 <pre>Der Testfall 287 wurde bereits ausgeführt.</pre>
@@ -3262,7 +3324,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:17" outcome="Ok" postok="Y" preok="Y" starttime="22:17">
+<result actionok="Y" endtime="10:17" outcome="Ok" postok="Y" preok="Y" starttime="10:17">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="174" priority="B" title="Vertrag inkorrekt bearbeiten">
 <description>Die Vertragsdaten sollen editiert werden. Es wurden falsche Eingaben gemacht.</description>
 <pre>Der Testfall 287 wurde bereits ausgeführt.</pre>
@@ -3283,7 +3345,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:17" outcome="Ok" postok="Y" preok="Y" starttime="22:17">
+<result actionok="Y" endtime="10:17" outcome="Ok" postok="Y" preok="Y" starttime="10:17">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="173" priority="B" title="Abbruch: Vertrag bearbeiten">
 <description>Die Vertragsdaten sollen editiert werden. Dieser Vorgang wird jedoch abgebrochen.</description>
 <pre>Der Testfall 287 wurde bereits ausgeführt.</pre>
@@ -3309,7 +3371,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="22:18" outcome="Ok" postok="Y" preok="Y" starttime="22:17">
+<result actionok="Y" endtime="10:18" outcome="Ok" postok="Y" preok="Y" starttime="10:17">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="299" priority="C" title="Vertrag suchen">
 <description/>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3324,7 +3386,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:19" outcome="Ok" postok="Y" preok="Y" starttime="22:18">
+<result actionok="Y" endtime="10:19" outcome="Ok" postok="Y" preok="Y" starttime="10:18">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="298" priority="C" title="Suchfilter entfernen">
 <description>Der angewandte Suchfilter soll entfernt werden.</description>
 <pre>Der Testfall 299 wurde ausgeführt.</pre>
@@ -3344,7 +3406,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:19">
+<result actionok="Y" endtime="10:20" outcome="Ok" postok="Y" preok="Y" starttime="10:19">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="295" priority="C" title="Vertrag anzeigen und schließen">
 <description>Ein Vertrag soll angezeigt werden und die Anzeige direkt danach wieder geschlossen werden.</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3363,7 +3425,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:20">
+<result actionok="Y" endtime="10:20" outcome="Ok" postok="Y" preok="Y" starttime="10:20">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="296" priority="C" title="Vertrag anzeigen und bearbeiten">
 <description>Ein Vertrag soll angezeigt werden und daraufhin bearbeitet werden.</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3382,7 +3444,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:20">
+<result actionok="Y" endtime="10:20" outcome="Ok" postok="Y" preok="Y" starttime="10:20">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="297" priority="C" title="Vertrag anzeigen ohne Auswahl">
 <description>Ein Vertrag soll angezeigt werden, es ist jedoch keiner ausgewählt.</description>
 <pre/>
@@ -3402,7 +3464,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:20">
+<result actionok="Y" endtime="10:20" outcome="Ok" postok="Y" preok="Y" starttime="10:20">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="291" priority="C" title="Vertrag löschen ohne Referenz">
 <description>Es soll ein Vertrag gelöscht werden, was korrekt funktioniert. </description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3421,7 +3483,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:21" outcome="Ok" postok="Y" preok="Y" starttime="22:21">
+<result actionok="Y" endtime="10:21" outcome="Ok" postok="Y" preok="Y" starttime="10:21">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="292" priority="C" title="Vertrag löschen mit Referenz">
 <description>Es soll ein Vertrag gelöscht werden, der noch von einer Beschäftigung referenziert wird.</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3440,7 +3502,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:21" outcome="Ok" postok="Y" preok="Y" starttime="22:21">
+<result actionok="Y" endtime="10:21" outcome="Ok" postok="Y" preok="Y" starttime="10:21">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="293" priority="C" title="Vertrag löschen mit Taste Entf">
 <description>Es soll ein Vertrag durch Drücken der Taste Entf gelöscht werden.</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3459,7 +3521,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:21" outcome="Ok" postok="Y" preok="Y" starttime="22:21">
+<result actionok="Y" endtime="10:21" outcome="Ok" postok="Y" preok="Y" starttime="10:21">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="294" priority="C" title="Abbruch: Vertrag löschen">
 <description>Es soll ein Vertrag gelöscht werden. Dies wird jedoch abgebrochen</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3482,7 +3544,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </executedsequence>
 </testrun>
 </tsa>
-<tsa name="Beschäftigungen" number="7" revId="2">
+<tsa name="Beschäftigungen" number="7" revId="1">
 <relatedsequence>7</relatedsequence>
 <tsa name="Löschen" number="104" revId="1">
 <relatedsequence>104</relatedsequence>
@@ -3493,5 +3555,5 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
 <extension name="standarduser" value="Y"/>
 </author>
-<extension name="maxid" value="299"/>
+<extension name="maxid" value="304"/>
 </tests>
