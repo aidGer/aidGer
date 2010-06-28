@@ -2660,7 +2660,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 * Benutzer drückt auf den Button "Hinzufügen"
 
 * Benutzer drückt auf den Button "Abbrechen"</actions>
-<post>Beim Hinzufügen des neuen Vorgangs ist standardmäßig der neue Name "Bearbeiter 2" in das korrekte Feld eingetragen. Beim Speichern des Vorgangs wird dieser und nicht der alte Namen übernommen.</post>
+<post>Beim Hinzufügen des neuen Vorgangs ist standardmäßig der neue Name "B2" in das korrekte Feld eingetragen. Beim Speichern des Vorgangs wird dieser und nicht der alte Namen übernommen.</post>
 <tags/>
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="118" priority="C" title="Mehrsprachigkeit: Umstellung auf Deutsch">
