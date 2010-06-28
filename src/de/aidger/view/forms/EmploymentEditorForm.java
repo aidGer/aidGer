@@ -171,8 +171,13 @@ public class EmploymentEditorForm extends JPanel {
             listModels.add(cmbCourseModel);
             listModels.add(cmbContractModel);
 
-            refreshQualification((Assistant) cmbAssistant.getSelectedItem());
-            refreshFunds((Course) cmbCourse.getSelectedItem());
+            if (cmbAssistant.getSelectedItem() != null) {
+                refreshQualification((Assistant) cmbAssistant.getSelectedItem());
+            }
+
+            if (cmbCourse.getSelectedItem() != null) {
+                refreshFunds((Course) cmbCourse.getSelectedItem());
+            }
 
             addNewDate();
 

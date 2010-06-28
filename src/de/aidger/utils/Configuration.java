@@ -81,6 +81,7 @@ public final class Configuration {
             properties.setProperty("historic-factor", "1.0");
             properties.setProperty("anonymize-time", "365");
             properties.setProperty("tolerance", "0.0");
+            properties.setProperty("calc-method", "1");
             properties.setProperty("debug", "false");
             properties.store(outputStream, "");
             outputStream.close();

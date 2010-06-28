@@ -11,6 +11,7 @@ import javax.swing.SwingUtilities;
 
 import de.aidger.view.TaskPane;
 import de.aidger.view.UI;
+import de.aidger.view.tabs.ActivityReportViewerTab;
 import de.aidger.view.tabs.BalanceViewerTab;
 import de.aidger.view.tabs.BudgetViewerTab;
 import de.aidger.view.tabs.ControllingViewerTab;
@@ -36,7 +37,7 @@ public class TaskPaneAction extends AbstractAction implements MouseListener,
      */
     public enum Task {
 
-        ViewCourses, ViewAssistants, ViewFinancialCategories, ViewHourlyWages, ViewEmployments, CreateNewEmployment, ViewContracts, ViewActivities, ExportActivities, ViewFullBalance, ViewAnnualBalance, ViewSemesterBalance, CheckCourses, CheckAssistants, ViewEmpty, Void
+        ViewCourses, ViewAssistants, ViewFinancialCategories, ViewHourlyWages, ViewEmployments, CreateNewEmployment, ViewContracts, ViewActivities, ExportActivities, ViewFullBalance, ViewAnnualBalance, ViewSemesterBalance, ViewActivityReport, CheckCourses, CheckAssistants, ViewEmpty, Void
 
     }
 
@@ -128,6 +129,8 @@ public class TaskPaneAction extends AbstractAction implements MouseListener,
             return new BalanceViewerTab(2);
         case ViewSemesterBalance:
             return new BalanceViewerTab(3);
+        case ViewActivityReport:
+            return new ActivityReportViewerTab();
         case CheckCourses:
             return new BudgetViewerTab();
         case CheckAssistants:

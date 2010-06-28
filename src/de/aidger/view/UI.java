@@ -522,10 +522,10 @@ public final class UI extends JFrame {
      * Refresh the Quick Settings CheckBoxes.
      */
     public void refreshQuickSettings() {
-        rememberCheckBox.setSelected(Boolean.valueOf(Runtime.getInstance().getOption(
-            "auto-save")));
-        openCheckBox.setSelected(Boolean.valueOf(Runtime.getInstance().getOption(
-            "auto-open")));
+        rememberCheckBox.setSelected(Boolean.valueOf(Runtime.getInstance()
+            .getOption("auto-save")));
+        openCheckBox.setSelected(Boolean.valueOf(Runtime.getInstance()
+            .getOption("auto-open")));
     }
 
     /**
@@ -641,6 +641,8 @@ public final class UI extends JFrame {
             Task.ViewAnnualBalance));
         tpReports.add(createTaskPaneButton(_("Semester Balance"),
             Task.ViewSemesterBalance));
+        tpReports.add(createTaskPaneButton(_("Activity Report"),
+            Task.ViewActivityReport));
 
         TaskPane tpControlling = new TaskPane(_("Controlling"));
         tpControlling.add(createTaskPaneButton(_("Check courses"),
@@ -651,12 +653,15 @@ public final class UI extends JFrame {
         TaskPane tpQuickSettings = new TaskPane(_("Quick Settings"));
 
         rememberCheckBox = new JCheckBox(_("Remember my tabs"));
-        rememberCheckBox.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                Runtime.getInstance().setOption("auto-save",
-                    Boolean.toString(((JCheckBox) e.getSource()).isSelected()));
-            }
-        });
+        rememberCheckBox
+            .addChangeListener(new javax.swing.event.ChangeListener() {
+                public void stateChanged(ChangeEvent e) {
+                    Runtime.getInstance().setOption(
+                        "auto-save",
+                        Boolean.toString(((JCheckBox) e.getSource())
+                            .isSelected()));
+                }
+            });
 
         openCheckBox = new JCheckBox(_("Open reports instantly"));
         openCheckBox.addChangeListener(new javax.swing.event.ChangeListener() {
