@@ -2236,19 +2236,15 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 <sequence created="13.05.2010" creator="aidGerTeam" name="Teilbilanzen via Filter" number="124">
 <description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von einer Teilbilanz.</description>
 <pre>* Benutzer klickt auf den Link "Gesamtbilanz" in der TaskPane Berichte.</pre>
-<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="217" priority="C" title="Teilbilanz für ein Zeitraum mit bestimmten Dozent generieren">
-<description>Es soll eine Teilbilanz für einen angegebenen Zeitraum generiert und anschließend dargestellt werden.</description>
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="217" priority="C" title="Teilbilanz mit bestimmten Dozent generieren">
+<description>Es soll eine Teilbilanz mit einem bestimmten Dozenz generiert und anschließend dargestellt werden.</description>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
 <actions>* Benutzer fügt den Filter "Dozent" hinzu
 
 * Benutzer gibt den Dozent "B. Gates" ein
 
-* Benutzer fügt den Filter "Jahr" hinzu
-
-* Benutzer gibt das Jahr "2010" hinzu
-
 * Benutzer klickt auf den Button "Generieren"</actions>
-<post>Die erstellte Teilbilanz wird für das angegebene Jahr im Frame intern angezeigt. Die Teilbilanz umfasst eine Veranstaltung aus Testfall 159.</post>
+<post>Die erstellte Teilbilanz wird für den Dozent "B.Gates" im Frame intern angezeigt. Die Teilbilanz umfasst eine Veranstaltung aus Testfall 159.</post>
 <tags/>
 </testcase>
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="233" priority="C" title="Teilbilanz mit Filter findet keine Veranstaltungen">
@@ -3443,6 +3439,64 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 </tsa>
 <tsa name="Teilbilanzen via Filter" number="124" revId="1">
 <relatedsequence>124</relatedsequence>
+<testrun enddate="29.06.2010 01:05" priority="E" startdate="29.06.2010 01:03" tester="aidGerTeam">
+<description/>
+<sut>aidGer</sut>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Teilbilanzen via Filter" number="124">
+<description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von einer Teilbilanz.</description>
+<pre>* Benutzer klickt auf den Link "Gesamtbilanz" in der TaskPane Berichte.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="01:04" outcome="Ok" postok="Y" preok="Y" starttime="01:03">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="217" priority="C" title="Teilbilanz mit bestimmten Dozent generieren">
+<description>Es soll eine Teilbilanz mit einem bestimmten Dozenz generiert und anschließend dargestellt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Dozent" hinzu
+
+* Benutzer gibt den Dozent "B. Gates" ein
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Die erstellte Teilbilanz wird für den Dozent "B.Gates" im Frame intern angezeigt. Die Teilbilanz umfasst eine Veranstaltung aus Testfall 159.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Ausschließlich die Veranstaltungen mit dem Dozent "B. Gates" wurden angezeigt. Die Spalten wurden alle korrekt berechnet.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="01:05" outcome="Ok" postok="Y" preok="Y" starttime="01:04">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="233" priority="C" title="Teilbilanz mit Filter findet keine Veranstaltungen">
+<description>Es soll eine Teilbilanz für einen angegebenen Zeitraum generiert und anschließend dargestellt werden. Mit der Filterung wurde jedoch keine Veranstaltung gefunden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Gruppe" hinzu
+
+* Benutzer gibt den Gruppe "Tolle Gruppe" ein
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Der Benutzer soll nicht die Möglichkeit haben, diese Gruppe auszuwählen, da keine solche Gruppe in der Datenbank existiert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Keine Auswahlmöglichkeit für die nicht existierende Gruppe.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="01:05" outcome="Ok" postok="Y" preok="Y" starttime="01:05">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="234" priority="C" title="Teilbilanz in PDF-Format exportieren">
+<description>Eine generierte Teilbilanz soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 217 wurde bereits ausgeführt. Benutzer befindet sich im Teilbilanz-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
+<post>Die bereits dargestellte Teilbilanz wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die bereits dargestellte Teilbilanz wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
+<comment/>
+</result>
+</executedsequence>
+</testrun>
 </tsa>
 </tsa>
 <tsa name="Controlling" number="10" revId="1">
