@@ -5,6 +5,9 @@ import static de.aidger.utils.Translation._;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +20,7 @@ import de.aidger.controller.ActionRegistry;
 import de.aidger.controller.actions.DetailViewerCancelAction;
 import de.aidger.controller.actions.DetailViewerEditAction;
 import de.aidger.model.AbstractModel;
+import de.aidger.model.Runtime;
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
@@ -217,6 +221,33 @@ public class DetailViewerTab extends Tab {
     }
 
     /**
+     * Sorts the given activities by date descending.
+     * 
+     * @param activities
+     *            the activities
+     */
+    private void sortActivitiesByDate(List<Activity> activities) {
+        Collections.sort(activities, new Comparator<Activity>() {
+            @Override
+            public int compare(Activity f, Activity s) {
+                Calendar first = Calendar.getInstance();
+                Calendar second = Calendar.getInstance();
+
+                first.setTime(f.getDate());
+                second.setTime(s.getDate());
+
+                if (first.after(second)) {
+                    return -1;
+                } else if (second.after(first)) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+    }
+
+    /**
      * Initializes the lists for a course.
      * 
      * @param course
@@ -262,11 +293,20 @@ public class DetailViewerTab extends Tab {
             }
 
             List<Activity> activities = (new Activity()).getActivities(course);
+            sortActivitiesByDate(activities);
 
             ListModel listActivitiesModel = new ListModel(DataType.Activity);
 
-            for (Activity activity : activities) {
-                listActivitiesModel.addElement(new UIActivity(activity));
+            int size = Integer.valueOf(Runtime.getInstance().getOption(
+                "activities"));
+
+            if (activities.size() < size) {
+                size = activities.size();
+            }
+
+            for (int i = 0; i < size; ++i) {
+                listActivitiesModel
+                    .addElement(new UIActivity(activities.get(i)));
             }
 
             list1.setModel(listAssistantsModel);
@@ -306,11 +346,20 @@ public class DetailViewerTab extends Tab {
 
             List<Activity> activities = (new Activity())
                 .getActivities(assistant);
+            sortActivitiesByDate(activities);
 
             ListModel listActivitiesModel = new ListModel(DataType.Activity);
 
-            for (Activity activity : activities) {
-                listActivitiesModel.addElement(new UIActivity(activity));
+            int size = Integer.valueOf(Runtime.getInstance().getOption(
+                "activities"));
+
+            if (activities.size() < size) {
+                size = activities.size();
+            }
+
+            for (int i = 0; i < size; ++i) {
+                listActivitiesModel
+                    .addElement(new UIActivity(activities.get(i)));
             }
 
             list1.setModel(listCoursesModel);
