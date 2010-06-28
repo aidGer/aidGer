@@ -16,6 +16,7 @@ import de.aidger.view.tabs.ViewerTab;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
+import javax.swing.ImageIcon;
 
 /**
  * This action shows the course for a given model.
@@ -30,9 +31,8 @@ public class ViewerCourseAction extends AbstractAction {
      */
     public ViewerCourseAction() {
         putValue(Action.NAME, _("Course"));
-        // TODO
-        //putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-        //        "/de/aidger/view/icons/")));
+        putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
+                "/de/aidger/view/icons/bank.png")));
     }
 
     /*

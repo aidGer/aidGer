@@ -213,7 +213,6 @@ public class ActivityTest {
         activity.setNew(true);
         activity.save();
 
-        //TODO: Currently not implemented by AdoHive
         List result = activity.getActivities(a);
 
         assertNotNull(result);
@@ -231,7 +230,6 @@ public class ActivityTest {
         activity.setNew(true);
         activity.save();
 
-        //TODO: Currently not implemented by AdoHive
         List result = activity.getActivities(course);
 
         assertNotNull(result);
