@@ -36,7 +36,7 @@ public class BudgetGenerateAction extends AbstractAction {
         putValue(Action.SHORT_DESCRIPTION, _("Generate the budget report"));
 
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/report.png")));
+            "/de/aidger/view/icons/calculator.png")));
     }
 
     /*
