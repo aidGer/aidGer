@@ -4154,6 +4154,586 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <tsa name="Löschen" number="18" revId="1">
 <relatedsequence>18</relatedsequence>
 </tsa>
+<testrun enddate="29.06.2010 00:11" priority="E" startdate="29.06.2010 23:48" tester="aidGerTeam">
+<description>Minor problems. See comments for info.</description>
+<sut/>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Veranstaltungen" number="12">
+<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten, Löschen, Anzeigen und Suchen der Stammdaten Veranstaltungen.</description>
+<pre>Benutzer befindet sich im Menüpunkt Veranstaltungen.</pre>
+</sequence>
+<pre/>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Hinzufügen" number="16">
+<description>Die Testsequenz enthält Testfälle zum Hinzufügen einer Veranstaltung in die Datenbank.</description>
+<pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="23:49" outcome="Ok" postok="Y" preok="Y" starttime="23:48">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:10" number="28" priority="B" title="Veranstaltung korrekt hinzufügen">
+<description>Es wird eine Veranstaltung zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Finanzkategorie "Lehre 0809" wurde korrekt erstellt.</pre>
+<actions>* Benutzer gibt die Bezeichnung "Nutzlose Betriebssysteme in der Praxis" ein
+
+* Benutzer gibt das Semester "WS0809" ein
+
+* Benutzer gibt den Dozent "B. Gates" ein
+
+* Benutzer gibt die Gruppenanzahl "3" ein
+
+* Benutzer gibt das Zielpublikum "ST" ein
+
+* Benutzer gibt die Genehmigte HKS "52,5" ein
+
+* Benutzer gibt den Umfang "1Ü" ein
+
+* Benutzer gibt den Teil "B" ein
+
+* Benutzer gibt die Gruppe "Vordiplom ST" ein
+
+* Benutzer lässt das Bemerkungsfeld leer
+
+* Benutzer wählt die Finanzkategorie "Lehre WS0809" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Veranstaltung ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:51" outcome="Ok" postok="Y" preok="Y" starttime="23:49">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:10" number="38" priority="B" title="Veranstaltung korrekt hinzufügen">
+<description>Es wird eine Veranstaltung zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Finanzkategorie "Lehre SS10" wurde korrekt hinzugefügt.</pre>
+<actions>* Benutzer gibt die Bezeichnung "Mensa überleben für Pizza-Fans" ein
+
+* Benutzer gibt das Semester "SS10" ein
+
+* Benutzer gibt den Dozent "Claudius Chipkartenfan" ein
+
+* Benutzer gibt die Gruppenanzahl "1" ein
+
+* Benutzer gibt das Zielpublikum "INF" ein
+
+* Benutzer gibt die Genehmigte HKS "45" ein
+
+* Benutzer gibt den Umfang "1Ü" ein
+
+* Benutzer gibt den Teil "A" ein
+
+* Benutzer gibt die Gruppe "Bachelor INF" ein
+
+* Benutzer lässt das Bemerkungsfeld leer
+
+* Benutzer wählt die Finanzkategorie "Lehre SS10" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Veranstaltung ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:53" outcome="Comment" postok="Y" preok="Y" starttime="23:51">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:10" number="39" priority="B" title="Veranstaltung korrekt hinzufügen">
+<description>Es wird eine Veranstaltung zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Finanzkategorie "Forschung" wurde korrekt hinzugefügt.</pre>
+<actions>* Benutzer gibt die Bezeichnung "Laufende Forschung" ein
+
+* Benutzer gibt das Semester "2009" ein
+
+* Benutzer gibt den Dozent "Gustav Guifrickel" ein
+
+* Benutzer gibt die Gruppenanzahl "1" ein
+
+* Benutzer lässt das Feld Zielpublikum leer
+
+* Benutzer gibt die Genehmigte HKS "120" ein
+
+* Benutzer lässt das Feld Umfang leer
+
+* Benutzer lässt das Feld Teil leer
+
+* Benutzer gibt die Gruppe "Forschung" ein
+
+* Benutzer lässt das Bemerkungsfeld leer
+
+* Benutzer wählt die Finanzkategorie "Forschung" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Veranstaltung ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment>Couldn't leave the fields "Part" and "Target Audience" empty.</comment>
+</result>
+<result actionok="Y" endtime="23:54" outcome="Ok" postok="Y" preok="Y" starttime="23:54">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="30" priority="C" title="Veranstaltung unvollständig hinzufügen">
+<description>Es soll eine Veranstaltung hinzugefügt werden. Dabei werden Felder leer gelassen.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die Veranstaltung "Violette Parser" ein
+
+* Benutzer drückt auf Button "Speichern"</actions>
+<post>Der Benutzer wird darüber informiert, dass die leer gelassenen Felder noch auszufüllen sind. Das Tab bleibt weiterhin offen und der Benutzer kann die restlichen Felder ausfüllen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:55" outcome="Ok" postok="Y" preok="Y" starttime="23:54">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="29" priority="B" title="Veranstaltung inkorrekt hinzufügen">
+<description>Es wird eine Veranstaltung zum System hinzugefügt. Dabei werden falsche Eingaben gemacht.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer versucht die HKS "zwölf" einzugeben
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Die Veranstaltung wurde nicht hinzugefügt und der Benutzer befindet sich weiterhin im Hinzufügen-Tab, um seine Eingabe korrigieren zu können.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:55" outcome="Ok" postok="Y" preok="Y" starttime="23:55">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="33" priority="B" title="Veranstaltung inkorrekt hinzufügen">
+<description>Es soll eine Veranstaltung hinzugefügt werden. Es werden Felder falsch eingegeben.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die Veranstaltung "Swing für Gtk-Liebhaber" ein
+
+* Benutzer gibt das Semester "SS09" ein
+
+* Benutzer versucht die Gruppenanzahl "abc" einzugeben
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Die Veranstaltung wird nicht gespeichert und der Benutzer befindet sich weiterhin im Hinzufügen-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:56" outcome="Ok" postok="Y" preok="Y" starttime="23:55">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="31" priority="D" title="Abbruch: Veranstaltung hinzufügen">
+<description>Es soll eine Veranstaltung hinzugefügt werden. Dieser Vorgang wird abgebrochen</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer gibt die Veranstaltung "Laufende Forschung" ein
+
+* Benutzer gibt den Umfang "99" ein
+
+* Benutzer wählt die Finanzkategorie "Forschung" aus
+
+* Benutzer klickt auf den Button "Abbrechen"	</actions>
+<post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Bearbeiten" number="17">
+<description>Die Testsequenz enthält Testfälle zum Bearbeiten einer Veranstaltung in die Datenbank.</description>
+<pre>Benutzer möchte eine Veranstaltung bearbeiten.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="23:57" outcome="Ok" postok="Y" preok="Y" starttime="23:56">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="34" priority="C" title="Veranstaltung korrekt bearbeiten">
+<description>Es soll eine Veranstaltung bearbeitet werden. Alle Eingaben sind korrekt.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer gibt den neuen Dozent "B. Gates, S. Ballmer" ein
+
+* Benutzer gibt die HKS "61" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die geänderten Daten werden in der Datenbank hinterlegt und das System kehrt zum vorher angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:57" outcome="Ok" postok="Y" preok="Y" starttime="23:57">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="35" priority="C" title="Veranstaltung unvollständig bearbeiten">
+<description>Es soll eine Veranstaltung bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer löscht den Inhalt des Felds Semester
+
+* Benutzer löscht den Inhalt des Felds Dozent
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Datensatz wird nicht editiert. Der Benutzer bleibt im Bearbeiten-Tab und wird über die leer gelassenen Felder informiert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:58" outcome="Ok" postok="Y" preok="Y" starttime="23:57">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="36" priority="C" title="Veranstaltung inkorrekt bearbeiten">
+<description>Es soll eine Veranstaltung bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 39 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer versucht das Semester zu "XYZ" zu ändern
+
+* Benutzer klickt auf den Button "Speichern"
+</actions>
+<post>Der Datensatz wird nicht bearbeitet. Die Eingabe des Semesters wurde verweigert. Er befindet sich weiterhin im Bearbeiten-Tab, um seine Eingabe korrigieren zu können.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:58" outcome="Ok" postok="Y" preok="Y" starttime="23:58">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="37" priority="C" title="Abbruch: Veranstaltung bearbeiten">
+<description>Es soll eine Veranstaltung bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 38 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Mensa überleben für Pizza-Fans"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ersetzt das Feld Dozent mit "Emil Eisenbrecher"
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Die Änderungen am Datensatz werden verworfen, das Bearbeiten-Tab wird geschloßen und der Benutzer befindet sich erneut im davor angezeigten Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Anzeigen" number="98">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen einer Veranstaltung in die Datenbank.</description>
+<pre>Benutzer möchte eine Veranstaltung anzeigen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="23:59" outcome="Ok" postok="Y" preok="Y" starttime="23:58">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="121" priority="C" title="Veranstaltung anzeigen und schließen">
+<description>Es soll eine Veranstaltung angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
+<pre>Der Testfall 28 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 28 übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum zuvor angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:59" outcome="Ok" postok="Y" preok="Y" starttime="23:59">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="125" priority="C" title="Veranstaltung anzeigen und bearbeiten">
+<description>Es soll eine Veranstaltung angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
+<pre>Der Testfall 39 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* System geht in den "Bearbeiten"-Tab über
+
+* Benutzer gibt den neuen Dozent "B. Dates, S. Ballmer" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 39 übereinstimmen. Nach dem Bearbeiten wurde der Datensatz korrekt geändert und gespeichert. Der Benutzer befindet sich im vorher angezeigten Reiter wieder.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="00:02" outcome="Ok" postok="Y" preok="Y" starttime="23:59">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="127" priority="C" title="Veranstaltung anzeigen und Vorgang anzeigen">
+<description>Es soll eine Veranstaltung angezeigt werden. Anschließend soll ein Vorgang zur Veranstaltung angezeigt werden.</description>
+<pre>Der Testfall 28 wurde ausgeführt. Der benütigte Vorgang wurde korrekt erstellt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt den Vorgang "Carl Coder - Nutzlose Betriebssystem in der Praxis" an
+
+* System öffnet den Vorgang in einem neuen "Anzeigen"-Tab
+
+* Benutzer schließt den Vorgangsreiter
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 28 übereinstimmen. Des weiteren konnte er sich über den ausgewählten Vorgang informieren. Der Benutzer befindet sich wieder im zuvor angezeigten Reiter.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="00:03" outcome="Ok" postok="Y" preok="Y" starttime="00:03">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="126" priority="C" title="Veranstaltung anzeigen ohne Auswahl">
+<description>Es soll eine Veranstaltung angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen und es erscheint eine entsprechende Fehlermeldung.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Suchen" number="92">
+<description>Die Testsequenz enthält Testfälle zum Suchen einer Veranstaltung in die Datenbank.</description>
+<pre>Benutzer möchte eine Veranstaltung suchen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="00:03" outcome="Ok" postok="Y" preok="Y" starttime="00:03">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="128" priority="C" title="Veranstaltung suchen nach Name">
+<description>Es soll eine Veranstaltung gesucht werden. Es wird nach dem Namen gesucht.</description>
+<pre>Der Testfall 28 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt im Suchfeld "Nutzlose Betriebssysteme in der Praxis" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich die gesuche Veranstaltung (Testfall 28). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="00:04" outcome="Ok" postok="Y" preok="Y" starttime="00:03">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="130" priority="C" title="Veranstaltung suchen nach Dozent">
+<description>Es soll eine Veranstaltung gesucht werden. Es wird nach dem Dozent gesucht.</description>
+<pre>Der Testfall 28 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt im Suchfeld "B. Gates" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich die gesuche Veranstaltung (Testfall 28). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="00:04" outcome="Ok" postok="Y" preok="Y" starttime="00:04">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="131" priority="C" title="Veranstaltung unvollständig suchen">
+<description>Es soll eine Veranstaltung gesucht werden. Der Name der Veranstaltung wird nur teilweise eingeben.</description>
+<pre>Der Testfall 39 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt in das Suchfeld "Laufende" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich die gesuche Veranstaltung (Testfall 39). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="00:04" outcome="Ok" postok="Y" preok="Y" starttime="00:04">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="129" priority="C" title="Suchfilter entfernen">
+<description>Der angewandte Suchfilter soll entfernt werden.</description>
+<pre>Der Testfall 128 wurde ausgeführt.</pre>
+<actions>* Benutzer leert das Suchfeld</actions>
+<post>Die Anzeige-Tabelle zeigt alle Veranstaltungen an. Das Suchfeld wurde geleert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Vorgänge" number="132">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen von Vorgängen zu einer Veranstaltung.</description>
+<pre>Benutzer möchte Vorgänge zu einer Veranstaltung anzeigen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="00:05" outcome="Ok" postok="Y" preok="Y" starttime="00:04">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="133" priority="C" title="Vorgänge anzeigen und schließen">
+<description>Es sollen Vorgänge zu einer Veranstaltung angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
+<pre>Der Testfälle 28 wurde ausgeführt. Es wurden alle nötigen Vorgänge für diese Veranstaltung korrekt erstellt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Veranstaltung erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum zuvor angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="00:06" outcome="Comment" postok="Y" preok="Y" starttime="00:05">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="134" priority="C" title="Vorgänge anzeigen und Detailansicht">
+<description>Es sollen Vorgänge zu einer Veranstaltung angezeigt werden. Ein einzelner Vorgang soll daraufhin angezeigt werden.</description>
+<pre>Der Testfälle 38 wurde ausgeführt. Die nötigen Vorgänge zu dieser Veranstaltung wurden korrekt hinzugefügt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Mensa überleben für Pizza-Fans"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Vorgang "Fred Feuerstein - Mensa überleben für Pizza-Fans"
+
+* System öffnet das "Anzeige"-Tab des Vorgangs
+
+* Benutzer schließt das Vorgangsreiter
+
+* Benutzer drückt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Veranstaltung erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Anschließend konnte er sich über einen einzelen Vorgang in einer Detailsicht informieren. Die beiden Reiter-Fenster sind geschloßen und der Benutzer kehrt zum zuvor angezeigten Reiter zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment>Activities are not displayed as Assistant - Course, but as Content (Date)</comment>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Löschen" number="18">
+<description>Die Testsequenz enthält Testfälle zum Löschen einer Veranstaltung in die Datenbank.</description>
+<pre>Benutzer möchte eine Veranstaltung löschen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="00:08" outcome="Ok" postok="Y" preok="Y" starttime="00:08">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="40" priority="C" title="Veranstaltung entfernen ohne Referenz">
+<description>Es soll eine Veranstaltung gelöscht werden, was korrekt funktioniert.</description>
+<pre>Der Testfall 28 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="00:08" outcome="Ok" postok="Y" preok="Y" starttime="00:08">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="97" priority="C" title="Veranstaltung entfernen mit Taste Entf">
+<description>Es soll eine Veranstaltung gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
+<pre>Der Testfall 39 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
+
+* Benutzer drückt die Taste "Entf"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="00:09" outcome="Ok" postok="Y" preok="Y" starttime="00:08">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="41" priority="C" title="Veranstaltung entfernen mit Referenz">
+<description>Es soll eine Veranstaltung gelöscht werden. Das Datum wird noch referenziert.</description>
+<pre>Der Testfall 28 wurde ausgeführt. Es wurde eine Hilfskraft korrekt hinzugefügt und eine Beschäftigung zur Veranstaltung aus 28.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen. Der Benutzer wird darüber informiert, dass die Veranstaltung eine Referenz zu einer Beschäftigung hat.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="00:11" outcome="Ok" postok="Y" preok="Y" starttime="00:09">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="42" priority="C" title="Abbruch: Veranstaltung entfernen">
+<description>Es soll eine Veranstaltung gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
+<pre>Der Testfall 39 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="00:11" outcome="Ok" postok="Y" preok="Y" starttime="00:11">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="43" priority="C" title="Veranstaltung entfernen ohne Auswahl">
+<description>Es soll eine Veranstaltung gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Löschen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+</executedsequence>
+</testrun>
 </tsa>
 <tsa name="Hilfskräfte" number="13" revId="1">
 <relatedsequence>13</relatedsequence>
