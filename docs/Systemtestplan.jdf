@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE tests SYSTEM "project.dtd">
 <tests product="TestDataManager" team="05" version="1.0">
-<sequence created="28.06.2010" creator="aidGerTeam" name="Project" number="0">
+<sequence created="29.06.2010" creator="aidGerTeam" name="Project" number="0">
 <description>This is the root node of the project. It contains all test sequences and test cases.</description>
 <pre/>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Systemtest" number="3">
@@ -2870,7 +2870,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="21:38" outcome="Ok" postok="Y" preok="Y" starttime="21:38">
+<result actionok="Y" endtime="09:38" outcome="Ok" postok="Y" preok="Y" starttime="09:38">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:05" number="189" priority="B" title="Vorgang einmal korrekt hinzufügen">
 <description>Es wird ein Vorgang zur Datenbank hinzugefügt. Alle Eingaben sind korrekt. Es ist keine Massenerfassung von Vorgängen.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 28 wurden ausgeführt.</pre>
@@ -2901,7 +2901,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:38" outcome="Comment" postok="Y" preok="Y" starttime="21:38">
+<result actionok="Y" endtime="09:38" outcome="Comment" postok="Y" preok="Y" starttime="09:38">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:05" number="191" priority="B" title="Vorgang mehrmals für Hilfskräfte korrekt hinzufügen (Massenerfassung)">
 <description>Es wird ein Vorgang zur Datenbank hinzugefügt. Alle Eingaben sind korrekt. Es ist eine Massenerfassung von Vorgängen für verschiedene Hilfskräfte.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die benötigte Veranstaltungs- und Hilfskrafttestfälle wurden ausgeführt.</pre>
@@ -2936,7 +2936,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment>Der zweiten Hilfskraft wird keine Veranstaltung zugeordnet.</comment>
 </result>
-<result actionok="Y" endtime="21:39" outcome="Failure" postok="Y" preok="Y" starttime="21:38">
+<result actionok="Y" endtime="09:39" outcome="Failure" postok="Y" preok="Y" starttime="09:38">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:05" number="193" priority="B" title="Vorgang mehrmals für Veranstaltungen korrekt hinzufügen (Massenerfassung)">
 <description>Es wird ein Vorgang zur Datenbank hinzugefügt. Alle Eingaben sind korrekt. Es ist eine Massenerfassung von Vorgängen für verschiedene Veranstaltungen.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die benötigte Veranstaltungs- und Hilfskrafttestfälle wurden ausgeführt.</pre>
@@ -2969,7 +2969,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment>Ein Vorgang hat nur Veranstaltung aber keine Hilfskraft.</comment>
 </result>
-<result actionok="Y" endtime="21:39" outcome="Ok" postok="Y" preok="Y" starttime="21:39">
+<result actionok="Y" endtime="09:39" outcome="Ok" postok="Y" preok="Y" starttime="09:39">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:05" number="192" priority="B" title="Vorgang inkorrekt hinzufügen">
 <description>Es wird ein Vorgang zur Datenbank hinzugefügt. Es wurden falsche Eingaben gemacht.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 28 wurden ausgeführt.</pre>
@@ -3001,7 +3001,7 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:40" outcome="Ok" postok="Y" preok="Y" starttime="21:40">
+<result actionok="Y" endtime="09:40" outcome="Ok" postok="Y" preok="Y" starttime="09:40">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="194" priority="D" title="Abbruch: Vorgang hinzufügen">
 <description>Es soll ein Vorgang hinzugefügt werden. Dieser Vorgang wird abgebrochen</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -3025,7 +3025,7 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 <pre>Benutzer möchte einen Vorgang bearbeiten.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="21:40" outcome="Ok" postok="Y" preok="Y" starttime="21:40">
+<result actionok="Y" endtime="09:40" outcome="Ok" postok="Y" preok="Y" starttime="09:40">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="195" priority="C" title="Vorgang korrekt bearbeiten">
 <description>Es soll ein Vorgang bearbeitet werden. Alle Eingaben sind korrekt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 189 wurde bereits ausgeführt.</pre>
@@ -3044,7 +3044,7 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:41" outcome="Ok" postok="Y" preok="Y" starttime="21:40">
+<result actionok="Y" endtime="09:41" outcome="Ok" postok="Y" preok="Y" starttime="09:40">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="196" priority="C" title="Vorgang inkorrekt bearbeiten">
 <description>Es soll ein Vorgang  bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 191 wurde bereits ausgeführt.</pre>
@@ -3065,7 +3065,7 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:41" outcome="Ok" postok="Y" preok="Y" starttime="21:41">
+<result actionok="Y" endtime="09:41" outcome="Ok" postok="Y" preok="Y" starttime="09:41">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="198" priority="C" title="Abbruch: Vorgang bearbeiten">
 <description>Es soll ein Vorgang bearbeitet werden. Dies wird jedoch abgebrochen.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 189 wurde bereits ausgeführt.</pre>
@@ -3091,7 +3091,7 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 <pre>Benutzer möchte einen Vorgang löschen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="21:41" outcome="Ok" postok="Y" preok="Y" starttime="21:41">
+<result actionok="Y" endtime="09:41" outcome="Ok" postok="Y" preok="Y" starttime="09:41">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="199" priority="C" title="Vorgang korrekt entfernen">
 <description>Es soll ein Vorgang gelöscht werden, was korrekt funktioniert.</description>
 <pre>Der Testfall 189 wurde ausgeführt.</pre>
@@ -3110,7 +3110,7 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:41" outcome="Ok" postok="Y" preok="Y" starttime="21:41">
+<result actionok="Y" endtime="09:41" outcome="Ok" postok="Y" preok="Y" starttime="09:41">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="200" priority="C" title="Vorgang entfernen mit Taste Entf">
 <description>Es soll ein Vorgangt gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
 <pre>Der Testfall 191 wurde ausgeführt.</pre>
@@ -3129,7 +3129,7 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:42" outcome="Ok" postok="Y" preok="Y" starttime="21:41">
+<result actionok="Y" endtime="09:42" outcome="Ok" postok="Y" preok="Y" starttime="09:41">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="201" priority="C" title="Abbruch: Vorgang entfernen">
 <description>Es soll ein Vorgang gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
 <pre>Der Testfall 191 wurde ausgeführt.</pre>
@@ -3148,7 +3148,7 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:42" outcome="Ok" postok="Y" preok="Y" starttime="21:42">
+<result actionok="Y" endtime="09:42" outcome="Ok" postok="Y" preok="Y" starttime="09:42">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="202" priority="C" title="Vorgang entfernen ohne Auswahl">
 <description>Es soll ein Vorgang gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
 <pre/>
@@ -3168,7 +3168,7 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 <pre>Benutzer möchte einen Vorgang anzeigen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="21:42" outcome="Comment" postok="Y" preok="Y" starttime="21:42">
+<result actionok="Y" endtime="09:42" outcome="Comment" postok="Y" preok="Y" starttime="09:42">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="203" priority="C" title="Vorgang anzeigen und schließen">
 <description>Es soll ein Vorgang angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
 <pre>Der Testfall 189 wurde ausgeführt.</pre>
@@ -3187,7 +3187,7 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 <post/>
 <comment>Button heisst "Abbrechen"</comment>
 </result>
-<result actionok="Y" endtime="21:43" outcome="Ok" postok="Y" preok="Y" starttime="21:42">
+<result actionok="Y" endtime="09:43" outcome="Ok" postok="Y" preok="Y" starttime="09:42">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="204" priority="C" title="Vorgang anzeigen und bearbeiten">
 <description>Es soll ein Vorgang angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
 <pre>Der Testfall 193 wurde ausgeführt.</pre>
@@ -3212,7 +3212,7 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:43" outcome="Ok" postok="Y" preok="Y" starttime="21:43">
+<result actionok="Y" endtime="09:43" outcome="Ok" postok="Y" preok="Y" starttime="09:43">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="205" priority="C" title="Vorgang anzeigen und anschließend Hilfskraft anzeigen">
 <description>Es soll ein Vorgang angezeigt werden. Anschließend soll die Hilfskraft zum Vorgang angezeigt werden.</description>
 <pre>Der Testfall 191 ausgeführt.</pre>
@@ -3237,7 +3237,7 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:44" outcome="Ok" postok="Y" preok="Y" starttime="21:44">
+<result actionok="Y" endtime="09:44" outcome="Ok" postok="Y" preok="Y" starttime="09:44">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="206" priority="C" title="Vorgang anzeigen ohne Auswahl">
 <description>Es soll ein Vorgang angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
 <pre/>
@@ -3257,7 +3257,7 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 <pre>Benutzer möchte einen Vorgang suchen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="21:44" outcome="Ok" postok="Y" preok="Y" starttime="21:44">
+<result actionok="Y" endtime="09:44" outcome="Ok" postok="Y" preok="Y" starttime="09:44">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="207" priority="C" title="Vorgang suchen nach Bearbeiter">
 <description>Es soll eine Vorgang gesucht werden. Es wird nach dem Bearbeiter gesucht.</description>
 <pre>Der Testfall 193 wurde ausgeführt.</pre>
@@ -3272,7 +3272,7 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:44" outcome="Ok" postok="Y" preok="Y" starttime="21:44">
+<result actionok="Y" endtime="09:44" outcome="Ok" postok="Y" preok="Y" starttime="09:44">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="208" priority="C" title="Vorgang suchen nach Veranstaltungsname">
 <description>Es soll ein Vorgang gesucht werden. Es wird nach dem Veranstaltungsname gesucht.</description>
 <pre>Der Testfälle 189, 191 und 193 wurden ausgeführt.</pre>
@@ -3287,7 +3287,7 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:45" outcome="Ok" postok="Y" preok="Y" starttime="21:45">
+<result actionok="Y" endtime="09:45" outcome="Ok" postok="Y" preok="Y" starttime="09:45">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="209" priority="C" title="Vorgang unvollständig suchen">
 <description>Es soll eine Vorgang gesucht werden. Das zugehörige Hilfskraft wird nur teilweise eingeben.</description>
 <pre>Der Testfall 189 und 191 wurden ausgeführt.</pre>
@@ -3302,7 +3302,7 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:45" outcome="Ok" postok="Y" preok="Y" starttime="21:45">
+<result actionok="Y" endtime="09:45" outcome="Ok" postok="Y" preok="Y" starttime="09:45">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:01" number="210" priority="C" title="Suchfilter entfernen">
 <description>Der angewandte Suchfilter soll entfernt werden.</description>
 <pre>Der Testfall 187 wurde ausgeführt.</pre>
@@ -3329,6 +3329,60 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 </tsa>
 <tsa name="Jahresbilanzen" number="114" revId="1">
 <relatedsequence>114</relatedsequence>
+<testrun enddate="29.06.2010 00:51" priority="E" startdate="29.06.2010 00:42" tester="aidGerTeam">
+<description/>
+<sut>aidGer</sut>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Jahresbilanzen" number="114">
+<description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von einer Jahresbilanz.</description>
+<pre>* Benutzer klickt auf den Link "Jahresbilanz" in der TaskPane Berichte.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="00:50" outcome="Ok" postok="Y" preok="Y" starttime="00:42">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="211" priority="C" title="Jahresbilanz für ein Jahr generieren">
+<description>Es soll eine Jahresbilanz generiert und anschließend dargestellt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Jahr "2010" ein
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Die erstellte Jahresbilanz wird für das angegebene Jahr im Frame intern angezeigt. Es müssen drei Veranstaltungen in der Bilanz auftauchen für dieses Jahr. Die eingeplante HKS und der HKS Grundbedarf sowie die Plankosten müssen alle korrekt berechnet sein.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Alle 3 Veranstaltungen wurden angezeigt. Alle Spalten (Gebuchte HKS, HKS, Plankosten) wurden korrekt berechnet.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="00:51" outcome="Ok" postok="Y" preok="Y" starttime="00:50">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="213" priority="C" title="Jahresbilanz für ein Jahr ohne Beschäftigungen generieren">
+<description>Es soll eine Jahresbilanz generiert und anschließend dargestellt werden. Problem ist, dass es keine Bescheschäftigungen in diesem Jahr gibt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Jahr "2009" ein
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Der Benutzer soll nicht die Möglichkeit haben, dieses Jahr auszuwählen, da keine Veranstaltungen in der Datenbank hierfür existieren.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Keine Auswahlmöglichkeit des Jahrs 2009.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="00:51" outcome="Ok" postok="Y" preok="Y" starttime="00:51">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="212" priority="C" title="Jahresbilanz in PDF-Format exportieren">
+<description>Eine generierte Jahresbilanz soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 211 wurde bereits ausgeführt. Benutzer befindet sich im Jahresbilanz-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
+<post>Die bereits dargestellte Jahresbilanz wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die bereits dargestellte Jahresbilanz wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
+<comment/>
+</result>
+</executedsequence>
+</testrun>
 </tsa>
 <tsa name="Semesterbilanzen" number="123" revId="1">
 <relatedsequence>123</relatedsequence>
@@ -3350,7 +3404,7 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 <pre>Der Benutzer möchte Veranstaltungen prüfen und klickt auf den Menüpunkt "Veranstaltungen prüfen". Es sind die Default-Einstellungen ausgewählt.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="22:24" outcome="Ok" postok="Y" preok="Y" starttime="22:21">
+<result actionok="Y" endtime="10:24" outcome="Ok" postok="Y" preok="Y" starttime="10:21">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="244" priority="C" title="Alle Veranstaltungen anzeigen">
 <description>Für die Budgetprüfung sollen alle Veranstaltungen angezeigt werden.</description>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
@@ -3369,7 +3423,7 @@ Die Zeile "Laufende Forschung" muss rot hinterlegt sein, da die übrige HKS nega
 <post>Alle eingetragenen Veranstaltungen werden angezeigt. Alle Spalten werden korrekt angezeigt. Spalten mit Übrige HKS von 0.0 sind farblich hinterlegt.</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:26" outcome="Ok" postok="Y" preok="Y" starttime="22:24">
+<result actionok="Y" endtime="10:26" outcome="Ok" postok="Y" preok="Y" starttime="10:24">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="245" priority="C" title="Veranstaltungen via Filter (Dozent) anzeigen">
 <description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter über Dozent benutzt.</description>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
@@ -3390,7 +3444,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Der Filter funktioniert korrekt. Farbliche Markierung funktioniert auch mit Filter.</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:28" outcome="Ok" postok="Y" preok="Y" starttime="22:26">
+<result actionok="Y" endtime="10:28" outcome="Ok" postok="Y" preok="Y" starttime="10:26">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="247" priority="C" title="Veranstaltungen via Filter (Übrige HKS) anzeigen">
 <description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter über Übrige HKS benutzt.</description>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
@@ -3411,7 +3465,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Es werden keine Veranstaltungen angezeigt.</post>
 <comment>Tatsächliches Resultat weicht zwar ab, eine negative Angabe der übrigen HKS macht jedoch wenig Sinn. </comment>
 </result>
-<result actionok="Y" endtime="22:30" outcome="Ok" postok="Y" preok="Y" starttime="22:28">
+<result actionok="Y" endtime="10:30" outcome="Ok" postok="Y" preok="Y" starttime="10:28">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="246" priority="C" title="Veranstaltungsliste in PDF-Format exportieren">
 <description>Eine Veranstaltungsliste soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
 <pre>Der Testfall 244 wurde bereits ausgeführt. Benutzer befindet sich im "Controlling Veranstaltungen"-Reiter.</pre>
@@ -3424,7 +3478,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Die bereits dargestellte Veranstaltungsliste wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden. Veranstaltungen mit negativen übrigen HKS werden auch in der PDF hervorgehoben.</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:30" outcome="Ok" postok="Y" preok="Y" starttime="22:30">
+<result actionok="Y" endtime="10:30" outcome="Ok" postok="Y" preok="Y" starttime="10:30">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="249" priority="C" title="Budgetprüfung ohne Veranstaltungen">
 <description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter benutzt. Dieser Filter führt jedoch zu keinem Ergebnis.</description>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
@@ -3455,7 +3509,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <pre>Der Benutzer möchte Hilfskräfte prüfen und klickt auf den Menüpunkt "Hilfskräfte prüfen". Es sind die Default-Einstellungen ausgewählt.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="22:40" outcome="Ok" postok="Y" preok="Y" starttime="22:32">
+<result actionok="Y" endtime="10:40" outcome="Ok" postok="Y" preok="Y" starttime="10:32">
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="242" priority="C" title="Monatsauszug für ein Monat anzeigen">
 <description>Es soll eine Monatsauszug für einen Monat angezeigt werden.</description>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
@@ -3470,7 +3524,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Die Plankosten sind korrekt für Carl Coder und alle Finanzmittel, aus denen er bezahlt wird, berechnet. </post>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:40" outcome="Ok" postok="Y" preok="Y" starttime="22:40">
+<result actionok="Y" endtime="10:40" outcome="Ok" postok="Y" preok="Y" starttime="10:40">
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="248" priority="C" title="Monatsauszug ohne Hilfskräfte anzeigen">
 <description>Es soll eine Monatsauszug für einen Monat angezeigt werden. Das Problem tritt auf, dass für diesen Monat keine Hilfskräfte beschäftigt sind.</description>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
@@ -3483,7 +3537,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Oktober 2010 konnte nicht ausgewählt werden.</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:42" outcome="Ok" postok="Y" preok="Y" starttime="22:40">
+<result actionok="Y" endtime="10:42" outcome="Ok" postok="Y" preok="Y" starttime="10:40">
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="238" priority="C" title="Monatsauszug in PDF-Format exportieren">
 <description>Eine generierter Monatsauszug soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
 <pre>Der Testfall 236 wurde bereits ausgeführt. Benutzer befindet sich im "Controlling Hilfskräfte"-Reiter.</pre>
@@ -3496,7 +3550,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>PDF-Datei wurde korrekt erstellt und PDF-Viewer wurde direkt geöffnet. (Einstellung war aktiv)</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:43" outcome="Ok" postok="Y" preok="Y" starttime="22:42">
+<result actionok="Y" endtime="10:43" outcome="Ok" postok="Y" preok="Y" starttime="10:42">
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="240" priority="C" title="Reale Kosten eintragen und keine Abweichung">
 <description>Im aktuellen Monatsauszug sollen die realen Kosten eingetragen werden. Es gibt keine Abweichung zwischen Soll und Ist.</description>
 <pre>Testfall 236 wurde ausgeführt.</pre>
@@ -3511,7 +3565,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Die realen Kosten wurden angezeigt und ein korrekter Export war auch möglich.</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:44" outcome="Ok" postok="Y" preok="Y" starttime="22:43">
+<result actionok="Y" endtime="10:44" outcome="Ok" postok="Y" preok="Y" starttime="10:43">
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="241" priority="C" title="Reale Kosten eintragen und eine Abweichung">
 <description>Im aktuellen Monatsauszug sollen die realen Kosten eingetragen werden. Es gibt eine Abweichung zwischen Soll und Ist.</description>
 <pre>Testfall 236 wurde ausgeführt.</pre>
@@ -3526,7 +3580,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Die Warnung wird in der letzten Spalte angezeigt. Der Benutzer kann entweder alle Hilfskräfte exportieren oder nur diejenigen, die eine Abweichung, also Carl Coder, aufweisen.</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:46" outcome="Comment" postok="Y" preok="Y" starttime="22:44">
+<result actionok="Y" endtime="10:46" outcome="Comment" postok="Y" preok="Y" starttime="10:44">
 <testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="243" priority="C" title="Reale Kosten inkorrekt eintragen">
 <description>Im aktuellen Monatsauszug sollen die realen Kosten eingetragen werden. Das Format wurde dabei jedoch nicht eingehalten.</description>
 <pre>Testfall 236 wurde ausgeführt.</pre>
@@ -3558,7 +3612,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <pre>Benutzer möchte das Programm individuell einstellen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="20:58" outcome="Ok" postok="Y" preok="Y" starttime="20:58">
+<result actionok="Y" endtime="08:58" outcome="Ok" postok="Y" preok="Y" starttime="08:58">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="260" priority="C" title="Initialen des Barbeiters bei Vorgangserfassung">
 <description>Die Wirksamkeit der Einstellung "Initialen des Bearbeiters" bei der Vorgangserfassung soll getestet werden.</description>
 <pre>Benutzer möchte die Initialen des Bearbeiters ändern. Die Initialen sind bislang auf "BB" eingestellt. Alle bisherigen Vorgänge wurden korrekt mit diesem Namen abgespeichert.</pre>
@@ -3581,7 +3635,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:00" outcome="Comment" postok="Y" preok="Y" starttime="20:58">
+<result actionok="Y" endtime="09:00" outcome="Comment" postok="Y" preok="Y" starttime="08:58">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="118" priority="C" title="Mehrsprachigkeit: Umstellung auf Deutsch">
 <description>Die Wirksamkeit der Umstellung auf die Sprache Deutsch soll getestet werden.</description>
 <pre>Das Programm ist auf Englisch eingestellt und verhält sich demnach.</pre>
@@ -3598,7 +3652,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Die Info-Meldung erscheint nicht. Nach einem Neustart ist die Software aber in Deutsch umgestellt.</post>
 <comment>Die Info-Message "Änderung erst nach Neustart wirksam" fehlt.</comment>
 </result>
-<result actionok="Y" endtime="21:01" outcome="Comment" postok="Y" preok="Y" starttime="21:01">
+<result actionok="Y" endtime="09:01" outcome="Comment" postok="Y" preok="Y" starttime="09:01">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="259" priority="C" title="Mehrsprachigkeit: Umstellung auf Englisch">
 <description>Die Wirksamkeit der Umstellung auf die Sprache Englisch soll getestet werden.</description>
 <pre>Das Programm ist auf Deutsch eingestellt und verhält sich demnach.</pre>
@@ -3615,7 +3669,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Die Info-Message erscheint nicht, Programm ist aber in Englisch nach Neustart.</post>
 <comment>Die Info-Message "Änderung erst nach Neustart wirksam" fehlt.</comment>
 </result>
-<result actionok="Y" endtime="21:04" outcome="Ok" postok="Y" preok="Y" starttime="21:01">
+<result actionok="Y" endtime="09:04" outcome="Ok" postok="Y" preok="Y" starttime="09:01">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="255" priority="C" title="PDF-Viewer">
 <description>Die Wirksamkeit der Einstellung "PDF Anzeiger" soll getestet werden.</description>
 <pre>Benutzer möchte den PDF-Viewer ändern.</pre>
@@ -3636,7 +3690,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:06" outcome="Ok" postok="Y" preok="Y" starttime="21:04">
+<result actionok="Y" endtime="09:06" outcome="Ok" postok="Y" preok="Y" starttime="09:04">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="256" priority="C" title="Anzahl der Vorgänge">
 <description>Die Wirksamkeit der Einstellung "Anzahl der Vorgänge" soll getestet werden.</description>
 <pre>Benutzer möchte die Anzahl der Vorgänge ändern. Die jetzige Einstellung umfasst 3 Vorgänge. Zur angezeigten Hilfskraft müssen mindestens 4 Vorgänge hinterlegt sein.</pre>
@@ -3657,7 +3711,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:10" outcome="Comment" postok="Y" preok="Y" starttime="21:06">
+<result actionok="Y" endtime="09:10" outcome="Comment" postok="Y" preok="Y" starttime="09:06">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="257" priority="C" title="Berichte automatisch nach Generierung öffnen">
 <description>Die Wirksamkeit der Einstellung "Berichte automatisch nach Generierung öffnen" soll getestet werden.</description>
 <pre>Die Einstellung "Berichte automatisch nach Generierung öffnen" ist deaktiviert (Standard).</pre>
@@ -3676,7 +3730,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Der Bericht wird im PDF-Viewer nach dem Export angezeigt.</post>
 <comment>Der TC hat zwar das korrekte Verhalten geliefert, die Option "Berichte automatisch nach der Generierung öffnen" ist jedoch irreführend und muss unbenannt werden.</comment>
 </result>
-<result actionok="Y" endtime="21:12" outcome="Ok" postok="Y" preok="Y" starttime="21:11">
+<result actionok="Y" endtime="09:12" outcome="Ok" postok="Y" preok="Y" starttime="09:11">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="258" priority="C" title="Reiter bei Verlassen speichern">
 <description>Die Wirksamkeit der Einstellung "Reiter bei Verlassen speichern" soll getestet werden.</description>
 <pre>Die Einstellung "Reiter bei Verlassen speichern" ist aktiviert.</pre>
@@ -3701,7 +3755,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:15" outcome="Ok" postok="Y" preok="Y" starttime="21:12">
+<result actionok="Y" endtime="09:15" outcome="Ok" postok="Y" preok="Y" starttime="09:12">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="301" priority="C" title="Pessimistischer Faktor">
 <description>Die Wirksamkeit der Einstellung "Pessimistischer Faktor" soll getestet werden.</description>
 <pre>Benutzer möchte den pessimistischen Faktor ändern. Die jetzige Einstellung ist 1.0. In der Schnelleinstellung ist die pessimistische Berechnung ausgewählt.</pre>
@@ -3722,7 +3776,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Faktor wurde korrekt berücksichtigt.</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:16" outcome="Ok" postok="Y" preok="Y" starttime="21:15">
+<result actionok="Y" endtime="09:16" outcome="Ok" postok="Y" preok="Y" starttime="09:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="302" priority="C" title="Historischer Faktor">
 <description>Die Wirksamkeit der Einstellung "Historischer Faktor" soll getestet werden.</description>
 <pre>Benutzer möchte den historischen Faktor ändern. Die jetzige Einstellung ist 1.0. In der Schnelleinstellung ist die historische Berechnung ausgewählt.</pre>
@@ -3743,7 +3797,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Korrekte Berechnung mit neuem Faktor.</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:18" outcome="Ok" postok="Y" preok="Y" starttime="21:16">
+<result actionok="Y" endtime="09:18" outcome="Ok" postok="Y" preok="Y" starttime="09:16">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="300" priority="C" title="Zeit bis zur Anonymisierung">
 <description>Die Wirksamkeit der Einstellung "Zeit bis zur Anonymisierung" soll getestet werden.</description>
 <pre>Benutzer möchte die Zeit bis zur Anonymisierung ändern. Die jetzige Einstellung ist 365 Tage. Es gibt 2 Hilfskräfte, deren letzte Beschäftigung 50 Tage her ist.</pre>
@@ -3762,7 +3816,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Anonymisierung hat stattgefunden. User wurde in einer InfoMessage darüber informiert.</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:23" outcome="Ok" postok="Y" preok="Y" starttime="21:18">
+<result actionok="Y" endtime="09:23" outcome="Ok" postok="Y" preok="Y" starttime="09:18">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="303" priority="C" title="Controllingtoleranz">
 <description>Die Wirksamkeit der Einstellung "Controllingtoleranz" soll getestet werden.</description>
 <pre>Benutzer möchte die Controllingtoleranz ändern. Die jetzige Einstellung ist 0.0. Die Testfälle zum Hinzufügen von Beschäftigungen wurden ausgeführt. Die realen Kosten sind bei allen Hilfskräften mit den Plankosten identisch.</pre>
@@ -3799,7 +3853,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <pre>Der Benutzer möchte angezeigte Daten drucken.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="21:37" outcome="Ok" postok="Y" preok="Y" starttime="21:36">
+<result actionok="Y" endtime="09:37" outcome="Ok" postok="Y" preok="Y" starttime="09:36">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="117" priority="C" title="Drucken eines Monatsauszuges">
 <description>Es soll die Druckmöglichkeit in der Software getestet werden. Es wird ein Monatsauszug gedruckt.</description>
 <pre>Testfall 242 (Controlliing) wurde ausgeführt. Der Controlling-Tab ist vom Benutzer geöffnet.</pre>
@@ -3818,7 +3872,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Es soll der angezeigte Monatsauszug am Drucker gedruckt werden. Dabei wird der gerenderte Tab gedruckt.</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:37" outcome="Ok" postok="Y" preok="Y" starttime="21:37">
+<result actionok="Y" endtime="09:37" outcome="Ok" postok="Y" preok="Y" starttime="09:37">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="254" priority="C" title="Drucken der Beschäftigungen">
 <description>Es soll die Druckmöglichkeit in der Software getestet werden. Es werden die angezeigten Beschäftigungen gedruckt.</description>
 <pre>Die Testfälle zum Hinzufügen von Beschäftigungen wurden ausgeführt. Der Beschäftigungen-Tab ist vom Benutzer geöffnet.</pre>
@@ -3837,7 +3891,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Es wird die angezeigte Beschäftigungsliste gedruckt. Der gerenderte Tab wird gedruckt.</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:38" outcome="Ok" postok="Y" preok="Y" starttime="21:37">
+<result actionok="Y" endtime="09:38" outcome="Ok" postok="Y" preok="Y" starttime="09:37">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="253" priority="C" title="Drucken mit Shortcut">
 <description>Es soll die Druckmöglichkeit in der Software getestet werden. Das Drucken wird durch den Shortcut ausgelöst.</description>
 <pre/>
@@ -3868,7 +3922,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <pre>Das Programm verwendet Tabs für eine einfachere Bedienung von aidGer.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="21:28" outcome="Ok" postok="Y" preok="Y" starttime="21:27">
+<result actionok="Y" endtime="09:28" outcome="Ok" postok="Y" preok="Y" starttime="09:27">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="265" priority="C" title="Leerer Tab öffnen">
 <description>Es soll ein neuer leerer Tab geöffnet werden.</description>
 <pre>Benutzer möchte einen leeren Tab öffnen.</pre>
@@ -3881,7 +3935,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Ein neuer Tab hat sich geöffnet und befindet sich im Vordergrund. Es können nun alle Navigationselemente in diesem Reiter geöffnet werden.</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:29" outcome="Ok" postok="Y" preok="Y" starttime="21:28">
+<result actionok="Y" endtime="09:29" outcome="Ok" postok="Y" preok="Y" starttime="09:28">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="266" priority="C" title="Ein neuen Tab via mittlerer Maustaste (Navigationsleiste)">
 <description>Es soll ein neuer Tab mit Hilfe der mittleren Maustaste geöffnet werden.</description>
 <pre>Benutzer möchte sich Daten in einem neuen Tab anzeigen lassen.</pre>
@@ -3894,7 +3948,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Das Tab hat sich geöffnet. Dieses ist zudem in den Vordergrund gekommen.</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:30" outcome="Ok" postok="Y" preok="Y" starttime="21:29">
+<result actionok="Y" endtime="09:30" outcome="Ok" postok="Y" preok="Y" starttime="09:29">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="268" priority="C" title="Zwischen Tabs navigieren">
 <description>Es soll zwischen den Tabs navigiert werden können.</description>
 <pre>Benutzer möchte zwischen den Tabs navigieren.</pre>
@@ -3911,7 +3965,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Beim Wechseln der Tabs wurde jeweils der Inhalt im Content-Frame geändert. Der Benutzer befindet sich im Tab 3.</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:31" outcome="Ok" postok="Y" preok="Y" starttime="21:30">
+<result actionok="Y" endtime="09:31" outcome="Ok" postok="Y" preok="Y" starttime="09:30">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="267" priority="C" title="Einen Tab schließen">
 <description>Es soll ein Tab geschlossen werden.</description>
 <pre>Der Benutzer möchte einen nicht mehr benötigten Tab schließen.</pre>
@@ -3938,7 +3992,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <pre>Der Benutzer möchte zwischen den verschiedenen Ansichten navigieren.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="21:32" outcome="Ok" postok="Y" preok="Y" starttime="21:32">
+<result actionok="Y" endtime="09:32" outcome="Ok" postok="Y" preok="Y" starttime="09:32">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="270" priority="C" title="Verhalten bei Programmstart">
 <description>Das Verhalten der Navigationsleiste beim Programmstart soll getestet werden.</description>
 <pre>Das Programm wurde gestartet.</pre>
@@ -3951,7 +4005,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Der Menüpunkt Stammdatenverwaltung ist geöffnet, d.h. dem Benutzer wird der Menükontext der Stammdatenverwaltung angezeigt. Alle anderen Menüpunkte sind beim Programmstart noch geschlossen.</post>
 <comment>Die TaskPane Einstellung wird von aidGer gespeichert. So kann es u.U. sein, dass andere TaskPanes beim Starten geöffnet sind.</comment>
 </result>
-<result actionok="Y" endtime="21:34" outcome="Ok" postok="Y" preok="Y" starttime="21:33">
+<result actionok="Y" endtime="09:34" outcome="Ok" postok="Y" preok="Y" starttime="09:33">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="271" priority="C" title="Klick auf geschlossenen Menüpunkt">
 <description>Das Verhalten beim Klick auf einen geschlossenen Menüpunkt soll getestet werden.</description>
 <pre>Benutzer möchte einen Menüpunkt öffnen, um weitere Navigationsmöglichkeiten zu diesem Menüpunkt zu bekommen.</pre>
@@ -3964,7 +4018,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Der geschlossene Menüpunkt öffnet seinen untergeordneten Menükontext. Eine weitere Navigation ist auch möglich.</post>
 <comment>Eine Änderung des Content-Frames beim Klick des Menüpunktes ist prinzipiell möglich, wird aber beim jetzigen Stand nicht verwendet.</comment>
 </result>
-<result actionok="Y" endtime="21:35" outcome="Ok" postok="Y" preok="Y" starttime="21:35">
+<result actionok="Y" endtime="09:35" outcome="Ok" postok="Y" preok="Y" starttime="09:35">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="272" priority="C" title="Klick auf aktivem Menüpunkt">
 <description/>
 <pre>Ein Menüpunkt ist bereits offen, d.h. sein Menükontext wird angezeigt.</pre>
@@ -3991,7 +4045,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <pre>Warnungen wurden spezifiziert, die in bestimmten Situationen erscheinen müssen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="21:47" outcome="Ok" postok="Y" preok="Y" starttime="21:47">
+<result actionok="Y" endtime="09:47" outcome="Ok" postok="Y" preok="Y" starttime="09:47">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:04" number="274" priority="A" title="Budgetüberschreitung einer Veranstaltung">
 <description>Es soll das Erscheinen einer Warnung bei der Budgetüberschreitung einer Veranstaltung getestet werden.</description>
 <pre>Die Testfälle zum Hinzufügen von Beschäftigungen und Veranstaltungen wurden ausgeführt.</pre>
@@ -4004,7 +4058,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Der Benutzer wird beim Erstellen der Beschäftigung darüber informiert, dass das Budget für die Veranstaltung überschritten wurde. Die Beschäftigung wird dennoch in der Datenbank angelegt.</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:49" outcome="Ok" postok="Y" preok="Y" starttime="21:47">
+<result actionok="Y" endtime="09:49" outcome="Ok" postok="Y" preok="Y" starttime="09:47">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="277" priority="C" title="Budgetüberschreitung eines Funds einer Finanzkategorie">
 <description>Es soll das Erscheinen einer Warnung bei der Budgetüberschreitung eines Funds einer Finanzkategorie getestet werden.</description>
 <pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Finanzkategorie wurden ausgeführt.</pre>
@@ -4017,7 +4071,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Der Benutzer wird darüber informiert, dass das Budget der Finanzkategorie durch das Erstellen der Beschäftigungen überschritten wurde. Die Beschäftigung wird dennoch in der Datenbank angelegt.</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:50" outcome="Ok" postok="Y" preok="Y" starttime="21:49">
+<result actionok="Y" endtime="09:50" outcome="Ok" postok="Y" preok="Y" starttime="09:49">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="275" priority="A" title="Überschreitung der Beschäftigungsgrenze einer Hilfskraft">
 <description>Es soll das Erscheinen einer Warnung bei einer Überschreitung der Beschäftigungsgrenze einer Hilfskraft getestet werden.</description>
 <pre>Die Testfälle zum Hinzufügen von Hilfskräften, Beschäftigungen und Veranstaltungen wurden ausgeführt.</pre>
@@ -4030,7 +4084,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Der Benutzer wird darüber informiert, dass die Beschäftigungsgrenze von 85h in den entsprechenden Monaten überschritten wurden. Die Beschäftigung wird dennoch angelegt.</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:53" outcome="Ok" postok="Y" preok="Y" starttime="21:50">
+<result actionok="Y" endtime="09:53" outcome="Ok" postok="Y" preok="Y" starttime="09:50">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="276" priority="C" title="Hilfskraft mehr als 6 Jahre angestellt">
 <description>Es soll das Erscheinen einer Warnung getestet werden, wenn die Hilfskraft mehr als 6 Jahre angestellt ist.</description>
 <pre>Die Testfälle zum Hinzufügen von Hilfskräften, Beschäftigungen und Veranstaltungen wurden ausgeführt. Die Hilfskraft "Peter Planlos" ist bereits 5 1/2 Jahre angestellt.</pre>
@@ -4057,7 +4111,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="22:02" outcome="Ok" postok="Y" preok="Y" starttime="22:01">
+<result actionok="Y" endtime="10:02" outcome="Ok" postok="Y" preok="Y" starttime="10:01">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="88" priority="C" title="Programmstart mit offenen Tabs">
 <description>Das Programm wird gestartet, wobei beim letzten Programmstart Tabs offen gelassen wurden.</description>
 <pre>Die Einstellung "Reiter bei Verlassen speichern" ist aktiviert.</pre>
@@ -4082,7 +4136,7 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <post>Die Tabs "Veranstaltungen - Hinzufügen" und "Vorgänge" sind nach dem Programmstart erneut offen. Die Eingabe im Veranstaltungen-Hinzufügen-Formular ging jedoch dabei verloren.</post>
 <comment>Der Toolbar-Button "Hinzufügen" öffnet das Formular im selben Tab.</comment>
 </result>
-<result actionok="Y" endtime="22:04" outcome="Ok" postok="Y" preok="Y" starttime="22:02">
+<result actionok="Y" endtime="10:04" outcome="Ok" postok="Y" preok="Y" starttime="10:02">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="90" priority="C" title="Änderung der Fenstergröße">
 <description>Es soll das Verhalten bei einer Veränderung der Fenstergröße getestet werden.</description>
 <pre/>
@@ -4101,7 +4155,7 @@ Sollte sich die Fenstergröße in der Höhe verändern, ändert sich die Größe
 Sollte sich die Fenstergröße in der Höhe verändern, ändert sich die Größe beider Elemente gleichmäßig.</post>
 <comment>Ab einer gewissen Größe konnte das Fenster nicht mehr verkleinert werden, so dass stets der Inhalt noch gut zu lesen war.</comment>
 </result>
-<result actionok="Y" endtime="22:08" outcome="Ok" postok="Y" preok="Y" starttime="22:04">
+<result actionok="Y" endtime="10:08" outcome="Ok" postok="Y" preok="Y" starttime="10:04">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="91" priority="C" title="Auswahl eines Elements in der Navigationsleiste">
 <description>Es wird die Auswahl eines Menüeintrags in der Navigationsleiste getestet. Es gibt Unterschiede zwischen einem linken und einen mittleren Mausklick.</description>
 <pre/>
@@ -4118,7 +4172,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post>Das Tab Berichte hat sich im selben Tab geöffnet. Das Tab "Controlling - Hilfskräfte" hat sich im neuen Tab geöffnet und ist in den Vordergrund gekommen (wurde also sichtbar).</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:09" outcome="Ok" postok="Y" preok="Y" starttime="22:08">
+<result actionok="Y" endtime="10:09" outcome="Ok" postok="Y" preok="Y" starttime="10:08">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="263" priority="C" title="Willkommensreiter anzeigen">
 <description>Der Willkommensreiter soll beim Programmstart angezeigt werden. Die Einstellung "Merke meine Reiter" ist nicht gesetzt.</description>
 <pre>Die Einstellung "Merke meine Reiter" ist nicht gesetzt.</pre>
@@ -4131,7 +4185,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post>In einem einzigen Reiter ist das Willkommen-Tab geöffnet. Der Willkommensreiter enthält Informationen über die letzten Ereignisse (z.b. Berichte oder Vorgänge), Hinweise und Statistiken.</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:10" outcome="Ok" postok="Y" preok="Y" starttime="22:09">
+<result actionok="Y" endtime="10:10" outcome="Ok" postok="Y" preok="Y" starttime="10:09">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="304" priority="C" title="Willkommensreiter nicht anzeigen">
 <description>Der Willkommensreiter soll beim Programmstart angezeigt werden. Die Einstellung "Merke meine Reiter" ist gesetzt.</description>
 <pre>Die Einstellung "Merke meine Reiter" ist gesetzt.</pre>
@@ -4146,7 +4200,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post>Der Willkommensreiter wird nicht geöffnet. Es werden ausschließlich die 3 geöffneten Reiter vor dem Programmneustart angezeigt.</post>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:15" outcome="Ok" postok="Y" preok="Y" starttime="22:10">
+<result actionok="Y" endtime="10:15" outcome="Ok" postok="Y" preok="Y" starttime="10:10">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="119" priority="C" title="Export-Schnittstelle für Vorgänge">
 <description>Der Export von Vorgängen (z.B. zur möglichen Benutzung im Ticket-System) muss getestet werden.</description>
 <pre>Testfälle zum Hinzufügen von Vorgängen wurden ausgeführt.</pre>
@@ -4163,7 +4217,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post>Die Vorgänge der letzten 5 Tage werden in der Tabelle angezeigt. Die angezeigten Vorgänge werden im PDF-Format exportiert.</post>
 <comment>In einer späteren SUT sollte hier ein für das Ticket-System verständliches Format benutzt werden.</comment>
 </result>
-<result actionok="Y" endtime="22:15" outcome="Ok" postok="Y" preok="Y" starttime="22:15">
+<result actionok="Y" endtime="10:15" outcome="Ok" postok="Y" preok="Y" starttime="10:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="262" priority="C" title="Programm beenden">
 <description>Das Programm soll beendet werden.</description>
 <pre>Benutzer möchte das Programm beenden.</pre>
@@ -4212,7 +4266,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="22:12" outcome="Ok" postok="Y" preok="Y" starttime="22:11">
+<result actionok="Y" endtime="10:12" outcome="Ok" postok="Y" preok="Y" starttime="10:11">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="287" priority="A" title="Vertrag korrekt erstellen">
 <description>Es soll ein Vertrag erstellt werden. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. </pre>
@@ -4237,7 +4291,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:12" outcome="Ok" postok="Y" preok="Y" starttime="22:12">
+<result actionok="Y" endtime="10:12" outcome="Ok" postok="Y" preok="Y" starttime="10:12">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="288" priority="A" title="Vertrag korrekt erstellen">
 <description>Es soll ein Vertrag erstellt werden. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 39 wurden ausgeführt.</pre>
@@ -4262,7 +4316,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:13" outcome="Ok" postok="Y" preok="Y" starttime="22:12">
+<result actionok="Y" endtime="10:13" outcome="Ok" postok="Y" preok="Y" starttime="10:12">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="166" priority="A" title="Vertragsdaten inkorrekt erstellen">
 <description>Es wird ein neuer Vertrag erstellt. Die darin befindlichen Daten sind jedoch in einer inkorrekten Reihenfolge.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -4287,7 +4341,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:14" outcome="Ok" postok="Y" preok="Y" starttime="22:13">
+<result actionok="Y" endtime="10:14" outcome="Ok" postok="Y" preok="Y" starttime="10:13">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="286" priority="A" title="Vertragsdaten inkorrekt erstellen">
 <description>Es wird ein neuer Vertrag erstellt. Die darin befindlichen Daten sind jedoch in einer inkorrekten Reihenfolge.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -4312,7 +4366,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:15" outcome="Ok" postok="Y" preok="Y" starttime="22:14">
+<result actionok="Y" endtime="10:15" outcome="Ok" postok="Y" preok="Y" starttime="10:14">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="289" priority="A" title="Abbruch: Vertrag erstellen">
 <description>Es soll ein Vertrag erstellt werden. Die Erstellung wird jedoch abgebrochen.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -4344,7 +4398,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="22:17" outcome="Ok" postok="Y" preok="Y" starttime="22:15">
+<result actionok="Y" endtime="10:17" outcome="Ok" postok="Y" preok="Y" starttime="10:15">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="172" priority="B" title="Vertrag korrekt bearbeiten">
 <description>Die Vertragsdaten sollen editiert werden. Alle Eingaben sind dabei korrekt.</description>
 <pre>Der Testfall 287 wurde bereits ausgeführt.</pre>
@@ -4363,7 +4417,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:17" outcome="Ok" postok="Y" preok="Y" starttime="22:17">
+<result actionok="Y" endtime="10:17" outcome="Ok" postok="Y" preok="Y" starttime="10:17">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="174" priority="B" title="Vertrag inkorrekt bearbeiten">
 <description>Die Vertragsdaten sollen editiert werden. Es wurden falsche Eingaben gemacht.</description>
 <pre>Der Testfall 287 wurde bereits ausgeführt.</pre>
@@ -4384,7 +4438,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:17" outcome="Ok" postok="Y" preok="Y" starttime="22:17">
+<result actionok="Y" endtime="10:17" outcome="Ok" postok="Y" preok="Y" starttime="10:17">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="173" priority="B" title="Abbruch: Vertrag bearbeiten">
 <description>Die Vertragsdaten sollen editiert werden. Dieser Vorgang wird jedoch abgebrochen.</description>
 <pre>Der Testfall 287 wurde bereits ausgeführt.</pre>
@@ -4410,7 +4464,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="22:18" outcome="Ok" postok="Y" preok="Y" starttime="22:17">
+<result actionok="Y" endtime="10:18" outcome="Ok" postok="Y" preok="Y" starttime="10:17">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="299" priority="C" title="Vertrag suchen">
 <description/>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -4425,7 +4479,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:19" outcome="Ok" postok="Y" preok="Y" starttime="22:18">
+<result actionok="Y" endtime="10:19" outcome="Ok" postok="Y" preok="Y" starttime="10:18">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="298" priority="C" title="Suchfilter entfernen">
 <description>Der angewandte Suchfilter soll entfernt werden.</description>
 <pre>Der Testfall 299 wurde ausgeführt.</pre>
@@ -4445,7 +4499,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:19">
+<result actionok="Y" endtime="10:20" outcome="Ok" postok="Y" preok="Y" starttime="10:19">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="295" priority="C" title="Vertrag anzeigen und schließen">
 <description>Ein Vertrag soll angezeigt werden und die Anzeige direkt danach wieder geschlossen werden.</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -4464,7 +4518,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:20">
+<result actionok="Y" endtime="10:20" outcome="Ok" postok="Y" preok="Y" starttime="10:20">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="296" priority="C" title="Vertrag anzeigen und bearbeiten">
 <description>Ein Vertrag soll angezeigt werden und daraufhin bearbeitet werden.</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -4483,7 +4537,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:20">
+<result actionok="Y" endtime="10:20" outcome="Ok" postok="Y" preok="Y" starttime="10:20">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="297" priority="C" title="Vertrag anzeigen ohne Auswahl">
 <description>Ein Vertrag soll angezeigt werden, es ist jedoch keiner ausgewählt.</description>
 <pre/>
@@ -4503,7 +4557,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:20">
+<result actionok="Y" endtime="10:20" outcome="Ok" postok="Y" preok="Y" starttime="10:20">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="291" priority="C" title="Vertrag löschen ohne Referenz">
 <description>Es soll ein Vertrag gelöscht werden, was korrekt funktioniert. </description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -4522,7 +4576,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:21" outcome="Ok" postok="Y" preok="Y" starttime="22:21">
+<result actionok="Y" endtime="10:21" outcome="Ok" postok="Y" preok="Y" starttime="10:21">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="292" priority="C" title="Vertrag löschen mit Referenz">
 <description>Es soll ein Vertrag gelöscht werden, der noch von einer Beschäftigung referenziert wird.</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -4541,7 +4595,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:21" outcome="Ok" postok="Y" preok="Y" starttime="22:21">
+<result actionok="Y" endtime="10:21" outcome="Ok" postok="Y" preok="Y" starttime="10:21">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="293" priority="C" title="Vertrag löschen mit Taste Entf">
 <description>Es soll ein Vertrag durch Drücken der Taste Entf gelöscht werden.</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -4560,7 +4614,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="22:21" outcome="Ok" postok="Y" preok="Y" starttime="22:21">
+<result actionok="Y" endtime="10:21" outcome="Ok" postok="Y" preok="Y" starttime="10:21">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="294" priority="C" title="Abbruch: Vertrag löschen">
 <description>Es soll ein Vertrag gelöscht werden. Dies wird jedoch abgebrochen</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -4603,7 +4657,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="21:06" outcome="Ok" postok="Y" preok="Y" starttime="21:05">
+<result actionok="Y" endtime="09:06" outcome="Ok" postok="Y" preok="Y" starttime="09:05">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:10" number="159" priority="A" title="Beschäftigung korrekt buchen">
 <description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt. Dabei wird ein neuer Vertrag zur Beschäftigung angelegt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 28, 44, 287 wurden ausgeführt.</pre>
@@ -4636,7 +4690,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:07" outcome="Ok" postok="Y" preok="Y" starttime="21:06">
+<result actionok="Y" endtime="09:07" outcome="Ok" postok="Y" preok="Y" starttime="09:06">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:10" number="168" priority="A" title="Beschäftigung korrekt buchen">
 <description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt. Dabei wird ein neuer Vertrag zur Beschäftigung angelegt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 39, 45 und 287 wurden ausgeführt.</pre>
@@ -4671,7 +4725,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:07" outcome="Ok" postok="Y" preok="Y" starttime="21:07">
+<result actionok="Y" endtime="09:07" outcome="Ok" postok="Y" preok="Y" starttime="09:07">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:10" number="177" priority="A" title="Beschäftigung korrekt buchen">
 <description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt. Dabei wird ein neuer Vertrag zur Beschäftigung angelegt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 38, 45 und 287 wurden ausgeführt.</pre>
@@ -4706,7 +4760,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:09" outcome="Ok" postok="Y" preok="Y" starttime="21:07">
+<result actionok="Y" endtime="09:09" outcome="Ok" postok="Y" preok="Y" starttime="09:07">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="164" priority="A" title="Beschäftigung korrekt buchen mit HKS-Übschreitung">
 <description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt. Die Buchung ist dennoch nicht möglich (gebuchte HKS &gt; genehmigte HKS).</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44, 28 und 168 wurden ausgeführt.</pre>
@@ -4739,7 +4793,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:10" outcome="Failure" postok="Y" preok="Y" starttime="21:09">
+<result actionok="Y" endtime="09:10" outcome="Failure" postok="Y" preok="Y" starttime="09:09">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="161" priority="A" title="Beschäftigung inkorrekt buchen">
 <description>Es soll eine Beschäftigung gebucht werden. Es wurden falsche Eingaben gemacht.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 38, 45 und 287 wurden ausgeführt.</pre>
@@ -4775,7 +4829,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment>Resultat war nicht korrekt: Es wird zudem angezeigt, dass Jahr ein ungültiges Jahr ist und Monat ein ungültiger Monat ist.</comment>
 </result>
-<result actionok="Y" endtime="21:11" outcome="Ok" postok="Y" preok="Y" starttime="21:11">
+<result actionok="Y" endtime="09:11" outcome="Ok" postok="Y" preok="Y" starttime="09:11">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="163" priority="A" title="Abbruch: Beschäftigung buchen">
 <description>Es soll eine Beschäftigung gebucht werden. Die Buchung wird jedoch abgebrochen.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44, 168 und 28 wurden ausgeführt.</pre>
@@ -4807,7 +4861,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer möchte eine Beschäftigung bearbeiten.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="21:12" outcome="Ok" postok="Y" preok="Y" starttime="21:11">
+<result actionok="Y" endtime="09:12" outcome="Ok" postok="Y" preok="Y" starttime="09:11">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="167" priority="B" title="Beschäftigung korrekt bearbeiten">
 <description>Eine angelegte Beschäftigung soll editiert werden. Alle Eingaben sind dabei korrekt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 168 wurde bereits ausgeführt.</pre>
@@ -4826,7 +4880,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:13" outcome="Ok" postok="Y" preok="Y" starttime="21:12">
+<result actionok="Y" endtime="09:13" outcome="Ok" postok="Y" preok="Y" starttime="09:12">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="171" priority="B" title="Beschäftigung inkorrekt bearbeiten">
 <description>Eine angelegte Beschäftigung soll editiert werden. Es wurden falsche Eingaben gemacht.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 159 wurde bereits ausgeführt.</pre>
@@ -4845,7 +4899,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:13" outcome="Ok" postok="Y" preok="Y" starttime="21:13">
+<result actionok="Y" endtime="09:13" outcome="Ok" postok="Y" preok="Y" starttime="09:13">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="170" priority="B" title="Abbruch: Beschäftigung bearbeiten">
 <description>Eine angelegte Beschäftigung soll editiert werden. Alle Eingaben sind dabei korrekt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 168 wurde bereits ausgeführt.</pre>
@@ -4871,7 +4925,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer möchte eine Beschäftigung anzeigen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="21:13" outcome="Comment" postok="Y" preok="Y" starttime="21:13">
+<result actionok="Y" endtime="09:13" outcome="Comment" postok="Y" preok="Y" starttime="09:13">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="181" priority="C" title="Beschäftigung anzeigen und schließen">
 <description>Es soll eine Beschäftigung angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
 <pre>Der Testfall 159 wurde ausgeführt.</pre>
@@ -4890,7 +4944,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment>Button heisst "Abbrechen" statt "Schließen"</comment>
 </result>
-<result actionok="Y" endtime="21:14" outcome="Ok" postok="Y" preok="Y" starttime="21:13">
+<result actionok="Y" endtime="09:14" outcome="Ok" postok="Y" preok="Y" starttime="09:13">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="182" priority="C" title="Beschäftigung anzeigen und bearbeiten">
 <description>Es soll eine Beschäftigung angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
 <pre>Der Testfall 177 wurde ausgeführt.</pre>
@@ -4917,7 +4971,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:14" outcome="Ok" postok="Y" preok="Y" starttime="21:14">
+<result actionok="Y" endtime="09:14" outcome="Ok" postok="Y" preok="Y" starttime="09:14">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="184" priority="C" title="Beschäftigung anzeigen ohne Auswahl">
 <description>Es soll eine Beschäftigung angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
 <pre/>
@@ -4937,7 +4991,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer möchte eine Beschäftigung suchen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="21:14" outcome="Ok" postok="Y" preok="Y" starttime="21:14">
+<result actionok="Y" endtime="09:14" outcome="Ok" postok="Y" preok="Y" starttime="09:14">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="185" priority="C" title="Beschäftigung suchen nach Veranstaltung">
 <description>Es soll eine Beschäftigung gesucht werden. Es wird nach dem Veranstaltungsnamen gesucht.</description>
 <pre>Der Testfall 28 wurde ausgeführt.</pre>
@@ -4952,7 +5006,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:15" outcome="Ok" postok="Y" preok="Y" starttime="21:14">
+<result actionok="Y" endtime="09:15" outcome="Ok" postok="Y" preok="Y" starttime="09:14">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="186" priority="C" title="Beschäftigung suchen nach Art des Vertrags">
 <description>Es soll eine Beschäftigung gesucht werden. Es wird nach der Vertragsart der Beschäftigung gesucht.</description>
 <pre>Der Testfall 28 wurde ausgeführt.</pre>
@@ -4967,7 +5021,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:16" outcome="Ok" postok="Y" preok="Y" starttime="21:15">
+<result actionok="Y" endtime="09:16" outcome="Ok" postok="Y" preok="Y" starttime="09:15">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="187" priority="C" title="Beschäftigung unvollständig suchen">
 <description>Es soll eine Beschäftigung gesucht werden. Das Beschäftigungsdatum des Vertrags wird nur teilweise eingeben.</description>
 <pre>Der Testfall 168 und 177 wurden ausgeführt.</pre>
@@ -4982,7 +5036,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:16" outcome="Ok" postok="Y" preok="Y" starttime="21:16">
+<result actionok="Y" endtime="09:16" outcome="Ok" postok="Y" preok="Y" starttime="09:16">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="188" priority="C" title="Suchfilter entfernen">
 <description>Der angewandte Suchfilter soll entfernt werden.</description>
 <pre>Der Testfall 187 wurde ausgeführt.</pre>
@@ -5002,7 +5056,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer möchte eine Beschäftigung löschen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="21:17" outcome="Comment" postok="Y" preok="Y" starttime="21:16">
+<result actionok="Y" endtime="09:17" outcome="Comment" postok="Y" preok="Y" starttime="09:16">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="178" priority="C" title="Abbruch: Beschäftigung entfernen">
 <description>Es soll eine Beschäftigung gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
 <pre>Der Testfall 159 wurde ausgeführt.</pre>
@@ -5021,7 +5075,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment>Button heisst "Nein"</comment>
 </result>
-<result actionok="Y" endtime="21:17" outcome="Comment" postok="Y" preok="Y" starttime="21:17">
+<result actionok="Y" endtime="09:17" outcome="Comment" postok="Y" preok="Y" starttime="09:17">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="176" priority="C" title="Beschäftigung entfernen">
 <description>Es soll eine Beschäftigung gelöscht werden, was korrekt funktioniert. Der Vertrag bleibt jedoch im System erhalten.</description>
 <pre>Der Testfall 168 und 177 wurde ausgeführt.</pre>
@@ -5040,7 +5094,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment>Button heisst "Ja"</comment>
 </result>
-<result actionok="Y" endtime="21:17" outcome="Ok" postok="Y" preok="Y" starttime="21:17">
+<result actionok="Y" endtime="09:17" outcome="Ok" postok="Y" preok="Y" starttime="09:17">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="180" priority="C" title="Beschäftigung entfernen mit Taste Entf">
 <description>Es soll eine Beschäftigung gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet. Der Vertrag wird dabei ebenfalls gelöscht.</description>
 <pre>Der Testfall 159 wurde ausgeführt.</pre>
@@ -5059,7 +5113,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="21:17" outcome="Ok" postok="Y" preok="Y" starttime="21:17">
+<result actionok="Y" endtime="09:17" outcome="Ok" postok="Y" preok="Y" starttime="09:17">
 <testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="179" priority="C" title="Beschäftigung entfernen ohne Auswahl">
 <description>Es soll eine Beschäftigung gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
 <pre/>
@@ -5111,7 +5165,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="23:49" outcome="Ok" postok="Y" preok="Y" starttime="23:48">
+<result actionok="Y" endtime="11:49" outcome="Ok" postok="Y" preok="Y" starttime="11:48">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:10" number="28" priority="B" title="Veranstaltung korrekt hinzufügen">
 <description>Es wird eine Veranstaltung zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Finanzkategorie "Lehre 0809" wurde korrekt erstellt.</pre>
@@ -5146,7 +5200,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:51" outcome="Ok" postok="Y" preok="Y" starttime="23:49">
+<result actionok="Y" endtime="11:51" outcome="Ok" postok="Y" preok="Y" starttime="11:49">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:10" number="38" priority="B" title="Veranstaltung korrekt hinzufügen">
 <description>Es wird eine Veranstaltung zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Finanzkategorie "Lehre SS10" wurde korrekt hinzugefügt.</pre>
@@ -5181,7 +5235,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:53" outcome="Comment" postok="Y" preok="Y" starttime="23:51">
+<result actionok="Y" endtime="11:53" outcome="Comment" postok="Y" preok="Y" starttime="11:51">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:10" number="39" priority="B" title="Veranstaltung korrekt hinzufügen">
 <description>Es wird eine Veranstaltung zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Finanzkategorie "Forschung" wurde korrekt hinzugefügt.</pre>
@@ -5216,7 +5270,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment>Couldn't leave the fields "Part" and "Target Audience" empty.</comment>
 </result>
-<result actionok="Y" endtime="23:54" outcome="Ok" postok="Y" preok="Y" starttime="23:54">
+<result actionok="Y" endtime="11:54" outcome="Ok" postok="Y" preok="Y" starttime="11:54">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="30" priority="C" title="Veranstaltung unvollständig hinzufügen">
 <description>Es soll eine Veranstaltung hinzugefügt werden. Dabei werden Felder leer gelassen.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -5231,7 +5285,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:55" outcome="Ok" postok="Y" preok="Y" starttime="23:54">
+<result actionok="Y" endtime="11:55" outcome="Ok" postok="Y" preok="Y" starttime="11:54">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="29" priority="B" title="Veranstaltung inkorrekt hinzufügen">
 <description>Es wird eine Veranstaltung zum System hinzugefügt. Dabei werden falsche Eingaben gemacht.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -5246,7 +5300,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:55" outcome="Ok" postok="Y" preok="Y" starttime="23:55">
+<result actionok="Y" endtime="11:55" outcome="Ok" postok="Y" preok="Y" starttime="11:55">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="33" priority="B" title="Veranstaltung inkorrekt hinzufügen">
 <description>Es soll eine Veranstaltung hinzugefügt werden. Es werden Felder falsch eingegeben.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -5265,7 +5319,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:56" outcome="Ok" postok="Y" preok="Y" starttime="23:55">
+<result actionok="Y" endtime="11:56" outcome="Ok" postok="Y" preok="Y" starttime="11:55">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="31" priority="D" title="Abbruch: Veranstaltung hinzufügen">
 <description>Es soll eine Veranstaltung hinzugefügt werden. Dieser Vorgang wird abgebrochen</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -5291,7 +5345,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer möchte eine Veranstaltung bearbeiten.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="23:57" outcome="Ok" postok="Y" preok="Y" starttime="23:56">
+<result actionok="Y" endtime="11:57" outcome="Ok" postok="Y" preok="Y" starttime="11:56">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="34" priority="C" title="Veranstaltung korrekt bearbeiten">
 <description>Es soll eine Veranstaltung bearbeitet werden. Alle Eingaben sind korrekt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde bereits ausgeführt.</pre>
@@ -5312,7 +5366,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:57" outcome="Ok" postok="Y" preok="Y" starttime="23:57">
+<result actionok="Y" endtime="11:57" outcome="Ok" postok="Y" preok="Y" starttime="11:57">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="35" priority="C" title="Veranstaltung unvollständig bearbeiten">
 <description>Es soll eine Veranstaltung bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde bereits ausgeführt.</pre>
@@ -5333,7 +5387,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:58" outcome="Ok" postok="Y" preok="Y" starttime="23:57">
+<result actionok="Y" endtime="11:58" outcome="Ok" postok="Y" preok="Y" starttime="11:57">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="36" priority="C" title="Veranstaltung inkorrekt bearbeiten">
 <description>Es soll eine Veranstaltung bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 39 wurde bereits ausgeführt.</pre>
@@ -5353,7 +5407,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:58" outcome="Ok" postok="Y" preok="Y" starttime="23:58">
+<result actionok="Y" endtime="11:58" outcome="Ok" postok="Y" preok="Y" starttime="11:58">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="37" priority="C" title="Abbruch: Veranstaltung bearbeiten">
 <description>Es soll eine Veranstaltung bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 38 wurde bereits ausgeführt.</pre>
@@ -5379,7 +5433,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer möchte eine Veranstaltung anzeigen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="23:59" outcome="Ok" postok="Y" preok="Y" starttime="23:58">
+<result actionok="Y" endtime="11:59" outcome="Ok" postok="Y" preok="Y" starttime="11:58">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="121" priority="C" title="Veranstaltung anzeigen und schließen">
 <description>Es soll eine Veranstaltung angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
 <pre>Der Testfall 28 wurde ausgeführt.</pre>
@@ -5398,7 +5452,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:59" outcome="Ok" postok="Y" preok="Y" starttime="23:59">
+<result actionok="Y" endtime="11:59" outcome="Ok" postok="Y" preok="Y" starttime="11:59">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="125" priority="C" title="Veranstaltung anzeigen und bearbeiten">
 <description>Es soll eine Veranstaltung angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
 <pre>Der Testfall 39 wurde ausgeführt.</pre>
@@ -5423,7 +5477,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="00:02" outcome="Ok" postok="Y" preok="Y" starttime="23:59">
+<result actionok="Y" endtime="00:02" outcome="Ok" postok="Y" preok="Y" starttime="11:59">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="127" priority="C" title="Veranstaltung anzeigen und Vorgang anzeigen">
 <description>Es soll eine Veranstaltung angezeigt werden. Anschließend soll ein Vorgang zur Veranstaltung angezeigt werden.</description>
 <pre>Der Testfall 28 wurde ausgeführt. Der benütigte Vorgang wurde korrekt erstellt.</pre>
@@ -5712,7 +5766,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="23:21" outcome="Ok" postok="Y" preok="Y" starttime="23:21">
+<result actionok="Y" endtime="11:21" outcome="Ok" postok="Y" preok="Y" starttime="11:21">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="44" priority="B" title="Hilfskraft korrekt hinzufügen">
 <description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -5733,7 +5787,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:22" outcome="Ok" postok="Y" preok="Y" starttime="23:21">
+<result actionok="Y" endtime="11:22" outcome="Ok" postok="Y" preok="Y" starttime="11:21">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="45" priority="B" title="Hilfskraft korrekt hinzufügen">
 <description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -5754,7 +5808,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:22" outcome="Ok" postok="Y" preok="Y" starttime="23:22">
+<result actionok="Y" endtime="11:22" outcome="Ok" postok="Y" preok="Y" starttime="11:22">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="46" priority="B" title="Hilfskraft korrekt hinzufügen">
 <description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -5775,7 +5829,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:22" outcome="Ok" postok="Y" preok="Y" starttime="23:22">
+<result actionok="Y" endtime="11:22" outcome="Ok" postok="Y" preok="Y" starttime="11:22">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="47" priority="B" title="Hilfskraft unvollständig hinzufügen">
 <description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Es sind Eingaben unvollständig.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -5796,7 +5850,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:23" outcome="Ok" postok="Y" preok="Y" starttime="23:22">
+<result actionok="Y" endtime="11:23" outcome="Ok" postok="Y" preok="Y" starttime="11:22">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="49" priority="B" title="Hilfskraft inkorrekt hinzufügen">
 <description>Es soll eine Hilfskraft hinzugefügt werden. Es werden Felder falsch eingegeben.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -5815,7 +5869,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:23" outcome="Ok" postok="Y" preok="Y" starttime="23:23">
+<result actionok="Y" endtime="11:23" outcome="Ok" postok="Y" preok="Y" starttime="11:23">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="51" priority="D" title="Abbruch: Hilfskraft hinzufügen">
 <description>Es soll eine Veranstaltung hinzugefügt werden. Dieser Vorgang wird abgebrochen</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -5837,7 +5891,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer möchte eine Hilfskraft bearbeiten.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="23:23" outcome="Ok" postok="Y" preok="Y" starttime="23:23">
+<result actionok="Y" endtime="11:23" outcome="Ok" postok="Y" preok="Y" starttime="11:23">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="52" priority="C" title="Hilfskraft korrekt bearbeiten">
 <description>Es soll eine Hilfskraft bearbeitet werden. Alle Eingaben sind korrekt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde bereits ausgeführt.</pre>
@@ -5858,7 +5912,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:24" outcome="Ok" postok="Y" preok="Y" starttime="23:23">
+<result actionok="Y" endtime="11:24" outcome="Ok" postok="Y" preok="Y" starttime="11:23">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="53" priority="C" title="Hilfskraft unvollständig bearbeiten">
 <description>Es soll eine Hilfskraft bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 44 wurde bereits ausgeführt.</pre>
@@ -5877,7 +5931,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:24" outcome="Ok" postok="Y" preok="Y" starttime="23:24">
+<result actionok="Y" endtime="11:24" outcome="Ok" postok="Y" preok="Y" starttime="11:24">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="54" priority="C" title="Hilfskraft inkorrekt bearbeiten">
 <description>Es soll eine Hilfskraft bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 46 wurde bereits ausgeführt.</pre>
@@ -5897,7 +5951,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:24" outcome="Ok" postok="Y" preok="Y" starttime="23:24">
+<result actionok="Y" endtime="11:24" outcome="Ok" postok="Y" preok="Y" starttime="11:24">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="55" priority="C" title="Abbruch: Hilfskraft bearbeiten">
 <description>Es soll eine Hilfskraft bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde bereits ausgeführt.</pre>
@@ -5923,7 +5977,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer möchte eine Hilfskraft anzeigen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="23:24" outcome="Ok" postok="Y" preok="Y" starttime="23:24">
+<result actionok="Y" endtime="11:24" outcome="Ok" postok="Y" preok="Y" starttime="11:24">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="137" priority="C" title="Hilfskraft anzeigen und schließen">
 <description>Es soll eine Hilfskraft angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
 <pre>Der Testfall 46 wurde ausgeführt.</pre>
@@ -5942,7 +5996,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:25" outcome="Ok" postok="Y" preok="Y" starttime="23:24">
+<result actionok="Y" endtime="11:25" outcome="Ok" postok="Y" preok="Y" starttime="11:24">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="138" priority="C" title="Hilfskraft anzeigen und bearbeiten">
 <description>Es soll eine Hilfskraft angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
 <pre>Der Testfall 45 wurde ausgeführt.</pre>
@@ -5967,7 +6021,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:26" outcome="Ok" postok="Y" preok="Y" starttime="23:25">
+<result actionok="Y" endtime="11:26" outcome="Ok" postok="Y" preok="Y" starttime="11:25">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="139" priority="C" title="Hilfskraft anzeigen und Vorgang anzeigen">
 <description>Es soll eine Hilfskraft angezeigt werden. Anschließend soll ein Vorgang zur Hilfskraft angezeigt werden.</description>
 <pre>Der Testfall 44 wurde ausgeführt. Es wurde der benötigte Vorgan zu dieser Hilfskraft korrekt hinzugefügt.</pre>
@@ -5992,7 +6046,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:26" outcome="Ok" postok="Y" preok="Y" starttime="23:26">
+<result actionok="Y" endtime="11:26" outcome="Ok" postok="Y" preok="Y" starttime="11:26">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="140" priority="C" title="Hilfskraft anzeigen ohne Auswahl">
 <description>Es soll eine Hilfskraft angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
 <pre/>
@@ -6012,7 +6066,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer möchte eine Hilfskraft suchen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="23:27" outcome="Ok" postok="Y" preok="Y" starttime="23:26">
+<result actionok="Y" endtime="11:27" outcome="Ok" postok="Y" preok="Y" starttime="11:26">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="141" priority="C" title="Hilfskraft suchen nach Nachname">
 <description>Es soll eine Hilfskraft gesucht werden. Es wird nach dem Nachnamen gesucht.</description>
 <pre>Der Testfall 45 wurde ausgeführt.</pre>
@@ -6027,7 +6081,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:27" outcome="Ok" postok="Y" preok="Y" starttime="23:27">
+<result actionok="Y" endtime="11:27" outcome="Ok" postok="Y" preok="Y" starttime="11:27">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="142" priority="C" title="Suchfilter entfernen">
 <description>Der angewandte Suchfilter soll entfernt werden.</description>
 <pre>Der Testfall 141 wurde ausgeführt.</pre>
@@ -6047,7 +6101,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="23:27" outcome="Ok" postok="Y" preok="Y" starttime="23:27">
+<result actionok="Y" endtime="11:27" outcome="Ok" postok="Y" preok="Y" starttime="11:27">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="143" priority="C" title="Vorgänge anzeigen und schließen">
 <description>Es sollen Vorgänge zu einer Hilfskraft angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
 <pre>Der Testfälle 44 wurde ausgeführt. Es wurden die benötigten Vorgänge zu dieser Hilfskraft korrekt hinzugefügt.</pre>
@@ -6066,7 +6120,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:28" outcome="Ok" postok="Y" preok="Y" starttime="23:27">
+<result actionok="Y" endtime="11:28" outcome="Ok" postok="Y" preok="Y" starttime="11:27">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="144" priority="C" title="Vorgänge anzeigen und Detailansicht">
 <description>Es sollen Vorgänge zu einer Hilfskraft angezeigt werden. Ein einzelner Vorgang soll daraufhin angezeigt werden.</description>
 <pre>Der Testfälle 44, 189, 191 und 193 wurden ausgeführt.</pre>
@@ -6098,7 +6152,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer möchte eine Hilfskraft löschen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="23:28" outcome="Ok" postok="Y" preok="Y" starttime="23:28">
+<result actionok="Y" endtime="11:28" outcome="Ok" postok="Y" preok="Y" starttime="11:28">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="56" priority="C" title="Hilfskraft entfernen ohne Referenz">
 <description>Es soll eine Hilfskraft gelöscht werden, was korrekt funktioniert.</description>
 <pre>Der Testfall 45 wurde ausgeführt.</pre>
@@ -6117,7 +6171,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:28" outcome="Ok" postok="Y" preok="Y" starttime="23:28">
+<result actionok="Y" endtime="11:28" outcome="Ok" postok="Y" preok="Y" starttime="11:28">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="146" priority="C" title="Hilfskraft entfernen mit Taste Entf">
 <description>Es soll eine Hilfskraft gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
 <pre>Der Testfall 45 wurde ausgeführt.</pre>
@@ -6136,7 +6190,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:29" outcome="Ok" postok="Y" preok="Y" starttime="23:29">
+<result actionok="Y" endtime="11:29" outcome="Ok" postok="Y" preok="Y" starttime="11:29">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="57" priority="C" title="Hilfskraft entfernen mit Referenz">
 <description>Es soll eine Hilfskraft gelöscht werden. Das Datum wird noch referenziert.</description>
 <pre>Der Testfall 45 und 168 wurden ausgeführt.</pre>
@@ -6155,7 +6209,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:29" outcome="Ok" postok="Y" preok="Y" starttime="23:29">
+<result actionok="Y" endtime="11:29" outcome="Ok" postok="Y" preok="Y" starttime="11:29">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="58" priority="C" title="Abbruch: Hilfskraft entfernen">
 <description>Es soll eine Hilfskraft gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
 <pre>Der Testfall 44 wurde ausgeführt.</pre>
@@ -6174,7 +6228,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:30" outcome="Ok" postok="Y" preok="Y" starttime="23:29">
+<result actionok="Y" endtime="11:30" outcome="Ok" postok="Y" preok="Y" starttime="11:29">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="59" priority="C" title="Hilfskraft entfernen ohne Auswahl">
 <description>Es soll eine Hilfskraft gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
 <pre/>
@@ -6223,7 +6277,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="23:31" outcome="Ok" postok="Y" preok="Y" starttime="23:31">
+<result actionok="Y" endtime="11:31" outcome="Ok" postok="Y" preok="Y" starttime="11:31">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="60" priority="B" title="Finanzkategorie korrekt hinzufügen">
 <description>Es wird eine Finanzkategorie zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -6244,7 +6298,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:32" outcome="Ok" postok="Y" preok="Y" starttime="23:32">
+<result actionok="Y" endtime="11:32" outcome="Ok" postok="Y" preok="Y" starttime="11:32">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="61" priority="B" title="Finanzkategorie korrekt hinzufügen">
 <description>Es wird eine Finanzkategorie zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -6265,7 +6319,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:32" outcome="Ok" postok="Y" preok="Y" starttime="23:32">
+<result actionok="Y" endtime="11:32" outcome="Ok" postok="Y" preok="Y" starttime="11:32">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="62" priority="B" title="Finanzkategorie korrekt hinzufügen">
 <description>Es wird eine Finanzkategorie zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -6286,7 +6340,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:34" outcome="Ok" postok="Y" preok="Y" starttime="23:33">
+<result actionok="Y" endtime="11:34" outcome="Ok" postok="Y" preok="Y" starttime="11:33">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="63" priority="B" title="Finanzkategorie inkorrekt hinzufügen">
 <description>Es wird eine Finanzkategorie zum System hinzugefügt. Dabei werden falsche Eingaben gemacht.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -6303,7 +6357,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:34" outcome="Ok" postok="Y" preok="Y" starttime="23:34">
+<result actionok="Y" endtime="11:34" outcome="Ok" postok="Y" preok="Y" starttime="11:34">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:04" number="64" priority="B" title="Finanzkategorie inkorrekt hinzufügen">
 <description>Es wird eine Finanzkategorie zum System hinzugefügt. Dabei werden falsche Eingaben gemacht.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -6322,7 +6376,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:35" outcome="Ok" postok="Y" preok="Y" starttime="23:34">
+<result actionok="Y" endtime="11:35" outcome="Ok" postok="Y" preok="Y" starttime="11:34">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="65" priority="D" title="Abbruch: Finanzkategorie hinzufügen">
 <description>Es soll eine Finanzkategorie hinzugefügt werden. Dieser Vorgang wird abgebrochen.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -6346,7 +6400,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer möchte eine Finanzkategorie bearbeiten.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="23:36" outcome="Ok" postok="Y" preok="Y" starttime="23:35">
+<result actionok="Y" endtime="11:36" outcome="Ok" postok="Y" preok="Y" starttime="11:35">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="66" priority="C" title="Finanzkategorie korrekt bearbeiten">
 <description>Es soll eine Finanzkategorie bearbeitet werden. Alle Eingaben sind korrekt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 61 wurde bereits ausgeführt.</pre>
@@ -6367,7 +6421,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:37" outcome="Ok" postok="Y" preok="Y" starttime="23:36">
+<result actionok="Y" endtime="11:37" outcome="Ok" postok="Y" preok="Y" starttime="11:36">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="67" priority="C" title="Finanzkategorie unvollständig bearbeiten">
 <description>Es soll eine Finanzkategorie bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 61 wurde bereits ausgeführt.</pre>
@@ -6388,7 +6442,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:37" outcome="Ok" postok="Y" preok="Y" starttime="23:37">
+<result actionok="Y" endtime="11:37" outcome="Ok" postok="Y" preok="Y" starttime="11:37">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="68" priority="C" title="Finanzkategorie inkorrekt bearbeiten">
 <description>Es soll eine Finanzkategorie bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 60 wurde bereits ausgeführt.</pre>
@@ -6410,7 +6464,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:37" outcome="Ok" postok="Y" preok="Y" starttime="23:37">
+<result actionok="Y" endtime="11:37" outcome="Ok" postok="Y" preok="Y" starttime="11:37">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="69" priority="C" title="Abbruch: Finanzkategorie bearbeiten">
 <description>Es soll eine Finanzkategorie bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 62 wurde bereits ausgeführt.</pre>
@@ -6436,7 +6490,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer möchte eine Finanzkategorie anzeigen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="23:38" outcome="Ok" postok="Y" preok="Y" starttime="23:37">
+<result actionok="Y" endtime="11:38" outcome="Ok" postok="Y" preok="Y" starttime="11:37">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="149" priority="C" title="Finanzkategorie anzeigen und schließen">
 <description>Es soll eine Finanzkategorie angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
 <pre>Der Testfall 60 wurde ausgeführt.</pre>
@@ -6455,7 +6509,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:38" outcome="Ok" postok="Y" preok="Y" starttime="23:38">
+<result actionok="Y" endtime="11:38" outcome="Ok" postok="Y" preok="Y" starttime="11:38">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="150" priority="C" title="Finanzkategorie anzeigen und bearbeiten">
 <description>Es soll eine Finanzkategorie angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
 <pre>Der Testfall 62 wurde ausgeführt.</pre>
@@ -6480,7 +6534,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:38" outcome="Ok" postok="Y" preok="Y" starttime="23:38">
+<result actionok="Y" endtime="11:38" outcome="Ok" postok="Y" preok="Y" starttime="11:38">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="151" priority="C" title="Finanzkategorie anzeigen ohne Auswahl">
 <description>Es soll eine Finanzkategorie angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
 <pre/>
@@ -6500,7 +6554,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer möchte eine Finanzkategorie suchen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="23:39" outcome="Ok" postok="Y" preok="Y" starttime="23:39">
+<result actionok="Y" endtime="11:39" outcome="Ok" postok="Y" preok="Y" starttime="11:39">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="152" priority="C" title="Finanzkategorie suchen nach Budgetkosten">
 <description>Es soll eine Finanzkategorie gesucht werden. Es wird nach den Budgetkosten gesucht.</description>
 <pre>Der Testfall 61 wurde ausgeführt.</pre>
@@ -6515,7 +6569,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:39" outcome="Ok" postok="Y" preok="Y" starttime="23:39">
+<result actionok="Y" endtime="11:39" outcome="Ok" postok="Y" preok="Y" starttime="11:39">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="153" priority="C" title="Suchfilter entfernen">
 <description>Der angewandte Suchfilter soll entfernt werden.</description>
 <pre>Der Testfall 152 wurde ausgeführt.</pre>
@@ -6535,7 +6589,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer möchte eine Finanzkategorie löschen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="23:39" outcome="Ok" postok="Y" preok="Y" starttime="23:39">
+<result actionok="Y" endtime="11:39" outcome="Ok" postok="Y" preok="Y" starttime="11:39">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="70" priority="C" title="Finanzkategorie entfernen ohne Referenz">
 <description>Es soll eine Finanzkategorie gelöscht werden, was korrekt funktioniert.</description>
 <pre>Der Testfall 60 wurde ausgeführt.</pre>
@@ -6554,7 +6608,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:40" outcome="Ok" postok="Y" preok="Y" starttime="23:39">
+<result actionok="Y" endtime="11:40" outcome="Ok" postok="Y" preok="Y" starttime="11:39">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="147" priority="C" title="Finanzkategorie entfernen mit Taste Entf">
 <description>Es soll eine Finanzkategorie gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
 <pre>Der Testfall 60 wurde ausgeführt.</pre>
@@ -6573,7 +6627,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:41" outcome="Ok" postok="Y" preok="Y" starttime="23:40">
+<result actionok="Y" endtime="11:41" outcome="Ok" postok="Y" preok="Y" starttime="11:40">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="71" priority="C" title="Finanzkategorie entfernen mit Referenz">
 <description>Es soll eine Finanzkategorie gelöscht werden. Das Datum wird noch referenziert.</description>
 <pre>Der Testfall 61 und 28 wurde ausgeführt.</pre>
@@ -6592,7 +6646,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:41" outcome="Ok" postok="Y" preok="Y" starttime="23:41">
+<result actionok="Y" endtime="11:41" outcome="Ok" postok="Y" preok="Y" starttime="11:41">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="72" priority="C" title="Abbruch: Finanzkategorie entfernen">
 <description>Es soll eine Finanzkategorie gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
 <pre>Der Testfall 62 wurde ausgeführt.</pre>
@@ -6611,7 +6665,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:41" outcome="Ok" postok="Y" preok="Y" starttime="23:41">
+<result actionok="Y" endtime="11:41" outcome="Ok" postok="Y" preok="Y" starttime="11:41">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="73" priority="C" title="Finanzkategorie entfernen ohne Auswahl">
 <description>Es soll eine Finanzkategorie gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
 <pre/>
@@ -6660,7 +6714,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="23:14" outcome="Ok" postok="Y" preok="Y" starttime="23:14">
+<result actionok="Y" endtime="11:14" outcome="Ok" postok="Y" preok="Y" starttime="11:14">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:04" number="74" priority="B" title="Stundenlohn korrekt hinzufügen">
 <description>Es wird ein Stundenlohn zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -6681,7 +6735,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:15" outcome="Ok" postok="Y" preok="Y" starttime="23:14">
+<result actionok="Y" endtime="11:15" outcome="Ok" postok="Y" preok="Y" starttime="11:14">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:04" number="75" priority="B" title="Stundenlohn korrekt hinzufügen">
 <description>Es wird ein Stundenlohn zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -6702,7 +6756,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:15" outcome="Ok" postok="Y" preok="Y" starttime="23:15">
+<result actionok="Y" endtime="11:15" outcome="Ok" postok="Y" preok="Y" starttime="11:15">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:04" number="76" priority="B" title="Stundenlohn korrekt hinzufügen">
 <description>Es wird ein Stundenlohn zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -6723,7 +6777,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:15" outcome="Ok" postok="Y" preok="Y" starttime="23:15">
+<result actionok="Y" endtime="11:15" outcome="Ok" postok="Y" preok="Y" starttime="11:15">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="77" priority="B" title="Stundenlohn inkorrekt hinzufügen">
 <description>Es wird ein Stundenlohn zum System hinzugefügt. Dabei werden falsche Eingaben gemacht.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -6740,7 +6794,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:16" outcome="Ok" postok="Y" preok="Y" starttime="23:15">
+<result actionok="Y" endtime="11:16" outcome="Ok" postok="Y" preok="Y" starttime="11:15">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="78" priority="D" title="Abbruch: Stundenlohn hinzufügen">
 <description>Es soll ein Stundenlohn hinzugefügt werden. Dieser Vorgang wird abgebrochen.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -6766,7 +6820,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer möchte einen Stundenlohn bearbeiten.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="23:16" outcome="Ok" postok="Y" preok="Y" starttime="23:16">
+<result actionok="Y" endtime="11:16" outcome="Ok" postok="Y" preok="Y" starttime="11:16">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="79" priority="C" title="Stundenlohn korrekt bearbeiten">
 <description>Es soll ein Stundenlohn bearbeitet werden. Alle Eingaben sind korrekt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 74 wurde bereits ausgeführt.</pre>
@@ -6785,7 +6839,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:16" outcome="Ok" postok="Y" preok="Y" starttime="23:16">
+<result actionok="Y" endtime="11:16" outcome="Ok" postok="Y" preok="Y" starttime="11:16">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="80" priority="C" title="Stundenlohn unvollständig bearbeiten">
 <description>Es soll ein Stundenlohn bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 75 wurde bereits ausgeführt.</pre>
@@ -6806,7 +6860,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:16" outcome="Ok" postok="Y" preok="Y" starttime="23:16">
+<result actionok="Y" endtime="11:16" outcome="Ok" postok="Y" preok="Y" starttime="11:16">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="82" priority="C" title="Abbruch: Stundenlohn bearbeiten">
 <description>Es soll ein Stundenlohn bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
 <pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 76 wurde bereits ausgeführt.</pre>
@@ -6834,7 +6888,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer möchte eine Veranstaltung anzeigen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="23:16" outcome="Ok" postok="Y" preok="Y" starttime="23:16">
+<result actionok="Y" endtime="11:16" outcome="Ok" postok="Y" preok="Y" starttime="11:16">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="154" priority="C" title="Stundenlohn anzeigen und schließen">
 <description>Es soll ein Stundenlohn angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
 <pre>Der Testfall 75 wurde ausgeführt.</pre>
@@ -6853,7 +6907,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:17" outcome="Ok" postok="Y" preok="Y" starttime="23:17">
+<result actionok="Y" endtime="11:17" outcome="Ok" postok="Y" preok="Y" starttime="11:17">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="155" priority="C" title="Stundenlohn anzeigen und bearbeiten">
 <description>Es soll ein Stundenlohn angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
 <pre>Der Testfall 76 wurde ausgeführt.</pre>
@@ -6878,7 +6932,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:17" outcome="Ok" postok="Y" preok="Y" starttime="23:17">
+<result actionok="Y" endtime="11:17" outcome="Ok" postok="Y" preok="Y" starttime="11:17">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="156" priority="C" title="Stundenlohn anzeigen ohne Auswahl">
 <description>Es soll ein Stundenlohn angezeigt werden. Es wurde jedoch keiner ausgewählt.</description>
 <pre/>
@@ -6898,7 +6952,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer möchte einen Stundenlohn suchen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="23:17" outcome="Ok" postok="Y" preok="Y" starttime="23:17">
+<result actionok="Y" endtime="11:17" outcome="Ok" postok="Y" preok="Y" starttime="11:17">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="157" priority="C" title="Stundenlohn suchen nach Qualifikation">
 <description>Es soll ein Stundenlohn gesucht werden. Es wird nach der Qualifikation gesucht.</description>
 <pre>Der Testfall 74 wurde ausgeführt.</pre>
@@ -6913,7 +6967,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:17" outcome="Ok" postok="Y" preok="Y" starttime="23:17">
+<result actionok="Y" endtime="11:17" outcome="Ok" postok="Y" preok="Y" starttime="11:17">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="158" priority="C" title="Suchfilter entfernen">
 <description>Der angewandte Suchfilter soll entfernt werden.</description>
 <pre>Der Testfall 152 wurde ausgeführt.</pre>
@@ -6933,7 +6987,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <pre>Benutzer möchte einen Stundenlohn löschen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="23:18" outcome="Ok" postok="Y" preok="Y" starttime="23:17">
+<result actionok="Y" endtime="11:18" outcome="Ok" postok="Y" preok="Y" starttime="11:17">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="83" priority="C" title="Stundenlohn entfernen ohne Referenz">
 <description>Es soll ein Stundenlohn gelöscht werden, was korrekt funktioniert.</description>
 <pre>Der Testfall 75 wurde ausgeführt.</pre>
@@ -6952,7 +7006,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:18" outcome="Ok" postok="Y" preok="Y" starttime="23:18">
+<result actionok="Y" endtime="11:18" outcome="Ok" postok="Y" preok="Y" starttime="11:18">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="148" priority="C" title="Stundenlohn entfernen mit Taste Entf">
 <description>Es soll ein Stundenlohn gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
 <pre>Der Testfall 75 wurde ausgeführt.</pre>
@@ -6971,7 +7025,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:18" outcome="Ok" postok="Y" preok="Y" starttime="23:18">
+<result actionok="Y" endtime="11:18" outcome="Ok" postok="Y" preok="Y" starttime="11:18">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="85" priority="C" title="Abbruch: Stundenlohn entfernen">
 <description>Es soll ein Stundenlohn gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
 <pre>Der Testfall 76 wurde ausgeführt.</pre>
@@ -6990,7 +7044,7 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="23:18" outcome="Ok" postok="Y" preok="Y" starttime="23:18">
+<result actionok="Y" endtime="11:18" outcome="Ok" postok="Y" preok="Y" starttime="11:18">
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="86" priority="C" title="Stundenlohn entfernen ohne Auswahl">
 <description>Es soll ein Stundenlohn gelöscht werden. Es wurde jedoch keiner ausgewählt.</description>
 <pre/>
