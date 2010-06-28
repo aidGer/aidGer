@@ -13,6 +13,7 @@ import java.util.Enumeration;
 import java.util.List;
 
 import javax.swing.AbstractAction;
+import javax.swing.ImageIcon;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.JTable;
@@ -400,6 +401,18 @@ public class ViewerTab extends Tab {
             }
         });
 
+        clearSearch.setIcon(new ImageIcon(getClass().getResource(
+            "/de/aidger/view/icons/clear.png")));
+
+        clearSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchField.setText(_("Search"));
+                sorter.setRowFilter(null);
+                table.requestFocus();
+            }
+        });
+
         // selection listener for table
         table.getSelectionModel().addListSelectionListener(
             new ListSelectionListener() {
@@ -557,6 +570,7 @@ public class ViewerTab extends Tab {
         scrollPane = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         searchField = new javax.swing.JTextField();
+        clearSearch = new javax.swing.JLabel();
 
         itemView.setText(_("View"));
         popupMenu.add(itemView);
@@ -622,32 +636,29 @@ public class ViewerTab extends Tab {
 
         btnAssistant.setText(_("Assistant"));
         btnAssistant.setFocusable(false);
-        btnAssistant
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAssistant.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnAssistant.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(btnAssistant);
         toolBar.add(separator6);
 
         btnContract.setText(_("Contract"));
         btnContract.setFocusable(false);
-        btnContract
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnContract.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnContract.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(btnContract);
         toolBar.add(separator7);
 
         btnActivityReport.setText(_("Activity Report"));
         btnActivityReport.setFocusable(false);
-        btnActivityReport
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnActivityReport
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnActivityReport.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnActivityReport.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(btnActivityReport);
         toolBar.add(separator8);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(toolBar, gridBagConstraints);
@@ -657,6 +668,7 @@ public class ViewerTab extends Tab {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -671,6 +683,12 @@ public class ViewerTab extends Tab {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(8, 0, 5, 0);
         add(searchField, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(clearSearch, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -682,6 +700,7 @@ public class ViewerTab extends Tab {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnView;
+    private javax.swing.JLabel clearSearch;
     private javax.swing.JMenuItem itemActivityReport;
     private javax.swing.JMenuItem itemAssistant;
     private javax.swing.JMenuItem itemContract;
@@ -703,7 +722,6 @@ public class ViewerTab extends Tab {
     private javax.swing.JToolBar.Separator separator8;
     private javax.swing.JTable table;
     private javax.swing.JToolBar toolBar;
-
     // End of variables declaration//GEN-END:variables
 
     /**
