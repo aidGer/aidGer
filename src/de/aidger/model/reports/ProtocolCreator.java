@@ -4,6 +4,7 @@
 package de.aidger.model.reports;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
@@ -43,29 +44,48 @@ public class ProtocolCreator {
         } catch (AdoHiveException e) {
             UI.displayError(e.toString());
         }
-        Calendar currentDate = Calendar.getInstance();
+        Date checkDate;
+        Calendar calendar = Calendar.getInstance();
         // Display all activities if numberOfDays == -1.
         if (numberOfDays != -1) {
-            currentDate.add(Calendar.DATE, (-numberOfDays));
+            calendar.setTimeInMillis(calendar.getTimeInMillis() - 3600000 * 24
+                    * numberOfDays);
+            calendar.set(calendar.get(Calendar.YEAR), calendar
+                .get(Calendar.MONTH), calendar.get(Calendar.DATE), 0, 0, 0);
+            checkDate = calendar.getTime();
+            // Remove the milliseconds that it took to calculate the time.
+            checkDate.setTime(checkDate.getTime() - checkDate.getTime() % 1000);
         } else {
-            currentDate.setTimeInMillis(-3600000);
+            calendar = Calendar.getInstance();
+            calendar.set(1, 1, 1970, 0, 0, 0);
+            checkDate = calendar.getTime();
         }
         for (IActivity activity : activities) {
             /**
              * If the date of the activity is after, or equal to the
              * currentDate, it lies within the wanted time frame.
              */
-            if (currentDate.getTime().before(activity.getDate())
-                    || activity.getDate().equals(currentDate.getTime())) {
+            if (checkDate.compareTo(activity.getDate()) <= 0) {
                 try {
                     addedActivity = new Object[8];
-                    addedActivity[0] = (new Assistant().getById(activity
-                        .getAssistantId())).getFirstName()
-                            + " "
-                            + (new Assistant().getById(activity
-                                .getAssistantId())).getLastName();
-                    addedActivity[1] = (new Course().getById(activity
-                        .getCourseId())).getDescription();
+                    String assistantName = "";
+                    if (new Assistant().getById(activity.getAssistantId()) != null) {
+                        assistantName = (new Assistant().getById(activity
+                            .getAssistantId())).getFirstName()
+                                + " "
+                                + (new Assistant().getById(activity
+                                    .getAssistantId())).getLastName();
+                    }
+                    addedActivity[0] = assistantName;
+                    String courseName = "";
+                    if (new Course().getById(activity.getCourseId()) != null) {
+                        courseName = (new Course().getById(activity
+                            .getCourseId())).getDescription()
+                                + "("
+                                + new Course().getById(activity.getCourseId())
+                                    .getSemester() + ")";
+                    }
+                    addedActivity[1] = courseName;
                     addedActivity[2] = activity.getType();
                     addedActivity[3] = activity.getDate();
                     addedActivity[4] = activity.getContent();

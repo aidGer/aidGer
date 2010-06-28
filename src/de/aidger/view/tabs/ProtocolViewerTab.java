@@ -89,6 +89,12 @@ public class ProtocolViewerTab extends Tab {
         } catch (ActionNotFoundException ex) {
             UI.displayError(ex.getMessage());
         }
+        clearTable();
+        activities = protocolCreator.createProtocol((Integer) daySpinner
+            .getValue());
+        for (Object activity : activities) {
+            addActivity((Object[]) activity);
+        }
     }
 
     /*
@@ -168,8 +174,10 @@ public class ProtocolViewerTab extends Tab {
 
         exportProtocolButton.setText(_("Export"));
         exportProtocolButton.setFocusable(false);
-        exportProtocolButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        exportProtocolButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        exportProtocolButton
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportProtocolButton
+            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(exportProtocolButton);
         jToolBar1.add(jSeparator2);
 
