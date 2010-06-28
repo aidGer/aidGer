@@ -3009,7 +3009,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <tags/>
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="119" priority="C" title="Export-Schnittstelle für Vorgänge">
-<description>Der Export von Vorgängen (z.B. zur Benutzung im Ticket-System) muss getestet werden.</description>
+<description>Der Export von Vorgängen (z.B. zur möglichen Benutzung im Ticket-System) muss getestet werden.</description>
 <pre>Testfälle zum Hinzufügen von Vorgängen wurden ausgeführt.</pre>
 <actions>* Benutzer wählt im Menü den Punkt "Vorgang exportieren"
 
@@ -3146,7 +3146,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="10:12" outcome="Ok" postok="Y" preok="Y" starttime="10:11">
+<result actionok="Y" endtime="22:12" outcome="Ok" postok="Y" preok="Y" starttime="22:11">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="287" priority="A" title="Vertrag korrekt erstellen">
 <description>Es soll ein Vertrag erstellt werden. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. </pre>
@@ -3171,7 +3171,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:12" outcome="Ok" postok="Y" preok="Y" starttime="10:12">
+<result actionok="Y" endtime="22:12" outcome="Ok" postok="Y" preok="Y" starttime="22:12">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="288" priority="A" title="Vertrag korrekt erstellen">
 <description>Es soll ein Vertrag erstellt werden. Alle Eingaben sind korrekt.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 39 wurden ausgeführt.</pre>
@@ -3196,7 +3196,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:13" outcome="Ok" postok="Y" preok="Y" starttime="10:12">
+<result actionok="Y" endtime="22:13" outcome="Ok" postok="Y" preok="Y" starttime="22:12">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="166" priority="A" title="Vertragsdaten inkorrekt erstellen">
 <description>Es wird ein neuer Vertrag erstellt. Die darin befindlichen Daten sind jedoch in einer inkorrekten Reihenfolge.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -3221,7 +3221,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:14" outcome="Ok" postok="Y" preok="Y" starttime="10:13">
+<result actionok="Y" endtime="22:14" outcome="Ok" postok="Y" preok="Y" starttime="22:13">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="286" priority="A" title="Vertragsdaten inkorrekt erstellen">
 <description>Es wird ein neuer Vertrag erstellt. Die darin befindlichen Daten sind jedoch in einer inkorrekten Reihenfolge.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -3246,7 +3246,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:15" outcome="Ok" postok="Y" preok="Y" starttime="10:14">
+<result actionok="Y" endtime="22:15" outcome="Ok" postok="Y" preok="Y" starttime="22:14">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="289" priority="A" title="Abbruch: Vertrag erstellen">
 <description>Es soll ein Vertrag erstellt werden. Die Erstellung wird jedoch abgebrochen.</description>
 <pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -3278,7 +3278,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="10:17" outcome="Ok" postok="Y" preok="Y" starttime="10:15">
+<result actionok="Y" endtime="22:17" outcome="Ok" postok="Y" preok="Y" starttime="22:15">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="172" priority="B" title="Vertrag korrekt bearbeiten">
 <description>Die Vertragsdaten sollen editiert werden. Alle Eingaben sind dabei korrekt.</description>
 <pre>Der Testfall 287 wurde bereits ausgeführt.</pre>
@@ -3297,7 +3297,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:17" outcome="Ok" postok="Y" preok="Y" starttime="10:17">
+<result actionok="Y" endtime="22:17" outcome="Ok" postok="Y" preok="Y" starttime="22:17">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="174" priority="B" title="Vertrag inkorrekt bearbeiten">
 <description>Die Vertragsdaten sollen editiert werden. Es wurden falsche Eingaben gemacht.</description>
 <pre>Der Testfall 287 wurde bereits ausgeführt.</pre>
@@ -3318,7 +3318,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:17" outcome="Ok" postok="Y" preok="Y" starttime="10:17">
+<result actionok="Y" endtime="22:17" outcome="Ok" postok="Y" preok="Y" starttime="22:17">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="173" priority="B" title="Abbruch: Vertrag bearbeiten">
 <description>Die Vertragsdaten sollen editiert werden. Dieser Vorgang wird jedoch abgebrochen.</description>
 <pre>Der Testfall 287 wurde bereits ausgeführt.</pre>
@@ -3344,7 +3344,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="10:18" outcome="Ok" postok="Y" preok="Y" starttime="10:17">
+<result actionok="Y" endtime="22:18" outcome="Ok" postok="Y" preok="Y" starttime="22:17">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="299" priority="C" title="Vertrag suchen">
 <description/>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3359,7 +3359,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:19" outcome="Ok" postok="Y" preok="Y" starttime="10:18">
+<result actionok="Y" endtime="22:19" outcome="Ok" postok="Y" preok="Y" starttime="22:18">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="298" priority="C" title="Suchfilter entfernen">
 <description>Der angewandte Suchfilter soll entfernt werden.</description>
 <pre>Der Testfall 299 wurde ausgeführt.</pre>
@@ -3379,7 +3379,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="10:20" outcome="Ok" postok="Y" preok="Y" starttime="10:19">
+<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:19">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="295" priority="C" title="Vertrag anzeigen und schließen">
 <description>Ein Vertrag soll angezeigt werden und die Anzeige direkt danach wieder geschlossen werden.</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3398,7 +3398,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:20" outcome="Ok" postok="Y" preok="Y" starttime="10:20">
+<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:20">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="296" priority="C" title="Vertrag anzeigen und bearbeiten">
 <description>Ein Vertrag soll angezeigt werden und daraufhin bearbeitet werden.</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3417,7 +3417,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:20" outcome="Ok" postok="Y" preok="Y" starttime="10:20">
+<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:20">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="297" priority="C" title="Vertrag anzeigen ohne Auswahl">
 <description>Ein Vertrag soll angezeigt werden, es ist jedoch keiner ausgewählt.</description>
 <pre/>
@@ -3437,7 +3437,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre/>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="10:20" outcome="Ok" postok="Y" preok="Y" starttime="10:20">
+<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:20">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="291" priority="C" title="Vertrag löschen ohne Referenz">
 <description>Es soll ein Vertrag gelöscht werden, was korrekt funktioniert. </description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3456,7 +3456,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:21" outcome="Ok" postok="Y" preok="Y" starttime="10:21">
+<result actionok="Y" endtime="22:21" outcome="Ok" postok="Y" preok="Y" starttime="22:21">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="292" priority="C" title="Vertrag löschen mit Referenz">
 <description>Es soll ein Vertrag gelöscht werden, der noch von einer Beschäftigung referenziert wird.</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3475,7 +3475,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:21" outcome="Ok" postok="Y" preok="Y" starttime="10:21">
+<result actionok="Y" endtime="22:21" outcome="Ok" postok="Y" preok="Y" starttime="22:21">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="293" priority="C" title="Vertrag löschen mit Taste Entf">
 <description>Es soll ein Vertrag durch Drücken der Taste Entf gelöscht werden.</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
@@ -3494,7 +3494,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="10:21" outcome="Ok" postok="Y" preok="Y" starttime="10:21">
+<result actionok="Y" endtime="22:21" outcome="Ok" postok="Y" preok="Y" starttime="22:21">
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="294" priority="C" title="Abbruch: Vertrag löschen">
 <description>Es soll ein Vertrag gelöscht werden. Dies wird jedoch abgebrochen</description>
 <pre>Der Testfall 287 wurde ausgeführt.</pre>
