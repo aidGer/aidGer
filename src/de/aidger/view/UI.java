@@ -237,7 +237,10 @@ public final class UI extends JFrame {
      *            The error message to display
      */
     public static void displayError(String error) {
-        UI.getInstance().setStatusMessage(error);
+        if (instance != null) {
+            UI.getInstance().setStatusMessage(error);
+        }
+
         JOptionPane.showMessageDialog(instance, error, _("Error"),
             JOptionPane.ERROR_MESSAGE);
         Logger.error(error);
@@ -250,7 +253,10 @@ public final class UI extends JFrame {
      *            The info message to display
      */
     public static void displayInfo(String info) {
-        UI.getInstance().setStatusMessage(info);
+        if (instance != null) {
+            UI.getInstance().setStatusMessage(info);
+        }
+
         JOptionPane.showMessageDialog(instance, info, _("Info"),
             JOptionPane.INFORMATION_MESSAGE);
         Logger.info(info);
