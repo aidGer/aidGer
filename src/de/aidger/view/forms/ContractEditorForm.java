@@ -65,21 +65,30 @@ public class ContractEditorForm extends JPanel {
         } catch (AdoHiveException e) {
         }
 
+        Calendar now = Calendar.getInstance();
+
         if (contract != null) {
             spCompletionDate.setValue(contract.getCompletionDate());
-            spConfirmationDate.setValue(contract.getConfirmationDate());
+
+            Date confirmationDate = contract.getConfirmationDate();
+
+            if (confirmationDate == null) {
+                confirmationDate = now.getTime();
+            }
+
+            spConfirmationDate.setValue(confirmationDate);
             spStartDate.setValue(contract.getStartDate());
             spEndDate.setValue(contract.getEndDate());
             txtType.setText(contract.getType());
             cmbDelegation.setSelectedItem(Boolean.valueOf(contract
                 .isDelegation()));
         } else {
-            Calendar now = Calendar.getInstance();
             now.set(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now
                 .get(Calendar.DATE));
 
             spCompletionDate.setValue(now.getTime());
-            spConfirmationDate.setValue(now.getTime());
+            lblConfirmationDate.setVisible(false);
+            spConfirmationDate.setVisible(false);
             spStartDate.setValue(now.getTime());
             spEndDate.setValue(now.getTime());
         }
