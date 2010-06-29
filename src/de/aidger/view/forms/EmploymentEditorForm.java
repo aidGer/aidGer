@@ -408,11 +408,7 @@ public class EmploymentEditorForm extends JPanel {
             btnPlusMinus);
 
         if (dateLines.isEmpty()) {
-            Calendar now = Calendar.getInstance();
-            now.set(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now
-                .get(Calendar.DATE));
-
-            spDate.setValue(now.getTime());
+            EditorTab.setTimeToNow(spDate);
 
             btnPlusMinus.setIcon(new ImageIcon(getClass().getResource(
                 "/de/aidger/view/icons/plus-small.png")));
@@ -434,6 +430,7 @@ public class EmploymentEditorForm extends JPanel {
             btnPlusMinus.setAction(new RemoveDateAction(dl));
 
             Calendar cal = Calendar.getInstance();
+            cal.clear();
             cal.setTime((Date) dateLines.get(dateLines.size() - 1).spDate
                 .getValue());
             cal.add(Calendar.MONTH, 1);

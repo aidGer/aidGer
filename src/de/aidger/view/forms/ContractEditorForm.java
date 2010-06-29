@@ -65,34 +65,28 @@ public class ContractEditorForm extends JPanel {
         } catch (AdoHiveException e) {
         }
 
-        Calendar now = Calendar.getInstance();
-
         if (contract != null) {
             spCompletionDate.setValue(contract.getCompletionDate());
 
-            Date confirmationDate = contract.getConfirmationDate();
-
-            if (confirmationDate == null) {
-                confirmationDate = now.getTime();
+            if (contract.getConfirmationDate() == null) {
+                EditorTab.setTimeToNow(spConfirmationDate);
+            } else {
+                spConfirmationDate.setValue(contract.getConfirmationDate());
             }
 
-            spConfirmationDate.setValue(confirmationDate);
             spStartDate.setValue(contract.getStartDate());
             spEndDate.setValue(contract.getEndDate());
             txtType.setText(contract.getType());
             cmbDelegation.setSelectedItem(Boolean.valueOf(contract
                 .isDelegation()));
         } else {
-            now.set(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now
-                .get(Calendar.DATE));
+            EditorTab.setTimeToNow(spCompletionDate);
+            EditorTab.setTimeToNow(spStartDate);
+            EditorTab.setTimeToNow(spEndDate, Calendar.MONTH, 1);
 
-            spCompletionDate.setValue(now.getTime());
+            // hide confirmation date
             lblConfirmationDate.setVisible(false);
             spConfirmationDate.setVisible(false);
-            spStartDate.setValue(now.getTime());
-
-            now.add(Calendar.MONTH, 1);
-            spEndDate.setValue(now.getTime());
 
             // add confirmation date hint for user
             tab.clearHints();
@@ -136,6 +130,10 @@ public class ContractEditorForm extends JPanel {
      * @return The date the contract was confirmed
      */
     public java.sql.Date getConfirmationDate() {
+        if (spConfirmationDate.getValue() == null) {
+            return null;
+        }
+
         return new java.sql.Date(((Date) spConfirmationDate.getValue())
             .getTime());
     }

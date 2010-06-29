@@ -235,6 +235,11 @@ public class ViewerTab extends Tab {
                 new BooleanTableRenderer());
         }
 
+        if (type == DataType.Activity) {
+            table.getColumnModel().getColumn(2).setCellRenderer(
+                new DateTableRenderer("dd.MM.yyyy"));
+        }
+
         // initializes the button and menu items actions
         try {
             btnView.setAction(ActionRegistry.getInstance().get(
