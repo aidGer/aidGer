@@ -390,6 +390,13 @@ public class EditorSaveAction extends AbstractAction {
 
         Contract contractBeforeEdit = contract.clone();
 
+        int assistantId = 0;
+
+        if (form.getAssistant() != null) {
+            assistantId = form.getAssistant().getId();
+        }
+
+        contract.setAssistantId(assistantId);
         contract.setCompletionDate(form.getCompletionDate());
         contract.setConfirmationDate(form.getConfirmationDate());
         contract.setStartDate(form.getStartDate());

@@ -174,6 +174,11 @@ public class ViewerTab extends Tab {
             break;
         case Contract:
             tableModel = new ContractTableModel();
+
+            btnAssistant.setVisible(true);
+            separator6.setVisible(true);
+            itemAssistant.setVisible(true);
+
             break;
         case Activity:
             tableModel = new ActivityTableModel();
@@ -221,12 +226,12 @@ public class ViewerTab extends Tab {
         }
 
         if (type == DataType.Contract) {
-            for (int i = 0; i < 4; ++i) {
+            for (int i = 1; i < 5; ++i) {
                 table.getColumnModel().getColumn(i).setCellRenderer(
                     new DateTableRenderer("dd.MM.yyyy"));
             }
 
-            table.getColumnModel().getColumn(5).setCellRenderer(
+            table.getColumnModel().getColumn(6).setCellRenderer(
                 new BooleanTableRenderer());
         }
 
@@ -636,22 +641,26 @@ public class ViewerTab extends Tab {
 
         btnAssistant.setText(_("Assistant"));
         btnAssistant.setFocusable(false);
-        btnAssistant.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAssistant
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnAssistant.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(btnAssistant);
         toolBar.add(separator6);
 
         btnContract.setText(_("Contract"));
         btnContract.setFocusable(false);
-        btnContract.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnContract
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnContract.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(btnContract);
         toolBar.add(separator7);
 
         btnActivityReport.setText(_("Activity Report"));
         btnActivityReport.setFocusable(false);
-        btnActivityReport.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnActivityReport.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnActivityReport
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnActivityReport
+            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(btnActivityReport);
         toolBar.add(separator8);
 
@@ -722,6 +731,7 @@ public class ViewerTab extends Tab {
     private javax.swing.JToolBar.Separator separator8;
     private javax.swing.JTable table;
     private javax.swing.JToolBar toolBar;
+
     // End of variables declaration//GEN-END:variables
 
     /**

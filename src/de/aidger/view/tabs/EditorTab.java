@@ -277,7 +277,7 @@ public class EditorTab extends Tab {
         case Employment:
             return new EmploymentEditorForm((Employment) model, listModels);
         case Contract:
-            return new ContractEditorForm((Contract) model);
+            return new ContractEditorForm((Contract) model, listModels);
         case Activity:
             return new ActivityEditorForm((Activity) model);
         default:
