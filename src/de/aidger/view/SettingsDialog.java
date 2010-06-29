@@ -108,6 +108,8 @@ public class SettingsDialog extends JDialog {
 
         langComboBox.setModel(new javax.swing.DefaultComboBoxModel(longLangs));
         langComboBox.setSelectedIndex(selected);
+
+        setLocationRelativeTo(null);
     }
 
     /**

@@ -38,6 +38,8 @@ public class AboutDialog extends JDialog {
         } catch (ActionNotFoundException ex) {
             UI.displayError(ex.getMessage());
         }
+
+        setLocationRelativeTo(null);
     }
 
     /**

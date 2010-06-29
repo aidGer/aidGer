@@ -249,7 +249,6 @@ public final class UI extends JFrame {
         // Display the first start dialog on first start
         if (Runtime.getInstance().isFirstStart()) {
             FirstStartDialog dlg = new FirstStartDialog(this, true);
-            dlg.setLocationRelativeTo(null);
             dlg.setVisible(true);
         }
 
