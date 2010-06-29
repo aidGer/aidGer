@@ -280,8 +280,8 @@ public class BalanceHelper {
         try {
             hourlyWages = new HourlyWage().getAll();
             for (IHourlyWage hourlyWage : hourlyWages) {
-                if (hourlyWage.getMonth() == employment.getMonth()
-                        && hourlyWage.getYear() == employment.getYear()
+                if (hourlyWage.getMonth().equals(employment.getMonth())
+                        && hourlyWage.getYear().equals(employment.getYear())
                         && hourlyWage.getQualification().equals(qualification)) {
                     return hourlyWage.getWage().doubleValue()
                             * calculationFactor * employment.getHourCount();
