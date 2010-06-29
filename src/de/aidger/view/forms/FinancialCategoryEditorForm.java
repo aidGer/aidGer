@@ -65,8 +65,8 @@ public class FinancialCategoryEditorForm extends JPanel {
      * @return The budget costs of the category
      * @throws NumberFormatException
      */
-    public int[] getBudgetCosts() throws NumberFormatException {
-        int[] budgetCosts = new int[fundsLines.size()];
+    public Integer[] getBudgetCosts() throws NumberFormatException {
+        Integer[] budgetCosts = new Integer[fundsLines.size()];
 
         for (int i = 0; i < fundsLines.size(); ++i) {
             budgetCosts[i] = Integer.valueOf(fundsLines.get(i).txtBudgetCosts
@@ -82,8 +82,8 @@ public class FinancialCategoryEditorForm extends JPanel {
      * @return The funds of the category
      * @throws NumberFormatException
      */
-    public int[] getFunds() throws NumberFormatException {
-        int[] funds = new int[fundsLines.size()];
+    public Integer[] getFunds() throws NumberFormatException {
+        Integer[] funds = new Integer[fundsLines.size()];
 
         for (int i = 0; i < fundsLines.size(); ++i) {
             funds[i] = Integer.valueOf((String) fundsLines.get(i).cmbFunds

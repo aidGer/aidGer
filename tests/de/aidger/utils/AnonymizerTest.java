@@ -63,8 +63,8 @@ public class AnonymizerTest {
         b.save();
 
         FinancialCategory financial = new FinancialCategory();
-        financial.setBudgetCosts(new int[] { 100, 200 });
-        financial.setFunds(new int[] { 10001000, 20002000 });
+        financial.setBudgetCosts(new Integer[] { 100, 200 });
+        financial.setFunds(new Integer[] { 10001000, 20002000 });
         financial.setName("Tester");
         financial.setYear((short) 2010);
         financial.save();
@@ -81,10 +81,11 @@ public class AnonymizerTest {
         course.setScope("Sniper Scope");
         course.setSemester("SS09");
         course.setTargetAudience("Testers");
-        course.setUnqualifiedWorkingHours(100);
+        course.setUnqualifiedWorkingHours(100.0);
         course.save();
 
         Contract contract = new Contract();
+        contract.setAssistantId(a.getId());
         contract.setCompletionDate(new Date(10));
         contract.setConfirmationDate(new Date(100));
         contract.setDelegation(false);
@@ -99,7 +100,7 @@ public class AnonymizerTest {
         employment.setCourseId(course.getId());
         employment.setCostUnit("0711");
         employment.setFunds(1);
-        employment.setHourCount(40);
+        employment.setHourCount(40.0);
         employment.setMonth((byte) cal.get(Calendar.MONTH));
         employment.setQualification("g");
         employment.setRemark("Remark");

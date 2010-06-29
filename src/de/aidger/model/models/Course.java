@@ -21,7 +21,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     /**
      * References the corresponding financial category.
      */
-    private int financialCategoryId;
+    private Integer financialCategoryId;
 
     /**
      * The advisor of the course.
@@ -46,7 +46,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     /**
      * The number of groups in the course.
      */
-    private int numberOfGroups;
+    private Integer numberOfGroups;
 
     /**
      * The target audience for the course.
@@ -56,7 +56,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     /**
      * The amount of unqualified working hours granted.
      */
-    private double unqualifiedWorkingHours; // UHKS
+    private Double unqualifiedWorkingHours; // UHKS
 
     /**
      * The scope of the course.
@@ -66,7 +66,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     /**
      * The part of the course (e.g. 'a' and 'b' or '1' and '2')
      */
-    private char part;
+    private Character part;
 
     /**
      * The group of the course.
@@ -150,22 +150,24 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     public boolean equals(Object o) {
         if (o instanceof Course) {
             Course c = (Course) o;
-            return c.id == id
-                    && c.numberOfGroups == numberOfGroups
-                    && c.part == part
-                    && c.financialCategoryId == financialCategoryId
-                    && ((Double) c.unqualifiedWorkingHours)
-                        .equals(unqualifiedWorkingHours)
+            return (id == null ? c.id == null : id.equals(c.id))
+                    && (numberOfGroups == null ? c.numberOfGroups == null :
+                            numberOfGroups.equals(c.numberOfGroups))
+                    && (part == null ? c.part == null : part.equals(c.part))
+                    && (financialCategoryId == null ? c.financialCategoryId == null :
+                            financialCategoryId.equals(c.financialCategoryId))
+                    && (unqualifiedWorkingHours == null ? c.unqualifiedWorkingHours == null :
+                            unqualifiedWorkingHours.equals(c.unqualifiedWorkingHours))
                     && (advisor == null ? c.advisor == null : advisor
-                        .equals(c.advisor))
+                            .equals(c.advisor))
                     && (description == null ? c.description == null
                             : description.equals(c.description))
                     && (group == null ? c.group == null : group.equals(c.group))
                     && (remark == null ? c.remark == null : remark
-                        .equals(c.remark))
+                            .equals(c.remark))
                     && (scope == null ? c.scope == null : scope.equals(c.scope))
                     && (semester == null ? c.semester == null : semester
-                        .equals(c.semester))
+                            .equals(c.semester))
                     && (targetAudience == null ? c.targetAudience == null
                             : targetAudience.equals(c.targetAudience));
         } else {
@@ -181,20 +183,18 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 67 * hash + financialCategoryId;
+        hash = 67 * hash + (financialCategoryId != null ? financialCategoryId.hashCode() : 0);
         hash = 67 * hash + (advisor != null ? advisor.hashCode() : 0);
         hash = 67 * hash + (description != null ? description.hashCode() : 0);
         hash = 67 * hash + (semester != null ? semester.hashCode() : 0);
         hash = 67 * hash + (lecturer != null ? lecturer.hashCode() : 0);
-        hash = 67 * hash + numberOfGroups;
+        hash = 67 * hash + (numberOfGroups != null ? numberOfGroups.hashCode() : 0);
+        hash = 67 * hash + (targetAudience != null ? targetAudience.hashCode() : 0);
         hash = 67 * hash
-                + (targetAudience != null ? targetAudience.hashCode() : 0);
-        hash = 67
-                * hash
                 + (int) (Double.doubleToLongBits(unqualifiedWorkingHours) ^ (Double
                     .doubleToLongBits(unqualifiedWorkingHours) >>> 32));
         hash = 67 * hash + (scope != null ? scope.hashCode() : 0);
-        hash = 67 * hash + part;
+        hash = 67 * hash + (part != null ? part.hashCode() : 0);
         hash = 67 * hash + (group != null ? group.hashCode() : 0);
         hash = 67 * hash + (remark != null ? remark.hashCode() : 0);
         return hash;
@@ -253,13 +253,54 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     public List<Course> getCourses(FinancialCategory category)
             throws AdoHiveException {
         ICourseManager mgr = (ICourseManager) getManager();
-        List<ICourse> list = mgr.getCourses(category);
+        return castList(mgr.getCourses(category));
+    }
 
-        List<Course> ret = new Vector<Course>();
-        for (ICourse course : list) {
-            ret.add(new Course(course));
-        }
-        return ret;
+    /**
+     * Get a list of all courses for a given semester.
+     *
+     * @param semester
+     *            The given semester
+     * @return List of courses
+     * @throws AdoHiveException
+     */
+    public List<Course> getCoursesBySemester(String semester) 
+            throws AdoHiveException {
+        ICourseManager mgr = (ICourseManager) getManager();
+        return castList(mgr.getCoursesBySemester(semester));
+    }
+
+    /**
+     * Get a list of all courses belonging to the specified group.
+     *
+     * @param group
+     *            The given group
+     * @return List of courses
+     * @throws AdoHiveException
+     */
+    public List<Course> getCoursesByGroup(String group) throws AdoHiveException {
+        ICourseManager mgr = (ICourseManager) getManager();
+        return castList(mgr.getCoursesByGroup(group));
+    }
+
+    /**
+     * Get a list of distinct semesters.
+     *
+     * @return List of semesters
+     * @throws AdoHiveException
+     */
+    public List<String> getDistinctSemesters() throws AdoHiveException {
+        return ((ICourseManager) getManager()).getDistinctSemesters();
+    }
+
+    /**
+     * Get a list of distinct groups.
+     *
+     * @return List of groups
+     * @throws AdoHiveException
+     */
+    public List<String> getDistinctGroups() throws AdoHiveException {
+        return ((ICourseManager) getManager()).getDistinctGroups();
     }
 
     /**
@@ -288,7 +329,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
      * @return The id of the category
      */
     @Override
-    public int getFinancialCategoryId() {
+    public Integer getFinancialCategoryId() {
         return financialCategoryId;
     }
 
@@ -318,7 +359,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
      * @return The number of groups
      */
     @Override
-    public int getNumberOfGroups() {
+    public Integer getNumberOfGroups() {
         return numberOfGroups;
     }
 
@@ -328,7 +369,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
      * @return The part of the course
      */
     @Override
-    public char getPart() {
+    public Character getPart() {
         return part;
     }
 
@@ -378,7 +419,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
      * @return The amount of UWHs
      */
     @Override
-    public double getUnqualifiedWorkingHours() {
+    public Double getUnqualifiedWorkingHours() {
         return unqualifiedWorkingHours;
     }
 
@@ -411,7 +452,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
      *            The id of the category
      */
     @Override
-    public void setFinancialCategoryId(int id) {
+    public void setFinancialCategoryId(Integer id) {
         financialCategoryId = id;
     }
 
@@ -444,7 +485,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
      *            The number of groups
      */
     @Override
-    public void setNumberOfGroups(int num) {
+    public void setNumberOfGroups(Integer num) {
         numberOfGroups = num;
     }
 
@@ -455,7 +496,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
      *            The part of the course
      */
     @Override
-    public void setPart(char part) {
+    public void setPart(Character part) {
         this.part = part;
     }
 
@@ -510,8 +551,23 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
      *            The amount of UWHs
      */
     @Override
-    public void setUnqualifiedWorkingHours(double hours) {
+    public void setUnqualifiedWorkingHours(Double hours) {
         unqualifiedWorkingHours = hours;
+    }
+
+    /**
+     * Cast from interface to correct class
+     *
+     * @param list
+     *            The list to cast
+     * @return The casted list
+     */
+    protected List<Course> castList(List<ICourse> list) {
+        List<Course> ret = new Vector<Course>();
+        for (ICourse course : list) {
+            ret.add(new Course(course));
+        }
+        return ret;
     }
 
 }

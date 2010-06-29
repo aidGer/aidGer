@@ -24,37 +24,37 @@ public class Employment extends AbstractModel<IEmployment> implements
     /**
      * References the corresponding assistant.
      */
-    private int assistantId;
+    private Integer assistantId;
 
     /**
      * References the corresponding contract.
      */
-    private int contractId;
+    private Integer contractId;
 
     /**
      * References the corresponding course.
      */
-    private int courseId;
+    private Integer courseId;
 
     /**
      * The fonds of the employment.
      */
-    private int funds;
+    private Integer funds;
 
     /**
      * The month in which the employment took place.
      */
-    private byte month;
+    private Byte month;
 
     /**
      * The year in which the employment took place.
      */
-    private short year;
+    private Short year;
 
     /**
      * The hours worked during the employment.
      */
-    private double hourCount;
+    private Double hourCount;
 
     /**
      * The cost unit given by the university.
@@ -139,22 +139,26 @@ public class Employment extends AbstractModel<IEmployment> implements
      */
     @Override
     public boolean equals(Object o) {
-        if (o instanceof IEmployment) {
-            IEmployment e = (IEmployment) o;
-            return e.getId() == id
-                    && e.getAssistantId() == assistantId
-                    && e.getContractId() == contractId
-                    && e.getFunds() == funds
-                    && e.getCourseId() == courseId
-                    && e.getMonth() == month
-                    && e.getYear() == year
+        if (o instanceof Employment) {
+            Employment e = (Employment) o;
+            return (id == null ? e.id == null : id.equals(e.id))
+                    && (assistantId == null ? e.assistantId == null :
+                            assistantId.equals(e.assistantId))
+                    && (contractId == null ? e.contractId == null :
+                            contractId.equals(e.contractId))
+                    && (funds == null ? e.funds == null : funds.equals(e.funds))
+                    && (courseId == null ? e.courseId == null : courseId.equals(
+                            e.courseId))
+                    && (month == null ? e.month == null : month.equals(e.month))
+                    && (year == null ? e.year == null : year.equals(e.year))
                     && (costUnit == null ? e.getCostUnit() == null : costUnit
-                        .equals(e.getCostUnit()))
-                    && ((Double) hourCount).equals(e.getHourCount())
+                            .equals(e.getCostUnit()))
+                    && (hourCount == null ? e.hourCount == null : hourCount
+                            .equals(e.hourCount))
                     && (qualification == null ? e.getQualification() == null
                             : qualification.equals(e.getQualification()))
                     && (remark == null ? e.getRemark() == null : remark
-                        .equals(e.getRemark()));
+                            .equals(e.getRemark()));
         } else {
             return false;
         }
@@ -169,14 +173,13 @@ public class Employment extends AbstractModel<IEmployment> implements
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 29 * hash + assistantId;
-        hash = 29 * hash + contractId;
-        hash = 29 * hash + courseId;
-        hash = 29 * hash + funds;
-        hash = 29 * hash + month;
-        hash = 29 * hash + year;
-        hash = 29
-                * hash
+        hash = 29 * hash + (assistantId != null ? assistantId.hashCode() : 0);
+        hash = 29 * hash + (contractId != null ? contractId.hashCode() : 0);
+        hash = 29 * hash + (courseId != null ? courseId.hashCode() : 0);
+        hash = 29 * hash + (funds != null ? funds.hashCode() : 0);
+        hash = 29 * hash + (month != null ? month.hashCode() : 0);
+        hash = 29 * hash + (year != null ? year.hashCode() : 0);
+        hash = 29 * hash
                 + (int) (Double.doubleToLongBits(hourCount) ^ (Double
                     .doubleToLongBits(hourCount) >>> 32));
         hash = 29 * hash + (costUnit != null ? costUnit.hashCode() : 0);
@@ -300,12 +303,26 @@ public class Employment extends AbstractModel<IEmployment> implements
     }
 
     /**
+     * Get all employments in the given semester
+     *
+     * @param semester
+     *            The given semester
+     * @return The employments in the given semester
+     * @throws AdoHiveException
+     */
+    public List<Employment> getEmployments(String semester)
+            throws AdoHiveException {
+        IEmploymentManager mgr = (IEmploymentManager) getManager();
+        return castList(mgr.getEmployments(semester));
+    }
+
+    /**
      * Get the id referencing the assistant.
      * 
      * @return The id of the assistant
      */
     @Override
-    public int getAssistantId() {
+    public Integer getAssistantId() {
         return assistantId;
     }
 
@@ -315,7 +332,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @return The id of the contract
      */
     @Override
-    public int getContractId() {
+    public Integer getContractId() {
         return contractId;
     }
 
@@ -335,7 +352,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @return The id of the course
      */
     @Override
-    public int getCourseId() {
+    public Integer getCourseId() {
         return courseId;
     }
 
@@ -345,7 +362,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @return The funds of the employment
      */
     @Override
-    public int getFunds() {
+    public Integer getFunds() {
         return funds;
     }
 
@@ -355,7 +372,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @return The hours worked during the employment
      */
     @Override
-    public double getHourCount() {
+    public Double getHourCount() {
         return hourCount;
     }
 
@@ -365,7 +382,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @return The month of the employment
      */
     @Override
-    public byte getMonth() {
+    public Byte getMonth() {
         return month;
     }
 
@@ -395,7 +412,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @return The year of the employment
      */
     @Override
-    public short getYear() {
+    public Short getYear() {
         return year;
     }
 
@@ -406,7 +423,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      *            The id of the assistant
      */
     @Override
-    public void setAssistantId(int id) {
+    public void setAssistantId(Integer id) {
         assistantId = id;
     }
 
@@ -417,7 +434,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      *            The id of the contract
      */
     @Override
-    public void setContractId(int id) {
+    public void setContractId(Integer id) {
         contractId = id;
     }
 
@@ -439,7 +456,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      *            The id of the course
      */
     @Override
-    public void setCourseId(int id) {
+    public void setCourseId(Integer id) {
         courseId = id;
     }
 
@@ -450,7 +467,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      *            The funds of the employment
      */
     @Override
-    public void setFunds(int funds) {
+    public void setFunds(Integer funds) {
         this.funds = funds;
     }
 
@@ -461,7 +478,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      *            The hours worked during the employment
      */
     @Override
-    public void setHourCount(double hours) {
+    public void setHourCount(Double hours) {
         hourCount = hours;
     }
 
@@ -472,7 +489,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      *            The month of the employment
      */
     @Override
-    public void setMonth(byte month) {
+    public void setMonth(Byte month) {
         this.month = month;
 
     }
@@ -506,7 +523,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      *            The year of the employment
      */
     @Override
-    public void setYear(short year) {
+    public void setYear(Short year) {
         this.year = year;
     }
 

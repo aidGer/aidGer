@@ -68,8 +68,8 @@ public class BalanceReportGroupCreatorTest {
         de.aidger.model.Runtime.getInstance().initialize();
 
         financialCategory = new FinancialCategory();
-        financialCategory.setBudgetCosts(new int[] { 1000 });
-        financialCategory.setFunds(new int[] { 10000000 });
+        financialCategory.setBudgetCosts(new Integer[] { 1000 });
+        financialCategory.setFunds(new Integer[] { 10000000 });
         financialCategory.setName("Test Category");
         financialCategory.setYear((short) 2010);
         financialCategory.save();
@@ -86,7 +86,7 @@ public class BalanceReportGroupCreatorTest {
         course.setScope("Sniper Scope");
         course.setSemester("SS09");
         course.setTargetAudience("Testers");
-        course.setUnqualifiedWorkingHours(100);
+        course.setUnqualifiedWorkingHours(100.0);
         course.save();
 
         assistant = new Assistant();

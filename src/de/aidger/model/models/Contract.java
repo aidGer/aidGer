@@ -6,8 +6,10 @@ import java.sql.Date;
 import java.util.List;
 
 import de.aidger.model.AbstractModel;
+import de.unistuttgart.iste.se.adohive.controller.IContractManager;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IContract;
+import java.util.Vector;
 
 /**
  * Represents a single entry in the contract column of the database. Contains
@@ -16,6 +18,11 @@ import de.unistuttgart.iste.se.adohive.model.IContract;
  * @author aidGer Team
  */
 public class Contract extends AbstractModel<IContract> implements IContract {
+
+    /**
+     * References the corresponding assistant.
+     */
+    private Integer assistantId;
 
     /**
      * The date the contract was completed.
@@ -30,7 +37,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
     /**
      * Determines if the contract has been delegated.
      */
-    private boolean delegation;
+    private Boolean delegation;
 
     /**
      * The date the contract ends.
@@ -56,9 +63,11 @@ public class Contract extends AbstractModel<IContract> implements IContract {
                 _("Completion date"), _("Confirmation date"), _("End date"),
                 _("Start date"), _("Type") });
         validateDateRange("startDate", "endDate", _("End date"),
-            _("Start date"));
+                _("Start date"));
         validateDateRange("completionDate", "confirmationDate",
-            _("Completion date"), _("Confirmation date"));
+                _("Completion date"), _("Confirmation date"));
+        validateExistanceOf(new String[] { "assistantId" }, new String[] {
+                _("Assistant") }, new Assistant());
     }
 
     /**
@@ -70,6 +79,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
     public Contract(IContract c) {
         this();
         setId(c.getId());
+        setAssistantId(c.getAssistantId());
         setCompletionDate(c.getCompletionDate());
         setConfirmationDate(c.getConfirmationDate());
         setDelegation(c.isDelegation());
@@ -85,6 +95,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
     @Override
     public Contract clone() {
         Contract c = new Contract();
+        c.setAssistantId(assistantId);
         c.setCompletionDate(completionDate);
         c.setConfirmationDate(confirmationDate);
         c.setDelegation(delegation);
@@ -106,19 +117,22 @@ public class Contract extends AbstractModel<IContract> implements IContract {
     public boolean equals(Object o) {
         if (o instanceof Contract) {
             Contract c = (Contract) o;
-            return c.id == id
-                    && c.delegation == delegation
+            return (id == null ? c.id == null : id.equals(c.id))
+                    && (assistantId == null ? c.assistantId == null :
+                            assistantId.equals(c.assistantId))
+                    && (delegation == null ? c.delegation == null :
+                            delegation.equals(c.delegation))
                     && (completionDate == null ? c.completionDate == null
-                            : c.completionDate.toString().equals(
-                                completionDate.toString()))
+                            : completionDate.toString().equals(
+                            c.completionDate.toString()))
                     && (confirmationDate == null ? c.confirmationDate == null
-                            : c.confirmationDate.toString().equals(
-                                confirmationDate.toString()))
-                    && (endDate == null ? c.endDate == null : c.endDate
-                        .toString().equals(endDate.toString()))
-                    && (startDate == null ? c.startDate == null : c.startDate
-                        .toString().equals(startDate.toString()))
-                    && (type == null ? c.type == null : c.type.equals(type));
+                            : confirmationDate.toString().equals(
+                            c.confirmationDate.toString()))
+                    && (endDate == null ? c.endDate == null : endDate
+                            .toString().equals(c.endDate.toString()))
+                    && (startDate == null ? c.startDate == null : startDate
+                            .toString().equals(c.startDate.toString()))
+                    && (type == null ? c.type == null : type.equals(c.type));
         } else {
             return false;
         }
@@ -126,20 +140,19 @@ public class Contract extends AbstractModel<IContract> implements IContract {
 
     /**
      * Generate a unique hashcode for this instance.
-     * 
+     *
      * @return The hashcode
      */
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 41 * hash
-                + (completionDate != null ? completionDate.hashCode() : 0);
-        hash = 41 * hash
-                + (confirmationDate != null ? confirmationDate.hashCode() : 0);
-        hash = 41 * hash + (delegation ? 1 : 0);
-        hash = 41 * hash + (endDate != null ? endDate.hashCode() : 0);
-        hash = 41 * hash + (startDate != null ? startDate.hashCode() : 0);
-        hash = 41 * hash + (type != null ? type.hashCode() : 0);
+        int hash = 5;
+        hash = 83 * hash + (assistantId != null ? assistantId.hashCode() : 0);
+        hash = 83 * hash + (completionDate != null ? completionDate.hashCode() : 0);
+        hash = 83 * hash + (confirmationDate != null ? confirmationDate.hashCode() : 0);
+        hash = 83 * hash + (delegation != null ? delegation.hashCode() : 0);
+        hash = 83 * hash + (endDate != null ? endDate.hashCode() : 0);
+        hash = 83 * hash + (startDate != null ? startDate.hashCode() : 0);
+        hash = 83 * hash + (type != null ? type.hashCode() : 0);
         return hash;
     }
 
@@ -172,6 +185,33 @@ public class Contract extends AbstractModel<IContract> implements IContract {
             ret = false;
         }
         return ret;
+    }
+
+    /**
+     * Get a list of contracts valid in the date range
+     *
+     * @param start
+     *            Start of the date range
+     * @param end
+     *            End of the date range
+     * @return List of contracts
+     */
+    public List<Contract> getContracts(Date start, Date end) throws AdoHiveException {
+        IContractManager mgr = (IContractManager) getManager();
+        List<Contract> ret = new Vector<Contract>();
+        for (IContract c : mgr.getContracts(start, end)) {
+            ret.add(new Contract(c));
+        }
+        return ret;
+    }
+
+    /**
+     * Get the id of the corresponding assistant.
+     *
+     * @return The id
+     */
+    public Integer getAssistantId() {
+        return assistantId;
     }
 
     /**
@@ -230,9 +270,20 @@ public class Contract extends AbstractModel<IContract> implements IContract {
      * @return True if the contract has been delegated
      */
     @Override
-    public boolean isDelegation() {
+    public Boolean isDelegation() {
         return delegation;
     }
+
+    /**
+     * Set the id of the corresponding assistant.
+     *
+     * @param id
+     *            The id
+     */
+    public void setAssistantId(Integer id) {
+        assistantId = id;
+    }
+
 
     /**
      * Set the date the contract was completed.
@@ -263,7 +314,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
      *            True if the contract has been delegated
      */
     @Override
-    public void setDelegation(boolean del) {
+    public void setDelegation(Boolean del) {
         delegation = del;
     }
 

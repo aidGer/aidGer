@@ -23,12 +23,12 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
     /**
      * The month the wage is valid in.
      */
-    private byte month;
+    private Byte month;
 
     /**
      * The year the wage is valid in.
      */
-    private short year;
+    private Short year;
 
     /**
      * The wage per hour.
@@ -92,8 +92,8 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
              * ID is not used anymore because the database table itself doesn't
              * contain one.
              */
-            return h.month == month
-                    && h.year == year
+            return (month == null ? h.month == null : month.equals(h.month))
+                    && (year == null ? h.year == null : year.equals(h.year))
                     && (qualification == null ? h.qualification == null
                             : h.qualification.equals(qualification))
                     && (wage == null ? h.wage == null : wage.subtract(h.wage)
@@ -113,8 +113,8 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
         int hash = 7;
         hash = 37 * hash
                 + (qualification != null ? qualification.hashCode() : 0);
-        hash = 37 * hash + month;
-        hash = 37 * hash + year;
+        hash = 37 * hash + (month != null ? month.hashCode() : 0);
+        hash = 37 * hash + (year != null ? year.hashCode() : 0);
         hash = 37 * hash + (wage != null ? wage.hashCode() : 0);
         return hash;
     }
@@ -143,7 +143,7 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      * @return The month the wage is valid in
      */
     @Override
-    public byte getMonth() {
+    public Byte getMonth() {
         return month;
     }
 
@@ -173,7 +173,7 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      * @return The year the wage is valid in
      */
     @Override
-    public short getYear() {
+    public Short getYear() {
         return year;
     }
 
@@ -184,7 +184,7 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      *            The month the wage is valid in
      */
     @Override
-    public void setMonth(byte month) {
+    public void setMonth(Byte month) {
         this.month = month;
     }
 
@@ -217,7 +217,7 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      *            The year the wage is valid in.
      */
     @Override
-    public void setYear(short year) {
+    public void setYear(Short year) {
         this.year = year;
     }
 

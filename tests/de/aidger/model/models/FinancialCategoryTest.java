@@ -29,8 +29,8 @@ public class FinancialCategoryTest {
     public void setUp() {
         financial = new FinancialCategory();
         financial.setId(1);
-        financial.setBudgetCosts(new int[] { 100, 200 });
-        financial.setFunds(new int[] { 10001000, 20002000 });
+        financial.setBudgetCosts(new Integer[] { 100, 200 });
+        financial.setFunds(new Integer[] { 10001000, 20002000 });
         financial.setName("Tester");
         financial.setYear((short) 2010);
     }
@@ -73,14 +73,14 @@ public class FinancialCategoryTest {
         assertFalse(financial.save());
         financial.setYear((short) 2010);
 
-        financial.setBudgetCosts(new int[] { 0, -1 });
+        financial.setBudgetCosts(new Integer[] { 0, -1 });
         assertFalse(financial.save());
-        financial.setBudgetCosts(new int[] { 100, 200 });
+        financial.setBudgetCosts(new Integer[] { 100, 200 });
 
-        financial.setFunds(new int[] { 1234567 });
+        financial.setFunds(new Integer[] { 1234567 });
         assertFalse(financial.save());
 
-        financial.setFunds(new int[] { 123456789 });
+        financial.setFunds(new Integer[] { 123456789 });
         assertFalse(financial.save());
     }
 
@@ -108,7 +108,7 @@ public class FinancialCategoryTest {
         course.setScope("Sniper Scope");
         course.setSemester("SS09");
         course.setTargetAudience("Testers");
-        course.setUnqualifiedWorkingHours(100);
+        course.setUnqualifiedWorkingHours(100.0);
         course.save();
 
         assertFalse(financial.remove());

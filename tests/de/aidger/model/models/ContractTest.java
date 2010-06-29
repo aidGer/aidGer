@@ -12,6 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import java.util.List;
 
 /**
  * Tests the Contract class.
@@ -22,15 +23,25 @@ public class ContractTest {
 
     protected Contract contract = null;
 
+    protected static Assistant assistant = null;
+
     @BeforeClass
-    public static void beforeClassSetUp() {
+    public static void beforeClassSetUp() throws AdoHiveException {
         de.aidger.model.Runtime.getInstance().initialize();
+
+        assistant = new Assistant();
+        assistant.setEmail("test@example.com");
+        assistant.setFirstName("Test");
+        assistant.setLastName("Tester");
+        assistant.setQualification("g");
+        assistant.save();
     }
 
     @Before
     public void setUp() {
         contract = new Contract();
         contract.setId(1);
+        contract.setAssistantId(assistant.getId());
         contract.setCompletionDate(new Date(10));
         contract.setConfirmationDate(new Date(100));
         contract.setDelegation(false);
@@ -65,6 +76,11 @@ public class ContractTest {
 
         contract.setNew(true);
         assertTrue(contract.save());
+
+        contract.setAssistantId(0);
+        assertFalse(contract.save());
+        contract.resetErrors();
+        contract.setAssistantId(assistant.getId());
 
         contract.setCompletionDate(null);
         assertFalse(contract.save());
@@ -123,7 +139,7 @@ public class ContractTest {
         employment.setCourseId(-1);
         employment.setCostUnit("0711");
         employment.setFunds(1);
-        employment.setHourCount(40);
+        employment.setHourCount(40.0);
         employment.setMonth((byte) 10);
         employment.setQualification("g");
         employment.setRemark("Remark");
@@ -176,6 +192,22 @@ public class ContractTest {
         Contract result = contract.clone();
 
         assertEquals(contract.hashCode(), result.hashCode());
+    }
+
+    /**
+     * Test of getContracts method, of class Contract.
+     */
+    @Test
+    public void testGetContracts() throws AdoHiveException {
+        System.out.println("getContracts");
+
+        contract.setNew(true);
+        contract.save();
+
+        List result = contract.getContracts(new Date(20), new Date(1000));
+
+        assertNotNull(result);
+        assertTrue(result.size() > 0);
     }
 
 }

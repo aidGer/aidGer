@@ -128,7 +128,7 @@ public class AssistantTest {
         employment.setCourseId(-1);
         employment.setCostUnit("0711");
         employment.setFunds(1);
-        employment.setHourCount(40);
+        employment.setHourCount(40.0);
         employment.setMonth((byte) 10);
         employment.setQualification("g");
         employment.setRemark("Remark");
