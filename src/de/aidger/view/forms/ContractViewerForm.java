@@ -6,7 +6,11 @@ import java.text.SimpleDateFormat;
 
 import javax.swing.JPanel;
 
+import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
+import de.aidger.view.models.UIAssistant;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.unistuttgart.iste.se.adohive.model.IAssistant;
 
 /**
  * A form used for viewing contracts in detail.
@@ -27,25 +31,31 @@ public class ContractViewerForm extends JPanel {
 
         String f = "dd.MM.yyyy";
 
-        completionDate.setText((new SimpleDateFormat(f)).format(contract
-            .getCompletionDate()));
-        confirmationDate.setText((new SimpleDateFormat(f)).format(contract
-            .getConfirmationDate()));
-        startDate.setText((new SimpleDateFormat(f)).format(contract
-            .getStartDate()));
-        endDate
-            .setText((new SimpleDateFormat(f)).format(contract.getEndDate()));
+        try {
+            IAssistant a = (new Assistant()).getById(contract.getAssistantId());
 
-        type.setText(contract.getType());
+            assistant.setText((new UIAssistant(a)).toString());
+            completionDate.setText((new SimpleDateFormat(f)).format(contract
+                .getCompletionDate()));
+            confirmationDate.setText((new SimpleDateFormat(f)).format(contract
+                .getConfirmationDate()));
+            startDate.setText((new SimpleDateFormat(f)).format(contract
+                .getStartDate()));
+            endDate.setText((new SimpleDateFormat(f)).format(contract
+                .getEndDate()));
 
-        boolean d = contract.isDelegation();
+            type.setText(contract.getType());
 
-        String strDelegation = _("no");
-        if (d) {
-            strDelegation = _("yes");
+            boolean d = contract.isDelegation();
+
+            String strDelegation = _("no");
+            if (d) {
+                strDelegation = _("yes");
+            }
+
+            delegation.setText(strDelegation);
+        } catch (AdoHiveException e) {
         }
-
-        delegation.setText(strDelegation);
     }
 
     /**
@@ -57,12 +67,14 @@ public class ContractViewerForm extends JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        lblAssistant = new javax.swing.JLabel();
         lblCompletionDate = new javax.swing.JLabel();
         lblConfirmationDate = new javax.swing.JLabel();
         lblStartDate = new javax.swing.JLabel();
         lblEndDate = new javax.swing.JLabel();
         lblType = new javax.swing.JLabel();
         lblDelegation = new javax.swing.JLabel();
+        assistant = new javax.swing.JLabel();
         completionDate = new javax.swing.JLabel();
         confirmationDate = new javax.swing.JLabel();
         startDate = new javax.swing.JLabel();
@@ -72,10 +84,18 @@ public class ContractViewerForm extends JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        lblCompletionDate.setText(_("Completion date"));
+        lblAssistant.setText(_("Assistant"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblAssistant, gridBagConstraints);
+
+        lblCompletionDate.setText(_("Completion date"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblCompletionDate, gridBagConstraints);
@@ -83,7 +103,7 @@ public class ContractViewerForm extends JPanel {
         lblConfirmationDate.setText(_("Confirmation date"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblConfirmationDate, gridBagConstraints);
@@ -91,7 +111,7 @@ public class ContractViewerForm extends JPanel {
         lblStartDate.setText(_("Start date"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblStartDate, gridBagConstraints);
@@ -99,7 +119,7 @@ public class ContractViewerForm extends JPanel {
         lblEndDate.setText(_("End date"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblEndDate, gridBagConstraints);
@@ -107,7 +127,7 @@ public class ContractViewerForm extends JPanel {
         lblType.setText(_("Type"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblType, gridBagConstraints);
@@ -115,7 +135,7 @@ public class ContractViewerForm extends JPanel {
         lblDelegation.setText(_("Delegation"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblDelegation, gridBagConstraints);
@@ -124,44 +144,52 @@ public class ContractViewerForm extends JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(completionDate, gridBagConstraints);
+        add(assistant, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(confirmationDate, gridBagConstraints);
+        add(completionDate, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(startDate, gridBagConstraints);
+        add(confirmationDate, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(endDate, gridBagConstraints);
+        add(startDate, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(type, gridBagConstraints);
+        add(endDate, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(type, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(delegation, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel assistant;
     private javax.swing.JLabel completionDate;
     private javax.swing.JLabel confirmationDate;
     private javax.swing.JLabel delegation;
     private javax.swing.JLabel endDate;
+    private javax.swing.JLabel lblAssistant;
     private javax.swing.JLabel lblCompletionDate;
     private javax.swing.JLabel lblConfirmationDate;
     private javax.swing.JLabel lblDelegation;
