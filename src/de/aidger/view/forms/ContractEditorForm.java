@@ -29,6 +29,11 @@ import de.unistuttgart.iste.se.adohive.model.IAssistant;
 public class ContractEditorForm extends JPanel {
 
     /**
+     * A flag whether the form is in edit mode.
+     */
+    private boolean editMode = false;
+
+    /**
      * Constructs a contract editor form.
      * 
      * @param contract
@@ -37,6 +42,10 @@ public class ContractEditorForm extends JPanel {
      */
     @SuppressWarnings("unchecked")
     public ContractEditorForm(Contract contract, EditorTab tab) {
+        if (contract != null) {
+            editMode = true;
+        }
+
         initComponents();
 
         AutoCompletion.enable(cmbAssistant);
@@ -65,7 +74,7 @@ public class ContractEditorForm extends JPanel {
         } catch (AdoHiveException e) {
         }
 
-        if (contract != null) {
+        if (editMode) {
             spCompletionDate.setValue(contract.getCompletionDate());
 
             if (contract.getConfirmationDate() == null) {
@@ -130,7 +139,8 @@ public class ContractEditorForm extends JPanel {
      * @return The date the contract was confirmed
      */
     public java.sql.Date getConfirmationDate() {
-        if (spConfirmationDate.getValue() == null) {
+        // ensure that null is returned
+        if (!editMode) {
             return null;
         }
 

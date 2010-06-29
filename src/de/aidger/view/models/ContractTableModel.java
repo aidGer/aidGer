@@ -2,6 +2,7 @@ package de.aidger.view.models;
 
 import static de.aidger.utils.Translation._;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -67,11 +68,16 @@ public class ContractTableModel extends TableModel {
             IAssistant assistant = (new Assistant()).getById(contract
                 .getAssistantId());
 
-            return new Object[] { new UIAssistant(assistant),
+            Date confirmationDate = contract.getConfirmationDate();
+            Calendar cal = Calendar.getInstance();
+            cal.clear();
+
+            return new Object[] {
+                    new UIAssistant(assistant),
                     contract.getCompletionDate(),
-                    contract.getConfirmationDate(), contract.getStartDate(),
-                    contract.getEndDate(), contract.getType(),
-                    contract.isDelegation() };
+                    confirmationDate == null ? cal.getTime() : confirmationDate,
+                    contract.getStartDate(), contract.getEndDate(),
+                    contract.getType(), contract.isDelegation() };
         } catch (AdoHiveException e) {
             return new Object[] {};
         }
