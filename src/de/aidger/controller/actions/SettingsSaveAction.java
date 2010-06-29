@@ -13,6 +13,8 @@ import de.aidger.model.Runtime;
 import de.aidger.model.validators.PresenceValidator;
 import de.aidger.view.SettingsDialog;
 import de.aidger.view.UI;
+import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
+import java.util.List;
 
 /**
  * This action saves the settings in the dialog and closes it.
@@ -54,21 +56,19 @@ public class SettingsSaveAction extends AbstractAction {
             return;
         }
 
+        List<Pair<String, String>> languages = Runtime.getInstance()
+                .getLanguages();
+        String before = Runtime.getInstance().getOption("language");
         if (dlg.getSelectedLanguage() == -1
-                || dlg.getSelectedLanguage() >= Runtime.getInstance()
-                    .getLanguages().size()) {
-            UI
-                .displayError(_("No Language selected or incorrect language selected."));
+                || dlg.getSelectedLanguage() >= languages.size()) {
+            UI.displayError(_("No Language selected or incorrect language selected."));
             return;
         }
-        Runtime.getInstance().setOption(
-            "language",
-            Runtime.getInstance().getLanguages().get(dlg.getSelectedLanguage())
-                .fst());
+        Runtime.getInstance().setOption("language", languages.get(
+                dlg.getSelectedLanguage()).fst());
 
         if (dlg.getNumOfActivities() <= 0) {
-            UI
-                .displayError(_("The number of activities needs to be bigger than 0."));
+            UI.displayError(_("The number of activities needs to be bigger than 0."));
             return;
         }
         Runtime.getInstance().setOption("activities",
@@ -116,5 +116,10 @@ public class SettingsSaveAction extends AbstractAction {
 
         // Refresh Quick Settings
         UI.getInstance().refreshQuickSettings();
+
+        // Display info dialog if language has changed
+        if (!before.equals(Runtime.getInstance().getOption("language"))) {
+            UI.displayInfo(_("You need to restart the application to finish the language change."));
+        }
     }
 }
