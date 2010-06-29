@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.util.List;
 
 import de.aidger.model.AbstractModel;
+import de.aidger.model.validators.DateRangeValidator;
 import de.unistuttgart.iste.se.adohive.controller.IContractManager;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IContract;
@@ -58,14 +59,12 @@ public class Contract extends AbstractModel<IContract> implements IContract {
      * Initializes the Contract class.
      */
     public Contract() {
-        validatePresenceOf(new String[] { "completionDate", "confirmationDate",
-                "endDate", "startDate", "type" }, new String[] {
+        validatePresenceOf(new String[] { "completionDate", "endDate",
+                "startDate", "type" }, new String[] {
                 _("Completion date"), _("Confirmation date"), _("End date"),
                 _("Start date"), _("Type") });
         validateDateRange("startDate", "endDate", _("End date"),
                 _("Start date"));
-        validateDateRange("completionDate", "confirmationDate",
-                _("Completion date"), _("Confirmation date"));
         validateExistanceOf(new String[] { "assistantId" }, new String[] {
                 _("Assistant") }, new Assistant());
     }
@@ -165,6 +164,11 @@ public class Contract extends AbstractModel<IContract> implements IContract {
         boolean ret = true;
         if (type.length() > 20) {
             addError("type", _("Type"), _("is too long"));
+            ret = false;
+        }
+        if (confirmationDate != null && !DateRangeValidator.validate(
+                completionDate, confirmationDate)) {
+            addError(_("The date range Completiondate and Confirmationdate is incorrect"));
             ret = false;
         }
         return ret;
