@@ -6,6 +6,7 @@ import org.junit.BeforeClass;
 import static org.junit.Assert.*;
 
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import java.sql.Date;
 
 
 /**
@@ -138,6 +139,20 @@ public class AssistantTest {
         assertFalse(assistant.remove());
         assistant.resetErrors();
         employment.remove();
+
+        Contract contract = new Contract();
+        contract.setAssistantId(assistant.getId());
+        contract.setCompletionDate(new Date(10));
+        contract.setConfirmationDate(new Date(100));
+        contract.setDelegation(false);
+        contract.setEndDate(new Date(1000));
+        contract.setStartDate(new Date(20));
+        contract.setType("Type");
+        contract.save();
+
+        assertFalse(assistant.remove());
+        assistant.resetErrors();
+        contract.remove();
 
         assertTrue(assistant.remove());
     }
