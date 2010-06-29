@@ -76,7 +76,14 @@ public class EmploymentEditorForm extends JPanel {
         btnContractAdd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 Tab current = UI.getInstance().getCurrentTab();
-                Tab next = new EditorTab(DataType.Contract);
+
+                EditorTab next = new EditorTab(DataType.Contract);
+
+                if (cmbAssistant.getSelectedItem() != null) {
+                    ((ContractEditorForm) next.getEditorForm())
+                        .setAssistant(((Assistant) cmbAssistant
+                            .getSelectedItem()));
+                }
 
                 current.markAsPredecessor();
                 next.markAsNoPredecessor();
@@ -210,6 +217,10 @@ public class EmploymentEditorForm extends JPanel {
      *            the new assistant
      */
     private void refreshQualification(Assistant assistant) {
+        if (assistant == null) {
+            return;
+        }
+
         cmbQualification.setSelectedItem(Qualification.valueOf(assistant
             .getQualification()));
     }

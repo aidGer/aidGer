@@ -86,6 +86,16 @@ public class ContractEditorForm extends JPanel {
     }
 
     /**
+     * Sets the assistant combobox.
+     * 
+     * @param assistant
+     *            the assistant
+     */
+    public void setAssistant(Assistant assistant) {
+        cmbAssistant.setSelectedItem(assistant);
+    }
+
+    /**
      * Get the corresponding assistant.
      * 
      * @return The assistant
