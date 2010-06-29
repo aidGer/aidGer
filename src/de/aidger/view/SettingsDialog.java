@@ -276,7 +276,7 @@ public class SettingsDialog extends JDialog {
 
         pdfTextField.setEditable(false);
 
-        openCheckBox.setText(_("Open reports automatically after generating"));
+        openCheckBox.setText(_("Open reports automatically after exporting"));
 
         saveCheckBox.setText(_("Save Tabs when quitting"));
 
