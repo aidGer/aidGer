@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-29 16:35+0200\n"
+"POT-Creation-Date: 2010-06-29 17:23+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
+"Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -131,7 +131,7 @@ msgstr "Generiert den Controlling Bericht"
 #: controller/actions/DialogAbortAction.java:26
 #: controller/actions/EditorCancelAction.java:26
 #: view/tabs/DetailViewerTab.java:522
-#: view/tabs/EditorTab.java:343
+#: view/tabs/EditorTab.java:372
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -149,7 +149,7 @@ msgstr "Aktion abbrechen"
 
 #: controller/actions/EditorSaveAction.java:72
 #: controller/actions/SettingsSaveAction.java:31
-#: view/tabs/EditorTab.java:340
+#: view/tabs/EditorTab.java:369
 msgid "Save"
 msgstr "Speichern"
 
@@ -214,7 +214,7 @@ msgstr "Lohn"
 #: controller/actions/EditorSaveAction.java:256
 #: model/models/Contract.java:63
 #: model/models/Contract.java:65
-#: view/forms/ContractEditorForm.java:220
+#: view/forms/ContractEditorForm.java:237
 #: view/forms/ContractViewerForm.java:119
 #: view/models/ContractTableModel.java:28
 msgid "End date"
@@ -431,7 +431,7 @@ msgstr "Hinzufügen"
 #: utils/pdf/ControllingConverter.java:296
 #: view/forms/ActivityEditorForm.java:122
 #: view/forms/ActivityViewerForm.java:95
-#: view/forms/ContractEditorForm.java:188
+#: view/forms/ContractEditorForm.java:205
 #: view/forms/ContractViewerForm.java:87
 #: view/forms/EmploymentEditorForm.java:479
 #: view/forms/EmploymentViewerForm.java:105
@@ -558,7 +558,7 @@ msgstr "Einsender"
 #: utils/pdf/ProtocolConverter.java:300
 #: view/forms/ActivityEditorForm.java:348
 #: view/forms/ActivityViewerForm.java:135
-#: view/forms/ContractEditorForm.java:228
+#: view/forms/ContractEditorForm.java:245
 #: view/forms/ContractViewerForm.java:127
 #: view/models/ActivityTableModel.java:30
 #: view/models/ContractTableModel.java:29
@@ -652,7 +652,7 @@ msgstr "Es besteht noch eine Verbindung zwischen der Hilfskraft und einem Vertra
 
 #: model/models/Contract.java:63
 #: model/models/Contract.java:68
-#: view/forms/ContractEditorForm.java:196
+#: view/forms/ContractEditorForm.java:213
 #: view/forms/ContractViewerForm.java:95
 #: view/models/ContractTableModel.java:27
 msgid "Completion date"
@@ -660,7 +660,7 @@ msgstr "Abschlußdatum"
 
 #: model/models/Contract.java:63
 #: model/models/Contract.java:68
-#: view/forms/ContractEditorForm.java:204
+#: view/forms/ContractEditorForm.java:221
 #: view/forms/ContractViewerForm.java:103
 #: view/models/ContractTableModel.java:28
 msgid "Confirmation date"
@@ -668,7 +668,7 @@ msgstr "Bestätigungsdatum"
 
 #: model/models/Contract.java:64
 #: model/models/Contract.java:66
-#: view/forms/ContractEditorForm.java:212
+#: view/forms/ContractEditorForm.java:229
 #: view/forms/ContractViewerForm.java:111
 #: view/forms/HourlyWageEditorForm.java:197
 #: view/models/ContractTableModel.java:28
@@ -1075,7 +1075,11 @@ msgstr "Nur eine Maximallänge von 2 ist erlaubt."
 msgid "None"
 msgstr "Keine"
 
-#: view/forms/ContractEditorForm.java:236
+#: view/forms/ContractEditorForm.java:100
+msgid "Confirmation date can be entered after saving the contract."
+msgstr "Das Bestätigungsdatum kann nach dem Speichern des Vertrags eingegeben werden."
+
+#: view/forms/ContractEditorForm.java:253
 #: view/forms/ContractViewerForm.java:135
 #: view/models/ContractTableModel.java:29
 msgid "Delegation"
@@ -1253,63 +1257,63 @@ msgstr "Vertrag anzeigen"
 msgid "View activity"
 msgstr "Vorgang anzeigen"
 
-#: view/tabs/EditorTab.java:199
+#: view/tabs/EditorTab.java:206
 msgid "Edit course"
 msgstr "Veranstaltung bearbeiten"
 
-#: view/tabs/EditorTab.java:201
+#: view/tabs/EditorTab.java:208
 msgid "Edit assistant"
 msgstr "Hilfskraft bearbeiten"
 
-#: view/tabs/EditorTab.java:203
+#: view/tabs/EditorTab.java:210
 msgid "Edit financial category"
 msgstr "Finanzkategorie bearbeiten"
 
-#: view/tabs/EditorTab.java:205
+#: view/tabs/EditorTab.java:212
 msgid "Edit hourly wage"
 msgstr "Stundenlohn bearbeiten"
 
-#: view/tabs/EditorTab.java:207
+#: view/tabs/EditorTab.java:214
 msgid "Edit employment"
 msgstr "Beschäftigung bearbeiten"
 
-#: view/tabs/EditorTab.java:209
+#: view/tabs/EditorTab.java:216
 msgid "Edit contract"
 msgstr "Vertrag bearbeiten"
 
-#: view/tabs/EditorTab.java:211
+#: view/tabs/EditorTab.java:218
 msgid "Edit activity"
 msgstr "Vorgang bearbeiten"
 
-#: view/tabs/EditorTab.java:217
+#: view/tabs/EditorTab.java:224
 msgid "Add course"
 msgstr "Veranstaltung hinzufügen"
 
-#: view/tabs/EditorTab.java:219
+#: view/tabs/EditorTab.java:226
 msgid "Add assistant"
 msgstr "Hilfskraft hinzufügen"
 
-#: view/tabs/EditorTab.java:221
+#: view/tabs/EditorTab.java:228
 msgid "Add financial category"
 msgstr "Finanzkategorie hinzufügen"
 
-#: view/tabs/EditorTab.java:223
+#: view/tabs/EditorTab.java:230
 msgid "Add hourly wage"
 msgstr "Stundenlohn hinzufügen"
 
-#: view/tabs/EditorTab.java:225
+#: view/tabs/EditorTab.java:232
 msgid "Add employment"
 msgstr "Beschäftigung hinzufügen"
 
-#: view/tabs/EditorTab.java:227
+#: view/tabs/EditorTab.java:234
 msgid "Add contract"
 msgstr "Vertrag hinzufügen"
 
-#: view/tabs/EditorTab.java:229
+#: view/tabs/EditorTab.java:236
 msgid "Add activity"
 msgstr "Vorgang hinzufügen"
 
-#: view/tabs/EditorTab.java:359
+#: view/tabs/EditorTab.java:386
 msgid "Hints"
 msgstr "Hinweise"
 

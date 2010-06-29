@@ -12,8 +12,8 @@ import javax.swing.JPanel;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.view.models.ComboBoxModel;
-import de.aidger.view.models.GenericListModel;
 import de.aidger.view.models.UIAssistant;
+import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.AutoCompletion;
 import de.aidger.view.utils.BooleanListRenderer;
@@ -33,10 +33,10 @@ public class ContractEditorForm extends JPanel {
      * 
      * @param contract
      *            the contract that will be edited
+     * @tab the parent editor tab
      */
     @SuppressWarnings("unchecked")
-    public ContractEditorForm(Contract contract,
-            List<GenericListModel> listModels) {
+    public ContractEditorForm(Contract contract, EditorTab tab) {
         initComponents();
 
         AutoCompletion.enable(cmbAssistant);
@@ -60,7 +60,7 @@ public class ContractEditorForm extends JPanel {
                 }
 
                 cmbAssistant.setModel(cmbAssistantModel);
-                listModels.add(cmbAssistantModel);
+                tab.getListModels().add(cmbAssistantModel);
             }
         } catch (AdoHiveException e) {
         }
@@ -90,7 +90,15 @@ public class ContractEditorForm extends JPanel {
             lblConfirmationDate.setVisible(false);
             spConfirmationDate.setVisible(false);
             spStartDate.setValue(now.getTime());
+
+            now.add(Calendar.MONTH, 1);
             spEndDate.setValue(now.getTime());
+
+            // add confirmation date hint for user
+            tab.clearHints();
+            tab
+                .addHint(_("Confirmation date can be entered after saving the contract."));
+            tab.updateHints();
         }
     }
 

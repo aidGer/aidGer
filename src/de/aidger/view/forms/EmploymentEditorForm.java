@@ -61,6 +61,8 @@ public class EmploymentEditorForm extends JPanel {
      * 
      * @param employment
      *            The employment that will be edited
+     * @param listModels
+     *            the list models of the parent editor tab
      */
     @SuppressWarnings("unchecked")
     public EmploymentEditorForm(Employment employment,
