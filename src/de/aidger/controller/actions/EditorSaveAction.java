@@ -308,8 +308,18 @@ public class EditorSaveAction extends AbstractAction {
 
         Employment employmentBeforeEdit = employment.clone();
 
-        employment.setAssistantId(form.getAssistant().getId());
-        employment.setCourseId(form.getCourse().getId());
+        int assistantId = 0, courseId = 0;
+
+        if (form.getAssistant() != null) {
+            assistantId = form.getAssistant().getId();
+        }
+
+        if (form.getCourse() != null) {
+            courseId = form.getCourse().getId();
+        }
+
+        employment.setAssistantId(assistantId);
+        employment.setCourseId(courseId);
         employment.setContractId(form.getContractId());
         employment.setCostUnit(form.getCostUnit());
         employment.setQualification(form.getQualification());

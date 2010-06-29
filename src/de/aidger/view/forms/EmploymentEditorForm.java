@@ -221,6 +221,10 @@ public class EmploymentEditorForm extends JPanel {
      *            the new course
      */
     private void refreshFunds(Course course) {
+        if (course == null) {
+            return;
+        }
+
         try {
             IFinancialCategory fc = (new FinancialCategory()).getById(course
                 .getFinancialCategoryId());
