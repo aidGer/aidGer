@@ -2,13 +2,16 @@ package de.aidger.view.models;
 
 import static de.aidger.utils.Translation._;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import de.aidger.model.AbstractModel;
+import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.utils.Logger;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.IContract;
 
 /**
@@ -22,8 +25,9 @@ public class ContractTableModel extends TableModel {
      * Constructs the table model for contracts.
      */
     public ContractTableModel() {
-        super(new String[] { _("Completion date"), _("Confirmation date"),
-                _("Start date"), _("End date"), _("Type"), _("Delegation") });
+        super(new String[] { _("Assistant"), _("Completion date"),
+                _("Confirmation date"), _("Start date"), _("End date"),
+                _("Type"), _("Delegation") });
     }
 
     /*
@@ -60,10 +64,23 @@ public class ContractTableModel extends TableModel {
     protected Object[] convertModelToRow(AbstractModel model) {
         Contract contract = (Contract) model;
 
-        return new Object[] { contract.getCompletionDate(),
-                contract.getConfirmationDate(), contract.getStartDate(),
-                contract.getEndDate(), contract.getType(),
-                contract.isDelegation() };
+        try {
+            IAssistant assistant = (new Assistant()).getById(contract
+                .getAssistantId());
+
+            Date confirmationDate = contract.getConfirmationDate();
+            Calendar cal = Calendar.getInstance();
+            cal.clear();
+
+            return new Object[] {
+                    new UIAssistant(assistant),
+                    contract.getCompletionDate(),
+                    confirmationDate == null ? cal.getTime() : confirmationDate,
+                    contract.getStartDate(), contract.getEndDate(),
+                    contract.getType(), contract.isDelegation() };
+        } catch (AdoHiveException e) {
+            return new Object[] {};
+        }
     }
 
     /*
@@ -74,7 +91,7 @@ public class ContractTableModel extends TableModel {
     @Override
     public Class<?> getColumnClass(int column) {
         // sort specific columns properly
-        if (column == 0 || column == 1 || column == 2 || column == 3) {
+        if (column == 1 || column == 2 || column == 3 || column == 4) {
             return Date.class;
         }
 

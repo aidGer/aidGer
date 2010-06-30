@@ -61,6 +61,8 @@ public class EmploymentEditorForm extends JPanel {
      * 
      * @param employment
      *            The employment that will be edited
+     * @param listModels
+     *            the list models of the parent editor tab
      */
     @SuppressWarnings("unchecked")
     public EmploymentEditorForm(Employment employment,
@@ -76,7 +78,14 @@ public class EmploymentEditorForm extends JPanel {
         btnContractAdd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 Tab current = UI.getInstance().getCurrentTab();
-                Tab next = new EditorTab(DataType.Contract);
+
+                EditorTab next = new EditorTab(DataType.Contract);
+
+                if (cmbAssistant.getSelectedItem() != null) {
+                    ((ContractEditorForm) next.getEditorForm())
+                        .setAssistant(((Assistant) cmbAssistant
+                            .getSelectedItem()));
+                }
 
                 current.markAsPredecessor();
                 next.markAsNoPredecessor();
@@ -210,6 +219,10 @@ public class EmploymentEditorForm extends JPanel {
      *            the new assistant
      */
     private void refreshQualification(Assistant assistant) {
+        if (assistant == null) {
+            return;
+        }
+
         cmbQualification.setSelectedItem(Qualification.valueOf(assistant
             .getQualification()));
     }
@@ -221,6 +234,10 @@ public class EmploymentEditorForm extends JPanel {
      *            the new course
      */
     private void refreshFunds(Course course) {
+        if (course == null) {
+            return;
+        }
+
         try {
             IFinancialCategory fc = (new FinancialCategory()).getById(course
                 .getFinancialCategoryId());
@@ -391,11 +408,7 @@ public class EmploymentEditorForm extends JPanel {
             btnPlusMinus);
 
         if (dateLines.isEmpty()) {
-            Calendar now = Calendar.getInstance();
-            now.set(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now
-                .get(Calendar.DATE));
-
-            spDate.setValue(now.getTime());
+            EditorTab.setTimeToNow(spDate);
 
             btnPlusMinus.setIcon(new ImageIcon(getClass().getResource(
                 "/de/aidger/view/icons/plus-small.png")));
@@ -417,6 +430,7 @@ public class EmploymentEditorForm extends JPanel {
             btnPlusMinus.setAction(new RemoveDateAction(dl));
 
             Calendar cal = Calendar.getInstance();
+            cal.clear();
             cal.setTime((Date) dateLines.get(dateLines.size() - 1).spDate
                 .getValue());
             cal.add(Calendar.MONTH, 1);

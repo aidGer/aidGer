@@ -24,6 +24,7 @@ import de.aidger.model.models.Course;
 import de.aidger.view.models.ComboBoxModel;
 import de.aidger.view.models.UIAssistant;
 import de.aidger.view.models.UICourse;
+import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.AutoCompletion;
 import de.aidger.view.utils.InputPatternFilter;
@@ -89,6 +90,8 @@ public class ActivityEditorForm extends JPanel {
             } catch (AdoHiveException e) {
             }
         } else {
+            EditorTab.setTimeToNow(spDate);
+
             // use processor name from settings
             txtProcessor.setText(Runtime.getInstance().getOption("name"));
         }

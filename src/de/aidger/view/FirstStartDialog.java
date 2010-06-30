@@ -41,6 +41,8 @@ public class FirstStartDialog extends javax.swing.JDialog {
 
         BackgroundThread thread = new BackgroundThread();
         thread.start();
+
+        setLocationRelativeTo(null);
     }
 
     /**

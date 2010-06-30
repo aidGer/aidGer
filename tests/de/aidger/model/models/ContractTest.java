@@ -87,11 +87,6 @@ public class ContractTest {
         contract.resetErrors();
         contract.setCompletionDate(new Date(10));
 
-        contract.setConfirmationDate(null);
-        assertFalse(contract.save());
-        contract.resetErrors();
-        contract.setConfirmationDate(new Date(100));
-
         contract.setEndDate(null);
         assertFalse(contract.save());
         contract.resetErrors();

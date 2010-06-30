@@ -3,11 +3,13 @@ package de.aidger.view.tabs;
 import static de.aidger.utils.Translation._;
 
 import java.awt.event.KeyEvent;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.KeyStroke;
 
 import de.aidger.controller.ActionNotFoundException;
@@ -55,6 +57,11 @@ public class EditorTab extends Tab {
      * A flag whether the tab is in edit mode.
      */
     private boolean editMode = false;
+
+    /**
+     * The rendered html list as html
+     */
+    private String hintsList;
 
     /**
      * Constructs a data editor tab.
@@ -129,6 +136,8 @@ public class EditorTab extends Tab {
      */
     private void init() {
         initComponents();
+
+        clearHints();
 
         try {
             btnSave.setAction(ActionRegistry.getInstance().get(
@@ -277,12 +286,41 @@ public class EditorTab extends Tab {
         case Employment:
             return new EmploymentEditorForm((Employment) model, listModels);
         case Contract:
-            return new ContractEditorForm((Contract) model);
+            return new ContractEditorForm((Contract) model, this);
         case Activity:
             return new ActivityEditorForm((Activity) model);
         default:
             return new JPanel();
         }
+    }
+
+    /**
+     * Clears the hints list.
+     */
+    public void clearHints() {
+        hintsList = "<html><style type=\"text/css\">ul { margin-left: 20px; list-style-type: square; } li { padding-left: 5px; margin-bottom: 10px; }</style><ul></ul></html>";
+    }
+
+    /**
+     * Adds a hint to the list.
+     * 
+     * @param hint
+     *            the hint
+     */
+    public void addHint(String hint) {
+        int i = hintsList.indexOf("</ul></html>");
+
+        hintsList = hintsList.substring(0, i) + "<li>" + hint + "</li>"
+                + hintsList.substring(i, hintsList.length());
+    }
+
+    /**
+     * Updates the hints list on the tab.
+     */
+    public void updateHints() {
+        hints.removeAll();
+        hints.add(new JLabel(hintsList));
+        hints.revalidate();
     }
 
     /**
@@ -295,19 +333,49 @@ public class EditorTab extends Tab {
     public void updateHints(AbstractModel model) {
         List<String> errors = model.getErrors();
 
-        String htmlList = "<html><style type=\"text/css\">ul { margin-left: 20px; list-style-type: square; } li { padding-left: 5px; margin-bottom: 10px; }</style><ul>";
+        clearHints();
 
         for (String error : errors) {
-            htmlList += "<li>" + error + "</li>";
+            addHint(error);
         }
 
-        htmlList += "</ul></html>";
-
-        hints.removeAll();
-        hints.add(new JLabel(htmlList));
-        hints.revalidate();
+        updateHints();
 
         model.resetErrors();
+    }
+
+    /**
+     * Sets the value of the given spinner object to now.
+     * 
+     * @param date
+     *            the spinner
+     */
+    public static void setTimeToNow(JSpinner date) {
+        setTimeToNow(date, 0, 0);
+    }
+
+    /**
+     * Sets the value of the given spinner object to now plus the given amount
+     * of time to the given time field.
+     * 
+     * @param date
+     *            the spinner
+     * @param field
+     *            the time field
+     * @param amount
+     *            the amount of time
+     */
+    public static void setTimeToNow(JSpinner date, int field, int amount) {
+        Calendar now = Calendar.getInstance(), cal = Calendar.getInstance();
+
+        cal.clear();
+
+        cal.set(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now
+            .get(Calendar.DATE));
+
+        cal.add(field, amount);
+
+        date.setValue(cal.getTime());
     }
 
     /**
@@ -324,7 +392,6 @@ public class EditorTab extends Tab {
         btnSave = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         filler = new javax.swing.JLabel();
-        hints = new javax.swing.JPanel();
         filler2 = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
@@ -380,7 +447,7 @@ public class EditorTab extends Tab {
     private javax.swing.JPanel editorForm;
     private javax.swing.JLabel filler;
     private javax.swing.JLabel filler2;
-    private javax.swing.JPanel hints;
+    private final javax.swing.JPanel hints = new javax.swing.JPanel();
     // End of variables declaration//GEN-END:variables
 
 }

@@ -4,12 +4,21 @@ import static de.aidger.utils.Translation._;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPanel;
 
+import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
+import de.aidger.view.models.ComboBoxModel;
+import de.aidger.view.models.UIAssistant;
+import de.aidger.view.tabs.EditorTab;
+import de.aidger.view.tabs.ViewerTab.DataType;
+import de.aidger.view.utils.AutoCompletion;
 import de.aidger.view.utils.BooleanListRenderer;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.unistuttgart.iste.se.adohive.model.IAssistant;
 
 /**
  * A form used for editing / creating new contracts.
@@ -20,34 +29,99 @@ import de.aidger.view.utils.BooleanListRenderer;
 public class ContractEditorForm extends JPanel {
 
     /**
+     * A flag whether the form is in edit mode.
+     */
+    private boolean editMode = false;
+
+    /**
      * Constructs a contract editor form.
      * 
      * @param contract
      *            the contract that will be edited
+     * @tab the parent editor tab
      */
-    public ContractEditorForm(Contract contract) {
+    @SuppressWarnings("unchecked")
+    public ContractEditorForm(Contract contract, EditorTab tab) {
+        if (contract != null) {
+            editMode = true;
+        }
+
         initComponents();
+
+        AutoCompletion.enable(cmbAssistant);
 
         cmbDelegation.setRenderer(new BooleanListRenderer());
 
-        if (contract != null) {
+        try {
+            List<IAssistant> assistants = (new Assistant()).getAll();
+
+            ComboBoxModel cmbAssistantModel = new ComboBoxModel(
+                DataType.Assistant);
+
+            for (IAssistant a : assistants) {
+                Assistant assistant = new UIAssistant(a);
+
+                cmbAssistantModel.addElement(assistant);
+
+                if (contract != null
+                        && assistant.getId() == contract.getAssistantId()) {
+                    cmbAssistantModel.setSelectedItem(assistant);
+                }
+
+                cmbAssistant.setModel(cmbAssistantModel);
+                tab.getListModels().add(cmbAssistantModel);
+            }
+        } catch (AdoHiveException e) {
+        }
+
+        if (editMode) {
             spCompletionDate.setValue(contract.getCompletionDate());
-            spConfirmationDate.setValue(contract.getConfirmationDate());
+
+            if (contract.getConfirmationDate() == null) {
+                EditorTab.setTimeToNow(spConfirmationDate);
+            } else {
+                spConfirmationDate.setValue(contract.getConfirmationDate());
+            }
+
             spStartDate.setValue(contract.getStartDate());
             spEndDate.setValue(contract.getEndDate());
             txtType.setText(contract.getType());
             cmbDelegation.setSelectedItem(Boolean.valueOf(contract
                 .isDelegation()));
         } else {
-            Calendar now = Calendar.getInstance();
-            now.set(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now
-                .get(Calendar.DATE));
+            EditorTab.setTimeToNow(spCompletionDate);
+            EditorTab.setTimeToNow(spStartDate);
+            EditorTab.setTimeToNow(spEndDate, Calendar.MONTH, 1);
 
-            spCompletionDate.setValue(now.getTime());
-            spConfirmationDate.setValue(now.getTime());
-            spStartDate.setValue(now.getTime());
-            spEndDate.setValue(now.getTime());
+            // hide confirmation date
+            lblConfirmationDate.setVisible(false);
+            spConfirmationDate.setVisible(false);
+
+            // add confirmation date hint for user
+            tab.clearHints();
+            tab
+                .addHint(_("Confirmation date can be entered after saving the contract."));
+            tab.updateHints();
         }
+    }
+
+    /**
+     * Sets the assistant combobox.
+     * 
+     * @param assistant
+     *            the assistant
+     */
+    public void setAssistant(Assistant assistant) {
+        cmbAssistant.setSelectedItem(assistant);
+    }
+
+    /**
+     * Get the corresponding assistant.
+     * 
+     * @return The assistant
+     */
+    public Assistant getAssistant() {
+        return (Assistant) cmbAssistant.getSelectedItem();
     }
 
     /**
@@ -65,6 +139,11 @@ public class ContractEditorForm extends JPanel {
      * @return The date the contract was confirmed
      */
     public java.sql.Date getConfirmationDate() {
+        // ensure that null is returned
+        if (!editMode) {
+            return null;
+        }
+
         return new java.sql.Date(((Date) spConfirmationDate.getValue())
             .getTime());
     }
@@ -114,12 +193,14 @@ public class ContractEditorForm extends JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        lblAssistant = new javax.swing.JLabel();
         lblCompletionDate = new javax.swing.JLabel();
         lblConfirmationDate = new javax.swing.JLabel();
         lblStartDate = new javax.swing.JLabel();
         lblEndDate = new javax.swing.JLabel();
         lblType = new javax.swing.JLabel();
         lblDelegation = new javax.swing.JLabel();
+        cmbAssistant = new javax.swing.JComboBox();
         spCompletionDate = new javax.swing.JSpinner();
         spConfirmationDate = new javax.swing.JSpinner();
         spStartDate = new javax.swing.JSpinner();
@@ -129,10 +210,18 @@ public class ContractEditorForm extends JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        lblCompletionDate.setText(_("Completion date"));
+        lblAssistant.setText(_("Assistant"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(lblAssistant, gridBagConstraints);
+
+        lblCompletionDate.setText(_("Completion date"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblCompletionDate, gridBagConstraints);
@@ -140,7 +229,7 @@ public class ContractEditorForm extends JPanel {
         lblConfirmationDate.setText(_("Confirmation date"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblConfirmationDate, gridBagConstraints);
@@ -148,7 +237,7 @@ public class ContractEditorForm extends JPanel {
         lblStartDate.setText(_("Start date"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblStartDate, gridBagConstraints);
@@ -156,7 +245,7 @@ public class ContractEditorForm extends JPanel {
         lblEndDate.setText(_("End date"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblEndDate, gridBagConstraints);
@@ -164,7 +253,7 @@ public class ContractEditorForm extends JPanel {
         lblType.setText(_("Type"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblType, gridBagConstraints);
@@ -172,17 +261,26 @@ public class ContractEditorForm extends JPanel {
         lblDelegation.setText(_("Delegation"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblDelegation, gridBagConstraints);
+
+        cmbAssistant.setMinimumSize(new java.awt.Dimension(200, 25));
+        cmbAssistant.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(cmbAssistant, gridBagConstraints);
 
         spCompletionDate.setModel(new javax.swing.SpinnerDateModel());
         spCompletionDate.setEditor(new javax.swing.JSpinner.DateEditor(
             spCompletionDate, "dd.MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(spCompletionDate, gridBagConstraints);
@@ -192,7 +290,7 @@ public class ContractEditorForm extends JPanel {
             spConfirmationDate, "dd.MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(spConfirmationDate, gridBagConstraints);
@@ -202,7 +300,7 @@ public class ContractEditorForm extends JPanel {
             "dd.MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(spStartDate, gridBagConstraints);
@@ -212,7 +310,7 @@ public class ContractEditorForm extends JPanel {
             "dd.MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(spEndDate, gridBagConstraints);
@@ -221,7 +319,7 @@ public class ContractEditorForm extends JPanel {
         txtType.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtType, gridBagConstraints);
 
@@ -229,14 +327,16 @@ public class ContractEditorForm extends JPanel {
                 Boolean.FALSE, Boolean.TRUE }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbDelegation, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cmbAssistant;
     private javax.swing.JComboBox cmbDelegation;
+    private javax.swing.JLabel lblAssistant;
     private javax.swing.JLabel lblCompletionDate;
     private javax.swing.JLabel lblConfirmationDate;
     private javax.swing.JLabel lblDelegation;

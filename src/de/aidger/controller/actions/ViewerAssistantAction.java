@@ -6,9 +6,11 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.ImageIcon;
 
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
+import de.aidger.model.models.Contract;
 import de.aidger.model.models.Employment;
 import de.aidger.view.UI;
 import de.aidger.view.tabs.DetailViewerTab;
@@ -16,7 +18,6 @@ import de.aidger.view.tabs.ViewerTab;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
-import javax.swing.ImageIcon;
 
 /**
  * This action shows the assistant for a given model.
@@ -32,7 +33,7 @@ public class ViewerAssistantAction extends AbstractAction {
     public ViewerAssistantAction() {
         putValue(Action.NAME, _("Assistant"));
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/user.png")));
+            "/de/aidger/view/icons/user.png")));
     }
 
     /*
@@ -63,6 +64,14 @@ public class ViewerAssistantAction extends AbstractAction {
 
                     assistant = new Assistant((new Assistant())
                         .getById(employment.getAssistantId()));
+
+                    break;
+                case Contract:
+                    Contract contract = (Contract) tab.getTableModel()
+                        .getModel(index);
+
+                    assistant = new Assistant((new Assistant())
+                        .getById(contract.getAssistantId()));
 
                     break;
                 case Activity:

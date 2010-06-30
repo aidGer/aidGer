@@ -4,6 +4,7 @@ import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
+import de.unistuttgart.iste.se.adohive.model.IContract;
 
 import java.util.List;
 
@@ -134,6 +135,16 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
         if (emp.size() > 0) {
             addError(_("Assistant is still linked to an Employment"));
             ret = false;
+        }
+
+        // TODO: Replace with Contract.getContracts(Assistant) as soon as possible
+        List<IContract> contr = (new Contract()).getAll();
+        for (IContract c : contr) {
+            if (c.getAssistantId() != null && c.getAssistantId() == id) {
+                addError(_("Assistant is still linked to a Contract"));
+                ret = false;
+                break;
+            }
         }
 
         return ret;

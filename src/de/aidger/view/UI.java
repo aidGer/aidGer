@@ -7,6 +7,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseWheelEvent;
@@ -23,6 +24,8 @@ import java.util.TimerTask;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ActionMap;
+import javax.swing.ButtonGroup;
+import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 import javax.swing.InputMap;
 import javax.swing.JCheckBox;
@@ -34,6 +37,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
@@ -113,6 +117,21 @@ public final class UI extends JFrame {
      * Quick Settings CheckBox for the open reports setting.
      */
     private JCheckBox openCheckBox;
+
+    /**
+     * Quick Settings RadioButton for the pessimistic calculation setting.
+     */
+    private JRadioButton pessimisticRadioButton;
+
+    /**
+     * Quick Settings RadioButton for the historical calculation setting.
+     */
+    private JRadioButton historicalRadioButton;
+
+    /**
+     * Quick Settings ButtonGroup for the calculation method setting.
+     */
+    private ButtonGroup calculationGroup;
 
     /**
      * Creates the main window of the application.
@@ -218,7 +237,10 @@ public final class UI extends JFrame {
      *            The error message to display
      */
     public static void displayError(String error) {
-        UI.getInstance().setStatusMessage(error);
+        if (instance != null) {
+            UI.getInstance().setStatusMessage(error);
+        }
+
         JOptionPane.showMessageDialog(instance, error, _("Error"),
             JOptionPane.ERROR_MESSAGE);
         Logger.error(error);
@@ -231,7 +253,10 @@ public final class UI extends JFrame {
      *            The info message to display
      */
     public static void displayInfo(String info) {
-        UI.getInstance().setStatusMessage(info);
+        if (instance != null) {
+            UI.getInstance().setStatusMessage(info);
+        }
+
         JOptionPane.showMessageDialog(instance, info, _("Info"),
             JOptionPane.INFORMATION_MESSAGE);
         Logger.info(info);
@@ -249,7 +274,6 @@ public final class UI extends JFrame {
         // Display the first start dialog on first start
         if (Runtime.getInstance().isFirstStart()) {
             FirstStartDialog dlg = new FirstStartDialog(this, true);
-            dlg.setLocationRelativeTo(null);
             dlg.setVisible(true);
         }
 
@@ -526,6 +550,10 @@ public final class UI extends JFrame {
             .getOption("auto-save")));
         openCheckBox.setSelected(Boolean.valueOf(Runtime.getInstance()
             .getOption("auto-open")));
+        ButtonModel model = Runtime.getInstance().getOption("calc-method")
+            .equals("1") ? pessimisticRadioButton.getModel()
+                : historicalRadioButton.getModel();
+        calculationGroup.setSelected(model, true);
     }
 
     /**
@@ -671,10 +699,32 @@ public final class UI extends JFrame {
             }
         });
 
+        historicalRadioButton = new JRadioButton(_("Historical calculation"));
+        historicalRadioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                Runtime.getInstance().setOption("calc-method", "0");
+            }
+        });
+
+        pessimisticRadioButton = new JRadioButton(_("Pessimistic calculation"));
+        pessimisticRadioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                Runtime.getInstance().setOption("calc-method", "1");
+            }
+        });
+
+        calculationGroup = new ButtonGroup();
+        calculationGroup.add(pessimisticRadioButton);
+        calculationGroup.add(historicalRadioButton);
+
         refreshQuickSettings();
 
         tpQuickSettings.add(rememberCheckBox);
         tpQuickSettings.add(openCheckBox);
+        tpQuickSettings.add(pessimisticRadioButton);
+        tpQuickSettings.add(historicalRadioButton);
 
         tpc.addTask(tpMasterData);
         tpc.addTask(tpEmployments);

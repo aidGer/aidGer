@@ -8,6 +8,7 @@ import java.util.Date;
 import javax.swing.JPanel;
 
 import de.aidger.model.models.HourlyWage;
+import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.utils.InputPatternFilter;
 
 /**
@@ -79,12 +80,8 @@ public class HourlyWageEditorForm extends JPanel {
             lblDate.setVisible(false);
             spDate.setVisible(false);
 
-            Calendar now = Calendar.getInstance();
-            now.set(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now
-                .get(Calendar.DATE));
-
-            spStartDate.setValue(now.getTime());
-            spFinishDate.setValue(now.getTime());
+            EditorTab.setTimeToNow(spStartDate);
+            EditorTab.setTimeToNow(spFinishDate);
         }
     }
 

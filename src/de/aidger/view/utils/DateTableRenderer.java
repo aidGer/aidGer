@@ -3,6 +3,7 @@ package de.aidger.view.utils;
 import java.awt.Component;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.swing.JTable;
@@ -33,6 +34,14 @@ public class DateTableRenderer extends DefaultTableCellRenderer {
     public Component getTableCellRendererComponent(JTable table, Object value,
             boolean isSelected, boolean hasFocus, int row, int column) {
         String text = format.format((Date) value);
+
+        Calendar cal = Calendar.getInstance();
+        cal.clear();
+
+        // it could be that no date shall be shown
+        if (value.equals(cal.getTime())) {
+            text = "";
+        }
 
         return super.getTableCellRendererComponent(table, text, isSelected,
             hasFocus, row, column);
