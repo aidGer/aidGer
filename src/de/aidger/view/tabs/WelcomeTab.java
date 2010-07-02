@@ -43,14 +43,10 @@ public class WelcomeTab extends Tab {
         } else {
             List<IActivity> activities = null;
             List<IAssistant> assistants = null;
-            List<IEmployment> employments = null;
-            List<ICourse> courses = null;
             List<IFinancialCategory> financials = null;
             try {
                 activities = (new Activity()).getAll();
                 assistants = (new Assistant()).getAll();
-                employments = (new Employment()).getAll();
-                courses = (new Course()).getAll();
                 financials = (new FinancialCategory()).getAll();
             } catch (AdoHiveException ex) {
             }
@@ -94,21 +90,25 @@ public class WelcomeTab extends Tab {
                 }
             }
 
-            statisticsLabel1.setText(MessageFormat.format(
-                _("aidGer has created {0} activities."), new Object[] { activities
-                    .size() }));
-            statisticsLabel2.setText(MessageFormat.format(
-                _("{0} assistants are working in {1} employments."), new Object[] {
-                        assistants.size(), employments.size() }));
-            statisticsLabel3.setText(MessageFormat.format(
-                _("These employments are part of {0} courses."),
-                new Object[] { courses.size() }));
-            statisticsLabel4
-                .setText(MessageFormat.format(
-                        _("Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."),
-                        (Object[]) qualifications));
-            statisticsLabel5.setText(MessageFormat.format(
-                _("They are using funds of {0} Euros."), new Object[] { funds }));
+            try
+            {
+                statisticsLabel1.setText(MessageFormat.format(
+                    _("aidGer has created {0} activities."), new Object[] { activities
+                        .size() }));
+                statisticsLabel2.setText(MessageFormat.format(
+                    _("{0} assistants are working in {1} employments."), new Object[] {
+                            assistants.size(), (new Employment()).size() }));
+                statisticsLabel3.setText(MessageFormat.format(
+                    _("These employments are part of {0} courses."),
+                    new Object[] { (new Course()).size() }));
+                statisticsLabel4
+                    .setText(MessageFormat.format(
+                            _("Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."),
+                            (Object[]) qualifications));
+                statisticsLabel5.setText(MessageFormat.format(
+                    _("They are using funds of {0} Euros."), new Object[] { funds }));
+            } catch (AdoHiveException ex) {
+            }
         }
     }
 
