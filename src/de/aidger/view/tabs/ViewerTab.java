@@ -47,6 +47,9 @@ import de.aidger.view.models.TableModel;
 import de.aidger.view.utils.BooleanTableRenderer;
 import de.aidger.view.utils.DateTableRenderer;
 import de.aidger.view.utils.MultiLineTableRenderer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.RowFilter.Entry;
 
 /**
  * A tab which will be used to display the data.
@@ -404,8 +407,25 @@ public class ViewerTab extends Tab {
                 if (text.length() == 0) {
                     sorter.setRowFilter(null);
                 } else {
-                    sorter.setRowFilter(RowFilter.regexFilter(searchField
-                        .getText()));
+                    RowFilter<TableModel, Integer> filter = new RowFilter<
+                            TableModel, Integer>() {
+
+                        private Pattern pat = Pattern.compile(searchField.getText(),
+                                Pattern.CASE_INSENSITIVE);
+
+                        @Override
+                        public boolean include(Entry<? extends TableModel, ? extends Integer> entry) {
+                            for (int i = entry.getValueCount() - 1; i >= 0; i--) {
+                                Matcher m = pat.matcher(entry.getStringValue(i));
+                                if (m.find()) {
+                                    return true;
+                                }
+                            }
+
+                            return false;
+                        }
+                    };
+                    sorter.setRowFilter(filter);
                 }
 
             }
