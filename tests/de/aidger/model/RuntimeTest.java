@@ -85,6 +85,21 @@ public class RuntimeTest {
     }
 
     /**
+     * Test of getOption method, of class Runtime.
+     */
+    @Test
+    public void testGetOption() {
+        System.out.println("getOption");
+
+        Runtime.getInstance().setOption("test", "blub");
+        assertEquals("blub", Runtime.getInstance().getOption("test"));
+
+        assertNull(Runtime.getInstance().getOption("other-test"));
+        assertEquals("bla", Runtime.getInstance().getOption("other-test", "bla"));
+        assertEquals("bla", Runtime.getInstance().getOption("other-test"));
+    }
+
+    /**
      * Test of getOptionArray method, of class Runtime.
      */
     @Test
