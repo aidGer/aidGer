@@ -318,7 +318,7 @@ public abstract class AbstractModel<T> extends Observable implements
     public void validateEmailAddress(String member, String trans) {
         validators.add(new FormatValidator(this, new String[] { member },
                 new String[] { trans },
-                "^[\\w\\-]([\\.\\w])+[\\w]+@([\\w\\-]+\\.)+[A-Z]{2,4}$", false));
+                "^[\\w\\-]([\\.\\w])+[\\w]+@([\\wüäöÜÄÖ\\-]+\\.)+[A-Z]{2,4}$", false));
     }
 
     /**

@@ -392,7 +392,14 @@ public class AbstractModelTest {
         assertFalse(a.save());
         a.resetErrors();
 
+        a.setEmail("münchen@überälles.de");
+        assertFalse(a.save());
+        a.resetErrors();
+
         a.setEmail("email@example.com");
+        assertTrue(a.save());
+
+        a.setEmail("test@überälles.de");
         assertTrue(a.save());
     }
 
