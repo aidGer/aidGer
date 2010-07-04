@@ -31,7 +31,7 @@ public class Anonymizer {
     public static int anonymizeAssistants() {
         int count = 0;
         int time = -1 * Integer.parseInt(Runtime.getInstance().getOption(
-                "anonymize-time"));
+                "anonymize-time", "365"));
 
         Calendar checkCal = new GregorianCalendar();
         checkCal.add(Calendar.DAY_OF_YEAR, time);

@@ -187,6 +187,24 @@ public final class Runtime {
     }
 
     /**
+     * Get the value of an option or the default if the option doesn't exist
+     *
+     * @param option
+     *            The option to get
+     * @param def
+     *            The default value
+     * @return The value of the specified option or the default value
+     */
+    public String getOption(String option, String def) {
+        String ret = configuration.get(option);
+        if (ret == null) {
+            configuration.set(option, def);
+            return def;
+        }
+        return ret;
+    }
+
+    /**
      * Get an array of values for the specified option
      *
      * @param option

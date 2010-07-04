@@ -81,11 +81,11 @@ public class SettingsDialog extends JDialog {
 
         pdfTextField.setText(Runtime.getInstance().getOption("pdf-viewer"));
         pessimisticTextField.setText(Runtime.getInstance().getOption(
-                "pessimistic-factor"));
+                "pessimistic-factor", "1.0"));
         historicTextField.setText(Runtime.getInstance().getOption(
-                "historic-factor"));
-        anonTextField.setText(Runtime.getInstance().getOption("anonymize-time"));
-        toleranceTextField.setText(Runtime.getInstance().getOption("tolerance"));
+                "historic-factor", "1.0"));
+        anonTextField.setText(Runtime.getInstance().getOption("anonymize-time", "365"));
+        toleranceTextField.setText(Runtime.getInstance().getOption("tolerance", "0.0"));
         activitiesSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer
             .valueOf(Runtime.getInstance().getOption("activities")), null,
             null, Integer.valueOf(1)));

@@ -271,10 +271,10 @@ public class BalanceHelper {
             .getOption("calc-method"));
         if (calculationMethod == 1) {
             calculationFactor = Double.parseDouble(de.aidger.model.Runtime
-                .getInstance().getOption("pessimistic-factor"));
+                .getInstance().getOption("pessimistic-factor", "1.0"));
         } else {
             calculationFactor = Double.parseDouble(de.aidger.model.Runtime
-                .getInstance().getOption("historic-factor"));
+                .getInstance().getOption("historic-factor", "1.0"));
         }
         List<IHourlyWage> hourlyWages;
         try {

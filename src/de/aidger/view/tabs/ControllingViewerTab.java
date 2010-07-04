@@ -71,9 +71,9 @@ public class ControllingViewerTab extends ReportTab {
                 double epsilon;
                 try {
                     epsilon = Double.parseDouble(Runtime.getInstance()
-                        .getOption("tolerance"));
+                        .getOption("tolerance", "0.0"));
                 } catch (NumberFormatException ex) {
-                    epsilon = 0;
+                    epsilon = 0.0;
                 }
                 DefaultTableModel model = (DefaultTableModel) e.getSource();
                 if (column == 2) {
