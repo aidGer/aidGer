@@ -3,8 +3,8 @@
  */
 package de.aidger.model.reports;
 
+import java.sql.Date;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
@@ -38,63 +38,80 @@ public class ProtocolCreator {
     public Vector<Object[]> createProtocol(int numberOfDays) {
         Object[] addedActivity;
         Vector<Object[]> addedActivities = new Vector<Object[]>();
-        List<IActivity> activities = null;
-        try {
-            activities = new Activity().getAll();
-        } catch (AdoHiveException e) {
-            UI.displayError(e.toString());
-        }
-        Date checkDate;
+        List<Activity> activities = null;
         Calendar calendar = Calendar.getInstance();
+        Date currentDate;
+        /*
+         * The end date of the time frame will be the end of the current day.
+         */
+        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DATE), 0, 0, 0);
+        currentDate = new Date(calendar.getTimeInMillis() + 3600000 * 24);
+        Date checkDate;
+        calendar = Calendar.getInstance();
         // Display all activities if numberOfDays == -1.
         if (numberOfDays != -1) {
             calendar.setTimeInMillis(calendar.getTimeInMillis() - 3600000 * 24
                     * numberOfDays);
             calendar.set(calendar.get(Calendar.YEAR), calendar
                 .get(Calendar.MONTH), calendar.get(Calendar.DATE), 0, 0, 0);
-            checkDate = calendar.getTime();
             // Remove the milliseconds that it took to calculate the time.
-            checkDate.setTime(checkDate.getTime() - checkDate.getTime() % 1000);
+            calendar.setTimeInMillis(calendar.getTimeInMillis()
+                    - calendar.getTimeInMillis() % 1000);
+            checkDate = new Date(calendar.getTimeInMillis());
         } else {
-            calendar.set(1, 1, 1970, 0, 0, 0);
-            checkDate = calendar.getTime();
+            /*
+             * If the number of days to display is -1, set the check date to
+             * 1.1.1970 at 00:00. Since the calculated time is one hour after
+             * that, we need to subtract one hour in milliseconds.
+             */
+            calendar.setTimeInMillis(-3600000);
+            checkDate = new Date(calendar.getTimeInMillis());
+        }
+        try {
+            /*
+             * Only get the activities, that lie between the start (checkDate)
+             * and end (currentDate) of the wanted time frame.
+             */
+            activities = new Activity().getActivities(new java.sql.Date(
+                checkDate.getTime()), new java.sql.Date(currentDate.getTime()));
+        } catch (AdoHiveException e) {
+            UI.displayError(e.toString());
         }
         for (IActivity activity : activities) {
-            /**
+            /*
              * If the date of the activity is after, or equal to the
              * currentDate, it lies within the wanted time frame.
              */
-            if (checkDate.compareTo(activity.getDate()) <= 0) {
-                try {
-                    addedActivity = new Object[8];
-                    String assistantName = "";
-                    if (new Assistant().getById(activity.getAssistantId()) != null) {
-                        assistantName = (new Assistant().getById(activity
-                            .getAssistantId())).getFirstName()
-                                + " "
-                                + (new Assistant().getById(activity
-                                    .getAssistantId())).getLastName();
-                    }
-                    addedActivity[0] = assistantName;
-                    String courseName = "";
-                    if (new Course().getById(activity.getCourseId()) != null) {
-                        courseName = (new Course().getById(activity
-                            .getCourseId())).getDescription()
-                                + "("
-                                + new Course().getById(activity.getCourseId())
-                                    .getSemester() + ")";
-                    }
-                    addedActivity[1] = courseName;
-                    addedActivity[2] = activity.getType();
-                    addedActivity[3] = activity.getDate();
-                    addedActivity[4] = activity.getContent();
-                    addedActivity[5] = activity.getSender();
-                    addedActivity[6] = activity.getProcessor();
-                    addedActivity[7] = activity.getRemark();
-                    addedActivities.add(addedActivity);
-                } catch (AdoHiveException e) {
-                    UI.displayError(e.toString());
+            try {
+                addedActivity = new Object[8];
+                String assistantName = "";
+                if (new Assistant().getById(activity.getAssistantId()) != null) {
+                    assistantName = (new Assistant().getById(activity
+                        .getAssistantId())).getFirstName()
+                            + " "
+                            + (new Assistant().getById(activity
+                                .getAssistantId())).getLastName();
                 }
+                addedActivity[0] = assistantName;
+                String courseName = "";
+                if (new Course().getById(activity.getCourseId()) != null) {
+                    courseName = (new Course().getById(activity.getCourseId()))
+                        .getDescription()
+                            + "("
+                            + new Course().getById(activity.getCourseId())
+                                .getSemester() + ")";
+                }
+                addedActivity[1] = courseName;
+                addedActivity[2] = activity.getType();
+                addedActivity[3] = activity.getDate();
+                addedActivity[4] = activity.getContent();
+                addedActivity[5] = activity.getSender();
+                addedActivity[6] = activity.getProcessor();
+                addedActivity[7] = activity.getRemark();
+                addedActivities.add(addedActivity);
+            } catch (AdoHiveException e) {
+                UI.displayError(e.toString());
             }
         }
         return addedActivities;

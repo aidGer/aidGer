@@ -138,8 +138,11 @@ public class BalanceReportConverter {
             case 1:
                 Vector semesters = new BalanceHelper().getSemesters();
                 for (int i = 0; i < semesters.size(); i++) {
-                    balanceReportGroups = new Vector<Vector>();
-                    createSemester((String) semesters.get(i));
+                    if (new BalanceHelper().courseExists((String) semesters
+                        .get(i), filters)) {
+                        balanceReportGroups = new Vector<Vector>();
+                        createSemester((String) semesters.get(i));
+                    }
                 }
                 break;
             case 2:
@@ -396,27 +399,25 @@ public class BalanceReportConverter {
              * As long as there are groups for this Balance report, create new
              * group tables.
              */
-            List<ICourse> courses = null;
-            courses = (new Course()).getAll();
-            List<ICourse> filteredCourses = balanceHelper.filterCourses(
-                courses, filters);
+            List<Course> courses = null;
+            courses = (new Course()).getCoursesBySemester(semester);
+            List<Course> filteredCourses = balanceHelper.filterCourses(courses,
+                filters);
             for (ICourse course : filteredCourses) {
-                if (course.getSemester().equals(semester)) {
-                    PdfPTable groupTable = null;
-                    if (balanceReportGroups.isEmpty()) {
+                PdfPTable groupTable = null;
+                if (balanceReportGroups.isEmpty()) {
+                    groupTable = createGroup(course);
+                } else {
+                    boolean foundGroup = false;
+                    for (int i = 0; i <= balanceReportGroups.size() - 1; i++) {
+                        if (((Vector) balanceReportGroups.get(i)).get(1)
+                            .equals(course.getGroup())) {
+                            foundGroup = true;
+                            break;
+                        }
+                    }
+                    if (!foundGroup) {
                         groupTable = createGroup(course);
-                    } else {
-                        boolean foundGroup = false;
-                        for (int i = 0; i <= balanceReportGroups.size() - 1; i++) {
-                            if (((Vector) balanceReportGroups.get(i)).get(1)
-                                .equals(course.getGroup())) {
-                                foundGroup = true;
-                                break;
-                            }
-                        }
-                        if (!foundGroup) {
-                            groupTable = createGroup(course);
-                        }
                     }
                 }
             }
@@ -521,20 +522,19 @@ public class BalanceReportConverter {
     private PdfPTable createGroup(ICourse course) {
         balanceReportGroupCreator = new BalanceReportGroupCreator(course,
             calculationMethod);
-        List<ICourse> courses = null;
+        List<Course> courses = null;
         sums = new Vector<Object>();
         try {
-            courses = (new Course()).getAll();
+            courses = (new Course()).getCoursesBySemester(course.getSemester());
         } catch (AdoHiveException e) {
             UI.displayError(e.toString());
         }
-        List<ICourse> filteredCourses = balanceHelper.filterCourses(courses,
+        List<Course> filteredCourses = balanceHelper.filterCourses(courses,
             filters);
         Vector<Integer> addedCourses = new Vector<Integer>();
         addedCourses.add(course.getId());
-        for (ICourse filteredCourse : filteredCourses) {
-            if (filteredCourse.getSemester().equals(course.getSemester())
-                    && !addedCourses.contains(filteredCourse.getId())
+        for (Course filteredCourse : filteredCourses) {
+            if (!addedCourses.contains(filteredCourse.getId())
                     && filteredCourse.getGroup().equals(course.getGroup())) {
                 balanceReportGroupCreator.addCourse(filteredCourse);
                 addedCourses.add(filteredCourse.getId());
