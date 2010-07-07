@@ -43,11 +43,11 @@ public class BalanceHelper {
      *            The filters to use.
      * @return The filtered courses
      */
-    public List<ICourse> filterCourses(List<ICourse> courses,
+    public List<Course> filterCourses(List<Course> courses,
             BalanceFilter filters) {
-        List<ICourse> filteredOnceCourses = new Vector<ICourse>();
-        List<ICourse> filteredTwiceCourses = new Vector<ICourse>();
-        List<ICourse> filteredTriceCourses = new Vector<ICourse>();
+        List<Course> filteredOnceCourses = new Vector<Course>();
+        List<Course> filteredTwiceCourses = new Vector<Course>();
+        List<Course> filteredTriceCourses = new Vector<Course>();
         /*
          * Only use courses, which have the filtered criteria.
          */
@@ -61,7 +61,7 @@ public class BalanceHelper {
                  * There are existing group filters.
                  */
                 for (Object group : filters.getGroups()) {
-                    for (ICourse course : courses) {
+                    for (Course course : courses) {
                         if (!filteredOnceCourses.contains(course)
                                 && course.getGroup().equals(group)) {
                             /*
@@ -81,7 +81,7 @@ public class BalanceHelper {
                  * There are existing lecture filters.
                  */
                 for (Object lecturer : filters.getLecturers()) {
-                    for (ICourse course : filteredOnceCourses) {
+                    for (Course course : filteredOnceCourses) {
                         if (!filteredTwiceCourses.contains(course)
                                 && course.getLecturer().equals(lecturer)) {
                             /*
@@ -101,7 +101,7 @@ public class BalanceHelper {
                  * There are existing target audience filters.
                  */
                 for (Object lecturer : filters.getTargetAudiences()) {
-                    for (ICourse course : filteredTwiceCourses) {
+                    for (Course course : filteredTwiceCourses) {
                         if (!filteredTriceCourses.contains(course)
                                 && course.getTargetAudience().equals(lecturer)) {
                             /*
@@ -452,17 +452,15 @@ public class BalanceHelper {
      * @return true if the semester contains one or more courses.
      */
     public boolean courseExists(String semester, BalanceFilter filters) {
-        List<ICourse> courses = null;
+        List<Course> courses = null;
         try {
-            courses = (new Course()).getAll();
+            courses = (new Course()).getCoursesBySemester(semester);
         } catch (AdoHiveException e) {
             UI.displayError(e.toString());
         }
-        List<ICourse> filteredCourses = this.filterCourses(courses, filters);
-        for (ICourse course : filteredCourses) {
-            if (course.getSemester().equals(semester)) {
-                return true;
-            }
+        List<Course> filteredCourses = this.filterCourses(courses, filters);
+        if(!filteredCourses.isEmpty()) {
+            return true;
         }
         return false;
     }

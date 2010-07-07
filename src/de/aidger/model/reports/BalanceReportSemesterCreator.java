@@ -55,13 +55,13 @@ public class BalanceReportSemesterCreator {
      *            The semester of which to add the groups.
      */
     private void addGroups(String semester, BalanceFilter filters) {
-        List<ICourse> courses = null;
+        List<Course> courses = null;
         try {
-            courses = (new Course()).getAll();
+            courses = (new Course()).getCoursesBySemester(semester);
         } catch (AdoHiveException e) {
             UI.displayError(e.toString());
         }
-        List<ICourse> filteredCourses = balanceHelper.filterCourses(courses,
+        List<Course> filteredCourses = balanceHelper.filterCourses(courses,
             filters);
         for (ICourse course : filteredCourses) {
             if (course.getSemester().equals(semester)) {
