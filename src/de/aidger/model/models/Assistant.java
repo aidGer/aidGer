@@ -127,6 +127,7 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
 
         List act = (new Activity()).getActivities(this);
         List emp = (new Employment()).getEmployments(this);
+        List contr = (new Contract()).getContracts(this);
 
         if (act.size() > 0) {
             addError(_("Assistant is still linked to an Activity"));
@@ -136,15 +137,9 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
             addError(_("Assistant is still linked to an Employment"));
             ret = false;
         }
-
-        // TODO: Replace with Contract.getContracts(Assistant) as soon as possible
-        List<IContract> contr = (new Contract()).getAll();
-        for (IContract c : contr) {
-            if (c.getAssistantId() != null && c.getAssistantId() == id) {
-                addError(_("Assistant is still linked to a Contract"));
-                ret = false;
-                break;
-            }
+        if (contr.size() > 0) {
+            addError(_("Assistant is still linked to a Contract"));
+            ret = false;
         }
 
         return ret;
