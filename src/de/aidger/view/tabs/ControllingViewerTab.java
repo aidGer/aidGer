@@ -66,34 +66,37 @@ public class ControllingViewerTab extends ReportTab {
 
             @Override
             public void tableChanged(TableModelEvent e) {
-                int row = e.getFirstRow();
-                int column = e.getColumn();
-                double epsilon;
-                try {
-                    epsilon = Double.parseDouble(Runtime.getInstance()
-                        .getOption("tolerance", "0.0"));
-                } catch (NumberFormatException ex) {
-                    epsilon = 0.0;
-                }
-                DefaultTableModel model = (DefaultTableModel) e.getSource();
-                if (column == 2) {
+                if (e.getType() == TableModelEvent.UPDATE) {
+                    int row = e.getFirstRow();
+                    int column = e.getColumn();
+                    double epsilon;
                     try {
-                        if (Double.parseDouble(model.getValueAt(row, column)
-                            .toString())
-                                - epsilon > Double.parseDouble(model
-                            .getValueAt(row, column - 1).toString())
-                                || Double.parseDouble(model.getValueAt(row,
-                                    column).toString())
-                                        + epsilon < Double.parseDouble(model
-                                    .getValueAt(row, column - 1).toString())) {
-                            model.setValueAt(_("Costs don't match!"), row,
-                                column + 1);
-                        } else {
-                            model.setValueAt("", row, column + 1);
-                        }
+                        epsilon = Double.parseDouble(Runtime.getInstance()
+                            .getOption("tolerance", "0.0"));
                     } catch (NumberFormatException ex) {
-                        model.setValueAt("<< " + _("Wrong format!"), row,
-                            column + 1);
+                        epsilon = 0.0;
+                    }
+                    DefaultTableModel model = (DefaultTableModel) e.getSource();
+                    if (column == 2) {
+                        try {
+                            if (Double.parseDouble(model
+                                .getValueAt(row, column).toString())
+                                    - epsilon > Double.parseDouble(model
+                                .getValueAt(row, column - 1).toString())
+                                    || Double.parseDouble(model.getValueAt(row,
+                                        column).toString())
+                                            + epsilon < Double
+                                        .parseDouble(model.getValueAt(row,
+                                            column - 1).toString())) {
+                                model.setValueAt(_("Costs don't match!"), row,
+                                    column + 1);
+                            } else {
+                                model.setValueAt("", row, column + 1);
+                            }
+                        } catch (NumberFormatException ex) {
+                            model.setValueAt("<< " + _("Wrong format!"), row,
+                                column + 1);
+                        }
                     }
                 }
             }

@@ -223,10 +223,10 @@ public class BalanceHelper {
         double basicAWS = course.getNumberOfGroups()
                 * course.getUnqualifiedWorkingHours();
         balanceCourse.setBasicAWS(basicAWS);
-        List<IEmployment> employments = null;
+        List<Employment> employments = null;
         List<IAssistant> assistants = null;
         try {
-            employments = (new Employment()).getAll();
+            employments = (new Employment()).getEmployments(new Course(course));
             assistants = (new Assistant()).getAll();
         } catch (Exception e) {
             e.printStackTrace();
@@ -236,9 +236,8 @@ public class BalanceHelper {
              * Sum up the budget costs of the course by multiplying the hours of
              * the fitting employments.
              */
-            if (course.getId() == employment.getCourseId()
-                    && (balanceCourse.getBudgetCosts().isEmpty() || !balanceCourse
-                        .getBudgetCosts().contains(employment.getFunds()))) {
+            if ((balanceCourse.getBudgetCosts().isEmpty() || !balanceCourse
+                .getBudgetCosts().contains(employment.getFunds()))) {
                 Double budgetCost = 0.0;
                 for (IAssistant assistant : assistants) {
                     if (employment.getAssistantId() == assistant.getId()) {
@@ -323,23 +322,18 @@ public class BalanceHelper {
      * @return A Vector containing the semesters as Strings.
      */
     public Vector<String> getSemesters() {
-        Vector<String> semesters = new Vector<String>();
-        List<ICourse> courses = null;
+        Vector<String> semestersVector = new Vector<String>();
         /*
          * Add an empty semester string as the first entry. Relevant for the
          * combo boxes.
          */
         try {
-            courses = (new Course()).getAll();
+            List<String> semesters = (new Course()).getDistinctSemesters();
+            semestersVector = new Vector<String>(semesters);
         } catch (AdoHiveException e) {
             e.printStackTrace();
         }
-        for (ICourse course : courses) {
-            if (!semesters.contains(course.getSemester())) {
-                semesters.add(course.getSemester());
-            }
-        }
-        return semesters;
+        return semestersVector;
     }
 
     /**
