@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import de.aidger.model.models.FinancialCategory;
+import de.aidger.view.utils.HelpLabel;
 import de.aidger.view.utils.InputPatternFilter;
 
 /**
@@ -40,7 +41,7 @@ public class FinancialCategoryEditorForm extends JPanel {
         // add input filters
         InputPatternFilter.addFilter(txtYear, "[0-9]{0,4}");
 
-        txtYear.setToolTipText(_("Only a year in 4 digits is allowed."));
+        hlpYear.setToolTipText(_("Only a year in 4 digits is allowed."));
 
         if (fc != null) {
             txtName.setText(fc.getName());
@@ -138,36 +139,52 @@ public class FinancialCategoryEditorForm extends JPanel {
 
         InputPatternFilter.addFilter(cmbFunds, "[0-9]{0,8}");
 
-        cmbFunds.setToolTipText(_("Only a number with 8 digits is allowed."));
+        HelpLabel hlpFunds = new HelpLabel();
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        add(hlpFunds, gridBagConstraints);
+
+        hlpFunds.setToolTipText(_("Only a number with 8 digits is allowed."));
 
         JLabel lblBudgetCosts = new JLabel();
         lblBudgetCosts.setText(_("Budget Costs"));
         gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
         gridBagConstraints.anchor = GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblBudgetCosts, gridBagConstraints);
 
         JTextField txtBudgetCosts = new JTextField();
         txtBudgetCosts.setMinimumSize(new java.awt.Dimension(200, 25));
         txtBudgetCosts.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtBudgetCosts, gridBagConstraints);
 
         InputPatternFilter.addFilter(txtBudgetCosts, "[0-9]+");
 
-        txtBudgetCosts.setToolTipText(_("Only a number is allowed."));
+        HelpLabel hlpBudgetCosts = new HelpLabel();
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 10);
+        add(hlpBudgetCosts, gridBagConstraints);
+
+        hlpBudgetCosts.setToolTipText(_("Only a number is allowed."));
 
         JButton btnPlusMinus = new JButton();
         gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 6;
 
-        FundsLine fl = new FundsLine(lblFunds, cmbFunds, lblBudgetCosts,
-            txtBudgetCosts, btnPlusMinus);
+        FundsLine fl = new FundsLine(lblFunds, cmbFunds, hlpFunds,
+            lblBudgetCosts, txtBudgetCosts, hlpBudgetCosts, btnPlusMinus);
 
         if (fundsLines.isEmpty()) {
             btnPlusMinus.setIcon(new ImageIcon(getClass().getResource(
@@ -201,6 +218,8 @@ public class FinancialCategoryEditorForm extends JPanel {
         lblYear = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         txtYear = new javax.swing.JTextField();
+        hlpYear = new HelpLabel();
+        filler = new javax.swing.JLabel();
 
         fundsLines = new Vector<FundsLine>();
 
@@ -214,11 +233,16 @@ public class FinancialCategoryEditorForm extends JPanel {
 
         lblYear.setText(_("Year"));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblYear, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        add(filler, gridBagConstraints);
 
         txtName.setMinimumSize(new java.awt.Dimension(200, 25));
         txtName.setPreferredSize(new java.awt.Dimension(200, 25));
@@ -231,16 +255,25 @@ public class FinancialCategoryEditorForm extends JPanel {
         txtYear.setMinimumSize(new java.awt.Dimension(200, 25));
         txtYear.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtYear, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        add(hlpYear, gridBagConstraints);
     }
 
     private JLabel lblName;
     private JLabel lblYear;
     private JTextField txtName;
     private JTextField txtYear;
+    private HelpLabel hlpYear;
+    private JLabel filler;
 
     private List<FundsLine> fundsLines;
 
@@ -252,8 +285,10 @@ public class FinancialCategoryEditorForm extends JPanel {
     private class FundsLine {
         public JLabel lblFunds;
         public JComboBox cmbFunds;
+        public HelpLabel hlpFunds;
         public JLabel lblBudgetCosts;
         public JTextField txtBudgetCosts;
+        public HelpLabel hlpBudgetCosts;
         public JButton btnPlusMinus;
 
         /**
@@ -261,12 +296,15 @@ public class FinancialCategoryEditorForm extends JPanel {
          * 
          */
         public FundsLine(JLabel lblFunds, JComboBox cmbFunds,
-                JLabel lblBudgetCosts, JTextField txtBudgetCosts,
+                HelpLabel hlpFunds, JLabel lblBudgetCosts,
+                JTextField txtBudgetCosts, HelpLabel hlpBudgetCosts,
                 JButton btnPlusMinus) {
             this.lblFunds = lblFunds;
             this.cmbFunds = cmbFunds;
+            this.hlpFunds = hlpFunds;
             this.lblBudgetCosts = lblBudgetCosts;
             this.txtBudgetCosts = txtBudgetCosts;
+            this.hlpBudgetCosts = hlpBudgetCosts;
             this.btnPlusMinus = btnPlusMinus;
         }
     }
@@ -303,8 +341,10 @@ public class FinancialCategoryEditorForm extends JPanel {
         public void actionPerformed(ActionEvent e) {
             remove(fundsLine.lblFunds);
             remove(fundsLine.cmbFunds);
+            remove(fundsLine.hlpFunds);
             remove(fundsLine.lblBudgetCosts);
             remove(fundsLine.txtBudgetCosts);
+            remove(fundsLine.hlpBudgetCosts);
             remove(fundsLine.btnPlusMinus);
 
             fundsLines.remove(fundsLine);

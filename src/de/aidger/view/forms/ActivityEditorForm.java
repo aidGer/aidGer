@@ -60,7 +60,7 @@ public class ActivityEditorForm extends JPanel {
 
         InputPatternFilter.addFilter(txtProcessor, ".{0,2}");
 
-        txtProcessor
+        hlpProcessor
             .setToolTipText(_("Only a maximal length of 2 is allowed."));
 
         addNewActivity();
@@ -323,6 +323,7 @@ public class ActivityEditorForm extends JPanel {
         filler = new javax.swing.JLabel();
         scrollPane = new javax.swing.JScrollPane();
         txtContent = new javax.swing.JTextArea();
+        hlpProcessor = new de.aidger.view.utils.HelpLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -334,18 +335,18 @@ public class ActivityEditorForm extends JPanel {
 
         lblProcessor.setText(_("Processor"));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(lblProcessor, gridBagConstraints);
-
-        lblSender.setText(_("Sender"));
-        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        add(lblProcessor, gridBagConstraints);
+
+        lblSender.setText(_("Sender"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblSender, gridBagConstraints);
 
         lblType.setText(_("Type"));
@@ -381,8 +382,7 @@ public class ActivityEditorForm extends JPanel {
         add(lblContent, gridBagConstraints);
 
         spDate.setModel(new javax.swing.SpinnerDateModel());
-        spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate,
-            "dd.MM.yyyy"));
+        spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate, "dd.MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -393,8 +393,8 @@ public class ActivityEditorForm extends JPanel {
         txtProcessor.setMinimumSize(new java.awt.Dimension(200, 25));
         txtProcessor.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtProcessor, gridBagConstraints);
@@ -402,8 +402,8 @@ public class ActivityEditorForm extends JPanel {
         txtSender.setMinimumSize(new java.awt.Dimension(200, 25));
         txtSender.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtSender, gridBagConstraints);
@@ -437,7 +437,7 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         add(filler, gridBagConstraints);
 
@@ -451,10 +451,17 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(scrollPane, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        add(hlpProcessor, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel filler;
+    private de.aidger.view.utils.HelpLabel hlpProcessor;
     private javax.swing.JLabel lblContent;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblDocumentType;
