@@ -75,7 +75,7 @@ public class CourseEditorForm extends JPanel {
             spNumberOfGroups.setValue(course.getNumberOfGroups());
             txtAWHperGroup.setText(String.valueOf(course
                 .getUnqualifiedWorkingHours()));
-            txtScope.setText(course.getScope());
+            cmbScope.setSelectedItem(course.getScope());
             txtPart.setText(String.valueOf(course.getPart()));
             txtGroup.setText(course.getGroup());
             txtRemark.setText(course.getRemark());
@@ -175,7 +175,7 @@ public class CourseEditorForm extends JPanel {
      * @return The scope of the course
      */
     public String getScope() {
-        return txtScope.getText();
+        return (String) cmbScope.getSelectedItem();
     }
 
     /**
@@ -234,7 +234,7 @@ public class CourseEditorForm extends JPanel {
         lblRemark = new javax.swing.JLabel();
         lblFinancialCategory = new javax.swing.JLabel();
         txtAWHperGroup = new javax.swing.JTextField();
-        txtScope = new javax.swing.JTextField();
+        cmbScope = new javax.swing.JComboBox();
         txtPart = new javax.swing.JTextField();
         txtGroup = new javax.swing.JTextField();
         txtRemark = new javax.swing.JTextField();
@@ -391,13 +391,14 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtAWHperGroup, gridBagConstraints);
 
-        txtScope.setMinimumSize(new java.awt.Dimension(200, 25));
-        txtScope.setPreferredSize(new java.awt.Dimension(200, 25));
+        cmbScope.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
+                "1Ü", "2Ü", "1P", "2P", "4P", "6P" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(txtScope, gridBagConstraints);
+        add(cmbScope, gridBagConstraints);
 
         txtPart.setMinimumSize(new java.awt.Dimension(200, 25));
         txtPart.setPreferredSize(new java.awt.Dimension(200, 25));
@@ -447,6 +448,7 @@ public class CourseEditorForm extends JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cmbFinancialCategory;
+    private javax.swing.JComboBox cmbScope;
     private de.aidger.view.utils.HelpLabel hlpAWHperGroup;
     private de.aidger.view.utils.HelpLabel hlpPart;
     private de.aidger.view.utils.HelpLabel hlpSemester;
@@ -470,7 +472,6 @@ public class CourseEditorForm extends JPanel {
     private javax.swing.JTextField txtLecturer;
     private javax.swing.JTextField txtPart;
     private javax.swing.JTextField txtRemark;
-    private javax.swing.JTextField txtScope;
     private javax.swing.JTextField txtSemester;
     private javax.swing.JTextField txtTargetAudience;
     // End of variables declaration//GEN-END:variables
