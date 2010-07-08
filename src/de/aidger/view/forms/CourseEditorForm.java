@@ -2,6 +2,8 @@ package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.List;
 
 import javax.swing.JPanel;
@@ -36,7 +38,7 @@ public class CourseEditorForm extends JPanel {
         initComponents();
 
         // add input filters
-        InputPatternFilter.addFilter(txtAWHperGroup, "[0-9]+[.]?[0-9]*");
+        InputPatternFilter.addDoubleFilter(txtAWHperGroup);
         InputPatternFilter.addFilter(txtPart, ".?");
         InputPatternFilter.addFilter(txtSemester,
             "([0-9]{0,4})|(WS?|WS[0-9]{0,4})|(SS?|SS[0-9]{0,2})");
@@ -202,8 +204,9 @@ public class CourseEditorForm extends JPanel {
      * @return The amount of UWHs
      * @throws NumberFormatException
      */
-    public double getUnqualifiedWorkingHours() throws NumberFormatException {
-        return Double.valueOf(txtAWHperGroup.getText());
+    public double getUnqualifiedWorkingHours() throws ParseException {
+        return NumberFormat.getInstance().parse(txtAWHperGroup.getText())
+            .doubleValue();
     }
 
     /**

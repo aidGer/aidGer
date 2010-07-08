@@ -5,6 +5,8 @@ import static de.aidger.utils.Translation._;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -343,11 +345,12 @@ public class EmploymentEditorForm extends JPanel {
      * @return The hour counts worked during the employment
      * @throws NumberFormatException
      */
-    public List<Double> getHourCounts() throws NumberFormatException {
+    public List<Double> getHourCounts() throws ParseException {
         List<Double> hcs = new Vector<Double>();
 
         for (DateLine dl : dateLines) {
-            hcs.add(Double.valueOf(dl.txtHourCount.getText()));
+            hcs.add(NumberFormat.getInstance().parse(dl.txtHourCount.getText())
+                .doubleValue());
         }
 
         return hcs;
@@ -397,7 +400,7 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtHourCount, gridBagConstraints);
 
-        InputPatternFilter.addFilter(txtHourCount, "[0-9]+[.]?[0-9]*");
+        InputPatternFilter.addDoubleFilter(txtHourCount);
 
         HelpLabel hlpHourCount = new HelpLabel();
         gridBagConstraints = new GridBagConstraints();
