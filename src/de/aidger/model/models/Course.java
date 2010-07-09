@@ -151,23 +151,24 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
         if (o instanceof Course) {
             Course c = (Course) o;
             return (id == null ? c.id == null : id.equals(c.id))
-                    && (numberOfGroups == null ? c.numberOfGroups == null :
-                            numberOfGroups.equals(c.numberOfGroups))
+                    && (numberOfGroups == null ? c.numberOfGroups == null
+                            : numberOfGroups.equals(c.numberOfGroups))
                     && (part == null ? c.part == null : part.equals(c.part))
-                    && (financialCategoryId == null ? c.financialCategoryId == null :
-                            financialCategoryId.equals(c.financialCategoryId))
-                    && (unqualifiedWorkingHours == null ? c.unqualifiedWorkingHours == null :
-                            unqualifiedWorkingHours.equals(c.unqualifiedWorkingHours))
+                    && (financialCategoryId == null ? c.financialCategoryId == null
+                            : financialCategoryId.equals(c.financialCategoryId))
+                    && (unqualifiedWorkingHours == null ? c.unqualifiedWorkingHours == null
+                            : unqualifiedWorkingHours
+                                .equals(c.unqualifiedWorkingHours))
                     && (advisor == null ? c.advisor == null : advisor
-                            .equals(c.advisor))
+                        .equals(c.advisor))
                     && (description == null ? c.description == null
                             : description.equals(c.description))
                     && (group == null ? c.group == null : group.equals(c.group))
                     && (remark == null ? c.remark == null : remark
-                            .equals(c.remark))
+                        .equals(c.remark))
                     && (scope == null ? c.scope == null : scope.equals(c.scope))
                     && (semester == null ? c.semester == null : semester
-                            .equals(c.semester))
+                        .equals(c.semester))
                     && (targetAudience == null ? c.targetAudience == null
                             : targetAudience.equals(c.targetAudience));
         } else {
@@ -183,14 +184,20 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 67 * hash + (financialCategoryId != null ? financialCategoryId.hashCode() : 0);
+        hash = 67
+                * hash
+                + (financialCategoryId != null ? financialCategoryId.hashCode()
+                        : 0);
         hash = 67 * hash + (advisor != null ? advisor.hashCode() : 0);
         hash = 67 * hash + (description != null ? description.hashCode() : 0);
         hash = 67 * hash + (semester != null ? semester.hashCode() : 0);
         hash = 67 * hash + (lecturer != null ? lecturer.hashCode() : 0);
-        hash = 67 * hash + (numberOfGroups != null ? numberOfGroups.hashCode() : 0);
-        hash = 67 * hash + (targetAudience != null ? targetAudience.hashCode() : 0);
         hash = 67 * hash
+                + (numberOfGroups != null ? numberOfGroups.hashCode() : 0);
+        hash = 67 * hash
+                + (targetAudience != null ? targetAudience.hashCode() : 0);
+        hash = 67
+                * hash
                 + (int) (Double.doubleToLongBits(unqualifiedWorkingHours) ^ (Double
                     .doubleToLongBits(unqualifiedWorkingHours) >>> 32));
         hash = 67 * hash + (scope != null ? scope.hashCode() : 0);
@@ -258,13 +265,13 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Get a list of all courses for a given semester.
-     *
+     * 
      * @param semester
      *            The given semester
      * @return List of courses
      * @throws AdoHiveException
      */
-    public List<Course> getCoursesBySemester(String semester) 
+    public List<Course> getCoursesBySemester(String semester)
             throws AdoHiveException {
         ICourseManager mgr = (ICourseManager) getManager();
         return castList(mgr.getCoursesBySemester(semester));
@@ -272,7 +279,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Get a list of all courses belonging to the specified group.
-     *
+     * 
      * @param group
      *            The given group
      * @return List of courses
@@ -285,7 +292,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Get a list of distinct semesters.
-     *
+     * 
      * @return List of semesters
      * @throws AdoHiveException
      */
@@ -295,7 +302,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Get a list of distinct groups.
-     *
+     * 
      * @return List of groups
      * @throws AdoHiveException
      */
@@ -557,12 +564,12 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
 
     /**
      * Cast from interface to correct class
-     *
+     * 
      * @param list
      *            The list to cast
      * @return The casted list
      */
-    protected List<Course> castList(List<ICourse> list) {
+    public List<Course> castList(List<ICourse> list) {
         List<Course> ret = new Vector<Course>();
         for (ICourse course : list) {
             ret.add(new Course(course));

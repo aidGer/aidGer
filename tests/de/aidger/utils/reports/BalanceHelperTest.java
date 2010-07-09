@@ -25,7 +25,6 @@ import de.aidger.model.reports.BalanceCourse;
 import de.aidger.model.reports.BalanceFilter;
 import de.aidger.model.reports.BalanceCourse.BudgetCost;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
  * @author Phil
@@ -209,31 +208,28 @@ public class BalanceHelperTest {
 
         balanceHelper = new BalanceHelper();
 
-        List<ICourse> courses = (new Course()).getAll();
+        List<Course> courses = new Course().castList((new Course()).getAll());
 
         /*
          * The course should exist in the course list.
          */
         boolean resultBoolean = false;
-        for (ICourse listCourse : courses) {
-            if (new Course(listCourse).equals(course)) {
-                System.out.println("----------");
-                System.out.println(listCourse);
-                System.out.println(course);
+        for (Course listCourse : courses) {
+            if (listCourse.equals(course)) {
                 resultBoolean = true;
             }
         }
         assertTrue(resultBoolean);
 
-        List<ICourse> filteredCourses = balanceHelper.filterCourses(courses,
+        List<Course> filteredCourses = balanceHelper.filterCourses(courses,
             null);
 
         /*
          * The course should exist, after filtering with a null filter.
          */
         resultBoolean = false;
-        for (ICourse listCourse : filteredCourses) {
-            if (new Course(listCourse).equals(course)) {
+        for (Course listCourse : filteredCourses) {
+            if (listCourse.equals(course)) {
                 resultBoolean = true;
             }
         }
@@ -247,8 +243,8 @@ public class BalanceHelperTest {
          * The course should exist after filtering without any filters.
          */
         resultBoolean = false;
-        for (ICourse listCourse : filteredCourses) {
-            if (new Course(listCourse).equals(course)) {
+        for (Course listCourse : filteredCourses) {
+            if (listCourse.equals(course)) {
                 resultBoolean = true;
             }
         }
@@ -264,8 +260,8 @@ public class BalanceHelperTest {
          * doesn't contain.
          */
         resultBoolean = false;
-        for (ICourse listCourse : filteredCourses) {
-            if (new Course(listCourse).equals(course)) {
+        for (Course listCourse : filteredCourses) {
+            if (listCourse.equals(course)) {
                 resultBoolean = true;
             }
         }
@@ -281,8 +277,8 @@ public class BalanceHelperTest {
          * doesn't contain.
          */
         resultBoolean = false;
-        for (ICourse listCourse : filteredCourses) {
-            if (new Course(listCourse).equals(course)) {
+        for (Course listCourse : filteredCourses) {
+            if (listCourse.equals(course)) {
                 resultBoolean = true;
             }
         }
@@ -298,8 +294,8 @@ public class BalanceHelperTest {
          * doesn't contain.
          */
         resultBoolean = false;
-        for (ICourse listCourse : filteredCourses) {
-            if (new Course(listCourse).equals(course)) {
+        for (Course listCourse : filteredCourses) {
+            if (listCourse.equals(course)) {
                 resultBoolean = true;
             }
         }
@@ -325,8 +321,8 @@ public class BalanceHelperTest {
          * course data.
          */
         resultBoolean = false;
-        for (ICourse listCourse : filteredCourses) {
-            if (new Course(listCourse).equals(course)) {
+        for (Course listCourse : filteredCourses) {
+            if (listCourse.equals(course)) {
                 resultBoolean = true;
             }
         }
@@ -337,8 +333,8 @@ public class BalanceHelperTest {
          * course data.
          */
         resultBoolean = false;
-        for (ICourse listCourse : filteredCourses) {
-            if (new Course(listCourse).equals(course2)) {
+        for (Course listCourse : filteredCourses) {
+            if (listCourse.equals(course2)) {
                 resultBoolean = true;
             }
         }
@@ -349,8 +345,8 @@ public class BalanceHelperTest {
          * course data.
          */
         resultBoolean = false;
-        for (ICourse listCourse : filteredCourses) {
-            if (new Course(listCourse).equals(course3)) {
+        for (Course listCourse : filteredCourses) {
+            if (listCourse.equals(course3)) {
                 resultBoolean = true;
             }
         }
@@ -427,17 +423,18 @@ public class BalanceHelperTest {
                 resultCourseObject[i]);
         }
         Vector<BudgetCost> resultBudgetCosts = (Vector<BudgetCost>) resultCourseObject[resultCourseObject.length - 1];
-        assertEquals((double)employment1.getFunds(), resultBudgetCosts.get(0).getId(), 0.001);
+        assertEquals(employment1.getFunds(), resultBudgetCosts.get(0).getId(),
+            0.001);
         assertEquals(employment1.getCostUnit(), resultBudgetCosts.get(0)
             .getName());
-        assertEquals(new BigDecimal(120.0).setScale(2).doubleValue(), resultBudgetCosts
-            .get(0).getValue(), 0.001);
-        assertEquals((double)employment2.getFunds(), resultBudgetCosts.get(1).getId(),
-                0.001);
+        assertEquals(new BigDecimal(120.0).setScale(2).doubleValue(),
+            resultBudgetCosts.get(0).getValue(), 0.001);
+        assertEquals(employment2.getFunds(), resultBudgetCosts.get(1).getId(),
+            0.001);
         assertEquals(employment2.getCostUnit(), resultBudgetCosts.get(1)
             .getName());
-        assertEquals(new BigDecimal(120.0).setScale(2).doubleValue(), resultBudgetCosts
-            .get(1).getValue(), 0.001);
+        assertEquals(new BigDecimal(120.0).setScale(2).doubleValue(),
+            resultBudgetCosts.get(1).getValue(), 0.001);
     }
 
     /**

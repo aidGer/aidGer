@@ -46,7 +46,7 @@ public class BudgetChecker {
     public static boolean checkBudget(Course course, double value) {
         double plannedBudget = course.getUnqualifiedWorkingHours()
                 * course.getNumberOfGroups();
-        if (plannedBudget > getActualBudget(course) + value) {
+        if (plannedBudget >= getActualBudget(course) + value) {
             return true;
         }
         return false;
