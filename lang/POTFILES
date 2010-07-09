@@ -7,7 +7,7 @@ controller/actions/BudgetGenerateAction.java
 controller/actions/ControllingExportAllAction.java
 controller/actions/ControllingExportDifferencesAction.java
 controller/actions/ControllingGenerateAction.java
-controller/actions/DetailViewerCancelAction.java
+controller/actions/DetailViewerCloseAction.java
 controller/actions/DetailViewerEditAction.java
 controller/actions/DialogAbortAction.java
 controller/actions/EditorCancelAction.java
@@ -79,6 +79,7 @@ view/models/CourseTableModel.java
 view/models/EmploymentTableModel.java
 view/models/FinancialCategoryTableModel.java
 view/models/HourlyWageTableModel.java
+view/models/UIActivity.java
 view/reports/BalanceFilterPanel.java
 view/reports/BalanceReportGroupPanel.java
 view/reports/BalanceReportSemesterPanel.java
