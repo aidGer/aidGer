@@ -323,6 +323,8 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtAdvisor, gridBagConstraints);
+
+        spNumberOfGroups.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -394,8 +396,7 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtAWHperGroup, gridBagConstraints);
 
-        cmbScope.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
-                "1Ü", "2Ü", "1P", "2P", "4P", "6P" }));
+        cmbScope.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "1Ü", "2Ü", "1P", "2P", "4P", "6P" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;

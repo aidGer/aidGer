@@ -115,8 +115,6 @@ public class EditorSaveAction extends AbstractAction {
         try {
             course.setPart(form.getPart());
         } catch (StringIndexOutOfBoundsException e) {
-            course.addError("part", _("Part"), new PresenceValidator(course,
-                new String[0], new String[0]).getMessage());
         }
 
         try {
