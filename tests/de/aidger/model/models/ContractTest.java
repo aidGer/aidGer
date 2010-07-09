@@ -128,10 +128,33 @@ public class ContractTest {
         assertTrue(contract.remove());
 
         contract.save();
+
+        FinancialCategory fc = new FinancialCategory();
+        fc.setBudgetCosts(new Integer[] { 100 });
+        fc.setFunds(new Integer[] { 10001000 });
+        fc.setName("name");
+        fc.setYear((short) 2010);
+        fc.save();
+
+        Course course = new Course();
+        course.setAdvisor("Tester");
+        course.setDescription("Description");
+        course.setFinancialCategoryId(fc.getId());
+        course.setGroup("2");
+        course.setLecturer("Test Tester");
+        course.setNumberOfGroups(3);
+        course.setPart('a');
+        course.setRemark("Remark");
+        course.setScope("Sniper Scope");
+        course.setSemester("SS09");
+        course.setTargetAudience("Testers");
+        course.setUnqualifiedWorkingHours(100.0);
+        course.save();
+
         Employment employment = new Employment();
-        employment.setAssistantId(-1);
+        employment.setAssistantId(assistant.getId());
         employment.setContractId(contract.getId());
-        employment.setCourseId(-1);
+        employment.setCourseId(course.getId());
         employment.setCostUnit("0711");
         employment.setFunds(1);
         employment.setHourCount(40.0);

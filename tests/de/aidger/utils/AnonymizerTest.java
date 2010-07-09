@@ -47,7 +47,6 @@ public class AnonymizerTest {
         Calendar now = new GregorianCalendar();
 
         Assistant a = new Assistant();
-        a.clearTable();
 
         a.setEmail("test@example.com");
         a.setFirstName("Test");

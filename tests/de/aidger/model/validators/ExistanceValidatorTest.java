@@ -26,7 +26,6 @@ public class ExistanceValidatorTest {
         System.out.println("validateVar");
 
         Assistant a = new Assistant();
-        a.clearTable();
 
         ExistanceValidator val = new ExistanceValidator(null, null, null, a);
 

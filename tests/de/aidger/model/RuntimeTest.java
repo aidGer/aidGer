@@ -85,6 +85,20 @@ public class RuntimeTest {
     }
 
     /**
+     * Test of clearOption method, of class Runtime.
+     */
+    @Test
+    public void testClearOption() {
+        System.out.println("clearOption");
+
+        Runtime.getInstance().setOption("test", "blub");
+        assertEquals("blub", Runtime.getInstance().getOption("test"));
+
+        Runtime.getInstance().clearOption("test");
+        assertNull(Runtime.getInstance().getOption("test"));
+    }
+
+    /**
      * Test of getOption method, of class Runtime.
      */
     @Test
@@ -94,9 +108,13 @@ public class RuntimeTest {
         Runtime.getInstance().setOption("test", "blub");
         assertEquals("blub", Runtime.getInstance().getOption("test"));
 
+        Runtime.getInstance().clearOption("other-test");
         assertNull(Runtime.getInstance().getOption("other-test"));
         assertEquals("bla", Runtime.getInstance().getOption("other-test", "bla"));
         assertEquals("bla", Runtime.getInstance().getOption("other-test"));
+
+        Runtime.getInstance().clearOption("other-test");
+        Runtime.getInstance().clearOption("test");
     }
 
     /**
@@ -122,6 +140,9 @@ public class RuntimeTest {
 
         result = Runtime.getInstance().getOptionArray("non-existent");
         assertNull(result);
+
+        Runtime.getInstance().clearOption("test");
+        Runtime.getInstance().clearOption("test2");
     }
 
     /**
@@ -137,6 +158,8 @@ public class RuntimeTest {
         String result = Runtime.getInstance().getOption("test");
 
         assertEquals(result, "[test1, test2]");
+
+        Runtime.getInstance().clearOption("test");
     }
 
 }
