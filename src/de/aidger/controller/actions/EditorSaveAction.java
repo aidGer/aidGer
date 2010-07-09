@@ -468,9 +468,6 @@ public class EditorSaveAction extends AbstractAction {
                 } else {
                     clone.setAssistantId(null);
                 }
-
-                clone.setCourseId(courseId);
-                clone.setAssistantId(assistantId);
             }
         }
 
@@ -778,6 +775,7 @@ public class EditorSaveAction extends AbstractAction {
                             .format(
                                 _("Could not save the entity {0} because it already exists in the database."),
                                 new Object[] { tab.getType().getDisplayName() }));
+                    System.out.println(e1.getMessage());
                 } else {
                     UI.displayError(MessageFormat.format(
                         _("Could not save the entity {0} to database: {1}"),
