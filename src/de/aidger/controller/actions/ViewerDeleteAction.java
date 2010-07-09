@@ -100,7 +100,8 @@ public class ViewerDeleteAction extends AbstractAction {
                 }
             }
         } else {
-            UI.displayError(_("Please select an entry from the table."));
+            UI
+                .displayError(_("Please select at least one entry from the table."));
         }
     }
 }

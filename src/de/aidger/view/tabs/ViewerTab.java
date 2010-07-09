@@ -11,6 +11,8 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
@@ -26,6 +28,7 @@ import javax.swing.table.TableRowSorter;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
+import de.aidger.controller.actions.ViewerActivityExportAction;
 import de.aidger.controller.actions.ViewerActivityReportAction;
 import de.aidger.controller.actions.ViewerAddAction;
 import de.aidger.controller.actions.ViewerAssistantAction;
@@ -47,9 +50,6 @@ import de.aidger.view.models.TableModel;
 import de.aidger.view.utils.BooleanTableRenderer;
 import de.aidger.view.utils.DateTableRenderer;
 import de.aidger.view.utils.MultiLineTableRenderer;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.swing.RowFilter.Entry;
 
 /**
  * A tab which will be used to display the data.
@@ -136,11 +136,14 @@ public class ViewerTab extends Tab {
         separator7.setVisible(false);
         btnActivityReport.setVisible(false);
         separator8.setVisible(false);
+        btnActivityExport.setVisible(false);
+        separator9.setVisible(false);
 
         itemCourse.setVisible(false);
         itemAssistant.setVisible(false);
         itemContract.setVisible(false);
         itemActivityReport.setVisible(false);
+        itemActivityExport.setVisible(false);
 
         // use different table model for each data type
         switch (type) {
@@ -190,9 +193,12 @@ public class ViewerTab extends Tab {
             separator5.setVisible(true);
             btnAssistant.setVisible(true);
             separator6.setVisible(true);
+            btnActivityExport.setVisible(true);
+            separator9.setVisible(true);
 
             itemCourse.setVisible(true);
             itemAssistant.setVisible(true);
+            itemActivityExport.setVisible(true);
 
             break;
         }
@@ -261,6 +267,8 @@ public class ViewerTab extends Tab {
                 ViewerContractAction.class.getName()));
             btnActivityReport.setAction(ActionRegistry.getInstance().get(
                 ViewerActivityReportAction.class.getName()));
+            btnActivityExport.setAction(ActionRegistry.getInstance().get(
+                ViewerActivityExportAction.class.getName()));
 
             itemView.setAction(ActionRegistry.getInstance().get(
                 ViewerDetailViewAction.class.getName()));
@@ -276,6 +284,8 @@ public class ViewerTab extends Tab {
                 ViewerContractAction.class.getName()));
             itemActivityReport.setAction(ActionRegistry.getInstance().get(
                 ViewerActivityReportAction.class.getName()));
+            itemActivityExport.setAction(ActionRegistry.getInstance().get(
+                ViewerActivityExportAction.class.getName()));
 
             // shortcuts for table
             table.getInputMap().put(
@@ -407,16 +417,17 @@ public class ViewerTab extends Tab {
                 if (text.length() == 0) {
                     sorter.setRowFilter(null);
                 } else {
-                    RowFilter<TableModel, Integer> filter = new RowFilter<
-                            TableModel, Integer>() {
+                    RowFilter<TableModel, Integer> filter = new RowFilter<TableModel, Integer>() {
 
-                        private Pattern pat = Pattern.compile(searchField.getText(),
-                                Pattern.CASE_INSENSITIVE);
+                        private final Pattern pat = Pattern.compile(searchField
+                            .getText(), Pattern.CASE_INSENSITIVE);
 
                         @Override
-                        public boolean include(Entry<? extends TableModel, ? extends Integer> entry) {
+                        public boolean include(
+                                Entry<? extends TableModel, ? extends Integer> entry) {
                             for (int i = entry.getValueCount() - 1; i >= 0; i--) {
-                                Matcher m = pat.matcher(entry.getStringValue(i));
+                                Matcher m = pat
+                                    .matcher(entry.getStringValue(i));
                                 if (m.find()) {
                                     return true;
                                 }
@@ -579,6 +590,7 @@ public class ViewerTab extends Tab {
         itemAssistant = new javax.swing.JMenuItem();
         itemContract = new javax.swing.JMenuItem();
         itemActivityReport = new javax.swing.JMenuItem();
+        itemActivityExport = new javax.swing.JMenuItem();
         toolBar = new javax.swing.JToolBar();
         separator = new javax.swing.JToolBar.Separator();
         btnView = new javax.swing.JButton();
@@ -597,6 +609,8 @@ public class ViewerTab extends Tab {
         separator7 = new javax.swing.JToolBar.Separator();
         btnActivityReport = new javax.swing.JButton();
         separator8 = new javax.swing.JToolBar.Separator();
+        btnActivityExport = new javax.swing.JButton();
+        separator9 = new javax.swing.JToolBar.Separator();
         scrollPane = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         searchField = new javax.swing.JTextField();
@@ -622,6 +636,9 @@ public class ViewerTab extends Tab {
 
         itemActivityReport.setText(_("Activity Report"));
         popupMenu.add(itemActivityReport);
+
+        itemActivityExport.setText(_("Export"));
+        popupMenu.add(itemActivityExport);
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -689,6 +706,15 @@ public class ViewerTab extends Tab {
         toolBar.add(btnActivityReport);
         toolBar.add(separator8);
 
+        btnActivityExport.setText(_("Export"));
+        btnActivityExport.setFocusable(false);
+        btnActivityExport
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnActivityExport
+            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toolBar.add(btnActivityExport);
+        toolBar.add(separator9);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -726,6 +752,7 @@ public class ViewerTab extends Tab {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActivityExport;
     private javax.swing.JButton btnActivityReport;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAssistant;
@@ -735,6 +762,7 @@ public class ViewerTab extends Tab {
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnView;
     private javax.swing.JLabel clearSearch;
+    private javax.swing.JMenuItem itemActivityExport;
     private javax.swing.JMenuItem itemActivityReport;
     private javax.swing.JMenuItem itemAssistant;
     private javax.swing.JMenuItem itemContract;
@@ -754,6 +782,7 @@ public class ViewerTab extends Tab {
     private javax.swing.JToolBar.Separator separator6;
     private javax.swing.JToolBar.Separator separator7;
     private javax.swing.JToolBar.Separator separator8;
+    private javax.swing.JToolBar.Separator separator9;
     private javax.swing.JTable table;
     private javax.swing.JToolBar toolBar;
 
