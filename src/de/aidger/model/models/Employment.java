@@ -228,6 +228,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param end
      *            The end date
      * @return The employments during the given time
+     * @throws AdoHiveException
      */
     public List<Employment> getEmployments(Date start, Date end)
             throws AdoHiveException {
@@ -255,6 +256,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param endMonth
      *            The end month
      * @return The employments during the given time
+     * @throws AdoHiveException
      */
     public List<Employment> getEmployments(short startYear, byte startMonth,
             short endYear, byte endMonth) throws AdoHiveException {
@@ -269,6 +271,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param contract
      *            The given contract
      * @return The employments with the given contract
+     * @throws AdoHiveException
      */
     public List<Employment> getEmployments(Contract contract)
             throws AdoHiveException {
@@ -282,6 +285,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param assistant
      *            The given assistant
      * @return The employments of the given assistant
+     * @throws AdoHiveException
      */
     public List<Employment> getEmployments(Assistant assistant)
             throws AdoHiveException {
@@ -295,6 +299,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param course
      *            The given course
      * @return The employments for the given course
+     * @throws AdoHiveException
      */
     public List<Employment> getEmployments(Course course)
             throws AdoHiveException {
@@ -314,6 +319,17 @@ public class Employment extends AbstractModel<IEmployment> implements
             throws AdoHiveException {
         IEmploymentManager mgr = (IEmploymentManager) getManager();
         return castList(mgr.getEmployments(semester));
+    }
+
+    /**
+     * Get a list of distinct cost units.
+     *
+     * @return A list of distinct cost units
+     * @throws AdoHiveException
+     */
+    public List<String> getDistinctCostUnits() throws AdoHiveException {
+        IEmploymentManager mgr = (IEmploymentManager) getManager();
+        return mgr.getDistinctCostUnits();
     }
 
     /**

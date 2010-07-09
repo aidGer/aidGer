@@ -1,6 +1,7 @@
 package de.aidger.view.utils;
 
 import java.awt.Toolkit;
+import java.text.DecimalFormatSymbols;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -77,6 +78,30 @@ public class InputPatternFilter extends DocumentFilter {
     public static void addFilter(JTextField textField, String pattern) {
         ((AbstractDocument) textField.getDocument())
             .setDocumentFilter(new InputPatternFilter(pattern));
+    }
+
+    /**
+     * Adds a currency filter to the given text field.
+     * 
+     * @param textField
+     *            the text field that will be filtered
+     */
+    public static void addCurrencyFilter(JTextField textField) {
+        addFilter(textField, "[0-9]+["
+                + (new DecimalFormatSymbols()).getDecimalSeparator()
+                + "]?[0-9]{0,2}");
+    }
+
+    /**
+     * Adds a double filter to the given text field.
+     * 
+     * @param textField
+     *            the text field that will be filtered
+     */
+    public static void addDoubleFilter(JTextField textField) {
+        addFilter(textField, "[0-9]+["
+                + (new DecimalFormatSymbols()).getDecimalSeparator()
+                + "]?[0-9]*");
     }
 
     /**

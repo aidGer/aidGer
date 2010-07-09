@@ -2,6 +2,8 @@ package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.List;
 
 import javax.swing.JPanel;
@@ -36,15 +38,15 @@ public class CourseEditorForm extends JPanel {
         initComponents();
 
         // add input filters
-        InputPatternFilter.addFilter(txtAWHperGroup, "[0-9]+[.]?[0-9]*");
+        InputPatternFilter.addDoubleFilter(txtAWHperGroup);
         InputPatternFilter.addFilter(txtPart, ".?");
         InputPatternFilter.addFilter(txtSemester,
             "([0-9]{0,4})|(WS?|WS[0-9]{0,4})|(SS?|SS[0-9]{0,2})");
 
-        // info for user
-        txtAWHperGroup.setToolTipText(_("Only a decimal number is allowed."));
-        txtPart.setToolTipText(_("Only one character is allowed."));
-        txtSemester
+        // help info for user
+        hlpAWHperGroup.setToolTipText(_("Only a decimal number is allowed."));
+        hlpPart.setToolTipText(_("Only one character is allowed."));
+        hlpSemester
             .setToolTipText(_("Only the format SS[XX], WS[XXXX] and year in 4 digits is allowed."));
 
         List<IFinancialCategory> fcs = null;
@@ -75,7 +77,7 @@ public class CourseEditorForm extends JPanel {
             spNumberOfGroups.setValue(course.getNumberOfGroups());
             txtAWHperGroup.setText(String.valueOf(course
                 .getUnqualifiedWorkingHours()));
-            txtScope.setText(course.getScope());
+            cmbScope.setSelectedItem(course.getScope());
             txtPart.setText(String.valueOf(course.getPart()));
             txtGroup.setText(course.getGroup());
             txtRemark.setText(course.getRemark());
@@ -175,7 +177,7 @@ public class CourseEditorForm extends JPanel {
      * @return The scope of the course
      */
     public String getScope() {
-        return txtScope.getText();
+        return (String) cmbScope.getSelectedItem();
     }
 
     /**
@@ -202,8 +204,9 @@ public class CourseEditorForm extends JPanel {
      * @return The amount of UWHs
      * @throws NumberFormatException
      */
-    public double getUnqualifiedWorkingHours() throws NumberFormatException {
-        return Double.valueOf(txtAWHperGroup.getText());
+    public double getUnqualifiedWorkingHours() throws ParseException {
+        return NumberFormat.getInstance().parse(txtAWHperGroup.getText())
+            .doubleValue();
     }
 
     /**
@@ -234,11 +237,14 @@ public class CourseEditorForm extends JPanel {
         lblRemark = new javax.swing.JLabel();
         lblFinancialCategory = new javax.swing.JLabel();
         txtAWHperGroup = new javax.swing.JTextField();
-        txtScope = new javax.swing.JTextField();
+        cmbScope = new javax.swing.JComboBox();
         txtPart = new javax.swing.JTextField();
         txtGroup = new javax.swing.JTextField();
         txtRemark = new javax.swing.JTextField();
         cmbFinancialCategory = new javax.swing.JComboBox();
+        hlpAWHperGroup = new de.aidger.view.utils.HelpLabel();
+        hlpPart = new de.aidger.view.utils.HelpLabel();
+        hlpSemester = new de.aidger.view.utils.HelpLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -334,7 +340,7 @@ public class CourseEditorForm extends JPanel {
 
         lblAWHperGroup.setText(_("AWH per group"));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
@@ -342,7 +348,7 @@ public class CourseEditorForm extends JPanel {
 
         lblScope.setText(_("Scope"));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
@@ -350,7 +356,7 @@ public class CourseEditorForm extends JPanel {
 
         lblPart.setText(_("Part"));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
@@ -358,7 +364,7 @@ public class CourseEditorForm extends JPanel {
 
         lblGroup.setText(_("Group"));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
@@ -366,7 +372,7 @@ public class CourseEditorForm extends JPanel {
 
         lblRemark.setText(_("Remark"));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
@@ -374,7 +380,7 @@ public class CourseEditorForm extends JPanel {
 
         lblFinancialCategory.setText(_("Financial Category"));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
@@ -383,23 +389,24 @@ public class CourseEditorForm extends JPanel {
         txtAWHperGroup.setMinimumSize(new java.awt.Dimension(200, 25));
         txtAWHperGroup.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtAWHperGroup, gridBagConstraints);
 
-        txtScope.setMinimumSize(new java.awt.Dimension(200, 25));
-        txtScope.setPreferredSize(new java.awt.Dimension(200, 25));
+        cmbScope.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
+                "1Ü", "2Ü", "1P", "2P", "4P", "6P" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(txtScope, gridBagConstraints);
+        add(cmbScope, gridBagConstraints);
 
         txtPart.setMinimumSize(new java.awt.Dimension(200, 25));
         txtPart.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtPart, gridBagConstraints);
@@ -407,7 +414,7 @@ public class CourseEditorForm extends JPanel {
         txtGroup.setMinimumSize(new java.awt.Dimension(200, 25));
         txtGroup.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtGroup, gridBagConstraints);
@@ -415,20 +422,39 @@ public class CourseEditorForm extends JPanel {
         txtRemark.setMinimumSize(new java.awt.Dimension(200, 25));
         txtRemark.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtRemark, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbFinancialCategory, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        add(hlpAWHperGroup, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        add(hlpPart, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        add(hlpSemester, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cmbFinancialCategory;
+    private javax.swing.JComboBox cmbScope;
+    private de.aidger.view.utils.HelpLabel hlpAWHperGroup;
+    private de.aidger.view.utils.HelpLabel hlpPart;
+    private de.aidger.view.utils.HelpLabel hlpSemester;
     private javax.swing.JLabel lblAWHperGroup;
     private javax.swing.JLabel lblAdvisor;
     private javax.swing.JLabel lblDescription;
@@ -449,7 +475,6 @@ public class CourseEditorForm extends JPanel {
     private javax.swing.JTextField txtLecturer;
     private javax.swing.JTextField txtPart;
     private javax.swing.JTextField txtRemark;
-    private javax.swing.JTextField txtScope;
     private javax.swing.JTextField txtSemester;
     private javax.swing.JTextField txtTargetAudience;
     // End of variables declaration//GEN-END:variables

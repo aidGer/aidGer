@@ -6,6 +6,7 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import java.util.Arrays;
 
 import de.aidger.model.AbstractModel;
+import de.unistuttgart.iste.se.adohive.controller.IFinancialCategoryManager;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 import java.util.List;
 
@@ -147,6 +148,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      * Custom validation function for remove().
      *
      * @return True if everything is correct
+     * @throws AdoHiveException
      */
     public boolean validateOnRemove() throws AdoHiveException {
         boolean ret = true;
@@ -159,6 +161,17 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
         }
 
         return ret;
+    }
+
+    /**
+     * Get a list of distinct funds.
+     *
+     * @return List of distinct funds
+     * @throws AdoHiveException
+     */
+    public List<Integer> getDistinctFunds() throws AdoHiveException {
+        IFinancialCategoryManager mgr = (IFinancialCategoryManager) getManager();
+        return mgr.getDistinctFunds();
     }
 
     /**

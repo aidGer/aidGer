@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.text.MessageFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -105,7 +106,7 @@ public class EditorSaveAction extends AbstractAction {
         try {
             course
                 .setUnqualifiedWorkingHours(form.getUnqualifiedWorkingHours());
-        } catch (NumberFormatException e) {
+        } catch (ParseException e) {
             course.addError("unqualifiedWorkingHours", _("AWH per group"),
                 new PresenceValidator(course, new String[0], new String[0])
                     .getMessage());
@@ -237,7 +238,7 @@ public class EditorSaveAction extends AbstractAction {
 
         try {
             hw.setWage(round(form.getWage(), 2));
-        } catch (NumberFormatException e) {
+        } catch (ParseException e) {
             hw.addError("wage", _("Wage"), new PresenceValidator(hw,
                 new String[0], new String[0]).getMessage());
         }
@@ -356,7 +357,7 @@ public class EditorSaveAction extends AbstractAction {
                 clone.setYear((short) cal.get(Calendar.YEAR));
                 clone.setHourCount(hcs.get(i));
             }
-        } catch (NumberFormatException e) {
+        } catch (ParseException e) {
             employment.addError("hourCount", _("Hour count"),
                 new PresenceValidator(employment, new String[0], new String[0])
                     .getMessage());

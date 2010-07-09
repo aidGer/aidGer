@@ -2,6 +2,8 @@ package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -58,9 +60,9 @@ public class HourlyWageEditorForm extends JPanel {
         initComponents();
 
         // add input filters
-        InputPatternFilter.addFilter(txtWage, "[0-9]+[.]?[0-9]{0,2}");
+        InputPatternFilter.addCurrencyFilter(txtWage);
 
-        txtWage.setToolTipText(_("Only a valid currency format is allowed."));
+        hlpWage.setToolTipText(_("Only a valid currency format is allowed."));
 
         if (hw != null) {
             cmbQualification.setSelectedItem(Qualification.valueOf(hw
@@ -151,8 +153,9 @@ public class HourlyWageEditorForm extends JPanel {
      * @return The wage per hour
      * @throws NumberFormatException
      */
-    public double getWage() throws NumberFormatException {
-        return Double.valueOf(txtWage.getText());
+    public double getWage() throws ParseException {
+        return NumberFormat.getInstance().parse(txtWage.getText())
+            .doubleValue();
     }
 
     /**
@@ -174,6 +177,7 @@ public class HourlyWageEditorForm extends JPanel {
         spStartDate = new javax.swing.JSpinner();
         spFinishDate = new javax.swing.JSpinner();
         txtWage = new javax.swing.JTextField();
+        hlpWage = new de.aidger.view.utils.HelpLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -259,10 +263,17 @@ public class HourlyWageEditorForm extends JPanel {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtWage, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        add(hlpWage, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cmbQualification;
+    private de.aidger.view.utils.HelpLabel hlpWage;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblFinishDate;
     private javax.swing.JLabel lblQualification;

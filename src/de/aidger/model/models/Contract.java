@@ -180,6 +180,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
      * Custom validation function for remove().
      * 
      * @return True if everything is correct
+     * @throws AdoHiveException
      */
     public boolean validateOnRemove() throws AdoHiveException {
         boolean ret = true;
@@ -201,6 +202,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
      * @param end
      *            End of the date range
      * @return List of contracts
+     * @throws AdoHiveException
      */
     public List<Contract> getContracts(Date start, Date end)
             throws AdoHiveException {
@@ -209,6 +211,29 @@ public class Contract extends AbstractModel<IContract> implements IContract {
         for (IContract c : mgr.getContracts(start, end)) {
             ret.add(new Contract(c));
         }
+        return ret;
+    }
+
+    /**
+     * Get a list of contracts associated to the specified assistant.
+     *
+     * @param assi
+     *          The assistant to search for
+     * @return List of contracts
+     * @throws AdoHiveException
+     */
+    public List<Contract> getContracts(Assistant assi) throws AdoHiveException {
+        List<Contract> ret = new Vector<Contract>();
+        Contract c = new Contract();
+
+        List<Employment> employments = (new Employment()).getEmployments(assi);
+        for (Employment e : employments) {
+            Contract tmp = new Contract(c.getById(e.getContractId()));
+            if (!ret.contains(tmp)) {
+                ret.add(tmp);
+            }
+        }
+
         return ret;
     }
 
