@@ -45,16 +45,17 @@ public class ExistanceValidator extends Validator {
      */
     @Override
     public boolean validateVar(Object o) {
-        if (o == null || !(o instanceof Integer)) {
+        if (o == null) {
+            return true;
+        } else if (!(o instanceof Integer)) {
             return false;
-        } else if (((Integer)o).shortValue() >= 0) {
+        } else {
             try {
                 return type.getById((Integer) o) != null;
             } catch (AdoHiveException ex) {
                 return false;
             }
         }
-        return true;
     }
 
 }

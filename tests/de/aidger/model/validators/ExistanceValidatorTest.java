@@ -30,7 +30,6 @@ public class ExistanceValidatorTest {
 
         ExistanceValidator val = new ExistanceValidator(null, null, null, a);
 
-        assertFalse(val.validateVar(null));
         assertFalse(val.validateVar(new Object()));
         assertFalse(val.validateVar(0));
 
@@ -41,7 +40,7 @@ public class ExistanceValidatorTest {
         a.save();
 
         assertTrue(val.validateVar(a.getId()));
-        assertTrue(val.validateVar(-1));
+        assertTrue(val.validateVar(null));
     }
 
 }
