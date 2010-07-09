@@ -214,7 +214,7 @@ public class BudgetCreatorTest {
          */
         budgetFilter = new BudgetFilter();
         budgetFilter.setBookedBudget(employment.getHourCount() - 1);
-        budgetFilter.setTotalComparison(Comparison.GREATER);
+        budgetFilter.setBookedComparison(Comparison.GREATER);
 
         budgetCreator = new BudgetCreator();
         budgetCreator.addCourseBudget(course, budgetFilter);

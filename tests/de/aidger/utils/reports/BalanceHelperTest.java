@@ -16,6 +16,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
@@ -110,6 +111,7 @@ public class BalanceHelperTest {
         course.setSemester("SS09");
         course.setTargetAudience("Testers");
         course.setUnqualifiedWorkingHours(100.0);
+        course.setNew(true);
         course.save();
 
         course2 = course.clone();
@@ -467,6 +469,9 @@ public class BalanceHelperTest {
         assertTrue(years.contains(2008));
         assertTrue(years.contains(2009));
         assertTrue(years.contains(2010));
+
+        employment1.clearTable();
+        new Activity().clearTable();
 
         course.clearTable();
 

@@ -3,6 +3,7 @@
  */
 package de.aidger.model.reports;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -20,8 +21,9 @@ import de.aidger.model.models.FinancialCategory;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
- * @author Phil
+ * Tests the class ProtocolCreator
  * 
+ * @author aidGer Team
  */
 public class ProtocolCreatorTest {
 
@@ -156,5 +158,36 @@ public class ProtocolCreatorTest {
 
         assertTrue(activities.isEmpty());
 
+    }
+
+    /**
+     * Tests the method getObjectArray() of the class ProtocolCreator.
+     * 
+     * @throws AdoHiveException
+     */
+    @Test
+    public void testGetObjectArray() throws AdoHiveException {
+        Object[] resultActivity = new Object[8];
+        String assistantName = (new Assistant().getById(activity
+            .getAssistantId())).getFirstName()
+                + " "
+                + (new Assistant().getById(activity.getAssistantId()))
+                    .getLastName();
+        resultActivity[0] = assistantName;
+        String courseName = (new Course().getById(activity.getCourseId()))
+            .getDescription()
+                + "("
+                + new Course().getById(activity.getCourseId()).getSemester()
+                + ")";
+        resultActivity[1] = courseName;
+        resultActivity[2] = activity.getType();
+        resultActivity[3] = activity.getDate();
+        resultActivity[4] = activity.getContent();
+        resultActivity[5] = activity.getSender();
+        resultActivity[6] = activity.getProcessor();
+        resultActivity[7] = activity.getRemark();
+
+        assertArrayEquals(resultActivity, protocolCreator
+            .getObjectArray(activity));
     }
 }
