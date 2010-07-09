@@ -116,4 +116,45 @@ public class ProtocolCreator {
         }
         return addedActivities;
     }
+
+    /**
+     * Returns the specified activity as an array of objects.
+     * 
+     * @param activity
+     *            The activity to convert.
+     * @return The activity as an object array.
+     */
+    public Object[] getObjectArray(Activity activity) {
+        Object[] addedActivity = new Object[8];
+        String assistantName = "";
+        try {
+            if (new Assistant().getById(activity.getAssistantId()) != null) {
+                assistantName = (new Assistant().getById(activity
+                    .getAssistantId())).getFirstName()
+                        + " "
+                        + (new Assistant().getById(activity.getAssistantId()))
+                            .getLastName();
+            }
+            addedActivity[0] = assistantName;
+            String courseName = "";
+            if (new Course().getById(activity.getCourseId()) != null) {
+                courseName = (new Course().getById(activity.getCourseId()))
+                    .getDescription()
+                        + "("
+                        + new Course().getById(activity.getCourseId())
+                            .getSemester() + ")";
+            }
+            addedActivity[1] = courseName;
+            addedActivity[2] = activity.getType();
+            addedActivity[3] = activity.getDate();
+            addedActivity[4] = activity.getContent();
+            addedActivity[5] = activity.getSender();
+            addedActivity[6] = activity.getProcessor();
+            addedActivity[7] = activity.getRemark();
+        } catch (AdoHiveException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return addedActivity;
+    }
 }

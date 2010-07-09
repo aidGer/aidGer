@@ -12,6 +12,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Vector;
 
 import com.itextpdf.text.Document;
@@ -31,6 +32,7 @@ import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import de.aidger.model.Runtime;
+import de.aidger.model.models.Activity;
 import de.aidger.model.reports.ProtocolCreator;
 import de.aidger.view.UI;
 
@@ -84,7 +86,75 @@ public class ProtocolConverter {
         name = _("Activity Protocol");
         makeNewDocument(file);
         if (fileCreated) {
+            /*
+             * If there were no problems creating the file, go on and add
+             * content to it. Do nothing otherwise.
+             */
             writeTable();
+            addActivities();
+            document.close();
+            /*
+             * Open the created document if the setting is enabled with the
+             * specified pdf viewer.
+             */
+            if (Runtime.getInstance().getOption("auto-open").equals("true")) {
+                try {
+                    java.lang.Runtime.getRuntime().exec(
+                        new String[] {
+                                Runtime.getInstance().getOption("pdf-viewer"),
+                                file.getAbsolutePath() });
+                } catch (IOException e) {
+                    try {
+                        Desktop.getDesktop().open(file);
+                    } catch (IOException e1) {
+                        UI.displayError(_("No pdf viewer could be found!"));
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Initializes a new protocol converter that creates a pdf with a given list
+     * of activities.
+     * 
+     * @param file
+     *            The file path and name of the pdf.
+     * @param activities
+     *            The list of activities to be exported.
+     */
+    public ProtocolConverter(File file, List<Activity> activities) {
+        document = new Document(PageSize.A4.rotate());
+        document.setMargins(document.leftMargin(), document.rightMargin(),
+            document.topMargin() + 15, document.bottomMargin());
+        file = checkExtension(file);
+        name = _("Activity Protocol");
+        makeNewDocument(file);
+        if (fileCreated) {
+            /*
+             * If there were no problems creating the file, go on and add
+             * content to it. Do nothing otherwise.
+             */
+            writeTable();
+            try {
+                /*
+                 * Add an activity row to the table for every activity in the
+                 * list.
+                 */
+                PdfPTable contentTable = new PdfPTable(1);
+                for (Activity activity : activities) {
+                    PdfPCell cell;
+                    cell = new PdfPCell(addRow(new ProtocolCreator()
+                        .getObjectArray(activity)));
+                    cell.setBorder(0);
+                    contentTable.addCell(cell);
+                }
+                document.add(contentTable);
+            } catch (DocumentException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             document.close();
             /*
              * Open the created document if the setting is enabled with the
@@ -319,7 +389,6 @@ public class ProtocolConverter {
             cell.setBorder(0);
             contentTable.addCell(cell);
             document.add(contentTable);
-            addActivities();
         } catch (DocumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -333,7 +402,6 @@ public class ProtocolConverter {
      * Adds activities to the activity table.
      */
     private void addActivities() {
-
         try {
             PdfPTable contentTable = new PdfPTable(1);
             Vector activities = new ProtocolCreator()
