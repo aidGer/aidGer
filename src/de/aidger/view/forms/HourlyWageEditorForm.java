@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 import de.aidger.model.models.HourlyWage;
 import de.aidger.view.tabs.EditorTab;
-import de.aidger.view.utils.InputPatternFilter;
+import de.aidger.view.utils.InputNumberFilter;
 
 /**
  * A form used for editing / creating new hourly wages.
@@ -60,14 +60,14 @@ public class HourlyWageEditorForm extends JPanel {
         initComponents();
 
         // add input filters
-        InputPatternFilter.addCurrencyFilter(txtWage);
+        InputNumberFilter.addFilter(txtWage);
 
         hlpWage.setToolTipText(_("Only a valid currency format is allowed."));
 
         if (hw != null) {
             cmbQualification.setSelectedItem(Qualification.valueOf(hw
                 .getQualification()));
-            txtWage.setText(String.valueOf(hw.getWage()));
+            txtWage.setText(NumberFormat.getInstance().format(hw.getWage()));
 
             Calendar cal = Calendar.getInstance();
             cal.set(Calendar.MONTH, hw.getMonth() - 1);

@@ -1,6 +1,7 @@
 package de.aidger.view.utils;
 
-import java.awt.Toolkit;
+import java.text.NumberFormat;
+import java.text.ParseException;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -10,24 +11,16 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.DocumentFilter;
 
 /**
- * This document filter allows only input that matches with the given pattern.
+ * This document filter allows only number input.
  * 
  * @author aidGer Team
  */
-public class InputPatternFilter extends DocumentFilter {
-    /**
-     * The regular expression pattern.
-     */
-    private final String pattern;
+public class InputNumberFilter extends DocumentFilter {
 
     /**
-     * Creates a pattern filter with the given regular expression pattern.
-     * 
-     * @param pattern
-     *            the regular expression pattern
+     * Creates a number filter.
      */
-    public InputPatternFilter(String pattern) {
-        this.pattern = pattern;
+    public InputNumberFilter() {
     }
 
     /*
@@ -59,35 +52,32 @@ public class InputPatternFilter extends DocumentFilter {
         String newStr = oldStr.substring(0, offset) + str
                 + oldStr.substring(offset, oldStr.length());
 
-        if (newStr.matches(pattern)) {
+        try {
+            NumberFormat.getInstance().parse(newStr);
+
             fb.replace(offset, length, str, attrs);
-        } else {
-            Toolkit.getDefaultToolkit().beep();
+        } catch (ParseException e) {
         }
     }
 
     /**
-     * Adds this pattern filter to the given text field.
+     * Adds this number filter to the given text field.
      * 
      * @param textField
      *            the text field that will be filtered
-     * @param pattern
-     *            the pattern to match
      */
-    public static void addFilter(JTextField textField, String pattern) {
+    public static void addFilter(JTextField textField) {
         ((AbstractDocument) textField.getDocument())
-            .setDocumentFilter(new InputPatternFilter(pattern));
+            .setDocumentFilter(new InputNumberFilter());
     }
 
     /**
-     * Adds this pattern filter to the given editable combo box.
+     * Adds this number filter to the given editable combo box.
      * 
      * @param cmb
      *            the editable combo box that will be filtered
-     * @param pattern
-     *            the pattern to match
      */
-    public static void addFilter(JComboBox cmb, String pattern) {
-        addFilter((JTextField) cmb.getEditor().getEditorComponent(), pattern);
+    public static void addFilter(JComboBox cmb) {
+        addFilter((JTextField) cmb.getEditor().getEditorComponent());
     }
 }

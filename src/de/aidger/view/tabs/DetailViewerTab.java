@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
-import de.aidger.controller.actions.DetailViewerCancelAction;
+import de.aidger.controller.actions.DetailViewerCloseAction;
 import de.aidger.controller.actions.DetailViewerEditAction;
 import de.aidger.model.AbstractModel;
 import de.aidger.model.Runtime;
@@ -212,8 +212,8 @@ public class DetailViewerTab extends Tab {
             btnEdit.setAction(ActionRegistry.getInstance().get(
                 DetailViewerEditAction.class.getName()));
 
-            btnCancel.setAction(ActionRegistry.getInstance().get(
-                DetailViewerCancelAction.class.getName()));
+            btnClose.setAction(ActionRegistry.getInstance().get(
+                DetailViewerCloseAction.class.getName()));
         } catch (ActionNotFoundException e) {
             UI.displayError(e.getMessage());
         }
@@ -489,7 +489,7 @@ public class DetailViewerTab extends Tab {
         viewerForm = createViewerForm();
         buttons = new javax.swing.JPanel();
         btnEdit = new javax.swing.JButton();
-        btnCancel = new javax.swing.JButton();
+        btnClose = new javax.swing.JButton();
         filler = new javax.swing.JLabel();
         filler1 = new javax.swing.JLabel();
         panelLists = new javax.swing.JPanel();
@@ -508,9 +508,7 @@ public class DetailViewerTab extends Tab {
 
         setLayout(new java.awt.GridBagLayout());
 
-        viewerForm.setBorder(javax.swing.BorderFactory.createTitledBorder(
-            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
-            getTabName()));
+        viewerForm.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), getTabName()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -519,8 +517,8 @@ public class DetailViewerTab extends Tab {
         btnEdit.setText(_("Edit"));
         buttons.add(btnEdit);
 
-        btnCancel.setText(_("Cancel"));
-        buttons.add(btnCancel);
+        btnClose.setText(_("Close"));
+        buttons.add(btnClose);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -629,7 +627,7 @@ public class DetailViewerTab extends Tab {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnClose;
     private javax.swing.JButton btnEdit;
     private javax.swing.JPanel buttons;
     private javax.swing.JLabel filler;

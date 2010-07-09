@@ -1,5 +1,7 @@
 package de.aidger.view.models;
 
+import static de.aidger.utils.Translation._;
+
 import java.text.SimpleDateFormat;
 
 import de.aidger.model.models.Activity;
@@ -35,7 +37,7 @@ public class UIActivity extends Activity {
      */
     @Override
     public String toString() {
-        return getRemark() + " ("
+        return getType() + " (" + getSender() + " " + _("at") + " "
                 + (new SimpleDateFormat("dd.MM.yyyy")).format(getDate()) + ")";
     }
 }
