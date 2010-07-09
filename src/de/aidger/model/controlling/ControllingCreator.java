@@ -72,8 +72,8 @@ public class ControllingCreator {
                  */
                 ControllingAssistant controllingAssistant = null;
                 for (Employment employment : employments) {
-                    if (assistant.getId() == employment.getAssistantId()
-                            && employment.getFunds() == funds) {
+                    if (assistant.getId().equals(employment.getAssistantId())
+                            && employment.getFunds().equals(funds)) {
                         if (controllingAssistant == null) {
                             controllingAssistant = new ControllingAssistant();
                             controllingAssistant.setName(assistant
@@ -81,7 +81,7 @@ public class ControllingCreator {
                                     + " " + assistant.getLastName());
                         }
                         new BalanceHelper();
-                        // Costs are need pre-tax for this.
+                        // Costs are needed pre-tax for this.
                         double costs = BalanceHelper
                             .calculatePreTaxBudgetCost(employment);
                         controllingAssistant.setCosts(controllingAssistant
@@ -89,7 +89,7 @@ public class ControllingCreator {
                                 + costs);
                     }
                 }
-                if (!(controllingAssistant == null)) {
+                if (controllingAssistant != null) {
                     controllingAssistants.add(controllingAssistant);
                 }
             }
