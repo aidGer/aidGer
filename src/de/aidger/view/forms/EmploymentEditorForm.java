@@ -702,6 +702,7 @@ public class EmploymentEditorForm extends JPanel {
 
             dateLines.remove(dateLine);
 
+            repaint();
             revalidate();
         }
     }

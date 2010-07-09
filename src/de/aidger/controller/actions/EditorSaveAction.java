@@ -445,26 +445,28 @@ public class EditorSaveAction extends AbstractAction {
         models.clear();
 
         for (int i = 0; i < courses.size(); ++i) {
-            Activity clone = activity.clone();
+            for (int j = 0; j < assistants.size(); ++j) {
+                Activity clone = activity.clone();
 
-            for (String error : activity.getErrors()) {
-                clone.addError(error);
+                for (String error : activity.getErrors()) {
+                    clone.addError(error);
+                }
+
+                models.add(clone);
+
+                int courseId = courses.get(i).getId();
+                int assistantId = assistants.get(j).getId();
+
+                if (courseId == 0) {
+                    courseId = -1;
+                }
+                if (assistantId == 0) {
+                    assistantId = -1;
+                }
+
+                clone.setCourseId(courseId);
+                clone.setAssistantId(assistantId);
             }
-
-            models.add(clone);
-
-            int courseId = courses.get(i).getId();
-            int assistantId = assistants.get(i).getId();
-
-            if (courseId == 0) {
-                courseId = -1;
-            }
-            if (assistantId == 0) {
-                assistantId = -1;
-            }
-
-            clone.setCourseId(courseId);
-            clone.setAssistantId(assistantId);
         }
 
         try {
