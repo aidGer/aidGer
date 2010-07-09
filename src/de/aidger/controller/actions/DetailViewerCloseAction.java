@@ -17,13 +17,13 @@ import de.aidger.view.tabs.DetailViewerTab;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class DetailViewerCancelAction extends AbstractAction {
+public class DetailViewerCloseAction extends AbstractAction {
 
     /**
      * Initializes the action.
      */
-    public DetailViewerCancelAction() {
-        putValue(Action.NAME, _("Cancel"));
+    public DetailViewerCloseAction() {
+        putValue(Action.NAME, _("Close"));
     }
 
     /*

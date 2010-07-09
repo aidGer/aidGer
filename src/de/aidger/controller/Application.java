@@ -14,7 +14,7 @@ import de.aidger.controller.actions.BudgetGenerateAction;
 import de.aidger.controller.actions.ControllingExportAllAction;
 import de.aidger.controller.actions.ControllingExportDifferencesAction;
 import de.aidger.controller.actions.ControllingGenerateAction;
-import de.aidger.controller.actions.DetailViewerCancelAction;
+import de.aidger.controller.actions.DetailViewerCloseAction;
 import de.aidger.controller.actions.DetailViewerEditAction;
 import de.aidger.controller.actions.DialogAbortAction;
 import de.aidger.controller.actions.EditorCancelAction;
@@ -109,7 +109,7 @@ public final class Application {
         ActionRegistry.getInstance().register(new EditorSaveAction());
         ActionRegistry.getInstance().register(new EditorCancelAction());
         ActionRegistry.getInstance().register(new DetailViewerEditAction());
-        ActionRegistry.getInstance().register(new DetailViewerCancelAction());
+        ActionRegistry.getInstance().register(new DetailViewerCloseAction());
 
         ActionRegistry.getInstance().register(new ReportGenerateAction());
         ActionRegistry.getInstance().register(new ReportExportAction());
