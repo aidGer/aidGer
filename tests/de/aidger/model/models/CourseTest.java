@@ -5,6 +5,7 @@ import org.junit.Before;
 import static org.junit.Assert.*;
 
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import java.sql.Date;
 import java.util.List;
 import org.junit.BeforeClass;
 
@@ -74,11 +75,6 @@ public class CourseTest {
         course.setNew(true);
         assertTrue(course.save());
 
-        course.setAdvisor(null);
-        assertFalse(course.save());
-        course.resetErrors();
-        course.setAdvisor("Tester");
-
         course.setDescription(null);
         assertFalse(course.save());
         course.resetErrors();
@@ -108,11 +104,6 @@ public class CourseTest {
         course.resetErrors();
         course.setSemester("SS09");
 
-        course.setTargetAudience(null);
-        assertFalse(course.save());
-        course.resetErrors();
-        course.setTargetAudience("Testers");
-
         course.setUnqualifiedWorkingHours(0.0);
         assertFalse(course.save());
         course.resetErrors();
@@ -130,7 +121,7 @@ public class CourseTest {
 
         course.save();
         Activity activity = new Activity();        
-        activity.setAssistantId(-1);
+        activity.setAssistantId(null);
         activity.setContent("New assistant");
         activity.setCourseId(course.getId());
         activity.setDate(new java.sql.Date(100));
@@ -145,9 +136,26 @@ public class CourseTest {
         course.resetErrors();
         activity.remove();
 
+        Assistant assistant = new Assistant();
+        assistant.setEmail("test@example.com");
+        assistant.setFirstName("Test");
+        assistant.setLastName("Tester");
+        assistant.setQualification("g");
+        assistant.save();
+
+        Contract contract = new Contract();
+        contract.setAssistantId(assistant.getId());
+        contract.setCompletionDate(new Date(10));
+        contract.setConfirmationDate(new Date(100));
+        contract.setDelegation(false);
+        contract.setEndDate(new Date(1000));
+        contract.setStartDate(new Date(20));
+        contract.setType("Type");
+        contract.save();
+
         Employment employment = new Employment();
-        employment.setAssistantId(-1);
-        employment.setContractId(-1);
+        employment.setAssistantId(assistant.getId());
+        employment.setContractId(contract.getId());
         employment.setCourseId(course.getId());
         employment.setCostUnit("0711");
         employment.setFunds(1);
@@ -227,7 +235,6 @@ public class CourseTest {
         fc.setYear((short) 2010);
         fc.save();
 
-        course.clearTable();
         course.setNew(true);
         course.setFinancialCategoryId(fc.getId());
         course.save();
@@ -235,7 +242,7 @@ public class CourseTest {
         List result = course.getCourses(fc);
 
         assertNotNull(result);
-        assertTrue(result.size() == 1);
+        assertTrue(result.size() >= 1);
         assertEquals(course, result.get(0));
     }
 
