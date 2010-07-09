@@ -457,11 +457,16 @@ public class EditorSaveAction extends AbstractAction {
                 int courseId = courses.get(i).getId();
                 int assistantId = assistants.get(j).getId();
 
-                if (courseId == 0) {
-                    courseId = -1;
+                if (courseId != 0) {
+                    clone.setCourseId(courseId);
+                } else {
+                    clone.setCourseId(null);
                 }
-                if (assistantId == 0) {
-                    assistantId = -1;
+
+                if (assistantId != 0) {
+                    clone.setAssistantId(assistantId);
+                } else {
+                    clone.setAssistantId(null);
                 }
 
                 clone.setCourseId(courseId);
