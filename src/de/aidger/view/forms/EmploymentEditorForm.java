@@ -39,6 +39,7 @@ import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.AutoCompletion;
 import de.aidger.view.utils.HelpLabel;
+import de.aidger.view.utils.InputNumberFilter;
 import de.aidger.view.utils.InputPatternFilter;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
@@ -207,8 +208,8 @@ public class EmploymentEditorForm extends JPanel {
                 cal.set(Calendar.YEAR, employment.getYear());
                 dl.spDate.setValue(cal.getTime());
 
-                dl.txtHourCount.setText(String.valueOf(employment
-                    .getHourCount()));
+                dl.txtHourCount.setText(NumberFormat.getInstance().format(
+                    employment.getHourCount()));
             }
 
         } catch (AdoHiveException e) {
@@ -400,7 +401,7 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtHourCount, gridBagConstraints);
 
-        InputPatternFilter.addDoubleFilter(txtHourCount);
+        InputNumberFilter.addFilter(txtHourCount);
 
         HelpLabel hlpHourCount = new HelpLabel();
         gridBagConstraints = new GridBagConstraints();

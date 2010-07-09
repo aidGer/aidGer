@@ -15,6 +15,7 @@ import de.aidger.view.models.ComboBoxModel;
 import de.aidger.view.models.GenericListModel;
 import de.aidger.view.models.UIFinancialCategory;
 import de.aidger.view.tabs.ViewerTab.DataType;
+import de.aidger.view.utils.InputNumberFilter;
 import de.aidger.view.utils.InputPatternFilter;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
@@ -38,7 +39,7 @@ public class CourseEditorForm extends JPanel {
         initComponents();
 
         // add input filters
-        InputPatternFilter.addDoubleFilter(txtAWHperGroup);
+        InputNumberFilter.addFilter(txtAWHperGroup);
         InputPatternFilter.addFilter(txtPart, ".?");
         InputPatternFilter.addFilter(txtSemester,
             "([0-9]{0,4})|(WS?|WS[0-9]{0,4})|(SS?|SS[0-9]{0,2})");
@@ -75,8 +76,8 @@ public class CourseEditorForm extends JPanel {
             txtAdvisor.setText(course.getAdvisor());
             txtTargetAudience.setText(course.getTargetAudience());
             spNumberOfGroups.setValue(course.getNumberOfGroups());
-            txtAWHperGroup.setText(String.valueOf(course
-                .getUnqualifiedWorkingHours()));
+            txtAWHperGroup.setText(NumberFormat.getInstance().format(
+                course.getUnqualifiedWorkingHours()));
             cmbScope.setSelectedItem(course.getScope());
             txtPart.setText(String.valueOf(course.getPart()));
             txtGroup.setText(course.getGroup());
@@ -324,7 +325,8 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtAdvisor, gridBagConstraints);
 
-        spNumberOfGroups.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+        spNumberOfGroups.setModel(new javax.swing.SpinnerNumberModel(Integer
+            .valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -396,7 +398,8 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtAWHperGroup, gridBagConstraints);
 
-        cmbScope.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "1Ü", "2Ü", "1P", "2P", "4P", "6P" }));
+        cmbScope.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
+                "", "1Ü", "2Ü", "1P", "2P", "4P", "6P" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
