@@ -224,7 +224,9 @@ public class Contract extends AbstractModel<IContract> implements IContract {
      */
     public List<Contract> getContracts(Assistant assi) throws AdoHiveException {
         List<Contract> ret = new Vector<Contract>();
-        Contract c = new Contract();
+
+    /*  PROPOSED VERSION BY TEAM ADOHIVE
+        DOESN'T WORK CORRECTLY
 
         List<Employment> employments = (new Employment()).getEmployments(assi);
         for (Employment e : employments) {
@@ -234,6 +236,14 @@ public class Contract extends AbstractModel<IContract> implements IContract {
             }
         }
 
+        return ret; */
+
+        List<IContract> ctrs = (new Contract()).getAll();
+        for (IContract c : ctrs) {
+            if (c.getAssistantId().equals(assi.getId())) {
+                ret.add(new Contract(c));
+            }
+        }
         return ret;
     }
 

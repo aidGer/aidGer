@@ -109,7 +109,7 @@ public class AssistantTest {
         Activity activity = new Activity();
         activity.setAssistantId(assistant.getId());
         activity.setContent("New assistant");
-        activity.setCourseId(-1);
+        activity.setCourseId(null);
         activity.setDate(new java.sql.Date(100));
         activity.setDocumentType("Test Type");
         activity.setProcessor("T");
@@ -121,24 +121,28 @@ public class AssistantTest {
         assertFalse(assistant.remove());
         assistant.resetErrors();
         activity.remove();
-        activity = null;
 
-        Employment employment = new Employment();
-        employment.setAssistantId(assistant.getId());
-        employment.setContractId(-1);
-        employment.setCourseId(-1);
-        employment.setCostUnit("0711");
-        employment.setFunds(1);
-        employment.setHourCount(40.0);
-        employment.setMonth((byte) 10);
-        employment.setQualification("g");
-        employment.setRemark("Remark");
-        employment.setYear((short) 2010);
-        employment.save();
+        FinancialCategory fc = new FinancialCategory();
+        fc.setBudgetCosts(new Integer[] { 100 });
+        fc.setFunds(new Integer[] { 10001000 });
+        fc.setName("name");
+        fc.setYear((short) 2010);
+        fc.save();
 
-        assertFalse(assistant.remove());
-        assistant.resetErrors();
-        employment.remove();
+        Course course = new Course();
+        course.setAdvisor("Tester");
+        course.setDescription("Description");
+        course.setFinancialCategoryId(fc.getId());
+        course.setGroup("2");
+        course.setLecturer("Test Tester");
+        course.setNumberOfGroups(3);
+        course.setPart('a');
+        course.setRemark("Remark");
+        course.setScope("Sniper Scope");
+        course.setSemester("SS09");
+        course.setTargetAudience("Testers");
+        course.setUnqualifiedWorkingHours(100.0);
+        course.save();
 
         Contract contract = new Contract();
         contract.setAssistantId(assistant.getId());
@@ -150,6 +154,27 @@ public class AssistantTest {
         contract.setType("Type");
         contract.save();
 
+        Employment employment = new Employment();
+        employment.setAssistantId(assistant.getId());
+        employment.setContractId(contract.getId());
+        employment.setCourseId(course.getId());
+        employment.setCostUnit("0711");
+        employment.setFunds(1);
+        employment.setHourCount(40.0);
+        employment.setMonth((byte) 10);
+        employment.setQualification("g");
+        employment.setRemark("Remark");
+        employment.setYear((short) 2010);
+        employment.save();
+
+        assertFalse(assistant.remove());
+        assistant.resetErrors();
+        fc.remove();
+        course.remove();
+        contract.remove();
+        employment.remove();
+
+        contract.save();
         assertFalse(assistant.remove());
         assistant.resetErrors();
         contract.remove();
