@@ -45,41 +45,43 @@ public class BudgetCreator {
             availableBudget = totalBudget - bookedBudget;
         }
         boolean foundLecturer = false;
-        Vector<String> lecturers = budgetFilter.getLecturers();
-        for (String lecturer : lecturers) {
-            /*
-             * If the lecturer of this course is included in the filter list, it
-             * passed this filter.
-             */
-            if (course.getLecturer().equals(lecturer)) {
-                foundLecturer = true;
-                break;
-            }
-        }
         boolean foundSemester = false;
-        Vector<String> semesters = budgetFilter.getSemesters();
-        for (String semester : semesters) {
-            /*
-             * If the semester of this course is included in the filter list, it
-             * passed this filter.
-             */
-            if (course.getSemester().equals(semester)) {
-                foundSemester = true;
-                break;
+        Vector<String> lecturers = new Vector<String>();
+        Vector<String> semesters = new Vector<String>();
+        if (budgetFilter != null) {
+            lecturers = budgetFilter.getLecturers();
+            for (String lecturer : lecturers) {
+                /*
+                 * If the lecturer of this course is included in the filter
+                 * list, it passed this filter.
+                 */
+                if (course.getLecturer().equals(lecturer)) {
+                    foundLecturer = true;
+                    break;
+                }
+            }
+            semesters = budgetFilter.getSemesters();
+            for (String semester : semesters) {
+                /*
+                 * If the semester of this course is included in the filter
+                 * list, it passed this filter.
+                 */
+                if (course.getSemester().equals(semester)) {
+                    foundSemester = true;
+                    break;
+                }
             }
         }
-        if ((foundSemester || semesters.isEmpty())
+        if (budgetFilter == null
+                || (foundSemester || semesters.isEmpty())
                 && (foundLecturer || lecturers.isEmpty())
-                && (budgetFilter.getAvailableComparison().equals(
-                    Comparison.NONE) || compareBudget(availableBudget,
-                    budgetFilter.getAvailableBudget(), budgetFilter
-                        .getAvailableComparison()))
-                && (budgetFilter.getBookedComparison().equals(Comparison.NONE) || compareBudget(
-                    bookedBudget, budgetFilter.getBookedBudget(), budgetFilter
-                        .getBookedComparison()))
-                && (budgetFilter.getTotalComparison().equals(Comparison.NONE) || compareBudget(
-                    totalBudget, budgetFilter.getTotalBudget(), budgetFilter
-                        .getTotalComparison()))) {
+                && (compareBudget(availableBudget, budgetFilter
+                    .getAvailableBudget(), budgetFilter
+                    .getAvailableComparison()))
+                && (compareBudget(bookedBudget, budgetFilter.getBookedBudget(),
+                    budgetFilter.getBookedComparison()))
+                && (compareBudget(totalBudget, budgetFilter.getTotalBudget(),
+                    budgetFilter.getTotalComparison()))) {
             /*
              * If this course passed all the filters, it can be added to the
              * list of courses that passed as well.
@@ -100,7 +102,7 @@ public class BudgetCreator {
      *            to.
      * @param comparison
      *            How the budgets should be compared. enum Comparison
-     * @return Whether the budget comparison was succesful or not.
+     * @return Whether the budget comparison was successful or not.
      */
     private boolean compareBudget(double actual, double wanted,
             Comparison comparison) {
