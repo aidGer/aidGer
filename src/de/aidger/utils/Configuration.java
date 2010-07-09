@@ -122,4 +122,23 @@ public final class Configuration {
             createFile();
         }
     }
+
+    /**
+     * Remove an option from the config.
+     *
+     * @param option
+     *            The option to remove
+     */
+    public void remove(String option) {
+        properties.remove(option);
+
+        try {
+            File outputFile = new File(file);
+            FileOutputStream outputStream = new FileOutputStream(outputFile);
+            properties.store(outputStream, "");
+            outputStream.close();
+        } catch (Exception e) {
+            createFile();
+        }
+    }
 }

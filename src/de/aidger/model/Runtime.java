@@ -246,6 +246,16 @@ public final class Runtime {
     }
 
     /**
+     * Remove an option from the config.
+     *
+     * @param option
+     *            The option to remove
+     */
+    public void clearOption(String option) {
+        configuration.remove(option);
+    }
+
+    /**
      * Get a list of all languages installed on the system. The format is 0 =>
      * short, 1 => long language name.
      *
