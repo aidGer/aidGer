@@ -84,7 +84,7 @@ public class CourseBudget {
         setTotalBudget(totalBudget);
         setBookedBudget(bookedBudget);
         setAvailableBudget(availableBudget);
-        setOverBooked(BudgetChecker.checkBudget(course));
+        setOverBooked(!BudgetChecker.checkBudget(course));
     }
 
     /**
