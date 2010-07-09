@@ -63,7 +63,8 @@ public class ActivityEditorForm extends JPanel {
         hlpProcessor
             .setToolTipText(_("Only a maximal length of 2 is allowed."));
 
-        addNewActivity();
+        addNewCourse();
+        addNewAssistant();
 
         if (editMode) {
             spDate.setValue(activity.getDate());
@@ -74,13 +75,14 @@ public class ActivityEditorForm extends JPanel {
             txtContent.setText(activity.getContent());
             txtRemark.setText(activity.getRemark());
 
-            ActivityLine al = activityLines.get(0);
+            CourseLine cl = courseLines.get(0);
+            AssistantLine al = assistantLines.get(0);
 
             try {
                 ICourse c = (new Course()).getById(activity.getCourseId());
                 UICourse course = (c == null) ? new UICourse()
                         : new UICourse(c);
-                al.cmbCourse.setSelectedItem(course);
+                cl.cmbCourse.setSelectedItem(course);
 
                 IAssistant a = (new Assistant()).getById(activity
                     .getAssistantId());
@@ -98,10 +100,10 @@ public class ActivityEditorForm extends JPanel {
     }
 
     /**
-     * Adds a new activity line to the form.
+     * Adds a new course line to the form.
      */
     @SuppressWarnings("unchecked")
-    private void addNewActivity() {
+    private void addNewCourse() {
         GridBagConstraints gridBagConstraints;
 
         JLabel lblCourse = new JLabel();
@@ -121,18 +123,76 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbCourse, gridBagConstraints);
 
+        JButton btnPlusMinus = new JButton();
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+
+        AutoCompletion.enable(cmbCourse);
+
+        try {
+            List<ICourse> courses = (new Course()).getAll();
+
+            ComboBoxModel cmbCourseModel = new ComboBoxModel(DataType.Course);
+
+            cmbCourseModel.addElement(new UICourse());
+
+            for (ICourse c : courses) {
+                Course course = new UICourse(c);
+
+                cmbCourseModel.addElement(course);
+            }
+
+            cmbCourse.setModel(cmbCourseModel);
+        } catch (AdoHiveException e) {
+        }
+
+        CourseLine cl = new CourseLine(lblCourse, cmbCourse, btnPlusMinus);
+
+        if (courseLines.isEmpty()) {
+            btnPlusMinus.setIcon(new ImageIcon(getClass().getResource(
+                "/de/aidger/view/icons/plus-small.png")));
+
+            gridBagConstraints.gridy = 4;
+
+            btnPlusMinus.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent evt) {
+                    addNewCourse();
+                }
+            });
+
+            if (editMode) {
+                btnPlusMinus.setVisible(false);
+            }
+        } else {
+            gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
+
+            btnPlusMinus.setAction(new RemoveCourseAction(cl));
+        }
+
+        add(btnPlusMinus, gridBagConstraints);
+
+        courseLines.add(cl);
+    }
+
+    /**
+     * Adds a new assistant line to the form.
+     */
+    @SuppressWarnings("unchecked")
+    private void addNewAssistant() {
+        GridBagConstraints gridBagConstraints;
+
         JLabel lblAssistant = new JLabel();
         lblAssistant.setText(_("Assistant"));
         gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
         gridBagConstraints.anchor = GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblAssistant, gridBagConstraints);
 
         JComboBox cmbAssistant = new JComboBox();
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -140,10 +200,9 @@ public class ActivityEditorForm extends JPanel {
 
         JButton btnPlusMinus = new JButton();
         gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 5;
 
         AutoCompletion.enable(cmbAssistant);
-        AutoCompletion.enable(cmbCourse);
 
         try {
             List<IAssistant> assistants = (new Assistant()).getAll();
@@ -159,27 +218,14 @@ public class ActivityEditorForm extends JPanel {
                 cmbAssistantModel.addElement(assistant);
             }
 
-            List<ICourse> courses = (new Course()).getAll();
-
-            ComboBoxModel cmbCourseModel = new ComboBoxModel(DataType.Course);
-
-            cmbCourseModel.addElement(new UICourse());
-
-            for (ICourse c : courses) {
-                Course course = new UICourse(c);
-
-                cmbCourseModel.addElement(course);
-            }
-
             cmbAssistant.setModel(cmbAssistantModel);
-            cmbCourse.setModel(cmbCourseModel);
         } catch (AdoHiveException e) {
         }
 
-        ActivityLine al = new ActivityLine(lblCourse, cmbCourse, lblAssistant,
-            cmbAssistant, btnPlusMinus);
+        AssistantLine al = new AssistantLine(lblAssistant, cmbAssistant,
+            btnPlusMinus);
 
-        if (activityLines.isEmpty()) {
+        if (assistantLines.isEmpty()) {
             btnPlusMinus.setIcon(new ImageIcon(getClass().getResource(
                 "/de/aidger/view/icons/plus-small.png")));
 
@@ -187,7 +233,7 @@ public class ActivityEditorForm extends JPanel {
 
             btnPlusMinus.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent evt) {
-                    addNewActivity();
+                    addNewAssistant();
                 }
             });
 
@@ -197,12 +243,12 @@ public class ActivityEditorForm extends JPanel {
         } else {
             gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
 
-            btnPlusMinus.setAction(new RemoveActivityAction(al));
+            btnPlusMinus.setAction(new RemoveAssistantAction(al));
         }
 
         add(btnPlusMinus, gridBagConstraints);
 
-        activityLines.add(al);
+        assistantLines.add(al);
     }
 
     /**
@@ -213,8 +259,8 @@ public class ActivityEditorForm extends JPanel {
     public List<Course> getCourses() {
         List<Course> courses = new Vector<Course>();
 
-        for (ActivityLine al : activityLines) {
-            courses.add((Course) al.cmbCourse.getSelectedItem());
+        for (CourseLine cl : courseLines) {
+            courses.add((Course) cl.cmbCourse.getSelectedItem());
         }
 
         return courses;
@@ -228,7 +274,7 @@ public class ActivityEditorForm extends JPanel {
     public List<Assistant> getAssistants() {
         List<Assistant> assistants = new Vector<Assistant>();
 
-        for (ActivityLine al : activityLines) {
+        for (AssistantLine al : assistantLines) {
             assistants.add((Assistant) al.cmbAssistant.getSelectedItem());
         }
 
@@ -335,10 +381,10 @@ public class ActivityEditorForm extends JPanel {
 
         lblProcessor.setText(_("Processor"));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblProcessor, gridBagConstraints);
 
         lblSender.setText(_("Sender"));
@@ -351,10 +397,10 @@ public class ActivityEditorForm extends JPanel {
 
         lblType.setText(_("Type"));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblType, gridBagConstraints);
 
         lblDocumentType.setText(_("Document Type"));
@@ -367,10 +413,10 @@ public class ActivityEditorForm extends JPanel {
 
         lblRemark.setText(_("Remark"));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblRemark, gridBagConstraints);
 
         lblContent.setText(_("Content"));
@@ -382,7 +428,8 @@ public class ActivityEditorForm extends JPanel {
         add(lblContent, gridBagConstraints);
 
         spDate.setModel(new javax.swing.SpinnerDateModel());
-        spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate, "dd.MM.yyyy"));
+        spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate,
+            "dd.MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -393,7 +440,7 @@ public class ActivityEditorForm extends JPanel {
         txtProcessor.setMinimumSize(new java.awt.Dimension(200, 25));
         txtProcessor.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -411,7 +458,7 @@ public class ActivityEditorForm extends JPanel {
         txtType.setMinimumSize(new java.awt.Dimension(200, 25));
         txtType.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -429,7 +476,7 @@ public class ActivityEditorForm extends JPanel {
         txtRemark.setMinimumSize(new java.awt.Dimension(200, 25));
         txtRemark.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -437,7 +484,7 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         add(filler, gridBagConstraints);
 
@@ -452,7 +499,7 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(scrollPane, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
@@ -479,54 +526,50 @@ public class ActivityEditorForm extends JPanel {
     private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables
 
-    private final List<ActivityLine> activityLines = new Vector<ActivityLine>();
+    private final List<CourseLine> courseLines = new Vector<CourseLine>();
+    private final List<AssistantLine> assistantLines = new Vector<AssistantLine>();
 
     /**
-     * This class represents an activity line in the form.
+     * This class represents a course line in the form.
      * 
      * @author aidGer Team
      */
-    private class ActivityLine {
+    private class CourseLine {
         public JLabel lblCourse;
         public JComboBox cmbCourse;
-        public JLabel lblAssistant;
-        public JComboBox cmbAssistant;
         public JButton btnPlusMinus;
 
         /**
-         * Initializes an activity line.
+         * Initializes a course line.
          * 
          */
-        public ActivityLine(JLabel lblCourse, JComboBox cmbCourse,
-                JLabel lblAssistant, JComboBox cmbAssistant,
+        public CourseLine(JLabel lblCourse, JComboBox cmbCourse,
                 JButton btnPlusMinus) {
             this.lblCourse = lblCourse;
             this.cmbCourse = cmbCourse;
-            this.lblAssistant = lblAssistant;
-            this.cmbAssistant = cmbAssistant;
             this.btnPlusMinus = btnPlusMinus;
         }
     }
 
     /**
-     * Removes an activity line from the form by clicking on "-" button.
+     * Removes a course line from the form by clicking on "-" button.
      * 
      * @author aidGer Team
      */
-    private class RemoveActivityAction extends AbstractAction {
+    private class RemoveCourseAction extends AbstractAction {
         /**
-         * The activity line that will be removed.
+         * The course line that will be removed.
          */
-        private final ActivityLine activityLine;
+        private final CourseLine courseLine;
 
         /**
          * Initializes the action.
          */
-        public RemoveActivityAction(ActivityLine activityLine) {
+        public RemoveCourseAction(CourseLine courseLine) {
             putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
                 "/de/aidger/view/icons/minus-small.png")));
 
-            this.activityLine = activityLine;
+            this.courseLine = courseLine;
         }
 
         /*
@@ -538,14 +581,76 @@ public class ActivityEditorForm extends JPanel {
          */
         @Override
         public void actionPerformed(ActionEvent e) {
-            remove(activityLine.lblCourse);
-            remove(activityLine.cmbCourse);
-            remove(activityLine.lblAssistant);
-            remove(activityLine.cmbAssistant);
-            remove(activityLine.btnPlusMinus);
+            remove(courseLine.lblCourse);
+            remove(courseLine.cmbCourse);
+            remove(courseLine.btnPlusMinus);
 
-            activityLines.remove(activityLine);
+            courseLines.remove(courseLine);
 
+            repaint();
+            revalidate();
+        }
+    }
+
+    /**
+     * This class represents an assistant line in the form.
+     * 
+     * @author aidGer Team
+     */
+    private class AssistantLine {
+        public JLabel lblAssistant;
+        public JComboBox cmbAssistant;
+        public JButton btnPlusMinus;
+
+        /**
+         * Initializes an assistant line.
+         * 
+         */
+        public AssistantLine(JLabel lblAssistant, JComboBox cmbAssistant,
+                JButton btnPlusMinus) {
+            this.lblAssistant = lblAssistant;
+            this.cmbAssistant = cmbAssistant;
+            this.btnPlusMinus = btnPlusMinus;
+        }
+    }
+
+    /**
+     * Removes an assistant line from the form by clicking on "-" button.
+     * 
+     * @author aidGer Team
+     */
+    private class RemoveAssistantAction extends AbstractAction {
+        /**
+         * The assistant line that will be removed.
+         */
+        private final AssistantLine assistantLine;
+
+        /**
+         * Initializes the action.
+         */
+        public RemoveAssistantAction(AssistantLine assistantLine) {
+            putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
+                "/de/aidger/view/icons/minus-small.png")));
+
+            this.assistantLine = assistantLine;
+        }
+
+        /*
+         * (non-Javadoc)
+         * 
+         * @see
+         * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent
+         * )
+         */
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            remove(assistantLine.lblAssistant);
+            remove(assistantLine.cmbAssistant);
+            remove(assistantLine.btnPlusMinus);
+
+            assistantLines.remove(assistantLine);
+
+            repaint();
             revalidate();
         }
     }

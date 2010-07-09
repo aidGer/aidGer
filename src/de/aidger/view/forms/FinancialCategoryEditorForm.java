@@ -349,6 +349,7 @@ public class FinancialCategoryEditorForm extends JPanel {
 
             fundsLines.remove(fundsLine);
 
+            repaint();
             revalidate();
         }
     }
