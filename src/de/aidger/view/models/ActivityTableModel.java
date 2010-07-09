@@ -93,6 +93,8 @@ public class ActivityTableModel extends TableModel {
         // sort specific columns properly
         if (column == 2) {
             return Date.class;
+        } else if (column == 9) {
+            return Integer.class;
         }
 
         return super.getColumnClass(column);
