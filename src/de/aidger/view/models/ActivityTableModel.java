@@ -12,8 +12,6 @@ import de.aidger.model.models.Course;
 import de.aidger.utils.Logger;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
  * The class represents the table model for the activities.
@@ -66,12 +64,13 @@ public class ActivityTableModel extends TableModel {
         Activity activity = (Activity) model;
 
         try {
-            IAssistant a = (new Assistant()).getById(activity.getAssistantId());
-            ICourse c = (new Course()).getById(activity.getCourseId());
+            UIAssistant assistant = (activity.getAssistantId() == null) ? new UIAssistant()
+                    : new UIAssistant((new Assistant()).getById(activity
+                        .getAssistantId()));
 
-            UIAssistant assistant = (a == null) ? new UIAssistant()
-                    : new UIAssistant(a);
-            UICourse course = (c == null) ? new UICourse() : new UICourse(c);
+            UICourse course = (activity.getCourseId() == null) ? new UICourse()
+                    : new UICourse((new Course()).getById(activity
+                        .getCourseId()));
 
             return new Object[] { assistant, course, activity.getDate(),
                     activity.getSender(), activity.getProcessor(),
@@ -93,6 +92,8 @@ public class ActivityTableModel extends TableModel {
         // sort specific columns properly
         if (column == 2) {
             return Date.class;
+        } else if (column == 9) {
+            return Integer.class;
         }
 
         return super.getColumnClass(column);

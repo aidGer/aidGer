@@ -79,15 +79,14 @@ public class ActivityEditorForm extends JPanel {
             AssistantLine al = assistantLines.get(0);
 
             try {
-                ICourse c = (new Course()).getById(activity.getCourseId());
-                UICourse course = (c == null) ? new UICourse()
-                        : new UICourse(c);
+                UICourse course = (activity.getCourseId() == null) ? new UICourse()
+                        : new UICourse((new Course()).getById(activity
+                            .getCourseId()));
                 cl.cmbCourse.setSelectedItem(course);
 
-                IAssistant a = (new Assistant()).getById(activity
-                    .getAssistantId());
-                UIAssistant assistant = (a == null) ? new UIAssistant()
-                        : new UIAssistant(a);
+                UIAssistant assistant = (activity.getAssistantId() == null) ? new UIAssistant()
+                        : new UIAssistant((new Assistant()).getById(activity
+                            .getAssistantId()));
                 al.cmbAssistant.setSelectedItem(assistant);
             } catch (AdoHiveException e) {
             }
