@@ -246,7 +246,7 @@ public class BalanceHelper {
                     }
                 }
                 if (balanceCourse.budgetCostExists(employment.getFunds())) {
-                    balanceCourse.addBudgetCostvalue(employment.getFunds(),
+                    balanceCourse.addBudgetCostValue(employment.getFunds(),
                         budgetCost.doubleValue());
                 } else {
                     balanceCourse.addBudgetCost(employment.getFunds(),
@@ -459,7 +459,7 @@ public class BalanceHelper {
             UI.displayError(e.toString());
         }
         List<Course> filteredCourses = this.filterCourses(courses, filters);
-        if(!filteredCourses.isEmpty()) {
+        if (!filteredCourses.isEmpty()) {
             return true;
         }
         return false;

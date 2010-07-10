@@ -1,14 +1,14 @@
 /**
  * 
  */
-package de.aidger.model.controlling;
+package de.aidger.utils.controlling;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -20,42 +20,36 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.models.HourlyWage;
-import de.aidger.utils.reports.BalanceHelper;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
- * Tests the class ControllingCreator.
+ * Tests the class ControllingHelper.
  * 
  * @author aidGer Team
  */
-public class ControllingCreatorTest {
+public class ControllingHelperTest {
 
+    protected Course course = null;
     private Employment employment;
-    private Course course;
-    private Contract contract;
     private Assistant assistant;
+    private Contract contract;
     private FinancialCategory fc;
-    private ControllingCreator controllingCreator;
+    private ControllingHelper controllingHelper;
 
-    /**
-     * Prepares the test set.
-     * 
-     * @throws AdoHiveException
-     */
     @BeforeClass
     public static void beforeClassSetUp() throws AdoHiveException {
         de.aidger.model.Runtime.getInstance().initialize();
         new HourlyWage().clearTable();
         new FinancialCategory().clearTable();
         new Employment().clearTable();
+        new Activity().clearTable();
         new Course().clearTable();
         new Contract().clearTable();
         new Assistant().clearTable();
-        new Activity().clearTable();
     }
 
     /**
-     * Prepares the tests.
+     * Sets up every test.
      * 
      * @throws AdoHiveException
      */
@@ -114,53 +108,86 @@ public class ControllingCreatorTest {
         employment.setRemark("Remark");
         employment.setYear((short) 2012);
         employment.save();
+
+        controllingHelper = new ControllingHelper();
     }
 
     /**
-     * Tests the constructor of the class ControllingCreator.
+     * Tests the constructor of the class ControllingHelper.
      */
     @Test
     public void testConstructor() {
         System.out.println("Constructor");
 
-        controllingCreator = new ControllingCreator(employment.getYear(),
-            employment.getMonth(), employment.getFunds());
-
-        assertNotNull(controllingCreator);
+        assertNotNull(controllingHelper);
     }
 
     /**
-     * Tests the method getAssistants of the class ControllingCreator.
+     * Tests the method getEmploymentYears() of the class ControllingHelper.
      */
     @Test
-    public void testGetAssistants() {
-        System.out.println("getAssistants()");
+    public void testGetEmploymentYears() {
+        System.out.println("getEmploymentYears()");
 
-        controllingCreator = new ControllingCreator(employment.getYear(),
-            employment.getMonth(), employment.getFunds());
+        int[] result = controllingHelper.getEmploymentYears();
 
-        ControllingAssistant expectedAssistant = new ControllingAssistant();
-        expectedAssistant.setName(assistant.getFirstName() + " "
-                + assistant.getLastName());
-        new BalanceHelper();
-        expectedAssistant.setCosts(BalanceHelper
-            .calculatePreTaxBudgetCost(employment));
-
-        assertArrayEquals(controllingCreator.getAssistants().get(0)
-            .getObjectArray(), expectedAssistant.getObjectArray());
+        assertEquals(1, result.length);
+        assertTrue(employment.getYear() == result[0]);
     }
 
     /**
-     * Cleans up after the tests.
+     * Tests the method getYearMonths() of the class ControllingHelper.
      * 
      * @throws AdoHiveException
      */
-    @After
-    public void cleanUp() throws AdoHiveException {
-        fc.remove();
-        assistant.remove();
-        contract.remove();
-        course.remove();
-        employment.remove();
+    @Test
+    public void testGetYearMonths() throws AdoHiveException {
+        System.out.println("getYearMonths()");
+
+        int[] result = controllingHelper.getYearMonths(employment.getYear());
+
+        /*
+         * The months after the last employment of a year will always be
+         * included. Thus the months 10-12 should be included.
+         */
+        assertEquals(12 - employment.getMonth() + 1, result.length);
+        assertTrue(employment.getMonth() == result[0]);
+        assertTrue(12 == result[result.length - 1]);
+
+        Employment employment2 = employment.clone();
+        employment2.setMonth((byte) (employment.getMonth() + 1));
+        employment2.setNew(true);
+        employment2.save();
+
+        Employment employment3 = employment.clone();
+        employment3.setMonth((byte) (employment2.getMonth() + 1));
+        employment3.setNew(true);
+        employment3.save();
+
+        controllingHelper = new ControllingHelper();
+
+        result = controllingHelper.getYearMonths(employment.getYear());
+
+        /*
+         * The months 10-12 were added. Thus they should be included.
+         */
+        assertEquals(12 - employment.getMonth() + 1, result.length);
+        assertTrue(employment.getMonth() == result[0]);
+        assertTrue(employment2.getMonth() == result[1]);
+        assertTrue(employment3.getMonth() == result[2]);
+    }
+
+    /**
+     * Tests the method getFunds() of the class ControllingHelper.
+     */
+    @Test
+    public void testGetFunds() {
+        System.out.println("getFunds()");
+
+        int[] result = controllingHelper.getFunds(employment.getYear(),
+            employment.getMonth());
+
+        assertEquals(1, result.length);
+        assertTrue(employment.getFunds() == result[0]);
     }
 }

@@ -24,11 +24,11 @@ import de.aidger.utils.reports.BalanceHelper;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
- * Tests the class ControllingCreator.
+ * Tests the class ControllingAssistant.
  * 
  * @author aidGer Team
  */
-public class ControllingCreatorTest {
+public class ControllingAssistantTest {
 
     private Employment employment;
     private Course course;
@@ -36,6 +36,7 @@ public class ControllingCreatorTest {
     private Assistant assistant;
     private FinancialCategory fc;
     private ControllingCreator controllingCreator;
+    private ControllingAssistant controllingAssistant;
 
     /**
      * Prepares the test set.
@@ -116,38 +117,31 @@ public class ControllingCreatorTest {
         employment.save();
     }
 
-    /**
-     * Tests the constructor of the class ControllingCreator.
-     */
     @Test
     public void testConstructor() {
         System.out.println("Constructor");
 
-        controllingCreator = new ControllingCreator(employment.getYear(),
-            employment.getMonth(), employment.getFunds());
+        controllingAssistant = new ControllingAssistant();
 
-        assertNotNull(controllingCreator);
+        assertNotNull(controllingAssistant);
     }
 
-    /**
-     * Tests the method getAssistants of the class ControllingCreator.
-     */
     @Test
-    public void testGetAssistants() {
-        System.out.println("getAssistants()");
+    public void testGetObjectArray() {
+        System.out.println("getObjectArray()");
 
-        controllingCreator = new ControllingCreator(employment.getYear(),
-            employment.getMonth(), employment.getFunds());
-
-        ControllingAssistant expectedAssistant = new ControllingAssistant();
-        expectedAssistant.setName(assistant.getFirstName() + " "
+        controllingAssistant = new ControllingAssistant();
+        controllingAssistant.setName(assistant.getFirstName() + " "
                 + assistant.getLastName());
         new BalanceHelper();
-        expectedAssistant.setCosts(BalanceHelper
+        controllingAssistant.setCosts(BalanceHelper
             .calculatePreTaxBudgetCost(employment));
 
-        assertArrayEquals(controllingCreator.getAssistants().get(0)
-            .getObjectArray(), expectedAssistant.getObjectArray());
+        Object[] expectedResult = {
+                assistant.getFirstName() + " " + assistant.getLastName(),
+                BalanceHelper.calculatePreTaxBudgetCost(employment) };
+
+        assertArrayEquals(expectedResult, controllingAssistant.getObjectArray());
     }
 
     /**
