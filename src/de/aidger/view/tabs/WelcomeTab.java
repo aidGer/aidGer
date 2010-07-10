@@ -4,7 +4,8 @@ import static de.aidger.utils.Translation._;
 
 import java.text.MessageFormat;
 import java.util.List;
-import java.util.ArrayList;
+
+import javax.swing.JLabel;
 
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Activity;
@@ -12,6 +13,8 @@ import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
+import de.aidger.view.models.UIActivity;
+import de.aidger.view.utils.BulletList;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
@@ -26,6 +29,16 @@ import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 public class WelcomeTab extends Tab {
 
     /**
+     * The activities list.
+     */
+    private final BulletList activitiesList = new BulletList();
+
+    /**
+     * The statistics list.
+     */
+    private final BulletList statisticsList = new BulletList();
+
+    /**
      * Initialises the WelcomeTab class.
      */
     @SuppressWarnings("unchecked")
@@ -33,11 +46,7 @@ public class WelcomeTab extends Tab {
         initComponents();
 
         if (Runtime.getInstance().isFirstStart()) {
-            statisticsLabel1.setText(_("Currently no statistics are available."));
-            statisticsLabel2.setText("");
-            statisticsLabel3.setText("");
-            statisticsLabel4.setText("");
-            statisticsLabel5.setText("");
+            statisticsList.add(_("Currently no statistics are available."));
         } else {
             List<IActivity> activities = null;
             List<IAssistant> assistants = null;
@@ -49,26 +58,14 @@ public class WelcomeTab extends Tab {
             } catch (AdoHiveException ex) {
             }
 
-            final List<String> listAct = new ArrayList<String>();
             if (activities != null) {
-                int min = activities.size() > 20 ? activities.size() - 20 : 0;
+                int min = activities.size() > 6 ? activities.size() - 6 : 0;
 
                 for (int i = activities.size() - 1; i >= min; --i) {
-                    listAct.add(activities.get(i).getContent());
+                    activitiesList.add((new UIActivity(activities.get(i))
+                        .toString()));
                 }
             }
-
-            activitiesList.setModel(new javax.swing.AbstractListModel() {
-                String[] strings = listAct.toArray(new String[0]);
-
-                public int getSize() {
-                    return strings.length;
-                }
-
-                public Object getElementAt(int i) {
-                    return strings[i];
-                }
-            });
 
             Integer[] qualifications = new Integer[] { 0, 0, 0 };
             for (IAssistant a : assistants) {
@@ -88,26 +85,32 @@ public class WelcomeTab extends Tab {
                 }
             }
 
-            try
-            {
-                statisticsLabel1.setText(MessageFormat.format(
-                    _("aidGer has created {0} activities."), new Object[] { activities
-                        .size() }));
-                statisticsLabel2.setText(MessageFormat.format(
-                    _("{0} assistants are working in {1} employments."), new Object[] {
-                            assistants.size(), (new Employment()).size() }));
-                statisticsLabel3.setText(MessageFormat.format(
+            try {
+                statisticsList.add(MessageFormat.format(
+                    _("aidGer has created {0} activities."),
+                    new Object[] { activities.size() }));
+                statisticsList.add(MessageFormat
+                    .format(
+                        _("{0} assistants are working in {1} employments."),
+                        new Object[] { assistants.size(),
+                                (new Employment()).size() }));
+                statisticsList.add(MessageFormat.format(
                     _("These employments are part of {0} courses."),
                     new Object[] { (new Course()).size() }));
-                statisticsLabel4
-                    .setText(MessageFormat.format(
+                statisticsList
+                    .add(MessageFormat
+                        .format(
                             _("Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."),
                             (Object[]) qualifications));
-                statisticsLabel5.setText(MessageFormat.format(
-                    _("They are using funds of {0} Euros."), new Object[] { funds }));
+                statisticsList.add(MessageFormat.format(
+                    _("They are using funds of {0} Euros."),
+                    new Object[] { funds }));
             } catch (AdoHiveException ex) {
             }
         }
+
+        lastActivities.add(new JLabel(activitiesList.getList()));
+        lblStatistics.setText(statisticsList.getList());
     }
 
     /**
@@ -117,141 +120,114 @@ public class WelcomeTab extends Tab {
      */
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        activitiesList = new javax.swing.JList();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        statisticsLabel1 = new javax.swing.JLabel();
-        statisticsLabel2 = new javax.swing.JLabel();
-        statisticsLabel3 = new javax.swing.JLabel();
-        statisticsLabel4 = new javax.swing.JLabel();
-        statisticsLabel5 = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
+        lblFirstStart = new javax.swing.JLabel();
+        boxes = new javax.swing.JPanel();
+        lastChanges = new javax.swing.JPanel();
+        lastActivities = new javax.swing.JPanel();
+        statistics = new javax.swing.JPanel();
+        lblStatistics = new javax.swing.JLabel();
+        diagram1 = new javax.swing.JLabel();
+        diagram2 = new javax.swing.JLabel();
+        diagram3 = new javax.swing.JLabel();
 
-        jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText(_("Welcome to aidGer"));
-        jLabel1.setBorder(null);
+        setLayout(new java.awt.GridBagLayout());
 
-        jPanel1.setBorder(javax.swing.BorderFactory
-            .createTitledBorder(_("Last activities")));
+        lblTitle.setFont(new java.awt.Font("DejaVu Sans", 1, 24));
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle.setText(_("Welcome to aidGer"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 11, 10, 11);
+        add(lblTitle, gridBagConstraints);
 
-        jScrollPane1.setViewportView(activitiesList);
+        lblFirstStart.setFont(new java.awt.Font("DejaVu Sans", 0, 14));
+        lblFirstStart.setText(_("The last start of aidGer was on {0}."));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 20, 30, 0);
+        add(lblFirstStart, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(
-            jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(
-            javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-            jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 267,
-            Short.MAX_VALUE));
-        jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(
-            javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-            jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 336,
-            Short.MAX_VALUE));
+        boxes.setLayout(new java.awt.GridBagLayout());
 
-        jPanel2.setBorder(javax.swing.BorderFactory
-            .createTitledBorder(_("Last Changes")));
+        lastChanges.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            _("Last Changes")));
+        lastChanges.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT,
+            0, 0));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
+        boxes.add(lastChanges, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(
-            jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(jPanel2Layout.createParallelGroup(
-            javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 312,
-            Short.MAX_VALUE));
-        jPanel2Layout.setVerticalGroup(jPanel2Layout.createParallelGroup(
-            javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 197,
-            Short.MAX_VALUE));
+        lastActivities.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            _("Last activities")));
+        lastActivities.setLayout(new java.awt.FlowLayout(
+            java.awt.FlowLayout.LEFT, 0, 0));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 0);
+        boxes.add(lastActivities, gridBagConstraints);
 
-        jPanel3.setBorder(javax.swing.BorderFactory
-            .createTitledBorder(_("Statistics")));
+        statistics.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            _("Statistics & Diagrams")));
+        statistics.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
+        statistics.add(lblStatistics, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 0);
+        statistics.add(diagram1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 10);
+        statistics.add(diagram2, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
+        statistics.add(diagram3, gridBagConstraints);
 
-        statisticsLabel1.setText("1");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        boxes.add(statistics, gridBagConstraints);
 
-        statisticsLabel2.setText("2");
-
-        statisticsLabel3.setText("3");
-
-        statisticsLabel4.setText("4");
-
-        statisticsLabel5.setText("5");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(
-            jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(jPanel3Layout.createParallelGroup(
-            javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-            statisticsLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 312,
-            Short.MAX_VALUE).addComponent(statisticsLabel2,
-            javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
-            .addComponent(statisticsLabel3,
-                javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
-            .addComponent(statisticsLabel4,
-                javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
-            .addComponent(statisticsLabel5,
-                javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE));
-        jPanel3Layout.setVerticalGroup(jPanel3Layout.createParallelGroup(
-            javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-            jPanel3Layout.createSequentialGroup()
-                .addComponent(statisticsLabel1).addPreferredGap(
-                    javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(statisticsLabel2).addPreferredGap(
-                    javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(statisticsLabel3).addPreferredGap(
-                    javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(statisticsLabel4).addPreferredGap(
-                    javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(statisticsLabel5).addContainerGap(
-                    javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(layout.createParallelGroup(
-            javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-            javax.swing.GroupLayout.Alignment.TRAILING,
-            layout.createSequentialGroup().addContainerGap().addGroup(
-                layout.createParallelGroup(
-                    javax.swing.GroupLayout.Alignment.TRAILING).addGroup(
-                    layout.createSequentialGroup().addGroup(
-                        layout.createParallelGroup(
-                            javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel2,
-                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                Short.MAX_VALUE).addComponent(jPanel3,
-                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                Short.MAX_VALUE)).addPreferredGap(
-                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1,
-                            javax.swing.GroupLayout.PREFERRED_SIZE,
-                            javax.swing.GroupLayout.DEFAULT_SIZE,
-                            javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1,
-                        javax.swing.GroupLayout.DEFAULT_SIZE, 609,
-                        Short.MAX_VALUE)).addContainerGap()));
-        layout.setVerticalGroup(layout.createParallelGroup(
-            javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-            layout.createSequentialGroup().addContainerGap().addComponent(
-                jLabel1).addGap(18, 18, 18).addGroup(
-                layout.createParallelGroup(
-                    javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-                    jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
-                    javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(
-                        javax.swing.GroupLayout.Alignment.TRAILING,
-                        layout.createSequentialGroup().addComponent(jPanel2,
-                            javax.swing.GroupLayout.DEFAULT_SIZE,
-                            javax.swing.GroupLayout.DEFAULT_SIZE,
-                            Short.MAX_VALUE).addPreferredGap(
-                            javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jPanel3,
-                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap()));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
+        add(boxes, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -265,17 +241,16 @@ public class WelcomeTab extends Tab {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList activitiesList;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel statisticsLabel1;
-    private javax.swing.JLabel statisticsLabel2;
-    private javax.swing.JLabel statisticsLabel3;
-    private javax.swing.JLabel statisticsLabel4;
-    private javax.swing.JLabel statisticsLabel5;
+    private javax.swing.JPanel boxes;
+    private javax.swing.JLabel diagram1;
+    private javax.swing.JLabel diagram2;
+    private javax.swing.JLabel diagram3;
+    private javax.swing.JPanel lastActivities;
+    private javax.swing.JPanel lastChanges;
+    private javax.swing.JLabel lblFirstStart;
+    private javax.swing.JLabel lblStatistics;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JPanel statistics;
     // End of variables declaration//GEN-END:variables
 
 }

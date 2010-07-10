@@ -33,6 +33,7 @@ import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
 import de.aidger.view.forms.HourlyWageEditorForm;
 import de.aidger.view.tabs.ViewerTab.DataType;
+import de.aidger.view.utils.BulletList;
 
 /**
  * A tab which will be used to add and edit the data.
@@ -59,9 +60,9 @@ public class EditorTab extends Tab {
     private boolean editMode = false;
 
     /**
-     * The rendered html list as html
+     * The hints list.
      */
-    private String hintsList;
+    private final BulletList hintsList = new BulletList();
 
     /**
      * Constructs a data editor tab.
@@ -298,7 +299,7 @@ public class EditorTab extends Tab {
      * Clears the hints list.
      */
     public void clearHints() {
-        hintsList = "<html><style type=\"text/css\">ul { margin-left: 20px; list-style-type: square; } li { padding-left: 5px; margin-bottom: 10px; }</style><ul></ul></html>";
+        hintsList.clear();
     }
 
     /**
@@ -308,10 +309,7 @@ public class EditorTab extends Tab {
      *            the hint
      */
     public void addHint(String hint) {
-        int i = hintsList.indexOf("</ul></html>");
-
-        hintsList = hintsList.substring(0, i) + "<li>" + hint + "</li>"
-                + hintsList.substring(i, hintsList.length());
+        hintsList.add(hint);
     }
 
     /**
@@ -319,7 +317,7 @@ public class EditorTab extends Tab {
      */
     public void updateHints() {
         hints.removeAll();
-        hints.add(new JLabel(hintsList));
+        hints.add(new JLabel(hintsList.getList()));
         hints.revalidate();
     }
 
