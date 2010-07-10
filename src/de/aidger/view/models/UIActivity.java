@@ -5,6 +5,7 @@ import static de.aidger.utils.Translation._;
 import java.text.SimpleDateFormat;
 
 import de.aidger.model.models.Activity;
+import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
 
 /**
@@ -12,7 +13,7 @@ import de.unistuttgart.iste.se.adohive.model.IActivity;
  * 
  * @author aidGer Team
  */
-public class UIActivity extends Activity {
+public class UIActivity extends Activity implements UIModel {
 
     /**
      * Initializes the Activity class.
@@ -39,5 +40,15 @@ public class UIActivity extends Activity {
     public String toString() {
         return getType() + " (" + getSender() + " " + _("at") + " "
                 + (new SimpleDateFormat("dd.MM.yyyy")).format(getDate()) + ")";
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.models.UIModel#getDataType()
+     */
+    @Override
+    public DataType getDataType() {
+        return DataType.Activity;
     }
 }

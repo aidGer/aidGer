@@ -49,6 +49,7 @@ model/validators/PresenceValidator.java
 model/validators/Validator.java
 utils/Anonymizer.java
 utils/Configuration.java
+utils/history/HistoryManager.java
 utils/pdf/ActivityReportConverter.java
 utils/pdf/BalanceReportConverter.java
 utils/pdf/BudgetReportConverter.java
@@ -97,3 +98,4 @@ view/tabs/WelcomeTab.java
 view/UI.java
 view/utils/BooleanListRenderer.java
 view/utils/BooleanTableRenderer.java
+view/utils/Charts.java

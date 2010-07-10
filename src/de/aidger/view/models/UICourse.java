@@ -1,6 +1,7 @@
 package de.aidger.view.models;
 
 import de.aidger.model.models.Course;
+import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
@@ -8,7 +9,7 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
  * 
  * @author aidGer Team
  */
-public class UICourse extends Course {
+public class UICourse extends Course implements UIModel {
 
     /**
      * Initializes the Course class.
@@ -39,5 +40,15 @@ public class UICourse extends Course {
             return getDescription() + " (" + getSemester() + ", "
                     + getLecturer() + ")";
         }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.models.UIModel#getDataType()
+     */
+    @Override
+    public DataType getDataType() {
+        return DataType.Course;
     }
 }

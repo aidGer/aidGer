@@ -1,6 +1,7 @@
 package de.aidger.view.models;
 
 import de.aidger.model.models.FinancialCategory;
+import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 
 /**
@@ -8,7 +9,7 @@ import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
  * 
  * @author aidGer Team
  */
-public class UIFinancialCategory extends FinancialCategory {
+public class UIFinancialCategory extends FinancialCategory implements UIModel {
 
     /**
      * Initializes the Financial Category class.
@@ -35,5 +36,15 @@ public class UIFinancialCategory extends FinancialCategory {
     @Override
     public String toString() {
         return getName() + " (" + getYear() + ")";
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.models.UIModel#getDataType()
+     */
+    @Override
+    public DataType getDataType() {
+        return DataType.FinancialCategory;
     }
 }

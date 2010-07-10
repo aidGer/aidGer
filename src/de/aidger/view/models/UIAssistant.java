@@ -1,6 +1,7 @@
 package de.aidger.view.models;
 
 import de.aidger.model.models.Assistant;
+import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 
 /**
@@ -8,7 +9,7 @@ import de.unistuttgart.iste.se.adohive.model.IAssistant;
  * 
  * @author aidGer Team
  */
-public class UIAssistant extends Assistant {
+public class UIAssistant extends Assistant implements UIModel {
 
     /**
      * The total hours the assistant is employed for a course.
@@ -57,5 +58,15 @@ public class UIAssistant extends Assistant {
         } else {
             return name + " (" + totalHours + "h)";
         }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.models.UIModel#getDataType()
+     */
+    @Override
+    public DataType getDataType() {
+        return DataType.Assistant;
     }
 }

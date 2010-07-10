@@ -3,17 +3,22 @@ package de.aidger.view.tabs;
 import static de.aidger.utils.Translation._;
 
 import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.swing.JLabel;
 
+import de.aidger.model.AbstractModel;
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
+import de.aidger.utils.history.HistoryEvent;
+import de.aidger.utils.history.HistoryManager;
 import de.aidger.view.models.UIActivity;
+import de.aidger.view.models.UIModel;
 import de.aidger.view.utils.BulletList;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
@@ -27,6 +32,11 @@ import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
  */
 @SuppressWarnings("serial")
 public class WelcomeTab extends Tab {
+
+    /**
+     * The history list.
+     */
+    private final BulletList historyList = new BulletList();
 
     /**
      * The activities list.
@@ -45,6 +55,8 @@ public class WelcomeTab extends Tab {
     public WelcomeTab() {
         initComponents();
 
+        int count = 10;
+
         if (Runtime.getInstance().isFirstStart()) {
             statisticsList.add(_("Currently no statistics are available."));
         } else {
@@ -58,8 +70,70 @@ public class WelcomeTab extends Tab {
             } catch (AdoHiveException ex) {
             }
 
+            List<HistoryEvent> events = HistoryManager.getInstance()
+                .getEvents();
+
+            int min = activities.size() > count ? activities.size() - count : 0;
+
+            for (int i = events.size() - 1; i >= min; --i) {
+                HistoryEvent evt = events.get(i);
+
+                try {
+                    Class obj = Class.forName("de.aidger.model.models."
+                            + evt.type);
+                    AbstractModel a = (AbstractModel) obj.newInstance();
+                    Object o;
+
+                    o = a.getById(evt.id);
+
+                    Class classUI = Class.forName("de.aidger.view.models.UI"
+                            + evt.type);
+
+                    Class classInterface = Class
+                        .forName("de.unistuttgart.iste.se.adohive.model.I"
+                                + evt.type);
+
+                    Object model = classUI.getConstructor(classInterface)
+                        .newInstance(classInterface.cast(o));
+
+                    UIModel modelUI = (UIModel) model;
+
+                    String event = "";
+
+                    switch (evt.status) {
+                    case Added:
+                        event = MessageFormat.format(
+                            _("{0}: {1} {2} was added."), new Object[] {
+                                    (new SimpleDateFormat("dd.MM.yy HH:mm"))
+                                        .format(evt.date),
+                                    modelUI.getDataType().getDisplayName(),
+                                    modelUI.toString() });
+                        break;
+                    case Changed:
+                        event = MessageFormat.format(
+                            _("{0}: {1} {2} was edited."), new Object[] {
+                                    (new SimpleDateFormat("dd.MM.yy HH:mm"))
+                                        .format(evt.date),
+                                    modelUI.getDataType().getDisplayName(),
+                                    modelUI.toString() });
+                        break;
+                    case Removed:
+                        event = MessageFormat.format(
+                            _("{0}: {1} {2} was removed."), new Object[] {
+                                    (new SimpleDateFormat("dd.MM.yy HH:mm"))
+                                        .format(evt.date),
+                                    modelUI.getDataType().getDisplayName(),
+                                    modelUI.toString() });
+                        break;
+                    }
+
+                    historyList.add(event);
+                } catch (Exception e) {
+                }
+            }
+
             if (activities != null) {
-                int min = activities.size() > 6 ? activities.size() - 6 : 0;
+                min = activities.size() > count ? activities.size() - count : 0;
 
                 for (int i = activities.size() - 1; i >= min; --i) {
                     activitiesList.add((new UIActivity(activities.get(i))
@@ -109,6 +183,7 @@ public class WelcomeTab extends Tab {
             }
         }
 
+        lastChanges.add(new JLabel(historyList.getList()));
         lastActivities.add(new JLabel(activitiesList.getList()));
         lblStatistics.setText(statisticsList.getList());
     }
@@ -150,7 +225,7 @@ public class WelcomeTab extends Tab {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 20, 30, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 20, 20, 0);
         add(lblFirstStart, gridBagConstraints);
 
         boxes.setLayout(new java.awt.GridBagLayout());

@@ -3,6 +3,7 @@ package de.aidger.view.models;
 import java.text.SimpleDateFormat;
 
 import de.aidger.model.models.Contract;
+import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.model.IContract;
 
 /**
@@ -10,7 +11,7 @@ import de.unistuttgart.iste.se.adohive.model.IContract;
  * 
  * @author aidGer Team
  */
-public class UIContract extends Contract {
+public class UIContract extends Contract implements UIModel {
 
     /**
      * Initializes the Contract class.
@@ -39,5 +40,15 @@ public class UIContract extends Contract {
                 + " ("
                 + (new SimpleDateFormat("dd.MM.yy"))
                     .format(getCompletionDate()) + ")";
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.models.UIModel#getDataType()
+     */
+    @Override
+    public DataType getDataType() {
+        return DataType.Contract;
     }
 }
