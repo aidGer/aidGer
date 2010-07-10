@@ -73,7 +73,7 @@ public class WelcomeTab extends Tab {
             List<HistoryEvent> events = HistoryManager.getInstance()
                 .getEvents();
 
-            int min = activities.size() > count ? activities.size() - count : 0;
+            int min = events.size() > count ? events.size() - count : 0;
 
             for (int i = events.size() - 1; i >= min; --i) {
                 HistoryEvent evt = events.get(i);
