@@ -8,6 +8,8 @@ import java.util.List;
 
 import javax.swing.JLabel;
 
+import org.jfree.data.general.DefaultPieDataset;
+
 import de.aidger.model.AbstractModel;
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Activity;
@@ -17,9 +19,11 @@ import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.history.HistoryEvent;
 import de.aidger.utils.history.HistoryManager;
+import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.models.UIActivity;
 import de.aidger.view.models.UIModel;
 import de.aidger.view.utils.BulletList;
+import de.aidger.view.utils.Charts;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
@@ -143,9 +147,9 @@ public class WelcomeTab extends Tab {
 
             Integer[] qualifications = new Integer[] { 0, 0, 0 };
             for (IAssistant a : assistants) {
-                if (a.getQualification().equals("u")) {
+                if (Qualification.valueOf(a.getQualification()) == Qualification.u) {
                     ++qualifications[0];
-                } else if (a.getQualification().equals("c")) {
+                } else if (Qualification.valueOf(a.getQualification()) == Qualification.g) {
                     ++qualifications[1];
                 } else {
                     ++qualifications[2];
@@ -181,6 +185,15 @@ public class WelcomeTab extends Tab {
                     new Object[] { funds }));
             } catch (AdoHiveException ex) {
             }
+
+            // create diagrams
+            DefaultPieDataset qualificationData = new DefaultPieDataset();
+            qualificationData.setValue(_("Unchecked"), qualifications[0]);
+            qualificationData.setValue(_("Checked"), qualifications[1]);
+            qualificationData.setValue(_("Bachelor"), qualifications[2]);
+
+            diagram1.setIcon(Charts.createPieChart3D(_("Qualification"),
+                qualificationData, 240, 200));
         }
 
         lastChanges.add(new JLabel(historyList.getList()));
