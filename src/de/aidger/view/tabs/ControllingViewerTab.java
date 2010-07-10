@@ -2,7 +2,7 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.event.TableModelEvent;
@@ -146,8 +146,8 @@ public class ControllingViewerTab extends ReportTab {
      *            The filter to use
      * @return The rows of the table.
      */
-    public Vector<String[]> getRows(String filter) {
-        Vector<String[]> returnVector = new Vector<String[]>();
+    public ArrayList<String[]> getRows(String filter) {
+        ArrayList<String[]> returnVector = new ArrayList<String[]>();
         if (filter == null) {
             for (int i = 0; i < controllingTableModel.getRowCount(); i++) {
                 String[] returnString = new String[controllingTableModel

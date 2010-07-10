@@ -7,7 +7,7 @@ import static de.aidger.utils.Translation._;
 
 import java.awt.event.ActionEvent;
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -60,7 +60,7 @@ public class BudgetGenerateAction extends AbstractAction {
                 budgetCreator.addCourseBudget(new Course(course), viewerTab
                     .getBudgetFilter());
             }
-            Vector<CourseBudget> courseBudgets = budgetCreator
+            ArrayList<CourseBudget> courseBudgets = budgetCreator
                 .getCourseBudgets();
             /*
              * Add a new row for every course that passed the filters.

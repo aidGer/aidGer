@@ -3,7 +3,7 @@ package de.aidger.controller.actions;
 import static de.aidger.utils.Translation._;
 
 import java.awt.event.ActionEvent;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -48,7 +48,7 @@ public class ReportGenerateAction extends AbstractAction {
             switch (tab.getType()) {
             case 1:
                 tab.clearPanel();
-                Vector semesters = new BalanceHelper().getSemesters();
+                ArrayList semesters = new BalanceHelper().getSemesters();
                 for (int i = 0; i < semesters.size(); i++) {
                     if (new BalanceHelper().courseExists((String) semesters
                         .get(i), tab.getBalanceFilter())) {

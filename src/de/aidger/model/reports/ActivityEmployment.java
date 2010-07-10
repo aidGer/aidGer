@@ -4,7 +4,7 @@
 package de.aidger.model.reports;
 
 import java.math.BigDecimal;
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  * This model represents the employments of one course for one time-frame for
@@ -16,12 +16,12 @@ public class ActivityEmployment {
     /**
      * The years in which these employments take place.
      */
-    private final Vector<Short> years;
+    private final ArrayList<Short> years;
 
     /**
      * The month in which these employments ended.
      */
-    private final Vector<Byte> months;
+    private final ArrayList<Byte> months;
 
     /**
      * The name of the course of these employments.
@@ -37,8 +37,8 @@ public class ActivityEmployment {
      * Initializes a new ActivityEmployment.
      */
     public ActivityEmployment() {
-        years = new Vector<Short>();
-        months = new Vector<Byte>();
+        years = new ArrayList<Short>();
+        months = new ArrayList<Byte>();
         course = "";
         hours = 0;
     }
@@ -70,7 +70,7 @@ public class ActivityEmployment {
      * 
      * @return The years
      */
-    public Vector<Short> getYears() {
+    public ArrayList<Short> getYears() {
         return years;
     }
 
@@ -92,7 +92,7 @@ public class ActivityEmployment {
      * 
      * @return The months
      */
-    public Vector<Byte> getMonths() {
+    public ArrayList<Byte> getMonths() {
         return months;
     }
 

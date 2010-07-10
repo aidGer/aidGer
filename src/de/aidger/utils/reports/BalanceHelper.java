@@ -5,7 +5,7 @@ package de.aidger.utils.reports;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Assistant;
@@ -45,9 +45,9 @@ public class BalanceHelper {
      */
     public List<Course> filterCourses(List<Course> courses,
             BalanceFilter filters) {
-        List<Course> filteredOnceCourses = new Vector<Course>();
-        List<Course> filteredTwiceCourses = new Vector<Course>();
-        List<Course> filteredTriceCourses = new Vector<Course>();
+        List<Course> filteredOnceCourses = new ArrayList<Course>();
+        List<Course> filteredTwiceCourses = new ArrayList<Course>();
+        List<Course> filteredTriceCourses = new ArrayList<Course>();
         /*
          * Only use courses, which have the filtered criteria.
          */
@@ -319,17 +319,17 @@ public class BalanceHelper {
      * Checks all the courses for their semesters and returns all the semesters
      * afterwards.
      * 
-     * @return A Vector containing the semesters as Strings.
+     * @return A ArrayList containing the semesters as Strings.
      */
-    public Vector<String> getSemesters() {
-        Vector<String> semestersVector = new Vector<String>();
+    public ArrayList<String> getSemesters() {
+        ArrayList<String> semestersVector = new ArrayList<String>();
         /*
          * Add an empty semester string as the first entry. Relevant for the
          * combo boxes.
          */
         try {
             List<String> semesters = (new Course()).getDistinctSemesters();
-            semestersVector = new Vector<String>(semesters);
+            semestersVector = new ArrayList<String>(semesters);
         } catch (AdoHiveException e) {
             e.printStackTrace();
         }
@@ -342,14 +342,14 @@ public class BalanceHelper {
      * 
      * @return The vector of years as ints.
      */
-    public Vector<Integer> getYears() {
-        Vector<String> semesters = getSemesters();
+    public ArrayList<Integer> getYears() {
+        ArrayList<String> semesters = getSemesters();
         if (semesters.size() > 0) {
             /*
              * Only get the years, if there are any valid courses with a
              * semester.
              */
-            Vector<Integer> years = new Vector<Integer>();
+            ArrayList<Integer> years = new ArrayList<Integer>();
             /*
              * Check for every semester out of the semester vector, if the year
              * of that semester is already noted and add it if it's not.
@@ -419,7 +419,7 @@ public class BalanceHelper {
                     years.add(year);
                 }
             }
-            Vector<Integer> sortedYears = new Vector<Integer>();
+            ArrayList<Integer> sortedYears = new ArrayList<Integer>();
             sortedYears.add(years.get(0));
             for (int i = 1; i < years.size(); i++) {
                 boolean addedYear = false;
@@ -439,7 +439,7 @@ public class BalanceHelper {
             /*
              * There are no valid courses. Return empty vector.
              */
-            Vector<Integer> years = new Vector<Integer>();
+            ArrayList<Integer> years = new ArrayList<Integer>();
             return years;
         }
     }

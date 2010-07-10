@@ -5,7 +5,7 @@ package de.aidger.utils.controlling;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import de.aidger.model.models.Employment;
 import de.aidger.view.UI;
@@ -32,7 +32,7 @@ public class ControllingHelper {
      * @return The years
      */
     public int[] getEmploymentYears() {
-        Vector<Short> years = new Vector<Short>();
+        ArrayList<Short> years = new ArrayList<Short>();
         try {
             List<IEmployment> employments = new Employment().getAll();
             for (IEmployment employment : employments) {
@@ -59,7 +59,7 @@ public class ControllingHelper {
      * @return The months
      */
     public int[] getYearMonths(int year) {
-        Vector<Byte> months = new Vector<Byte>();
+        ArrayList<Byte> months = new ArrayList<Byte>();
         List<Employment> employments;
         try {
             employments = new Employment().getEmployments((short) year,
@@ -103,7 +103,7 @@ public class ControllingHelper {
      * @return The funds.
      */
     public int[] getFunds(int year, int month) {
-        Vector<Integer> funds = new Vector<Integer>();
+        ArrayList<Integer> funds = new ArrayList<Integer>();
         List<Employment> employments;
         try {
             /*

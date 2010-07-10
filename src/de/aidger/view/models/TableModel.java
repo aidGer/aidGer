@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -185,7 +185,7 @@ public abstract class TableModel extends DefaultTableModel implements Observer {
         }
 
         for (int i = 0; i < getDataVector().size(); ++i) {
-            if (Arrays.equals(row, ((Vector) getDataVector().get(i)).toArray())) {
+            if (Arrays.equals(row, ((ArrayList) getDataVector().get(i)).toArray())) {
                 return i;
             }
         }

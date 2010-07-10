@@ -3,7 +3,7 @@
  */
 package de.aidger.model.budgets;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 import de.aidger.model.budgets.BudgetFilter.Comparison;
 import de.aidger.model.models.Course;
@@ -18,7 +18,7 @@ public class BudgetCreator {
     /**
      * The course budgets of this creator.
      */
-    private final Vector<CourseBudget> courseBudgets = new Vector<CourseBudget>();
+    private final ArrayList<CourseBudget> courseBudgets = new ArrayList<CourseBudget>();
 
     /**
      * Initializes a new BudgetCreator.
@@ -46,8 +46,8 @@ public class BudgetCreator {
         }
         boolean foundLecturer = false;
         boolean foundSemester = false;
-        Vector<String> lecturers = new Vector<String>();
-        Vector<String> semesters = new Vector<String>();
+        ArrayList<String> lecturers = new ArrayList<String>();
+        ArrayList<String> semesters = new ArrayList<String>();
         if (budgetFilter != null) {
             lecturers = budgetFilter.getLecturers();
             for (String lecturer : lecturers) {
@@ -143,7 +143,7 @@ public class BudgetCreator {
      * 
      * @return the course budgets
      */
-    public Vector<CourseBudget> getCourseBudgets() {
+    public ArrayList<CourseBudget> getCourseBudgets() {
         return courseBudgets;
     }
 

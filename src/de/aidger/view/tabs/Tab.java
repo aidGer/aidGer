@@ -1,7 +1,7 @@
 package de.aidger.view.tabs;
 
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -31,7 +31,7 @@ public abstract class Tab extends JPanel {
     /**
      * The list models of the tab.
      */
-    protected final List<GenericListModel> listModels = new Vector<GenericListModel>();
+    protected final List<GenericListModel> listModels = new ArrayList<GenericListModel>();
 
     /**
      * Constructs a tab.

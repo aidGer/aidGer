@@ -4,7 +4,7 @@ import static de.aidger.utils.Translation._;
 
 import java.sql.Date;
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import de.aidger.model.AbstractModel;
 import de.aidger.model.validators.DateRangeValidator;
@@ -207,11 +207,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
     public List<Contract> getContracts(Date start, Date end)
             throws AdoHiveException {
         IContractManager mgr = (IContractManager) getManager();
-        List<Contract> ret = new Vector<Contract>();
-        for (IContract c : mgr.getContracts(start, end)) {
-            ret.add(new Contract(c));
-        }
-        return ret;
+		return castList(mgr.getContracts(start, end));
     }
 
     /**
@@ -222,29 +218,10 @@ public class Contract extends AbstractModel<IContract> implements IContract {
      * @return List of contracts
      * @throws AdoHiveException
      */
-    public List<Contract> getContracts(Assistant assi) throws AdoHiveException {
-        List<Contract> ret = new Vector<Contract>();
-
-    /*  PROPOSED VERSION BY TEAM ADOHIVE
-        DOESN'T WORK CORRECTLY
-
-        List<Employment> employments = (new Employment()).getEmployments(assi);
-        for (Employment e : employments) {
-            Contract tmp = new Contract(c.getById(e.getContractId()));
-            if (!ret.contains(tmp)) {
-                ret.add(tmp);
-            }
-        }
-
-        return ret; */
-
-        List<IContract> ctrs = (new Contract()).getAll();
-        for (IContract c : ctrs) {
-            if (c.getAssistantId().equals(assi.getId())) {
-                ret.add(new Contract(c));
-            }
-        }
-        return ret;
+    public List<Contract> getContracts(Assistant assi) 
+			throws AdoHiveException {
+		IContractManager mgr = (IContractManager) getManager();
+		return castList(mgr.getContracts(assi));
     }
 
     /**
@@ -391,5 +368,20 @@ public class Contract extends AbstractModel<IContract> implements IContract {
     public void setType(String tp) {
         type = tp;
     }
+
+    /**
+     * Cast the list from interface to real class.
+     * 
+     * @param list
+     *            The list to cast
+     * @return The new list
+     */
+    protected List<Contract> castList(List<IContract> list) {
+		List<Contract> ret = new ArrayList<Contract>();
+		for (IContract c : list) {
+			ret.add(new Contract(c));
+		}
+		return ret;
+	}
 
 }

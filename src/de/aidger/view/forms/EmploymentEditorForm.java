@@ -10,7 +10,7 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -331,7 +331,7 @@ public class EmploymentEditorForm extends JPanel {
      * @return The dates of the employment
      */
     public List<Date> getDates() {
-        List<Date> dates = new Vector<Date>();
+        List<Date> dates = new ArrayList<Date>();
 
         for (DateLine dl : dateLines) {
             dates.add((Date) dl.spDate.getValue());
@@ -347,7 +347,7 @@ public class EmploymentEditorForm extends JPanel {
      * @throws NumberFormatException
      */
     public List<Double> getHourCounts() throws ParseException {
-        List<Double> hcs = new Vector<Double>();
+        List<Double> hcs = new ArrayList<Double>();
 
         for (DateLine dl : dateLines) {
             hcs.add(NumberFormat.getInstance().parse(dl.txtHourCount.getText())
@@ -632,7 +632,7 @@ public class EmploymentEditorForm extends JPanel {
     private javax.swing.JTextField txtRemark;
     // End of variables declaration//GEN-END:variables
 
-    private final List<DateLine> dateLines = new Vector<DateLine>();
+    private final List<DateLine> dateLines = new ArrayList<DateLine>();
 
     /**
      * This class represents a date line in the form.

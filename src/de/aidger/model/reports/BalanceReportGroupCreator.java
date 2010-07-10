@@ -1,6 +1,6 @@
 package de.aidger.model.reports;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 import de.aidger.utils.reports.BalanceHelper;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
@@ -21,7 +21,7 @@ public class BalanceReportGroupCreator {
     /**
      * Contains all courses of this group.
      */
-    private final Vector<BalanceCourse> balanceCourses = new Vector<BalanceCourse>();
+    private final ArrayList<BalanceCourse> balanceCourses = new ArrayList<BalanceCourse>();
 
     /**
      * Initializes this BalanceReportGroupCreator and adds the first course.
@@ -50,7 +50,7 @@ public class BalanceReportGroupCreator {
      * 
      * @return The courses
      */
-    public Vector<BalanceCourse> getBalanceCourses() {
+    public ArrayList<BalanceCourse> getBalanceCourses() {
         return balanceCourses;
     }
 }

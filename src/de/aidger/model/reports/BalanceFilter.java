@@ -3,7 +3,7 @@
  */
 package de.aidger.model.reports;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  * This class has all the needed variables and methods for balance filters.
@@ -14,25 +14,25 @@ public class BalanceFilter {
     /**
      * The groups to be filtered.
      */
-    private final Vector<String> groups;
+    private final ArrayList<String> groups;
 
     /**
      * The lecturers to be filtered.
      */
-    private final Vector<String> lecturers;
+    private final ArrayList<String> lecturers;
 
     /**
      * The target audiences to be filtered.
      */
-    private final Vector<String> targetAudiences;
+    private final ArrayList<String> targetAudiences;
 
     /**
      * Initializes a new BalanceFilter.
      */
     public BalanceFilter() {
-        groups = new Vector<String>();
-        lecturers = new Vector<String>();
-        targetAudiences = new Vector<String>();
+        groups = new ArrayList<String>();
+        lecturers = new ArrayList<String>();
+        targetAudiences = new ArrayList<String>();
     }
 
     /**
@@ -70,7 +70,7 @@ public class BalanceFilter {
      * 
      * @return groups the group filters to be returned.
      */
-    public Vector<String> getGroups() {
+    public ArrayList<String> getGroups() {
         return groups;
     }
 
@@ -79,7 +79,7 @@ public class BalanceFilter {
      * 
      * @return lecturers the lecturer filters to be returned.
      */
-    public Vector<String> getLecturers() {
+    public ArrayList<String> getLecturers() {
         return lecturers;
     }
 
@@ -88,7 +88,7 @@ public class BalanceFilter {
      * 
      * @return targetAudience the target audience filters to be returned.
      */
-    public Vector<String> getTargetAudiences() {
+    public ArrayList<String> getTargetAudiences() {
         return targetAudiences;
     }
 

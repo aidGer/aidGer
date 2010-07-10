@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -404,7 +404,7 @@ public class ProtocolConverter {
     private void addActivities() {
         try {
             PdfPTable contentTable = new PdfPTable(1);
-            Vector activities = new ProtocolCreator()
+            ArrayList activities = new ProtocolCreator()
                 .createProtocol(numberOfDays);
             for (Object activity : activities) {
                 PdfPCell cell = new PdfPCell(addRow((Object[]) activity));

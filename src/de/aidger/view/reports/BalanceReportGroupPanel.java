@@ -2,7 +2,7 @@ package de.aidger.view.reports;
 
 import static de.aidger.utils.Translation._;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -61,7 +61,7 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
      * Adds the courses of this group.
      */
     private void addCourses() {
-        Vector<Object> sums = new Vector<Object>();
+        ArrayList<Object> sums = new ArrayList<Object>();
         /*
          * Create the row for the sums.
          */
@@ -71,10 +71,10 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
         sums.add("");
         sums.add(0.0);
         sums.add(0.0);
-        Vector<Integer> costUnits = new Vector<Integer>();
-        Vector<BalanceCourse> balanceCourses = groupCreator.getBalanceCourses();
+        ArrayList<Integer> costUnits = new ArrayList<Integer>();
+        ArrayList<BalanceCourse> balanceCourses = groupCreator.getBalanceCourses();
         for (Object balanceCourse : balanceCourses) {
-            Vector<Object> rowObjectVector = new Vector<Object>();
+            ArrayList<Object> rowObjectVector = new ArrayList<Object>();
             /*
              * Add the first 6 columns to the table, whose names are always the
              * same.

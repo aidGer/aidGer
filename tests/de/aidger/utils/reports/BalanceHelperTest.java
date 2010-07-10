@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.Before;
@@ -424,7 +424,7 @@ public class BalanceHelperTest {
             assertEquals(balanceCourse.getCourseObject()[i],
                 resultCourseObject[i]);
         }
-        Vector<BudgetCost> resultBudgetCosts = (Vector<BudgetCost>) resultCourseObject[resultCourseObject.length - 1];
+        ArrayList<BudgetCost> resultBudgetCosts = (ArrayList<BudgetCost>) resultCourseObject[resultCourseObject.length - 1];
         assertEquals(employment1.getFunds(), resultBudgetCosts.get(0).getId(),
             0.001);
         assertEquals(employment1.getCostUnit(), resultBudgetCosts.get(0)
@@ -460,7 +460,7 @@ public class BalanceHelperTest {
         course3.setNew(true);
         course3.save();
 
-        Vector years = balanceHelper.getYears();
+        ArrayList years = balanceHelper.getYears();
 
         /*
          * The years specified above should be available.
@@ -491,7 +491,7 @@ public class BalanceHelperTest {
 
         balanceHelper = new BalanceHelper();
 
-        Vector semesters = balanceHelper.getSemesters();
+        ArrayList semesters = balanceHelper.getSemesters();
 
         assertNotNull(semesters);
     }

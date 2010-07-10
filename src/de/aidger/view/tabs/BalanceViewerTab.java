@@ -3,7 +3,7 @@ package de.aidger.view.tabs;
 import static de.aidger.utils.Translation._;
 
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -75,7 +75,7 @@ public class BalanceViewerTab extends ReportTab {
             /*
              * This is an annual balance report.
              */
-            Vector<Integer> availableYears = new BalanceHelper().getYears();
+            ArrayList<Integer> availableYears = new BalanceHelper().getYears();
             for (Object year : availableYears) {
                 yearComboBox.addItem(year);
             }
@@ -85,7 +85,7 @@ public class BalanceViewerTab extends ReportTab {
              * This is a semester balance report.
              */
             yearLabel.setText(_("Semester" + ":"));
-            Vector<String> semesters = new BalanceHelper().getSemesters();
+            ArrayList<String> semesters = new BalanceHelper().getSemesters();
             for (Object semester : semesters) {
                 yearComboBox.addItem(semester);
             }
@@ -375,7 +375,7 @@ public class BalanceViewerTab extends ReportTab {
             } catch (AdoHiveException e) {
                 UI.displayError(e.toString());
             }
-            Vector<String> courseGroups = new Vector<String>();
+            ArrayList<String> courseGroups = new ArrayList<String>();
             for (ICourse course : courses) {
                 if (!courseGroups.contains(course.getGroup())) {
                     courseGroups.add(course.getGroup());
@@ -391,7 +391,7 @@ public class BalanceViewerTab extends ReportTab {
             } catch (AdoHiveException e) {
                 UI.displayError(e.toString());
             }
-            Vector<String> courseLecturers = new Vector<String>();
+            ArrayList<String> courseLecturers = new ArrayList<String>();
             for (ICourse course : courses) {
                 if (!courseLecturers.contains(course.getLecturer())) {
                     courseLecturers.add(course.getLecturer());
@@ -407,7 +407,7 @@ public class BalanceViewerTab extends ReportTab {
             } catch (AdoHiveException e) {
                 UI.displayError(e.toString());
             }
-            Vector<String> courseAudiences = new Vector<String>();
+            ArrayList<String> courseAudiences = new ArrayList<String>();
             for (ICourse course : courses) {
                 if (!courseAudiences.contains(course.getTargetAudience())) {
                     courseAudiences.add(course.getTargetAudience());

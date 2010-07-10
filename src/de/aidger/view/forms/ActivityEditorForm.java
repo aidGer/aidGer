@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -256,7 +256,7 @@ public class ActivityEditorForm extends JPanel {
      * @return The courses of the activity
      */
     public List<Course> getCourses() {
-        List<Course> courses = new Vector<Course>();
+        List<Course> courses = new ArrayList<Course>();
 
         for (CourseLine cl : courseLines) {
             courses.add((Course) cl.cmbCourse.getSelectedItem());
@@ -271,7 +271,7 @@ public class ActivityEditorForm extends JPanel {
      * @return The assistants of the activity
      */
     public List<Assistant> getAssistants() {
-        List<Assistant> assistants = new Vector<Assistant>();
+        List<Assistant> assistants = new ArrayList<Assistant>();
 
         for (AssistantLine al : assistantLines) {
             assistants.add((Assistant) al.cmbAssistant.getSelectedItem());
@@ -525,8 +525,8 @@ public class ActivityEditorForm extends JPanel {
     private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables
 
-    private final List<CourseLine> courseLines = new Vector<CourseLine>();
-    private final List<AssistantLine> assistantLines = new Vector<AssistantLine>();
+    private final List<CourseLine> courseLines = new ArrayList<CourseLine>();
+    private final List<AssistantLine> assistantLines = new ArrayList<AssistantLine>();
 
     /**
      * This class represents a course line in the form.

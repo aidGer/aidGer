@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -317,7 +317,7 @@ public class BudgetReportConverter {
             for (ICourse course : courses) {
                 budgetCreator.addCourseBudget(new Course(course), filters);
             }
-            Vector<CourseBudget> courseBudgets = budgetCreator
+            ArrayList<CourseBudget> courseBudgets = budgetCreator
                 .getCourseBudgets();
             /*
              * Add a new row for every course that passed the filters.

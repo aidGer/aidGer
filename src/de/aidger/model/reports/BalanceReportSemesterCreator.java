@@ -1,7 +1,7 @@
 package de.aidger.model.reports;
 
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import de.aidger.model.models.Course;
 import de.aidger.utils.reports.BalanceHelper;
@@ -26,7 +26,7 @@ public class BalanceReportSemesterCreator {
      * The vector containing the balanceReportGroupCreators and the names of
      * their groups.
      */
-    private final Vector<Vector<Object>> balanceReportGroupCreators = new Vector<Vector<Object>>();
+    private final ArrayList<ArrayList<Object>> balanceReportGroupCreators = new ArrayList<ArrayList<Object>>();
 
     /**
      * The balance helper used to filter the courses in this creator.
@@ -108,7 +108,7 @@ public class BalanceReportSemesterCreator {
     private void createGroup(ICourse course) {
         BalanceReportGroupCreator balanceReportGroupCreator = new BalanceReportGroupCreator(
             course, calculationMethod);
-        balanceReportGroupCreators.add(new Vector<Object>());
+        balanceReportGroupCreators.add(new ArrayList<Object>());
         int i = balanceReportGroupCreators.size() - 1;
         /*
          * Add the group creator of this course's group as the first entry of
@@ -126,7 +126,7 @@ public class BalanceReportSemesterCreator {
      * 
      * @return The group creators.
      */
-    public Vector<Vector<Object>> getGroupCreators() {
+    public ArrayList<ArrayList<Object>> getGroupCreators() {
         return balanceReportGroupCreators;
     }
 }

@@ -8,7 +8,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.Before;
@@ -127,7 +127,7 @@ public class ProtocolCreatorTest {
     public void testCreateProtocol() throws AdoHiveException {
         System.out.println("createProtocol()");
 
-        Vector activities = protocolCreator.createProtocol(-1);
+        ArrayList activities = protocolCreator.createProtocol(-1);
 
         Object[] resultActivity = {
                 (new Assistant().getById(activity.getAssistantId()))
