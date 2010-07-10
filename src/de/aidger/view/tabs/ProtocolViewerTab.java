@@ -13,7 +13,7 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -57,7 +57,7 @@ public class ProtocolViewerTab extends Tab {
     /**
      * The activities of this panel.
      */
-    private Vector<Object[]> activities = new Vector<Object[]>();
+    private ArrayList<Object[]> activities = new ArrayList<Object[]>();
 
     /**
      * Initializes a new ProtocolViewerTab and registers a change listener to

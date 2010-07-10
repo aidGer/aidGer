@@ -5,7 +5,7 @@ import static de.aidger.utils.Translation._;
 import java.sql.Date;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.controller.IEmploymentManager;
@@ -551,7 +551,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @return The new list
      */
     protected List<Employment> castList(List<IEmployment> list) {
-        List<Employment> ret = new Vector<Employment>();
+        List<Employment> ret = new ArrayList<Employment>();
         for (IEmployment emp : list) {
             ret.add(new Employment(emp));
         }

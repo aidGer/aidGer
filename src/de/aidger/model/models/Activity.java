@@ -2,7 +2,7 @@ package de.aidger.model.models;
 
 import java.sql.Date;
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
@@ -420,7 +420,7 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @return The new list
      */
     protected List<Activity> castList(List<IActivity> list) {
-        List<Activity> ret = new Vector<Activity>();
+        List<Activity> ret = new ArrayList<Activity>();
         for (IActivity act : list) {
             ret.add(new Activity(act));
         }

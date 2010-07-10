@@ -4,7 +4,7 @@ import static de.aidger.utils.Translation._;
 
 import java.text.MessageFormat;
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Activity;
@@ -15,8 +15,6 @@ import de.aidger.model.models.FinancialCategory;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
-import de.unistuttgart.iste.se.adohive.model.IEmployment;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 
 /**
@@ -51,7 +49,7 @@ public class WelcomeTab extends Tab {
             } catch (AdoHiveException ex) {
             }
 
-            final List<String> listAct = new Vector<String>();
+            final List<String> listAct = new ArrayList<String>();
             if (activities != null) {
                 int min = activities.size() > 20 ? activities.size() - 20 : 0;
 

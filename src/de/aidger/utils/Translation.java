@@ -8,7 +8,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
 import java.util.PropertyResourceBundle;
-import java.util.Vector;
+import java.util.ArrayList;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
@@ -116,7 +116,7 @@ public class Translation {
      * @return The list of all installed languages
      */
     public List<Pair<String, String>> getLanguages() {
-        List<Pair<String, String>> list = new Vector<Pair<String, String>>();
+        List<Pair<String, String>> list = new ArrayList<Pair<String, String>>();
 
         /* Add English as standard language */
         list.add(new Pair<String, String>("en", new Locale("en")

@@ -6,7 +6,7 @@ import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -221,7 +221,7 @@ public class FinancialCategoryEditorForm extends JPanel {
         hlpYear = new HelpLabel();
         filler = new javax.swing.JLabel();
 
-        fundsLines = new Vector<FundsLine>();
+        fundsLines = new ArrayList<FundsLine>();
 
         setLayout(new java.awt.GridBagLayout());
 

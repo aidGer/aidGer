@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.sql.Date;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.BeforeClass;
@@ -170,7 +170,7 @@ public class BalanceReportConverterTest {
         course6.setSemester("WS9900");
         course6.save();
 
-        Vector years = new BalanceHelper().getYears();
+        ArrayList years = new BalanceHelper().getYears();
 
         File testFile = new File("Test_Report");
         balanceReportConverter = new BalanceReportConverter(testFile, 1, null,

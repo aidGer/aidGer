@@ -5,7 +5,7 @@ import static de.aidger.utils.Translation._;
 import java.awt.Color;
 import java.awt.Component;
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -41,7 +41,7 @@ public class BudgetViewerTab extends ReportTab {
     /**
      * The filter panels of this budget check.
      */
-    private Vector<BalanceFilterPanel> filterPanels = null;
+    private ArrayList<BalanceFilterPanel> filterPanels = null;
 
     /**
      * The table model of the content table.
@@ -63,7 +63,7 @@ public class BudgetViewerTab extends ReportTab {
     public BudgetViewerTab() {
         initComponents();
         budgetFilter = new BudgetFilter();
-        filterPanels = new Vector<BalanceFilterPanel>();
+        filterPanels = new ArrayList<BalanceFilterPanel>();
         budgetFilterText.setVisible(false);
         try {
             generateButton.setAction(ActionRegistry.getInstance().get(
@@ -322,7 +322,7 @@ public class BudgetViewerTab extends ReportTab {
             } catch (AdoHiveException e) {
                 UI.displayError(e.toString());
             }
-            Vector<String> courseLecturers = new Vector<String>();
+            ArrayList<String> courseLecturers = new ArrayList<String>();
             for (ICourse course : courses) {
                 if (!courseLecturers.contains(course.getLecturer())) {
                     courseLecturers.add(course.getLecturer());
@@ -340,7 +340,7 @@ public class BudgetViewerTab extends ReportTab {
             budgetFilterText.setText("");
             try {
                 courses = (new Course()).getAll();
-                Vector<String> courseSemesters = new BalanceHelper()
+                ArrayList<String> courseSemesters = new BalanceHelper()
                     .getSemesters();
                 for (String semester : courseSemesters) {
                     filterComboBox.addItem(semester);

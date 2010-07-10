@@ -6,7 +6,7 @@ package de.aidger.model.reports;
 import java.sql.Date;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
@@ -35,9 +35,9 @@ public class ProtocolCreator {
      *            The number of days, of which to display activities.
      * @return The activities
      */
-    public Vector<Object[]> createProtocol(int numberOfDays) {
+    public ArrayList<Object[]> createProtocol(int numberOfDays) {
         Object[] addedActivity;
-        Vector<Object[]> addedActivities = new Vector<Object[]>();
+        ArrayList<Object[]> addedActivities = new ArrayList<Object[]>();
         List<Activity> activities = null;
         Calendar calendar = Calendar.getInstance();
         Date currentDate;

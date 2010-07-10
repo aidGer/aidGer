@@ -12,7 +12,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -69,7 +69,7 @@ public class ActivityReportConverter {
     /**
      * The table rows that this report should contain.
      */
-    private final Vector<String[]> tableRows;
+    private final ArrayList<String[]> tableRows;
 
     /**
      * Initializes a new ActivityReportConverter and creates the .pdf file.
@@ -77,7 +77,7 @@ public class ActivityReportConverter {
      * @param file
      *            The file for the report.
      */
-    public ActivityReportConverter(File file, Vector<String[]> tableRows,
+    public ActivityReportConverter(File file, ArrayList<String[]> tableRows,
             String assistant) {
         this.tableRows = tableRows;
         this.assistant = assistant;

@@ -4,7 +4,7 @@
 package de.aidger.utils.reports;
 
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
@@ -31,7 +31,7 @@ public class ActivityReportHelper {
     /**
      * The courses of the given assistant, along with all of their employments.
      */
-    private final Vector<CourseEmployment> courseEmployments = new Vector<CourseEmployment>();
+    private final ArrayList<CourseEmployment> courseEmployments = new ArrayList<CourseEmployment>();
 
     /**
      * Gets the index of a course in the courseEmployments vector.
@@ -83,7 +83,7 @@ public class ActivityReportHelper {
         /**
          * The employments belonging to the course.
          */
-        private final Vector<Employment> employments;
+        private final ArrayList<Employment> employments;
 
         /**
          * Initializes a new CourseEmployment with the given name and its first
@@ -96,7 +96,7 @@ public class ActivityReportHelper {
          */
         public CourseEmployment(String name, Employment employment) {
             this.name = name;
-            employments = new Vector<Employment>();
+            employments = new ArrayList<Employment>();
             employments.add(employment);
         }
 
@@ -141,7 +141,7 @@ public class ActivityReportHelper {
          * 
          * @return The employments of this course.
          */
-        public Vector<Employment> getEmployments() {
+        public ArrayList<Employment> getEmployments() {
             return employments;
         }
     }
@@ -153,8 +153,8 @@ public class ActivityReportHelper {
      *            The assistant of which to get the employments.
      * @return The employments of this assistant.
      */
-    public Vector<ActivityEmployment> getEmployments(Assistant assistant) {
-        Vector<ActivityEmployment> activityEmployments = new Vector<ActivityEmployment>();
+    public ArrayList<ActivityEmployment> getEmployments(Assistant assistant) {
+        ArrayList<ActivityEmployment> activityEmployments = new ArrayList<ActivityEmployment>();
         try {
             List<Employment> employments = new Employment()
                 .getEmployments(assistant);

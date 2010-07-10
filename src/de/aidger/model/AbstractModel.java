@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Observable;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import de.aidger.model.validators.DateRangeValidator;
 import de.aidger.model.validators.ExistanceValidator;
@@ -49,12 +49,12 @@ public abstract class AbstractModel<T> extends Observable implements
     /**
      * Array containing all validators for that specific model.
      */
-    protected List<Validator> validators = new Vector<Validator>();
+    protected List<Validator> validators = new ArrayList<Validator>();
 
     /**
      * Array containing errors if a validator fails.
      */
-    protected List<String> errors = new Vector<String>();
+    protected List<String> errors = new ArrayList<String>();
 
     /**
      * Map of errors for specific fields.
@@ -281,7 +281,7 @@ public abstract class AbstractModel<T> extends Observable implements
         if (fieldErrors.containsKey(field)) {
             fieldErrors.get(field).add(error);
         } else {
-            List<String> list = new Vector<String>();
+            List<String> list = new ArrayList<String>();
             list.add(error);
             fieldErrors.put(field, list);
         }

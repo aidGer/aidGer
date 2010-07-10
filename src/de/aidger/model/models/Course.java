@@ -3,7 +3,7 @@ package de.aidger.model.models;
 import static de.aidger.utils.Translation._;
 
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.controller.ICourseManager;
@@ -569,7 +569,7 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
      * @return The casted list
      */
     public List<Course> castList(List<ICourse> list) {
-        List<Course> ret = new Vector<Course>();
+        List<Course> ret = new ArrayList<Course>();
         for (ICourse course : list) {
             ret.add(new Course(course));
         }

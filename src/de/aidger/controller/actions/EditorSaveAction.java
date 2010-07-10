@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -332,7 +332,7 @@ public class EditorSaveAction extends AbstractAction {
         }
 
         List<Date> dates = form.getDates();
-        List<Double> hcs = new Vector<Double>();
+        List<Double> hcs = new ArrayList<Double>();
 
         try {
             hcs = form.getHourCounts();
@@ -506,7 +506,7 @@ public class EditorSaveAction extends AbstractAction {
             List<Employment> employments = (new Employment())
                 .getEmployments(assistant);
 
-            List<Date> dates = new Vector<Date>();
+            List<Date> dates = new ArrayList<Date>();
 
             int unchecked = 0, checked = 0;
 
@@ -705,7 +705,7 @@ public class EditorSaveAction extends AbstractAction {
         // if something went wrong just the clone model is affected
         AbstractModel clone = (AbstractModel) tab.getModel().clone();
 
-        List<AbstractModel> models = new Vector<AbstractModel>();
+        List<AbstractModel> models = new ArrayList<AbstractModel>();
         models.add(clone);
 
         AbstractModel modelBeforeEdit = tab.getModel();

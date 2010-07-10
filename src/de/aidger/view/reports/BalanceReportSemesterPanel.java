@@ -2,7 +2,7 @@ package de.aidger.view.reports;
 
 import static de.aidger.utils.Translation._;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
@@ -45,12 +45,12 @@ public class BalanceReportSemesterPanel extends javax.swing.JPanel {
      * Adds all the groups of this semester to the panel.
      */
     public void addGroups() {
-        Vector<Vector<Object>> groupCreators = semesterCreator
+        ArrayList<ArrayList<Object>> groupCreators = semesterCreator
             .getGroupCreators();
         for (Object groupCreator : groupCreators) {
             createGroup(new BalanceReportGroupPanel(
-                ((String) ((Vector<Object>) groupCreator).get(1)),
-                (BalanceReportGroupCreator) ((Vector<Object>) groupCreator)
+                ((String) ((ArrayList<Object>) groupCreator).get(1)),
+                (BalanceReportGroupCreator) ((ArrayList<Object>) groupCreator)
                     .get(0)));
         }
     }

@@ -3,7 +3,7 @@
  */
 package de.aidger.model.budgets;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  * 
@@ -49,12 +49,12 @@ public class BudgetFilter {
     /**
      * The lecturers to be filtered.
      */
-    private final Vector<String> lecturers;
+    private final ArrayList<String> lecturers;
 
     /**
      * The semesters to be filtered.
      */
-    private final Vector<String> semesters;
+    private final ArrayList<String> semesters;
 
     /**
      * The available budget to be filtered.
@@ -90,8 +90,8 @@ public class BudgetFilter {
      * Initializes a new BudgetFilter.
      */
     public BudgetFilter() {
-        lecturers = new Vector<String>();
-        semesters = new Vector<String>();
+        lecturers = new ArrayList<String>();
+        semesters = new ArrayList<String>();
         availableBudget = bookedBudget = totalBudget = 0;
         availableComparison = bookedComparison = totalComparison = Comparison.NONE;
     }
@@ -123,7 +123,7 @@ public class BudgetFilter {
      * 
      * @return the lecturers
      */
-    public Vector<String> getLecturers() {
+    public ArrayList<String> getLecturers() {
         return lecturers;
     }
 
@@ -154,7 +154,7 @@ public class BudgetFilter {
      * 
      * @return The semester filters.
      */
-    public Vector<String> getSemesters() {
+    public ArrayList<String> getSemesters() {
         return semesters;
     }
 

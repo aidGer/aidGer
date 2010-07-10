@@ -3,7 +3,7 @@ package de.aidger.view.tabs;
 import static de.aidger.utils.Translation._;
 
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -40,7 +40,7 @@ public class ActivityReportViewerTab extends Tab {
     /**
      * The assistants in the combo box.
      */
-    private Vector<Assistant> assistants;
+    private ArrayList<Assistant> assistants;
 
     /**
      * Initializes a new AcitivityReportViewerTab.
@@ -80,8 +80,8 @@ public class ActivityReportViewerTab extends Tab {
      * 
      * @return The rows of the table.
      */
-    public Vector<String[]> getRows() {
-        Vector<String[]> returnVector = new Vector<String[]>();
+    public ArrayList<String[]> getRows() {
+        ArrayList<String[]> returnVector = new ArrayList<String[]>();
         for (int i = 0; i < contentTableModel.getRowCount(); i++) {
             String[] returnString = new String[contentTableModel
                 .getColumnCount()];
@@ -113,7 +113,7 @@ public class ActivityReportViewerTab extends Tab {
         assistantNameContentLabel.setText(assistant.getFirstName() + " "
                 + assistant.getLastName());
         ActivityReportHelper reportHelper = new ActivityReportHelper();
-        Vector<ActivityEmployment> activityEmployments = reportHelper
+        ArrayList<ActivityEmployment> activityEmployments = reportHelper
             .getEmployments(assistant);
         for (ActivityEmployment activityEmployment : activityEmployments) {
             addRow(reportHelper.getEmploymentArray(activityEmployment));
@@ -137,7 +137,7 @@ public class ActivityReportViewerTab extends Tab {
      */
     private void fillAssistants() {
         List<IAssistant> fillingAssistants;
-        assistants = new Vector<Assistant>();
+        assistants = new ArrayList<Assistant>();
         try {
             fillingAssistants = new Assistant().getAll();
             for (IAssistant assistant : fillingAssistants) {

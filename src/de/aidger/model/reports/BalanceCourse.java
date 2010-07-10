@@ -4,7 +4,7 @@
 package de.aidger.model.reports;
 
 import java.math.BigDecimal;
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  * Represents a course in a balance report with all it's variables.
@@ -47,14 +47,14 @@ public class BalanceCourse {
     /**
      * The budget costs paid with student fees.
      */
-    private final Vector<BudgetCost> budgetCosts;
+    private final ArrayList<BudgetCost> budgetCosts;
 
     /**
      * Initializes a new BalanceCourse, which contains all the necessary
      * variables of a course in a balance report.
      */
     public BalanceCourse() {
-        budgetCosts = new Vector<BudgetCost>();
+        budgetCosts = new ArrayList<BudgetCost>();
         Title = Lecturer = TargetAudience = "";
         PlannedAWS = BasicAWS = 0.0;
         Part = '-';
@@ -327,7 +327,7 @@ public class BalanceCourse {
      * 
      * @return the budget costs
      */
-    public Vector<BudgetCost> getBudgetCosts() {
+    public ArrayList<BudgetCost> getBudgetCosts() {
         return budgetCosts;
     }
 }

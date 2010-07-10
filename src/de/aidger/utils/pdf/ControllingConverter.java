@@ -12,7 +12,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -64,7 +64,7 @@ public class ControllingConverter {
     /**
      * The table rows that this report should contain.
      */
-    private final Vector<String[]> tableRows;
+    private final ArrayList<String[]> tableRows;
 
     /**
      * Initializes a new ControllingConverter and creates the .pdf file.
@@ -72,7 +72,7 @@ public class ControllingConverter {
      * @param file
      *            The file for the report.
      */
-    public ControllingConverter(File file, Vector<String[]> tableRows) {
+    public ControllingConverter(File file, ArrayList<String[]> tableRows) {
         this.tableRows = tableRows;
         document = new Document(PageSize.A4);
         document.setMargins(document.leftMargin(), document.rightMargin(),

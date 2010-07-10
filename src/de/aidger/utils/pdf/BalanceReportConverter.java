@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -61,7 +61,7 @@ public class BalanceReportConverter {
     /**
      * Contains the group tables and their names.
      */
-    private Vector balanceReportGroups = null;
+    private ArrayList balanceReportGroups = null;
 
     /**
      * The PdfWriter used to write the document.
@@ -96,7 +96,7 @@ public class BalanceReportConverter {
     /**
      * The sums of this report.
      */
-    private Vector<Object> sums;
+    private ArrayList<Object> sums;
 
     /**
      * Initializes this BalanceReportConverter with a given path and a name.
@@ -136,21 +136,21 @@ public class BalanceReportConverter {
         if (fileCreated) {
             switch (index) {
             case 1:
-                Vector semesters = new BalanceHelper().getSemesters();
+                ArrayList semesters = new BalanceHelper().getSemesters();
                 for (int i = 0; i < semesters.size(); i++) {
                     if (new BalanceHelper().courseExists((String) semesters
                         .get(i), filters)) {
-                        balanceReportGroups = new Vector<Vector>();
+                        balanceReportGroups = new ArrayList<ArrayList>();
                         createSemester((String) semesters.get(i));
                     }
                 }
                 break;
             case 2:
-                balanceReportGroups = new Vector<Vector>();
+                balanceReportGroups = new ArrayList<ArrayList>();
                 createYear((Integer) semester);
                 break;
             case 3:
-                balanceReportGroups = new Vector<Vector>();
+                balanceReportGroups = new ArrayList<ArrayList>();
                 createSemester("" + semester);
                 break;
             }
@@ -410,7 +410,7 @@ public class BalanceReportConverter {
                 } else {
                     boolean foundGroup = false;
                     for (int i = 0; i <= balanceReportGroups.size() - 1; i++) {
-                        if (((Vector) balanceReportGroups.get(i)).get(1)
+                        if (((ArrayList) balanceReportGroups.get(i)).get(1)
                             .equals(course.getGroup())) {
                             foundGroup = true;
                             break;
@@ -423,7 +423,7 @@ public class BalanceReportConverter {
             }
             for (int i = 0; i <= balanceReportGroups.size() - 1; i++) {
                 PdfPCell cell = new PdfPCell(
-                    (PdfPTable) ((Vector) balanceReportGroups.get(i)).get(0));
+                    (PdfPTable) ((ArrayList) balanceReportGroups.get(i)).get(0));
                 cell.setBorder(0);
                 cell.setPaddingBottom(8.0f);
                 contentTable.addCell(cell);
@@ -447,9 +447,9 @@ public class BalanceReportConverter {
      * @return The row as a PdfPCell
      */
     private PdfPCell addRow(BalanceCourse balanceCourse, float[] columnwidths,
-            Vector<Integer> costUnits) {
+            ArrayList<Integer> costUnits) {
         PdfPTable groupContentTable = new PdfPTable(columnwidths);
-        Vector<Object> rowObjectVector = new Vector<Object>();
+        ArrayList<Object> rowObjectVector = new ArrayList<Object>();
         Font tableContentFont;
         try {
             tableContentFont = new Font(BaseFont.createFont(BaseFont.HELVETICA,
@@ -523,7 +523,7 @@ public class BalanceReportConverter {
         balanceReportGroupCreator = new BalanceReportGroupCreator(course,
             calculationMethod);
         List<Course> courses = null;
-        sums = new Vector<Object>();
+        sums = new ArrayList<Object>();
         try {
             courses = (new Course()).getCoursesBySemester(course.getSemester());
         } catch (AdoHiveException e) {
@@ -531,7 +531,7 @@ public class BalanceReportConverter {
         }
         List<Course> filteredCourses = balanceHelper.filterCourses(courses,
             filters);
-        Vector<Integer> addedCourses = new Vector<Integer>();
+        ArrayList<Integer> addedCourses = new ArrayList<Integer>();
         addedCourses.add(course.getId());
         for (Course filteredCourse : filteredCourses) {
             if (!addedCourses.contains(filteredCourse.getId())
@@ -540,10 +540,10 @@ public class BalanceReportConverter {
                 addedCourses.add(filteredCourse.getId());
             }
         }
-        Vector<Integer> costUnits = new Vector<Integer>();
-        Vector<BalanceCourse> balanceCourses = balanceReportGroupCreator
+        ArrayList<Integer> costUnits = new ArrayList<Integer>();
+        ArrayList<BalanceCourse> balanceCourses = balanceReportGroupCreator
             .getBalanceCourses();
-        Vector<String> titles = new Vector<String>();
+        ArrayList<String> titles = new ArrayList<String>();
         String[] courseTitles = { _("Title"), _("Part"), _("Lecturer"),
                 _("Target Audience"), _("Planned AWS"), _("Basic needed AWS") };
         for (int i = 0; i < courseTitles.length; i++) {
@@ -654,10 +654,10 @@ public class BalanceReportConverter {
             groupTable.addCell(cell);
             groupTable.setKeepTogether(true);
 
-            balanceReportGroups.add(new Vector<Object>());
+            balanceReportGroups.add(new ArrayList<Object>());
             int i = balanceReportGroups.size() - 1;
-            ((Vector) balanceReportGroups.get(i)).add(groupTable);
-            ((Vector) balanceReportGroups.get(i)).add(course.getGroup());
+            ((ArrayList) balanceReportGroups.get(i)).add(groupTable);
+            ((ArrayList) balanceReportGroups.get(i)).add(course.getGroup());
 
             return groupTable;
         } catch (DocumentException e) {

@@ -4,7 +4,7 @@ import static de.aidger.utils.Translation._;
 
 import java.sql.Date;
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import de.aidger.model.AbstractModel;
 import de.aidger.model.validators.DateRangeValidator;
@@ -377,7 +377,7 @@ public class Contract extends AbstractModel<IContract> implements IContract {
      * @return The new list
      */
     protected List<Contract> castList(List<IContract> list) {
-		List<Contract> ret = new Vector<Contract>();
+		List<Contract> ret = new ArrayList<Contract>();
 		for (IContract c : list) {
 			ret.add(new Contract(c));
 		}

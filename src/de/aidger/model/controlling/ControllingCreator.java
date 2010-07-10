@@ -4,7 +4,7 @@
 package de.aidger.model.controlling;
 
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Employment;
@@ -58,8 +58,8 @@ public class ControllingCreator {
      * 
      * @return The assistant objects of this controlling report.
      */
-    public Vector<ControllingAssistant> getAssistants() {
-        Vector<ControllingAssistant> controllingAssistants = new Vector<ControllingAssistant>();
+    public ArrayList<ControllingAssistant> getAssistants() {
+        ArrayList<ControllingAssistant> controllingAssistants = new ArrayList<ControllingAssistant>();
         try {
             List<IAssistant> assistants = new Assistant().getAll();
             // Get all the employments that fit the time span.
