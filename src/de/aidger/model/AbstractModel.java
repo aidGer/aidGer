@@ -16,10 +16,13 @@ import de.aidger.model.validators.InclusionValidator;
 import de.aidger.model.validators.PresenceValidator;
 import de.aidger.model.validators.Validator;
 import de.aidger.utils.Logger;
+import de.aidger.utils.history.HistoryEvent;
+import de.aidger.utils.history.HistoryManager;
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.controller.IAdoHiveManager;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAdoHiveModel;
+import java.util.Calendar;
 
 /**
  * AbstractModel contains all important database related functions which all
@@ -195,6 +198,14 @@ public abstract class AbstractModel<T> extends Observable implements
             mgr.update(this);
         }
 
+        /* Add event to the HistoryManager */
+        HistoryEvent evt = new HistoryEvent();
+        evt.id = getId();
+        evt.status = isNew ? HistoryEvent.Status.Added : HistoryEvent.Status.Changed;
+        evt.type = getClass().getSimpleName();
+        evt.date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+        HistoryManager.getInstance().addEvent(evt);
+
         setChanged();
         notifyObservers(true);
 
@@ -229,6 +240,14 @@ public abstract class AbstractModel<T> extends Observable implements
         getManager().remove(this);
         setChanged();
         notifyObservers(false);
+
+        /* Add event to the HistoryManager */
+        HistoryEvent evt = new HistoryEvent();
+        evt.id = getId();
+        evt.status = HistoryEvent.Status.Removed;
+        evt.type = getClass().getSimpleName();
+        evt.date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+        HistoryManager.getInstance().addEvent(evt);
 
         setNew(true);
 

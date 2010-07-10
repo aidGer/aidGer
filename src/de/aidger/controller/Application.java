@@ -40,6 +40,7 @@ import de.aidger.controller.actions.ViewerDeleteAction;
 import de.aidger.controller.actions.ViewerDetailViewAction;
 import de.aidger.controller.actions.ViewerEditAction;
 import de.aidger.model.Runtime;
+import de.aidger.utils.history.HistoryManager;
 import de.aidger.view.UI;
 
 /**
@@ -79,6 +80,7 @@ public final class Application {
      */
     public void initialize() {
         Runtime.getInstance().initialize();
+        HistoryManager.getInstance();
         registerActions();
     }
 
