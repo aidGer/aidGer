@@ -37,6 +37,11 @@ public class ControllingCreatorTest {
     private FinancialCategory fc;
     private ControllingCreator controllingCreator;
 
+    /**
+     * Prepares the test set.
+     * 
+     * @throws AdoHiveException
+     */
     @BeforeClass
     public static void beforeClassSetUp() throws AdoHiveException {
         de.aidger.model.Runtime.getInstance().initialize();
@@ -49,6 +54,11 @@ public class ControllingCreatorTest {
         new Activity().clearTable();
     }
 
+    /**
+     * Prepares the tests.
+     * 
+     * @throws AdoHiveException
+     */
     @Before
     public void setUp() throws AdoHiveException {
         fc = new FinancialCategory();
@@ -106,22 +116,33 @@ public class ControllingCreatorTest {
         employment.save();
     }
 
+    /**
+     * Tests the constructor of the class ControllingCreator.
+     */
     @Test
     public void testConstructor() {
+        System.out.println("Constructor");
+
         controllingCreator = new ControllingCreator(employment.getYear(),
             employment.getMonth(), employment.getFunds());
 
         assertNotNull(controllingCreator);
     }
 
+    /**
+     * Tests the method getAssistants of the class ControllingCreator.
+     */
     @Test
     public void testGetAssistants() {
+        System.out.println("getAssistants()");
+
         controllingCreator = new ControllingCreator(employment.getYear(),
             employment.getMonth(), employment.getFunds());
 
         ControllingAssistant expectedAssistant = new ControllingAssistant();
         expectedAssistant.setName(assistant.getFirstName() + " "
                 + assistant.getLastName());
+        new BalanceHelper();
         expectedAssistant.setCosts(BalanceHelper
             .calculatePreTaxBudgetCost(employment));
 
@@ -129,6 +150,11 @@ public class ControllingCreatorTest {
             .getObjectArray(), expectedAssistant.getObjectArray());
     }
 
+    /**
+     * Cleans up after the tests.
+     * 
+     * @throws AdoHiveException
+     */
     @After
     public void cleanUp() throws AdoHiveException {
         fc.remove();

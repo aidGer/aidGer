@@ -298,7 +298,7 @@ public class BalanceCourse {
      * @param value
      *            The cost to be added.
      */
-    public void addBudgetCostvalue(int id, double value) {
+    public void addBudgetCostValue(int id, double value) {
         for (BudgetCost budgetCost : budgetCosts) {
             if (budgetCost.getId() == id) {
                 budgetCost.setValue(budgetCost.getUnroundedValue() + value);

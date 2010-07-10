@@ -75,6 +75,6 @@ public class ControllingAssistant {
      * @return The assistant
      */
     public Object[] getObjectArray() {
-        return new Object[] { name, getCosts() };
+        return new Object[] { getName(), getCosts() };
     }
 }
