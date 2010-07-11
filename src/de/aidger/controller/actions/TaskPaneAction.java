@@ -3,9 +3,7 @@ package de.aidger.controller.actions;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
-import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.SwingUtilities;
 
@@ -28,8 +26,7 @@ import de.aidger.view.tabs.ViewerTab.DataType;
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class TaskPaneAction extends AbstractAction implements MouseListener,
-        Cloneable {
+public class TaskPaneAction extends LinkAction {
     /**
      * All possible tasks that can open tabs.
      * 

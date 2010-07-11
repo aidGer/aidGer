@@ -11,8 +11,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.swing.JLabel;
-
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.time.Day;
 import org.jfree.data.time.TimeSeries;
@@ -32,7 +30,6 @@ import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.models.UIActivity;
 import de.aidger.view.models.UIModel;
 import de.aidger.view.tabs.ViewerTab.DataType;
-import de.aidger.view.utils.BulletList;
 import de.aidger.view.utils.Charts;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
@@ -48,21 +45,6 @@ import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
  */
 @SuppressWarnings("serial")
 public class WelcomeTab extends Tab {
-
-    /**
-     * The history list.
-     */
-    private final BulletList historyList = new BulletList();
-
-    /**
-     * The activities list.
-     */
-    private final BulletList activitiesList = new BulletList();
-
-    /**
-     * The statistics list.
-     */
-    private final BulletList statisticsList = new BulletList();
 
     /**
      * Initialises the WelcomeTab class.
@@ -305,10 +287,6 @@ public class WelcomeTab extends Tab {
             diagram4.setIcon(Charts.createXYAreaChart(
                 _("Count of employments"), employmentsCountData, 500, 270));
         }
-
-        lastChanges.add(new JLabel(historyList.getList()));
-        lastActivities.add(new JLabel(activitiesList.getList()));
-        lblStatistics.setText(statisticsList.getList());
     }
 
     /**
@@ -324,9 +302,11 @@ public class WelcomeTab extends Tab {
         lblFirstStart = new javax.swing.JLabel();
         boxes = new javax.swing.JPanel();
         lastChanges = new javax.swing.JPanel();
+        historyList = new de.aidger.view.utils.BulletList();
         lastActivities = new javax.swing.JPanel();
+        activitiesList = new de.aidger.view.utils.BulletList();
         statistics = new javax.swing.JPanel();
-        lblStatistics = new javax.swing.JLabel();
+        statisticsList = new de.aidger.view.utils.BulletList();
         diagrams = new javax.swing.JPanel();
         diagram1 = new javax.swing.JLabel();
         diagram2 = new javax.swing.JLabel();
@@ -355,22 +335,29 @@ public class WelcomeTab extends Tab {
 
         boxes.setLayout(new java.awt.GridBagLayout());
 
-        lastChanges.setBorder(javax.swing.BorderFactory.createTitledBorder(
-            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
-            _("Last Changes")));
-        lastChanges.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT,
-            0, 0));
+        lastChanges.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Last Changes")));
+        lastChanges.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
+        lastChanges.add(historyList, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.5;
         boxes.add(lastChanges, gridBagConstraints);
 
-        lastActivities.setBorder(javax.swing.BorderFactory.createTitledBorder(
-            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
-            _("Last activities")));
-        lastActivities.setLayout(new java.awt.FlowLayout(
-            java.awt.FlowLayout.LEFT, 0, 0));
+        lastActivities.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Last activities")));
+        lastActivities.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
+        lastActivities.add(activitiesList, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -380,19 +367,18 @@ public class WelcomeTab extends Tab {
         gridBagConstraints.weightx = 0.5;
         boxes.add(lastActivities, gridBagConstraints);
 
-        statistics.setBorder(javax.swing.BorderFactory.createTitledBorder(
-            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
-            _("Statistics & Diagrams")));
+        statistics.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Statistics & Diagrams")));
         statistics.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        statistics.add(lblStatistics, gridBagConstraints);
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
+        statistics.add(statisticsList, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.5;
         boxes.add(statistics, gridBagConstraints);
@@ -456,18 +442,20 @@ public class WelcomeTab extends Tab {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private de.aidger.view.utils.BulletList activitiesList;
     private javax.swing.JPanel boxes;
     private javax.swing.JLabel diagram1;
     private javax.swing.JLabel diagram2;
     private javax.swing.JLabel diagram3;
     private javax.swing.JLabel diagram4;
     private javax.swing.JPanel diagrams;
+    private de.aidger.view.utils.BulletList historyList;
     private javax.swing.JPanel lastActivities;
     private javax.swing.JPanel lastChanges;
     private javax.swing.JLabel lblFirstStart;
-    private javax.swing.JLabel lblStatistics;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel statistics;
+    private de.aidger.view.utils.BulletList statisticsList;
     // End of variables declaration//GEN-END:variables
 
 }

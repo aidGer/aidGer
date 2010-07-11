@@ -7,7 +7,6 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.swing.JComponent;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.KeyStroke;
@@ -33,7 +32,6 @@ import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
 import de.aidger.view.forms.HourlyWageEditorForm;
 import de.aidger.view.tabs.ViewerTab.DataType;
-import de.aidger.view.utils.BulletList;
 
 /**
  * A tab which will be used to add and edit the data.
@@ -58,11 +56,6 @@ public class EditorTab extends Tab {
      * A flag whether the tab is in edit mode.
      */
     private boolean editMode = false;
-
-    /**
-     * The hints list.
-     */
-    private final BulletList hintsList = new BulletList();
 
     /**
      * Constructs a data editor tab.
@@ -137,8 +130,6 @@ public class EditorTab extends Tab {
      */
     private void init() {
         initComponents();
-
-        clearHints();
 
         try {
             btnSave.setAction(ActionRegistry.getInstance().get(
@@ -313,15 +304,6 @@ public class EditorTab extends Tab {
     }
 
     /**
-     * Updates the hints list on the tab.
-     */
-    public void updateHints() {
-        hints.removeAll();
-        hints.add(new JLabel(hintsList.getList()));
-        hints.revalidate();
-    }
-
-    /**
      * Updates the hints panel due to validation failures.
      * 
      * @param model
@@ -336,8 +318,6 @@ public class EditorTab extends Tab {
         for (String error : errors) {
             addHint(error);
         }
-
-        updateHints();
 
         model.resetErrors();
     }
@@ -394,9 +374,7 @@ public class EditorTab extends Tab {
 
         setLayout(new java.awt.GridBagLayout());
 
-        editorForm.setBorder(javax.swing.BorderFactory.createTitledBorder(
-            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
-            getTabName()));
+        editorForm.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), getTabName()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -419,11 +397,15 @@ public class EditorTab extends Tab {
         gridBagConstraints.weighty = 1.0;
         add(filler, gridBagConstraints);
 
-        hints.setBorder(javax.swing.BorderFactory
-            .createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1,
-                1, 1, 1), _("Hints")));
-        hints.setLayout(new javax.swing.BoxLayout(hints,
-            javax.swing.BoxLayout.Y_AXIS));
+        hints.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Hints")));
+        hints.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
+        hints.add(hintsList, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -446,6 +428,7 @@ public class EditorTab extends Tab {
     private javax.swing.JLabel filler;
     private javax.swing.JLabel filler2;
     private final javax.swing.JPanel hints = new javax.swing.JPanel();
+    private final de.aidger.view.utils.BulletList hintsList = new de.aidger.view.utils.BulletList();
     // End of variables declaration//GEN-END:variables
 
 }
