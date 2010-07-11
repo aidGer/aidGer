@@ -2,6 +2,8 @@ package de.aidger.view.utils;
 
 import static de.aidger.utils.Translation._;
 
+import java.awt.Font;
+
 import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 
@@ -32,9 +34,14 @@ public class Charts {
         JFreeChart chart = ChartFactory.createPieChart3D(title, dataset, true,
             true, false);
 
+        Font titleFont = UIManager.getFont("TitledBorder.font");
+
         chart.setBackgroundPaint(null);
         chart.getLegend().setBackgroundPaint(null);
-        chart.getTitle().setFont(UIManager.getFont("TitledBorder.font"));
+        chart.getTitle().setFont(
+            new Font(titleFont.getName(), titleFont.getStyle(), 14));
+        chart.getTitle()
+            .setPaint(UIManager.getColor("TitledBorder.titleColor"));
         chart.setBorderPaint(null);
         chart.getLegend().setBorder(0, 0, 0, 0);
 

@@ -12,6 +12,7 @@ import org.jfree.data.general.DefaultPieDataset;
 
 import de.aidger.model.AbstractModel;
 import de.aidger.model.Runtime;
+import de.aidger.model.budgets.CourseBudget;
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
@@ -19,6 +20,7 @@ import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.history.HistoryEvent;
 import de.aidger.utils.history.HistoryManager;
+import de.aidger.utils.reports.BalanceHelper;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.models.UIActivity;
 import de.aidger.view.models.UIModel;
@@ -27,6 +29,8 @@ import de.aidger.view.utils.Charts;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
+import de.unistuttgart.iste.se.adohive.model.ICourse;
+import de.unistuttgart.iste.se.adohive.model.IEmployment;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 
 /**
@@ -59,7 +63,7 @@ public class WelcomeTab extends Tab {
     public WelcomeTab() {
         initComponents();
 
-        int count = 10;
+        int countLastChanges = 5, countLastActivities = 10;
 
         if (Runtime.getInstance().isFirstStart()) {
             statisticsList.add(_("Currently no statistics are available."));
@@ -67,17 +71,22 @@ public class WelcomeTab extends Tab {
             List<IActivity> activities = null;
             List<IAssistant> assistants = null;
             List<IFinancialCategory> financials = null;
+            List<ICourse> courses = null;
+            List<IEmployment> employments = null;
             try {
                 activities = (new Activity()).getAll();
                 assistants = (new Assistant()).getAll();
                 financials = (new FinancialCategory()).getAll();
+                courses = (new Course()).getAll();
+                employments = (new Employment()).getAll();
             } catch (AdoHiveException ex) {
             }
 
             List<HistoryEvent> events = HistoryManager.getInstance()
                 .getEvents();
 
-            int min = events.size() > count ? events.size() - count : 0;
+            int min = events.size() > countLastChanges ? events.size()
+                    - countLastChanges : 0;
 
             for (int i = events.size() - 1; i >= min; --i) {
                 HistoryEvent evt = events.get(i);
@@ -137,7 +146,9 @@ public class WelcomeTab extends Tab {
             }
 
             if (activities != null) {
-                min = activities.size() > count ? activities.size() - count : 0;
+                min = activities.size() > countLastActivities ? activities
+                    .size()
+                        - countLastActivities : 0;
 
                 for (int i = activities.size() - 1; i >= min; --i) {
                     activitiesList.add((new UIActivity(activities.get(i))
@@ -156,11 +167,24 @@ public class WelcomeTab extends Tab {
                 }
             }
 
-            int funds = 0;
+            int maxFunds = 0;
             for (IFinancialCategory f : financials) {
                 for (int b : f.getBudgetCosts()) {
-                    funds += b;
+                    maxFunds += b;
                 }
+            }
+
+            double bookedBudget = 0.0, totalBudget = 0.0;
+            for (ICourse c : courses) {
+                CourseBudget courseBudget = new CourseBudget(new Course(c));
+
+                bookedBudget += courseBudget.getBookedBudget();
+                totalBudget += courseBudget.getTotalBudget();
+            }
+
+            double bookedBudgetCosts = 0.0;
+            for (IEmployment e : employments) {
+                bookedBudgetCosts += BalanceHelper.calculateBudgetCost(e);
             }
 
             try {
@@ -182,7 +206,7 @@ public class WelcomeTab extends Tab {
                             (Object[]) qualifications));
                 statisticsList.add(MessageFormat.format(
                     _("They are using funds of {0} Euros."),
-                    new Object[] { funds }));
+                    new Object[] { maxFunds }));
             } catch (AdoHiveException ex) {
             }
 
@@ -192,8 +216,29 @@ public class WelcomeTab extends Tab {
             qualificationData.setValue(_("Checked"), qualifications[1]);
             qualificationData.setValue(_("Bachelor"), qualifications[2]);
 
-            diagram1.setIcon(Charts.createPieChart3D(_("Qualification"),
-                qualificationData, 240, 200));
+            int widthPie = 260, heightPie = 220;
+
+            diagram1.setIcon(Charts.createPieChart3D(
+                _("Qualifications of all assistants"), qualificationData,
+                widthPie, heightPie));
+
+            DefaultPieDataset budgetCourseData = new DefaultPieDataset();
+            budgetCourseData.setValue(_("Booked budgets"), bookedBudget);
+            budgetCourseData.setValue(_("Remaining budgets"), totalBudget
+                    - bookedBudget);
+
+            diagram2.setIcon(Charts.createPieChart3D(
+                _("Budget of all courses"), budgetCourseData, widthPie,
+                heightPie));
+
+            DefaultPieDataset budgetFundsData = new DefaultPieDataset();
+            budgetFundsData.setValue(_("Used budget"), bookedBudgetCosts);
+            budgetFundsData.setValue(_("Remaining budget"), maxFunds
+                    - bookedBudgetCosts);
+
+            diagram3.setIcon(Charts.createPieChart3D(
+                _("Budget costs of all funds"), budgetFundsData, widthPie,
+                heightPie));
         }
 
         lastChanges.add(new JLabel(historyList.getList()));
@@ -217,6 +262,7 @@ public class WelcomeTab extends Tab {
         lastActivities = new javax.swing.JPanel();
         statistics = new javax.swing.JPanel();
         lblStatistics = new javax.swing.JLabel();
+        diagrams = new javax.swing.JPanel();
         diagram1 = new javax.swing.JLabel();
         diagram2 = new javax.swing.JLabel();
         diagram3 = new javax.swing.JLabel();
@@ -250,8 +296,8 @@ public class WelcomeTab extends Tab {
             0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
         boxes.add(lastChanges, gridBagConstraints);
 
         lastActivities.setBorder(javax.swing.BorderFactory.createTitledBorder(
@@ -260,9 +306,12 @@ public class WelcomeTab extends Tab {
         lastActivities.setLayout(new java.awt.FlowLayout(
             java.awt.FlowLayout.LEFT, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 0);
         boxes.add(lastActivities, gridBagConstraints);
 
         statistics.setBorder(javax.swing.BorderFactory.createTitledBorder(
@@ -270,43 +319,50 @@ public class WelcomeTab extends Tab {
             _("Statistics & Diagrams")));
         statistics.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.weighty = 0.5;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
-        statistics.add(lblStatistics, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.weighty = 0.5;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 0);
-        statistics.add(diagram1, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.weighty = 0.5;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 10);
-        statistics.add(diagram2, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.weighty = 0.5;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
-        statistics.add(diagram3, gridBagConstraints);
+        statistics.add(lblStatistics, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.5;
+        boxes.add(statistics, gridBagConstraints);
+
+        diagrams.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.weighty = 1.0;
+        diagrams.add(diagram1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.weighty = 1.0;
+        diagrams.add(diagram2, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.weighty = 1.0;
+        diagrams.add(diagram3, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        boxes.add(statistics, gridBagConstraints);
+        boxes.add(diagrams, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -333,6 +389,7 @@ public class WelcomeTab extends Tab {
     private javax.swing.JLabel diagram1;
     private javax.swing.JLabel diagram2;
     private javax.swing.JLabel diagram3;
+    private javax.swing.JPanel diagrams;
     private javax.swing.JPanel lastActivities;
     private javax.swing.JPanel lastChanges;
     private javax.swing.JLabel lblFirstStart;
