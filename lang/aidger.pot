@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-11 14:23+0200\n"
+"POT-Creation-Date: 2010-07-11 15:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -960,7 +960,7 @@ msgstr ""
 #: utils/pdf/BudgetReportConverter.java:352
 #: view/forms/CourseViewerForm.java:155 view/tabs/BudgetViewerTab.java:51
 #: view/tabs/BudgetViewerTab.java:78 view/tabs/BudgetViewerTab.java:167
-#: view/tabs/WelcomeTab.java:260
+#: view/tabs/WelcomeTab.java:277
 msgid "Booked budgets"
 msgstr ""
 
@@ -1033,8 +1033,8 @@ msgstr ""
 msgid "First Start"
 msgstr ""
 
-#: view/FirstStartDialog.java:83 view/tabs/WelcomeTab.java:324
-#: view/tabs/WelcomeTab.java:439
+#: view/FirstStartDialog.java:83 view/tabs/WelcomeTab.java:340
+#: view/tabs/WelcomeTab.java:455
 msgid "Welcome to aidGer"
 msgstr ""
 
@@ -1146,15 +1146,15 @@ msgstr ""
 msgid "Only a number is allowed."
 msgstr ""
 
-#: view/forms/HourlyWageEditorForm.java:25 view/tabs/WelcomeTab.java:249
+#: view/forms/HourlyWageEditorForm.java:25 view/tabs/WelcomeTab.java:266
 msgid "Unchecked"
 msgstr ""
 
-#: view/forms/HourlyWageEditorForm.java:25 view/tabs/WelcomeTab.java:250
+#: view/forms/HourlyWageEditorForm.java:25 view/tabs/WelcomeTab.java:267
 msgid "Checked"
 msgstr ""
 
-#: view/forms/HourlyWageEditorForm.java:25 view/tabs/WelcomeTab.java:251
+#: view/forms/HourlyWageEditorForm.java:25 view/tabs/WelcomeTab.java:268
 msgid "Bachelor"
 msgstr ""
 
@@ -1176,6 +1176,14 @@ msgstr ""
 
 #: view/models/UIActivity.java:41
 msgid "at"
+msgstr ""
+
+#: view/models/UIEmployment.java:53
+msgid "from"
+msgstr ""
+
+#: view/models/UIEmployment.java:54
+msgid "in"
 msgstr ""
 
 #: view/reports/BalanceFilterPanel.java:91
@@ -1267,7 +1275,7 @@ msgid "Filters"
 msgstr ""
 
 #: view/tabs/BudgetViewerTab.java:51 view/tabs/BudgetViewerTab.java:78
-#: view/tabs/WelcomeTab.java:261
+#: view/tabs/WelcomeTab.java:278
 msgid "Remaining budgets"
 msgstr ""
 
@@ -1445,8 +1453,7 @@ msgstr ""
 msgid "Master Data Hourly Wages"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:505 view/tabs/WelcomeTab.java:277
-#: view/tabs/WelcomeTab.java:289 view/UI.java:650
+#: view/tabs/ViewerTab.java:505 view/tabs/WelcomeTab.java:294 view/UI.java:650
 msgid "Employments"
 msgstr ""
 
@@ -1466,103 +1473,99 @@ msgstr ""
 msgid "Currently no statistics are available."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:78
+#: view/tabs/WelcomeTab.java:79
 msgid "This is the first time aidGer is started."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:83 view/tabs/WelcomeTab.java:332
+#: view/tabs/WelcomeTab.java:84 view/tabs/WelcomeTab.java:348
 #, java-format
 msgid "The last start of aidGer was on {0}."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:121
+#: view/tabs/WelcomeTab.java:126
 #, java-format
 msgid "{0}: {1} with Id {2} was added."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:128
+#: view/tabs/WelcomeTab.java:135
 #, java-format
 msgid "{0}: {1} {2} was added."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:138
+#: view/tabs/WelcomeTab.java:148
 #, java-format
 msgid "{0}: {1} with Id {2} was edited."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:145
+#: view/tabs/WelcomeTab.java:157
 #, java-format
 msgid "{0}: {1} {2} was edited."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:154
+#: view/tabs/WelcomeTab.java:170
 #, java-format
 msgid "{0}: {1} with Id {2} was removed."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:226
+#: view/tabs/WelcomeTab.java:243
 #, java-format
 msgid "aidGer has created {0} activities."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:230
+#: view/tabs/WelcomeTab.java:247
 #, java-format
 msgid "{0} assistants are working in {1} employments."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:234
+#: view/tabs/WelcomeTab.java:251
 #, java-format
 msgid "These employments are part of {0} courses."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:239
+#: view/tabs/WelcomeTab.java:256
 #, java-format
 msgid ""
 "Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:242
+#: view/tabs/WelcomeTab.java:259
 #, java-format
 msgid "They are using funds of {0} Euros."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:256
+#: view/tabs/WelcomeTab.java:273
 msgid "Qualifications of all assistants"
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:265
+#: view/tabs/WelcomeTab.java:282
 msgid "Budget of all courses"
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:269
+#: view/tabs/WelcomeTab.java:286
 msgid "Used budget"
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:270
+#: view/tabs/WelcomeTab.java:287
 msgid "Remaining budget"
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:274
+#: view/tabs/WelcomeTab.java:291
 msgid "Budget costs of all funds"
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:289
+#: view/tabs/WelcomeTab.java:306
 msgid "Count of employments"
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:289
-msgid "Time"
-msgstr ""
-
-#: view/tabs/WelcomeTab.java:344
+#: view/tabs/WelcomeTab.java:360
 msgid "Last Changes"
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:355
+#: view/tabs/WelcomeTab.java:371
 msgid "Last activities"
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:369
+#: view/tabs/WelcomeTab.java:385
 msgid "Statistics & Diagrams"
 msgstr ""
 
@@ -1717,6 +1720,6 @@ msgstr ""
 msgid "Getting the model from the database failed"
 msgstr ""
 
-#: view/utils/Charts.java:57
+#: view/utils/Charts.java:61
 msgid "No data to display."
 msgstr ""

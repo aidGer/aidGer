@@ -39,7 +39,7 @@ public class UIActivity extends Activity implements UIModel {
     @Override
     public String toString() {
         return getType() + " (" + getSender() + " " + _("at") + " "
-                + (new SimpleDateFormat("dd.MM.yyyy")).format(getDate()) + ")";
+                + (new SimpleDateFormat("dd.MM.yy")).format(getDate()) + ")";
     }
 
     /*
