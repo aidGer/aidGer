@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-11 13:53+0200\n"
+"POT-Creation-Date: 2010-07-11 13:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -820,15 +820,19 @@ msgstr ""
 msgid "Could not create file \"{0}\"."
 msgstr ""
 
-#: utils/history/HistoryManager.java:95
+#: utils/history/HistoryManager.java:96
 msgid "Writing to the history file failed."
 msgstr ""
 
-#: utils/history/HistoryManager.java:123
+#: utils/history/HistoryManager.java:114
+msgid "Creating the history file failed."
+msgstr ""
+
+#: utils/history/HistoryManager.java:129
 msgid "Reading the history from file failed."
 msgstr ""
 
-#: utils/history/HistoryManager.java:125
+#: utils/history/HistoryManager.java:131
 msgid "Illegal modifications of the history file have been detected."
 msgstr ""
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-11 13:53+0200\n"
+"POT-Creation-Date: 2010-07-11 13:55+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -886,15 +886,19 @@ msgstr "Das Anonymisieren der Hilfskräfte schlug aufgrund eines Datenbankfehler
 msgid "Could not create file \"{0}\"."
 msgstr "Die Datei \"{0}\" konnte nicht erstellt werden."
 
-#: utils/history/HistoryManager.java:95
+#: utils/history/HistoryManager.java:96
 msgid "Writing to the history file failed."
 msgstr "Das Schreiben der Historydatei ist fehlgeschlagen."
 
-#: utils/history/HistoryManager.java:123
+#: utils/history/HistoryManager.java:114
+msgid "Creating the history file failed."
+msgstr "Das Erstellen der Historydatei ist fehlgeschlagen."
+
+#: utils/history/HistoryManager.java:129
 msgid "Reading the history from file failed."
 msgstr "Lesen der History aus der Datei ist fehlgeschlagen."
 
-#: utils/history/HistoryManager.java:125
+#: utils/history/HistoryManager.java:131
 msgid "Illegal modifications of the history file have been detected."
 msgstr "Illegale Modifikationen an der Historydatei wurden entdeckt."
 
