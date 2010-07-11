@@ -76,7 +76,8 @@ public class WelcomeTab extends Tab {
                     _("The last start of aidGer was on {0}."),
                     new Object[] { (new SimpleDateFormat("dd.MM.yy HH:mm"))
                     .format(new java.sql.Date(Long.valueOf(Runtime.getInstance()
-                            .getOption("last-start"))))}));
+                    .getOption("last-start",
+                    Long.toString((new java.util.Date()).getTime())))))}));
             Runtime.getInstance().setOption("last-start",
                 Long.toString(new java.util.Date().getTime()));
 
