@@ -1,4 +1,4 @@
-package de.aidger.view;
+package de.aidger.view.utils;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -19,17 +19,17 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import de.aidger.controller.actions.TaskPaneAction;
+import de.aidger.controller.actions.LinkAction;
 
 /**
- * This class represents a button on the task pane. The button reminds of HTML
- * links. Furthermore it is possible to set an icon to the button that is then
- * displayed before the linked text.
+ * This class represents a button that reminds of HTML links. Furthermore it is
+ * possible to set an icon to the button that is then displayed before the
+ * linked text.
  * 
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
-public class TaskPaneButton extends AbstractButton {
+public class LinkButton extends AbstractButton {
     /**
      * The name of the task pane button.
      */
@@ -61,12 +61,15 @@ public class TaskPaneButton extends AbstractButton {
      * @param a
      *            the action of the button
      */
-    public TaskPaneButton(TaskPaneAction a) {
+    public LinkButton(LinkAction a) {
         renderer = new ButtonRenderer(a);
 
         setModel(new DefaultButtonModel());
         setAction(a);
-        addMouseListener(a);
+
+        if (a.isLink()) {
+            addMouseListener(a);
+        }
 
         this.name = (String) a.getValue(AbstractAction.NAME);
         String action = (String) a.getValue(AbstractAction.ACTION_COMMAND_KEY);
@@ -83,65 +86,67 @@ public class TaskPaneButton extends AbstractButton {
         setBorderPainted(false);
 
         // add mouse handling for button
-        addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                if (SwingUtilities.isLeftMouseButton(e)) {
-                    setUnderlined(false);
+        if (a.isLink()) {
+            addMouseListener(new MouseAdapter() {
+                @Override
+                public void mousePressed(MouseEvent e) {
+                    if (SwingUtilities.isLeftMouseButton(e)) {
+                        setUnderlined(false);
 
-                    if (!model.isEnabled()) {
-                        return;
+                        if (!model.isEnabled()) {
+                            return;
+                        }
+
+                        if (!model.isArmed()) {
+                            model.setArmed(true);
+                        }
+
+                        model.setPressed(true);
+                        setUnderlined(true);
+
+                        if (!hasFocus() && isRequestFocusEnabled()) {
+                            requestFocus();
+                        }
+                    }
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                    if (SwingUtilities.isLeftMouseButton(e)) {
+                        setUnderlined(false);
+                        model.setPressed(false);
+                        model.setArmed(false);
+                        setUnderlined(model.isRollover());
+                    }
+                };
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    if (isRolloverEnabled()) {
+                        model.setRollover(true);
                     }
 
-                    if (!model.isArmed()) {
+                    if (model.isPressed()) {
                         model.setArmed(true);
                     }
+                };
 
-                    model.setPressed(true);
-                    setUnderlined(true);
-
-                    if (!hasFocus() && isRequestFocusEnabled()) {
-                        requestFocus();
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    if (isRolloverEnabled()) {
+                        model.setRollover(false);
                     }
-                }
-            }
 
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                if (SwingUtilities.isLeftMouseButton(e)) {
-                    setUnderlined(false);
-                    model.setPressed(false);
                     model.setArmed(false);
+                };
+            });
+
+            model.addChangeListener(new ChangeListener() {
+                public void stateChanged(ChangeEvent e) {
                     setUnderlined(model.isRollover());
                 }
-            };
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                if (isRolloverEnabled()) {
-                    model.setRollover(true);
-                }
-
-                if (model.isPressed()) {
-                    model.setArmed(true);
-                }
-            };
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                if (isRolloverEnabled()) {
-                    model.setRollover(false);
-                }
-
-                model.setArmed(false);
-            };
-        });
-
-        model.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                setUnderlined(model.isRollover());
-            }
-        });
+            });
+        }
     }
 
     /**

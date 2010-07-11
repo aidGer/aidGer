@@ -235,5 +235,334 @@ java -jar aidGer.jar
  Konsole ausgegeben.
 \end_layout
 
+\begin_layout Chapter
+Funktion
+\end_layout
+
+\begin_layout Standard
+Dieser Abschnitt erläutert die Aufgabe und Struktur von aidGer.
+\end_layout
+
+\begin_layout Section
+Komponenten
+\end_layout
+
+\begin_layout Standard
+aidGer dient der Verwaltung von Hilfskräften und der Kontrolle dieser.
+ Die Hauptkomponente stellt deshalb auch die Verwaltung der Daten dar.
+ Diese ist gegliedert in die Stammdaten wie Hilfskräfte, Veranstaltungen,
+ Finanzkategorien und Stundenlöhnen, sowie Vorgänge und Beschäftigungen.
+ Zudem können verschiedene Berichte erstellt, durch Filter verändert und
+ exportiert werden.
+\end_layout
+
+\begin_layout Chapter
+Einstellungen
+\end_layout
+
+\begin_layout Standard
+In den Einstellungen können verschiedene Programmoptionen verändert werden.
+ Um die Einstellungen aufzurufen kann entweder die Tastenkombination 
+\emph on
+STRG + S
+\emph default
+ oder der Menüeintrag 
+\emph on
+Datei 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+Einstellungen 
+\emph default
+benutzt werden.
+\end_layout
+
+\begin_layout Section
+Generelle Einstellungen
+\end_layout
+
+\begin_layout Subsection
+Initialen
+\end_layout
+
+\begin_layout Standard
+Die Initialien werden bei der Erstellung von Vorgängen benutzt um den momentanen
+ Benutzer eindeutig zu kennzeichnen.
+\end_layout
+
+\begin_layout Subsection
+PDF-Anzeiger
+\end_layout
+
+\begin_layout Standard
+Mit der hier ausgewählten, ausführbaren Datei werden PDF-Dateien geöffnet.
+ Ist keine Datei ausgewählt, so wird versucht die Dateien mit dem Standardanzeig
+er anzuzeigen.
+\end_layout
+
+\begin_layout Subsection
+Sprache
+\end_layout
+
+\begin_layout Standard
+Die ausgewählte Sprache wird nach einem Neustart überall genutzt.
+ Zudem wird die Standardsprache der Java Virtual Machine danach gesetzt.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Erfordert einen Neustart von aidGer.
+\end_layout
+
+\begin_layout Subsection
+Anzahl der Vorgänge
+\end_layout
+
+\begin_layout Standard
+Bestimmt die Anzahl der Vorgänge die in Detailansichten angezeigt wird.
+ Dies betrifft die Anzeige von Hilfskräften und Veranstaltungen.
+\end_layout
+
+\begin_layout Subsection
+Berichte automatisch nach Export öffnen
+\end_layout
+
+\begin_layout Standard
+Nach dem Export eines Berichtes wird dieser sofort mit dem gewählten PDF-Anzeige
+r geöffnet, falls diese Option aktiviert ist.
+\end_layout
+
+\begin_layout Subsection
+Reiter bei Verlassen speichern
+\end_layout
+
+\begin_layout Standard
+Ist diese Option aktiviert, so werden die geöffneten Reiter beim Verlassen
+ des Programms gespeichert und beim nächsten Start wiederhergestellt.
+\end_layout
+
+\begin_layout Section
+Berichtseinstellungen
+\end_layout
+
+\begin_layout Subsection
+Zeit bis zur Anonymisierung in Tagen
+\end_layout
+
+\begin_layout Standard
+Die Anzahl der Tage ohne Beschäftigung nach denen eine Hilfskraft anonymisiert
+ wird.
+ Die Anonymisierung wird beim ersten Start, nach dem diese Anzahl an Tagen
+ überschritten wird, durchgeführt.
+\end_layout
+
+\begin_layout Subsection
+Controllingtoleranz
+\end_layout
+
+\begin_layout Standard
+Die Toleranz, die beim Controlling verwendet wird.
+ Muss eine Gleitpunktzahl mit einem Punkt als Separator sein.
+\end_layout
+
+\begin_layout Subsection
+Faktoren
+\end_layout
+
+\begin_layout Standard
+Die Faktoren werden zur Berechnung von Berichten verwendet.
+ Der wirklich verwendete Faktor wird mit der Einstellung 
+\series bold
+Berechnungsmethode
+\series default
+ ausgewählt.
+\end_layout
+
+\begin_layout Subsection
+Berechnungsmethode
+\end_layout
+
+\begin_layout Standard
+Der Faktor der bei der Berechnung von Berichten verwendet wird.
+ Die Auswahl besteht zwischen dem historischen und dem pessimistischen Faktor.
+\end_layout
+
+\begin_layout Chapter
+Sonstiges
+\end_layout
+
+\begin_layout Section
+Lokalisation
+\end_layout
+
+\begin_layout Standard
+aidGer ist komplett lokalisierbar.
+ Standardmäßig werden Englisch und Deutsch als Sprachen mitgeliefert.
+ Eigene Übersetzungen können jedoch einfach hinzugefügt werden.
+ Dazu kann von der Webseite eine 
+\series bold
+.pot
+\series default
+ Datei heruntergeladen werden.
+ Diese enthält alle zu übersetzenden Strings und kann mit jedem GNU gettext
+ kompatiblen Programm zum Erstellen einer neuen Übersetzung genutzt werden.
+\end_layout
+
+\begin_layout Standard
+Als Programm zur Übersetzung empfehlen wir 
+\series bold
+poedit
+\series default
+, dass auf den meisten Platformen läuft.
+ Heruntergeladen werden kann es unter 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.poedit.net/
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Abgespeichert wird die fertige Übersetzung als 
+\shape italic
+Sprachenkürzel.po
+\shape default
+.
+ Das Sprachenkürzel muss dabei ein ISO Language Code nach ISO-639 sein.
+ Nach Fertigstellung der Übersetzung muss die entstandene 
+\series bold
+.po
+\series default
+ Datei noch in eine für Java lesbare 
+\series bold
+.properties
+\series default
+ Datei umgewandelt werden.
+ Dies geht am einfachsten Mithilfe der GNU gettext beiliegenden Kommandozeilenpr
+ogramme.
+ Hier am Beispiel der deutschen Übersetzung: 
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\family typewriter
+msgcat --properties-output de.po -o de.properties
+\end_layout
+
+\begin_layout Standard
+Die dabei entstandene Datei muss nun nur noch in den Sprachenordner von
+ aidGer kopiert werden.
+ Dieser befindet sich unterhalb des im nächsten Abschnitt angegeben Verzeichniss
+es im Unterverzeichnis 
+\emph on
+lang
+\emph default
+.
+ Beim nächsten Start von aidGer sollte sich die Sprache nun im Einstellungsdialo
+g auswählen lassen.
+\end_layout
+
+\begin_layout Section
+Von aidGer angelegte Dateien
+\end_layout
+
+\begin_layout Standard
+Zur Speicherung der Konfiguration und Logdateien wird von aidGer ein eigener
+ Ordner erstellt um diese Dateien darin zu speichern.
+ Je nach Betriebssystem unterscheidet sich der Pfad dieses Verzeichnisses:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Microsoft Windows 2000 und höher:
+\series default
+ %AppData%/aidGer
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Windows 95, 98 und ME: 
+\series default
+Eigene Dateien/aidGer
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+GNU/Linux: 
+\series default
+$XDG_CONFIG_HOME/aidGer oder ~/.config/aidGer
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Sonstige: 
+\series default
+~/aidGer
+\end_layout
+
+\begin_layout Standard
+Zudem wird wegen technischer Einschränkungen eine temporäre PDF-Datei erstellt,
+ wenn das Handbuch vom Programm aus geöffnet wird.
+ Diese wird automatisch beim Beenden von aidGer gelöscht.
+\end_layout
+
+\begin_layout Section
+Debug Modus
+\end_layout
+
+\begin_layout Standard
+Um ein wenig mehr Ausgaben auf der Konsole zu bekommen, kann in der Konfiguratio
+nsdatei 
+\emph on
+settings.cfg
+\emph default
+ im oben genannten Verzeichnis der Parameter 
+\emph on
+debug
+\emph default
+ auf true setzen.
+ Dies sollte dann in etwa so aussehen:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+debug = true
+\end_layout
+
+\begin_layout Chapter
+Versionsgeschichte
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+00.06.2010 - Version 0.1: 
+\series default
+Erste Veröffentlichung als Demonstration
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+14.07.2010 - Version 1.0: 
+\series default
+Erste komplette Version
+\end_layout
+
 \end_body
 \end_document

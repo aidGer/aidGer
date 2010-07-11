@@ -98,10 +98,8 @@ public class ContractEditorForm extends JPanel {
             spConfirmationDate.setVisible(false);
 
             // add confirmation date hint for user
-            tab.clearHints();
             tab
                 .addHint(_("Confirmation date can be entered after saving the contract."));
-            tab.updateHints();
         }
     }
 

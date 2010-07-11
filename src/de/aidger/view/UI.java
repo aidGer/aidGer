@@ -67,6 +67,7 @@ import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
 import de.aidger.view.tabs.WelcomeTab;
 import de.aidger.view.tabs.ViewerTab.DataType;
+import de.aidger.view.utils.LinkButton;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
@@ -627,8 +628,8 @@ public final class UI extends JFrame {
      *            the tab that will be opened on click
      * @return the task pane button
      */
-    private TaskPaneButton createTaskPaneButton(String name, Task task) {
-        return new TaskPaneButton(new TaskPaneAction(name, task));
+    private LinkButton createTaskPaneButton(String name, Task task) {
+        return new LinkButton(new TaskPaneAction(name, task));
     }
 
     /**
