@@ -288,6 +288,14 @@ public class WelcomeTab extends Tab {
             diagram4.setIcon(Charts.createXYAreaChart(
                 _("Count of employments"), employmentsCountData, 500, 270));
         }
+
+        if (historyList.count() == 0) {
+            historyList.add(_("None"));
+        }
+
+        if (activitiesList.count() == 0) {
+            activitiesList.add(_("None"));
+        }
     }
 
     /**
@@ -331,18 +339,17 @@ public class WelcomeTab extends Tab {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 20, 20, 0);
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 20, 0);
         add(lblFirstStart, gridBagConstraints);
 
         boxes.setLayout(new java.awt.GridBagLayout());
 
-        lastChanges.setBorder(javax.swing.BorderFactory.createTitledBorder(
-            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
-            _("Last Changes")));
+        lastChanges.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Last Changes")));
         lastChanges.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         lastChanges.add(historyList, gridBagConstraints);
 
@@ -352,9 +359,7 @@ public class WelcomeTab extends Tab {
         gridBagConstraints.weightx = 0.5;
         boxes.add(lastChanges, gridBagConstraints);
 
-        lastActivities.setBorder(javax.swing.BorderFactory.createTitledBorder(
-            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
-            _("Last activities")));
+        lastActivities.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Last activities")));
         lastActivities.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -372,13 +377,12 @@ public class WelcomeTab extends Tab {
         gridBagConstraints.weightx = 0.5;
         boxes.add(lastActivities, gridBagConstraints);
 
-        statistics.setBorder(javax.swing.BorderFactory.createTitledBorder(
-            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
-            _("Statistics & Diagrams")));
+        statistics.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Statistics & Diagrams")));
         statistics.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         statistics.add(statisticsList, gridBagConstraints);
 

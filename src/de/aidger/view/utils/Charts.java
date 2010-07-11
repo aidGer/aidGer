@@ -56,13 +56,14 @@ public class Charts {
 
         PiePlot3D plot = (PiePlot3D) chart.getPlot();
         plot.setStartAngle(290);
+        plot.setForegroundAlpha(0.9f);
         plot.setDirection(Rotation.CLOCKWISE);
-        plot.setForegroundAlpha(0.5f);
         plot.setNoDataMessage(_("No data to display."));
         plot.setLabelGenerator(null);
         plot.setInsets(new RectangleInsets(10, 1, 5, 1));
         plot.setBackgroundPaint(null);
         plot.setOutlineVisible(false);
+        plot.setDarkerSides(true);
 
         return new ImageIcon(chart.createBufferedImage(width, height));
     }
@@ -98,6 +99,7 @@ public class Charts {
         plot.setInsets(new RectangleInsets(10, 1, 5, 1));
         plot.setBackgroundPaint(null);
         plot.setOutlineVisible(false);
+        plot.setNoDataMessage(_("No data to display."));
 
         ValueAxis domainAxis = new DateAxis();
         domainAxis.setLowerMargin(0.0);

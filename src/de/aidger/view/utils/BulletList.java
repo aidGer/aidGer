@@ -102,4 +102,11 @@ public class BulletList extends JPanel {
 
         refresh();
     }
+
+    /*
+     * Returns the count of elements in the list.
+     */
+    public int count() {
+        return elements.size();
+    }
 }
