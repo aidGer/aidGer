@@ -4,9 +4,9 @@
 package de.aidger.model.reports;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.ArrayList;
 
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
@@ -86,7 +86,7 @@ public class ProtocolCreator {
             try {
                 addedActivity = new Object[8];
                 String assistantName = "";
-                if (new Assistant().getById(activity.getAssistantId()) != null) {
+                if (activity.getAssistantId() != null) {
                     assistantName = (new Assistant().getById(activity
                         .getAssistantId())).getFirstName()
                             + " "
@@ -95,7 +95,7 @@ public class ProtocolCreator {
                 }
                 addedActivity[0] = assistantName;
                 String courseName = "";
-                if (new Course().getById(activity.getCourseId()) != null) {
+                if (activity.getCourseId() != null) {
                     courseName = (new Course().getById(activity.getCourseId()))
                         .getDescription()
                             + "("
