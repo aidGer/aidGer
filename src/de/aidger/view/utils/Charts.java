@@ -9,8 +9,13 @@ import javax.swing.UIManager;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.DateAxis;
+import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.plot.PiePlot3D;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.general.PieDataset;
+import org.jfree.data.xy.XYDataset;
 import org.jfree.ui.RectangleInsets;
 import org.jfree.util.Rotation;
 
@@ -54,6 +59,35 @@ public class Charts {
         plot.setInsets(new RectangleInsets(10, 1, 5, 1));
         plot.setBackgroundPaint(null);
         plot.setOutlineVisible(false);
+
+        return new ImageIcon(chart.createBufferedImage(width, height));
+    }
+
+    public static ImageIcon createXYAreaChart(String title, XYDataset dataset,
+            int width, int height) {
+        JFreeChart chart = ChartFactory.createXYAreaChart(title, "", "",
+            dataset, PlotOrientation.VERTICAL, false, false, false);
+
+        Font titleFont = UIManager.getFont("TitledBorder.font");
+
+        chart.setBackgroundPaint(null);
+        chart.getTitle().setFont(
+            new Font(titleFont.getName(), titleFont.getStyle(), 14));
+        chart.getTitle()
+            .setPaint(UIManager.getColor("TitledBorder.titleColor"));
+        chart.setBorderPaint(null);
+
+        XYPlot plot = chart.getXYPlot();
+        plot.setInsets(new RectangleInsets(10, 1, 5, 1));
+        plot.setBackgroundPaint(null);
+        plot.setOutlineVisible(false);
+
+        ValueAxis domainAxis = new DateAxis();
+        domainAxis.setLowerMargin(0.0);
+        domainAxis.setUpperMargin(0.0);
+        domainAxis.setTickLabelFont(UIManager.getFont("RootPane.font"));
+        plot.setDomainAxis(domainAxis);
+        plot.setForegroundAlpha(0.5f);
 
         return new ImageIcon(chart.createBufferedImage(width, height));
     }

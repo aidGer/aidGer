@@ -4,13 +4,20 @@ import static de.aidger.utils.Translation._;
 
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.swing.JLabel;
 
 import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.time.Day;
+import org.jfree.data.time.TimeSeries;
+import org.jfree.data.time.TimeSeriesCollection;
 
-import de.aidger.model.AbstractModel;
 import de.aidger.model.Runtime;
 import de.aidger.model.budgets.CourseBudget;
 import de.aidger.model.models.Activity;
@@ -68,16 +75,20 @@ public class WelcomeTab extends Tab {
 
         if (Runtime.getInstance().isFirstStart()) {
             statisticsList.add(_("Currently no statistics are available."));
-            lblFirstStart.setText(_("This is the first time aidGer is started."));
+            lblFirstStart
+                .setText(_("This is the first time aidGer is started."));
             Runtime.getInstance().setOption("last-start",
                 Long.toString(new java.util.Date().getTime()));
         } else {
-            lblFirstStart.setText(MessageFormat.format(
-                    _("The last start of aidGer was on {0}."),
+            lblFirstStart.setText(MessageFormat
+                .format(_("The last start of aidGer was on {0}."),
                     new Object[] { (new SimpleDateFormat("dd.MM.yy HH:mm"))
-                    .format(new java.sql.Date(Long.valueOf(Runtime.getInstance()
-                    .getOption("last-start",
-                    Long.toString((new java.util.Date()).getTime())))))}));
+                        .format(new java.sql.Date(Long
+                            .valueOf(Runtime.getInstance()
+                                .getOption(
+                                    "last-start",
+                                    Long.toString((new java.util.Date())
+                                        .getTime()))))) }));
             Runtime.getInstance().setOption("last-start",
                 Long.toString(new java.util.Date().getTime()));
 
@@ -105,51 +116,63 @@ public class WelcomeTab extends Tab {
                 HistoryEvent evt = events.get(i);
 
                 try {
-                    UIModel modelUI = (UIModel) evt.getModel();
+                    UIModel modelUI = evt.getModel();
                     String event = "";
 
                     switch (evt.status) {
                     case Added:
                         if (modelUI == null) {
-                            event = MessageFormat.format(
-                                _("{0}: {1} with Id {2} was added."), new Object[] {
-                                        (new SimpleDateFormat("dd.MM.yy HH:mm"))
-                                            .format(evt.date),
-                                        DataType.valueOf(evt.type).getDisplayName(),
-                                        evt.id });
+                            event = MessageFormat
+                                .format(_("{0}: {1} with Id {2} was added."),
+                                    new Object[] {
+                                            (new SimpleDateFormat(
+                                                "dd.MM.yy HH:mm"))
+                                                .format(evt.date),
+                                            DataType.valueOf(evt.type)
+                                                .getDisplayName(), evt.id });
                         } else {
-                            event = MessageFormat.format(
-                                _("{0}: {1} {2} was added."), new Object[] {
-                                        (new SimpleDateFormat("dd.MM.yy HH:mm"))
-                                            .format(evt.date),
-                                        modelUI.getDataType().getDisplayName(),
-                                        modelUI.toString() });
+                            event = MessageFormat
+                                .format(_("{0}: {1} {2} was added."),
+                                    new Object[] {
+                                            (new SimpleDateFormat(
+                                                "dd.MM.yy HH:mm"))
+                                                .format(evt.date),
+                                            modelUI.getDataType()
+                                                .getDisplayName(),
+                                            modelUI.toString() });
                         }
                         break;
                     case Changed:
                         if (modelUI == null) {
-                            event = MessageFormat.format(
-                                _("{0}: {1} with Id {2} was edited."), new Object[] {
-                                        (new SimpleDateFormat("dd.MM.yy HH:mm"))
-                                            .format(evt.date),
-                                        DataType.valueOf(evt.type).getDisplayName(),
-                                        evt.id });
+                            event = MessageFormat
+                                .format(_("{0}: {1} with Id {2} was edited."),
+                                    new Object[] {
+                                            (new SimpleDateFormat(
+                                                "dd.MM.yy HH:mm"))
+                                                .format(evt.date),
+                                            DataType.valueOf(evt.type)
+                                                .getDisplayName(), evt.id });
                         } else {
-                            event = MessageFormat.format(
-                                _("{0}: {1} {2} was edited."), new Object[] {
-                                        (new SimpleDateFormat("dd.MM.yy HH:mm"))
-                                            .format(evt.date),
-                                        modelUI.getDataType().getDisplayName(),
-                                        modelUI.toString() });
+                            event = MessageFormat
+                                .format(_("{0}: {1} {2} was edited."),
+                                    new Object[] {
+                                            (new SimpleDateFormat(
+                                                "dd.MM.yy HH:mm"))
+                                                .format(evt.date),
+                                            modelUI.getDataType()
+                                                .getDisplayName(),
+                                            modelUI.toString() });
                         }
                         break;
                     case Removed:
-                        event = MessageFormat.format(
-                            _("{0}: {1} with Id {2} was removed."), new Object[] {
-                                    (new SimpleDateFormat("dd.MM.yy HH:mm"))
-                                        .format(evt.date),
-                                    DataType.valueOf(evt.type).getDisplayName(),
-                                    evt.id });
+                        event = MessageFormat
+                            .format(
+                                _("{0}: {1} with Id {2} was removed."),
+                                new Object[] {
+                                        (new SimpleDateFormat("dd.MM.yy HH:mm"))
+                                            .format(evt.date),
+                                        DataType.valueOf(evt.type)
+                                            .getDisplayName(), evt.id });
                         break;
                     }
 
@@ -196,8 +219,23 @@ public class WelcomeTab extends Tab {
             }
 
             double bookedBudgetCosts = 0.0;
+            Map<Date, Integer> employmentsCount = new HashMap<Date, Integer>();
+
             for (IEmployment e : employments) {
                 bookedBudgetCosts += BalanceHelper.calculateBudgetCost(e);
+
+                Calendar cal = Calendar.getInstance();
+                cal.clear();
+
+                cal.set(Calendar.MONTH, e.getMonth() - 1);
+                cal.set(Calendar.YEAR, e.getYear());
+
+                if (employmentsCount.get(cal.getTime()) == null) {
+                    employmentsCount.put(cal.getTime(), 1);
+                } else {
+                    employmentsCount.put(cal.getTime(), employmentsCount
+                        .get(cal.getTime()) + 1);
+                }
             }
 
             try {
@@ -252,6 +290,20 @@ public class WelcomeTab extends Tab {
             diagram3.setIcon(Charts.createPieChart3D(
                 _("Budget costs of all funds"), budgetFundsData, widthPie,
                 heightPie));
+
+            TimeSeries seriesEmployments = new TimeSeries(_("Employments"));
+
+            Set<Date> set = employmentsCount.keySet();
+
+            for (Date date : set) {
+                seriesEmployments
+                    .add(new Day(date), employmentsCount.get(date));
+            }
+
+            TimeSeriesCollection employmentsCountData = new TimeSeriesCollection(
+                seriesEmployments);
+            diagram4.setIcon(Charts.createXYAreaChart(
+                _("Count of employments"), employmentsCountData, 500, 270));
         }
 
         lastChanges.add(new JLabel(historyList.getList()));
@@ -279,6 +331,7 @@ public class WelcomeTab extends Tab {
         diagram1 = new javax.swing.JLabel();
         diagram2 = new javax.swing.JLabel();
         diagram3 = new javax.swing.JLabel();
+        diagram4 = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -350,22 +403,27 @@ public class WelcomeTab extends Tab {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.3;
-        gridBagConstraints.weighty = 1.0;
         diagrams.add(diagram1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.3;
-        gridBagConstraints.weighty = 1.0;
         diagrams.add(diagram2, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.3;
-        gridBagConstraints.weighty = 1.0;
         diagrams.add(diagram3, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
+        diagrams.add(diagram4, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -402,6 +460,7 @@ public class WelcomeTab extends Tab {
     private javax.swing.JLabel diagram1;
     private javax.swing.JLabel diagram2;
     private javax.swing.JLabel diagram3;
+    private javax.swing.JLabel diagram4;
     private javax.swing.JPanel diagrams;
     private javax.swing.JPanel lastActivities;
     private javax.swing.JPanel lastChanges;
