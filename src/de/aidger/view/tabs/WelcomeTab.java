@@ -64,11 +64,22 @@ public class WelcomeTab extends Tab {
     public WelcomeTab() {
         initComponents();
 
-        int countLastChanges = 5, countLastActivities = 10;
+        final int countLastChanges = 5, countLastActivities = 10;
 
         if (Runtime.getInstance().isFirstStart()) {
             statisticsList.add(_("Currently no statistics are available."));
+            lblFirstStart.setText(_("This is the first time aidGer is started."));
+            Runtime.getInstance().setOption("last-start",
+                Long.toString(new java.util.Date().getTime()));
         } else {
+            lblFirstStart.setText(MessageFormat.format(
+                    _("The last start of aidGer was on {0}."),
+                    new Object[] { (new SimpleDateFormat("dd.MM.yy HH:mm"))
+                    .format(new java.sql.Date(Long.valueOf(Runtime.getInstance()
+                            .getOption("last-start"))))}));
+            Runtime.getInstance().setOption("last-start",
+                Long.toString(new java.util.Date().getTime()));
+
             List<IActivity> activities = null;
             List<IAssistant> assistants = null;
             List<IFinancialCategory> financials = null;
