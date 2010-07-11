@@ -3,8 +3,8 @@
  */
 package de.aidger.utils.reports;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
@@ -23,15 +23,15 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
 public class ActivityReportHelper {
 
     /**
+     * The courses of the given assistant, along with all of their employments.
+     */
+    private final ArrayList<CourseEmployment> courseEmployments = new ArrayList<CourseEmployment>();
+
+    /**
      * Initializes a new ActivityReportHelper.
      */
     public ActivityReportHelper() {
     }
-
-    /**
-     * The courses of the given assistant, along with all of their employments.
-     */
-    private final ArrayList<CourseEmployment> courseEmployments = new ArrayList<CourseEmployment>();
 
     /**
      * Gets the index of a course in the courseEmployments vector.
@@ -225,15 +225,6 @@ public class ActivityReportHelper {
                         activityEmployment.addHours(hourCount);
                         int currentYear = ((firstTotalMonth + difference - 1) / 12);
                         int currentMonth = (firstMonth + difference - 1) % 12;
-                        if (currentMonth == 0) {
-                            /*
-                             * The 12th month of every year is displayed as the
-                             * 0th month of the next. Thus we need to make it
-                             * the 12th of the one before it.
-                             */
-                            currentMonth = 12;
-                            currentYear--;
-                        }
                         activityEmployment.addYear((short) (currentYear));
                         activityEmployment.addMonth((byte) (currentMonth));
                         activityEmployments.add(activityEmployment);
