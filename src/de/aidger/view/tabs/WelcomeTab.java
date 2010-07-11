@@ -158,7 +158,7 @@ public class WelcomeTab extends Tab {
                         break;
                     }
 
-                    historyList.add(event);
+                    historyList.add(event, modelUI);
                 } catch (Exception e) {
                 }
             }
@@ -169,8 +169,9 @@ public class WelcomeTab extends Tab {
                         - countLastActivities : 0;
 
                 for (int i = activities.size() - 1; i >= min; --i) {
-                    activitiesList.add((new UIActivity(activities.get(i))
-                        .toString()));
+                    UIActivity a = new UIActivity(activities.get(i));
+
+                    activitiesList.add(a.toString(), a);
                 }
             }
 
@@ -335,7 +336,9 @@ public class WelcomeTab extends Tab {
 
         boxes.setLayout(new java.awt.GridBagLayout());
 
-        lastChanges.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Last Changes")));
+        lastChanges.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            _("Last Changes")));
         lastChanges.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -349,7 +352,9 @@ public class WelcomeTab extends Tab {
         gridBagConstraints.weightx = 0.5;
         boxes.add(lastChanges, gridBagConstraints);
 
-        lastActivities.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Last activities")));
+        lastActivities.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            _("Last activities")));
         lastActivities.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -367,7 +372,9 @@ public class WelcomeTab extends Tab {
         gridBagConstraints.weightx = 0.5;
         boxes.add(lastActivities, gridBagConstraints);
 
-        statistics.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Statistics & Diagrams")));
+        statistics.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            _("Statistics & Diagrams")));
         statistics.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;

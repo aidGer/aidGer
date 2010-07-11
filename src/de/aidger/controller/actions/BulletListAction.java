@@ -8,6 +8,11 @@ import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.SwingUtilities;
 
+import de.aidger.model.AbstractModel;
+import de.aidger.view.UI;
+import de.aidger.view.models.UIModel;
+import de.aidger.view.tabs.DetailViewerTab;
+
 /**
  * Base class for all bullet list actions.
  * 
@@ -17,14 +22,40 @@ import javax.swing.SwingUtilities;
 public class BulletListAction extends LinkAction {
 
     /**
+     * The UI model the action link is refer to.
+     */
+    private UIModel model;
+
+    /**
      * Constructs a bullet list action.
      * 
      * @param name
      *            the action name
+     * @param bullet
+     *            the bullet icon
      */
     public BulletListAction(String name, Icon bullet) {
         putValue(Action.NAME, name);
         putValue(Action.SMALL_ICON, bullet);
+
+        markNoLink();
+    }
+
+    /**
+     * Constructs a bullet list action as link.
+     * 
+     * @param name
+     *            the action name
+     * @param bullet
+     *            the bullet icon
+     * @param model
+     *            the UI model the link is refer to
+     */
+    public BulletListAction(String name, Icon bullet, UIModel model) {
+        putValue(Action.NAME, name);
+        putValue(Action.SMALL_ICON, bullet);
+
+        this.model = model;
     }
 
     /*
@@ -32,9 +63,23 @@ public class BulletListAction extends LinkAction {
      * 
      * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
      */
+    @SuppressWarnings("unchecked")
     @Override
     public void mouseClicked(MouseEvent e) {
+        if (model == null) {
+            return;
+        }
+
         if (SwingUtilities.isLeftMouseButton(e)) {
+            UI.getInstance()
+                .replaceCurrentTab(
+                    new DetailViewerTab(model.getDataType(),
+                        (AbstractModel) model));
+        } else if (SwingUtilities.isMiddleMouseButton(e)) {
+            UI.getInstance()
+                .addNewTab(
+                    new DetailViewerTab(model.getDataType(),
+                        (AbstractModel) model));
         }
     }
 
