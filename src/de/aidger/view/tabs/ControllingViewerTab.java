@@ -94,8 +94,13 @@ public class ControllingViewerTab extends ReportTab {
                                 model.setValueAt("", row, column + 1);
                             }
                         } catch (NumberFormatException ex) {
-                            model.setValueAt("<< " + _("Wrong format!"), row,
-                                column + 1);
+                            if (model.getValueAt(row, column).toString()
+                                .equals("")) {
+                                model.setValueAt("", row, column + 1);
+                            } else {
+                                model.setValueAt("<< " + _("Wrong format!"),
+                                    row, column + 1);
+                            }
                         }
                     }
                 }
