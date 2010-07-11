@@ -3,6 +3,7 @@
  */
 package de.aidger.utils.reports;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -302,11 +303,83 @@ public class ActivityReportHelperTest {
 
         employment6.remove();
         employment7.remove();
+
+        activityReportHelper = new ActivityReportHelper();
+
+        Course course2 = course.clone();
+        course2.setDescription("Test Description");
+        course2.setNew(true);
+        course2.save();
+
+        Employment employment8 = employment.clone();
+        employment8.setCourseId(course2.getId());
+        employment8.setNew(true);
+        employment8.save();
+
+        result = activityReportHelper.getEmployments(assistant);
+
+        assertEquals(2, result.size());
+
+        activityEmployment = result.get(1);
+
+        assertEquals(course2.getDescription() + "(" + course2.getSemester()
+                + ")", activityEmployment.getCourse());
+        assertEquals(employment8.getHourCount(), activityEmployment.getHours(),
+            0);
+        assertEquals(1, activityEmployment.getMonths().size());
+        assertEquals(employment8.getMonth(), activityEmployment.getMonths()
+            .get(0));
+        assertEquals(1, activityEmployment.getYears().size());
+        assertEquals(employment8.getYear(), activityEmployment.getYears()
+            .get(0));
     }
 
     @Test
-    public void testGetEmploymentArray() {
+    public void testGetEmploymentArray() throws AdoHiveException {
+        System.out.println("getEmploymentArray()");
+        Employment employment2 = employment.clone();
+        employment2.setMonth((byte) (employment.getMonth() + 1));
+        employment2.setNew(true);
+        employment2.save();
 
+        List<ActivityEmployment> result = activityReportHelper
+            .getEmployments(assistant);
+
+        assertEquals(1, result.size());
+
+        ActivityEmployment activityEmployment = result.get(0);
+
+        Object[] resultArray = activityReportHelper
+            .getEmploymentArray(activityEmployment);
+        Object[] expected = { "10.2012 - 11.2012",
+                course.getDescription() + "(" + course.getSemester() + ")",
+                employment.getHourCount() + employment2.getHourCount() };
+
+        assertArrayEquals(expected, resultArray);
+
+        activityReportHelper = new ActivityReportHelper();
+
+        Employment employment3 = employment.clone();
+        employment3.setMonth((byte) (1));
+        employment3.setNew(true);
+        employment3.save();
+
+        result = activityReportHelper.getEmployments(assistant);
+
+        assertEquals(2, result.size());
+
+        activityEmployment = result.get(0);
+
+        resultArray = activityReportHelper
+            .getEmploymentArray(activityEmployment);
+        expected = new Object[] { "01.2012 - 01.2012",
+                course.getDescription() + "(" + course.getSemester() + ")",
+                employment3.getHourCount() };
+
+        assertArrayEquals(expected, resultArray);
+
+        employment2.remove();
+        employment3.remove();
     }
 
     @After
