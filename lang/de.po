@@ -1271,7 +1271,7 @@ msgstr "von"
 
 #: view/models/UIEmployment.java:54
 msgid "in"
-msgstr "in"
+msgstr "im"
 
 #: view/reports/BalanceFilterPanel.java:91
 msgid "Filter"

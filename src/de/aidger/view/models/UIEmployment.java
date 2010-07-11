@@ -52,7 +52,7 @@ public class UIEmployment extends Employment implements UIModel {
 
             return _("from") + " " + (new UIAssistant(assistant)).toString()
                     + " " + _("in") + " "
-                    + (new SimpleDateFormat("dd.MM.yy")).format(cal.getTime());
+                    + (new SimpleDateFormat("MMMM yy")).format(cal.getTime());
         } catch (AdoHiveException e) {
             return "";
         }
