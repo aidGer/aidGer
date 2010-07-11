@@ -2,6 +2,7 @@ package de.aidger.utils.history;
 
 import static de.aidger.utils.Translation._;
 import de.aidger.model.Runtime;
+import de.aidger.utils.Logger;
 import de.aidger.view.UI;
 import java.io.File;
 import java.io.FileInputStream;
@@ -104,8 +105,13 @@ final public class HistoryManager {
         if (!history.exists()) {
             try {
                 history.createNewFile();
+                FileOutputStream out = new FileOutputStream(history);
+                ObjectOutputStream obj = new ObjectOutputStream(out);
+                obj.writeObject(events);
+                obj.close();
+                out.close();
             } catch (IOException ex) {
-                
+                Logger.error(_("Creating the history file failed."));
             }
             return;
         }

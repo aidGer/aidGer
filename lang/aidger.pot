@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-11 13:17+0200\n"
+"POT-Creation-Date: 2010-07-11 15:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,7 +43,7 @@ msgstr ""
 #: controller/actions/ViewerActivityExportAction.java:81
 #: view/tabs/ActivityReportViewerTab.java:210
 #: view/tabs/BalanceViewerTab.java:270 view/tabs/BudgetViewerTab.java:243
-#: view/tabs/ControllingViewerTab.java:314
+#: view/tabs/ControllingViewerTab.java:319
 #: view/tabs/ProtocolViewerTab.java:165 view/tabs/ViewerTab.java:640
 #: view/tabs/ViewerTab.java:709
 msgid "Export"
@@ -102,7 +102,7 @@ msgstr ""
 #: controller/actions/ReportGenerateAction.java:30
 #: view/tabs/ActivityReportViewerTab.java:201
 #: view/tabs/BalanceViewerTab.java:261 view/tabs/BudgetViewerTab.java:234
-#: view/tabs/ControllingViewerTab.java:305
+#: view/tabs/ControllingViewerTab.java:310
 msgid "Generate"
 msgstr ""
 
@@ -123,7 +123,7 @@ msgid "Export the whole report to a pdf file"
 msgstr ""
 
 #: controller/actions/ControllingExportDifferencesAction.java:35
-#: view/tabs/ControllingViewerTab.java:328
+#: view/tabs/ControllingViewerTab.java:333
 msgid "Export differences"
 msgstr ""
 
@@ -190,7 +190,7 @@ msgstr ""
 #: view/forms/FinancialCategoryViewerForm.java:46
 #: view/models/EmploymentTableModel.java:34
 #: view/models/FinancialCategoryTableModel.java:25
-#: view/tabs/ControllingViewerTab.java:364
+#: view/tabs/ControllingViewerTab.java:369
 msgid "Funds"
 msgstr ""
 
@@ -200,7 +200,7 @@ msgstr ""
 #: view/forms/FinancialCategoryEditorForm.java:234
 #: view/forms/FinancialCategoryViewerForm.java:107
 #: view/models/FinancialCategoryTableModel.java:25
-#: view/tabs/BalanceViewerTab.java:255 view/tabs/ControllingViewerTab.java:344
+#: view/tabs/BalanceViewerTab.java:255 view/tabs/ControllingViewerTab.java:349
 msgid "Year"
 msgstr ""
 
@@ -516,27 +516,27 @@ msgstr ""
 msgid "The model was not saved because the error list is not empty."
 msgstr ""
 
-#: model/AbstractModel.java:182
+#: model/AbstractModel.java:183
 #, java-format
 msgid "Adding model: {0}"
 msgstr ""
 
-#: model/AbstractModel.java:188
+#: model/AbstractModel.java:189
 #, java-format
 msgid "Updating PKs for model: {0}"
 msgstr ""
 
-#: model/AbstractModel.java:195
+#: model/AbstractModel.java:196
 #, java-format
 msgid "Updating model: {0}"
 msgstr ""
 
-#: model/AbstractModel.java:237
+#: model/AbstractModel.java:238
 #, java-format
 msgid "Removing model: {0}"
 msgstr ""
 
-#: model/AbstractModel.java:497
+#: model/AbstractModel.java:498
 #, java-format
 msgid "Could not get manager for class \"{0}\". Error: {1}"
 msgstr ""
@@ -743,7 +743,7 @@ msgid "is an incorrect year"
 msgstr ""
 
 #: model/models/Employment.java:212 model/models/HourlyWage.java:134
-#: view/tabs/ControllingViewerTab.java:354
+#: view/tabs/ControllingViewerTab.java:359
 msgid "Month"
 msgstr ""
 
@@ -820,15 +820,19 @@ msgstr ""
 msgid "Could not create file \"{0}\"."
 msgstr ""
 
-#: utils/history/HistoryManager.java:95
+#: utils/history/HistoryManager.java:96
 msgid "Writing to the history file failed."
 msgstr ""
 
-#: utils/history/HistoryManager.java:123
+#: utils/history/HistoryManager.java:114
+msgid "Creating the history file failed."
+msgstr ""
+
+#: utils/history/HistoryManager.java:129
 msgid "Reading the history from file failed."
 msgstr ""
 
-#: utils/history/HistoryManager.java:125
+#: utils/history/HistoryManager.java:131
 msgid "Illegal modifications of the history file have been detected."
 msgstr ""
 
@@ -956,7 +960,7 @@ msgstr ""
 #: utils/pdf/BudgetReportConverter.java:352
 #: view/forms/CourseViewerForm.java:155 view/tabs/BudgetViewerTab.java:51
 #: view/tabs/BudgetViewerTab.java:78 view/tabs/BudgetViewerTab.java:167
-#: view/tabs/WelcomeTab.java:210
+#: view/tabs/WelcomeTab.java:277
 msgid "Booked budgets"
 msgstr ""
 
@@ -1029,8 +1033,8 @@ msgstr ""
 msgid "First Start"
 msgstr ""
 
-#: view/FirstStartDialog.java:83 view/tabs/WelcomeTab.java:258
-#: view/tabs/WelcomeTab.java:368
+#: view/FirstStartDialog.java:83 view/tabs/WelcomeTab.java:340
+#: view/tabs/WelcomeTab.java:455
 msgid "Welcome to aidGer"
 msgstr ""
 
@@ -1142,15 +1146,15 @@ msgstr ""
 msgid "Only a number is allowed."
 msgstr ""
 
-#: view/forms/HourlyWageEditorForm.java:25 view/tabs/WelcomeTab.java:199
+#: view/forms/HourlyWageEditorForm.java:25 view/tabs/WelcomeTab.java:266
 msgid "Unchecked"
 msgstr ""
 
-#: view/forms/HourlyWageEditorForm.java:25 view/tabs/WelcomeTab.java:200
+#: view/forms/HourlyWageEditorForm.java:25 view/tabs/WelcomeTab.java:267
 msgid "Checked"
 msgstr ""
 
-#: view/forms/HourlyWageEditorForm.java:25 view/tabs/WelcomeTab.java:201
+#: view/forms/HourlyWageEditorForm.java:25 view/tabs/WelcomeTab.java:268
 msgid "Bachelor"
 msgstr ""
 
@@ -1172,6 +1176,14 @@ msgstr ""
 
 #: view/models/UIActivity.java:41
 msgid "at"
+msgstr ""
+
+#: view/models/UIEmployment.java:53
+msgid "from"
+msgstr ""
+
+#: view/models/UIEmployment.java:54
+msgid "in"
 msgstr ""
 
 #: view/reports/BalanceFilterPanel.java:91
@@ -1263,7 +1275,7 @@ msgid "Filters"
 msgstr ""
 
 #: view/tabs/BudgetViewerTab.java:51 view/tabs/BudgetViewerTab.java:78
-#: view/tabs/WelcomeTab.java:211
+#: view/tabs/WelcomeTab.java:278
 msgid "Remaining budgets"
 msgstr ""
 
@@ -1279,11 +1291,11 @@ msgstr ""
 msgid "Actual costs (pre-tax)"
 msgstr ""
 
-#: view/tabs/ControllingViewerTab.java:97
+#: view/tabs/ControllingViewerTab.java:101
 msgid "Wrong format!"
 msgstr ""
 
-#: view/tabs/ControllingViewerTab.java:440
+#: view/tabs/ControllingViewerTab.java:445
 msgid "Assistant controlling"
 msgstr ""
 
@@ -1441,7 +1453,7 @@ msgstr ""
 msgid "Master Data Hourly Wages"
 msgstr ""
 
-#: view/tabs/ViewerTab.java:505 view/UI.java:650
+#: view/tabs/ViewerTab.java:505 view/tabs/WelcomeTab.java:294 view/UI.java:650
 msgid "Employments"
 msgstr ""
 
@@ -1457,85 +1469,103 @@ msgstr ""
 msgid "Data"
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:70
+#: view/tabs/WelcomeTab.java:77
 msgid "Currently no statistics are available."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:102
+#: view/tabs/WelcomeTab.java:79
+msgid "This is the first time aidGer is started."
+msgstr ""
+
+#: view/tabs/WelcomeTab.java:84 view/tabs/WelcomeTab.java:348
+#, java-format
+msgid "The last start of aidGer was on {0}."
+msgstr ""
+
+#: view/tabs/WelcomeTab.java:126
+#, java-format
+msgid "{0}: {1} with Id {2} was added."
+msgstr ""
+
+#: view/tabs/WelcomeTab.java:135
 #, java-format
 msgid "{0}: {1} {2} was added."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:110
+#: view/tabs/WelcomeTab.java:148
+#, java-format
+msgid "{0}: {1} with Id {2} was edited."
+msgstr ""
+
+#: view/tabs/WelcomeTab.java:157
 #, java-format
 msgid "{0}: {1} {2} was edited."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:119
+#: view/tabs/WelcomeTab.java:170
 #, java-format
 msgid "{0}: {1} with Id {2} was removed."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:176
+#: view/tabs/WelcomeTab.java:243
 #, java-format
 msgid "aidGer has created {0} activities."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:180
+#: view/tabs/WelcomeTab.java:247
 #, java-format
 msgid "{0} assistants are working in {1} employments."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:184
+#: view/tabs/WelcomeTab.java:251
 #, java-format
 msgid "These employments are part of {0} courses."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:189
+#: view/tabs/WelcomeTab.java:256
 #, java-format
 msgid ""
 "Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:192
+#: view/tabs/WelcomeTab.java:259
 #, java-format
 msgid "They are using funds of {0} Euros."
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:206
+#: view/tabs/WelcomeTab.java:273
 msgid "Qualifications of all assistants"
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:215
+#: view/tabs/WelcomeTab.java:282
 msgid "Budget of all courses"
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:219
+#: view/tabs/WelcomeTab.java:286
 msgid "Used budget"
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:220
+#: view/tabs/WelcomeTab.java:287
 msgid "Remaining budget"
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:224
+#: view/tabs/WelcomeTab.java:291
 msgid "Budget costs of all funds"
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:266
-#, java-format
-msgid "The last start of aidGer was on {0}."
+#: view/tabs/WelcomeTab.java:306
+msgid "Count of employments"
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:278
+#: view/tabs/WelcomeTab.java:360
 msgid "Last Changes"
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:289
+#: view/tabs/WelcomeTab.java:371
 msgid "Last activities"
 msgstr ""
 
-#: view/tabs/WelcomeTab.java:303
+#: view/tabs/WelcomeTab.java:385
 msgid "Statistics & Diagrams"
 msgstr ""
 
@@ -1690,6 +1720,6 @@ msgstr ""
 msgid "Getting the model from the database failed"
 msgstr ""
 
-#: view/utils/Charts.java:52
+#: view/utils/Charts.java:61
 msgid "No data to display."
 msgstr ""
