@@ -178,6 +178,7 @@ public abstract class AbstractModel<T> extends Observable implements
 
         /* Add or update model */
         IAdoHiveManager mgr = getManager();
+        boolean wasNew = isNew;
         if (isNew) {
             Logger.info(MessageFormat.format(_("Adding model: {0}"),
                 new Object[] { toString() }));
@@ -201,7 +202,7 @@ public abstract class AbstractModel<T> extends Observable implements
         /* Add event to the HistoryManager */
         HistoryEvent evt = new HistoryEvent();
         evt.id = getId();
-        evt.status = isNew ? HistoryEvent.Status.Added : HistoryEvent.Status.Changed;
+        evt.status = wasNew ? HistoryEvent.Status.Added : HistoryEvent.Status.Changed;
         evt.type = getClass().getSimpleName();
         evt.date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
         HistoryManager.getInstance().addEvent(evt);
