@@ -40,7 +40,7 @@ public class HistoryEvent implements Serializable {
      * @return The model
      */
     public UIModel getModel() {
-        if (status.equals(Status.Removed)) {
+        if (status.equals(Status.Removed) || type.equals("HourlyWage")) {
             return null;
         }
 
@@ -55,7 +55,6 @@ public class HistoryEvent implements Serializable {
             return (UIModel) classUI.getConstructor(classInterface)
                     .newInstance(classInterface.cast(o));
         } catch (Exception ex) {
-            Logger.error(_("Getting the model failed."));
             return null;
         }
     }

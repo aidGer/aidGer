@@ -109,23 +109,40 @@ public class WelcomeTab extends Tab {
 
                     switch (evt.status) {
                     case Added:
-                        event = MessageFormat.format(
-                            _("{0}: {1} {2} was added."), new Object[] {
-                                    (new SimpleDateFormat("dd.MM.yy HH:mm"))
-                                        .format(evt.date),
-                                    modelUI.getDataType().getDisplayName(),
-                                    modelUI.toString() });
+                        if (modelUI == null) {
+                            event = MessageFormat.format(
+                                _("{0}: {1} with Id {2} was added."), new Object[] {
+                                        (new SimpleDateFormat("dd.MM.yy HH:mm"))
+                                            .format(evt.date),
+                                        DataType.valueOf(evt.type).getDisplayName(),
+                                        evt.id });
+                        } else {
+                            event = MessageFormat.format(
+                                _("{0}: {1} {2} was added."), new Object[] {
+                                        (new SimpleDateFormat("dd.MM.yy HH:mm"))
+                                            .format(evt.date),
+                                        modelUI.getDataType().getDisplayName(),
+                                        modelUI.toString() });
+                        }
                         break;
                     case Changed:
-                        event = MessageFormat.format(
-                            _("{0}: {1} {2} was edited."), new Object[] {
-                                    (new SimpleDateFormat("dd.MM.yy HH:mm"))
-                                        .format(evt.date),
-                                    modelUI.getDataType().getDisplayName(),
-                                    modelUI.toString() });
+                        if (modelUI == null) {
+                            event = MessageFormat.format(
+                                _("{0}: {1} with Id {2} was edited."), new Object[] {
+                                        (new SimpleDateFormat("dd.MM.yy HH:mm"))
+                                            .format(evt.date),
+                                        DataType.valueOf(evt.type).getDisplayName(),
+                                        evt.id });
+                        } else {
+                            event = MessageFormat.format(
+                                _("{0}: {1} {2} was edited."), new Object[] {
+                                        (new SimpleDateFormat("dd.MM.yy HH:mm"))
+                                            .format(evt.date),
+                                        modelUI.getDataType().getDisplayName(),
+                                        modelUI.toString() });
+                        }
                         break;
                     case Removed:
-                        String str = "";
                         event = MessageFormat.format(
                             _("{0}: {1} with Id {2} was removed."), new Object[] {
                                     (new SimpleDateFormat("dd.MM.yy HH:mm"))

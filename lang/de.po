@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-11 13:55+0200\n"
+"POT-Creation-Date: 2010-07-11 14:00+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -41,7 +41,7 @@ msgstr "Programminformationen anzeigen"
 #: view/tabs/ActivityReportViewerTab.java:210
 #: view/tabs/BalanceViewerTab.java:270
 #: view/tabs/BudgetViewerTab.java:243
-#: view/tabs/ControllingViewerTab.java:314
+#: view/tabs/ControllingViewerTab.java:319
 #: view/tabs/ProtocolViewerTab.java:165
 #: view/tabs/ViewerTab.java:640
 #: view/tabs/ViewerTab.java:709
@@ -102,7 +102,7 @@ msgstr "Datei überschreiben?"
 #: view/tabs/ActivityReportViewerTab.java:201
 #: view/tabs/BalanceViewerTab.java:261
 #: view/tabs/BudgetViewerTab.java:234
-#: view/tabs/ControllingViewerTab.java:305
+#: view/tabs/ControllingViewerTab.java:310
 msgid "Generate"
 msgstr "Generieren"
 
@@ -123,7 +123,7 @@ msgid "Export the whole report to a pdf file"
 msgstr "Exportiert den gesamten Bericht nach PDF"
 
 #: controller/actions/ControllingExportDifferencesAction.java:35
-#: view/tabs/ControllingViewerTab.java:328
+#: view/tabs/ControllingViewerTab.java:333
 msgid "Export differences"
 msgstr "Abweichungen exportieren"
 
@@ -198,7 +198,7 @@ msgstr "Budgetkosten"
 #: view/forms/FinancialCategoryViewerForm.java:46
 #: view/models/EmploymentTableModel.java:34
 #: view/models/FinancialCategoryTableModel.java:25
-#: view/tabs/ControllingViewerTab.java:364
+#: view/tabs/ControllingViewerTab.java:369
 msgid "Funds"
 msgstr "Finanzmittel"
 
@@ -210,7 +210,7 @@ msgstr "Finanzmittel"
 #: view/forms/FinancialCategoryViewerForm.java:107
 #: view/models/FinancialCategoryTableModel.java:25
 #: view/tabs/BalanceViewerTab.java:255
-#: view/tabs/ControllingViewerTab.java:344
+#: view/tabs/ControllingViewerTab.java:349
 msgid "Year"
 msgstr "Jahr"
 
@@ -807,7 +807,7 @@ msgstr "ist ein ungültiges Jahr"
 
 #: model/models/Employment.java:212
 #: model/models/HourlyWage.java:134
-#: view/tabs/ControllingViewerTab.java:354
+#: view/tabs/ControllingViewerTab.java:359
 msgid "Month"
 msgstr "Monat"
 
@@ -1027,7 +1027,7 @@ msgstr "Budgetbericht"
 #: view/tabs/BudgetViewerTab.java:51
 #: view/tabs/BudgetViewerTab.java:78
 #: view/tabs/BudgetViewerTab.java:167
-#: view/tabs/WelcomeTab.java:221
+#: view/tabs/WelcomeTab.java:238
 msgid "Booked budgets"
 msgstr "Gebuchte HKS"
 
@@ -1110,8 +1110,8 @@ msgid "First Start"
 msgstr "Erster Start"
 
 #: view/FirstStartDialog.java:83
-#: view/tabs/WelcomeTab.java:269
-#: view/tabs/WelcomeTab.java:379
+#: view/tabs/WelcomeTab.java:286
+#: view/tabs/WelcomeTab.java:396
 msgid "Welcome to aidGer"
 msgstr "Willkommen zu aidGer"
 
@@ -1230,17 +1230,17 @@ msgid "Only a number is allowed."
 msgstr "Nur eine Zahl ist erlaubt."
 
 #: view/forms/HourlyWageEditorForm.java:25
-#: view/tabs/WelcomeTab.java:210
+#: view/tabs/WelcomeTab.java:227
 msgid "Unchecked"
 msgstr "Ungeprüft"
 
 #: view/forms/HourlyWageEditorForm.java:25
-#: view/tabs/WelcomeTab.java:211
+#: view/tabs/WelcomeTab.java:228
 msgid "Checked"
 msgstr "Geprüft"
 
 #: view/forms/HourlyWageEditorForm.java:25
-#: view/tabs/WelcomeTab.java:212
+#: view/tabs/WelcomeTab.java:229
 msgid "Bachelor"
 msgstr "Bachelor"
 
@@ -1358,7 +1358,7 @@ msgstr "Filter"
 
 #: view/tabs/BudgetViewerTab.java:51
 #: view/tabs/BudgetViewerTab.java:78
-#: view/tabs/WelcomeTab.java:222
+#: view/tabs/WelcomeTab.java:239
 msgid "Remaining budgets"
 msgstr "Übrige HKS"
 
@@ -1374,11 +1374,11 @@ msgstr "Plankosten (Brutto)"
 msgid "Actual costs (pre-tax)"
 msgstr "Reale Kosten (Brutto)"
 
-#: view/tabs/ControllingViewerTab.java:97
+#: view/tabs/ControllingViewerTab.java:101
 msgid "Wrong format!"
 msgstr "Falsche Format!"
 
-#: view/tabs/ControllingViewerTab.java:440
+#: view/tabs/ControllingViewerTab.java:445
 msgid "Assistant controlling"
 msgstr "Controlling Hilfskräfte"
 
@@ -1567,80 +1567,90 @@ msgid "This is the first time aidGer is started."
 msgstr "aidGer wurde gerade zum ersten Mal gestartet."
 
 #: view/tabs/WelcomeTab.java:76
-#: view/tabs/WelcomeTab.java:277
+#: view/tabs/WelcomeTab.java:294
 #, java-format
 msgid "The last start of aidGer was on {0}."
 msgstr "Der letzte Start von aidGer war am {0}."
 
-#: view/tabs/WelcomeTab.java:113
+#: view/tabs/WelcomeTab.java:114
+#, java-format
+msgid "{0}: {1} with Id {2} was added."
+msgstr "{0}: {1} mit Id {2} wurde hinzugefügt."
+
+#: view/tabs/WelcomeTab.java:121
 #, java-format
 msgid "{0}: {1} {2} was added."
 msgstr "{0}: {1} {2} wurde hinzugefügt."
 
-#: view/tabs/WelcomeTab.java:121
+#: view/tabs/WelcomeTab.java:131
+#, java-format
+msgid "{0}: {1} with Id {2} was edited."
+msgstr "{0}: {1} mit Id {2} wurde bearbeitet."
+
+#: view/tabs/WelcomeTab.java:138
 #, java-format
 msgid "{0}: {1} {2} was edited."
 msgstr "{0}: {1} {2} wurde bearbeitet."
 
-#: view/tabs/WelcomeTab.java:130
+#: view/tabs/WelcomeTab.java:147
 #, java-format
 msgid "{0}: {1} with Id {2} was removed."
 msgstr "{0}: {1} mit Id {2} wurde gelöscht."
 
-#: view/tabs/WelcomeTab.java:187
+#: view/tabs/WelcomeTab.java:204
 #, java-format
 msgid "aidGer has created {0} activities."
 msgstr "aidGer hat {0} Vorgänge erstellt."
 
-#: view/tabs/WelcomeTab.java:191
+#: view/tabs/WelcomeTab.java:208
 #, java-format
 msgid "{0} assistants are working in {1} employments."
 msgstr "{0} Hilfskräfte arbeiten in {1} Beschäftigungen."
 
-#: view/tabs/WelcomeTab.java:195
+#: view/tabs/WelcomeTab.java:212
 #, java-format
 msgid "These employments are part of {0} courses."
 msgstr "Diese Beschäftigungen gehören zu {0} Veranstaltungen."
 
-#: view/tabs/WelcomeTab.java:200
+#: view/tabs/WelcomeTab.java:217
 #, java-format
 msgid "Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."
 msgstr "Von den Hilfskräften sind {0} ungeprüft, {1} geprüft und {2} Bachelors"
 
-#: view/tabs/WelcomeTab.java:203
+#: view/tabs/WelcomeTab.java:220
 #, java-format
 msgid "They are using funds of {0} Euros."
 msgstr "Sie verwenden {0} Euros an Kapital."
 
-#: view/tabs/WelcomeTab.java:217
+#: view/tabs/WelcomeTab.java:234
 msgid "Qualifications of all assistants"
 msgstr "Qualifikationen aller Hilfskräfte"
 
-#: view/tabs/WelcomeTab.java:226
+#: view/tabs/WelcomeTab.java:243
 msgid "Budget of all courses"
 msgstr "Budget aller Veranstaltungen"
 
-#: view/tabs/WelcomeTab.java:230
+#: view/tabs/WelcomeTab.java:247
 msgid "Used budget"
 msgstr "Verbrauchtes Budget"
 
-#: view/tabs/WelcomeTab.java:231
+#: view/tabs/WelcomeTab.java:248
 msgid "Remaining budget"
 msgstr "Übriges Budget"
 
-#: view/tabs/WelcomeTab.java:235
+#: view/tabs/WelcomeTab.java:252
 msgid "Budget costs of all funds"
 msgstr "Budgetkosten aller Finanzmittel"
 
-#: view/tabs/WelcomeTab.java:289
+#: view/tabs/WelcomeTab.java:306
 msgid "Last Changes"
 msgstr "Letzte Änderungen"
 
-#: view/tabs/WelcomeTab.java:300
+#: view/tabs/WelcomeTab.java:317
 msgid "Last activities"
 msgstr "Letzte Vorgänge"
 
-#: view/tabs/WelcomeTab.java:314
+#: view/tabs/WelcomeTab.java:331
 msgid "Statistics & Diagrams"
 msgstr "Statistiken & Diagramme"
 
