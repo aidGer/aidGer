@@ -50,7 +50,7 @@ public class ActivityEmployment {
      */
     @Override
     public String toString() {
-        return course;
+        return getCourse();
     }
 
     /**

@@ -10,15 +10,12 @@ import org.junit.After;
 import org.junit.Test;
 
 /**
- * @author Phil
+ * Tests the class BalanceFilter.
  * 
+ * @author aidGer Team
  */
 public class BalanceFilterTest {
     private BalanceFilter balanceFilter = null;
-
-    public BalanceFilterTest() {
-
-    }
 
     @After
     public void cleanUp() {

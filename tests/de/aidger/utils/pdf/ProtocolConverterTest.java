@@ -7,6 +7,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
@@ -19,8 +21,9 @@ import de.aidger.model.models.FinancialCategory;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
- * @author Phil
+ * Tests the class ProtocolConverter.
  * 
+ * @author aidGer Team
  */
 public class ProtocolConverterTest {
 
@@ -33,10 +36,6 @@ public class ProtocolConverterTest {
     private static FinancialCategory financial = null;
 
     private ProtocolConverter protocolConverter = null;
-
-    public ProtocolConverterTest() {
-
-    }
 
     @After
     public void cleanUp() throws AdoHiveException {
@@ -114,8 +113,8 @@ public class ProtocolConverterTest {
      * @throws AdoHiveException
      */
     @Test
-    public void testConstructor() throws AdoHiveException {
-        System.out.println("Constructor");
+    public void testConstructorRange() throws AdoHiveException {
+        System.out.println("Constructor for activities in time range");
 
         File testFile = new File("Test_Report");
         protocolConverter = new ProtocolConverter(testFile, -1);
@@ -128,5 +127,18 @@ public class ProtocolConverterTest {
 
         file = new File("Test_Report.test.pdf");
         assertTrue(file.exists());
+    }
+
+    @Test
+    public void testConstructorOne() {
+        System.out.println("Constructor for a list of activities");
+
+        List<Activity> activities = new ArrayList<Activity>();
+        activities.add(activity);
+
+        File testFile = new File("Test_Report.pdf");
+        protocolConverter = new ProtocolConverter(testFile, activities);
+
+        assertTrue(testFile.exists());
     }
 }

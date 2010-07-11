@@ -22,8 +22,9 @@ import de.aidger.utils.reports.BalanceHelper;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
- * @author Phil
+ * Tests the class BalanceReportConverter.
  * 
+ * @author aidGer Team
  */
 public class BalanceReportConverterTest {
 
@@ -61,6 +62,7 @@ public class BalanceReportConverterTest {
         financialCategory.remove();
         File file = new File("Test_Report.pdf");
         file.delete();
+
         file = new File("Test_Report.test.pdf");
         file.delete();
     }
@@ -150,24 +152,30 @@ public class BalanceReportConverterTest {
     @Test
     public void testConstructor() throws AdoHiveException {
         System.out.println("Constructor");
+
         Course course2 = course.clone();
         course2.setSemester("WS1011");
+        course2.setNew(true);
         course2.save();
 
         Course course3 = course2.clone();
         course3.setGroup("Test group 2");
+        course3.setNew(true);
         course3.save();
 
         Course course4 = course2.clone();
         course4.setGroup("Test group 2");
+        course4.setNew(true);
         course4.save();
 
         Course course5 = course.clone();
         course5.setSemester("WS0001");
+        course5.setNew(true);
         course5.save();
 
         Course course6 = course.clone();
         course6.setSemester("WS9900");
+        course6.setNew(true);
         course6.save();
 
         ArrayList years = new BalanceHelper().getYears();

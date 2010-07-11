@@ -9,11 +9,12 @@ import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.aidger.model.models.Activity;
@@ -22,14 +23,16 @@ import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
+import de.aidger.model.models.HourlyWage;
 import de.aidger.model.reports.BalanceCourse;
 import de.aidger.model.reports.BalanceFilter;
 import de.aidger.model.reports.BalanceCourse.BudgetCost;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
- * @author Phil
+ * Tests the class BalanceHelper.
  * 
+ * @author aidGer Team
  */
 public class BalanceHelperTest {
 
@@ -57,7 +60,18 @@ public class BalanceHelperTest {
 
     private BalanceFilter balanceFilter = null;
 
-    public BalanceHelperTest() throws AdoHiveException {
+    private HourlyWage hourlyWage = null;
+
+    @BeforeClass
+    public static void beforeClassSetUp() throws AdoHiveException {
+        de.aidger.model.Runtime.getInstance().initialize();
+        new HourlyWage().clearTable();
+        new FinancialCategory().clearTable();
+        new Employment().clearTable();
+        new Course().clearTable();
+        new Contract().clearTable();
+        new Assistant().clearTable();
+        new Activity().clearTable();
     }
 
     @After
@@ -80,6 +94,8 @@ public class BalanceHelperTest {
         contract.remove();
 
         financialCategory.remove();
+
+        hourlyWage.remove();
     }
 
     /**
@@ -89,8 +105,6 @@ public class BalanceHelperTest {
      */
     @Before
     public void setUp() throws AdoHiveException {
-        de.aidger.model.Runtime.getInstance().initialize();
-
         financialCategory = new FinancialCategory();
         financialCategory.setBudgetCosts(new Integer[] { 1000 });
         financialCategory.setFunds(new Integer[] { 10000000 });
@@ -139,11 +153,12 @@ public class BalanceHelperTest {
         contract = new Contract();
         contract.setNew(true);
         contract.setStartDate(new Date(1970, 1, 1));
-        contract.setCompletionDate(new Date(1970, 1, 3));
-        contract.setConfirmationDate(new Date(1970, 1, 2));
+        contract.setCompletionDate(new Date(1970, 1, 2));
+        contract.setConfirmationDate(new Date(1970, 1, 3));
         contract.setEndDate(new Date(1970, 1, 4));
         contract.setDelegation(true);
         contract.setType("Test type");
+        contract.setAssistantId(assistant.getId());
         contract.save();
 
         employment1 = new Employment();
@@ -163,7 +178,7 @@ public class BalanceHelperTest {
         employment2 = new Employment();
         employment2.setAssistantId(assistant.getId());
         employment2.setCourseId(course.getId());
-        employment2.setFunds(2);
+        employment2.setFunds(1);
         employment2.setHourCount(10.0);
         employment2.setContractId(contract.getId());
         employment2.setCostUnit("Test unit");
@@ -173,6 +188,14 @@ public class BalanceHelperTest {
         employment2.setYear((short) 1970);
         employment2.setNew(true);
         employment2.save();
+
+        hourlyWage = new HourlyWage();
+        hourlyWage.setMonth(employment1.getMonth());
+        hourlyWage.setYear(employment1.getYear());
+        hourlyWage.setQualification(employment1.getQualification());
+        hourlyWage.setWage(new BigDecimal(10));
+        hourlyWage.setNew(true);
+        hourlyWage.save();
 
         balanceCourse = new BalanceCourse();
         balanceCourse.setTitle("Description");
@@ -451,12 +474,12 @@ public class BalanceHelperTest {
         balanceHelper = new BalanceHelper();
 
         Course course2 = course.clone();
-        course2.setSemester("WS0910");
+        course2.setSemester("2000");
         course2.setNew(true);
         course2.save();
 
         Course course3 = course.clone();
-        course3.setSemester("2008");
+        course3.setSemester("WS0910");
         course3.setNew(true);
         course3.save();
 
@@ -466,9 +489,9 @@ public class BalanceHelperTest {
          * The years specified above should be available.
          */
         assertNotNull(years);
-        assertTrue(years.contains(2008));
         assertTrue(years.contains(2009));
         assertTrue(years.contains(2010));
+        assertTrue(years.contains(2000));
 
         employment1.clearTable();
         new Activity().clearTable();
@@ -508,5 +531,54 @@ public class BalanceHelperTest {
         assertTrue(balanceHelper.courseExists(course.getSemester(), null));
 
         assertTrue(!balanceHelper.courseExists("Test semester", null));
+    }
+
+    /**
+     * Tests the method calculateBudgetCost() of the class BalanceHelper.
+     * 
+     * @throws AdoHiveException
+     */
+    @Test
+    public void testCalculateBudgetCost() throws AdoHiveException {
+        System.out.println("calculateBudgetCost()");
+
+        de.aidger.model.Runtime.getInstance().setOption("calc-method", "0");
+        de.aidger.model.Runtime.getInstance().setOption("historic-factor",
+            "1.2");
+
+        new BalanceHelper();
+
+        assertEquals(10 * employment1.getHourCount() * 1.2, BalanceHelper
+            .calculateBudgetCost(employment1), 0);
+
+        de.aidger.model.Runtime.getInstance().setOption("calc-method", "1");
+        de.aidger.model.Runtime.getInstance().setOption("pessimistic-factor",
+            "1.4");
+
+        assertEquals(10 * employment1.getHourCount() * 1.4, BalanceHelper
+            .calculateBudgetCost(employment1), 0);
+
+        hourlyWage.remove();
+
+        assertEquals(0, BalanceHelper.calculateBudgetCost(employment1), 0);
+    }
+
+    /**
+     * Tests the method calculatePreTaxBudgetCost() of the class BalanceHelper.
+     * 
+     * @throws AdoHiveException
+     */
+    @Test
+    public void testCalculatePreTaxBudgetCost() throws AdoHiveException {
+        System.out.println("calculatePreTaxBudgetCost()");
+
+        new BalanceHelper();
+
+        assertEquals(10 * employment1.getHourCount(), BalanceHelper
+            .calculatePreTaxBudgetCost(employment1), 0);
+
+        hourlyWage.remove();
+
+        assertEquals(0, BalanceHelper.calculatePreTaxBudgetCost(employment1), 0);
     }
 }

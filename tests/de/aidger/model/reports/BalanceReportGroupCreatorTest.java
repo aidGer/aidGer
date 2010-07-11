@@ -19,8 +19,9 @@ import de.aidger.model.models.FinancialCategory;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
- * @author Phil
+ * Tests the class BalanceReportGroupCreator
  * 
+ * @author aidGer Team
  */
 public class BalanceReportGroupCreatorTest {
 

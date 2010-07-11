@@ -108,6 +108,33 @@ public class BudgetFilterTest {
     }
 
     /**
+     * Tests the setters and getters of the class BudgetFilter.
+     */
+    @Test
+    public void testSettersGetters() {
+        System.out.println("Setters and Getters");
+
+        budgetFilter.setAvailableBudget(10);
+        assertEquals(10, budgetFilter.getAvailableBudget(), 0);
+
+        budgetFilter.setAvailableComparison(Comparison.NONE);
+        assertEquals(Comparison.NONE, budgetFilter.getAvailableComparison());
+
+        budgetFilter.setBookedBudget(10);
+        assertEquals(10, budgetFilter.getBookedBudget(), 0);
+
+        budgetFilter.setBookedComparison(Comparison.NONE);
+        assertEquals(Comparison.NONE, budgetFilter.getBookedComparison());
+
+        budgetFilter.setTotalBudget(10);
+        assertEquals(10, budgetFilter.getTotalBudget(), 0);
+
+        budgetFilter.setTotalComparison(Comparison.NONE);
+        assertEquals(Comparison.NONE, budgetFilter.getTotalComparison());
+
+    }
+
+    /**
      * Cleans up after the tests.
      * 
      * @throws AdoHiveException

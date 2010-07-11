@@ -148,6 +148,9 @@ public class CourseBudgetTest {
 
         courseBudget = new CourseBudget(course);
         assertEquals(courseBudget.getAvailableBudget(), 0, 0);
+        assertEquals(course.getDescription(), courseBudget.getName());
+        assertEquals(course.getSemester(), courseBudget.getSemester());
+        assertEquals(course.getLecturer(), courseBudget.getLecturer());
     }
 
     /**

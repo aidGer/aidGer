@@ -240,7 +240,7 @@ public class BalanceHelper {
                 .getBudgetCosts().contains(employment.getFunds()))) {
                 Double budgetCost = 0.0;
                 for (IAssistant assistant : assistants) {
-                    if (employment.getAssistantId() == assistant.getId()) {
+                    if (employment.getAssistantId().equals(assistant.getId())) {
                         budgetCost = budgetCost
                                 + calculateBudgetCost(employment);
                     }
