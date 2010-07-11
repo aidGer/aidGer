@@ -22,6 +22,7 @@ import de.aidger.utils.history.HistoryManager;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.models.UIActivity;
 import de.aidger.view.models.UIModel;
+import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.BulletList;
 import de.aidger.view.utils.Charts;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
@@ -83,25 +84,7 @@ public class WelcomeTab extends Tab {
                 HistoryEvent evt = events.get(i);
 
                 try {
-                    Class obj = Class.forName("de.aidger.model.models."
-                            + evt.type);
-                    AbstractModel a = (AbstractModel) obj.newInstance();
-                    Object o;
-
-                    o = a.getById(evt.id);
-
-                    Class classUI = Class.forName("de.aidger.view.models.UI"
-                            + evt.type);
-
-                    Class classInterface = Class
-                        .forName("de.unistuttgart.iste.se.adohive.model.I"
-                                + evt.type);
-
-                    Object model = classUI.getConstructor(classInterface)
-                        .newInstance(classInterface.cast(o));
-
-                    UIModel modelUI = (UIModel) model;
-
+                    UIModel modelUI = (UIModel) evt.getModel();
                     String event = "";
 
                     switch (evt.status) {
@@ -122,12 +105,13 @@ public class WelcomeTab extends Tab {
                                     modelUI.toString() });
                         break;
                     case Removed:
+                        String str = "";
                         event = MessageFormat.format(
-                            _("{0}: {1} {2} was removed."), new Object[] {
+                            _("{0}: {1} with Id {2} was removed."), new Object[] {
                                     (new SimpleDateFormat("dd.MM.yy HH:mm"))
                                         .format(evt.date),
-                                    modelUI.getDataType().getDisplayName(),
-                                    modelUI.toString() });
+                                    DataType.valueOf(evt.type).getDisplayName(),
+                                    evt.id });
                         break;
                     }
 
