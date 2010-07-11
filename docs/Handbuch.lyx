@@ -257,6 +257,138 @@ aidGer dient der Verwaltung von Hilfskräften und der Kontrolle dieser.
 \end_layout
 
 \begin_layout Chapter
+Einstellungen
+\end_layout
+
+\begin_layout Standard
+In den Einstellungen können verschiedene Programmoptionen verändert werden.
+ Um die Einstellungen aufzurufen kann entweder die Tastenkombination 
+\emph on
+STRG + S
+\emph default
+ oder der Menüeintrag 
+\emph on
+Datei 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+Einstellungen 
+\emph default
+benutzt werden.
+\end_layout
+
+\begin_layout Section
+Generelle Einstellungen
+\end_layout
+
+\begin_layout Subsection
+Initialen
+\end_layout
+
+\begin_layout Standard
+Die Initialien werden bei der Erstellung von Vorgängen benutzt um den momentanen
+ Benutzer eindeutig zu kennzeichnen.
+\end_layout
+
+\begin_layout Subsection
+PDF-Anzeiger
+\end_layout
+
+\begin_layout Standard
+Mit der hier ausgewählten, ausführbaren Datei werden PDF-Dateien geöffnet.
+ Ist keine Datei ausgewählt, so wird versucht die Dateien mit dem Standardanzeig
+er anzuzeigen.
+\end_layout
+
+\begin_layout Subsection
+Sprache
+\end_layout
+
+\begin_layout Standard
+Die ausgewählte Sprache wird nach einem Neustart überall genutzt.
+ Zudem wird die Standardsprache der Java Virtual Machine danach gesetzt.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Erfordert einen Neustart von aidGer.
+\end_layout
+
+\begin_layout Subsection
+Anzahl der Vorgänge
+\end_layout
+
+\begin_layout Standard
+Bestimmt die Anzahl der Vorgänge die in Detailansichten angezeigt wird.
+ Dies betrifft die Anzeige von Hilfskräften und Veranstaltungen.
+\end_layout
+
+\begin_layout Subsection
+Berichte automatisch nach Export öffnen
+\end_layout
+
+\begin_layout Standard
+Nach dem Export eines Berichtes wird dieser sofort mit dem gewählten PDF-Anzeige
+r geöffnet, falls diese Option aktiviert ist.
+\end_layout
+
+\begin_layout Subsection
+Reiter bei Verlassen speichern
+\end_layout
+
+\begin_layout Standard
+Ist diese Option aktiviert, so werden die geöffneten Reiter beim Verlassen
+ des Programms gespeichert und beim nächsten Start wiederhergestellt.
+\end_layout
+
+\begin_layout Section
+Berichtseinstellungen
+\end_layout
+
+\begin_layout Subsection
+Zeit bis zur Anonymisierung in Tagen
+\end_layout
+
+\begin_layout Standard
+Die Anzahl der Tage ohne Beschäftigung nach denen eine Hilfskraft anonymisiert
+ wird.
+ Die Anonymisierung wird beim ersten Start, nach dem diese Anzahl an Tagen
+ überschritten wird, durchgeführt.
+\end_layout
+
+\begin_layout Subsection
+Controllingtoleranz
+\end_layout
+
+\begin_layout Standard
+Die Toleranz, die beim Controlling verwendet wird.
+ Muss eine Gleitpunktzahl mit einem Punkt als Separator sein.
+\end_layout
+
+\begin_layout Subsection
+Faktoren
+\end_layout
+
+\begin_layout Standard
+Die Faktoren werden zur Berechnung von Berichten verwendet.
+ Der wirklich verwendete Faktor wird mit der Einstellung 
+\series bold
+Berechnungsmethode
+\series default
+ ausgewählt.
+\end_layout
+
+\begin_layout Subsection
+Berechnungsmethode
+\end_layout
+
+\begin_layout Standard
+Der Faktor der bei der Berechnung von Berichten verwendet wird.
+ Die Auswahl besteht zwischen dem historischen und dem pessimistischen Faktor.
+\end_layout
+
+\begin_layout Chapter
 Sonstiges
 \end_layout
 
