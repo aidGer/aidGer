@@ -2,8 +2,8 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -15,6 +15,7 @@ import de.aidger.model.models.Assistant;
 import de.aidger.model.reports.ActivityEmployment;
 import de.aidger.utils.reports.ActivityReportHelper;
 import de.aidger.view.UI;
+import de.aidger.view.models.UIAssistant;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 
@@ -40,7 +41,7 @@ public class ActivityReportViewerTab extends Tab {
     /**
      * The assistants in the combo box.
      */
-    private ArrayList<Assistant> assistants;
+    private ArrayList<UIAssistant> assistants;
 
     /**
      * Initializes a new AcitivityReportViewerTab.
@@ -61,6 +62,11 @@ public class ActivityReportViewerTab extends Tab {
         jSeparator3.setVisible(false);
     }
 
+    /**
+     * Returns the name of the selected assistant.
+     * 
+     * @return
+     */
     public String getAssistantName() {
         return assistantNameContentLabel.getText();
     }
@@ -128,8 +134,7 @@ public class ActivityReportViewerTab extends Tab {
      * @return The assistant.
      */
     public Assistant getSelectedAssistant() {
-        return new Assistant(assistants.get(assistantComboBox
-            .getSelectedIndex()));
+        return (Assistant) assistantComboBox.getSelectedItem();
     }
 
     /**
@@ -137,13 +142,12 @@ public class ActivityReportViewerTab extends Tab {
      */
     private void fillAssistants() {
         List<IAssistant> fillingAssistants;
-        assistants = new ArrayList<Assistant>();
+        assistants = new ArrayList<UIAssistant>();
         try {
             fillingAssistants = new Assistant().getAll();
             for (IAssistant assistant : fillingAssistants) {
-                assistantComboBox.addItem(assistant.getFirstName() + " "
-                        + assistant.getLastName());
-                assistants.add(new Assistant(assistant));
+                assistants.add(new UIAssistant(assistant));
+                assistantComboBox.addItem(new UIAssistant(assistant));
             }
         } catch (AdoHiveException e) {
             UI.displayError(e.toString());
