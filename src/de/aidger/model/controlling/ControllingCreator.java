@@ -3,8 +3,8 @@
  */
 package de.aidger.model.controlling;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Employment;

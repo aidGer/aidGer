@@ -81,6 +81,7 @@ view/models/EmploymentTableModel.java
 view/models/FinancialCategoryTableModel.java
 view/models/HourlyWageTableModel.java
 view/models/UIActivity.java
+view/models/UIEmployment.java
 view/reports/BalanceFilterPanel.java
 view/reports/BalanceReportGroupPanel.java
 view/reports/BalanceReportSemesterPanel.java
