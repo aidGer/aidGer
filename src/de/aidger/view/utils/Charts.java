@@ -31,6 +31,10 @@ public class Charts {
      *            the diagram title
      * @param dataset
      *            the dataset.
+     * @param width
+     *            the width of the chart as image
+     * @param height
+     *            the height of the chart as image
      * 
      * @return the 3D pie chart as image
      */
@@ -63,6 +67,19 @@ public class Charts {
         return new ImageIcon(chart.createBufferedImage(width, height));
     }
 
+    /**
+     * Creates a xy area chart.
+     * 
+     * @param title
+     *            the diagram title
+     * @param dataset
+     *            the dataset.
+     * @param width
+     *            the width of the chart as image
+     * @param height
+     *            the height of the chart as image
+     * @return the xy area chart as image
+     */
     public static ImageIcon createXYAreaChart(String title, XYDataset dataset,
             int width, int height) {
         JFreeChart chart = ChartFactory.createXYAreaChart(title, "", "",
