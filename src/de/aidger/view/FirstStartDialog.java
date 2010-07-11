@@ -3,6 +3,7 @@ package de.aidger.view;
 import static de.aidger.utils.Translation._;
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
+import de.aidger.controller.actions.ExitAction;
 import de.aidger.controller.actions.FirstStartCloseAction;
 import de.aidger.model.models.Activity;
 import de.aidger.view.utils.InputPatternFilter;
@@ -30,6 +31,9 @@ public class FirstStartDialog extends javax.swing.JDialog {
         try {
             jButton1.setAction(ActionRegistry.getInstance().get(
                     FirstStartCloseAction.class.getName()));
+            jButton1.setEnabled(false);
+            jButton2.setAction(ActionRegistry.getInstance().get(
+                    ExitAction.class.getName()));
         } catch (ActionNotFoundException ex) {
             UI.displayError(ex.getMessage());
         }
@@ -71,6 +75,7 @@ public class FirstStartDialog extends javax.swing.JDialog {
         nameTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         connectLabel = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle(_("First Start"));
@@ -95,6 +100,8 @@ public class FirstStartDialog extends javax.swing.JDialog {
         connectLabel.setForeground(new java.awt.Color(255, 4, 4));
         connectLabel.setText(_("Trying to connect ..."));
 
+        jButton2.setText("Quit");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,7 +112,10 @@ public class FirstStartDialog extends javax.swing.JDialog {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
@@ -132,7 +142,9 @@ public class FirstStartDialog extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(connectLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -142,6 +154,7 @@ public class FirstStartDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel connectLabel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -167,6 +180,7 @@ public class FirstStartDialog extends javax.swing.JDialog {
             } else {
                 connectLabel.setForeground(Color.green);
                 connectLabel.setText(_("Connection successfull."));
+                jButton1.setEnabled(true);
             }
         }
     }
