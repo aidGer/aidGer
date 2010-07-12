@@ -10,26 +10,25 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import com.itextpdf.text.Document;
+import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Image;
-import com.itextpdf.text.PageSize;
-import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
-import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.AcroFields;
 import com.itextpdf.text.pdf.BaseFont;
-import com.itextpdf.text.pdf.ColumnText;
+import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfPageEventHelper;
-import com.itextpdf.text.pdf.PdfTemplate;
-import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.PdfStamper;
+import com.itextpdf.text.pdf.AcroFields.FieldPosition;
 
 import de.aidger.model.Runtime;
 import de.aidger.view.UI;
@@ -42,24 +41,9 @@ import de.aidger.view.UI;
 public class ActivityReportConverter {
 
     /**
-     * The PDF-document which will be created.
-     */
-    private Document document = null;
-
-    /**
-     * The PdfWriter used to write the document.
-     */
-    private PdfWriter writer = null;
-
-    /**
      * Whether the file was created successfully.
      */
     private boolean fileCreated = false;
-
-    /**
-     * The name of this report.
-     */
-    private static String name;
 
     /**
      * The name of the assistant.
@@ -72,6 +56,26 @@ public class ActivityReportConverter {
     private final ArrayList<String[]> tableRows;
 
     /**
+     * The stamper used to stamp the fields.
+     */
+    private PdfStamper stamper;
+
+    /**
+     * The content byte used for this report.
+     */
+    private PdfContentByte contentByte;
+
+    /**
+     * The reader used to read from the template.
+     */
+    private PdfReader reader;
+
+    /**
+     * The AcroFields which is used to write data to the fields of the template.
+     */
+    private AcroFields form;
+
+    /**
      * Initializes a new ActivityReportConverter and creates the .pdf file.
      * 
      * @param file
@@ -81,17 +85,21 @@ public class ActivityReportConverter {
             String assistant) {
         this.tableRows = tableRows;
         this.assistant = assistant;
-        document = new Document(PageSize.A4);
-        document.setMargins(document.leftMargin(), document.rightMargin(),
-            document.topMargin() + 15, document.bottomMargin());
         file = checkExtension(file);
-        name = _("Activity report");
         makeNewDocument(file);
         if (fileCreated) {
-            writeText();
+            stampFields();
+            writeLogo();
             createTable();
-            createSignaturePlace();
-            document.close();
+            try {
+                stamper.close();
+            } catch (DocumentException e2) {
+                // TODO Auto-generated catch block
+                e2.printStackTrace();
+            } catch (IOException e2) {
+                // TODO Auto-generated catch block
+                e2.printStackTrace();
+            }
             /*
              * Open the created document if the setting is enabled with the
              * specified pdf viewer.
@@ -110,6 +118,27 @@ public class ActivityReportConverter {
                     }
                 }
             }
+        }
+    }
+
+    /**
+     * Adds the specific values to the fields in the template.
+     */
+    private void stampFields() {
+        form = stamper.getAcroFields();
+        try {
+            Calendar calendar = Calendar.getInstance();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+            form.setField("CreatorName", Runtime.getInstance()
+                .getOption("name"));
+            form.setField("AssistantName", assistant);
+            form.setField("Date", dateFormat.format(calendar.getTime()));
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (DocumentException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     }
 
@@ -138,165 +167,102 @@ public class ActivityReportConverter {
      *            The file to create.
      */
     private void makeNewDocument(File file) {
-        FileOutputStream outStream = null;
         try {
-            outStream = new FileOutputStream(file.getPath());
-            writer = PdfWriter.getInstance(document, outStream);
-            HeaderFooter event = new HeaderFooter();
-            writer.setPageEvent(event);
-            document.open();
+            reader = new PdfReader(getClass().getResource(
+                "/de/aidger/pdf/ActivityReportTemplate.pdf"));
+
+            stamper = new PdfStamper(reader, new FileOutputStream(file));
             fileCreated = true;
+            contentByte = stamper.getOverContent(1);
         } catch (FileNotFoundException e1) {
             UI.displayError(_("File could not be created.") + " "
                     + _("Please close all processes that are using the file."));
         } catch (DocumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     }
 
     /**
-     * This class is used to write the headers and footers of every page.
-     * 
-     * @author aidGer Team
+     * Writes the logos and the address of the institute.
      */
-    static class HeaderFooter extends PdfPageEventHelper {
-
-        /**
-         * The template containing the total number of pages.
-         */
-        PdfTemplate total;
-
-        /*
-         * (non-Javadoc)
-         * 
-         * @see
-         * com.itextpdf.text.pdf.PdfPageEventHelper#onOpenDocument(com.itextpdf
-         * .text.pdf.PdfWriter, com.itextpdf.text.Document)
-         */
-        @Override
-        public void onOpenDocument(PdfWriter writer, Document document) {
-            total = writer.getDirectContent().createTemplate(30, 16);
-        }
-
-        /*
-         * (non-Javadoc)
-         * 
-         * @see
-         * com.itextpdf.text.pdf.PdfPageEventHelper#onStartPage(com.itextpdf
-         * .text.pdf.PdfWriter, com.itextpdf.text.Document)
-         */
-        @Override
-        public void onStartPage(PdfWriter writer, Document document) {
-            PdfPTable table = new PdfPTable(1);
-            table.setTotalWidth(writer.getPageSize().getRight()
-                    - document.rightMargin() - document.leftMargin());
-            try {
-                Font pageTitleFont = new Font(BaseFont
-                    .createFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252,
-                        BaseFont.EMBEDDED), 18);
-
-                PdfPCell left = new PdfPCell();
-                left.setHorizontalAlignment(Element.ALIGN_LEFT);
-                left.setVerticalAlignment(Element.ALIGN_BOTTOM);
-                left.setBorder(Rectangle.BOTTOM);
-                if (writer.getCurrentPageNumber() == 1) {
-                    left.addElement(new Phrase(name, pageTitleFont));
-                } else {
-                    left.addElement(new Phrase(""));
-                }
-
-                table.addCell(left);
-                table.writeSelectedRows(0, -1, document.leftMargin(), document
-                    .getPageSize().getTop() - 15, writer.getDirectContent());
-            } catch (DocumentException e1) {
-            } catch (IOException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
-        }
-
-        /*
-         * (non-Javadoc)
-         * 
-         * @see
-         * com.itextpdf.text.pdf.PdfPageEventHelper#onEndPage(com.itextpdf.text
-         * .pdf.PdfWriter, com.itextpdf.text.Document)
-         */
-        @Override
-        public void onEndPage(PdfWriter writer, Document document) {
-            PdfPTable table = new PdfPTable(2);
-            try {
-                Font pageFont = new Font(BaseFont.createFont(
-                    BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 12);
-                table.setWidths(new int[] { 48, 2 });
-                table.setTotalWidth(writer.getPageSize().getRight()
-                        - document.rightMargin() - document.leftMargin());
-                table.setLockedWidth(true);
-                table.getDefaultCell().setBorder(Rectangle.BOTTOM);
-                table.getDefaultCell().setFixedHeight(20);
-                table.getDefaultCell().setHorizontalAlignment(
-                    Element.ALIGN_RIGHT);
-                table.addCell(new Phrase(_("Page") + ": "
-                        + writer.getCurrentPageNumber() + _(" of"), pageFont));
-                PdfPCell cell = new PdfPCell(Image.getInstance(total));
-                cell.setBorder(Rectangle.BOTTOM);
-                table.addCell(cell);
-                table.writeSelectedRows(0, -1, document.leftMargin(), 50,
-                    writer.getDirectContent());
-            } catch (DocumentException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }
-
-        /*
-         * (non-Javadoc)
-         * 
-         * @see
-         * com.itextpdf.text.pdf.PdfPageEventHelper#onCloseDocument(com.itextpdf
-         * .text.pdf.PdfWriter, com.itextpdf.text.Document)
-         */
-        @Override
-        public void onCloseDocument(PdfWriter writer, Document document) {
-            try {
-                Font pageFont = new Font(BaseFont.createFont(
-                    BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 12);
-                ColumnText.showTextAligned(total, Element.ALIGN_LEFT,
-                    new Phrase(String.valueOf(writer.getPageNumber() - 1),
-                        pageFont), 2, 2, 0);
-            } catch (DocumentException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }
-    }
-
-    /**
-     * Writes the text before the table.
-     */
-    private void writeText() {
+    private void writeLogo() {
+        Image img;
         try {
-            Font textFont = new Font(BaseFont.createFont(BaseFont.HELVETICA,
-                BaseFont.CP1252, BaseFont.EMBEDDED), 10);
-            String text = String
-                .format(
-                    _("%s has been employed as an assistant at the institute for Software Engineering at the University of Stuttgart during the following period of time and to the following extent:"),
-                    assistant);
-            Paragraph textParagraph = new Paragraph();
-            Phrase textPhrase = new Phrase(text, textFont);
-            textParagraph.add(textPhrase);
-            document.add(textParagraph);
-        } catch (DocumentException e) {
+            img = Image.getInstance(getClass().getResource(
+                "/de/aidger/pdf/UniLogo.png"));
+            float xPos = 50, yPos = 750, width = 75, height = 75;
+            if (form.getFieldPositions("UniLogo") != null) {
+                FieldPosition position = form.getFieldPositions("UniLogo").get(
+                    0);
+                xPos = position.position.getLeft();
+                yPos = position.position.getBottom();
+                width = position.position.getWidth();
+                height = position.position.getHeight();
+            }
+            img.setAbsolutePosition(xPos, yPos);
+            img.scaleAbsolute(width, height);
+            contentByte.addImage(img);
+
+            img = Image.getInstance(getClass().getResource(
+                "/de/aidger/pdf/IfiLogo.png"));
+            xPos = 250;
+            yPos = 750;
+            width = 100;
+            height = 75;
+            if (form.getFieldPositions("IfiLogo") != null) {
+                FieldPosition position = form.getFieldPositions("IfiLogo").get(
+                    0);
+                xPos = position.position.getLeft();
+                yPos = position.position.getBottom();
+                width = position.position.getWidth();
+                height = position.position.getHeight();
+            }
+            img.setAbsolutePosition(xPos, yPos);
+            img.scaleAbsolute(width, height);
+            contentByte.addImage(img);
+
+            xPos = 375;
+            yPos = 700;
+            width = 150;
+            height = 100;
+            if (form.getFieldPositions("SenderField") != null) {
+                FieldPosition position = form.getFieldPositions("SenderField")
+                    .get(0);
+                xPos = position.position.getLeft();
+                yPos = position.position.getTop();
+                width = position.position.getWidth();
+                height = position.position.getHeight();
+            }
+            PdfPTable sender = new PdfPTable(1);
+            PdfPCell cell = new PdfPCell(new Phrase(
+                "Institutsverbund Informatik"));
+            cell.setBorder(0);
+            cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            sender.addCell(cell);
+            cell = new PdfPCell(new Phrase("Universit‰tsstraﬂe 38"));
+            cell.setBorder(0);
+            cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            sender.addCell(cell);
+            cell = new PdfPCell(new Phrase("D-70569 Stuttgart"));
+            cell.setBorder(0);
+            cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            sender.addCell(cell);
+            sender.setTotalWidth(width);
+            sender.writeSelectedRows(0, -1, xPos, yPos, contentByte);
+        } catch (BadElementException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (DocumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
@@ -310,7 +276,7 @@ public class ActivityReportConverter {
             Font tableTitleFont = new Font(BaseFont.createFont(
                 BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.EMBEDDED),
                 10);
-            String[] tableTitles = { _("Period"), _("Course"), _("Extent") };
+            String[] tableTitles = { "Zeitraum", "Veranstaltung", "Umfang" };
             PdfPTable contentTable = new PdfPTable(1);
             PdfPTable titleTable = new PdfPTable(3);
             /*
@@ -326,8 +292,20 @@ public class ActivityReportConverter {
             cell.setPaddingBottom(2.0f);
             cell.setBorder(0);
             contentTable.addCell(cell);
-            document.add(contentTable);
-            addRows();
+            cell = new PdfPCell(addRows());
+            cell.setBorder(0);
+            contentTable.addCell(cell);
+            float xPos = 60, yPos = 500, width = reader.getPageSize(1)
+                .getWidth() - 120f;
+            if (form.getFieldPositions("TableField") != null) {
+                FieldPosition position = form.getFieldPositions("TableField")
+                    .get(0);
+                xPos = position.position.getLeft();
+                yPos = position.position.getTop();
+                width = position.position.getWidth();
+            }
+            contentTable.setTotalWidth(width);
+            contentTable.writeSelectedRows(0, -1, xPos, yPos, contentByte);
         } catch (DocumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -340,11 +318,11 @@ public class ActivityReportConverter {
     /**
      * Adds the rows of employments to the table.
      */
-    private void addRows() {
+    private PdfPTable addRows() {
+        PdfPTable contentTable = new PdfPTable(3);
         try {
             Font tableContentFont = new Font(BaseFont.createFont(
                 BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 9);
-            PdfPTable contentTable = new PdfPTable(3);
             for (String[] row : tableRows) {
                 for (int i = 0; i < row.length; i++) {
                     PdfPCell cell = new PdfPCell(new Phrase(row[i],
@@ -352,7 +330,6 @@ public class ActivityReportConverter {
                     contentTable.addCell(cell);
                 }
             }
-            document.add(contentTable);
         } catch (DocumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -360,34 +337,7 @@ public class ActivityReportConverter {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-    }
-
-    /**
-     * Adds the field for the signature and the date.
-     */
-    private void createSignaturePlace() {
-        try {
-            Calendar calendar = Calendar.getInstance();
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-            Font textFont = new Font(BaseFont.createFont(BaseFont.HELVETICA,
-                BaseFont.CP1252, BaseFont.EMBEDDED), 9);
-            Phrase datePhrase = new Phrase(_("Stuttgart") + ", "
-                    + dateFormat.format(calendar.getTime()), textFont);
-            Phrase namePhrase = new Phrase(Runtime.getInstance().getOption(
-                "name"), textFont);
-            Paragraph signatureParagraph = new Paragraph();
-            signatureParagraph.add(namePhrase);
-            signatureParagraph.add(new Phrase("\n \n \n"));
-            signatureParagraph.add(datePhrase);
-            document.add(signatureParagraph);
-        } catch (DocumentException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
+        return contentTable;
     }
 
 }

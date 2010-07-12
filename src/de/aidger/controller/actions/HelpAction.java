@@ -1,12 +1,10 @@
 package de.aidger.controller.actions;
 
-import de.aidger.view.UI;
-import de.aidger.model.Runtime;
 import static de.aidger.utils.Translation._;
 
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -16,8 +14,11 @@ import java.util.logging.Logger;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
-import javax.swing.KeyStroke;
 import javax.swing.ImageIcon;
+import javax.swing.KeyStroke;
+
+import de.aidger.model.Runtime;
+import de.aidger.view.UI;
 
 /**
  * This action displays the help.
@@ -36,7 +37,7 @@ public class HelpAction extends AbstractAction {
             ActionEvent.CTRL_MASK));
         putValue(Action.SHORT_DESCRIPTION, _("Display the help"));
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/question.png")));
+            "/de/aidger/view/icons/question.png")));
     }
 
     /*
@@ -48,7 +49,7 @@ public class HelpAction extends AbstractAction {
     @Override
     public void actionPerformed(ActionEvent e) {
         InputStream input = getClass().getResourceAsStream(
-                "/de/aidger/help/Handbuch.pdf");
+            "/de/aidger/pdf/Handbuch.pdf");
         try {
             File tempFile = File.createTempFile("manual", "pdf");
             tempFile.deleteOnExit();
@@ -63,12 +64,13 @@ public class HelpAction extends AbstractAction {
             out.close();
             input.close();
 
-            /* Open the manual in the specified pdf viewer or try
-             * the default one.
+            /*
+             * Open the manual in the specified pdf viewer or try the default
+             * one.
              */
-            try
-            {
-                java.lang.Runtime.getRuntime().exec(new String[] {
+            try {
+                java.lang.Runtime.getRuntime().exec(
+                    new String[] {
                             Runtime.getInstance().getOption("pdf-viewer"),
                             tempFile.getAbsolutePath() });
             } catch (IOException ex) {
@@ -79,7 +81,8 @@ public class HelpAction extends AbstractAction {
                 }
             }
         } catch (IOException ex) {
-            Logger.getLogger(HelpAction.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HelpAction.class.getName()).log(Level.SEVERE,
+                null, ex);
         }
 
     }
