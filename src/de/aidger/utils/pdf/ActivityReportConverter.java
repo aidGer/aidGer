@@ -10,12 +10,16 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.AcroFields;
 import com.itextpdf.text.pdf.BaseFont;
@@ -85,6 +89,7 @@ public class ActivityReportConverter {
         makeNewDocument(file);
         if (fileCreated) {
             stampFields();
+            writeLogo();
             createTable();
             try {
                 stamper.close();
@@ -182,6 +187,88 @@ public class ActivityReportConverter {
     }
 
     /**
+     * Writes the logos and the address of the institute.
+     */
+    private void writeLogo() {
+        Image img;
+        try {
+            img = Image.getInstance(getClass().getResource(
+                "/de/aidger/pdf/UniLogo.png"));
+            float xPos = 50, yPos = 750, width = 75, height = 75;
+            if (form.getFieldPositions("UniLogo") != null) {
+                FieldPosition position = form.getFieldPositions("UniLogo").get(
+                    0);
+                xPos = position.position.getLeft();
+                yPos = position.position.getBottom();
+                width = position.position.getWidth();
+                height = position.position.getHeight();
+            }
+            img.setAbsolutePosition(xPos, yPos);
+            img.scaleAbsolute(width, height);
+            contentByte.addImage(img);
+
+            img = Image.getInstance(getClass().getResource(
+                "/de/aidger/pdf/IfiLogo.png"));
+            xPos = 250;
+            yPos = 750;
+            width = 100;
+            height = 75;
+            if (form.getFieldPositions("IfiLogo") != null) {
+                FieldPosition position = form.getFieldPositions("IfiLogo").get(
+                    0);
+                xPos = position.position.getLeft();
+                yPos = position.position.getBottom();
+                width = position.position.getWidth();
+                height = position.position.getHeight();
+            }
+            img.setAbsolutePosition(xPos, yPos);
+            img.scaleAbsolute(width, height);
+            contentByte.addImage(img);
+
+            xPos = 375;
+            yPos = 700;
+            width = 150;
+            height = 100;
+            if (form.getFieldPositions("SenderField") != null) {
+                FieldPosition position = form.getFieldPositions("SenderField")
+                    .get(0);
+                xPos = position.position.getLeft();
+                yPos = position.position.getTop();
+                width = position.position.getWidth();
+                height = position.position.getHeight();
+            }
+            PdfPTable sender = new PdfPTable(1);
+            PdfPCell cell = new PdfPCell(new Phrase(
+                "Institutsverbund Informatik"));
+            cell.setBorder(0);
+            cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            sender.addCell(cell);
+            cell = new PdfPCell(new Phrase("Universit‰tsstraﬂe 38"));
+            cell.setBorder(0);
+            cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            sender.addCell(cell);
+            cell = new PdfPCell(new Phrase("D-70569 Stuttgart"));
+            cell.setBorder(0);
+            cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            sender.addCell(cell);
+            sender.setTotalWidth(width);
+            sender.writeSelectedRows(0, -1, xPos, yPos, contentByte);
+        } catch (BadElementException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (DocumentException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * Creates the table of employments.
      */
     private void createTable() {
@@ -189,7 +276,7 @@ public class ActivityReportConverter {
             Font tableTitleFont = new Font(BaseFont.createFont(
                 BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.EMBEDDED),
                 10);
-            String[] tableTitles = { _("Period"), _("Course"), _("Extent") };
+            String[] tableTitles = { "Zeitraum", "Veranstaltung", "Umfang" };
             PdfPTable contentTable = new PdfPTable(1);
             PdfPTable titleTable = new PdfPTable(3);
             /*
