@@ -164,7 +164,7 @@ public class ActivityReportConverter {
     private void makeNewDocument(File file) {
         try {
             reader = new PdfReader(getClass().getResource(
-                "/de/aidger/pdf/template.pdf"));
+                "/de/aidger/pdf/ActivityReportTemplate.pdf"));
 
             stamper = new PdfStamper(reader, new FileOutputStream(file));
             fileCreated = true;
