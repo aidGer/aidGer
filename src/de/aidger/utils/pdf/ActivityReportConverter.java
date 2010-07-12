@@ -42,11 +42,6 @@ public class ActivityReportConverter {
     private boolean fileCreated = false;
 
     /**
-     * The name of this report.
-     */
-    private static String name;
-
-    /**
      * The name of the assistant.
      */
     private final String assistant;
@@ -87,7 +82,6 @@ public class ActivityReportConverter {
         this.tableRows = tableRows;
         this.assistant = assistant;
         file = checkExtension(file);
-        name = _("Activity report");
         makeNewDocument(file);
         if (fileCreated) {
             stampFields();
@@ -169,7 +163,8 @@ public class ActivityReportConverter {
      */
     private void makeNewDocument(File file) {
         try {
-            reader = new PdfReader("template.pdf");
+            reader = new PdfReader(getClass().getResource(
+                "/de/aidger/pdf/template.pdf"));
 
             stamper = new PdfStamper(reader, new FileOutputStream(file));
             fileCreated = true;
