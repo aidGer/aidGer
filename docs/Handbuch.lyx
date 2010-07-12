@@ -265,10 +265,16 @@ Erster Start
 \end_layout
 
 \begin_layout Standard
-(TODO: Bild einfügen)
+\begin_inset Graphics
+	filename manual/first-start.png
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+\noindent
 Beim ersten Start wird ihnen ein Dialog angezeigt, der ihnen dabei hilft,
  die korrekte Funktionalität von aidGer festzustellen und die wichtigste
  Einstellung von ihnen abfragt.
@@ -294,6 +300,7 @@ Willkommensreiter
 \end_layout
 
 \begin_layout Standard
+\noindent
 Sind keine Reiter offen wird von aidGer immer der Willkommensreiter angezeigt.
  Dieser zeigt unter anderem das Datum und die Zeit des letzten aidGer Einsatzes
  an.
@@ -310,15 +317,407 @@ Sind keine Reiter offen wird von aidGer immer der Willkommensreiter angezeigt.
 \end_layout
 
 \begin_layout Chapter
-Übersicht 
+Hauptfenster
+\end_layout
+
+\begin_layout Standard
+Das Hauptfenster von aidGer gliedert sich in vier Bereiche.
+ Am oberen Rand befindet sich die Menüleiste, darunter auf der rechten Seite
+ die Navigationsleiste, auf der rechten Seite davon der Inhaltsbereich und
+ am unteren Rand die Statusleiste.
+\end_layout
+
+\begin_layout Section
+Menüleiste
+\end_layout
+
+\begin_layout Standard
+Die Menüleiste besteht aus zwei Hauptmenüs, dem Dateimenü und dem Hilfemenü.
+\end_layout
+
+\begin_layout Standard
+\noindent
+Das Dateimenü enthält die Einträge:
+\end_layout
+
+\begin_layout Itemize
+Drucken
+\end_layout
+
+\begin_layout Itemize
+Einstellungen
+\end_layout
+
+\begin_layout Itemize
+Beenden
+\end_layout
+
+\begin_layout Standard
+Mit 
+\emph on
+Drucken
+\emph default
+ lässt sich der Inhalt des momentanen Reiters ausdrucken lassen.
+ Bevor gedruckt wird, öffnet sich ein Dialog der die Einstellung des Druckers
+ erlaubt.
+ Diese Option lässt sich auch mit 
+\series bold
+STRG + B
+\series default
+ von überall auswählen.
+ Unter 
+\emph on
+Einstellungen 
+\emph default
+befindet sich der Einstellungsdialog, der unter Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Einstellungen"
+
+\end_inset
+
+ beschrieben wird.
+ Mit 
+\emph on
+Beenden
+\emph default
+ kann aidGer geschlossen werden.
+\end_layout
+
+\begin_layout Standard
+Das Hilfemenü enthält nur die zwei Optionen 
+\emph on
+Hilfe
+\emph default
+ und 
+\emph on
+Über.
+
+\emph default
+ Mit 
+\emph on
+Hilfe
+\emph default
+ wird dieses Handbuch im ausgewählten oder standardmäßigen PDF-Anzeiger
+ angezeigt.
+ Unter 
+\emph on
+Über
+\emph default
+ befindet sich ein Dialog der die Autoren von aidGer enthält und einen Verweis
+ auf die Homepage.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Navigationsleiste
+\end_layout
+
+\begin_layout Standard
+\begin_inset Wrap figure
+lines 0
+placement L
+overhang 0in
+width "40col%"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename manual/navbar.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Navigationsleiste besteht aus einzelnen Boxen die geöffnet und geschlossen
+ werden können.
+ Dies geschieht durch einen Klick auf die Titelleiste oder den Knopf an
+ der rechten Seite.
+ Der Zustand der Boxen wird gespeichert und beim nächsten Start wiederhergestell
+t Durch einen Klick mit der linken Maustaste auf die Unterpunkte wird der
+ jeweilige Reiter im Inhaltsbereich angezeigt.
+ Wird der Klick mit der mittleren Maustaste durchgeführt, so wird ein neuer
+ Reiter im Inhaltsbereich aufgemacht, der mit dem Inhalt des jeweiligen
+ Unterpunktes gefüllt wird.
+\end_layout
+
+\begin_layout Standard
+Die unterste Box stellt eine Ausnahme dar.
+ Mit ihr können keine neuen Reiter geöffnet werden, sondern nur 3 Einstellungen
+ komfortabel geändert werden, ohne den Einstellungsdialog öffnen zu müssen.
+ Wird eine Option geändert, so wird die Änderung sofort gespeichert und
+ umgesetzt.
+\end_layout
+
+\begin_layout Section
+Inhaltsbereich
+\end_layout
+
+\begin_layout Standard
+Das wichtigste Element des Inhaltsbereiches ist die Reiterleiste.
+ Hier kann eine beliebige Zahl von Reitern geöffnet werden um das Arbeiten
+ mit mehreren Elementen zu vereinfachen.
+ Um einen neuen Reiter zu öffnen, kann entweder der Button am rechten Rand
+ der Leiste benutzt werden, die Tastenkombination 
+\series bold
+STRG + T
+\series default
+ oder ein Klick mit der mittleren Maustaste auf einen der Unterpunkte in
+ der Navigationsleiste.
+ Zum Schließen eines Tabs kann zum einen der 
+\begin_inset Quotes pld
+\end_inset
+
+x
+\begin_inset Quotes prd
+\end_inset
+
+-Knopf am rechten Rand des Reiters oder die Tastenkombination 
+\series bold
+STRG + ???
+\series default
+ genutzt werden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename manual/tabpane.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Statusleiste
+\end_layout
+
+\begin_layout Standard
+Die Statusleiste am unteren Rand zeigt nach dem erfolgreichen Durchführen
+ einer Aktion an, dass die Aktion korrekt durchgeführt wurde oder im Falle
+ eines Fehlers das eintreten ebenjenes.
 \end_layout
 
 \begin_layout Chapter
 Stammdaten
 \end_layout
 
+\begin_layout Standard
+Es gibt vier verschiedene Typen von Stammdaten.
+ Dies sind 
+\series bold
+Veranstaltungen
+\series default
+, 
+\series bold
+Hilfskräfte
+\series default
+,
+\series bold
+ Finanzkategorien
+\series default
+ und 
+\series bold
+Stundenlöhne
+\series default
+.
+ Die Aktionen die für diese Stammdaten durchgeführt werden kann sind für
+ diese Typen ziemlich gleich.
+ Sie unterscheiden sich nur durch die Daten die gespeichert bzw.
+ angezeigt werden.
+\end_layout
+
+\begin_layout Section
+Anzeige aller Daten
+\end_layout
+
+\begin_layout Standard
+Nach einem Klick auf einen der Unterpunkte der Stammdatenverwaltung öffnet
+ sich im Inhaltsbereich der Anzeigereiter.
+ Dieser besteht aus einer Toolbar, in der alle möglichen Aktionen angezeigt
+ werden und vom Nutzer ausgewählt werden können, einem Suchfeld und einer
+ Tabelle in der die Daten angezeigt werden.
+\end_layout
+
+\begin_layout Standard
+Die Toolbar enthält die Aktionen 
+\emph on
+Anzeigen
+\emph default
+, 
+\emph on
+Bearbeiten
+\emph default
+, 
+\emph on
+Hinzufügen
+\emph default
+ und 
+\emph on
+Löschen
+\emph default
+.
+ Bis auf 
+\emph on
+Hinzufügen
+\emph default
+ benötigt jede Aktion einen ausgewählten Datensatz in der Tabelle.
+ Sollte dies nicht der Fall sein, wird eine Fehlermeldung angezeigt.
+\end_layout
+
+\begin_layout Standard
+Das Suchfeld besteht genau genommen aus dem Suchfeld und einem kleinen Besenicon
+ daneben.
+ Sobald eine Eingabe im Suchfeld gestartet wird, wird der Inhalt der Tabelle
+ nach dem Text im Suchfeld gefiltert und nur noch übereinstimmende Datensätze
+ angezeigt.
+ Ein Klick auf das Besenicon löscht den Inhalt des Suchfeldes und zeigt
+ wieder alle Datensätze an.
+\end_layout
+
+\begin_layout Standard
+Die Tabelle zeigt alle bzw.
+ die gefilterten Datensätze des gewählten Types an.
+ Die Spalten die dargestellt werden können in der Größe verändert werden
+ und durch einen Rechtsklick auf den Kopf der Tabelle einzeln ein- bzw.
+ ausgeblendet werden.
+ Zudem kann sie durch Klick auf einen Spaltennamen nach dieser Spalte sortiert
+ werden.
+ Ein weiterer Klick kehrt die Sortierung um.
+\end_layout
+
+\begin_layout Standard
+Durch einen Rechtsklick auf einen ausgewählten Eintrag öffnet sich ein Kontextme
+nü, dass die Aktionen der Toolbar ausser 
+\emph on
+Hinzufügen
+\emph default
+ enthält.
+ Nach einem Klick wird diese Aktion mit dem gewählten Datensatz ausgeführt.
+\end_layout
+
+\begin_layout Section
+Detailansicht
+\end_layout
+
+\begin_layout Standard
+Nach Auswahl eines Datensatzes und einem Klick auf 
+\emph on
+Anzeigen
+\emph default
+ wird die Detailansicht des Datensatzes geöffnet.
+ Der genaue Inhalt dieser Ansicht hängt vom Typ des Datensatzes ab.
+ In allen werden jedoch die eingegebenen Daten angezeigt, sowie falls vorhanden,
+ verknüpfte Datensätze.
+ Ein 
+\emph on
+Bearbeiten
+\emph default
+- und ein 
+\emph on
+Schließen
+\emph default
+-Knopf runden das Ganze ab.
+\end_layout
+
+\begin_layout Standard
+Ein Klick auf einen verknüpften Datensatz öffnet dessen Detailansicht, durch
+ einen Klick auf den 
+\emph on
+Bearbeiten
+\emph default
+-Knopf wird die im nächsten Abschnitt erläuterte Bearbeitenansicht des Datensatz
+es geöffnet.
+ 
+\emph on
+Schließen
+\emph default
+ schließt die Ansicht und kehrt zur vorherigen Ansicht zurück.
+\end_layout
+
+\begin_layout Section
+Bearbeiten eines Datensatzes
+\end_layout
+
+\begin_layout Standard
+Nach Auswahl eines Datensatzes und einem Klick auf 
+\emph on
+Bearbeiten
+\emph default
+ wird die Bearbeitenansicht des Datensatzes geöffnet.
+ Die Felder wurden bereits mit den in der Datenbank vorhandenen Daten befüllt.
+ Nach Änderungen daran reicht ein Klick auf den
+\emph on
+ Speichern
+\emph default
+-Knopf, um den veränderten Datensatz in der Datenbank zu speichern.
+ Mit dem 
+\emph on
+Abbrechen
+\emph default
+-Knopf kehrt man zur vorherigen Ansicht zurück.
+\end_layout
+
+\begin_layout Standard
+Sollten ein oder mehrere der geänderten Werte nicht korrekt sein, so werden
+ entsprechenden Fehler am unteren Rand angezeigt.
+ Felder, die ein spezielles Format benötigen, haben ein Fragezeichensymbol
+ rechts daneben.
+ Wenn der Mauszeiger etwas länger auf diesen Feldern verweilt, wird ein
+ hilfreicher Tooltip angezeigt.
+\end_layout
+
+\begin_layout Section
+Hinzufügen eines Datensatzes
+\end_layout
+
+\begin_layout Standard
+Nach einem Klick auf 
+\emph on
+Hinzufügen
+\emph default
+ wird die Hinzufügenansicht des Types angezeigt.
+ Diese Ansicht entspricht der Bearbeitenansicht.
+ Der einzigste Unterschied ist, dass hier noch keine Daten eingetragen sind.
+ Fehler bei der Eingabe werden auch hier am unteren Rand angezeigt.
+\end_layout
+
+\begin_layout Section
+Löschen eines Datensatzes
+\end_layout
+
+\begin_layout Standard
+Nach Auswahl eines Datensatzes und einem Klick auf 
+\emph on
+Löschen
+\emph default
+ wird ein Dialogfenster geöffnet, dass eine Bestätigung erfragt.
+ Erst nach dieser Bestätigung wird der Datensatz wirklich aus der Datenbank
+ gelöscht.
+\end_layout
+
 \begin_layout Chapter
 Einstellungen
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Einstellungen"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
