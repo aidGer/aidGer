@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.6.1 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -254,6 +254,67 @@ aidGer dient der Verwaltung von Hilfskräften und der Kontrolle dieser.
  Finanzkategorien und Stundenlöhnen, sowie Vorgänge und Beschäftigungen.
  Zudem können verschiedene Berichte erstellt, durch Filter verändert und
  exportiert werden.
+\end_layout
+
+\begin_layout Chapter
+Programmstart
+\end_layout
+
+\begin_layout Section
+Erster Start
+\end_layout
+
+\begin_layout Standard
+(TODO: Bild einfügen)
+\end_layout
+
+\begin_layout Standard
+Beim ersten Start wird ihnen ein Dialog angezeigt, der ihnen dabei hilft,
+ die korrekte Funktionalität von aidGer festzustellen und die wichtigste
+ Einstellung von ihnen abfragt.
+ Während dieser Dialog offen ist, wird für Sie das Konfigurationsverzeichnis
+ mit ihrer Konfiguration angelegt und die Verbindung zur Datenbank hergestellt
+ bzw.
+ überprüft.
+ Bei der Benutzung von Derby wird eine neue Datenbank angelegt.
+ Dies kann einige Zeit dauern.
+\end_layout
+
+\begin_layout Standard
+Nach Eingabe ihrer Initialen und der erfolgreichen Herstellung der Verbindung
+ zur Datenbank kann der Dialog geschlossen werden und aidGer benutzt werden.
+\end_layout
+
+\begin_layout Section
+Willkommensreiter
+\end_layout
+
+\begin_layout Standard
+(TODO: Bild einfügen)
+\end_layout
+
+\begin_layout Standard
+Sind keine Reiter offen wird von aidGer immer der Willkommensreiter angezeigt.
+ Dieser zeigt unter anderem das Datum und die Zeit des letzten aidGer Einsatzes
+ an.
+ Zudem werden Statistiken über die Datenbank aggregiert und in Diagrammen
+ dargestellt.
+\end_layout
+
+\begin_layout Standard
+Über die Übersicht ihrer letzten Änderungen und der Vorgänge können Sie
+ schnell dort weiter machen wo Sie beim letzten Mal aufgehört haben.
+ Bei den letzten Änderungen werden nur ihre eigenen Änderungen angezeigt,
+ da diese nur lokal gespeichert werden.
+ Vorgänge werden jedoch global angezeigt.
+\end_layout
+
+\begin_layout Chapter
+Übersicht 
+\end_layout
+
+\begin_layout Chapter
+Stammdaten
 \end_layout
 
 \begin_layout Chapter
