@@ -98,8 +98,8 @@ public class ControllingViewerTab extends ReportTab {
                                 .equals("")) {
                                 model.setValueAt("", row, column + 1);
                             } else {
-                                model.setValueAt("<< " + _("Wrong format!"),
-                                    row, column + 1);
+                                model.setValueAt("", row, column);
+                                model.setValueAt("", row, column + 1);
                             }
                         }
                     }
