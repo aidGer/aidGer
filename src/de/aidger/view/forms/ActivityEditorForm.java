@@ -93,8 +93,16 @@ public class ActivityEditorForm extends JPanel {
         } else {
             EditorTab.setTimeToNow(spDate);
 
-            // use processor name from settings
-            txtProcessor.setText(Runtime.getInstance().getOption("name"));
+            // create initials from name in settings
+            String name = Runtime.getInstance().getOption("name").trim();
+            String initials = "";
+            
+            if (name.lastIndexOf(" ") > 0) {
+                initials += name.charAt(0);
+                initials += name.charAt(name.lastIndexOf(" ") + 1);
+            }
+
+            txtProcessor.setText(initials);
         }
     }
 

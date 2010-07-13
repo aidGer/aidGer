@@ -45,8 +45,6 @@ public class FirstStartDialog extends javax.swing.JDialog {
             UI.displayError(ex.getMessage());
         }
 
-        InputPatternFilter.addFilter(nameTextField, "[a-zA-ZüöäÜÖÄ]+");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.
                 DO_NOTHING_ON_CLOSE);
 

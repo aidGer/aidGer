@@ -77,7 +77,6 @@ public class SettingsDialog extends JDialog {
         openCheckBox.setSelected(Boolean.parseBoolean(
                 Runtime.getInstance().getOption("auto-open")));
         nameTextField.setText(Runtime.getInstance().getOption("name"));
-        InputPatternFilter.addFilter(nameTextField, "[a-zA-ZüöäÜÖÄ]+");
 
         pdfTextField.setText(Runtime.getInstance().getOption("pdf-viewer"));
         pessimisticTextField.setText(Runtime.getInstance().getOption(
