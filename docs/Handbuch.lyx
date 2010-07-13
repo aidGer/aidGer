@@ -70,7 +70,7 @@ aidGer Team
 \end_layout
 
 \begin_layout Date
-28.06.2010
+13.07.2010
 \end_layout
 
 \begin_layout Author
@@ -706,6 +706,127 @@ Löschen
  wird ein Dialogfenster geöffnet, dass eine Bestätigung erfragt.
  Erst nach dieser Bestätigung wird der Datensatz wirklich aus der Datenbank
  gelöscht.
+ Zudem besteht die Möglichkeit die Aktion durch die Taste 
+\series bold
+Entf
+\series default
+ auszulösen.
+\end_layout
+
+\begin_layout Chapter
+Weitere Daten
+\end_layout
+
+\begin_layout Section
+Verträge
+\end_layout
+
+\begin_layout Standard
+Die Vertragsanzeige unter 
+\emph on
+Verträge anzeigen
+\emph default
+ ist prinzipiell gleich wie die der Stammdaten, genauso wie die Basisaktionen
+ 
+\emph on
+Anzeigen, Bearbeiten, Hinzufügen 
+\emph default
+und 
+\emph on
+Löschen
+\emph default
+.
+ Anders ist nur die 
+\emph on
+Hilfskraft
+\emph default
+-Aktion.
+ Diese öffnet die Detailanzeige der mit dem Vertrag verknüpften Hilfskraft.
+\end_layout
+
+\begin_layout Section
+Beschäftigungen
+\end_layout
+
+\begin_layout Standard
+Auch hier ist die Anzeige prinzipiell die Gleiche wie bei den Stammdaten.
+ Es gibt jedoch drei verknüpfte Daten, die über die Aktionen 
+\emph on
+Veranstaltung
+\emph default
+, 
+\emph on
+Hilfskraft 
+\emph default
+und 
+\emph on
+Vertrag
+\emph default
+ angezeigt werden können.
+\end_layout
+
+\begin_layout Standard
+Beim 
+\emph on
+Hinzufügen
+\emph default
+ und 
+\emph on
+Bearbeiten
+\emph default
+ werden nach Auswahl einer Veranstaltung bzw.
+ einer Hilfskraft nur noch damit verknüpfte Verträge und Finanzkategorien
+ angezeigt um sie auszuwählen.
+ Verträge können auch einfach erstellt werden, in dem auf den 
+\emph on
+Plus
+\emph default
+-Knopf neben der Vertragsauswahl geklickt wird.
+\end_layout
+
+\begin_layout Section
+Vorgänge
+\end_layout
+
+\begin_layout Standard
+Die Hauptansicht entspricht wieder der Ansicht der Stammdaten.
+ Über die 
+\emph on
+Veranstaltung-
+\emph default
+ und 
+\emph on
+Hilfskraft
+\emph default
+-Aktion können die verknüpften Datensätze angezeigt werden, falls eine solche
+ Verknüpfung im Vorgang eingetragen ist.
+\end_layout
+
+\begin_layout Standard
+Zusätzlich gibt es noch eine 
+\emph on
+Export
+\emph default
+-Aktion.
+ Nach einem Klick öffnet sich ein Auswahlfenster um einen Dateinamen und
+ Pfad auszuwählen, wonach dann die momentan angezeigten Vorgänge im PDF-Format
+ exportiert werden.
+\end_layout
+
+\begin_layout Standard
+Zudem gibt es noch in der Navigationsleiste den Unterpunkt 
+\emph on
+Vorgänge exportieren
+\emph default
+.
+ Dort kann die Anzahl an Tagen ausgewählt werden, für die Vorgänge angezeigt
+ werden sollen.
+ Durch einen Klick auf 
+\emph on
+Export
+\emph default
+ kann auch diese Auflistung nach Angabe von Dateinamen und Pfad als PDF-Datei
+ exportiert werden.
 \end_layout
 
 \begin_layout Chapter
