@@ -17,7 +17,6 @@ import de.aidger.view.tabs.DetailViewerTab;
 import de.aidger.view.tabs.ViewerTab;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
 
 /**
  * This action shows the assistant for a given model.
@@ -78,9 +77,9 @@ public class ViewerAssistantAction extends AbstractAction {
                     Activity activity = (Activity) tab.getTableModel()
                         .getModel(index);
 
-                    IAssistant a = ((new Assistant()).getById(activity
-                        .getAssistantId()));
-                    assistant = (a == null) ? null : new Assistant(a);
+                    assistant = (activity.getAssistantId() == null) ? null
+                            : new Assistant(((new Assistant()).getById(activity
+                                .getAssistantId())));
 
                     break;
                 }
