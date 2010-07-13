@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-13 21:06+0200\n"
+"POT-Creation-Date: 2010-07-13 22:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -429,9 +429,9 @@ msgstr ""
 
 #: controller/actions/ViewerAssistantAction.java:34
 #: model/models/Activity.java:76 model/models/Contract.java:68
-#: model/models/Employment.java:83 utils/pdf/ControllingConverter.java:309
+#: model/models/Employment.java:83 utils/pdf/ControllingConverter.java:310
 #: view/forms/ActivityEditorForm.java:192
-#: view/forms/ActivityViewerForm.java:95
+#: view/forms/ActivityViewerForm.java:91
 #: view/forms/ContractEditorForm.java:211
 #: view/forms/ContractViewerForm.java:90
 #: view/forms/EmploymentEditorForm.java:492
@@ -462,9 +462,9 @@ msgid "The related contract could not be displayed."
 msgstr ""
 
 #: controller/actions/ViewerCourseAction.java:33 model/models/Activity.java:78
-#: model/models/Employment.java:87 utils/pdf/BudgetReportConverter.java:364
+#: model/models/Employment.java:87 utils/pdf/BudgetReportConverter.java:365
 #: view/forms/ActivityEditorForm.java:117
-#: view/forms/ActivityViewerForm.java:103
+#: view/forms/ActivityViewerForm.java:99
 #: view/forms/EmploymentEditorForm.java:498
 #: view/forms/EmploymentViewerForm.java:111
 #: view/models/ActivityTableModel.java:27
@@ -540,9 +540,9 @@ msgstr ""
 msgid "Could not get manager for class \"{0}\". Error: {1}"
 msgstr ""
 
-#: model/models/Activity.java:73 utils/pdf/ProtocolConverter.java:382
+#: model/models/Activity.java:73 utils/pdf/ProtocolConverter.java:383
 #: view/forms/ActivityEditorForm.java:383
-#: view/forms/ActivityViewerForm.java:111
+#: view/forms/ActivityViewerForm.java:107
 #: view/forms/EmploymentEditorForm.java:367
 #: view/forms/EmploymentViewerForm.java:127
 #: view/forms/HourlyWageEditorForm.java:190
@@ -554,17 +554,17 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: model/models/Activity.java:73 utils/pdf/ProtocolConverter.java:383
+#: model/models/Activity.java:73 utils/pdf/ProtocolConverter.java:384
 #: view/forms/ActivityEditorForm.java:397
-#: view/forms/ActivityViewerForm.java:127
+#: view/forms/ActivityViewerForm.java:123
 #: view/models/ActivityTableModel.java:28 view/tabs/ProtocolViewerTab.java:41
 msgid "Sender"
 msgstr ""
 
 #: model/models/Activity.java:73 model/models/Activity.java:184
 #: model/models/Contract.java:64 model/models/Contract.java:167
-#: utils/pdf/ProtocolConverter.java:382 view/forms/ActivityEditorForm.java:405
-#: view/forms/ActivityViewerForm.java:135
+#: utils/pdf/ProtocolConverter.java:383 view/forms/ActivityEditorForm.java:405
+#: view/forms/ActivityViewerForm.java:131
 #: view/forms/ContractEditorForm.java:251
 #: view/forms/ContractViewerForm.java:130
 #: view/models/ActivityTableModel.java:28
@@ -572,23 +572,23 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
-#: model/models/Activity.java:73 utils/pdf/ProtocolConverter.java:383
+#: model/models/Activity.java:73 utils/pdf/ProtocolConverter.java:384
 #: view/forms/ActivityEditorForm.java:389
-#: view/forms/ActivityViewerForm.java:119
+#: view/forms/ActivityViewerForm.java:115
 #: view/models/ActivityTableModel.java:28 view/tabs/ProtocolViewerTab.java:42
 msgid "Processor"
 msgstr ""
 
-#: model/models/Activity.java:74 utils/pdf/ProtocolConverter.java:382
+#: model/models/Activity.java:74 utils/pdf/ProtocolConverter.java:383
 #: view/forms/ActivityEditorForm.java:429
-#: view/forms/ActivityViewerForm.java:159
+#: view/forms/ActivityViewerForm.java:155
 #: view/models/ActivityTableModel.java:29 view/tabs/ProtocolViewerTab.java:41
 msgid "Content"
 msgstr ""
 
 #: model/models/Activity.java:74 model/models/Activity.java:188
 #: view/forms/ActivityEditorForm.java:413
-#: view/forms/ActivityViewerForm.java:143
+#: view/forms/ActivityViewerForm.java:139
 #: view/models/ActivityTableModel.java:28
 msgid "Document Type"
 msgstr ""
@@ -672,8 +672,8 @@ msgid "Description"
 msgstr ""
 
 #: model/models/Course.java:87 model/models/Course.java:91
-#: utils/pdf/BalanceReportConverter.java:395
-#: utils/pdf/BudgetReportConverter.java:364
+#: utils/pdf/BalanceReportConverter.java:396
+#: utils/pdf/BudgetReportConverter.java:365
 #: view/forms/CourseEditorForm.java:258 view/forms/CourseViewerForm.java:107
 #: view/models/CourseTableModel.java:26
 #: view/reports/BalanceReportSemesterPanel.java:78
@@ -682,8 +682,8 @@ msgstr ""
 msgid "Semester"
 msgstr ""
 
-#: model/models/Course.java:87 utils/pdf/BalanceReportConverter.java:561
-#: utils/pdf/BudgetReportConverter.java:364
+#: model/models/Course.java:87 utils/pdf/BalanceReportConverter.java:562
+#: utils/pdf/BudgetReportConverter.java:365
 #: view/forms/CourseEditorForm.java:266 view/forms/CourseViewerForm.java:115
 #: view/models/CourseTableModel.java:27
 #: view/reports/BalanceReportGroupPanel.java:35
@@ -693,7 +693,7 @@ msgstr ""
 msgid "Lecturer"
 msgstr ""
 
-#: model/models/Course.java:87 utils/pdf/BalanceReportConverter.java:594
+#: model/models/Course.java:87 utils/pdf/BalanceReportConverter.java:595
 #: view/forms/CourseEditorForm.java:369 view/forms/CourseViewerForm.java:187
 #: view/models/CourseTableModel.java:29
 #: view/reports/BalanceReportGroupPanel.java:171
@@ -881,22 +881,22 @@ msgstr ""
 #: utils/pdf/BudgetReportConverter.java:273
 #: utils/pdf/ControllingConverter.java:262
 #: utils/pdf/ProtocolConverter.java:334
-msgid " of"
+msgid "of"
 msgstr ""
 
-#: utils/pdf/BalanceReportConverter.java:561
+#: utils/pdf/BalanceReportConverter.java:562
 #: view/reports/BalanceReportGroupPanel.java:35
 msgid "Title"
 msgstr ""
 
-#: utils/pdf/BalanceReportConverter.java:561
+#: utils/pdf/BalanceReportConverter.java:562
 #: view/forms/CourseEditorForm.java:361 view/forms/CourseViewerForm.java:179
 #: view/models/CourseTableModel.java:29
 #: view/reports/BalanceReportGroupPanel.java:35
 msgid "Part"
 msgstr ""
 
-#: utils/pdf/BalanceReportConverter.java:562
+#: utils/pdf/BalanceReportConverter.java:563
 #: view/forms/CourseEditorForm.java:290 view/forms/CourseViewerForm.java:139
 #: view/models/CourseTableModel.java:28
 #: view/reports/BalanceReportGroupPanel.java:36
@@ -904,22 +904,22 @@ msgstr ""
 msgid "Target Audience"
 msgstr ""
 
-#: utils/pdf/BalanceReportConverter.java:562
+#: utils/pdf/BalanceReportConverter.java:563
 #: view/reports/BalanceReportGroupPanel.java:36
 msgid "Planned AWS"
 msgstr ""
 
-#: utils/pdf/BalanceReportConverter.java:562
+#: utils/pdf/BalanceReportConverter.java:563
 #: view/reports/BalanceReportGroupPanel.java:36
 msgid "Basic needed AWS"
 msgstr ""
 
-#: utils/pdf/BalanceReportConverter.java:573
+#: utils/pdf/BalanceReportConverter.java:574
 #: view/reports/BalanceReportGroupPanel.java:142
 msgid "Budget costs from"
 msgstr ""
 
-#: utils/pdf/BalanceReportConverter.java:634
+#: utils/pdf/BalanceReportConverter.java:635
 #: view/reports/BalanceReportGroupPanel.java:68
 msgid "Sum"
 msgstr ""
@@ -928,19 +928,19 @@ msgstr ""
 msgid "Budget report"
 msgstr ""
 
-#: utils/pdf/BudgetReportConverter.java:365
+#: utils/pdf/BudgetReportConverter.java:366
 #: view/forms/CourseViewerForm.java:155 view/tabs/BudgetViewerTab.java:51
 #: view/tabs/BudgetViewerTab.java:78 view/tabs/BudgetViewerTab.java:167
 #: view/tabs/WelcomeTab.java:260
 msgid "Booked budgets"
 msgstr ""
 
-#: utils/pdf/BudgetReportConverter.java:365 view/tabs/BudgetViewerTab.java:52
+#: utils/pdf/BudgetReportConverter.java:366 view/tabs/BudgetViewerTab.java:52
 #: view/tabs/BudgetViewerTab.java:79 view/tabs/BudgetViewerTab.java:165
 msgid "Available budgets"
 msgstr ""
 
-#: utils/pdf/BudgetReportConverter.java:366
+#: utils/pdf/BudgetReportConverter.java:367
 msgid "Total Budgets"
 msgstr ""
 
@@ -948,17 +948,17 @@ msgstr ""
 msgid "Controlling report"
 msgstr ""
 
-#: utils/pdf/ControllingConverter.java:310
+#: utils/pdf/ControllingConverter.java:311
 msgid "Planned costs(pre-tax)"
 msgstr ""
 
-#: utils/pdf/ControllingConverter.java:310
+#: utils/pdf/ControllingConverter.java:311
 msgid "Actual costs(pre-tax)"
 msgstr ""
 
-#: utils/pdf/ControllingConverter.java:311
-#: utils/pdf/ProtocolConverter.java:383 view/forms/ActivityEditorForm.java:421
-#: view/forms/ActivityViewerForm.java:151 view/forms/CourseEditorForm.java:377
+#: utils/pdf/ControllingConverter.java:312
+#: utils/pdf/ProtocolConverter.java:384 view/forms/ActivityEditorForm.java:421
+#: view/forms/ActivityViewerForm.java:147 view/forms/CourseEditorForm.java:377
 #: view/forms/CourseViewerForm.java:195
 #: view/forms/EmploymentEditorForm.java:538
 #: view/forms/EmploymentViewerForm.java:167
@@ -972,11 +972,11 @@ msgstr ""
 msgid "Activity Protocol"
 msgstr ""
 
-#: utils/pdf/ProtocolConverter.java:381 view/tabs/ProtocolViewerTab.java:40
+#: utils/pdf/ProtocolConverter.java:382 view/tabs/ProtocolViewerTab.java:40
 msgid "Affected assistant"
 msgstr ""
 
-#: utils/pdf/ProtocolConverter.java:382 view/tabs/ProtocolViewerTab.java:40
+#: utils/pdf/ProtocolConverter.java:383 view/tabs/ProtocolViewerTab.java:40
 msgid "Affected course"
 msgstr ""
 
@@ -1041,7 +1041,7 @@ msgstr ""
 msgid "Only a maximal length of 2 is allowed."
 msgstr ""
 
-#: view/forms/ActivityViewerForm.java:40 view/forms/ActivityViewerForm.java:48
+#: view/forms/ActivityViewerForm.java:36 view/forms/ActivityViewerForm.java:43
 #: view/tabs/DetailViewerTab.java:555 view/tabs/DetailViewerTab.java:594
 #: view/tabs/WelcomeTab.java:293 view/tabs/WelcomeTab.java:297
 msgid "None"
