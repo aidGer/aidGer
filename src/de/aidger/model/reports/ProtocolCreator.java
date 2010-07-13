@@ -128,7 +128,7 @@ public class ProtocolCreator {
         Object[] addedActivity = new Object[8];
         String assistantName = "";
         try {
-            if (new Assistant().getById(activity.getAssistantId()) != null) {
+            if (activity.getAssistantId() != null) {
                 assistantName = (new Assistant().getById(activity
                     .getAssistantId())).getFirstName()
                         + " "
@@ -137,7 +137,7 @@ public class ProtocolCreator {
             }
             addedActivity[0] = assistantName;
             String courseName = "";
-            if (new Course().getById(activity.getCourseId()) != null) {
+            if (activity.getCourseId() != null) {
                 courseName = (new Course().getById(activity.getCourseId()))
                     .getDescription()
                         + "("
