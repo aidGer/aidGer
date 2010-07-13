@@ -3,10 +3,13 @@
 \begin_document
 \begin_header
 \textclass scrbook
+\begin_preamble
+\date{\begin{tabular}{rl}Erstellt am: & 28. Juni 2010 \\ Zuletzt geändert am: & \today \end{tabular}}
+\end_preamble
 \use_default_options true
 \language ngerman
 \inputencoding utf8
-\font_roman default
+\font_roman ae
 \font_sans default
 \font_typewriter default
 \font_default_family default
@@ -16,11 +19,9 @@
 \font_tt_scale 100
 
 \graphics default
-\paperfontsize default
+\paperfontsize 12
 \spacing single
 \use_hyperref true
-\pdf_title "Benutzerhandbuch aidGer"
-\pdf_author "aidGer Team"
 \pdf_bookmarks true
 \pdf_bookmarksnumbered false
 \pdf_bookmarksopen false
@@ -28,7 +29,7 @@
 \pdf_breaklinks false
 \pdf_pdfborder true
 \pdf_colorlinks false
-\pdf_backref section
+\pdf_backref false
 \pdf_pdfusetitle true
 \papersize default
 \use_geometry false
@@ -41,7 +42,7 @@
 \tocdepth 3
 \paragraph_separation indent
 \defskip medskip
-\quotes_language polish
+\quotes_language german
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -54,32 +55,11 @@
 \begin_body
 
 \begin_layout Title
-Benutzerhandbuch 
-\begin_inset Quotes pld
-\end_inset
-
-aidGer
-\begin_inset Quotes prd
-\end_inset
-
-
-\end_layout
-
-\begin_layout Publishers
-aidGer Team 
-\end_layout
-
-\begin_layout Date
-13.07.2010
+Benutzerhandbuch aidGer
 \end_layout
 
 \begin_layout Author
-
-\lang english
-\begin_inset Newpage pagebreak
-\end_inset
-
-
+aidGer Team
 \end_layout
 
 \begin_layout Standard
@@ -91,24 +71,19 @@ LatexCommand tableofcontents
 
 \end_layout
 
-\begin_layout Authorgroup
+\begin_layout Chapter
+Einleitung
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Einleitung"
 
-\lang english
-\begin_inset Newpage pagebreak
 \end_inset
 
 
 \end_layout
 
-\begin_layout Chapter
-
-\lang english
-Hinweise
-\end_layout
-
 \begin_layout Section
-
-\lang english
+\noindent
 Autoren und Webseite
 \begin_inset CommandInset label
 LatexCommand label
@@ -120,26 +95,21 @@ name "sec:Autoren-und-Webseite"
 \end_layout
 
 \begin_layout Standard
+aidGer wurde im Rahmen des Software-Praktikums 2010 von Christian Buchgraber,
+ Philipp Gildein und Philipp Pirrung entwickelt.
+ Geleitet wurde das Praktikum von Daniel Kulesz als Kunde sowie Holger Röder
+ und Ivan Bogicevic als Betreuer.
+ Zudem trug Team AdoHive als externer Dienstleister mit der Library AdoHive
+ zum Praktikum bei.
+\begin_inset Newline newline
+\end_inset
 
-\lang english
-aidGer wurde im Rahmen des Software-Praktikums 2010 entwickelt von Christian
- Buchgraber, Philipp Gildein und Philipp Pirrung.
- Geleitet wurde das Praktikum von Daniel Kulesz als Kunde sowie Bla und
- Blub als Betreuer.
-\end_layout
 
-\begin_layout Standard
-\noindent
+\begin_inset Newline newline
+\end_inset
 
-\lang english
-Die Webseite von aidGer, auf der es auch heruntergeladen werden kann befindet
- sich unter folgender Adresse:
-\end_layout
-
-\begin_layout Quote
-\noindent
-
-\lang english
+Die Webseite von aidGer, auf der die Software auch heruntergeladen werden
+ kann, befindet sich unter folgender Adresse: 
 \begin_inset Flex URL
 status open
 
@@ -150,32 +120,39 @@ http://www.aidger.de
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
-
-\lang english
+\align left
 Dort finden Sie auch Kontaktinformationen.
 \end_layout
 
 \begin_layout Section
-
-\lang english
 Leserkreis
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Leserkreis"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Dieses Benutzerhandbuch richtet sich in erster Linie an Benutzer von aidGer,
  sowie an zukünftige Betreuer des Projektes.
 \end_layout
 
 \begin_layout Section
+Unterstütze Plattformen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Unterstütze-Plattformen"
 
-\lang english
-Unterstützte Plattformen
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -189,10 +166,24 @@ aidGer wurde in Java geschrieben und läuft auf jedem System, das Java 1.5
 
 \begin_layout Chapter
 Download und Installation
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Download-und-Installation"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
 Download des Programms
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Download-des-Programms"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -208,6 +199,13 @@ reference "sec:Autoren-und-Webseite"
 
 \begin_layout Section
 Installation und Programmstart
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Installation-und-Programmstart"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -237,6 +235,13 @@ java -jar aidGer.jar
 
 \begin_layout Chapter
 Funktion
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Funktion"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -245,6 +250,13 @@ Dieser Abschnitt erläutert die Aufgabe und Struktur von aidGer.
 
 \begin_layout Section
 Komponenten
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Komponenten"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -258,10 +270,24 @@ aidGer dient der Verwaltung von Hilfskräften und der Kontrolle dieser.
 
 \begin_layout Chapter
 Programmstart
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Programmstart"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
 Erster Start
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Erster-Start"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -293,6 +319,13 @@ Nach Eingabe ihrer Initialen und der erfolgreichen Herstellung der Verbindung
 
 \begin_layout Section
 Willkommensreiter
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Willkommensreiter"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -318,6 +351,13 @@ Sind keine Reiter offen wird von aidGer immer der Willkommensreiter angezeigt.
 
 \begin_layout Chapter
 Hauptfenster
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Hauptfenster"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -329,6 +369,13 @@ Das Hauptfenster von aidGer gliedert sich in vier Bereiche.
 
 \begin_layout Section
 Menüleiste
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Menüleiste"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -408,15 +455,15 @@ Hilfe
  auf die Homepage.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
+\begin_layout Section
+Navigationsleiste
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Navigationsleiste"
+
 \end_inset
 
 
-\end_layout
-
-\begin_layout Section
-Navigationsleiste
 \end_layout
 
 \begin_layout Standard
@@ -463,6 +510,13 @@ Die unterste Box stellt eine Ausnahme dar.
 
 \begin_layout Section
 Inhaltsbereich
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Inhaltsbereich"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -486,7 +540,7 @@ x
 
 -Knopf am rechten Rand des Reiters oder die Tastenkombination 
 \series bold
-STRG + ???
+STRG + W
 \series default
  genutzt werden.
 \end_layout
@@ -502,6 +556,13 @@ STRG + ???
 
 \begin_layout Section
 Statusleiste
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Statusleiste"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -512,6 +573,13 @@ Die Statusleiste am unteren Rand zeigt nach dem erfolgreichen Durchführen
 
 \begin_layout Chapter
 Stammdaten
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Stammdaten"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -541,6 +609,13 @@ Stundenlöhne
 
 \begin_layout Section
 Anzeige aller Daten
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Anzeige-aller-Daten"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -610,6 +685,13 @@ Hinzufügen
 
 \begin_layout Section
 Detailansicht
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Detailansicht"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -649,6 +731,13 @@ Schließen
 
 \begin_layout Section
 Bearbeiten eines Datensatzes
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Bearbeiten-eines-Datensatzes"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -681,6 +770,13 @@ Sollten ein oder mehrere der geänderten Werte nicht korrekt sein, so werden
 
 \begin_layout Section
 Hinzufügen eines Datensatzes
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Hinzufügen-eines-Datensatzes"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -696,6 +792,13 @@ Hinzufügen
 
 \begin_layout Section
 Löschen eines Datensatzes
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Löschen-eines-Datensatzes"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -715,10 +818,24 @@ Entf
 
 \begin_layout Chapter
 Weitere Daten
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Weitere-Daten"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
 Verträge
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Verträge"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -746,6 +863,13 @@ Hilfskraft
 
 \begin_layout Section
 Beschäftigungen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Beschäftigungen"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -786,6 +910,13 @@ Plus
 
 \begin_layout Section
 Vorgänge
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Vorgänge"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -831,6 +962,13 @@ Export
 
 \begin_layout Chapter
 Berichte
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Berichte"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -888,6 +1026,13 @@ Tätigkeitsbericht
 
 \begin_layout Section
 Controlling
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Controlling"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -939,10 +1084,24 @@ benutzt werden.
 
 \begin_layout Section
 Generelle Einstellungen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Generelle-Einstellungen"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
 Initialen
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Initialen"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -952,6 +1111,13 @@ Die Initialien werden bei der Erstellung von Vorgängen benutzt um den momentane
 
 \begin_layout Subsection
 PDF-Anzeiger
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:PDF-Anzeiger"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -962,6 +1128,13 @@ er anzuzeigen.
 
 \begin_layout Subsection
 Sprache
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Sprache"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -977,6 +1150,13 @@ Erfordert einen Neustart von aidGer.
 
 \begin_layout Subsection
 Anzahl der Vorgänge
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Anzahl-der-Vorgänge"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -986,6 +1166,13 @@ Bestimmt die Anzahl der Vorgänge die in Detailansichten angezeigt wird.
 
 \begin_layout Subsection
 Berichte automatisch nach Export öffnen
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Berichte-automatisch-nach"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -995,6 +1182,13 @@ r geöffnet, falls diese Option aktiviert ist.
 
 \begin_layout Subsection
 Reiter bei Verlassen speichern
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Reiter-bei-Verlassen"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1004,10 +1198,24 @@ Ist diese Option aktiviert, so werden die geöffneten Reiter beim Verlassen
 
 \begin_layout Section
 Berichtseinstellungen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Berichtseinstellungen"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
 Zeit bis zur Anonymisierung in Tagen
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Zeit-bis-zur"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1019,6 +1227,13 @@ Die Anzahl der Tage ohne Beschäftigung nach denen eine Hilfskraft anonymisiert
 
 \begin_layout Subsection
 Controllingtoleranz
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Controllingtoleranz"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1028,6 +1243,13 @@ Die Toleranz, die beim Controlling verwendet wird.
 
 \begin_layout Subsection
 Faktoren
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Faktoren"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1041,6 +1263,13 @@ Berechnungsmethode
 
 \begin_layout Subsection
 Berechnungsmethode
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Berechnungsmethode"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1050,10 +1279,24 @@ Der Faktor der bei der Berechnung von Berichten verwendet wird.
 
 \begin_layout Chapter
 Sonstiges
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Sonstiges"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
 Lokalisation
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Lokalisation"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1133,6 +1376,13 @@ g auswählen lassen.
 
 \begin_layout Section
 Von aidGer angelegte Dateien
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Von-aidGer-angelegte"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1181,6 +1431,13 @@ Zudem wird wegen technischer Einschränkungen eine temporäre PDF-Datei erstellt
 
 \begin_layout Section
 Debug Modus
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Debug-Modus"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1204,24 +1461,42 @@ debug = true
 \end_layout
 
 \begin_layout Chapter
-Versionsgeschichte
+Anhang
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Anhang"
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
+\begin_layout Section
+Versionshistorie
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Versionshistorie"
 
-\series bold
-00.06.2010 - Version 0.1: 
-\series default
-Erste Veröffentlichung als Demonstration
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Version 1.0 (13.07.2010)
 \end_layout
 
 \begin_layout Standard
 \noindent
-
-\series bold
-14.07.2010 - Version 1.0: 
-\series default
 Erste komplette Version
+\end_layout
+
+\begin_layout Paragraph*
+Version 0.1 (28.06.2010)
+\end_layout
+
+\begin_layout Standard
+Erste Veröffentlichung als Demonstration
 \end_layout
 
 \end_body
