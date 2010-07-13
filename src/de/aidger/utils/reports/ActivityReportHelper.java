@@ -296,7 +296,7 @@ public class ActivityReportHelper {
                 + " - " + lastMonth + "."
                 + employment.getYears().get(yearSize - 1);
         returnArray[1] = employment.getCourse();
-        returnArray[2] = employment.getHours();
+        returnArray[2] = employment.getHours() + "h";
         return returnArray;
     }
 }
