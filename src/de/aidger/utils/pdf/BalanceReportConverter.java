@@ -116,7 +116,7 @@ public class BalanceReportConverter {
             BalanceFilter filters, int calculationMethod) {
         document = new Document(PageSize.A4.rotate());
         document.setMargins(document.leftMargin(), document.rightMargin(),
-            document.topMargin() + 15, document.bottomMargin());
+            document.topMargin() + 25, document.bottomMargin());
         this.filters = filters;
         balanceHelper = new BalanceHelper();
         this.calculationMethod = calculationMethod;
@@ -289,6 +289,9 @@ public class BalanceReportConverter {
                 right.setHorizontalAlignment(Element.ALIGN_RIGHT);
                 right.setBorder(Rectangle.BOTTOM);
 
+                left.setPaddingBottom(10);
+                center.setPaddingBottom(10);
+                right.setPaddingBottom(10);
                 table.addCell(left);
                 table.addCell(center);
                 table.addCell(right);

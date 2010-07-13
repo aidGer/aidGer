@@ -76,7 +76,7 @@ public class ControllingConverter {
         this.tableRows = tableRows;
         document = new Document(PageSize.A4);
         document.setMargins(document.leftMargin(), document.rightMargin(),
-            document.topMargin() + 30, document.bottomMargin());
+            document.topMargin() + 40, document.bottomMargin());
         file = checkExtension(file);
         name = _("Controlling report");
         makeNewDocument(file);
@@ -215,6 +215,9 @@ public class ControllingConverter {
                 right.setHorizontalAlignment(Element.ALIGN_RIGHT);
                 right.setBorder(Rectangle.BOTTOM);
 
+                left.setPaddingBottom(10);
+                center.setPaddingBottom(10);
+                right.setPaddingBottom(10);
                 table.addCell(left);
                 table.addCell(center);
                 table.addCell(right);
