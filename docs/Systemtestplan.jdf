@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE tests SYSTEM "project.dtd">
 <tests product="TestDataManager" team="05" version="1.0">
-<sequence created="09.07.2010" creator="aidGerTeam" name="Project" number="0">
+<sequence created="13.07.2010" creator="aidGerTeam" name="Project" number="0">
 <description>This is the root node of the project. It contains all test sequences and test cases.</description>
 <pre/>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Systemtest" number="3">
@@ -2452,12 +2452,12 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <sequence created="18.05.2010" creator="aidGerTeam" name="Programmeinstellungen" number="252">
 <description>Die Testsequenz dient zum Testen der Wirksamkeit der Programmeinstellungen in der Software.</description>
 <pre>Benutzer möchte das Programm individuell einstellen.</pre>
-<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="260" priority="C" title="Initialen des Barbeiters bei Vorgangserfassung">
-<description>Die Wirksamkeit der Einstellung "Initialen des Bearbeiters" bei der Vorgangserfassung soll getestet werden.</description>
-<pre>Benutzer möchte die Initialen des Bearbeiters ändern. Die Initialen sind bislang auf "BB" eingestellt. Alle bisherigen Vorgänge wurden korrekt mit diesem Namen abgespeichert.</pre>
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="260" priority="C" title="Name des Barbeiters bei Vorgangserfassung">
+<description>Die Wirksamkeit der Einstellung "Name des Bearbeiters" bei der Vorgangserfassung soll getestet werden.</description>
+<pre>Benutzer möchte den Namen des Bearbeiters ändern. Der Name ist bislang auf "Carl Coder" eingestellt. Alle bisherigen Vorgänge wurden korrekt mit diesem Namen abgespeichert.</pre>
 <actions>* Benutzer öffnet den Einstellungsdialog
 
-* Benutzer gibt die Initialen "AZ" ein
+* Benutzer gibt den Namen "Albert Zebra" ein
 
 * Benutzer drückt auf den Button "Speichern"
 
@@ -4447,6 +4447,605 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </executedsequence>
 </testrun>
 </tsa>
+<testrun enddate="13.07.2010 23:29" priority="E" startdate="13.07.2010 22:56" tester="aidGerTeam">
+<description/>
+<sut>aidGer</sut>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Allgemeines" number="87">
+<description>Die Testsequenz dient zum Testen allgemeiner Funktionalitäten der Software.</description>
+<pre>Das Programm wurde gestartet.</pre>
+</sequence>
+<pre/>
+<executedsequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Programmeinstellungen" number="252">
+<description>Die Testsequenz dient zum Testen der Wirksamkeit der Programmeinstellungen in der Software.</description>
+<pre>Benutzer möchte das Programm individuell einstellen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:57" outcome="Ok" postok="Y" preok="Y" starttime="22:56">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="260" priority="C" title="Name des Barbeiters bei Vorgangserfassung">
+<description>Die Wirksamkeit der Einstellung "Name des Bearbeiters" bei der Vorgangserfassung soll getestet werden.</description>
+<pre>Benutzer möchte den Namen des Bearbeiters ändern. Der Name ist bislang auf "Carl Coder" eingestellt. Alle bisherigen Vorgänge wurden korrekt mit diesem Namen abgespeichert.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer gibt den Namen "Albert Zebra" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer drückt auf den Button "Vorgänge"
+
+* Benutzer drückt auf den Button "Hinzufügen"
+
+* Benutzer drückt auf den Button "Abbrechen"</actions>
+<post>Beim Hinzufügen des neuen Vorgangs ist standardmäßig der neue Name "AZ" in das korrekte Feld eingetragen. Beim Speichern des Vorgangs wird dieser und nicht der alte Namen übernommen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Beim Hinzufügen des neuen Vorgangs ist standardmäßig der neue Name "AZ" in das korrekte Feld eingetragen.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:59" outcome="Ok" postok="Y" preok="Y" starttime="22:57">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="118" priority="C" title="Mehrsprachigkeit: Umstellung auf Deutsch">
+<description>Die Wirksamkeit der Umstellung auf die Sprache Deutsch soll getestet werden.</description>
+<pre>Das Programm ist auf Englisch eingestellt und verhält sich demnach.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer wählt die Sprache "Deutsch" aus
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Benutzer wird darüber informiert, dass die Änderung nur nach einem Neustart des Programms wirksam ist. Nach einem Neustart ist die komplette Software auf die Sprache Deutsch umgestellt und verhält sich demnach.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Benutzer wird darüber informiert, dass die Änderung nur nach einem Neustart des Programms wirksam ist. Nach einem Neustart ist die komplette Software auf die Sprache Deutsch umgestellt und verhält sich demnach.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:59" outcome="Ok" postok="Y" preok="Y" starttime="22:59">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="259" priority="C" title="Mehrsprachigkeit: Umstellung auf Englisch">
+<description>Die Wirksamkeit der Umstellung auf die Sprache Englisch soll getestet werden.</description>
+<pre>Das Programm ist auf Deutsch eingestellt und verhält sich demnach.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer wählt die Sprache "Englisch" aus
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Benutzer wird darüber informiert, dass die Änderung nur nach einem Neustart des Programms wirksam ist. Nach einem Neustart ist die komplette Software auf die Sprache Englisch umgestellt und verhält sich demnach.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Benutzer wird darüber informiert, dass die Änderung nur nach einem Neustart des Programms wirksam ist. Nach einem Neustart ist die komplette Software auf die Sprache Englisch umgestellt und verhält sich demnach.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:01" outcome="Ok" postok="Y" preok="Y" starttime="22:59">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="255" priority="C" title="PDF-Viewer">
+<description>Die Wirksamkeit der Einstellung "PDF Anzeiger" soll getestet werden.</description>
+<pre>Benutzer möchte den PDF-Viewer ändern.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer gibt den neuen Pfad des PDF-Viewers an
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer zeigt sich den aktuellen Monatsauszug an
+
+* Benutzer drückt auf den Button "Exportieren"</actions>
+<post>Der neue und nicht der alte PDF-Viewer wird geöffnet und zeigt den generierten Monatsauszug an.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der neue und nicht der alte PDF-Viewer wird geöffnet und zeigt den generierten Monatsauszug an.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:04" outcome="Ok" postok="Y" preok="Y" starttime="23:01">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="256" priority="C" title="Anzahl der Vorgänge">
+<description>Die Wirksamkeit der Einstellung "Anzahl der Vorgänge" soll getestet werden.</description>
+<pre>Benutzer möchte die Anzahl der Vorgänge ändern. Die jetzige Einstellung umfasst 3 Vorgänge. Zur angezeigten Hilfskraft müssen mindestens 4 Vorgänge hinterlegt sein.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer gibt die neue Anzahl "4" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer öffnet die Detailansicht einer Hilfskraft
+
+* Benutzer drückt auf den Button "Abbrechen"</actions>
+<post>Es werden die neusten vier Vorgänge zu der ausgewählten Hilfskraft in der Detailansicht angezeigt. Die Einstellung wurde dauerhaft gespeichert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Es werden die neusten vier Vorgänge zu der ausgewählten Hilfskraft in der Detailansicht angezeigt. Die Einstellung wurde dauerhaft gespeichert.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:05" outcome="Ok" postok="Y" preok="Y" starttime="23:04">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="257" priority="C" title="Berichte automatisch nach Generierung öffnen">
+<description>Die Wirksamkeit der Einstellung "Berichte automatisch nach Generierung öffnen" soll getestet werden.</description>
+<pre>Die Einstellung "Berichte automatisch nach Generierung öffnen" ist deaktiviert (Standard).</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer setzt das Häkchen bei "Berichte automatisch nach Generierung öffnen"
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer lässt sich die Jahresbilanz für 2010 über den Menüpunkt Berichte generieren</actions>
+<post>Der Bericht wird nicht mehr intern in einem Reiter angezeigt, sondern der PDF-Viewer wird direkt mit dem erstellen Bericht geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Bericht wird nicht mehr intern in einem Reiter angezeigt, sondern der PDF-Viewer wird direkt mit dem erstellen Bericht geöffnet.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:06" outcome="Ok" postok="Y" preok="Y" starttime="23:05">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="258" priority="C" title="Reiter bei Verlassen speichern">
+<description>Die Wirksamkeit der Einstellung "Reiter bei Verlassen speichern" soll getestet werden.</description>
+<pre>Die Einstellung "Reiter bei Verlassen speichern" ist aktiviert.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer entfernt das Häkchen bei "Reiter bei Verlassen speichern"
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer öffnet die Stammdatenansicht Hilfskräfte in einem neuen Reiter
+
+* Benutzer öffnet das Controlling (aktueller Monat) in einem neuen Reiter
+
+* Benutzer beendet das Programm
+
+* Benutzer startet das Programm</actions>
+<post>Die geöffneten Reiter wurden nicht wieder geöffnet. Der Benutzer wird ausschließlich mit dem Willkommen-Reiter begrüßt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die geöffneten Reiter wurden nicht wieder geöffnet. Der Benutzer wird ausschließlich mit dem Willkommen-Reiter begrüßt.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:07" outcome="Ok" postok="Y" preok="Y" starttime="23:06">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="301" priority="C" title="Pessimistischer Faktor">
+<description>Die Wirksamkeit der Einstellung "Pessimistischer Faktor" soll getestet werden.</description>
+<pre>Benutzer möchte den pessimistischen Faktor ändern. Die jetzige Einstellung ist 1.0. In der Schnelleinstellung ist die pessimistische Berechnung ausgewählt.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer geht in den Tab "Berichte"
+
+* Benutzer gibt den neuen pessimistischen Faktor "1.3" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer generiert eine Semesterbilanz</actions>
+<post>Die angezeigten Budgetkosten der Gruppen wurden korrekt mit dem neuen Faktor berechnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die angezeigten Budgetkosten der Gruppen wurden korrekt mit dem neuen Faktor berechnet.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:07" outcome="Ok" postok="Y" preok="Y" starttime="23:07">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="302" priority="C" title="Historischer Faktor">
+<description>Die Wirksamkeit der Einstellung "Historischer Faktor" soll getestet werden.</description>
+<pre>Benutzer möchte den historischen Faktor ändern. Die jetzige Einstellung ist 1.0. In der Schnelleinstellung ist die historische Berechnung ausgewählt.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer geht in den Tab "Berichte"
+
+* Benutzer gibt den neuen historiscen Faktor "1.4" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer generiert eine Gesamtbilanz</actions>
+<post>Die angezeigten Budgetkosten der Gruppen wurden korrekt mit dem neuen Faktor berechnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die angezeigten Budgetkosten der Gruppen wurden korrekt mit dem neuen Faktor berechnet.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:10" outcome="Ok" postok="Y" preok="Y" starttime="23:07">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="300" priority="C" title="Zeit bis zur Anonymisierung">
+<description>Die Wirksamkeit der Einstellung "Zeit bis zur Anonymisierung" soll getestet werden.</description>
+<pre>Benutzer möchte die Zeit bis zur Anonymisierung ändern. Die jetzige Einstellung ist 365 Tage. Es gibt 2 Hilfskräfte, deren letzte Beschäftigung 50 Tage her ist.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer gibt die neue Zeit "50" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer startet das Programm neu</actions>
+<post>Die 2 Hilfskräfte wurden anonymisiert, d.h. ihre Namen und ihre Email wurden mit "****" ersetzt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die 2 Hilfskräfte wurden anonymisiert, d.h. ihre Namen und ihre Email wurden mit "****" ersetzt.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:14" outcome="Ok" postok="Y" preok="Y" starttime="23:10">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="303" priority="C" title="Controllingtoleranz">
+<description>Die Wirksamkeit der Einstellung "Controllingtoleranz" soll getestet werden.</description>
+<pre>Benutzer möchte die Controllingtoleranz ändern. Die jetzige Einstellung ist 0.0. Die Testfälle zum Hinzufügen von Beschäftigungen wurden ausgeführt. Die realen Kosten sind bei allen Hilfskräften mit den Plankosten identisch.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer gibt die neue Toleranz "10" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer prüft die Hilfskräfte
+
+* Benutzer gibt die realen Kosten für eine Hilfskraft mit einer absichtlichen Abweichung von 16€ ein.
+
+* Benutzer gibt die realen Kosten für eine andere Hilfskraft mit einer absichtlichen Abweichung von 8€ ein.</actions>
+<post>Ausschließlich die Hilfskraft mit der 16€ Abweichung wird als Unstimmigkeit angezeigt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Ausschließlich die Hilfskraft mit der 16€ Abweichung wird als Unstimmigkeit angezeigt.</post>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Tabbing" number="264">
+<description>Die Testsequenz dient zum Testen des Tabbings im Programm.</description>
+<pre>Das Programm verwendet Tabs für eine einfachere Bedienung von aidGer.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="23:14" outcome="Ok" postok="Y" preok="Y" starttime="23:14">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="265" priority="C" title="Leerer Tab öffnen">
+<description>Es soll ein neuer leerer Tab geöffnet werden.</description>
+<pre>Benutzer möchte einen leeren Tab öffnen.</pre>
+<actions>* Benutzer drückt auf den "+"-Button bei den Reitern</actions>
+<post>Ein neuer Tab hat sich geöffnet und befindet sich im Vordergrund. Es können nun alle Navigationselemente in diesem Reiter geöffnet werden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Ein neuer Tab hat sich geöffnet und befindet sich im Vordergrund. Es können nun alle Navigationselemente in diesem Reiter geöffnet werden.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:15" outcome="Ok" postok="Y" preok="Y" starttime="23:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="266" priority="C" title="Ein neuen Tab via mittlerer Maustaste (Navigationsleiste)">
+<description>Es soll ein neuer Tab mit Hilfe der mittleren Maustaste geöffnet werden.</description>
+<pre>Benutzer möchte sich Daten in einem neuen Tab anzeigen lassen.</pre>
+<actions>* Benutzer klickt mit der mittleren Maustaste auf "Controlling" in der Navigationsleiste</actions>
+<post>Der aktuelle Monatsauszug hat sich in einem neuen Reiter geöffnet. Dieser ist zudem in den Vordergrund gekommen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der aktuelle Monatsauszug hat sich in einem neuen Reiter geöffnet. Dieser ist zudem in den Vordergrund gekommen.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:16" outcome="Ok" postok="Y" preok="Y" starttime="23:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="268" priority="C" title="Zwischen Tabs navigieren">
+<description>Es soll zwischen den Tabs navigiert werden können.</description>
+<pre>Benutzer möchte zwischen den Tabs navigieren.</pre>
+<actions>* Benutzer erstellt vier neue Tabs via "+"-Button
+
+* Benutzer klickt auf Tab 1
+
+* Benutzer klickt auf Tab 3</actions>
+<post>Beim Wechseln der Tabs wurde jeweils der Inhalt im Content-Frame geändert. Der Benutzer befindet sich im Tab 3.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Beim Wechseln der Tabs wurde jeweils der Inhalt im Content-Frame geändert. Der Benutzer befindet sich im Tab 3.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:16" outcome="Ok" postok="Y" preok="Y" starttime="23:16">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="267" priority="C" title="Einen Tab schließen">
+<description>Es soll ein Tab geschlossen werden.</description>
+<pre>Der Benutzer möchte einen nicht mehr benötigten Tab schließen.</pre>
+<actions>* Benutzer klickt auf das "X" im Reiter</actions>
+<post>Das Tab hat sich geschlossen. Falls der Tab nicht selektiert war, bleibt der angezeigte Tab im Vordergrund. Wurde das angezeigte Tab geschloßen, wird der nächste Tab genommen. Wird der letzte Tab geschloßen, so wird der nun neue letzte Tab selektiert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Navigationsleiste" number="269">
+<description>Die Testsequenz dient zum Testen des Navigationsleiste im Programm.</description>
+<pre>Der Benutzer möchte zwischen den verschiedenen Ansichten navigieren.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="23:16" outcome="Ok" postok="Y" preok="Y" starttime="23:16">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="270" priority="C" title="Verhalten bei Programmstart">
+<description>Das Verhalten der Navigationsleiste beim Programmstart soll getestet werden.</description>
+<pre>Das Programm wurde gestartet.</pre>
+<actions/>
+<post>Der Menüpunkt Stammdatenverwaltung ist geöffnet, d.h. dem Benutzer wird der Menükontext der Stammdatenverwaltung angezeigt. Alle anderen Menüpunkte sind beim Programmstart noch geschlossen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:17" outcome="Ok" postok="Y" preok="Y" starttime="23:16">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="271" priority="C" title="Klick auf geschlossenen Menüpunkt">
+<description>Das Verhalten beim Klick auf einen geschlossenen Menüpunkt soll getestet werden.</description>
+<pre>Benutzer möchte einen Menüpunkt öffnen, um weitere Navigationsmöglichkeiten zu diesem Menüpunkt zu bekommen.</pre>
+<actions>* Benutzer klickt auf einen geschlossenen Menüpunkt</actions>
+<post>Der geschlossene Menüpunkt öffnet seinen untergeordneten Menükontext. Falls beim Klick auf den Menüpunkt der Content-Frame bzw. das aktuelle Tab geändert werden muss, wird dies getan. Der Benutzer kann zudem im geöffneten Menükontext weiter navigieren.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:17" outcome="Ok" postok="Y" preok="Y" starttime="23:17">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="272" priority="C" title="Klick auf aktivem Menüpunkt">
+<description/>
+<pre>Ein Menüpunkt ist bereits offen, d.h. sein Menükontext wird angezeigt.</pre>
+<actions>* Benutzer klickt erneut auf den offenen Menüpunkt</actions>
+<post>Der Menüpunkt schließt sich, d.h. sein Menükontext wird nicht mehr angezeigt. Der Content-Frame ändert sich dabei nicht. Andere offene Menüpunkte ändern ihren Zustand nicht.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Drucken" number="251">
+<description>Die Testsequenz dient zum Testen der Druckmöglichkeit in der Software.</description>
+<pre>Der Benutzer möchte angezeigte Daten drucken.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="23:20" outcome="Ok" postok="Y" preok="Y" starttime="23:17">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="117" priority="C" title="Drucken eines Monatsauszuges">
+<description>Es soll die Druckmöglichkeit in der Software getestet werden. Es wird ein Monatsauszug gedruckt.</description>
+<pre>Testfall 242 (Controlliing) wurde ausgeführt. Der Controlling-Tab ist vom Benutzer geöffnet.</pre>
+<actions>* Benutzer klickt auf den Menüeintrag "Datei"
+
+* Benutzer klickt auf den Menüeintrag "Drucken"
+
+* Benutzer stellt seinen bereits konfigurierten Drucker ein
+
+* Benutzer drückt auf den Button "Drucken"</actions>
+<post>Es soll der angezeigte Monatsauszug am Drucker gedruckt werden. Dabei wird der gerenderte Tab gedruckt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:21" outcome="Ok" postok="Y" preok="Y" starttime="23:21">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="254" priority="C" title="Drucken der Beschäftigungen">
+<description>Es soll die Druckmöglichkeit in der Software getestet werden. Es werden die angezeigten Beschäftigungen gedruckt.</description>
+<pre>Die Testfälle zum Hinzufügen von Beschäftigungen wurden ausgeführt. Der Beschäftigungen-Tab ist vom Benutzer geöffnet.</pre>
+<actions>* Benutzer klickt auf den Menüeintrag "Datei"
+
+* Benutzer klickt auf den Menüeintrag "Drucken"
+
+* Benutzer stellt seinen bereits konfigurierten Drucker ein
+
+* Benutzer drückt auf den Button "Drucken"</actions>
+<post>Es wird die angezeigte Beschäftigungsliste gedruckt. Der gerenderte Tab wird gedruckt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:21" outcome="Ok" postok="Y" preok="Y" starttime="23:21">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="253" priority="C" title="Drucken mit Shortcut">
+<description>Es soll die Druckmöglichkeit in der Software getestet werden. Das Drucken wird durch den Shortcut ausgelöst.</description>
+<pre/>
+<actions>* Benutzer klickt auf den "+" Button bei den Reitern
+
+* Benutzer drückt den Shortcut "STRG + P"
+
+* Benutzer drückt auf den Button "Abbrechen"</actions>
+<post>Der Druckdialog wird geöffnet und wieder geschlossen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Überschreiten von Limits" number="261">
+<description>Die Testsequenz dient zum Testen des Erscheines spezifizierter Warnungen beim Überschreiten von Limits.</description>
+<pre>Warnungen wurden spezifiziert, die in bestimmten Situationen erscheinen müssen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="23:24" outcome="Ok" postok="Y" preok="Y" starttime="23:23">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:04" number="274" priority="A" title="Budgetüberschreitung einer Veranstaltung">
+<description>Es soll das Erscheinen einer Warnung bei der Budgetüberschreitung einer Veranstaltung getestet werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Beschäftigungen und Veranstaltungen wurden ausgeführt.</pre>
+<actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung für eine existierende Veranstaltung. Die Hilfskraft arbeitet monatlich 1000 HKS.</actions>
+<post>Der Benutzer wird beim Erstellen der Beschäftigung darüber informiert, dass das Budget für die Veranstaltung überschritten wurde. Die Beschäftigung wird dennoch in der Datenbank angelegt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Benutzer wird beim Erstellen der Beschäftigung darüber informiert, dass das Budget für die Veranstaltung überschritten wurde. Die Beschäftigung wird dennoch in der Datenbank angelegt.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:24" outcome="Ok" postok="Y" preok="Y" starttime="23:24">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="277" priority="C" title="Budgetüberschreitung eines Funds einer Finanzkategorie">
+<description>Es soll das Erscheinen einer Warnung bei der Budgetüberschreitung eines Funds einer Finanzkategorie getestet werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Finanzkategorie wurden ausgeführt.</pre>
+<actions>* Benutzer erstellt 10 neue Beschäftigung und weist diesen eine Veranstaltung zu, die eine existierende Finanzkategorie hat und deren Budget bei 400€ liegt. Die geprüfte Hilfskraft arbeitet jeden Monat 84 Stunden.</actions>
+<post>Der Benutzer wird darüber informiert, dass das Budget der Finanzkategorie durch das Erstellen der Beschäftigungen überschritten wurde. Die Beschäftigung wird dennoch in der Datenbank angelegt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Benutzer wird darüber informiert, dass das Budget der Finanzkategorie durch das Erstellen der Beschäftigungen überschritten wurde. Die Beschäftigung wird dennoch in der Datenbank angelegt.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:24" outcome="Ok" postok="Y" preok="Y" starttime="23:24">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="275" priority="A" title="Überschreitung der Beschäftigungsgrenze einer Hilfskraft">
+<description>Es soll das Erscheinen einer Warnung bei einer Überschreitung der Beschäftigungsgrenze einer Hilfskraft getestet werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Hilfskräften, Beschäftigungen und Veranstaltungen wurden ausgeführt.</pre>
+<actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung für eine existierende Hilfskraft und weist dieser für zwei Monate 90 HKS zu.</actions>
+<post>Der Benutzer wird darüber informiert, dass die Beschäftigungsgrenze von 85h in den entsprechenden Monaten überschritten wurden. Die Beschäftigung wird dennoch angelegt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:25" outcome="Ok" postok="Y" preok="Y" starttime="23:24">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="276" priority="C" title="Hilfskraft mehr als 6 Jahre angestellt">
+<description>Es soll das Erscheinen einer Warnung getestet werden, wenn die Hilfskraft mehr als 6 Jahre angestellt ist.</description>
+<pre>Die Testfälle zum Hinzufügen von Hilfskräften, Beschäftigungen und Veranstaltungen wurden ausgeführt. Die Hilfskraft "Peter Planlos" ist bereits 5 1/2 Jahre angestellt.</pre>
+<actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung, um somit die Hilfskraft Peter Plan für ein weiteres Jahr einzustellen.</actions>
+<post>Der Benutzer bekommt die Warnung angezeigt, dass durch die Beschäftigung die Hilfskraft für mehr als 6 Jahre angestellt ist. Die Beschäftigung wird dennoch im System abgespeichert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Benutzer bekommt die Warnung angezeigt, dass durch die Beschäftigung die Hilfskraft für mehr als 6 Jahre angestellt ist. Die Beschäftigung wird dennoch im System abgespeichert.</post>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="28.06.2010" creator="aidGerTeam" name="Allgemein" number="309">
+<description>Die Testsequenz dient zum Testen allgemeiner Funktionalitäten der Software.</description>
+<pre/>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="23:27" outcome="Ok" postok="Y" preok="Y" starttime="23:25">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="88" priority="C" title="Programmstart mit offenen Tabs">
+<description>Das Programm wird gestartet, wobei beim letzten Programmstart Tabs offen gelassen wurden.</description>
+<pre>Die Einstellung "Reiter bei Verlassen speichern" ist aktiviert.</pre>
+<actions>* Benutzer öffnet den Menüpunkt Veranstaltungen in einem neuen Tab
+
+* Benutzer drückt den Button "Hinzufügen"
+
+* System öffnet das "Hinzufügen"-Tab
+
+* Benutzer gibt die Bezeichnung "Veranstaltung YXZ" ein
+
+* Benutzer öffnet den Menüpunkt Vorgänge in einem neuen Tab
+
+* Benutzer schließt das Programm
+
+* Benutzer startet das Programm erneut</actions>
+<post>Die Tabs "Veranstaltungen", "Veranstaltungen - Hinzufügen" und "Vorgänge" sind nach dem Programmstart erneut offen. Die Eingabe im Veranstaltungen-Hinzufügen-Formular ging jedoch dabei verloren.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die Tabs "Veranstaltungen", "Veranstaltungen - Hinzufügen" und "Vorgänge" sind nach dem Programmstart erneut offen. Die Eingabe im Veranstaltungen-Hinzufügen-Formular ging jedoch dabei verloren.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:27" outcome="Ok" postok="Y" preok="Y" starttime="23:27">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="90" priority="C" title="Änderung der Fenstergröße">
+<description>Es soll das Verhalten bei einer Veränderung der Fenstergröße getestet werden.</description>
+<pre/>
+<actions>* Benutzer zieht das Programmfenster breiter
+
+* Benutzer zieht das Programmfenster höher</actions>
+<post>Bei einer Veränderung der Fenstergröße in der Breite wird nur der Inhaltsbereich verändert, um mehr Platz für Informationen/Formulare zu bekommen. Die Navigationsleiste wird höchstens so breit wie das breiteste Element in ihr.
+
+Sollte sich die Fenstergröße in der Höhe verändern, ändert sich die Größe beider Elemente gleichmäßig.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:27" outcome="Ok" postok="Y" preok="Y" starttime="23:27">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="91" priority="C" title="Auswahl eines Elements in der Navigationsleiste">
+<description>Es wird die Auswahl eines Menüeintrags in der Navigationsleiste getestet. Es gibt Unterschiede zwischen einem linken und einen mittleren Mausklick.</description>
+<pre/>
+<actions>* Benutzer drückt mit der linken Maustaste auf den Menüpunkt Berichte
+
+* Benutzer drückt mit der mittleren Maustaste auf den Menüpunkt Controlling</actions>
+<post>Wird vom Benutzer ein Element in der Navigationsleiste mit der linken Maustaste ausgewählt, wird der aktuelle Inhalt des Inhaltsbereichs verworfen und durch den Inhalt des neuen Elements ersetzt.
+
+Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen, wird ein neuer Reiter geöffnet und der Inhalt des Elements in diesem neuen Reiter dargestellt. Der aktuelle Reiter bleibt dabei vollständig erhalten, gerät jedoch in den Hintergrund (ist also nicht mehr sichtbar).</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:28" outcome="Ok" postok="Y" preok="Y" starttime="23:27">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="263" priority="C" title="Willkommensreiter anzeigen">
+<description>Der Willkommensreiter soll beim Programmstart angezeigt werden. Die Einstellung "Merke meine Reiter" ist nicht gesetzt.</description>
+<pre>Die Einstellung "Merke meine Reiter" ist nicht gesetzt.</pre>
+<actions>* Benutzer startet das Programm neu</actions>
+<post>In einem einzigen Reiter ist das Willkommen-Tab geöffnet. Der Willkommensreiter enthält Informationen über die letzten Ereignisse (z.b. Berichte oder Vorgänge), Hinweise und Statistiken.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:28" outcome="Ok" postok="Y" preok="Y" starttime="23:28">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="304" priority="C" title="Willkommensreiter nicht anzeigen">
+<description>Der Willkommensreiter soll beim Programmstart angezeigt werden. Die Einstellung "Merke meine Reiter" ist gesetzt.</description>
+<pre>Die Einstellung "Merke meine Reiter" ist gesetzt.</pre>
+<actions>* Benutzer öffnet die Reiter "Veranstaltungen", "Controlling Hilfskräfte" und "Beschäftigungen"
+
+* Benutzer startet das Programm neu</actions>
+<post>Der Willkommensreiter wird nicht geöffnet. Es werden ausschließlich die 3 geöffneten Reiter vor dem Programmneustart angezeigt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:28" outcome="Ok" postok="Y" preok="Y" starttime="23:28">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="119" priority="C" title="Export-Schnittstelle für Vorgänge">
+<description>Der Export von Vorgängen (z.B. zur möglichen Benutzung im Ticket-System) muss getestet werden.</description>
+<pre>Testfälle zum Hinzufügen von Vorgängen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt im Menü den Punkt "Vorgang exportieren"
+
+* Benutzer wählt die Tagesanzahl "5" aus
+
+* Benutzer drückt den Button "Exportieren"</actions>
+<post>Die Vorgänge der letzten 5 Tage werden in der Tabelle angezeigt. Die angezeigten Vorgänge werden im PDF-Format exportiert. In einer späteren SUT sollte hier ein für das Ticket-System verständliches Format benutzt werden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:29" outcome="Ok" postok="Y" preok="Y" starttime="23:28">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="262" priority="C" title="Programm beenden">
+<description>Das Programm soll beendet werden.</description>
+<pre>Benutzer möchte das Programm beenden.</pre>
+<actions>* Benutzer drückt auf den "X"-Button</actions>
+<post>Alle Ressourcen müssen freigegeben werden. Die Reiter müssen je nach Einstellung gespeichert werden. Die Konfiguration muss geschrieben werden. Das Fenster soll verschwinden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+</executedsequence>
+</testrun>
 </tsa>
 <tsa name="Verträge" number="279" revId="1">
 <relatedsequence>279</relatedsequence>
