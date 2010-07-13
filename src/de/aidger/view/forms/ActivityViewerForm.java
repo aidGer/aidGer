@@ -13,8 +13,6 @@ import de.aidger.model.models.Course;
 import de.aidger.view.models.UIAssistant;
 import de.aidger.view.models.UICourse;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
  * A form used for viewing activities in detail.
@@ -34,20 +32,18 @@ public class ActivityViewerForm extends JPanel {
         initComponents();
 
         try {
-            IAssistant a = (new Assistant()).getById(activity.getAssistantId());
-
-            if (a == null) {
+            if (activity.getAssistantId() == null) {
                 assistant.setText(_("None"));
             } else {
-                assistant.setText(new UIAssistant(a).toString());
+                assistant.setText(new UIAssistant((new Assistant())
+                    .getById(activity.getAssistantId())).toString());
             }
 
-            ICourse c = (new Course()).getById(activity.getCourseId());
-
-            if (c == null) {
+            if (activity.getCourseId() == null) {
                 course.setText(_("None"));
             } else {
-                course.setText(new UICourse(c).toString());
+                course.setText(new UICourse(new Course()).getById(
+                    activity.getCourseId()).toString());
             }
 
             processor.setText(activity.getProcessor());
@@ -212,11 +208,12 @@ public class ActivityViewerForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(remark, gridBagConstraints);
 
-        content.setBackground(new Color(0,0,0,0));
+        content.setBackground(new Color(0, 0, 0, 0));
         content.setColumns(20);
         content.setEditable(false);
         content.setRows(5);
-        content.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        content.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0,
+            0));
         content.setOpaque(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
