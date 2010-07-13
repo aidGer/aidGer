@@ -254,7 +254,7 @@ public class ActivityReportConverter {
             cell.setBorder(0);
             cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
             sender.addCell(cell);
-            cell = new PdfPCell(new Phrase("Universit‰tsstraﬂe 38"));
+            cell = new PdfPCell(new Phrase("Universit\u00e4tsstra\u00dfe 38"));
             cell.setBorder(0);
             cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
             sender.addCell(cell);
