@@ -4,6 +4,7 @@
 package de.aidger.model.reports;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -102,9 +103,10 @@ public class ProtocolCreator {
                             + new Course().getById(activity.getCourseId())
                                 .getSemester() + ")";
                 }
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
                 addedActivity[1] = courseName;
                 addedActivity[2] = activity.getType();
-                addedActivity[3] = activity.getDate();
+                addedActivity[3] = dateFormat.format(activity.getDate());
                 addedActivity[4] = activity.getContent();
                 addedActivity[5] = activity.getSender();
                 addedActivity[6] = activity.getProcessor();
@@ -144,9 +146,10 @@ public class ProtocolCreator {
                         + new Course().getById(activity.getCourseId())
                             .getSemester() + ")";
             }
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
             addedActivity[1] = courseName;
             addedActivity[2] = activity.getType();
-            addedActivity[3] = activity.getDate();
+            addedActivity[3] = dateFormat.format(activity.getDate());
             addedActivity[4] = activity.getContent();
             addedActivity[5] = activity.getSender();
             addedActivity[6] = activity.getProcessor();
