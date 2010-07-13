@@ -2,8 +2,8 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -67,14 +67,14 @@ public class BalanceViewerTab extends ReportTab {
             /*
              * This is a full balance report.
              */
-            yearLabel.setVisible(false);
-            yearComboBox.setVisible(false);
-            jSeparator4.setVisible(false);
             break;
         case 2:
             /*
              * This is an annual balance report.
              */
+            jToolBar1.add(yearComboBox, 0);
+            jToolBar1.add(yearLabel, 0);
+            jToolBar1.add(jSeparator4, 0);
             ArrayList<Integer> availableYears = new BalanceHelper().getYears();
             for (Object year : availableYears) {
                 yearComboBox.addItem(year);
@@ -84,6 +84,9 @@ public class BalanceViewerTab extends ReportTab {
             /*
              * This is a semester balance report.
              */
+            jToolBar1.add(yearComboBox, 0);
+            jToolBar1.add(yearLabel, 0);
+            jToolBar1.add(jSeparator4, 0);
             yearLabel.setText(_("Semester" + ":"));
             ArrayList<String> semesters = new BalanceHelper().getSemesters();
             for (Object semester : semesters) {
@@ -221,12 +224,12 @@ public class BalanceViewerTab extends ReportTab {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        contentPanel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jToolBar1 = new javax.swing.JToolBar();
         jSeparator4 = new javax.swing.JToolBar.Separator();
         yearLabel = new javax.swing.JLabel();
         yearComboBox = new javax.swing.JComboBox();
+        contentPanel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jToolBar1 = new javax.swing.JToolBar();
         jSeparator2 = new javax.swing.JToolBar.Separator();
         generateButton = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
@@ -240,6 +243,8 @@ public class BalanceViewerTab extends ReportTab {
         filterComboBox = new javax.swing.JComboBox();
         addFilterButton = new javax.swing.JButton();
 
+        yearLabel.setText(_("Year") + ":");
+
         setLayout(new java.awt.BorderLayout());
 
         contentPanel.setLayout(new javax.swing.BoxLayout(contentPanel,
@@ -250,12 +255,6 @@ public class BalanceViewerTab extends ReportTab {
 
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
-        jToolBar1.add(jSeparator4);
-
-        yearLabel.setText(_("Year") + ":");
-        jToolBar1.add(yearLabel);
-
-        jToolBar1.add(yearComboBox);
         jToolBar1.add(jSeparator2);
 
         generateButton.setText(_("Generate"));
