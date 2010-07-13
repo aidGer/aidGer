@@ -4,8 +4,8 @@ import static de.aidger.utils.Translation._;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -162,11 +162,11 @@ public class BudgetViewerTab extends ReportTab {
                     break;
                 }
             }
-            if (name.equals(_("Available budgets"))) {
+            if (name.equals(_("Remaining budgets"))) {
                 budgetFilter.setAvailableComparison(Comparison.NONE);
             } else if (name.equals(_("Booked budgets"))) {
                 budgetFilter.setBookedComparison(Comparison.NONE);
-            } else if (name.equals(_("Total budgets"))) {
+            } else if (name.equals(_("Available budgets"))) {
                 budgetFilter.setTotalComparison(Comparison.NONE);
             }
         }
