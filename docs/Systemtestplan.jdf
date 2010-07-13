@@ -3812,6 +3812,208 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 </executedsequence>
 </testrun>
 </tsa>
+<testrun enddate="13.07.2010 23:44" priority="E" startdate="13.07.2010 23:33" tester="aidGerTeam">
+<description/>
+<sut>aidGer</sut>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Controlling" number="10">
+<description>Die Testsequenz dient zum Testen des Controllings.</description>
+<pre>Das Programm wurde gestartet und der Benutzer befindet sich im Menüpunkt Controlling.</pre>
+</sequence>
+<pre/>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Veranstaltungen prüfen" number="305">
+<description>Die Testsequenz dient zum Prüfen von Veranstaltungen. Es können standardmäßig alle Veranstaltungen angezeigt werden. Über einen Filter können nur spezifische Veranstaltungen (z.B. Veranstaltungen in einem Semester) betrachtet werden. Die Liste kann zudem exportiert werden.</description>
+<pre>Der Benutzer möchte Veranstaltungen prüfen und klickt auf den Menüpunkt "Veranstaltungen prüfen". Es sind die Default-Einstellungen ausgewählt.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="23:34" outcome="Ok" postok="Y" preok="Y" starttime="23:34">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="244" priority="C" title="Alle Veranstaltungen anzeigen">
+<description>Für die Budgetprüfung sollen alle Veranstaltungen angezeigt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Es wird eine Tabelle angeigt, in der alle Veranstaltungen mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet sind. Es müssen 3 Veranstaltungen angezeigt werden:
+
+Nutzlose Betriebssysteme in der Praxis: 95 / 157,5
+Laufende Forschung: 47 / 45
+Mensa überleben für Pizza-Fan: 47 / 120
+
+Die Zeile "Laufende Forschung" muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:35" outcome="Ok" postok="Y" preok="Y" starttime="23:34">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="245" priority="C" title="Veranstaltungen via Filter (Dozent) anzeigen">
+<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter über Dozent benutzt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Dozent" hinzu
+
+* Benutzer gibt die Veranstaltung "Gustav" ein
+
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Es wird nur die Veranstaltung "Laufende Forschung" mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet.
+
+Laufende Forschung: 47 / 45
+
+Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:36" outcome="Ok" postok="Y" preok="Y" starttime="23:35">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="247" priority="C" title="Veranstaltungen via Filter (Übrige HKS) anzeigen">
+<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter über Übrige HKS benutzt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Übrige HKS" hinzu
+
+* Benutzer gibt die die übrige HKS kleiner als "0"
+
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Es wird nur die Veranstaltung "Laufende Forschung" mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet.
+
+Laufende Forschung: 47 / 45
+
+Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:39" outcome="Ok" postok="Y" preok="Y" starttime="23:36">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="246" priority="C" title="Veranstaltungsliste in PDF-Format exportieren">
+<description>Eine Veranstaltungsliste soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 244 wurde bereits ausgeführt. Benutzer befindet sich im "Controlling Veranstaltungen"-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
+<post>Die bereits dargestellte Veranstaltungsliste wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden. Veranstaltungen mit negativen übrigen HKS werden auch in der PDF hervorgehoben.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:40" outcome="Ok" postok="Y" preok="Y" starttime="23:39">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="249" priority="C" title="Budgetprüfung ohne Veranstaltungen">
+<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter benutzt. Dieser Filter führt jedoch zu keinem Ergebnis.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Semester" hinzu
+
+* Benutzer gibt das Semester "Dumbdidum" ein
+
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Der Benutzer soll nicht die Möglichkeit haben, diese Falscheingabe durchzuführen. Daher wird ebenfalls keine neue Veranstaltungstabelle angezeigt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Hilfskräfte prüfen" number="306">
+<description>Die Testsequenz dient zum Prüfen von Hilfskräften. Es können Monatsauszüge der angestellten Hilfskräfte angezeigt und exportiert werden. Zwischen den Monaten kann leicht navigiert werden. Außerdem müssen komfortabel die realen Kosten in die Tabelle eingetragen werden können. Desweiteren werden bei Soll-Ist-Abweichungen Warnungen angezeigt.</description>
+<pre>Der Benutzer möchte Hilfskräfte prüfen und klickt auf den Menüpunkt "Hilfskräfte prüfen". Es sind die Default-Einstellungen ausgewählt.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="23:40" outcome="Ok" postok="Y" preok="Y" starttime="23:40">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="242" priority="C" title="Monatsauszug für ein Monat anzeigen">
+<description>Es soll eine Monatsauszug für einen Monat angezeigt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt in der Dropdown-Liste den Monat "November 2010" aus
+
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Der Monatsauszug wird für den angegebenen Monat dargestellt. Es wird die Hilfskraft "Carl Coder" angezeigt. Dabei werden die Plankosten korrekt berrechnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:43" outcome="Ok" postok="Y" preok="Y" starttime="23:41">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="248" priority="C" title="Monatsauszug ohne Hilfskräfte anzeigen">
+<description>Es soll eine Monatsauszug für einen Monat angezeigt werden. Das Problem tritt auf, dass für diesen Monat keine Hilfskräfte beschäftigt sind.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt in der Dropdown-Liste den Monat "Oktober 2010" aus</actions>
+<post>Der Benutzer soll nicht die Möglichkeit haben, diesen Monat auszuwählen, da keine Beschäftigungen in diesem Monat stattfanden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:43" outcome="Ok" postok="Y" preok="Y" starttime="23:43">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="238" priority="C" title="Monatsauszug in PDF-Format exportieren">
+<description>Eine generierter Monatsauszug soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 236 wurde bereits ausgeführt. Benutzer befindet sich im "Controlling Hilfskräfte"-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"</actions>
+<post>Der bereits dargestellte Monatsauszug wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Mit dem Viewer kann die PDF-Datei dann abgespeichert werden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:44" outcome="Ok" postok="Y" preok="Y" starttime="23:43">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="240" priority="C" title="Reale Kosten eintragen und keine Abweichung">
+<description>Im aktuellen Monatsauszug sollen die realen Kosten eingetragen werden. Es gibt keine Abweichung zwischen Soll und Ist.</description>
+<pre>Testfall 236 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt die Zelle "Reale Kosten" bei der Hilfskraft "Carl Coder" an
+
+* Benutzer gibt die Reale Kosten 315 ein</actions>
+<post>Die realen Kosten für die Hilfskraft werden in der Tabelle angezeigt. Es besteht keine Abweichung zwischen Soll und Ist. Der Benutzer kann sich den Auszug ins PDF-Format exportieren lassen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:44" outcome="Ok" postok="Y" preok="Y" starttime="23:44">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="241" priority="C" title="Reale Kosten eintragen und eine Abweichung">
+<description>Im aktuellen Monatsauszug sollen die realen Kosten eingetragen werden. Es gibt eine Abweichung zwischen Soll und Ist.</description>
+<pre>Testfall 236 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt die Zelle "Reale Kosten" bei der Hilfskraft "Carl Coder" an
+
+* Benutzer gibt die Reale Kosten 1000 ein</actions>
+<post>Die realen Kosten für die Hilfskraft werden in der Tabelle angezeigt. Es besteht eine Abweichung zwischen geplanten und realen Kosten, worüber der Benutzer durch eine softe Warnung informiert wird. Der Benutzer kann sich trotzdem den Auszug ins PDF-Format exportieren lassen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="23:44" outcome="Ok" postok="Y" preok="Y" starttime="23:44">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="243" priority="C" title="Reale Kosten inkorrekt eintragen">
+<description>Im aktuellen Monatsauszug sollen die realen Kosten eingetragen werden. Das Format wurde dabei jedoch nicht eingehalten.</description>
+<pre>Testfall 236 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt die Zelle "Reale Kosten" bei der Hilfskraft "Carl Coder" an
+
+* Benutzer gibt die Reale Kosten "viel zu viel" ein</actions>
+<post>Der Benutzer bekommt die Fehlermeldung, dass er das Format für die realen Kosten nicht eingehalten hat. Die Zelle wird geleert und der Benutzer kann die Kosten erneut eingeben.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+</executedsequence>
+</testrun>
 </tsa>
 <tsa name="Allgemeines" number="87" revId="1">
 <relatedsequence>87</relatedsequence>
