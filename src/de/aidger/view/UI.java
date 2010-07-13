@@ -209,6 +209,10 @@ public final class UI extends JFrame {
             }
         });
 
+        // Set the icon
+        this.setIconImage((new ImageIcon(getClass().getResource(
+                "/de/aidger/view/icons/aidger-icon.png"))).getImage());
+
         // Try to display saved tabs or add the welcome tab to the UI.
         if (!displaySavedTabs()) {
             addNewTab(new WelcomeTab());
