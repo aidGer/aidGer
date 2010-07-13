@@ -937,7 +937,7 @@ msgstr "Seite"
 #: utils/pdf/ControllingConverter.java:249
 #: utils/pdf/ProtocolConverter.java:322
 msgid " of"
-msgstr "von"
+msgstr " von"
 
 #: utils/pdf/ActivityReportConverter.java:290
 msgid "%s has been employed as an assistant at the institute for Software Engineering at the University of Stuttgart during the following period of time and to the following extent:"

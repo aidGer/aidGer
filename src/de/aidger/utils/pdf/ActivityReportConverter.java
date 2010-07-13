@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
@@ -134,15 +135,20 @@ public class ActivityReportConverter {
             BaseFont fatFieldFont = BaseFont.createFont(
                 BaseFont.HELVETICA_BOLD, BaseFont.CP1252, false);
             form.setFieldProperty("CreatorName", "textfont", fieldFont, null);
-            form.setFieldProperty("CreatorName", "textsize", 14.0f, null);
+            form.setFieldProperty("CreatorName", "textsize", 12.0f, null);
+            form.setFieldProperty("CreatorName", "textcolor", BaseColor.BLACK,
+                null);
             form.setField("CreatorName", Runtime.getInstance()
                 .getOption("name"));
             form.setFieldProperty("AssistantName", "textfont", fatFieldFont,
                 null);
-            form.setFieldProperty("AssistantName", "textsize", 14.0f, null);
+            form.setFieldProperty("AssistantName", "textsize", 12.0f, null);
+            form.setFieldProperty("AssistantName", "textcolor",
+                BaseColor.BLACK, null);
             form.setField("AssistantName", assistant);
             form.setFieldProperty("Date", "textfont", fieldFont, null);
-            form.setFieldProperty("Date", "textsize", 14.0f, null);
+            form.setFieldProperty("Date", "textsize", 12.0f, null);
+            form.setFieldProperty("Date", "textcolor", BaseColor.BLACK, null);
             form.setField("Date", dateFormat.format(calendar.getTime()));
         } catch (IOException e) {
             // TODO Auto-generated catch block
