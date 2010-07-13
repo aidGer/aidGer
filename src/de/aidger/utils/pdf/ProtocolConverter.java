@@ -125,7 +125,7 @@ public class ProtocolConverter {
     public ProtocolConverter(File file, List<Activity> activities) {
         document = new Document(PageSize.A4.rotate());
         document.setMargins(document.leftMargin(), document.rightMargin(),
-            document.topMargin() + 15, document.bottomMargin());
+            document.topMargin() + 25, document.bottomMargin());
         file = checkExtension(file);
         name = _("Activity Protocol");
         makeNewDocument(file);
