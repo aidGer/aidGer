@@ -25,9 +25,9 @@ public class ContractTableModel extends TableModel {
      * Constructs the table model for contracts.
      */
     public ContractTableModel() {
-        super(new String[] { _("Assistant"), _("Completion date"),
+        super(new String[] { _("ID"), _("Assistant"), _("Completion date"),
                 _("Confirmation date"), _("Start date"), _("End date"),
-                _("Type"), _("Delegation"), _("ID") });
+                _("Type"), _("Delegation") });
     }
 
     /*
@@ -73,12 +73,12 @@ public class ContractTableModel extends TableModel {
             cal.clear();
 
             return new Object[] {
+                    contract.getId(),
                     new UIAssistant(assistant),
                     contract.getCompletionDate(),
                     confirmationDate == null ? cal.getTime() : confirmationDate,
                     contract.getStartDate(), contract.getEndDate(),
-                    contract.getType(), contract.isDelegation(),
-                    contract.getId() };
+                    contract.getType(), contract.isDelegation() };
         } catch (AdoHiveException e) {
             return new Object[] {};
         }
@@ -92,10 +92,10 @@ public class ContractTableModel extends TableModel {
     @Override
     public Class<?> getColumnClass(int column) {
         // sort specific columns properly
-        if (column == 1 || column == 2 || column == 3 || column == 4) {
-            return Date.class;
-        } else if (column == 7) {
+        if (column == 0) {
             return Integer.class;
+        } else if (column == 2 || column == 3 || column == 4 || column == 5) {
+            return Date.class;
         }
 
         return super.getColumnClass(column);

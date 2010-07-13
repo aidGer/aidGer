@@ -238,29 +238,29 @@ public class ViewerTab extends Tab {
         }
 
         if (type == DataType.FinancialCategory) {
-            table.getColumnModel().getColumn(2).setCellRenderer(
-                new MultiLineTableRenderer());
             table.getColumnModel().getColumn(3).setCellRenderer(
+                new MultiLineTableRenderer());
+            table.getColumnModel().getColumn(4).setCellRenderer(
                 new MultiLineTableRenderer());
         }
 
         if (type == DataType.Employment) {
-            table.getColumnModel().getColumn(3).setCellRenderer(
+            table.getColumnModel().getColumn(4).setCellRenderer(
                 new DateTableRenderer("MM.yyyy"));
         }
 
         if (type == DataType.Contract) {
-            for (int i = 1; i < 5; ++i) {
+            for (int i = 2; i < 6; ++i) {
                 table.getColumnModel().getColumn(i).setCellRenderer(
                     new DateTableRenderer("dd.MM.yyyy"));
             }
 
-            table.getColumnModel().getColumn(6).setCellRenderer(
+            table.getColumnModel().getColumn(7).setCellRenderer(
                 new BooleanTableRenderer());
         }
 
         if (type == DataType.Activity) {
-            table.getColumnModel().getColumn(2).setCellRenderer(
+            table.getColumnModel().getColumn(3).setCellRenderer(
                 new DateTableRenderer("dd.MM.yyyy"));
         }
 

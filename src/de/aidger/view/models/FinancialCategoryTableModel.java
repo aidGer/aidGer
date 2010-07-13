@@ -22,8 +22,8 @@ public class FinancialCategoryTableModel extends TableModel {
      * Constructs the table model for financial categories.
      */
     public FinancialCategoryTableModel() {
-        super(new String[] { _("Name"), _("Year"), _("Funds"),
-                _("Budget Costs"), _("ID") });
+        super(new String[] { _("ID"), _("Name"), _("Year"), _("Funds"),
+                _("Budget Costs") });
     }
 
     /*
@@ -68,8 +68,8 @@ public class FinancialCategoryTableModel extends TableModel {
             budgetCosts += "\n" + fc.getBudgetCosts()[i];
         }
 
-        return new Object[] { fc.getName(), fc.getYear(), funds, budgetCosts,
-                fc.getId() };
+        return new Object[] { fc.getId(), fc.getName(), fc.getYear(), funds,
+                budgetCosts };
     }
 
     /*
@@ -80,7 +80,7 @@ public class FinancialCategoryTableModel extends TableModel {
     @Override
     public Class<?> getColumnClass(int column) {
         // sort specific columns properly
-        if (column == 4) {
+        if (column == 0) {
             return Integer.class;
         }
 

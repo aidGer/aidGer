@@ -24,9 +24,9 @@ public class ActivityTableModel extends TableModel {
      * Constructs the table model for activities.
      */
     public ActivityTableModel() {
-        super(new String[] { _("Assistant"), _("Course"), _("Date"),
+        super(new String[] { _("ID"), _("Assistant"), _("Course"), _("Date"),
                 _("Sender"), _("Processor"), _("Type"), _("Document Type"),
-                _("Content"), _("Remark"), _("ID") });
+                _("Content"), _("Remark") });
     }
 
     /*
@@ -72,11 +72,11 @@ public class ActivityTableModel extends TableModel {
                     : new UICourse((new Course()).getById(activity
                         .getCourseId()));
 
-            return new Object[] { assistant, course, activity.getDate(),
-                    activity.getSender(), activity.getProcessor(),
-                    activity.getType(), activity.getDocumentType(),
-                    activity.getContent(), activity.getRemark(),
-                    activity.getId() };
+            return new Object[] { activity.getId(), assistant, course,
+                    activity.getDate(), activity.getSender(),
+                    activity.getProcessor(), activity.getType(),
+                    activity.getDocumentType(), activity.getContent(),
+                    activity.getRemark() };
         } catch (AdoHiveException e) {
             return new Object[] {};
         }
@@ -90,10 +90,10 @@ public class ActivityTableModel extends TableModel {
     @Override
     public Class<?> getColumnClass(int column) {
         // sort specific columns properly
-        if (column == 2) {
-            return Date.class;
-        } else if (column == 9) {
+        if (column == 0) {
             return Integer.class;
+        } else if (column == 3) {
+            return Date.class;
         }
 
         return super.getColumnClass(column);

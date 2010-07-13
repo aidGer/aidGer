@@ -22,8 +22,8 @@ public class AssistantTableModel extends TableModel {
      * Constructs the table model for assistants.
      */
     public AssistantTableModel() {
-        super(new String[] { _("First Name"), _("Last Name"), _("Email"),
-                _("Qualification"), _("ID") });
+        super(new String[] { _("ID"), _("First Name"), _("Last Name"),
+                _("Email"), _("Qualification") });
     }
 
     /*
@@ -60,10 +60,9 @@ public class AssistantTableModel extends TableModel {
     protected Object[] convertModelToRow(AbstractModel model) {
         Assistant assistant = (Assistant) model;
 
-        return new Object[] { assistant.getFirstName(),
+        return new Object[] { assistant.getId(), assistant.getFirstName(),
                 assistant.getLastName(), assistant.getEmail(),
-                Qualification.valueOf(assistant.getQualification()),
-                assistant.getId() };
+                Qualification.valueOf(assistant.getQualification()) };
     }
 
     /*
@@ -74,7 +73,7 @@ public class AssistantTableModel extends TableModel {
     @Override
     public Class<?> getColumnClass(int column) {
         // sort specific columns properly
-        if (column == 4) {
+        if (column == 0) {
             return Integer.class;
         }
 

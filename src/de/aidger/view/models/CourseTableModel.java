@@ -23,10 +23,10 @@ public class CourseTableModel extends TableModel {
      * Constructs the table model for courses.
      */
     public CourseTableModel() {
-        super(new String[] { _("Description"), _("Semester"), _("Lecturer"),
-                _("Advisor"), _("Number of Groups"), _("Target Audience"),
-                _("AWH per group"), _("Scope"), _("Part"), _("Group"),
-                _("Remark"), _("Financial Category"), _("ID") });
+        super(new String[] { _("ID"), _("Description"), _("Semester"),
+                _("Lecturer"), _("Advisor"), _("Number of Groups"),
+                _("Target Audience"), _("AWH per group"), _("Scope"),
+                _("Part"), _("Group"), _("Remark"), _("Financial Category") });
     }
 
     /*
@@ -67,13 +67,13 @@ public class CourseTableModel extends TableModel {
             IFinancialCategory fc = (new FinancialCategory()).getById(course
                 .getFinancialCategoryId());
 
-            return new Object[] { course.getDescription(),
+            return new Object[] { course.getId(), course.getDescription(),
                     course.getSemester(), course.getLecturer(),
                     course.getAdvisor(), course.getNumberOfGroups(),
                     course.getTargetAudience(),
                     course.getUnqualifiedWorkingHours(), course.getScope(),
                     course.getPart(), course.getGroup(), course.getRemark(),
-                    new UIFinancialCategory(fc), course.getId() };
+                    new UIFinancialCategory(fc) };
         } catch (AdoHiveException e) {
             Logger.error(e.getMessage());
 
@@ -89,9 +89,9 @@ public class CourseTableModel extends TableModel {
     @Override
     public Class<?> getColumnClass(int column) {
         // sort specific columns properly
-        if (column == 4 || column == 12) {
+        if (column == 0 || column == 5) {
             return Integer.class;
-        } else if (column == 6) {
+        } else if (column == 7) {
             return Double.class;
         }
 

@@ -30,9 +30,9 @@ public class EmploymentTableModel extends TableModel {
      * Constructs the table model for employments.
      */
     public EmploymentTableModel() {
-        super(new String[] { _("Assistant"), _("Course"), _("Contract"),
-                _("Date"), _("Hour count"), _("Funds"), _("Cost unit"),
-                _("Qualification"), _("Remark"), _("ID") });
+        super(new String[] { _("ID"), _("Assistant"), _("Course"),
+                _("Contract"), _("Date"), _("Hour count"), _("Funds"),
+                _("Cost unit"), _("Qualification"), _("Remark") });
     }
 
     /*
@@ -81,12 +81,13 @@ public class EmploymentTableModel extends TableModel {
             cal.set(Calendar.MONTH, employment.getMonth() - 1);
             cal.set(Calendar.YEAR, employment.getYear());
 
-            return new Object[] { new UIAssistant(assistant),
-                    new UICourse(course), new UIContract(contract),
-                    cal.getTime(), employment.getHourCount(),
-                    employment.getFunds(), employment.getCostUnit(),
+            return new Object[] { employment.getId(),
+                    new UIAssistant(assistant), new UICourse(course),
+                    new UIContract(contract), cal.getTime(),
+                    employment.getHourCount(), employment.getFunds(),
+                    employment.getCostUnit(),
                     Qualification.valueOf(employment.getQualification()),
-                    employment.getRemark(), employment.getId() };
+                    employment.getRemark() };
         } catch (AdoHiveException e1) {
             Logger.error(e1.getMessage());
 
@@ -102,9 +103,9 @@ public class EmploymentTableModel extends TableModel {
     @Override
     public Class<?> getColumnClass(int column) {
         // sort specific columns properly
-        if (column == 4 || column == 5 || column == 9) {
+        if (column == 0 || column == 5 || column == 6) {
             return Integer.class;
-        } else if (column == 3) {
+        } else if (column == 4) {
             return Date.class;
         }
 
