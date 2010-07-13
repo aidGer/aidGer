@@ -44,7 +44,7 @@ public class SettingsSaveAction extends AbstractAction {
             .getTopLevelAncestor();
 
         if (!PresenceValidator.validate(dlg.getUsername())) {
-            UI.displayError(_("No initial entered"));
+            UI.displayError(_("No name entered"));
             return;
         }
         Runtime.getInstance().setOption("name", dlg.getUsername());

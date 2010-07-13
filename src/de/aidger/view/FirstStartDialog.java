@@ -45,7 +45,7 @@ public class FirstStartDialog extends javax.swing.JDialog {
             UI.displayError(ex.getMessage());
         }
 
-        InputPatternFilter.addFilter(nameTextField, "[a-zA-Z]{0,2}");
+        InputPatternFilter.addFilter(nameTextField, "[a-zA-ZüöäÜÖÄ]+");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.
                 DO_NOTHING_ON_CLOSE);
@@ -117,7 +117,7 @@ public class FirstStartDialog extends javax.swing.JDialog {
 
         jButton1.setText(_("Close"));
 
-        jLabel4.setText(_("Initials:"));
+        jLabel4.setText(_("Name:"));
 
         jLabel5.setText(_("While you enter your name, aidGer will try to connect to the database."));
 

@@ -177,17 +177,17 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="_(&quot;Initials:&quot;)" type="code"/>
+                  <Connection code="_(&quot;Name:&quot;)" type="code"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="_(&quot;The initials used in activities.&quot;)" type="code"/>
+                  <Connection code="_(&quot;The name used in activities.&quot;)" type="code"/>
                 </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="nameTextField">
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="_(&quot;The initials used in activities.&quot;)" type="code"/>
+                  <Connection code="_(&quot;The name used in activities.&quot;)" type="code"/>
                 </Property>
               </Properties>
             </Component>

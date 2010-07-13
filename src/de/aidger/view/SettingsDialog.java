@@ -77,7 +77,7 @@ public class SettingsDialog extends JDialog {
         openCheckBox.setSelected(Boolean.parseBoolean(
                 Runtime.getInstance().getOption("auto-open")));
         nameTextField.setText(Runtime.getInstance().getOption("name"));
-        InputPatternFilter.addFilter(nameTextField, "[a-zA-Z]{0,2}");
+        InputPatternFilter.addFilter(nameTextField, "[a-zA-ZüöäÜÖÄ]+");
 
         pdfTextField.setText(Runtime.getInstance().getOption("pdf-viewer"));
         pessimisticTextField.setText(Runtime.getInstance().getOption(
@@ -267,10 +267,10 @@ public class SettingsDialog extends JDialog {
         jLabel3.setText(_("Amount of activities:"));
         jLabel3.setToolTipText(_("The amount of activities shown in detailviews."));
 
-        jLabel1.setText(_("Initials:"));
-        jLabel1.setToolTipText(_("The initials used in activities."));
+        jLabel1.setText(_("Name:"));
+        jLabel1.setToolTipText(_("The name used in activities."));
 
-        nameTextField.setToolTipText(_("The initials used in activities."));
+        nameTextField.setToolTipText(_("The name used in activities."));
 
         jLabel2.setText(_("PDF Viewer:"));
 
