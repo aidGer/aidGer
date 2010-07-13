@@ -42,8 +42,8 @@ public class ActivityViewerForm extends JPanel {
             if (activity.getCourseId() == null) {
                 course.setText(_("None"));
             } else {
-                course.setText(new UICourse(new Course()).getById(
-                    activity.getCourseId()).toString());
+                course.setText(new UICourse((new Course()).getById(activity
+                    .getCourseId())).toString());
             }
 
             processor.setText(activity.getProcessor());
