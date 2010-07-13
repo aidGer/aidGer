@@ -66,6 +66,66 @@
         </MenuItem>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="btnCourse">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="_(&quot;Course&quot;)" type="code"/>
+        </Property>
+        <Property name="focusable" type="boolean" value="false"/>
+        <Property name="horizontalTextPosition" type="int" value="0"/>
+        <Property name="verticalTextPosition" type="int" value="3"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JToolBar$Separator" name="separator6">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAssistant">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="_(&quot;Assistant&quot;)" type="code"/>
+        </Property>
+        <Property name="focusable" type="boolean" value="false"/>
+        <Property name="horizontalTextPosition" type="int" value="0"/>
+        <Property name="verticalTextPosition" type="int" value="3"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JToolBar$Separator" name="separator7">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnContract">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="_(&quot;Contract&quot;)" type="code"/>
+        </Property>
+        <Property name="focusable" type="boolean" value="false"/>
+        <Property name="horizontalTextPosition" type="int" value="0"/>
+        <Property name="verticalTextPosition" type="int" value="3"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JToolBar$Separator" name="separator8">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnActivityReport">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="_(&quot;Activity Report&quot;)" type="code"/>
+        </Property>
+        <Property name="focusable" type="boolean" value="false"/>
+        <Property name="horizontalTextPosition" type="int" value="0"/>
+        <Property name="verticalTextPosition" type="int" value="3"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JToolBar$Separator" name="separator9">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnActivityExport">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="_(&quot;Export&quot;)" type="code"/>
+        </Property>
+        <Property name="focusable" type="boolean" value="false"/>
+        <Property name="horizontalTextPosition" type="int" value="0"/>
+        <Property name="verticalTextPosition" type="int" value="3"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JToolBar$Separator" name="separator10">
+    </Component>
   </NonVisualComponents>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -95,7 +155,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JToolBar$Separator" name="separator">
+        <Component class="javax.swing.JToolBar$Separator" name="separator1">
         </Component>
         <Component class="javax.swing.JButton" name="btnView">
           <Properties>
@@ -107,7 +167,7 @@
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToolBar$Separator" name="separator1">
+        <Component class="javax.swing.JToolBar$Separator" name="separator2">
         </Component>
         <Component class="javax.swing.JButton" name="btnEdit">
           <Properties>
@@ -119,7 +179,7 @@
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToolBar$Separator" name="separator2">
+        <Component class="javax.swing.JToolBar$Separator" name="separator3">
         </Component>
         <Component class="javax.swing.JButton" name="btnAdd">
           <Properties>
@@ -131,7 +191,7 @@
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToolBar$Separator" name="separator3">
+        <Component class="javax.swing.JToolBar$Separator" name="separator4">
         </Component>
         <Component class="javax.swing.JButton" name="btnDelete">
           <Properties>
@@ -143,67 +203,7 @@
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToolBar$Separator" name="separator4">
-        </Component>
-        <Component class="javax.swing.JButton" name="btnCourse">
-          <Properties>
-            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="_(&quot;Course&quot;)" type="code"/>
-            </Property>
-            <Property name="focusable" type="boolean" value="false"/>
-            <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="verticalTextPosition" type="int" value="3"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JToolBar$Separator" name="separator5">
-        </Component>
-        <Component class="javax.swing.JButton" name="btnAssistant">
-          <Properties>
-            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="_(&quot;Assistant&quot;)" type="code"/>
-            </Property>
-            <Property name="focusable" type="boolean" value="false"/>
-            <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="verticalTextPosition" type="int" value="3"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JToolBar$Separator" name="separator6">
-        </Component>
-        <Component class="javax.swing.JButton" name="btnContract">
-          <Properties>
-            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="_(&quot;Contract&quot;)" type="code"/>
-            </Property>
-            <Property name="focusable" type="boolean" value="false"/>
-            <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="verticalTextPosition" type="int" value="3"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JToolBar$Separator" name="separator7">
-        </Component>
-        <Component class="javax.swing.JButton" name="btnActivityReport">
-          <Properties>
-            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="_(&quot;Activity Report&quot;)" type="code"/>
-            </Property>
-            <Property name="focusable" type="boolean" value="false"/>
-            <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="verticalTextPosition" type="int" value="3"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JToolBar$Separator" name="separator8">
-        </Component>
-        <Component class="javax.swing.JButton" name="btnActivityExport">
-          <Properties>
-            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="_(&quot;Export&quot;)" type="code"/>
-            </Property>
-            <Property name="focusable" type="boolean" value="false"/>
-            <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="verticalTextPosition" type="int" value="3"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JToolBar$Separator" name="separator9">
         </Component>
       </SubComponents>
     </Container>
