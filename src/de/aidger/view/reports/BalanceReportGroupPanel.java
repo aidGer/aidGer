@@ -2,6 +2,7 @@ package de.aidger.view.reports;
 
 import static de.aidger.utils.Translation._;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import javax.swing.table.DefaultTableModel;
@@ -72,7 +73,8 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
         sums.add(0.0);
         sums.add(0.0);
         ArrayList<Integer> costUnits = new ArrayList<Integer>();
-        ArrayList<BalanceCourse> balanceCourses = groupCreator.getBalanceCourses();
+        ArrayList<BalanceCourse> balanceCourses = groupCreator
+            .getBalanceCourses();
         for (Object balanceCourse : balanceCourses) {
             ArrayList<Object> rowObjectVector = new ArrayList<Object>();
             /*
@@ -124,6 +126,13 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
                 }
             }
             addCourse(rowObjectVector.toArray());
+        }
+        /*
+         * Round the entries of sums.
+         */
+        for (int i = 4; i < sums.size(); i++) {
+            sums.set(i, new BigDecimal((Double) sums.get(i)).setScale(2,
+                BigDecimal.ROUND_HALF_EVEN));
         }
         /*
          * Add the sums of the costs and hours after an empty row.
