@@ -8,13 +8,13 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.text.MessageFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -180,6 +180,8 @@ public class EditorSaveAction extends AbstractAction {
         FinancialCategory fcBeforeEdit = fc.clone();
 
         fc.setName(form.getFCName());
+
+        form.sortFunds();
 
         try {
             fc.setBudgetCosts(form.getBudgetCosts());

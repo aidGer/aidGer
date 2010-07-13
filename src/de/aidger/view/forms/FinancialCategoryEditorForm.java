@@ -5,8 +5,10 @@ import static de.aidger.utils.Translation._;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -58,6 +60,29 @@ public class FinancialCategoryEditorForm extends JPanel {
         } else {
             addNewFunds();
         }
+    }
+
+    /**
+     * Sorts the funds.
+     */
+    public void sortFunds() {
+        Collections.sort(fundsLines, new Comparator<FundsLine>() {
+            @Override
+            public int compare(FundsLine f, FundsLine s) {
+                Integer first = Integer.valueOf((String) f.cmbFunds
+                    .getSelectedItem());
+                Integer second = Integer.valueOf((String) s.cmbFunds
+                    .getSelectedItem());
+
+                if (first < second) {
+                    return -1;
+                } else if (first > second) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        });
     }
 
     /**
