@@ -129,9 +129,20 @@ public class ActivityReportConverter {
         try {
             Calendar calendar = Calendar.getInstance();
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+            BaseFont fieldFont = BaseFont.createFont(BaseFont.HELVETICA,
+                BaseFont.CP1252, false);
+            BaseFont fatFieldFont = BaseFont.createFont(
+                BaseFont.HELVETICA_BOLD, BaseFont.CP1252, false);
+            form.setFieldProperty("CreatorName", "textfont", fieldFont, null);
+            form.setFieldProperty("CreatorName", "textsize", 14.0f, null);
             form.setField("CreatorName", Runtime.getInstance()
                 .getOption("name"));
+            form.setFieldProperty("AssistantName", "textfont", fatFieldFont,
+                null);
+            form.setFieldProperty("AssistantName", "textsize", 14.0f, null);
             form.setField("AssistantName", assistant);
+            form.setFieldProperty("Date", "textfont", fieldFont, null);
+            form.setFieldProperty("Date", "textsize", 14.0f, null);
             form.setField("Date", dateFormat.format(calendar.getTime()));
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -208,13 +219,13 @@ public class ActivityReportConverter {
             contentByte.addImage(img);
 
             img = Image.getInstance(getClass().getResource(
-                "/de/aidger/pdf/IfiLogo.png"));
+                "/de/aidger/pdf/IviLogo.png"));
             xPos = 250;
             yPos = 750;
             width = 100;
             height = 75;
-            if (form.getFieldPositions("IfiLogo") != null) {
-                FieldPosition position = form.getFieldPositions("IfiLogo").get(
+            if (form.getFieldPositions("IviLogo") != null) {
+                FieldPosition position = form.getFieldPositions("IviLogo").get(
                     0);
                 xPos = position.position.getLeft();
                 yPos = position.position.getBottom();
@@ -278,7 +289,8 @@ public class ActivityReportConverter {
                 10);
             String[] tableTitles = { "Zeitraum", "Veranstaltung", "Umfang" };
             PdfPTable contentTable = new PdfPTable(1);
-            PdfPTable titleTable = new PdfPTable(3);
+            PdfPTable titleTable = new PdfPTable(
+                new float[] { 0.2f, 0.6f, 0.2f });
             /*
              * Create the titles of the table entries.
              */
@@ -319,7 +331,7 @@ public class ActivityReportConverter {
      * Adds the rows of employments to the table.
      */
     private PdfPTable addRows() {
-        PdfPTable contentTable = new PdfPTable(3);
+        PdfPTable contentTable = new PdfPTable(new float[] { 0.2f, 0.6f, 0.2f });
         try {
             Font tableContentFont = new Font(BaseFont.createFont(
                 BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 9);
@@ -327,6 +339,7 @@ public class ActivityReportConverter {
                 for (int i = 0; i < row.length; i++) {
                     PdfPCell cell = new PdfPCell(new Phrase(row[i],
                         tableContentFont));
+                    cell.setPaddingBottom(5);
                     contentTable.addCell(cell);
                 }
             }

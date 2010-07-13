@@ -11,8 +11,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -76,7 +76,7 @@ public class ControllingConverter {
         this.tableRows = tableRows;
         document = new Document(PageSize.A4);
         document.setMargins(document.leftMargin(), document.rightMargin(),
-            document.topMargin() + 15, document.bottomMargin());
+            document.topMargin() + 30, document.bottomMargin());
         file = checkExtension(file);
         name = _("Controlling report");
         makeNewDocument(file);
@@ -179,7 +179,7 @@ public class ControllingConverter {
          */
         @Override
         public void onStartPage(PdfWriter writer, Document document) {
-            PdfPTable table = new PdfPTable(new float[] { 0.8f, 0.2f });
+            PdfPTable table = new PdfPTable(3);
             table.setTotalWidth(writer.getPageSize().getRight()
                     - document.rightMargin() - document.leftMargin());
             try {
@@ -193,11 +193,20 @@ public class ControllingConverter {
                 left.setHorizontalAlignment(Element.ALIGN_LEFT);
                 left.setVerticalAlignment(Element.ALIGN_BOTTOM);
                 left.setBorder(Rectangle.BOTTOM);
+                Image img = Image.getInstance(getClass().getResource(
+                    "/de/aidger/pdf/UniLogo.png"));
+                img.scaleAbsoluteWidth(150.0f);
+                left.addElement(img);
+
+                PdfPCell center;
                 if (writer.getCurrentPageNumber() == 1) {
-                    left.addElement(new Phrase(name, pageTitleFont));
+                    center = new PdfPCell(new Phrase(name, pageTitleFont));
                 } else {
-                    left.addElement(new Phrase(""));
+                    center = new PdfPCell(new Phrase(""));
                 }
+                center.setHorizontalAlignment(Element.ALIGN_CENTER);
+                center.setVerticalAlignment(Element.ALIGN_BOTTOM);
+                center.setBorder(Rectangle.BOTTOM);
 
                 PdfPCell right = new PdfPCell(new Phrase(_("Author") + ": "
                         + Runtime.getInstance().getOption("name"),
@@ -207,6 +216,7 @@ public class ControllingConverter {
                 right.setBorder(Rectangle.BOTTOM);
 
                 table.addCell(left);
+                table.addCell(center);
                 table.addCell(right);
                 table.writeSelectedRows(0, -1, document.leftMargin(), document
                     .getPageSize().getTop() - 15, writer.getDirectContent());
@@ -334,6 +344,7 @@ public class ControllingConverter {
                 for (int i = 0; i < row.length; i++) {
                     PdfPCell cell = new PdfPCell(new Phrase(row[i],
                         tableContentFont));
+                    cell.setPaddingBottom(5);
                     contentTable.addCell(cell);
                 }
             }

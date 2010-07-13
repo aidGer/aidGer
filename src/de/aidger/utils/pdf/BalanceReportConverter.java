@@ -8,9 +8,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.ArrayList;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -253,7 +253,7 @@ public class BalanceReportConverter {
          */
         @Override
         public void onStartPage(PdfWriter writer, Document document) {
-            PdfPTable table = new PdfPTable(new float[] { 0.8f, 0.2f });
+            PdfPTable table = new PdfPTable(new float[] { 0.2f, 0.6f, 0.2f });
             table.setTotalWidth(writer.getPageSize().getRight()
                     - document.rightMargin() - document.leftMargin());
             try {
@@ -267,11 +267,20 @@ public class BalanceReportConverter {
                 left.setHorizontalAlignment(Element.ALIGN_LEFT);
                 left.setVerticalAlignment(Element.ALIGN_BOTTOM);
                 left.setBorder(Rectangle.BOTTOM);
+                Image img = Image.getInstance(getClass().getResource(
+                    "/de/aidger/pdf/UniLogo.png"));
+                img.scaleAbsoluteWidth(150.0f);
+                left.addElement(img);
+
+                PdfPCell center;
                 if (writer.getCurrentPageNumber() == 1) {
-                    left.addElement(new Phrase(name, pageTitleFont));
+                    center = new PdfPCell(new Phrase(name, pageTitleFont));
                 } else {
-                    left.addElement(new Phrase(""));
+                    center = new PdfPCell(new Phrase(""));
                 }
+                center.setHorizontalAlignment(Element.ALIGN_CENTER);
+                center.setVerticalAlignment(Element.ALIGN_BOTTOM);
+                center.setBorder(Rectangle.BOTTOM);
 
                 PdfPCell right = new PdfPCell(new Phrase(_("Author") + ": "
                         + Runtime.getInstance().getOption("name"),
@@ -281,6 +290,7 @@ public class BalanceReportConverter {
                 right.setBorder(Rectangle.BOTTOM);
 
                 table.addCell(left);
+                table.addCell(center);
                 table.addCell(right);
                 table.writeSelectedRows(0, -1, document.leftMargin(), document
                     .getPageSize().getTop() - 15, writer.getDirectContent());
@@ -491,11 +501,12 @@ public class BalanceReportConverter {
                 PdfPCell cell = new PdfPCell(new Phrase(
                     courseObject.toString(), tableContentFont));
                 if (i != 0) {
-                    cell.setBorder(4);
+                    cell.setBorder(4 + Rectangle.BOTTOM);
                 } else {
-                    cell.setBorder(0);
+                    cell.setBorder(0 + Rectangle.BOTTOM);
                     i++;
                 }
+                cell.setPaddingBottom(5);
                 groupContentTable.addCell(cell);
             }
             PdfPCell cell = new PdfPCell(groupContentTable);
