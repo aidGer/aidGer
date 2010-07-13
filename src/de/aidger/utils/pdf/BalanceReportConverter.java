@@ -333,7 +333,8 @@ public class BalanceReportConverter {
                 dateCell.setBorder(Rectangle.BOTTOM);
                 table.addCell(dateCell);
                 table.addCell(new Phrase(_("Page") + ": "
-                        + writer.getCurrentPageNumber() + _(" of"), pageFont));
+                        + writer.getCurrentPageNumber() + " " + _("of") + " ",
+                    pageFont));
                 PdfPCell cell = new PdfPCell(Image.getInstance(total));
                 cell.setBorder(Rectangle.BOTTOM);
                 table.addCell(cell);
