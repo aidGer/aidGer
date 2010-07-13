@@ -59,7 +59,7 @@ public class ActivityReportViewerTab extends Tab {
             e.printStackTrace();
         }
         exportButton.setVisible(false);
-        jSeparator3.setVisible(false);
+        jSeparator4.setVisible(false);
     }
 
     /**
@@ -77,8 +77,8 @@ public class ActivityReportViewerTab extends Tab {
     private void visualizeExportButton() {
         exportButton.setVisible(false);
         exportButton.setVisible(true);
-        jSeparator3.setVisible(false);
-        jSeparator3.setVisible(true);
+        jSeparator4.setVisible(false);
+        jSeparator4.setVisible(true);
     }
 
     /**
@@ -196,7 +196,7 @@ public class ActivityReportViewerTab extends Tab {
         jToolBar1.setRollover(true);
         jToolBar1.add(jSeparator1);
 
-        assistantLabel.setText(_("Assistant") + ":");
+        assistantLabel.setText(_("Assistang") + ":");
         jToolBar1.add(assistantLabel);
 
         jToolBar1.add(assistantComboBox);
@@ -204,17 +204,14 @@ public class ActivityReportViewerTab extends Tab {
 
         generateButton.setText(_("Generate"));
         generateButton.setFocusable(false);
-        generateButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        generateButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        generateButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        generateButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(generateButton);
         jToolBar1.add(jSeparator3);
 
         exportButton.setText(_("Export"));
         exportButton.setFocusable(false);
-        exportButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         exportButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(exportButton);
         jToolBar1.add(jSeparator4);
@@ -223,8 +220,7 @@ public class ActivityReportViewerTab extends Tab {
 
         contentPanel.setLayout(new java.awt.BorderLayout());
 
-        assistantPanel.setLayout(new java.awt.FlowLayout(
-            java.awt.FlowLayout.LEFT));
+        assistantPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         assistantNameLabel.setText(_("Assistant name") + ":");
         assistantPanel.add(assistantNameLabel);
@@ -232,7 +228,7 @@ public class ActivityReportViewerTab extends Tab {
 
         contentPanel.add(assistantPanel, java.awt.BorderLayout.PAGE_START);
 
-        tablePanel.setLayout(new java.awt.GridLayout());
+        tablePanel.setLayout(new java.awt.GridLayout(1, 0));
 
         jTable1.setModel(contentTableModel);
         jScrollPane1.setViewportView(jTable1);
@@ -261,7 +257,6 @@ public class ActivityReportViewerTab extends Tab {
     private javax.swing.JTable jTable1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JPanel tablePanel;
-
     // End of variables declaration//GEN-END:variables
     /*
      * (non-Javadoc)
