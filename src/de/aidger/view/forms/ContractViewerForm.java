@@ -37,14 +37,17 @@ public class ContractViewerForm extends JPanel {
             assistant.setText((new UIAssistant(a)).toString());
             completionDate.setText((new SimpleDateFormat(f)).format(contract
                 .getCompletionDate()));
-            confirmationDate.setText((new SimpleDateFormat(f)).format(contract
-                .getConfirmationDate()));
             startDate.setText((new SimpleDateFormat(f)).format(contract
                 .getStartDate()));
             endDate.setText((new SimpleDateFormat(f)).format(contract
                 .getEndDate()));
 
             type.setText(contract.getType());
+
+            if (contract.getConfirmationDate() != null) {
+                confirmationDate.setText((new SimpleDateFormat(f))
+                    .format(contract.getConfirmationDate()));
+            }
 
             boolean d = contract.isDelegation();
 

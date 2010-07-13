@@ -86,7 +86,7 @@ public class BudgetReportConverter {
     public BudgetReportConverter(File file, BudgetFilter filters) {
         document = new Document(PageSize.A4);
         document.setMargins(document.leftMargin(), document.rightMargin(),
-            document.topMargin() + 30, document.bottomMargin());
+            document.topMargin() + 40, document.bottomMargin());
         this.filters = filters;
         file = checkExtension(file);
         name = _("Budget report");
@@ -226,6 +226,9 @@ public class BudgetReportConverter {
                 right.setHorizontalAlignment(Element.ALIGN_RIGHT);
                 right.setBorder(Rectangle.BOTTOM);
 
+                left.setPaddingBottom(10);
+                center.setPaddingBottom(10);
+                right.setPaddingBottom(10);
                 table.addCell(left);
                 table.addCell(center);
                 table.addCell(right);

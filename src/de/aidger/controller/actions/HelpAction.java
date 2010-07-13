@@ -51,7 +51,7 @@ public class HelpAction extends AbstractAction {
         InputStream input = getClass().getResourceAsStream(
             "/de/aidger/pdf/Handbuch.pdf");
         try {
-            File tempFile = File.createTempFile("manual", "pdf");
+            File tempFile = File.createTempFile("manual", ".pdf");
             tempFile.deleteOnExit();
 
             FileOutputStream out = new FileOutputStream(tempFile);
