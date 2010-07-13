@@ -4662,15 +4662,15 @@ Benutzer wählt in einer Dropdown-Liste die Veranstaltung aus
 \end_layout
 
 \begin_layout Enumerate
-Benutzer wählt in einer Dropdown-Liste das Jahr aus
+Benutzer wählt in einer Dropdown-Liste den Funds aus
 \end_layout
 
 \begin_layout Enumerate
-Benutzer wählt in einer Dropdown-Liste den Fonds aus
+Benutzer wählt eine Qualifikation aus
 \end_layout
 
 \begin_layout Enumerate
-Benutzer gibt alternativ eine Kostenstelle an
+Benutzer gibt eine Kostenstelle an
 \end_layout
 
 \begin_layout Enumerate
@@ -4678,8 +4678,30 @@ Benutzer gibt alternativ eine Bemerkung an
 \end_layout
 
 \begin_layout Enumerate
-Benutzer gibt den Zeitraum des Start- und Endmonats in zwei Dropdown-Listen
- an
+Benutzer drückt auf den 
+\begin_inset Quotes gld
+\end_inset
+
++
+\begin_inset Quotes grd
+\end_inset
+
+ Button bei Vertrag
+\end_layout
+
+\begin_layout Enumerate
+Benutzer führt den Use Case 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Buchung-von-Vertragsdaten"
+
+\end_inset
+
+ aus
+\end_layout
+
+\begin_layout Enumerate
+Benutzer gibt den Monat ein
 \end_layout
 
 \begin_layout Enumerate
@@ -4691,15 +4713,11 @@ Benutzer klickt auf den Button
 \begin_inset Quotes gld
 \end_inset
 
-Zeitraum hinzufügen
++
 \begin_inset Quotes grd
 \end_inset
 
 
-\end_layout
-
-\begin_layout Enumerate
-Buchung wird hinzugefügt
 \end_layout
 
 \begin_layout Enumerate
@@ -4712,7 +4730,7 @@ Benutzer drückt auf den Button
 \begin_inset Quotes gld
 \end_inset
 
-Weiter
+Speichern
 \begin_inset Quotes grd
 \end_inset
 
@@ -4738,8 +4756,7 @@ Nachbedingung:
 \begin_inset Text
 
 \begin_layout Plain Layout
-Die Beschäftigung wurde im System zwischengespeichert und es wird im nächsten
- Schritt der Vertrag zur Beschäftigung zugeordnet.
+Die Beschäftigung wurde im System gespeichert.
 \end_layout
 
 \end_inset
@@ -4857,7 +4874,7 @@ Nachbedingung im Sonderfall:
 \begin_inset Text
 
 \begin_layout Enumerate
-Es wurde nicht gebucht und der Benutzer ist weiterhin im Buchungsdialog.
+Es wurde nicht gebucht und der Benutzer ist weiterhin im Buchungsreiter.
 \end_layout
 
 \begin_layout Enumerate
@@ -4888,6 +4905,13 @@ siehe 1)
 
 \begin_layout Section
 Buchung von Vertragsdaten
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Buchung-von-Vertragsdaten"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4936,7 +4960,7 @@ Vorbedingung:
 
 \begin_layout Plain Layout
 Benutzer hat die Beschäftigung korrekt eingetragen und befindet sich im
- Buchungsdialog bei Schritt 2.
+ Vertragsreiter.
 \end_layout
 
 \end_inset
@@ -4970,15 +4994,15 @@ Benutzer gibt ein Beschäftigungsende ein
 \end_layout
 
 \begin_layout Enumerate
-Benutzer gibt die Stundenzahl pro Monat ein
+Benutzer gibt das Abschlußdatum ein
 \end_layout
 
 \begin_layout Enumerate
-Benutzer wählt aus einer Dropdown-Liste den Fonds aus
+Benutzer gibt den Art des Vertrags an
 \end_layout
 
 \begin_layout Enumerate
-Benutzer wählt aus einer Dropdown-Liste die Art des Vertrags aus
+Benutzer wählt die Delegation aus
 \end_layout
 
 \begin_layout Enumerate
@@ -4986,7 +5010,7 @@ Benutzer klickt auf Button
 \begin_inset Quotes gld
 \end_inset
 
-Buchen
+Speichern
 \begin_inset Quotes grd
 \end_inset
 
@@ -5016,8 +5040,7 @@ Nachbedingung:
 \begin_inset Text
 
 \begin_layout Plain Layout
-Die Buchung der Beschäftigung wurde vollständig gespeichert.
- Die Vertragsdaten wurden außerdem zur Beschäftigung zugeordnet.
+Die Vertragsdaten wurden zur vorherigen Beschäftigung zugeordnet.
 \end_layout
 
 \end_inset
@@ -5061,32 +5084,6 @@ Alternativer Ablauf:
 \begin_inset Text
 
 \begin_layout Enumerate
-Es muss kein neuer Vertrag hinzugefügt werden, da bereits einer besteht
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Benutzer wählt aus einer Dropdown-Liste ein bestehenden Vertrag aus
-\end_layout
-
-\begin_layout Enumerate
-Benutzer klickt auf den Button 
-\begin_inset Quotes gld
-\end_inset
-
-Buchen
-\begin_inset Quotes grd
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-System ersetzt Content-Frame mit dem vorherigen Zustand
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
 Benutzer macht dem Feld nicht entsprechenden Eintrag
 \end_layout
 
@@ -5119,12 +5116,8 @@ Nachbedingung im Sonderfall:
 \begin_inset Text
 
 \begin_layout Enumerate
-Die Buchung wurde vollständig mit dem bestehenden Vertrag gespeichert.
-\end_layout
-
-\begin_layout Enumerate
-Benutzer befindet sich weiterhin im Buchungsdialog bei Schritt 2 und muss
- seine Eingabe korrigieren
+Benutzer befindet sich weiterhin im Buchungsreiter und muss seine Eingabe
+ korrigieren
 \end_layout
 
 \end_inset
@@ -5246,11 +5239,23 @@ Benutzer fügt eine oder mehrere Hilfskräfte als betroffene Hilfskraft /
 \end_layout
 
 \begin_layout Enumerate
-Benutzer gibt eine Bemerkung / den Vorgangstext ein
+Benutzer gibt alternativ eine Bemerkung ein
 \end_layout
 
 \begin_layout Enumerate
-Benutzer gibt den Sender / den Adressat ein
+Benutzer gibt den Typ ein
+\end_layout
+
+\begin_layout Enumerate
+Benutzer gibt den Dokumenttyp ein
+\end_layout
+
+\begin_layout Enumerate
+Benutzer gibt den Inhalt ein
+\end_layout
+
+\begin_layout Enumerate
+Benutzer gibt den Sender ein
 \end_layout
 
 \begin_layout Enumerate
@@ -9771,6 +9776,14 @@ name "sec:Versionshistorie"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection*
+Version 0.4.2 (13.07.2010)
+\end_layout
+
+\begin_layout Itemize
+Use Cases auf Änderungen angepasst
 \end_layout
 
 \begin_layout Subsection*
