@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created with "de.sopra06.filehandling.xml.XMLFileHandling" at: 13.07.10 21:26-->
+<!--Arbeitsdatei für Fred-->
+<fredworkfile version="2" creationdate="2010-02-15T22:26:47.361+01:00" lastcompletesavedate="2010-07-13T21:26:20.119+02:00">
+ <objectfactory projectcount="1" taskcount="6" effortcount="56" personcount="1"/>
+ <personlist>
+  <person id="Mviav|2JAzxjrqbAuIFTfEPI6" firstName="Philipp" name="Pirrung" initials="PP" securityid="StEMD|2JAzxjrqbAvaAqpH5U6"/>
+ </personlist>
+ <user id="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+ <urllist/>
+ <projectlist projectcount="1">
+  <statistic effortcount="53" effortdurationsum="14259" replicatedeffortcount="0" acceptedeffortcount="53" notacceptedeffortcount="0">
+   <effortsofpersons>
+    <effortsofperson id="Mviav|2JAzxjrqbAuIFTfEPI6" count="53"/>
+   </effortsofpersons>
+   <effortsofcategories>
+    <effortsofcategory id="3" count="4"/>
+    <effortsofcategory id="5" count="0"/>
+    <effortsofcategory id="7" count="0"/>
+    <effortsofcategory id="10" count="0"/>
+    <effortsofcategory id="12" count="0"/>
+    <effortsofcategory id="13" count="0"/>
+    <effortsofcategory id="15" count="4"/>
+    <effortsofcategory id="17" count="2"/>
+    <effortsofcategory id="18" count="2"/>
+    <effortsofcategory id="20" count="3"/>
+    <effortsofcategory id="22" count="0"/>
+    <effortsofcategory id="25" count="0"/>
+    <effortsofcategory id="40" count="38"/>
+    <effortsofcategory id="42" count="0"/>
+    <effortsofcategory id="45" count="0"/>
+    <effortsofcategory id="60" count="0"/>
+    <effortsofcategory id="50" count="0"/>
+    <effortsofcategory id="52" count="0"/>
+    <effortsofcategory id="55" count="0"/>
+    <effortsofcategory id="70" count="0"/>
+    <effortsofcategory id="72" count="0"/>
+    <effortsofcategory id="75" count="0"/>
+    <effortsofcategory id="77" count="0"/>
+    <effortsofcategory id="80" count="0"/>
+    <effortsofcategory id="82" count="0"/>
+    <effortsofcategory id="85" count="0"/>
+    <effortsofcategory id="90" count="0"/>
+    <effortsofcategory id="99" count="0"/>
+   </effortsofcategories>
+  </statistic>
+  <project id="P34Xl|2JAzxjrqbAucEMIZhR8" name="aidGer" description="Hilfskraftmittelverwaltung" isclosed="false" isteamproject="false" createdat="2010-02-15T22:27:31.517+01:00" securityid="StEMD|2JAzxjrqbAvaAqpH5U6">
+   <statistic effortcount="53" effortdurationsum="14259" replicatedeffortcount="0" acceptedeffortcount="53" notacceptedeffortcount="0">
+    <effortsofpersons>
+     <effortsofperson id="Mviav|2JAzxjrqbAuIFTfEPI6" count="53"/>
+    </effortsofpersons>
+    <effortsofcategories>
+     <effortsofcategory id="3" count="4"/>
+     <effortsofcategory id="5" count="0"/>
+     <effortsofcategory id="7" count="0"/>
+     <effortsofcategory id="10" count="0"/>
+     <effortsofcategory id="12" count="0"/>
+     <effortsofcategory id="13" count="0"/>
+     <effortsofcategory id="15" count="4"/>
+     <effortsofcategory id="17" count="2"/>
+     <effortsofcategory id="18" count="2"/>
+     <effortsofcategory id="20" count="3"/>
+     <effortsofcategory id="22" count="0"/>
+     <effortsofcategory id="25" count="0"/>
+     <effortsofcategory id="40" count="38"/>
+     <effortsofcategory id="42" count="0"/>
+     <effortsofcategory id="45" count="0"/>
+     <effortsofcategory id="60" count="0"/>
+     <effortsofcategory id="50" count="0"/>
+     <effortsofcategory id="52" count="0"/>
+     <effortsofcategory id="55" count="0"/>
+     <effortsofcategory id="70" count="0"/>
+     <effortsofcategory id="72" count="0"/>
+     <effortsofcategory id="75" count="0"/>
+     <effortsofcategory id="77" count="0"/>
+     <effortsofcategory id="80" count="0"/>
+     <effortsofcategory id="82" count="0"/>
+     <effortsofcategory id="85" count="0"/>
+     <effortsofcategory id="90" count="0"/>
+     <effortsofcategory id="99" count="0"/>
+    </effortsofcategories>
+   </statistic>
+   <task id="T28Hp|QD9qdyb6uN18WmGUwwp" name="Entwurf" shortname="ENTWU" description="" defaultcategory="20" isteamtask="false" createdat="2010-04-11T16:28:09.587+02:00">
+    <statistic effortcount="3" effortdurationsum="863" replicatedeffortcount="0" acceptedeffortcount="3" notacceptedeffortcount="0">
+     <effortsofpersons>
+      <effortsofperson id="Mviav|2JAzxjrqbAuIFTfEPI6" count="3"/>
+     </effortsofpersons>
+     <effortsofcategories>
+      <effortsofcategory id="3" count="0"/>
+      <effortsofcategory id="5" count="0"/>
+      <effortsofcategory id="7" count="0"/>
+      <effortsofcategory id="10" count="0"/>
+      <effortsofcategory id="12" count="0"/>
+      <effortsofcategory id="13" count="0"/>
+      <effortsofcategory id="15" count="0"/>
+      <effortsofcategory id="17" count="0"/>
+      <effortsofcategory id="18" count="0"/>
+      <effortsofcategory id="20" count="3"/>
+      <effortsofcategory id="22" count="0"/>
+      <effortsofcategory id="25" count="0"/>
+      <effortsofcategory id="40" count="0"/>
+      <effortsofcategory id="42" count="0"/>
+      <effortsofcategory id="45" count="0"/>
+      <effortsofcategory id="60" count="0"/>
+      <effortsofcategory id="50" count="0"/>
+      <effortsofcategory id="52" count="0"/>
+      <effortsofcategory id="55" count="0"/>
+      <effortsofcategory id="70" count="0"/>
+      <effortsofcategory id="72" count="0"/>
+      <effortsofcategory id="75" count="0"/>
+      <effortsofcategory id="77" count="0"/>
+      <effortsofcategory id="80" count="0"/>
+      <effortsofcategory id="82" count="0"/>
+      <effortsofcategory id="85" count="0"/>
+      <effortsofcategory id="90" count="0"/>
+      <effortsofcategory id="99" count="0"/>
+     </effortsofcategories>
+    </statistic>
+    <effort id="ELyaD|QD9qdyb6uMzqbP6SGkp" begin="2010-04-10T21:51:00.000+02:00" duration="129" pause="0" description="" category="20" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EM7iZ|QD9qdyb6uN0AaHjnYtr" begin="2010-04-11T16:28:00.000+02:00" duration="310" pause="0" description="" category="20" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EP5NJ|PziLcZsucN4tNf69uoO" begin="2010-04-12T10:05:00.000+02:00" duration="424" pause="0" description="" category="20" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+   </task>
+   <task id="T49iv|6Bq93sXZMqL1Ys8M2oH" name="Implementierung" shortname="IMPLE" description="" defaultcategory="40" isteamtask="false" createdat="2010-05-03T20:25:00.008+02:00">
+    <statistic effortcount="38" effortdurationsum="11341" replicatedeffortcount="0" acceptedeffortcount="38" notacceptedeffortcount="0">
+     <effortsofpersons>
+      <effortsofperson id="Mviav|2JAzxjrqbAuIFTfEPI6" count="38"/>
+     </effortsofpersons>
+     <effortsofcategories>
+      <effortsofcategory id="3" count="0"/>
+      <effortsofcategory id="5" count="0"/>
+      <effortsofcategory id="7" count="0"/>
+      <effortsofcategory id="10" count="0"/>
+      <effortsofcategory id="12" count="0"/>
+      <effortsofcategory id="13" count="0"/>
+      <effortsofcategory id="15" count="0"/>
+      <effortsofcategory id="17" count="0"/>
+      <effortsofcategory id="18" count="0"/>
+      <effortsofcategory id="20" count="0"/>
+      <effortsofcategory id="22" count="0"/>
+      <effortsofcategory id="25" count="0"/>
+      <effortsofcategory id="40" count="38"/>
+      <effortsofcategory id="42" count="0"/>
+      <effortsofcategory id="45" count="0"/>
+      <effortsofcategory id="60" count="0"/>
+      <effortsofcategory id="50" count="0"/>
+      <effortsofcategory id="52" count="0"/>
+      <effortsofcategory id="55" count="0"/>
+      <effortsofcategory id="70" count="0"/>
+      <effortsofcategory id="72" count="0"/>
+      <effortsofcategory id="75" count="0"/>
+      <effortsofcategory id="77" count="0"/>
+      <effortsofcategory id="80" count="0"/>
+      <effortsofcategory id="82" count="0"/>
+      <effortsofcategory id="85" count="0"/>
+      <effortsofcategory id="90" count="0"/>
+      <effortsofcategory id="99" count="0"/>
+     </effortsofcategories>
+    </statistic>
+    <effort id="Er6KZ|6Bq93sXZMqLLXklhKxJ" begin="2010-04-28T20:00:00.000+02:00" duration="165" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EzhHb|6Bq93sXZMqMJUFIOj0H" begin="2010-05-03T16:00:00.000+02:00" duration="210" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EEHjh|9dOimiiGKHxYrsXxtZZ" begin="2010-05-04T11:00:00.000+02:00" duration="60" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="E9ImP|9dOimiiGKHwavO1GVWb" begin="2010-05-06T13:00:00.000+02:00" duration="240" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EBTS5|9dOimiiGKHwQvwharS5" begin="2010-05-17T12:30:00.000+02:00" duration="270" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="ECduT|9dOimiiGKHxOsREIFV3" begin="2010-05-17T20:30:00.000+02:00" duration="90" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="Eu0vR|9dOimiiGKHwkupKw9b7" begin="2010-05-19T14:59:00.000+02:00" duration="211" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EMmrL|9dOimiiGKHx4tYawxM1" begin="2010-05-20T19:00:00.000+02:00" duration="60" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EyrZf|9dOimiiGKHwLwE2l2Pp" begin="2010-05-21T12:00:00.000+02:00" duration="30" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EBA9T|9dOimiiGKHxTs9t84XJ" begin="2010-06-07T22:01:00.000+02:00" duration="60" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="Es0lD|9dOimiiGKHwfv6g6KYr" begin="2010-06-09T14:00:00.000+02:00" duration="480" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EI2E7|9dOimiiGKHx9tHFmmOH" begin="2010-06-10T00:00:00.000+02:00" duration="90" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EGe3X|9dOimiiGKHwVvfMQgUL" begin="2010-06-10T14:00:00.000+02:00" duration="150" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="E2GYj|9dOimiiGKHxJsiZSQSn" begin="2010-06-10T20:00:00.000+02:00" duration="60" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EFWpH|9dOimiiGKHwpuXzlydN" begin="2010-06-11T16:15:00.000+02:00" duration="225" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="E5kD5|9dOimiiGKHwztpw78Jl" begin="2010-06-11T22:15:00.000+02:00" duration="360" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EJwAD|9dOimiiGKHwJRMiL7th" begin="2010-06-12T15:30:00.000+02:00" duration="435" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EN8nf|9dOimiiGKHxWN1DXz3R" begin="2010-06-13T15:15:00.000+02:00" duration="525" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EwKkB|9dOimiiGKHwdQFLgQ2j" begin="2010-06-14T01:00:00.000+02:00" duration="360" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EyJLJ|9dOimiiGKHxCO8aCguP" begin="2010-06-14T15:00:00.000+02:00" duration="720" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EsDDh|9dOimiiGKHwTQo20lyD" begin="2010-06-17T23:00:00.000+02:00" duration="360" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="ErW1N|9dOimiiGKHxMNZtsKyv" begin="2010-06-18T19:15:00.000+02:00" duration="300" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="Etwgt|9dOimiiGKHwnPgfM47F" begin="2010-06-22T15:00:00.000+02:00" duration="180" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="E4XzL|9dOimiiGKHx2OhGX2pt" begin="2010-06-23T16:30:00.000+02:00" duration="240" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EyhBN|9dOimiiGKHwOR5NAwvx" begin="2010-06-23T22:30:00.000+02:00" duration="150" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="Es60H|9dOimiiGKHxRNIYiA1B" begin="2010-06-24T19:30:00.000+02:00" duration="180" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EHkBt|9dOimiiGKHwiPy0WF4z" begin="2010-06-25T15:00:00.000+02:00" duration="960" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="Euis7|9dOimiiGKHx7OPvMrs9" begin="2010-06-26T16:00:00.000+02:00" duration="660" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EwKXz|9dOimiiGKHwYQWgqb0T" begin="2010-06-27T18:00:00.000+02:00" duration="120" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EG5i7|9dOimiiGKHxHNrF2Vwf" begin="2010-06-27T21:00:00.000+02:00" duration="420" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="E2VgT|9dOimiiGKHwsPPKBt9V" begin="2010-06-28T15:00:00.000+02:00" duration="600" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="E94lx|9dOimiiGKHwxOybhDnd" begin="2010-07-07T14:00:00.000+02:00" duration="240" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="E6kzb|9dOimiiGKHwIBw38Add" begin="2010-07-09T14:00:00.000+02:00" duration="420" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="E7pGd|9dOimiiGKHwcAogTSmf" begin="2010-07-10T14:30:00.000+02:00" duration="120" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="ENGMr|9dOimiiGKHxDdZFPeAT" begin="2010-07-11T16:30:00.000+02:00" duration="450" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="E3RSP|9dOimiiGKHwSBNMnoi9" begin="2010-07-12T15:30:00.000+02:00" duration="720" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EENwh|9dOimiiGKHxNd0Z5IEz" begin="2010-07-13T15:00:00.000+02:00" duration="120" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EDYqz|9dOimiiGKHwmAG096rB" begin="2010-07-13T19:00:00.000+02:00" duration="300" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+   </task>
+   <task id="TVWa9t|TSgwlBPdqT26pJtOde" name="Projektplanung" shortname="PP" description="Projektplanung" defaultcategory="3" isteamtask="false" createdat="2010-02-15T23:34:36.510+01:00">
+    <statistic effortcount="4" effortdurationsum="410" replicatedeffortcount="0" acceptedeffortcount="4" notacceptedeffortcount="0">
+     <effortsofpersons>
+      <effortsofperson id="Mviav|2JAzxjrqbAuIFTfEPI6" count="4"/>
+     </effortsofpersons>
+     <effortsofcategories>
+      <effortsofcategory id="3" count="4"/>
+      <effortsofcategory id="5" count="0"/>
+      <effortsofcategory id="7" count="0"/>
+      <effortsofcategory id="10" count="0"/>
+      <effortsofcategory id="12" count="0"/>
+      <effortsofcategory id="13" count="0"/>
+      <effortsofcategory id="15" count="0"/>
+      <effortsofcategory id="17" count="0"/>
+      <effortsofcategory id="18" count="0"/>
+      <effortsofcategory id="20" count="0"/>
+      <effortsofcategory id="22" count="0"/>
+      <effortsofcategory id="25" count="0"/>
+      <effortsofcategory id="40" count="0"/>
+      <effortsofcategory id="42" count="0"/>
+      <effortsofcategory id="45" count="0"/>
+      <effortsofcategory id="60" count="0"/>
+      <effortsofcategory id="50" count="0"/>
+      <effortsofcategory id="52" count="0"/>
+      <effortsofcategory id="55" count="0"/>
+      <effortsofcategory id="70" count="0"/>
+      <effortsofcategory id="72" count="0"/>
+      <effortsofcategory id="75" count="0"/>
+      <effortsofcategory id="77" count="0"/>
+      <effortsofcategory id="80" count="0"/>
+      <effortsofcategory id="82" count="0"/>
+      <effortsofcategory id="85" count="0"/>
+      <effortsofcategory id="90" count="0"/>
+      <effortsofcategory id="99" count="0"/>
+     </effortsofcategories>
+    </statistic>
+    <effort id="EwzWsj|TSgwlBPdqUK2CTw4pe" begin="2010-02-11T15:45:00.000+01:00" duration="90" pause="0" description="" category="3" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="ENBT8j|TSgwlBPdqTM5hxEgmg" begin="2010-02-15T22:35:00.000+01:00" duration="113" pause="0" description="" category="3" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="Eu3gt|SHFzW23Awze2to5yfJ2" begin="2010-02-16T00:45:00.000+01:00" duration="36" pause="0" description="" category="3" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EzYxn|CMMIpiwnmJlnZZ9MdUX" begin="2010-02-23T11:46:00.000+01:00" duration="171" pause="0" description="" category="3" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+   </task>
+   <task id="TKpGR|2oqSl5UrIVpD1B6q8iB" name="Spezifikation" shortname="SPEZI" description="" defaultcategory="15" isteamtask="false" createdat="2010-03-07T17:53:07.367+01:00">
+    <statistic effortcount="4" effortdurationsum="1035" replicatedeffortcount="0" acceptedeffortcount="4" notacceptedeffortcount="0">
+     <effortsofpersons>
+      <effortsofperson id="Mviav|2JAzxjrqbAuIFTfEPI6" count="4"/>
+     </effortsofpersons>
+     <effortsofcategories>
+      <effortsofcategory id="3" count="0"/>
+      <effortsofcategory id="5" count="0"/>
+      <effortsofcategory id="7" count="0"/>
+      <effortsofcategory id="10" count="0"/>
+      <effortsofcategory id="12" count="0"/>
+      <effortsofcategory id="13" count="0"/>
+      <effortsofcategory id="15" count="4"/>
+      <effortsofcategory id="17" count="0"/>
+      <effortsofcategory id="18" count="0"/>
+      <effortsofcategory id="20" count="0"/>
+      <effortsofcategory id="22" count="0"/>
+      <effortsofcategory id="25" count="0"/>
+      <effortsofcategory id="40" count="0"/>
+      <effortsofcategory id="42" count="0"/>
+      <effortsofcategory id="45" count="0"/>
+      <effortsofcategory id="60" count="0"/>
+      <effortsofcategory id="50" count="0"/>
+      <effortsofcategory id="52" count="0"/>
+      <effortsofcategory id="55" count="0"/>
+      <effortsofcategory id="70" count="0"/>
+      <effortsofcategory id="72" count="0"/>
+      <effortsofcategory id="75" count="0"/>
+      <effortsofcategory id="77" count="0"/>
+      <effortsofcategory id="80" count="0"/>
+      <effortsofcategory id="82" count="0"/>
+      <effortsofcategory id="85" count="0"/>
+      <effortsofcategory id="90" count="0"/>
+      <effortsofcategory id="99" count="0"/>
+     </effortsofcategories>
+    </statistic>
+    <effort id="E5FDL|CMMIpiwnmJn5UwJPJgX" begin="2010-03-07T14:30:00.000+01:00" duration="169" pause="0" description="" category="15" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EyUPT|2oqSl5UrIVqUwYGsouB" begin="2010-03-07T17:19:00.000+01:00" duration="95" pause="0" description="" category="15" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="ErG9j|81kFyVmjnyhZipfxSl6" begin="2010-03-07T20:00:00.000+01:00" duration="280" pause="0" description="" category="15" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EL1GV|1liasGcb1SKv4mjuOnW" begin="2010-03-08T11:21:00.000+01:00" duration="491" pause="0" description="" category="15" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+   </task>
+   <task id="TL0ET|9EKoD835ReIKevLxtvk" name="Spezifikationskorrektur" shortname="SPEZK" description="" defaultcategory="18" isteamtask="false" createdat="2010-03-22T17:52:11.099+01:00">
+    <statistic effortcount="2" effortdurationsum="370" replicatedeffortcount="0" acceptedeffortcount="2" notacceptedeffortcount="0">
+     <effortsofpersons>
+      <effortsofperson id="Mviav|2JAzxjrqbAuIFTfEPI6" count="2"/>
+     </effortsofpersons>
+     <effortsofcategories>
+      <effortsofcategory id="3" count="0"/>
+      <effortsofcategory id="5" count="0"/>
+      <effortsofcategory id="7" count="0"/>
+      <effortsofcategory id="10" count="0"/>
+      <effortsofcategory id="12" count="0"/>
+      <effortsofcategory id="13" count="0"/>
+      <effortsofcategory id="15" count="0"/>
+      <effortsofcategory id="17" count="0"/>
+      <effortsofcategory id="18" count="2"/>
+      <effortsofcategory id="20" count="0"/>
+      <effortsofcategory id="22" count="0"/>
+      <effortsofcategory id="25" count="0"/>
+      <effortsofcategory id="40" count="0"/>
+      <effortsofcategory id="42" count="0"/>
+      <effortsofcategory id="45" count="0"/>
+      <effortsofcategory id="60" count="0"/>
+      <effortsofcategory id="50" count="0"/>
+      <effortsofcategory id="52" count="0"/>
+      <effortsofcategory id="55" count="0"/>
+      <effortsofcategory id="70" count="0"/>
+      <effortsofcategory id="72" count="0"/>
+      <effortsofcategory id="75" count="0"/>
+      <effortsofcategory id="77" count="0"/>
+      <effortsofcategory id="80" count="0"/>
+      <effortsofcategory id="82" count="0"/>
+      <effortsofcategory id="85" count="0"/>
+      <effortsofcategory id="90" count="0"/>
+      <effortsofcategory id="99" count="0"/>
+     </effortsofcategories>
+    </statistic>
+    <effort id="EK4qR|54JuMfmvpvaLwHnuDit" begin="2010-03-22T12:50:00.000+01:00" duration="300" pause="0" description="" category="18" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EuI6V|KfcPyTr4G6bPQQFrf9u" begin="2010-03-22T18:11:00.000+01:00" duration="70" pause="0" description="" category="18" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+   </task>
+   <task id="TqfFR|9EKoD835ReJcaIW0a7k" name="Spezifikationsreview" shortname="SPEZR" description="" defaultcategory="17" isteamtask="false" createdat="2010-03-22T17:52:45.190+01:00">
+    <statistic effortcount="2" effortdurationsum="240" replicatedeffortcount="0" acceptedeffortcount="2" notacceptedeffortcount="0">
+     <effortsofpersons>
+      <effortsofperson id="Mviav|2JAzxjrqbAuIFTfEPI6" count="2"/>
+     </effortsofpersons>
+     <effortsofcategories>
+      <effortsofcategory id="3" count="0"/>
+      <effortsofcategory id="5" count="0"/>
+      <effortsofcategory id="7" count="0"/>
+      <effortsofcategory id="10" count="0"/>
+      <effortsofcategory id="12" count="0"/>
+      <effortsofcategory id="13" count="0"/>
+      <effortsofcategory id="15" count="0"/>
+      <effortsofcategory id="17" count="2"/>
+      <effortsofcategory id="18" count="0"/>
+      <effortsofcategory id="20" count="0"/>
+      <effortsofcategory id="22" count="0"/>
+      <effortsofcategory id="25" count="0"/>
+      <effortsofcategory id="40" count="0"/>
+      <effortsofcategory id="42" count="0"/>
+      <effortsofcategory id="45" count="0"/>
+      <effortsofcategory id="60" count="0"/>
+      <effortsofcategory id="50" count="0"/>
+      <effortsofcategory id="52" count="0"/>
+      <effortsofcategory id="55" count="0"/>
+      <effortsofcategory id="70" count="0"/>
+      <effortsofcategory id="72" count="0"/>
+      <effortsofcategory id="75" count="0"/>
+      <effortsofcategory id="77" count="0"/>
+      <effortsofcategory id="80" count="0"/>
+      <effortsofcategory id="82" count="0"/>
+      <effortsofcategory id="85" count="0"/>
+      <effortsofcategory id="90" count="0"/>
+      <effortsofcategory id="99" count="0"/>
+     </effortsofcategories>
+    </statistic>
+    <effort id="EHBer|9EKoD835ReIednzJC4m" begin="2010-03-16T10:00:00.000+01:00" duration="120" pause="0" description="" category="17" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="E7KyR|9EKoD835ReJIbPsfHyi" begin="2010-03-16T15:00:00.000+01:00" duration="120" pause="0" description="" category="17" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+   </task>
+  </project>
+ </projectlist>
+ <!--
+  !
+  !
+  !
+  !  Ab hier beginnt der Volatile-Data-Bereich. In diesem Bereich werden Daten
+  !  gespeichert, die sich häufig ändern und die es nicht erfordern, dass die
+  !  gesamte(!) Arbeitsdatei neu gespeichert werden muss. Das führt - gerade bei
+  !  großen Arbeitsdateien - zu einem erheblichen Geschwindigkeitsgewinn beim
+  !  Beenden von Fred, da dieser Bereich beim Beenden von Fred immer(!) 
+  !  aktualisiert wird.
+  !
+  !  Hier befinden sich z.B. die Konfiguration von Fred oder Informationen über
+  !  die geöffneten Ansichten.
+  !
+  !  Gleichzeitig dient dieser sehr prosahaftige Kommentar als Puffer, falls
+  !  beim Ermitteln der Position dieses Bereichs in der Arbeitsdatei mal etwas
+  !  schiefläuft und die Position in Folge dessen nicht korrekt ist. Mit so einem
+  !  großen Kommentarblock erhöht sich die Chance, dass dann nur ein Teil dieses
+  !  Kommentarblocks zerstört wird und nicht wichtige Daten.
+  !
+  !
+  !
+  !-->
+
+ <volatiledata pos="0000000000000025037" />
+ <defaulttask id="TVWa9t|TSgwlBPdqT26pJtOde"/>
+ <configuration>
+  <entry key="ConfirmQuickSplit" value="true"/>
+  <entry key="LastExportPath" value="C:\Users\Phil"/>
+  <entry key="MakeBackup" value="true"/>
+  <entry key="MinimizeToTray" value="false"/>
+  <entry key="SaveNotAcceptedEfforts" value="true"/>
+  <entry key="SaveViews" value="true"/>
+  <entry key="ShowSecondRowPerDefault" value="true"/>
+ </configuration>
+ <guidata>
+  <quickbar dockborder="TOP"/>
+  <views>
+   <view viewname="Ansicht" secondrow="true">
+    <filter filtermode="tasks" usefilter="false" start="2010-01-15T22:26:47.419+01:00" end="2010-02-15T22:26:47.419+01:00" datamask="35" relevantmask="35">
+     <tasksoffilter>
+      <taskoffilter id="T49iv|6Bq93sXZMqL1Ys8M2oH"/>
+     </tasksoffilter>
+     <personsoffilter>
+      <personoffilter id="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+     </personsoffilter>
+     <categoriesoffilter/>
+    </filter>
+    <columns>
+     <column ecolumnname="StartDate" width="60"/>
+     <column ecolumnname="StartEndTime" width="80"/>
+     <column ecolumnname="WorkDuration" width="60"/>
+     <column ecolumnname="PauseDuration" width="60"/>
+     <column ecolumnname="Project" width="130"/>
+     <column ecolumnname="Task" width="100"/>
+     <column ecolumnname="CategoryName" width="80"/>
+     <column ecolumnname="Collisions" width="99"/>
+     <column ecolumnname="Replicated" width="91"/>
+     <column ecolumnname="Accepted" width="100"/>
+    </columns>
+   </view>
+  </views>
+ </guidata>
+</fredworkfile>

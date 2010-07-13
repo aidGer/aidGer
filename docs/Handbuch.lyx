@@ -1154,7 +1154,7 @@ ActivityReportTemplate.odt
  von OpenOffice definierten Formularfelder Daten wie beispielsweise den
  Author oder das IVI-Logo einzubinden.
  Damit aidGer die neu erstellte Vorlage verwenden kann, muss diese zuerst
- nach PDF umgewandelt.
+ nach PDF umgewandelt werden.
  Anschließend muss direkt im 
 \shape italic
 JAR-Archiv
@@ -1168,6 +1168,38 @@ ActivityReportTemplate.pdf
 src/de/aidger/pdf
 \family default
  mit dem neuem PDF-Template ersetzt werden.
+\begin_inset Newline newline
+\end_inset
+
+Die verfügbaren Felder heißen wie folgt:
+\end_layout
+
+\begin_layout Itemize
+UniLogo - Feld für das Logo der Universität
+\end_layout
+
+\begin_layout Itemize
+IviLogo - Feld für das Logo des Institutsverbunds Informatik
+\end_layout
+
+\begin_layout Itemize
+SenderField - Feld für die Adresse des des Institutsverbunds
+\end_layout
+
+\begin_layout Itemize
+AssistantName - Feld für den Namen der Hilfskraft
+\end_layout
+
+\begin_layout Itemize
+TableField - Feld welches die Position und Breite der Tabelle vorgibt
+\end_layout
+
+\begin_layout Itemize
+CreatorName - Feld für den Namen des Autors
+\end_layout
+
+\begin_layout Itemize
+Date - Feld für das Datum
 \end_layout
 
 \begin_layout Section
