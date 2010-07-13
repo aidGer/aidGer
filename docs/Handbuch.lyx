@@ -830,6 +830,86 @@ Export
 \end_layout
 
 \begin_layout Chapter
+Berichte
+\end_layout
+
+\begin_layout Standard
+Alle Berichte haben einige Gemeinsamkeiten.
+ Um einen Bericht zu erstellen, muss 
+\emph on
+Generieren
+\emph default
+ geklickt werden.
+ Mit Hilfe des 
+\emph on
+Export
+\emph default
+-Knopfes, der nach dem Generieren des Berichtes erscheint.
+\end_layout
+
+\begin_layout Standard
+Zudem kann bei allen Berichten ausser dem 
+\series bold
+Tätigkeitsnachweis
+\series default
+ eine Anzahl von Filtern hinzugefügt werden, um z.B.
+ die Jahresbilanz auf eine bestimmte Gruppe von Vorlesungen zu beschränken.
+ Dazu muss nur der gewünschte Filter und Wert ausgewählt werden und der
+ 
+\emph on
+Plus
+\emph default
+-Knopf gedrückt werden.
+ Um den Filter wieder zu entfernen, kann der 
+\emph on
+Minus-
+\emph default
+Knopf daneben benutzt werden.
+\end_layout
+
+\begin_layout Standard
+Beim 
+\series bold
+Jahresbericht
+\series default
+ muss vor dem Generieren noch das gewünscht Jahr ausgewählt werden.
+ Das gleiche gilt auch für den 
+\series bold
+Semesterbericht
+\series default
+, nur dass hier das Semester gewählt werden kann.
+ Beim 
+\series bold
+Tätigkeitsbericht
+\series default
+ muss eine Hilfskraft ausgewählt werden, um sich alle seine Beschäftigungen
+ anzeigen zu lassen.
+\end_layout
+
+\begin_layout Section
+Controlling
+\end_layout
+
+\begin_layout Standard
+Das Controlling funktioniert gleich wie die Erstellung der Berichte.
+ Ein Unterschied ist hier, dass beim 
+\series bold
+Veranstaltungscontrolling
+\series default
+ Einträge mit zu hohem Budget farbig markiert werden, und dass beim 
+\series bold
+Hilfskraftcontrolling
+\series default
+ die letzten beiden Spalten editierbar sind.
+ 
+\end_layout
+
+\begin_layout Standard
+Die Editierbarkeit dient dazu, die von der Verwaltung zurückgelieferten
+ Werte einzutragen, um einfach vergleichen zu können ob die Werte stimmen.
+\end_layout
+
+\begin_layout Chapter
 Einstellungen
 \begin_inset CommandInset label
 LatexCommand label
