@@ -12,22 +12,33 @@ import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
+import de.aidger.model.models.Contract;
+import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
+import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.models.HourlyWage;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
 
 /**
  * Tests the AbstractModel class.
- *
+ * 
  * @author aidGer Team
  */
 public class AbstractModelTest {
 
     @BeforeClass
-    public static void beforeClassSetUp() {
+    public static void beforeClassSetUp() throws AdoHiveException {
         Runtime.getInstance().initialize();
+        new HourlyWage().clearTable();
+        new FinancialCategory().clearTable();
+        new Contract().clearTable();
+        new Assistant().clearTable();
+        new Employment().clearTable();
+        new Course().clearTable();
+        new Activity().clearTable();
     }
 
     /**
@@ -100,7 +111,7 @@ public class AbstractModelTest {
         h.save();
 
         HourlyWage result = new HourlyWage(h.getByKeys("g", (byte) 10,
-                (short) 2010));
+            (short) 2010));
 
         assertNotNull(result);
         assertEquals(h, result);
@@ -245,8 +256,7 @@ public class AbstractModelTest {
 
         h.setQualification("u");
         assertTrue(h.save());
-        assertTrue(h.getByKeys(g.getQualification(), g.getMonth(),
-                g.getYear()) == null);
+        assertTrue(h.getByKeys(g.getQualification(), g.getMonth(), g.getYear()) == null);
     }
 
     /**

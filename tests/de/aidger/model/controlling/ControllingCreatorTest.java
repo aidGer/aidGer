@@ -47,11 +47,11 @@ public class ControllingCreatorTest {
         de.aidger.model.Runtime.getInstance().initialize();
         new HourlyWage().clearTable();
         new FinancialCategory().clearTable();
+        new Activity().clearTable();
         new Employment().clearTable();
         new Course().clearTable();
         new Contract().clearTable();
         new Assistant().clearTable();
-        new Activity().clearTable();
     }
 
     /**

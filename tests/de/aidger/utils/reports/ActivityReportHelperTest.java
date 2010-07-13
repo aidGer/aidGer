@@ -353,7 +353,7 @@ public class ActivityReportHelperTest {
             .getEmploymentArray(activityEmployment);
         Object[] expected = { "10.2012 - 11.2012",
                 course.getDescription() + "(" + course.getSemester() + ")",
-                employment.getHourCount() + employment2.getHourCount() };
+                (employment.getHourCount() + employment2.getHourCount()) + "h" };
 
         assertArrayEquals(expected, resultArray);
 
@@ -374,7 +374,7 @@ public class ActivityReportHelperTest {
             .getEmploymentArray(activityEmployment);
         expected = new Object[] { "01.2012 - 01.2012",
                 course.getDescription() + "(" + course.getSemester() + ")",
-                employment3.getHourCount() };
+                employment3.getHourCount() + "h" };
 
         assertArrayEquals(expected, resultArray);
 
