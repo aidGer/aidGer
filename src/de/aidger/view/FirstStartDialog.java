@@ -10,6 +10,8 @@ import de.aidger.view.utils.InputPatternFilter;
 
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import java.util.List;
 
@@ -20,6 +22,11 @@ import java.util.List;
  * @author aidGer Team
  */
 public class FirstStartDialog extends javax.swing.JDialog {
+
+    /**
+     * Has a connection been established.
+     */
+    protected boolean connected = false;
 
     /** 
      * Creates new form FirstStartDialog
@@ -47,6 +54,23 @@ public class FirstStartDialog extends javax.swing.JDialog {
         thread.start();
 
         setLocationRelativeTo(null);
+
+        nameTextField.addKeyListener(new KeyListener() {
+
+            public void keyTyped(KeyEvent e) {
+                if (nameTextField.getText().isEmpty()) {
+                    jButton1.setEnabled(false);
+                } else if (connected) {
+                    jButton1.setEnabled(true);
+                }
+            }
+
+            public void keyPressed(KeyEvent e) {
+            }
+
+            public void keyReleased(KeyEvent e) {
+            }
+ });
     }
 
     /**
@@ -180,7 +204,10 @@ public class FirstStartDialog extends javax.swing.JDialog {
             } else {
                 connectLabel.setForeground(Color.green);
                 connectLabel.setText(_("Connection successfull."));
-                jButton1.setEnabled(true);
+                if (!nameTextField.getText().isEmpty()) {
+                    jButton1.setEnabled(true);
+                }
+                connected = true;
             }
         }
     }

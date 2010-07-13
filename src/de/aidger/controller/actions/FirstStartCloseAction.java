@@ -22,7 +22,7 @@ public class FirstStartCloseAction extends AbstractAction {
      * Initializes the action.
      */
     public FirstStartCloseAction() {
-        putValue(Action.NAME, _("Close"));
+        putValue(Action.NAME, _("Continue"));
         putValue(Action.SHORT_DESCRIPTION, _("Close the dialog"));
     }
 
