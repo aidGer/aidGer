@@ -208,9 +208,24 @@ public class ViewerTab extends Tab {
         sorter = new TableRowSorter<TableModel>(tableModel);
         table.setRowSorter(sorter);
 
-        table.setComponentPopupMenu(popupMenu);
         table.setDoubleBuffered(true);
         table.setFocusCycleRoot(true);
+
+        table.addMouseListener(new PopupListener(popupMenu) {
+            @Override
+            public void mousePressed(MouseEvent me) {
+                if (table.getSelectedRowCount() == 1) {
+                    super.mousePressed(me);
+                }
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+                if (table.getSelectedRowCount() == 1) {
+                    super.mouseReleased(me);
+                }
+            }
+        });
 
         // sort on first column by default
         sorter.toggleSortOrder(0);
