@@ -99,7 +99,10 @@ aidGer wurde im Rahmen des Software-Praktikums 2010 von Christian Buchgraber,
  Philipp Gildein und Philipp Pirrung entwickelt.
  Geleitet wurde das Praktikum von Daniel Kulesz als Kunde sowie Holger Röder
  und Ivan Bogicevic als Betreuer.
- Zudem trug Team AdoHive als externer Dienstleister mit der Library AdoHive
+ Zudem trug Team AdoHive als externer Dienstleister mit der Library 
+\shape italic
+AdoHive
+\shape default
  zum Praktikum bei.
 \begin_inset Newline newline
 \end_inset
@@ -108,7 +111,7 @@ aidGer wurde im Rahmen des Software-Praktikums 2010 von Christian Buchgraber,
 \begin_inset Newline newline
 \end_inset
 
-Die Webseite von aidGer, auf der die Software auch heruntergeladen werden
+Die Webseite von aidGer, auf der auch die Software heruntergeladen werden
  kann, befindet sich unter folgender Adresse: 
 \begin_inset Flex URL
 status open
@@ -158,8 +161,8 @@ name "sec:Unterstütze-Plattformen"
 \begin_layout Standard
 aidGer wurde in Java geschrieben und läuft auf jedem System, das Java 1.5
  oder höher unterstützt.
- Um den vollen Programmumfang nutzen zu können wird ein PDF-Betrachter wie
- z.B.
+ Um den vollen Programmumfang nutzen zu können, wird ein PDF-Betrachter
+ wie z.B.
  Adobe Acrobat Reader benötigt.
  Einige wenige Funktionen benötigen zudem Funktionen von Java 6.
 \end_layout
@@ -223,7 +226,6 @@ JAR-Archiv
 \end_layout
 
 \begin_layout Standard
-\noindent
 Über die Kommandozeile kann aidGer mit 
 \family typewriter
 java -jar aidGer.jar
@@ -266,6 +268,11 @@ aidGer dient der Verwaltung von Hilfskräften und der Kontrolle dieser.
  Finanzkategorien und Stundenlöhnen, sowie Vorgänge und Beschäftigungen.
  Zudem können verschiedene Berichte erstellt, durch Filter verändert und
  exportiert werden.
+ Der Benutzer hat des Weiteren die Möglichkeit, das Budget von Veranstaltungen
+ und Hilfskräften zu prüfen.
+ Diese Controlling-Berichte können darüber hinaus anschließend exportiert
+ werden, so dass die Resultate ohne dieser Software weiter verwendet werden
+ kann.
 \end_layout
 
 \begin_layout Chapter
@@ -291,8 +298,9 @@ name "sec:Erster-Start"
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
-	filename manual/first-start.png
+	filename manual/first-start.pdf
 
 \end_inset
 
@@ -301,11 +309,11 @@ name "sec:Erster-Start"
 
 \begin_layout Standard
 \noindent
-Beim ersten Start wird ihnen ein Dialog angezeigt, der ihnen dabei hilft,
+Beim ersten Start wird Ihnen ein Dialog angezeigt, der Ihnen dabei hilft,
  die korrekte Funktionalität von aidGer festzustellen und die wichtigste
- Einstellung von ihnen abfragt.
+ Einstellung von Ihnen abfragt.
  Während dieser Dialog offen ist, wird für Sie das Konfigurationsverzeichnis
- mit ihrer Konfiguration angelegt und die Verbindung zur Datenbank hergestellt
+ mit Ihrer Konfiguration angelegt und die Verbindung zur Datenbank hergestellt
  bzw.
  überprüft.
  Bei der Benutzung von Derby wird eine neue Datenbank angelegt.
@@ -313,8 +321,16 @@ Beim ersten Start wird ihnen ein Dialog angezeigt, der ihnen dabei hilft,
 \end_layout
 
 \begin_layout Standard
-Nach Eingabe ihrer Initialen und der erfolgreichen Herstellung der Verbindung
- zur Datenbank kann der Dialog geschlossen werden und aidGer benutzt werden.
+Nach Eingabe ihres Namen und der erfolgreichen Herstellung der Verbindung
+ zur Datenbank kann auf den Button 
+\begin_inset Quotes gld
+\end_inset
+
+Weiter
+\begin_inset Quotes grd
+\end_inset
+
+ geklickt werden und aidGer benutzt werden.
 \end_layout
 
 \begin_layout Section
@@ -343,7 +359,7 @@ Sind keine Reiter offen wird von aidGer immer der Willkommensreiter angezeigt.
 
 \begin_layout Standard
 Über die Übersicht ihrer letzten Änderungen und der Vorgänge können Sie
- schnell dort weiter machen wo Sie beim letzten Mal aufgehört haben.
+ schnell dort weiter machen, wo Sie beim letzten Mal aufgehört haben.
  Bei den letzten Änderungen werden nur ihre eigenen Änderungen angezeigt,
  da diese nur lokal gespeichert werden.
  Vorgänge werden jedoch global angezeigt.
@@ -409,7 +425,7 @@ Drucken
  erlaubt.
  Diese Option lässt sich auch mit 
 \series bold
-STRG + B
+STRG + P
 \series default
  von überall auswählen.
  Unter 
@@ -489,12 +505,13 @@ status open
 \end_layout
 
 \begin_layout Standard
-Die Navigationsleiste besteht aus einzelnen Boxen die geöffnet und geschlossen
+Die Navigationsleiste besteht aus einzelnen Boxen, die geöffnet und geschlossen
  werden können.
  Dies geschieht durch einen Klick auf die Titelleiste oder den Knopf an
  der rechten Seite.
  Der Zustand der Boxen wird gespeichert und beim nächsten Start wiederhergestell
-t Durch einen Klick mit der linken Maustaste auf die Unterpunkte wird der
+t.
+ Durch einen Klick mit der linken Maustaste auf die Unterpunkte wird der
  jeweilige Reiter im Inhaltsbereich angezeigt.
  Wird der Klick mit der mittleren Maustaste durchgeführt, so wird ein neuer
  Reiter im Inhaltsbereich aufgemacht, der mit dem Inhalt des jeweiligen
@@ -521,7 +538,7 @@ name "sec:Inhaltsbereich"
 
 \begin_layout Standard
 Das wichtigste Element des Inhaltsbereiches ist die Reiterleiste.
- Hier kann eine beliebige Zahl von Reitern geöffnet werden um das Arbeiten
+ Hier kann eine beliebige Zahl von Reitern geöffnet werden, um das Arbeiten
  mit mehreren Elementen zu vereinfachen.
  Um einen neuen Reiter zu öffnen, kann entweder der Button am rechten Rand
  der Leiste benutzt werden, die Tastenkombination 
@@ -568,7 +585,7 @@ name "sec:Statusleiste"
 \begin_layout Standard
 Die Statusleiste am unteren Rand zeigt nach dem erfolgreichen Durchführen
  einer Aktion an, dass die Aktion korrekt durchgeführt wurde oder im Falle
- eines Fehlers das eintreten ebenjenes.
+ eines Fehlers das Eintreten ebenjenes.
 \end_layout
 
 \begin_layout Chapter
@@ -653,19 +670,19 @@ Hinzufügen
 \end_layout
 
 \begin_layout Standard
-Das Suchfeld besteht genau genommen aus dem Suchfeld und einem kleinen Besenicon
- daneben.
+Das Suchfeld besteht genau genommen aus dem Suchfeld und einem kleinen Besen-Ico
+n daneben.
  Sobald eine Eingabe im Suchfeld gestartet wird, wird der Inhalt der Tabelle
  nach dem Text im Suchfeld gefiltert und nur noch übereinstimmende Datensätze
  angezeigt.
- Ein Klick auf das Besenicon löscht den Inhalt des Suchfeldes und zeigt
+ Ein Klick auf das Besen-Icon löscht den Inhalt des Suchfeldes und zeigt
  wieder alle Datensätze an.
 \end_layout
 
 \begin_layout Standard
 Die Tabelle zeigt alle bzw.
  die gefilterten Datensätze des gewählten Types an.
- Die Spalten die dargestellt werden können in der Größe verändert werden
+ Die Spalten, die dargestellt werden, können in der Größe verändert werden
  und durch einen Rechtsklick auf den Kopf der Tabelle einzeln ein- bzw.
  ausgeblendet werden.
  Zudem kann sie durch Klick auf einen Spaltennamen nach dieser Spalte sortiert
@@ -675,7 +692,7 @@ Die Tabelle zeigt alle bzw.
 
 \begin_layout Standard
 Durch einen Rechtsklick auf einen ausgewählten Eintrag öffnet sich ein Kontextme
-nü, dass die Aktionen der Toolbar ausser 
+nü, das die Aktionen der Toolbar außer 
 \emph on
 Hinzufügen
 \emph default
@@ -900,7 +917,7 @@ Bearbeiten
 \emph default
  werden nach Auswahl einer Veranstaltung bzw.
  einer Hilfskraft nur noch damit verknüpfte Verträge und Finanzkategorien
- angezeigt um sie auszuwählen.
+ angezeigt, um sie auszuwählen.
  Verträge können auch einfach erstellt werden, in dem auf den 
 \emph on
 Plus
@@ -940,7 +957,7 @@ Export
 \emph default
 -Aktion.
  Nach einem Klick öffnet sich ein Auswahlfenster um einen Dateinamen und
- Pfad auszuwählen, wonach dann die momentan angezeigten Vorgänge im PDF-Format
+ Pfad auszuwählen, wonach dann die momentan selektierten Vorgänge im PDF-Format
  exportiert werden.
 \end_layout
 
@@ -986,7 +1003,7 @@ Export
 \end_layout
 
 \begin_layout Standard
-Zudem kann bei allen Berichten ausser dem 
+Zudem kann bei allen Berichten außer dem 
 \series bold
 Tätigkeitsnachweis
 \series default
@@ -1025,6 +1042,21 @@ Tätigkeitsbericht
 \end_layout
 
 \begin_layout Section
+Anpassbarkeit des Aussehen von Berichten
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Anpassbarkeit-des-Aussehen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+TODO
+\end_layout
+
+\begin_layout Section
 Controlling
 \begin_inset CommandInset label
 LatexCommand label
@@ -1051,7 +1083,8 @@ Hilfskraftcontrolling
 
 \begin_layout Standard
 Die Editierbarkeit dient dazu, die von der Verwaltung zurückgelieferten
- Werte einzutragen, um einfach vergleichen zu können ob die Werte stimmen.
+ Werte einzutragen, um einfach vergleichen zu können, ob die Werte stimmen.
+ Diese Werten werden beim Export auch mitberücksichtigt.
 \end_layout
 
 \begin_layout Chapter
@@ -1094,10 +1127,10 @@ name "sec:Generelle-Einstellungen"
 \end_layout
 
 \begin_layout Subsection
-Initialen
+Name
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Initialen"
+name "sub:Name"
 
 \end_inset
 
@@ -1105,8 +1138,8 @@ name "sub:Initialen"
 \end_layout
 
 \begin_layout Standard
-Die Initialien werden bei der Erstellung von Vorgängen benutzt um den momentanen
- Benutzer eindeutig zu kennzeichnen.
+Der Name wird bei der Erstellung von Vorgängen und Berichten benutzt, um
+ den momentanen Benutzer eindeutig zu kennzeichnen.
 \end_layout
 
 \begin_layout Subsection
@@ -1317,7 +1350,7 @@ Als Programm zur Übersetzung empfehlen wir
 \series bold
 poedit
 \series default
-, dass auf den meisten Platformen läuft.
+, das auf den meisten Platformen läuft.
  Heruntergeladen werden kann es unter 
 \begin_inset Flex URL
 status collapsed
