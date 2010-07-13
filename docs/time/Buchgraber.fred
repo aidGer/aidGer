@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created with "de.sopra06.filehandling.xml.XMLFileHandling" at: 13.07.10 21:19-->
+<!--Arbeitsdatei für Fred-->
+<fredworkfile version="2" creationdate="2010-02-15T23:31:43.788+01:00" lastcompletesavedate="2010-07-13T21:19:47.417+02:00">
+ <objectfactory projectcount="1" taskcount="7" effortcount="71" personcount="1"/>
+ <personlist>
+  <person id="MGqCP|R7Xi31QSywoXGIS3vFk" firstName="Christian" name="Buchgraber" initials="CB" securityid="SEj7F|R7Xi31QSywppBfc6bRk"/>
+ </personlist>
+ <user id="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+ <urllist/>
+ <projectlist projectcount="1">
+  <statistic effortcount="71" effortdurationsum="20675" replicatedeffortcount="0" acceptedeffortcount="71" notacceptedeffortcount="0">
+   <effortsofpersons>
+    <effortsofperson id="MGqCP|R7Xi31QSywoXGIS3vFk" count="71"/>
+   </effortsofpersons>
+   <effortsofcategories>
+    <effortsofcategory id="3" count="59"/>
+    <effortsofcategory id="5" count="1"/>
+    <effortsofcategory id="7" count="0"/>
+    <effortsofcategory id="10" count="8"/>
+    <effortsofcategory id="12" count="0"/>
+    <effortsofcategory id="13" count="0"/>
+    <effortsofcategory id="15" count="1"/>
+    <effortsofcategory id="17" count="2"/>
+    <effortsofcategory id="18" count="0"/>
+    <effortsofcategory id="20" count="0"/>
+    <effortsofcategory id="22" count="0"/>
+    <effortsofcategory id="25" count="0"/>
+    <effortsofcategory id="40" count="0"/>
+    <effortsofcategory id="42" count="0"/>
+    <effortsofcategory id="45" count="0"/>
+    <effortsofcategory id="60" count="0"/>
+    <effortsofcategory id="50" count="0"/>
+    <effortsofcategory id="52" count="0"/>
+    <effortsofcategory id="55" count="0"/>
+    <effortsofcategory id="70" count="0"/>
+    <effortsofcategory id="72" count="0"/>
+    <effortsofcategory id="75" count="0"/>
+    <effortsofcategory id="77" count="0"/>
+    <effortsofcategory id="80" count="0"/>
+    <effortsofcategory id="82" count="0"/>
+    <effortsofcategory id="85" count="0"/>
+    <effortsofcategory id="90" count="0"/>
+    <effortsofcategory id="99" count="0"/>
+   </effortsofcategories>
+  </statistic>
+  <project id="PCt3r|DGwV5Wm6cXlAIHJHdXj" name="aidGer" description="Hilfskraftmittelverwaltung" isclosed="false" isteamproject="false" createdat="2010-02-15T23:32:51.446+01:00" securityid="SEj7F|R7Xi31QSywppBfc6bRk">
+   <statistic effortcount="71" effortdurationsum="20675" replicatedeffortcount="0" acceptedeffortcount="71" notacceptedeffortcount="0">
+    <effortsofpersons>
+     <effortsofperson id="MGqCP|R7Xi31QSywoXGIS3vFk" count="71"/>
+    </effortsofpersons>
+    <effortsofcategories>
+     <effortsofcategory id="3" count="59"/>
+     <effortsofcategory id="5" count="1"/>
+     <effortsofcategory id="7" count="0"/>
+     <effortsofcategory id="10" count="8"/>
+     <effortsofcategory id="12" count="0"/>
+     <effortsofcategory id="13" count="0"/>
+     <effortsofcategory id="15" count="1"/>
+     <effortsofcategory id="17" count="2"/>
+     <effortsofcategory id="18" count="0"/>
+     <effortsofcategory id="20" count="0"/>
+     <effortsofcategory id="22" count="0"/>
+     <effortsofcategory id="25" count="0"/>
+     <effortsofcategory id="40" count="0"/>
+     <effortsofcategory id="42" count="0"/>
+     <effortsofcategory id="45" count="0"/>
+     <effortsofcategory id="60" count="0"/>
+     <effortsofcategory id="50" count="0"/>
+     <effortsofcategory id="52" count="0"/>
+     <effortsofcategory id="55" count="0"/>
+     <effortsofcategory id="70" count="0"/>
+     <effortsofcategory id="72" count="0"/>
+     <effortsofcategory id="75" count="0"/>
+     <effortsofcategory id="77" count="0"/>
+     <effortsofcategory id="80" count="0"/>
+     <effortsofcategory id="82" count="0"/>
+     <effortsofcategory id="85" count="0"/>
+     <effortsofcategory id="90" count="0"/>
+     <effortsofcategory id="99" count="0"/>
+    </effortsofcategories>
+   </statistic>
+   <task id="TIGFF|PY0nqrbypOKEGtWybmm" name="Entwurf" shortname="ENTWU" description="" defaultcategory="3" isteamtask="false" createdat="2010-03-31T13:37:49.505+02:00">
+    <statistic effortcount="5" effortdurationsum="1304" replicatedeffortcount="0" acceptedeffortcount="5" notacceptedeffortcount="0">
+     <effortsofpersons>
+      <effortsofperson id="MGqCP|R7Xi31QSywoXGIS3vFk" count="5"/>
+     </effortsofpersons>
+     <effortsofcategories>
+      <effortsofcategory id="3" count="5"/>
+      <effortsofcategory id="5" count="0"/>
+      <effortsofcategory id="7" count="0"/>
+      <effortsofcategory id="10" count="0"/>
+      <effortsofcategory id="12" count="0"/>
+      <effortsofcategory id="13" count="0"/>
+      <effortsofcategory id="15" count="0"/>
+      <effortsofcategory id="17" count="0"/>
+      <effortsofcategory id="18" count="0"/>
+      <effortsofcategory id="20" count="0"/>
+      <effortsofcategory id="22" count="0"/>
+      <effortsofcategory id="25" count="0"/>
+      <effortsofcategory id="40" count="0"/>
+      <effortsofcategory id="42" count="0"/>
+      <effortsofcategory id="45" count="0"/>
+      <effortsofcategory id="60" count="0"/>
+      <effortsofcategory id="50" count="0"/>
+      <effortsofcategory id="52" count="0"/>
+      <effortsofcategory id="55" count="0"/>
+      <effortsofcategory id="70" count="0"/>
+      <effortsofcategory id="72" count="0"/>
+      <effortsofcategory id="75" count="0"/>
+      <effortsofcategory id="77" count="0"/>
+      <effortsofcategory id="80" count="0"/>
+      <effortsofcategory id="82" count="0"/>
+      <effortsofcategory id="85" count="0"/>
+      <effortsofcategory id="90" count="0"/>
+      <effortsofcategory id="99" count="0"/>
+     </effortsofcategories>
+    </statistic>
+    <effort id="EJAWB|PY0nqrbypOLWCGh1Hym" begin="2010-03-31T09:00:00.000+02:00" duration="120" pause="0" description="Entwurfsworkshop" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="E5BxF|JNq8RIhBb01k16DV0jB" begin="2010-04-10T21:02:00.000+02:00" duration="189" pause="0" description="Einarbeitung, Klassendiagramm" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="E4Toh|3kZlqoEGurL65ugit6r" begin="2010-04-11T09:07:00.000+02:00" duration="147" pause="0" description="Architektur, Kapitel 2" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EHL5H|3kZlqoEGurK89QA1V3t" begin="2010-04-11T16:17:00.000+02:00" duration="322" pause="0" description="Architektur, Kapitel 2+3" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="E7CjH|9Yp95gYyjdkkb1eEcDd" begin="2010-04-12T09:17:00.000+02:00" duration="526" pause="0" description="Verfeinerungen am Entwurfsdokument&#10;Erstellung von Klassendiagrammen&#10;Korrekturen am Architektur-Diagramm" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+   </task>
+   <task id="TBHS5|B7YWL59oHrqCDoU3OmL" name="Implementierung" shortname="IMPLE" description="" defaultcategory="3" isteamtask="false" createdat="2010-04-27T15:46:56.442+02:00">
+    <statistic effortcount="45" effortdurationsum="15352" replicatedeffortcount="0" acceptedeffortcount="45" notacceptedeffortcount="0">
+     <effortsofpersons>
+      <effortsofperson id="MGqCP|R7Xi31QSywoXGIS3vFk" count="45"/>
+     </effortsofpersons>
+     <effortsofcategories>
+      <effortsofcategory id="3" count="45"/>
+      <effortsofcategory id="5" count="0"/>
+      <effortsofcategory id="7" count="0"/>
+      <effortsofcategory id="10" count="0"/>
+      <effortsofcategory id="12" count="0"/>
+      <effortsofcategory id="13" count="0"/>
+      <effortsofcategory id="15" count="0"/>
+      <effortsofcategory id="17" count="0"/>
+      <effortsofcategory id="18" count="0"/>
+      <effortsofcategory id="20" count="0"/>
+      <effortsofcategory id="22" count="0"/>
+      <effortsofcategory id="25" count="0"/>
+      <effortsofcategory id="40" count="0"/>
+      <effortsofcategory id="42" count="0"/>
+      <effortsofcategory id="45" count="0"/>
+      <effortsofcategory id="60" count="0"/>
+      <effortsofcategory id="50" count="0"/>
+      <effortsofcategory id="52" count="0"/>
+      <effortsofcategory id="55" count="0"/>
+      <effortsofcategory id="70" count="0"/>
+      <effortsofcategory id="72" count="0"/>
+      <effortsofcategory id="75" count="0"/>
+      <effortsofcategory id="77" count="0"/>
+      <effortsofcategory id="80" count="0"/>
+      <effortsofcategory id="82" count="0"/>
+      <effortsofcategory id="85" count="0"/>
+      <effortsofcategory id="90" count="0"/>
+      <effortsofcategory id="99" count="0"/>
+     </effortsofcategories>
+    </statistic>
+    <effort id="EKbfD|B7YWL59oHrrU9Be64yL" begin="2010-04-15T13:20:00.000+02:00" duration="50" pause="0" description="Besprechung zur Implementierungsphase" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="E2cOt|B7YWL59oHrrAAJ0kmpJ" begin="2010-04-27T13:32:00.000+02:00" duration="142" pause="0" description="Basis-Struktur von Controller und View" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="E0c5J|1M3lxL2U09hLE9IUdvV" begin="2010-04-29T15:42:00.000+02:00" duration="135" pause="0" description="Code Style, Code Fixes, JavaDoc Comments" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="Esotz|8d9pIp6zH2U7ED6oCGd" begin="2010-04-30T20:41:00.000+02:00" duration="187" pause="0" description="Navigation Bar" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="E4sOB|8d9pIp6zH2VP9aGqsSd" begin="2010-05-11T11:53:00.000+02:00" duration="45" pause="0" description="Code Fixes in ActionRegistry" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="ENfzl|ABpAfUeCY5vtfMrQXj7" begin="2010-05-13T20:21:00.000+02:00" duration="238" pause="0" description="Möglichkeit Tab zu schließen und neue zu öffnen" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EwjyR|6XZJGen7PojAXKNqsHo" begin="2010-05-19T11:43:00.000+02:00" duration="728" pause="0" description="Erste Implementierung von TaskPane und Ersetzung der NavBar" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EG1eB|4NA1gkM8UUZfvezhSU9" begin="2010-05-21T10:31:00.000+02:00" duration="557" pause="0" description="TaskPane, Tabbing" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EAGBv|4NA1gkM8UUaxr29k8g9" begin="2010-05-22T13:44:00.000+02:00" duration="230" pause="0" description="Look&amp;Feel, Farben, Tabbing" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="E4bzP|4NA1gkM8UUZzuXd2kdB" begin="2010-05-23T12:56:00.000+02:00" duration="108" pause="0" description="Action Handling TaskPane" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EHioX|NidgO6sgxyNtuSLoeZl" begin="2010-05-27T17:47:00.000+02:00" duration="392" pause="0" description="GUI der Stammdatenverwaltung" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="Evs6l|NidgO6sgxyPBppVrKll" begin="2010-05-28T21:33:00.000+02:00" duration="198" pause="0" description="GUI der Stammdatenverwaltung" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="E21tN|NidgO6sgxyODtKz9win" begin="2010-06-01T11:26:00.000+02:00" duration="166" pause="0" description="GUI der Stammdatenverwaltung" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EH3Fx|NidgO6sgxyOrqwsW2cj" begin="2010-06-01T17:55:00.000+02:00" duration="355" pause="0" description="GUI der Stammdatenverwaltung" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EBATd|AGNEspW4YdjIDXZeiY1" begin="2010-06-03T10:34:00.000+02:00" duration="158" pause="0" description="Editor für Finanzkategorie und Stundenlohn" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EFUOJ|AGNEspW4Ydka8ujhOk1" begin="2010-06-03T14:28:00.000+02:00" duration="485" pause="0" description="* add abstract class MasterDataEditorTab that handles the model, the actions and more (refs #55)&#10;* change all master data editor tabs due to new abstract class&#10;* correct the save actions for master data editor tabs&#10;* move master data actions to subpackage&#10;* changes in editor tabs gui&#10;* more checks for save() method in abstract model test (refs #57)&#10;* add column ID to master data table (refs #55)&#10;* fix selection bug for master data editor&#10;* add saveAssistant test for abstract model (refs #58)&#10;* catch bad number format exception for setModel's (refs #55)&#10;* add delete action for master data tables (refs #55)&#10;* display error message if validation failed (refs #55)&#10; * change internal code structure of master data editor tabs completely (refs #55)&#10;* all master data forms are located in separate package (view/forms)&#10;*  add empty hints panel for all master data editor tabs (refs #55)" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="Eqp8D|AGNEspW4YdjcCQD00h3" begin="2010-06-04T13:19:00.000+02:00" duration="292" pause="0" description="* add input pattern filter for form text fields (refs #55)&#10;* add hints to panel after validation failed&#10;* small code restructuring&#10;* improve hourly wage form (refs #55)&#10;* add derby database&#10;* add new advisor field to course editor form (refs #55)" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EvXXn|AGNEspW4YdkGA26M6az" begin="2010-06-06T17:31:00.000+02:00" duration="363" pause="0" description="* fix AdoHive ClassCastExceptions&#10;* fix text field minimum size bug in editor forms (fixes #59)&#10;* rename fonds to funds in gui (refs #55)&#10;* add table models as observer of models (refs #55)&#10;* a tab can perform actions before it is closed" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="E7lrV|AGNEspW4YdkQ9TQ1kfV" begin="2010-06-07T00:07:00.000+02:00" duration="1232" pause="0" description="00:07:52: * qualification is a combobox in assistant and hourly wage forms (refs #55, fixes #60) &#10;00:28:25: show display name on table for qualification (refs #55) &#10;19:59:10: * add functionality for date field in hourly wage form (refs #55) * some fixes in financial category form &#10;20:39:17: add workaround for #62 (fixes #62) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EBMNJ|AGNEspW4YdjmBrWfelZ" begin="2010-06-08T08:49:00.000+02:00" duration="171" pause="0" description="09:49:30: multiple funds and budget costs can be added in financial category editor form (refs #55) &#10;11:17:06: * multiple funds and budget costs can be edited in financial category editor form (refs #55) * fix remove bug when a primary key of horly wage model was edited &#10;11:24:12: fix remove bug for all master data (refs #55) &#10;11:40:56: delete unnecessary setNew call in master data editor tab (refs #55) &#10;12:14:13: tabs are scrollable " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EvV9J|AGNEspW4Ydk6AamgSWT" begin="2010-06-08T18:21:00.000+02:00" duration="22" pause="0" description="18:43:38: input validators for empty gui fields (refs #55) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="E2Cfz|AGNEspW4YdjNDGEUXaH" begin="2010-06-09T11:21:00.000+02:00" duration="730" pause="0" description="11:21:27: models are not saved if the error list is not empty and a debug message is printed (refs #69) &#10;14:27:26: small changes in save method of abstract model (refs #69) &#10;15:39:15: * auto formatting the most code parts * fix some unnecessary java warnings * fix netbeans autogen comments &#10;23:31:28: * cells can have multiple lines, used in financial category table (refs #55) * input pattern filter and multi line cell renderer are located in package view.utils " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EO0uf|AGNEspW4YdkV9C4rZhl" begin="2010-06-10T17:46:00.000+02:00" duration="323" pause="0" description="00:18:48: remove workaround for #62 in master data editor save action (refs #55) &#10;18:10:37: * use UI.getCurrentTab in master data actions (refs #55) * fix cast bug in getCurrentTab() &#10;18:19:56: no distinction between master data types in delete action (refs #55) &#10;18:32:38: use our own logger class in table models (refs #55) &#10;19:12:23: * rename master data editor tab to editor tab * rename master data viewer tab to viewer tab * rename actions and other references accordingly * editor and viewer can be used in a more general way &#10;19:21:22: rename also netbeans forms accordingly (refs #55) &#10;22:24:28: * display error message if an already existing model is saved (refs #55) * fix gettext files &#10;23:09:20: * a start and finish date can be set in hourly wage editor form * the models are not saved properly yet " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EC6yP|AGNEspW4YdjhC8rppjJ" begin="2010-06-14T09:24:00.000+02:00" duration="775" pause="0" description="10:02:43: fix casting bug in UI.setCurrentTabAt &#10;10:28:44: add input filter for semester textfield in course editor (refs #55) &#10;11:07:54: the financial category combo box in course editor is set properly (fixes #79, refs #55) &#10;11:17:49: remove debug output (refs #79) &#10;12:09:46: multiple master data can be selected and removed in viewer table (refs #55) &#10;13:56:41: add icons for &quot;+&quot; and &quot;-&quot; button in financial category editor (refs #77) &#10;14:07:40: use observers to remove models from gui table (refs #55) &#10;14:30:08: add setChanged() call before observers are notified (fixes #82) &#10;15:07:11: fix deletion of multiple models (refs #55) &#10;18:33:41: add titles in editor tabs for a better look (refs #55) &#10;19:46:51: replace while loop with for loop to prevent endless loops in multiple delete action (refs #55) &#10;20:57:37: table is sorted on first column by default, prevent also swing deletion bug (refs #55) &#10;20:59:32: * multiple models can be saved in editor save action * hourly wages are saved properly if time period is specified &#10;21:17:31: start and finish date is set correctly in hourly wage editor form (refs #55) &#10;21:55:56: add row filtering with search field for table (refs #55) &#10;22:19:20: display error message if model can not be removed from database (refs #55) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="E9RTN|AGNEspW4YdkBAJRWHYj" begin="2010-06-15T10:17:00.000+02:00" duration="372" pause="0" description="00:26:24: * add all master data detail viewer tabs (refs #55) &#10;10:44:51: fix getLanguages() in Translation if jar file contains also external libraries &#10;11:00:56: language can be chosen in settings dialog properly if application is started with jar file &#10;11:39:55: * add config path to Makefile again * update translation * all but master data task pane is collapsed by default &#10;11:43:23: remove java warnings in welcome tab (refs #76) &#10;12:13:50: use toggle icons instead of painted arrow icons in task pane title bar (fixes #83) &#10;12:36:13: change look&amp;feel for a bigger titled border font size (refs #89) &#10;13:24:12: add related courses and activities to assistant detail viewer form (refs #89) &#10;13:31:31: fix old master data comments (refs #89) &#10;13:49:48: add viewer tab for employments (refs #70) &#10;16:29:19: * first snapshot of employment editor tab (refs #70) * add view utils class autocompletion that can be used for combo boxes " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EtQ6t|AGNEspW4YdjXChYABen" begin="2010-06-15T22:14:00.000+02:00" duration="125" pause="0" description="23:24:07: improve and complete employment editor gui (refs #70)&#10;00:19:53: employments can be added but not edited (refs #70) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="E1hHL|AGNEspW4YdkL9klBvdF" begin="2010-06-16T19:28:00.000+02:00" duration="355" pause="0" description="00:10:54: * model observers are used for table update after adding and editing models (refs #89, #70) * observers work as well if multiple tabs of the same type are opened * all models are gotten just once from database * a list of predecessor tabs is saved for each tab * all opened tabs are saved globally in UI &#10;01:23:00: small bug fixes in table models and tab class " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="E7ZVJ|AGNEspW4YdjrBaBVTnp" begin="2010-06-17T11:13:00.000+02:00" duration="137" pause="0" description="12:00:32: fix action multiple deletion of models (refs #89) &#10;13:30:52: fix edit bug if editor tab was opened directly at startup (save tabs option) (refs #89) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EDtu9|AGNEspW4Ydk1As7qdUD" begin="2010-06-17T22:46:00.000+02:00" duration="308" pause="0" description="01:00:57: change the way the tables are updated if model was edited to fix some multiple tabs bugs (refs #89) &#10;01:17:13: fix comparison bug in table model update (refs #89) &#10;02:07:51: fix critical bug: if validation during edit action failed the displayed model was still set to the new values &#10;03:42:48: redesign the save action in order to avoid some bugs (refs #89) &#10;03:54:51: remove unused methods in table model (refs #89) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EM2ep|AGNEspW4YdjKiOu4d49" begin="2010-06-18T10:33:00.000+02:00" duration="93" pause="0" description="11:39:35: table model is updated correctly if the same model is edited in multiple tabs (refs #89) &#10;12:06:23: some code cleanup (refs #89) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EF7wX|AGNEspW4YdkXe3PHUDt" begin="2010-06-20T19:03:00.000+02:00" duration="366" pause="0" description="19:22:36: fix getByKeys call for financial category model (refs #89) &#10;19:56:24: add viewer tab for contracts (refs #70) &#10;20:34:39: add date renderer for table columns (refs #70) &#10;20:39:55: add boolean renderer for tables (refs #70) &#10;20:48:30: add also previous error messages to hourly wage clones (refs #89) &#10;22:08:01: contracts can be added (refs #70) &#10;22:14:49: contracts can be edited (refs #70) &#10;23:06:06: * improve switching of tabs * a tab can perfom action before it is opened&#10;00:22:25: * change tab predecessor concept (is is only one predecessor necessary) * a tab can marked as no predecessor * forms are updatable (e.g. perfom actions before the tab is opened) * contracts can be edited directly in employment editor tab (refs #70) &#10;00:33:11: contract combobox in employment editor tab is set correctly during form update (refs #70) &#10;01:09:55: fix next tab issue in contract add action (refs #70) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="E0XQv|AGNEspW4YdjehHXPvDB" begin="2010-06-21T17:12:00.000+02:00" duration="462" pause="0" description="17:33:35: * employments can be edited (refs #70) * show month and year data as one date column in hourly wage and employment viewer tabs (refs #89) * add column funds to employment viewer tab (refs #70) * display error message if user wants to edit more than one entry from the table &#10;17:39:03: remove unused code from employment editor form (refs #70) &#10;18:09:34: * contracts can be viewed (refs #70) * set current dates correctly if new contract add tab is opened &#10;18:40:46: employments can be viewed in detail (refs #70) &#10;19:32:36: the related contract to an employment can be displayed (refs #70) &#10;20:11:20: add UI models for prettier rendering of the model (toString() is overridden) &#10;21:45:25: * add list model update support * fixes in assistant viewer form (refs #89) &#10;23:22:00: * our list model can be used for JList and JComboBox * UI model observers are added centrally in UI class (addObserversTo()) * delete action also calls addObserversTo() now * contract combobox is updated with list model observer if there was a change in contracts table (refs #70) &#10;23:43:56: add assistant and course combobox as list model observer in employment editor tab (refs #70) &#10;23:57:17: * add financial category combobox as list model observer in course editor tab * related course is opened on double click in assistant detail viewer tab &#10;00:09:11: related activities are fetched from database and displayed on a list in assistant detail viewer tab (refs #89) &#10;00:30:14: add shortcuts &quot;ENTER, &quot;DELETE&quot; and &quot;CTRL + A&quot; for viewer tables (refs #70, #89) &#10;00:50:36: if user double clicks on a selected item the detail view tab of this model is opened &#10;00:54:05: only one entry is allowed to be selected when displaying the detail viewer tab (refs #70, #89) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EtkJT|AGNEspW4YdkDfAlwC4r" begin="2010-06-22T12:47:00.000+02:00" duration="710" pause="0" description="12:47:42: no null pointer exception is thrown if there is no financial category in database [course editor] (refs #89) &#10;13:08:56: add input pattern filter for cost unit field [employment editor] (refs #70) &#10;15:52:03: improve task pane action handling (fixes #95) &#10;17:28:12: improve task pane again (refs #95) &#10;17:41:32: hour count is adopted from previous month [employment editor] (refs #70) &#10;19:38:12: remove model.setNew call in editor save action &#10;19:56:55: all funds of all financial categories are displayed in the combo box [employment editor] (refs #70) &#10;21:28:29: add 6 year employment limit check for an assistant [editor save action] (refs #70)&#10;00:37:38: * separate list and combo box model and add interface GenericListModel (fixes #97) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EuqLp|AGNEspW4YdjUhqDkH8f" begin="2010-06-23T17:10:00.000+02:00" duration="178" pause="0" description="17:11:56: no whole table refresh on model update, could lead to performance issue (fixes #96) &#10;17:26:24: combo box models are set properly in edit mode [employment editor] (refs #70) &#10;17:30:17: clear the date in employment table model (refs #70) &#10;17:46:53: clear the date in hourly wage table model (refs #70) &#10;18:17:32: save wage properly [editor save action] (refs #89) &#10;18:43:32: forbid comma in various double fields (refs #70, refs #89) &#10;18:53:04: add ENTER shortcut for saving a model (refs #70, refs #89) &#10;19:00:28: rename &quot;granted AWH&quot; to &quot;AWH per group&quot; [course editor / viewer] (refs #89) &#10;19:25:31: sort specific columns properly (refs #70, refs #89) &#10;20:08:14: detail viewer tab is responsible for the related lists (refs #70, refs #89) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EExcB|AGNEspW4YdkNec5bq9N" begin="2010-06-25T11:07:00.000+02:00" duration="905" pause="0" description="11:07:52: employments in same month and year are ignored in calculation [6 year employment limit check] (fixes #98) &#10;11:24:21: qualification combo box is updated if the assistant was changed [employment editor] (refs #70) &#10;14:00:06: * the tab and not the form is responsible for list model updating * improve detail viewer tab in order to display type dependant related lists * add related assistants list [course viewer] &#10;14:04:38: add related activities list [course viewer] (refs #89) &#10;14:13:46: add list models for course and employment editor forms again (refs #89) &#10;15:16:32: new detail viewer tab layout (refs #89) &#10;15:48:52: fix translations of some fields in validators (refs #101) &#10;16:44:39: * fix detail view tab bug * add related courses list to financial category detail view (refs #89) &#10;17:31:50: add text field tooltips that inform user about allowed text field format (refs #89) &#10;17:44:19: fix one tooltip (refs #89) &#10;18:10:07: add booked budget and total budget [course detail view] (refs #89) &#10;22:22:58: add total hours to each assistant in list [course detail view] (refs #89) &#10;22:31:57: add &quot;h&quot; to budget text fields [course detail view] (refs #89) &#10;22:47:49: fix display bug [hourly wage detail view] (refs #89) &#10;23:36:41: fix right click popup menu (refs #89)&#10;00:31:40: * add status messages to save and delete action * show status messages if entities are selected in table (refs #89) &#10;01:18:34: add basic activity structure (refs #72) &#10;01:42:00: remove unecessary toolbar button activities (refs #89) &#10;02:12:00: improve look of hints box (fixes #89) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EGPGb|AGNEspW4Ydjogir5ZHh" begin="2010-06-26T12:29:00.000+02:00" duration="587" pause="0" description="12:29:17: * funds combo box is updated if course combo box was changed (refs #70) &#10;13:24:57: add budget limit checks for courses and financial categories alias funds (refs #85) &#10;13:39:45: fix funds budget limit check (refs #85) &#10;14:24:12: add hour count limit check for an assistant (closes #85) &#10;15:03:34: add toolbar buttons &quot;course&quot; and &quot;assistant&quot; to employment viewer table (refs #70) &#10;15:26:48: change actions in task panes &#10;16:15:57: fix right click popup menu [viewer tab] (refs #89) &#10;16:55:11: add toolbar button &quot;activity report&quot; [assistant table view] (refs #87) &#10;17:07:33: update translation &#10;17:08:54: add activity report action (refs #87) &#10;17:17:09: update translation &#10;20:00:34: * activities can be added and edited (refs #72) * content field is a text area [activity editor] (fixes #112) &#10;20:25:41: update translation &#10;20:40:22: fix date editor [activity editor] (refs #72) &#10;21:12:28: add toolbar button &quot;course&quot; and &quot;assistant&quot; [activity view table] (refs #72) &#10;21:22:53: prettier rendering of activity model in related list [detail view] (refs #72) &#10;22:16:37: activities can be viewed in detail (closes #72) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EABKf|AGNEspW4Ydk3fjSGY0L" begin="2010-06-27T11:46:00.000+02:00" duration="109" pause="0" description="12:21:48: fix pot files (was a binary ?!) &#10;12:47:18: update translation &#10;13:10:52: workaround for opaque bug in nimbus for content text area [activity detail view] (refs #72) &#10;13:35:31: more detailed explanation of budget limit checks in specification " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EGvB7|AGNEspW4YdjPi7YuS6P" begin="2010-06-28T11:49:00.000+02:00" duration="803" pause="0" description="11:49:59: fix general test cases (refs #90) &#10;11:56:21: fix controlling test cases (refs #90) &#10;13:19:45: fix test cases (refs #90) &#10;13:41:12: use option &quot;activities&quot; in related list activities [detail view] (refs #89) &#10;13:52:08: use processor name from settings [activity editor] (refs #72) &#10;14:18:13: search field can be cleared [table view] (fixes #120) &#10;14:55:59: fix print test cases (refs #90) &#10;16:55:12: merge phil system test plan (refs #90) &#10;17:43:45: fix name option test case (refs #90) &#10;19:45:39: fix exception when user wants to hire an assistant with no assistants available &#10;19:52:50: add activity report link to taskpane reports &#10;21:24:19: execute program settings tcs (refs #90) &#10;21:31:31: execute tabbing tcs (refs #90) &#10;21:35:38: execute task pane tcs (refs #90) &#10;21:38:29: execute print tcs (refs #90) &#10;21:53:19: execute budget limit check tcs (refs #90) &#10;21:57:28: restructure of generic tcs (refs #90) &#10;21:58:26: small reordering of general tcs (refs #90) &#10;22:16:04: execute general tcs (refs #90) &#10;22:31:06: execute controlling courses tcs (refs #90) &#10;22:47:04: execute controlling assistants tcs (refs #90) &#10;23:34:46: fix reports tcs (refs #90)&#10;00:51:39: execute annual reports tcs (refs #90) &#10;00:59:40: execute semester reports tcs (refs #90) &#10;01:05:46: execute part reports tcs (refs #90) &#10;01:08:54: execute activity reports tcs (refs #90) &#10;01:12:26: execute activity protocol tcs (refs #90) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="Ex97B|AGNEspW4YdkSeKkRfBd" begin="2010-06-29T14:33:00.000+02:00" duration="239" pause="0" description="15:01:41: fix null pointer exceptions if there is no course, contract or course [employment save action] &#10;15:32:37: a contract has an assistant now as well [adohive 0.5] &#10;15:40:09: update contract viewer form &#10;16:13:35: the assistant combobox of contract editor is set when user adds a contract from employment editor &#10;16:54:00: confirmation date is only visible in edit mode [contract editor] (refs #136) &#10;17:26:28: add hint for completion date [contract editor] (refs #136) &#10;18:32:13: add calculation method (pessimistic, historical) to quick settings (fixes #126) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EFCzP|AGNEspW4Ydjjh0CFkFR" begin="2010-06-30T00:02:00.000+02:00" duration="41" pause="0" description="00:02:03: fix stack overflow exception, phil will be happy :-D &#10;00:05:24: * the current date can be set via editor tab * activity editor set current date properly if new activity is added (fixes #127) &#10;00:31:31: confirmation date can be empty now without exceptions (refs #136) &#10;00:37:15: update translation &#10;00:43:07: fix validatePresenceOf call in contract model (refs #136) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="E0zdj|AGNEspW4Ydk8fS76N2b" begin="2010-07-08T11:03:00.000+02:00" duration="130" pause="0" description="11:25:50: add help label class that is used for displaying user info by opening a styled tool tip (refs #145) &#10;12:10:31: editor forms use help label instead of simple text field tool tips (fixes #145) &#10;12:20:33: use larger question icon for help labels (refs #145) &#10;12:32:47: use combobox for scope field [course editor] (fixes #137) &#10;13:13:32: consider locales for double and currency fields in input pattern filters and during parsing (fixes #146) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EEdMn|AGNEspW4YdjZhYsa6Av" begin="2010-07-09T14:12:00.000+02:00" duration="285" pause="0" description="15:11:25: selected activites can be exported as pdf protocol via toolbar export button [activity viewer] (fixes #121) &#10;15:53:39: the mentioned fields in #131 can be left empty (refs #131) &#10;16:36:21: * scope can be left empty as well [course editor] (refs #131) &#10;17:01:50: rename close button [detail viewers] (refs #131) &#10;17:14:33: rename buttons of confirmation dialog in test cases [system test plan] (refs #131) &#10;17:30:30: change short string of activity to &quot;Type (Sender at Date}&quot; (fixes #131) &#10;18:19:57: improve multiple saving of activities as described in #132 (fixes #132) &#10;18:30:57: use null instead of -1 due to adohive 0.6 [editor save action] &#10;18:36:34: sort id column properly [activity viewer] &#10;18:40:49: add id column [contract viewer] &#10;18:57:11: fix null pointer exceptions due to adohive 0.6 (activity viewer/editor) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EB59d|AHEBzutjqeB8pyNZG5W" begin="2010-07-10T17:49:00.000+02:00" duration="155" pause="0" description="17:49:50: * new welcome tab layout (refs #76) &#10;19:25:41: show last changes on welcome tab via history manager (refs #76) &#10;19:44:28: small code fixes (refs #76) &#10;20:24:30: add first 3D pie chart for qualifications on welcome tab (refs #76, refs #128) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EHN4l|AHEBzutjqeCQlLXbwHW" begin="2010-07-11T12:56:00.000+02:00" duration="327" pause="0" description="12:56:26: * relayout welcome tab (refs #76) &#10;14:44:52: add xy area plot for count of employments (fixes #128) &#10;14:48:20: * fix comments in charts class (refs #128) &#10;15:09:37: add UI model for employments &#10;15:17:27: fix output of UIEmployment &#10;16:58:50: * use the concept of task pane buttons for bullet list elements as well &#10;17:32:30: use links in bullet list elements on welcome tab if possible (refs #76) &#10;18:23:16: * show &quot;None&quot; if there is no last change or activity (refs #76) " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="Etoqr|AHEBzutjqeBSor0uYEY" begin="2010-07-13T11:23:00.000+02:00" duration="583" pause="0" description="11:23:46: popup menu is only shown if one row was selected before (fixes #152) &#10;11:46:00: ID is first column in all viewer tables &#10;12:38:47: the funds have to be sorted alphabetically before they are saved to DB &#10;13:01:10: fix umlauts encoding in activity report converter (refs #116) &#10;14:02:53: change activity report template (justify modified text, font size 12, black font for form fields, minor fixes) &#10;14:20:07: fix translation &#10;14:29:58: fix null pointer exceptions if course/assistant Id is null in protocol creator &#10;14:53:09: fix translation for prettier balance reports &#10;15:11:23: remove static minimum size in UI &#10;15:22:45: fix exception if confirmation date is empty (contract detail view) &#10;15:47:50: fix toolbar for openjdk bug in viewer tab &#10;18:30:08: some minor fixes in manual (refs #67) &#10;19:36:36: changes in manual (refs #67) &#10;21:05:16: * add screenshots to manual &#10;21:06:37: * update manual pdf (refs #67) * update translation &#10;21:16:06: fix null pointer exception if id equals null " category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+   </task>
+   <task id="TIvGz|I6kvFVNis2D1g3tB2H4" name="Korrektur Spezifikation" shortname="KORSP" description="" defaultcategory="3" isteamtask="false" createdat="2010-03-22T22:27:50.629+01:00">
+    <statistic effortcount="1" effortdurationsum="251" replicatedeffortcount="0" acceptedeffortcount="1" notacceptedeffortcount="0">
+     <effortsofpersons>
+      <effortsofperson id="MGqCP|R7Xi31QSywoXGIS3vFk" count="1"/>
+     </effortsofpersons>
+     <effortsofcategories>
+      <effortsofcategory id="3" count="1"/>
+      <effortsofcategory id="5" count="0"/>
+      <effortsofcategory id="7" count="0"/>
+      <effortsofcategory id="10" count="0"/>
+      <effortsofcategory id="12" count="0"/>
+      <effortsofcategory id="13" count="0"/>
+      <effortsofcategory id="15" count="0"/>
+      <effortsofcategory id="17" count="0"/>
+      <effortsofcategory id="18" count="0"/>
+      <effortsofcategory id="20" count="0"/>
+      <effortsofcategory id="22" count="0"/>
+      <effortsofcategory id="25" count="0"/>
+      <effortsofcategory id="40" count="0"/>
+      <effortsofcategory id="42" count="0"/>
+      <effortsofcategory id="45" count="0"/>
+      <effortsofcategory id="60" count="0"/>
+      <effortsofcategory id="50" count="0"/>
+      <effortsofcategory id="52" count="0"/>
+      <effortsofcategory id="55" count="0"/>
+      <effortsofcategory id="70" count="0"/>
+      <effortsofcategory id="72" count="0"/>
+      <effortsofcategory id="75" count="0"/>
+      <effortsofcategory id="77" count="0"/>
+      <effortsofcategory id="80" count="0"/>
+      <effortsofcategory id="82" count="0"/>
+      <effortsofcategory id="85" count="0"/>
+      <effortsofcategory id="90" count="0"/>
+      <effortsofcategory id="99" count="0"/>
+     </effortsofcategories>
+    </statistic>
+    <effort id="E1oiH|I6kvFVNis2EJbR3DiT4" begin="2010-03-22T18:17:00.000+01:00" duration="251" pause="0" description="Korrektur der Spezifikation (Version 0.3)" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+   </task>
+   <task id="TuxUx|DGwV5Wm6cXmSDeTKJjj" name="Projektplan" shortname="PLAN" description="" defaultcategory="10" isteamtask="false" createdat="2010-02-15T23:40:45.078+01:00">
+    <statistic effortcount="6" effortdurationsum="486" replicatedeffortcount="0" acceptedeffortcount="6" notacceptedeffortcount="0">
+     <effortsofpersons>
+      <effortsofperson id="MGqCP|R7Xi31QSywoXGIS3vFk" count="6"/>
+     </effortsofpersons>
+     <effortsofcategories>
+      <effortsofcategory id="3" count="0"/>
+      <effortsofcategory id="5" count="0"/>
+      <effortsofcategory id="7" count="0"/>
+      <effortsofcategory id="10" count="6"/>
+      <effortsofcategory id="12" count="0"/>
+      <effortsofcategory id="13" count="0"/>
+      <effortsofcategory id="15" count="0"/>
+      <effortsofcategory id="17" count="0"/>
+      <effortsofcategory id="18" count="0"/>
+      <effortsofcategory id="20" count="0"/>
+      <effortsofcategory id="22" count="0"/>
+      <effortsofcategory id="25" count="0"/>
+      <effortsofcategory id="40" count="0"/>
+      <effortsofcategory id="42" count="0"/>
+      <effortsofcategory id="45" count="0"/>
+      <effortsofcategory id="60" count="0"/>
+      <effortsofcategory id="50" count="0"/>
+      <effortsofcategory id="52" count="0"/>
+      <effortsofcategory id="55" count="0"/>
+      <effortsofcategory id="70" count="0"/>
+      <effortsofcategory id="72" count="0"/>
+      <effortsofcategory id="75" count="0"/>
+      <effortsofcategory id="77" count="0"/>
+      <effortsofcategory id="80" count="0"/>
+      <effortsofcategory id="82" count="0"/>
+      <effortsofcategory id="85" count="0"/>
+      <effortsofcategory id="90" count="0"/>
+      <effortsofcategory id="99" count="0"/>
+     </effortsofcategories>
+    </statistic>
+    <effort id="EJ9Z7|DGwV5Wm6cXlUH9wcvgl" begin="2010-02-15T23:41:00.000+01:00" duration="101" pause="0" description="- Erstellung des Projektplans&#10;- Bearbeitung der Analysenotizen" category="10" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EFWJ9|EAUHzouOaj8ZzP8AcMU" begin="2010-02-16T08:02:00.000+01:00" duration="195" pause="0" description="- Erste Version vom Projektplan&#10;- Letzte Änderungen an Analysenotizen" category="10" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EOoO5|1evAVun6mxNtvvbjuQg" begin="2010-02-18T14:33:00.000+01:00" duration="92" pause="0" description="Korrektur des Projektplans (v0.2)" category="10" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="ExhJP|1evAVun6mxPBrIlmacg" begin="2010-02-19T00:46:00.000+01:00" duration="15" pause="0" description="Korrektur des Projektplans (v0.2)" category="10" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="Et9QB|1evAVun6mxODuoF5CZi" begin="2010-02-19T11:41:00.000+01:00" duration="28" pause="0" description="Korrektur des Projektplans (v0.2.1)" category="10" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="Euc3N|1evAVun6mxOhsyoleP8" begin="2010-02-21T19:13:00.000+01:00" duration="55" pause="0" description="Korrektur des Projektplans (v0.2.2)" category="10" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+   </task>
+   <task id="TCtlP|1evAVun6mxP1rrS6wYA" name="Spezifikation" shortname="SPEZI" description="" defaultcategory="3" isteamtask="false" createdat="2010-02-26T11:15:42.518+01:00">
+    <statistic effortcount="6" effortdurationsum="1694" replicatedeffortcount="0" acceptedeffortcount="6" notacceptedeffortcount="0">
+     <effortsofpersons>
+      <effortsofperson id="MGqCP|R7Xi31QSywoXGIS3vFk" count="6"/>
+     </effortsofpersons>
+     <effortsofcategories>
+      <effortsofcategory id="3" count="2"/>
+      <effortsofcategory id="5" count="1"/>
+      <effortsofcategory id="7" count="0"/>
+      <effortsofcategory id="10" count="2"/>
+      <effortsofcategory id="12" count="0"/>
+      <effortsofcategory id="13" count="0"/>
+      <effortsofcategory id="15" count="1"/>
+      <effortsofcategory id="17" count="0"/>
+      <effortsofcategory id="18" count="0"/>
+      <effortsofcategory id="20" count="0"/>
+      <effortsofcategory id="22" count="0"/>
+      <effortsofcategory id="25" count="0"/>
+      <effortsofcategory id="40" count="0"/>
+      <effortsofcategory id="42" count="0"/>
+      <effortsofcategory id="45" count="0"/>
+      <effortsofcategory id="60" count="0"/>
+      <effortsofcategory id="50" count="0"/>
+      <effortsofcategory id="52" count="0"/>
+      <effortsofcategory id="55" count="0"/>
+      <effortsofcategory id="70" count="0"/>
+      <effortsofcategory id="72" count="0"/>
+      <effortsofcategory id="75" count="0"/>
+      <effortsofcategory id="77" count="0"/>
+      <effortsofcategory id="80" count="0"/>
+      <effortsofcategory id="82" count="0"/>
+      <effortsofcategory id="85" count="0"/>
+      <effortsofcategory id="90" count="0"/>
+      <effortsofcategory id="99" count="0"/>
+     </effortsofcategories>
+    </statistic>
+    <effort id="EuduR|1evAVun6mxONuFYkqeE" begin="2010-02-23T11:46:00.000+01:00" duration="171" pause="0" description="- Sammeln von Anforderungen&#10;- Erstellung der ersten Spezifikationsversion" category="15" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EyddD|5uaxP7m9fBo8rl9q6Sf" begin="2010-02-26T12:20:00.000+01:00" duration="204" pause="0" description="Einarbeitung in Hive" category="5" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="ENnEt|KPA8D4OHwlPNXs8RlsE" begin="2010-03-07T14:26:00.000+01:00" duration="267" pause="0" description="Begriffslexikon und Spezifikation" category="10" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EFe55|KPA8D4OHwlQfTFIUS4E" begin="2010-03-07T20:03:00.000+01:00" duration="275" pause="0" description="Anforderungen" category="10" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EqGBV|P8QaeOLpVEV3IGjaN55" begin="2010-03-08T07:53:00.000+01:00" duration="698" pause="0" description="Use Cases" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EtlgJ|P8QaeOLpVEWLDdtd3H5" begin="2010-03-08T20:04:00.000+01:00" duration="79" pause="0" description="Spezifikation (Abgabe)" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+   </task>
+   <task id="T0cl7|IRrbrKHXRBER1dBUXfo" name="Spezifikationsreview" shortname="SPREV" description="" defaultcategory="17" isteamtask="false" createdat="2010-03-15T10:02:34.692+01:00">
+    <statistic effortcount="2" effortdurationsum="206" replicatedeffortcount="0" acceptedeffortcount="2" notacceptedeffortcount="0">
+     <effortsofpersons>
+      <effortsofperson id="MGqCP|R7Xi31QSywoXGIS3vFk" count="2"/>
+     </effortsofpersons>
+     <effortsofcategories>
+      <effortsofcategory id="3" count="0"/>
+      <effortsofcategory id="5" count="0"/>
+      <effortsofcategory id="7" count="0"/>
+      <effortsofcategory id="10" count="0"/>
+      <effortsofcategory id="12" count="0"/>
+      <effortsofcategory id="13" count="0"/>
+      <effortsofcategory id="15" count="0"/>
+      <effortsofcategory id="17" count="2"/>
+      <effortsofcategory id="18" count="0"/>
+      <effortsofcategory id="20" count="0"/>
+      <effortsofcategory id="22" count="0"/>
+      <effortsofcategory id="25" count="0"/>
+      <effortsofcategory id="40" count="0"/>
+      <effortsofcategory id="42" count="0"/>
+      <effortsofcategory id="45" count="0"/>
+      <effortsofcategory id="60" count="0"/>
+      <effortsofcategory id="50" count="0"/>
+      <effortsofcategory id="52" count="0"/>
+      <effortsofcategory id="55" count="0"/>
+      <effortsofcategory id="70" count="0"/>
+      <effortsofcategory id="72" count="0"/>
+      <effortsofcategory id="75" count="0"/>
+      <effortsofcategory id="77" count="0"/>
+      <effortsofcategory id="80" count="0"/>
+      <effortsofcategory id="82" count="0"/>
+      <effortsofcategory id="85" count="0"/>
+      <effortsofcategory id="90" count="0"/>
+      <effortsofcategory id="99" count="0"/>
+     </effortsofcategories>
+    </statistic>
+    <effort id="EOG65|HdcRk4KHQPYtPfNUZHo" begin="2010-03-13T10:31:00.000+01:00" duration="66" pause="0" description="Einrichtung von RevAger und Vorbereitung des Netbooks als Notar" category="17" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="E47Cp|IRrbrKHXRBFix0LXDro" begin="2010-03-15T10:02:00.000+01:00" duration="140" pause="0" description="Spezifikationsreview von Gruppe 11" category="17" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+   </task>
+   <task id="T7bxX|8d9pIp6zH2URD5k9UPf" name="Systemtestplan" shortname="SYSTE" description="" defaultcategory="3" isteamtask="false" createdat="2010-05-11T13:36:30.317+02:00">
+    <statistic effortcount="6" effortdurationsum="1382" replicatedeffortcount="0" acceptedeffortcount="6" notacceptedeffortcount="0">
+     <effortsofpersons>
+      <effortsofperson id="MGqCP|R7Xi31QSywoXGIS3vFk" count="6"/>
+     </effortsofpersons>
+     <effortsofcategories>
+      <effortsofcategory id="3" count="6"/>
+      <effortsofcategory id="5" count="0"/>
+      <effortsofcategory id="7" count="0"/>
+      <effortsofcategory id="10" count="0"/>
+      <effortsofcategory id="12" count="0"/>
+      <effortsofcategory id="13" count="0"/>
+      <effortsofcategory id="15" count="0"/>
+      <effortsofcategory id="17" count="0"/>
+      <effortsofcategory id="18" count="0"/>
+      <effortsofcategory id="20" count="0"/>
+      <effortsofcategory id="22" count="0"/>
+      <effortsofcategory id="25" count="0"/>
+      <effortsofcategory id="40" count="0"/>
+      <effortsofcategory id="42" count="0"/>
+      <effortsofcategory id="45" count="0"/>
+      <effortsofcategory id="60" count="0"/>
+      <effortsofcategory id="50" count="0"/>
+      <effortsofcategory id="52" count="0"/>
+      <effortsofcategory id="55" count="0"/>
+      <effortsofcategory id="70" count="0"/>
+      <effortsofcategory id="72" count="0"/>
+      <effortsofcategory id="75" count="0"/>
+      <effortsofcategory id="77" count="0"/>
+      <effortsofcategory id="80" count="0"/>
+      <effortsofcategory id="82" count="0"/>
+      <effortsofcategory id="85" count="0"/>
+      <effortsofcategory id="90" count="0"/>
+      <effortsofcategory id="99" count="0"/>
+     </effortsofcategories>
+    </statistic>
+    <effort id="EyP7t|77aGxldXesd3Ij9mNmQ" begin="2010-05-11T13:31:00.000+02:00" duration="207" pause="0" description="Erstellung der ersten Version" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EtdQV|77aGxldXeseLE6Jp3yQ" begin="2010-05-11T18:23:00.000+02:00" duration="43" pause="0" description="Fixes in Test Cases für Stammdaten Veranstaltungen und Hilfskräfte&#10;Test Cases für das Hinzufügen von Finanzkategorien" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="Ez9dl|ABpAfUeCY5uvisKj9g9" begin="2010-05-13T10:45:00.000+02:00" duration="121" pause="0" description="Testfälle für Stammdatenverwaltung und Allgemein" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EyuP9|ABpAfUeCY5vFhky4RpB" begin="2010-05-13T14:32:00.000+02:00" duration="230" pause="0" description="Weitere Test Cases" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="EAegJ|H85HFAyHF63lnECzjiv" begin="2010-05-17T16:17:00.000+02:00" duration="525" pause="0" description="Testfälle zu Beschäftigungen, Verträge, Vorgänge, Berichte und Controlling" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+    <effort id="E8PKD|86fVRVHcLbsdjVHjIkK" begin="2010-05-18T07:42:00.000+02:00" duration="256" pause="0" description="Restliche Testfälle zum Allgemeinen (Programmeinstellung, Tabbing, Warnungen, Drucken, Navigationsleiste etc.)" category="3" person="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+   </task>
+  </project>
+ </projectlist>
+ <!--
+  !
+  !
+  !
+  !  Ab hier beginnt der Volatile-Data-Bereich. In diesem Bereich werden Daten
+  !  gespeichert, die sich häufig ändern und die es nicht erfordern, dass die
+  !  gesamte(!) Arbeitsdatei neu gespeichert werden muss. Das führt - gerade bei
+  !  großen Arbeitsdateien - zu einem erheblichen Geschwindigkeitsgewinn beim
+  !  Beenden von Fred, da dieser Bereich beim Beenden von Fred immer(!) 
+  !  aktualisiert wird.
+  !
+  !  Hier befinden sich z.B. die Konfiguration von Fred oder Informationen über
+  !  die geöffneten Ansichten.
+  !
+  !  Gleichzeitig dient dieser sehr prosahaftige Kommentar als Puffer, falls
+  !  beim Ermitteln der Position dieses Bereichs in der Arbeitsdatei mal etwas
+  !  schiefläuft und die Position in Folge dessen nicht korrekt ist. Mit so einem
+  !  großen Kommentarblock erhöht sich die Chance, dass dann nur ein Teil dieses
+  !  Kommentarblocks zerstört wird und nicht wichtige Daten.
+  !
+  !
+  !
+  !-->
+
+ <volatiledata pos="0000000000000051615" />
+ <defaulttask id="TBHS5|B7YWL59oHrqCDoU3OmL"/>
+ <configuration>
+  <entry key="ConfirmQuickSplit" value="true"/>
+  <entry key="LastExportPath" value="/home/chris/zeiten.html"/>
+  <entry key="MakeBackup" value="true"/>
+  <entry key="MinimizeToTray" value="false"/>
+  <entry key="SaveNotAcceptedEfforts" value="true"/>
+  <entry key="SaveViews" value="true"/>
+  <entry key="ShowSecondRowPerDefault" value="true"/>
+ </configuration>
+ <guidata>
+  <quickbar dockborder="TOP"/>
+  <views>
+   <view viewname="Ansicht" secondrow="true">
+    <filter filtermode="tasks" usefilter="false" start="2010-01-15T23:31:44.542+01:00" end="2010-02-15T23:31:44.542+01:00" datamask="35" relevantmask="35">
+     <tasksoffilter>
+      <taskoffilter id="TIGFF|PY0nqrbypOKEGtWybmm"/>
+      <taskoffilter id="TBHS5|B7YWL59oHrqCDoU3OmL"/>
+      <taskoffilter id="TIvGz|I6kvFVNis2D1g3tB2H4"/>
+      <taskoffilter id="TuxUx|DGwV5Wm6cXmSDeTKJjj"/>
+      <taskoffilter id="TCtlP|1evAVun6mxP1rrS6wYA"/>
+      <taskoffilter id="T0cl7|IRrbrKHXRBER1dBUXfo"/>
+      <taskoffilter id="T7bxX|8d9pIp6zH2URD5k9UPf"/>
+     </tasksoffilter>
+     <personsoffilter>
+      <personoffilter id="MGqCP|R7Xi31QSywoXGIS3vFk"/>
+     </personsoffilter>
+     <categoriesoffilter/>
+    </filter>
+    <columns>
+     <column ecolumnname="StartDate" width="60"/>
+     <column ecolumnname="StartEndTime" width="139"/>
+     <column ecolumnname="WorkDuration" width="60"/>
+     <column ecolumnname="PauseDuration" width="60"/>
+     <column ecolumnname="Project" width="211"/>
+     <column ecolumnname="Task" width="100"/>
+     <column ecolumnname="CategoryName" width="80"/>
+     <column ecolumnname="Collisions" width="65"/>
+     <column ecolumnname="Replicated" width="60"/>
+     <column ecolumnname="Accepted" width="100"/>
+    </columns>
+   </view>
+  </views>
+ </guidata>
+</fredworkfile>
