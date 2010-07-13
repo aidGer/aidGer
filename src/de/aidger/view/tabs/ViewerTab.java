@@ -128,17 +128,6 @@ public class ViewerTab extends Tab {
         this.type = type;
         initComponents();
 
-        btnCourse.setVisible(false);
-        separator5.setVisible(false);
-        btnAssistant.setVisible(false);
-        separator6.setVisible(false);
-        btnContract.setVisible(false);
-        separator7.setVisible(false);
-        btnActivityReport.setVisible(false);
-        separator8.setVisible(false);
-        btnActivityExport.setVisible(false);
-        separator9.setVisible(false);
-
         itemCourse.setVisible(false);
         itemAssistant.setVisible(false);
         itemContract.setVisible(false);
@@ -153,8 +142,8 @@ public class ViewerTab extends Tab {
         case Assistant:
             tableModel = new AssistantTableModel();
 
-            btnActivityReport.setVisible(true);
-            separator8.setVisible(true);
+            toolBar.add(btnActivityReport);
+            toolBar.add(separator9);
             itemActivityReport.setVisible(true);
             break;
         case FinancialCategory:
@@ -166,12 +155,12 @@ public class ViewerTab extends Tab {
         case Employment:
             tableModel = new EmploymentTableModel();
 
-            btnCourse.setVisible(true);
-            separator5.setVisible(true);
-            btnAssistant.setVisible(true);
-            separator6.setVisible(true);
-            btnContract.setVisible(true);
-            separator7.setVisible(true);
+            toolBar.add(btnCourse);
+            toolBar.add(separator6);
+            toolBar.add(btnAssistant);
+            toolBar.add(separator7);
+            toolBar.add(btnContract);
+            toolBar.add(separator8);
 
             itemCourse.setVisible(true);
             itemAssistant.setVisible(true);
@@ -181,20 +170,21 @@ public class ViewerTab extends Tab {
         case Contract:
             tableModel = new ContractTableModel();
 
-            btnAssistant.setVisible(true);
-            separator6.setVisible(true);
+            toolBar.add(btnAssistant);
+            toolBar.add(separator7);
+
             itemAssistant.setVisible(true);
 
             break;
         case Activity:
             tableModel = new ActivityTableModel();
 
-            btnCourse.setVisible(true);
-            separator5.setVisible(true);
-            btnAssistant.setVisible(true);
-            separator6.setVisible(true);
-            btnActivityExport.setVisible(true);
-            separator9.setVisible(true);
+            toolBar.add(btnCourse);
+            toolBar.add(separator6);
+            toolBar.add(btnAssistant);
+            toolBar.add(separator7);
+            toolBar.add(btnActivityExport);
+            toolBar.add(separator10);
 
             itemCourse.setVisible(true);
             itemAssistant.setVisible(true);
@@ -606,26 +596,26 @@ public class ViewerTab extends Tab {
         itemContract = new javax.swing.JMenuItem();
         itemActivityReport = new javax.swing.JMenuItem();
         itemActivityExport = new javax.swing.JMenuItem();
-        toolBar = new javax.swing.JToolBar();
-        separator = new javax.swing.JToolBar.Separator();
-        btnView = new javax.swing.JButton();
-        separator1 = new javax.swing.JToolBar.Separator();
-        btnEdit = new javax.swing.JButton();
-        separator2 = new javax.swing.JToolBar.Separator();
-        btnAdd = new javax.swing.JButton();
-        separator3 = new javax.swing.JToolBar.Separator();
-        btnDelete = new javax.swing.JButton();
-        separator4 = new javax.swing.JToolBar.Separator();
         btnCourse = new javax.swing.JButton();
-        separator5 = new javax.swing.JToolBar.Separator();
-        btnAssistant = new javax.swing.JButton();
         separator6 = new javax.swing.JToolBar.Separator();
-        btnContract = new javax.swing.JButton();
+        btnAssistant = new javax.swing.JButton();
         separator7 = new javax.swing.JToolBar.Separator();
-        btnActivityReport = new javax.swing.JButton();
+        btnContract = new javax.swing.JButton();
         separator8 = new javax.swing.JToolBar.Separator();
-        btnActivityExport = new javax.swing.JButton();
+        btnActivityReport = new javax.swing.JButton();
         separator9 = new javax.swing.JToolBar.Separator();
+        btnActivityExport = new javax.swing.JButton();
+        separator10 = new javax.swing.JToolBar.Separator();
+        toolBar = new javax.swing.JToolBar();
+        separator1 = new javax.swing.JToolBar.Separator();
+        btnView = new javax.swing.JButton();
+        separator2 = new javax.swing.JToolBar.Separator();
+        btnEdit = new javax.swing.JButton();
+        separator3 = new javax.swing.JToolBar.Separator();
+        btnAdd = new javax.swing.JButton();
+        separator4 = new javax.swing.JToolBar.Separator();
+        btnDelete = new javax.swing.JButton();
+        separator5 = new javax.swing.JToolBar.Separator();
         scrollPane = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         searchField = new javax.swing.JTextField();
@@ -655,62 +645,22 @@ public class ViewerTab extends Tab {
         itemActivityExport.setText(_("Export"));
         popupMenu.add(itemActivityExport);
 
-        setLayout(new java.awt.GridBagLayout());
-
-        toolBar.setFloatable(false);
-        toolBar.setRollover(true);
-        toolBar.add(separator);
-
-        btnView.setText(_("View"));
-        btnView.setFocusable(false);
-        btnView.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnView.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        toolBar.add(btnView);
-        toolBar.add(separator1);
-
-        btnEdit.setText(_("Edit"));
-        btnEdit.setFocusable(false);
-        btnEdit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnEdit.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        toolBar.add(btnEdit);
-        toolBar.add(separator2);
-
-        btnAdd.setText(_("Add"));
-        btnAdd.setFocusable(false);
-        btnAdd.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnAdd.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        toolBar.add(btnAdd);
-        toolBar.add(separator3);
-
-        btnDelete.setText(_("Delete"));
-        btnDelete.setFocusable(false);
-        btnDelete.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnDelete.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        toolBar.add(btnDelete);
-        toolBar.add(separator4);
-
         btnCourse.setText(_("Course"));
         btnCourse.setFocusable(false);
         btnCourse.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCourse.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        toolBar.add(btnCourse);
-        toolBar.add(separator5);
 
         btnAssistant.setText(_("Assistant"));
         btnAssistant.setFocusable(false);
         btnAssistant
             .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnAssistant.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        toolBar.add(btnAssistant);
-        toolBar.add(separator6);
 
         btnContract.setText(_("Contract"));
         btnContract.setFocusable(false);
         btnContract
             .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnContract.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        toolBar.add(btnContract);
-        toolBar.add(separator7);
 
         btnActivityReport.setText(_("Activity Report"));
         btnActivityReport.setFocusable(false);
@@ -718,8 +668,6 @@ public class ViewerTab extends Tab {
             .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnActivityReport
             .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        toolBar.add(btnActivityReport);
-        toolBar.add(separator8);
 
         btnActivityExport.setText(_("Export"));
         btnActivityExport.setFocusable(false);
@@ -727,8 +675,40 @@ public class ViewerTab extends Tab {
             .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnActivityExport
             .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        toolBar.add(btnActivityExport);
-        toolBar.add(separator9);
+
+        setLayout(new java.awt.GridBagLayout());
+
+        toolBar.setFloatable(false);
+        toolBar.setRollover(true);
+        toolBar.add(separator1);
+
+        btnView.setText(_("View"));
+        btnView.setFocusable(false);
+        btnView.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnView.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toolBar.add(btnView);
+        toolBar.add(separator2);
+
+        btnEdit.setText(_("Edit"));
+        btnEdit.setFocusable(false);
+        btnEdit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEdit.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toolBar.add(btnEdit);
+        toolBar.add(separator3);
+
+        btnAdd.setText(_("Add"));
+        btnAdd.setFocusable(false);
+        btnAdd.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAdd.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toolBar.add(btnAdd);
+        toolBar.add(separator4);
+
+        btnDelete.setText(_("Delete"));
+        btnDelete.setFocusable(false);
+        btnDelete.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnDelete.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toolBar.add(btnDelete);
+        toolBar.add(separator5);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -788,8 +768,8 @@ public class ViewerTab extends Tab {
     private javax.swing.JPopupMenu popupMenu;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JTextField searchField;
-    private javax.swing.JToolBar.Separator separator;
     private javax.swing.JToolBar.Separator separator1;
+    private javax.swing.JToolBar.Separator separator10;
     private javax.swing.JToolBar.Separator separator2;
     private javax.swing.JToolBar.Separator separator3;
     private javax.swing.JToolBar.Separator separator4;
