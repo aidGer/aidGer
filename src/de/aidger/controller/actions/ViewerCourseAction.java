@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.ImageIcon;
 
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Course;
@@ -15,8 +16,6 @@ import de.aidger.view.tabs.DetailViewerTab;
 import de.aidger.view.tabs.ViewerTab;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
-import javax.swing.ImageIcon;
 
 /**
  * This action shows the course for a given model.
@@ -32,7 +31,7 @@ public class ViewerCourseAction extends AbstractAction {
     public ViewerCourseAction() {
         putValue(Action.NAME, _("Course"));
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/bank.png")));
+            "/de/aidger/view/icons/bank.png")));
     }
 
     /*
@@ -69,8 +68,9 @@ public class ViewerCourseAction extends AbstractAction {
                     Activity activity = (Activity) tab.getTableModel()
                         .getModel(index);
 
-                    ICourse c = (new Course()).getById(activity.getCourseId());
-                    course = (c == null) ? null : new Course(c);
+                    course = (activity.getCourseId() == null) ? null
+                            : new Course((new Course()).getById(activity
+                                .getCourseId()));
 
                     break;
                 }
