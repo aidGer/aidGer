@@ -1,4 +1,4 @@
-#LyX 1.6.6.1 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -322,9 +322,9 @@ Hauptfenster
 
 \begin_layout Standard
 Das Hauptfenster von aidGer gliedert sich in vier Bereiche.
- Am oberen Rand befindet sich die Menüleiste, darunter auf der rechten Seite
- die Navigationsleiste, auf der rechten Seite davon der Inhaltsbereich und
- am unteren Rand die Statusleiste.
+ Am oberen Rand befindet sich die Menüleiste, darunter auf der linken Seite
+ die Navigationsleiste, rechts davon der Inhaltsbereich und am unteren Rand
+ die Statusleiste.
 \end_layout
 
 \begin_layout Section
@@ -458,8 +458,7 @@ t Durch einen Klick mit der linken Maustaste auf die Unterpunkte wird der
 Die unterste Box stellt eine Ausnahme dar.
  Mit ihr können keine neuen Reiter geöffnet werden, sondern nur 3 Einstellungen
  komfortabel geändert werden, ohne den Einstellungsdialog öffnen zu müssen.
- Wird eine Option geändert, so wird die Änderung sofort gespeichert und
- umgesetzt.
+ Wird eine Option geändert, so wird die Änderung sofort gespeichert.
 \end_layout
 
 \begin_layout Section
