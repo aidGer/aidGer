@@ -4,7 +4,6 @@ import static de.aidger.utils.Translation._;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -160,8 +159,6 @@ public final class UI extends JFrame {
             .getHeight() / 2));
 
         setLocation(posX, posY);
-
-        setMinimumSize(new Dimension(950, 700));
 
         setExtendedState(Frame.MAXIMIZED_BOTH);
 
