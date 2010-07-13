@@ -271,8 +271,7 @@ aidGer dient der Verwaltung von Hilfskräften und der Kontrolle dieser.
  Der Benutzer hat des Weiteren die Möglichkeit, das Budget von Veranstaltungen
  und Hilfskräften zu prüfen.
  Diese Controlling-Berichte können darüber hinaus anschließend exportiert
- werden, so dass die Resultate ohne dieser Software weiter verwendet werden
- kann.
+ werden, so dass die Resultate ohne aidGer weiter verwendet werden können.
 \end_layout
 
 \begin_layout Chapter
@@ -291,16 +290,6 @@ Erster Start
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Erster-Start"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename manual/first-start.pdf
 
 \end_inset
 
@@ -333,6 +322,16 @@ Weiter
  geklickt werden und aidGer benutzt werden.
 \end_layout
 
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename manual/first-start.pdf
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Willkommensreiter
 \begin_inset CommandInset label
@@ -345,10 +344,6 @@ name "sec:Willkommensreiter"
 \end_layout
 
 \begin_layout Standard
-(TODO: Bild einfügen)
-\end_layout
-
-\begin_layout Standard
 \noindent
 Sind keine Reiter offen wird von aidGer immer der Willkommensreiter angezeigt.
  Dieser zeigt unter anderem das Datum und die Zeit des letzten aidGer Einsatzes
@@ -358,11 +353,44 @@ Sind keine Reiter offen wird von aidGer immer der Willkommensreiter angezeigt.
 \end_layout
 
 \begin_layout Standard
-Über die Übersicht ihrer letzten Änderungen und der Vorgänge können Sie
+Über die Übersicht Ihrer letzten Änderungen und der Vorgänge können Sie
  schnell dort weiter machen, wo Sie beim letzten Mal aufgehört haben.
- Bei den letzten Änderungen werden nur ihre eigenen Änderungen angezeigt,
+ Bei den letzten Änderungen werden nur Ihre eigenen Änderungen angezeigt,
  da diese nur lokal gespeichert werden.
  Vorgänge werden jedoch global angezeigt.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename manual/welcome-tab.pdf
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename manual/stat_employments.pdf
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -471,6 +499,13 @@ Hilfe
  auf die Homepage.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Navigationsleiste
 \begin_inset CommandInset label
@@ -488,11 +523,11 @@ lines 0
 placement L
 overhang 0in
 width "40col%"
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename manual/navbar.png
+	filename manual/navbar.pdf
 
 \end_inset
 
@@ -563,8 +598,9 @@ STRG + W
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
-	filename manual/tabpane.png
+	filename manual/tabpane.pdf
 
 \end_inset
 
@@ -670,6 +706,16 @@ Hinzufügen
 \end_layout
 
 \begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename manual/tool-bar.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Das Suchfeld besteht genau genommen aus dem Suchfeld und einem kleinen Besen-Ico
 n daneben.
  Sobald eine Eingabe im Suchfeld gestartet wird, wird der Inhalt der Tabelle
@@ -698,6 +744,17 @@ Hinzufügen
 \emph default
  enthält.
  Nach einem Klick wird diese Aktion mit dem gewählten Datensatz ausgeführt.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename manual/master-data-table.pdf
+	width 100text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -746,6 +803,17 @@ Schließen
  schließt die Ansicht und kehrt zur vorherigen Ansicht zurück.
 \end_layout
 
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename manual/master-data-detail.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Bearbeiten eines Datensatzes
 \begin_inset CommandInset label
@@ -783,6 +851,17 @@ Sollten ein oder mehrere der geänderten Werte nicht korrekt sein, so werden
  rechts daneben.
  Wenn der Mauszeiger etwas länger auf diesen Feldern verweilt, wird ein
  hilfreicher Tooltip angezeigt.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename manual/master-data-edit.pdf
+	width 100text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1041,8 +1120,19 @@ Tätigkeitsbericht
  anzeigen zu lassen.
 \end_layout
 
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename manual/balance-generation.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
-Anpassbarkeit des Aussehen von Berichten
+Anpassbarkeit des Aussehen des Tätigkeitsnachweis
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Anpassbarkeit-des-Aussehen"
@@ -1053,7 +1143,31 @@ name "sec:Anpassbarkeit-des-Aussehen"
 \end_layout
 
 \begin_layout Standard
-TODO
+Das Aussehen des Tätigkeitsnachweis kann nachträglich geändert werden.
+ Hierfür ist das OpenOffice Dokument 
+\family typewriter
+ActivityReportTemplate.odt
+\family default
+ mitgeliefert, welches Sie individuell nach Ihren Vorstellungen anpassen
+ können.
+ Das Dokument verwendet Formular-Steuerelemente, um nachträglich in den
+ von OpenOffice definierten Formularfelder Daten wie beispielsweise den
+ Author oder das IVI-Logo einzubinden.
+ Damit aidGer die neu erstellte Vorlage verwenden kann, muss diese zuerst
+ nach PDF umgewandelt.
+ Anschließend muss direkt im 
+\shape italic
+JAR-Archiv
+\shape default
+ die alte PDF-Vorlage 
+\family typewriter
+ActivityReportTemplate.pdf
+\family default
+ unter 
+\family typewriter
+src/de/aidger/pdf
+\family default
+ mit dem neuem PDF-Template ersetzt werden.
 \end_layout
 
 \begin_layout Section
@@ -1113,6 +1227,17 @@ Datei
 Einstellungen 
 \emph default
 benutzt werden.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename manual/settings-dialog.pdf
+	width 100text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
