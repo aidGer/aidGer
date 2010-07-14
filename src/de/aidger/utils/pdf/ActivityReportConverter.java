@@ -212,7 +212,7 @@ public class ActivityReportConverter {
             Font generatedByFont = new Font(BaseFont.createFont(
                 BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 8);
             img = Image.getInstance(getClass().getResource(
-                "/de/aidger/pdf/UniLogo.png"));
+                "/de/aidger/pdf/UniLogo.jpg"));
             float xPos = 50, yPos = 750, width = 75, height = 75;
             if (form.getFieldPositions("UniLogo") != null) {
                 FieldPosition position = form.getFieldPositions("UniLogo").get(
@@ -227,7 +227,7 @@ public class ActivityReportConverter {
             contentByte.addImage(img);
 
             img = Image.getInstance(getClass().getResource(
-                "/de/aidger/pdf/IviLogo.png"));
+                "/de/aidger/pdf/IviLogo.gif"));
             xPos = 250;
             yPos = 750;
             width = 100;

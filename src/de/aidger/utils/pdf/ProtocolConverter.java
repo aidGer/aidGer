@@ -266,7 +266,7 @@ public class ProtocolConverter {
                 left.setVerticalAlignment(Element.ALIGN_BOTTOM);
                 left.setBorder(Rectangle.BOTTOM);
                 Image img = Image.getInstance(getClass().getResource(
-                    "/de/aidger/pdf/UniLogo.png"));
+                    "/de/aidger/pdf/UniLogo.jpg"));
                 img.scaleAbsoluteWidth(150.0f);
                 left.addElement(img);
 
