@@ -4,7 +4,8 @@
 \begin_header
 \textclass scrbook
 \begin_preamble
-\date{\begin{tabular}{rl}Erstellt am: & 28. Juni 2010 \\ Zuletzt geändert am: & \today \end{tabular}}
+\date{\begin{tabular}{rl}Erstellt am: & 28. Juni 2010 \\ Zuletzt geändert am: & \today \end{tabular} \\
+\vspace{4cm}\includegraphics[width=0.4\textwidth]{manual/aidger-icon}}
 \end_preamble
 \use_default_options true
 \language ngerman
@@ -60,6 +61,10 @@ Benutzerhandbuch aidGer
 
 \begin_layout Author
 aidGer Team
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Standard
