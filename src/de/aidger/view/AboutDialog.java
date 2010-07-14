@@ -40,6 +40,8 @@ public class AboutDialog extends JDialog {
         }
 
         setLocationRelativeTo(null);
+
+        pack();
     }
 
     /**
@@ -49,23 +51,44 @@ public class AboutDialog extends JDialog {
      */
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle(_("About aidGer"));
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 24));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("aidGer 0.1");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        getContentPane().add(jLabel1, gridBagConstraints);
 
         jLabel2
             .setText(_("Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        getContentPane().add(jLabel2, gridBagConstraints);
 
         jButton1.setText("Close");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        getContentPane().add(jButton1, gridBagConstraints);
 
         jLabel3.setForeground(new java.awt.Color(2, 111, 213));
         jLabel3.setText(_("Homepage: http://www.aidger.de"));
@@ -75,52 +98,21 @@ public class AboutDialog extends JDialog {
                 jLabel3MouseClicked(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        getContentPane().add(jLabel3, gridBagConstraints);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
-            getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(layout.createParallelGroup(
-            javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-            layout.createSequentialGroup().addContainerGap().addGroup(
-                layout.createParallelGroup(
-                    javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-                    jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 459,
-                    Short.MAX_VALUE).addComponent(jLabel2).addGroup(
-                    javax.swing.GroupLayout.Alignment.TRAILING,
-                    layout.createSequentialGroup().addComponent(jLabel3)
-                        .addPreferredGap(
-                            javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                            328, Short.MAX_VALUE).addComponent(jButton1)))
-                .addContainerGap()));
-        layout
-            .setVerticalGroup(layout
-                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(
-                    layout
-                        .createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addGroup(
-                            layout
-                                .createParallelGroup(
-                                    javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(
-                                    javax.swing.GroupLayout.Alignment.LEADING,
-                                    layout
-                                        .createSequentialGroup()
-                                        .addComponent(
-                                            jLabel2,
-                                            javax.swing.GroupLayout.PREFERRED_SIZE,
-                                            26,
-                                            javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                            javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(
-                                            jLabel3,
-                                            javax.swing.GroupLayout.DEFAULT_SIZE,
-                                            20, Short.MAX_VALUE)).addComponent(
-                                    jButton1)).addContainerGap()));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource(
+            "/de/aidger/view/icons/aidger-icon.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        getContentPane().add(jLabel4, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -141,6 +133,7 @@ public class AboutDialog extends JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 
 }
