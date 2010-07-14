@@ -63,18 +63,17 @@ public class AboutDialog extends JDialog {
         setTitle(_("About aidGer"));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 24));
+        jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("aidGer 0.1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         getContentPane().add(jLabel1, gridBagConstraints);
 
-        jLabel2
-            .setText(_("Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"));
+        jLabel2.setText(_("Authors: Christian Buchgraber, Philipp Gildein, Philipp Pirrung"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -93,7 +92,6 @@ public class AboutDialog extends JDialog {
         jLabel3.setForeground(new java.awt.Color(2, 111, 213));
         jLabel3.setText(_("Homepage: http://www.aidger.de"));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
             }
@@ -105,13 +103,12 @@ public class AboutDialog extends JDialog {
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
         getContentPane().add(jLabel3, gridBagConstraints);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/aidger-icon.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/aidger/view/icons/aidger-icon.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 10);
         getContentPane().add(jLabel4, gridBagConstraints);
 
         pack();
