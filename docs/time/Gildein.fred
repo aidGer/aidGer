@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!--Created with "de.sopra06.filehandling.xml.XMLFileHandling" at: 14.07.10 03:37-->
+<!--Created with "de.sopra06.filehandling.xml.XMLFileHandling" at: 14.07.10 13:02-->
 <!--Arbeitsdatei für Fred-->
-<fredworkfile version="2" creationdate="2010-07-14T02:20:21.423+02:00" lastcompletesavedate="2010-07-14T03:37:21.957+02:00">
- <objectfactory projectcount="1" taskcount="3" effortcount="64" personcount="1"/>
+<fredworkfile version="2" creationdate="2010-07-14T02:20:21.423+02:00" lastcompletesavedate="2010-07-14T13:02:44.868+02:00">
+ <objectfactory projectcount="1" taskcount="3" effortcount="59" personcount="1"/>
  <personlist>
   <person id="MBadH|M2yvRnoL1npQUfhMXdd" firstName="Philipp" name="Gildein" initials="" securityid="S42LZ|M2yvRnoL1nqiQ2rPDpd"/>
  </personlist>
@@ -44,7 +44,7 @@
     <effortsofcategory id="99" count="0"/>
    </effortsofcategories>
   </statistic>
-  <project id="PDa9Z|M2yvRnoL1npkTYKhpmf" name="Sopra" description="Das SoPra 2010 an der Uni Stuttgart" isclosed="false" isteamproject="false" createdat="2010-07-14T02:20:40.227+02:00" securityid="S42LZ|M2yvRnoL1nqiQ2rPDpd">
+  <project id="PDa9Z|M2yvRnoL1npkTYKhpmf" name="Sopra" description="Das SoPra 2010 an der Uni Stuttgart" isclosed="true" isteamproject="false" createdat="2010-07-14T02:20:40.227+02:00" closedat="2010-07-14T03:38:22.295+02:00" securityid="S42LZ|M2yvRnoL1nqiQ2rPDpd">
    <statistic effortcount="59" effortdurationsum="14450" replicatedeffortcount="0" acceptedeffortcount="59" notacceptedeffortcount="0">
     <effortsofpersons>
      <effortsofperson id="MBadH|M2yvRnoL1npQUfhMXdd" count="59"/>
@@ -276,11 +276,10 @@
   !
   !-->
 
- <volatiledata pos="0000000000000047399" />
- <defaulttask id="TP9gkR|jU7wq5rH7tZ2FYHd5t"/>
+ <volatiledata pos="0000000000000047439" />
  <configuration>
   <entry key="ConfirmQuickSplit" value="true"/>
-  <entry key="LastExportPath" value="/home/rmbl"/>
+  <entry key="LastExportPath" value="/home/rmbl/projects/sopra/docs/time/Gildein.html"/>
   <entry key="MakeBackup" value="true"/>
   <entry key="MinimizeToTray" value="false"/>
   <entry key="SaveNotAcceptedEfforts" value="true"/>
@@ -293,9 +292,7 @@
    <view viewname="View" secondrow="true">
     <filter filtermode="tasks" usefilter="false" start="2010-06-14T02:20:21.455+02:00" end="2010-07-14T02:20:21.455+02:00" datamask="35" relevantmask="35">
      <tasksoffilter>
-      <taskoffilter id="TP9gkR|jU7wq5rH7tZ2FYHd5t"/>
       <taskoffilter id="TEa9H|79SnA3A9Hgeg1qPES2m"/>
-      <taskoffilter id="THZZv|79SnA3A9HgeR2gQiyw0"/>
      </tasksoffilter>
      <personsoffilter>
       <personoffilter id="MBadH|M2yvRnoL1npQUfhMXdd"/>
