@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!--Created with "de.sopra06.filehandling.xml.XMLFileHandling" at: 13.07.10 21:26-->
+<!--Created with "de.sopra06.filehandling.xml.XMLFileHandling" at: 14.07.10 02:02-->
 <!--Arbeitsdatei für Fred-->
-<fredworkfile version="2" creationdate="2010-02-15T22:26:47.361+01:00" lastcompletesavedate="2010-07-13T21:26:20.119+02:00">
- <objectfactory projectcount="1" taskcount="6" effortcount="56" personcount="1"/>
+<fredworkfile version="2" creationdate="2010-02-15T22:26:47.361+01:00" lastcompletesavedate="2010-07-14T02:02:07.029+02:00">
+ <objectfactory projectcount="1" taskcount="6" effortcount="53" personcount="1"/>
  <personlist>
   <person id="Mviav|2JAzxjrqbAuIFTfEPI6" firstName="Philipp" name="Pirrung" initials="PP" securityid="StEMD|2JAzxjrqbAvaAqpH5U6"/>
  </personlist>
  <user id="Mviav|2JAzxjrqbAuIFTfEPI6"/>
  <urllist/>
  <projectlist projectcount="1">
-  <statistic effortcount="53" effortdurationsum="14259" replicatedeffortcount="0" acceptedeffortcount="53" notacceptedeffortcount="0">
+  <statistic effortcount="53" effortdurationsum="14379" replicatedeffortcount="0" acceptedeffortcount="53" notacceptedeffortcount="0">
    <effortsofpersons>
     <effortsofperson id="Mviav|2JAzxjrqbAuIFTfEPI6" count="53"/>
    </effortsofpersons>
@@ -45,7 +45,7 @@
    </effortsofcategories>
   </statistic>
   <project id="P34Xl|2JAzxjrqbAucEMIZhR8" name="aidGer" description="Hilfskraftmittelverwaltung" isclosed="false" isteamproject="false" createdat="2010-02-15T22:27:31.517+01:00" securityid="StEMD|2JAzxjrqbAvaAqpH5U6">
-   <statistic effortcount="53" effortdurationsum="14259" replicatedeffortcount="0" acceptedeffortcount="53" notacceptedeffortcount="0">
+   <statistic effortcount="53" effortdurationsum="14379" replicatedeffortcount="0" acceptedeffortcount="53" notacceptedeffortcount="0">
     <effortsofpersons>
      <effortsofperson id="Mviav|2JAzxjrqbAuIFTfEPI6" count="53"/>
     </effortsofpersons>
@@ -121,7 +121,7 @@
     <effort id="EP5NJ|PziLcZsucN4tNf69uoO" begin="2010-04-12T10:05:00.000+02:00" duration="424" pause="0" description="" category="20" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
    </task>
    <task id="T49iv|6Bq93sXZMqL1Ys8M2oH" name="Implementierung" shortname="IMPLE" description="" defaultcategory="40" isteamtask="false" createdat="2010-05-03T20:25:00.008+02:00">
-    <statistic effortcount="38" effortdurationsum="11341" replicatedeffortcount="0" acceptedeffortcount="38" notacceptedeffortcount="0">
+    <statistic effortcount="38" effortdurationsum="11461" replicatedeffortcount="0" acceptedeffortcount="38" notacceptedeffortcount="0">
      <effortsofpersons>
       <effortsofperson id="Mviav|2JAzxjrqbAuIFTfEPI6" count="38"/>
      </effortsofpersons>
@@ -193,7 +193,7 @@
     <effort id="ENGMr|9dOimiiGKHxDdZFPeAT" begin="2010-07-11T16:30:00.000+02:00" duration="450" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
     <effort id="E3RSP|9dOimiiGKHwSBNMnoi9" begin="2010-07-12T15:30:00.000+02:00" duration="720" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
     <effort id="EENwh|9dOimiiGKHxNd0Z5IEz" begin="2010-07-13T15:00:00.000+02:00" duration="120" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
-    <effort id="EDYqz|9dOimiiGKHwmAG096rB" begin="2010-07-13T19:00:00.000+02:00" duration="300" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
+    <effort id="EDYqz|9dOimiiGKHwmAG096rB" begin="2010-07-13T19:00:00.000+02:00" duration="420" pause="0" description="" category="40" person="Mviav|2JAzxjrqbAuIFTfEPI6"/>
    </task>
    <task id="TVWa9t|TSgwlBPdqT26pJtOde" name="Projektplanung" shortname="PP" description="Projektplanung" defaultcategory="3" isteamtask="false" createdat="2010-02-15T23:34:36.510+01:00">
     <statistic effortcount="4" effortdurationsum="410" replicatedeffortcount="0" acceptedeffortcount="4" notacceptedeffortcount="0">
