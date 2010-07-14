@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="400"
+   height="100"
+   id="svg2948"
+   version="1.1"
+   inkscape:version="0.47 r22583"
+   sodipodi:docname="aidger-logo.svg"
+   inkscape:export-filename="/home/rmbl/aidger-logo.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs2950">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective2956" />
+    <inkscape:perspective
+       id="perspective2966"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <filter
+       id="filter3689"
+       inkscape:label="filter1">
+      <feGaussianBlur
+         stdDeviation="1"
+         id="feGaussianBlur3691"
+         in="SourceGraphic" />
+      <feOffset
+         dx="3"
+         dy="3"
+         id="feOffset3693"
+         result="result1" />
+      <feMerge
+         id="feMerge3695">
+        <feMergeNode
+           inkscape:collect="always"
+           id="feMergeNode3697"
+           in="SourceGraphic" />
+        <feMergeNode
+           inkscape:collect="always"
+           id="feMergeNode3699"
+           in="result1" />
+      </feMerge>
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="93.214281"
+     inkscape:cy="153.19862"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     width="400px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1006"
+     inkscape:window-x="0"
+     inkscape:window-y="26"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata2953">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-952.3623)">
+    <path
+       style="fill-opacity:1;stroke:#000000;stroke-width:0.16500000000000001;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;fill:#204a87"
+       d="m 49.66658,1021.6383 c 5.084844,-14.831 9.384729,-30.56366 19.587745,-42.85983 3.81759,-4.52638 8.568941,-8.31223 13.993532,-10.72728 1.422815,-4.36007 5.643712,-8.01734 9.845254,-7.59665 4.174114,0.81295 6.536487,4.73212 5.232899,8.73086 -1.034264,3.5693 -3.820909,7.01907 -7.5154,7.89367 -1.573166,0.325 -3.133974,-0.68176 -4.069112,-1.55987 -1.099634,-1.4667 -2.272579,0.16524 -3.270591,0.92006 -1.029823,0.88478 -0.972114,3.6599 -1.536699,5.44053 -0.134588,1.1934 1.431716,2.01139 1.979009,3.05429 1.802624,2.23183 3.605228,4.46364 5.407851,6.6955 1.786236,-2.14354 3.414792,-3.70887 5.201048,-5.85235 -1.309915,0.11909 -2.094229,-0.0772 -3.404143,0.0419 0.293589,-1.11011 -0.594784,-2.9581 1.239022,-2.73903 5.656641,0.11096 10.997945,0.16918 16.654585,0.28018 -0.38645,1.0094 0.59099,2.60452 -1.13522,2.65867 -2.63015,-0.10514 -5.20773,-1.8e-4 -7.83786,-0.10527 -3.421134,4.04936 -5.752796,9.0931 -9.96322,12.56362 -2.781597,1.8081 -5.543485,-2.28749 -7.385621,-4.65017 -1.276217,-1.43191 -2.600614,-4.16668 -4.527002,-1.60275 -2.441342,3.2551 -4.619883,6.51034 -7.061223,9.76542 -0.672886,-0.5365 -2.062064,-3.27324 -1.854221,-1.1042 -0.810918,12.3953 -1.621836,24.7908 -2.432735,37.1861 3.848378,-0.1532 7.999386,2.5667 7.152392,6.863 -0.156795,1.3147 -2.081968,0.497 -3.757228,0.797 -3.751551,0 -7.503081,-0.1572 -11.254611,-0.1572 0,-2.2625 0,-4.5253 0,-6.7879 -1.412147,-0.5351 -2.155552,-1.4122 -1.626769,-2.9397 0.780425,-9.1422 1.560829,-18.284 2.341252,-27.4261 -4.012386,3.4025 -5.087479,8.8153 -7.930439,13.0195 -0.462135,0.6981 -1.501428,0.8958 -2.072495,0.1987 l 0,-3e-4 z"
+       id="path2900"
+       sodipodi:nodetypes="cccccccccccccccccccccccccccccccc" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3752"
+       style="font-size:56px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#204a87;fill-opacity:1;stroke:none;font-family:OliJo;-inkscape-font-specification:OliJo Bold;filter:url(#filter3689)"
+       transform="matrix(1.2827933,0,0,1.0540681,-102.32813,932.31456)"
+       inkscape:transform-center-x="-4.5814061"
+       inkscape:transform-center-y="-0.75290397"><flowRegion
+         id="flowRegion3754"><rect
+           id="rect3756"
+           width="229.28569"
+           height="74.285713"
+           x="170"
+           y="31.428572"
+           style="font-size:56px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:OliJo;-inkscape-font-specification:OliJo Bold;fill:#204a87;fill-opacity:1" /></flowRegion><flowPara
+         id="flowPara3758"
+         style="font-size:64px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:OliJo;-inkscape-font-specification:OliJo Bold;fill:#204a87;fill-opacity:1">aidGer</flowPara></flowRoot>  </g>
+</svg>
