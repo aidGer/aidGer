@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created with "de.sopra06.filehandling.xml.XMLFileHandling" at: 14.07.10 03:37-->
+<!--Arbeitsdatei für Fred-->
+<fredworkfile version="2" creationdate="2010-07-14T02:20:21.423+02:00" lastcompletesavedate="2010-07-14T03:37:21.957+02:00">
+ <objectfactory projectcount="1" taskcount="3" effortcount="64" personcount="1"/>
+ <personlist>
+  <person id="MBadH|M2yvRnoL1npQUfhMXdd" firstName="Philipp" name="Gildein" initials="" securityid="S42LZ|M2yvRnoL1nqiQ2rPDpd"/>
+ </personlist>
+ <user id="MBadH|M2yvRnoL1npQUfhMXdd"/>
+ <urllist/>
+ <projectlist projectcount="1">
+  <statistic effortcount="59" effortdurationsum="14450" replicatedeffortcount="0" acceptedeffortcount="59" notacceptedeffortcount="0">
+   <effortsofpersons>
+    <effortsofperson id="MBadH|M2yvRnoL1npQUfhMXdd" count="59"/>
+   </effortsofpersons>
+   <effortsofcategories>
+    <effortsofcategory id="3" count="51"/>
+    <effortsofcategory id="5" count="3"/>
+    <effortsofcategory id="7" count="0"/>
+    <effortsofcategory id="10" count="0"/>
+    <effortsofcategory id="12" count="0"/>
+    <effortsofcategory id="13" count="0"/>
+    <effortsofcategory id="15" count="5"/>
+    <effortsofcategory id="17" count="0"/>
+    <effortsofcategory id="18" count="0"/>
+    <effortsofcategory id="20" count="0"/>
+    <effortsofcategory id="22" count="0"/>
+    <effortsofcategory id="25" count="0"/>
+    <effortsofcategory id="40" count="0"/>
+    <effortsofcategory id="42" count="0"/>
+    <effortsofcategory id="45" count="0"/>
+    <effortsofcategory id="60" count="0"/>
+    <effortsofcategory id="50" count="0"/>
+    <effortsofcategory id="52" count="0"/>
+    <effortsofcategory id="55" count="0"/>
+    <effortsofcategory id="70" count="0"/>
+    <effortsofcategory id="72" count="0"/>
+    <effortsofcategory id="75" count="0"/>
+    <effortsofcategory id="77" count="0"/>
+    <effortsofcategory id="80" count="0"/>
+    <effortsofcategory id="82" count="0"/>
+    <effortsofcategory id="85" count="0"/>
+    <effortsofcategory id="90" count="0"/>
+    <effortsofcategory id="99" count="0"/>
+   </effortsofcategories>
+  </statistic>
+  <project id="PDa9Z|M2yvRnoL1npkTYKhpmf" name="Sopra" description="Das SoPra 2010 an der Uni Stuttgart" isclosed="false" isteamproject="false" createdat="2010-07-14T02:20:40.227+02:00" securityid="S42LZ|M2yvRnoL1nqiQ2rPDpd">
+   <statistic effortcount="59" effortdurationsum="14450" replicatedeffortcount="0" acceptedeffortcount="59" notacceptedeffortcount="0">
+    <effortsofpersons>
+     <effortsofperson id="MBadH|M2yvRnoL1npQUfhMXdd" count="59"/>
+    </effortsofpersons>
+    <effortsofcategories>
+     <effortsofcategory id="3" count="51"/>
+     <effortsofcategory id="5" count="3"/>
+     <effortsofcategory id="7" count="0"/>
+     <effortsofcategory id="10" count="0"/>
+     <effortsofcategory id="12" count="0"/>
+     <effortsofcategory id="13" count="0"/>
+     <effortsofcategory id="15" count="5"/>
+     <effortsofcategory id="17" count="0"/>
+     <effortsofcategory id="18" count="0"/>
+     <effortsofcategory id="20" count="0"/>
+     <effortsofcategory id="22" count="0"/>
+     <effortsofcategory id="25" count="0"/>
+     <effortsofcategory id="40" count="0"/>
+     <effortsofcategory id="42" count="0"/>
+     <effortsofcategory id="45" count="0"/>
+     <effortsofcategory id="60" count="0"/>
+     <effortsofcategory id="50" count="0"/>
+     <effortsofcategory id="52" count="0"/>
+     <effortsofcategory id="55" count="0"/>
+     <effortsofcategory id="70" count="0"/>
+     <effortsofcategory id="72" count="0"/>
+     <effortsofcategory id="75" count="0"/>
+     <effortsofcategory id="77" count="0"/>
+     <effortsofcategory id="80" count="0"/>
+     <effortsofcategory id="82" count="0"/>
+     <effortsofcategory id="85" count="0"/>
+     <effortsofcategory id="90" count="0"/>
+     <effortsofcategory id="99" count="0"/>
+    </effortsofcategories>
+   </statistic>
+   <task id="TP9gkR|jU7wq5rH7tZ2FYHd5t" name="Analyse" shortname="ANALY" description="" defaultcategory="5" isteamtask="false" createdat="2010-07-14T02:42:25.000+02:00">
+    <statistic effortcount="3" effortdurationsum="150" replicatedeffortcount="0" acceptedeffortcount="3" notacceptedeffortcount="0">
+     <effortsofpersons>
+      <effortsofperson id="MBadH|M2yvRnoL1npQUfhMXdd" count="3"/>
+     </effortsofpersons>
+     <effortsofcategories>
+      <effortsofcategory id="3" count="0"/>
+      <effortsofcategory id="5" count="3"/>
+      <effortsofcategory id="7" count="0"/>
+      <effortsofcategory id="10" count="0"/>
+      <effortsofcategory id="12" count="0"/>
+      <effortsofcategory id="13" count="0"/>
+      <effortsofcategory id="15" count="0"/>
+      <effortsofcategory id="17" count="0"/>
+      <effortsofcategory id="18" count="0"/>
+      <effortsofcategory id="20" count="0"/>
+      <effortsofcategory id="22" count="0"/>
+      <effortsofcategory id="25" count="0"/>
+      <effortsofcategory id="40" count="0"/>
+      <effortsofcategory id="42" count="0"/>
+      <effortsofcategory id="45" count="0"/>
+      <effortsofcategory id="60" count="0"/>
+      <effortsofcategory id="50" count="0"/>
+      <effortsofcategory id="52" count="0"/>
+      <effortsofcategory id="55" count="0"/>
+      <effortsofcategory id="70" count="0"/>
+      <effortsofcategory id="72" count="0"/>
+      <effortsofcategory id="75" count="0"/>
+      <effortsofcategory id="77" count="0"/>
+      <effortsofcategory id="80" count="0"/>
+      <effortsofcategory id="82" count="0"/>
+      <effortsofcategory id="85" count="0"/>
+      <effortsofcategory id="90" count="0"/>
+      <effortsofcategory id="99" count="0"/>
+     </effortsofcategories>
+    </statistic>
+    <effort id="ELLKj|79SnA3A9HgdT6Bu1at2" begin="2010-02-15T23:00:00.000+01:00" duration="90" pause="0" description="Tue Feb 16 00:08:21 2010|Initial commit&#10;Tue Feb 16 00:26:38 2010|Add analyising notes&#10;" category="5" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="ELLU9|79SnA3A9Hgel1Z44H52" begin="2010-02-19T16:45:00.000+01:00" duration="25" pause="0" description="Fri Feb 19 17:04:50 2010|Ignore latex output and divide notes into `is` and `should` parts" category="5" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="Eufn3|79SnA3A9Hgdn54XMt24" begin="2010-02-20T12:45:00.000+01:00" duration="35" pause="0" description="Sat Feb 20 13:02:23 2010|No more questions and some language cleanups (refs #1)&#10;Sat Feb 20 13:11:46 2010|Fix font and add a list (refs #1)&#10;" category="5" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+   </task>
+   <task id="TEa9H|79SnA3A9Hgeg1qPES2m" name="Implementierung" shortname="IMPLE" description="" defaultcategory="3" isteamtask="false" createdat="2010-07-14T02:52:08.250+02:00">
+    <statistic effortcount="51" effortdurationsum="13730" replicatedeffortcount="0" acceptedeffortcount="51" notacceptedeffortcount="0">
+     <effortsofpersons>
+      <effortsofperson id="MBadH|M2yvRnoL1npQUfhMXdd" count="51"/>
+     </effortsofpersons>
+     <effortsofcategories>
+      <effortsofcategory id="3" count="51"/>
+      <effortsofcategory id="5" count="0"/>
+      <effortsofcategory id="7" count="0"/>
+      <effortsofcategory id="10" count="0"/>
+      <effortsofcategory id="12" count="0"/>
+      <effortsofcategory id="13" count="0"/>
+      <effortsofcategory id="15" count="0"/>
+      <effortsofcategory id="17" count="0"/>
+      <effortsofcategory id="18" count="0"/>
+      <effortsofcategory id="20" count="0"/>
+      <effortsofcategory id="22" count="0"/>
+      <effortsofcategory id="25" count="0"/>
+      <effortsofcategory id="40" count="0"/>
+      <effortsofcategory id="42" count="0"/>
+      <effortsofcategory id="45" count="0"/>
+      <effortsofcategory id="60" count="0"/>
+      <effortsofcategory id="50" count="0"/>
+      <effortsofcategory id="52" count="0"/>
+      <effortsofcategory id="55" count="0"/>
+      <effortsofcategory id="70" count="0"/>
+      <effortsofcategory id="72" count="0"/>
+      <effortsofcategory id="75" count="0"/>
+      <effortsofcategory id="77" count="0"/>
+      <effortsofcategory id="80" count="0"/>
+      <effortsofcategory id="82" count="0"/>
+      <effortsofcategory id="85" count="0"/>
+      <effortsofcategory id="90" count="0"/>
+      <effortsofcategory id="99" count="0"/>
+     </effortsofcategories>
+    </statistic>
+    <effort id="ExUEH|79SnA3A9Hgds4nCCi4K" begin="2010-04-12T10:00:00.000+02:00" duration="435" pause="0" description="Mon Apr 12 10:58:18 2010|Add styling conventions and apply them partially&#10;Mon Apr 12 10:59:19 2010|Allow pdfs in design folder&#10;Mon Apr 12 11:07:04 2010|Extend Model Unit section&#10;Mon Apr 12 11:35:22 2010|Update View and Controller sections and ignore temp files&#10;Mon Apr 12 12:01:17 2010|Add some more patterns&#10;Mon Apr 12 12:52:28 2010|Add class Runtime and models&#10;Mon Apr 12 13:02:42 2010|Add class UI&#10;Mon Apr 12 13:47:21 2010|Change Observable from interface to class&#10;Mon Apr 12 14:42:07 2010|Finish UI and Controller sections&#10;Mon Apr 12 16:00:16 2010|Add DatabaseWrapper&#10;Mon Apr 12 16:08:58 2010|Move some files&#10;Mon Apr 12 16:09:12 2010|Remove latex files, only lyx used now&#10;Mon Apr 12 16:23:14 2010|Seperate images/ folder into specification and projektplan&#10;Mon Apr 12 17:08:42 2010|Merge some old changes back in&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="ECXwH|79SnA3A9HgeM2xlt9tk" begin="2010-04-15T13:00:00.000+02:00" duration="330" pause="0" description="Thu Apr 15 13:19:14 2010|Add design presentation&#10;Thu Apr 15 13:35:53 2010|Add Application class&#10;Thu Apr 15 16:31:40 2010|Add AbstractModel and DataBaseWrapper and stub their functions&#10;Thu Apr 15 17:03:24 2010|Add comments and correct abstract model and dbwrapper&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EveXj|79SnA3A9Hgdi5LsX3zo" begin="2010-04-16T18:00:00.000+02:00" duration="30" pause="0" description="Fri Apr 16 18:26:59 2010|AbstractModel extends Observable and uses List as return type because of dbwrapper&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="E3o75|79SnA3A9HgeW2P5YnyG" begin="2010-04-28T19:45:00.000+02:00" duration="195" pause="0" description="Wed Apr 28 20:10:33 2010|Add AdoHive jar file (v0.2)&#10;Wed Apr 28 20:11:20 2010|Add Model class stubs&#10;Wed Apr 28 20:43:35 2010|Implement all method stubs and add javadoc comments for Activity class.&#10;Wed Apr 28 21:18:03 2010|Implement and comment stubs in Activity and redo some in Assistant&#10;Wed Apr 28 21:42:06 2010|Implement and comment Contract&#10;Wed Apr 28 22:04:12 2010|Implement and comment FinancialCategory&#10;Wed Apr 28 22:09:47 2010|Implement and comment the HourlyWage&#10;Wed Apr 28 22:28:15 2010|Implement and comment Employment&#10;Wed Apr 28 22:49:26 2010|Implement and comment last model Course&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EGFSl|79SnA3A9Hge24EVsM8q" begin="2010-04-29T13:00:00.000+02:00" duration="20" pause="0" description="Thu Apr 29 13:19:16 2010|DataBaseWrapper is a singleton now&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EBRED|79SnA3A9HgeC3WSDVpE" begin="2010-05-03T15:30:00.000+02:00" duration="570" pause="0" description="Mon May 3 16:02:57 2010|Remove DataBaseWrapper class as it is now unneeded&#10;Mon May 3 16:03:14 2010|Implement all functions in the AbstractModel class&#10;Mon May 3 16:40:52 2010|Add Runtime to Application startup and make it a singleton&#10;Mon May 3 17:11:56 2010|Add the complete menu bar according to the specification&#10;Mon May 3 18:50:34 2010|Add mockup of SettingsDialog&#10;Mon May 3 19:05:17 2010|Add AboutDialog&#10;Mon May 3 19:46:06 2010|Read configuration from file when opening the SettingsDialog&#10;Wed May 5 00:45:45 2010|Add AbortAction to close currently open dialog&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="E48FX|79SnA3A9HgeiWhjeMYu" begin="2010-05-06T13:00:00.000+02:00" duration="240" pause="0" description="Thu May 6 13:53:00 2010|Translate AboutDialog&#10;Thu May 6 14:09:51 2010|Translate the complete SettingsDialog&#10;Thu May 6 16:59:15 2010|Add homepage and close button to AboutDialog&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EINgr|79SnA3A9HgeOXp6J4Ps" begin="2010-05-11T15:00:00.000+02:00" duration="240" pause="0" description="Tue May 11 15:36:17 2010|Add Validator base class and first validator implementation&#10;Tue May 11 18:29:33 2010|Validate when saving a model&#10;Tue May 11 18:47:17 2010|Add helper functions to add validators&#10;Tue May 11 18:51:44 2010|Update pot file with correct line numbers&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="E0DPX|79SnA3A9HgdpZvrmnYC" begin="2010-05-11T23:00:00.000+02:00" duration="90" pause="0" description="Tue May 11 00:13:37 2010|Add SaveSettingsAction to save the changed settings and close the dialog&#10;Tue May 11 00:15:59 2010|Dispose dialogs instead of just making them invisible&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EGcRT|79SnA3A9HgdfaUY79Tg" begin="2010-05-13T00:00:00.000+02:00" duration="75" pause="0" description="Thu May 13 01:07:09 2010|Import mockup code for the AboutDialog&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="Ey3UT|79SnA3A9HgeYXGPyiUO" begin="2010-05-13T16:00:00.000+02:00" duration="60" pause="0" description="Thu May 13 16:49:11 2010|Add support functions to two model classes (Closes #45)&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="E4UOD|79SnA3A9HgdzZNBSRci" begin="2010-05-17T17:00:00.000+02:00" duration="420" pause="0" description="Mon May 17 17:39:44 2010|Only add specified model to spinner&#10;Mon May 17 18:21:22 2010|Add UI.displayError to organise JOptionPane.showMessageDialog calls in one function&#10;Mon May 17 18:31:04 2010|Replace other calls to JOptionPane.showMessageDialog with UI.displayError&#10;Mon May 17 19:03:37 2010|Set SystemLookAndFeel as first thing and correct one error message&#10;Mon May 17 19:38:48 2010|Implement print functionality&#10;Mon May 17 19:52:57 2010|Disable double buffering while painting the panel for printing&#10;Mon May 17 23:29:55 2010|Validate settings in SaveSettingsAction before saving.&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="ECllj|79SnA3A9HgeEYNmdQLM" begin="2010-05-18T14:30:00.000+02:00" duration="45" pause="0" description="Tue May 18 15:13:23 2010|Add Logger class to utils&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EqdHt|79SnA3A9HgdaaltHKRQ" begin="2010-05-19T13:00:00.000+02:00" duration="300" pause="0" description="Wed May 19 13:44:28 2010|Logger is working correctly now.&#10;Wed May 19 13:45:04 2010|Add logging messages when creating new tabs&#10;Wed May 19 14:32:19 2010|Add debug var to std configuration and improve logging format&#10;Wed May 19 14:34:09 2010|Add newline after log message&#10;Wed May 19 14:45:23 2010|Clicking the link in the AboutDialog opens aidger.de in the browser&#10;Wed May 19 15:57:56 2010|Implement clone() functions correctly and add first validations&#10;Wed May 19 17:21:10 2010|Add possibility to add a custom validation function into a model&#10;Wed May 19 17:30:42 2010|Add validation for the email address&#10;Wed May 19 18:00:28 2010|Validate date ranges using the new DateRangeValidator&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="Eqvkh|79SnA3A9HgedWz4oXWe" begin="2010-05-24T14:00:00.000+02:00" duration="390" pause="0" description="Mon May 24 14:14:47 2010|Replaced CRLF with LF (Chris try to behave!!)&#10;Mon May 24 17:05:29 2010|Cache the AdoHiveManager after retrieving for the first time&#10;Mon May 24 17:40:43 2010|Notifiy observers on change or remove&#10;Mon May 24 17:47:35 2010|Only notify if model got really removed&#10;Mon May 24 20:28:53 2010|Fix AbstractModel to get the correct classname before getting the manager&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="E0biT|79SnA3A9HgduZeWccaS" begin="2010-05-25T14:00:00.000+02:00" duration="45" pause="0" description="Tue May 25 14:47:06 2010|Add logging output to Activity and remove gettext warnings in U" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EzLgj|79SnA3A9HgeJY6RTFNc" begin="2010-05-28T18:00:00.000+02:00" duration="300" pause="0" description="Fri May 28 18:47:46 2010|Remove &quot;Show/View Header&quot; from PopupMenu&#10;Fri May 28 19:24:01 2010|Cache all Managers globally and fix stupid fail of chris&#10;Fri May 28 22:29:47 2010|Use key = value pairs instead of xml.&#10;Fri May 28 22:50:50 2010|Add get/setOptionArray functions to Runtime to add arrays to the config&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EEqTh|79SnA3A9HgdkaDCwyVw" begin="2010-05-30T17:00:00.000+02:00" duration="300" pause="0" description="Sun May 30 17:33:47 2010|Add new test for AbstractModel and add tests for the equals() function&#10;Sun May 30 17:40:03 2010|Set id explicitly to -1 after removing it&#10;Sun May 30 18:05:01 2010|Add equals() and hashCode() method to all models&#10;Sun May 30 21:47:03 2010|Fix NullPointerException problem in the models&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="E6SJ7|79SnA3A9HgeTXXl8tS8" begin="2010-05-31T00:00:00.000+02:00" duration="75" pause="0" description="Mon May 31 01:05:42 2010|Add tests for validators&#10;Mon May 31 01:05:55 2010|Fix various problems in Email and DateRangeValidator&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EOY3X|79SnA3A9Hge4Z5qIGey" begin="2010-05-31T14:00:00.000+02:00" duration="600" pause="0" description="Mon May 31 14:55:22 2010|Add test for mgr.update() to increase coverage&#10;Mon May 31 14:55:42 2010|Add test for Validator class and fix some bugs in it&#10;Mon May 31 17:01:19 2010|Extend tests for higher coverage of validation classes&#10;Mon May 31 21:32:28 2010|Use english for error message&#10;Mon May 31 21:32:41 2010|Extend tests for higher coverage&#10;Mon May 31 23:35:54 2010|All tests that possibly could pass are passing .. Yay&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EKkJB|79SnA3A9Hge9Yf7nbJ6" begin="2010-06-01T14:00:00.000+02:00" duration="180" pause="0" description="Tue Jun 1 14:53:27 2010|Add test for Configuration class&#10;Tue Jun 1 15:23:26 2010|Add test for the Logger class&#10;Tue Jun 1 17:03:52 2010|Add test for Translation class&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="ErsK3|79SnA3A9HgdULcZEY96" begin="2010-06-03T16:30:00.000+02:00" duration="450" pause="0" description="Thu Jun 3 17:01:34 2010|Remove unnecessary test and shorten another&#10;Thu Jun 3 17:47:12 2010|Add PresenceValidator to Course class&#10;Thu Jun 3 17:48:20 2010|Add basic stuff needed for error messages from validators&#10;Thu Jun 3 18:26:24 2010|Check description in equals() of Course class&#10;Thu Jun 3 18:41:17 2010|Add default messages to validators&#10;Thu Jun 3 23:49:05 2010|Add tests for error methods to AbstractModelTest&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="Exanx|79SnA3A9Hgejm8OrJoy" begin="2010-06-04T13:15:00.000+02:00" duration="645" pause="0" description="Fri Jun 4 13:41:15 2010|Add resetErrors() method to AbstractModel and add test for it&#10;Fri Jun 4 15:53:37 2010|Small coverage improvement for EmploymentTest and removed ambiguity for java.lang.reflect &#10;Fri Jun 4 15:54:09 2010|Add test for Runtime class and improvements for same class&#10;Fri Jun 4 16:19:47 2010|Upgrade AdoHive to version 0.3&#10;Fri Jun 4 16:30:11 2010|Add advisor and methods to Course model&#10;Fri Jun 4 16:41:37 2010|Rename fonds to funds and add qualification to Employment class&#10;Fri Jun 4 16:45:02 2010|Misc. renames and compile fixes&#10;Fri Jun 4 17:53:52 2010|Implement new functions in the managers and add tests&#10;Fri Jun 4 22:08:25 2010|Check for already running instances by using a lock file&#10;Fri Jun 4 23:38:04 2010|Updated translation&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EsaPH|79SnA3A9HgdoKVCZqI8" begin="2010-06-05T18:00:00.000+02:00" duration="60" pause="0" description="Sat Jun 5 18:50:48 2010|Update to AdoHive 0.3.1&#10;Sat Jun 5 18:51:17 2010|Change wage from double to BigDecimal in HourlyWage model&#10;Sat Jun 5 19:02:21 2010|Enable instance locking only if debug mode is off&#10;Sat Jun 5 19:03:46 2010|Update HourlyWageTest to the new type of HourlyWage.wage&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EN53L|79SnA3A9HgdeL3suCDc" begin="2010-06-07T12:00:00.000+02:00" duration="645" pause="0" description="Mon Jun 7 12:54:45 2010|Use Assistant class to pass some more AbstractModelTest tests&#10;Mon Jun 7 12:57:15 2010|Change tests for Activity and Employment models to theoretically pass tests&#10;Mon Jun 7 13:04:27 2010|Fix save and remove tests in AbstractModelTest&#10;Mon Jun 7 13:12:47 2010|Fix errors and let tests fail instead&#10;Mon Jun 7 16:52:52 2010|Fix equals function in HourlyWage&#10;Mon Jun 7 17:03:58 2010|Fix all possibly passing test cases in AbstractModelTest&#10;Mon Jun 7 17:41:08 2010|Add toString() function and test for it to AbstractModel&#10;Mon Jun 7 19:34:34 2010|Replace usage of id=-1 as indicator of a new model with isNew variable&#10;Mon Jun 7 20:20:13 2010|Use setNew instead of setId() in tests and fix one remaining incorrect id reset&#10;Mon Jun 7 21:06:17 2010|Add new validator for inclusions and add test for it (closes #64)&#10;Mon Jun 7 21:33:00 2010|Add calls to the empty constructor when copying from interface&#10;Mon Jun 7 21:47:48 2010|Add constructors with the interfaces to remaining classes&#10;Mon Jun 7 22:39:23 2010|Extend code coverage in de.aidger.model.validators to 100%&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EGi5f|79SnA3A9HgeZmh5BfkS" begin="2010-06-08T18:30:00.000+02:00" duration="30" pause="0" description="Tue Jun 8 18:56:44 2010|Add error message to DateRangeValidator&#10;Tue Jun 8 18:57:56 2010|Fix toString method&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EqpFL|79SnA3A9HgdyJwWFUMe" begin="2010-06-09T18:00:00.000+02:00" duration="435" pause="0" description="Wed Jun 9 18:23:56 2010|Fix date range validation for Contract&#10;Wed Jun 9 18:24:38 2010|Add tests for constructors&#10;Wed Jun 9 18:41:59 2010|Add InclusionValidator for qualification to model classes and fix tests&#10;Wed Jun 9 18:42:52 2010|Fixed .gitignore to ignore the db and coverage files&#10;Wed Jun 9 19:03:55 2010|Let all exceptions pass to the view to be able to handle it appropriately&#10;Wed Jun 9 19:18:45 2010|Add removeOnUpdate variable to determine if a model needs to be removed when updating it&#10;Wed Jun 9 19:20:13 2010|Add validate() function to HourlyWage to validate year and month and test all validations&#10;Wed Jun 9 20:14:29 2010|Add validate() method to FinancialCategory and test validation for more classes&#10;Wed Jun 9 20:55:09 2010|Add validators to FinancialCategory and test them&#10;Wed Jun 9 21:56:33 2010|Compare strings instead of Date classes and fix FinancialCategoryTest&#10;Thu Jun 10 00:13:03 2010|Update to AdoHive 0.4 and add new methods to model classes&#10;Thu Jun 10 00:32:59 2010|Fix little bug in AbstractModel&#10;Thu Jun 10 00:34:17 2010|Update tests for new methods&#10;Thu Jun 10 00:36:19 2010|Fix AbstractModel test&#10;Thu Jun 10 00:42:43 2010|Update translation&#10;Thu Jun 10 01:18:34 2010|Add some debug output when save()ing or remove()ing&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EKpd3|79SnA3A9HgeFnoRqNbQ" begin="2010-06-11T14:00:00.000+02:00" duration="255" pause="0" description="Fri Jun 11 15:18:43 2010|Save a list of current tabs after adding/removing a tab (refs #66)&#10;Fri Jun 11 15:31:37 2010|Don't add empty or null strings to option array&#10;Fri Jun 11 16:49:56 2010|Replace setOptionArray method nearly completely with java.util.Arrays.toString()&#10;Fri Jun 11 17:30:23 2010|Recovering tabs works for specific cases where the params are enums (refs #66)&#10;Fri Jun 11 18:08:44 2010|Improve recovery of saved tabs&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EtnHR|79SnA3A9HgdZLLE4NBM" begin="2010-06-12T13:30:00.000+02:00" duration="600" pause="0" description="Sat Jun 12 14:10:46 2010|Fix slightly different array format in Runtime and tests&#10;Sat Jun 12 15:10:02 2010|Improve coverage of tests and improve code in AbstractModel&#10;Sat Jun 12 15:30:07 2010|Don't translate empty strings!!!&#10;Sat Jun 12 15:30:37 2010|Add new validator to check the existance of ids in the database (refs #69)&#10;Sat Jun 12 15:34:53 2010|Update translation&#10;Sat Jun 12 16:25:15 2010|Add ExistanceValidator to models and fix tests&#10;Sat Jun 12 16:26:18 2010|Update translation&#10;Sat Jun 12 17:07:51 2010|Remove EmailValidator and replace with FormatValidator&#10;Sat Jun 12 17:08:03 2010|Update translation&#10;Sat Jun 12 17:08:50 2010|Update translation&#10;Sat Jun 12 18:00:05 2010|Add validate() function and test ActivityTest completely&#10;Sat Jun 12 18:03:44 2010|Fix AssistantTest&#10;Sat Jun 12 18:12:07 2010|Fix NullPointerException in DateRangeValidator&#10;Sat Jun 12 18:12:29 2010|Complete validation in Contract and test it&#10;Sat Jun 12 18:31:33 2010|Finish validations for Course and test them&#10;Sat Jun 12 18:46:48 2010|Finish validation of Employment and add tests&#10;Sat Jun 12 18:48:58 2010|Fix ActivityTest&#10;Sat Jun 12 19:20:19 2010|Update translation&#10;Sat Jun 12 20:21:45 2010|Fix Course class and tests&#10;Sat Jun 12 20:39:19 2010|Fix InclusionValidator. Had no message set&#10;Sat Jun 12 21:54:22 2010|Add getJarLocation() method to Runtime&#10;Sat Jun 12 22:07:17 2010|Translation can load translations from .jar file now (refs #78)&#10;Sat Jun 12 22:15:30 2010|Fix test for toString of AbstractModel to work with all weird java method sortings&#10;Sat Jun 12 23:28:51 2010|Fix loading of translation from .jar file&#10;:&#10;Sat Jun 12 15:10:02 2010|Improve coverage of tests and improve code in AbstractModel&#10;Sat Jun 12 15:30:07 2010|Don't translate empty strings!!!&#10;Sat Jun 12 15:30:37 2010|Add new validator to check the existance of ids in the database (refs #69)&#10;Sat Jun 12 15:34:53 2010|Update translation&#10;Sat Jun 12 16:25:15 2010|Add ExistanceValidator to models and fix tests&#10;Sat Jun 12 16:26:18 2010|Update translation&#10;Sat Jun 12 17:07:51 2010|Remove EmailValidator and replace with FormatValidator&#10;Sat Jun 12 17:08:03 2010|Update translation&#10;Sat Jun 12 17:08:50 2010|Update translation&#10;Sat Jun 12 18:00:05 2010|Add validate() function and test ActivityTest completely&#10;Sat Jun 12 18:03:44 2010|Fix AssistantTest&#10;Sat Jun 12 18:12:07 2010|Fix NullPointerException in DateRangeValidator&#10;Sat Jun 12 18:12:29 2010|Complete validation in Contract and test it&#10;Sat Jun 12 18:31:33 2010|Finish validations for Course and test them&#10;Sat Jun 12 18:46:48 2010|Finish validation of Employment and add tests&#10;Sat Jun 12 18:48:58 2010|Fix ActivityTest&#10;Sat Jun 12 19:20:19 2010|Update translation&#10;Sat Jun 12 20:21:45 2010|Fix Course class and tests&#10;Sat Jun 12 20:39:19 2010|Fix InclusionValidator. Had no message set&#10;Sat Jun 12 21:54:22 2010|Add getJarLocation() method to Runtime&#10;Sat Jun 12 22:07:17 2010|Translation can load translations from .jar file now (refs #78)&#10;Sat Jun 12 22:15:30 2010|Fix test for toString of AbstractModel to work with all weird java method sortings&#10;Sat Jun 12 23:28:51 2010|Fix loading of translation from .jar file&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="E0MuH|79SnA3A9HgeemPk1Umi" begin="2010-06-13T14:00:00.000+02:00" duration="195" pause="0" description="Sun Jun 13 14:46:14 2010|Add icons to the gui&#10;Sun Jun 13 15:49:29 2010|Check for a validateOnRemove() method when removing a model (refs #69)&#10;Sun Jun 13 16:04:34 2010|Add validateOnRemove() methods to model classes&#10;Sun Jun 13 16:10:14 2010|Use @BeforeClass instead of Constructor to initialize the Runtime&#10;Sun Jun 13 16:34:10 2010|Don't validate existance of id if id is smaller than 0&#10;Sun Jun 13 17:02:48 2010|Add test for validateOnRemove (closes #69)&#10;Sun Jun 13 17:07:04 2010|Remove unneeded operating system code&#10;Sun Jun 13 17:14:06 2010|Seems like linux behaviour can also be applied to the mac&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="E13ml|79SnA3A9HgeKnX6gCdg" begin="2010-06-14T00:00:00.000+02:00" duration="285" pause="0" description="Mon Jun 14 00:22:23 2010|Update translation&#10;Mon Jun 14 01:58:08 2010|Fix test cases after changes to ExistanceValidator&#10;Mon Jun 14 01:59:23 2010|Fix display of editor tab (refs #66)&#10;Mon Jun 14 03:54:20 2010|Add action to generate a report&#10;Mon Jun 14 04:34:00 2010|Add new action to export reports&#10;Mon Jun 14 04:35:12 2010|Update translation&#10;Mon Jun 14 04:43:46 2010|Add save tab functionality to BalanceTab&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="Ex6ux|79SnA3A9HgdjKmXk1Fs" begin="2010-06-14T14:00:00.000+02:00" duration="780" pause="120" description="Mon Jun 14 14:22:04 2010|Use Object parameter for notifiyObservers (refs #82)&#10;Mon Jun 14 17:27:41 2010|Add functionality to Quick Settings in TaskPane&#10;Mon Jun 14 17:52:22 2010|Add smaller plus and minus icons&#10;Mon Jun 14 18:05:07 2010|Replace last tango icon&#10;Mon Jun 14 18:35:54 2010|Add icons for new toggle buttons (refs #83)&#10;Mon Jun 14 18:37:18 2010|Replace Reports ComboBox with simple links&#10;Mon Jun 14 18:42:23 2010|Update translation&#10;Mon Jun 14 18:50:07 2010|Remove Partial Balance as it is not needed anymore&#10;Mon Jun 14 21:11:15 2010|Coverage and code improvements&#10;Mon Jun 14 21:25:27 2010|Fix crash in displaySavedTabs if getOptionArray returns null&#10;Mon Jun 14 21:43:41 2010|Remove config path from constructor of Translation and Configuration (closes #84)&#10;Mon Jun 14 22:13:49 2010|Some more coverage improvements for ConfigurationTest&#10;Mon Jun 14 22:24:24 2010|Last small branch coverage improvement&#10;Mon Jun 14 23:02:26 2010|Don't add the EmptyTab into the list of saved tabs&#10;Tue Jun 15 01:04:10 2010|New implementation of the Welcome tab (refs #76)&#10;Tue Jun 15 01:21:54 2010|Update translation&#10;Tue Jun 15 01:26:01 2010|Update Makefile and included language file&#10;Tue Jun 15 01:33:47 2010|Open WelcomeTab instead of EmptyTab when closing the last tab&#10;Tue Jun 15 02:19:03 2010|Update translation&#10;Tue Jun 15 02:47:07 2010|Add ProtocolExportAction and display error dialog instead of std logging stuff&#10;Tue Jun 15 02:50:38 2010|Remove &quot;Activity Report&quot; from TaskPane&#10;Tue Jun 15 02:53:24 2010|Use days spinner correctly when exporting a protocol&#10;Tue Jun 15 02:53:38 2010|Update translation&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EGuFX|79SnA3A9HgeUmyQLqiC" begin="2010-06-15T13:00:00.000+02:00" duration="75" pause="0" description="Tue Jun 15 13:58:12 2010|Remove small icons (only big ones are used) (refs #83)&#10;Tue Jun 15 14:05:54 2010|Use logger instead of system.out and info instead of error&#10;Tue Jun 15 14:09:15 2010|Remove remaining System.out messages&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="Ex8PX|79SnA3A9Hge3JfB5JOu" begin="2010-06-22T12:45:00.000+02:00" duration="315" pause="0" description="Tue Jun 22 13:12:32 2010|Fix tests with contracts&#10;Tue Jun 22 13:13:46 2010|Add validation for costUnit length to Employment model&#10;Tue Jun 22 14:41:10 2010|Add icon for contracts&#10;Tue Jun 22 15:02:11 2010|Add icon for activities action (refs #77)&#10;Tue Jun 22 15:47:14 2010|Fix tab recovery when model is HourlyWage (fixes #91)&#10;Tue Jun 22 17:48:38 2010|SettingsDialog contains two tabs now and has options for report factors (fixes #94)&#10;Tue Jun 22 17:54:39 2010|Update translation&#10;Tue Jun 22 18:03:03 2010|Set factors to 1.0 on first start&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EKroT|79SnA3A9HgeAo5n0YZA" begin="2010-06-23T13:00:00.000+02:00" duration="195" pause="0" description="Wed Jun 23 14:06:28 2010|Correctly set isNew when cloning&#10;Wed Jun 23 14:11:53 2010|Correct button layout of SettingsDialog&#10;Wed Jun 23 14:49:47 2010|Add FirstStartDialog without any functionality for now (refs #100)&#10;Wed Jun 23 15:32:01 2010|Add save action for FirstStartDialog&#10;Wed Jun 23 15:52:57 2010|Add BackgroundThread to FirstStartDialog which checks the connection (refs #100)&#10;Wed Jun 23 16:00:55 2010|Only show statistics in WelcomeTab when its not the first start (refs #100)&#10;Wed Jun 23 16:05:43 2010|Finish translation of FirstStartDialog (closes #100)&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EIqLx|79SnA3A9HgdWqTteSfE" begin="2010-06-25T00:00:00.000+02:00" duration="75" pause="0" description="Fri Jun 25 00:57:32 2010|Updated .po and .pot&#10;Fri Jun 25 01:16:14 2010|Update translation&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EHia3|79SnA3A9HgehHH4RPIq" begin="2010-06-25T14:00:00.000+02:00" duration="540" pause="0" description="Fri Jun 25 14:37:01 2010|Update addError method to include translated field name and update validators (refs #101)&#10;Fri Jun 25 14:58:39 2010|Fix translated validations to model and EditorSaveAction (refs #101)&#10;Fri Jun 25 15:10:11 2010|Fix validateInclusionOf function and the tests&#10;Fri Jun 25 16:18:22 2010|Fix displaySavedTabs() when using a UI model (fixes #102)&#10;Fri Jun 25 16:37:43 2010|Add method to set the status message at the bottom of the main window (fixes #99)&#10;Fri Jun 25 19:53:05 2010|Add file chooser for pdf viewer in settings dialog (fixes #104)&#10;Fri Jun 25 20:25:38 2010|Set the default locale to the selected language (fixes #105)&#10;Fri Jun 25 22:17:07 2010|Add an Anonymizer class and use it on the start&#10;Fri Jun 25 22:38:58 2010|Fix Anonymizer and add tests for it&#10;Fri Jun 25 22:48:00 2010|Add anonymization time to settings dialog&#10;Fri Jun 25 22:51:12 2010|Add anonymization-time to standard config and fix anonymization of already anonym assistants&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EvYLR|79SnA3A9HgdqpMWzkoG" begin="2010-06-26T15:00:00.000+02:00" duration="0" pause="0" description="Sat Jun 26 15:44:55 2010|Add another test case and use calendars to change the date&#10;Sat Jun 26 16:04:59 2010|Rename SaveSettingsAction to SettingsSaveAction&#10;Sat Jun 26 16:10:52 2010|Refresh Quick Settings after SettingsDialog is saved (fixes #106)&#10;Sat Jun 26 16:30:36 2010|Add tolerance field to SettingsDialog (fixes #108)&#10;Sat Jun 26 16:32:30 2010|Update translation&#10;Sat Jun 26 18:41:24 2010|Update AssistantTableModel when anonymizing assistants on start (fixes #110)&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EMFLT|79SnA3A9HgdgpvDK6jk" begin="2010-06-27T21:30:00.000+02:00" duration="255" pause="0" description="Sun Jun 27 22:04:08 2010|Extract Contract stuff into own category&#10;Sun Jun 27 22:18:04 2010|Update translation&#10;Sun Jun 27 22:45:09 2010|Add translatable string&#10;Sun Jun 27 22:45:23 2010|Add contract system tests&#10;Sun Jun 27 23:08:07 2010|Remove unneeded files&#10;Mon Jun 28 01:17:42 2010|Correct system tests for Employments&#10;Mon Jun 28 01:41:52 2010|Fix system test for Activities&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="ExmrH|79SnA3A9HgeXHpkllEK" begin="2010-06-28T13:30:00.000+02:00" duration="675" pause="0" description="Mon Jun 28 14:07:27 2010|Add first version of the manual&#10;Mon Jun 28 14:27:57 2010|Implement the help action which copies the manual into a temp file and opens it using the pdf-viewer&#10;Mon Jun 28 16:20:46 2010|Change name field to initials and add filter for a max. length of 2&#10;Mon Jun 28 16:23:22 2010|Changed name field to initials for FirstStartDialog (fixes #123)&#10;Mon Jun 28 16:30:01 2010|Replace and add some icons (refs #77)&#10;Mon Jun 28 16:43:20 2010|Add icon for courses (refs #77)&#10;Mon Jun 28 17:07:08 2010|Readd report.png icon because its still used&#10;Mon Jun 28 17:12:13 2010|Add setting for calculation method to SettingsDialog (fixes #109)&#10;Mon Jun 28 17:17:59 2010|Update adohive.jar to version 0.5 (refs #124)&#10;Mon Jun 28 18:18:40 2010|Fix models and FCEditorForm (refs #124)&#10;Mon Jun 28 18:58:58 2010|Fix tests for new adohive version (refs #124)&#10;Mon Jun 28 18:59:24 2010|Only search for tablemodels if a window is open&#10;Mon Jun 28 19:01:00 2010|Add calc-method to std config&#10;Mon Jun 28 20:41:26 2010|Add new methods provided by AdoHive and tests for them&#10;Mon Jun 28 23:51:11 2010|Fix tests for employments&#10;Tue Jun 29 00:00:56 2010|Fix tests for activities&#10;Tue Jun 29 00:28:40 2010|Run test cases for activities&#10;Tue Jun 29 00:36:37 2010|Add test run for employments&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="E9AWB|79SnA3A9HgeDIx7QT5I" begin="2010-06-29T13:00:00.000+02:00" duration="300" pause="0" description="Tue Jun 29 13:41:46 2010|Display info message when language has been changed (fixes #129)&#10;Tue Jun 29 16:10:13 2010|Update to AdoHive 0.5.1&#10;Tue Jun 29 16:18:12 2010|Add check for referencing contract to assistant (fixes #134)&#10;Tue Jun 29 16:23:55 2010|Move Dialogs to the center of the screen (fixes #133)&#10;Tue Jun 29 16:38:41 2010|Change auto-open string in SettingsDialog and update translation (fixes #130)&#10;Tue Jun 29 18:08:33 2010|ConfirmationDate of Contract is optinal (fixes #136)&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EKh1p|79SnA3A9HgdbqCYUHhU" begin="2010-06-30T19:00:00.000+02:00" duration="30" pause="0" description="Wed Jun 30 19:29:22 2010|Updated AdoHive to version 0.5.2&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="E5fLn|79SnA3A9HgecHYPbaGa" begin="2010-07-02T16:15:00.000+02:00" duration="30" pause="0" description="Fri Jul 2 16:47:39 2010|Optimize statistics in WelcomeTab&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EMAmn|79SnA3A9Hgdvp5BpZqW" begin="2010-07-04T15:00:00.000+02:00" duration="90" pause="0" description="Sun Jul 4 15:43:07 2010|Allow äüö in domain part of email address (not really rfc compliant but fixes test case for M8.1) (fi&#10;Sun Jul 4 15:56:11 2010|Add new getOption method to Runtime and use it for several newer variables&#10;Sun Jul 4 16:03:52 2010|Add test for new getOption method&#10;Sun Jul 4 16:23:30 2010|Add new custom RowFilter class with case insensitive regex matching (refs #139)&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="E2ZPb|79SnA3A9HgeIIfmGI7Y" begin="2010-07-07T16:30:00.000+02:00" duration="45" pause="0" description="Wed Jul 7 17:01:09 2010|Updated AdoHive to version 0.6&#10;Wed Jul 7 17:05:40 2010|Add new functions added with AdoHive 0.6&#10;Wed Jul 7 17:13:12 2010|Add Contract.getContracts(Assistant) method ourselves as AdoHive won't implement it&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EHX6X|79SnA3A9Hgdlpds9vm0" begin="2010-07-09T18:00:00.000+02:00" duration="90" pause="0" description="Fri Jul 9 18:21:28 2010|Update AdoHive to version 0.6.1&#10;Fri Jul 9 18:28:46 2010|Change ExistanceValidator to only allow null as a nonexistent id&#10;Fri Jul 9 18:54:26 2010|Add Configuration.remove and Runtime.clearOption to remove options from config and fix RuntimeTest&#10;Fri Jul 9 19:06:30 2010|Fix Contract.getContracts(), Assistant- and ExistanceValidatorTest&#10;Fri Jul 9 19:19:28 2010|Fix the rest of my tests&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EI1FZ|79SnA3A9HgeSI75vwC4" begin="2010-07-10T14:00:00.000+02:00" duration="240" pause="0" description="Sat Jul 10 14:49:10 2010|Upgraded AdoHive to version 0.6.2&#10;Sat Jul 10 15:34:13 2010|Replace Contract.getContracts(Assistant) with new method in ContractManager&#10;Sat Jul 10 15:59:26 2010|Replace Vector with ArrayList as Vector is obsolete/deprecated&#10;Sat Jul 10 17:45:18 2010|Add new class HistoryEvent and HistoryManager to save a history of the last actions&#10;Sat Jul 10 17:51:36 2010|Load History on start and add events when adding, modifying or removing models&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="E2ain|79SnA3A9Hge5oWVVDv2" begin="2010-07-11T12:00:00.000+02:00" duration="390" pause="0" description="Sun Jul 11 13:00:42 2010|Moved model retrieval code into HistoryEvent and fixed Removed case&#10;Sun Jul 11 13:19:18 2010|Updated translation&#10;Sun Jul 11 13:23:22 2010|Fix incorrect status of HistoryEvents when adding something&#10;Sun Jul 11 13:54:19 2010|Display date and time of the last start&#10;Sun Jul 11 13:56:36 2010|Fix history file when no event was recorded&#10;Sun Jul 11 14:02:04 2010|Display a different message if the model has already been deleted&#10;Sun Jul 11 14:24:48 2010|Add default value to last start&#10;Sun Jul 11 16:28:26 2010|Only enable button if db is ready and add a quit button&#10;Sun Jul 11 17:16:46 2010|Added some more chapters to the manual (refs #67)&#10;Sun Jul 11 18:27:08 2010|Add settings section to manual&#10;Sun Jul 11 18:27:22 2010|Update jar language file&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EHglP|79SnA3A9Hge8JESae32" begin="2010-07-12T13:30:00.000+02:00" duration="45" pause="0" description="Mon Jul 12 14:08:01 2010|Add chapter program start (refs #67)&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EtacD|79SnA3A9HgdTiuEd4W4" begin="2010-07-13T00:00:00.000+02:00" duration="120" pause="0" description="Tue Jul 13 01:52:16 2010|Added some more sections (refs #67)&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EHY3J|79SnA3A9HgekOqjSnS0" begin="2010-07-13T13:00:00.000+02:00" duration="900" pause="0" description="Tue Jul 13 13:23:29 2010|Fixed smaller errors (refs #67)&#10;Tue Jul 13 14:01:48 2010|Rename Close Button and only enable it if Initials are complete (closes #150)&#10;Tue Jul 13 14:13:20 2010|Use Name instead of Initials again (refs #154)&#10;Tue Jul 13 14:21:42 2010|Create initials from name when creating an activity (fixes #154)&#10;Tue Jul 13 14:24:51 2010|Updated translation&#10;Tue Jul 13 17:02:28 2010|Added another section to manual (refs #154)&#10;Tue Jul 13 17:43:32 2010|Added section reports to manual (refs #154)&#10;Tue Jul 13 19:55:25 2010|Add new icon to UI&#10;Wed Jul 14 00:50:00 2010|Added COPYING file with links to the licenses&#10;Wed Jul 14 00:50:19 2010|Add aidGer logo as SVG&#10;Wed Jul 14 02:00:07 2010|Updated COPYING file&#10;Wed Jul 14 02:01:46 2010|Updated translation&#10;Wed Jul 14 02:13:10 2010|Renamed Logos with correct extensions&#10;Wed Jul 14 04:01:02 2010|Add time sheet&#10;" category="3" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+   </task>
+   <task id="THZZv|79SnA3A9HgeR2gQiyw0" name="Spezifikation" shortname="SPEZI" description="" defaultcategory="15" isteamtask="false" createdat="2010-07-14T02:47:24.776+02:00">
+    <statistic effortcount="5" effortdurationsum="570" replicatedeffortcount="0" acceptedeffortcount="5" notacceptedeffortcount="0">
+     <effortsofpersons>
+      <effortsofperson id="MBadH|M2yvRnoL1npQUfhMXdd" count="5"/>
+     </effortsofpersons>
+     <effortsofcategories>
+      <effortsofcategory id="3" count="0"/>
+      <effortsofcategory id="5" count="0"/>
+      <effortsofcategory id="7" count="0"/>
+      <effortsofcategory id="10" count="0"/>
+      <effortsofcategory id="12" count="0"/>
+      <effortsofcategory id="13" count="0"/>
+      <effortsofcategory id="15" count="5"/>
+      <effortsofcategory id="17" count="0"/>
+      <effortsofcategory id="18" count="0"/>
+      <effortsofcategory id="20" count="0"/>
+      <effortsofcategory id="22" count="0"/>
+      <effortsofcategory id="25" count="0"/>
+      <effortsofcategory id="40" count="0"/>
+      <effortsofcategory id="42" count="0"/>
+      <effortsofcategory id="45" count="0"/>
+      <effortsofcategory id="60" count="0"/>
+      <effortsofcategory id="50" count="0"/>
+      <effortsofcategory id="52" count="0"/>
+      <effortsofcategory id="55" count="0"/>
+      <effortsofcategory id="70" count="0"/>
+      <effortsofcategory id="72" count="0"/>
+      <effortsofcategory id="75" count="0"/>
+      <effortsofcategory id="77" count="0"/>
+      <effortsofcategory id="80" count="0"/>
+      <effortsofcategory id="82" count="0"/>
+      <effortsofcategory id="85" count="0"/>
+      <effortsofcategory id="90" count="0"/>
+      <effortsofcategory id="99" count="0"/>
+     </effortsofcategories>
+    </statistic>
+    <effort id="Erk9F|79SnA3A9Hgdd5dDhExY" begin="2010-03-07T14:00:00.000+01:00" duration="75" pause="0" description="Sun Mar 7 14:43:13 2010|Initial specification document&#10;Sun Mar 7 15:12:01 2010|Fixed #5, #6, #8&#10;" category="15" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="E9MQB|79SnA3A9Hgeb27kOd0W" begin="2010-03-07T20:00:00.000+01:00" duration="105" pause="0" description="Sun Mar 7 21:12:52 2010|Add two mockup pics and more text regarding the GUI&#10;Sun Mar 7 21:41:34 2010|Add menu elements and navlist elements&#10;" category="15" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="E9GTT|79SnA3A9Hgdx4Vr2X6a" begin="2010-03-08T15:00:00.000+01:00" duration="315" pause="0" description="Mon Mar 8 15:41:17 2010|Add main view for data entry etc.&#10;Mon Mar 8 18:48:26 2010|Update gui prototyping&#10;Mon Mar 8 20:10:49 2010|Update gui prototype section&#10;" category="15" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="EOv6d|79SnA3A9HgeH3F73KrU" begin="2010-03-22T18:00:00.000+01:00" duration="30" pause="0" description="Mon Mar 22 18:10:28 2010|Clean up the docs folder&#10;Mon Mar 22 18:25:18 2010|Add multilanguage support stuff to the settings dialog and specification&#10;" category="15" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+    <effort id="E90yV|79SnA3A9HgdY5uYrPvI" begin="2010-03-31T09:00:00.000+02:00" duration="45" pause="0" description="Wed Mar 31 09:36:05 2010|Add &quot;erstellt am&quot; and &quot;zuletzt geändert am&quot; to the title page&#10;" category="15" person="MBadH|M2yvRnoL1npQUfhMXdd"/>
+   </task>
+  </project>
+ </projectlist>
+ <!--
+  !
+  !
+  !
+  !  Ab hier beginnt der Volatile-Data-Bereich. In diesem Bereich werden Daten
+  !  gespeichert, die sich häufig ändern und die es nicht erfordern, dass die
+  !  gesamte(!) Arbeitsdatei neu gespeichert werden muss. Das führt - gerade bei
+  !  großen Arbeitsdateien - zu einem erheblichen Geschwindigkeitsgewinn beim
+  !  Beenden von Fred, da dieser Bereich beim Beenden von Fred immer(!) 
+  !  aktualisiert wird.
+  !
+  !  Hier befinden sich z.B. die Konfiguration von Fred oder Informationen über
+  !  die geöffneten Ansichten.
+  !
+  !  Gleichzeitig dient dieser sehr prosahaftige Kommentar als Puffer, falls
+  !  beim Ermitteln der Position dieses Bereichs in der Arbeitsdatei mal etwas
+  !  schiefläuft und die Position in Folge dessen nicht korrekt ist. Mit so einem
+  !  großen Kommentarblock erhöht sich die Chance, dass dann nur ein Teil dieses
+  !  Kommentarblocks zerstört wird und nicht wichtige Daten.
+  !
+  !
+  !
+  !-->
+
+ <volatiledata pos="0000000000000047399" />
+ <defaulttask id="TP9gkR|jU7wq5rH7tZ2FYHd5t"/>
+ <configuration>
+  <entry key="ConfirmQuickSplit" value="true"/>
+  <entry key="LastExportPath" value="/home/rmbl"/>
+  <entry key="MakeBackup" value="true"/>
+  <entry key="MinimizeToTray" value="false"/>
+  <entry key="SaveNotAcceptedEfforts" value="true"/>
+  <entry key="SaveViews" value="true"/>
+  <entry key="ShowSecondRowPerDefault" value="true"/>
+ </configuration>
+ <guidata>
+  <quickbar dockborder="TOP"/>
+  <views>
+   <view viewname="View" secondrow="true">
+    <filter filtermode="tasks" usefilter="false" start="2010-06-14T02:20:21.455+02:00" end="2010-07-14T02:20:21.455+02:00" datamask="35" relevantmask="35">
+     <tasksoffilter>
+      <taskoffilter id="TP9gkR|jU7wq5rH7tZ2FYHd5t"/>
+      <taskoffilter id="TEa9H|79SnA3A9Hgeg1qPES2m"/>
+      <taskoffilter id="THZZv|79SnA3A9HgeR2gQiyw0"/>
+     </tasksoffilter>
+     <personsoffilter>
+      <personoffilter id="MBadH|M2yvRnoL1npQUfhMXdd"/>
+     </personsoffilter>
+     <categoriesoffilter/>
+    </filter>
+    <columns>
+     <column ecolumnname="StartDate" width="60"/>
+     <column ecolumnname="StartEndTime" width="80"/>
+     <column ecolumnname="WorkDuration" width="60"/>
+     <column ecolumnname="PauseDuration" width="60"/>
+     <column ecolumnname="Project" width="130"/>
+     <column ecolumnname="Task" width="100"/>
+     <column ecolumnname="CategoryName" width="80"/>
+     <column ecolumnname="Collisions" width="65"/>
+     <column ecolumnname="Replicated" width="60"/>
+     <column ecolumnname="Accepted" width="100"/>
+    </columns>
+   </view>
+  </views>
+ </guidata>
+</fredworkfile>
