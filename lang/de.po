@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-13 22:38+0200\n"
+"POT-Creation-Date: 2010-07-14 02:01+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
+"Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -415,18 +415,18 @@ msgid "Activity Report"
 msgstr "Tätigkeitsnachweis"
 
 #: controller/actions/ViewerActivityReportAction.java:44
-#: controller/actions/ViewerAssistantAction.java:50
+#: controller/actions/ViewerAssistantAction.java:49
 #: controller/actions/ViewerContractAction.java:47
-#: controller/actions/ViewerCourseAction.java:49
+#: controller/actions/ViewerCourseAction.java:48
 #: controller/actions/ViewerDetailViewAction.java:42
 #: controller/actions/ViewerEditAction.java:44
 msgid "Please select an entry from the table."
 msgstr "Bitte markieren Sie zunächst einen Eintrag aus der Tabelle."
 
 #: controller/actions/ViewerActivityReportAction.java:46
-#: controller/actions/ViewerAssistantAction.java:52
+#: controller/actions/ViewerAssistantAction.java:51
 #: controller/actions/ViewerContractAction.java:49
-#: controller/actions/ViewerCourseAction.java:51
+#: controller/actions/ViewerCourseAction.java:50
 #: controller/actions/ViewerDetailViewAction.java:44
 #: controller/actions/ViewerEditAction.java:46
 msgid "Please select only one entry from the table."
@@ -437,11 +437,11 @@ msgstr "Bitte markieren Sie nur einen Eintrag aus der Tabelle."
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: controller/actions/ViewerAssistantAction.java:34
+#: controller/actions/ViewerAssistantAction.java:33
 #: model/models/Activity.java:76
 #: model/models/Contract.java:68
 #: model/models/Employment.java:83
-#: utils/pdf/ControllingConverter.java:310
+#: utils/pdf/ControllingConverter.java:329
 #: view/forms/ActivityEditorForm.java:192
 #: view/forms/ActivityViewerForm.java:91
 #: view/forms/ContractEditorForm.java:211
@@ -459,7 +459,7 @@ msgstr "Hinzufügen"
 msgid "Assistant"
 msgstr "Hilfskraft"
 
-#: controller/actions/ViewerAssistantAction.java:94
+#: controller/actions/ViewerAssistantAction.java:93
 msgid "The related assistant could not be displayed."
 msgstr "Die zugehörige Hilfskraft konnte nicht angezeigt werden."
 
@@ -478,10 +478,10 @@ msgstr "Vertrag"
 msgid "The related contract could not be displayed."
 msgstr "Der zugehörige Vertrag konnte nicht angezeigt werden."
 
-#: controller/actions/ViewerCourseAction.java:33
+#: controller/actions/ViewerCourseAction.java:32
 #: model/models/Activity.java:78
 #: model/models/Employment.java:87
-#: utils/pdf/BudgetReportConverter.java:365
+#: utils/pdf/BudgetReportConverter.java:386
 #: view/forms/ActivityEditorForm.java:117
 #: view/forms/ActivityViewerForm.java:99
 #: view/forms/EmploymentEditorForm.java:498
@@ -564,7 +564,7 @@ msgid "Could not get manager for class \"{0}\". Error: {1}"
 msgstr "Konnte Manager für Klasse \"{0}\" nicht finden. Fehler: {1}"
 
 #: model/models/Activity.java:73
-#: utils/pdf/ProtocolConverter.java:383
+#: utils/pdf/ProtocolConverter.java:402
 #: view/forms/ActivityEditorForm.java:383
 #: view/forms/ActivityViewerForm.java:107
 #: view/forms/EmploymentEditorForm.java:367
@@ -579,7 +579,7 @@ msgid "Date"
 msgstr "Datum"
 
 #: model/models/Activity.java:73
-#: utils/pdf/ProtocolConverter.java:384
+#: utils/pdf/ProtocolConverter.java:403
 #: view/forms/ActivityEditorForm.java:397
 #: view/forms/ActivityViewerForm.java:123
 #: view/models/ActivityTableModel.java:28
@@ -591,7 +591,7 @@ msgstr "Einsender"
 #: model/models/Activity.java:184
 #: model/models/Contract.java:64
 #: model/models/Contract.java:167
-#: utils/pdf/ProtocolConverter.java:383
+#: utils/pdf/ProtocolConverter.java:402
 #: view/forms/ActivityEditorForm.java:405
 #: view/forms/ActivityViewerForm.java:131
 #: view/forms/ContractEditorForm.java:251
@@ -603,7 +603,7 @@ msgid "Type"
 msgstr "Typ"
 
 #: model/models/Activity.java:73
-#: utils/pdf/ProtocolConverter.java:384
+#: utils/pdf/ProtocolConverter.java:403
 #: view/forms/ActivityEditorForm.java:389
 #: view/forms/ActivityViewerForm.java:115
 #: view/models/ActivityTableModel.java:28
@@ -612,7 +612,7 @@ msgid "Processor"
 msgstr "Bearbeiter"
 
 #: model/models/Activity.java:74
-#: utils/pdf/ProtocolConverter.java:383
+#: utils/pdf/ProtocolConverter.java:402
 #: view/forms/ActivityEditorForm.java:429
 #: view/forms/ActivityViewerForm.java:155
 #: view/models/ActivityTableModel.java:29
@@ -719,8 +719,8 @@ msgstr "Bezeichnung"
 
 #: model/models/Course.java:87
 #: model/models/Course.java:91
-#: utils/pdf/BalanceReportConverter.java:396
-#: utils/pdf/BudgetReportConverter.java:365
+#: utils/pdf/BalanceReportConverter.java:417
+#: utils/pdf/BudgetReportConverter.java:386
 #: view/forms/CourseEditorForm.java:258
 #: view/forms/CourseViewerForm.java:107
 #: view/models/CourseTableModel.java:26
@@ -732,12 +732,12 @@ msgid "Semester"
 msgstr "Semester"
 
 #: model/models/Course.java:87
-#: utils/pdf/BalanceReportConverter.java:562
-#: utils/pdf/BudgetReportConverter.java:365
+#: utils/pdf/BalanceReportConverter.java:583
+#: utils/pdf/BudgetReportConverter.java:386
 #: view/forms/CourseEditorForm.java:266
 #: view/forms/CourseViewerForm.java:115
 #: view/models/CourseTableModel.java:27
-#: view/reports/BalanceReportGroupPanel.java:35
+#: view/reports/BalanceReportGroupPanel.java:36
 #: view/tabs/BalanceViewerTab.java:98
 #: view/tabs/BalanceViewerTab.java:198
 #: view/tabs/BudgetViewerTab.java:50
@@ -747,11 +747,11 @@ msgid "Lecturer"
 msgstr "Dozent"
 
 #: model/models/Course.java:87
-#: utils/pdf/BalanceReportConverter.java:595
+#: utils/pdf/BalanceReportConverter.java:616
 #: view/forms/CourseEditorForm.java:369
 #: view/forms/CourseViewerForm.java:187
 #: view/models/CourseTableModel.java:29
-#: view/reports/BalanceReportGroupPanel.java:171
+#: view/reports/BalanceReportGroupPanel.java:180
 #: view/tabs/BalanceViewerTab.java:97
 #: view/tabs/BalanceViewerTab.java:194
 msgid "Group"
@@ -917,6 +917,14 @@ msgstr "Datei konnte nicht erstellt werden."
 msgid "Please close all processes that are using the file."
 msgstr "Bitte schließen Sie alle Prozesse, die die Datei benutzen."
 
+#: utils/pdf/ActivityReportConverter.java:281
+#: utils/pdf/BalanceReportConverter.java:351
+#: utils/pdf/BudgetReportConverter.java:288
+#: utils/pdf/ControllingConverter.java:277
+#: utils/pdf/ProtocolConverter.java:349
+msgid "Generated by: "
+msgstr "Generiert von:"
+
 #: utils/pdf/BalanceReportConverter.java:126
 msgid "Full balance report"
 msgstr "Bilanzbericht - Gesamt"
@@ -936,59 +944,59 @@ msgstr "Bericht der Semesterbilanz"
 msgid "Author"
 msgstr "Autor"
 
-#: utils/pdf/BalanceReportConverter.java:335
-#: utils/pdf/BudgetReportConverter.java:272
-#: utils/pdf/ControllingConverter.java:261
-#: utils/pdf/ProtocolConverter.java:333
+#: utils/pdf/BalanceReportConverter.java:337
+#: utils/pdf/BudgetReportConverter.java:274
+#: utils/pdf/ControllingConverter.java:263
+#: utils/pdf/ProtocolConverter.java:335
 msgid "Page"
 msgstr "Seite"
 
-#: utils/pdf/BalanceReportConverter.java:336
-#: utils/pdf/BudgetReportConverter.java:273
-#: utils/pdf/ControllingConverter.java:262
-#: utils/pdf/ProtocolConverter.java:334
+#: utils/pdf/BalanceReportConverter.java:338
+#: utils/pdf/BudgetReportConverter.java:275
+#: utils/pdf/ControllingConverter.java:264
+#: utils/pdf/ProtocolConverter.java:336
 msgid "of"
 msgstr "von"
 
-#: utils/pdf/BalanceReportConverter.java:562
-#: view/reports/BalanceReportGroupPanel.java:35
+#: utils/pdf/BalanceReportConverter.java:583
+#: view/reports/BalanceReportGroupPanel.java:36
 msgid "Title"
 msgstr "Titel"
 
-#: utils/pdf/BalanceReportConverter.java:562
+#: utils/pdf/BalanceReportConverter.java:583
 #: view/forms/CourseEditorForm.java:361
 #: view/forms/CourseViewerForm.java:179
 #: view/models/CourseTableModel.java:29
-#: view/reports/BalanceReportGroupPanel.java:35
+#: view/reports/BalanceReportGroupPanel.java:36
 msgid "Part"
 msgstr "Teil"
 
-#: utils/pdf/BalanceReportConverter.java:563
+#: utils/pdf/BalanceReportConverter.java:584
 #: view/forms/CourseEditorForm.java:290
 #: view/forms/CourseViewerForm.java:139
 #: view/models/CourseTableModel.java:28
-#: view/reports/BalanceReportGroupPanel.java:36
+#: view/reports/BalanceReportGroupPanel.java:37
 #: view/tabs/BalanceViewerTab.java:99
 msgid "Target Audience"
 msgstr "Zielpublikum"
 
-#: utils/pdf/BalanceReportConverter.java:563
-#: view/reports/BalanceReportGroupPanel.java:36
+#: utils/pdf/BalanceReportConverter.java:584
+#: view/reports/BalanceReportGroupPanel.java:37
 msgid "Planned AWS"
 msgstr "Eingeplante HKS"
 
-#: utils/pdf/BalanceReportConverter.java:563
-#: view/reports/BalanceReportGroupPanel.java:36
+#: utils/pdf/BalanceReportConverter.java:584
+#: view/reports/BalanceReportGroupPanel.java:37
 msgid "Basic needed AWS"
 msgstr "HKS Grundbedarf"
 
-#: utils/pdf/BalanceReportConverter.java:574
-#: view/reports/BalanceReportGroupPanel.java:142
+#: utils/pdf/BalanceReportConverter.java:595
+#: view/reports/BalanceReportGroupPanel.java:151
 msgid "Budget costs from"
 msgstr "Budget-kosten von"
 
-#: utils/pdf/BalanceReportConverter.java:635
-#: view/reports/BalanceReportGroupPanel.java:68
+#: utils/pdf/BalanceReportConverter.java:656
+#: view/reports/BalanceReportGroupPanel.java:69
 msgid "Sum"
 msgstr "Summe"
 
@@ -996,7 +1004,7 @@ msgstr "Summe"
 msgid "Budget report"
 msgstr "Budgetbericht"
 
-#: utils/pdf/BudgetReportConverter.java:366
+#: utils/pdf/BudgetReportConverter.java:387
 #: view/forms/CourseViewerForm.java:155
 #: view/tabs/BudgetViewerTab.java:51
 #: view/tabs/BudgetViewerTab.java:78
@@ -1005,14 +1013,14 @@ msgstr "Budgetbericht"
 msgid "Booked budgets"
 msgstr "Gebuchte HKS"
 
-#: utils/pdf/BudgetReportConverter.java:366
+#: utils/pdf/BudgetReportConverter.java:387
 #: view/tabs/BudgetViewerTab.java:52
 #: view/tabs/BudgetViewerTab.java:79
-#: view/tabs/BudgetViewerTab.java:165
+#: view/tabs/BudgetViewerTab.java:169
 msgid "Available budgets"
 msgstr "Verfügbare HKS"
 
-#: utils/pdf/BudgetReportConverter.java:367
+#: utils/pdf/BudgetReportConverter.java:388
 msgid "Total Budgets"
 msgstr "Verfügbare HKS"
 
@@ -1020,16 +1028,16 @@ msgstr "Verfügbare HKS"
 msgid "Controlling report"
 msgstr "Controlling Bericht"
 
-#: utils/pdf/ControllingConverter.java:311
+#: utils/pdf/ControllingConverter.java:330
 msgid "Planned costs(pre-tax)"
 msgstr "Plankosten (Brutto)"
 
-#: utils/pdf/ControllingConverter.java:311
+#: utils/pdf/ControllingConverter.java:330
 msgid "Actual costs(pre-tax)"
 msgstr "Reale Kosten (Brutto)"
 
-#: utils/pdf/ControllingConverter.java:312
-#: utils/pdf/ProtocolConverter.java:384
+#: utils/pdf/ControllingConverter.java:331
+#: utils/pdf/ProtocolConverter.java:403
 #: view/forms/ActivityEditorForm.java:421
 #: view/forms/ActivityViewerForm.java:147
 #: view/forms/CourseEditorForm.java:377
@@ -1049,12 +1057,12 @@ msgstr "Bemerkung"
 msgid "Activity Protocol"
 msgstr "Vorgangsprotokoll"
 
-#: utils/pdf/ProtocolConverter.java:382
+#: utils/pdf/ProtocolConverter.java:401
 #: view/tabs/ProtocolViewerTab.java:40
 msgid "Affected assistant"
 msgstr "Betroffene Hilfskraft"
 
-#: utils/pdf/ProtocolConverter.java:383
+#: utils/pdf/ProtocolConverter.java:402
 #: view/tabs/ProtocolViewerTab.java:40
 msgid "Affected course"
 msgstr "Betroffene Veranstaltung"
@@ -1185,7 +1193,6 @@ msgid "Scope"
 msgstr "Umfang"
 
 #: view/forms/CourseViewerForm.java:163
-#: view/tabs/BudgetViewerTab.java:169
 msgid "Total budgets"
 msgstr "Gesamt verfügbare HKS"
 
@@ -1354,6 +1361,7 @@ msgstr "Filter"
 
 #: view/tabs/BudgetViewerTab.java:51
 #: view/tabs/BudgetViewerTab.java:78
+#: view/tabs/BudgetViewerTab.java:165
 #: view/tabs/WelcomeTab.java:261
 msgid "Remaining budgets"
 msgstr "Übrige HKS"
@@ -1369,10 +1377,6 @@ msgstr "Plankosten (Brutto)"
 #: view/tabs/ControllingViewerTab.java:41
 msgid "Actual costs (pre-tax)"
 msgstr "Reale Kosten (Brutto)"
-
-#: view/tabs/ControllingViewerTab.java:101
-msgid "Wrong format!"
-msgstr "Falsche Format!"
 
 #: view/tabs/ControllingViewerTab.java:445
 msgid "Assistant controlling"
@@ -1812,6 +1816,8 @@ msgstr "Das Model konnte nicht aus der Datenbank geholt werden"
 msgid "No data to display."
 msgstr "Keine Daten vorhanden."
 
+#~ msgid "Wrong format!"
+#~ msgstr "Falsche Format!"
 #~ msgid "No initials entered"
 #~ msgstr "Keine Initialen eingegeben"
 #~ msgid "Initials:"
