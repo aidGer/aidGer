@@ -174,6 +174,7 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
         contentPanel = new javax.swing.JPanel();
         contentTable = new javax.swing.JTable();
 
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         setLayout(new java.awt.BorderLayout(0, 5));
 
         groupNameLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
