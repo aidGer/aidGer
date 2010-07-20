@@ -22,6 +22,8 @@ import javax.swing.JTextField;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.view.utils.HelpLabel;
 import de.aidger.view.utils.InputPatternFilter;
+import de.aidger.view.utils.InvalidLengthException;
+import de.aidger.view.utils.UIFund;
 
 /**
  * A form used for editing / creating new financial categories.
@@ -53,7 +55,7 @@ public class FinancialCategoryEditorForm extends JPanel {
                 addNewFunds();
 
                 FundsLine fl = fundsLines.get(i);
-                fl.cmbFunds.setSelectedItem(String.valueOf(fc.getFunds()[i]));
+                fl.cmbFunds.setSelectedItem(UIFund.valueOf(fc.getFunds()[i]));
                 fl.txtBudgetCosts.setText(String
                     .valueOf(fc.getBudgetCosts()[i]));
             }
@@ -107,13 +109,19 @@ public class FinancialCategoryEditorForm extends JPanel {
      * 
      * @return The funds of the category
      * @throws NumberFormatException
+     *             InvaludLengthException
      */
-    public Integer[] getFunds() throws NumberFormatException {
+    public Integer[] getFunds() throws NumberFormatException,
+            InvalidLengthException {
         Integer[] funds = new Integer[fundsLines.size()];
 
         for (int i = 0; i < fundsLines.size(); ++i) {
-            funds[i] = Integer.valueOf((String) fundsLines.get(i).cmbFunds
-                .getSelectedItem());
+            String fund = (String) fundsLines.get(i).cmbFunds.getSelectedItem();
+            funds[i] = Integer.valueOf(fund);
+
+            if (fund.length() != 8) {
+                throw new InvalidLengthException();
+            }
         }
 
         return funds;

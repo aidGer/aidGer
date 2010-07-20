@@ -48,6 +48,8 @@ import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
 import de.aidger.view.tabs.ViewerTab.DataType;
+import de.aidger.view.utils.InvalidLengthException;
+import de.aidger.view.utils.UIFund;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
@@ -196,6 +198,8 @@ public class EditorSaveAction extends AbstractAction {
         } catch (NumberFormatException e) {
             fc.addError("funds", _("Funds"), new PresenceValidator(fc,
                 new String[0], new String[0]).getMessage());
+        } catch (InvalidLengthException e) {
+            fc.addError("funds", _("Funds"), _("has to have a length of 8"));
         }
 
         try {
@@ -681,7 +685,7 @@ public class EditorSaveAction extends AbstractAction {
                     .displayInfo(MessageFormat
                         .format(
                             _("The budget costs limit for funds {0} in financial category {1} is exceeded ({2}€ / {3}€). The employments were created anyway."),
-                            new Object[] { String.valueOf(funds),
+                            new Object[] { UIFund.valueOf(funds),
                                     new UIFinancialCategory(fc).toString(),
                                     round(bookedBudgetCosts, 2),
                                     round(maxBudgetCosts, 2) }));

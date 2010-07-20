@@ -7,10 +7,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -41,6 +41,7 @@ import de.aidger.view.utils.AutoCompletion;
 import de.aidger.view.utils.HelpLabel;
 import de.aidger.view.utils.InputNumberFilter;
 import de.aidger.view.utils.InputPatternFilter;
+import de.aidger.view.utils.UIFund;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.IContract;
@@ -195,7 +196,7 @@ public class EmploymentEditorForm extends JPanel {
             addNewDate();
 
             if (editMode) {
-                cmbFunds.setSelectedItem(String.valueOf(employment.getFunds()));
+                cmbFunds.setSelectedItem(UIFund.valueOf(employment.getFunds()));
                 txtCostUnit.setText(employment.getCostUnit());
                 cmbQualification.setSelectedItem(Qualification
                     .valueOf(employment.getQualification()));
@@ -251,7 +252,7 @@ public class EmploymentEditorForm extends JPanel {
             cmbFundsModel.removeAllElements();
 
             for (int funds : fc.getFunds()) {
-                cmbFundsModel.addElement(String.valueOf(funds));
+                cmbFundsModel.addElement(UIFund.valueOf(funds));
             }
         } catch (AdoHiveException e) {
         }

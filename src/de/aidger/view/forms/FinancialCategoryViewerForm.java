@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import de.aidger.model.models.FinancialCategory;
+import de.aidger.view.utils.UIFund;
 
 /**
  * A form used for viewing financial categories.
@@ -32,7 +33,7 @@ public class FinancialCategoryViewerForm extends JPanel {
         year.setText(String.valueOf(fc.getYear()));
 
         for (int i = 0; i < fc.getFunds().length; ++i) {
-            addNewFunds(String.valueOf(fc.getFunds()[i]), String.valueOf(fc
+            addNewFunds(UIFund.valueOf(fc.getFunds()[i]), String.valueOf(fc
                 .getBudgetCosts()[i]));
         }
     }
