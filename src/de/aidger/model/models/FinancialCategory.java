@@ -134,13 +134,6 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
             }
         }
 
-        for (int f : funds) {
-            if (String.valueOf(f).length() != 8) {
-                addError("funds", _("Funds"), _("has to have a length of 8"));
-                ret = false;
-            }
-        }
-
         return ret;
     }
 

@@ -13,6 +13,7 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.utils.Logger;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
+import de.aidger.view.utils.UIFund;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.IContract;
@@ -84,7 +85,8 @@ public class EmploymentTableModel extends TableModel {
             return new Object[] { employment.getId(),
                     new UIAssistant(assistant), new UICourse(course),
                     new UIContract(contract), cal.getTime(),
-                    employment.getHourCount(), employment.getFunds(),
+                    employment.getHourCount(),
+                    UIFund.valueOf(employment.getFunds()),
                     employment.getCostUnit(),
                     Qualification.valueOf(employment.getQualification()),
                     employment.getRemark() };
@@ -103,7 +105,7 @@ public class EmploymentTableModel extends TableModel {
     @Override
     public Class<?> getColumnClass(int column) {
         // sort specific columns properly
-        if (column == 0 || column == 5 || column == 6) {
+        if (column == 0 || column == 5) {
             return Integer.class;
         } else if (column == 4) {
             return Date.class;
