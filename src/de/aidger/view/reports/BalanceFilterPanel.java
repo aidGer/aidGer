@@ -80,33 +80,32 @@ public class BalanceFilterPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        removeFilterButton = new javax.swing.JButton();
         filterNameDescriptionLabel = new javax.swing.JLabel();
         filterNameLabel = new javax.swing.JLabel();
         filterLabel = new javax.swing.JLabel();
         budgetFilterLabel = new javax.swing.JLabel();
-        removeFilterButton = new javax.swing.JButton();
 
         setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        filterNameDescriptionLabel.setText(_("Filter") + ":");
-        add(filterNameDescriptionLabel);
-
-        filterNameLabel.setText("");
-        add(filterNameLabel);
-
-        filterLabel.setText("");
-        add(filterLabel);
-        add(budgetFilterLabel);
-
         removeFilterButton.setIcon(new ImageIcon(getClass().getResource(
             "/de/aidger/view/icons/minus-small.png")));
-        removeFilterButton
-            .addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    removeFilterButtonActionPerformed(evt);
-                }
-            });
-        add(removeFilterButton);
+removeFilterButton.addActionListener(new java.awt.event.ActionListener() {
+    public void actionPerformed(java.awt.event.ActionEvent evt) {
+        removeFilterButtonActionPerformed(evt);
+    }
+    });
+    add(removeFilterButton);
+
+    filterNameDescriptionLabel.setText(_("Filter") + ":");
+    add(filterNameDescriptionLabel);
+
+    filterNameLabel.setText("");
+    add(filterNameLabel);
+
+    filterLabel.setText("");
+    add(filterLabel);
+    add(budgetFilterLabel);
     }// </editor-fold>//GEN-END:initComponents
 
     private void removeFilterButtonActionPerformed(

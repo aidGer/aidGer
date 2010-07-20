@@ -18,6 +18,16 @@
     <Property name="alignment" type="int" value="0"/>
   </Layout>
   <SubComponents>
+    <Component class="javax.swing.JButton" name="removeFilterButton">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new ImageIcon(getClass().getResource(&#xd;&#xa;                &quot;/de/aidger/view/icons/minus-small.png&quot;))" type="code"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeFilterButtonActionPerformed"/>
+      </Events>
+    </Component>
     <Component class="javax.swing.JLabel" name="filterNameDescriptionLabel">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -40,16 +50,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="budgetFilterLabel">
-    </Component>
-    <Component class="javax.swing.JButton" name="removeFilterButton">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new ImageIcon(getClass().getResource(&#xd;&#xa;                &quot;/de/aidger/view/icons/minus-small.png&quot;))" type="code"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeFilterButtonActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>
