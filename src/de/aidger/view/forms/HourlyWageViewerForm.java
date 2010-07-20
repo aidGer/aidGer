@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import de.aidger.model.models.HourlyWage;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
+import de.aidger.view.utils.NumberFormat;
 
 /**
  * A form used for viewing hourly wages.
@@ -35,7 +36,8 @@ public class HourlyWageViewerForm extends JPanel {
         cal.set(Calendar.YEAR, hw.getYear());
         date.setText(new SimpleDateFormat("MM.yyyy").format(cal.getTime()));
 
-        wage.setText(String.valueOf(hw.getWage()));
+        wage
+            .setText(NumberFormat.getInstance().format(hw.getWage()) + "\u20ac");
     }
 
     /**

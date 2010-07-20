@@ -2,7 +2,6 @@ package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
 
-import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.List;
 
@@ -15,8 +14,8 @@ import de.aidger.view.models.ComboBoxModel;
 import de.aidger.view.models.GenericListModel;
 import de.aidger.view.models.UIFinancialCategory;
 import de.aidger.view.tabs.ViewerTab.DataType;
-import de.aidger.view.utils.InputNumberFilter;
 import de.aidger.view.utils.InputPatternFilter;
+import de.aidger.view.utils.NumberFormat;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 
@@ -39,7 +38,7 @@ public class CourseEditorForm extends JPanel {
         initComponents();
 
         // add input filters
-        InputNumberFilter.addFilter(txtAWHperGroup);
+        InputPatternFilter.addDoubleFilter(txtAWHperGroup);
         InputPatternFilter.addFilter(txtPart, ".?");
         InputPatternFilter.addFilter(txtSemester,
             "([0-9]{0,4})|(WS?|WS[0-9]{0,4})|(SS?|SS[0-9]{0,2})");

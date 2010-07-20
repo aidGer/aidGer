@@ -105,10 +105,12 @@ public class EmploymentTableModel extends TableModel {
     @Override
     public Class<?> getColumnClass(int column) {
         // sort specific columns properly
-        if (column == 0 || column == 5) {
+        if (column == 0) {
             return Integer.class;
         } else if (column == 4) {
             return Date.class;
+        } else if (column == 5) {
+            return Double.class;
         }
 
         return super.getColumnClass(column);

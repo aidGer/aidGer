@@ -9,6 +9,7 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.Logger;
 import de.aidger.view.models.UIFinancialCategory;
+import de.aidger.view.utils.NumberFormat;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 
@@ -35,13 +36,14 @@ public class CourseViewerForm extends JPanel {
         advisor.setText(course.getAdvisor());
         targetAudience.setText(course.getTargetAudience());
         numberOfGroups.setText(String.valueOf(course.getNumberOfGroups()));
-        AWHperGroup.setText(String.valueOf(course.getUnqualifiedWorkingHours())
+        AWHperGroup.setText(NumberFormat.getInstance().format(
+            course.getUnqualifiedWorkingHours())
                 + "h");
-        bookedBudget.setText(String.valueOf((new CourseBudget(course))
-            .getBookedBudget())
+        bookedBudget.setText(NumberFormat.getInstance().format(
+            (new CourseBudget(course)).getBookedBudget())
                 + "h");
-        totalBudget.setText(String.valueOf(course.getNumberOfGroups()
-                * course.getUnqualifiedWorkingHours())
+        totalBudget.setText(NumberFormat.getInstance().format(
+            course.getNumberOfGroups() * course.getUnqualifiedWorkingHours())
                 + "h");
         scope.setText(course.getScope());
         part.setText(String.valueOf(course.getPart()));

@@ -68,7 +68,7 @@ public class FinancialCategoryViewerForm extends JPanel {
         gridBagConstraints.insets = new Insets(10, 10, 10, 10);
         add(lblBudgetCosts, gridBagConstraints);
 
-        JLabel budgetCosts = new JLabel(budgetCostsStr);
+        JLabel budgetCosts = new JLabel(budgetCostsStr + "\u20ac");
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;

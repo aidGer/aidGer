@@ -2,7 +2,6 @@ package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
 
-import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
@@ -11,7 +10,8 @@ import javax.swing.JPanel;
 
 import de.aidger.model.models.HourlyWage;
 import de.aidger.view.tabs.EditorTab;
-import de.aidger.view.utils.InputNumberFilter;
+import de.aidger.view.utils.InputPatternFilter;
+import de.aidger.view.utils.NumberFormat;
 
 /**
  * A form used for editing / creating new hourly wages.
@@ -60,7 +60,7 @@ public class HourlyWageEditorForm extends JPanel {
         initComponents();
 
         // add input filters
-        InputNumberFilter.addFilter(txtWage);
+        InputPatternFilter.addCurrencyFilter(txtWage);
 
         hlpWage.setToolTipText(_("Only a valid currency format is allowed."));
 

@@ -5,7 +5,6 @@ import static de.aidger.utils.Translation._;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -39,8 +38,8 @@ import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.AutoCompletion;
 import de.aidger.view.utils.HelpLabel;
-import de.aidger.view.utils.InputNumberFilter;
 import de.aidger.view.utils.InputPatternFilter;
+import de.aidger.view.utils.NumberFormat;
 import de.aidger.view.utils.UIFund;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
@@ -402,7 +401,7 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtHourCount, gridBagConstraints);
 
-        InputNumberFilter.addFilter(txtHourCount);
+        InputPatternFilter.addDoubleFilter(txtHourCount);
 
         HelpLabel hlpHourCount = new HelpLabel();
         gridBagConstraints = new GridBagConstraints();
