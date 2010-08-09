@@ -1,0 +1,7 @@
+CHANGES IN VERSION 0.2:
+    * [FIX] Funds with leading zeros are possible now
+    * [FIX] Number format for double and currency fields
+    * [CHANGE] Moved the button to remove filters to the left of the filter data
+
+CHANGES IN VERSION 0.1:
+    * Initial release
