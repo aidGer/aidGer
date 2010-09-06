@@ -13,9 +13,16 @@ import de.aidger.controller.actions.DialogAbortAction;
 import de.aidger.controller.actions.SettingsSaveAction;
 import de.aidger.controller.actions.SettingsBrowseAction;
 import de.aidger.model.Runtime;
-import de.aidger.view.utils.InputPatternFilter;
 import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
+import java.awt.Component;
+import java.io.File;
+import java.lang.Object;
+import java.net.URL;
 import javax.swing.ButtonModel;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.ListCellRenderer;
 
 public class SettingsDialog extends JDialog {
 
@@ -96,16 +103,37 @@ public class SettingsDialog extends JDialog {
         /* Add all languages to the combobox and select the correct one */
         List<Pair<String, String>> langs = Runtime.getInstance().getLanguages();
         String[] longLangs = new String[langs.size()];
+        String[] indexes = new String[langs.size()];
+        ImageIcon[] icons = new ImageIcon[langs.size()];
         int selected = -1;
 
+        /* Prepare an array of the long names, indexes and icons for usage in 
+         * the combobox.
+         */
         for (int i = 0; i < langs.size(); ++i) {
+            indexes[i] = Integer.toString(i);
             longLangs[i] = langs.get(i).snd();
             if (langs.get(i).fst().equals(lang)) {
                 selected = i;
             }
+
+            Object stream;
+            File f;
+            if ((stream = getClass().getResource(
+                    "/de/aidger/res/icons/" + langs.get(i).fst() + ".png"))
+                    != null) {
+                icons[i] = new ImageIcon((URL)stream);
+            } else if ((f = new File(Runtime.getInstance().getConfigPath() + "/lang/"
+                    + langs.get(i).fst() + ".png")).exists()) {
+                icons[i] = new ImageIcon(f.getAbsolutePath());
+            } else {
+                icons[i] = null;
+            }
         }
 
-        langComboBox.setModel(new javax.swing.DefaultComboBoxModel(longLangs));
+        ImageComboBoxRenderer renderer = new ImageComboBoxRenderer(icons, longLangs);
+        langComboBox.setRenderer(renderer);
+        langComboBox.setModel(new javax.swing.DefaultComboBoxModel(indexes));
         langComboBox.setSelectedIndex(selected);
 
         setLocationRelativeTo(null);
@@ -450,4 +478,51 @@ public class SettingsDialog extends JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+    class ImageComboBoxRenderer extends JLabel
+            implements ListCellRenderer {
+
+        protected ImageIcon[] images;
+        protected String[] text;
+
+        public ImageComboBoxRenderer(ImageIcon[] images, String[] text) {
+            setOpaque(true);
+            setHorizontalAlignment(LEFT);
+            setVerticalAlignment(CENTER);
+
+            this.images = images;
+            this.text = text;
+        }
+
+        /*
+         * This method finds the image and text corresponding
+         * to the selected value and returns the label, set up
+         * to display the text and image.
+         */
+        public Component getListCellRendererComponent(
+                                           JList list,
+                                           Object value,
+                                           int index,
+                                           boolean isSelected,
+                                           boolean cellHasFocus) {
+            index = Integer.parseInt((String) value);
+
+            if (isSelected) {
+                setBackground(list.getSelectionBackground());
+                setForeground(list.getSelectionForeground());
+            } else {
+                setBackground(list.getBackground());
+                setForeground(list.getForeground());
+            }
+
+            //Set the icon and text.  If icon is null, do nothing.
+            if (index >= 0) {
+                setIcon(images[index]);
+            }
+
+            setText(text[index]);
+            return this;
+        }
+
+    }
 }
