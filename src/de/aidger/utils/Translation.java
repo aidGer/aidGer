@@ -54,7 +54,7 @@ public class Translation {
         /* Load the language file */
         InputStream inputStream = null;
 
-        if (!language.isEmpty()) {
+        if (!language.isEmpty() && !language.equals("en")) {
             /* Check first in .jar */
             String jarfile = Runtime.getInstance().getJarLocation();
             if (jarfile.endsWith(".jar")) {
@@ -85,7 +85,7 @@ public class Translation {
             /* Instanciate the selected locale and set it as the default for the jvm */
             Locale def = new Locale(language);
             Locale.setDefault(def);
-        } else {
+        } else if (language.isEmpty()) {
             Runtime.getInstance().setOption("language", "en");
         }
     }
@@ -115,7 +115,7 @@ public class Translation {
      * 
      * @return The list of all installed languages
      */
-    public List<Pair<String, String>> getLanguages() {
+    public static List<Pair<String, String>> getLanguages() {
         List<Pair<String, String>> list = new ArrayList<Pair<String, String>>();
 
         /* Add English as standard language */
@@ -141,7 +141,8 @@ public class Translation {
         }
 
         /* Search all files in the lang directory and add them */
-        File[] files = (new File(filePath)).listFiles();
+        File[] files = (new File(Runtime.getInstance().getConfigPath() +
+                "lang/")).listFiles();
         if (files != null) {
             for (File file : files) {
                 String filename = file.getName();

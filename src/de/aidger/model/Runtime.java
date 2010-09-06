@@ -12,6 +12,7 @@ import de.aidger.utils.Logger;
 import de.aidger.utils.Translation;
 import de.aidger.view.UI;
 import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
+import java.util.Locale;
 
 /**
  * Initializes Configuration and Translation and relays the methods
@@ -108,6 +109,8 @@ public final class Runtime {
 
         if (!file.exists() || !file.isDirectory()) {
             firstStart = true;
+
+            /* Create the aidGer configuration directory. */
             if (!file.mkdirs()) {
                   UI.displayError(MessageFormat.format(
                         "Could not create directory \"{0}\".\n" +
@@ -115,11 +118,42 @@ public final class Runtime {
                         new Object[] { file.getPath() }));
                 System.exit(-1);
             }
+
+
         }
 
         configuration = new Configuration();
 
-        translation = new Translation(configuration.get("language"));
+        /* Use the detected language on first start */
+        if (firstStart || configuration.get("language") == null || 
+                configuration.get("language").isEmpty()) {
+
+            /* Get the default language code and use it */
+            Locale loc = Locale.getDefault();
+            String language = loc.getLanguage();
+            if (language.isEmpty()) {
+                configuration.set("language", "en");
+            } else {
+                configuration.set("language", language);
+            }
+        }
+
+        /* Check if the translation is really available and fall back to default */
+        String language = configuration.get("language");
+        boolean langFound = false;
+        for (Pair<String, String> pair : Translation.getLanguages()) {
+            if (pair.fst().equals(language)) {
+                langFound = true;
+                break;
+            }
+        }
+
+        if (langFound) {
+            translation = new Translation(language);
+        } else {
+            configuration.set("language", "en");
+            translation = new Translation("en");
+        }
 
         /* Check if an instance of aidGer is already running */
         if (!Boolean.valueOf(getOption("debug")) && !checkLock()) {
