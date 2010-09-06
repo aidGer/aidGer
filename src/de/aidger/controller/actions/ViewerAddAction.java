@@ -26,7 +26,7 @@ public class ViewerAddAction extends AbstractAction {
     public ViewerAddAction() {
         putValue(Action.NAME, _("Add"));
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/plus.png")));
+                "/de/aidger/res/icons/plus.png")));
     }
 
     /*

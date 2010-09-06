@@ -22,7 +22,7 @@ public class HelpLabel extends JLabel {
      */
     public HelpLabel() {
         setIcon(new ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/question-large.png")));
+            "/de/aidger/res/icons/question-large.png")));
     }
 
     /*

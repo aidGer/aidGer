@@ -59,7 +59,7 @@ public class Translation {
             String jarfile = Runtime.getInstance().getJarLocation();
             if (jarfile.endsWith(".jar")) {
                 inputStream = getClass().getClassLoader().getResourceAsStream(
-                    "de/aidger/lang/" + language + ".properties");
+                    "/de/aidger/res/lang/" + language + ".properties");
             }
 
             /* After that check in filesystem */
@@ -130,7 +130,7 @@ public class Translation {
             while (ress.hasMoreElements()) {
                 JarEntry je = (JarEntry) ress.nextElement();
 
-                if (je.getName().matches("de/aidger/lang/[a-z]+.properties")) {
+                if (je.getName().matches("de/aidger/res/lang/[a-z]+.properties")) {
                     int idx = je.getName().indexOf(".properties");
                     String lang = je.getName().substring(idx - 2, idx);
                     list.add(new Pair<String, String>(lang, new Locale(lang)

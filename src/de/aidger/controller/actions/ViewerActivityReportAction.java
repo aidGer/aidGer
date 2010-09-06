@@ -27,7 +27,7 @@ public class ViewerActivityReportAction extends AbstractAction {
     public ViewerActivityReportAction() {
         putValue(Action.NAME, _("Activity Report"));
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/report.png")));
+            "/de/aidger/res/icons/report.png")));
     }
 
     /*

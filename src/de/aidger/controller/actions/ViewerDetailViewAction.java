@@ -29,7 +29,7 @@ public class ViewerDetailViewAction extends AbstractAction implements
     public ViewerDetailViewAction() {
         putValue(Action.NAME, _("View"));
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/property.png")));
+            "/de/aidger/res/icons/property.png")));
     }
 
     /**

@@ -78,7 +78,7 @@ public class EmploymentEditorForm extends JPanel {
         initComponents();
 
         btnContractAdd.setIcon(new ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/plus-small.png")));
+            "/de/aidger/res/icons/plus-small.png")));
         btnContractAdd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 Tab current = UI.getInstance().getCurrentTab();
@@ -424,7 +424,7 @@ public class EmploymentEditorForm extends JPanel {
             EditorTab.setTimeToNow(spDate);
 
             btnPlusMinus.setIcon(new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/plus-small.png")));
+                "/de/aidger/res/icons/plus-small.png")));
 
             gridBagConstraints.gridy = 4;
 
@@ -679,7 +679,7 @@ public class EmploymentEditorForm extends JPanel {
          */
         public RemoveDateAction(DateLine dateLine) {
             putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/minus-small.png")));
+                "/de/aidger/res/icons/minus-small.png")));
 
             this.dateLine = dateLine;
         }

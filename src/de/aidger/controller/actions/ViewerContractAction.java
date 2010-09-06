@@ -30,7 +30,7 @@ public class ViewerContractAction extends AbstractAction {
     public ViewerContractAction() {
         putValue(Action.NAME, _("Contract"));
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/document-text.png")));
+                "/de/aidger/res/icons/document-text.png")));
     }
 
     /*

@@ -8,6 +8,7 @@ build.xml
 build/*
 manifest.mf
 nbproject/*
+dist/*
 
 # Code Coverage
 coverage/*

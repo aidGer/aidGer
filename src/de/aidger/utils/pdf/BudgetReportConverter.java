@@ -205,7 +205,7 @@ public class BudgetReportConverter {
                 left.setVerticalAlignment(Element.ALIGN_BOTTOM);
                 left.setBorder(Rectangle.BOTTOM);
                 Image img = Image.getInstance(getClass().getResource(
-                    "/de/aidger/pdf/UniLogo.jpg"));
+                    "/de/aidger/res/pdf/UniLogo.jpg"));
                 img.scaleAbsoluteWidth(150.0f);
                 left.addElement(img);
 
@@ -280,7 +280,7 @@ public class BudgetReportConverter {
                 table.writeSelectedRows(0, -1, document.leftMargin(), 50,
                     writer.getDirectContent());
                 Image aidger = Image.getInstance(getClass().getResource(
-                    "/de/aidger/pdf/AidgerLogo.png"));
+                    "/de/aidger/res/pdf/AidgerLogo.png"));
                 aidger.scaleAbsolute(80.0f, 20.0f);
                 table = new PdfPTable(2);
                 table.setTotalWidth(writer.getPageSize().getRight()

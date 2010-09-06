@@ -30,7 +30,7 @@ public class ControllingGenerateAction extends AbstractAction {
         putValue(Action.SHORT_DESCRIPTION, _("Generate the controlling report"));
 
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/calculator.png")));
+            "/de/aidger/res/icons/calculator.png")));
     }
 
     /*

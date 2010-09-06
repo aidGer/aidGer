@@ -186,7 +186,7 @@ public class ActivityReportConverter {
     private void makeNewDocument(File file) {
         try {
             reader = new PdfReader(getClass().getResource(
-                "/de/aidger/pdf/ActivityReportTemplate.pdf"));
+                "/de/aidger/res/pdf/ActivityReportTemplate.pdf"));
 
             stamper = new PdfStamper(reader, new FileOutputStream(file));
             fileCreated = true;
@@ -212,7 +212,7 @@ public class ActivityReportConverter {
             Font generatedByFont = new Font(BaseFont.createFont(
                 BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 8);
             img = Image.getInstance(getClass().getResource(
-                "/de/aidger/pdf/UniLogo.jpg"));
+                "/de/aidger/res/pdf/UniLogo.jpg"));
             float xPos = 50, yPos = 750, width = 75, height = 75;
             if (form.getFieldPositions("UniLogo") != null) {
                 FieldPosition position = form.getFieldPositions("UniLogo").get(
@@ -227,7 +227,7 @@ public class ActivityReportConverter {
             contentByte.addImage(img);
 
             img = Image.getInstance(getClass().getResource(
-                "/de/aidger/pdf/IviLogo.gif"));
+                "/de/aidger/res/pdf/IviLogo.gif"));
             xPos = 250;
             yPos = 750;
             width = 100;
@@ -273,7 +273,7 @@ public class ActivityReportConverter {
             sender.setTotalWidth(width);
             sender.writeSelectedRows(0, -1, xPos, yPos, contentByte);
             Image aidger = Image.getInstance(getClass().getResource(
-                "/de/aidger/pdf/AidgerLogo.png"));
+                "/de/aidger/res/pdf/AidgerLogo.png"));
             aidger.scaleAbsolute(80.0f, 20.0f);
             PdfPTable table = new PdfPTable(2);
             table.setTotalWidth(reader.getPageSize(1).getRight());

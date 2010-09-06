@@ -27,7 +27,7 @@ public class ViewerEditAction extends AbstractAction {
         putValue(Action.NAME, _("Edit"));
 
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/hammer-screwdriver.png")));
+            "/de/aidger/res/icons/hammer-screwdriver.png")));
     }
 
     /*

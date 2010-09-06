@@ -26,7 +26,7 @@ public class BulletList extends JPanel {
      * The bullet icon.
      */
     private final Icon bullet = new ImageIcon(getClass().getResource(
-        "/de/aidger/view/icons/bullet.png"));
+        "/de/aidger/res/icons/bullet.png"));
 
     /**
      * The elements of the bullet list.

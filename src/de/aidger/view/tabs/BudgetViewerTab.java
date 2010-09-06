@@ -274,7 +274,7 @@ public class BudgetViewerTab extends ReportTab {
         filterCreationPanel.add(budgetFilterText);
 
         addFilterButton.setIcon(new ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/plus-small.png")));
+            "/de/aidger/res/icons/plus-small.png")));
         addFilterButton.setFocusable(false);
         addFilterButton
             .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

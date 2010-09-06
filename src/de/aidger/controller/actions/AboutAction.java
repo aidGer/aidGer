@@ -30,7 +30,7 @@ public class AboutAction extends AbstractAction {
             ActionEvent.CTRL_MASK));
         putValue(Action.SHORT_DESCRIPTION, _("Show about informations"));
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/information.png")));
+                "/de/aidger/res/icons/information.png")));
     }
 
     /*

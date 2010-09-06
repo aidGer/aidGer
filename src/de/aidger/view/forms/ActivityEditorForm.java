@@ -157,7 +157,7 @@ public class ActivityEditorForm extends JPanel {
 
         if (courseLines.isEmpty()) {
             btnPlusMinus.setIcon(new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/plus-small.png")));
+                "/de/aidger/res/icons/plus-small.png")));
 
             gridBagConstraints.gridy = 4;
 
@@ -234,7 +234,7 @@ public class ActivityEditorForm extends JPanel {
 
         if (assistantLines.isEmpty()) {
             btnPlusMinus.setIcon(new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/plus-small.png")));
+                "/de/aidger/res/icons/plus-small.png")));
 
             gridBagConstraints.gridy = 4;
 
@@ -574,7 +574,7 @@ public class ActivityEditorForm extends JPanel {
          */
         public RemoveCourseAction(CourseLine courseLine) {
             putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/minus-small.png")));
+                "/de/aidger/res/icons/minus-small.png")));
 
             this.courseLine = courseLine;
         }
@@ -637,7 +637,7 @@ public class ActivityEditorForm extends JPanel {
          */
         public RemoveAssistantAction(AssistantLine assistantLine) {
             putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/minus-small.png")));
+                "/de/aidger/res/icons/minus-small.png")));
 
             this.assistantLine = assistantLine;
         }

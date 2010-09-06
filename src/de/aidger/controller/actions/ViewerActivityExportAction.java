@@ -39,7 +39,7 @@ public class ViewerActivityExportAction extends AbstractAction {
             _("Export the selected activies to a pdf file"));
 
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/report--arrow.png")));
+            "/de/aidger/res/icons/report--arrow.png")));
     }
 
     /*

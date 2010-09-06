@@ -31,7 +31,7 @@ public class ViewerCourseAction extends AbstractAction {
     public ViewerCourseAction() {
         putValue(Action.NAME, _("Course"));
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/bank.png")));
+            "/de/aidger/res/icons/bank.png")));
     }
 
     /*

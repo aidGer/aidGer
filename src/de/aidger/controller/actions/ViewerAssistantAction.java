@@ -32,7 +32,7 @@ public class ViewerAssistantAction extends AbstractAction {
     public ViewerAssistantAction() {
         putValue(Action.NAME, _("Assistant"));
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/user.png")));
+            "/de/aidger/res/icons/user.png")));
     }
 
     /*

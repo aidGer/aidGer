@@ -89,7 +89,7 @@ public class BalanceFilterPanel extends javax.swing.JPanel {
         setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         removeFilterButton.setIcon(new ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/minus-small.png")));
+            "/de/aidger/res/icons/minus-small.png")));
 removeFilterButton.addActionListener(new java.awt.event.ActionListener() {
     public void actionPerformed(java.awt.event.ActionEvent evt) {
         removeFilterButtonActionPerformed(evt);

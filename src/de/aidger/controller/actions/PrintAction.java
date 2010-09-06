@@ -35,7 +35,7 @@ public class PrintAction extends AbstractAction {
             ActionEvent.CTRL_MASK));
         putValue(Action.SHORT_DESCRIPTION, _("Print program contents"));
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/printer.png")));
+                "/de/aidger/res/icons/printer.png")));
     }
 
     /*

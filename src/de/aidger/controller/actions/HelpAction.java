@@ -37,7 +37,7 @@ public class HelpAction extends AbstractAction {
             ActionEvent.CTRL_MASK));
         putValue(Action.SHORT_DESCRIPTION, _("Display the help"));
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/question.png")));
+            "/de/aidger/res/icons/question.png")));
     }
 
     /*
@@ -49,7 +49,7 @@ public class HelpAction extends AbstractAction {
     @Override
     public void actionPerformed(ActionEvent e) {
         InputStream input = getClass().getResourceAsStream(
-            "/de/aidger/pdf/Handbuch.pdf");
+            "/de/aidger/res/pdf/Handbuch.pdf");
         try {
             File tempFile = File.createTempFile("manual", ".pdf");
             tempFile.deleteOnExit();

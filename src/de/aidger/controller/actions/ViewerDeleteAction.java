@@ -31,7 +31,7 @@ public class ViewerDeleteAction extends AbstractAction {
     public ViewerDeleteAction() {
         putValue(Action.NAME, _("Delete"));
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/minus.png")));
+            "/de/aidger/res/icons/minus.png")));
     }
 
     /*

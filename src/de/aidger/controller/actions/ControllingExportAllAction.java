@@ -37,7 +37,7 @@ public class ControllingExportAllAction extends AbstractAction {
             _("Export the whole report to a pdf file"));
 
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/report--arrow.png")));
+            "/de/aidger/res/icons/report--arrow.png")));
     }
 
     /*

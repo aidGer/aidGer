@@ -28,7 +28,7 @@ public class ExitAction extends AbstractAction {
         putValue(Action.SHORT_DESCRIPTION, _("Quit the program"));
 
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/door-open-out.png")));
+                "/de/aidger/res/icons/door-open-out.png")));
     }
 
     /*

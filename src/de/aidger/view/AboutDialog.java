@@ -103,7 +103,7 @@ public class AboutDialog extends JDialog {
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
         getContentPane().add(jLabel3, gridBagConstraints);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/aidger/view/icons/aidger-icon.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/aidger/res/icons/aidger-icon.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;

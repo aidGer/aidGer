@@ -1170,7 +1170,7 @@ ActivityReportTemplate.pdf
 \family default
  unter 
 \family typewriter
-src/de/aidger/pdf
+src/de/aidger/res/pdf
 \family default
  mit dem neuem PDF-Template ersetzt werden.
 \begin_inset Newline newline

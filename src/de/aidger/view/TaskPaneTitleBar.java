@@ -99,7 +99,7 @@ public class TaskPaneTitleBar extends JComponent {
         titleLabel.setForeground(fg);
 
         toggleIcon = new JLabel(new ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/toggle.png")));
+            "/de/aidger/res/icons/toggle.png")));
 
         add(titleLabel, BorderLayout.LINE_START);
         // need some space between title label and arrow icon
@@ -148,10 +148,10 @@ public class TaskPaneTitleBar extends JComponent {
     public void setExpanded(boolean expanded) {
         if (expanded) {
             toggleIcon.setIcon(new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/toggle.png")));
+                "/de/aidger/res/icons/toggle.png")));
         } else {
             toggleIcon.setIcon(new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/toggle-expand.png")));
+                "/de/aidger/res/icons/toggle-expand.png")));
         }
     }
 

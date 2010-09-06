@@ -211,7 +211,7 @@ public final class UI extends JFrame {
 
         // Set the icon
         this.setIconImage((new ImageIcon(getClass().getResource(
-                "/de/aidger/view/icons/aidger-icon.png"))).getImage());
+                "/de/aidger/res/icons/aidger-icon.png"))).getImage());
 
         // Try to display saved tabs or add the welcome tab to the UI.
         if (!displaySavedTabs()) {
@@ -769,7 +769,7 @@ public final class UI extends JFrame {
         };
 
         tabbedPane.add(new JPanel(), new ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/ui-tab--plus.png")));
+            "/de/aidger/res/icons/ui-tab--plus.png")));
         tabbedPane.setToolTipTextAt(0, _("Open a new tab"));
 
         tabbedPane.addChangeListener(tabbedPaneListener);

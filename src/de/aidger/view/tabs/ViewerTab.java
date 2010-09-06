@@ -448,7 +448,7 @@ public class ViewerTab extends Tab {
         });
 
         clearSearch.setIcon(new ImageIcon(getClass().getResource(
-            "/de/aidger/view/icons/broom.png")));
+            "/de/aidger/res/icons/broom.png")));
 
         clearSearch.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
