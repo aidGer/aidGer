@@ -55,6 +55,7 @@
     </target>
 
     <target name="test" depends="compile-tests" description="Runs JUnit tests">
+	<delete dir="${basedir}/derbyDB" />	
         <mkdir dir="${test.report.dir}" />
         <junit dir="${basedir}" printSummary="on" fork="true" haltonfailure="true">
             <sysproperty key="basedir" value="${basedir}" />
