@@ -116,7 +116,6 @@ final public class HistoryManager {
             return;
         }
 
-        String result = "";
         try {
             FileInputStream input = new FileInputStream(history);
             ObjectInputStream obj = new ObjectInputStream(input);

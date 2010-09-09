@@ -58,7 +58,7 @@ public class Translation {
             /* Check first in .jar */
             String jarfile = Runtime.getInstance().getJarLocation();
             if (jarfile.endsWith(".jar")) {
-                inputStream = getClass().getClassLoader().getResourceAsStream(
+                inputStream = getClass().getResourceAsStream(
                     "/de/aidger/res/lang/" + language + ".properties");
             }
 
