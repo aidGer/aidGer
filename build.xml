@@ -30,7 +30,7 @@
         <path id="build.classpath">
             <fileset dir="${lib.dir}">
                 <include name="**/*.jar" />
-                <exclude name="**/junit*.jar" />
+                <exclude name="**/junit.jar" />
             </fileset>
         </path>
         <path id="build.classpath.test">
@@ -78,6 +78,7 @@
         <jar jarfile="${dist.dir}/${appFileName}-${appVersion}.jar" basedir="${classes.dir}" level="9">
             <zipfileset src="${lib.dir}">
                 <include name="**/*.jar" />
+                <exclude name="**/junit.jar" />
             </zipfileset>
             <manifest>
                 <attribute name="Main-Class" value="de.aidger.controller.Application" />
