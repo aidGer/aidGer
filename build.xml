@@ -47,11 +47,11 @@
     </target>
 
     <target name="compile-source" depends="init" description="Compiles all .java files in src">
-        <javac destdir="${classes.dir}" srcdir="${source.dir}" classpathref="build.classpath" includeantruntime="false" debug="true" debuglevel="source,lines,vars" />
+        <javac destdir="${classes.dir}" srcdir="${source.dir}" classpathref="build.classpath" includeantruntime="false" debug="true" debuglevel="source,lines,vars" encoding="UTF-8" />
     </target>
 
     <target name="compile-tests" depends="compile-source" description="Compiles all JUnit tests">
-        <javac destdir="${test.classes.dir}" srcdir="${test.source.dir}" classpathref="build.classpath.test" includeantruntime="false" debug="true" debuglevel="source,lines,vars" />
+        <javac destdir="${test.classes.dir}" srcdir="${test.source.dir}" classpathref="build.classpath.test" includeantruntime="false" debug="true" debuglevel="source,lines,vars" encoding="UTF-8" />
     </target>
 
     <target name="test" depends="compile-tests" description="Runs JUnit tests">
