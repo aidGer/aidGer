@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project basedir="." default="release" name="aidGer">
 
+    <macrodef name="propertycopy">
+      <attribute name="name"/>
+      <attribute name="from"/>
+      <sequential>
+        <property name="@{name}" value="${@{from}}"/>
+      </sequential>
+    </macrodef>
+
+    <property environment="env" />
+    <property name="buildNumber" value="dev" />
+
+    <condition property="hasBuildNumber">
+        <isset property="env.BUILD_NUMBER" />
+    </condition>
+
+    <target name="build-number" if="hasBuildNumber">
+        <propertycopy name="buildNumber" from="${env.BUILD_NUMBER}" />
+    </target>
+
     <property name="appName" value="aidGer" />
     <property name="appFileName" value="aidger" />
-    <property name="appVersion" value="0.1.1-dev" />
+    <property name="appVersion" value="0.1.1" />
 
     <property name="default.target.dir" value="build" />
     <property name="dist.dir" value="dist" />
@@ -14,7 +33,6 @@
 
     <property name="source.dir" value="src" />
     <property name="test.source.dir" value="tests" />
-
     <property name="test.pattern" value="**/**Test.java" />
 
     <property name="lib.adohive" value="lib/adohive.jar" />
@@ -80,10 +98,10 @@
         </junit>
     </target>
 
-    <target name="dist" depends="compile-source" description="Generate the distribution">
+    <target name="dist" depends="compile-source,build-number" description="Generate the distribution">
         <delete dir="${test.classes.dir}" />
         <mkdir dir="${dist.dir}" />
-        <jar jarfile="${dist.dir}/${appFileName}-${appVersion}.jar" basedir="${classes.dir}" level="9">
+        <jar jarfile="${dist.dir}/${appFileName}-${appVersion}-${buildNumber}.jar" basedir="${classes.dir}" level="9">
             <zipfileset src="${lib.adohive}" />
             <zipfileset src="${lib.derby}" />
             <zipfileset src="${lib.itext}" />
@@ -93,12 +111,12 @@
                 <attribute name="Main-Class" value="de.aidger.controller.Application" />
                 <attribute name="Class-Path" value="." />
                 <attribute name="Implementation-Title" value="${appName}" />
-                <attribute name="Implementation-Version" value="${appVersion}" />
+                <attribute name="Implementation-Version" value="${appVersion}-${buildNumber}" />
                 <attribute name="Implementation-Vendor" value="Team aidGer" />
             </manifest>
         </jar>
 
-        <zip destfile="${dist.dir}/${appFileName}-src-${appVersion}.zip" level="9">
+        <zip destfile="${dist.dir}/${appFileName}-src-${appVersion}-${buildNumber}.zip" level="9">
             <zipfileset dir="${basedir}">
                 <include name="lib/*.jar" />
                 <include name="src/**" />
