@@ -3,6 +3,9 @@ CHANGES IN VERSION 0.1.1:
     * [ADD] Support for ant building and testing
     * [FIX] Funds with leading zeros are possible now
     * [FIX] Number format for double and currency fields
+    * [FIX] Locking method for single instance check (#190)
+    * [FIX] Loading translations from jar (#168)
+    * [FIX] Can use Unicode chars for email domains
     * [CHANGE] Moved the button to remove filters to the left of the filter data
     * [CHANGE] Moved resource files into de.aidger.res package (#172)
 

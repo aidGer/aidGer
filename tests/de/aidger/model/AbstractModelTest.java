@@ -382,9 +382,10 @@ public class AbstractModelTest {
         a.setFirstName("Test");
         a.setLastName("Tester");
         a.setQualification("g");
-        a.setEmail(null);
 
+        a.setEmail(null);
         assertFalse(a.save());
+        a.resetErrors();
 
         a.setEmail("");
         assertFalse(a.save());
@@ -409,7 +410,7 @@ public class AbstractModelTest {
         a.setEmail("email@example.com");
         assertTrue(a.save());
 
-        a.setEmail("test@überälles.de");
+        a.setEmail("test@über-älles.de");
         assertTrue(a.save());
     }
 
