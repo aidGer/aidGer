@@ -55,7 +55,7 @@
     </target>
 
     <target name="test" depends="compile-tests" description="Runs JUnit tests">
-	<delete dir="${basedir}/derbyDB" />	
+        <delete dir="${basedir}/derbyDB" />
         <mkdir dir="${test.report.dir}" />
         <junit dir="${basedir}" printSummary="on" fork="true" haltonfailure="true">
             <sysproperty key="basedir" value="${basedir}" />
@@ -77,7 +77,7 @@
         <delete dir="${test.classes.dir}" />
         <mkdir dir="${dist.dir}" />
         <jar jarfile="${dist.dir}/${appFileName}-${appVersion}.jar" basedir="${classes.dir}" level="9">
-            <zipfileset src="${lib.dir}">
+            <zipfileset dir="${lib.dir}">
                 <include name="**/*.jar" />
                 <exclude name="**/junit.jar" />
             </zipfileset>
@@ -90,7 +90,20 @@
             </manifest>
         </jar>
 
-        <zip destfile="${dist.dir}/${appFileName}-src-${appVersion}.zip" basedir="${source.dir}" level="9" />
+        <zip destfile="${dist.dir}/${appFileName}-src-${appVersion}.zip" level="9">
+            <zipfileset dir="${basedir}">
+                <include name="lib/*.jar" />
+                <include name="src/**" />
+                <include name="tests/**/*.java" />
+                <include name="lang/**" />
+                <include name="build.xml" />
+                <include name="ChangeLog" />
+                <include name="COPYING" />
+                <include name="README" />
+
+                <exclude name="lib/junit.jar" />
+            </zipfileset>
+        </zip>
     </target>
 
     <target name="release" description="Generate a full release">

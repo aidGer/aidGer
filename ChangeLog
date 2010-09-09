@@ -1,6 +1,6 @@
 CHANGES IN VERSION 0.1.1:
-    * [ADD] Use system language if available and correctly set default 
-otherwise
+    * [ADD] Use system language if available and correctly set default otherwise
+    * [ADD] Support for ant building and testing
     * [FIX] Funds with leading zeros are possible now
     * [FIX] Number format for double and currency fields
     * [CHANGE] Moved the button to remove filters to the left of the filter data
