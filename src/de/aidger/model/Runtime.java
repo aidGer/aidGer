@@ -305,7 +305,7 @@ public final class Runtime {
      * @return True if no lock file exists and the application can be started
      */
     protected boolean checkLock() {
-        File lock = new File(configPath + "/aidger.lock");
+/*        File lock = new File(configPath + "/aidger.lock");
         if (lock.exists()) {
             return false;
         }
@@ -317,7 +317,31 @@ public final class Runtime {
             Logger.error(_("Couldn't create lockfile"));
         }
 
-        return true;
+        return true; */
+
+        try {
+            final File file = new File(configPath + "/aidger.lock");
+            final java.io.RandomAccessFile randomAccessFile = new java.io.RandomAccessFile(file, "rw");
+            final java.nio.channels.FileLock fileLock = randomAccessFile.getChannel().tryLock();
+            if (fileLock != null) {
+                java.lang.Runtime.getRuntime().addShutdownHook(new Thread() {
+                    public void run() {
+                        try {
+                            fileLock.release();
+                            randomAccessFile.close();
+                            file.delete();
+                        } catch (Exception e) {
+                            System.err.println("Unable to remove lock file");
+                        }
+                    }
+                });
+                return true;
+            }
+        } catch (Exception e) {
+            System.err.println("Unable to create and/or lock file");
+
+        }
+        return false;
     }
 
 }
