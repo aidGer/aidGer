@@ -60,7 +60,7 @@
             <sysproperty key="basedir" value="${basedir}" />
             <formatter type="xml" />
             <classpath>
-                <path refid="build.classpath" />
+                <path refid="build.classpath.test" />
                 <pathelement path="${test.classes.dir}" />
                 <pathelement path="${classes.dir}" />
             </classpath>
