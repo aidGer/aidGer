@@ -79,7 +79,7 @@
         </junit>
     </target>
 
-    <target name="dist" depends="compile-source,build-number" description="Generate the distribution">
+    <target name="dist" depends="compile-source" description="Generate the distribution">
         <delete dir="${test.classes.dir}" />
         <mkdir dir="${dist.dir}" />
         <jar jarfile="${dist.dir}/${appFileName}-${appVersion}-${buildNumber}.jar" basedir="${classes.dir}" level="9">
