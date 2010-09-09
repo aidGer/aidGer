@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project basedir="." default="release" name="aidGer">
+
+    <property name="appName" value="aidGer" />
+    <property name="appFileName" value="aidger" />
+    <property name="appVersion" value="0.1.1-dev" />
+
+    <property name="default.target.dir" value="build" />
+    <property name="dist.dir" value="dist" />
+    <property name="classes.dir" value="${default.target.dir}/classes" />
+    <property name="test.classes.dir" value="${default.target.dir}/test-classes" />
+    <property name="test.report.dir" value="${default.target.dir}/test-reports" />
+    <property name="lib.dir" value="${basedir}/lib" />
+
+    <property name="source.dir" value="src" />
+    <property name="test.source.dir" value="tests" />
+
+    <property name="test.pattern" value="**/**Test.java" />
+
+    <target name="init">
+        <mkdir dir="${classes.dir}" />
+        <mkdir dir="${test.classes.dir}" />
+
+        <copy includeemptydirs="false" todir="${classes.dir}">
+            <fileset dir="${source.dir}">
+                <exclude name="**/*.java" />
+            </fileset>
+        </copy>
+
+        <path id="build.classpath">
+            <fileset dir="${lib.dir}">
+                <include name="**/*.jar" />
+                <exclude name="**/junit*.jar" />
+            </fileset>
+        </path>
+        <path id="build.classpath.test">
+            <pathelement location="${classes.dir}" />
+            <fileset dir="${lib.dir}">
+                <include name="**/*.jar" />
+            </fileset>
+        </path>
+    </target>
+
+    <target name="clean">
+        <delete dir="${default.target.dir}" />
+        <delete dir="${dist.dir}" />
+    </target>
+
+    <target name="compile-source" depends="init" description="Compiles all .java files in src">
+        <javac destdir="${classes.dir}" srcdir="${source.dir}" classpathref="build.classpath" includeantruntime="false" debug="true" debuglevel="source,lines,vars" />
+    </target>
+
+    <target name="compile-tests" depends="compile-source" description="Compiles all JUnit tests">
+        <javac destdir="${test.classes.dir}" srcdir="${test.source.dir}" classpathref="build.classpath.test" includeantruntime="false" debug="true" debuglevel="source,lines,vars" />
+    </target>
+
+    <target name="test" depends="compile-tests" description="Runs JUnit tests">
+        <mkdir dir="${test.report.dir}" />
+        <junit dir="${basedir}" printSummary="on" fork="true" haltonfailure="true">
+            <sysproperty key="basedir" value="${basedir}" />
+            <formatter type="xml" />
+            <classpath>
+                <path refid="build.classpath" />
+                <pathelement path="${test.classes.dir}" />
+                <pathelement path="${classes.dir}" />
+            </classpath>
+            <batchtest todir="${test.report.dir}">
+                <fileset dir="${test.source.dir}">
+                    <include name="${test.pattern}" />
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+
+    <target name="dist" depends="compile-source" description="Generate the distribution">
+        <delete dir="${test.classes.dir}" />
+        <mkdir dir="${dist.dir}" />
+        <jar jarfile="${dist.dir}/${appFileName}-${appVersion}.jar" basedir="${classes.dir}" level="9">
+            <zipfileset src="${lib.dir}">
+                <include name="**/*.jar" />
+            </zipfileset>
+            <manifest>
+                <attribute name="Main-Class" value="de.aidger.controller.Application" />
+                <attribute name="Class-Path" value="." />
+                <attribute name="Implementation-Title" value="${appName}" />
+                <attribute name="Implementation-Version" value="${appVersion}" />
+                <attribute name="Implementation-Vendor" value="Team aidGer" />
+            </manifest>
+        </jar>
+
+        <zip destfile="${dist.dir}/${appFileName}-src-${appVersion}.zip" basedir="${source.dir}" level="9" />
+    </target>
+
+    <target name="release" description="Generate a full release">
+        <antcall target="test" />
+        <antcall target="dist" />
+    </target>
+
+</project>
