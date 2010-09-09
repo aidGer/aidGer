@@ -17,6 +17,13 @@
 
     <property name="test.pattern" value="**/**Test.java" />
 
+    <property name="lib.adohive" value="lib/adohive.jar" />
+    <property name="lib.derby" value="lib/derby.jar" />
+    <property name="lib.itext" value="lib/iText-5.0.2.jar" />
+    <property name="lib.jcommon" value="lib/jcommon-1.0.16.jar" />
+    <property name="lib.jfreechart" value="lib/jfreechart-1.0.13.jar" />
+    <property name="lib.junit" value="lib/junit.jar" />
+
     <target name="init">
         <mkdir dir="${classes.dir}" />
         <mkdir dir="${test.classes.dir}" />
@@ -28,16 +35,16 @@
         </copy>
 
         <path id="build.classpath">
-            <fileset dir="${lib.dir}">
-                <include name="**/*.jar" />
-                <exclude name="**/junit.jar" />
-            </fileset>
+            <pathelement location="${lib.adohive}" />
+            <pathelement location="${lib.derby}" />
+            <pathelement location="${lib.itext}" />
+            <pathelement location="${lib.jcommon}" />
+            <pathelement location="${lib.jfreechart}" />
         </path>
         <path id="build.classpath.test">
             <pathelement location="${classes.dir}" />
-            <fileset dir="${lib.dir}">
-                <include name="**/*.jar" />
-            </fileset>
+            <path refid="build.classpath" />
+            <pathelement location="${lib.junit}" />
         </path>
     </target>
 
@@ -77,10 +84,11 @@
         <delete dir="${test.classes.dir}" />
         <mkdir dir="${dist.dir}" />
         <jar jarfile="${dist.dir}/${appFileName}-${appVersion}.jar" basedir="${classes.dir}" level="9">
-            <zipfileset dir="${lib.dir}">
-                <include name="**/*.jar" />
-                <exclude name="**/junit.jar" />
-            </zipfileset>
+            <zipfileset src="${lib.adohive}" />
+            <zipfileset src="${lib.derby}" />
+            <zipfileset src="${lib.itext}" />
+            <zipfileset src="${lib.jcommon}" />
+            <zipfileset src="${lib.jfreechart}" />
             <manifest>
                 <attribute name="Main-Class" value="de.aidger.controller.Application" />
                 <attribute name="Class-Path" value="." />
