@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project basedir="." default="release" name="aidGer">
 
-    <macrodef name="propertycopy">
-      <attribute name="name"/>
-      <attribute name="from"/>
-      <sequential>
-        <property name="@{name}" value="${@{from}}"/>
-      </sequential>
-    </macrodef>
-
-    <property environment="env" />
-    <property name="buildNumber" value="dev" />
-
-    <condition property="hasBuildNumber">
-        <isset property="env.BUILD_NUMBER" />
-    </condition>
-
-    <target name="build-number" if="hasBuildNumber">
-        <propertycopy name="buildNumber" from="${env.BUILD_NUMBER}" />
-    </target>
-
     <property name="appName" value="aidGer" />
     <property name="appFileName" value="aidger" />
     <property name="appVersion" value="0.1.1" />
@@ -133,6 +114,15 @@
     </target>
 
     <target name="release" description="Generate a full release">
+        <property name="buildNumber" value="dev" />
+        <antcall target="test" />
+        <antcall target="dist" />
+    </target>
+
+    <target name="hudson" description="Generate a release with Hudson">
+        <property environment="env" />
+        <property name="buildNumber" value="${env.BUILD_NUMBER}" />
+
         <antcall target="test" />
         <antcall target="dist" />
     </target>
