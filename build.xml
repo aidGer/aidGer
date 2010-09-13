@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project basedir="." default="release" name="aidGer">
 
+    <property environment="env" description="System environment variables (including those set by Hudson)"/>
+    <condition property="buildNumber" value="${env.BUILD_NUMBER}" else="dev">
+        <isset property="env.BUILD_NUMBER" />
+    </condition>
+
     <property name="appName" value="aidGer" />
     <property name="appFileName" value="aidger" />
     <property name="appVersion" value="0.1.1" />
@@ -113,16 +118,9 @@
         </zip>
     </target>
 
+    <target name="jar" depends="dist" />
+
     <target name="release" description="Generate a full release">
-        <property name="buildNumber" value="dev" />
-        <antcall target="test" />
-        <antcall target="dist" />
-    </target>
-
-    <target name="hudson" description="Generate a release with Hudson">
-        <property environment="env" />
-        <property name="buildNumber" value="${env.BUILD_NUMBER}" />
-
         <antcall target="test" />
         <antcall target="dist" />
     </target>

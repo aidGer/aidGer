@@ -39,6 +39,8 @@ public class AboutDialog extends JDialog {
             UI.displayError(ex.getMessage());
         }
 
+        jLabel1.setText("aidGer " + getClass().getPackage().getImplementationVersion());
+
         setLocationRelativeTo(null);
 
         pack();
