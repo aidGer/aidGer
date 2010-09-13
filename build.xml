@@ -18,7 +18,7 @@
 
     <property name="lib.adohive" value="lib/adohive.jar" />
     <property name="lib.derby" value="lib/derby.jar" />
-    <property name="lib.itext" value="lib/iText-5.0.2.jar" />
+    <property name="lib.itext" value="lib/iText-5.0.4.jar" />
     <property name="lib.jcommon" value="lib/jcommon-1.0.16.jar" />
     <property name="lib.jfreechart" value="lib/jfreechart-1.0.13.jar" />
     <property name="lib.junit" value="lib/junit.jar" />
