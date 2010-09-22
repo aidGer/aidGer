@@ -121,12 +121,22 @@ public class AssistantEditorForm extends JPanel {
 
         txtFirstName.setMinimumSize(new java.awt.Dimension(200, 25));
         txtFirstName.setPreferredSize(new java.awt.Dimension(200, 25));
+        txtFirstName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                updateEmailOnFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtFirstName, gridBagConstraints);
 
         txtLastName.setMinimumSize(new java.awt.Dimension(200, 25));
         txtLastName.setPreferredSize(new java.awt.Dimension(200, 25));
+        txtLastName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                updateEmailOnFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -163,6 +173,24 @@ public class AssistantEditorForm extends JPanel {
             }
         }
     }//GEN-LAST:event_txtEmailFocusLost
+
+    /**
+     * Update the email address if first or last name got updated and email is
+     * empty or a studimail address.
+     * @param evt
+     */
+    private void updateEmailOnFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_updateEmailOnFocusLost
+        if (!txtFirstName.getText().isEmpty() &&
+                !txtLastName.getText().isEmpty() && (txtEmail.getText().isEmpty()  
+                || txtEmail.getText().split("@", 2)[1].equals(
+                "studi.informatik.uni-stuttgart.de"))) {
+            txtEmail.setText(txtLastName.getText().toLowerCase().substring(0, 6) +
+                    txtFirstName.getText().toLowerCase().charAt(0) + 
+                    txtFirstName.getText().toLowerCase().charAt(
+                        txtFirstName.getText().length() - 1) +
+                    "@studi.informatik.uni-stuttgart.de");
+        }
+    }//GEN-LAST:event_updateEmailOnFocusLost
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cmbQualification;
