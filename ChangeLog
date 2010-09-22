@@ -1,6 +1,8 @@
 CHANGES IN VERSION 0.1.1:
     * [ADD] Use system language if available and correctly set default otherwise
     * [ADD] Support for ant building and testing
+    * [ADD] Complete emails ending with @studi to full informatik 
+studimail domain
     * [FIX] Funds with leading zeros are possible now
     * [FIX] Number format for double and currency fields
     * [FIX] Locking method for single instance check (#190)
