@@ -58,10 +58,11 @@ public class ActivityEditorForm extends JPanel {
 
         initComponents();
 
-        InputPatternFilter.addFilter(txtProcessor, ".{0,2}");
+        cbType.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
+                _("Personal"), _("Telephone"), _("Email"), _("Internal mail"),
+                _("External mail")}));
 
-        hlpProcessor
-            .setToolTipText(_("Only a maximal length of 2 is allowed."));
+        InputPatternFilter.addFilter(txtProcessor, ".{0,2}");
 
         addNewCourse();
         addNewAssistant();
@@ -71,9 +72,9 @@ public class ActivityEditorForm extends JPanel {
             txtSender.setText(activity.getSender());
             txtProcessor.setText(activity.getProcessor());
             txtType.setText(activity.getType());
-            txtDocumentType.setText(activity.getDocumentType());
             txtContent.setText(activity.getContent());
             txtRemark.setText(activity.getRemark());
+            cbType.setSelectedItem(activity.getDocumentType());
 
             CourseLine cl = courseLines.get(0);
             AssistantLine al = assistantLines.get(0);
@@ -312,7 +313,7 @@ public class ActivityEditorForm extends JPanel {
      * @return The type of document
      */
     public String getDocumentType() {
-        return txtDocumentType.getText();
+        return (String) cbType.getSelectedItem();
     }
 
     /**
@@ -371,12 +372,12 @@ public class ActivityEditorForm extends JPanel {
         txtProcessor = new javax.swing.JTextField();
         txtSender = new javax.swing.JTextField();
         txtType = new javax.swing.JTextField();
-        txtDocumentType = new javax.swing.JTextField();
         txtRemark = new javax.swing.JTextField();
         filler = new javax.swing.JLabel();
         scrollPane = new javax.swing.JScrollPane();
         txtContent = new javax.swing.JTextArea();
         hlpProcessor = new de.aidger.view.utils.HelpLabel();
+        cbType = new javax.swing.JComboBox();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -410,7 +411,7 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblType, gridBagConstraints);
 
-        lblDocumentType.setText(_("Document Type"));
+        lblDocumentType.setText(_("Transmission Type"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -435,8 +436,7 @@ public class ActivityEditorForm extends JPanel {
         add(lblContent, gridBagConstraints);
 
         spDate.setModel(new javax.swing.SpinnerDateModel());
-        spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate,
-            "dd.MM.yyyy"));
+        spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate, "dd.MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -471,15 +471,6 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtType, gridBagConstraints);
 
-        txtDocumentType.setMinimumSize(new java.awt.Dimension(200, 25));
-        txtDocumentType.setPreferredSize(new java.awt.Dimension(200, 25));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(txtDocumentType, gridBagConstraints);
-
         txtRemark.setMinimumSize(new java.awt.Dimension(200, 25));
         txtRemark.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -505,15 +496,27 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(scrollPane, gridBagConstraints);
+
+        hlpProcessor.setToolTipText(_("Only a maximal length of 2 is allowed."));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         add(hlpProcessor, gridBagConstraints);
+
+        cbType.setMinimumSize(new java.awt.Dimension(200, 25));
+        cbType.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(cbType, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cbType;
     private javax.swing.JLabel filler;
     private de.aidger.view.utils.HelpLabel hlpProcessor;
     private javax.swing.JLabel lblContent;
@@ -526,7 +529,6 @@ public class ActivityEditorForm extends JPanel {
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JSpinner spDate;
     private javax.swing.JTextArea txtContent;
-    private javax.swing.JTextField txtDocumentType;
     private javax.swing.JTextField txtProcessor;
     private javax.swing.JTextField txtRemark;
     private javax.swing.JTextField txtSender;
