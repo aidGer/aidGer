@@ -6,6 +6,7 @@ import javax.swing.DefaultComboBoxModel;
 
 import de.aidger.model.AbstractModel;
 import de.aidger.view.tabs.ViewerTab.DataType;
+import de.aidger.view.utils.UIModelFactory;
 
 @SuppressWarnings("serial")
 public class ComboBoxModel extends DefaultComboBoxModel implements
@@ -64,19 +65,10 @@ public class ComboBoxModel extends DefaultComboBoxModel implements
         AbstractModel model = (AbstractModel) m;
         Boolean save = (Boolean) arg;
 
-        Object modelUI = model;
+        Object modelUI = UIModelFactory.create(model);
 
-        try {
-            Class classUI = Class.forName("de.aidger.view.models.UI"
-                    + model.getClass().getSimpleName());
-
-            Class classInterface = Class
-                .forName("de.unistuttgart.iste.se.adohive.model.I"
-                        + model.getClass().getSimpleName());
-
-            modelUI = classUI.getConstructor(classInterface).newInstance(
-                classInterface.cast(model));
-        } catch (Exception e) {
+        if (modelUI == null) {
+            modelUI = model;
         }
 
         if (save) { // the model was saved
