@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-23 12:18+0200\n"
+"POT-Creation-Date: 2010-09-23 15:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -435,7 +435,7 @@ msgstr ""
 #: controller/actions/ViewerAssistantAction.java:33
 #: model/models/Activity.java:76 model/models/Contract.java:68
 #: model/models/Employment.java:83 utils/pdf/ControllingConverter.java:329
-#: view/forms/ActivityEditorForm.java:192
+#: view/forms/ActivityEditorForm.java:193
 #: view/forms/ActivityViewerForm.java:91
 #: view/forms/ContractEditorForm.java:211
 #: view/forms/ContractViewerForm.java:90
@@ -468,7 +468,7 @@ msgstr ""
 
 #: controller/actions/ViewerCourseAction.java:32 model/models/Activity.java:78
 #: model/models/Employment.java:87 utils/pdf/BudgetReportConverter.java:386
-#: view/forms/ActivityEditorForm.java:117
+#: view/forms/ActivityEditorForm.java:118
 #: view/forms/ActivityViewerForm.java:99
 #: view/forms/EmploymentEditorForm.java:498
 #: view/forms/EmploymentViewerForm.java:114
@@ -546,7 +546,7 @@ msgid "Could not get manager for class \"{0}\". Error: {1}"
 msgstr ""
 
 #: model/models/Activity.java:73 utils/pdf/ProtocolConverter.java:402
-#: view/forms/ActivityEditorForm.java:383
+#: view/forms/ActivityEditorForm.java:384
 #: view/forms/ActivityViewerForm.java:107
 #: view/forms/EmploymentEditorForm.java:367
 #: view/forms/EmploymentViewerForm.java:130
@@ -560,7 +560,7 @@ msgid "Date"
 msgstr ""
 
 #: model/models/Activity.java:73 utils/pdf/ProtocolConverter.java:403
-#: view/forms/ActivityEditorForm.java:397
+#: view/forms/ActivityEditorForm.java:398
 #: view/forms/ActivityViewerForm.java:123
 #: view/models/ActivityTableModel.java:28 view/tabs/ProtocolViewerTab.java:41
 msgid "Sender"
@@ -568,7 +568,7 @@ msgstr ""
 
 #: model/models/Activity.java:73 model/models/Activity.java:184
 #: model/models/Contract.java:64 model/models/Contract.java:167
-#: utils/pdf/ProtocolConverter.java:402 view/forms/ActivityEditorForm.java:405
+#: utils/pdf/ProtocolConverter.java:402 view/forms/ActivityEditorForm.java:406
 #: view/forms/ActivityViewerForm.java:131
 #: view/forms/ContractEditorForm.java:251
 #: view/forms/ContractViewerForm.java:130
@@ -578,21 +578,20 @@ msgid "Type"
 msgstr ""
 
 #: model/models/Activity.java:73 utils/pdf/ProtocolConverter.java:403
-#: view/forms/ActivityEditorForm.java:389
+#: view/forms/ActivityEditorForm.java:390
 #: view/forms/ActivityViewerForm.java:115
 #: view/models/ActivityTableModel.java:28 view/tabs/ProtocolViewerTab.java:42
 msgid "Processor"
 msgstr ""
 
 #: model/models/Activity.java:74 utils/pdf/ProtocolConverter.java:402
-#: view/forms/ActivityEditorForm.java:429
+#: view/forms/ActivityEditorForm.java:430
 #: view/forms/ActivityViewerForm.java:155
 #: view/models/ActivityTableModel.java:29 view/tabs/ProtocolViewerTab.java:41
 msgid "Content"
 msgstr ""
 
 #: model/models/Activity.java:74 model/models/Activity.java:188
-#: view/forms/ActivityEditorForm.java:413
 #: view/forms/ActivityViewerForm.java:139
 #: view/models/ActivityTableModel.java:28
 msgid "Document Type"
@@ -604,6 +603,7 @@ msgid "is too long"
 msgstr ""
 
 #: model/models/Assistant.java:44 model/models/Assistant.java:46
+#: view/forms/ActivityEditorForm.java:62
 #: view/forms/AssistantEditorForm.java:106
 #: view/forms/AssistantViewerForm.java:69
 #: view/models/AssistantTableModel.java:26
@@ -962,7 +962,7 @@ msgid "Actual costs(pre-tax)"
 msgstr ""
 
 #: utils/pdf/ControllingConverter.java:331
-#: utils/pdf/ProtocolConverter.java:403 view/forms/ActivityEditorForm.java:421
+#: utils/pdf/ProtocolConverter.java:403 view/forms/ActivityEditorForm.java:422
 #: view/forms/ActivityViewerForm.java:147 view/forms/CourseEditorForm.java:376
 #: view/forms/CourseViewerForm.java:197
 #: view/forms/EmploymentEditorForm.java:538
@@ -1042,7 +1042,27 @@ msgstr ""
 msgid "Connection successfull."
 msgstr ""
 
-#: view/forms/ActivityEditorForm.java:64
+#: view/forms/ActivityEditorForm.java:62
+msgid "Personal"
+msgstr ""
+
+#: view/forms/ActivityEditorForm.java:62
+msgid "Telephone"
+msgstr ""
+
+#: view/forms/ActivityEditorForm.java:62
+msgid "Internal mail"
+msgstr ""
+
+#: view/forms/ActivityEditorForm.java:63
+msgid "External mail"
+msgstr ""
+
+#: view/forms/ActivityEditorForm.java:414
+msgid "Transmission Type"
+msgstr ""
+
+#: view/forms/ActivityEditorForm.java:500
 msgid "Only a maximal length of 2 is allowed."
 msgstr ""
 
