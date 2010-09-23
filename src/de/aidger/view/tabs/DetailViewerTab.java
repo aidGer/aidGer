@@ -5,6 +5,7 @@ import static de.aidger.utils.Translation._;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.math.BigDecimal;
+import java.text.MessageFormat;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
@@ -41,7 +42,9 @@ import de.aidger.view.models.ListModel;
 import de.aidger.view.models.UIActivity;
 import de.aidger.view.models.UIAssistant;
 import de.aidger.view.models.UICourse;
+import de.aidger.view.models.UIModel;
 import de.aidger.view.tabs.ViewerTab.DataType;
+import de.aidger.view.utils.UIModelFactory;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
@@ -413,24 +416,11 @@ public class DetailViewerTab extends Tab {
      */
     @Override
     public String getTabName() {
-        switch (type) {
-        case Course:
-            return _("View course");
-        case Assistant:
-            return _("View assistant");
-        case FinancialCategory:
-            return _("View financial category");
-        case HourlyWage:
-            return _("View hourly wage");
-        case Employment:
-            return _("View employment");
-        case Contract:
-            return _("View contract");
-        case Activity:
-            return _("View activity");
-        default:
-            return "";
-        }
+        UIModel modelUI = (UIModel) UIModelFactory.create(model);
+
+        return modelUI == null ? MessageFormat.format(_("View {0}"),
+            new Object[] { type.getDisplayName() }) : type.getDisplayName()
+                + " " + modelUI.toString();
     }
 
     /**
@@ -508,7 +498,9 @@ public class DetailViewerTab extends Tab {
 
         setLayout(new java.awt.GridBagLayout());
 
-        viewerForm.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), getTabName()));
+        viewerForm.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            getTabName()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
