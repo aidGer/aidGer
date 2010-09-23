@@ -7,20 +7,20 @@ import java.math.BigDecimal;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.text.MessageFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 
 import de.aidger.model.AbstractModel;
-import de.aidger.model.budgets.CourseBudget;
+import de.aidger.model.inspectors.CourseBudgetLimitInspector;
+import de.aidger.model.inspectors.EmploymentLimitInspector;
+import de.aidger.model.inspectors.FundsBudgetLimitInspector;
+import de.aidger.model.inspectors.Inspector;
+import de.aidger.model.inspectors.WorkingHourLimitInspector;
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
@@ -29,7 +29,6 @@ import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.models.HourlyWage;
 import de.aidger.model.validators.PresenceValidator;
-import de.aidger.utils.reports.BalanceHelper;
 import de.aidger.view.UI;
 import de.aidger.view.forms.ActivityEditorForm;
 import de.aidger.view.forms.AssistantEditorForm;
@@ -38,18 +37,13 @@ import de.aidger.view.forms.CourseEditorForm;
 import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
 import de.aidger.view.forms.HourlyWageEditorForm;
-import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.models.TableModel;
-import de.aidger.view.models.UIAssistant;
-import de.aidger.view.models.UICourse;
-import de.aidger.view.models.UIFinancialCategory;
 import de.aidger.view.tabs.DetailViewerTab;
 import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.InvalidLengthException;
-import de.aidger.view.utils.UIFund;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
@@ -495,203 +489,8 @@ public class EditorSaveAction extends AbstractAction {
      *            the scale
      * @return the rounded BigDecimal value
      */
-    private BigDecimal round(double d, int scale) {
+    public static BigDecimal round(double d, int scale) {
         return (new BigDecimal(d).setScale(scale, BigDecimal.ROUND_HALF_EVEN));
-    }
-
-    /**
-     * Checks the 6 year employment limit for an assistant.
-     * 
-     * @param assistant
-     *            the assistant
-     */
-    private void checkEmploymentLimit(Assistant assistant) {
-        int year = 6, limit = year * 12;
-
-        try {
-            List<Employment> employments = (new Employment())
-                .getEmployments(assistant);
-
-            List<Date> dates = new ArrayList<Date>();
-
-            int unchecked = 0, checked = 0;
-
-            for (Employment employment : employments) {
-                Calendar cal = Calendar.getInstance();
-                cal.clear();
-
-                cal.set(Calendar.MONTH, employment.getMonth() - 1);
-                cal.set(Calendar.YEAR, employment.getYear());
-
-                if (!dates.contains(cal.getTime())) {
-                    if (Qualification.valueOf(employment.getQualification()) == Qualification.u
-                            || Qualification.valueOf(employment
-                                .getQualification()) == Qualification.b) {
-                        ++unchecked;
-                    }
-
-                    if (Qualification.valueOf(employment.getQualification()) == Qualification.g) {
-                        ++checked;
-                    }
-
-                    dates.add(cal.getTime());
-                }
-            }
-
-            if (checked > limit || unchecked > limit) {
-                String qualification = Qualification.u.toString();
-
-                if (checked > limit) {
-                    qualification = Qualification.g.toString();
-                }
-
-                UI
-                    .displayInfo(MessageFormat
-                        .format(
-                            _("You have hired {0} with qualification {1} more than {2} years. The employments were created anyway."),
-                            new Object[] {
-                                    (new UIAssistant(assistant)).toString(),
-                                    qualification, year }));
-            }
-
-        } catch (AdoHiveException e1) {
-        }
-    }
-
-    /**
-     * Checks the working hour limit of 85h per month in the given period of
-     * time for an assistant.
-     * 
-     * @param assistant
-     *            the assistant
-     * @param dates
-     *            the period of time
-     */
-    private void checkWorkingHourLimit(Assistant assistant, List<Date> dates) {
-        int limit = 85;
-
-        try {
-            Map<Date, Double> hourCounts = new HashMap<Date, Double>();
-
-            for (Date date : dates) {
-                Calendar cal = Calendar.getInstance();
-                cal.setTime(date);
-
-                byte month = (byte) (cal.get(Calendar.MONTH) + 1);
-                short year = (short) cal.get(Calendar.YEAR);
-
-                List<Employment> employments = (new Employment())
-                    .getEmployments(year, month, year, month);
-
-                for (Employment employment : employments) {
-                    if (employment.getAssistantId() == assistant.getId()) {
-                        if (hourCounts.get(date) == null) {
-                            hourCounts.put(date, employment.getHourCount());
-                        } else {
-                            hourCounts.put(date, hourCounts.get(date)
-                                    + employment.getHourCount());
-                        }
-                    }
-                }
-            }
-
-            boolean exceed = false;
-
-            Set<Date> set = hourCounts.keySet();
-
-            String limitMsg = MessageFormat
-                .format(
-                    _("The working hour limit of {0}h for the assistant {1} is exceeded in the following dates:"),
-                    new Object[] { limit, new UIAssistant(assistant).toString() })
-                    + " ";
-
-            for (Date date : set) {
-                if (hourCounts.get(date) > limit) {
-                    limitMsg += (new SimpleDateFormat("MM.yyyy")).format(date)
-                            + " ";
-
-                    exceed = true;
-                }
-            }
-
-            if (exceed) {
-                UI.displayInfo(limitMsg);
-            }
-        } catch (AdoHiveException e) {
-        }
-    }
-
-    /**
-     * Checks the budget limit in h for the given course.
-     * 
-     * @param course
-     *            the course
-     */
-    private void checkCourseBudgetLimit(Course course) {
-        CourseBudget courseBudget = new CourseBudget(course);
-
-        if (courseBudget.getBookedBudget() > courseBudget.getTotalBudget()) {
-
-            UI
-                .displayInfo(MessageFormat
-                    .format(
-                        _("The budget limit for course {0} is exceeded ({1}h / {2}h). The employments were created anyway."),
-                        new Object[] { (new UICourse(course)).toString(),
-                                round(courseBudget.getBookedBudget(), 2),
-                                round(courseBudget.getTotalBudget(), 2) }));
-        }
-    }
-
-    /**
-     * Checks the budget limit in € for the funds.
-     * 
-     * @param course
-     *            the course
-     * @param funds
-     *            the funds
-     */
-    private void checkFundsBudgetLimit(Course course, int funds) {
-        try {
-            double bookedBudgetCosts = 0.0, maxBudgetCosts = 0.0;
-
-            FinancialCategory fc = new FinancialCategory(
-                (new FinancialCategory()).getById(course
-                    .getFinancialCategoryId()));
-
-            for (int i = 0; i < fc.getFunds().length; ++i) {
-                if (fc.getFunds()[i] == funds) {
-                    maxBudgetCosts = fc.getBudgetCosts()[i];
-
-                    break;
-                }
-            }
-
-            List<Course> courses = (new Course()).getCourses(fc);
-
-            for (Course curCourse : courses) {
-                List<Employment> employments = (new Employment())
-                    .getEmployments(curCourse);
-
-                for (Employment curEmployment : employments) {
-                    if (curEmployment.getFunds() == funds) {
-                        bookedBudgetCosts += BalanceHelper
-                            .calculateBudgetCost(curEmployment);
-                    }
-                }
-            }
-
-            if (bookedBudgetCosts > maxBudgetCosts) {
-                UI
-                    .displayInfo(MessageFormat
-                        .format(
-                            _("The budget costs limit for funds {0} in financial category {1} is exceeded ({2}€ / {3}€). The employments were created anyway."),
-                            new Object[] { UIFund.valueOf(funds),
-                                    new UIFinancialCategory(fc).toString(),
-                                    round(bookedBudgetCosts, 2),
-                                    round(maxBudgetCosts, 2) }));
-            }
-        } catch (AdoHiveException e) {
-        }
     }
 
     /*
@@ -748,6 +547,48 @@ public class EditorSaveAction extends AbstractAction {
             break;
         }
 
+        // check model validation first
+        for (AbstractModel model : models) {
+            if (!model.validateModel()) {
+                tab.updateHints(model);
+
+                return;
+            }
+        }
+
+        // some checks before saving an employment
+        if (tab.getType() == DataType.Employment) {
+            EmploymentEditorForm editorForm = (EmploymentEditorForm) tab
+                .getEditorForm();
+
+            List<Inspector> inspectors = new ArrayList<Inspector>();
+
+            inspectors.add(new EmploymentLimitInspector(editorForm
+                .getAssistant()));
+            inspectors.add(new WorkingHourLimitInspector(editorForm
+                .getAssistant(), editorForm.getDates()));
+
+            inspectors.add(new CourseBudgetLimitInspector(editorForm
+                .getCourse()));
+            inspectors.add(new FundsBudgetLimitInspector(
+                editorForm.getCourse(), editorForm.getFunds()));
+
+            String result = "";
+
+            for (Inspector inspector : inspectors) {
+                inspector.setModels(models);
+
+                inspector.check();
+
+                if (inspector.isFail()) {
+                    result += inspector.getResult() + "\n\n";
+                }
+            }
+
+            UI.displayInfo(result);
+
+        }
+
         // save all prepared models
         for (AbstractModel model : models) {
 
@@ -761,14 +602,7 @@ public class EditorSaveAction extends AbstractAction {
                 tab.getType());
 
             try {
-
-                // finally try to save the model to database
-                if (!model.save()) {
-                    // validation has failed
-                    tab.updateHints(model);
-
-                    return;
-                }
+                model.save();
 
                 UI.getInstance().setStatusMessage(
                     MessageFormat.format(
@@ -791,19 +625,6 @@ public class EditorSaveAction extends AbstractAction {
 
                 break;
             }
-        }
-
-        // some checks after saving an employment
-        if (tab.getType() == DataType.Employment) {
-            EmploymentEditorForm editorForm = (EmploymentEditorForm) tab
-                .getEditorForm();
-
-            checkEmploymentLimit(editorForm.getAssistant());
-            checkWorkingHourLimit(editorForm.getAssistant(), editorForm
-                .getDates());
-
-            checkCourseBudgetLimit(editorForm.getCourse());
-            checkFundsBudgetLimit(editorForm.getCourse(), editorForm.getFunds());
         }
 
         Tab p = tab.getPredecessor();
