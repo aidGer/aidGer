@@ -565,6 +565,7 @@ public class EditorSaveAction extends AbstractAction {
 
         // inspector checks
 
+        tab.clearHints();
         inspectors.clear();
 
         if (tab.getType() == DataType.Employment) {
