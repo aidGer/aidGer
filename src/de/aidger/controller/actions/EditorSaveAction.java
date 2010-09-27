@@ -20,6 +20,7 @@ import de.aidger.model.AbstractModel;
 import de.aidger.model.inspectors.CourseBudgetLimitInspector;
 import de.aidger.model.inspectors.EmploymentLimitInspector;
 import de.aidger.model.inspectors.FundsBudgetLimitInspector;
+import de.aidger.model.inspectors.IdenticalAssistantInspector;
 import de.aidger.model.inspectors.Inspector;
 import de.aidger.model.inspectors.WorkingHourLimitInspector;
 import de.aidger.model.models.Activity;
@@ -39,11 +40,11 @@ import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
 import de.aidger.view.forms.HourlyWageEditorForm;
 import de.aidger.view.models.TableModel;
+import de.aidger.view.models.UIAssistant;
 import de.aidger.view.tabs.DetailViewerTab;
 import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
-import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.InvalidLengthException;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
@@ -568,7 +569,8 @@ public class EditorSaveAction extends AbstractAction {
         tab.clearHints();
         inspectors.clear();
 
-        if (tab.getType() == DataType.Employment) {
+        switch (tab.getType()) {
+        case Employment:
             EmploymentEditorForm editorForm = (EmploymentEditorForm) tab
                 .getEditorForm();
 
@@ -581,15 +583,24 @@ public class EditorSaveAction extends AbstractAction {
                 .getCourse()));
             inspectors.add(new FundsBudgetLimitInspector(
                 editorForm.getCourse(), editorForm.getFunds()));
+
+            break;
+        case Assistant:
+            inspectors.add(new IdenticalAssistantInspector(new UIAssistant(
+                (Assistant) models.get(0))));
+
+            break;
         }
 
         if (!inspectors.isEmpty()) {
             try {
                 List<String> messages = new ArrayList<String>();
 
-                // save models temporarly
-                for (AbstractModel model : models) {
-                    model.save();
+                if (Inspector.isUpdatedDBRequired(inspectors)) {
+                    // save models temporarly
+                    for (AbstractModel model : models) {
+                        model.save();
+                    }
                 }
 
                 // perform the inspector checks
@@ -601,12 +612,14 @@ public class EditorSaveAction extends AbstractAction {
                     }
                 }
 
-                // reset the changes in database
-                if (tab.isEditMode()) {
-                    modelBeforeEdit.save();
-                } else {
-                    for (AbstractModel model : models) {
-                        model.remove();
+                if (Inspector.isUpdatedDBRequired(inspectors)) {
+                    // reset the changes in database
+                    if (tab.isEditMode()) {
+                        modelBeforeEdit.save();
+                    } else {
+                        for (AbstractModel model : models) {
+                            model.remove();
+                        }
                     }
                 }
 

@@ -34,6 +34,8 @@ public class EmploymentLimitInspector extends Inspector {
      */
     public EmploymentLimitInspector(Assistant assistant) {
         this.assistant = assistant;
+
+        updatedDBRequired = true;
     }
 
     /*

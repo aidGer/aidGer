@@ -45,6 +45,8 @@ public class WorkingHourLimitInspector extends Inspector {
     public WorkingHourLimitInspector(Assistant assistant, List<Date> dates) {
         this.assistant = assistant;
         this.dates = dates;
+
+        updatedDBRequired = true;
     }
 
     /*

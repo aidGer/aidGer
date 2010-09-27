@@ -69,4 +69,26 @@ public class UIAssistant extends Assistant implements UIModel {
     public DataType getDataType() {
         return DataType.Assistant;
     }
+
+    /**
+     * Check if two objects are equal.
+     * 
+     * @param o
+     *            The other object
+     * @return True if both are equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof IAssistant) {
+            IAssistant a = (IAssistant) o;
+            return (getFirstName() == null ? a.getFirstName() == null : a
+                .getFirstName().equals(getFirstName()))
+                    && (getLastName() == null ? a.getLastName() == null : a
+                        .getLastName().equals(getLastName()))
+                    && (getEmail() == null ? a.getEmail() == null : a
+                        .getEmail().equals(getEmail()));
+        } else {
+            return false;
+        }
+    }
 }

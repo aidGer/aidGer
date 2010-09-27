@@ -29,6 +29,8 @@ public class CourseBudgetLimitInspector extends Inspector {
      */
     public CourseBudgetLimitInspector(Course course) {
         this.course = course;
+
+        updatedDBRequired = true;
     }
 
     /*
