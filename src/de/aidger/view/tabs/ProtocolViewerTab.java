@@ -13,6 +13,8 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.event.ChangeEvent;
@@ -60,6 +62,11 @@ public class ProtocolViewerTab extends Tab {
     private ArrayList<Object[]> activities = new ArrayList<Object[]>();
 
     /**
+     * The number of days to display activities of.
+     */
+    private int days;
+
+    /**
      * Initializes a new ProtocolViewerTab and registers a change listener to
      * the spinner.
      * 
@@ -71,12 +78,24 @@ public class ProtocolViewerTab extends Tab {
 
         daySpinner.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
-                if ((Integer) daySpinner.getValue() < -1) {
-                    daySpinner.setValue(-1);
+                if ((Integer) daySpinner.getValue() < 0) {
+                    daySpinner.setValue(0);
                 }
+                days = (Integer) daySpinner.getValue();
                 clearTable();
                 activities = protocolCreator
                     .createProtocol((Integer) daySpinner.getValue());
+                for (Object activity : activities) {
+                    addActivity((Object[]) activity);
+                }
+            }
+        });
+
+        showAllBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                clearTable();
+                days = -1;
+                activities = protocolCreator.createProtocol(-1);
                 for (Object activity : activities) {
                     addActivity((Object[]) activity);
                 }
@@ -113,7 +132,7 @@ public class ProtocolViewerTab extends Tab {
      * @return The amount of days
      */
     public int getDays() {
-        return (Integer) daySpinner.getValue();
+        return days;
     }
 
     /**
@@ -155,6 +174,7 @@ public class ProtocolViewerTab extends Tab {
         filterLabel = new javax.swing.JPanel();
         spinnerLabel = new javax.swing.JLabel();
         daySpinner = new javax.swing.JSpinner();
+        showAllBtn = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -164,8 +184,10 @@ public class ProtocolViewerTab extends Tab {
 
         exportProtocolButton.setText(_("Export"));
         exportProtocolButton.setFocusable(false);
-        exportProtocolButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        exportProtocolButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        exportProtocolButton
+            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportProtocolButton
+            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(exportProtocolButton);
         jToolBar1.add(jSeparator2);
 
@@ -178,7 +200,8 @@ public class ProtocolViewerTab extends Tab {
 
         contentPanel.add(contentScrollPane, java.awt.BorderLayout.CENTER);
 
-        filterLabel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        filterLabel
+            .setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         spinnerLabel.setText(_("Number of days before today to display: "));
         filterLabel.add(spinnerLabel);
@@ -189,6 +212,9 @@ public class ProtocolViewerTab extends Tab {
             }
         });
         filterLabel.add(daySpinner);
+
+        showAllBtn.setText(_("Show all activities"));
+        filterLabel.add(showAllBtn);
 
         contentPanel.add(filterLabel, java.awt.BorderLayout.PAGE_START);
 
@@ -210,6 +236,7 @@ public class ProtocolViewerTab extends Tab {
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JButton showAllBtn;
     private javax.swing.JLabel spinnerLabel;
     // End of variables declaration//GEN-END:variables
 
