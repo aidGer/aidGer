@@ -120,28 +120,24 @@ public class ControllingViewerTab extends ReportTab {
         } catch (ActionNotFoundException e) {
             UI.displayError(e.getMessage());
         }
+        enableExport();
         /*
          * The export buttons should not be visible before a report has been
          * generated.
          */
-        exportAllButton.setVisible(false);
-        exportDifferencesButton.setVisible(false);
-        jSeparator2.setVisible(false);
-        jSeparator4.setVisible(false);
     }
 
     /**
-     * Sets the export buttons and their separators visible.
+     * Enables the export buttons if there is data in the table.
      */
-    public void visualizeButtons() {
-        exportAllButton.setVisible(false);
-        exportAllButton.setVisible(true);
-        exportDifferencesButton.setVisible(false);
-        exportDifferencesButton.setVisible(true);
-        jSeparator2.setVisible(false);
-        jSeparator2.setVisible(true);
-        jSeparator4.setVisible(false);
-        jSeparator4.setVisible(true);
+    public void enableExport() {
+        if (controllingTableModel.getRowCount() > 0) {
+            exportAllButton.setEnabled(true);
+            exportDifferencesButton.setEnabled(true);
+        } else {
+            exportAllButton.setEnabled(false);
+            exportDifferencesButton.setEnabled(false);
+        }
     }
 
     /**
