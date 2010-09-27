@@ -9,6 +9,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -26,12 +27,19 @@ public class ActivityReportConverterTest {
 
     private Assistant assistant;
 
+    private static boolean openSetting = false;
+
     /**
      * Sets up these tests.
      */
     @BeforeClass
     public static void beforeClassSetUp() {
         Runtime.getInstance().initialize();
+        String autoOpen = Runtime.getInstance().getOption("auto-open");
+        if (autoOpen.equals("true")) {
+            openSetting = true;
+        }
+        Runtime.getInstance().setOption("auto-open", "false");
     }
 
     /**
@@ -88,5 +96,13 @@ public class ActivityReportConverterTest {
     @After
     public void cleanUp() throws AdoHiveException {
         assistant.remove();
+    }
+
+    /**
+     * Cleans up after all tests have completed.
+     */
+    @AfterClass
+    public static void afterClassCleanUp() {
+        Runtime.getInstance().setOption("auto-open", "" + openSetting);
     }
 }
