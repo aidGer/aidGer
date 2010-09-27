@@ -88,6 +88,7 @@ public class ProtocolViewerTab extends Tab {
                 for (Object activity : activities) {
                     addActivity((Object[]) activity);
                 }
+                enableExport();
             }
         });
 
@@ -99,6 +100,7 @@ public class ProtocolViewerTab extends Tab {
                 for (Object activity : activities) {
                     addActivity((Object[]) activity);
                 }
+                enableExport();
             }
         });
 
@@ -113,6 +115,19 @@ public class ProtocolViewerTab extends Tab {
             .getValue());
         for (Object activity : activities) {
             addActivity((Object[]) activity);
+        }
+        enableExport();
+    }
+
+    /**
+     * Enables the button to export activities if there are entries in the
+     * table.
+     */
+    private void enableExport() {
+        if (activityTableModel.getRowCount() > 0) {
+            exportProtocolButton.setEnabled(true);
+        } else {
+            exportProtocolButton.setEnabled(false);
         }
     }
 
