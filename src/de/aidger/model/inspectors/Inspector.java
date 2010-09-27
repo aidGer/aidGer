@@ -1,8 +1,5 @@
 package de.aidger.model.inspectors;
 
-import java.util.List;
-
-import de.aidger.model.AbstractModel;
 
 /**
  * Basic inspector class for checks before saving models.
@@ -10,23 +7,31 @@ import de.aidger.model.AbstractModel;
  * @author aidGer Team
  */
 public abstract class Inspector {
-    protected String result = null;
+    /**
+     * The result of the check.
+     */
+    protected String result = "";
 
-    @SuppressWarnings( { "unchecked", "unused" })
-    private List<AbstractModel> models;
-
+    /**
+     * Main work for all inspectors is done here by checking the models.
+     */
     public abstract void check();
 
+    /**
+     * Returns whether the check has failed.
+     * 
+     * @return whether the check has failed
+     */
     public boolean isFail() {
-        return result != null;
+        return !result.isEmpty();
     }
 
+    /**
+     * Returns the result of the check.
+     * 
+     * @return the result of the check
+     */
     public String getResult() {
         return result;
-    }
-
-    @SuppressWarnings("unchecked")
-    public void setModels(List<AbstractModel> models) {
-        this.models = models;
     }
 }

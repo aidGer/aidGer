@@ -82,7 +82,7 @@ public class EmploymentLimitInspector extends Inspector {
 
                 result = MessageFormat
                     .format(
-                        _("You have hired {0} with qualification {1} more than {2} years. The employments were created anyway."),
+                        _("You have hired {0} with qualification {1} more than {2} years."),
                         new Object[] { (new UIAssistant(assistant)).toString(),
                                 qualification, year });
             }

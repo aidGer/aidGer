@@ -81,7 +81,7 @@ public class FundsBudgetLimitInspector extends Inspector {
             if (bookedBudgetCosts > maxBudgetCosts) {
                 result = MessageFormat
                     .format(
-                        _("The budget costs limit for funds {0} in financial category {1} is exceeded ({2}€ / {3}€). The employments were created anyway."),
+                        _("The budget costs limit for funds {0} in financial category {1} is exceeded ({2}€ / {3}€)."),
                         new Object[] { UIFund.valueOf(funds),
                                 new UIFinancialCategory(fc).toString(),
                                 round(bookedBudgetCosts, 2),

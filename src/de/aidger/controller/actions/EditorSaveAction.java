@@ -14,6 +14,7 @@ import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.JOptionPane;
 
 import de.aidger.model.AbstractModel;
 import de.aidger.model.inspectors.CourseBudgetLimitInspector;
@@ -61,6 +62,11 @@ import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
  */
 @SuppressWarnings("serial")
 public class EditorSaveAction extends AbstractAction {
+
+    /**
+     * Inspectors that check models before they are saved.
+     */
+    private final List<Inspector> inspectors = new ArrayList<Inspector>();
 
     /**
      * Initializes the action.
@@ -548,6 +554,7 @@ public class EditorSaveAction extends AbstractAction {
         }
 
         // check model validation first
+
         for (AbstractModel model : models) {
             if (!model.validateModel()) {
                 tab.updateHints(model);
@@ -556,12 +563,13 @@ public class EditorSaveAction extends AbstractAction {
             }
         }
 
-        // some checks before saving an employment
+        // inspector checks
+
+        inspectors.clear();
+
         if (tab.getType() == DataType.Employment) {
             EmploymentEditorForm editorForm = (EmploymentEditorForm) tab
                 .getEditorForm();
-
-            List<Inspector> inspectors = new ArrayList<Inspector>();
 
             inspectors.add(new EmploymentLimitInspector(editorForm
                 .getAssistant()));
@@ -572,24 +580,61 @@ public class EditorSaveAction extends AbstractAction {
                 .getCourse()));
             inspectors.add(new FundsBudgetLimitInspector(
                 editorForm.getCourse(), editorForm.getFunds()));
-
-            String result = "";
-
-            for (Inspector inspector : inspectors) {
-                inspector.setModels(models);
-
-                inspector.check();
-
-                if (inspector.isFail()) {
-                    result += inspector.getResult() + "\n\n";
-                }
-            }
-
-            UI.displayInfo(result);
-
         }
 
-        // save all prepared models
+        if (!inspectors.isEmpty()) {
+            try {
+                List<String> messages = new ArrayList<String>();
+
+                // save models temporarly
+                for (AbstractModel model : models) {
+                    model.save();
+                }
+
+                // perform the inspector checks
+                for (Inspector inspector : inspectors) {
+                    inspector.check();
+
+                    if (inspector.isFail()) {
+                        messages.add(inspector.getResult());
+                    }
+                }
+
+                // reset the changes in database
+                if (tab.isEditMode()) {
+                    modelBeforeEdit.save();
+                } else {
+                    for (AbstractModel model : models) {
+                        model.remove();
+                    }
+                }
+
+                // has any check failed?
+                if (!messages.isEmpty()) {
+                    String message = "";
+
+                    if (messages.size() == 1) {
+                        message = messages.get(0) + "\n\n";
+                    } else {
+                        for (String msg : messages) {
+                            message += "\u2022 " + msg + "\n\n";
+                        }
+                    }
+
+                    message += _("Would you like to continue anyway?");
+
+                    if (JOptionPane.showConfirmDialog(null, message,
+                        _("Confirmation"), JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION) {
+                        return;
+                    }
+                }
+            } catch (AdoHiveException e2) {
+                // continue as if no checks were performed
+            }
+        }
+
+        // finally save all prepared models
+
         for (AbstractModel model : models) {
 
             // table model needs the model before it was edited 

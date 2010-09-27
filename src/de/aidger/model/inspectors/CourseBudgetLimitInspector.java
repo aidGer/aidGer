@@ -41,7 +41,7 @@ public class CourseBudgetLimitInspector extends Inspector {
         if (courseBudget.getBookedBudget() > courseBudget.getTotalBudget()) {
             result = MessageFormat
                 .format(
-                    _("The budget limit for course {0} is exceeded ({1}h / {2}h). The employments were created anyway."),
+                    _("The budget limit for course {0} is exceeded ({1}h / {2}h)."),
                     new Object[] { (new UICourse(course)).toString(),
                             round(courseBudget.getBookedBudget(), 2),
                             round(courseBudget.getTotalBudget(), 2) });
