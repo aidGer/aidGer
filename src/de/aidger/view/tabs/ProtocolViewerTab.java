@@ -13,8 +13,6 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.event.ChangeEvent;
@@ -82,25 +80,29 @@ public class ProtocolViewerTab extends Tab {
                     daySpinner.setValue(0);
                 }
                 days = (Integer) daySpinner.getValue();
-                clearTable();
-                activities = protocolCreator
-                    .createProtocol((Integer) daySpinner.getValue());
-                for (Object activity : activities) {
-                    addActivity((Object[]) activity);
-                }
-                enableExport();
+                updateActivities(days);
             }
         });
 
-        showAllBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                clearTable();
-                days = -1;
-                activities = protocolCreator.createProtocol(-1);
-                for (Object activity : activities) {
-                    addActivity((Object[]) activity);
+        showSelectedDaysBtn.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                if (showSelectedDaysBtn.isSelected()) {
+                    daySpinner.setEnabled(true);
+                    showAllBtn.setSelected(false);
+                    days = (Integer) daySpinner.getValue();
+                    updateActivities(days);
                 }
-                enableExport();
+            }
+        });
+
+        showAllBtn.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                if (showAllBtn.isSelected()) {
+                    daySpinner.setEnabled(false);
+                    showSelectedDaysBtn.setSelected(false);
+                    days = -1;
+                    updateActivities(days);
+                }
             }
         });
 
@@ -110,9 +112,12 @@ public class ProtocolViewerTab extends Tab {
         } catch (ActionNotFoundException ex) {
             UI.displayError(ex.getMessage());
         }
+        showAllBtn.setSelected(true);
+    }
+
+    private void updateActivities(int numberOfDays) {
         clearTable();
-        activities = protocolCreator.createProtocol((Integer) daySpinner
-            .getValue());
+        activities = protocolCreator.createProtocol(numberOfDays);
         for (Object activity : activities) {
             addActivity((Object[]) activity);
         }
@@ -187,9 +192,9 @@ public class ProtocolViewerTab extends Tab {
         contentScrollPane = new javax.swing.JScrollPane();
         contentTable = new javax.swing.JTable();
         filterLabel = new javax.swing.JPanel();
-        spinnerLabel = new javax.swing.JLabel();
+        showAllBtn = new javax.swing.JRadioButton();
+        showSelectedDaysBtn = new javax.swing.JRadioButton();
         daySpinner = new javax.swing.JSpinner();
-        showAllBtn = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -218,8 +223,12 @@ public class ProtocolViewerTab extends Tab {
         filterLabel
             .setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        spinnerLabel.setText(_("Number of days before today to display: "));
-        filterLabel.add(spinnerLabel);
+        showAllBtn.setText(_("Show all activities"));
+        filterLabel.add(showAllBtn);
+
+        showSelectedDaysBtn
+            .setText(_("Number of days before today to display: "));
+        filterLabel.add(showSelectedDaysBtn);
 
         daySpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -227,9 +236,6 @@ public class ProtocolViewerTab extends Tab {
             }
         });
         filterLabel.add(daySpinner);
-
-        showAllBtn.setText(_("Show all activities"));
-        filterLabel.add(showAllBtn);
 
         contentPanel.add(filterLabel, java.awt.BorderLayout.PAGE_START);
 
@@ -251,8 +257,8 @@ public class ProtocolViewerTab extends Tab {
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JButton showAllBtn;
-    private javax.swing.JLabel spinnerLabel;
+    private javax.swing.JRadioButton showAllBtn;
+    private javax.swing.JRadioButton showSelectedDaysBtn;
     // End of variables declaration//GEN-END:variables
 
 }
