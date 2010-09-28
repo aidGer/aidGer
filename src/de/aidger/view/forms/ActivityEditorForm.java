@@ -5,9 +5,9 @@ import static de.aidger.utils.Translation._;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -97,13 +97,15 @@ public class ActivityEditorForm extends JPanel {
             // create initials from name in settings
             String name = Runtime.getInstance().getOption("name").trim();
             String initials = "";
-            
+
             if (name.lastIndexOf(" ") > 0) {
                 initials += name.charAt(0);
                 initials += name.charAt(name.lastIndexOf(" ") + 1);
             }
 
             txtProcessor.setText(initials);
+
+            txtType.setText(_("General activity"));
         }
     }
 

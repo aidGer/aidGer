@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-27 20:18+0200\n"
+"POT-Creation-Date: 2010-09-28 10:06+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -435,7 +435,7 @@ msgstr "Hinzufügen"
 #: model/models/Contract.java:68
 #: model/models/Employment.java:83
 #: utils/pdf/ControllingConverter.java:329
-#: view/forms/ActivityEditorForm.java:193
+#: view/forms/ActivityEditorForm.java:195
 #: view/forms/ActivityViewerForm.java:91
 #: view/forms/ContractEditorForm.java:211
 #: view/forms/ContractViewerForm.java:90
@@ -475,7 +475,7 @@ msgstr "Der zugehörige Vertrag konnte nicht angezeigt werden."
 #: model/models/Activity.java:78
 #: model/models/Employment.java:87
 #: utils/pdf/BudgetReportConverter.java:386
-#: view/forms/ActivityEditorForm.java:118
+#: view/forms/ActivityEditorForm.java:120
 #: view/forms/ActivityViewerForm.java:99
 #: view/forms/EmploymentEditorForm.java:498
 #: view/forms/EmploymentViewerForm.java:114
@@ -582,7 +582,7 @@ msgstr "Das Stundenzahl-Limit von {0}h ist für die Hilfskraft {1} in den folgen
 
 #: model/models/Activity.java:73
 #: utils/pdf/ProtocolConverter.java:402
-#: view/forms/ActivityEditorForm.java:384
+#: view/forms/ActivityEditorForm.java:386
 #: view/forms/ActivityViewerForm.java:107
 #: view/forms/EmploymentEditorForm.java:367
 #: view/forms/EmploymentViewerForm.java:130
@@ -597,7 +597,7 @@ msgstr "Datum"
 
 #: model/models/Activity.java:73
 #: utils/pdf/ProtocolConverter.java:403
-#: view/forms/ActivityEditorForm.java:398
+#: view/forms/ActivityEditorForm.java:400
 #: view/forms/ActivityViewerForm.java:123
 #: view/models/ActivityTableModel.java:28
 #: view/tabs/ProtocolViewerTab.java:41
@@ -609,7 +609,7 @@ msgstr "Einsender"
 #: model/models/Contract.java:64
 #: model/models/Contract.java:167
 #: utils/pdf/ProtocolConverter.java:402
-#: view/forms/ActivityEditorForm.java:406
+#: view/forms/ActivityEditorForm.java:408
 #: view/forms/ActivityViewerForm.java:131
 #: view/forms/ContractEditorForm.java:251
 #: view/forms/ContractViewerForm.java:130
@@ -621,7 +621,7 @@ msgstr "Typ"
 
 #: model/models/Activity.java:73
 #: utils/pdf/ProtocolConverter.java:403
-#: view/forms/ActivityEditorForm.java:390
+#: view/forms/ActivityEditorForm.java:392
 #: view/forms/ActivityViewerForm.java:115
 #: view/models/ActivityTableModel.java:28
 #: view/tabs/ProtocolViewerTab.java:42
@@ -630,7 +630,7 @@ msgstr "Bearbeiter"
 
 #: model/models/Activity.java:74
 #: utils/pdf/ProtocolConverter.java:402
-#: view/forms/ActivityEditorForm.java:430
+#: view/forms/ActivityEditorForm.java:432
 #: view/forms/ActivityViewerForm.java:155
 #: view/models/ActivityTableModel.java:29
 #: view/tabs/ProtocolViewerTab.java:41
@@ -1047,7 +1047,7 @@ msgstr "Reale Kosten (Brutto)"
 
 #: utils/pdf/ControllingConverter.java:331
 #: utils/pdf/ProtocolConverter.java:403
-#: view/forms/ActivityEditorForm.java:422
+#: view/forms/ActivityEditorForm.java:424
 #: view/forms/ActivityViewerForm.java:147
 #: view/forms/CourseEditorForm.java:376
 #: view/forms/CourseViewerForm.java:197
@@ -1151,11 +1151,15 @@ msgstr "Hauspost"
 msgid "External mail"
 msgstr "Externe Post"
 
-#: view/forms/ActivityEditorForm.java:414
+#: view/forms/ActivityEditorForm.java:108
+msgid "General activity"
+msgstr "Allgemeiner Vorgang"
+
+#: view/forms/ActivityEditorForm.java:416
 msgid "Transmission Type"
 msgstr "Übermittlungsweg"
 
-#: view/forms/ActivityEditorForm.java:500
+#: view/forms/ActivityEditorForm.java:504
 msgid "Only a maximal length of 2 is allowed."
 msgstr "Nur eine Maximallänge von 2 ist erlaubt."
 
@@ -1800,10 +1804,6 @@ msgstr "Keine Daten vorhanden."
 #~ msgstr "Vertrag hinzufügen"
 #~ msgid "Add activity"
 #~ msgstr "Vorgang hinzufügen"
-
-#, fuzzy
-#~ msgid "General activity"
-#~ msgstr "Vorgang anlegen"
 #~ msgid "View course"
 #~ msgstr "Veranstaltung anzeigen"
 #~ msgid "View assistant"
