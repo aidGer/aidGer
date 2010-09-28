@@ -3,8 +3,10 @@ package de.aidger.view.tabs;
 import static de.aidger.utils.Translation._;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
@@ -183,8 +185,17 @@ public class ControllingViewerTab extends ReportTab {
         while (controllingTableModel.getRowCount() > 0) {
             controllingTableModel.removeRow(0);
         }
-        for (ControllingAssistant assistant : new ControllingCreator(year,
-            month, funds).getAssistants(ignoreHourlyWagesCheckBox.isSelected())) {
+        List<ControllingAssistant> assistants = new ControllingCreator(year,
+            month, funds).getAssistants(false);
+        int ignore = JOptionPane.showConfirmDialog(this,
+            _("There are no hourly wages for some of the assistants.") + "\n"
+                    + _("Should those entities still be used?"), _("Info"),
+            JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        if (ignore == 1) {
+            assistants = new ControllingCreator(year, month, funds)
+                .getAssistants(true);
+        }
+        for (ControllingAssistant assistant : assistants) {
             addRow(assistant.getObjectArray());
         }
     }
@@ -289,7 +300,9 @@ public class ControllingViewerTab extends ReportTab {
         exportDifferencesButton = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JToolBar.Separator();
         contentPanel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        tablePanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         filtersPanel = new javax.swing.JPanel();
         yearLabel = new javax.swing.JLabel();
         yearComboBox = new javax.swing.JComboBox();
@@ -297,11 +310,6 @@ public class ControllingViewerTab extends ReportTab {
         monthComboBox = new javax.swing.JComboBox();
         fundsLabel = new javax.swing.JLabel();
         fundsComboBox = new javax.swing.JComboBox();
-        jPanel2 = new javax.swing.JPanel();
-        ignoreHourlyWagesCheckBox = new javax.swing.JCheckBox();
-        tablePanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -339,7 +347,14 @@ public class ControllingViewerTab extends ReportTab {
 
         contentPanel.setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
+        tablePanel.setLayout(new java.awt.GridLayout(1, 0));
+
+        jTable1.setModel(controllingTableModel);
+        jScrollPane1.setViewportView(jTable1);
+
+        tablePanel.add(jScrollPane1);
+
+        contentPanel.add(tablePanel, java.awt.BorderLayout.CENTER);
 
         filtersPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
@@ -373,52 +388,33 @@ public class ControllingViewerTab extends ReportTab {
         });
         filtersPanel.add(fundsComboBox);
 
-        jPanel1.add(filtersPanel);
-
-        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
-
-        ignoreHourlyWagesCheckBox.setSelected(true);
-        ignoreHourlyWagesCheckBox.setText(_("Ignore employments with missing hourly wages"));
-        jPanel2.add(ignoreHourlyWagesCheckBox);
-
-        jPanel1.add(jPanel2);
-
-        contentPanel.add(jPanel1, java.awt.BorderLayout.PAGE_START);
-
-        tablePanel.setLayout(new java.awt.GridLayout(1, 0));
-
-        jTable1.setModel(controllingTableModel);
-        jScrollPane1.setViewportView(jTable1);
-
-        tablePanel.add(jScrollPane1);
-
-        contentPanel.add(tablePanel, java.awt.BorderLayout.CENTER);
+        contentPanel.add(filtersPanel, java.awt.BorderLayout.PAGE_START);
 
         add(contentPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void yearComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_yearComboBoxItemStateChanged
-        if (yearComboBox.getSelectedIndex() >= 0) {
-            year = (Integer) yearComboBox.getSelectedItem();
-            createMonthItems(year);
+    private void exportAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportAllButtonActionPerformed
+    }//GEN-LAST:event_exportAllButtonActionPerformed
+
+    private void fundsComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fundsComboBoxItemStateChanged
+        if (fundsComboBox.getSelectedIndex() >= 0) {
+            this.funds = (Integer) fundsComboBox.getSelectedItem();
         }
-    }//GEN-LAST:event_yearComboBoxItemStateChanged
+}//GEN-LAST:event_fundsComboBoxItemStateChanged
 
     private void monthComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_monthComboBoxItemStateChanged
         if (monthComboBox.getSelectedIndex() >= 0) {
             month = (Integer) monthComboBox.getSelectedItem();
             createFundsItems(year, month);
         }
-    }//GEN-LAST:event_monthComboBoxItemStateChanged
+}//GEN-LAST:event_monthComboBoxItemStateChanged
 
-    private void fundsComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fundsComboBoxItemStateChanged
-        if (fundsComboBox.getSelectedIndex() >= 0) {
-            this.funds = (Integer) fundsComboBox.getSelectedItem();
+    private void yearComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_yearComboBoxItemStateChanged
+        if (yearComboBox.getSelectedIndex() >= 0) {
+            year = (Integer) yearComboBox.getSelectedItem();
+            createMonthItems(year);
         }
-    }//GEN-LAST:event_fundsComboBoxItemStateChanged
-
-    private void exportAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportAllButtonActionPerformed
-    }//GEN-LAST:event_exportAllButtonActionPerformed
+}//GEN-LAST:event_yearComboBoxItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentPanel;
@@ -428,9 +424,6 @@ public class ControllingViewerTab extends ReportTab {
     private javax.swing.JComboBox fundsComboBox;
     private javax.swing.JLabel fundsLabel;
     private javax.swing.JButton generateButton;
-    private javax.swing.JCheckBox ignoreHourlyWagesCheckBox;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
