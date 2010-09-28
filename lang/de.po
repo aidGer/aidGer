@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-28 10:25+0200\n"
+"POT-Creation-Date: 2010-09-28 11:16+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -581,7 +581,7 @@ msgid "The working hour limit of {0}h for the assistant {1} is exceeded in the f
 msgstr "Das Stundenzahl-Limit von {0}h ist für die Hilfskraft {1} in den folgenden Zeitpunkten überschritten:"
 
 #: model/models/Activity.java:73
-#: utils/pdf/ProtocolConverter.java:402
+#: utils/pdf/ProtocolConverter.java:404
 #: view/forms/ActivityEditorForm.java:386
 #: view/forms/ActivityViewerForm.java:107
 #: view/forms/EmploymentEditorForm.java:367
@@ -596,18 +596,19 @@ msgid "Date"
 msgstr "Datum"
 
 #: model/models/Activity.java:73
-#: utils/pdf/ProtocolConverter.java:403
+#: utils/pdf/ProtocolConverter.java:405
+#: view/forms/ActivityEditorForm.java:400
 #: view/forms/ActivityViewerForm.java:123
 #: view/models/ActivityTableModel.java:28
 #: view/tabs/ProtocolViewerTab.java:41
-msgid "Sender"
-msgstr "Einsender"
+msgid "Initiator"
+msgstr "Initiator"
 
 #: model/models/Activity.java:73
 #: model/models/Activity.java:184
 #: model/models/Contract.java:64
 #: model/models/Contract.java:167
-#: utils/pdf/ProtocolConverter.java:402
+#: utils/pdf/ProtocolConverter.java:404
 #: view/forms/ActivityEditorForm.java:408
 #: view/forms/ActivityViewerForm.java:131
 #: view/forms/ContractEditorForm.java:251
@@ -619,7 +620,7 @@ msgid "Type"
 msgstr "Typ"
 
 #: model/models/Activity.java:73
-#: utils/pdf/ProtocolConverter.java:403
+#: utils/pdf/ProtocolConverter.java:405
 #: view/forms/ActivityEditorForm.java:392
 #: view/forms/ActivityViewerForm.java:115
 #: view/models/ActivityTableModel.java:28
@@ -628,7 +629,7 @@ msgid "Processor"
 msgstr "Bearbeiter"
 
 #: model/models/Activity.java:74
-#: utils/pdf/ProtocolConverter.java:402
+#: utils/pdf/ProtocolConverter.java:404
 #: view/forms/ActivityEditorForm.java:432
 #: view/forms/ActivityViewerForm.java:155
 #: view/models/ActivityTableModel.java:29
@@ -1045,7 +1046,7 @@ msgid "Actual costs(pre-tax)"
 msgstr "Reale Kosten (Brutto)"
 
 #: utils/pdf/ControllingConverter.java:331
-#: utils/pdf/ProtocolConverter.java:403
+#: utils/pdf/ProtocolConverter.java:405
 #: view/forms/ActivityEditorForm.java:424
 #: view/forms/ActivityViewerForm.java:147
 #: view/forms/CourseEditorForm.java:376
@@ -1065,12 +1066,12 @@ msgstr "Bemerkung"
 msgid "Activity Protocol"
 msgstr "Vorgangsprotokoll"
 
-#: utils/pdf/ProtocolConverter.java:401
+#: utils/pdf/ProtocolConverter.java:403
 #: view/tabs/ProtocolViewerTab.java:40
 msgid "Affected assistant"
 msgstr "Betroffene Hilfskraft"
 
-#: utils/pdf/ProtocolConverter.java:402
+#: utils/pdf/ProtocolConverter.java:404
 #: view/tabs/ProtocolViewerTab.java:40
 msgid "Affected course"
 msgstr "Betroffene Veranstaltung"
@@ -1154,15 +1155,11 @@ msgstr "Externe Post"
 msgid "General activity"
 msgstr "Allgemeiner Vorgang"
 
-#: view/forms/ActivityEditorForm.java:400
-msgid "Initiator"
-msgstr "Initiator"
-
 #: view/forms/ActivityEditorForm.java:416
 msgid "Transmission Type"
 msgstr "Übermittlungsweg"
 
-#: view/forms/ActivityEditorForm.java:502
+#: view/forms/ActivityEditorForm.java:504
 msgid "Only a maximal length of 2 is allowed."
 msgstr "Nur eine Maximallänge von 2 ist erlaubt."
 
@@ -1190,6 +1187,22 @@ msgstr "Bestätigungsdatum"
 #: view/models/ContractTableModel.java:30
 msgid "Delegation"
 msgstr "Delegation"
+
+#: view/forms/ContractEditorForm.java:317
+msgid "New contract"
+msgstr "Neuvertrag"
+
+#: view/forms/ContractEditorForm.java:317
+msgid "Increase"
+msgstr "Aufstockung"
+
+#: view/forms/ContractEditorForm.java:317
+msgid "Decrease"
+msgstr "Reduzierung"
+
+#: view/forms/ContractEditorForm.java:318
+msgid "Rebooking"
+msgstr "Umbuchung"
 
 #: view/forms/ContractViewerForm.java:54
 #: view/utils/BooleanListRenderer.java:28
@@ -1460,9 +1473,8 @@ msgid "Activity export"
 msgstr "Vorgänge exportieren"
 
 #: view/tabs/ProtocolViewerTab.java:226
-#, fuzzy
 msgid "Show all activities"
-msgstr "Vorgänge anzeigen"
+msgstr "Alle Vorgänge anzeigen"
 
 #: view/tabs/ProtocolViewerTab.java:230
 msgid "Number of days before today to display: "
@@ -1776,6 +1788,9 @@ msgstr "Das Model konnte nicht aus der Datenbank geholt werden"
 msgid "No data to display."
 msgstr "Keine Daten vorhanden."
 
+#~ msgid "Sender"
+#~ msgstr "Einsender"
+
 #, fuzzy
 #~ msgid "Untitled"
 #~ msgstr "Titel"
@@ -1817,8 +1832,6 @@ msgstr "Keine Daten vorhanden."
 #~ msgstr "Stundenlohn anzeigen"
 #~ msgid "View employment"
 #~ msgstr "Beschäftigung anzeigen"
-#~ msgid "View contract"
-#~ msgstr "Vertrag anzeigen"
 #~ msgid "View activity"
 #~ msgstr "Vorgang anzeigen"
 #~ msgid "Master Data Courses"
