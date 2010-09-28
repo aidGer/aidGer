@@ -28,6 +28,36 @@ import de.unistuttgart.iste.se.adohive.model.IAssistant;
 @SuppressWarnings("serial")
 public class ContractEditorForm extends JPanel {
 
+    public enum ContractType {
+        newContract(_("New contract")), increase(_("Increase")), decrease(
+                _("Decrease")), rebooking(_("Rebooking"));
+
+        /**
+         * The display name of an item.
+         */
+        private final String displayName;
+
+        /**
+         * Constructs a contract type item.
+         * 
+         * @param displayName
+         *            the display name of the item
+         */
+        ContractType(final String displayName) {
+            this.displayName = displayName;
+        }
+
+        /*
+         * (non-Javadoc)
+         * 
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {
+            return displayName;
+        }
+    }
+
     /**
      * A flag whether the form is in edit mode.
      */
@@ -85,7 +115,7 @@ public class ContractEditorForm extends JPanel {
 
             spStartDate.setValue(contract.getStartDate());
             spEndDate.setValue(contract.getEndDate());
-            txtType.setText(contract.getType());
+            cmbType.setSelectedItem(ContractType.valueOf(contract.getType()));
             cmbDelegation.setSelectedItem(Boolean.valueOf(contract
                 .isDelegation()));
         } else {
@@ -170,7 +200,7 @@ public class ContractEditorForm extends JPanel {
      * @return The type of the contract
      */
     public String getType() {
-        return txtType.getText();
+        return ((ContractType) cmbType.getSelectedItem()).name();
     }
 
     /**
@@ -203,7 +233,7 @@ public class ContractEditorForm extends JPanel {
         spConfirmationDate = new javax.swing.JSpinner();
         spStartDate = new javax.swing.JSpinner();
         spEndDate = new javax.swing.JSpinner();
-        txtType = new javax.swing.JTextField();
+        cmbType = new javax.swing.JComboBox();
         cmbDelegation = new javax.swing.JComboBox();
 
         setLayout(new java.awt.GridBagLayout());
@@ -313,13 +343,13 @@ public class ContractEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(spEndDate, gridBagConstraints);
 
-        txtType.setMinimumSize(new java.awt.Dimension(200, 25));
-        txtType.setPreferredSize(new java.awt.Dimension(200, 25));
+        cmbType.setModel(new DefaultComboBoxModel(ContractType.values()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(txtType, gridBagConstraints);
+        add(cmbType, gridBagConstraints);
 
         cmbDelegation.setModel(new DefaultComboBoxModel(new Object[] {
                 Boolean.FALSE, Boolean.TRUE }));
@@ -334,6 +364,7 @@ public class ContractEditorForm extends JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cmbAssistant;
     private javax.swing.JComboBox cmbDelegation;
+    private javax.swing.JComboBox cmbType;
     private javax.swing.JLabel lblAssistant;
     private javax.swing.JLabel lblCompletionDate;
     private javax.swing.JLabel lblConfirmationDate;
@@ -345,7 +376,6 @@ public class ContractEditorForm extends JPanel {
     private javax.swing.JSpinner spConfirmationDate;
     private javax.swing.JSpinner spEndDate;
     private javax.swing.JSpinner spStartDate;
-    private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables
 
 }

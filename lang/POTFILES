@@ -33,6 +33,12 @@ controller/actions/ViewerDeleteAction.java
 controller/actions/ViewerDetailViewAction.java
 controller/actions/ViewerEditAction.java
 model/AbstractModel.java
+model/inspectors/CourseBudgetLimitInspector.java
+model/inspectors/EmploymentLimitInspector.java
+model/inspectors/FundsBudgetLimitInspector.java
+model/inspectors/IdenticalAssistantInspector.java
+model/inspectors/OverlapContractInspector.java
+model/inspectors/WorkingHourLimitInspector.java
 model/models/Activity.java
 model/models/Assistant.java
 model/models/Contract.java

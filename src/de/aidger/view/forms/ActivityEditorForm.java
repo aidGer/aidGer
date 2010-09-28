@@ -5,9 +5,9 @@ import static de.aidger.utils.Translation._;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -60,7 +60,7 @@ public class ActivityEditorForm extends JPanel {
 
         cbType.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
                 _("Personal"), _("Telephone"), _("Email"), _("Internal mail"),
-                _("External mail")}));
+                _("External mail") }));
 
         InputPatternFilter.addFilter(txtProcessor, ".{0,2}");
 
@@ -69,7 +69,7 @@ public class ActivityEditorForm extends JPanel {
 
         if (editMode) {
             spDate.setValue(activity.getDate());
-            txtSender.setText(activity.getSender());
+            txtInitiator.setText(activity.getSender());
             txtProcessor.setText(activity.getProcessor());
             txtType.setText(activity.getType());
             txtContent.setText(activity.getContent());
@@ -97,13 +97,15 @@ public class ActivityEditorForm extends JPanel {
             // create initials from name in settings
             String name = Runtime.getInstance().getOption("name").trim();
             String initials = "";
-            
+
             if (name.lastIndexOf(" ") > 0) {
                 initials += name.charAt(0);
                 initials += name.charAt(name.lastIndexOf(" ") + 1);
             }
 
             txtProcessor.setText(initials);
+
+            txtType.setText(_("General activity"));
         }
     }
 
@@ -339,8 +341,8 @@ public class ActivityEditorForm extends JPanel {
      * 
      * @return The sender of the activity.
      */
-    public String getSender() {
-        return txtSender.getText();
+    public String getInitiator() {
+        return txtInitiator.getText();
     }
 
     /**
@@ -363,14 +365,14 @@ public class ActivityEditorForm extends JPanel {
 
         lblDate = new javax.swing.JLabel();
         lblProcessor = new javax.swing.JLabel();
-        lblSender = new javax.swing.JLabel();
+        lblInitiator = new javax.swing.JLabel();
         lblType = new javax.swing.JLabel();
         lblDocumentType = new javax.swing.JLabel();
         lblRemark = new javax.swing.JLabel();
         lblContent = new javax.swing.JLabel();
         spDate = new javax.swing.JSpinner();
         txtProcessor = new javax.swing.JTextField();
-        txtSender = new javax.swing.JTextField();
+        txtInitiator = new javax.swing.JTextField();
         txtType = new javax.swing.JTextField();
         txtRemark = new javax.swing.JTextField();
         filler = new javax.swing.JLabel();
@@ -395,13 +397,13 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblProcessor, gridBagConstraints);
 
-        lblSender.setText(_("Sender"));
+        lblInitiator.setText(_("Initiator"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(lblSender, gridBagConstraints);
+        add(lblInitiator, gridBagConstraints);
 
         lblType.setText(_("Type"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -436,7 +438,8 @@ public class ActivityEditorForm extends JPanel {
         add(lblContent, gridBagConstraints);
 
         spDate.setModel(new javax.swing.SpinnerDateModel());
-        spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate, "dd.MM.yyyy"));
+        spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate,
+            "dd.MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -453,14 +456,14 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtProcessor, gridBagConstraints);
 
-        txtSender.setMinimumSize(new java.awt.Dimension(200, 25));
-        txtSender.setPreferredSize(new java.awt.Dimension(200, 25));
+        txtInitiator.setMinimumSize(new java.awt.Dimension(200, 25));
+        txtInitiator.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(txtSender, gridBagConstraints);
+        add(txtInitiator, gridBagConstraints);
 
         txtType.setMinimumSize(new java.awt.Dimension(200, 25));
         txtType.setPreferredSize(new java.awt.Dimension(200, 25));
@@ -497,7 +500,8 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(scrollPane, gridBagConstraints);
 
-        hlpProcessor.setToolTipText(_("Only a maximal length of 2 is allowed."));
+        hlpProcessor
+            .setToolTipText(_("Only a maximal length of 2 is allowed."));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
@@ -522,16 +526,16 @@ public class ActivityEditorForm extends JPanel {
     private javax.swing.JLabel lblContent;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblDocumentType;
+    private javax.swing.JLabel lblInitiator;
     private javax.swing.JLabel lblProcessor;
     private javax.swing.JLabel lblRemark;
-    private javax.swing.JLabel lblSender;
     private javax.swing.JLabel lblType;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JSpinner spDate;
     private javax.swing.JTextArea txtContent;
+    private javax.swing.JTextField txtInitiator;
     private javax.swing.JTextField txtProcessor;
     private javax.swing.JTextField txtRemark;
-    private javax.swing.JTextField txtSender;
     private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables
 
