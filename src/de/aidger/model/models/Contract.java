@@ -3,8 +3,8 @@ package de.aidger.model.models;
 import static de.aidger.utils.Translation._;
 
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 import de.aidger.model.AbstractModel;
 import de.aidger.model.validators.DateRangeValidator;
@@ -121,13 +121,15 @@ public class Contract extends AbstractModel<IContract> implements IContract {
                     && (delegation == null ? c.delegation == null : delegation
                         .equals(c.delegation))
                     && (completionDate == null ? c.completionDate == null
-                            : completionDate.equals(c.completionDate))
+                            : completionDate.toString().equals(
+                                c.completionDate.toString()))
                     && (confirmationDate == null ? c.confirmationDate == null
-                            : confirmationDate.equals(c.confirmationDate))
+                            : confirmationDate.toString().equals(
+                                c.confirmationDate.toString()))
                     && (endDate == null ? c.endDate == null : endDate
-                        .equals(c.endDate))
+                        .toString().equals(c.endDate.toString()))
                     && (startDate == null ? c.startDate == null : startDate
-                        .equals(c.startDate))
+                        .toString().equals(c.startDate.toString()))
                     && (type == null ? c.type == null : type.equals(c.type));
         } else {
             return false;
@@ -205,20 +207,21 @@ public class Contract extends AbstractModel<IContract> implements IContract {
     public List<Contract> getContracts(Date start, Date end)
             throws AdoHiveException {
         IContractManager mgr = (IContractManager) getManager();
-        return castList(mgr.getContracts(start, end));
+		return castList(mgr.getContracts(start, end));
     }
 
     /**
      * Get a list of contracts associated to the specified assistant.
-     * 
+     *
      * @param assi
-     *            The assistant to search for
+     *          The assistant to search for
      * @return List of contracts
      * @throws AdoHiveException
      */
-    public List<Contract> getContracts(Assistant assi) throws AdoHiveException {
-        IContractManager mgr = (IContractManager) getManager();
-        return castList(mgr.getContracts(assi));
+    public List<Contract> getContracts(Assistant assi) 
+			throws AdoHiveException {
+		IContractManager mgr = (IContractManager) getManager();
+		return castList(mgr.getContracts(assi));
     }
 
     /**
@@ -374,11 +377,11 @@ public class Contract extends AbstractModel<IContract> implements IContract {
      * @return The new list
      */
     protected List<Contract> castList(List<IContract> list) {
-        List<Contract> ret = new ArrayList<Contract>();
-        for (IContract c : list) {
-            ret.add(new Contract(c));
-        }
-        return ret;
-    }
+		List<Contract> ret = new ArrayList<Contract>();
+		for (IContract c : list) {
+			ret.add(new Contract(c));
+		}
+		return ret;
+	}
 
 }
