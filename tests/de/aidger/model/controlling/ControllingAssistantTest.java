@@ -139,7 +139,7 @@ public class ControllingAssistantTest {
 
         Object[] expectedResult = {
                 assistant.getFirstName() + " " + assistant.getLastName(),
-                BalanceHelper.calculatePreTaxBudgetCost(employment) };
+                BalanceHelper.calculatePreTaxBudgetCost(employment), false };
 
         assertArrayEquals(expectedResult, controllingAssistant.getObjectArray());
     }
