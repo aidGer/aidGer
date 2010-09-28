@@ -28,6 +28,36 @@ import de.unistuttgart.iste.se.adohive.model.IAssistant;
 @SuppressWarnings("serial")
 public class ContractEditorForm extends JPanel {
 
+    public enum ContractType {
+        newContract(_("New contract")), increase(_("Increase")), decrease(
+                _("Decrease")), rebooking(_("Rebooking"));
+
+        /**
+         * The display name of an item.
+         */
+        private final String displayName;
+
+        /**
+         * Constructs a contract type item.
+         * 
+         * @param displayName
+         *            the display name of the item
+         */
+        ContractType(final String displayName) {
+            this.displayName = displayName;
+        }
+
+        /*
+         * (non-Javadoc)
+         * 
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {
+            return displayName;
+        }
+    }
+
     /**
      * A flag whether the form is in edit mode.
      */
@@ -85,7 +115,7 @@ public class ContractEditorForm extends JPanel {
 
             spStartDate.setValue(contract.getStartDate());
             spEndDate.setValue(contract.getEndDate());
-            cmbType.setSelectedItem(contract.getType());
+            cmbType.setSelectedItem(ContractType.valueOf(contract.getType()));
             cmbDelegation.setSelectedItem(Boolean.valueOf(contract
                 .isDelegation()));
         } else {
@@ -170,7 +200,7 @@ public class ContractEditorForm extends JPanel {
      * @return The type of the contract
      */
     public String getType() {
-        return (String) cmbType.getSelectedItem();
+        return ((ContractType) cmbType.getSelectedItem()).name();
     }
 
     /**
@@ -313,9 +343,7 @@ public class ContractEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(spEndDate, gridBagConstraints);
 
-        cmbType.setModel(new DefaultComboBoxModel(
-            new String[] { _("New contract"), _("Increase"), _("Decrease"),
-                    _("Rebooking") }));
+        cmbType.setModel(new DefaultComboBoxModel(ContractType.values()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;

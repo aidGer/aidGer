@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
+import de.aidger.view.forms.ContractEditorForm.ContractType;
 import de.aidger.view.models.UIAssistant;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
@@ -42,7 +43,7 @@ public class ContractViewerForm extends JPanel {
             endDate.setText((new SimpleDateFormat(f)).format(contract
                 .getEndDate()));
 
-            type.setText(contract.getType());
+            type.setText(ContractType.valueOf(contract.getType()).toString());
 
             if (contract.getConfirmationDate() != null) {
                 confirmationDate.setText((new SimpleDateFormat(f))
