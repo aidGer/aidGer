@@ -143,9 +143,10 @@ public class ControllingCreatorTest {
         expectedAssistant.setName(assistant.getFirstName() + " "
                 + assistant.getLastName());
         new BalanceHelper();
-        expectedAssistant.setCosts(BalanceHelper
-            .calculatePreTaxBudgetCost(employment));
+        expectedAssistant.setCosts(0);
+        expectedAssistant.setFlagged(true);
 
+        System.out.println(controllingCreator.getAssistants(false).get(0));
         assertArrayEquals(controllingCreator.getAssistants(false).get(0)
             .getObjectArray(), expectedAssistant.getObjectArray());
     }
