@@ -22,6 +22,7 @@ import de.aidger.model.inspectors.EmploymentLimitInspector;
 import de.aidger.model.inspectors.FundsBudgetLimitInspector;
 import de.aidger.model.inspectors.IdenticalAssistantInspector;
 import de.aidger.model.inspectors.Inspector;
+import de.aidger.model.inspectors.OverlapContractInspector;
 import de.aidger.model.inspectors.WorkingHourLimitInspector;
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
@@ -588,6 +589,11 @@ public class EditorSaveAction extends AbstractAction {
         case Assistant:
             inspectors.add(new IdenticalAssistantInspector(new UIAssistant(
                 (Assistant) models.get(0))));
+
+            break;
+        case Contract:
+            inspectors.add(new OverlapContractInspector((Contract) models
+                .get(0)));
 
             break;
         }

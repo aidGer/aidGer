@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-28 11:16+0200\n"
+"POT-Creation-Date: 2010-09-28 12:23+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -166,13 +166,13 @@ msgstr "Abbrechen"
 msgid "Cancel the operation"
 msgstr "Aktion abbrechen"
 
-#: controller/actions/EditorSaveAction.java:76
+#: controller/actions/EditorSaveAction.java:77
 #: controller/actions/SettingsSaveAction.java:31
 #: view/tabs/EditorTab.java:361
 msgid "Save"
 msgstr "Speichern"
 
-#: controller/actions/EditorSaveAction.java:113
+#: controller/actions/EditorSaveAction.java:114
 #: model/models/Course.java:222
 #: view/forms/CourseEditorForm.java:344
 #: view/forms/CourseViewerForm.java:149
@@ -180,7 +180,7 @@ msgstr "Speichern"
 msgid "AWH per group"
 msgstr "HKS pro Gruppe"
 
-#: controller/actions/EditorSaveAction.java:192
+#: controller/actions/EditorSaveAction.java:193
 #: model/models/FinancialCategory.java:132
 #: view/forms/FinancialCategoryEditorForm.java:186
 #: view/forms/FinancialCategoryViewerForm.java:63
@@ -188,9 +188,9 @@ msgstr "HKS pro Gruppe"
 msgid "Budget Costs"
 msgstr "Plankosten"
 
-#: controller/actions/EditorSaveAction.java:200
-#: controller/actions/EditorSaveAction.java:203
-#: controller/actions/EditorSaveAction.java:337
+#: controller/actions/EditorSaveAction.java:201
+#: controller/actions/EditorSaveAction.java:204
+#: controller/actions/EditorSaveAction.java:338
 #: model/models/Employment.java:200
 #: view/forms/EmploymentEditorForm.java:514
 #: view/forms/EmploymentViewerForm.java:146
@@ -202,11 +202,11 @@ msgstr "Plankosten"
 msgid "Funds"
 msgstr "Finanzmittel"
 
-#: controller/actions/EditorSaveAction.java:203
+#: controller/actions/EditorSaveAction.java:204
 msgid "has to have a length of 8"
 msgstr "muss eine Länge von 8 haben"
 
-#: controller/actions/EditorSaveAction.java:209
+#: controller/actions/EditorSaveAction.java:210
 #: model/models/Employment.java:208
 #: model/models/FinancialCategory.java:126
 #: model/models/HourlyWage.java:130
@@ -218,27 +218,27 @@ msgstr "muss eine Länge von 8 haben"
 msgid "Year"
 msgstr "Jahr"
 
-#: controller/actions/EditorSaveAction.java:247
+#: controller/actions/EditorSaveAction.java:248
 #: view/forms/HourlyWageEditorForm.java:214
 #: view/forms/HourlyWageViewerForm.java:76
 #: view/models/HourlyWageTableModel.java:27
 msgid "Wage"
 msgstr "Lohn"
 
-#: controller/actions/EditorSaveAction.java:262
+#: controller/actions/EditorSaveAction.java:263
 #: model/models/Contract.java:64
 #: model/models/Contract.java:65
-#: view/forms/ContractEditorForm.java:243
-#: view/forms/ContractViewerForm.java:122
-#: view/models/ContractTableModel.java:29
+#: view/forms/ContractEditorForm.java:273
+#: view/forms/ContractViewerForm.java:123
+#: view/models/ContractTableModel.java:30
 msgid "End date"
 msgstr "Enddatum"
 
-#: controller/actions/EditorSaveAction.java:263
+#: controller/actions/EditorSaveAction.java:264
 msgid "must be after start date"
 msgstr "muss hinter dem Startdatum liegen"
 
-#: controller/actions/EditorSaveAction.java:366
+#: controller/actions/EditorSaveAction.java:367
 #: model/models/Employment.java:204
 #: view/forms/EmploymentEditorForm.java:386
 #: view/forms/EmploymentViewerForm.java:138
@@ -246,25 +246,25 @@ msgstr "muss hinter dem Startdatum liegen"
 msgid "Hour count"
 msgstr "Stundenanzahl"
 
-#: controller/actions/EditorSaveAction.java:638
+#: controller/actions/EditorSaveAction.java:644
 msgid "Would you like to continue anyway?"
 msgstr "Möchten Sie dennoch fortfahren?"
 
-#: controller/actions/EditorSaveAction.java:641
+#: controller/actions/EditorSaveAction.java:647
 msgid "Confirmation"
 msgstr "Bestätigung"
 
-#: controller/actions/EditorSaveAction.java:668
+#: controller/actions/EditorSaveAction.java:674
 #, java-format
 msgid "The entity {0} was saved successfully."
 msgstr "Das {0}-Objekt wurde erfolgreich gespeichert."
 
-#: controller/actions/EditorSaveAction.java:675
+#: controller/actions/EditorSaveAction.java:681
 #, java-format
 msgid "Could not save the entity {0} because it already exists in the database."
 msgstr "Das {0}-Objekt konnte nicht gespeichert werden, da es bereits in der Datenbank vorhanden ist."
 
-#: controller/actions/EditorSaveAction.java:680
+#: controller/actions/EditorSaveAction.java:686
 #, java-format
 msgid "Could not save the entity {0} to database: {1}"
 msgstr "Das {0}-Objekt konnte nicht in der Datenbank gespeichert werden: {1}"
@@ -437,12 +437,12 @@ msgstr "Hinzufügen"
 #: utils/pdf/ControllingConverter.java:329
 #: view/forms/ActivityEditorForm.java:195
 #: view/forms/ActivityViewerForm.java:91
-#: view/forms/ContractEditorForm.java:211
-#: view/forms/ContractViewerForm.java:90
+#: view/forms/ContractEditorForm.java:241
+#: view/forms/ContractViewerForm.java:91
 #: view/forms/EmploymentEditorForm.java:492
 #: view/forms/EmploymentViewerForm.java:108
 #: view/models/ActivityTableModel.java:27
-#: view/models/ContractTableModel.java:28
+#: view/models/ContractTableModel.java:29
 #: view/models/EmploymentTableModel.java:34
 #: view/tabs/ActivityReportViewerTab.java:199
 #: view/tabs/ControllingViewerTab.java:40
@@ -575,6 +575,11 @@ msgstr "Das Budgetkosten-Limit für das Finanzmittel {0} in der Finanzkategorie 
 msgid "The same assistant exists already in the database."
 msgstr "Dieselbe Hilfskraft ist in der Datenbank bereits vorhanden."
 
+#: model/inspectors/OverlapContractInspector.java:62
+#, java-format
+msgid "The new contract of {0} overlaps with another one."
+msgstr "Der Neuvertrag von {0} überlappt mit einem anderen."
+
 #: model/inspectors/WorkingHourLimitInspector.java:91
 #, java-format
 msgid "The working hour limit of {0}h for the assistant {1} is exceeded in the following dates:"
@@ -611,10 +616,10 @@ msgstr "Initiator"
 #: utils/pdf/ProtocolConverter.java:404
 #: view/forms/ActivityEditorForm.java:408
 #: view/forms/ActivityViewerForm.java:131
-#: view/forms/ContractEditorForm.java:251
-#: view/forms/ContractViewerForm.java:130
+#: view/forms/ContractEditorForm.java:281
+#: view/forms/ContractViewerForm.java:131
 #: view/models/ActivityTableModel.java:28
-#: view/models/ContractTableModel.java:30
+#: view/models/ContractTableModel.java:31
 #: view/tabs/ProtocolViewerTab.java:41
 msgid "Type"
 msgstr "Typ"
@@ -704,18 +709,18 @@ msgid "Assistant is still linked to a Contract"
 msgstr "Es besteht noch eine Verbindung zwischen der Hilfskraft und einem Vertrag"
 
 #: model/models/Contract.java:63
-#: view/forms/ContractEditorForm.java:219
-#: view/forms/ContractViewerForm.java:98
-#: view/models/ContractTableModel.java:28
+#: view/forms/ContractEditorForm.java:249
+#: view/forms/ContractViewerForm.java:99
+#: view/models/ContractTableModel.java:29
 msgid "Completion date"
 msgstr "Abschlußdatum"
 
 #: model/models/Contract.java:64
 #: model/models/Contract.java:66
-#: view/forms/ContractEditorForm.java:235
-#: view/forms/ContractViewerForm.java:114
+#: view/forms/ContractEditorForm.java:265
+#: view/forms/ContractViewerForm.java:115
 #: view/forms/HourlyWageEditorForm.java:198
-#: view/models/ContractTableModel.java:29
+#: view/models/ContractTableModel.java:30
 msgid "Start date"
 msgstr "Anfangsdatum"
 
@@ -1172,45 +1177,45 @@ msgstr "Nur eine Maximallänge von 2 ist erlaubt."
 msgid "None"
 msgstr "Keine"
 
-#: view/forms/ContractEditorForm.java:102
-msgid "Confirmation date can be entered after saving the contract."
-msgstr "Das Bestätigungsdatum kann nach dem Speichern des Vertrags eingegeben werden."
-
-#: view/forms/ContractEditorForm.java:227
-#: view/forms/ContractViewerForm.java:106
-#: view/models/ContractTableModel.java:29
-msgid "Confirmation date"
-msgstr "Bestätigungsdatum"
-
-#: view/forms/ContractEditorForm.java:259
-#: view/forms/ContractViewerForm.java:138
-#: view/models/ContractTableModel.java:30
-msgid "Delegation"
-msgstr "Delegation"
-
-#: view/forms/ContractEditorForm.java:317
+#: view/forms/ContractEditorForm.java:32
 msgid "New contract"
 msgstr "Neuvertrag"
 
-#: view/forms/ContractEditorForm.java:317
+#: view/forms/ContractEditorForm.java:32
 msgid "Increase"
 msgstr "Aufstockung"
 
-#: view/forms/ContractEditorForm.java:317
+#: view/forms/ContractEditorForm.java:33
 msgid "Decrease"
 msgstr "Reduzierung"
 
-#: view/forms/ContractEditorForm.java:318
+#: view/forms/ContractEditorForm.java:33
 msgid "Rebooking"
 msgstr "Umbuchung"
 
-#: view/forms/ContractViewerForm.java:54
+#: view/forms/ContractEditorForm.java:132
+msgid "Confirmation date can be entered after saving the contract."
+msgstr "Das Bestätigungsdatum kann nach dem Speichern des Vertrags eingegeben werden."
+
+#: view/forms/ContractEditorForm.java:257
+#: view/forms/ContractViewerForm.java:107
+#: view/models/ContractTableModel.java:30
+msgid "Confirmation date"
+msgstr "Bestätigungsdatum"
+
+#: view/forms/ContractEditorForm.java:289
+#: view/forms/ContractViewerForm.java:139
+#: view/models/ContractTableModel.java:31
+msgid "Delegation"
+msgstr "Delegation"
+
+#: view/forms/ContractViewerForm.java:55
 #: view/utils/BooleanListRenderer.java:28
 #: view/utils/BooleanTableRenderer.java:28
 msgid "no"
 msgstr "nein"
 
-#: view/forms/ContractViewerForm.java:56
+#: view/forms/ContractViewerForm.java:57
 #: view/utils/BooleanListRenderer.java:31
 #: view/utils/BooleanTableRenderer.java:31
 msgid "yes"
@@ -1286,7 +1291,7 @@ msgstr "Enddatum"
 
 #: view/models/ActivityTableModel.java:27
 #: view/models/AssistantTableModel.java:25
-#: view/models/ContractTableModel.java:28
+#: view/models/ContractTableModel.java:29
 #: view/models/CourseTableModel.java:26
 #: view/models/EmploymentTableModel.java:34
 #: view/models/FinancialCategoryTableModel.java:26
