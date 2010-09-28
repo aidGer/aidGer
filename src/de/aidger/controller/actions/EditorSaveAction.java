@@ -440,7 +440,7 @@ public class EditorSaveAction extends AbstractAction {
 
         activity.setDate(form.getDate());
         activity.setProcessor(form.getProcessor());
-        activity.setSender(form.getSender());
+        activity.setSender(form.getInitiator());
         activity.setType(form.getType());
         activity.setDocumentType(form.getDocumentType());
         activity.setContent(form.getContent());

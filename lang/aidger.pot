@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-28 10:07+0200\n"
+"POT-Creation-Date: 2010-09-28 10:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -567,7 +567,6 @@ msgid "Date"
 msgstr ""
 
 #: model/models/Activity.java:73 utils/pdf/ProtocolConverter.java:403
-#: view/forms/ActivityEditorForm.java:400
 #: view/forms/ActivityViewerForm.java:123
 #: view/models/ActivityTableModel.java:28 view/tabs/ProtocolViewerTab.java:41
 msgid "Sender"
@@ -1069,11 +1068,15 @@ msgstr ""
 msgid "General activity"
 msgstr ""
 
+#: view/forms/ActivityEditorForm.java:400
+msgid "Initiator"
+msgstr ""
+
 #: view/forms/ActivityEditorForm.java:416
 msgid "Transmission Type"
 msgstr ""
 
-#: view/forms/ActivityEditorForm.java:504
+#: view/forms/ActivityEditorForm.java:502
 msgid "Only a maximal length of 2 is allowed."
 msgstr ""
 
