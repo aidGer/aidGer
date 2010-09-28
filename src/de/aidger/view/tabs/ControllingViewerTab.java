@@ -195,11 +195,16 @@ public class ControllingViewerTab extends ReportTab {
         }
         int ignore = 0;
         if (errorInCalculation) {
-            ignore = JOptionPane.showConfirmDialog(this,
-                _("There are no hourly wages for some of the assistants.")
-                        + "\n" + _("Should those entities still be used?"),
-                _("Info"), JOptionPane.YES_NO_OPTION,
-                JOptionPane.INFORMATION_MESSAGE);
+            ignore = JOptionPane
+                .showConfirmDialog(
+                    this,
+                    _("The hourly wages of some employments of the affected assistants are missing.")
+                            + "\n"
+                            + _("Shall these entities be included in the analysis anyway?")
+                            + "\n"
+                            + _("The affected entities will be marked as flawed."),
+                    _("Info"), JOptionPane.YES_NO_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE);
         }
         if (ignore == 1) {
             assistants = new ControllingCreator(year, month, funds)
