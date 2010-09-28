@@ -146,7 +146,7 @@ public class ControllingCreatorTest {
         expectedAssistant.setCosts(BalanceHelper
             .calculatePreTaxBudgetCost(employment));
 
-        assertArrayEquals(controllingCreator.getAssistants().get(0)
+        assertArrayEquals(controllingCreator.getAssistants(false).get(0)
             .getObjectArray(), expectedAssistant.getObjectArray());
     }
 
