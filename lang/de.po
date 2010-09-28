@@ -2,14 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-28 12:23+0200\n"
+"POT-Creation-Date: 2010-09-28 18:38+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
+"Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-"
+"stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -40,11 +41,9 @@ msgstr "Programminformationen anzeigen"
 #: controller/actions/ViewerActivityExportAction.java:37
 #: controller/actions/ViewerActivityExportAction.java:81
 #: view/tabs/ActivityReportViewerTab.java:214
-#: view/tabs/BalanceViewerTab.java:269
-#: view/tabs/BudgetViewerTab.java:243
-#: view/tabs/ControllingViewerTab.java:315
-#: view/tabs/ProtocolViewerTab.java:205
-#: view/tabs/ViewerTab.java:645
+#: view/tabs/BalanceViewerTab.java:269 view/tabs/BudgetViewerTab.java:243
+#: view/tabs/ControllingViewerTab.java:319
+#: view/tabs/ProtocolViewerTab.java:211 view/tabs/ViewerTab.java:645
 #: view/tabs/ViewerTab.java:672
 msgid "Export"
 msgstr "Exportieren"
@@ -101,9 +100,8 @@ msgstr "Datei überschreiben?"
 #: controller/actions/ControllingGenerateAction.java:29
 #: controller/actions/ReportGenerateAction.java:30
 #: view/tabs/ActivityReportViewerTab.java:205
-#: view/tabs/BalanceViewerTab.java:260
-#: view/tabs/BudgetViewerTab.java:234
-#: view/tabs/ControllingViewerTab.java:306
+#: view/tabs/BalanceViewerTab.java:260 view/tabs/BudgetViewerTab.java:234
+#: view/tabs/ControllingViewerTab.java:312
 msgid "Generate"
 msgstr "Generieren"
 
@@ -124,7 +122,7 @@ msgid "Export the whole report to a pdf file"
 msgstr "Exportiert den gesamten Bericht nach PDF"
 
 #: controller/actions/ControllingExportDifferencesAction.java:35
-#: view/tabs/ControllingViewerTab.java:329
+#: view/tabs/ControllingViewerTab.java:331
 msgid "Export differences"
 msgstr "Abweichungen exportieren"
 
@@ -141,24 +139,20 @@ msgstr "Kostenabweichung"
 msgid "Generate the controlling report"
 msgstr "Generiert den Controlling Bericht"
 
-#: controller/actions/DetailViewerCloseAction.java:26
-#: view/AboutDialog.java:37
-#: view/FirstStartDialog.java:116
-#: view/tabs/DetailViewerTab.java:512
+#: controller/actions/DetailViewerCloseAction.java:26 view/AboutDialog.java:37
+#: view/FirstStartDialog.java:116 view/tabs/DetailViewerTab.java:512
 msgid "Close"
 msgstr "Schließen"
 
 #: controller/actions/DetailViewerEditAction.java:28
 #: controller/actions/ViewerEditAction.java:27
-#: view/tabs/DetailViewerTab.java:509
-#: view/tabs/ViewerTab.java:627
+#: view/tabs/DetailViewerTab.java:509 view/tabs/ViewerTab.java:627
 #: view/tabs/ViewerTab.java:692
 msgid "Edit"
 msgstr "Bearbeiten"
 
 #: controller/actions/DialogAbortAction.java:26
-#: controller/actions/EditorCancelAction.java:26
-#: view/tabs/EditorTab.java:364
+#: controller/actions/EditorCancelAction.java:26 view/tabs/EditorTab.java:364
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -167,15 +161,12 @@ msgid "Cancel the operation"
 msgstr "Aktion abbrechen"
 
 #: controller/actions/EditorSaveAction.java:77
-#: controller/actions/SettingsSaveAction.java:31
-#: view/tabs/EditorTab.java:361
+#: controller/actions/SettingsSaveAction.java:31 view/tabs/EditorTab.java:361
 msgid "Save"
 msgstr "Speichern"
 
-#: controller/actions/EditorSaveAction.java:114
-#: model/models/Course.java:222
-#: view/forms/CourseEditorForm.java:344
-#: view/forms/CourseViewerForm.java:149
+#: controller/actions/EditorSaveAction.java:114 model/models/Course.java:222
+#: view/forms/CourseEditorForm.java:344 view/forms/CourseViewerForm.java:149
 #: view/models/CourseTableModel.java:28
 msgid "AWH per group"
 msgstr "HKS pro Gruppe"
@@ -191,14 +182,13 @@ msgstr "Plankosten"
 #: controller/actions/EditorSaveAction.java:201
 #: controller/actions/EditorSaveAction.java:204
 #: controller/actions/EditorSaveAction.java:338
-#: model/models/Employment.java:200
-#: view/forms/EmploymentEditorForm.java:514
+#: model/models/Employment.java:200 view/forms/EmploymentEditorForm.java:514
 #: view/forms/EmploymentViewerForm.java:146
 #: view/forms/FinancialCategoryEditorForm.java:156
 #: view/forms/FinancialCategoryViewerForm.java:47
 #: view/models/EmploymentTableModel.java:35
 #: view/models/FinancialCategoryTableModel.java:26
-#: view/tabs/ControllingViewerTab.java:365
+#: view/tabs/ControllingViewerTab.java:366
 msgid "Funds"
 msgstr "Finanzmittel"
 
@@ -207,14 +197,12 @@ msgid "has to have a length of 8"
 msgstr "muss eine Länge von 8 haben"
 
 #: controller/actions/EditorSaveAction.java:210
-#: model/models/Employment.java:208
-#: model/models/FinancialCategory.java:126
+#: model/models/Employment.java:208 model/models/FinancialCategory.java:126
 #: model/models/HourlyWage.java:130
 #: view/forms/FinancialCategoryEditorForm.java:267
 #: view/forms/FinancialCategoryViewerForm.java:108
 #: view/models/FinancialCategoryTableModel.java:26
-#: view/tabs/BalanceViewerTab.java:246
-#: view/tabs/ControllingViewerTab.java:345
+#: view/tabs/BalanceViewerTab.java:246 view/tabs/ControllingViewerTab.java:346
 msgid "Year"
 msgstr "Jahr"
 
@@ -225,10 +213,8 @@ msgstr "Jahr"
 msgid "Wage"
 msgstr "Lohn"
 
-#: controller/actions/EditorSaveAction.java:263
-#: model/models/Contract.java:64
-#: model/models/Contract.java:65
-#: view/forms/ContractEditorForm.java:273
+#: controller/actions/EditorSaveAction.java:263 model/models/Contract.java:64
+#: model/models/Contract.java:65 view/forms/ContractEditorForm.java:273
 #: view/forms/ContractViewerForm.java:123
 #: view/models/ContractTableModel.java:30
 msgid "End date"
@@ -239,8 +225,7 @@ msgid "must be after start date"
 msgstr "muss hinter dem Startdatum liegen"
 
 #: controller/actions/EditorSaveAction.java:367
-#: model/models/Employment.java:204
-#: view/forms/EmploymentEditorForm.java:386
+#: model/models/Employment.java:204 view/forms/EmploymentEditorForm.java:386
 #: view/forms/EmploymentViewerForm.java:138
 #: view/models/EmploymentTableModel.java:35
 msgid "Hour count"
@@ -261,8 +246,11 @@ msgstr "Das {0}-Objekt wurde erfolgreich gespeichert."
 
 #: controller/actions/EditorSaveAction.java:681
 #, java-format
-msgid "Could not save the entity {0} because it already exists in the database."
-msgstr "Das {0}-Objekt konnte nicht gespeichert werden, da es bereits in der Datenbank vorhanden ist."
+msgid ""
+"Could not save the entity {0} because it already exists in the database."
+msgstr ""
+"Das {0}-Objekt konnte nicht gespeichert werden, da es bereits in der "
+"Datenbank vorhanden ist."
 
 #: controller/actions/EditorSaveAction.java:686
 #, java-format
@@ -290,8 +278,7 @@ msgstr "Den Dialog schließen"
 msgid "No name entered"
 msgstr "Kein Name eingegeben"
 
-#: controller/actions/HelpAction.java:35
-#: view/UI.java:602
+#: controller/actions/HelpAction.java:35 view/UI.java:602
 msgid "Help"
 msgstr "Hilfe"
 
@@ -304,8 +291,7 @@ msgstr "Hilfe anzeigen"
 #: utils/pdf/BalanceReportConverter.java:172
 #: utils/pdf/BudgetReportConverter.java:111
 #: utils/pdf/ControllingConverter.java:100
-#: utils/pdf/ProtocolConverter.java:109
-#: utils/pdf/ProtocolConverter.java:172
+#: utils/pdf/ProtocolConverter.java:109 utils/pdf/ProtocolConverter.java:172
 msgid "No pdf viewer could be found!"
 msgstr "Kein PDF-Anzeiger konnte gefunden werden!"
 
@@ -337,8 +323,7 @@ msgstr "Exportiere das Protokoll als PDF Datei"
 msgid "Generate the report"
 msgstr "Generiere den Bericht"
 
-#: controller/actions/SettingsAction.java:28
-#: view/SettingsDialog.java:290
+#: controller/actions/SettingsAction.java:28 view/SettingsDialog.java:290
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -401,9 +386,7 @@ msgid "Please select at least one entry from the table."
 msgstr "Bitte markieren Sie mindestens einen Eintrag aus der Tabelle."
 
 #: controller/actions/ViewerActivityReportAction.java:28
-#: view/tabs/ViewerTab.java:642
-#: view/tabs/ViewerTab.java:665
-#: view/UI.java:674
+#: view/tabs/ViewerTab.java:642 view/tabs/ViewerTab.java:665 view/UI.java:674
 msgid "Activity Report"
 msgstr "Tätigkeitsnachweis"
 
@@ -425,16 +408,13 @@ msgstr "Bitte markieren Sie zunächst einen Eintrag aus der Tabelle."
 msgid "Please select only one entry from the table."
 msgstr "Bitte markieren Sie nur einen Eintrag aus der Tabelle."
 
-#: controller/actions/ViewerAddAction.java:27
-#: view/tabs/ViewerTab.java:699
+#: controller/actions/ViewerAddAction.java:27 view/tabs/ViewerTab.java:699
 msgid "Add"
 msgstr "Hinzufügen"
 
 #: controller/actions/ViewerAssistantAction.java:33
-#: model/models/Activity.java:76
-#: model/models/Contract.java:68
-#: model/models/Employment.java:83
-#: utils/pdf/ControllingConverter.java:329
+#: model/models/Activity.java:76 model/models/Contract.java:68
+#: model/models/Employment.java:83 utils/pdf/ControllingConverter.java:329
 #: view/forms/ActivityEditorForm.java:195
 #: view/forms/ActivityViewerForm.java:91
 #: view/forms/ContractEditorForm.java:241
@@ -445,10 +425,8 @@ msgstr "Hinzufügen"
 #: view/models/ContractTableModel.java:29
 #: view/models/EmploymentTableModel.java:34
 #: view/tabs/ActivityReportViewerTab.java:199
-#: view/tabs/ControllingViewerTab.java:40
-#: view/tabs/ViewerTab.java:65
-#: view/tabs/ViewerTab.java:636
-#: view/tabs/ViewerTab.java:653
+#: view/tabs/ControllingViewerTab.java:40 view/tabs/ViewerTab.java:65
+#: view/tabs/ViewerTab.java:636 view/tabs/ViewerTab.java:653
 msgid "Assistant"
 msgstr "Hilfskraft"
 
@@ -457,13 +435,10 @@ msgid "The related assistant could not be displayed."
 msgstr "Die zugehörige Hilfskraft konnte nicht angezeigt werden."
 
 #: controller/actions/ViewerContractAction.java:31
-#: model/models/Employment.java:85
-#: view/forms/EmploymentEditorForm.java:506
+#: model/models/Employment.java:85 view/forms/EmploymentEditorForm.java:506
 #: view/forms/EmploymentViewerForm.java:122
-#: view/models/EmploymentTableModel.java:35
-#: view/tabs/ViewerTab.java:67
-#: view/tabs/ViewerTab.java:639
-#: view/tabs/ViewerTab.java:659
+#: view/models/EmploymentTableModel.java:35 view/tabs/ViewerTab.java:67
+#: view/tabs/ViewerTab.java:639 view/tabs/ViewerTab.java:659
 msgid "Contract"
 msgstr "Vertrag"
 
@@ -471,20 +446,16 @@ msgstr "Vertrag"
 msgid "The related contract could not be displayed."
 msgstr "Der zugehörige Vertrag konnte nicht angezeigt werden."
 
-#: controller/actions/ViewerCourseAction.java:32
-#: model/models/Activity.java:78
-#: model/models/Employment.java:87
-#: utils/pdf/BudgetReportConverter.java:386
+#: controller/actions/ViewerCourseAction.java:32 model/models/Activity.java:78
+#: model/models/Employment.java:87 utils/pdf/BudgetReportConverter.java:386
 #: view/forms/ActivityEditorForm.java:120
 #: view/forms/ActivityViewerForm.java:99
 #: view/forms/EmploymentEditorForm.java:498
 #: view/forms/EmploymentViewerForm.java:114
 #: view/models/ActivityTableModel.java:27
 #: view/models/EmploymentTableModel.java:34
-#: view/tabs/ActivityReportViewerTab.java:33
-#: view/tabs/BudgetViewerTab.java:50
-#: view/tabs/ViewerTab.java:65
-#: view/tabs/ViewerTab.java:633
+#: view/tabs/ActivityReportViewerTab.java:33 view/tabs/BudgetViewerTab.java:50
+#: view/tabs/ViewerTab.java:65 view/tabs/ViewerTab.java:633
 #: view/tabs/ViewerTab.java:648
 msgid "Course"
 msgstr "Veranstaltung"
@@ -493,8 +464,7 @@ msgstr "Veranstaltung"
 msgid "The related course could not be displayed."
 msgstr "Die zugehörige Veranstaltung konnte nicht angezeigt werden."
 
-#: controller/actions/ViewerDeleteAction.java:32
-#: view/tabs/ViewerTab.java:630
+#: controller/actions/ViewerDeleteAction.java:32 view/tabs/ViewerTab.java:630
 #: view/tabs/ViewerTab.java:706
 msgid "Delete"
 msgstr "Löschen"
@@ -522,8 +492,7 @@ msgid "A database error occurred during removing."
 msgstr "Es ist ein Datenbankfehler beim Löschen aufgetreten."
 
 #: controller/actions/ViewerDetailViewAction.java:30
-#: view/tabs/ViewerTab.java:624
-#: view/tabs/ViewerTab.java:685
+#: view/tabs/ViewerTab.java:624 view/tabs/ViewerTab.java:685
 msgid "View"
 msgstr "Anzeigen"
 
@@ -559,34 +528,43 @@ msgstr "Konnte Manager für Klasse \"{0}\" nicht finden. Fehler: {1}"
 #: model/inspectors/CourseBudgetLimitInspector.java:46
 #, java-format
 msgid "The budget limit for course {0} is exceeded ({1}h / {2}h)."
-msgstr "Das Budget-Limit für die Veranstaltung {0} ist überschritten ({1}h / {2}h)."
+msgstr ""
+"Das Budget-Limit für die Veranstaltung {0} ist überschritten ({1}h / {2}h)."
 
 #: model/inspectors/EmploymentLimitInspector.java:87
 #, java-format
 msgid "You have hired {0} with qualification {1} more than {2} years."
-msgstr "Sie haben {0} mit der Qualifikation {1} mehr als {2} Jahre eingestellt."
+msgstr ""
+"Sie haben {0} mit der Qualifikation {1} mehr als {2} Jahre eingestellt."
 
 #: model/inspectors/FundsBudgetLimitInspector.java:86
 #, java-format
-msgid "The budget costs limit for funds {0} in financial category {1} is exceeded ({2}€ / {3}€)."
-msgstr "Das Budgetkosten-Limit für das Finanzmittel {0} in der Finanzkategorie {1} ist überschritten ({2}€ / {3}€)."
+msgid ""
+"The budget costs limit for funds {0} in financial category {1} is exceeded "
+"({2}€ / {3}€)."
+msgstr ""
+"Das Budgetkosten-Limit für das Finanzmittel {0} in der Finanzkategorie {1} "
+"ist überschritten ({2}€ / {3}€)."
 
 #: model/inspectors/IdenticalAssistantInspector.java:43
 msgid "The same assistant exists already in the database."
 msgstr "Dieselbe Hilfskraft ist in der Datenbank bereits vorhanden."
 
-#: model/inspectors/OverlapContractInspector.java:62
+#: model/inspectors/OverlapContractInspector.java:69
 #, java-format
 msgid "The new contract of {0} overlaps with another one."
 msgstr "Der Neuvertrag von {0} überlappt mit einem anderen."
 
 #: model/inspectors/WorkingHourLimitInspector.java:91
 #, java-format
-msgid "The working hour limit of {0}h for the assistant {1} is exceeded in the following dates:"
-msgstr "Das Stundenzahl-Limit von {0}h ist für die Hilfskraft {1} in den folgenden Zeitpunkten überschritten:"
+msgid ""
+"The working hour limit of {0}h for the assistant {1} is exceeded in the "
+"following dates:"
+msgstr ""
+"Das Stundenzahl-Limit von {0}h ist für die Hilfskraft {1} in den folgenden "
+"Zeitpunkten überschritten:"
 
-#: model/models/Activity.java:73
-#: utils/pdf/ProtocolConverter.java:404
+#: model/models/Activity.java:73 utils/pdf/ProtocolConverter.java:404
 #: view/forms/ActivityEditorForm.java:386
 #: view/forms/ActivityViewerForm.java:107
 #: view/forms/EmploymentEditorForm.java:367
@@ -600,63 +578,50 @@ msgstr "Das Stundenzahl-Limit von {0}h ist für die Hilfskraft {1} in den folgen
 msgid "Date"
 msgstr "Datum"
 
-#: model/models/Activity.java:73
-#: utils/pdf/ProtocolConverter.java:405
+#: model/models/Activity.java:73 utils/pdf/ProtocolConverter.java:405
 #: view/forms/ActivityEditorForm.java:400
 #: view/forms/ActivityViewerForm.java:123
-#: view/models/ActivityTableModel.java:28
-#: view/tabs/ProtocolViewerTab.java:41
+#: view/models/ActivityTableModel.java:28 view/tabs/ProtocolViewerTab.java:41
 msgid "Initiator"
 msgstr "Initiator"
 
-#: model/models/Activity.java:73
-#: model/models/Activity.java:184
-#: model/models/Contract.java:64
-#: model/models/Contract.java:167
-#: utils/pdf/ProtocolConverter.java:404
-#: view/forms/ActivityEditorForm.java:408
+#: model/models/Activity.java:73 model/models/Activity.java:184
+#: model/models/Contract.java:64 model/models/Contract.java:167
+#: utils/pdf/ProtocolConverter.java:404 view/forms/ActivityEditorForm.java:408
 #: view/forms/ActivityViewerForm.java:131
 #: view/forms/ContractEditorForm.java:281
 #: view/forms/ContractViewerForm.java:131
 #: view/models/ActivityTableModel.java:28
-#: view/models/ContractTableModel.java:31
-#: view/tabs/ProtocolViewerTab.java:41
+#: view/models/ContractTableModel.java:31 view/tabs/ProtocolViewerTab.java:41
 msgid "Type"
 msgstr "Typ"
 
-#: model/models/Activity.java:73
-#: utils/pdf/ProtocolConverter.java:405
+#: model/models/Activity.java:73 utils/pdf/ProtocolConverter.java:405
 #: view/forms/ActivityEditorForm.java:392
 #: view/forms/ActivityViewerForm.java:115
-#: view/models/ActivityTableModel.java:28
-#: view/tabs/ProtocolViewerTab.java:42
+#: view/models/ActivityTableModel.java:28 view/tabs/ProtocolViewerTab.java:42
 msgid "Processor"
 msgstr "Bearbeiter"
 
-#: model/models/Activity.java:74
-#: utils/pdf/ProtocolConverter.java:404
+#: model/models/Activity.java:74 utils/pdf/ProtocolConverter.java:404
 #: view/forms/ActivityEditorForm.java:432
 #: view/forms/ActivityViewerForm.java:155
-#: view/models/ActivityTableModel.java:29
-#: view/tabs/ProtocolViewerTab.java:41
+#: view/models/ActivityTableModel.java:29 view/tabs/ProtocolViewerTab.java:41
 msgid "Content"
 msgstr "Inhalt"
 
-#: model/models/Activity.java:74
-#: model/models/Activity.java:188
+#: model/models/Activity.java:74 model/models/Activity.java:188
 #: view/forms/ActivityViewerForm.java:139
 #: view/models/ActivityTableModel.java:28
 msgid "Document Type"
 msgstr "Dokumenttyp"
 
-#: model/models/Activity.java:184
-#: model/models/Activity.java:188
+#: model/models/Activity.java:184 model/models/Activity.java:188
 #: model/models/Contract.java:167
 msgid "is too long"
 msgstr "ist zu lang"
 
-#: model/models/Assistant.java:44
-#: model/models/Assistant.java:46
+#: model/models/Assistant.java:44 model/models/Assistant.java:46
 #: view/forms/ActivityEditorForm.java:62
 #: view/forms/AssistantEditorForm.java:106
 #: view/forms/AssistantViewerForm.java:69
@@ -664,26 +629,21 @@ msgstr "ist zu lang"
 msgid "Email"
 msgstr "Email"
 
-#: model/models/Assistant.java:44
-#: view/forms/AssistantEditorForm.java:92
+#: model/models/Assistant.java:44 view/forms/AssistantEditorForm.java:92
 #: view/forms/AssistantViewerForm.java:55
 #: view/models/AssistantTableModel.java:25
 msgid "First Name"
 msgstr "Vorname"
 
-#: model/models/Assistant.java:45
-#: view/forms/AssistantEditorForm.java:98
+#: model/models/Assistant.java:45 view/forms/AssistantEditorForm.java:98
 #: view/forms/AssistantViewerForm.java:61
 #: view/models/AssistantTableModel.java:25
 msgid "Last Name"
 msgstr "Nachname"
 
-#: model/models/Assistant.java:45
-#: model/models/Assistant.java:48
-#: model/models/Employment.java:79
-#: model/models/Employment.java:81
-#: model/models/HourlyWage.java:45
-#: model/models/HourlyWage.java:47
+#: model/models/Assistant.java:45 model/models/Assistant.java:48
+#: model/models/Employment.java:79 model/models/Employment.java:81
+#: model/models/HourlyWage.java:45 model/models/HourlyWage.java:47
 #: view/forms/AssistantEditorForm.java:114
 #: view/forms/AssistantViewerForm.java:77
 #: view/forms/EmploymentEditorForm.java:530
@@ -698,25 +658,27 @@ msgstr "Qualifikation"
 
 #: model/models/Assistant.java:133
 msgid "Assistant is still linked to an Activity"
-msgstr "Es besteht noch eine Verbindung zwischen der Hilfskraft und einer Aktivität"
+msgstr ""
+"Es besteht noch eine Verbindung zwischen der Hilfskraft und einer Aktivität"
 
 #: model/models/Assistant.java:137
 msgid "Assistant is still linked to an Employment"
-msgstr "Es besteht noch eine Verbindung zwischen der Hilfskraft und einer Beschäftigung"
+msgstr ""
+"Es besteht noch eine Verbindung zwischen der Hilfskraft und einer "
+"Beschäftigung"
 
 #: model/models/Assistant.java:141
 msgid "Assistant is still linked to a Contract"
-msgstr "Es besteht noch eine Verbindung zwischen der Hilfskraft und einem Vertrag"
+msgstr ""
+"Es besteht noch eine Verbindung zwischen der Hilfskraft und einem Vertrag"
 
-#: model/models/Contract.java:63
-#: view/forms/ContractEditorForm.java:249
+#: model/models/Contract.java:63 view/forms/ContractEditorForm.java:249
 #: view/forms/ContractViewerForm.java:99
 #: view/models/ContractTableModel.java:29
 msgid "Completion date"
 msgstr "Abschlußdatum"
 
-#: model/models/Contract.java:64
-#: model/models/Contract.java:66
+#: model/models/Contract.java:64 model/models/Contract.java:66
 #: view/forms/ContractEditorForm.java:265
 #: view/forms/ContractViewerForm.java:115
 #: view/forms/HourlyWageEditorForm.java:198
@@ -730,86 +692,73 @@ msgstr "Die Zeitspanne Abschlußdatum und Bestätigungsdatum ist inkorrekt."
 
 #: model/models/Contract.java:191
 msgid "Contract is still linked to an Employment"
-msgstr "Es besteht noch eine Verbindung zwischen dem Vertrag und einer Beschäftigung"
+msgstr ""
+"Es besteht noch eine Verbindung zwischen dem Vertrag und einer Beschäftigung"
 
-#: model/models/Course.java:86
-#: view/forms/CourseEditorForm.java:251
-#: view/forms/CourseViewerForm.java:103
-#: view/models/CourseTableModel.java:26
+#: model/models/Course.java:86 view/forms/CourseEditorForm.java:251
+#: view/forms/CourseViewerForm.java:103 view/models/CourseTableModel.java:26
 msgid "Description"
 msgstr "Bezeichnung"
 
-#: model/models/Course.java:87
-#: model/models/Course.java:91
+#: model/models/Course.java:87 model/models/Course.java:91
 #: utils/pdf/BalanceReportConverter.java:417
 #: utils/pdf/BudgetReportConverter.java:386
-#: view/forms/CourseEditorForm.java:257
-#: view/forms/CourseViewerForm.java:109
+#: view/forms/CourseEditorForm.java:257 view/forms/CourseViewerForm.java:109
 #: view/models/CourseTableModel.java:26
 #: view/reports/BalanceReportSemesterPanel.java:78
-#: view/tabs/BudgetViewerTab.java:50
-#: view/tabs/BudgetViewerTab.java:77
+#: view/tabs/BudgetViewerTab.java:50 view/tabs/BudgetViewerTab.java:77
 #: view/tabs/BudgetViewerTab.java:146
 msgid "Semester"
 msgstr "Semester"
 
-#: model/models/Course.java:87
-#: utils/pdf/BalanceReportConverter.java:583
+#: model/models/Course.java:87 utils/pdf/BalanceReportConverter.java:583
 #: utils/pdf/BudgetReportConverter.java:386
-#: view/forms/CourseEditorForm.java:265
-#: view/forms/CourseViewerForm.java:117
+#: view/forms/CourseEditorForm.java:265 view/forms/CourseViewerForm.java:117
 #: view/models/CourseTableModel.java:27
 #: view/reports/BalanceReportGroupPanel.java:36
-#: view/tabs/BalanceViewerTab.java:98
-#: view/tabs/BalanceViewerTab.java:198
-#: view/tabs/BudgetViewerTab.java:50
-#: view/tabs/BudgetViewerTab.java:77
+#: view/tabs/BalanceViewerTab.java:98 view/tabs/BalanceViewerTab.java:198
+#: view/tabs/BudgetViewerTab.java:50 view/tabs/BudgetViewerTab.java:77
 #: view/tabs/BudgetViewerTab.java:138
 msgid "Lecturer"
 msgstr "Dozent"
 
-#: model/models/Course.java:87
-#: utils/pdf/BalanceReportConverter.java:616
-#: view/forms/CourseEditorForm.java:368
-#: view/forms/CourseViewerForm.java:189
+#: model/models/Course.java:87 utils/pdf/BalanceReportConverter.java:616
+#: view/forms/CourseEditorForm.java:368 view/forms/CourseViewerForm.java:189
 #: view/models/CourseTableModel.java:29
 #: view/reports/BalanceReportGroupPanel.java:181
-#: view/tabs/BalanceViewerTab.java:97
-#: view/tabs/BalanceViewerTab.java:194
+#: view/tabs/BalanceViewerTab.java:97 view/tabs/BalanceViewerTab.java:194
 msgid "Group"
 msgstr "Gruppe"
 
-#: model/models/Course.java:89
-#: view/forms/CourseEditorForm.java:384
-#: view/forms/CourseViewerForm.java:205
-#: view/models/CourseTableModel.java:29
+#: model/models/Course.java:89 view/forms/CourseEditorForm.java:384
+#: view/forms/CourseViewerForm.java:205 view/models/CourseTableModel.java:29
 #: view/tabs/ViewerTab.java:66
 msgid "Financial Category"
 msgstr "Finanzkategorie"
 
-#: model/models/Course.java:217
-#: view/forms/CourseEditorForm.java:281
-#: view/forms/CourseViewerForm.java:133
-#: view/models/CourseTableModel.java:27
+#: model/models/Course.java:217 view/forms/CourseEditorForm.java:281
+#: view/forms/CourseViewerForm.java:133 view/models/CourseTableModel.java:27
 msgid "Number of Groups"
 msgstr "Gruppenanzahl"
 
-#: model/models/Course.java:218
-#: model/models/Course.java:223
+#: model/models/Course.java:218 model/models/Course.java:223
 #: model/models/Employment.java:200
 msgid "has to be bigger than 0"
 msgstr "muss größer als 0 sein"
 
 #: model/models/Course.java:241
 msgid "Course is still linked to an Activity."
-msgstr "Es besteht noch eine Verbindung zwischen der Veranstaltung und einer Aktivität"
+msgstr ""
+"Es besteht noch eine Verbindung zwischen der Veranstaltung und einer "
+"Aktivität"
 
 #: model/models/Course.java:245
 msgid "Course is still linked to an Employment"
-msgstr "Es besteht noch eine Verbindung zwischen der Veranstaltung und einer Beschäftigung"
+msgstr ""
+"Es besteht noch eine Verbindung zwischen der Veranstaltung und einer "
+"Beschäftigung"
 
-#: model/models/Employment.java:79
-#: model/models/Employment.java:216
+#: model/models/Employment.java:79 model/models/Employment.java:216
 #: view/forms/EmploymentEditorForm.java:522
 #: view/forms/EmploymentViewerForm.java:154
 #: view/models/EmploymentTableModel.java:36
@@ -820,20 +769,17 @@ msgstr "Kostenstelle"
 msgid "has to be positive"
 msgstr "muss positiv sein"
 
-#: model/models/Employment.java:208
-#: model/models/FinancialCategory.java:126
+#: model/models/Employment.java:208 model/models/FinancialCategory.java:126
 #: model/models/HourlyWage.java:130
 msgid "is an incorrect year"
 msgstr "ist ein ungültiges Jahr"
 
-#: model/models/Employment.java:212
-#: model/models/HourlyWage.java:134
-#: view/tabs/ControllingViewerTab.java:355
+#: model/models/Employment.java:212 model/models/HourlyWage.java:134
+#: view/tabs/ControllingViewerTab.java:356
 msgid "Month"
 msgstr "Monat"
 
-#: model/models/Employment.java:212
-#: model/models/HourlyWage.java:134
+#: model/models/Employment.java:212 model/models/HourlyWage.java:134
 msgid "is an incorrect month"
 msgstr "ist ein ungültiger Monat"
 
@@ -854,7 +800,9 @@ msgstr "kann nicht 0 sein."
 
 #: model/models/FinancialCategory.java:152
 msgid "Financial Category is still linked to a Course."
-msgstr "Es besteht noch eine Verbindung zwischen der Finanzkategorie und einer Veranstaltung"
+msgstr ""
+"Es besteht noch eine Verbindung zwischen der Finanzkategorie und einer "
+"Veranstaltung"
 
 #: model/Runtime.java:160
 msgid "Only one instance of aidGer can be run at a time."
@@ -885,14 +833,15 @@ msgstr "hat einen ungültigen Wert"
 msgid "is empty"
 msgstr "ist leer"
 
-#: model/validators/Validator.java:40
-#: model/validators/Validator.java:57
+#: model/validators/Validator.java:40 model/validators/Validator.java:57
 msgid "Default error"
 msgstr "Standardfehler"
 
 #: utils/Anonymizer.java:89
 msgid "Anonymizing Assistants failed because of a database error"
-msgstr "Das Anonymisieren der Hilfskräfte schlug aufgrund eines Datenbankfehlers fehl."
+msgstr ""
+"Das Anonymisieren der Hilfskräfte schlug aufgrund eines Datenbankfehlers "
+"fehl."
 
 #: utils/Configuration.java:89
 #, java-format
@@ -978,16 +927,14 @@ msgid "Title"
 msgstr "Titel"
 
 #: utils/pdf/BalanceReportConverter.java:583
-#: view/forms/CourseEditorForm.java:360
-#: view/forms/CourseViewerForm.java:181
+#: view/forms/CourseEditorForm.java:360 view/forms/CourseViewerForm.java:181
 #: view/models/CourseTableModel.java:29
 #: view/reports/BalanceReportGroupPanel.java:36
 msgid "Part"
 msgstr "Teil"
 
 #: utils/pdf/BalanceReportConverter.java:584
-#: view/forms/CourseEditorForm.java:289
-#: view/forms/CourseViewerForm.java:141
+#: view/forms/CourseEditorForm.java:289 view/forms/CourseViewerForm.java:141
 #: view/models/CourseTableModel.java:28
 #: view/reports/BalanceReportGroupPanel.java:37
 #: view/tabs/BalanceViewerTab.java:99
@@ -1019,18 +966,14 @@ msgid "Budget report"
 msgstr "Budgetbericht"
 
 #: utils/pdf/BudgetReportConverter.java:387
-#: view/forms/CourseViewerForm.java:157
-#: view/tabs/BudgetViewerTab.java:51
-#: view/tabs/BudgetViewerTab.java:78
-#: view/tabs/BudgetViewerTab.java:167
+#: view/forms/CourseViewerForm.java:157 view/tabs/BudgetViewerTab.java:51
+#: view/tabs/BudgetViewerTab.java:78 view/tabs/BudgetViewerTab.java:167
 #: view/tabs/WelcomeTab.java:260
 msgid "Booked budgets"
 msgstr "Gebuchte HKS"
 
-#: utils/pdf/BudgetReportConverter.java:387
-#: view/tabs/BudgetViewerTab.java:52
-#: view/tabs/BudgetViewerTab.java:79
-#: view/tabs/BudgetViewerTab.java:169
+#: utils/pdf/BudgetReportConverter.java:387 view/tabs/BudgetViewerTab.java:52
+#: view/tabs/BudgetViewerTab.java:79 view/tabs/BudgetViewerTab.java:169
 msgid "Available budgets"
 msgstr "Verfügbare HKS"
 
@@ -1051,33 +994,26 @@ msgid "Actual costs(pre-tax)"
 msgstr "Reale Kosten (Brutto)"
 
 #: utils/pdf/ControllingConverter.java:331
-#: utils/pdf/ProtocolConverter.java:405
-#: view/forms/ActivityEditorForm.java:424
-#: view/forms/ActivityViewerForm.java:147
-#: view/forms/CourseEditorForm.java:376
+#: utils/pdf/ProtocolConverter.java:405 view/forms/ActivityEditorForm.java:424
+#: view/forms/ActivityViewerForm.java:147 view/forms/CourseEditorForm.java:376
 #: view/forms/CourseViewerForm.java:197
 #: view/forms/EmploymentEditorForm.java:538
 #: view/forms/EmploymentViewerForm.java:170
-#: view/models/ActivityTableModel.java:29
-#: view/models/CourseTableModel.java:29
+#: view/models/ActivityTableModel.java:29 view/models/CourseTableModel.java:29
 #: view/models/EmploymentTableModel.java:36
-#: view/tabs/ControllingViewerTab.java:41
-#: view/tabs/ProtocolViewerTab.java:42
+#: view/tabs/ControllingViewerTab.java:41 view/tabs/ProtocolViewerTab.java:42
 msgid "Remark"
 msgstr "Bemerkung"
 
-#: utils/pdf/ProtocolConverter.java:85
-#: utils/pdf/ProtocolConverter.java:130
+#: utils/pdf/ProtocolConverter.java:85 utils/pdf/ProtocolConverter.java:130
 msgid "Activity Protocol"
 msgstr "Vorgangsprotokoll"
 
-#: utils/pdf/ProtocolConverter.java:403
-#: view/tabs/ProtocolViewerTab.java:40
+#: utils/pdf/ProtocolConverter.java:403 view/tabs/ProtocolViewerTab.java:40
 msgid "Affected assistant"
 msgstr "Betroffene Hilfskraft"
 
-#: utils/pdf/ProtocolConverter.java:404
-#: view/tabs/ProtocolViewerTab.java:40
+#: utils/pdf/ProtocolConverter.java:404 view/tabs/ProtocolViewerTab.java:40
 msgid "Affected course"
 msgstr "Betroffene Veranstaltung"
 
@@ -1105,28 +1041,29 @@ msgstr "Tab schließen"
 msgid "First Start"
 msgstr "Erster Start"
 
-#: view/FirstStartDialog.java:110
-#: view/tabs/WelcomeTab.java:329
+#: view/FirstStartDialog.java:110 view/tabs/WelcomeTab.java:329
 #: view/tabs/WelcomeTab.java:452
 msgid "Welcome to aidGer"
 msgstr "Willkommen zu aidGer"
 
 #: view/FirstStartDialog.java:112
 msgid "Before you can start working, please enter your Name."
-msgstr "Bevor sie mit der Arbeit beginnen können, geben sie bitte ihren Namen an."
+msgstr ""
+"Bevor sie mit der Arbeit beginnen können, geben sie bitte ihren Namen an."
 
 #: view/FirstStartDialog.java:114
 msgid "It will be used in all your activities."
 msgstr "Dieser wird in allen Aktivitäten verwendet."
 
-#: view/FirstStartDialog.java:118
-#: view/SettingsDialog.java:297
+#: view/FirstStartDialog.java:118 view/SettingsDialog.java:297
 msgid "Name:"
 msgstr "Name:"
 
 #: view/FirstStartDialog.java:120
 msgid "While you enter your name, aidGer will try to connect to the database."
-msgstr "Während sie ihren Namen eingeben, wird aidGer versuchen zur Datenbank zu verbinden."
+msgstr ""
+"Während sie ihren Namen eingeben, wird aidGer versuchen zur Datenbank zu "
+"verbinden."
 
 #: view/FirstStartDialog.java:123
 msgid "Trying to connect ..."
@@ -1168,12 +1105,9 @@ msgstr "Übermittlungsweg"
 msgid "Only a maximal length of 2 is allowed."
 msgstr "Nur eine Maximallänge von 2 ist erlaubt."
 
-#: view/forms/ActivityViewerForm.java:36
-#: view/forms/ActivityViewerForm.java:43
-#: view/tabs/DetailViewerTab.java:547
-#: view/tabs/DetailViewerTab.java:586
-#: view/tabs/WelcomeTab.java:293
-#: view/tabs/WelcomeTab.java:297
+#: view/forms/ActivityViewerForm.java:36 view/forms/ActivityViewerForm.java:43
+#: view/tabs/DetailViewerTab.java:547 view/tabs/DetailViewerTab.java:586
+#: view/tabs/WelcomeTab.java:293 view/tabs/WelcomeTab.java:297
 msgid "None"
 msgstr "Keine"
 
@@ -1195,7 +1129,8 @@ msgstr "Umbuchung"
 
 #: view/forms/ContractEditorForm.java:132
 msgid "Confirmation date can be entered after saving the contract."
-msgstr "Das Bestätigungsdatum kann nach dem Speichern des Vertrags eingegeben werden."
+msgstr ""
+"Das Bestätigungsdatum kann nach dem Speichern des Vertrags eingegeben werden."
 
 #: view/forms/ContractEditorForm.java:257
 #: view/forms/ContractViewerForm.java:107
@@ -1234,14 +1169,12 @@ msgstr "Nur ein Buchstabe ist erlaubt."
 msgid "Only the format SS[XX], WS[XXXX] and year in 4 digits is allowed."
 msgstr "Nur das Format SS[XX], WS[XXXX] und ein Jahr in 4 Stellen ist erlaubt."
 
-#: view/forms/CourseEditorForm.java:273
-#: view/forms/CourseViewerForm.java:125
+#: view/forms/CourseEditorForm.java:273 view/forms/CourseViewerForm.java:125
 #: view/models/CourseTableModel.java:27
 msgid "Advisor"
 msgstr "Betreuer"
 
-#: view/forms/CourseEditorForm.java:352
-#: view/forms/CourseViewerForm.java:173
+#: view/forms/CourseEditorForm.java:352 view/forms/CourseViewerForm.java:173
 #: view/models/CourseTableModel.java:28
 msgid "Scope"
 msgstr "Umfang"
@@ -1266,18 +1199,15 @@ msgstr "Nur eine Zahl mit 8 Stellen ist erlaubt."
 msgid "Only a number is allowed."
 msgstr "Nur eine Zahl ist erlaubt."
 
-#: view/forms/HourlyWageEditorForm.java:25
-#: view/tabs/WelcomeTab.java:249
+#: view/forms/HourlyWageEditorForm.java:25 view/tabs/WelcomeTab.java:249
 msgid "Unchecked"
 msgstr "Ungeprüft"
 
-#: view/forms/HourlyWageEditorForm.java:25
-#: view/tabs/WelcomeTab.java:250
+#: view/forms/HourlyWageEditorForm.java:25 view/tabs/WelcomeTab.java:250
 msgid "Checked"
 msgstr "Geprüft"
 
-#: view/forms/HourlyWageEditorForm.java:25
-#: view/tabs/WelcomeTab.java:251
+#: view/forms/HourlyWageEditorForm.java:25 view/tabs/WelcomeTab.java:251
 msgid "Bachelor"
 msgstr "Bachelor"
 
@@ -1291,8 +1221,7 @@ msgstr "Enddatum"
 
 #: view/models/ActivityTableModel.java:27
 #: view/models/AssistantTableModel.java:25
-#: view/models/ContractTableModel.java:29
-#: view/models/CourseTableModel.java:26
+#: view/models/ContractTableModel.java:29 view/models/CourseTableModel.java:26
 #: view/models/EmploymentTableModel.java:34
 #: view/models/FinancialCategoryTableModel.java:26
 msgid "ID"
@@ -1326,8 +1255,7 @@ msgstr "Anzahl der Vorgänge:"
 msgid "The amount of activities shown in detailviews."
 msgstr "Anzahl der Vorgänge die in Detailansichten angezeigt werden"
 
-#: view/SettingsDialog.java:298
-#: view/SettingsDialog.java:300
+#: view/SettingsDialog.java:298 view/SettingsDialog.java:300
 msgid "The name used in activities."
 msgstr "Name der in Vorgängen verwendet wird."
 
@@ -1375,8 +1303,7 @@ msgstr "Pessimistisch"
 msgid "Historical"
 msgstr "Historisch"
 
-#: view/SettingsDialog.java:449
-#: view/UI.java:667
+#: view/SettingsDialog.java:449 view/UI.java:667
 msgid "Reports"
 msgstr "Berichte"
 
@@ -1408,15 +1335,12 @@ msgstr "Zielpublikum"
 msgid "Balance Viewing"
 msgstr "Bilanz Anzeige"
 
-#: view/tabs/BalanceViewerTab.java:287
-#: view/tabs/BudgetViewerTab.java:260
+#: view/tabs/BalanceViewerTab.java:287 view/tabs/BudgetViewerTab.java:260
 msgid "Filters"
 msgstr "Filter"
 
-#: view/tabs/BudgetViewerTab.java:51
-#: view/tabs/BudgetViewerTab.java:78
-#: view/tabs/BudgetViewerTab.java:165
-#: view/tabs/WelcomeTab.java:261
+#: view/tabs/BudgetViewerTab.java:51 view/tabs/BudgetViewerTab.java:78
+#: view/tabs/BudgetViewerTab.java:165 view/tabs/WelcomeTab.java:261
 msgid "Remaining budgets"
 msgstr "Übrige HKS"
 
@@ -1432,7 +1356,15 @@ msgstr "Plankosten (Brutto)"
 msgid "Actual costs (pre-tax)"
 msgstr "Reale Kosten (Brutto)"
 
-#: view/tabs/ControllingViewerTab.java:441
+#: view/tabs/ControllingViewerTab.java:208
+msgid "Calculations may be off, due to missing hourly wages."
+msgstr ""
+
+#: view/tabs/ControllingViewerTab.java:381
+msgid "Ignore employments with missing hourly wages"
+msgstr ""
+
+#: view/tabs/ControllingViewerTab.java:454
 msgid "Assistant controlling"
 msgstr "Controlling Hilfskräfte"
 
@@ -1440,13 +1372,11 @@ msgstr "Controlling Hilfskräfte"
 msgid "Related assistants"
 msgstr "Zugehörige Hilfskräfte"
 
-#: view/tabs/DetailViewerTab.java:263
-#: view/tabs/DetailViewerTab.java:331
+#: view/tabs/DetailViewerTab.java:263 view/tabs/DetailViewerTab.java:331
 msgid "Related activities"
 msgstr "Zugehörige Vorgänge"
 
-#: view/tabs/DetailViewerTab.java:328
-#: view/tabs/DetailViewerTab.java:381
+#: view/tabs/DetailViewerTab.java:328 view/tabs/DetailViewerTab.java:381
 msgid "Related courses"
 msgstr "Zugehörige Veranstaltungen"
 
@@ -1473,15 +1403,15 @@ msgstr "Hinweise"
 msgid "(Unnamed)"
 msgstr "(Unbenannt)"
 
-#: view/tabs/ProtocolViewerTab.java:146
+#: view/tabs/ProtocolViewerTab.java:152
 msgid "Activity export"
 msgstr "Vorgänge exportieren"
 
-#: view/tabs/ProtocolViewerTab.java:226
+#: view/tabs/ProtocolViewerTab.java:232
 msgid "Show all activities"
 msgstr "Alle Vorgänge anzeigen"
 
-#: view/tabs/ProtocolViewerTab.java:230
+#: view/tabs/ProtocolViewerTab.java:236
 msgid "Number of days before today to display: "
 msgstr "Anzahl an Tagen die angezeigt werden soll (nach heute):"
 
@@ -1497,10 +1427,8 @@ msgstr "Beschäftigung"
 msgid "Activity"
 msgstr "Vorgang"
 
-#: view/tabs/ViewerTab.java:392
-#: view/tabs/ViewerTab.java:406
-#: view/tabs/ViewerTab.java:456
-#: view/tabs/ViewerTab.java:733
+#: view/tabs/ViewerTab.java:392 view/tabs/ViewerTab.java:406
+#: view/tabs/ViewerTab.java:456 view/tabs/ViewerTab.java:733
 msgid "Search"
 msgstr "Suchen"
 
@@ -1513,29 +1441,23 @@ msgstr "1 Objekt selektiert."
 msgid "{0} entities selected."
 msgstr "{0} Objekte selektiert."
 
-#: view/tabs/ViewerTab.java:502
-#: view/UI.java:644
+#: view/tabs/ViewerTab.java:502 view/UI.java:644
 msgid "Courses"
 msgstr "Veranstaltungen"
 
-#: view/tabs/ViewerTab.java:504
-#: view/UI.java:645
+#: view/tabs/ViewerTab.java:504 view/UI.java:645
 msgid "Assistants"
 msgstr "Hilfskräfte"
 
-#: view/tabs/ViewerTab.java:506
-#: view/UI.java:647
+#: view/tabs/ViewerTab.java:506 view/UI.java:647
 msgid "Financial Categories"
 msgstr "Finanzkategorien"
 
-#: view/tabs/ViewerTab.java:508
-#: view/UI.java:649
+#: view/tabs/ViewerTab.java:508 view/UI.java:649
 msgid "Hourly Wages"
 msgstr "Stundenlöhne"
 
-#: view/tabs/ViewerTab.java:510
-#: view/tabs/WelcomeTab.java:277
-#: view/UI.java:652
+#: view/tabs/ViewerTab.java:510 view/tabs/WelcomeTab.java:277 view/UI.java:652
 msgid "Employments"
 msgstr "Beschäftigungen"
 
@@ -1543,8 +1465,7 @@ msgstr "Beschäftigungen"
 msgid "Contracts"
 msgstr "Verträge"
 
-#: view/tabs/ViewerTab.java:514
-#: view/UI.java:661
+#: view/tabs/ViewerTab.java:514 view/UI.java:661
 msgid "Activities"
 msgstr "Vorgänge"
 
@@ -1560,8 +1481,7 @@ msgstr "Momentan sind keine Statistiken vorhanden."
 msgid "This is the first time aidGer is started."
 msgstr "aidGer wurde gerade zum ersten Mal gestartet."
 
-#: view/tabs/WelcomeTab.java:66
-#: view/tabs/WelcomeTab.java:337
+#: view/tabs/WelcomeTab.java:66 view/tabs/WelcomeTab.java:337
 #, java-format
 msgid "The last start of aidGer was on {0}."
 msgstr "Der letzte Start von aidGer war am {0}."
@@ -1608,7 +1528,8 @@ msgstr "Diese Beschäftigungen gehören zu {0} Veranstaltungen."
 
 #: view/tabs/WelcomeTab.java:239
 #, java-format
-msgid "Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."
+msgid ""
+"Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."
 msgstr "Von den Hilfskräften sind {0} ungeprüft, {1} geprüft und {2} Bachelors"
 
 #: view/tabs/WelcomeTab.java:242
@@ -1680,8 +1601,7 @@ msgstr "{0}. Tab gelöscht"
 msgid "Setting current tab to \"{0}\""
 msgstr "Momentaner Reiter ist nun \"{0}\""
 
-#: view/UI.java:542
-#: view/UI.java:805
+#: view/UI.java:542 view/UI.java:805
 msgid "Ready"
 msgstr "Bereit"
 
@@ -1788,8 +1708,7 @@ msgstr "Inkorrekte Argumente wurden für den Reiter gespeichert"
 msgid "Getting the model from the database failed"
 msgstr "Das Model konnte nicht aus der Datenbank geholt werden"
 
-#: view/utils/Charts.java:61
-#: view/utils/Charts.java:102
+#: view/utils/Charts.java:61 view/utils/Charts.java:102
 msgid "No data to display."
 msgstr "Keine Daten vorhanden."
 
@@ -1799,60 +1718,88 @@ msgstr "Keine Daten vorhanden."
 #, fuzzy
 #~ msgid "Untitled"
 #~ msgstr "Titel"
+
 #~ msgid "Edit course"
 #~ msgstr "Veranstaltung bearbeiten"
+
 #~ msgid "Edit assistant"
 #~ msgstr "Hilfskraft bearbeiten"
+
 #~ msgid "Edit financial category"
 #~ msgstr "Finanzkategorie bearbeiten"
+
 #~ msgid "Edit hourly wage"
 #~ msgstr "Stundenlohn bearbeiten"
+
 #~ msgid "Edit employment"
 #~ msgstr "Beschäftigung bearbeiten"
+
 #~ msgid "Edit contract"
 #~ msgstr "Vertrag bearbeiten"
+
 #~ msgid "Edit activity"
 #~ msgstr "Vorgang bearbeiten"
+
 #~ msgid "Add course"
 #~ msgstr "Veranstaltung hinzufügen"
+
 #~ msgid "Add assistant"
 #~ msgstr "Hilfskraft hinzufügen"
+
 #~ msgid "Add financial category"
 #~ msgstr "Finanzkategorie hinzufügen"
+
 #~ msgid "Add hourly wage"
 #~ msgstr "Stundenlohn hinzufügen"
+
 #~ msgid "Add employment"
 #~ msgstr "Beschäftigung hinzufügen"
+
 #~ msgid "Add contract"
 #~ msgstr "Vertrag hinzufügen"
+
 #~ msgid "Add activity"
 #~ msgstr "Vorgang hinzufügen"
+
 #~ msgid "View course"
 #~ msgstr "Veranstaltung anzeigen"
+
 #~ msgid "View assistant"
 #~ msgstr "Hilfskraft anzeigen"
+
 #~ msgid "View financial category"
 #~ msgstr "Finanzkategorie anzeigen"
+
 #~ msgid "View hourly wage"
 #~ msgstr "Stundenlohn anzeigen"
+
 #~ msgid "View employment"
 #~ msgstr "Beschäftigung anzeigen"
+
 #~ msgid "View activity"
 #~ msgstr "Vorgang anzeigen"
+
 #~ msgid "Master Data Courses"
 #~ msgstr "Stammdaten Veranstaltungen"
+
 #~ msgid "Master Data Assistants"
 #~ msgstr "Stammdaten Hilfskräfte"
+
 #~ msgid "Master Data Financial Categories"
 #~ msgstr "Stammdaten Finanzkategorien"
+
 #~ msgid "Master Data Hourly Wages"
 #~ msgstr "Stammdaten Stundenlöhne"
+
 #~ msgid "Couldn't create lockfile"
 #~ msgstr "Konnte Lockdatei nicht erstellen"
+
 #~ msgid "Wrong format!"
 #~ msgstr "Falsche Format!"
+
 #~ msgid "No initials entered"
 #~ msgstr "Keine Initialen eingegeben"
+
 #~ msgid "Time"
 #~ msgstr "Zeit"
 
@@ -1863,101 +1810,141 @@ msgstr "Keine Daten vorhanden."
 #, fuzzy
 #~ msgid "Remaining budget costs"
 #~ msgstr "Übrige HKS"
+
 #~ msgid "The name can't be empty"
 #~ msgstr "Der Name darf nicht leer sein"
+
 #~ msgid "Username is empty."
 #~ msgstr "Name ist leer."
 
 #, fuzzy
 #~ msgid "Assistang"
 #~ msgstr "Hilfskraft"
+
 #~ msgid "Course budgets"
 #~ msgstr "Gebuchte HKS"
 
 #, fuzzy
 #~ msgid "Assistant budgets"
 #~ msgstr "Hilfskräfte"
+
 #~ msgid "Budget viewing"
 #~ msgstr "Budgetanzeige"
+
 #~ msgid "Protocol Viewing"
 #~ msgstr "Protokollanzeige"
+
 #~ msgid "Budget Check"
 #~ msgstr "Budgetprüfung"
+
 #~ msgid "View budget checks"
 #~ msgstr "Budgetprüfung anzeigen"
+
 #~ msgid "Activites"
 #~ msgstr "Vorgänge"
+
 #~ msgid "Choose a month"
 #~ msgstr "Wähle einen Monat"
+
 #~ msgid "Only a number with maximum length of 9 is allowed."
 #~ msgstr "Nur eine Zahl mit einer Maximallänge von 9 ist erlaubt."
+
 #~ msgid "Add Filter"
 #~ msgstr "Filter hinzufügen"
+
 #~ msgid "Granted AWH"
 #~ msgstr "Genehmigte HKS"
+
 #~ msgid ""
 #~ "You have hired the unchecked or bachelor assistant more than 6 years."
 #~ msgstr ""
 #~ "Sie haben die ungeprüfte oder Bachelor Hilfskraft mehr als 6 Jahre "
 #~ "eingestellt."
+
 #~ msgid "Create new employment"
 #~ msgstr "Neue Beschäftigung anlegen"
+
 #~ msgid "Budget costs from student fees"
 #~ msgstr "Plankosten aus Studiengebühren"
+
 #~ msgid "Budget costs from resources"
 #~ msgstr "Plankosten aus Haushaltsmitteln"
 
 #, fuzzy
 #~ msgid "Cost Unit"
 #~ msgstr "Kostenstelle"
+
 #~ msgid "Master Data"
 #~ msgstr "Stammdaten"
+
 #~ msgid "Protocol"
 #~ msgstr "Vorgangsprotokoll"
+
 #~ msgid "Financial Category Viewing"
 #~ msgstr "Finanzkategorieanzeige"
+
 #~ msgid "Fund"
 #~ msgstr "Fund"
+
 #~ msgid "eMail Address"
 #~ msgstr "Emailaddresse"
+
 #~ msgid "Comment"
 #~ msgstr "Kommentar"
+
 #~ msgid "Approved HKS"
 #~ msgstr "Genehmigte HKS"
+
 #~ msgid "Hourly Wage Viewing"
 #~ msgstr "Stundenlohnanzeige"
+
 #~ msgid "Effective Date"
 #~ msgstr "Zeitpunkt der Inkrafttretung"
+
 #~ msgid "Welcome"
 #~ msgstr "Willkommen"
+
 #~ msgid "Partial Balance"
 #~ msgstr "Teilbilanz"
+
 #~ msgid "Existing filters"
 #~ msgstr "Existierende Filter"
+
 #~ msgid "Could not remove model from database."
 #~ msgstr "Das Model konnte nicht aus der Datenbank gelöscht werden."
+
 #~ msgid "Readding model: {0}"
 #~ msgstr "Füge Model erneut hinzu: {0}"
+
 #~ msgid "Caught exception in getActivities(assistant): {0}"
 #~ msgstr "Ausnahme in getActivities(assistant): {0}"
+
 #~ msgid "Caught exception in getActivities(course): {0}"
 #~ msgstr "Ausnahme in getActivities(course): {0}"
+
 #~ msgid "Fonds"
 #~ msgstr "Fonds"
+
 #~ msgid "Validation failed."
 #~ msgstr "Validierung ist fehlgeschlagen."
+
 #~ msgid "Show/Hide Columns"
 #~ msgstr "Spalten ein-/ausblenden"
+
 #~ msgid "Removing tab at position {0}"
 #~ msgstr "{0}. Tab gelöscht"
+
 #~ msgid "Adding new empty tab"
 #~ msgstr "Neuer leerer Tab hinzugefügt"
+
 #~ msgid "More"
 #~ msgstr "Mehr"
+
 #~ msgid "Abort"
 #~ msgstr "Abbrechen"
+
 #~ msgid "New Tab"
 #~ msgstr "Neuer Reiter"
+
 #~ msgid "Financial Plans"
 #~ msgstr "Finanzpläne"
-
