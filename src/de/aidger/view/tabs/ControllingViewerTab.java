@@ -184,7 +184,7 @@ public class ControllingViewerTab extends ReportTab {
             controllingTableModel.removeRow(0);
         }
         for (ControllingAssistant assistant : new ControllingCreator(year,
-            month, funds).getAssistants()) {
+            month, funds).getAssistants(ignoreHourlyWagesCheckBox.isSelected())) {
             addRow(assistant.getObjectArray());
         }
     }
@@ -198,11 +198,14 @@ public class ControllingViewerTab extends ReportTab {
     private void addRow(Object[] assistant) {
         Object[] rowArray = new Object[controllingTableModel.getColumnCount()];
         for (int i = 0; i < rowArray.length; i++) {
-            if (i < assistant.length) {
+            if (i < assistant.length - 1) {
                 rowArray[i] = assistant[i];
             } else {
                 rowArray[i] = "";
             }
+        }
+        if ((Boolean) assistant[assistant.length - 1]) {
+            rowArray[rowArray.length - 1] = _("Calculations may be off, due to missing hourly wages.");
         }
         controllingTableModel.addRow(rowArray);
     }
@@ -286,6 +289,7 @@ public class ControllingViewerTab extends ReportTab {
         exportDifferencesButton = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JToolBar.Separator();
         contentPanel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         filtersPanel = new javax.swing.JPanel();
         yearLabel = new javax.swing.JLabel();
         yearComboBox = new javax.swing.JComboBox();
@@ -293,6 +297,8 @@ public class ControllingViewerTab extends ReportTab {
         monthComboBox = new javax.swing.JComboBox();
         fundsLabel = new javax.swing.JLabel();
         fundsComboBox = new javax.swing.JComboBox();
+        jPanel2 = new javax.swing.JPanel();
+        ignoreHourlyWagesCheckBox = new javax.swing.JCheckBox();
         tablePanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -305,19 +311,15 @@ public class ControllingViewerTab extends ReportTab {
 
         generateButton.setText(_("Generate"));
         generateButton.setFocusable(false);
-        generateButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        generateButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        generateButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        generateButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(generateButton);
         jToolBar1.add(jSeparator1);
 
         exportAllButton.setText(_("Export"));
         exportAllButton.setFocusable(false);
-        exportAllButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        exportAllButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        exportAllButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportAllButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         exportAllButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exportAllButtonActionPerformed(evt);
@@ -328,10 +330,8 @@ public class ControllingViewerTab extends ReportTab {
 
         exportDifferencesButton.setText(_("Export differences"));
         exportDifferencesButton.setFocusable(false);
-        exportDifferencesButton
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        exportDifferencesButton
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        exportDifferencesButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportDifferencesButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(exportDifferencesButton);
         jToolBar1.add(jSeparator4);
 
@@ -339,8 +339,9 @@ public class ControllingViewerTab extends ReportTab {
 
         contentPanel.setLayout(new java.awt.BorderLayout());
 
-        filtersPanel
-            .setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
+
+        filtersPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         yearLabel.setText(_("Year") + ":");
         filtersPanel.add(yearLabel);
@@ -372,7 +373,17 @@ public class ControllingViewerTab extends ReportTab {
         });
         filtersPanel.add(fundsComboBox);
 
-        contentPanel.add(filtersPanel, java.awt.BorderLayout.PAGE_START);
+        jPanel1.add(filtersPanel);
+
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
+
+        ignoreHourlyWagesCheckBox.setSelected(true);
+        ignoreHourlyWagesCheckBox.setText(_("Ignore employments with missing hourly wages"));
+        jPanel2.add(ignoreHourlyWagesCheckBox);
+
+        jPanel1.add(jPanel2);
+
+        contentPanel.add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
         tablePanel.setLayout(new java.awt.GridLayout(1, 0));
 
@@ -417,6 +428,9 @@ public class ControllingViewerTab extends ReportTab {
     private javax.swing.JComboBox fundsComboBox;
     private javax.swing.JLabel fundsLabel;
     private javax.swing.JButton generateButton;
+    private javax.swing.JCheckBox ignoreHourlyWagesCheckBox;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
@@ -429,7 +443,6 @@ public class ControllingViewerTab extends ReportTab {
     private javax.swing.JPanel tablePanel;
     private javax.swing.JComboBox yearComboBox;
     private javax.swing.JLabel yearLabel;
-
     // End of variables declaration//GEN-END:variables
     /*
      * (non-Javadoc)

@@ -56,9 +56,11 @@ public class ControllingCreator {
      * Calculates all the assistants of this controlling report, that match the
      * criteria, as well as their costs.
      * 
+     * @param ignore
+     *            Whether or not to ignore missing hourly wages
      * @return The assistant objects of this controlling report.
      */
-    public ArrayList<ControllingAssistant> getAssistants() {
+    public ArrayList<ControllingAssistant> getAssistants(boolean ignore) {
         ArrayList<ControllingAssistant> controllingAssistants = new ArrayList<ControllingAssistant>();
         try {
             List<IAssistant> assistants = new Assistant().getAll();
@@ -72,18 +74,28 @@ public class ControllingCreator {
                  */
                 ControllingAssistant controllingAssistant = null;
                 for (Employment employment : employments) {
+                    new BalanceHelper();
                     if (assistant.getId().equals(employment.getAssistantId())
-                            && employment.getFunds().equals(funds)) {
+                            && employment.getFunds().equals(funds)
+                            && (BalanceHelper
+                                .calculatePreTaxBudgetCost(employment) != -1 || !ignore)) {
                         if (controllingAssistant == null) {
                             controllingAssistant = new ControllingAssistant();
                             controllingAssistant.setName(assistant
                                 .getFirstName()
                                     + " " + assistant.getLastName());
                         }
-                        new BalanceHelper();
                         // Costs are needed pre-tax for this.
                         double costs = BalanceHelper
                             .calculatePreTaxBudgetCost(employment);
+                        /*
+                         * Flag the current controlling assistant if there was a
+                         * missing hourly wage.
+                         */
+                        if (costs == -1) {
+                            costs = 0;
+                            controllingAssistant.setFlagged(true);
+                        }
                         controllingAssistant.setCosts(controllingAssistant
                             .getCosts()
                                 + costs);

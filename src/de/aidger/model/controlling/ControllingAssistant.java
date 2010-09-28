@@ -23,6 +23,11 @@ public class ControllingAssistant {
     private double costs;
 
     /**
+     * Whether there could've been an error in the calculation of the costs.
+     */
+    private boolean flagged;
+
+    /**
      * Initializes a new controlling assistant.
      */
     public ControllingAssistant() {
@@ -75,6 +80,24 @@ public class ControllingAssistant {
      * @return The assistant
      */
     public Object[] getObjectArray() {
-        return new Object[] { getName(), getCosts() };
+        return new Object[] { getName(), getCosts(), isFlagged() };
+    }
+
+    /**
+     * Sets whether or not there might've been an error in the calculations.
+     * 
+     * @param flagged
+     */
+    public void setFlagged(boolean flagged) {
+        this.flagged = flagged;
+    }
+
+    /**
+     * Whether or not there might've been an error in the calculations.
+     * 
+     * @return True if there might've been an error.
+     */
+    public boolean isFlagged() {
+        return flagged;
     }
 }

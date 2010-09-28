@@ -115,6 +115,12 @@ public class ProtocolViewerTab extends Tab {
         showAllBtn.setSelected(true);
     }
 
+    /**
+     * Updates the table of activities with the given number of days.
+     * 
+     * @param numberOfDays
+     *            The number of days of which to display activities.
+     */
     private void updateActivities(int numberOfDays) {
         clearTable();
         activities = protocolCreator.createProtocol(numberOfDays);
