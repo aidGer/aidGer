@@ -270,7 +270,7 @@ public class ActivityReportViewerTab extends Tab {
      */
     @Override
     public String getTabName() {
-        return _("Activity report");
+        return _("Generate Activity Report");
     }
 
 }

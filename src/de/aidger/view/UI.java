@@ -211,7 +211,7 @@ public final class UI extends JFrame {
 
         // Set the icon
         this.setIconImage((new ImageIcon(getClass().getResource(
-                "/de/aidger/res/icons/aidger-icon.png"))).getImage());
+            "/de/aidger/res/icons/aidger-icon.png"))).getImage());
 
         // Try to display saved tabs or add the welcome tab to the UI.
         if (!displaySavedTabs()) {
@@ -651,33 +651,33 @@ public final class UI extends JFrame {
 
         TaskPane tpEmployments = new TaskPane(_("Employments"));
 
-        tpEmployments.add(createTaskPaneButton(_("Show employments"),
+        tpEmployments.add(createTaskPaneButton(_("Employments"),
             Task.ViewEmployments));
-        tpEmployments.add(createTaskPaneButton(_("Hire assistant"),
+        tpEmployments.add(createTaskPaneButton(_("Add Employment"),
             Task.CreateNewEmployment));
-        tpEmployments.add(createTaskPaneButton(_("Show contracts"),
+        tpEmployments.add(createTaskPaneButton(_("Contracts"),
             Task.ViewContracts));
 
         TaskPane tpActivities = new TaskPane(_("Activities"));
-        tpActivities.add(createTaskPaneButton(_("Show activities"),
+        tpActivities.add(createTaskPaneButton(_("Activities"),
             Task.ViewActivities));
-        tpActivities.add(createTaskPaneButton(_("Export activities"),
+        tpActivities.add(createTaskPaneButton(_("Export Activities"),
             Task.ExportActivities));
 
         TaskPane tpReports = new TaskPane(_("Reports"));
-        tpReports.add(createTaskPaneButton(_("Full Balance"),
+        tpReports.add(createTaskPaneButton(_("Full Balance Report"),
             Task.ViewFullBalance));
-        tpReports.add(createTaskPaneButton(_("Annual Balance"),
+        tpReports.add(createTaskPaneButton(_("Annual Balance Report"),
             Task.ViewAnnualBalance));
-        tpReports.add(createTaskPaneButton(_("Semester Balance"),
+        tpReports.add(createTaskPaneButton(_("Semester Balance Report"),
             Task.ViewSemesterBalance));
-        tpReports.add(createTaskPaneButton(_("Activity Report"),
+        tpReports.add(createTaskPaneButton(_("Generate Activity Report"),
             Task.ViewActivityReport));
 
         TaskPane tpControlling = new TaskPane(_("Controlling"));
-        tpControlling.add(createTaskPaneButton(_("Check courses"),
+        tpControlling.add(createTaskPaneButton(_("Course Controlling"),
             Task.CheckCourses));
-        tpControlling.add(createTaskPaneButton(_("Check assistants"),
+        tpControlling.add(createTaskPaneButton(_("Assistant Controlling"),
             Task.CheckAssistants));
 
         TaskPane tpQuickSettings = new TaskPane(_("Quick Settings"));

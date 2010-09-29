@@ -46,6 +46,11 @@ public class BalanceViewerTab extends ReportTab {
     private int typeOfBalance = 0;
 
     /**
+     * The name of this tab.
+     */
+    private String name;
+
+    /**
      * Initializes a new BalanceViewerTab, which will have the balance
      * manipulation elements and the created Semesters added to it.
      */
@@ -67,6 +72,7 @@ public class BalanceViewerTab extends ReportTab {
             /*
              * This is a full balance report.
              */
+            name = _("Full Balance Report");
             break;
         case 2:
             /*
@@ -79,6 +85,7 @@ public class BalanceViewerTab extends ReportTab {
             for (Object year : availableYears) {
                 yearComboBox.addItem(year);
             }
+            name = _("Annual Balance Report");
             break;
         case 3:
             /*
@@ -92,6 +99,7 @@ public class BalanceViewerTab extends ReportTab {
             for (Object semester : semesters) {
                 yearComboBox.addItem(semester);
             }
+            name = _("Semester Balance Report");
             break;
         }
         filterNameComboBox.addItem(_("Group"));
@@ -213,7 +221,7 @@ public class BalanceViewerTab extends ReportTab {
      */
     @Override
     public String getTabName() {
-        return _("Balance Viewing");
+        return name;
     }
 
     /**
