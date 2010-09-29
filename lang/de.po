@@ -261,11 +261,8 @@ msgstr "Das {0}-Objekt wurde erfolgreich gespeichert."
 
 #: src/de/aidger/controller/actions/EditorSaveAction.java:681
 #, java-format
-msgid ""
-"Could not save the entity {0} because it already exists in the database."
-msgstr ""
-"Das {0}-Objekt konnte nicht gespeichert werden, da es bereits in der "
-"Datenbank vorhanden ist."
+msgid "Could not save the entity {0} because it already exists in the database."
+msgstr "Das {0}-Objekt konnte nicht gespeichert werden, da es bereits in der Datenbank vorhanden ist."
 
 #: src/de/aidger/controller/actions/EditorSaveAction.java:686
 #, java-format
@@ -404,7 +401,8 @@ msgid "Please select at least one entry from the table."
 msgstr "Bitte markieren Sie mindestens einen Eintrag aus der Tabelle."
 
 #: src/de/aidger/controller/actions/ViewerActivityReportAction.java:28
-#: src/de/aidger/view/UI.java:674 src/de/aidger/view/tabs/ViewerTab.java:642
+#: src/de/aidger/view/UI.java:674
+#: src/de/aidger/view/tabs/ViewerTab.java:642
 #: src/de/aidger/view/tabs/ViewerTab.java:665
 msgid "Activity Report"
 msgstr "Tätigkeitsnachweis"
@@ -565,23 +563,17 @@ msgstr "Nur eine Instanz von aidGer darf zur selben Zeit laufen."
 #: src/de/aidger/model/inspectors/CourseBudgetLimitInspector.java:46
 #, java-format
 msgid "The budget limit for course {0} is exceeded ({1}h / {2}h)."
-msgstr ""
-"Das Budget-Limit für die Veranstaltung {0} ist überschritten ({1}h / {2}h)."
+msgstr "Das Budget-Limit für die Veranstaltung {0} ist überschritten ({1}h / {2}h)."
 
 #: src/de/aidger/model/inspectors/EmploymentLimitInspector.java:87
 #, java-format
 msgid "You have hired {0} with qualification {1} more than {2} years."
-msgstr ""
-"Sie haben {0} mit der Qualifikation {1} mehr als {2} Jahre eingestellt."
+msgstr "Sie haben {0} mit der Qualifikation {1} mehr als {2} Jahre eingestellt."
 
 #: src/de/aidger/model/inspectors/FundsBudgetLimitInspector.java:86
 #, java-format
-msgid ""
-"The budget costs limit for funds {0} in financial category {1} is exceeded "
-"({2}€ / {3}€)."
-msgstr ""
-"Das Budgetkosten-Limit für das Finanzmittel {0} in der Finanzkategorie {1} "
-"ist überschritten ({2}€ / {3}€)."
+msgid "The budget costs limit for funds {0} in financial category {1} is exceeded ({2}€ / {3}€)."
+msgstr "Das Budgetkosten-Limit für das Finanzmittel {0} in der Finanzkategorie {1} ist überschritten ({2}€ / {3}€)."
 
 #: src/de/aidger/model/inspectors/IdenticalAssistantInspector.java:43
 msgid "The same assistant exists already in the database."
@@ -594,12 +586,8 @@ msgstr "Der Neuvertrag von {0} überlappt mit einem anderen."
 
 #: src/de/aidger/model/inspectors/WorkingHourLimitInspector.java:91
 #, java-format
-msgid ""
-"The working hour limit of {0}h for the assistant {1} is exceeded in the "
-"following dates:"
-msgstr ""
-"Das Stundenzahl-Limit von {0}h ist für die Hilfskraft {1} in den folgenden "
-"Zeitpunkten überschritten:"
+msgid "The working hour limit of {0}h for the assistant {1} is exceeded in the following dates:"
+msgstr "Das Stundenzahl-Limit von {0}h ist für die Hilfskraft {1} in den folgenden Zeitpunkten überschritten:"
 
 #: src/de/aidger/model/models/Activity.java:73
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:404
@@ -714,19 +702,15 @@ msgstr "Qualifikation"
 
 #: src/de/aidger/model/models/Assistant.java:133
 msgid "Assistant is still linked to an Activity"
-msgstr ""
-"Es besteht noch eine Verbindung zwischen der Hilfskraft und einer Aktivität"
+msgstr "Es besteht noch eine Verbindung zwischen der Hilfskraft und einer Aktivität"
 
 #: src/de/aidger/model/models/Assistant.java:137
 msgid "Assistant is still linked to an Employment"
-msgstr ""
-"Es besteht noch eine Verbindung zwischen der Hilfskraft und einer "
-"Beschäftigung"
+msgstr "Es besteht noch eine Verbindung zwischen der Hilfskraft und einer Beschäftigung"
 
 #: src/de/aidger/model/models/Assistant.java:141
 msgid "Assistant is still linked to a Contract"
-msgstr ""
-"Es besteht noch eine Verbindung zwischen der Hilfskraft und einem Vertrag"
+msgstr "Es besteht noch eine Verbindung zwischen der Hilfskraft und einem Vertrag"
 
 #: src/de/aidger/model/models/Contract.java:63
 #: src/de/aidger/view/forms/ContractEditorForm.java:249
@@ -750,8 +734,7 @@ msgstr "Die Zeitspanne Abschlußdatum und Bestätigungsdatum ist inkorrekt."
 
 #: src/de/aidger/model/models/Contract.java:191
 msgid "Contract is still linked to an Employment"
-msgstr ""
-"Es besteht noch eine Verbindung zwischen dem Vertrag und einer Beschäftigung"
+msgstr "Es besteht noch eine Verbindung zwischen dem Vertrag und einer Beschäftigung"
 
 #: src/de/aidger/model/models/Course.java:86
 #: src/de/aidger/view/forms/CourseEditorForm.java:251
@@ -824,15 +807,11 @@ msgstr "muss größer als 0 sein"
 
 #: src/de/aidger/model/models/Course.java:241
 msgid "Course is still linked to an Activity."
-msgstr ""
-"Es besteht noch eine Verbindung zwischen der Veranstaltung und einer "
-"Aktivität"
+msgstr "Es besteht noch eine Verbindung zwischen der Veranstaltung und einer Aktivität"
 
 #: src/de/aidger/model/models/Course.java:245
 msgid "Course is still linked to an Employment"
-msgstr ""
-"Es besteht noch eine Verbindung zwischen der Veranstaltung und einer "
-"Beschäftigung"
+msgstr "Es besteht noch eine Verbindung zwischen der Veranstaltung und einer Beschäftigung"
 
 #: src/de/aidger/model/models/Employment.java:79
 #: src/de/aidger/model/models/Employment.java:216
@@ -880,9 +859,7 @@ msgstr "kann nicht 0 sein."
 
 #: src/de/aidger/model/models/FinancialCategory.java:152
 msgid "Financial Category is still linked to a Course."
-msgstr ""
-"Es besteht noch eine Verbindung zwischen der Finanzkategorie und einer "
-"Veranstaltung"
+msgstr "Es besteht noch eine Verbindung zwischen der Finanzkategorie und einer Veranstaltung"
 
 #: src/de/aidger/model/validators/DateRangeValidator.java:34
 msgid "is an incorrect date range"
@@ -916,9 +893,7 @@ msgstr "Standardfehler"
 
 #: src/de/aidger/utils/Anonymizer.java:89
 msgid "Anonymizing Assistants failed because of a database error"
-msgstr ""
-"Das Anonymisieren der Hilfskräfte schlug aufgrund eines Datenbankfehlers "
-"fehl."
+msgstr "Das Anonymisieren der Hilfskräfte schlug aufgrund eines Datenbankfehlers fehl."
 
 #: src/de/aidger/utils/Configuration.java:89
 #, java-format
@@ -1144,8 +1119,7 @@ msgstr "Willkommen zu aidGer"
 
 #: src/de/aidger/view/FirstStartDialog.java:112
 msgid "Before you can start working, please enter your Name."
-msgstr ""
-"Bevor sie mit der Arbeit beginnen können, geben sie bitte ihren Namen an."
+msgstr "Bevor sie mit der Arbeit beginnen können, geben sie bitte ihren Namen an."
 
 #: src/de/aidger/view/FirstStartDialog.java:114
 msgid "It will be used in all your activities."
@@ -1158,9 +1132,7 @@ msgstr "Name:"
 
 #: src/de/aidger/view/FirstStartDialog.java:120
 msgid "While you enter your name, aidGer will try to connect to the database."
-msgstr ""
-"Während sie ihren Namen eingeben, wird aidGer versuchen zur Datenbank zu "
-"verbinden."
+msgstr "Während sie ihren Namen eingeben, wird aidGer versuchen zur Datenbank zu verbinden."
 
 #: src/de/aidger/view/FirstStartDialog.java:123
 msgid "Trying to connect ..."
@@ -1235,7 +1207,8 @@ msgstr "Pessimistisch"
 msgid "Historical"
 msgstr "Historisch"
 
-#: src/de/aidger/view/SettingsDialog.java:449 src/de/aidger/view/UI.java:667
+#: src/de/aidger/view/SettingsDialog.java:449
+#: src/de/aidger/view/UI.java:667
 msgid "Reports"
 msgstr "Berichte"
 
@@ -1268,7 +1241,8 @@ msgstr "{0}. Tab gelöscht"
 msgid "Setting current tab to \"{0}\""
 msgstr "Momentaner Reiter ist nun \"{0}\""
 
-#: src/de/aidger/view/UI.java:542 src/de/aidger/view/UI.java:805
+#: src/de/aidger/view/UI.java:542
+#: src/de/aidger/view/UI.java:805
 msgid "Ready"
 msgstr "Bereit"
 
@@ -1280,23 +1254,28 @@ msgstr "Datei"
 msgid "Master Data Management"
 msgstr "Stammdatenverwaltung"
 
-#: src/de/aidger/view/UI.java:644 src/de/aidger/view/tabs/ViewerTab.java:502
+#: src/de/aidger/view/UI.java:644
+#: src/de/aidger/view/tabs/ViewerTab.java:502
 msgid "Courses"
 msgstr "Veranstaltungen"
 
-#: src/de/aidger/view/UI.java:645 src/de/aidger/view/tabs/ViewerTab.java:504
+#: src/de/aidger/view/UI.java:645
+#: src/de/aidger/view/tabs/ViewerTab.java:504
 msgid "Assistants"
 msgstr "Hilfskräfte"
 
-#: src/de/aidger/view/UI.java:647 src/de/aidger/view/tabs/ViewerTab.java:506
+#: src/de/aidger/view/UI.java:647
+#: src/de/aidger/view/tabs/ViewerTab.java:506
 msgid "Financial Categories"
 msgstr "Finanzkategorien"
 
-#: src/de/aidger/view/UI.java:649 src/de/aidger/view/tabs/ViewerTab.java:508
+#: src/de/aidger/view/UI.java:649
+#: src/de/aidger/view/tabs/ViewerTab.java:508
 msgid "Hourly Wages"
 msgstr "Stundenlöhne"
 
-#: src/de/aidger/view/UI.java:652 src/de/aidger/view/tabs/ViewerTab.java:510
+#: src/de/aidger/view/UI.java:652
+#: src/de/aidger/view/tabs/ViewerTab.java:510
 #: src/de/aidger/view/tabs/WelcomeTab.java:277
 msgid "Employments"
 msgstr "Beschäftigungen"
@@ -1313,7 +1292,8 @@ msgstr "Hilfskraft einstellen"
 msgid "Show contracts"
 msgstr "Verträge anzeigen"
 
-#: src/de/aidger/view/UI.java:661 src/de/aidger/view/tabs/ViewerTab.java:514
+#: src/de/aidger/view/UI.java:661
+#: src/de/aidger/view/tabs/ViewerTab.java:514
 msgid "Activities"
 msgstr "Vorgänge"
 
@@ -1455,8 +1435,7 @@ msgstr "Umbuchung"
 
 #: src/de/aidger/view/forms/ContractEditorForm.java:132
 msgid "Confirmation date can be entered after saving the contract."
-msgstr ""
-"Das Bestätigungsdatum kann nach dem Speichern des Vertrags eingegeben werden."
+msgstr "Das Bestätigungsdatum kann nach dem Speichern des Vertrags eingegeben werden."
 
 #: src/de/aidger/view/forms/ContractEditorForm.java:257
 #: src/de/aidger/view/forms/ContractViewerForm.java:107
@@ -1634,10 +1613,13 @@ msgid ""
 "because you did not enter hourly wages for some periods, \n"
 "in which some of your assistants are employed."
 msgstr ""
+"Der resultierende Bericht könnte Fehler enthalten, \n"
+"da Stundenlöhne für einige Zeiträume in denen Ihre \n"
+"Hilfskräfte angestellt sind nicht eingegeben wurden."
 
 #: src/de/aidger/view/tabs/ControllingViewerTab.java:204
 msgid "Shall the affected assistants be included in the report anyway?"
-msgstr ""
+msgstr "Sollen die betroffenen Hilfskräfte trotzdem in der Auswertung berücksichtigt werden?"
 
 #: src/de/aidger/view/tabs/ControllingViewerTab.java:237
 msgid "Calculations may be off, due to missing hourly wages."
@@ -1788,8 +1770,7 @@ msgstr "Diese Beschäftigungen gehören zu {0} Veranstaltungen."
 
 #: src/de/aidger/view/tabs/WelcomeTab.java:239
 #, java-format
-msgid ""
-"Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."
+msgid "Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."
 msgstr "Von den Hilfskräften sind {0} ungeprüft, {1} geprüft und {2} Bachelors"
 
 #: src/de/aidger/view/tabs/WelcomeTab.java:242
