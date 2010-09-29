@@ -120,16 +120,16 @@ public class Contract extends AbstractModel<IContract> implements IContract {
                             : assistantId.equals(c.assistantId))
                     && (delegation == null ? c.delegation == null : delegation
                         .equals(c.delegation))
-                    && (completionDate == null ? c.completionDate == null
-                            : completionDate.toString().equals(
-                                c.completionDate.toString()))
-                    && (confirmationDate == null ? c.confirmationDate == null
-                            : confirmationDate.toString().equals(
-                                c.confirmationDate.toString()))
-                    && (endDate == null ? c.endDate == null : endDate
-                        .toString().equals(c.endDate.toString()))
-                    && (startDate == null ? c.startDate == null : startDate
-                        .toString().equals(c.startDate.toString()))
+                    && (completionDate == null ? c.completionDate == null :
+                        (c.completionDate == null ? false :
+                        completionDate.toString().equals(c.completionDate.toString())))
+                    && (confirmationDate == null ? c.confirmationDate == null :
+                        (c.confirmationDate == null ? false :
+                        confirmationDate.toString().equals(c.confirmationDate.toString())))
+                    && (endDate == null ? c.endDate == null : (c.endDate == null ?
+                        false : endDate.toString().equals(c.endDate.toString())))
+                    && (startDate == null ? c.startDate == null : (c.startDate == null ?
+                        false : startDate.toString().equals(c.startDate.toString())))
                     && (type == null ? c.type == null : type.equals(c.type));
         } else {
             return false;
