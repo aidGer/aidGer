@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-29 14:45+0200\n"
+"POT-Creation-Date: 2010-09-29 17:59+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -42,7 +42,7 @@ msgstr "Programminformationen anzeigen"
 #: src/de/aidger/view/tabs/ActivityReportViewerTab.java:214
 #: src/de/aidger/view/tabs/BalanceViewerTab.java:269
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:243
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:344
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:347
 #: src/de/aidger/view/tabs/ProtocolViewerTab.java:211
 #: src/de/aidger/view/tabs/ViewerTab.java:645
 #: src/de/aidger/view/tabs/ViewerTab.java:672
@@ -103,7 +103,7 @@ msgstr "Datei überschreiben?"
 #: src/de/aidger/view/tabs/ActivityReportViewerTab.java:205
 #: src/de/aidger/view/tabs/BalanceViewerTab.java:260
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:234
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:335
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:338
 msgid "Generate"
 msgstr "Generieren"
 
@@ -124,7 +124,7 @@ msgid "Export the whole report to a pdf file"
 msgstr "Exportiert den gesamten Bericht nach PDF"
 
 #: src/de/aidger/controller/actions/ControllingExportDifferencesAction.java:35
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:358
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:361
 msgid "Export differences"
 msgstr "Abweichungen exportieren"
 
@@ -198,7 +198,7 @@ msgstr "Plankosten"
 #: src/de/aidger/view/forms/FinancialCategoryViewerForm.java:47
 #: src/de/aidger/view/models/EmploymentTableModel.java:35
 #: src/de/aidger/view/models/FinancialCategoryTableModel.java:26
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:403
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:406
 msgid "Funds"
 msgstr "Finanzmittel"
 
@@ -214,7 +214,7 @@ msgstr "muss eine Länge von 8 haben"
 #: src/de/aidger/view/forms/FinancialCategoryViewerForm.java:108
 #: src/de/aidger/view/models/FinancialCategoryTableModel.java:26
 #: src/de/aidger/view/tabs/BalanceViewerTab.java:246
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:383
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:386
 msgid "Year"
 msgstr "Jahr"
 
@@ -854,7 +854,7 @@ msgstr "ist ein ungültiges Jahr"
 
 #: src/de/aidger/model/models/Employment.java:212
 #: src/de/aidger/model/models/HourlyWage.java:134
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:393
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:396
 msgid "Month"
 msgstr "Monat"
 
@@ -1244,7 +1244,7 @@ msgid "Error"
 msgstr "Fehler"
 
 #: src/de/aidger/view/UI.java:262
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:206
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:205
 msgid "Info"
 msgstr "Info"
 
@@ -1630,22 +1630,20 @@ msgstr "Reale Kosten (Brutto)"
 
 #: src/de/aidger/view/tabs/ControllingViewerTab.java:201
 msgid ""
-"The hourly wages of some employments of the affected assistants are missing."
+"The resulting report may contain incorrect calculations, \n"
+"because you did not enter hourly wages for some periods, \n"
+"in which some of your assistants are employed."
 msgstr ""
 
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:203
-msgid "Shall these entities be included in the analysis anyway?"
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:204
+msgid "Shall the affected assistants be included in the report anyway?"
 msgstr ""
 
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:205
-msgid "The affected entities will be marked as flawed."
-msgstr ""
-
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:234
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:237
 msgid "Calculations may be off, due to missing hourly wages."
 msgstr "Wegen fehlender Stundenlöhne eventuell fehlerhafte Berechnungen"
 
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:470
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:473
 msgid "Assistant controlling"
 msgstr "Controlling Hilfskräfte"
 
