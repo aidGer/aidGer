@@ -398,7 +398,7 @@ public class CourseEditorForm extends JPanel {
         add(txtAWHperGroup, gridBagConstraints);
 
         cmbScope.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
-                "", "1Ü", "2Ü", "1P", "2P", "4P", "6P" }));
+                "", "1\u00dc", "2\u00dc", "1P", "2P", "4P", "6P" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
