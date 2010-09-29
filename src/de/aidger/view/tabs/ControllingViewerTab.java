@@ -198,20 +198,23 @@ public class ControllingViewerTab extends ReportTab {
             ignore = JOptionPane
                 .showConfirmDialog(
                     this,
-                    _("The hourly wages of some employments of the affected assistants are missing.")
+                    _("The resulting report may contain incorrect calculations, \nbecause you did not enter hourly wages for some periods, \nin which some of your assistants are employed.")
                             + "\n"
-                            + _("Shall these entities be included in the analysis anyway?")
                             + "\n"
-                            + _("The affected entities will be marked as flawed."),
+                            + _("Shall the affected assistants be included in the report anyway?"),
                     _("Info"), JOptionPane.YES_NO_OPTION,
                     JOptionPane.INFORMATION_MESSAGE);
         }
-        if (ignore == 1) {
-            assistants = new ControllingCreator(year, month, funds)
-                .getAssistants(true);
-        }
-        for (ControllingAssistant assistant : assistants) {
-            addRow(assistant.getObjectArray());
+        if (ignore == 0) {
+            for (ControllingAssistant assistant : assistants) {
+                addRow(assistant.getObjectArray());
+            }
+        } else {
+            for (ControllingAssistant assistant : assistants) {
+                if (!assistant.isFlagged()) {
+                    addRow(assistant.getObjectArray());
+                }
+            }
         }
     }
 
