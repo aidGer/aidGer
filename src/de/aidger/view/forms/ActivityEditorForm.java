@@ -34,7 +34,7 @@ import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
  * A form used for editing / creating new activities.
- * 
+ *
  * @author aidGer Team
  */
 @SuppressWarnings("serial")
@@ -47,7 +47,7 @@ public class ActivityEditorForm extends JPanel {
 
     /**
      * Constructs an activity editor form.
-     * 
+     *
      * @param activity
      *            The activity that will be edited
      */
@@ -57,10 +57,6 @@ public class ActivityEditorForm extends JPanel {
         }
 
         initComponents();
-
-        cbType.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
-                _("Personal"), _("Telephone"), _("Email"), _("Internal mail"),
-                _("External mail") }));
 
         InputPatternFilter.addFilter(txtProcessor, ".{0,2}");
 
@@ -72,9 +68,9 @@ public class ActivityEditorForm extends JPanel {
             txtInitiator.setText(activity.getSender());
             txtProcessor.setText(activity.getProcessor());
             txtType.setText(activity.getType());
+            txtDocumentType.setText(activity.getDocumentType());
             txtContent.setText(activity.getContent());
             txtRemark.setText(activity.getRemark());
-            cbType.setSelectedItem(activity.getDocumentType());
 
             CourseLine cl = courseLines.get(0);
             AssistantLine al = assistantLines.get(0);
@@ -263,7 +259,7 @@ public class ActivityEditorForm extends JPanel {
 
     /**
      * Get the courses of the activity.
-     * 
+     *
      * @return The courses of the activity
      */
     public List<Course> getCourses() {
@@ -278,7 +274,7 @@ public class ActivityEditorForm extends JPanel {
 
     /**
      * Get the assistants of the activity.
-     * 
+     *
      * @return The assistants of the activity
      */
     public List<Assistant> getAssistants() {
@@ -293,7 +289,7 @@ public class ActivityEditorForm extends JPanel {
 
     /**
      * Get the contents of the activity.
-     * 
+     *
      * @return The contents of the activity
      */
     public String getContent() {
@@ -302,7 +298,7 @@ public class ActivityEditorForm extends JPanel {
 
     /**
      * Get the date of the activity.
-     * 
+     *
      * @return The date of the activity.
      */
     public java.sql.Date getDate() {
@@ -311,16 +307,16 @@ public class ActivityEditorForm extends JPanel {
 
     /**
      * Get the type of document.
-     * 
+     *
      * @return The type of document
      */
     public String getDocumentType() {
-        return (String) cbType.getSelectedItem();
+        return txtDocumentType.getText();
     }
 
     /**
      * Get the processor of the activity.
-     * 
+     *
      * @return The processor of the activity.
      */
     public String getProcessor() {
@@ -329,7 +325,7 @@ public class ActivityEditorForm extends JPanel {
 
     /**
      * Get remarks to the activity.
-     * 
+     *
      * @return Remarks to the activity
      */
     public String getRemark() {
@@ -338,7 +334,7 @@ public class ActivityEditorForm extends JPanel {
 
     /**
      * Get the sender of the activity.
-     * 
+     *
      * @return The sender of the activity.
      */
     public String getInitiator() {
@@ -347,7 +343,7 @@ public class ActivityEditorForm extends JPanel {
 
     /**
      * Get the type of the activity.
-     * 
+     *
      * @return The type of the activity
      */
     public String getType() {
@@ -374,14 +370,16 @@ public class ActivityEditorForm extends JPanel {
         txtProcessor = new javax.swing.JTextField();
         txtInitiator = new javax.swing.JTextField();
         txtType = new javax.swing.JTextField();
+        txtDocumentType = new javax.swing.JTextField();
         txtRemark = new javax.swing.JTextField();
         filler = new javax.swing.JLabel();
         scrollPane = new javax.swing.JScrollPane();
         txtContent = new javax.swing.JTextArea();
         hlpProcessor = new de.aidger.view.utils.HelpLabel();
-        cbType = new javax.swing.JComboBox();
 
         setLayout(new java.awt.GridBagLayout());
+
+        hlpProcessor.setToolTipText(_("Only a maximal length of 2 is allowed."));
 
         lblDate.setText(_("Date"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -413,7 +411,7 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblType, gridBagConstraints);
 
-        lblDocumentType.setText(_("Transmission Type"));
+        lblDocumentType.setText(_("Document Type"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -474,6 +472,15 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtType, gridBagConstraints);
 
+        txtDocumentType.setMinimumSize(new java.awt.Dimension(200, 25));
+        txtDocumentType.setPreferredSize(new java.awt.Dimension(200, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(txtDocumentType, gridBagConstraints);
+
         txtRemark.setMinimumSize(new java.awt.Dimension(200, 25));
         txtRemark.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -499,28 +506,15 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(scrollPane, gridBagConstraints);
-
-        hlpProcessor
-            .setToolTipText(_("Only a maximal length of 2 is allowed."));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         add(hlpProcessor, gridBagConstraints);
-
-        cbType.setMinimumSize(new java.awt.Dimension(200, 25));
-        cbType.setPreferredSize(new java.awt.Dimension(200, 25));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(cbType, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox cbType;
     private javax.swing.JLabel filler;
     private de.aidger.view.utils.HelpLabel hlpProcessor;
     private javax.swing.JLabel lblContent;
@@ -533,6 +527,7 @@ public class ActivityEditorForm extends JPanel {
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JSpinner spDate;
     private javax.swing.JTextArea txtContent;
+    private javax.swing.JTextField txtDocumentType;
     private javax.swing.JTextField txtInitiator;
     private javax.swing.JTextField txtProcessor;
     private javax.swing.JTextField txtRemark;
@@ -544,7 +539,7 @@ public class ActivityEditorForm extends JPanel {
 
     /**
      * This class represents a course line in the form.
-     * 
+     *
      * @author aidGer Team
      */
     private class CourseLine {
@@ -554,7 +549,7 @@ public class ActivityEditorForm extends JPanel {
 
         /**
          * Initializes a course line.
-         * 
+         *
          */
         public CourseLine(JLabel lblCourse, JComboBox cmbCourse,
                 JButton btnPlusMinus) {
@@ -566,7 +561,7 @@ public class ActivityEditorForm extends JPanel {
 
     /**
      * Removes a course line from the form by clicking on "-" button.
-     * 
+     *
      * @author aidGer Team
      */
     private class RemoveCourseAction extends AbstractAction {
@@ -587,7 +582,7 @@ public class ActivityEditorForm extends JPanel {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see
          * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent
          * )
@@ -607,7 +602,7 @@ public class ActivityEditorForm extends JPanel {
 
     /**
      * This class represents an assistant line in the form.
-     * 
+     *
      * @author aidGer Team
      */
     private class AssistantLine {
@@ -617,7 +612,7 @@ public class ActivityEditorForm extends JPanel {
 
         /**
          * Initializes an assistant line.
-         * 
+         *
          */
         public AssistantLine(JLabel lblAssistant, JComboBox cmbAssistant,
                 JButton btnPlusMinus) {
@@ -629,7 +624,7 @@ public class ActivityEditorForm extends JPanel {
 
     /**
      * Removes an assistant line from the form by clicking on "-" button.
-     * 
+     *
      * @author aidGer Team
      */
     private class RemoveAssistantAction extends AbstractAction {
@@ -650,7 +645,7 @@ public class ActivityEditorForm extends JPanel {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see
          * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent
          * )

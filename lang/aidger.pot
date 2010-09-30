@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-29 17:59+0200\n"
+"POT-Creation-Date: 2010-09-30 13:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -438,7 +438,7 @@ msgstr ""
 #: src/de/aidger/model/models/Contract.java:68
 #: src/de/aidger/model/models/Employment.java:83
 #: src/de/aidger/utils/pdf/ControllingConverter.java:329
-#: src/de/aidger/view/forms/ActivityEditorForm.java:195
+#: src/de/aidger/view/forms/ActivityEditorForm.java:191
 #: src/de/aidger/view/forms/ActivityViewerForm.java:91
 #: src/de/aidger/view/forms/ContractEditorForm.java:241
 #: src/de/aidger/view/forms/ContractViewerForm.java:91
@@ -478,7 +478,7 @@ msgstr ""
 #: src/de/aidger/model/models/Activity.java:78
 #: src/de/aidger/model/models/Employment.java:87
 #: src/de/aidger/utils/pdf/BudgetReportConverter.java:386
-#: src/de/aidger/view/forms/ActivityEditorForm.java:120
+#: src/de/aidger/view/forms/ActivityEditorForm.java:116
 #: src/de/aidger/view/forms/ActivityViewerForm.java:99
 #: src/de/aidger/view/forms/EmploymentEditorForm.java:498
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:114
@@ -598,7 +598,7 @@ msgstr ""
 
 #: src/de/aidger/model/models/Activity.java:73
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:404
-#: src/de/aidger/view/forms/ActivityEditorForm.java:386
+#: src/de/aidger/view/forms/ActivityEditorForm.java:384
 #: src/de/aidger/view/forms/ActivityViewerForm.java:107
 #: src/de/aidger/view/forms/EmploymentEditorForm.java:367
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:130
@@ -613,7 +613,7 @@ msgstr ""
 
 #: src/de/aidger/model/models/Activity.java:73
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:405
-#: src/de/aidger/view/forms/ActivityEditorForm.java:400
+#: src/de/aidger/view/forms/ActivityEditorForm.java:398
 #: src/de/aidger/view/forms/ActivityViewerForm.java:123
 #: src/de/aidger/view/models/ActivityTableModel.java:28
 #: src/de/aidger/view/tabs/ProtocolViewerTab.java:41
@@ -625,7 +625,7 @@ msgstr ""
 #: src/de/aidger/model/models/Contract.java:64
 #: src/de/aidger/model/models/Contract.java:167
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:404
-#: src/de/aidger/view/forms/ActivityEditorForm.java:408
+#: src/de/aidger/view/forms/ActivityEditorForm.java:406
 #: src/de/aidger/view/forms/ActivityViewerForm.java:131
 #: src/de/aidger/view/forms/ContractEditorForm.java:281
 #: src/de/aidger/view/forms/ContractViewerForm.java:131
@@ -637,7 +637,7 @@ msgstr ""
 
 #: src/de/aidger/model/models/Activity.java:73
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:405
-#: src/de/aidger/view/forms/ActivityEditorForm.java:392
+#: src/de/aidger/view/forms/ActivityEditorForm.java:390
 #: src/de/aidger/view/forms/ActivityViewerForm.java:115
 #: src/de/aidger/view/models/ActivityTableModel.java:28
 #: src/de/aidger/view/tabs/ProtocolViewerTab.java:42
@@ -646,7 +646,7 @@ msgstr ""
 
 #: src/de/aidger/model/models/Activity.java:74
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:404
-#: src/de/aidger/view/forms/ActivityEditorForm.java:432
+#: src/de/aidger/view/forms/ActivityEditorForm.java:430
 #: src/de/aidger/view/forms/ActivityViewerForm.java:155
 #: src/de/aidger/view/models/ActivityTableModel.java:29
 #: src/de/aidger/view/tabs/ProtocolViewerTab.java:41
@@ -655,6 +655,7 @@ msgstr ""
 
 #: src/de/aidger/model/models/Activity.java:74
 #: src/de/aidger/model/models/Activity.java:188
+#: src/de/aidger/view/forms/ActivityEditorForm.java:414
 #: src/de/aidger/view/forms/ActivityViewerForm.java:139
 #: src/de/aidger/view/models/ActivityTableModel.java:28
 msgid "Document Type"
@@ -668,7 +669,6 @@ msgstr ""
 
 #: src/de/aidger/model/models/Assistant.java:44
 #: src/de/aidger/model/models/Assistant.java:46
-#: src/de/aidger/view/forms/ActivityEditorForm.java:62
 #: src/de/aidger/view/forms/AssistantEditorForm.java:106
 #: src/de/aidger/view/forms/AssistantViewerForm.java:69
 #: src/de/aidger/view/models/AssistantTableModel.java:26
@@ -1063,7 +1063,7 @@ msgstr ""
 
 #: src/de/aidger/utils/pdf/ControllingConverter.java:331
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:405
-#: src/de/aidger/view/forms/ActivityEditorForm.java:424
+#: src/de/aidger/view/forms/ActivityEditorForm.java:422
 #: src/de/aidger/view/forms/ActivityViewerForm.java:147
 #: src/de/aidger/view/forms/CourseEditorForm.java:376
 #: src/de/aidger/view/forms/CourseViewerForm.java:197
@@ -1379,31 +1379,11 @@ msgstr ""
 msgid "Getting the model from the database failed"
 msgstr ""
 
-#: src/de/aidger/view/forms/ActivityEditorForm.java:62
-msgid "Personal"
-msgstr ""
-
-#: src/de/aidger/view/forms/ActivityEditorForm.java:62
-msgid "Telephone"
-msgstr ""
-
-#: src/de/aidger/view/forms/ActivityEditorForm.java:62
-msgid "Internal mail"
-msgstr ""
-
-#: src/de/aidger/view/forms/ActivityEditorForm.java:63
-msgid "External mail"
-msgstr ""
-
-#: src/de/aidger/view/forms/ActivityEditorForm.java:108
+#: src/de/aidger/view/forms/ActivityEditorForm.java:104
 msgid "General activity"
 msgstr ""
 
-#: src/de/aidger/view/forms/ActivityEditorForm.java:416
-msgid "Transmission Type"
-msgstr ""
-
-#: src/de/aidger/view/forms/ActivityEditorForm.java:504
+#: src/de/aidger/view/forms/ActivityEditorForm.java:382
 msgid "Only a maximal length of 2 is allowed."
 msgstr ""
 
