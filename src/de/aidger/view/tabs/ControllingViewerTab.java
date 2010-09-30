@@ -470,7 +470,7 @@ public class ControllingViewerTab extends ReportTab {
      */
     @Override
     public String getTabName() {
-        return _("Assistant controlling");
+        return _("Assistant Controlling");
     }
 
 }

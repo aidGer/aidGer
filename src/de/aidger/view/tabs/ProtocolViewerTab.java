@@ -149,7 +149,7 @@ public class ProtocolViewerTab extends Tab {
      */
     @Override
     public String getTabName() {
-        return _("Activity export");
+        return _("Export Activities");
     }
 
     /**
