@@ -3,9 +3,9 @@ package de.aidger.model.models;
 import static de.aidger.utils.Translation._;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.ArrayList;
 
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.controller.IEmploymentManager;
@@ -76,7 +76,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      */
     public Employment() {
         validatePresenceOf(new String[] { "costUnit", "qualification" },
-            new String[] { _("Cost unit"), _("Qualification") });
+            new String[] { _("Funds"), _("Qualification") });
         validateInclusionOf(new String[] { "qualification" },
             new String[] { _("Qualification") }, new String[] { "g", "u", "b" });
         validateExistanceOf(new String[] { "assistantId" },
@@ -142,23 +142,23 @@ public class Employment extends AbstractModel<IEmployment> implements
         if (o instanceof Employment) {
             Employment e = (Employment) o;
             return (id == null ? e.id == null : id.equals(e.id))
-                    && (assistantId == null ? e.assistantId == null :
-                            assistantId.equals(e.assistantId))
-                    && (contractId == null ? e.contractId == null :
-                            contractId.equals(e.contractId))
+                    && (assistantId == null ? e.assistantId == null
+                            : assistantId.equals(e.assistantId))
+                    && (contractId == null ? e.contractId == null : contractId
+                        .equals(e.contractId))
                     && (funds == null ? e.funds == null : funds.equals(e.funds))
-                    && (courseId == null ? e.courseId == null : courseId.equals(
-                            e.courseId))
+                    && (courseId == null ? e.courseId == null : courseId
+                        .equals(e.courseId))
                     && (month == null ? e.month == null : month.equals(e.month))
                     && (year == null ? e.year == null : year.equals(e.year))
                     && (costUnit == null ? e.getCostUnit() == null : costUnit
-                            .equals(e.getCostUnit()))
+                        .equals(e.getCostUnit()))
                     && (hourCount == null ? e.hourCount == null : hourCount
-                            .equals(e.hourCount))
+                        .equals(e.hourCount))
                     && (qualification == null ? e.getQualification() == null
                             : qualification.equals(e.getQualification()))
                     && (remark == null ? e.getRemark() == null : remark
-                            .equals(e.getRemark()));
+                        .equals(e.getRemark()));
         } else {
             return false;
         }
@@ -179,7 +179,8 @@ public class Employment extends AbstractModel<IEmployment> implements
         hash = 29 * hash + (funds != null ? funds.hashCode() : 0);
         hash = 29 * hash + (month != null ? month.hashCode() : 0);
         hash = 29 * hash + (year != null ? year.hashCode() : 0);
-        hash = 29 * hash
+        hash = 29
+                * hash
                 + (int) (Double.doubleToLongBits(hourCount) ^ (Double
                     .doubleToLongBits(hourCount) >>> 32));
         hash = 29 * hash + (costUnit != null ? costUnit.hashCode() : 0);
@@ -309,7 +310,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Get all employments in the given semester
-     *
+     * 
      * @param semester
      *            The given semester
      * @return The employments in the given semester
@@ -323,7 +324,7 @@ public class Employment extends AbstractModel<IEmployment> implements
 
     /**
      * Get a list of distinct cost units.
-     *
+     * 
      * @return A list of distinct cost units
      * @throws AdoHiveException
      */

@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-09-30 13:35+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: \n"
+"Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -200,7 +200,7 @@ msgstr "Plankosten"
 #: src\de\aidger\view\models\FinancialCategoryTableModel.java:26
 #: src\de\aidger\view\tabs\ControllingViewerTab.java:406
 msgid "Funds"
-msgstr "Finanzmittel"
+msgstr "Fonds"
 
 #: src\de\aidger\controller\actions\EditorSaveAction.java:204
 msgid "has to have a length of 8"
@@ -261,11 +261,8 @@ msgstr "Das {0}-Objekt wurde erfolgreich gespeichert."
 
 #: src\de\aidger\controller\actions\EditorSaveAction.java:681
 #, java-format
-msgid ""
-"Could not save the entity {0} because it already exists in the database."
-msgstr ""
-"Das {0}-Objekt konnte nicht gespeichert werden, da es bereits in der "
-"Datenbank vorhanden ist."
+msgid "Could not save the entity {0} because it already exists in the database."
+msgstr "Das {0}-Objekt konnte nicht gespeichert werden, da es bereits in der Datenbank vorhanden ist."
 
 #: src\de\aidger\controller\actions\EditorSaveAction.java:686
 #, java-format
@@ -565,23 +562,17 @@ msgstr "Nur eine Instanz von aidGer darf zur selben Zeit laufen."
 #: src\de\aidger\model\inspectors\CourseBudgetLimitInspector.java:46
 #, java-format
 msgid "The budget limit for course {0} is exceeded ({1}h / {2}h)."
-msgstr ""
-"Das Budget-Limit für die Veranstaltung {0} ist überschritten ({1}h / {2}h)."
+msgstr "Das Budget-Limit für die Veranstaltung {0} ist überschritten ({1}h / {2}h)."
 
 #: src\de\aidger\model\inspectors\EmploymentLimitInspector.java:87
 #, java-format
 msgid "You have hired {0} with qualification {1} more than {2} years."
-msgstr ""
-"Sie haben {0} mit der Qualifikation {1} mehr als {2} Jahre eingestellt."
+msgstr "Sie haben {0} mit der Qualifikation {1} mehr als {2} Jahre eingestellt."
 
 #: src\de\aidger\model\inspectors\FundsBudgetLimitInspector.java:86
 #, java-format
-msgid ""
-"The budget costs limit for funds {0} in financial category {1} is exceeded "
-"({2}€ / {3}€)."
-msgstr ""
-"Das Budgetkosten-Limit für das Finanzmittel {0} in der Finanzkategorie {1} "
-"ist überschritten ({2}€ / {3}€)."
+msgid "The budget costs limit for funds {0} in financial category {1} is exceeded ({2}€ / {3}€)."
+msgstr "Das Budgetkosten-Limit für das Finanzmittel {0} in der Finanzkategorie {1} ist überschritten ({2}€ / {3}€)."
 
 #: src\de\aidger\model\inspectors\IdenticalAssistantInspector.java:43
 msgid "The same assistant exists already in the database."
@@ -594,12 +585,8 @@ msgstr "Der Neuvertrag von {0} überlappt mit einem anderen."
 
 #: src\de\aidger\model\inspectors\WorkingHourLimitInspector.java:91
 #, java-format
-msgid ""
-"The working hour limit of {0}h for the assistant {1} is exceeded in the "
-"following dates:"
-msgstr ""
-"Das Stundenzahl-Limit von {0}h ist für die Hilfskraft {1} in den folgenden "
-"Zeitpunkten überschritten:"
+msgid "The working hour limit of {0}h for the assistant {1} is exceeded in the following dates:"
+msgstr "Das Stundenzahl-Limit von {0}h ist für die Hilfskraft {1} in den folgenden Zeitpunkten überschritten:"
 
 #: src\de\aidger\model\models\Activity.java:73
 #: src\de\aidger\utils\pdf\ProtocolConverter.java:404
@@ -714,19 +701,15 @@ msgstr "Qualifikation"
 
 #: src\de\aidger\model\models\Assistant.java:133
 msgid "Assistant is still linked to an Activity"
-msgstr ""
-"Es besteht noch eine Verbindung zwischen der Hilfskraft und einer Aktivität"
+msgstr "Es besteht noch eine Verbindung zwischen der Hilfskraft und einer Aktivität"
 
 #: src\de\aidger\model\models\Assistant.java:137
 msgid "Assistant is still linked to an Employment"
-msgstr ""
-"Es besteht noch eine Verbindung zwischen der Hilfskraft und einer "
-"Beschäftigung"
+msgstr "Es besteht noch eine Verbindung zwischen der Hilfskraft und einer Beschäftigung"
 
 #: src\de\aidger\model\models\Assistant.java:141
 msgid "Assistant is still linked to a Contract"
-msgstr ""
-"Es besteht noch eine Verbindung zwischen der Hilfskraft und einem Vertrag"
+msgstr "Es besteht noch eine Verbindung zwischen der Hilfskraft und einem Vertrag"
 
 #: src\de\aidger\model\models\Contract.java:63
 #: src\de\aidger\view\forms\ContractEditorForm.java:249
@@ -750,8 +733,7 @@ msgstr "Die Zeitspanne Abschlußdatum und Bestätigungsdatum ist inkorrekt."
 
 #: src\de\aidger\model\models\Contract.java:191
 msgid "Contract is still linked to an Employment"
-msgstr ""
-"Es besteht noch eine Verbindung zwischen dem Vertrag und einer Beschäftigung"
+msgstr "Es besteht noch eine Verbindung zwischen dem Vertrag und einer Beschäftigung"
 
 #: src\de\aidger\model\models\Course.java:86
 #: src\de\aidger\view\forms\CourseEditorForm.java:251
@@ -824,15 +806,11 @@ msgstr "muss größer als 0 sein"
 
 #: src\de\aidger\model\models\Course.java:241
 msgid "Course is still linked to an Activity."
-msgstr ""
-"Es besteht noch eine Verbindung zwischen der Veranstaltung und einer "
-"Aktivität"
+msgstr "Es besteht noch eine Verbindung zwischen der Veranstaltung und einer Aktivität"
 
 #: src\de\aidger\model\models\Course.java:245
 msgid "Course is still linked to an Employment"
-msgstr ""
-"Es besteht noch eine Verbindung zwischen der Veranstaltung und einer "
-"Beschäftigung"
+msgstr "Es besteht noch eine Verbindung zwischen der Veranstaltung und einer Beschäftigung"
 
 #: src\de\aidger\model\models\Employment.java:79
 #: src\de\aidger\model\models\Employment.java:216
@@ -880,9 +858,7 @@ msgstr "kann nicht 0 sein."
 
 #: src\de\aidger\model\models\FinancialCategory.java:152
 msgid "Financial Category is still linked to a Course."
-msgstr ""
-"Es besteht noch eine Verbindung zwischen der Finanzkategorie und einer "
-"Veranstaltung"
+msgstr "Es besteht noch eine Verbindung zwischen der Finanzkategorie und einer Veranstaltung"
 
 #: src\de\aidger\model\validators\DateRangeValidator.java:34
 msgid "is an incorrect date range"
@@ -916,9 +892,7 @@ msgstr "Standardfehler"
 
 #: src\de\aidger\utils\Anonymizer.java:89
 msgid "Anonymizing Assistants failed because of a database error"
-msgstr ""
-"Das Anonymisieren der Hilfskräfte schlug aufgrund eines Datenbankfehlers "
-"fehl."
+msgstr "Das Anonymisieren der Hilfskräfte schlug aufgrund eines Datenbankfehlers fehl."
 
 #: src\de\aidger\utils\Configuration.java:89
 #, java-format
@@ -1144,8 +1118,7 @@ msgstr "Willkommen zu aidGer"
 
 #: src\de\aidger\view\FirstStartDialog.java:112
 msgid "Before you can start working, please enter your Name."
-msgstr ""
-"Bevor sie mit der Arbeit beginnen können, geben sie bitte ihren Namen an."
+msgstr "Bevor sie mit der Arbeit beginnen können, geben sie bitte ihren Namen an."
 
 #: src\de\aidger\view\FirstStartDialog.java:114
 msgid "It will be used in all your activities."
@@ -1158,9 +1131,7 @@ msgstr "Name:"
 
 #: src\de\aidger\view\FirstStartDialog.java:120
 msgid "While you enter your name, aidGer will try to connect to the database."
-msgstr ""
-"Während sie ihren Namen eingeben, wird aidGer versuchen zur Datenbank zu "
-"verbinden."
+msgstr "Während sie ihren Namen eingeben, wird aidGer versuchen zur Datenbank zu verbinden."
 
 #: src\de\aidger\view\FirstStartDialog.java:123
 msgid "Trying to connect ..."
@@ -1472,8 +1443,7 @@ msgstr "Umbuchung"
 
 #: src\de\aidger\view\forms\ContractEditorForm.java:132
 msgid "Confirmation date can be entered after saving the contract."
-msgstr ""
-"Das Bestätigungsdatum kann nach dem Speichern des Vertrags eingegeben werden."
+msgstr "Das Bestätigungsdatum kann nach dem Speichern des Vertrags eingegeben werden."
 
 #: src\de\aidger\view\forms\ContractEditorForm.java:257
 #: src\de\aidger\view\forms\ContractViewerForm.java:107
@@ -1645,9 +1615,7 @@ msgstr ""
 
 #: src\de\aidger\view\tabs\ControllingViewerTab.java:204
 msgid "Shall the affected assistants be included in the report anyway?"
-msgstr ""
-"Sollen die betroffenen Hilfskräfte trotzdem in der Auswertung berücksichtigt "
-"werden?"
+msgstr "Sollen die betroffenen Hilfskräfte trotzdem in der Auswertung berücksichtigt werden?"
 
 #: src\de\aidger\view\tabs\ControllingViewerTab.java:237
 msgid "Calculations may be off, due to missing hourly wages."
@@ -1786,8 +1754,7 @@ msgstr "Diese Beschäftigungen gehören zu {0} Veranstaltungen."
 
 #: src\de\aidger\view\tabs\WelcomeTab.java:239
 #, java-format
-msgid ""
-"Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."
+msgid "Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."
 msgstr "Von den Hilfskräften sind {0} ungeprüft, {1} geprüft und {2} Bachelors"
 
 #: src\de\aidger\view\tabs\WelcomeTab.java:242
@@ -1838,128 +1805,88 @@ msgstr "Keine Daten vorhanden."
 
 #~ msgid "Show employments"
 #~ msgstr "Beschäftigungen anzeigen"
-
 #~ msgid "Hire assistant"
 #~ msgstr "Hilfskraft einstellen"
-
 #~ msgid "Show contracts"
 #~ msgstr "Verträge anzeigen"
-
 #~ msgid "Show activities"
 #~ msgstr "Vorgänge anzeigen"
-
 #~ msgid "Full Balance"
 #~ msgstr "Gesamtbilanz"
-
 #~ msgid "Annual Balance"
 #~ msgstr "Jahresbilanz"
-
 #~ msgid "Semester Balance"
 #~ msgstr "Semesterbilanz"
-
 #~ msgid "Check courses"
 #~ msgstr "Veranstaltungen prüfen"
-
 #~ msgid "Check assistants"
 #~ msgstr "Hilfskräfte prüfen"
-
 #~ msgid "Activity report"
 #~ msgstr "Tätigkeitsnachweis"
-
 #~ msgid "Balance Viewing"
 #~ msgstr "Bilanz Anzeige"
-
 #~ msgid "Activity export"
 #~ msgstr "Vorgänge exportieren"
-
 #~ msgid "Ignore employments with missing hourly wages"
 #~ msgstr "Beschäftigungen mit fehlenden Stundenlöhnen ignorieren"
-
 #~ msgid "Sender"
 #~ msgstr "Einsender"
 
 #, fuzzy
 #~ msgid "Untitled"
 #~ msgstr "Titel"
-
 #~ msgid "Edit course"
 #~ msgstr "Veranstaltung bearbeiten"
-
 #~ msgid "Edit assistant"
 #~ msgstr "Hilfskraft bearbeiten"
-
 #~ msgid "Edit financial category"
 #~ msgstr "Finanzkategorie bearbeiten"
-
 #~ msgid "Edit hourly wage"
 #~ msgstr "Stundenlohn bearbeiten"
-
 #~ msgid "Edit employment"
 #~ msgstr "Beschäftigung bearbeiten"
-
 #~ msgid "Edit contract"
 #~ msgstr "Vertrag bearbeiten"
-
 #~ msgid "Edit activity"
 #~ msgstr "Vorgang bearbeiten"
-
 #~ msgid "Add course"
 #~ msgstr "Veranstaltung hinzufügen"
-
 #~ msgid "Add assistant"
 #~ msgstr "Hilfskraft hinzufügen"
-
 #~ msgid "Add financial category"
 #~ msgstr "Finanzkategorie hinzufügen"
-
 #~ msgid "Add hourly wage"
 #~ msgstr "Stundenlohn hinzufügen"
-
 #~ msgid "Add contract"
 #~ msgstr "Vertrag hinzufügen"
-
 #~ msgid "Add activity"
 #~ msgstr "Vorgang hinzufügen"
-
 #~ msgid "View course"
 #~ msgstr "Veranstaltung anzeigen"
-
 #~ msgid "View assistant"
 #~ msgstr "Hilfskraft anzeigen"
-
 #~ msgid "View financial category"
 #~ msgstr "Finanzkategorie anzeigen"
-
 #~ msgid "View hourly wage"
 #~ msgstr "Stundenlohn anzeigen"
-
 #~ msgid "View employment"
 #~ msgstr "Beschäftigung anzeigen"
-
 #~ msgid "View activity"
 #~ msgstr "Vorgang anzeigen"
-
 #~ msgid "Master Data Courses"
 #~ msgstr "Stammdaten Veranstaltungen"
-
 #~ msgid "Master Data Assistants"
 #~ msgstr "Stammdaten Hilfskräfte"
-
 #~ msgid "Master Data Financial Categories"
 #~ msgstr "Stammdaten Finanzkategorien"
-
 #~ msgid "Master Data Hourly Wages"
 #~ msgstr "Stammdaten Stundenlöhne"
-
 #~ msgid "Couldn't create lockfile"
 #~ msgstr "Konnte Lockdatei nicht erstellen"
-
 #~ msgid "Wrong format!"
 #~ msgstr "Falsche Format!"
-
 #~ msgid "No initials entered"
 #~ msgstr "Keine Initialen eingegeben"
-
 #~ msgid "Time"
 #~ msgstr "Zeit"
 
@@ -1970,141 +1897,101 @@ msgstr "Keine Daten vorhanden."
 #, fuzzy
 #~ msgid "Remaining budget costs"
 #~ msgstr "Übrige HKS"
-
 #~ msgid "The name can't be empty"
 #~ msgstr "Der Name darf nicht leer sein"
-
 #~ msgid "Username is empty."
 #~ msgstr "Name ist leer."
 
 #, fuzzy
 #~ msgid "Assistang"
 #~ msgstr "Hilfskraft"
-
 #~ msgid "Course budgets"
 #~ msgstr "Gebuchte HKS"
 
 #, fuzzy
 #~ msgid "Assistant budgets"
 #~ msgstr "Hilfskräfte"
-
 #~ msgid "Budget viewing"
 #~ msgstr "Budgetanzeige"
-
 #~ msgid "Protocol Viewing"
 #~ msgstr "Protokollanzeige"
-
 #~ msgid "Budget Check"
 #~ msgstr "Budgetprüfung"
-
 #~ msgid "View budget checks"
 #~ msgstr "Budgetprüfung anzeigen"
-
 #~ msgid "Activites"
 #~ msgstr "Vorgänge"
-
 #~ msgid "Choose a month"
 #~ msgstr "Wähle einen Monat"
-
 #~ msgid "Only a number with maximum length of 9 is allowed."
 #~ msgstr "Nur eine Zahl mit einer Maximallänge von 9 ist erlaubt."
-
 #~ msgid "Add Filter"
 #~ msgstr "Filter hinzufügen"
-
 #~ msgid "Granted AWH"
 #~ msgstr "Genehmigte HKS"
-
 #~ msgid ""
 #~ "You have hired the unchecked or bachelor assistant more than 6 years."
 #~ msgstr ""
 #~ "Sie haben die ungeprüfte oder Bachelor Hilfskraft mehr als 6 Jahre "
 #~ "eingestellt."
-
 #~ msgid "Create new employment"
 #~ msgstr "Neue Beschäftigung anlegen"
-
 #~ msgid "Budget costs from student fees"
 #~ msgstr "Plankosten aus Studiengebühren"
-
 #~ msgid "Budget costs from resources"
 #~ msgstr "Plankosten aus Haushaltsmitteln"
 
 #, fuzzy
 #~ msgid "Cost Unit"
 #~ msgstr "Kostenstelle"
-
 #~ msgid "Master Data"
 #~ msgstr "Stammdaten"
-
 #~ msgid "Protocol"
 #~ msgstr "Vorgangsprotokoll"
-
 #~ msgid "Financial Category Viewing"
 #~ msgstr "Finanzkategorieanzeige"
-
 #~ msgid "Fund"
 #~ msgstr "Fund"
-
 #~ msgid "eMail Address"
 #~ msgstr "Emailaddresse"
-
 #~ msgid "Comment"
 #~ msgstr "Kommentar"
-
 #~ msgid "Approved HKS"
 #~ msgstr "Genehmigte HKS"
-
 #~ msgid "Hourly Wage Viewing"
 #~ msgstr "Stundenlohnanzeige"
-
 #~ msgid "Effective Date"
 #~ msgstr "Zeitpunkt der Inkrafttretung"
-
 #~ msgid "Welcome"
 #~ msgstr "Willkommen"
-
 #~ msgid "Partial Balance"
 #~ msgstr "Teilbilanz"
-
 #~ msgid "Existing filters"
 #~ msgstr "Existierende Filter"
-
 #~ msgid "Could not remove model from database."
 #~ msgstr "Das Model konnte nicht aus der Datenbank gelöscht werden."
-
 #~ msgid "Readding model: {0}"
 #~ msgstr "Füge Model erneut hinzu: {0}"
-
 #~ msgid "Caught exception in getActivities(assistant): {0}"
 #~ msgstr "Ausnahme in getActivities(assistant): {0}"
-
 #~ msgid "Caught exception in getActivities(course): {0}"
 #~ msgstr "Ausnahme in getActivities(course): {0}"
-
 #~ msgid "Fonds"
 #~ msgstr "Fonds"
-
 #~ msgid "Validation failed."
 #~ msgstr "Validierung ist fehlgeschlagen."
-
 #~ msgid "Show/Hide Columns"
 #~ msgstr "Spalten ein-/ausblenden"
-
 #~ msgid "Removing tab at position {0}"
 #~ msgstr "{0}. Tab gelöscht"
-
 #~ msgid "Adding new empty tab"
 #~ msgstr "Neuer leerer Tab hinzugefügt"
-
 #~ msgid "More"
 #~ msgstr "Mehr"
-
 #~ msgid "Abort"
 #~ msgstr "Abbrechen"
-
 #~ msgid "New Tab"
 #~ msgstr "Neuer Reiter"
-
 #~ msgid "Financial Plans"
 #~ msgstr "Finanzpläne"
+

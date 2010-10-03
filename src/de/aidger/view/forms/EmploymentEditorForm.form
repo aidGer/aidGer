@@ -55,7 +55,7 @@
     <Component class="javax.swing.JLabel" name="lblFunds">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="_(&quot;Funds&quot;)" type="code"/>
+          <Connection code="_(&quot;Cost unit&quot;)" type="code"/>
         </Property>
       </Properties>
       <Constraints>
@@ -67,7 +67,7 @@
     <Component class="javax.swing.JLabel" name="lblCostUnit">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="_(&quot;Cost unit&quot;)" type="code"/>
+          <Connection code="_(&quot;Funds&quot;)" type="code"/>
         </Property>
       </Properties>
       <Constraints>

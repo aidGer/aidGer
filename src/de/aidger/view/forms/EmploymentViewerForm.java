@@ -143,7 +143,7 @@ public class EmploymentViewerForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
         add(lblHourCount, gridBagConstraints);
 
-        lblFunds.setText(_("Funds"));
+        lblFunds.setText(_("Cost unit"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
@@ -151,7 +151,7 @@ public class EmploymentViewerForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
         add(lblFunds, gridBagConstraints);
 
-        lblCostUnit.setText(_("Cost unit"));
+        lblCostUnit.setText(_("Funds"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;

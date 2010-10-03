@@ -44,7 +44,7 @@ public class FinancialCategoryViewerForm extends JPanel {
     private void addNewFunds(String fundsStr, String budgetCostsStr) {
         GridBagConstraints gridBagConstraints;
 
-        JLabel lblFunds = new JLabel(_("Funds"));
+        JLabel lblFunds = new JLabel(_("Cost unit"));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;

@@ -198,10 +198,12 @@ public class EditorSaveAction extends AbstractAction {
         try {
             fc.setFunds(form.getFunds());
         } catch (NumberFormatException e) {
-            fc.addError("funds", _("Funds"), new PresenceValidator(fc,
+            fc.addError("funds", _("Cost unit"), new PresenceValidator(fc,
                 new String[0], new String[0]).getMessage());
         } catch (InvalidLengthException e) {
-            fc.addError("funds", _("Funds"), _("has to have a length of 8"));
+            fc
+                .addError("funds", _("Cost unit"),
+                    _("has to have a length of 8"));
         }
 
         try {

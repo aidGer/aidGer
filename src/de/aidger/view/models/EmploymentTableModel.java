@@ -85,9 +85,8 @@ public class EmploymentTableModel extends TableModel {
             return new Object[] { employment.getId(),
                     new UIAssistant(assistant), new UICourse(course),
                     new UIContract(contract), cal.getTime(),
-                    employment.getHourCount(),
+                    employment.getHourCount(), employment.getCostUnit(),
                     UIFund.valueOf(employment.getFunds()),
-                    employment.getCostUnit(),
                     Qualification.valueOf(employment.getQualification()),
                     employment.getRemark() };
         } catch (AdoHiveException e1) {

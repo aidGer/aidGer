@@ -153,7 +153,7 @@ public class FinancialCategoryEditorForm extends JPanel {
         GridBagConstraints gridBagConstraints;
 
         JLabel lblFunds = new JLabel();
-        lblFunds.setText(_("Funds"));
+        lblFunds.setText(_("Cost unit"));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;

@@ -511,7 +511,7 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblContract, gridBagConstraints);
 
-        lblFunds.setText(_("Funds"));
+        lblFunds.setText(_("Cost unit"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
@@ -519,7 +519,7 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblFunds, gridBagConstraints);
 
-        lblCostUnit.setText(_("Cost unit"));
+        lblCostUnit.setText(_("Funds"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -583,8 +583,7 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtCostUnit, gridBagConstraints);
 
-        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(
-            Qualification.values()));
+        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(Qualification.values()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
