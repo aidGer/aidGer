@@ -5,6 +5,8 @@ CHANGES IN VERSION 0.1.1:
     * [ADD] Use system language if available and correctly set default otherwise
     * [ADD] Support for ant building and testing
     * [ADD] Complete emails ending with @studi to full informatik studimail domain
+    * [ADD] Export buttons for reports are greyed out when function is not available
+    * [ADD] Possibility to display all activities in a protocol
     * [FIX] Display german umlauts correctly under windows
     * [FIX] Inspector checks (e.g. budget limits) are performed before saving models
     * [FIX] Funds with leading zeros are possible now
@@ -12,10 +14,13 @@ CHANGES IN VERSION 0.1.1:
     * [FIX] Locking method for single instance check (#190)
     * [FIX] Loading translations from jar (#168)
     * [FIX] Can use Unicode chars for email domains
+    * [FIX] Tab titles correctly correspond with their menu links
+    * [FIX] Reports don't open automatically during tests
     * [CHANGE] Usability improvements in tab for adding activities
     * [CHANGE] Tab labels are based on data (and not functional) information
     * [CHANGE] Moved the button to remove filters to the left of the filter data
     * [CHANGE] Moved resource files into de.aidger.res package (#172)
+    * [CHANGE] Missing hourly wages result in a warning rather than a wage of 0
 
 CHANGES IN VERSION 0.1:
     * Initial release
