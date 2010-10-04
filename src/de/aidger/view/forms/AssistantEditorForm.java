@@ -184,7 +184,14 @@ public class AssistantEditorForm extends JPanel {
                 !txtLastName.getText().isEmpty() && (txtEmail.getText().isEmpty()  
                 || txtEmail.getText().split("@", 2)[1].equals(
                 "studi.informatik.uni-stuttgart.de"))) {
-            txtEmail.setText(txtLastName.getText().toLowerCase().substring(0, 6) +
+            String username;
+            if (txtLastName.getText().length() >= 6) {
+                username = txtLastName.getText().toLowerCase().substring(0, 6);
+            } else {
+                username = txtLastName.getText().toLowerCase();
+            }
+
+            txtEmail.setText(username +
                     txtFirstName.getText().toLowerCase().charAt(0) + 
                     txtFirstName.getText().toLowerCase().charAt(
                         txtFirstName.getText().length() - 1) +
