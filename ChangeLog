@@ -11,6 +11,7 @@ CHANGES IN VERSION 0.1.1:
     * [FIX] Display german umlauts correctly under windows (#200)
     * [FIX] Inspector checks (e.g. budget limits) are performed before saving models (#158)
     * [FIX] Funds with leading zeros are possible now (#157)
+    * [FIX] Translation and spelling in welcome tab (#207)
     * [FIX] Null pointer exception in contract model (#199)
     * [FIX] Use implementation version in about dialog (#194)
     * [FIX] Number format for double and currency fields

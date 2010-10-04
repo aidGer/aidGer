@@ -344,7 +344,9 @@ public class WelcomeTab extends Tab {
 
         boxes.setLayout(new java.awt.GridBagLayout());
 
-        lastChanges.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Last Changes")));
+        lastChanges.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            _("Last Changes")));
         lastChanges.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -359,7 +361,9 @@ public class WelcomeTab extends Tab {
         gridBagConstraints.weightx = 0.5;
         boxes.add(lastChanges, gridBagConstraints);
 
-        lastActivities.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Last activities")));
+        lastActivities.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            _("Last activities")));
         lastActivities.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -377,7 +381,9 @@ public class WelcomeTab extends Tab {
         gridBagConstraints.weightx = 0.5;
         boxes.add(lastActivities, gridBagConstraints);
 
-        statistics.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Statistics & Diagrams")));
+        statistics.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            _("Statistics & Diagrams")));
         statistics.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -449,7 +455,7 @@ public class WelcomeTab extends Tab {
      */
     @Override
     public String getTabName() {
-        return _("Welcome to aidGer");
+        return _("Overview");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
