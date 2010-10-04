@@ -21,11 +21,14 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
 
+import de.aidger.model.Runtime;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
+import de.aidger.model.models.CostUnit;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
+import de.aidger.utils.CostUnitMap;
 import de.aidger.view.UI;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.models.ComboBoxModel;
@@ -59,6 +62,12 @@ public class EmploymentEditorForm extends JPanel {
      * A flag whether the form is in edit mode.
      */
     private boolean editMode = false;
+
+    /**
+     * The cost unit map.
+     */
+    private final CostUnitMap costUnitMap = Runtime.getInstance()
+        .getCostUnitMap();
 
     /**
      * Constructs an employment editor form.
@@ -103,12 +112,7 @@ public class EmploymentEditorForm extends JPanel {
         AutoCompletion.enable(cmbAssistant);
         AutoCompletion.enable(cmbCourse);
         AutoCompletion.enable(cmbContract);
-        AutoCompletion.enable(cmbFunds);
-
-        InputPatternFilter.addFilter(txtCostUnit, ".{0,10}");
-
-        hlpCostUnit
-            .setToolTipText(_("Only a maximum length of 10 is allowed."));
+        AutoCompletion.enable(cmbCostUnit);
 
         cmbAssistant.addActionListener(new ActionListener() {
             @Override
@@ -121,6 +125,19 @@ public class EmploymentEditorForm extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 refreshFunds((Course) cmbCourse.getSelectedItem());
+            }
+        });
+
+        cmbCostUnit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String costUnit = (String) cmbCostUnit.getSelectedItem();
+
+                for (CostUnit c : costUnitMap.getMap()) {
+                    if (costUnit.equals(c.getCostUnit())) {
+                        //cmbFunds.setSelectedItem(c);
+                    }
+                }
             }
         });
 
@@ -178,7 +195,7 @@ public class EmploymentEditorForm extends JPanel {
             cmbAssistant.setModel(cmbAssistantModel);
             cmbCourse.setModel(cmbCourseModel);
             cmbContract.setModel(cmbContractModel);
-            cmbFunds.setModel(cmbFundsModel);
+            cmbCostUnit.setModel(cmbFundsModel);
 
             listModels.add(cmbAssistantModel);
             listModels.add(cmbCourseModel);
@@ -195,8 +212,13 @@ public class EmploymentEditorForm extends JPanel {
             addNewDate();
 
             if (editMode) {
-                cmbFunds.setSelectedItem(UIFund.valueOf(employment.getFunds()));
-                txtCostUnit.setText(employment.getCostUnit());
+                CostUnit costUnit = costUnitMap.fromTokenDB(employment
+                    .getCostUnit());
+                cmbFunds.setSelectedItem(costUnit == null ? employment
+                    .getCostUnit() : costUnit);
+
+                cmbCostUnit.setSelectedItem(UIFund.valueOf(employment
+                    .getFunds()));
                 cmbQualification.setSelectedItem(Qualification
                     .valueOf(employment.getQualification()));
                 txtRemark.setText(employment.getRemark());
@@ -246,7 +268,8 @@ public class EmploymentEditorForm extends JPanel {
             IFinancialCategory fc = (new FinancialCategory()).getById(course
                 .getFinancialCategoryId());
 
-            ComboBoxModel cmbFundsModel = (ComboBoxModel) cmbFunds.getModel();
+            ComboBoxModel cmbFundsModel = (ComboBoxModel) cmbCostUnit
+                .getModel();
 
             cmbFundsModel.removeAllElements();
 
@@ -280,12 +303,15 @@ public class EmploymentEditorForm extends JPanel {
     }
 
     /**
-     * Get the cost unit of the contract.
+     * Get the funds of the employment.
      * 
-     * @return The cost unit of the contract
+     * @return The funds of the employment
      */
     public String getCostUnit() {
-        return txtCostUnit.getText();
+        Object funds = cmbFunds.getSelectedItem();
+
+        return funds instanceof CostUnit ? ((CostUnit) funds).getTokenDB()
+                : (String) funds;
     }
 
     /**
@@ -304,7 +330,7 @@ public class EmploymentEditorForm extends JPanel {
      * @throws NumberFormatException
      */
     public int getFunds() throws NumberFormatException {
-        return Integer.valueOf((String) cmbFunds.getSelectedItem());
+        return Integer.valueOf((String) cmbCostUnit.getSelectedItem());
     }
 
     /**
@@ -385,7 +411,7 @@ public class EmploymentEditorForm extends JPanel {
         JLabel lblHourCount = new JLabel();
         lblHourCount.setText(_("Hour count"));
         gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
         gridBagConstraints.anchor = GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
@@ -395,7 +421,7 @@ public class EmploymentEditorForm extends JPanel {
         txtHourCount.setMinimumSize(new java.awt.Dimension(200, 25));
         txtHourCount.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -405,7 +431,7 @@ public class EmploymentEditorForm extends JPanel {
 
         HelpLabel hlpHourCount = new HelpLabel();
         gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
         gridBagConstraints.anchor = GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 10);
@@ -415,7 +441,7 @@ public class EmploymentEditorForm extends JPanel {
 
         JButton btnPlusMinus = new JButton();
         gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 5;
 
         DateLine dl = new DateLine(lblDate, spDate, lblHourCount, txtHourCount,
             hlpHourCount, btnPlusMinus);
@@ -472,20 +498,19 @@ public class EmploymentEditorForm extends JPanel {
         lblAssistant = new javax.swing.JLabel();
         lblCourse = new javax.swing.JLabel();
         lblContract = new javax.swing.JLabel();
-        lblFunds = new javax.swing.JLabel();
         lblCostUnit = new javax.swing.JLabel();
+        lblFunds = new javax.swing.JLabel();
         lblQualification = new javax.swing.JLabel();
         lblRemark = new javax.swing.JLabel();
         cmbAssistant = new javax.swing.JComboBox();
         cmbCourse = new javax.swing.JComboBox();
         cmbContract = new javax.swing.JComboBox();
         btnContractAdd = new javax.swing.JButton();
+        cmbCostUnit = new javax.swing.JComboBox();
         cmbFunds = new javax.swing.JComboBox();
-        txtCostUnit = new javax.swing.JTextField();
         cmbQualification = new javax.swing.JComboBox();
         txtRemark = new javax.swing.JTextField();
         filler = new javax.swing.JLabel();
-        hlpCostUnit = new de.aidger.view.utils.HelpLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -505,31 +530,31 @@ public class EmploymentEditorForm extends JPanel {
 
         lblContract.setText(_("Contract"));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblContract, gridBagConstraints);
 
-        lblFunds.setText(_("Cost unit"));
+        lblCostUnit.setText(_("Cost unit"));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
-        add(lblFunds, gridBagConstraints);
+        add(lblCostUnit, gridBagConstraints);
 
-        lblCostUnit.setText(_("Funds"));
+        lblFunds.setText(_("Funds"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(lblCostUnit, gridBagConstraints);
+        add(lblFunds, gridBagConstraints);
 
         lblQualification.setText(_("Qualification"));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
@@ -558,34 +583,36 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbCourse, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbContract, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
         add(btnContractAdd, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(cmbFunds, gridBagConstraints);
+        add(cmbCostUnit, gridBagConstraints);
 
-        txtCostUnit.setMinimumSize(new java.awt.Dimension(200, 25));
-        txtCostUnit.setPreferredSize(new java.awt.Dimension(200, 25));
+        cmbFunds.setEditable(true);
+        cmbFunds.setModel(new javax.swing.DefaultComboBoxModel(costUnitMap
+            .getMap().toArray()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(txtCostUnit, gridBagConstraints);
+        add(cmbFunds, gridBagConstraints);
 
-        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(Qualification.values()));
+        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(
+            Qualification.values()));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -602,24 +629,20 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         add(filler, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        add(hlpCostUnit, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnContractAdd;
     private javax.swing.JComboBox cmbAssistant;
     private javax.swing.JComboBox cmbContract;
+    private javax.swing.JComboBox cmbCostUnit;
     private javax.swing.JComboBox cmbCourse;
     private javax.swing.JComboBox cmbFunds;
     private javax.swing.JComboBox cmbQualification;
     private javax.swing.JLabel filler;
-    private de.aidger.view.utils.HelpLabel hlpCostUnit;
     private javax.swing.JLabel lblAssistant;
     private javax.swing.JLabel lblContract;
     private javax.swing.JLabel lblCostUnit;
@@ -627,7 +650,6 @@ public class EmploymentEditorForm extends JPanel {
     private javax.swing.JLabel lblFunds;
     private javax.swing.JLabel lblQualification;
     private javax.swing.JLabel lblRemark;
-    private javax.swing.JTextField txtCostUnit;
     private javax.swing.JTextField txtRemark;
     // End of variables declaration//GEN-END:variables
 

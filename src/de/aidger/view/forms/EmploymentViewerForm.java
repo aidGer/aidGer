@@ -7,8 +7,10 @@ import java.util.Calendar;
 
 import javax.swing.JPanel;
 
+import de.aidger.model.Runtime;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
+import de.aidger.model.models.CostUnit;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
@@ -66,7 +68,10 @@ public class EmploymentViewerForm extends JPanel {
             hourCount.setText(NumberFormat.getInstance().format(
                 employment.getHourCount()));
             funds.setText(UIFund.valueOf(employment.getFunds()));
-            costUnit.setText(employment.getCostUnit());
+            CostUnit costUnit_ = Runtime.getInstance().getCostUnitMap()
+                .fromTokenDB(employment.getCostUnit());
+            costUnit.setText(costUnit_ == null ? employment.getCostUnit()
+                    : costUnit_.toString());
             qualification.setText(Qualification.valueOf(
                 employment.getQualification()).toString());
             remark.setText(employment.getRemark());

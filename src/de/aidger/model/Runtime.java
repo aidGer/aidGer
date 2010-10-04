@@ -3,20 +3,19 @@ package de.aidger.model;
 import static de.aidger.utils.Translation._;
 
 import java.io.File;
-import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.List;
+import java.util.Locale;
 
 import de.aidger.utils.Configuration;
-import de.aidger.utils.Logger;
+import de.aidger.utils.CostUnitMap;
 import de.aidger.utils.Translation;
 import de.aidger.view.UI;
 import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
-import java.util.Locale;
 
 /**
  * Initializes Configuration and Translation and relays the methods
- *
+ * 
  * @author aidGer Team
  */
 public final class Runtime {
@@ -42,6 +41,11 @@ public final class Runtime {
     private Translation translation = null;
 
     /**
+     * The cost unit map.
+     */
+    private CostUnitMap costUnitMap = null;
+
+    /**
      * Is this the first start of aidGer?
      */
     private boolean firstStart = false;
@@ -55,7 +59,7 @@ public final class Runtime {
 
     /**
      * Provides access to an instance of this class.
-     *
+     * 
      * @return Instance of the Runtime class
      */
     public synchronized static Runtime getInstance() {
@@ -112,21 +116,22 @@ public final class Runtime {
 
             /* Create the aidGer configuration directory. */
             if (!file.mkdirs()) {
-                  UI.displayError(MessageFormat.format(
-                        "Could not create directory \"{0}\".\n" +
-                        "Please make sure that you have enough rights to create this directory.",
-                        new Object[] { file.getPath() }));
+                UI
+                    .displayError(MessageFormat
+                        .format(
+                            "Could not create directory \"{0}\".\n"
+                                    + "Please make sure that you have enough rights to create this directory.",
+                            new Object[] { file.getPath() }));
                 System.exit(-1);
             }
-
 
         }
 
         configuration = new Configuration();
 
         /* Use the detected language on first start */
-        if (firstStart || configuration.get("language") == null || 
-                configuration.get("language").isEmpty()) {
+        if (firstStart || configuration.get("language") == null
+                || configuration.get("language").isEmpty()) {
 
             /* Get the default language code and use it */
             Locale loc = Locale.getDefault();
@@ -157,14 +162,17 @@ public final class Runtime {
 
         /* Check if an instance of aidGer is already running */
         if (!Boolean.valueOf(getOption("debug")) && !checkLock()) {
-            UI.displayError(_("Only one instance of aidGer can be run at a time."));
+            UI
+                .displayError(_("Only one instance of aidGer can be run at a time."));
             System.exit(-1);
         }
+
+        costUnitMap = new CostUnitMap();
     }
 
     /**
      * Get the path the config is saved in.
-     *
+     * 
      * @return The path of the config dir
      */
     public String getConfigPath() {
@@ -173,17 +181,17 @@ public final class Runtime {
 
     /**
      * Set a custom config path (Only to be used in tests).
-     *
+     * 
      * @param path
-     * 			  The new config path
+     *            The new config path
      */
     public void setConfigPath(String path) {
-    	configPath = path;
+        configPath = path;
     }
 
     /**
      * Is this the first start of aidGer?
-     *
+     * 
      * @return True if this is the first start
      */
     public boolean isFirstStart() {
@@ -192,12 +200,12 @@ public final class Runtime {
 
     /**
      * Returns the location and name of the .jar file.
-     *
+     * 
      * @return The location
      */
     public String getJarLocation() {
-        String location = getClass().getProtectionDomain().getCodeSource().
-                getLocation().toString();
+        String location = getClass().getProtectionDomain().getCodeSource()
+            .getLocation().toString();
         int idx = location.indexOf(":");
 
         /* Windows uses file:/C:/folder whereas Unix uses file:/folder */
@@ -211,7 +219,7 @@ public final class Runtime {
 
     /**
      * Get the value of an option.
-     *
+     * 
      * @param option
      *            The option to get
      * @return The value of the specified option
@@ -222,7 +230,7 @@ public final class Runtime {
 
     /**
      * Get the value of an option or the default if the option doesn't exist
-     *
+     * 
      * @param option
      *            The option to get
      * @param def
@@ -240,7 +248,7 @@ public final class Runtime {
 
     /**
      * Get an array of values for the specified option
-     *
+     * 
      * @param option
      *            The option to get
      * @return Array containing all values
@@ -257,7 +265,7 @@ public final class Runtime {
 
     /**
      * Set the value of an option.
-     *
+     * 
      * @param option
      *            The option to set
      * @param value
@@ -269,7 +277,7 @@ public final class Runtime {
 
     /**
      * Sets the value of a property by converting an array into a single string.
-     *
+     * 
      * @param option
      *            The property to change
      * @param values
@@ -281,7 +289,7 @@ public final class Runtime {
 
     /**
      * Remove an option from the config.
-     *
+     * 
      * @param option
      *            The option to remove
      */
@@ -292,7 +300,7 @@ public final class Runtime {
     /**
      * Get a list of all languages installed on the system. The format is 0 =>
      * short, 1 => long language name.
-     *
+     * 
      * @return The list of all installed languages
      */
     public List<Pair<String, String>> getLanguages() {
@@ -300,31 +308,39 @@ public final class Runtime {
     }
 
     /**
+     * Gets the cost unit map.
+     * 
+     * @return the cost unit map
+     */
+    public CostUnitMap getCostUnitMap() {
+        return costUnitMap;
+    }
+
+    /**
      * Check for a lock file or create it to only allow one running instance.
-     *
+     * 
      * @return True if no lock file exists and the application can be started
      */
     protected boolean checkLock() {
-/*        File lock = new File(configPath + "/aidger.lock");
-        if (lock.exists()) {
-            return false;
-        }
-
-        try {
-            lock.createNewFile();
-            lock.deleteOnExit();
-        } catch (IOException ex) {
-            Logger.error(_("Couldn't create lockfile"));
-        }
-
-        return true; */
+        /*
+         * File lock = new File(configPath + "/aidger.lock"); if (lock.exists())
+         * { return false; }
+         * 
+         * try { lock.createNewFile(); lock.deleteOnExit(); } catch (IOException
+         * ex) { Logger.error(_("Couldn't create lockfile")); }
+         * 
+         * return true;
+         */
 
         try {
             final File file = new File(configPath + "/aidger.lock");
-            final java.io.RandomAccessFile randomAccessFile = new java.io.RandomAccessFile(file, "rw");
-            final java.nio.channels.FileLock fileLock = randomAccessFile.getChannel().tryLock();
+            final java.io.RandomAccessFile randomAccessFile = new java.io.RandomAccessFile(
+                file, "rw");
+            final java.nio.channels.FileLock fileLock = randomAccessFile
+                .getChannel().tryLock();
             if (fileLock != null) {
                 java.lang.Runtime.getRuntime().addShutdownHook(new Thread() {
+                    @Override
                     public void run() {
                         try {
                             fileLock.release();
