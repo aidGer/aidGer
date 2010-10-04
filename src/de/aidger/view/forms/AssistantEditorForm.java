@@ -166,7 +166,7 @@ public class AssistantEditorForm extends JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
-        if (txtEmail.getText().isEmpty() || !txtEmail.getText().contains("@")) {
+        if (!txtEmail.getText().isEmpty() && txtEmail.getText().contains("@")) {
             String[] email = txtEmail.getText().split("@", 2);
             if (email[1].equals("studi")) {
                 txtEmail.setText(email[0] + "@studi.informatik.uni-stuttgart.de");
