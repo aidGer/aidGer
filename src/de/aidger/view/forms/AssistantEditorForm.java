@@ -90,12 +90,15 @@ public class AssistantEditorForm extends JPanel {
         setLayout(new java.awt.GridBagLayout());
 
         lblFirstName.setText(_("First Name"));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(lblFirstName, gridBagConstraints);
+        lblFirstName.setMaximumSize(new java.awt.Dimension(100, 17));
+        lblFirstName.setMinimumSize(new java.awt.Dimension(100, 17));
+        lblFirstName.setPreferredSize(new java.awt.Dimension(100, 17));
+        add(lblFirstName, new java.awt.GridBagConstraints());
 
         lblLastName.setText(_("Last Name"));
+        lblLastName.setMaximumSize(new java.awt.Dimension(100, 17));
+        lblLastName.setMinimumSize(new java.awt.Dimension(100, 17));
+        lblLastName.setPreferredSize(new java.awt.Dimension(100, 17));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -104,6 +107,9 @@ public class AssistantEditorForm extends JPanel {
         add(lblLastName, gridBagConstraints);
 
         lblEmail.setText(_("Email"));
+        lblEmail.setMaximumSize(new java.awt.Dimension(100, 17));
+        lblEmail.setMinimumSize(new java.awt.Dimension(100, 17));
+        lblEmail.setPreferredSize(new java.awt.Dimension(100, 17));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -112,6 +118,9 @@ public class AssistantEditorForm extends JPanel {
         add(lblEmail, gridBagConstraints);
 
         lblQualification.setText(_("Qualification"));
+        lblQualification.setMaximumSize(new java.awt.Dimension(100, 17));
+        lblQualification.setMinimumSize(new java.awt.Dimension(100, 17));
+        lblQualification.setPreferredSize(new java.awt.Dimension(100, 17));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -120,7 +129,7 @@ public class AssistantEditorForm extends JPanel {
         add(lblQualification, gridBagConstraints);
 
         txtFirstName.setMinimumSize(new java.awt.Dimension(200, 25));
-        txtFirstName.setPreferredSize(new java.awt.Dimension(200, 25));
+        txtFirstName.setPreferredSize(new java.awt.Dimension(250, 25));
         txtFirstName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 updateEmailOnFocusLost(evt);
@@ -131,7 +140,7 @@ public class AssistantEditorForm extends JPanel {
         add(txtFirstName, gridBagConstraints);
 
         txtLastName.setMinimumSize(new java.awt.Dimension(200, 25));
-        txtLastName.setPreferredSize(new java.awt.Dimension(200, 25));
+        txtLastName.setPreferredSize(new java.awt.Dimension(250, 25));
         txtLastName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 updateEmailOnFocusLost(evt);
@@ -144,7 +153,7 @@ public class AssistantEditorForm extends JPanel {
         add(txtLastName, gridBagConstraints);
 
         txtEmail.setMinimumSize(new java.awt.Dimension(200, 25));
-        txtEmail.setPreferredSize(new java.awt.Dimension(200, 25));
+        txtEmail.setPreferredSize(new java.awt.Dimension(250, 25));
         txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtEmailFocusLost(evt);
@@ -157,6 +166,7 @@ public class AssistantEditorForm extends JPanel {
         add(txtEmail, gridBagConstraints);
 
         cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(Qualification.values()));
+        cmbQualification.setPreferredSize(new java.awt.Dimension(250, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
