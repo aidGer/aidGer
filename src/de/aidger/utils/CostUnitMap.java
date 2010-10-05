@@ -21,7 +21,7 @@ import de.aidger.model.models.CostUnit;
 public class CostUnitMap {
 
     /**
-     * The cost unit map that is loaded from file.
+     * The cost unit map as list that is loaded from file.
      */
     private List<CostUnit> map = new ArrayList<CostUnit>();
 
@@ -39,6 +39,7 @@ public class CostUnitMap {
             XMLEncoder xmlEncoder = new XMLEncoder(new BufferedOutputStream(
                 new FileOutputStream(filename)));
 
+            // write empty map
             xmlEncoder.writeObject(map);
 
             xmlEncoder.close();
@@ -73,14 +74,21 @@ public class CostUnitMap {
     }
 
     /**
-     * Returns the cost unit map.
+     * Returns the cost unit map as list of cost units.
      * 
-     * @return the cost unit map
+     * @return the cost unit map as list of cost units
      */
     public List<CostUnit> getMap() {
         return map;
     }
 
+    /**
+     * Returns a cost unit object from given database token.
+     * 
+     * @param tokenDB
+     *            the database token
+     * @return a cost unit object. If no object was found, null is returned.
+     */
     public CostUnit fromTokenDB(String tokenDB) {
         for (CostUnit c : getMap()) {
             if (tokenDB.equals(c.getTokenDB())) {
@@ -89,6 +97,21 @@ public class CostUnitMap {
         }
 
         return null;
+    }
+
+    /**
+     * Returns an object list of all stored cost units.
+     * 
+     * @return an object list of all stored cost units
+     */
+    public Object[] getCostUnits() {
+        List<String> costUnits = new ArrayList<String>();
+
+        for (CostUnit c : getMap()) {
+            costUnits.add(c.getCostUnit());
+        }
+
+        return costUnits.toArray();
     }
 
 }

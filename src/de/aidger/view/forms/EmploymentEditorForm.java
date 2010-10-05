@@ -128,19 +128,6 @@ public class EmploymentEditorForm extends JPanel {
             }
         });
 
-        cmbCostUnit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String costUnit = (String) cmbCostUnit.getSelectedItem();
-
-                for (CostUnit c : costUnitMap.getMap()) {
-                    if (costUnit.equals(c.getCostUnit())) {
-                        //cmbFunds.setSelectedItem(c);
-                    }
-                }
-            }
-        });
-
         try {
             List<IAssistant> assistants = (new Assistant()).getAll();
 
@@ -236,6 +223,23 @@ public class EmploymentEditorForm extends JPanel {
 
         } catch (AdoHiveException e) {
         }
+
+        cmbCostUnit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String costUnit = (String) cmbCostUnit.getSelectedItem();
+
+                if (costUnit == null) {
+                    return;
+                }
+
+                for (CostUnit c : costUnitMap.getMap()) {
+                    if (costUnit.equals(c.getCostUnit())) {
+                        cmbFunds.setSelectedItem(c);
+                    }
+                }
+            }
+        });
     }
 
     /**

@@ -12,6 +12,7 @@ import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -19,6 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import de.aidger.model.Runtime;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.view.utils.HelpLabel;
 import de.aidger.view.utils.InputPatternFilter;
@@ -163,14 +165,14 @@ public class FinancialCategoryEditorForm extends JPanel {
 
         JComboBox cmbFunds = new JComboBox();
         cmbFunds.setEditable(true);
+        cmbFunds.setModel(new DefaultComboBoxModel(Runtime.getInstance()
+            .getCostUnitMap().getCostUnits()));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbFunds, gridBagConstraints);
-
-        InputPatternFilter.addFilter(cmbFunds, "[0-9]{0,8}");
 
         HelpLabel hlpFunds = new HelpLabel();
         gridBagConstraints = new GridBagConstraints();
