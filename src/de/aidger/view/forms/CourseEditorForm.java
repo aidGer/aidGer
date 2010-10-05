@@ -159,7 +159,8 @@ public class CourseEditorForm extends JPanel {
      * @throws StringIndexOutOfBoundsException
      */
     public char getPart() throws StringIndexOutOfBoundsException {
-        return txtPart.getText().charAt(0);
+        String part = txtPart.getText();
+        return part.isEmpty() ? ' ' : part.charAt(0);
     }
 
     /**
