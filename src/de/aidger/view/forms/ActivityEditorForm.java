@@ -108,6 +108,7 @@ public class ActivityEditorForm extends JPanel {
 
             txtType.setText(_("General activity"));
 
+            chkInitiator.setSelected(true);
             txtInitiator.setEnabled(false);
 
             chkInitiator.addActionListener(new ActionListener() {
@@ -508,7 +509,8 @@ public class ActivityEditorForm extends JPanel {
         add(lblContent, gridBagConstraints);
 
         spDate.setModel(new javax.swing.SpinnerDateModel());
-        spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate, "dd.MM.yyyy"));
+        spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate,
+            "dd.MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -534,7 +536,6 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtInitiator, gridBagConstraints);
 
-        chkInitiator.setSelected(true);
         chkInitiator.setText(_("Referenced assistants were initiators"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -555,7 +556,8 @@ public class ActivityEditorForm extends JPanel {
         add(txtType, gridBagConstraints);
 
         cmbDocumentType.setEditable(true);
-        cmbDocumentType.setModel(new DefaultComboBoxModel(getDocumentTypeSuggestions()));
+        cmbDocumentType.setModel(new DefaultComboBoxModel(
+            getDocumentTypeSuggestions()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
