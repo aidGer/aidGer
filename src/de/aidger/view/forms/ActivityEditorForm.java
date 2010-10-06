@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import de.aidger.model.Runtime;
@@ -73,6 +74,8 @@ public class ActivityEditorForm extends JPanel {
             txtContent.setText(activity.getContent());
             txtRemark.setText(activity.getRemark());
 
+            chkInitiator.setVisible(false);
+
             CourseLine cl = courseLines.get(0);
             AssistantLine al = assistantLines.get(0);
 
@@ -103,7 +106,47 @@ public class ActivityEditorForm extends JPanel {
             txtProcessor.setText(initials);
 
             txtType.setText(_("General activity"));
+
+            txtInitiator.setEditable(false);
+
+            chkInitiator.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (!showInitiatorConfirmationDialog()) {
+                        chkInitiator.setSelected(false);
+
+                        return;
+                    }
+
+                    if (assistantLines.size() > 1) {
+                        chkInitiator.setSelected(true);
+                    } else {
+                        txtInitiator.setEditable(!chkInitiator.isSelected());
+                    }
+                }
+            });
         }
+    }
+
+    /**
+     * Shows a confirmation dialog if the already entered initiator should be
+     * removed.
+     * 
+     * @return whether the already entered initiator should be removed
+     */
+    private boolean showInitiatorConfirmationDialog() {
+        if (!txtInitiator.getText().isEmpty()) {
+            if (JOptionPane.showConfirmDialog(null,
+                _("The already entered initiator will be removed.") + " "
+                        + _("Would you like to continue anyway?"),
+                _("Confirmation"), JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION) {
+                return false;
+            }
+
+            txtInitiator.setText("");
+        }
+
+        return true;
     }
 
     /**
@@ -159,7 +202,7 @@ public class ActivityEditorForm extends JPanel {
             btnPlusMinus.setIcon(new ImageIcon(getClass().getResource(
                 "/de/aidger/res/icons/plus-small.png")));
 
-            gridBagConstraints.gridy = 4;
+            gridBagConstraints.gridy = 5;
 
             btnPlusMinus.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent evt) {
@@ -236,10 +279,17 @@ public class ActivityEditorForm extends JPanel {
             btnPlusMinus.setIcon(new ImageIcon(getClass().getResource(
                 "/de/aidger/res/icons/plus-small.png")));
 
-            gridBagConstraints.gridy = 4;
+            gridBagConstraints.gridy = 5;
 
             btnPlusMinus.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent evt) {
+                    if (!showInitiatorConfirmationDialog()) {
+                        return;
+                    }
+
+                    chkInitiator.setSelected(true);
+                    txtInitiator.setEditable(false);
+
                     addNewAssistant();
                 }
             });
@@ -352,6 +402,15 @@ public class ActivityEditorForm extends JPanel {
     }
 
     /**
+     * Returns whether the initiator is referenced by the assistants.
+     * 
+     * @return whether the initiator is referenced by the assistants
+     */
+    public boolean isInitiatorReferenced() {
+        return chkInitiator.isSelected();
+    }
+
+    /**
      * Returns a list of suggestions for document type field.
      * 
      * @return a list of suggestions for document type field
@@ -387,6 +446,7 @@ public class ActivityEditorForm extends JPanel {
         scrollPane = new javax.swing.JScrollPane();
         txtContent = new javax.swing.JTextArea();
         hlpProcessor = new de.aidger.view.utils.HelpLabel();
+        chkInitiator = new javax.swing.JCheckBox();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -522,9 +582,21 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         add(hlpProcessor, gridBagConstraints);
+
+        chkInitiator.setSelected(true);
+        chkInitiator.setText(_("Referenced assistants were initiators"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(chkInitiator, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox chkInitiator;
     private javax.swing.JComboBox cmbDocumentType;
     private javax.swing.JLabel filler;
     private de.aidger.view.utils.HelpLabel hlpProcessor;

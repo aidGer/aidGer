@@ -443,7 +443,6 @@ public class EditorSaveAction extends AbstractAction {
 
         activity.setDate(form.getDate());
         activity.setProcessor(form.getProcessor());
-        activity.setSender(form.getInitiator());
         activity.setType(form.getType());
         activity.setDocumentType(form.getDocumentType());
         activity.setContent(form.getContent());
@@ -477,6 +476,13 @@ public class EditorSaveAction extends AbstractAction {
                     clone.setAssistantId(assistantId);
                 } else {
                     clone.setAssistantId(null);
+                }
+
+                if (form.isInitiatorReferenced()) {
+                    clone.setSender(new UIAssistant(assistants.get(j))
+                        .toString());
+                } else {
+                    clone.setSender(form.getInitiator());
                 }
             }
         }
