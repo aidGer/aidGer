@@ -410,7 +410,7 @@ public abstract class AbstractModel<T> extends Observable implements
      * @return True if everything validates
      */
     public boolean validateModel() {
-        return doValidate();
+        return doValidate() && errors.isEmpty();
     }
 
     /**
