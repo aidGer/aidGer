@@ -2,6 +2,7 @@ package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
 
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -107,7 +108,7 @@ public class ActivityEditorForm extends JPanel {
 
             txtType.setText(_("General activity"));
 
-            txtInitiator.setEditable(false);
+            txtInitiator.setEnabled(false);
 
             chkInitiator.addActionListener(new ActionListener() {
                 @Override
@@ -121,7 +122,7 @@ public class ActivityEditorForm extends JPanel {
                     if (assistantLines.size() > 1) {
                         chkInitiator.setSelected(true);
                     } else {
-                        txtInitiator.setEditable(!chkInitiator.isSelected());
+                        txtInitiator.setEnabled(!chkInitiator.isSelected());
                     }
                 }
             });
@@ -166,6 +167,7 @@ public class ActivityEditorForm extends JPanel {
         add(lblCourse, gridBagConstraints);
 
         JComboBox cmbCourse = new JComboBox();
+        cmbCourse.setPreferredSize(new Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
@@ -241,6 +243,7 @@ public class ActivityEditorForm extends JPanel {
         add(lblAssistant, gridBagConstraints);
 
         JComboBox cmbAssistant = new JComboBox();
+        cmbAssistant.setPreferredSize(new Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
@@ -288,7 +291,7 @@ public class ActivityEditorForm extends JPanel {
                     }
 
                     chkInitiator.setSelected(true);
-                    txtInitiator.setEditable(false);
+                    txtInitiator.setEnabled(false);
 
                     addNewAssistant();
                 }
@@ -439,14 +442,14 @@ public class ActivityEditorForm extends JPanel {
         spDate = new javax.swing.JSpinner();
         txtProcessor = new javax.swing.JTextField();
         txtInitiator = new javax.swing.JTextField();
+        chkInitiator = new javax.swing.JCheckBox();
         txtType = new javax.swing.JTextField();
         cmbDocumentType = new javax.swing.JComboBox();
         txtRemark = new javax.swing.JTextField();
-        filler = new javax.swing.JLabel();
         scrollPane = new javax.swing.JScrollPane();
         txtContent = new javax.swing.JTextArea();
         hlpProcessor = new de.aidger.view.utils.HelpLabel();
-        chkInitiator = new javax.swing.JCheckBox();
+        filler = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -492,7 +495,7 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblRemark, gridBagConstraints);
 
@@ -505,8 +508,7 @@ public class ActivityEditorForm extends JPanel {
         add(lblContent, gridBagConstraints);
 
         spDate.setModel(new javax.swing.SpinnerDateModel());
-        spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate,
-            "dd.MM.yyyy"));
+        spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate, "dd.MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -532,6 +534,17 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtInitiator, gridBagConstraints);
 
+        chkInitiator.setSelected(true);
+        chkInitiator.setText(_("Referenced assistants were initiators"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
+        add(chkInitiator, gridBagConstraints);
+
         txtType.setMinimumSize(new java.awt.Dimension(200, 25));
         txtType.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -542,8 +555,7 @@ public class ActivityEditorForm extends JPanel {
         add(txtType, gridBagConstraints);
 
         cmbDocumentType.setEditable(true);
-        cmbDocumentType.setModel(new DefaultComboBoxModel(
-            getDocumentTypeSuggestions()));
+        cmbDocumentType.setModel(new DefaultComboBoxModel(getDocumentTypeSuggestions()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -556,15 +568,10 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtRemark, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        add(filler, gridBagConstraints);
 
         txtContent.setColumns(20);
         txtContent.setRows(5);
@@ -582,17 +589,13 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         add(hlpProcessor, gridBagConstraints);
-
-        chkInitiator.setSelected(true);
-        chkInitiator.setText(_("Referenced assistants were initiators"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(chkInitiator, gridBagConstraints);
+        add(filler, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
