@@ -603,7 +603,6 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbCostUnit, gridBagConstraints);
 
-        cmbFunds.setEditable(true);
         cmbFunds.setModel(new javax.swing.DefaultComboBoxModel(costUnitMap
             .getMap().toArray()));
         gridBagConstraints = new java.awt.GridBagConstraints();

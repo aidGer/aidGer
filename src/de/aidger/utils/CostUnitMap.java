@@ -32,14 +32,33 @@ public class CostUnitMap {
             + "costUnitMap.xml";
 
     /**
-     * Creates an empty cost unit map and stores it to file.
+     * Creates an example cost unit map and stores it to file.
      */
-    private void createEmptyMap() {
+    private void createExampleMap() {
         try {
             XMLEncoder xmlEncoder = new XMLEncoder(new BufferedOutputStream(
                 new FileOutputStream(filename)));
 
-            // write empty map
+            // create example cost units
+            CostUnit c = new CostUnit();
+            c.setCostUnit("11111111");
+            c.setFunds("Fonds 1");
+            c.setTokenDB("A");
+
+            CostUnit c_ = new CostUnit();
+            c_.setCostUnit("22222222");
+            c_.setFunds("Fonds 2");
+            c_.setTokenDB("B");
+
+            CostUnit c__ = new CostUnit();
+            c__.setCostUnit("33333333");
+            c__.setFunds("Fonds 3");
+            c__.setTokenDB("C");
+
+            map.add(c);
+            map.add(c_);
+            map.add(c__);
+
             xmlEncoder.writeObject(map);
 
             xmlEncoder.close();
@@ -69,7 +88,7 @@ public class CostUnitMap {
         if (file.exists()) {
             readMap();
         } else {
-            createEmptyMap();
+            createExampleMap();
         }
     }
 
