@@ -572,20 +572,26 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblRemark, gridBagConstraints);
 
-        cmbAssistant.setMinimumSize(new java.awt.Dimension(200, 25));
-        cmbAssistant.setPreferredSize(new java.awt.Dimension(200, 25));
+        cmbAssistant.setMinimumSize(new java.awt.Dimension(300, 25));
+        cmbAssistant.setPreferredSize(new java.awt.Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbAssistant, gridBagConstraints);
+
+        cmbCourse.setMinimumSize(new java.awt.Dimension(300, 25));
+        cmbCourse.setPreferredSize(new java.awt.Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbCourse, gridBagConstraints);
+
+        cmbContract.setMinimumSize(new java.awt.Dimension(300, 25));
+        cmbContract.setPreferredSize(new java.awt.Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
@@ -596,6 +602,9 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
         add(btnContractAdd, gridBagConstraints);
+
+        cmbCostUnit.setMinimumSize(new java.awt.Dimension(300, 25));
+        cmbCostUnit.setPreferredSize(new java.awt.Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
@@ -603,8 +612,8 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbCostUnit, gridBagConstraints);
 
-        cmbFunds.setModel(new javax.swing.DefaultComboBoxModel(costUnitMap
-            .getMap().toArray()));
+        cmbFunds.setModel(new javax.swing.DefaultComboBoxModel(costUnitMap.getMap().toArray()));
+        cmbFunds.setMinimumSize(new java.awt.Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -612,8 +621,9 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbFunds, gridBagConstraints);
 
-        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(
-            Qualification.values()));
+        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(Qualification.values()));
+        cmbQualification.setMinimumSize(new java.awt.Dimension(300, 25));
+        cmbQualification.setPreferredSize(new java.awt.Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
