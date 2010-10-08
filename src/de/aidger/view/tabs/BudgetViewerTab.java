@@ -520,7 +520,7 @@ public class BudgetViewerTab extends ReportTab {
      */
     @Override
     public String getTabName() {
-        return _("Course controlling");
+        return _("Course Controlling");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

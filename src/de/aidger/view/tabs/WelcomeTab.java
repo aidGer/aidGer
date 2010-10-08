@@ -274,19 +274,22 @@ public class WelcomeTab extends Tab {
                 _("Budget costs of all funds"), budgetFundsData, widthPie,
                 heightPie));
 
-            TimeSeries seriesEmployments = new TimeSeries(_("Employments"));
+            // diagram does not make sense for less than two months
+            if (employmentsCount.size() > 1) {
+                TimeSeries seriesEmployments = new TimeSeries(_("Employments"));
 
-            Set<Date> set = employmentsCount.keySet();
+                Set<Date> set = employmentsCount.keySet();
 
-            for (Date date : set) {
-                seriesEmployments
-                    .add(new Day(date), employmentsCount.get(date));
+                for (Date date : set) {
+                    seriesEmployments.add(new Day(date), employmentsCount
+                        .get(date));
+                }
+
+                TimeSeriesCollection employmentsCountData = new TimeSeriesCollection(
+                    seriesEmployments);
+                diagram4.setIcon(Charts.createXYAreaChart(
+                    _("Count of employments"), employmentsCountData, 500, 270));
             }
-
-            TimeSeriesCollection employmentsCountData = new TimeSeriesCollection(
-                seriesEmployments);
-            diagram4.setIcon(Charts.createXYAreaChart(
-                _("Count of employments"), employmentsCountData, 500, 270));
         }
 
         if (historyList.count() == 0) {
@@ -344,7 +347,9 @@ public class WelcomeTab extends Tab {
 
         boxes.setLayout(new java.awt.GridBagLayout());
 
-        lastChanges.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Last Changes")));
+        lastChanges.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            _("Last Changes")));
         lastChanges.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -359,7 +364,9 @@ public class WelcomeTab extends Tab {
         gridBagConstraints.weightx = 0.5;
         boxes.add(lastChanges, gridBagConstraints);
 
-        lastActivities.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Last activities")));
+        lastActivities.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            _("Last activities")));
         lastActivities.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -377,7 +384,9 @@ public class WelcomeTab extends Tab {
         gridBagConstraints.weightx = 0.5;
         boxes.add(lastActivities, gridBagConstraints);
 
-        statistics.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Statistics & Diagrams")));
+        statistics.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            _("Statistics & Diagrams")));
         statistics.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -449,7 +458,7 @@ public class WelcomeTab extends Tab {
      */
     @Override
     public String getTabName() {
-        return _("Welcome to aidGer");
+        return _("Overview");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

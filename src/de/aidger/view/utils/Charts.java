@@ -10,6 +10,7 @@ import javax.swing.UIManager;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.DateAxis;
+import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.plot.PiePlot3D;
 import org.jfree.chart.plot.PlotOrientation;
@@ -105,7 +106,13 @@ public class Charts {
         domainAxis.setLowerMargin(0.0);
         domainAxis.setUpperMargin(0.0);
         domainAxis.setTickLabelFont(UIManager.getFont("RootPane.font"));
+
+        ValueAxis rangeAxis = new NumberAxis();
+        rangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
+
         plot.setDomainAxis(domainAxis);
+        plot.setRangeAxis(rangeAxis);
+
         plot.setForegroundAlpha(0.5f);
 
         return new ImageIcon(chart.createBufferedImage(width, height));

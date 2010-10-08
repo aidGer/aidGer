@@ -2,19 +2,22 @@ package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
 
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import de.aidger.model.Runtime;
@@ -60,20 +63,19 @@ public class ActivityEditorForm extends JPanel {
 
         InputPatternFilter.addFilter(txtProcessor, ".{0,2}");
 
-        hlpProcessor
-            .setToolTipText(_("Only a maximal length of 2 is allowed."));
-
         addNewCourse();
         addNewAssistant();
 
         if (editMode) {
             spDate.setValue(activity.getDate());
-            txtSender.setText(activity.getSender());
+            txtInitiator.setText(activity.getSender());
             txtProcessor.setText(activity.getProcessor());
             txtType.setText(activity.getType());
-            txtDocumentType.setText(activity.getDocumentType());
+            cmbDocumentType.setSelectedItem(activity.getDocumentType());
             txtContent.setText(activity.getContent());
             txtRemark.setText(activity.getRemark());
+
+            chkInitiator.setVisible(false);
 
             CourseLine cl = courseLines.get(0);
             AssistantLine al = assistantLines.get(0);
@@ -96,14 +98,57 @@ public class ActivityEditorForm extends JPanel {
             // create initials from name in settings
             String name = Runtime.getInstance().getOption("name").trim();
             String initials = "";
-            
+
             if (name.lastIndexOf(" ") > 0) {
                 initials += name.charAt(0);
                 initials += name.charAt(name.lastIndexOf(" ") + 1);
             }
 
             txtProcessor.setText(initials);
+
+            txtType.setText(_("General activity"));
+
+            chkInitiator.setSelected(true);
+            txtInitiator.setEnabled(false);
+
+            chkInitiator.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (!showInitiatorConfirmationDialog()) {
+                        chkInitiator.setSelected(false);
+
+                        return;
+                    }
+
+                    if (assistantLines.size() > 1) {
+                        chkInitiator.setSelected(true);
+                    } else {
+                        txtInitiator.setEnabled(!chkInitiator.isSelected());
+                    }
+                }
+            });
         }
+    }
+
+    /**
+     * Shows a confirmation dialog if the already entered initiator should be
+     * removed.
+     * 
+     * @return whether the already entered initiator should be removed
+     */
+    private boolean showInitiatorConfirmationDialog() {
+        if (!txtInitiator.getText().isEmpty()) {
+            if (JOptionPane.showConfirmDialog(null,
+                _("The already entered initiator will be removed.") + " "
+                        + _("Would you like to continue anyway?"),
+                _("Confirmation"), JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION) {
+                return false;
+            }
+
+            txtInitiator.setText("");
+        }
+
+        return true;
     }
 
     /**
@@ -123,6 +168,7 @@ public class ActivityEditorForm extends JPanel {
         add(lblCourse, gridBagConstraints);
 
         JComboBox cmbCourse = new JComboBox();
+        cmbCourse.setPreferredSize(new Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
@@ -159,7 +205,7 @@ public class ActivityEditorForm extends JPanel {
             btnPlusMinus.setIcon(new ImageIcon(getClass().getResource(
                 "/de/aidger/res/icons/plus-small.png")));
 
-            gridBagConstraints.gridy = 4;
+            gridBagConstraints.gridy = 5;
 
             btnPlusMinus.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent evt) {
@@ -198,6 +244,7 @@ public class ActivityEditorForm extends JPanel {
         add(lblAssistant, gridBagConstraints);
 
         JComboBox cmbAssistant = new JComboBox();
+        cmbAssistant.setPreferredSize(new Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
@@ -236,10 +283,17 @@ public class ActivityEditorForm extends JPanel {
             btnPlusMinus.setIcon(new ImageIcon(getClass().getResource(
                 "/de/aidger/res/icons/plus-small.png")));
 
-            gridBagConstraints.gridy = 4;
+            gridBagConstraints.gridy = 5;
 
             btnPlusMinus.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent evt) {
+                    if (!showInitiatorConfirmationDialog()) {
+                        return;
+                    }
+
+                    chkInitiator.setSelected(true);
+                    txtInitiator.setEnabled(false);
+
                     addNewAssistant();
                 }
             });
@@ -312,7 +366,7 @@ public class ActivityEditorForm extends JPanel {
      * @return The type of document
      */
     public String getDocumentType() {
-        return txtDocumentType.getText();
+        return (String) cmbDocumentType.getSelectedItem();
     }
 
     /**
@@ -338,8 +392,8 @@ public class ActivityEditorForm extends JPanel {
      * 
      * @return The sender of the activity.
      */
-    public String getSender() {
-        return txtSender.getText();
+    public String getInitiator() {
+        return txtInitiator.getText();
     }
 
     /**
@@ -349,6 +403,25 @@ public class ActivityEditorForm extends JPanel {
      */
     public String getType() {
         return txtType.getText();
+    }
+
+    /**
+     * Returns whether the initiator is referenced by the assistants.
+     * 
+     * @return whether the initiator is referenced by the assistants
+     */
+    public boolean isInitiatorReferenced() {
+        return chkInitiator.isSelected();
+    }
+
+    /**
+     * Returns a list of suggestions for document type field.
+     * 
+     * @return a list of suggestions for document type field
+     */
+    private Object[] getDocumentTypeSuggestions() {
+        return new Object[] { _("Employment application"), _("Tax card"),
+                _("Copy of social security card"), _("Approved labor contract") };
     }
 
     /**
@@ -362,21 +435,22 @@ public class ActivityEditorForm extends JPanel {
 
         lblDate = new javax.swing.JLabel();
         lblProcessor = new javax.swing.JLabel();
-        lblSender = new javax.swing.JLabel();
+        lblInitiator = new javax.swing.JLabel();
         lblType = new javax.swing.JLabel();
         lblDocumentType = new javax.swing.JLabel();
         lblRemark = new javax.swing.JLabel();
         lblContent = new javax.swing.JLabel();
         spDate = new javax.swing.JSpinner();
         txtProcessor = new javax.swing.JTextField();
-        txtSender = new javax.swing.JTextField();
+        txtInitiator = new javax.swing.JTextField();
+        chkInitiator = new javax.swing.JCheckBox();
         txtType = new javax.swing.JTextField();
-        txtDocumentType = new javax.swing.JTextField();
+        cmbDocumentType = new javax.swing.JComboBox();
         txtRemark = new javax.swing.JTextField();
-        filler = new javax.swing.JLabel();
         scrollPane = new javax.swing.JScrollPane();
         txtContent = new javax.swing.JTextArea();
         hlpProcessor = new de.aidger.view.utils.HelpLabel();
+        filler = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -394,13 +468,13 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblProcessor, gridBagConstraints);
 
-        lblSender.setText(_("Sender"));
+        lblInitiator.setText(_("Initiator"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(lblSender, gridBagConstraints);
+        add(lblInitiator, gridBagConstraints);
 
         lblType.setText(_("Type"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -422,7 +496,7 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblRemark, gridBagConstraints);
 
@@ -453,14 +527,24 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtProcessor, gridBagConstraints);
 
-        txtSender.setMinimumSize(new java.awt.Dimension(200, 25));
-        txtSender.setPreferredSize(new java.awt.Dimension(200, 25));
+        txtInitiator.setMinimumSize(new java.awt.Dimension(200, 25));
+        txtInitiator.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(txtSender, gridBagConstraints);
+        add(txtInitiator, gridBagConstraints);
+
+        chkInitiator.setText(_("Referenced assistants were initiators"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
+        add(chkInitiator, gridBagConstraints);
 
         txtType.setMinimumSize(new java.awt.Dimension(200, 25));
         txtType.setPreferredSize(new java.awt.Dimension(200, 25));
@@ -471,29 +555,25 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtType, gridBagConstraints);
 
-        txtDocumentType.setMinimumSize(new java.awt.Dimension(200, 25));
-        txtDocumentType.setPreferredSize(new java.awt.Dimension(200, 25));
+        cmbDocumentType.setEditable(true);
+        cmbDocumentType.setModel(new DefaultComboBoxModel(
+            getDocumentTypeSuggestions()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(txtDocumentType, gridBagConstraints);
+        add(cmbDocumentType, gridBagConstraints);
 
         txtRemark.setMinimumSize(new java.awt.Dimension(200, 25));
         txtRemark.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtRemark, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        add(filler, gridBagConstraints);
 
         txtContent.setColumns(20);
         txtContent.setRows(5);
@@ -511,25 +591,33 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         add(hlpProcessor, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        add(filler, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox chkInitiator;
+    private javax.swing.JComboBox cmbDocumentType;
     private javax.swing.JLabel filler;
     private de.aidger.view.utils.HelpLabel hlpProcessor;
     private javax.swing.JLabel lblContent;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblDocumentType;
+    private javax.swing.JLabel lblInitiator;
     private javax.swing.JLabel lblProcessor;
     private javax.swing.JLabel lblRemark;
-    private javax.swing.JLabel lblSender;
     private javax.swing.JLabel lblType;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JSpinner spDate;
     private javax.swing.JTextArea txtContent;
-    private javax.swing.JTextField txtDocumentType;
+    private javax.swing.JTextField txtInitiator;
     private javax.swing.JTextField txtProcessor;
     private javax.swing.JTextField txtRemark;
-    private javax.swing.JTextField txtSender;
     private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables
 

@@ -10,6 +10,7 @@ import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.utils.Logger;
+import de.aidger.view.forms.ContractEditorForm.ContractType;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.IContract;
@@ -78,7 +79,8 @@ public class ContractTableModel extends TableModel {
                     contract.getCompletionDate(),
                     confirmationDate == null ? cal.getTime() : confirmationDate,
                     contract.getStartDate(), contract.getEndDate(),
-                    contract.getType(), contract.isDelegation() };
+                    ContractType.valueOf(contract.getType()),
+                    contract.isDelegation() };
         } catch (AdoHiveException e) {
             return new Object[] {};
         }

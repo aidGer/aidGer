@@ -579,6 +579,7 @@ public class BalanceHelperTest {
 
         hourlyWage.remove();
 
-        assertEquals(0, BalanceHelper.calculatePreTaxBudgetCost(employment1), 0);
+        assertEquals(-1, BalanceHelper.calculatePreTaxBudgetCost(employment1),
+            0);
     }
 }

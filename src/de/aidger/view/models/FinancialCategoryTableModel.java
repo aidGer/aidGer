@@ -23,7 +23,7 @@ public class FinancialCategoryTableModel extends TableModel {
      * Constructs the table model for financial categories.
      */
     public FinancialCategoryTableModel() {
-        super(new String[] { _("ID"), _("Name"), _("Year"), _("Funds"),
+        super(new String[] { _("ID"), _("Name"), _("Year"), _("Cost unit"),
                 _("Budget Costs") });
     }
 

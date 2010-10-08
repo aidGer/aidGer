@@ -11,9 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
+import de.aidger.model.Runtime;
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
@@ -37,21 +40,17 @@ public class ProtocolConverterTest {
 
     private ProtocolConverter protocolConverter = null;
 
-    @After
-    public void cleanUp() throws AdoHiveException {
+    private static boolean openSetting = false;
 
-        course.remove();
+    @BeforeClass
+    public static void beforeClassSetUp() {
+        Runtime.getInstance().initialize();
 
-        assistant.remove();
-
-        activity.remove();
-
-        financial.remove();
-
-        File file = new File("Test_Report.pdf");
-        file.delete();
-        file = new File("Test_Report.test.pdf");
-        file.delete();
+        String autoOpen = Runtime.getInstance().getOption("auto-open");
+        if (autoOpen.equals("true")) {
+            openSetting = true;
+        }
+        Runtime.getInstance().setOption("auto-open", "false");
     }
 
     /**
@@ -140,5 +139,30 @@ public class ProtocolConverterTest {
         protocolConverter = new ProtocolConverter(testFile, activities);
 
         assertTrue(testFile.exists());
+    }
+
+    @After
+    public void cleanUp() throws AdoHiveException {
+
+        course.remove();
+
+        assistant.remove();
+
+        activity.remove();
+
+        financial.remove();
+
+        File file = new File("Test_Report.pdf");
+        file.delete();
+        file = new File("Test_Report.test.pdf");
+        file.delete();
+    }
+
+    /**
+     * Cleans up after all tests have completed.
+     */
+    @AfterClass
+    public static void afterClassCleanUp() {
+        Runtime.getInstance().setOption("auto-open", "" + openSetting);
     }
 }

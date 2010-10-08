@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project basedir="." default="release" name="aidGer">
 
-    <property environment="env" description="System environment variables (including those set by Hudson)"/>
+    <property environment="env" description="System environment variables (including those set by Hudson)" />
     <condition property="buildNumber" value="${env.BUILD_NUMBER}" else="dev">
         <isset property="env.BUILD_NUMBER" />
     </condition>
@@ -26,8 +26,35 @@
     <property name="lib.jcommon" value="lib/jcommon-1.0.16.jar" />
     <property name="lib.jfreechart" value="lib/jfreechart-1.0.13.jar" />
     <property name="lib.junit" value="lib/junit.jar" />
+    <property name="lib.gettexttasks" value="lib/gettext-ant-tasks.jar" />
 
-    <target name="init">
+    <property name="config.dir" value="${user.home}/.config/aidGer" />
+    <available property="isConfigDir" file="${config.dir}" />
+
+    <target name="init-gettext" description="Loads the gettext tasks">
+        <taskdef name="gettext-extract" classname="org.xnap.commons.ant.gettext.GettextExtractKeysTask" classpath="${lib.gettexttasks}" />
+        <taskdef name="gettext-merge" classname="org.xnap.commons.ant.gettext.GettextMergeKeysTask" classpath="${lib.gettexttasks}" />
+        <taskdef name="gettext-dist" classname="org.xnap.commons.ant.gettext.GettextDistTask" classpath="${lib.gettexttasks}" />
+    </target>
+
+    <target name="lang-gen" description="Extracts and merges the language files" depends="init-gettext">
+        <gettext-extract keysFile="aidger.pot" poDirectory="lang" keywords="-k_">
+            <fileset dir="${source.dir}" includes="**/*.java" />
+        </gettext-extract>
+        <gettext-merge keysFile="aidger.pot" poDirectory="lang" />
+    </target>
+
+    <target name="lang-install" description="Installs the language files" depends="init-gettext">
+        <gettext-dist targetBundle="de.aidger.res.lang" outputFormat="properties" poDirectory="lang" outputDirectory="${source.dir}" />
+    </target>
+
+    <target name="lang-install-config" description="Copies language files to configuration directory" depends="lang-install" if="isConfigDir">
+        <copy todir="${config.dir}/lang">
+            <fileset dir="${source.dir}/de/aidger/res/lang" />
+        </copy>
+    </target>
+
+    <target name="init" depends="lang-install">
         <mkdir dir="${classes.dir}" />
         <mkdir dir="${test.classes.dir}" />
 
@@ -82,9 +109,10 @@
         </junit>
     </target>
 
-    <target name="dist" depends="compile-source" description="Generate the distribution">
+    <target name="dist" depends="compile-source" description="Generates the distribution">
         <delete dir="${test.classes.dir}" />
         <mkdir dir="${dist.dir}" />
+
         <jar jarfile="${dist.dir}/${appFileName}-${appVersion}-${buildNumber}.jar" basedir="${classes.dir}" level="9">
             <zipfileset src="${lib.derby}" />
             <zipfileset src="${lib.itext}" />
@@ -117,7 +145,7 @@
 
     <target name="jar" depends="dist" />
 
-    <target name="release" description="Generate a full release">
+    <target name="release" description="Generates a full release">
         <antcall target="test" />
         <antcall target="dist" />
     </target>
