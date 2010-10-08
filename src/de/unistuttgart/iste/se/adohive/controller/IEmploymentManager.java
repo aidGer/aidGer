@@ -89,5 +89,5 @@ public interface IEmploymentManager extends IAdoHiveManager<IEmployment> {
 	 * @return a list of all distinct cost units in the employment table
 	 * @throws AdoHiveException
 	 */
-	public List<String> getDistinctCostUnits() throws AdoHiveException;
+	public List<Integer> getDistinctCostUnits() throws AdoHiveException;
 }

@@ -108,10 +108,10 @@ public abstract class IAdoHiveManagerTest<T extends IAdoHiveModel<T>> extends IA
 			instance.add(i4);
 			int nid = 0;
 			
-			assertEquals(true, i1.equals(instance.getById(getItemId(i1))));
-			assertEquals(true, i2.equals(instance.getById(getItemId(i2))));
-			assertEquals(true, i3.equals(instance.getById(getItemId(i3))));
-			assertEquals(true, i4.equals(instance.getById(getItemId(i4))));
+			assertTrue(i1.equals(instance.getById(getItemId(i1))));
+			assertTrue(i2.equals(instance.getById(getItemId(i2))));
+			assertTrue(i3.equals(instance.getById(getItemId(i3))));
+			assertTrue(i4.equals(instance.getById(getItemId(i4))));
 			
 			while (nid == getItemId(i1) || nid == getItemId(i2) || nid == getItemId(i3) || nid == getItemId(i4)) {
 				nid++;

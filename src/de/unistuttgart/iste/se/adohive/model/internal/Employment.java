@@ -35,9 +35,9 @@ public final class Employment implements IEmployment {
 	protected Byte month;
 	protected Short year;
 	protected Double hourCount;
-	protected String costUnit;
+	protected Integer costUnit;
 	protected String remark;
-	protected Integer funds;
+	protected String funds;
 	protected String qualification;
 	
 	protected IEmployment employment;
@@ -190,7 +190,7 @@ public final class Employment implements IEmployment {
 	 * @return the costUnit
 	 */
 	@AdoMethod(columnName = "Kostenstelle")
-	public String getCostUnit() {
+	public Integer getCostUnit() {
 		if(employment != null)
 			return employment.getCostUnit();
 		return costUnit;
@@ -200,7 +200,7 @@ public final class Employment implements IEmployment {
 	 * @param costUnit the costUnit to set
 	 */
 	@AdoMethod(columnName = "Kostenstelle")
-	public void setCostUnit(String costUnit) {
+	public void setCostUnit(Integer costUnit) {
 		if(employment != null)
 			employment.setCostUnit(costUnit);
 		this.costUnit = costUnit;
@@ -210,7 +210,7 @@ public final class Employment implements IEmployment {
 	 * @return the funds
 	 */
 	@AdoMethod(columnName = "Fonds")
-	public Integer getFunds() {
+	public String getFunds() {
 		if(employment != null)
 			return employment.getFunds();
 		return funds;
@@ -220,7 +220,7 @@ public final class Employment implements IEmployment {
 	 * @param funds the funds to set
 	 */
 	@AdoMethod(columnName = "Fonds")
-	public void setFunds(Integer funds) {
+	public void setFunds(String funds) {
 		if(employment != null)
 			employment.setFunds(funds);
 		this.funds = funds;

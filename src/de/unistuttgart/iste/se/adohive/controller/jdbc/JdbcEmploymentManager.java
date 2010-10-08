@@ -120,15 +120,15 @@ public abstract class JdbcEmploymentManager extends JdbcAdoHiveManager<IEmployme
 	}
 	
 	@Override
-	public List<String> getDistinctCostUnits() throws AdoHiveException {
-		List<String> distinctSemesters = new ArrayList<String>();
+	public List<Integer> getDistinctCostUnits() throws AdoHiveException {
+		List<Integer> distinctCostUnits = new ArrayList<Integer>();
 		try {
 			PreparedStatement stmt;
 			stmt = con.prepareStatement("SELECT DISTINCT \"Kostenstelle\" FROM \"Beschaeftigung\"");
 			ResultSet result = stmt.executeQuery();
 			while(result.next())
-				distinctSemesters.add(result.getString(1));
-			return distinctSemesters;
+				distinctCostUnits.add(result.getInt(1));
+			return distinctCostUnits;
 		} catch (SQLException e) {
 			throw new AdoHiveDatabaseException(e);
 		}
