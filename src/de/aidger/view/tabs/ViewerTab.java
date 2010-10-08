@@ -499,13 +499,13 @@ public class ViewerTab extends Tab {
     public String getTabName() {
         switch (type) {
         case Course:
-            return _("Master Data Courses");
+            return _("Courses");
         case Assistant:
-            return _("Master Data Assistants");
+            return _("Assistants");
         case FinancialCategory:
-            return _("Master Data Financial Categories");
+            return _("Financial Categories");
         case HourlyWage:
-            return _("Master Data Hourly Wages");
+            return _("Hourly Wages");
         case Employment:
             return _("Employments");
         case Contract:

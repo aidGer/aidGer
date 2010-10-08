@@ -9,9 +9,11 @@ import java.io.File;
 import java.sql.Date;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import de.aidger.model.Runtime;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
@@ -38,29 +40,7 @@ public class BudgetReportConverterTest {
 
     private static FinancialCategory financialCategory = null;
 
-    /**
-     * Cleans up after the tests.
-     * 
-     * @throws AdoHiveException
-     */
-    @After
-    public void cleanUp() throws AdoHiveException {
-
-        course.remove();
-
-        assistant.remove();
-
-        employment1.remove();
-
-        employment2.remove();
-
-        contract.remove();
-
-        financialCategory.remove();
-
-        File file = new File("Test_Report.pdf");
-        file.delete();
-    }
+    private static boolean openSetting = false;
 
     /**
      * Prepares this test.
@@ -70,6 +50,12 @@ public class BudgetReportConverterTest {
     @BeforeClass
     public static void beforeClassSetUp() throws AdoHiveException {
         de.aidger.model.Runtime.getInstance().initialize();
+
+        String autoOpen = Runtime.getInstance().getOption("auto-open");
+        if (autoOpen.equals("true")) {
+            openSetting = true;
+        }
+        Runtime.getInstance().setOption("auto-open", "false");
 
         financialCategory = new FinancialCategory();
         financialCategory.setBudgetCosts(new Integer[] { 1000 });
@@ -161,5 +147,37 @@ public class BudgetReportConverterTest {
         file = new File("Test_Report.pdf");
 
         assertTrue(file.exists());
+    }
+
+    /**
+     * Cleans up after the tests.
+     * 
+     * @throws AdoHiveException
+     */
+    @After
+    public void cleanUp() throws AdoHiveException {
+
+        course.remove();
+
+        assistant.remove();
+
+        employment1.remove();
+
+        employment2.remove();
+
+        contract.remove();
+
+        financialCategory.remove();
+
+        File file = new File("Test_Report.pdf");
+        file.delete();
+    }
+
+    /**
+     * Cleans up after all tests have completed.
+     */
+    @AfterClass
+    public static void afterClassCleanUp() {
+        Runtime.getInstance().setOption("auto-open", "" + openSetting);
     }
 }

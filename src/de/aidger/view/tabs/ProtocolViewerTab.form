@@ -92,7 +92,14 @@
             <Property name="alignment" type="int" value="0"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="spinnerLabel">
+            <Component class="javax.swing.JRadioButton" name="showAllBtn">
+              <Properties>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="_(&quot;Show all activities&quot;)" type="code"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="showSelectedDaysBtn">
               <Properties>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="_(&quot;Number of days before today to display: &quot;)" type="code"/>

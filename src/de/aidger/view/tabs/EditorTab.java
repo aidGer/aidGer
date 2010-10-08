@@ -3,6 +3,7 @@ package de.aidger.view.tabs;
 import static de.aidger.utils.Translation._;
 
 import java.awt.event.KeyEvent;
+import java.text.MessageFormat;
 import java.util.Calendar;
 import java.util.List;
 
@@ -31,7 +32,9 @@ import de.aidger.view.forms.CourseEditorForm;
 import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
 import de.aidger.view.forms.HourlyWageEditorForm;
+import de.aidger.view.models.UIModel;
 import de.aidger.view.tabs.ViewerTab.DataType;
+import de.aidger.view.utils.UIModelFactory;
 
 /**
  * A tab which will be used to add and edit the data.
@@ -194,43 +197,16 @@ public class EditorTab extends Tab {
      */
     @Override
     public String getTabName() {
-        if (isEditMode()) {
-            switch (type) {
-            case Course:
-                return _("Edit course");
-            case Assistant:
-                return _("Edit assistant");
-            case FinancialCategory:
-                return _("Edit financial category");
-            case HourlyWage:
-                return _("Edit hourly wage");
-            case Employment:
-                return _("Edit employment");
-            case Contract:
-                return _("Edit contract");
-            case Activity:
-                return _("Edit activity");
-            }
+        if (!isEditMode()) {
+            return MessageFormat.format(_("Add {0}"), new Object[] { type
+                .getDisplayName() });
         }
 
-        switch (type) {
-        case Course:
-            return _("Add course");
-        case Assistant:
-            return _("Add assistant");
-        case FinancialCategory:
-            return _("Add financial category");
-        case HourlyWage:
-            return _("Add hourly wage");
-        case Employment:
-            return _("Add employment");
-        case Contract:
-            return _("Add contract");
-        case Activity:
-            return _("Add activity");
-        }
+        UIModel modelUI = (UIModel) UIModelFactory.create(model);
 
-        return "";
+        return modelUI == null ? MessageFormat.format(_("Edit {0}"),
+            new Object[] { type.getDisplayName() }) : type.getDisplayName()
+                + " " + modelUI.toString();
     }
 
     /**
@@ -374,7 +350,9 @@ public class EditorTab extends Tab {
 
         setLayout(new java.awt.GridBagLayout());
 
-        editorForm.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), getTabName()));
+        editorForm.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
+            getTabName()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -397,7 +375,9 @@ public class EditorTab extends Tab {
         gridBagConstraints.weighty = 1.0;
         add(filler, gridBagConstraints);
 
-        hints.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Hints")));
+        hints.setBorder(javax.swing.BorderFactory
+            .createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1,
+                1, 1, 1), _("Hints")));
         hints.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;

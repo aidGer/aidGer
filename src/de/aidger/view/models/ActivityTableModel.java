@@ -25,7 +25,7 @@ public class ActivityTableModel extends TableModel {
      */
     public ActivityTableModel() {
         super(new String[] { _("ID"), _("Assistant"), _("Course"), _("Date"),
-                _("Sender"), _("Processor"), _("Type"), _("Document Type"),
+                _("Initiator"), _("Processor"), _("Type"), _("Document Type"),
                 _("Content"), _("Remark") });
     }
 

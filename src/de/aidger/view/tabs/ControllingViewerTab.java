@@ -3,8 +3,10 @@ package de.aidger.view.tabs;
 import static de.aidger.utils.Translation._;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
@@ -120,28 +122,24 @@ public class ControllingViewerTab extends ReportTab {
         } catch (ActionNotFoundException e) {
             UI.displayError(e.getMessage());
         }
+        enableExport();
         /*
          * The export buttons should not be visible before a report has been
          * generated.
          */
-        exportAllButton.setVisible(false);
-        exportDifferencesButton.setVisible(false);
-        jSeparator2.setVisible(false);
-        jSeparator4.setVisible(false);
     }
 
     /**
-     * Sets the export buttons and their separators visible.
+     * Enables the export buttons if there is data in the table.
      */
-    public void visualizeButtons() {
-        exportAllButton.setVisible(false);
-        exportAllButton.setVisible(true);
-        exportDifferencesButton.setVisible(false);
-        exportDifferencesButton.setVisible(true);
-        jSeparator2.setVisible(false);
-        jSeparator2.setVisible(true);
-        jSeparator4.setVisible(false);
-        jSeparator4.setVisible(true);
+    public void enableExport() {
+        if (controllingTableModel.getRowCount() > 0) {
+            exportAllButton.setEnabled(true);
+            exportDifferencesButton.setEnabled(true);
+        } else {
+            exportAllButton.setEnabled(false);
+            exportDifferencesButton.setEnabled(false);
+        }
     }
 
     /**
@@ -187,9 +185,36 @@ public class ControllingViewerTab extends ReportTab {
         while (controllingTableModel.getRowCount() > 0) {
             controllingTableModel.removeRow(0);
         }
-        for (ControllingAssistant assistant : new ControllingCreator(year,
-            month, funds).getAssistants()) {
-            addRow(assistant.getObjectArray());
+        List<ControllingAssistant> assistants = new ControllingCreator(year,
+            month, funds).getAssistants(false);
+        boolean errorInCalculation = false;
+        for (ControllingAssistant assistant : assistants) {
+            if ((Boolean) assistant.getObjectArray()[2]) {
+                errorInCalculation = true;
+            }
+        }
+        int ignore = 0;
+        if (errorInCalculation) {
+            ignore = JOptionPane
+                .showConfirmDialog(
+                    this,
+                    _("The resulting report may contain incorrect calculations, \nbecause you did not enter hourly wages for some periods, \nin which some of your assistants are employed.")
+                            + "\n"
+                            + "\n"
+                            + _("Shall the affected assistants be included in the report anyway?"),
+                    _("Info"), JOptionPane.YES_NO_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+        if (ignore == 0) {
+            for (ControllingAssistant assistant : assistants) {
+                addRow(assistant.getObjectArray());
+            }
+        } else {
+            for (ControllingAssistant assistant : assistants) {
+                if (!assistant.isFlagged()) {
+                    addRow(assistant.getObjectArray());
+                }
+            }
         }
     }
 
@@ -202,11 +227,14 @@ public class ControllingViewerTab extends ReportTab {
     private void addRow(Object[] assistant) {
         Object[] rowArray = new Object[controllingTableModel.getColumnCount()];
         for (int i = 0; i < rowArray.length; i++) {
-            if (i < assistant.length) {
+            if (i < assistant.length - 1) {
                 rowArray[i] = assistant[i];
             } else {
                 rowArray[i] = "";
             }
+        }
+        if ((Boolean) assistant[assistant.length - 1]) {
+            rowArray[rowArray.length - 1] = _("Calculations may be off, due to missing hourly wages.");
         }
         controllingTableModel.addRow(rowArray);
     }
@@ -290,6 +318,9 @@ public class ControllingViewerTab extends ReportTab {
         exportDifferencesButton = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JToolBar.Separator();
         contentPanel = new javax.swing.JPanel();
+        tablePanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         filtersPanel = new javax.swing.JPanel();
         yearLabel = new javax.swing.JLabel();
         yearComboBox = new javax.swing.JComboBox();
@@ -297,9 +328,6 @@ public class ControllingViewerTab extends ReportTab {
         monthComboBox = new javax.swing.JComboBox();
         fundsLabel = new javax.swing.JLabel();
         fundsComboBox = new javax.swing.JComboBox();
-        tablePanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -343,6 +371,15 @@ public class ControllingViewerTab extends ReportTab {
 
         contentPanel.setLayout(new java.awt.BorderLayout());
 
+        tablePanel.setLayout(new java.awt.GridLayout(1, 0));
+
+        jTable1.setModel(controllingTableModel);
+        jScrollPane1.setViewportView(jTable1);
+
+        tablePanel.add(jScrollPane1);
+
+        contentPanel.add(tablePanel, java.awt.BorderLayout.CENTER);
+
         filtersPanel
             .setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
@@ -378,24 +415,17 @@ public class ControllingViewerTab extends ReportTab {
 
         contentPanel.add(filtersPanel, java.awt.BorderLayout.PAGE_START);
 
-        tablePanel.setLayout(new java.awt.GridLayout(1, 0));
-
-        jTable1.setModel(controllingTableModel);
-        jScrollPane1.setViewportView(jTable1);
-
-        tablePanel.add(jScrollPane1);
-
-        contentPanel.add(tablePanel, java.awt.BorderLayout.CENTER);
-
         add(contentPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void yearComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_yearComboBoxItemStateChanged
-        if (yearComboBox.getSelectedIndex() >= 0) {
-            year = (Integer) yearComboBox.getSelectedItem();
-            createMonthItems(year);
+    private void exportAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportAllButtonActionPerformed
+    }//GEN-LAST:event_exportAllButtonActionPerformed
+
+    private void fundsComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fundsComboBoxItemStateChanged
+        if (fundsComboBox.getSelectedIndex() >= 0) {
+            this.funds = (Integer) fundsComboBox.getSelectedItem();
         }
-    }//GEN-LAST:event_yearComboBoxItemStateChanged
+    }//GEN-LAST:event_fundsComboBoxItemStateChanged
 
     private void monthComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_monthComboBoxItemStateChanged
         if (monthComboBox.getSelectedIndex() >= 0) {
@@ -404,14 +434,12 @@ public class ControllingViewerTab extends ReportTab {
         }
     }//GEN-LAST:event_monthComboBoxItemStateChanged
 
-    private void fundsComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fundsComboBoxItemStateChanged
-        if (fundsComboBox.getSelectedIndex() >= 0) {
-            this.funds = (Integer) fundsComboBox.getSelectedItem();
+    private void yearComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_yearComboBoxItemStateChanged
+        if (yearComboBox.getSelectedIndex() >= 0) {
+            year = (Integer) yearComboBox.getSelectedItem();
+            createMonthItems(year);
         }
-    }//GEN-LAST:event_fundsComboBoxItemStateChanged
-
-    private void exportAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportAllButtonActionPerformed
-    }//GEN-LAST:event_exportAllButtonActionPerformed
+    }//GEN-LAST:event_yearComboBoxItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentPanel;
@@ -442,7 +470,7 @@ public class ControllingViewerTab extends ReportTab {
      */
     @Override
     public String getTabName() {
-        return _("Assistant controlling");
+        return _("Assistant Controlling");
     }
 
 }

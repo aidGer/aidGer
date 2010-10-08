@@ -43,7 +43,7 @@ public class ControllingGenerateAction extends AbstractAction {
         ControllingViewerTab viewerTab = (ControllingViewerTab) UI
             .getInstance().getCurrentTab();
         viewerTab.createTable();
-        viewerTab.visualizeButtons();
+        viewerTab.enableExport();
     }
 
 }

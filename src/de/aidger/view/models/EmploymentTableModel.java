@@ -7,8 +7,10 @@ import java.util.Date;
 import java.util.List;
 
 import de.aidger.model.AbstractModel;
+import de.aidger.model.Runtime;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
+import de.aidger.model.models.CostUnit;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.utils.Logger;
@@ -82,12 +84,15 @@ public class EmploymentTableModel extends TableModel {
             cal.set(Calendar.MONTH, employment.getMonth() - 1);
             cal.set(Calendar.YEAR, employment.getYear());
 
+            CostUnit costUnit = Runtime.getInstance().getCostUnitMap()
+                .fromTokenDB(employment.getCostUnit());
+
             return new Object[] { employment.getId(),
                     new UIAssistant(assistant), new UICourse(course),
                     new UIContract(contract), cal.getTime(),
                     employment.getHourCount(),
+                    costUnit == null ? employment.getCostUnit() : costUnit,
                     UIFund.valueOf(employment.getFunds()),
-                    employment.getCostUnit(),
                     Qualification.valueOf(employment.getQualification()),
                     employment.getRemark() };
         } catch (AdoHiveException e1) {

@@ -312,7 +312,7 @@ public class BalanceHelper {
         } catch (AdoHiveException e) {
             UI.displayError(e.toString());
         }
-        return 0;
+        return -1;
     }
 
     /**

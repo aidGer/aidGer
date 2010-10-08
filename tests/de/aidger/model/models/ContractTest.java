@@ -199,6 +199,12 @@ public class ContractTest {
 
         assertEquals(contract, result);
         assertFalse(contract.equals(new Object()));
+
+        result.setCompletionDate(null);
+        result.setConfirmationDate(null);
+        result.setEndDate(null);
+        result.setStartDate(null);
+        assertFalse(contract.equals(result));
     }
 
     /**

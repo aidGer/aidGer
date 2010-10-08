@@ -47,7 +47,7 @@ public class ActivityViewerForm extends JPanel {
             }
 
             processor.setText(activity.getProcessor());
-            sender.setText(activity.getSender());
+            initiator.setText(activity.getSender());
             type.setText(activity.getType());
             documentType.setText(activity.getDocumentType());
             date.setText((new SimpleDateFormat("dd.MM.yyyy")).format(activity
@@ -71,7 +71,7 @@ public class ActivityViewerForm extends JPanel {
         lblCourse = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
         lblProcessor = new javax.swing.JLabel();
-        lblSender = new javax.swing.JLabel();
+        lblInitiator = new javax.swing.JLabel();
         lblType = new javax.swing.JLabel();
         lblDocumentType = new javax.swing.JLabel();
         lblRemark = new javax.swing.JLabel();
@@ -80,7 +80,7 @@ public class ActivityViewerForm extends JPanel {
         course = new javax.swing.JLabel();
         date = new javax.swing.JLabel();
         processor = new javax.swing.JLabel();
-        sender = new javax.swing.JLabel();
+        initiator = new javax.swing.JLabel();
         type = new javax.swing.JLabel();
         documentType = new javax.swing.JLabel();
         remark = new javax.swing.JLabel();
@@ -120,13 +120,13 @@ public class ActivityViewerForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblProcessor, gridBagConstraints);
 
-        lblSender.setText(_("Sender"));
+        lblInitiator.setText(_("Initiator"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
-        add(lblSender, gridBagConstraints);
+        add(lblInitiator, gridBagConstraints);
 
         lblType.setText(_("Type"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -188,7 +188,7 @@ public class ActivityViewerForm extends JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(sender, gridBagConstraints);
+        add(initiator, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -208,12 +208,11 @@ public class ActivityViewerForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(remark, gridBagConstraints);
 
-        content.setBackground(new Color(0, 0, 0, 0));
+        content.setBackground(new Color(0,0,0,0));
         content.setColumns(20);
         content.setEditable(false);
         content.setRows(5);
-        content.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0,
-            0));
+        content.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         content.setOpaque(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -229,18 +228,18 @@ public class ActivityViewerForm extends JPanel {
     private javax.swing.JLabel course;
     private javax.swing.JLabel date;
     private javax.swing.JLabel documentType;
+    private javax.swing.JLabel initiator;
     private javax.swing.JLabel lblAssistant;
     private javax.swing.JLabel lblContent;
     private javax.swing.JLabel lblCourse;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblDocumentType;
+    private javax.swing.JLabel lblInitiator;
     private javax.swing.JLabel lblProcessor;
     private javax.swing.JLabel lblRemark;
-    private javax.swing.JLabel lblSender;
     private javax.swing.JLabel lblType;
     private javax.swing.JLabel processor;
     private javax.swing.JLabel remark;
-    private javax.swing.JLabel sender;
     private javax.swing.JLabel type;
     // End of variables declaration//GEN-END:variables
 }
