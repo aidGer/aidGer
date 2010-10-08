@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<!-- 
+-->
+</head>
+<body bgcolor="white">
+
+Provides model interfaces for the use with the Controller.
+
+<h2>Name Mappings to database scheme</h2>
+Table and column names in the database used by AdoHive are named in German, interface names and methods in adohive.model are named in English.
+<br/>
+For this reason, here is an easy Mapping between German and English names, 
+the value type (sometimes with range/possible values) and a description where the meaning of a field is not obvious.
+(GERMAN - ENGLISH)
+<h3>Hilfskraft - Assistant</h3>
+<table border="1px">
+	<tr><th>AdoHive.Model Field Name</th><th>Schema Column Name</th><th>Value Type</th><th>nullable</th><th>Description</th></tr>
+	<tr><td>id</td><td>ID</td><td>Integer</td><td>NOT NULL</td><td>unique identifier (primary key)</td></tr>
+	<tr><td>firstname</td><td>Vorname</td><td>String</td><td>NULL</td><td></td></tr>
+	<tr><td>lastname</td><td>Nachname</td><td>String</td><td>NULL</td><td></td></tr>
+	<tr><td>email</td><td>Email</td><td>String</td><td>NULL</td><td></td></tr>
+	<tr><td>qualification</td><td>Qualifikation</td><td>String(u,b,g)</td><td>NULL</td><td>The qualification level of the assistant. Following levels are supported: u=not verified ("ungeprüft"), b=bachelor, g=verified ("geprueft" - can be diploma or master)</td></tr>
+</table>
+
+<h3>Beschaeftigung - Employment</h3>
+<table border="1px">
+	<tr><th>AdoHive.Model Field Name</th><th>Schema Column Name</th><th>Value Type</th><th>nullable</th><th>Description</th></tr>
+	<tr><td>id</td><td>ID</td><td>Integer</td><td>NOT NULL</td><td>unique identifier (primary key)</td></tr>
+	<tr><td>assistantId</td><td>HilfskraftID</td><td>Integer</td><td>NOT NULL</td><td></td></tr>
+	<tr><td>courseId</td><td>VeranstaltungsID</td><td>Integer</td><td>NOT NULL</td><td></td></tr>
+	<tr><td>contractId</td><td>VertragID</td><td>Integer</td><td>NOT NULL</td><td></td></tr>
+	<tr><td>month</td><td>Monat</td><td>Byte</td><td>NULL</td><td></td></tr>
+	<tr><td>year</td><td>Jahr</td><td>Short</td><td>NULL</td><td></td></tr>
+	<tr><td>hourCount</td><td>AnzahlStunden</td><td>Double</td><td>NULL</td><td></td></tr>
+	<tr><td>costUnit</td><td>Kostenstelle</td><td>String</td><td>NULL</td><td>The account from which this employment is financed. This is a fixed 8-digit number; It can have leading and trailing zeroes.</td></tr>
+	<tr><td>funds</td><td>Fonds</td><td>Integer</td><td>NULL</td><td></td></tr>
+	<tr><td>remark</td><td>Bemerkung</td><td>String</td><td>NULL</td><td></td></tr>
+	<tr><td>qualification</td><td>Qualifikation</td><td>String(u,b,g)</td><td>NULL</td><td>The qualification level of the assistant. Following levels are supported: u=not verified ("ungeprüft"), b=bachelor, g=verified ("geprueft" - can be diploma or master)</td></tr>
+</table>
+
+<h3>Veranstaltung - Course</h3>
+<table border="1px">
+	<tr><th>AdoHive.Model Field Name</th><th>Schema Column Name</th><th>Value Type</th><th>nullable</th><th>Description</th></tr>
+	<tr><td>id</td><td>ID</td><td>Integer</td><td>NOT NULL</td><td>unique identifier (primary key)</td></tr>
+	<tr><td>financialCategoryId</td><td>FinanzkategorieID</td><td>Integer</td><td>NOT NULL</td><td></td></tr>
+	<tr><td>description</td><td>Bezeichnung</td><td>String</td><td>NULL</td><td></td></tr>
+	<tr><td>semester</td><td>Semester</td><td>String</td><td>NULL</td><td></td></tr>
+	<tr><td>lecturer</td><td>Dozent</td><td>String</td><td>NULL</td><td></td></tr>
+	<tr><td>advisor</td><td>Betreuer</td><td>String</td><<td>NULL</td>/tr>
+	<tr><td>numberOfGroups</td><td>Gruppenzahl</td><td>Integer</td><td>NULL</td><td></td></tr>
+	<tr><td>unqualifiedWorkingHours</td><td>UHKS pro Gruppe</td><td>Double</td><td>NULL</td><td></td></tr>
+	<tr><td>targetAudience</td><td>Zielpublikum</td><td>String</td><td>NULL</td><td>The audience for which this (part of the) course is targeted. Example: INF (for computer science) or ST (for software engineering)</td></tr>
+	<tr><td>scope</td><td>Umfang</td><td>String (1Ü, 2Ü, 1P, 2P, 4P or 6P)</td><td>NULL</td><td>The length of the course according to the module handbook.</td></tr>
+	<tr><td>part</td><td>Teil</td><td>char (A,B,C ...)</td><td>NULL</td><td>If the course is splitted apart, this represents the part number. Corelated to targetAudience</td></tr>
+	<tr><td>group</td><td>Gruppe</td><td>String</td><td>NULL</td><td>The group to which this course belongs, i.e. "Bachelor Informatik"</td></tr>
+	<tr><td>remark</td><td>Bemerkung</td><td>String</td><td>NULL</td><td></td></tr>	
+</table>
+
+<h3>Vorgang - Activity</h3>
+<table border="1px">
+	<tr><th>AdoHive.Model Field Name</th><th>Schema Column Name</th><th>Value Type</th><th>nullable</th><th>Description</th></tr>
+	<tr><td>id</td><td>VorgangID</td><td>Integer</td><td>NOT NULL</td><td>unique identifier (primary key)</td></tr>
+	<tr><td>assistantId</td><td>HilfskraftID</td><td>Integer</td><td>NULL</td><td></td></tr>
+	<tr><td>courseId</td><td>VeranstaltungID</td><td>Integer</td><td>NULL</td><td></td></tr>
+	<tr><td>date</td><td>Datum</td><td>Date</td><td>NOT NULL</td><td></td></tr>
+	<tr><td>sender</td><td>Sender</td><td>String</td><td>NULL</td><td></td></tr>
+	<tr><td>documentType</td><td>Dokumenttyp</td><td>String</td><td>NULL</td><td>Indicates what kind of document is interconnected with this activity. Must be defined on application level.</td></tr>
+	<tr><td>type</td><td>Art</td><td>String</td><td>NOT NULL</td><td></td></tr>
+	<tr><td>processor</td><td>Bearbeiter</td><td>String</td><td>NULL</td><td></td></tr>
+	<tr><td>remark</td><td>Bemerkung</td><td>String</td><td>NULL</td><td></td></tr>
+	<tr><td>content</td><td>Inhalt</td><td>String</td><td>NULL</td><td></td></tr>
+</table>
+
+<h3>Finanzkategorie - FinancialCategory</h3>
+<table border="1px">
+	<tr><th>AdoHive.Model Field Name</th><th>Schema Column Name</th><th>Value Type</th><th>nullable</th><th>Description</th></tr>
+	<tr><td>id</td><td>ID</td><td>Integer</td><td>NOT NULL</td><td>unique identifier (primary key)</td></tr>
+	<tr><td>name</td><td>Name</td><td>String</td><td>NULL</td><td></td></tr>
+	<tr><td>budgetCosts</td><td>Plankosten</td><td>Integer[] (in €)</td><td>NOT NULL</td><td></td></tr>
+	<tr><td>funds</td><td>Fonds</td><td>Integer[]</td><td>NOT NULL</td><td></td></tr>
+	<tr><td>year</td><td>Jahr</td><td>Short</td><td>NULL</td><td></td></tr>
+</table>
+
+<h3>Stundenlohn - HourlyWage</h3>
+<table border="1px">
+	<tr><th>AdoHive.Model Field Name</th><th>Schema Column Name</th><th>Value Type</th><th>nullable</th><th>Description</th></tr>
+	<tr><td>year</td><td>Jahr</td><td>Short</td><td>NOT NULL</td><td></td></tr>
+	<tr><td>month</td><td>Monat</td><td>Byte</td><td>NOT NULL</td><td></td></tr>
+	<tr><td>qualification</td><td>Qualifikation</td><td>String</td><td>NOT NULL</td><td></td></tr>
+	<tr><td>wage</td><td>Lohn</td><td>Double</td><td>NOT NULL</td><td></td></tr>
+</table>
+
+<h3>Vertrag - Contract</h3>
+<table border="1px">
+	<tr><th>AdoHive.Model Field Name</th><th>Schema Column Name</th><th>Value Type</th><th>nullable</th><th>Description</th></tr>
+	<tr><td>id</td><td>ID</td><td>Integer</td><td>NOT NULL</td><td>unique identifier (primary key)</td></tr>
+	<tr><td>assistantId</td><td>HilfskraftID</td><td>Integer</td><td>NOT NULL</td><td></td></tr>
+	<tr><td>type</td><td>Art</td><td>String</td><td>NULL</td><td>Contract types can be "Neuvertrag" (new contract), "Anschluss" (follow-up contract), "Aenderung" (contract modification)</td></tr>
+	<tr><td>startDate</td><td>DatumAnfang</td><td>Date</td><td>NULL</td><td></td></tr>
+	<tr><td>endDate</td><td>DatumEnde</td><td>Date</td><td>NULL</td><td></td></tr>
+	<tr><td>completionDate</td><td>DatumAbschluss</td><td>Date</td><td>NULL</td><td></td></tr>
+	<tr><td>confirmationDate</td><td>DatumBestaetigung</td><td>Date</td><td>NULL</td><td></td></tr>
+	<tr><td>delegation</td><td>Delegation</td><td>Boolean</td><td>NULL</td><td>True, if the contract was signed using the delegation approach.</td></tr>
+</table>
+
+<!-- Put @see and @since tags down here. -->
+
+</body>
+</html>
