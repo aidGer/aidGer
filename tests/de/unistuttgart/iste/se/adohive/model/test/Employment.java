@@ -34,9 +34,9 @@ public final class Employment implements IEmployment {
 	protected Byte month = (byte) IndependentTestDataProvider.randomChar();
 	protected Short year = (short) IndependentTestDataProvider.randomChar();
 	protected Double hourCount = IndependentTestDataProvider.randomDouble();
-	protected String costUnit = IndependentTestDataProvider.randomFixedLengthDigitString(8);
+	protected Integer costUnit = IndependentTestDataProvider.randomInt();
 	protected String remark = IndependentTestDataProvider.randomString();
-	protected Integer funds = IndependentTestDataProvider.randomInt();
+	protected String funds = IndependentTestDataProvider.randomFixedLengthDigitString(8);
 	protected String qualification = IndependentTestDataProvider.randomFixedLengthDigitString(1);
 		
 	public Employment() {
@@ -140,28 +140,28 @@ public final class Employment implements IEmployment {
 	/**
 	 * @return the costUnit
 	 */
-	public String getCostUnit() {
+	public Integer getCostUnit() {
 		return costUnit;
 	}
 	
 	/**
 	 * @param costUnit the costUnit to set
 	 */
-	public void setCostUnit(String costUnit) {
+	public void setCostUnit(Integer costUnit) {
 	this.costUnit = costUnit;
 	}
 	
 	/**
 	 * @return the funds
 	 */
-	public Integer getFunds() {
+	public String getFunds() {
 	return funds;
 	}
 	
 	/**
 	 * @param funds the funds to set
 	 */
-	public void setFunds(Integer funds) {
+	public void setFunds(String funds) {
 	this.funds = funds;
 	}
 	
@@ -198,7 +198,8 @@ public final class Employment implements IEmployment {
 		if (o instanceof IEmployment) {
 			IEmployment e = (IEmployment) o;
 			return e.getAssistantId().equals(this.assistantId) &&
-					StringHelper.equals(e.getCostUnit(), this.costUnit) &&
+					StringHelper.equals(e.getFunds(), this.funds) &&
+					e.getCostUnit().equals(costUnit) &&
 					e.getCourseId().equals(this.courseId) &&
 					e.getHourCount().equals(this.hourCount) &&
 					e.getId().equals(this.id) &&
@@ -216,6 +217,7 @@ public final class Employment implements IEmployment {
 		e.setAssistantId(this.assistantId);
 		e.setContractId(this.contractId);
 		e.setCostUnit(this.costUnit);
+		e.setFunds(this.funds);
 		e.setCourseId(this.courseId);
 		e.setHourCount(this.hourCount);
 		e.setId(this.id);

@@ -101,22 +101,22 @@ public interface IEmployment extends IAdoHiveModel<IEmployment> {
 	/**
 	 * @return the costUnit
 	 */
-	public String getCostUnit();
+	public Integer getCostUnit();
 	
 	/**
 	 * @param costUnit the costUnit to set
 	 */
-	public void setCostUnit(String costUnit);
+	public void setCostUnit(Integer costUnit);
 	
 	/**
 	 * @return the funds
 	 */
-	public Integer getFunds();
+	public String getFunds();
 	
 	/**
 	 * @param funds the funds to set
 	 */
-	public void setFunds(Integer funds);
+	public void setFunds(String funds);
 	
 	/**
 	 * @return the remark
