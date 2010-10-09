@@ -43,7 +43,7 @@ import de.aidger.view.utils.AutoCompletion;
 import de.aidger.view.utils.HelpLabel;
 import de.aidger.view.utils.InputPatternFilter;
 import de.aidger.view.utils.NumberFormat;
-import de.aidger.view.utils.UIFund;
+import de.aidger.view.utils.UICostUnit;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.IContract;
@@ -200,12 +200,12 @@ public class EmploymentEditorForm extends JPanel {
 
             if (editMode) {
                 CostUnit costUnit = costUnitMap.fromTokenDB(employment
-                    .getCostUnit());
+                    .getFunds());
                 cmbFunds.setSelectedItem(costUnit == null ? employment
-                    .getCostUnit() : costUnit);
+                    .getFunds() : costUnit);
 
-                cmbCostUnit.setSelectedItem(UIFund.valueOf(employment
-                    .getFunds()));
+                cmbCostUnit.setSelectedItem(UICostUnit.valueOf(employment
+                    .getCostUnit()));
                 cmbQualification.setSelectedItem(Qualification
                     .valueOf(employment.getQualification()));
                 txtRemark.setText(employment.getRemark());
@@ -278,7 +278,7 @@ public class EmploymentEditorForm extends JPanel {
             cmbFundsModel.removeAllElements();
 
             for (int funds : fc.getFunds()) {
-                cmbFundsModel.addElement(UIFund.valueOf(funds));
+                cmbFundsModel.addElement(UICostUnit.valueOf(funds));
             }
         } catch (AdoHiveException e) {
         }
@@ -311,7 +311,7 @@ public class EmploymentEditorForm extends JPanel {
      * 
      * @return The funds of the employment
      */
-    public String getCostUnit() {
+    public String getFunds() {
         Object funds = cmbFunds.getSelectedItem();
 
         return funds instanceof CostUnit ? ((CostUnit) funds).getTokenDB()
@@ -333,7 +333,7 @@ public class EmploymentEditorForm extends JPanel {
      * @return The funds of the employment
      * @throws NumberFormatException
      */
-    public int getFunds() throws NumberFormatException {
+    public Integer getCostUnit() throws NumberFormatException {
         return Integer.valueOf((String) cmbCostUnit.getSelectedItem());
     }
 
@@ -612,7 +612,8 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbCostUnit, gridBagConstraints);
 
-        cmbFunds.setModel(new javax.swing.DefaultComboBoxModel(costUnitMap.getMap().toArray()));
+        cmbFunds.setModel(new javax.swing.DefaultComboBoxModel(costUnitMap
+            .getMap().toArray()));
         cmbFunds.setMinimumSize(new java.awt.Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -621,7 +622,8 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbFunds, gridBagConstraints);
 
-        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(Qualification.values()));
+        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(
+            Qualification.values()));
         cmbQualification.setMinimumSize(new java.awt.Dimension(300, 25));
         cmbQualification.setPreferredSize(new java.awt.Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();

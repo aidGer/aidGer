@@ -11,15 +11,15 @@ import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.reports.BalanceHelper;
 import de.aidger.view.models.UIFinancialCategory;
-import de.aidger.view.utils.UIFund;
+import de.aidger.view.utils.UICostUnit;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
- * An inspector for the budget limit in € for funds.
+ * An inspector for the budget limit in € for cost units.
  * 
  * @author aidGer Team
  */
-public class FundsBudgetLimitInspector extends Inspector {
+public class CostUnitBudgetLimitInspector extends Inspector {
 
     /**
      * The course to be checked.
@@ -27,27 +27,27 @@ public class FundsBudgetLimitInspector extends Inspector {
     private final Course course;
 
     /**
-     * The funds to be checked.
+     * The cost unit to be checked.
      */
-    private final int funds;
+    private final Integer costUnit;
 
     /**
-     * Creates a funds budget limit inspector.
+     * Creates a cost unit budget limit inspector.
      * 
      * @param course
      *            the course to be checked
-     * @param funds
-     *            the funds to be checked
+     * @param costUnit
+     *            the cost unit to be checked
      */
-    public FundsBudgetLimitInspector(Course course, int funds) {
+    public CostUnitBudgetLimitInspector(Course course, Integer costUnit) {
         this.course = course;
-        this.funds = funds;
+        this.costUnit = costUnit;
 
         updatedDBRequired = true;
     }
 
     /*
-     * Checks the budget limit in € for the funds.
+     * Checks the budget limit in € for the cost unit.
      */
     @Override
     public void check() {
@@ -59,7 +59,7 @@ public class FundsBudgetLimitInspector extends Inspector {
                     .getFinancialCategoryId()));
 
             for (int i = 0; i < fc.getFunds().length; ++i) {
-                if (fc.getFunds()[i] == funds) {
+                if (fc.getFunds()[i] == costUnit) {
                     maxBudgetCosts = fc.getBudgetCosts()[i];
 
                     break;
@@ -73,7 +73,7 @@ public class FundsBudgetLimitInspector extends Inspector {
                     .getEmployments(curCourse);
 
                 for (Employment curEmployment : employments) {
-                    if (curEmployment.getFunds() == funds) {
+                    if (costUnit.equals(curEmployment.getCostUnit())) {
                         bookedBudgetCosts += BalanceHelper
                             .calculateBudgetCost(curEmployment);
                     }
@@ -84,7 +84,7 @@ public class FundsBudgetLimitInspector extends Inspector {
                 result = MessageFormat
                     .format(
                         _("The budget costs limit for funds {0} in financial category {1} is exceeded ({2}€ / {3}€)."),
-                        new Object[] { UIFund.valueOf(funds),
+                        new Object[] { UICostUnit.valueOf(costUnit),
                                 new UIFinancialCategory(fc).toString(),
                                 round(bookedBudgetCosts, 2),
                                 round(maxBudgetCosts, 2) });

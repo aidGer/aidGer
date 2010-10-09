@@ -17,9 +17,9 @@ import javax.swing.Action;
 import javax.swing.JOptionPane;
 
 import de.aidger.model.AbstractModel;
+import de.aidger.model.inspectors.CostUnitBudgetLimitInspector;
 import de.aidger.model.inspectors.CourseBudgetLimitInspector;
 import de.aidger.model.inspectors.EmploymentLimitInspector;
-import de.aidger.model.inspectors.FundsBudgetLimitInspector;
 import de.aidger.model.inspectors.IdenticalAssistantInspector;
 import de.aidger.model.inspectors.Inspector;
 import de.aidger.model.inspectors.OverlapContractInspector;
@@ -185,7 +185,7 @@ public class EditorSaveAction extends AbstractAction {
 
         fc.setName(form.getFCName());
 
-        form.sortFunds();
+        form.sortCostUnits();
 
         try {
             fc.setBudgetCosts(form.getBudgetCosts());
@@ -196,7 +196,7 @@ public class EditorSaveAction extends AbstractAction {
         }
 
         try {
-            fc.setFunds(form.getFunds());
+            fc.setFunds(form.getCostUnits());
         } catch (NumberFormatException e) {
             fc.addError("funds", _("Cost unit"), new PresenceValidator(fc,
                 new String[0], new String[0]).getMessage());
@@ -590,8 +590,8 @@ public class EditorSaveAction extends AbstractAction {
 
             inspectors.add(new CourseBudgetLimitInspector(editorForm
                 .getCourse()));
-            inspectors.add(new FundsBudgetLimitInspector(
-                editorForm.getCourse(), editorForm.getFunds()));
+            inspectors.add(new CostUnitBudgetLimitInspector(editorForm
+                .getCourse(), editorForm.getCostUnit()));
 
             break;
         case Assistant:

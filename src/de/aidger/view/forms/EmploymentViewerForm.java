@@ -18,7 +18,7 @@ import de.aidger.view.models.UIAssistant;
 import de.aidger.view.models.UIContract;
 import de.aidger.view.models.UICourse;
 import de.aidger.view.utils.NumberFormat;
-import de.aidger.view.utils.UIFund;
+import de.aidger.view.utils.UICostUnit;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.IContract;
@@ -67,11 +67,11 @@ public class EmploymentViewerForm extends JPanel {
                 .format(cal.getTime()));
             hourCount.setText(NumberFormat.getInstance().format(
                 employment.getHourCount()));
-            costUnit.setText(UIFund.valueOf(employment.getFunds()));
+            costUnit.setText(UICostUnit.valueOf(employment.getCostUnit()));
             CostUnit costUnit_ = Runtime.getInstance().getCostUnitMap()
-                .fromTokenDB(employment.getCostUnit());
-            funds.setText(costUnit_ == null ? employment.getCostUnit()
-                    : costUnit_.toString());
+                .fromTokenDB(employment.getFunds());
+            funds.setText(costUnit_ == null ? employment.getFunds() : costUnit_
+                .toString());
             qualification.setText(Qualification.valueOf(
                 employment.getQualification()).toString());
             remark.setText(employment.getRemark());
