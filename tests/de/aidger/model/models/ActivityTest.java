@@ -1,22 +1,25 @@
 package de.aidger.model.models;
 
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
 import java.util.List;
 
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+
 /**
  * Tests the Activity class.
- *
+ * 
  * @author aidGer Team
  */
 public class ActivityTest {
-
 
     private Activity activity = null;
 
@@ -39,7 +42,7 @@ public class ActivityTest {
 
         financial = new FinancialCategory();
         financial.setBudgetCosts(new Integer[] { 100, 200 });
-        financial.setFunds(new Integer[] { 10001000, 20002000 });
+        financial.setCostUnits(new Integer[] { 10001000, 20002000 });
         financial.setName("Tester");
         financial.setYear((short) 2010);
         financial.save();
@@ -127,7 +130,8 @@ public class ActivityTest {
         assertFalse(activity.save());
         activity.resetErrors();
 
-        activity.setDocumentType("012345678901234567890123456789012345678901234567890");
+        activity
+            .setDocumentType("012345678901234567890123456789012345678901234567890");
         assertFalse(activity.save());
         activity.resetErrors();
         activity.setDocumentType("Type");
@@ -157,7 +161,7 @@ public class ActivityTest {
     @Test
     public void testClone() {
         System.out.println("clone");
-        
+
         Activity result = activity.clone();
 
         assertEquals(activity.getId(), result.getId());
@@ -179,7 +183,7 @@ public class ActivityTest {
     public void testEquals() {
         System.out.println("equals");
         Activity result = activity.clone();
-        
+
         assertEquals(activity, result);
         assertFalse(activity.equals(new Object()));
     }
@@ -194,7 +198,7 @@ public class ActivityTest {
 
         assertEquals(activity.hashCode(), result.hashCode());
     }
-    
+
     /**
      * Test of getActivities method, of class Activity.
      */

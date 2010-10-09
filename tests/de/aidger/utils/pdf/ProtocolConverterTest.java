@@ -71,7 +71,7 @@ public class ProtocolConverterTest {
 
         financial = new FinancialCategory();
         financial.setBudgetCosts(new Integer[] { 100, 200 });
-        financial.setFunds(new Integer[] { 10001000, 20002000 });
+        financial.setCostUnits(new Integer[] { 10001000, 20002000 });
         financial.setName("Tester");
         financial.setYear((short) 2010);
         financial.save();

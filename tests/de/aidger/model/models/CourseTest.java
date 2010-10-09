@@ -32,7 +32,7 @@ public class CourseTest {
     public void setUp() throws AdoHiveException {
         FinancialCategory fc = new FinancialCategory();
         fc.setBudgetCosts(new Integer[] { 100 });
-        fc.setFunds(new Integer[] { 10001000 });
+        fc.setCostUnits(new Integer[] { 10001000 });
         fc.setName("name");
         fc.setYear((short) 2010);
         fc.save();
@@ -235,7 +235,7 @@ public class CourseTest {
 
         FinancialCategory fc = new FinancialCategory();
         fc.setBudgetCosts(new Integer[] { 100, 200 });
-        fc.setFunds(new Integer[] { 10001000, 20002000 });
+        fc.setCostUnits(new Integer[] { 10001000, 20002000 });
         fc.setName("Tester");
         fc.setYear((short) 2010);
         fc.save();

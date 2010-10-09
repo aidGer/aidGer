@@ -58,8 +58,8 @@ public class CostUnitBudgetLimitInspector extends Inspector {
                 (new FinancialCategory()).getById(course
                     .getFinancialCategoryId()));
 
-            for (int i = 0; i < fc.getFunds().length; ++i) {
-                if (fc.getFunds()[i] == costUnit) {
+            for (int i = 0; i < fc.getCostUnits().length; ++i) {
+                if (costUnit.equals(fc.getCostUnits()[i])) {
                     maxBudgetCosts = fc.getBudgetCosts()[i];
 
                     break;

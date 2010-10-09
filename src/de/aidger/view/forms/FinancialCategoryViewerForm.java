@@ -32,8 +32,8 @@ public class FinancialCategoryViewerForm extends JPanel {
         name.setText(fc.getName());
         year.setText(String.valueOf(fc.getYear()));
 
-        for (int i = 0; i < fc.getFunds().length; ++i) {
-            addNewCostUnit(UICostUnit.valueOf(fc.getFunds()[i]), String
+        for (int i = 0; i < fc.getCostUnits().length; ++i) {
+            addNewCostUnit(UICostUnit.valueOf(fc.getCostUnits()[i]), String
                 .valueOf(fc.getBudgetCosts()[i]));
         }
     }

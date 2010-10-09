@@ -61,11 +61,11 @@ public class FinancialCategoryTableModel extends TableModel {
     protected Object[] convertModelToRow(AbstractModel model) {
         FinancialCategory fc = (FinancialCategory) model;
 
-        String funds = UICostUnit.valueOf(fc.getFunds()[0]);
+        String funds = UICostUnit.valueOf(fc.getCostUnits()[0]);
         String budgetCosts = String.valueOf(fc.getBudgetCosts()[0]);
 
-        for (int i = 1; i < fc.getFunds().length; i++) {
-            funds += "\n" + UICostUnit.valueOf(fc.getFunds()[i]);
+        for (int i = 1; i < fc.getCostUnits().length; i++) {
+            funds += "\n" + UICostUnit.valueOf(fc.getCostUnits()[i]);
             budgetCosts += "\n" + fc.getBudgetCosts()[i];
         }
 
