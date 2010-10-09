@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import de.aidger.model.models.FinancialCategory;
-import de.aidger.view.utils.UIFund;
+import de.aidger.view.utils.UICostUnit;
 
 /**
  * A form used for viewing financial categories.
@@ -33,32 +33,32 @@ public class FinancialCategoryViewerForm extends JPanel {
         year.setText(String.valueOf(fc.getYear()));
 
         for (int i = 0; i < fc.getFunds().length; ++i) {
-            addNewFunds(UIFund.valueOf(fc.getFunds()[i]), String.valueOf(fc
-                .getBudgetCosts()[i]));
+            addNewCostUnit(UICostUnit.valueOf(fc.getFunds()[i]), String
+                .valueOf(fc.getBudgetCosts()[i]));
         }
     }
 
     /**
-     * Adds a new funds line to the form.
+     * Adds a new cost unit line to the form.
      */
-    private void addNewFunds(String fundsStr, String budgetCostsStr) {
+    private void addNewCostUnit(String costUnitStr, String budgetCostsStr) {
         GridBagConstraints gridBagConstraints;
 
-        JLabel lblFunds = new JLabel(_("Cost unit"));
+        JLabel lblCostUnit = new JLabel(_("Cost unit"));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
         gridBagConstraints.anchor = GridBagConstraints.WEST;
         gridBagConstraints.insets = new Insets(10, 10, 10, 10);
-        add(lblFunds, gridBagConstraints);
+        add(lblCostUnit, gridBagConstraints);
 
-        JLabel funds = new JLabel(fundsStr);
+        JLabel costUnit = new JLabel(costUnitStr);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
         gridBagConstraints.anchor = GridBagConstraints.WEST;
         gridBagConstraints.insets = new Insets(10, 10, 10, 10);
-        add(funds, gridBagConstraints);
+        add(costUnit, gridBagConstraints);
 
         JLabel lblBudgetCosts = new JLabel(_("Budget Costs"));
         gridBagConstraints = new GridBagConstraints();

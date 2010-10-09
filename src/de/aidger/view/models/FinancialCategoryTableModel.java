@@ -7,7 +7,7 @@ import java.util.List;
 import de.aidger.model.AbstractModel;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.Logger;
-import de.aidger.view.utils.UIFund;
+import de.aidger.view.utils.UICostUnit;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 
@@ -61,11 +61,11 @@ public class FinancialCategoryTableModel extends TableModel {
     protected Object[] convertModelToRow(AbstractModel model) {
         FinancialCategory fc = (FinancialCategory) model;
 
-        String funds = UIFund.valueOf(fc.getFunds()[0]);
+        String funds = UICostUnit.valueOf(fc.getFunds()[0]);
         String budgetCosts = String.valueOf(fc.getBudgetCosts()[0]);
 
         for (int i = 1; i < fc.getFunds().length; i++) {
-            funds += "\n" + UIFund.valueOf(fc.getFunds()[i]);
+            funds += "\n" + UICostUnit.valueOf(fc.getFunds()[i]);
             budgetCosts += "\n" + fc.getBudgetCosts()[i];
         }
 

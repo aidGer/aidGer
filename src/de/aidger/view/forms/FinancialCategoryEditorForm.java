@@ -25,7 +25,7 @@ import de.aidger.model.models.FinancialCategory;
 import de.aidger.view.utils.HelpLabel;
 import de.aidger.view.utils.InputPatternFilter;
 import de.aidger.view.utils.InvalidLengthException;
-import de.aidger.view.utils.UIFund;
+import de.aidger.view.utils.UICostUnit;
 
 /**
  * A form used for editing / creating new financial categories.
@@ -54,28 +54,29 @@ public class FinancialCategoryEditorForm extends JPanel {
             txtYear.setText(String.valueOf(fc.getYear()));
 
             for (int i = 0; i < fc.getFunds().length; ++i) {
-                addNewFunds();
+                addNewCostUnit();
 
-                FundsLine fl = fundsLines.get(i);
-                fl.cmbFunds.setSelectedItem(UIFund.valueOf(fc.getFunds()[i]));
+                CostUnitLine fl = costUnitLines.get(i);
+                fl.cmbCostUnit.setSelectedItem(UICostUnit
+                    .valueOf(fc.getFunds()[i]));
                 fl.txtBudgetCosts.setText(String
                     .valueOf(fc.getBudgetCosts()[i]));
             }
         } else {
-            addNewFunds();
+            addNewCostUnit();
         }
     }
 
     /**
-     * Sorts the funds.
+     * Sorts the cost units.
      */
-    public void sortFunds() {
-        Collections.sort(fundsLines, new Comparator<FundsLine>() {
+    public void sortCostUnits() {
+        Collections.sort(costUnitLines, new Comparator<CostUnitLine>() {
             @Override
-            public int compare(FundsLine f, FundsLine s) {
-                Integer first = Integer.valueOf((String) f.cmbFunds
+            public int compare(CostUnitLine f, CostUnitLine s) {
+                Integer first = Integer.valueOf((String) f.cmbCostUnit
                     .getSelectedItem());
-                Integer second = Integer.valueOf((String) s.cmbFunds
+                Integer second = Integer.valueOf((String) s.cmbCostUnit
                     .getSelectedItem());
 
                 if (first < second) {
@@ -96,37 +97,38 @@ public class FinancialCategoryEditorForm extends JPanel {
      * @throws NumberFormatException
      */
     public Integer[] getBudgetCosts() throws NumberFormatException {
-        Integer[] budgetCosts = new Integer[fundsLines.size()];
+        Integer[] budgetCosts = new Integer[costUnitLines.size()];
 
-        for (int i = 0; i < fundsLines.size(); ++i) {
-            budgetCosts[i] = Integer.valueOf(fundsLines.get(i).txtBudgetCosts
-                .getText());
+        for (int i = 0; i < costUnitLines.size(); ++i) {
+            budgetCosts[i] = Integer
+                .valueOf(costUnitLines.get(i).txtBudgetCosts.getText());
         }
 
         return budgetCosts;
     }
 
     /**
-     * Get the funds of the category.
+     * Get the cost units of the category.
      * 
-     * @return The funds of the category
+     * @return the cost units of the category
      * @throws NumberFormatException
      *             InvaludLengthException
      */
-    public Integer[] getFunds() throws NumberFormatException,
+    public Integer[] getCostUnits() throws NumberFormatException,
             InvalidLengthException {
-        Integer[] funds = new Integer[fundsLines.size()];
+        Integer[] costUnits = new Integer[costUnitLines.size()];
 
-        for (int i = 0; i < fundsLines.size(); ++i) {
-            String fund = (String) fundsLines.get(i).cmbFunds.getSelectedItem();
-            funds[i] = Integer.valueOf(fund);
+        for (int i = 0; i < costUnitLines.size(); ++i) {
+            String costUnit = (String) costUnitLines.get(i).cmbCostUnit
+                .getSelectedItem();
+            costUnits[i] = Integer.valueOf(costUnit);
 
-            if (fund.length() != 8) {
+            if (costUnit.length() != 8) {
                 throw new InvalidLengthException();
             }
         }
 
-        return funds;
+        return costUnits;
     }
 
     /**
@@ -149,29 +151,29 @@ public class FinancialCategoryEditorForm extends JPanel {
     }
 
     /**
-     * Adds a new funds line to the form.
+     * Adds a new cost unit line to the form.
      */
-    private void addNewFunds() {
+    private void addNewCostUnit() {
         GridBagConstraints gridBagConstraints;
 
-        JLabel lblFunds = new JLabel();
-        lblFunds.setText(_("Cost unit"));
+        JLabel lblCostUnit = new JLabel();
+        lblCostUnit.setText(_("Cost unit"));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(lblFunds, gridBagConstraints);
+        add(lblCostUnit, gridBagConstraints);
 
-        JComboBox cmbFunds = new JComboBox();
-        cmbFunds.setModel(new DefaultComboBoxModel(Runtime.getInstance()
+        JComboBox cmbCostUnit = new JComboBox();
+        cmbCostUnit.setModel(new DefaultComboBoxModel(Runtime.getInstance()
             .getCostUnitMap().getCostUnits()));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(cmbFunds, gridBagConstraints);
+        add(cmbCostUnit, gridBagConstraints);
 
         JLabel lblBudgetCosts = new JLabel();
         lblBudgetCosts.setText(_("Budget Costs"));
@@ -207,10 +209,10 @@ public class FinancialCategoryEditorForm extends JPanel {
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 5;
 
-        FundsLine fl = new FundsLine(lblFunds, cmbFunds, lblBudgetCosts,
-            txtBudgetCosts, hlpBudgetCosts, btnPlusMinus);
+        CostUnitLine fl = new CostUnitLine(lblCostUnit, cmbCostUnit,
+            lblBudgetCosts, txtBudgetCosts, hlpBudgetCosts, btnPlusMinus);
 
-        if (fundsLines.isEmpty()) {
+        if (costUnitLines.isEmpty()) {
             btnPlusMinus.setIcon(new ImageIcon(getClass().getResource(
                 "/de/aidger/res/icons/plus-small.png")));
 
@@ -218,18 +220,18 @@ public class FinancialCategoryEditorForm extends JPanel {
 
             btnPlusMinus.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent evt) {
-                    addNewFunds();
+                    addNewCostUnit();
                 }
             });
         } else {
             gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
 
-            btnPlusMinus.setAction(new RemoveFundsAction(fl));
+            btnPlusMinus.setAction(new RemoveCostUnitAction(fl));
         }
 
         add(btnPlusMinus, gridBagConstraints);
 
-        fundsLines.add(fl);
+        costUnitLines.add(fl);
     }
 
     /**
@@ -244,7 +246,7 @@ public class FinancialCategoryEditorForm extends JPanel {
         txtYear = new javax.swing.JTextField();
         hlpYear = new HelpLabel();
 
-        fundsLines = new ArrayList<FundsLine>();
+        costUnitLines = new ArrayList<CostUnitLine>();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -292,30 +294,30 @@ public class FinancialCategoryEditorForm extends JPanel {
     private JTextField txtYear;
     private HelpLabel hlpYear;
 
-    private List<FundsLine> fundsLines;
+    private List<CostUnitLine> costUnitLines;
 
     /**
      * This class represents a funds line in the form.
      * 
      * @author aidGer Team
      */
-    private class FundsLine {
-        public JLabel lblFunds;
-        public JComboBox cmbFunds;
+    private class CostUnitLine {
+        public JLabel lblCostUnit;
+        public JComboBox cmbCostUnit;
         public JLabel lblBudgetCosts;
         public JTextField txtBudgetCosts;
         public HelpLabel hlpBudgetCosts;
         public JButton btnPlusMinus;
 
         /**
-         * Initializes a funds line.
+         * Initializes a cost unit line.
          * 
          */
-        public FundsLine(JLabel lblFunds, JComboBox cmbFunds,
+        public CostUnitLine(JLabel lblCostUnit, JComboBox cmbCostUnit,
                 JLabel lblBudgetCosts, JTextField txtBudgetCosts,
                 HelpLabel hlpBudgetCosts, JButton btnPlusMinus) {
-            this.lblFunds = lblFunds;
-            this.cmbFunds = cmbFunds;
+            this.lblCostUnit = lblCostUnit;
+            this.cmbCostUnit = cmbCostUnit;
             this.lblBudgetCosts = lblBudgetCosts;
             this.txtBudgetCosts = txtBudgetCosts;
             this.hlpBudgetCosts = hlpBudgetCosts;
@@ -324,24 +326,24 @@ public class FinancialCategoryEditorForm extends JPanel {
     }
 
     /**
-     * Removes a funds line from the form by clicking on "-" button.
+     * Removes a cost unit line from the form by clicking on "-" button.
      * 
      * @author aidGer Team
      */
-    private class RemoveFundsAction extends AbstractAction {
+    private class RemoveCostUnitAction extends AbstractAction {
         /**
          * The funds line that will be removed.
          */
-        private final FundsLine fundsLine;
+        private final CostUnitLine costUnitLine;
 
         /**
          * Initializes the action.
          */
-        public RemoveFundsAction(FundsLine fundsLine) {
+        public RemoveCostUnitAction(CostUnitLine costUnitLine) {
             putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
                 "/de/aidger/res/icons/minus-small.png")));
 
-            this.fundsLine = fundsLine;
+            this.costUnitLine = costUnitLine;
         }
 
         /*
@@ -353,14 +355,14 @@ public class FinancialCategoryEditorForm extends JPanel {
          */
         @Override
         public void actionPerformed(ActionEvent e) {
-            remove(fundsLine.lblFunds);
-            remove(fundsLine.cmbFunds);
-            remove(fundsLine.lblBudgetCosts);
-            remove(fundsLine.txtBudgetCosts);
-            remove(fundsLine.hlpBudgetCosts);
-            remove(fundsLine.btnPlusMinus);
+            remove(costUnitLine.lblCostUnit);
+            remove(costUnitLine.cmbCostUnit);
+            remove(costUnitLine.lblBudgetCosts);
+            remove(costUnitLine.txtBudgetCosts);
+            remove(costUnitLine.hlpBudgetCosts);
+            remove(costUnitLine.btnPlusMinus);
 
-            fundsLines.remove(fundsLine);
+            costUnitLines.remove(costUnitLine);
 
             repaint();
             revalidate();

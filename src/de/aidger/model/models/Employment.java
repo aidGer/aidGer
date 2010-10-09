@@ -37,9 +37,9 @@ public class Employment extends AbstractModel<IEmployment> implements
     private Integer courseId;
 
     /**
-     * The fonds of the employment.
+     * The funds of the employment.
      */
-    private Integer funds;
+    private String funds;
 
     /**
      * The month in which the employment took place.
@@ -59,7 +59,7 @@ public class Employment extends AbstractModel<IEmployment> implements
     /**
      * The cost unit given by the university.
      */
-    private String costUnit;
+    private Integer costUnit;
 
     /**
      * The qualification of the employment.
@@ -75,7 +75,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      * Initializes the Employment class.
      */
     public Employment() {
-        validatePresenceOf(new String[] { "costUnit", "qualification" },
+        validatePresenceOf(new String[] { "funds", "qualification" },
             new String[] { _("Funds"), _("Qualification") });
         validateInclusionOf(new String[] { "qualification" },
             new String[] { _("Qualification") }, new String[] { "g", "u", "b" });
@@ -197,8 +197,8 @@ public class Employment extends AbstractModel<IEmployment> implements
      */
     public boolean validate() {
         boolean ret = true;
-        if (funds <= 0) {
-            addError("funds", _("Funds"), _("has to be bigger than 0"));
+        if (costUnit <= 0) {
+            addError("costUnit", _("Cost unit"), _("has to be bigger than 0"));
             ret = false;
         }
         if (hourCount < 0) {
@@ -213,8 +213,8 @@ public class Employment extends AbstractModel<IEmployment> implements
             addError("month", _("Month"), _("is an incorrect month"));
             ret = false;
         }
-        if (costUnit.length() > 10) {
-            addError("costUnit", _("Cost unit"),
+        if (funds.length() > 10) {
+            addError("funds", _("Funds"),
                 _("can't be longer than 10 characters"));
             ret = false;
         }
@@ -328,7 +328,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @return A list of distinct cost units
      * @throws AdoHiveException
      */
-    public List<String> getDistinctCostUnits() throws AdoHiveException {
+    public List<Integer> getDistinctCostUnits() throws AdoHiveException {
         IEmploymentManager mgr = (IEmploymentManager) getManager();
         return mgr.getDistinctCostUnits();
     }
@@ -359,7 +359,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @return The cost unit of the contract
      */
     @Override
-    public String getCostUnit() {
+    public Integer getCostUnit() {
         return costUnit;
     }
 
@@ -379,7 +379,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @return The funds of the employment
      */
     @Override
-    public Integer getFunds() {
+    public String getFunds() {
         return funds;
     }
 
@@ -462,7 +462,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      *            The cost unit of the contract
      */
     @Override
-    public void setCostUnit(String cost) {
+    public void setCostUnit(Integer cost) {
         costUnit = cost;
     }
 
@@ -484,7 +484,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      *            The funds of the employment
      */
     @Override
-    public void setFunds(Integer funds) {
+    public void setFunds(String funds) {
         this.funds = funds;
     }
 
