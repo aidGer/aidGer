@@ -31,7 +31,7 @@ import de.unistuttgart.iste.se.adohive.model.IAdoHiveModel;
 public class InternalFinancialCategory implements IAdoHiveModel<InternalFinancialCategory>{
 
 	protected Integer id;
-	protected Integer funds;
+	protected Integer costUnit;
 	protected Integer budgetCosts;
 	protected String name;
 	protected Short year;
@@ -92,17 +92,17 @@ public class InternalFinancialCategory implements IAdoHiveModel<InternalFinancia
 	/**
 	 * @return the funds
 	 */
-	@AdoMethod(columnName = "Fonds")
-	public Integer getFunds() {
-		return funds;
+	@AdoMethod(columnName = "Kostenstelle")
+	public Integer getCostUnit() {
+		return costUnit;
 	}
 	
 	/**
 	 * @param funds the funds to set
 	 */
-	@AdoMethod(columnName = "Fonds")
-	public void setFunds(Integer funds) {
-		this.funds = funds;
+	@AdoMethod(columnName = "Kostenstelle")
+	public void setCostUnit(Integer costUnit) {
+		this.costUnit = costUnit;
 	}
 	
 	/**
@@ -126,7 +126,7 @@ public class InternalFinancialCategory implements IAdoHiveModel<InternalFinancia
 		if (o instanceof InternalFinancialCategory) {
 			InternalFinancialCategory f = (InternalFinancialCategory) o;
 			return f.getBudgetCosts().equals(this.budgetCosts) &&
-					f.getFunds().equals(this.funds) &&
+					f.getCostUnit().equals(this.costUnit) &&
 					f.getId().equals(this.id);
 		} else {
 			return false;
@@ -136,7 +136,7 @@ public class InternalFinancialCategory implements IAdoHiveModel<InternalFinancia
 	public InternalFinancialCategory clone() {
 		InternalFinancialCategory f = new InternalFinancialCategory();
 		f.setBudgetCosts(this.budgetCosts);
-		f.setFunds(this.funds);
+		f.setCostUnit(this.costUnit);
 		f.setId(this.id);
 		f.setName(this.name);
 		f.setYear(this.year);
