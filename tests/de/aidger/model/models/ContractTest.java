@@ -6,17 +6,17 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import java.util.List;
 
 /**
  * Tests the Contract class.
- *
+ * 
  * @author aidGer Team
  */
 public class ContractTest {
@@ -60,8 +60,7 @@ public class ContractTest {
         contract.setNew(true);
         contract.save();
 
-        Contract result = new Contract(contract.getById(
-                contract.getId()));
+        Contract result = new Contract(contract.getById(contract.getId()));
 
         assertNotNull(result);
         assertEquals(contract, result);
@@ -155,8 +154,8 @@ public class ContractTest {
         employment.setAssistantId(assistant.getId());
         employment.setContractId(contract.getId());
         employment.setCourseId(course.getId());
-        employment.setCostUnit("0711");
-        employment.setFunds(1);
+        employment.setFunds("0711");
+        employment.setCostUnit(1);
         employment.setHourCount(40.0);
         employment.setMonth((byte) 10);
         employment.setQualification("g");
@@ -182,7 +181,8 @@ public class ContractTest {
 
         assertEquals(contract.getId(), result.getId());
         assertEquals(contract.getCompletionDate(), result.getCompletionDate());
-        assertEquals(contract.getConfirmationDate(), result.getConfirmationDate());
+        assertEquals(contract.getConfirmationDate(), result
+            .getConfirmationDate());
         assertEquals(contract.isDelegation(), result.isDelegation());
         assertEquals(contract.getEndDate(), result.getEndDate());
         assertEquals(contract.getStartDate(), result.getStartDate());

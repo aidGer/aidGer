@@ -100,8 +100,8 @@ public class ControllingHelperTest {
         employment.setAssistantId(assistant.getId());
         employment.setContractId(contract.getId());
         employment.setCourseId(course.getId());
-        employment.setCostUnit("0711");
-        employment.setFunds(1);
+        employment.setFunds("0711");
+        employment.setCostUnit(1);
         employment.setHourCount(40.0);
         employment.setMonth((byte) 10);
         employment.setQualification("g");
@@ -188,6 +188,6 @@ public class ControllingHelperTest {
             employment.getMonth());
 
         assertEquals(1, result.length);
-        assertTrue(employment.getFunds() == result[0]);
+        assertTrue(employment.getCostUnit() == result[0]);
     }
 }

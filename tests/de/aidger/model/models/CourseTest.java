@@ -1,21 +1,26 @@
 package de.aidger.model.models;
 
-import org.junit.Test;
-import org.junit.Before;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import java.sql.Date;
 import java.util.List;
+
+import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Test;
+
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * Tests the Course class.
- *
+ * 
  * @author aidGer Team
  */
 public class CourseTest {
-    
+
     protected Course course = null;
 
     @BeforeClass
@@ -58,8 +63,7 @@ public class CourseTest {
         course.setNew(true);
         course.save();
 
-        Course result = new Course(course.getById(
-                course.getId()));
+        Course result = new Course(course.getById(course.getId()));
 
         assertNotNull(result);
         assertEquals(course, result);
@@ -120,7 +124,7 @@ public class CourseTest {
         assertTrue(course.remove());
 
         course.save();
-        Activity activity = new Activity();        
+        Activity activity = new Activity();
         activity.setAssistantId(null);
         activity.setContent("New assistant");
         activity.setCourseId(course.getId());
@@ -157,8 +161,8 @@ public class CourseTest {
         employment.setAssistantId(assistant.getId());
         employment.setContractId(contract.getId());
         employment.setCourseId(course.getId());
-        employment.setCostUnit("0711");
-        employment.setFunds(1);
+        employment.setFunds("0711");
+        employment.setCostUnit(1);
         employment.setHourCount(40.0);
         employment.setMonth((byte) 10);
         employment.setQualification("g");
@@ -173,7 +177,6 @@ public class CourseTest {
         assertTrue(course.remove());
     }
 
-
     /**
      * Test of clone method, of class Course.
      */
@@ -186,7 +189,8 @@ public class CourseTest {
         assertEquals(course.getId(), result.getId());
         assertEquals(course.getAdvisor(), result.getAdvisor());
         assertEquals(course.getDescription(), result.getDescription());
-        assertEquals(course.getFinancialCategoryId(), result.getFinancialCategoryId());
+        assertEquals(course.getFinancialCategoryId(), result
+            .getFinancialCategoryId());
         assertEquals(course.getGroup(), result.getGroup());
         assertEquals(course.getLecturer(), result.getLecturer());
         assertEquals(course.getNumberOfGroups(), result.getNumberOfGroups());
@@ -195,7 +199,8 @@ public class CourseTest {
         assertEquals(course.getScope(), result.getScope());
         assertEquals(course.getSemester(), result.getSemester());
         assertEquals(course.getTargetAudience(), result.getTargetAudience());
-        assertEquals(course.getUnqualifiedWorkingHours(), result.getUnqualifiedWorkingHours(), 0.001);
+        assertEquals(course.getUnqualifiedWorkingHours(), result
+            .getUnqualifiedWorkingHours(), 0.001);
     }
 
     /**
@@ -221,7 +226,7 @@ public class CourseTest {
         assertEquals(course.hashCode(), result.hashCode());
     }
 
-     /**
+    /**
      * Test of getCourses method, of class Course.
      */
     @Test

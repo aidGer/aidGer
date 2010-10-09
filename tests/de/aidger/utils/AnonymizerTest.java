@@ -1,9 +1,14 @@
 package de.aidger.utils;
 
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+
+import java.sql.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Assistant;
@@ -11,13 +16,11 @@ import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
-import java.sql.Date;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * Tests the Anonymizer class.
- *
+ * 
  * @author aidGer Team
  */
 public class AnonymizerTest {
@@ -33,7 +36,7 @@ public class AnonymizerTest {
     @Test
     public void testAnonymizeAssistants() throws AdoHiveException {
         System.out.println("anonymizeAssistants");
-        
+
         String old = Runtime.getInstance().getOption("anonymize-time");
         Runtime.getInstance().setOption("anonymize-time", "365");
 
@@ -92,8 +95,8 @@ public class AnonymizerTest {
         employment.setAssistantId(a.getId());
         employment.setContractId(contract.getId());
         employment.setCourseId(course.getId());
-        employment.setCostUnit("0711");
-        employment.setFunds(1);
+        employment.setFunds("0711");
+        employment.setCostUnit(1);
         employment.setHourCount(40.0);
         employment.setMonth((byte) cal.get(Calendar.MONTH));
         employment.setQualification("g");

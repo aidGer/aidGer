@@ -1,17 +1,21 @@
 package de.aidger.model.models;
 
-import org.junit.Test;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import java.sql.Date;
 
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * Tests the Assistant class.
- *
+ * 
  * @author aidGer Team
  */
 public class AssistantTest {
@@ -43,8 +47,7 @@ public class AssistantTest {
         assistant.setNew(true);
         assistant.save();
 
-        Assistant result = new Assistant(assistant.getById(
-                assistant.getId()));
+        Assistant result = new Assistant(assistant.getById(assistant.getId()));
 
         assertNotNull(result);
         assertEquals(assistant, result);
@@ -158,8 +161,8 @@ public class AssistantTest {
         employment.setAssistantId(assistant.getId());
         employment.setContractId(contract.getId());
         employment.setCourseId(course.getId());
-        employment.setCostUnit("0711");
-        employment.setFunds(1);
+        employment.setFunds("0711");
+        employment.setCostUnit(1);
         employment.setHourCount(40.0);
         employment.setMonth((byte) 10);
         employment.setQualification("g");
