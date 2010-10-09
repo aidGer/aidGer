@@ -47,9 +47,9 @@ public final class FinancialCategory implements IFinancialCategory {
 		this.id = financialCategory.getId();
 		this.name = financialCategory.getName();
 		this.year = financialCategory.getYear();
-		for(int i=0;i<financialCategory.getFunds().length;i++) {
+		for(int i=0;i<financialCategory.getCostUnits().length;i++) {
 				InternalFinancialCategory internal = newInternal();
-				internal.funds = financialCategory.getFunds()[i];
+				internal.costUnit = financialCategory.getCostUnits()[i];
 				internal.budgetCosts = financialCategory.getBudgetCosts()[i];
 				internalCategories.add(internal);
 		}
@@ -134,27 +134,27 @@ public final class FinancialCategory implements IFinancialCategory {
 	/**
 	 * @return the funds
 	 */
-	public Integer[] getFunds() {
+	public Integer[] getCostUnits() {
 		if(financialCategory != null)
-			return financialCategory.getFunds();
-		Integer[] funds = new Integer[internalCategories.size()];
+			return financialCategory.getCostUnits();
+		Integer[] costUnits = new Integer[internalCategories.size()];
 		for(int i=0;i<internalCategories.size();i++)
-			funds[i] = internalCategories.get(i).funds;
-		return funds;
+			costUnits[i] = internalCategories.get(i).costUnit;
+		return costUnits;
 	}
 	
 	/**
 	 * @param funds the funds to set
 	 */
-	public void setFunds(Integer[] funds) {
+	public void setCostUnits(Integer[] costUnits) {
 		if(financialCategory != null)
-			financialCategory.setFunds(funds);
-		for(int i=0;i<funds.length;i++) {
+			financialCategory.setCostUnits(costUnits);
+		for(int i=0;i<costUnits.length;i++) {
 			if(internalCategories.size() >= i+1)
-				internalCategories.get(i).funds = funds[i];
+				internalCategories.get(i).costUnit = costUnits[i];
 			else {
 				InternalFinancialCategory internal = newInternal();
-				internal.funds = funds[i];
+				internal.costUnit = costUnits[i];
 				internalCategories.add(internal);
 			}
 		}
@@ -196,7 +196,7 @@ public final class FinancialCategory implements IFinancialCategory {
 	*/
 	public FinancialCategory clone() {
 		FinancialCategory f = new FinancialCategory();
-		f.setFunds(this.getFunds());
+		f.setCostUnits(this.getCostUnits());
 		f.setBudgetCosts(this.getBudgetCosts());
 		f.setId(this.id);
 		f.setName(this.name);

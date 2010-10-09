@@ -39,5 +39,5 @@ public interface IFinancialCategoryManager extends IAdoHiveManager<IFinancialCat
 	 * @return a list of all distinct funds in the financial category table
 	 * @throws AdoHiveException
 	 */
-	public List<Integer> getDistinctFunds() throws AdoHiveException;
+	public List<Integer> getDistinctCostUnits() throws AdoHiveException;
 }
