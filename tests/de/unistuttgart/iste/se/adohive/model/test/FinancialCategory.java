@@ -31,12 +31,12 @@ public final class FinancialCategory implements IFinancialCategory {
 	protected String name = IndependentTestDataProvider.randomString();
 	protected Short year = (short) IndependentTestDataProvider.randomChar();
 	protected Integer[] budgetCosts;
-	protected Integer[] funds;
+	protected Integer[] costUnits;
 	protected IFinancialCategory financialCategory;
 	
 	public FinancialCategory() {
 		int arraylength = IndependentTestDataProvider.getRandom().nextInt(20)+1;
-		funds = IndependentTestDataProvider.randomIntArray(arraylength);
+		costUnits = IndependentTestDataProvider.randomIntArray(arraylength);
 		budgetCosts = IndependentTestDataProvider.randomIntArray(arraylength);
 	}
 	
@@ -85,15 +85,15 @@ public final class FinancialCategory implements IFinancialCategory {
 	/**
 	 * @return the funds
 	 */
-	public Integer[] getFunds() {
-		return funds;
+	public Integer[] getCostUnits() {
+		return costUnits;
 	}
 	
 	/**
 	 * @param funds the funds to set
 	 */
-	public void setFunds(Integer[] funds) {
-		this.funds = funds;
+	public void setCostUnits(Integer[] funds) {
+		this.costUnits = funds;
 	}
 	
 	/**
@@ -116,7 +116,7 @@ public final class FinancialCategory implements IFinancialCategory {
 			return false;
 		IFinancialCategory f = (IFinancialCategory) o;
 		Integer[] budgetCosts = f.getBudgetCosts();
-		Integer[] funds = f.getFunds();
+		Integer[] costUnits = f.getCostUnits();
 		for(int i=0; i<this.budgetCosts.length;i++) {
 			boolean found = false;
 			for(int j=0; j<budgetCosts.length;j++)
@@ -128,10 +128,10 @@ public final class FinancialCategory implements IFinancialCategory {
 				return false;
 		}
 		
-		for(int i=0; i<this.funds.length;i++) {
+		for(int i=0; i<this.costUnits.length;i++) {
 			boolean found = false;
-			for(int j=0; j<funds.length;j++)
-				if(this.funds[i].equals(funds[j])) {
+			for(int j=0; j<costUnits.length;j++)
+				if(this.costUnits[i].equals(costUnits[j])) {
 					found = true;
 					break;
 				}
@@ -146,7 +146,7 @@ public final class FinancialCategory implements IFinancialCategory {
 	
 	public FinancialCategory clone() {
 		FinancialCategory f = new FinancialCategory();
-		f.setFunds(this.getFunds());
+		f.setCostUnits(this.getCostUnits());
 		f.setBudgetCosts(this.getBudgetCosts());
 		f.setId(this.id);
 		f.setName(this.name);

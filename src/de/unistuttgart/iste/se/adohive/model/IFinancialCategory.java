@@ -60,12 +60,12 @@ public interface IFinancialCategory extends IAdoHiveModel<IFinancialCategory> {
 	/**
 	 * @return the funds
 	 */
-	public Integer[] getFunds();
+	public Integer[] getCostUnits();
 	
 	/**
 	 * @param funds the funds to set
 	 */
-	public void setFunds(Integer[] funds);
+	public void setCostUnits(Integer[] funds);
 	
 	/**
 	 * @return the year

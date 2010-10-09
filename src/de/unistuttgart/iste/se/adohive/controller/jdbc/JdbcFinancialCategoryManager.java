@@ -122,7 +122,7 @@ public abstract class JdbcFinancialCategoryManager implements IFinancialCategory
 			//this loop is only for checking if we need to remove a category or not 
 			//dont get confused, we remove a category from the categoriesToRemove list so it does NOT get removed
 			for(InternalFinancialCategory oldInternalCategory : categoriesToRemove)
-				if(internalCategory.getFunds().equals(oldInternalCategory.getFunds())) {
+				if(internalCategory.getCostUnit().equals(oldInternalCategory.getCostUnit())) {
 					categoriesToRemove.remove(oldInternalCategory);
 					break; //no need to check the rest, will throw a ConcurrentModificationException anyways
 				}
@@ -254,11 +254,11 @@ public abstract class JdbcFinancialCategoryManager implements IFinancialCategory
 	}
 	
 	@Override
-	public List<Integer> getDistinctFunds() throws AdoHiveException {
+	public List<Integer> getDistinctCostUnits() throws AdoHiveException {
 		List<Integer> distinctSemesters = new ArrayList<Integer>();
 		try {
 			PreparedStatement stmt;
-			stmt = con.prepareStatement("SELECT DISTINCT \"Fonds\" FROM \"Finanzkategorie\"");
+			stmt = con.prepareStatement("SELECT DISTINCT \"Kostenstelle\" FROM \"Finanzkategorie\"");
 			ResultSet result = stmt.executeQuery();
 			while(result.next())
 				distinctSemesters.add(result.getInt(1));

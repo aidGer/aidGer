@@ -71,7 +71,7 @@ public abstract class IFinancialCategoryManagerTest extends IAdoHiveManagerTest<
 		}
 		
 		int arraylength = IndependentTestDataProvider.getRandom().nextInt(20);
-		item.setFunds(IndependentTestDataProvider.randomIntArray(arraylength));
+		item.setCostUnits(IndependentTestDataProvider.randomIntArray(arraylength));
 		item.setBudgetCosts(IndependentTestDataProvider.randomIntArray(arraylength));
 		
 	}
@@ -91,18 +91,18 @@ public abstract class IFinancialCategoryManagerTest extends IAdoHiveManagerTest<
 		IFinancialCategoryManager instance = (IFinancialCategoryManager) getInstance();
 		IFinancialCategory i1 = newE();
 		IFinancialCategory i2 = newE();
-		i1.setFunds(new Integer[]{1});
-		i2.setFunds(new Integer[]{1});
+		i1.setCostUnits(new Integer[]{1});
+		i2.setCostUnits(new Integer[]{1});
 		instance.add(i1);
 		instance.add(i2);
 		assertEquals(2,instance.getAll().size());
-		i2.setFunds(new Integer[]{1,2});
+		i2.setCostUnits(new Integer[]{1,2});
 		instance.update(i2);
-		i1.setFunds(new Integer[]{1,2});
+		i1.setCostUnits(new Integer[]{1,2});
 		instance.update(i1);
 		List<IFinancialCategory> getall = instance.getAll();
 		assertEquals(2,getall.size());
-		assertEquals(2,getall.get(0).getFunds().length);
+		assertEquals(2,getall.get(0).getCostUnits().length);
 		assertEquals(2,getall.get(0).getBudgetCosts().length);
 	}
 }
