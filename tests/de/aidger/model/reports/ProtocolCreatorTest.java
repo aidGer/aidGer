@@ -8,6 +8,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import org.junit.After;
@@ -19,7 +20,6 @@ import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.FinancialCategory;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import java.text.SimpleDateFormat;
 
 /**
  * Tests the class ProtocolCreator
@@ -72,7 +72,7 @@ public class ProtocolCreatorTest {
 
         financial = new FinancialCategory();
         financial.setBudgetCosts(new Integer[] { 100, 200 });
-        financial.setFunds(new Integer[] { 10001000, 20002000 });
+        financial.setCostUnits(new Integer[] { 10001000, 20002000 });
         financial.setName("Tester");
         financial.setYear((short) 2010);
         financial.save();

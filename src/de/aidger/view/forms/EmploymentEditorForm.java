@@ -277,7 +277,7 @@ public class EmploymentEditorForm extends JPanel {
 
             cmbCostUnitModel.removeAllElements();
 
-            for (int costUnit : fc.getFunds()) {
+            for (int costUnit : fc.getCostUnits()) {
                 cmbCostUnitModel.addElement(UICostUnit.valueOf(costUnit));
             }
         } catch (AdoHiveException e) {

@@ -196,7 +196,7 @@ public class EditorSaveAction extends AbstractAction {
         }
 
         try {
-            fc.setFunds(form.getCostUnits());
+            fc.setCostUnits(form.getCostUnits());
         } catch (NumberFormatException e) {
             fc.addError("funds", _("Cost unit"), new PresenceValidator(fc,
                 new String[0], new String[0]).getMessage());

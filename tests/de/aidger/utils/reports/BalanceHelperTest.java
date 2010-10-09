@@ -107,7 +107,7 @@ public class BalanceHelperTest {
     public void setUp() throws AdoHiveException {
         financialCategory = new FinancialCategory();
         financialCategory.setBudgetCosts(new Integer[] { 1000 });
-        financialCategory.setFunds(new Integer[] { 10000000 });
+        financialCategory.setCostUnits(new Integer[] { 10000000 });
         financialCategory.setName("Test Category");
         financialCategory.setYear((short) 2010);
         financialCategory.save();

@@ -6,14 +6,14 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import org.junit.BeforeClass;
 
 /**
  * Tests the FinancialCategory class.
- *
+ * 
  * @author aidGer Team
  */
 public class FinancialCategoryTest {
@@ -30,7 +30,7 @@ public class FinancialCategoryTest {
         financial = new FinancialCategory();
         financial.setId(1);
         financial.setBudgetCosts(new Integer[] { 100, 200 });
-        financial.setFunds(new Integer[] { 10001000, 20002000 });
+        financial.setCostUnits(new Integer[] { 10001000, 20002000 });
         financial.setName("Tester");
         financial.setYear((short) 2010);
     }
@@ -45,8 +45,8 @@ public class FinancialCategoryTest {
         financial.setNew(true);
         financial.save();
 
-        FinancialCategory result = new FinancialCategory(financial.getById(
-                financial.getId()));
+        FinancialCategory result = new FinancialCategory(financial
+            .getById(financial.getId()));
 
         assertNotNull(result);
         assertEquals(financial, result);
@@ -77,10 +77,10 @@ public class FinancialCategoryTest {
         assertFalse(financial.save());
         financial.setBudgetCosts(new Integer[] { 100, 200 });
 
-        financial.setFunds(new Integer[] { 1234567 });
+        financial.setCostUnits(new Integer[] { 1234567 });
         assertFalse(financial.save());
 
-        financial.setFunds(new Integer[] { 123456789 });
+        financial.setCostUnits(new Integer[] { 123456789 });
         assertFalse(financial.save());
     }
 
@@ -129,7 +129,7 @@ public class FinancialCategoryTest {
 
         assertEquals(financial.getId(), result.getId());
         assertEquals(financial.getBudgetCosts(), result.getBudgetCosts());
-        assertEquals(financial.getFunds(), result.getFunds());
+        assertEquals(financial.getCostUnits(), result.getCostUnits());
         assertEquals(financial.getName(), result.getName());
         assertEquals(financial.getYear(), result.getYear());
     }

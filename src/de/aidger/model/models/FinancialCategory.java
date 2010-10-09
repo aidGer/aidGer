@@ -1,14 +1,14 @@
 package de.aidger.model.models;
 
 import static de.aidger.utils.Translation._;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 import java.util.Arrays;
+import java.util.List;
 
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.controller.IFinancialCategoryManager;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
-import java.util.List;
 
 /**
  * Represents a single entry in the financial category column of the database.
@@ -30,9 +30,9 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
     private Integer[] budgetCosts;
 
     /**
-     * The fonds of the category.
+     * The cost units of the category.
      */
-    private Integer[] funds;
+    private Integer[] costUnits;
 
     /**
      * The year the category is valid.
@@ -59,7 +59,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
         this();
         setId(f.getId());
         setBudgetCosts(f.getBudgetCosts());
-        setFunds(f.getFunds());
+        setCostUnits(f.getCostUnits());
         setName(f.getName());
         setYear(f.getYear());
         setNew(false);
@@ -72,7 +72,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
     public FinancialCategory clone() {
         FinancialCategory f = new FinancialCategory();
         f.setBudgetCosts(budgetCosts);
-        f.setFunds(funds);
+        f.setCostUnits(costUnits);
         f.setName(name);
         f.setYear(year);
         f.doClone(this);
@@ -92,7 +92,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
             FinancialCategory f = (FinancialCategory) o;
             return (id == null ? f.id == null : id.equals(f.id))
                     && Arrays.equals(f.budgetCosts, budgetCosts)
-                    && Arrays.equals(f.funds, funds)
+                    && Arrays.equals(f.costUnits, costUnits)
                     && (year == null ? f.year == null : year.equals(f.year))
                     && (name == null ? f.name == null : f.name.equals(name));
         } else {
@@ -110,14 +110,14 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
         int hash = 3;
         hash = 37 * hash + (name != null ? name.hashCode() : 0);
         hash = 37 * hash + Arrays.hashCode(budgetCosts);
-        hash = 37 * hash + Arrays.hashCode(funds);
+        hash = 37 * hash + Arrays.hashCode(costUnits);
         hash = 37 * hash + (year != null ? year.hashCode() : 0);
         return hash;
     }
 
     /**
      * Custom validation function.
-     *
+     * 
      * @return True if the validation is successfull
      */
     public boolean validate() {
@@ -139,7 +139,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
 
     /**
      * Custom validation function for remove().
-     *
+     * 
      * @return True if everything is correct
      * @throws AdoHiveException
      */
@@ -158,13 +158,13 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
 
     /**
      * Get a list of distinct funds.
-     *
-     * @return List of distinct funds
+     * 
+     * @return List of distinct cost units
      * @throws AdoHiveException
      */
-    public List<Integer> getDistinctFunds() throws AdoHiveException {
+    public List<Integer> getDistinctCostUnits() throws AdoHiveException {
         IFinancialCategoryManager mgr = (IFinancialCategoryManager) getManager();
-        return mgr.getDistinctFunds();
+        return mgr.getDistinctCostUnits();
     }
 
     /**
@@ -183,8 +183,8 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      * @return The funds of the category
      */
     @Override
-    public Integer[] getFunds() {
-        return funds;
+    public Integer[] getCostUnits() {
+        return costUnits;
     }
 
     /**
@@ -221,12 +221,12 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
     /**
      * Set the funds of the category.
      * 
-     * @param funds
-     *            The funds of the category
+     * @param costUnits
+     *            The cost units of the category
      */
     @Override
-    public void setFunds(Integer[] funds) {
-        this.funds = funds;
+    public void setCostUnits(Integer[] costUnits) {
+        this.costUnits = costUnits;
     }
 
     /**

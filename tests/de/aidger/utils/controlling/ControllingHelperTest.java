@@ -57,7 +57,7 @@ public class ControllingHelperTest {
     public void setUp() throws AdoHiveException {
         fc = new FinancialCategory();
         fc.setBudgetCosts(new Integer[] { 100 });
-        fc.setFunds(new Integer[] { 10001000 });
+        fc.setCostUnits(new Integer[] { 10001000 });
         fc.setName("name");
         fc.setYear((short) 2010);
         fc.save();

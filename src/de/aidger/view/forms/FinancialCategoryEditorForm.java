@@ -53,12 +53,12 @@ public class FinancialCategoryEditorForm extends JPanel {
             txtName.setText(fc.getName());
             txtYear.setText(String.valueOf(fc.getYear()));
 
-            for (int i = 0; i < fc.getFunds().length; ++i) {
+            for (int i = 0; i < fc.getCostUnits().length; ++i) {
                 addNewCostUnit();
 
                 CostUnitLine fl = costUnitLines.get(i);
-                fl.cmbCostUnit.setSelectedItem(UICostUnit
-                    .valueOf(fc.getFunds()[i]));
+                fl.cmbCostUnit.setSelectedItem(UICostUnit.valueOf(fc
+                    .getCostUnits()[i]));
                 fl.txtBudgetCosts.setText(String
                     .valueOf(fc.getBudgetCosts()[i]));
             }
