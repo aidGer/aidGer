@@ -164,10 +164,10 @@ public class BalanceHelperTest {
         employment1 = new Employment();
         employment1.setAssistantId(assistant.getId());
         employment1.setCourseId(course.getId());
-        employment1.setFunds(1);
+        employment1.setCostUnit(1);
         employment1.setHourCount(10.0);
         employment1.setContractId(contract.getId());
-        employment1.setCostUnit("Test unit");
+        employment1.setFunds("Test unit");
         employment1.setMonth((byte) 1);
         employment1.setQualification("g");
         employment1.setRemark("Test remark");
@@ -178,10 +178,10 @@ public class BalanceHelperTest {
         employment2 = new Employment();
         employment2.setAssistantId(assistant.getId());
         employment2.setCourseId(course.getId());
-        employment2.setFunds(1);
+        employment2.setCostUnit(1);
         employment2.setHourCount(10.0);
         employment2.setContractId(contract.getId());
-        employment2.setCostUnit("Test unit");
+        employment2.setFunds("Test unit");
         employment2.setMonth((byte) 1);
         employment2.setQualification("g");
         employment2.setRemark("Test remark");
@@ -206,10 +206,10 @@ public class BalanceHelperTest {
         balanceCourse.setPlannedAWS(employment1.getHourCount()
                 + employment2.getHourCount());
         balanceCourse.setTargetAudience("Testers");
-        balanceCourse.addBudgetCost(employment1.getFunds(), employment1
-            .getCostUnit(), 120);
-        balanceCourse.addBudgetCost(employment2.getFunds(), employment2
-            .getCostUnit(), 120);
+        balanceCourse.addBudgetCost(employment1.getCostUnit(), employment1
+            .getFunds(), 120);
+        balanceCourse.addBudgetCost(employment2.getCostUnit(), employment2
+            .getFunds(), 120);
     }
 
     /**
@@ -448,16 +448,14 @@ public class BalanceHelperTest {
                 resultCourseObject[i]);
         }
         ArrayList<BudgetCost> resultBudgetCosts = (ArrayList<BudgetCost>) resultCourseObject[resultCourseObject.length - 1];
-        assertEquals(employment1.getFunds(), resultBudgetCosts.get(0).getId(),
-            0.001);
         assertEquals(employment1.getCostUnit(), resultBudgetCosts.get(0)
-            .getName());
+            .getId(), 0.001);
+        assertEquals(employment1.getFunds(), resultBudgetCosts.get(0).getName());
         assertEquals(new BigDecimal(120.0).setScale(2).doubleValue(),
             resultBudgetCosts.get(0).getValue(), 0.001);
-        assertEquals(employment2.getFunds(), resultBudgetCosts.get(1).getId(),
-            0.001);
         assertEquals(employment2.getCostUnit(), resultBudgetCosts.get(1)
-            .getName());
+            .getId(), 0.001);
+        assertEquals(employment2.getFunds(), resultBudgetCosts.get(1).getName());
         assertEquals(new BigDecimal(120.0).setScale(2).doubleValue(),
             resultBudgetCosts.get(1).getValue(), 0.001);
     }

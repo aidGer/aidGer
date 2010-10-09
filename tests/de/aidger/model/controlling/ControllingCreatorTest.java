@@ -106,8 +106,8 @@ public class ControllingCreatorTest {
         employment.setAssistantId(assistant.getId());
         employment.setContractId(contract.getId());
         employment.setCourseId(course.getId());
-        employment.setCostUnit("0711");
-        employment.setFunds(1);
+        employment.setFunds("0711");
+        employment.setCostUnit(1);
         employment.setHourCount(40.0);
         employment.setMonth((byte) 10);
         employment.setQualification("g");
@@ -124,7 +124,7 @@ public class ControllingCreatorTest {
         System.out.println("Constructor");
 
         controllingCreator = new ControllingCreator(employment.getYear(),
-            employment.getMonth(), employment.getFunds());
+            employment.getMonth(), employment.getCostUnit());
 
         assertNotNull(controllingCreator);
     }
@@ -137,7 +137,7 @@ public class ControllingCreatorTest {
         System.out.println("getAssistants()");
 
         controllingCreator = new ControllingCreator(employment.getYear(),
-            employment.getMonth(), employment.getFunds());
+            employment.getMonth(), employment.getCostUnit());
 
         ControllingAssistant expectedAssistant = new ControllingAssistant();
         expectedAssistant.setName(assistant.getFirstName() + " "

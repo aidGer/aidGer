@@ -1,18 +1,23 @@
 package de.aidger.model.models;
 
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.sql.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
+
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-import java.util.GregorianCalendar;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * Tests the Employment class.
- *
+ * 
  * @author aidGer Team
  */
 public class EmploymentTest {
@@ -78,8 +83,8 @@ public class EmploymentTest {
         employment.setAssistantId(assistant.getId());
         employment.setContractId(contract.getId());
         employment.setCourseId(course.getId());
-        employment.setCostUnit("0711");
-        employment.setFunds(1);
+        employment.setFunds("0711");
+        employment.setCostUnit(1);
         employment.setHourCount(40.0);
         employment.setMonth((byte) 10);
         employment.setQualification("g");
@@ -97,8 +102,8 @@ public class EmploymentTest {
         employment.setNew(true);
         employment.save();
 
-        Employment result = new Employment(employment.getById(
-                employment.getId()));
+        Employment result = new Employment(employment.getById(employment
+            .getId()));
 
         assertNotNull(result);
         assertEquals(employment, result);
@@ -124,24 +129,24 @@ public class EmploymentTest {
         employment.resetErrors();
         employment.setContractId(contract.getId());
 
-        employment.setCostUnit(null);
+        employment.setFunds(null);
         assertFalse(employment.save());
         employment.resetErrors();
 
-        employment.setCostUnit("01234567890");
+        employment.setFunds("01234567890");
         assertFalse(employment.save());
         employment.resetErrors();
-        employment.setCostUnit("0711");
+        employment.setFunds("0711");
 
         employment.setCourseId(0);
         assertFalse(employment.save());
         employment.resetErrors();
         employment.setCourseId(course.getId());
 
-        employment.setFunds(0);
+        employment.setCostUnit(0);
         assertFalse(employment.save());
         employment.resetErrors();
-        employment.setFunds(1);
+        employment.setCostUnit(1);
 
         employment.setHourCount(-1.0);
         assertFalse(employment.save());
@@ -166,7 +171,6 @@ public class EmploymentTest {
         assertFalse(employment.save());
         employment.resetErrors();
     }
-
 
     /**
      * Test of clone method, of class Employment.
@@ -219,10 +223,10 @@ public class EmploymentTest {
     @Test
     public void testGetEmployments_Date_Date() throws AdoHiveException {
         System.out.println("getEmployments");
-        Date start = new Date(new GregorianCalendar(2010, 10, 1).getTime().
-                getTime());
-        Date end = new Date(new GregorianCalendar(2010, 12, 1).getTime().
-                getTime());
+        Date start = new Date(new GregorianCalendar(2010, 10, 1).getTime()
+            .getTime());
+        Date end = new Date(new GregorianCalendar(2010, 12, 1).getTime()
+            .getTime());
 
         employment.clearTable();
         employment.setMonth((byte) 10);
@@ -253,9 +257,9 @@ public class EmploymentTest {
         employment.setYear((short) 2010);
         employment.setNew(true);
         employment.save();
-        
+
         List result = employment.getEmployments((short) 2010, (byte) 7,
-                (short) 2010, (byte) 8);
+            (short) 2010, (byte) 8);
 
         assertNotNull(result);
         assertTrue(result.size() == 1);

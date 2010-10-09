@@ -110,10 +110,10 @@ public class BalanceReportGroupCreatorTest {
         employment1 = new Employment();
         employment1.setAssistantId(assistant.getId());
         employment1.setCourseId(course.getId());
-        employment1.setFunds(1);
+        employment1.setCostUnit(1);
         employment1.setHourCount(10.0);
         employment1.setContractId(contract.getId());
-        employment1.setCostUnit("Test unit");
+        employment1.setFunds("Test unit");
         employment1.setMonth((byte) 1);
         employment1.setQualification("g");
         employment1.setRemark("Test remark");
@@ -124,10 +124,10 @@ public class BalanceReportGroupCreatorTest {
         employment2 = new Employment();
         employment2.setAssistantId(assistant.getId());
         employment2.setCourseId(course.getId());
-        employment2.setFunds(2);
+        employment2.setCostUnit(2);
         employment2.setHourCount(10.0);
         employment2.setContractId(contract.getId());
-        employment2.setCostUnit("Test unit");
+        employment2.setFunds("Test unit");
         employment2.setMonth((byte) 1);
         employment2.setQualification("g");
         employment2.setRemark("Test remark");
