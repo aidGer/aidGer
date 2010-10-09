@@ -245,12 +245,12 @@ public class BalanceHelper {
                                 + calculateBudgetCost(employment);
                     }
                 }
-                if (balanceCourse.budgetCostExists(employment.getFunds())) {
-                    balanceCourse.addBudgetCostValue(employment.getFunds(),
+                if (balanceCourse.budgetCostExists(employment.getCostUnit())) {
+                    balanceCourse.addBudgetCostValue(employment.getCostUnit(),
                         budgetCost.doubleValue());
                 } else {
-                    balanceCourse.addBudgetCost(employment.getFunds(),
-                        employment.getCostUnit(), budgetCost.doubleValue());
+                    balanceCourse.addBudgetCost(employment.getCostUnit(),
+                        employment.getFunds(), budgetCost.doubleValue());
                 }
                 plannedAWS = plannedAWS + employment.getHourCount();
             }

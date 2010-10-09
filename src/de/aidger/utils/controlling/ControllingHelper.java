@@ -3,9 +3,9 @@
  */
 package de.aidger.utils.controlling;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
 
 import de.aidger.model.models.Employment;
 import de.aidger.view.UI;
@@ -103,7 +103,7 @@ public class ControllingHelper {
      * @return The funds.
      */
     public int[] getFunds(int year, int month) {
-        ArrayList<Integer> funds = new ArrayList<Integer>();
+        ArrayList<Integer> costUnits = new ArrayList<Integer>();
         List<Employment> employments;
         try {
             /*
@@ -114,18 +114,18 @@ public class ControllingHelper {
             employments = new Employment().getEmployments((short) year,
                 (byte) 1, (short) year, (byte) month);
             for (Employment employment : employments) {
-                if (!funds.contains(employment.getFunds())) {
-                    funds.add(employment.getFunds());
+                if (!costUnits.contains(employment.getCostUnit())) {
+                    costUnits.add(employment.getCostUnit());
                 }
             }
         } catch (AdoHiveException e) {
             UI.displayError(e.toString());
         }
-        int[] sortedFunds = new int[funds.size()];
-        for (int i = 0; i < sortedFunds.length; i++) {
-            sortedFunds[i] = funds.get(i);
+        int[] sortedCostUnits = new int[costUnits.size()];
+        for (int i = 0; i < sortedCostUnits.length; i++) {
+            sortedCostUnits[i] = costUnits.get(i);
         }
-        Arrays.sort(sortedFunds);
-        return sortedFunds;
+        Arrays.sort(sortedCostUnits);
+        return sortedCostUnits;
     }
 }
