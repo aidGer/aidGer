@@ -131,7 +131,7 @@ public class EmploymentEditorForm extends JPanel {
         cmbCourse.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                refreshFunds((Course) cmbCourse.getSelectedItem());
+                refreshCostUnit((Course) cmbCourse.getSelectedItem());
             }
         });
 
@@ -200,7 +200,7 @@ public class EmploymentEditorForm extends JPanel {
             }
 
             if (cmbCourse.getSelectedItem() != null) {
-                refreshFunds((Course) cmbCourse.getSelectedItem());
+                refreshCostUnit((Course) cmbCourse.getSelectedItem());
             }
 
             addNewDate();
@@ -265,12 +265,12 @@ public class EmploymentEditorForm extends JPanel {
     }
 
     /**
-     * Refreshs the funds model.
+     * Refreshs the cost unit model.
      * 
      * @param course
      *            the new course
      */
-    private void refreshFunds(Course course) {
+    private void refreshCostUnit(Course course) {
         if (course == null) {
             return;
         }
@@ -279,13 +279,13 @@ public class EmploymentEditorForm extends JPanel {
             IFinancialCategory fc = (new FinancialCategory()).getById(course
                 .getFinancialCategoryId());
 
-            ComboBoxModel cmbFundsModel = (ComboBoxModel) cmbCostUnit
+            ComboBoxModel cmbCostUnitModel = (ComboBoxModel) cmbCostUnit
                 .getModel();
 
-            cmbFundsModel.removeAllElements();
+            cmbCostUnitModel.removeAllElements();
 
-            for (int funds : fc.getFunds()) {
-                cmbFundsModel.addElement(UICostUnit.valueOf(funds));
+            for (int costUnit : fc.getFunds()) {
+                cmbCostUnitModel.addElement(UICostUnit.valueOf(costUnit));
             }
         } catch (AdoHiveException e) {
         }
