@@ -14,7 +14,8 @@ coverage/*
 codecover/*
 
 # Database
-derby*
+derbyDB
+derby.log
 
 bin/*
 *~
