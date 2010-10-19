@@ -507,11 +507,11 @@ public class ViewerTab extends Tab {
         case HourlyWage:
             return _("Hourly Wages");
         case Employment:
-            return _("Employments");
+            return _("Employment overview");
         case Contract:
             return _("Contracts");
         case Activity:
-            return _("Activities");
+            return _("Activitiy overview");
         default:
             return _("Data");
         }
