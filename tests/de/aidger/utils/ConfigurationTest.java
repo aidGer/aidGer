@@ -2,6 +2,7 @@ package de.aidger.utils;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNull;
 
 import java.io.File;
 
@@ -39,19 +40,19 @@ public class ConfigurationTest {
     }
 
     /**
-     * Test of initialize method, of class Configuration.
+     * Test of constructor, of class Configuration.
      */
     @Test
-    public void testInitialize() {
-        System.out.println("initialize");
+    public void testConstructor() {
+        System.out.println("constructor");
 
         File file = new File(Runtime.getInstance().getConfigPath() +
         		"settings.cfg");
         assertTrue(file.exists());
-        assertEquals(config.get("debug"), "false");
+        assertEquals("false", config.get("debug"));
 
         config = new Configuration();
-        assertEquals(config.get("debug"), "false");
+        assertEquals("false", config.get("debug"));
     }
 
     /**
@@ -61,7 +62,7 @@ public class ConfigurationTest {
     public void testGet() {
         System.out.println("get");
 
-        assertEquals(config.get("debug"), "false");
+        assertEquals("false", config.get("debug"));
     }
 
     /**
@@ -71,13 +72,27 @@ public class ConfigurationTest {
     public void testSet() {
         System.out.println("set");
 
-        assertEquals(config.get("test"), null);
+        assertNull(config.get("test"));
 
         config.set("test", "test");
-        assertEquals(config.get("test"), "test");
+        assertEquals("test", config.get("test"));
 
         config = new Configuration();
-        assertEquals(config.get("test"), "test");
+        assertEquals("test", config.get("test"));
+    }
+
+    /**
+     * Test of remove method, of class Configuration.
+     */
+    @Test
+    public void testRemove() {
+        System.out.println("remove");
+
+        config.set("test", "test");
+        assertEquals("test", config.get("test"));
+
+        config.remove("test");
+        assertNull(config.get("test"));
     }
 
 }

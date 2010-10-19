@@ -28,6 +28,11 @@ public final class Configuration {
     private final String file;
 
     /**
+     * The current version of the configuration file.
+     */
+    private static final int version = 1;
+
+    /**
      * Initializes this Configuration with a given path.
      *
      * @param path
@@ -36,16 +41,6 @@ public final class Configuration {
     public Configuration() {
         file = Runtime.getInstance().getConfigPath() + "settings.cfg";
 
-        initialize();
-    }
-
-    /**
-     * Creates the Settings file if it does not exist already, or reads the data
-     * from it, if it does.
-     *
-     * @return True if the file was created/read successfully.
-     */
-    public boolean initialize() {
         /* Check if the configuration exists and create it if it does not */
     	File config = new File(file);
         if (!config.exists()) {
@@ -58,35 +53,15 @@ public final class Configuration {
                 inputStream.close();
             } catch (Exception e) {
                 createFile();
-                return false;
             }
         }
-        return true;
-    }
 
-    /**
-     * Writes the default settings to the settings file.
-     */
-    private void createFile() {
-        try {
-            File outputFile = new File(file);
-            FileOutputStream outputStream = new FileOutputStream(outputFile);
-            properties.setProperty("name", "");
-            properties.setProperty("pdf-viewer", "");
-            properties.setProperty("activities", "10");
-            properties.setProperty("auto-open", "n");
-            properties.setProperty("auto-save", "n");
-            properties.setProperty("pessimistic-factor", "1.0");
-            properties.setProperty("historic-factor", "1.0");
-            properties.setProperty("anonymize-time", "365");
-            properties.setProperty("tolerance", "0.0");
-            properties.setProperty("calc-method", "1");
-            properties.setProperty("debug", "false");
-            properties.store(outputStream, "");
-            outputStream.close();
-        } catch (Exception e) {
-            Logger.error(MessageFormat.format(
-                _("Could not create file \"{0}\"."), new Object[] { file }));
+        /* Get the version of the config and migrate if necessary */
+        String confVersion = get("config-version");
+        if (confVersion == null) {
+            migrate(0);
+        } else if (Integer.parseInt(confVersion) < version) {
+            migrate(Integer.parseInt(confVersion));
         }
     }
 
@@ -139,5 +114,45 @@ public final class Configuration {
         } catch (Exception e) {
             createFile();
         }
+    }
+
+    /**
+     * Writes the default settings to the settings file.
+     */
+    private void createFile() {
+        try {
+            File outputFile = new File(file);
+            FileOutputStream outputStream = new FileOutputStream(outputFile);
+            migrate(0);
+            properties.store(outputStream, "");
+            outputStream.close();
+        } catch (Exception e) {
+            Logger.error(MessageFormat.format(
+                _("Could not create file \"{0}\"."), new Object[] { file }));
+        }
+    }
+
+    /**
+     * Migrate an old configuration file to the current version.
+     *
+     * @param oldVersion
+     *              The version of the config file
+     */
+    private void migrate(int oldVersion) {
+        if (oldVersion < 1 && properties.getProperty("name") == null) {
+            properties.setProperty("name", "");
+            properties.setProperty("pdf-viewer", "");
+            properties.setProperty("activities", "10");
+            properties.setProperty("auto-open", "n");
+            properties.setProperty("auto-save", "n");
+            properties.setProperty("pessimistic-factor", "1.0");
+            properties.setProperty("historic-factor", "1.0");
+            properties.setProperty("anonymize-time", "365");
+            properties.setProperty("tolerance", "0.0");
+            properties.setProperty("calc-method", "1");
+            properties.setProperty("debug", "false");
+        }
+
+        properties.setProperty("config-version", Integer.toString(version));
     }
 }
