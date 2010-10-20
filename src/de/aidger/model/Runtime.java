@@ -11,6 +11,7 @@ import de.aidger.utils.Configuration;
 import de.aidger.utils.CostUnitMap;
 import de.aidger.utils.Translation;
 import de.aidger.view.UI;
+import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
 
 /**
@@ -166,6 +167,8 @@ public final class Runtime {
                 .displayError(_("Only one instance of aidGer can be run at a time."));
             System.exit(-1);
         }
+
+        AdoHiveController.setConnectionString(getOption("database-uri", "jdbc:derby:" + configPath + "/database;create=true"));
 
         costUnitMap = new CostUnitMap();
     }
