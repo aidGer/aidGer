@@ -661,7 +661,9 @@ public final class UI extends JFrame {
         TaskPane tpActivities = new TaskPane(_("Activities"));
         tpActivities.add(createTaskPaneButton(_("Overview"),
             Task.ViewActivities));
-        tpActivities.add(createTaskPaneButton(_("Export"),
+        tpActivities.add(createTaskPaneButton(_("Add Activity"),
+            Task.CreateNewActivity));
+        tpActivities.add(createTaskPaneButton(_("Export Activities"),
             Task.ExportActivities));
 
         TaskPane tpReports = new TaskPane(_("Reports"));
