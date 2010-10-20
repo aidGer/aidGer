@@ -45,6 +45,10 @@ public abstract class AdoHiveController {
 	protected static AdoHiveController instance;
 
 	protected HashMap<String, String> properties = new HashMap<String, String>();
+
+     	protected static String connectionString;
+
+
 	protected AdoHiveController() {
 
 	}
@@ -99,7 +103,6 @@ public abstract class AdoHiveController {
 		return historyManager;
 	}
 
-	protected static String connectionString;
 	public static void setConnectionString(String con) {
 		connectionString = con;
 	}
