@@ -168,7 +168,7 @@ public final class Runtime {
             System.exit(-1);
         }
 
-        AdoHiveController.setConnectionString(getOption("database-uri", "jdbc:derby:" + configPath + "/database;create=true"));
+        AdoHiveController.setConnectionString(getOption("database-uri"));
 
         costUnitMap = new CostUnitMap();
     }

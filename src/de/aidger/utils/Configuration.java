@@ -30,7 +30,7 @@ public final class Configuration {
     /**
      * The current version of the configuration file.
      */
-    private static final int version = 1;
+    private static final int version = 2;
 
     /**
      * Initializes this Configuration with a given path.
@@ -151,6 +151,10 @@ public final class Configuration {
             properties.setProperty("tolerance", "0.0");
             properties.setProperty("calc-method", "1");
             properties.setProperty("debug", "false");
+        }
+        if (oldVersion < 2) {
+            properties.setProperty("database-uri", "jdbc:derby:"
+                    + Runtime.getInstance().getConfigPath() + "/database;create=true");
         }
 
         properties.setProperty("config-version", Integer.toString(version));
