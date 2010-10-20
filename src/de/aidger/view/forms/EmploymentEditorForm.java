@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
+import javax.swing.SwingUtilities;
 
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Assistant;
@@ -85,6 +86,12 @@ public class EmploymentEditorForm extends JPanel {
         }
 
         initComponents();
+
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                cmbAssistant.requestFocusInWindow();
+            }
+        });
 
         btnContractAdd.setIcon(new ImageIcon(getClass().getResource(
             "/de/aidger/res/icons/plus-small.png")));
@@ -612,7 +619,8 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbCostUnit, gridBagConstraints);
 
-        cmbFunds.setModel(new javax.swing.DefaultComboBoxModel(costUnitMap.getMap().toArray()));
+        cmbFunds.setModel(new javax.swing.DefaultComboBoxModel(costUnitMap
+            .getMap().toArray()));
         cmbFunds.setMinimumSize(new java.awt.Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -621,7 +629,8 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbFunds, gridBagConstraints);
 
-        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(Qualification.values()));
+        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(
+            Qualification.values()));
         cmbQualification.setMinimumSize(new java.awt.Dimension(300, 25));
         cmbQualification.setPreferredSize(new java.awt.Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();

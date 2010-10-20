@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
@@ -77,6 +78,12 @@ public class ContractEditorForm extends JPanel {
         }
 
         initComponents();
+
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                cmbAssistant.requestFocusInWindow();
+            }
+        });
 
         AutoCompletion.enable(cmbAssistant);
 

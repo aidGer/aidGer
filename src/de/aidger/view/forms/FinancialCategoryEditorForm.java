@@ -19,6 +19,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 import de.aidger.model.Runtime;
 import de.aidger.model.models.FinancialCategory;
@@ -43,6 +44,12 @@ public class FinancialCategoryEditorForm extends JPanel {
      */
     public FinancialCategoryEditorForm(FinancialCategory fc) {
         initComponents();
+
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                txtName.requestFocusInWindow();
+            }
+        });
 
         // add input filters
         InputPatternFilter.addFilter(txtYear, "[0-9]{0,4}");

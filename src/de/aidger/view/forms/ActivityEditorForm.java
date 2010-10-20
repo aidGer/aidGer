@@ -19,6 +19,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Activity;
@@ -60,6 +61,12 @@ public class ActivityEditorForm extends JPanel {
         }
 
         initComponents();
+
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                txtContent.requestFocusInWindow();
+            }
+        });
 
         InputPatternFilter.addFilter(txtProcessor, ".{0,2}");
 

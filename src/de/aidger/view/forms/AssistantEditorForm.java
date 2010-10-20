@@ -3,6 +3,7 @@ package de.aidger.view.forms;
 import static de.aidger.utils.Translation._;
 
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import de.aidger.model.models.Assistant;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
@@ -23,6 +24,12 @@ public class AssistantEditorForm extends JPanel {
      */
     public AssistantEditorForm(Assistant assistant) {
         initComponents();
+
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                txtFirstName.requestFocusInWindow();
+            }
+        });
 
         if (assistant != null) {
             txtFirstName.setText(assistant.getFirstName());
@@ -146,6 +153,7 @@ public class AssistantEditorForm extends JPanel {
         txtEmail.setMinimumSize(new java.awt.Dimension(200, 25));
         txtEmail.setPreferredSize(new java.awt.Dimension(250, 25));
         txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtEmailFocusLost(evt);
             }
@@ -156,7 +164,8 @@ public class AssistantEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtEmail, gridBagConstraints);
 
-        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(Qualification.values()));
+        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(
+            Qualification.values()));
         cmbQualification.setPreferredSize(new java.awt.Dimension(250, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -181,7 +190,8 @@ public class AssistantEditorForm extends JPanel {
         if (!txtEmail.getText().isEmpty() && txtEmail.getText().contains("@")) {
             String[] email = txtEmail.getText().split("@", 2);
             if (email[1].equals("studi")) {
-                txtEmail.setText(email[0] + "@studi.informatik.uni-stuttgart.de");
+                txtEmail.setText(email[0]
+                        + "@studi.informatik.uni-stuttgart.de");
             }
         }
     }//GEN-LAST:event_txtEmailFocusLost
@@ -189,10 +199,12 @@ public class AssistantEditorForm extends JPanel {
     /**
      * Update the email address if first or last name got updated and email is
      * empty or a studimail address.
+     * 
      * @param evt
      */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (!txtFirstName.getText().isEmpty() && !txtLastName.getText().isEmpty()) {
+        if (!txtFirstName.getText().isEmpty()
+                && !txtLastName.getText().isEmpty()) {
             String username;
             if (txtLastName.getText().length() >= 6) {
                 username = txtLastName.getText().toLowerCase().substring(0, 6);
@@ -200,11 +212,11 @@ public class AssistantEditorForm extends JPanel {
                 username = txtLastName.getText().toLowerCase();
             }
 
-            txtEmail.setText(username +
-                    txtFirstName.getText().toLowerCase().charAt(0) +
-                    txtFirstName.getText().toLowerCase().charAt(
-                        txtFirstName.getText().length() - 1) +
-                    "@studi.informatik.uni-stuttgart.de");
+            txtEmail.setText(username
+                    + txtFirstName.getText().toLowerCase().charAt(0)
+                    + txtFirstName.getText().toLowerCase().charAt(
+                        txtFirstName.getText().length() - 1)
+                    + "@studi.informatik.uni-stuttgart.de");
             txtEmail.select(0, 0);
         }
     }//GEN-LAST:event_jButton1ActionPerformed

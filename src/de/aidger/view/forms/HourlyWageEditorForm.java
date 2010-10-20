@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import de.aidger.model.models.HourlyWage;
 import de.aidger.view.tabs.EditorTab;
@@ -58,6 +59,12 @@ public class HourlyWageEditorForm extends JPanel {
      */
     public HourlyWageEditorForm(HourlyWage hw) {
         initComponents();
+
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                txtWage.requestFocusInWindow();
+            }
+        });
 
         // add input filters
         InputPatternFilter.addCurrencyFilter(txtWage);

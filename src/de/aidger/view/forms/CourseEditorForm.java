@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.util.List;
 
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import de.aidger.model.models.Course;
 import de.aidger.model.models.FinancialCategory;
@@ -36,6 +37,12 @@ public class CourseEditorForm extends JPanel {
     @SuppressWarnings("unchecked")
     public CourseEditorForm(Course course, List<GenericListModel> listModels) {
         initComponents();
+
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                txtDescription.requestFocusInWindow();
+            }
+        });
 
         // add input filters
         InputPatternFilter.addDoubleFilter(txtAWHperGroup);
