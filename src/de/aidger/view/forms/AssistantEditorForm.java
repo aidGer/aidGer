@@ -1,12 +1,18 @@
 package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import de.aidger.model.Runtime;
 import de.aidger.model.models.Assistant;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
+import java.beans.XMLDecoder;
+import java.io.FileInputStream;
 
 /**
  * A form used for editing / creating new assistants.
@@ -16,6 +22,8 @@ import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 @SuppressWarnings("serial")
 public class AssistantEditorForm extends JPanel {
 
+    private static String emailSuffix = null;
+
     /**
      * Constructs an assistant editor form.
      * 
@@ -24,6 +32,24 @@ public class AssistantEditorForm extends JPanel {
      */
     public AssistantEditorForm(Assistant assistant) {
         initComponents();
+
+        /* Try to get the email suffix from the xml file */
+        if (emailSuffix == null) {
+            try {
+                XMLDecoder dec = new XMLDecoder(new FileInputStream(
+                        Runtime.getInstance().getConfigPath() + "/costUnitMap.xml"));
+                dec.readObject();
+                emailSuffix = (String) dec.readObject();
+                dec.close();
+            } catch (Exception ex) {
+                emailSuffix = null;
+            }
+        }
+
+        /* If there is no suffix defined, hide the label */
+        if (emailSuffix == null || emailSuffix.isEmpty()) {
+            lblAutoGuess.setVisible(false);
+        }
 
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -209,7 +235,7 @@ public class AssistantEditorForm extends JPanel {
                     + txtFirstName.getText().toLowerCase().charAt(0)
                     + txtFirstName.getText().toLowerCase().charAt(
                         txtFirstName.getText().length() - 1)
-                    + "@studi.informatik.uni-stuttgart.de");
+                    + "@" + emailSuffix);
             txtEmail.select(0, 0);
         }
     }//GEN-LAST:event_lblAutoGuessMouseClicked

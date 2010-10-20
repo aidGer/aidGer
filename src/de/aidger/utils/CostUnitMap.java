@@ -60,6 +60,7 @@ public class CostUnitMap {
             map.add(c__);
 
             xmlEncoder.writeObject(map);
+            xmlEncoder.writeObject("studi.informatik.uni-stuttgart.de");
 
             xmlEncoder.close();
         } catch (IOException e) {
