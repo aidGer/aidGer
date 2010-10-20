@@ -34,7 +34,7 @@ public class TaskPaneAction extends LinkAction {
      */
     public enum Task {
 
-        ViewCourses, ViewAssistants, ViewFinancialCategories, ViewHourlyWages, ViewEmployments, CreateNewEmployment, ViewContracts, ViewActivities, ExportActivities, ViewFullBalance, ViewAnnualBalance, ViewSemesterBalance, ViewActivityReport, CheckCourses, CheckAssistants, ViewEmpty, Void
+        ViewCourses, ViewAssistants, ViewFinancialCategories, ViewHourlyWages, ViewEmployments, CreateNewEmployment, ViewContracts, ViewActivities, CreateNewActivity, ExportActivities, ViewFullBalance, ViewAnnualBalance, ViewSemesterBalance, ViewActivityReport, CheckCourses, CheckAssistants, ViewEmpty, Void
 
     }
 
@@ -118,6 +118,8 @@ public class TaskPaneAction extends LinkAction {
             return new ViewerTab(DataType.Contract);
         case ViewActivities:
             return new ViewerTab(DataType.Activity);
+        case CreateNewActivity:
+            return new EditorTab(DataType.Activity);
         case ExportActivities:
             return new ProtocolViewerTab();
         case ViewFullBalance:
