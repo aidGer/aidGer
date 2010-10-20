@@ -97,6 +97,9 @@ public class CourseEditorForm extends JPanel {
             } catch (AdoHiveException e) {
                 Logger.error(e.getMessage());
             }
+        } else {
+            txtAWHperGroup.setText("150");
+            txtGroup.setText("A");
         }
     }
 
