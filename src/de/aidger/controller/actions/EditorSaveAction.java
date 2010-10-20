@@ -482,7 +482,15 @@ public class EditorSaveAction extends AbstractAction {
                     clone.setSender(new UIAssistant(assistants.get(j))
                         .toString());
                 } else {
-                    clone.setSender(form.getInitiator());
+                    String initiator = form.getInitiator();
+
+                    if (initiator.isEmpty()) {
+                        clone.addError("sender", _("Initiator"),
+                            new PresenceValidator(clone, new String[0],
+                                new String[0]).getMessage());
+                    } else {
+                        clone.setSender(form.getInitiator());
+                    }
                 }
             }
         }
