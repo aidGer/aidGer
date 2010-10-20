@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-20 17:33+0200\n"
+"POT-Creation-Date: 2010-10-20 23:14+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
+"Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -39,6 +39,7 @@ msgstr "Programminformationen anzeigen"
 #: src/de/aidger/controller/actions/ReportExportAction.java:81
 #: src/de/aidger/controller/actions/ViewerActivityExportAction.java:37
 #: src/de/aidger/controller/actions/ViewerActivityExportAction.java:81
+#: src/de/aidger/view/UI.java:666
 #: src/de/aidger/view/tabs/ActivityReportViewerTab.java:214
 #: src/de/aidger/view/tabs/BalanceViewerTab.java:277
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:243
@@ -445,6 +446,7 @@ msgstr "Bitte markieren Sie nur einen Eintrag aus der Tabelle."
 
 #: src/de/aidger/controller/actions/ViewerAddAction.java:27
 #: src/de/aidger/view/UI.java:656
+#: src/de/aidger/view/UI.java:665
 #: src/de/aidger/view/tabs/ViewerTab.java:699
 msgid "Add"
 msgstr "Hinzufügen"
@@ -672,21 +674,21 @@ msgstr "ist zu lang"
 
 #: src/de/aidger/model/models/Assistant.java:44
 #: src/de/aidger/model/models/Assistant.java:46
-#: src/de/aidger/view/forms/AssistantEditorForm.java:117
+#: src/de/aidger/view/forms/AssistantEditorForm.java:144
 #: src/de/aidger/view/forms/AssistantViewerForm.java:69
 #: src/de/aidger/view/models/AssistantTableModel.java:26
 msgid "Email"
 msgstr "Email"
 
 #: src/de/aidger/model/models/Assistant.java:44
-#: src/de/aidger/view/forms/AssistantEditorForm.java:100
+#: src/de/aidger/view/forms/AssistantEditorForm.java:127
 #: src/de/aidger/view/forms/AssistantViewerForm.java:55
 #: src/de/aidger/view/models/AssistantTableModel.java:25
 msgid "First Name"
 msgstr "Vorname"
 
 #: src/de/aidger/model/models/Assistant.java:45
-#: src/de/aidger/view/forms/AssistantEditorForm.java:106
+#: src/de/aidger/view/forms/AssistantEditorForm.java:133
 #: src/de/aidger/view/forms/AssistantViewerForm.java:61
 #: src/de/aidger/view/models/AssistantTableModel.java:25
 msgid "Last Name"
@@ -698,7 +700,7 @@ msgstr "Nachname"
 #: src/de/aidger/model/models/Employment.java:81
 #: src/de/aidger/model/models/HourlyWage.java:45
 #: src/de/aidger/model/models/HourlyWage.java:47
-#: src/de/aidger/view/forms/AssistantEditorForm.java:128
+#: src/de/aidger/view/forms/AssistantEditorForm.java:155
 #: src/de/aidger/view/forms/AssistantViewerForm.java:77
 #: src/de/aidger/view/forms/EmploymentEditorForm.java:527
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:169
@@ -1295,15 +1297,6 @@ msgstr "Verträge"
 msgid "Activities"
 msgstr "Vorgänge"
 
-#: src/de/aidger/view/UI.java:664
-msgid "Add Activity"
-msgstr "Vorgang hinzufügen"
-
-#: src/de/aidger/view/UI.java:666
-#: src/de/aidger/view/tabs/ProtocolViewerTab.java:152
-msgid "Export Activities"
-msgstr "Vorgänge exportieren"
-
 #.
 #. * This is a full balance report.
 #.
@@ -1654,6 +1647,10 @@ msgstr "Hinweise"
 msgid "(Unnamed)"
 msgstr "(Unbenannt)"
 
+#: src/de/aidger/view/tabs/ProtocolViewerTab.java:152
+msgid "Export Activities"
+msgstr "Vorgänge exportieren"
+
 #: src/de/aidger/view/tabs/ProtocolViewerTab.java:232
 msgid "Show all activities"
 msgstr "Alle Vorgänge anzeigen"
@@ -1807,148 +1804,113 @@ msgstr "Statistiken & Diagramme"
 msgid "No data to display."
 msgstr "Keine Daten vorhanden."
 
+#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:311
+#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:325
+msgid "COLUMN_NAME"
+msgstr ""
+
+#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:315
+msgid "IS_AUTOINCREMENT"
+msgstr ""
+
+#~ msgid "Add Activity"
+#~ msgstr "Vorgang hinzufügen"
 #~ msgid "Add Employment"
 #~ msgstr "Beschäftigung hinzufügen"
-
 #~ msgid "Only a maximal length of 2 is allowed."
 #~ msgstr "Nur eine Maximallänge von 2 ist erlaubt."
-
 #~ msgid "Only a maximum length of 10 is allowed."
 #~ msgstr "Nur eine Maximalzahl von 10 ist erlaubt."
-
 #~ msgid "Only a number with 8 digits is allowed."
 #~ msgstr "Nur eine Zahl mit 8 Stellen ist erlaubt."
-
 #~ msgid "Personal"
 #~ msgstr "Persönlich"
-
 #~ msgid "Telephone"
 #~ msgstr "Telefon"
-
 #~ msgid "Internal mail"
 #~ msgstr "Hauspost"
-
 #~ msgid "External mail"
 #~ msgstr "Externe Post"
-
 #~ msgid "Transmission Type"
 #~ msgstr "Übermittlungsweg"
-
 #~ msgid "Show employments"
 #~ msgstr "Beschäftigungen anzeigen"
-
 #~ msgid "Hire assistant"
 #~ msgstr "Hilfskraft einstellen"
-
 #~ msgid "Show contracts"
 #~ msgstr "Verträge anzeigen"
-
 #~ msgid "Show activities"
 #~ msgstr "Vorgänge anzeigen"
-
 #~ msgid "Full Balance"
 #~ msgstr "Gesamtbilanz"
-
 #~ msgid "Annual Balance"
 #~ msgstr "Jahresbilanz"
-
 #~ msgid "Semester Balance"
 #~ msgstr "Semesterbilanz"
-
 #~ msgid "Check courses"
 #~ msgstr "Veranstaltungen prüfen"
-
 #~ msgid "Check assistants"
 #~ msgstr "Hilfskräfte prüfen"
-
 #~ msgid "Activity report"
 #~ msgstr "Tätigkeitsnachweis"
-
 #~ msgid "Balance Viewing"
 #~ msgstr "Bilanz Anzeige"
-
 #~ msgid "Ignore employments with missing hourly wages"
 #~ msgstr "Beschäftigungen mit fehlenden Stundenlöhnen ignorieren"
-
 #~ msgid "Sender"
 #~ msgstr "Einsender"
 
 #, fuzzy
 #~ msgid "Untitled"
 #~ msgstr "Titel"
-
 #~ msgid "Edit course"
 #~ msgstr "Veranstaltung bearbeiten"
-
 #~ msgid "Edit assistant"
 #~ msgstr "Hilfskraft bearbeiten"
-
 #~ msgid "Edit financial category"
 #~ msgstr "Finanzkategorie bearbeiten"
-
 #~ msgid "Edit hourly wage"
 #~ msgstr "Stundenlohn bearbeiten"
-
 #~ msgid "Edit employment"
 #~ msgstr "Beschäftigung bearbeiten"
-
 #~ msgid "Edit contract"
 #~ msgstr "Vertrag bearbeiten"
-
 #~ msgid "Edit activity"
 #~ msgstr "Vorgang bearbeiten"
-
 #~ msgid "Add course"
 #~ msgstr "Veranstaltung hinzufügen"
-
 #~ msgid "Add assistant"
 #~ msgstr "Hilfskraft hinzufügen"
-
 #~ msgid "Add financial category"
 #~ msgstr "Finanzkategorie hinzufügen"
-
 #~ msgid "Add hourly wage"
 #~ msgstr "Stundenlohn hinzufügen"
-
 #~ msgid "View course"
 #~ msgstr "Veranstaltung anzeigen"
-
 #~ msgid "View assistant"
 #~ msgstr "Hilfskraft anzeigen"
-
 #~ msgid "View financial category"
 #~ msgstr "Finanzkategorie anzeigen"
-
 #~ msgid "View hourly wage"
 #~ msgstr "Stundenlohn anzeigen"
-
 #~ msgid "View employment"
 #~ msgstr "Beschäftigung anzeigen"
-
 #~ msgid "View activity"
 #~ msgstr "Vorgang anzeigen"
-
 #~ msgid "Master Data Courses"
 #~ msgstr "Stammdaten Veranstaltungen"
-
 #~ msgid "Master Data Assistants"
 #~ msgstr "Stammdaten Hilfskräfte"
-
 #~ msgid "Master Data Financial Categories"
 #~ msgstr "Stammdaten Finanzkategorien"
-
 #~ msgid "Master Data Hourly Wages"
 #~ msgstr "Stammdaten Stundenlöhne"
-
 #~ msgid "Couldn't create lockfile"
 #~ msgstr "Konnte Lockdatei nicht erstellen"
-
 #~ msgid "Wrong format!"
 #~ msgstr "Falsche Format!"
-
 #~ msgid "No initials entered"
 #~ msgstr "Keine Initialen eingegeben"
-
 #~ msgid "Time"
 #~ msgstr "Zeit"
 
@@ -1959,141 +1921,101 @@ msgstr "Keine Daten vorhanden."
 #, fuzzy
 #~ msgid "Remaining budget costs"
 #~ msgstr "Übrige HKS"
-
 #~ msgid "The name can't be empty"
 #~ msgstr "Der Name darf nicht leer sein"
-
 #~ msgid "Username is empty."
 #~ msgstr "Name ist leer."
 
 #, fuzzy
 #~ msgid "Assistang"
 #~ msgstr "Hilfskraft"
-
 #~ msgid "Course budgets"
 #~ msgstr "Gebuchte HKS"
 
 #, fuzzy
 #~ msgid "Assistant budgets"
 #~ msgstr "Hilfskräfte"
-
 #~ msgid "Budget viewing"
 #~ msgstr "Budgetanzeige"
-
 #~ msgid "Protocol Viewing"
 #~ msgstr "Protokollanzeige"
-
 #~ msgid "Budget Check"
 #~ msgstr "Budgetprüfung"
-
 #~ msgid "View budget checks"
 #~ msgstr "Budgetprüfung anzeigen"
-
 #~ msgid "Activites"
 #~ msgstr "Vorgänge"
-
 #~ msgid "Choose a month"
 #~ msgstr "Wähle einen Monat"
-
 #~ msgid "Only a number with maximum length of 9 is allowed."
 #~ msgstr "Nur eine Zahl mit einer Maximallänge von 9 ist erlaubt."
-
 #~ msgid "Add Filter"
 #~ msgstr "Filter hinzufügen"
-
 #~ msgid "Granted AWH"
 #~ msgstr "Genehmigte HKS"
-
 #~ msgid ""
 #~ "You have hired the unchecked or bachelor assistant more than 6 years."
 #~ msgstr ""
 #~ "Sie haben die ungeprüfte oder Bachelor Hilfskraft mehr als 6 Jahre "
 #~ "eingestellt."
-
 #~ msgid "Create new employment"
 #~ msgstr "Neue Beschäftigung anlegen"
-
 #~ msgid "Budget costs from student fees"
 #~ msgstr "Plankosten aus Studiengebühren"
-
 #~ msgid "Budget costs from resources"
 #~ msgstr "Plankosten aus Haushaltsmitteln"
 
 #, fuzzy
 #~ msgid "Cost Unit"
 #~ msgstr "Kostenstelle"
-
 #~ msgid "Master Data"
 #~ msgstr "Stammdaten"
-
 #~ msgid "Protocol"
 #~ msgstr "Vorgangsprotokoll"
-
 #~ msgid "Financial Category Viewing"
 #~ msgstr "Finanzkategorieanzeige"
-
 #~ msgid "Fund"
 #~ msgstr "Fund"
-
 #~ msgid "eMail Address"
 #~ msgstr "Emailaddresse"
-
 #~ msgid "Comment"
 #~ msgstr "Kommentar"
-
 #~ msgid "Approved HKS"
 #~ msgstr "Genehmigte HKS"
-
 #~ msgid "Hourly Wage Viewing"
 #~ msgstr "Stundenlohnanzeige"
-
 #~ msgid "Effective Date"
 #~ msgstr "Zeitpunkt der Inkrafttretung"
-
 #~ msgid "Welcome"
 #~ msgstr "Willkommen"
-
 #~ msgid "Partial Balance"
 #~ msgstr "Teilbilanz"
-
 #~ msgid "Existing filters"
 #~ msgstr "Existierende Filter"
-
 #~ msgid "Could not remove model from database."
 #~ msgstr "Das Model konnte nicht aus der Datenbank gelöscht werden."
-
 #~ msgid "Readding model: {0}"
 #~ msgstr "Füge Model erneut hinzu: {0}"
-
 #~ msgid "Caught exception in getActivities(assistant): {0}"
 #~ msgstr "Ausnahme in getActivities(assistant): {0}"
-
 #~ msgid "Caught exception in getActivities(course): {0}"
 #~ msgstr "Ausnahme in getActivities(course): {0}"
-
 #~ msgid "Fonds"
 #~ msgstr "Fonds"
-
 #~ msgid "Validation failed."
 #~ msgstr "Validierung ist fehlgeschlagen."
-
 #~ msgid "Show/Hide Columns"
 #~ msgstr "Spalten ein-/ausblenden"
-
 #~ msgid "Removing tab at position {0}"
 #~ msgstr "{0}. Tab gelöscht"
-
 #~ msgid "Adding new empty tab"
 #~ msgstr "Neuer leerer Tab hinzugefügt"
-
 #~ msgid "More"
 #~ msgstr "Mehr"
-
 #~ msgid "Abort"
 #~ msgstr "Abbrechen"
-
 #~ msgid "New Tab"
 #~ msgstr "Neuer Reiter"
-
 #~ msgid "Financial Plans"
 #~ msgstr "Finanzpläne"
+
