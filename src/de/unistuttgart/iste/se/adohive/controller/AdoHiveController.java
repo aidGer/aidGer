@@ -99,9 +99,14 @@ public abstract class AdoHiveController {
 		return historyManager;
 	}
 
+	protected static String connectionString;
+	public static void setConnectionString(String con) {
+		connectionString = con;
+	}
+	
 	public static AdoHiveController getInstance() throws AdoHiveException {
 		if (instance == null)
-			instance = new DerbyAdoHiveController();
+			instance = new DerbyAdoHiveController(connectionString);
 		return instance;
 	}
 	
