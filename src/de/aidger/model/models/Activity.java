@@ -68,10 +68,9 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * Initializes the Activity class.
      */
     public Activity() {
-        validatePresenceOf(new String[] { "date", "sender", "type",
-                "processor", "content", "documentType" }, new String[] {
-                _("Date"), _("Initiator"), _("Type"), _("Processor"),
-                _("Content"), _("Document Type") });
+        validatePresenceOf(new String[] { "date", "type", "processor",
+                "content", "documentType" }, new String[] { _("Date"),
+                _("Type"), _("Processor"), _("Content"), _("Document Type") });
         validateExistanceOf(new String[] { "assistantId" },
             new String[] { _("Assistant") }, new Assistant());
         validateExistanceOf(new String[] { "courseId" },
