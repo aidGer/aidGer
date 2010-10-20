@@ -38,6 +38,7 @@ public class AssistantEditorForm extends JPanel {
             cmbQualification.setSelectedItem(Qualification.valueOf(assistant
                 .getQualification()));
         }
+
     }
 
     /**
@@ -93,7 +94,7 @@ public class AssistantEditorForm extends JPanel {
         txtLastName = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         cmbQualification = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
+        lblAutoGuess = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -153,7 +154,6 @@ public class AssistantEditorForm extends JPanel {
         txtEmail.setMinimumSize(new java.awt.Dimension(200, 25));
         txtEmail.setPreferredSize(new java.awt.Dimension(250, 25));
         txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtEmailFocusLost(evt);
             }
@@ -164,8 +164,7 @@ public class AssistantEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtEmail, gridBagConstraints);
 
-        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(
-            Qualification.values()));
+        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(Qualification.values()));
         cmbQualification.setPreferredSize(new java.awt.Dimension(250, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -174,16 +173,16 @@ public class AssistantEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbQualification, gridBagConstraints);
 
-        jButton1.setText("StudiMail");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        lblAutoGuess.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/aidger/res/icons/wand.png"))); // NOI18N
+        lblAutoGuess.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAutoGuessMouseClicked(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
-        add(jButton1, gridBagConstraints);
+        add(lblAutoGuess, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
@@ -196,13 +195,7 @@ public class AssistantEditorForm extends JPanel {
         }
     }//GEN-LAST:event_txtEmailFocusLost
 
-    /**
-     * Update the email address if first or last name got updated and email is
-     * empty or a studimail address.
-     * 
-     * @param evt
-     */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void lblAutoGuessMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAutoGuessMouseClicked
         if (!txtFirstName.getText().isEmpty()
                 && !txtLastName.getText().isEmpty()) {
             String username;
@@ -219,11 +212,17 @@ public class AssistantEditorForm extends JPanel {
                     + "@studi.informatik.uni-stuttgart.de");
             txtEmail.select(0, 0);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_lblAutoGuessMouseClicked
 
+    /**
+     * Update the email address if first or last name got updated and email is
+     * empty or a studimail address.
+     * 
+     * @param evt
+     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cmbQualification;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel lblAutoGuess;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFirstName;
     private javax.swing.JLabel lblLastName;
