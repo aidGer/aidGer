@@ -28,7 +28,6 @@ import de.aidger.model.models.Contract;
 import de.aidger.model.models.CostUnit;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
-import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.CostUnitMap;
 import de.aidger.view.UI;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
@@ -49,7 +48,6 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.IContract;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
-import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 
 /**
  * A form used for editing / creating new employments.
@@ -128,13 +126,6 @@ public class EmploymentEditorForm extends JPanel {
             }
         });
 
-        cmbCourse.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                refreshCostUnit((Course) cmbCourse.getSelectedItem());
-            }
-        });
-
         try {
             List<IAssistant> assistants = (new Assistant()).getAll();
 
@@ -199,10 +190,6 @@ public class EmploymentEditorForm extends JPanel {
                 refreshQualification((Assistant) cmbAssistant.getSelectedItem());
             }
 
-            if (cmbCourse.getSelectedItem() != null) {
-                refreshCostUnit((Course) cmbCourse.getSelectedItem());
-            }
-
             addNewDate();
 
             if (editMode) {
@@ -231,22 +218,23 @@ public class EmploymentEditorForm extends JPanel {
         } catch (AdoHiveException e) {
         }
 
-        cmbCostUnit.addActionListener(new ActionListener() {
+        cmbFunds.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String costUnit = (String) cmbCostUnit.getSelectedItem();
-
-                if (costUnit == null) {
-                    return;
-                }
-
-                for (CostUnit c : costUnitMap.getMap()) {
-                    if (costUnit.equals(c.getCostUnit())) {
-                        cmbFunds.setSelectedItem(c);
-                    }
-                }
+                refreshCostUnit();
             }
         });
+
+        refreshCostUnit();
+    }
+
+    /**
+     * Refreshs the cost unit field.
+     */
+    private void refreshCostUnit() {
+        CostUnit costUnit = (CostUnit) cmbFunds.getSelectedItem();
+
+        cmbCostUnit.setSelectedItem(costUnit.getCostUnit());
     }
 
     /**
@@ -262,33 +250,6 @@ public class EmploymentEditorForm extends JPanel {
 
         cmbQualification.setSelectedItem(Qualification.valueOf(assistant
             .getQualification()));
-    }
-
-    /**
-     * Refreshs the cost unit model.
-     * 
-     * @param course
-     *            the new course
-     */
-    private void refreshCostUnit(Course course) {
-        if (course == null) {
-            return;
-        }
-
-        try {
-            IFinancialCategory fc = (new FinancialCategory()).getById(course
-                .getFinancialCategoryId());
-
-            ComboBoxModel cmbCostUnitModel = (ComboBoxModel) cmbCostUnit
-                .getModel();
-
-            cmbCostUnitModel.removeAllElements();
-
-            for (int costUnit : fc.getCostUnits()) {
-                cmbCostUnitModel.addElement(UICostUnit.valueOf(costUnit));
-            }
-        } catch (AdoHiveException e) {
-        }
     }
 
     /**
@@ -542,7 +503,7 @@ public class EmploymentEditorForm extends JPanel {
         lblContract.setText(_("Contract"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblContract, gridBagConstraints);
@@ -550,7 +511,7 @@ public class EmploymentEditorForm extends JPanel {
         lblCostUnit.setText(_("Cost unit"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblCostUnit, gridBagConstraints);
@@ -566,7 +527,7 @@ public class EmploymentEditorForm extends JPanel {
         lblQualification.setText(_("Qualification"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblQualification, gridBagConstraints);
@@ -601,20 +562,21 @@ public class EmploymentEditorForm extends JPanel {
         cmbContract.setPreferredSize(new java.awt.Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbContract, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         add(btnContractAdd, gridBagConstraints);
 
+        cmbCostUnit.setEnabled(false);
         cmbCostUnit.setMinimumSize(new java.awt.Dimension(300, 25));
         cmbCostUnit.setPreferredSize(new java.awt.Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbCostUnit, gridBagConstraints);
@@ -631,11 +593,12 @@ public class EmploymentEditorForm extends JPanel {
 
         cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(
             Qualification.values()));
+        cmbQualification.setEnabled(false);
         cmbQualification.setMinimumSize(new java.awt.Dimension(300, 25));
         cmbQualification.setPreferredSize(new java.awt.Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbQualification, gridBagConstraints);
