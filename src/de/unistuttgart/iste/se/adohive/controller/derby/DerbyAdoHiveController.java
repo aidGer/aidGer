@@ -24,7 +24,6 @@ package de.unistuttgart.iste.se.adohive.controller.derby;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.controller.jdbc.JdbcAdoHiveController;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveDatabaseException;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
@@ -35,15 +34,17 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
  */
 public class DerbyAdoHiveController extends JdbcAdoHiveController {
 
-	public DerbyAdoHiveController() throws AdoHiveException {
+	public DerbyAdoHiveController(String connectionString) throws AdoHiveException {
 		super();
 		try {
 			//Init driver
 			String driver = "org.apache.derby.jdbc.EmbeddedDriver";
 			Class.forName(driver).newInstance(); 
 			//grab the connection conf
-			connection = DriverManager.getConnection("jdbc:derby:derbyDB;create=true");
-			
+			if(connectionString != null)
+				connection = DriverManager.getConnection(connectionString);//"jdbc:derby:derbyDB;create=true");
+			else
+				connection = DriverManager.getConnection("jdbc:derby:derbyDB;create=true");
 			//create one dialect Object for all managers
 			//NOTE: static does not really work, I would have done this with generics and static methods,
 			//but since generics in Java are crap (erasure), it does not work, so we are stuck with throwing around dialect objects
@@ -72,10 +73,6 @@ public class DerbyAdoHiveController extends JdbcAdoHiveController {
 		
 	}
 	
-	public static AdoHiveController getInstance() throws AdoHiveException {
-		if (instance == null)
-			instance = new DerbyAdoHiveController();
-		return instance;
-	}
+	
 
 }
