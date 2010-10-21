@@ -885,8 +885,10 @@
 <pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:10" number="28" priority="B" title="Veranstaltung korrekt hinzufügen">
 <description>Es wird eine Veranstaltung zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Finanzkategorie "Lehre 0809" wurde korrekt erstellt.</pre>
-<actions>* Benutzer gibt die Bezeichnung "Nutzlose Betriebssysteme in der Praxis" ein
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Finanzkategorie "Lehre 0809" wurde korrekt erstellt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer gibt die Bezeichnung "Nutzlose Betriebssysteme in der Praxis" ein
 
 * Benutzer gibt das Semester "WS0809" ein
 
@@ -896,7 +898,7 @@
 
 * Benutzer gibt das Zielpublikum "ST" ein
 
-* Benutzer gibt die Genehmigte HKS "52,5" ein
+* Benutzer gibt die HKS pro Gruppe "52,5" ein
 
 * Benutzer gibt den Umfang "1Ü" ein
 
@@ -909,13 +911,15 @@
 * Benutzer wählt die Finanzkategorie "Lehre WS0809" aus
 
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Die Veranstaltung ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<post>Die Veranstaltung ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das Veranstaltungen-Tab.</post>
 <tags/>
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:10" number="38" priority="B" title="Veranstaltung korrekt hinzufügen">
 <description>Es wird eine Veranstaltung zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Finanzkategorie "Lehre SS10" wurde korrekt hinzugefügt.</pre>
-<actions>* Benutzer gibt die Bezeichnung "Mensa überleben für Pizza-Fans" ein
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Finanzkategorie "Lehre SS10" wurde korrekt hinzugefügt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer gibt die Bezeichnung "Mensa überleben für Pizza-Fans" ein
 
 * Benutzer gibt das Semester "SS10" ein
 
@@ -938,13 +942,15 @@
 * Benutzer wählt die Finanzkategorie "Lehre SS10" aus
 
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Die Veranstaltung ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<post>Die Veranstaltung ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das Veranstaltungen-Tab.</post>
 <tags/>
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:10" number="39" priority="B" title="Veranstaltung korrekt hinzufügen">
 <description>Es wird eine Veranstaltung zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Finanzkategorie "Forschung" wurde korrekt hinzugefügt.</pre>
-<actions>* Benutzer gibt die Bezeichnung "Laufende Forschung" ein
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Finanzkategorie "Forschung" wurde korrekt hinzugefügt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer gibt die Bezeichnung "Laufende Forschung" ein
 
 * Benutzer gibt das Semester "2009" ein
 
@@ -967,13 +973,15 @@
 * Benutzer wählt die Finanzkategorie "Forschung" aus
 
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Die Veranstaltung ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<post>Die Veranstaltung ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das Veranstaltungen-Tab.</post>
 <tags/>
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="30" priority="C" title="Veranstaltung unvollständig hinzufügen">
 <description>Es soll eine Veranstaltung hinzugefügt werden. Dabei werden Felder leer gelassen.</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
-<actions>* Benutzer gibt die Veranstaltung "Violette Parser" ein
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer gibt die Veranstaltung "Violette Parser" ein
 
 * Benutzer drückt auf Button "Speichern"</actions>
 <post>Der Benutzer wird darüber informiert, dass die leer gelassenen Felder noch auszufüllen sind. Das Tab bleibt weiterhin offen und der Benutzer kann die restlichen Felder ausfüllen.</post>
@@ -981,8 +989,10 @@
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="29" priority="B" title="Veranstaltung inkorrekt hinzufügen">
 <description>Es wird eine Veranstaltung zum System hinzugefügt. Dabei werden falsche Eingaben gemacht.</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
-<actions>* Benutzer versucht die HKS "zwölf" einzugeben
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer versucht die HKS "zwölf" einzugeben
 
 * Benutzer drückt auf den Button "Speichern"</actions>
 <post>Die Veranstaltung wurde nicht hinzugefügt und der Benutzer befindet sich weiterhin im Hinzufügen-Tab, um seine Eingabe korrigieren zu können.</post>
@@ -990,8 +1000,10 @@
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="33" priority="B" title="Veranstaltung inkorrekt hinzufügen">
 <description>Es soll eine Veranstaltung hinzugefügt werden. Es werden Felder falsch eingegeben.</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
-<actions>* Benutzer gibt die Veranstaltung "Swing für Gtk-Liebhaber" ein
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer gibt die Veranstaltung "Swing für Gtk-Liebhaber" ein
 
 * Benutzer gibt das Semester "SS09" ein
 
@@ -1003,15 +1015,17 @@
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="31" priority="D" title="Abbruch: Veranstaltung hinzufügen">
 <description>Es soll eine Veranstaltung hinzugefügt werden. Dieser Vorgang wird abgebrochen</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
-<actions>* Benutzer gibt die Veranstaltung "Laufende Forschung" ein
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer gibt die Veranstaltung "Laufende Forschung" ein
 
 * Benutzer gibt den Umfang "99" ein
 
 * Benutzer wählt die Finanzkategorie "Forschung" aus
 
 * Benutzer klickt auf den Button "Abbrechen"    </actions>
-<post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
+<post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet das Veranstaltungen-Tab.</post>
 <tags/>
 </testcase>
 </sequence>
@@ -1020,7 +1034,7 @@
 <pre>Benutzer möchte eine Veranstaltung bearbeiten.</pre>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="34" priority="C" title="Veranstaltung korrekt bearbeiten">
 <description>Es soll eine Veranstaltung bearbeitet werden. Alle Eingaben sind korrekt.</description>
-<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde bereits ausgeführt.</pre>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde bereits ausgeführt.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
 
 * Benutzer klickt auf den Button "Bearbeiten"
@@ -1030,12 +1044,12 @@
 * Benutzer gibt die HKS "61" ein
 
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Die geänderten Daten werden in der Datenbank hinterlegt und das System kehrt zum vorher angezeigten Tab zurück.</post>
+<post>Die geänderten Daten werden in der Datenbank hinterlegt und das System kehrt zum Veranstaltungen-Tab zurück.</post>
 <tags/>
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="35" priority="C" title="Veranstaltung unvollständig bearbeiten">
 <description>Es soll eine Veranstaltung bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
-<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde bereits ausgeführt.</pre>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde bereits ausgeführt.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
 
 * Benutzer klickt auf den Button "Bearbeiten"
@@ -1050,7 +1064,7 @@
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="36" priority="C" title="Veranstaltung inkorrekt bearbeiten">
 <description>Es soll eine Veranstaltung bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
-<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 39 wurde bereits ausgeführt.</pre>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 39 wurde bereits ausgeführt.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
 
 * Benutzer klickt auf den Button "Bearbeiten"
@@ -1064,7 +1078,7 @@
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="37" priority="C" title="Abbruch: Veranstaltung bearbeiten">
 <description>Es soll eine Veranstaltung bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
-<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 38 wurde bereits ausgeführt.</pre>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 38 wurde bereits ausgeführt.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Mensa überleben für Pizza-Fans"
 
 * Benutzer klickt auf den Button "Bearbeiten"
@@ -1072,7 +1086,7 @@
 * Benutzer ersetzt das Feld Dozent mit "Emil Eisenbrecher"
 
 * Benutzer klickt auf den Button "Abbrechen"</actions>
-<post>Die Änderungen am Datensatz werden verworfen, das Bearbeiten-Tab wird geschloßen und der Benutzer befindet sich erneut im davor angezeigten Tab.</post>
+<post>Die Änderungen am Datensatz werden verworfen, das Bearbeiten-Tab wird geschloßen und das System kehrt zum Veranstaltungen-Tab zurück.</post>
 <tags/>
 </testcase>
 </sequence>
@@ -1081,7 +1095,7 @@
 <pre>Benutzer möchte eine Veranstaltung anzeigen.</pre>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="121" priority="C" title="Veranstaltung anzeigen und schließen">
 <description>Es soll eine Veranstaltung angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
-<pre>Der Testfall 28 wurde ausgeführt.</pre>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde ausgeführt.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
 
 * Benutzer klickt auf den Button "Anzeigen"
@@ -1089,12 +1103,12 @@
 * System öffnet das "Anzeigen"-Tab
 
 * Benutzer klickt auf den Button "Schließen"</actions>
-<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 28 übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum zuvor angezeigten Tab zurück.</post>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 28 übereinstimmen. Das Reiter-Fenster ist geschloßen und das System kehrt zum Veranstaltungen-Tab zurück.</post>
 <tags/>
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="125" priority="C" title="Veranstaltung anzeigen und bearbeiten">
 <description>Es soll eine Veranstaltung angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
-<pre>Der Testfall 39 wurde ausgeführt.</pre>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 39 wurde ausgeführt.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
 
 * Benutzer klickt auf den Button "Anzeigen"
@@ -1108,12 +1122,12 @@
 * Benutzer gibt den neuen Dozent "B. Dates, S. Ballmer" ein
 
 * Benutzer drückt auf den Button "Speichern"</actions>
-<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 39 übereinstimmen. Nach dem Bearbeiten wurde der Datensatz korrekt geändert und gespeichert. Der Benutzer befindet sich im vorher angezeigten Reiter wieder.</post>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 39 übereinstimmen. Nach dem Bearbeiten wurde der Datensatz korrekt geändert und gespeichert. Das System kehrt zum Veranstaltungen-Tab zurück.</post>
 <tags/>
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="127" priority="C" title="Veranstaltung anzeigen und Vorgang anzeigen">
 <description>Es soll eine Veranstaltung angezeigt werden. Anschließend soll ein Vorgang zur Veranstaltung angezeigt werden.</description>
-<pre>Der Testfall 28 wurde ausgeführt. Der benütigte Vorgang wurde korrekt erstellt.</pre>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde ausgeführt. Der benütigte Vorgang wurde korrekt erstellt.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
 
 * Benutzer klickt auf den Button "Anzeigen"
@@ -1127,12 +1141,12 @@
 * Benutzer schließt den Vorgangsreiter
 
 * Benutzer klickt auf den Button "Schließen"</actions>
-<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 28 übereinstimmen. Des weiteren konnte er sich über den ausgewählten Vorgang informieren. Der Benutzer befindet sich wieder im zuvor angezeigten Reiter.</post>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 28 übereinstimmen. Des weiteren konnte er sich über den ausgewählten Vorgang informieren. Das System kehrt zum Veranstaltungen-Tab zurück.</post>
 <tags/>
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="126" priority="C" title="Veranstaltung anzeigen ohne Auswahl">
 <description>Es soll eine Veranstaltung angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
-<pre/>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Es wurde keine Veranstaltung ausgewählt.</pre>
 <actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
 <post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen und es erscheint eine entsprechende Fehlermeldung.</post>
 <tags/>
@@ -1143,7 +1157,7 @@
 <pre>Benutzer möchte eine Veranstaltung suchen.</pre>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="128" priority="C" title="Veranstaltung suchen nach Name">
 <description>Es soll eine Veranstaltung gesucht werden. Es wird nach dem Namen gesucht.</description>
-<pre>Der Testfall 28 wurde ausgeführt.</pre>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde ausgeführt.</pre>
 <actions>* Benutzer gibt im Suchfeld "Nutzlose Betriebssysteme in der Praxis" ein
 
 * System aktualisiert die Anzeige-Tabelle</actions>
@@ -1152,7 +1166,7 @@
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="130" priority="C" title="Veranstaltung suchen nach Dozent">
 <description>Es soll eine Veranstaltung gesucht werden. Es wird nach dem Dozent gesucht.</description>
-<pre>Der Testfall 28 wurde ausgeführt.</pre>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde ausgeführt.</pre>
 <actions>* Benutzer gibt im Suchfeld "B. Gates" ein
 
 * System aktualisiert die Anzeige-Tabelle</actions>
@@ -1161,7 +1175,7 @@
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="131" priority="C" title="Veranstaltung unvollständig suchen">
 <description>Es soll eine Veranstaltung gesucht werden. Der Name der Veranstaltung wird nur teilweise eingeben.</description>
-<pre>Der Testfall 39 wurde ausgeführt.</pre>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 39 wurde ausgeführt.</pre>
 <actions>* Benutzer gibt in das Suchfeld "Laufende" ein
 
 * System aktualisiert die Anzeige-Tabelle</actions>
@@ -1170,7 +1184,7 @@
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="129" priority="C" title="Suchfilter entfernen">
 <description>Der angewandte Suchfilter soll entfernt werden.</description>
-<pre>Der Testfall 128 wurde ausgeführt.</pre>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 128 wurde ausgeführt.</pre>
 <actions>* Benutzer leert das Suchfeld</actions>
 <post>Die Anzeige-Tabelle zeigt alle Veranstaltungen an. Das Suchfeld wurde geleert.</post>
 <tags/>
@@ -1181,7 +1195,7 @@
 <pre>Benutzer möchte Vorgänge zu einer Veranstaltung anzeigen.</pre>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="133" priority="C" title="Vorgänge anzeigen und schließen">
 <description>Es sollen Vorgänge zu einer Veranstaltung angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
-<pre>Der Testfälle 28 wurde ausgeführt. Es wurden alle nötigen Vorgänge für diese Veranstaltung korrekt erstellt.</pre>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfälle 28 wurde ausgeführt. Es wurden alle nötigen Vorgänge für diese Veranstaltung korrekt erstellt.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
 
 * Benutzer klickt auf den Button "Anzeigen"
@@ -1189,12 +1203,12 @@
 * System öffnet das "Anzeigen"-Tab
 
 * Benutzer klickt auf den Button "Schließen"</actions>
-<post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Veranstaltung erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum zuvor angezeigten Tab zurück.</post>
+<post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Veranstaltung erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Das Reiter-Fenster ist geschloßen und das System kehrt zum Veranstaltungen-Tab zurück.</post>
 <tags/>
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="134" priority="C" title="Vorgänge anzeigen und Detailansicht">
 <description>Es sollen Vorgänge zu einer Veranstaltung angezeigt werden. Ein einzelner Vorgang soll daraufhin angezeigt werden.</description>
-<pre>Der Testfälle 38 wurde ausgeführt. Die nötigen Vorgänge zu dieser Veranstaltung wurden korrekt hinzugefügt.</pre>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfälle 38 wurde ausgeführt. Die nötigen Vorgänge zu dieser Veranstaltung wurden korrekt hinzugefügt.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Mensa überleben für Pizza-Fans"
 
 * Benutzer klickt auf den Button "Anzeigen"
@@ -1208,7 +1222,7 @@
 * Benutzer schließt das Vorgangsreiter
 
 * Benutzer drückt auf den Button "Schließen"</actions>
-<post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Veranstaltung erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Anschließend konnte er sich über einen einzelen Vorgang in einer Detailsicht informieren. Die beiden Reiter-Fenster sind geschloßen und der Benutzer kehrt zum zuvor angezeigten Reiter zurück.</post>
+<post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Veranstaltung erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Anschließend konnte er sich über einen einzelen Vorgang in einer Detailsicht informieren. Die beiden Reiter-Fenster sind geschloßen und das System kehrt zum Veranstaltungen-Tab zurück.</post>
 <tags/>
 </testcase>
 </sequence>
@@ -1217,7 +1231,7 @@
 <pre>Benutzer möchte eine Veranstaltung löschen.</pre>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="40" priority="C" title="Veranstaltung entfernen ohne Referenz">
 <description>Es soll eine Veranstaltung gelöscht werden, was korrekt funktioniert.</description>
-<pre>Der Testfall 28 wurde ausgeführt.</pre>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde ausgeführt.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
 
 * Benutzer klickt auf den Button "Löschen"
@@ -1230,7 +1244,7 @@
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="97" priority="C" title="Veranstaltung entfernen mit Taste Entf">
 <description>Es soll eine Veranstaltung gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
-<pre>Der Testfall 39 wurde ausgeführt.</pre>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 39 wurde ausgeführt.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
 
 * Benutzer drückt die Taste "Entf"
@@ -1243,7 +1257,7 @@
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="41" priority="C" title="Veranstaltung entfernen mit Referenz">
 <description>Es soll eine Veranstaltung gelöscht werden. Das Datum wird noch referenziert.</description>
-<pre>Der Testfall 28 wurde ausgeführt. Es wurde eine Hilfskraft korrekt hinzugefügt und eine Beschäftigung zur Veranstaltung aus 28.</pre>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde ausgeführt. Es wurde eine Hilfskraft korrekt hinzugefügt und eine Beschäftigung zur Veranstaltung aus 28.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
 
 * Benutzer klickt auf den Button "Löschen"
@@ -1256,7 +1270,7 @@
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="42" priority="C" title="Abbruch: Veranstaltung entfernen">
 <description>Es soll eine Veranstaltung gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
-<pre>Der Testfall 39 wurde ausgeführt.</pre>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 39 wurde ausgeführt.</pre>
 <actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
 
 * Benutzer klickt auf den Button "Löschen"
@@ -1269,7 +1283,7 @@
 </testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="43" priority="C" title="Veranstaltung entfernen ohne Auswahl">
 <description>Es soll eine Veranstaltung gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
-<pre/>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Es wurde keine Veranstaltung ausgewählt.</pre>
 <actions>* Benutzer klickt auf den Button "Löschen"</actions>
 <post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
 <tags/>
@@ -1284,52 +1298,108 @@
 <pre/>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="287" priority="A" title="Vertrag korrekt erstellen">
 <description>Es soll ein Vertrag erstellt werden. Alle Eingaben sind korrekt.</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. </pre>
-<actions>* Benutzer gibt das Abschlußdatum "10.10.2010" ein
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 44 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
 
-* Benutzer gibt das Bestätigungsdatum "12.10.2010" ein
+* Benutzer wählt die Hilfskraft "Carl Coder" aus
 
-* Benutzer lässt den Standardwert bei Beschätigungsbeginn
+* Benutzer gibt das Abschlußdatum "10.10.2010" ein
 
-* Benutzer erhöht Beschäftigungsende um 1
+* Benutzer lässt den Standardwert bei Anfangsdatum
 
-* Benutzer gibt bei Art des Vertrags "Neuvertrag" ein
+* Benutzer erhöht Enddatum um 1
+
+* Benutzer wählt bei Art des Vertrags "Neuvertrag" aus
 
 * Benutzer setzt "Delegation" auf "Nein"
 
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Der Vertrag wurde im System mit den korrekten Werten vollständig gespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehrt zum Menüpunkt Beschäftigungen im alten Reiter zurück.</post>
+<post>Der Vertrag wurde im System mit den korrekten Werten vollständig gespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehrt zum Menüpunkt Verträge im alten Reiter zurück.</post>
 <tags/>
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="288" priority="A" title="Vertrag korrekt erstellen">
 <description>Es soll ein Vertrag erstellt werden. Alle Eingaben sind korrekt.</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 39 wurden ausgeführt.</pre>
-<actions>* Benutzer gibt das Abschlußdatum "11.12.2009" ein
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 39 wurden ausgeführt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
 
-* Benutzer gibt das Bestätigungsdatum "15.12.2009" ein
+* Benutzer wählt die Hilfskraft "Peter Planlos" aus
 
-* Benutzer lässt den Standardwert bei Beschätigungsbeginn
+* Benutzer gibt das Abschlußdatum "11.12.2009" ein
 
-* Benutzer erhöht Beschäftigungsende um 1
+* Benutzer lässt den Standardwert bei Anfangsdatum
+
+* Benutzer erhöht Enddatum um 1
 
 * Benutzer gibt bei Art des Vertrags "Aufstockung" ein
 
 * Benutzer setzt "Delegation" auf "Ja"
 
 * Benutzer klickt auf den Button "Speichern"</actions>
-<post>Der Vertrag wurde im System mit den korrekten Werten vollständig gespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehrt zum Menüpunkt Beschäftigungen im alten Reiter zurück.</post>
+<post>Der Vertrag wurde im System mit den korrekten Werten vollständig gespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehrt zum Menüpunkt Verträge im alten Reiter zurück.</post>
+<tags/>
+</testcase>
+<testcase created="21.10.2010" creator="aidGerTeam" effort="00:00" number="312" priority="C" title="Überlappenden Vertrag korrekt erstellen">
+<description>Es soll ein Vertrag erstellt werden welcher mit einem anderen überlappt. Alle Eingaben sind korrekt.</description>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44 und 287 wurden ausgeführt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer wählt die Hilfskraft "Carl Coder" aus
+
+* Benutzer gibt das Abschlußdatum "09.10.2010" ein
+
+* Benutzer lässt den Standardwert bei Anfangsdatum
+
+* Benutzer erhöht Enddatum um 1
+
+* Benutzer wählt bei Art des Vertrags "Neuvertrag" aus
+
+* Benutzer setzt "Delegation" auf "Nein"
+
+* Benutzer klickt auf den Button "Speichern"
+
+* Benutzer wird darauf hingewiesen, dass der Neuvertrag mit einem anderen überlappt und gefragt ob er fortfahren möchte
+
+* Benutzer klickt auf "Ja"</actions>
+<post>Der Vertrag wurde im System mit den korrekten Werten vollständig gespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehrt zum Menüpunkt Verträge im alten Reiter zurück.</post>
+<tags/>
+</testcase>
+<testcase created="21.10.2010" creator="aidGerTeam" effort="00:00" number="313" priority="C" title="Überlappenden Vertrag korrekt erstellen und abbrechen">
+<description>Es soll ein Vertrag erstellt werden welcher mit einem anderen überlappt. Alle Eingaben sind korrekt.</description>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44 und 287 wurden ausgeführt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer wählt die Hilfskraft "Carl Coder" aus
+
+* Benutzer gibt das Abschlußdatum "09.10.2010" ein
+
+* Benutzer lässt den Standardwert bei Anfangsdatum
+
+* Benutzer erhöht Enddatum um 1
+
+* Benutzer wählt bei Art des Vertrags "Neuvertrag" aus
+
+* Benutzer setzt "Delegation" auf "Nein"
+
+* Benutzer klickt auf den Button "Speichern"
+
+* Benutzer wird darauf hingewiesen, dass der Neuvertrag mit einem anderen überlappt und gefragt ob er fortfahren möchte
+
+* Benutzer klickt auf "Nein"</actions>
+<post>Der Vertrag wurde nicht im System gespeichert. Der Benutzer befindet sich noch im Hinzufügen-Tab und kann seine eingegebenen Daten ändern.</post>
 <tags/>
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="166" priority="A" title="Vertragsdaten inkorrekt erstellen">
 <description>Es wird ein neuer Vertrag erstellt. Die darin befindlichen Daten sind jedoch in einer inkorrekten Reihenfolge.</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
-<actions>* Benutzer gibt das Abschlußdatum "01.10.2010" ein
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 44 wurde korrekt ausgeführt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
 
-* Benutzer gibt das Bestätigungsdatum "01.09.2010" ein
+* Benutzer wählt die Hilfskraft "Carl Coder" aus
 
-* Benutzer gibt den Beschäftigungsbeginn "01.11.2010" ein
+* Benutzer gibt das Abschlußdatum "01.10.2010" ein
 
-* Benutzer gibt das Beschäftigungsende "01.05.2010" ein
+* Benutzer gibt das Anfangsdatum "01.11.2010" ein
+
+* Benutzer gibt das Enddatum "01.05.2010" ein
 
 * Benutzer gibt bei Art des Vertrags "Aufstockung" ein
 
@@ -1340,32 +1410,14 @@
 Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</post>
 <tags/>
 </testcase>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="286" priority="A" title="Vertragsdaten inkorrekt erstellen">
-<description>Es wird ein neuer Vertrag erstellt. Die darin befindlichen Daten sind jedoch in einer inkorrekten Reihenfolge.</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
-<actions>* Benutzer gibt das Abschlußdatum "01.10.2010" an
-
-* Benutzer gibt das Bestätigungsdatum "05.10.2010" an
-
-* Benutzer gibt den Beschäftigungsbeginn "01.11.2010" ein
-
-* Benutzer gibt das Beschäftigungsende "01.05.2011" ein
-
-* Benutzer lässt den Vertragstyp leer.
-
-* Benutzer setzt "Delegation" auf "Nein"
-
-* Benutzer klickt auf den Button "Speichern"</actions>
-<post>Der Benutzer wird informiert, dass er Falscheingaben gemacht hat: Der Vertragstyp ist leer.
-Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</post>
-<tags/>
-</testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="289" priority="A" title="Abbruch: Vertrag erstellen">
 <description>Es soll ein Vertrag erstellt werden. Die Erstellung wird jedoch abgebrochen.</description>
-<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
-<actions>* Benutzer gibt das Abschlußdatum "11.12.2009" ein
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. </pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
 
-* Benutzer gibt das Bestätigungsdatum "15.12.2009" ein
+* Benutzer wählt die Hilfskraft "Carl Coder" aus
+
+* Benutzer gibt das Abschlußdatum "11.12.2009" ein
 
 * Benutzer lässt den Standardwert bei Beschätigungsbeginn
 
@@ -1383,12 +1435,12 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 <pre/>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="172" priority="B" title="Vertrag korrekt bearbeiten">
 <description>Die Vertragsdaten sollen editiert werden. Alle Eingaben sind dabei korrekt.</description>
-<pre>Der Testfall 287 wurde bereits ausgeführt.</pre>
-<actions>* Benutzer markiert den in 287 erstellten Vertrag
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 287 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den in 288 erstellten Vertrag
 
 * Benutzer klickt auf den Button "Bearbeiten"
 
-* Benutzer gibt das Bestätigungsdatum "16.12.2009" ein
+* Benutzer erhöht das Bestätigungsdatum um 1
 
 * Benutzer klickt auf den Button "Speichern"</actions>
 <post>Die geänderten Vertragsdaten werden in der Datenbank hinterlegt und das System kehrt zum vorher angezeigten Tab zurück.</post>
@@ -1396,7 +1448,7 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="174" priority="B" title="Vertrag inkorrekt bearbeiten">
 <description>Die Vertragsdaten sollen editiert werden. Es wurden falsche Eingaben gemacht.</description>
-<pre>Der Testfall 287 wurde bereits ausgeführt.</pre>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 287 wurde bereits ausgeführt.</pre>
 <actions>* Benutzer markiert den in 287 erstellten Vertrag
 
 * Benutzer klickt auf den Button "Bearbeiten"
@@ -1411,7 +1463,7 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="173" priority="B" title="Abbruch: Vertrag bearbeiten">
 <description>Die Vertragsdaten sollen editiert werden. Dieser Vorgang wird jedoch abgebrochen.</description>
-<pre>Der Testfall 287 wurde bereits ausgeführt.</pre>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 287 wurde bereits ausgeführt.</pre>
 <actions>* Benutzer markiert den in 287 erstellten Vertrag
 
 * Benutzer klickt auf den Button "Bearbeiten"
@@ -1428,7 +1480,7 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 <pre/>
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="299" priority="C" title="Vertrag suchen">
 <description/>
-<pre>Der Testfall 287 wurde ausgeführt.</pre>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 287 wurde ausgeführt.</pre>
 <actions>* Benutzer gibt "Neuvertrag" ins Suchfeld ein
 
 * System aktualisiert die Tabelle</actions>
@@ -1437,7 +1489,7 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 </testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="298" priority="C" title="Suchfilter entfernen">
 <description>Der angewandte Suchfilter soll entfernt werden.</description>
-<pre>Der Testfall 299 wurde ausgeführt.</pre>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 299 wurde ausgeführt.</pre>
 <actions>* Benutzer klickt auf den Button neben dem Suchfeld</actions>
 <post>Die Anzeige-Tabelle zeigt alle Beschäftigungen an. Das Suchfeld wurde geleert.</post>
 <tags/>
@@ -1448,7 +1500,7 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 <pre/>
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="295" priority="C" title="Vertrag anzeigen und schließen">
 <description>Ein Vertrag soll angezeigt werden und die Anzeige direkt danach wieder geschlossen werden.</description>
-<pre>Der Testfall 287 wurde ausgeführt.</pre>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 287 wurde ausgeführt.</pre>
 <actions>* Benutzer markiert Vertrag aus 287
 
 * Benutzer klickt auf den Button "Anzeigen"
@@ -1461,20 +1513,20 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 </testcase>
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="296" priority="C" title="Vertrag anzeigen und bearbeiten">
 <description>Ein Vertrag soll angezeigt werden und daraufhin bearbeitet werden.</description>
-<pre>Der Testfall 287 wurde ausgeführt.</pre>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 287 wurde ausgeführt.</pre>
 <actions>* Benutzer markiert Vertrag aus 287
 
 * Benutzer klickt auf den Button "Anzeigen"
 
 * System öffnet den Anzeigentab mit dem gewählten Vertrag
 
-* Benutzer klickt auf den Button "Bearbeiten        "</actions>
+* Benutzer klickt auf den Button "Bearbeiten"</actions>
 <post>Der Bearbeitentab für den gewählten Vertrag wird geöffnet.</post>
 <tags/>
 </testcase>
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="297" priority="C" title="Vertrag anzeigen ohne Auswahl">
 <description>Ein Vertrag soll angezeigt werden, es ist jedoch keiner ausgewählt.</description>
-<pre/>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Es wurde kein Vertrag ausgewählt.</pre>
 <actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
 <post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen und es erscheint eine entsprechende Fehlermeldung.</post>
 <tags/>
@@ -1485,7 +1537,7 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 <pre/>
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="291" priority="C" title="Vertrag löschen ohne Referenz">
 <description>Es soll ein Vertrag gelöscht werden, was korrekt funktioniert. </description>
-<pre>Der Testfall 287 wurde ausgeführt.</pre>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 287 wurde ausgeführt.</pre>
 <actions>* Benutzer markiert den in 287 erstellten Vertrag
 
 * Benutzer klickt auf den Button "Löschen"
@@ -1498,7 +1550,7 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 </testcase>
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="292" priority="C" title="Vertrag löschen mit Referenz">
 <description>Es soll ein Vertrag gelöscht werden, der noch von einer Beschäftigung referenziert wird.</description>
-<pre>Der Testfall 287 wurde ausgeführt.</pre>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 312 wurde ausgeführt. Es wurde eine Beschäftigung mit dem Vertrag aus 312 erstellt.</pre>
 <actions>* Benutzer markiert den in 287 erstellten Vertrag
 
 * Benutzer klickt auf den Button "Löschen"
@@ -1511,8 +1563,8 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 </testcase>
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="293" priority="C" title="Vertrag löschen mit Taste Entf">
 <description>Es soll ein Vertrag durch Drücken der Taste Entf gelöscht werden.</description>
-<pre>Der Testfall 287 wurde ausgeführt.</pre>
-<actions>* Benutzer markiert den in 287 erstellten Vertrag
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 287 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den in 288 erstellten Vertrag
 
 * Benutzer drückt die Entf-Taste
 
@@ -1524,7 +1576,7 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 </testcase>
 <testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="294" priority="C" title="Abbruch: Vertrag löschen">
 <description>Es soll ein Vertrag gelöscht werden. Dies wird jedoch abgebrochen</description>
-<pre>Der Testfall 287 wurde ausgeführt.</pre>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 287 wurde ausgeführt.</pre>
 <actions>* Benutzer markiert den in 287 erstellten Vertrag
 
 * Benutzer klickt auf den Button "Löschen"
@@ -11555,5 +11607,5 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
 <extension name="standarduser" value="Y"/>
 </author>
-<extension name="maxid" value="311"/>
+<extension name="maxid" value="313"/>
 </tests>
