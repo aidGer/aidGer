@@ -592,6 +592,19 @@
 <post>Die Hilfskraft ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das Hilfskräfte-Tab.</post>
 <tags/>
 </testcase>
+<testcase created="21.10.2010" creator="aidGerTeam" effort="00:00" number="316" priority="C" title="Studimail automatisch ausfüllen lassen">
+<description>Die Studimail Adresse einer Hilfskraft soll automatisch ausgefüllt werden.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Der Benutzer klickt auf "Hinzufügen"
+
+* Der Benutzer gibt als Vorname "Willi" ein
+
+* Der Benutzer gibt als Nachname "Wunderlich" ein
+
+* Der Benutzer drückt auf das Symbol neben dem Eingabefeld für die Email</actions>
+<post>Die Emailadresse "wunderwi@studi.informatik.uni-stuttgart.de" wurde in das Emailfeld eingetragen.</post>
+<tags/>
+</testcase>
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="47" priority="B" title="Hilfskraft unvollständig hinzufügen">
 <description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Es sind Eingaben unvollständig.</description>
 <pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
@@ -1598,7 +1611,9 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:10" number="159" priority="A" title="Beschäftigung korrekt buchen">
 <description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt. Dabei wird ein neuer Vertrag zur Beschäftigung angelegt.</description>
 <pre>Der Beschäftigungen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 28, 44, 287 wurden ausgeführt.</pre>
-<actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer wählt die Hilfskraft "Carl Coder" aus
 
 * Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
 
@@ -1625,7 +1640,9 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:10" number="168" priority="A" title="Beschäftigung korrekt buchen">
 <description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt. Dabei wird ein neuer Vertrag zur Beschäftigung angelegt.</description>
 <pre>Der Beschäftigungen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 39, 45 und 287 wurden ausgeführt.</pre>
-<actions>* Benutzer wählt die Hilfskraft "Peter Planlos" aus
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer wählt die Hilfskraft "Peter Planlos" aus
 
 * Benutzer wählt die Veranstaltung "Laufende Forschung" aus
 
@@ -1654,7 +1671,9 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:10" number="177" priority="A" title="Beschäftigung korrekt buchen">
 <description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt. Dabei wird ein neuer Vertrag zur Beschäftigung angelegt.</description>
 <pre>Der Beschäftigungen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 38, 45 und 287 wurden ausgeführt.</pre>
-<actions>* Benutzer wählt die Hilfskraft "Peter Planlos" aus
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer wählt die Hilfskraft "Peter Planlos" aus
 
 * Benutzer wählt die Veranstaltung "Mensa überleben für Pizza-Fans" aus
 
@@ -1683,7 +1702,9 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="164" priority="A" title="Beschäftigung korrekt buchen mit HKS-Übschreitung">
 <description>Es soll eine Beschäftigung gebucht werden. Alle Eingaben sind korrekt. Die Buchung ist dennoch nicht möglich (gebuchte HKS &gt; genehmigte HKS).</description>
 <pre>Der Beschäftigungen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44, 28 und 168 wurden ausgeführt.</pre>
-<actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer wählt die Hilfskraft "Carl Coder" aus
 
 * Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
 
@@ -1711,7 +1732,9 @@ Gespeichert wird die Beschäftigung trotzdem.</post>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:07" number="161" priority="A" title="Beschäftigung inkorrekt buchen">
 <description>Es soll eine Beschäftigung gebucht werden. Es wurden falsche Eingaben gemacht.</description>
 <pre>Der Beschäftigungen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 38, 45 und 287 wurden ausgeführt.</pre>
-<actions>* Benutzer wählt die Hilfskraft "Peter Planlos" aus
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer wählt die Hilfskraft "Peter Planlos" aus
 
 * Benutzer wählt die Veranstaltung "Mensa überleben für Pizza-Fans" aus
 
@@ -1741,7 +1764,9 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="163" priority="A" title="Abbruch: Beschäftigung buchen">
 <description>Es soll eine Beschäftigung gebucht werden. Die Buchung wird jedoch abgebrochen.</description>
 <pre>Der Beschäftigungen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44, 168 und 28 wurden ausgeführt.</pre>
-<actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer wählt die Hilfskraft "Carl Coder" aus
 
 * Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
 
@@ -2854,32 +2879,13 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <description>Es soll das Erscheinen einer Warnung getestet werden, wenn die Hilfskraft mehr als 6 Jahre angestellt ist.</description>
 <pre>Die Testfälle zum Hinzufügen von Hilfskräften, Beschäftigungen und Veranstaltungen wurden ausgeführt. Die Hilfskraft "Peter Planlos" ist bereits 5 1/2 Jahre angestellt.</pre>
 <actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung, um somit die Hilfskraft Peter Plan für ein weiteres Jahr einzustellen.</actions>
-<post>Der Benutzer bekommt die Warnung angezeigt, dass durch die Beschäftigung die Hilfskraft für mehr als 6 Jahre angestellt ist. Die Beschäftigung wird dennoch im System abgespeichert.</post>
+<post>Der Benutzer bekommt die Warnung angezeigt, dass durch die Beschäftigung die Hilfskraft für mehr als 6 Jahre angestellt ist. Er kann auswählen ob er die Beschäftigung trotzdem hinzufügen möchte oder nicht.</post>
 <tags/>
 </testcase>
 </sequence>
 <sequence created="28.06.2010" creator="aidGerTeam" name="Allgemein" number="309">
 <description>Die Testsequenz dient zum Testen allgemeiner Funktionalitäten der Software.</description>
 <pre/>
-<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="88" priority="C" title="Programmstart mit offenen Tabs">
-<description>Das Programm wird gestartet, wobei beim letzten Programmstart Tabs offen gelassen wurden.</description>
-<pre>Die Einstellung "Reiter bei Verlassen speichern" ist aktiviert.</pre>
-<actions>* Benutzer öffnet den Menüpunkt Veranstaltungen in einem neuen Tab
-
-* Benutzer drückt den Button "Hinzufügen"
-
-* System öffnet das "Hinzufügen"-Tab
-
-* Benutzer gibt die Bezeichnung "Veranstaltung YXZ" ein
-
-* Benutzer öffnet den Menüpunkt Vorgänge in einem neuen Tab
-
-* Benutzer schließt das Programm
-
-* Benutzer startet das Programm erneut</actions>
-<post>Die Tabs "Veranstaltungen", "Veranstaltungen - Hinzufügen" und "Vorgänge" sind nach dem Programmstart erneut offen. Die Eingabe im Veranstaltungen-Hinzufügen-Formular ging jedoch dabei verloren.</post>
-<tags/>
-</testcase>
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="90" priority="C" title="Änderung der Fenstergröße">
 <description>Es soll das Verhalten bei einer Veränderung der Fenstergröße getestet werden.</description>
 <pre/>
@@ -10037,6 +10043,530 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 </executedsequence>
 </executedsequence>
 </testrun>
+<testrun enddate="21.10.2010 22:18" priority="E" startdate="21.10.2010 22:02" tester="aidGerTeam">
+<description>All passed.</description>
+<sut/>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Hilfskräfte" number="13">
+<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten, Löschen, Anzeigen und Suchen der Stammdaten Hilfskräfte.</description>
+<pre>Benutzer befindet sich im Menüpunkt Hilfskräfte.</pre>
+</sequence>
+<pre/>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Hinzufügen" number="20">
+<description>Die Testsequenz enthält Testfälle zum Hinzufügen einer Hilfskraft in die Datenbank.</description>
+<pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:03" outcome="Ok" postok="Y" preok="Y" starttime="22:03">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="44" priority="B" title="Hilfskraft korrekt hinzufügen">
+<description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Der Benutzer klickt auf "Hinzufügen".
+
+* Benutzer gibt den Vorname "Carl" ein
+
+* Benutzer gibt den Nachname "Coder" ein
+
+* Benutzer gibt die eMail-Adresse "coder@studi.informatik.uni-stuttgart.de" ein
+
+* Benutzer wählt die Qualifikation "Bachelor" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Hilfskraft ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das Hilfskräfte-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:04" outcome="Ok" postok="Y" preok="Y" starttime="22:03">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="45" priority="B" title="Hilfskraft korrekt hinzufügen">
+<description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Der Benutzer klickt auf "Hinzufügen".
+
+* Benutzer gibt den Vorname "Peter" ein
+
+* Benutzer gibt den Nachname "Planlos" ein
+
+* Benutzer gibt die eMail-Adresse "planlos@studi.informatik.uni-stuttgart.de" ein
+
+* Benutzer wählt die Qualifikation "Ungeprüft" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Hilfskraft ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das Hilfskräfte-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:05" outcome="Ok" postok="Y" preok="Y" starttime="22:04">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="46" priority="B" title="Hilfskraft korrekt hinzufügen">
+<description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Der Benutzer klickt auf "Hinzufügen".
+
+* Benutzer gibt den Vorname "Fred" ein
+
+* Benutzer gibt den Nachname "Feuerstein" ein
+
+* Benutzer gibt die eMail-Adresse "feuerstein@studi.informatik.uni-stuttgart.de" ein
+
+* Benutzer wählt die Qualifikation "Geprüft" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Hilfskraft ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das Hilfskräfte-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:05" outcome="Ok" postok="Y" preok="Y" starttime="22:05">
+<testcase created="21.10.2010" creator="aidGerTeam" effort="00:00" number="316" priority="C" title="Studimail automatisch ausfüllen lassen">
+<description>Die Studimail Adresse einer Hilfskraft soll automatisch ausgefüllt werden.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Der Benutzer klickt auf "Hinzufügen"
+
+* Der Benutzer gibt als Vorname "Willi" ein
+
+* Der Benutzer gibt als Nachname "Wunderlich" ein
+
+* Der Benutzer drückt auf das Symbol neben dem Eingabefeld für die Email</actions>
+<post>Die Emailadresse "wunderwi@studi.informatik.uni-stuttgart.de" wurde in das Emailfeld eingetragen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:06" outcome="Ok" postok="Y" preok="Y" starttime="22:05">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="47" priority="B" title="Hilfskraft unvollständig hinzufügen">
+<description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Es sind Eingaben unvollständig.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Der Benutzer klickt auf "Hinzufügen".
+
+* Benutzer gibt den Vorname "Carl" ein
+
+* Benutzer gibt den Nachname "Coder" ein
+
+* Benutzer gibt keine eMail Adresse ein.
+
+* Benutzer wählt die Qualifikation "Bachelor" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Benutzer wird darüber informiert, dass die leer gelassenen Felder noch auszufüllen sind. Das Tab bleibt weiterhin offen und der Benutzer kann die restlichen Felder ausfüllen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:06" outcome="Ok" postok="Y" preok="Y" starttime="22:06">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="49" priority="B" title="Hilfskraft inkorrekt hinzufügen">
+<description>Es soll eine Hilfskraft hinzugefügt werden. Es werden Felder falsch eingegeben.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Der Benutzer klickt auf "Hinzufügen".
+
+* Benutzer gibt den Vornamen "Marcus" ein
+
+* Benutzer gibt den Nachnamen "Krause" ein
+
+* Benutzer gibt die email-Adresse "email" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Benutzer wird darüber informiert, dass das Format einer eMail-Adresse nicht eingehalten wurde. Die Hilfskraft wird nicht gespeichert und der Benutzer befindet sich weiterhin im Hinzufügen-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:07" outcome="Ok" postok="Y" preok="Y" starttime="22:06">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="51" priority="D" title="Abbruch: Hilfskraft hinzufügen">
+<description>Es soll eine Veranstaltung hinzugefügt werden. Dieser Vorgang wird abgebrochen</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Der Benutzer klickt auf "Hinzufügen".
+
+* Benutzer gibt den Vornamen "Trick" ein
+
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
+<post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet das Hilfskräfte-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Bearbeiten" number="19">
+<description>Die Testsequenz enthält Testfälle zum Bearbeiten einer Hilfskraft in die Datenbank.</description>
+<pre>Benutzer möchte eine Hilfskraft bearbeiten.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:08" outcome="Ok" postok="Y" preok="Y" starttime="22:07">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="52" priority="C" title="Hilfskraft korrekt bearbeiten">
+<description>Es soll eine Hilfskraft bearbeitet werden. Alle Eingaben sind korrekt.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ändert den Nachnamen zu "Plan"
+
+* Benutzer ändert die eMail-Adresse zu "plan@studi.informatik.uni-stuttgart.de"
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die geänderten Daten werden in der Datenbank hinterlegt und das System kehrt zum Hilfskräfte-Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:08" outcome="Ok" postok="Y" preok="Y" starttime="22:08">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="53" priority="C" title="Hilfskraft unvollständig bearbeiten">
+<description>Es soll eine Hilfskraft bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 44 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Carl Coder"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer löscht den Inhalt des Felds Nachname
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Datensatz wird nicht editiert. Der Benutzer bleibt im Bearbeiten-Tab und wird über die leer gelassenen Felder informiert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:09" outcome="Ok" postok="Y" preok="Y" starttime="22:08">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="54" priority="C" title="Hilfskraft inkorrekt bearbeiten">
+<description>Es soll eine Hilfskraft bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 46 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Fred Feuerstein"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ändert die eMail-Adresse zu "mail@domain"
+
+* Benutzer klickt auf den Button "Speichern"
+</actions>
+<post>Der Datensatz wird nicht bearbeitet. Der Benutzer  befindet sich weiterhin im Bearbeiten-Tab, um seine Eingabe korrigieren zu können.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:09" outcome="Ok" postok="Y" preok="Y" starttime="22:09">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="55" priority="C" title="Abbruch: Hilfskraft bearbeiten">
+<description>Es soll eine Hilfskraft bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ersetzt den Vornamen mit "Gustav"
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Die Änderungen am Datensatz werden verworfen, das Bearbeiten-Tab wird geschloßen und der Benutzer befindet sich erneut im Hilfskräfte-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Anzeigen" number="99">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen einer Hilfskraft in die Datenbank.</description>
+<pre>Benutzer möchte eine Hilfskraft anzeigen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:10" outcome="Ok" postok="Y" preok="Y" starttime="22:09">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="137" priority="C" title="Hilfskraft anzeigen und schließen">
+<description>Es soll eine Hilfskraft angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 46 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Fred Feuerstein"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 46 übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum Hilfskräfte-Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:10" outcome="Ok" postok="Y" preok="Y" starttime="22:10">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="138" priority="C" title="Hilfskraft anzeigen und bearbeiten">
+<description>Es soll eine Hilfskraft angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* System geht in den "Bearbeiten"-Tab über
+
+* Benutzer gibt den neuen Nachname "Planvoll" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 45 übereinstimmen. Nach dem Bearbeiten wurde der Datensatz korrekt geändert und gespeichert. Der Benutzer befindet sich wieder im Hilfskräfte-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:12" outcome="Ok" postok="Y" preok="Y" starttime="22:10">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="139" priority="C" title="Hilfskraft anzeigen und Vorgang anzeigen">
+<description>Es soll eine Hilfskraft angezeigt werden. Anschließend soll ein Vorgang zur Hilfskraft angezeigt werden.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 44 wurde ausgeführt. Es wurde der benötigte Vorgang zu dieser Hilfskraft korrekt hinzugefügt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Carl Coder"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt den Vorgang "Carl Coder - Nutzlose Betriebssysteme in der Praxis" an
+
+* System öffnet den Vorgang in einem neuen "Anzeigen"-Tab
+
+* Benutzer schließt den Vorgangsreiter
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 44 übereinstimmen. Des weiteren konnte er sich über den ausgewählten Vorgang informieren. Der Benutzer befindet sich wieder im Hilfskräfte-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:13" outcome="Ok" postok="Y" preok="Y" starttime="22:12">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="140" priority="C" title="Hilfskraft anzeigen ohne Auswahl">
+<description>Es soll eine Hilfskraft angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Es wurde keine Hilfskraft ausgewählt.</pre>
+<actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte und es erscheint eine entsprechende Fehlermeldung.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Suchen" number="94">
+<description>Die Testsequenz enthält Testfälle zum Suchen einer Hilfskraft in die Datenbank.</description>
+<pre>Benutzer möchte eine Hilfskraft suchen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:13" outcome="Ok" postok="Y" preok="Y" starttime="22:13">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="141" priority="C" title="Hilfskraft suchen nach Nachname">
+<description>Es soll eine Hilfskraft gesucht werden. Es wird nach dem Nachnamen gesucht.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt im Suchfeld "Planlos" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich die gesuche Hilfskraft (Testfall 45). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:14" outcome="Ok" postok="Y" preok="Y" starttime="22:13">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="142" priority="C" title="Suchfilter entfernen">
+<description>Der angewandte Suchfilter soll entfernt werden.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 141 wurde ausgeführt.</pre>
+<actions>* Benutzer leert das Suchfeld</actions>
+<post>Die Anzeige-Tabelle zeigt alle Hilfskräfte an. Das Suchfeld wurde geleert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Vorgänge" number="136">
+<description/>
+<pre/>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:14" outcome="Ok" postok="Y" preok="Y" starttime="22:14">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="143" priority="C" title="Vorgänge anzeigen und schließen">
+<description>Es sollen Vorgänge zu einer Hilfskraft angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 44 wurde ausgeführt. Es wurden die benötigten Vorgänge zu dieser Hilfskraft korrekt hinzugefügt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Carl Coder"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Hilfskraft erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum Hilfskräfte-Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:15" outcome="Ok" postok="Y" preok="Y" starttime="22:14">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="144" priority="C" title="Vorgänge anzeigen und Detailansicht">
+<description>Es sollen Vorgänge zu einer Hilfskraft angezeigt werden. Ein einzelner Vorgang soll daraufhin angezeigt werden.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44, 189, 191 und 193 wurden ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Carl Coder"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Vorgang "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
+
+* System öffnet das "Anzeige"-Tab des Vorgangs
+
+* Benutzer schließt das Vorgangsreiter
+
+* Benutzer drückt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Hilfskraft erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Anschließend konnte er sich über einen einzelen Vorgang in einer Detailsicht informieren. Die beiden Reiter-Fenster sind geschloßen und der Benutzer kehrt zum Hilfskräfte-Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Löschen" number="21">
+<description>Die Testsequenz enthält Testfälle zum Löschen einer Hilfskraft in die Datenbank.</description>
+<pre>Benutzer möchte eine Hilfskraft löschen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:15" outcome="Ok" postok="Y" preok="Y" starttime="22:15">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="56" priority="C" title="Hilfskraft entfernen ohne Referenz">
+<description>Es soll eine Hilfskraft gelöscht werden, was korrekt funktioniert.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:16" outcome="Ok" postok="Y" preok="Y" starttime="22:15">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="146" priority="C" title="Hilfskraft entfernen mit Taste Entf">
+<description>Es soll eine Hilfskraft gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
+
+* Benutzer drückt die Taste "Entf"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:16" outcome="Ok" postok="Y" preok="Y" starttime="22:16">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="58" priority="C" title="Abbruch: Hilfskraft entfernen">
+<description>Es soll eine Hilfskraft gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 44 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Carl Coder"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Nein"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:17" outcome="Ok" postok="Y" preok="Y" starttime="22:16">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="57" priority="C" title="Hilfskraft entfernen mit Referenz">
+<description>Es soll eine Hilfskraft gelöscht werden. Das Datum wird noch referenziert.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 und 168 wurden ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:18" outcome="Ok" postok="Y" preok="Y" starttime="22:17">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="59" priority="C" title="Hilfskraft entfernen ohne Auswahl">
+<description>Es soll eine Hilfskraft gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Es wurde keine Hilfskraft ausgewählt.</pre>
+<actions>* Benutzer klickt auf den Button "Löschen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+</executedsequence>
+</testrun>
 </tsa>
 <tsa name="Finanzkategorien" number="14" revId="1">
 <relatedsequence>14</relatedsequence>
@@ -10893,6 +11423,433 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 </executedsequence>
 </executedsequence>
 </testrun>
+<testrun enddate="21.10.2010 22:29" priority="E" startdate="21.10.2010 22:19" tester="aidGerTeam">
+<description>All passed</description>
+<sut/>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Finanzkategorien" number="14">
+<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten, Löschen, Anziegen und Suchen der Stammdaten Finanzkategorien.</description>
+<pre>Benutzer befindet sich im Menüpunkt Finanzpläne.</pre>
+</sequence>
+<pre/>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Hinzufügen" number="22">
+<description>Die Testsequenz enthält Testfälle zum Hinzufügen einer Finanzkategorie in die Datenbank.</description>
+<pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:20" outcome="Ok" postok="Y" preok="Y" starttime="22:20">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="60" priority="B" title="Finanzkategorie korrekt hinzufügen">
+<description>Es wird eine Finanzkategorie zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer gibt den Namen "Lehre 2010" ein
+
+* Benutzer gibt die Plankosten "47000" ein
+
+* Benutzer wählt die Kostenstelle "11111111" ein
+
+* Benutzer gibt das Jahr "2010" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Finanzkategorie ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das Finanzkategorie-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:21" outcome="Ok" postok="Y" preok="Y" starttime="22:20">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="61" priority="B" title="Finanzkategorie korrekt hinzufügen">
+<description>Es wird eine Finanzkategorie zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer gibt den Namen "Lehre 0809" ein
+
+* Benutzer gibt die Plankoste "12000" ein
+
+* Benutzer wählt die Kostenstelle "22222222" ein
+
+* Benutzer gibt das Jahr "2009" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Finanzkategorie ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das Finanzkategorie-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:21" outcome="Ok" postok="Y" preok="Y" starttime="22:21">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="62" priority="B" title="Finanzkategorie korrekt hinzufügen">
+<description>Es wird eine Finanzkategorie zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer gibt den Namen "Sonstiges" ein
+
+* Benutzer gibt die Plankosten "6000" ein
+
+* Benutzer wählt die Kostenstelle "33333333" ein
+
+* Benutzer gibt das Jahr "2009" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Finanzkategorie ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das Finanzkategorie-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:22" outcome="Ok" postok="Y" preok="Y" starttime="22:21">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="63" priority="B" title="Finanzkategorie inkorrekt hinzufügen">
+<description>Es wird eine Finanzkategorie zum System hinzugefügt. Dabei werden falsche Eingaben gemacht.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer gibt den Namen "Forschung" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Die Finanzkategorie wurde nicht hinzugefügt und der Benutzer befindet sich weiterhin im Hinzufügen-Tab, um seine Eingabe korrigieren zu können.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:23" outcome="Ok" postok="Y" preok="Y" starttime="22:22">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:04" number="64" priority="B" title="Finanzkategorie inkorrekt hinzufügen">
+<description>Es wird eine Finanzkategorie zum System hinzugefügt. Dabei werden falsche Eingaben gemacht.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer gibt den Namen "Forschung" ein
+
+* Benutzer versucht die Plankosten "sehr wenig" einzugeben
+
+* Benutzer versucht das Jahr "Zukunft" einzugeben
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Die Finanzkategorie wurde nicht hinzugefügt und der Benutzer befindet sich weiterhin im Hinzufügen-Tab, da er für die Felder Budgetkosten und Jahr ungültige Eingaben gemacht hat.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:23" outcome="Ok" postok="Y" preok="Y" starttime="22:23">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="65" priority="D" title="Abbruch: Finanzkategorie hinzufügen">
+<description>Es soll eine Finanzkategorie hinzugefügt werden. Dieser Vorgang wird abgebrochen.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer gibt den Namen "Sonstiges" ein
+
+* Benutzer gibt die Plankosten "6000" ein
+
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
+<post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet das Finanzkategorie-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Bearbeiten" number="23">
+<description>Die Testsequenz enthält Testfälle zum Bearbeiten einer Finanzkategorie in die Datenbank.</description>
+<pre>Benutzer möchte eine Finanzkategorie bearbeiten.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:24" outcome="Ok" postok="Y" preok="Y" starttime="22:23">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="66" priority="C" title="Finanzkategorie korrekt bearbeiten">
+<description>Es soll eine Finanzkategorie bearbeitet werden. Alle Eingaben sind korrekt.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 61 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Lehre 0809"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer wählt die Kostenstelle "11111111" ein
+
+* Benutzer gibt das Jahr "2008" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die geänderten Daten werden in der Datenbank hinterlegt und das System kehrt zum Finanzkategorie-Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:24" outcome="Ok" postok="Y" preok="Y" starttime="22:24">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="67" priority="C" title="Finanzkategorie unvollständig bearbeiten">
+<description>Es soll eine Finanzkategorie bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 61 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Lehre 0809"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer löscht den Inhalt des Felds Name
+
+* Benutzer löscht den Inhalt des Felds Jahr
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Datensatz wird nicht editiert. Der Benutzer bleibt im Bearbeiten-Tab und wird über die leer gelassenen Felder informiert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:25" outcome="Ok" postok="Y" preok="Y" starttime="22:24">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="68" priority="C" title="Finanzkategorie inkorrekt bearbeiten">
+<description>Es soll eine Finanzkategorie bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 60 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Lehre 2010"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer versucht das Jahr "irgendwann" einzugeben
+
+* Benutzer klickt auf den Button "Speichern"
+</actions>
+<post>Der Datensatz wird nicht bearbeitet. Der Benutzer wird darüber informiert, dass das Format für die Felder Fonds und Jahr nicht eingehalten wurde. Er befindet sich weiterhin im Bearbeiten-Tab, um seine Eingabe korrigieren zu können.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:25" outcome="Ok" postok="Y" preok="Y" starttime="22:25">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="69" priority="C" title="Abbruch: Finanzkategorie bearbeiten">
+<description>Es soll eine Finanzkategorie bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 62 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Sonstiges"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ersetzt das Feld Jahr mit "2011"
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Die Änderungen am Datensatz werden verworfen, das Bearbeiten-Tab wird geschloßen und der Benutzer befindet sich erneut im davor angezeigten Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Anzeigen" number="100">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen einer Finanzkategorie in die Datenbank.</description>
+<pre>Benutzer möchte eine Finanzkategorie anzeigen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:25" outcome="Ok" postok="Y" preok="Y" starttime="22:25">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="149" priority="C" title="Finanzkategorie anzeigen und schließen">
+<description>Es soll eine Finanzkategorie angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 60 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Lehre 2010"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten. Diese Daten müssen zu den eingebenen Daten im Testfall 60 übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum Finanzkategorie-Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:26" outcome="Ok" postok="Y" preok="Y" starttime="22:25">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="150" priority="C" title="Finanzkategorie anzeigen und bearbeiten">
+<description>Es soll eine Finanzkategorie angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 62 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Sonstiges"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* System geht in den "Bearbeiten"-Tab über
+
+* Benutzer gibt die neuen Budgetkosten "8000" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten. Diese Daten müssen zu den eingebenen Daten im Testfall 62 übereinstimmen. Nach dem Bearbeiten wurde der Datensatz korrekt geändert und gespeichert. Der Benutzer befindet sich wieder im Finanzkategorie-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:26" outcome="Ok" postok="Y" preok="Y" starttime="22:26">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="151" priority="C" title="Finanzkategorie anzeigen ohne Auswahl">
+<description>Es soll eine Finanzkategorie angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt. Es ist keine Finanzkategorie ausgewählt.</pre>
+<actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Finanzkategorien und es erscheint eine entsprechende Fehlermeldung.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Suchen" number="95">
+<description>Die Testsequenz enthält Testfälle zum Suchen einer Finanzkategorie in die Datenbank.</description>
+<pre>Benutzer möchte eine Finanzkategorie suchen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:27" outcome="Ok" postok="Y" preok="Y" starttime="22:26">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="152" priority="C" title="Finanzkategorie suchen nach Budgetkosten">
+<description>Es soll eine Finanzkategorie gesucht werden. Es wird nach den Budgetkosten gesucht.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 61 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt im Suchfeld "24000" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich die gesuche Finanzkategorie (Testfall 61). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:27" outcome="Ok" postok="Y" preok="Y" starttime="22:27">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="153" priority="C" title="Suchfilter entfernen">
+<description>Der angewandte Suchfilter soll entfernt werden.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 152 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt auf den Button neben dem Suchfeld</actions>
+<post>Die Anzeige-Tabelle zeigt alle Finanzkategorien an. Das Suchfeld wurde geleert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Löschen" number="24">
+<description>Die Testsequenz enthält Testfälle zum Löschen einer Finanzkategorie in die Datenbank.</description>
+<pre>Benutzer möchte eine Finanzkategorie löschen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="22:27" outcome="Ok" postok="Y" preok="Y" starttime="22:27">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="70" priority="C" title="Finanzkategorie entfernen ohne Referenz">
+<description>Es soll eine Finanzkategorie gelöscht werden, was korrekt funktioniert.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 62 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Sonstiges"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Finanzkategorien.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:28" outcome="Ok" postok="Y" preok="Y" starttime="22:27">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="147" priority="C" title="Finanzkategorie entfernen mit Taste Entf">
+<description>Es soll eine Finanzkategorie gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 60 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Lehre 2010"
+
+* Benutzer drückt die Taste "Entf"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Finanzkategorien.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:29" outcome="Ok" postok="Y" preok="Y" starttime="22:28">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="71" priority="C" title="Finanzkategorie entfernen mit Referenz">
+<description>Es soll eine Finanzkategorie gelöscht werden. Das Datum wird noch referenziert.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 61 und 28 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Lehre 0809"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Finanzkategorien.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:29" outcome="Ok" postok="Y" preok="Y" starttime="22:29">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="72" priority="C" title="Abbruch: Finanzkategorie entfernen">
+<description>Es soll eine Finanzkategorie gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 61 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Finanzkategorie "Lehre 0809"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Nein"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Finanzkategorien.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="22:29" outcome="Ok" postok="Y" preok="Y" starttime="22:29">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="73" priority="C" title="Finanzkategorie entfernen ohne Auswahl">
+<description>Es soll eine Finanzkategorie gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
+<pre>Der Finanzkategorie-Tab ist geöffnet und vom Benutzer ausgewählt. Es wurde keine Finanzkategorie ausgewählt.</pre>
+<actions>* Benutzer klickt auf den Button "Löschen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Finanzkategorie.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+</executedsequence>
+</testrun>
 </tsa>
 <tsa name="Stundenlöhne" number="15" revId="1">
 <relatedsequence>15</relatedsequence>
@@ -11639,5 +12596,5 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <author active="Y" firstname="" lastname="aidGer Team" uid="aidGerTeam">
 <extension name="standarduser" value="Y"/>
 </author>
-<extension name="maxid" value="313"/>
+<extension name="maxid" value="316"/>
 </tests>
