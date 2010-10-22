@@ -138,6 +138,7 @@ public class ControllingCreatorTest {
 
         controllingCreator = new ControllingCreator(employment.getYear(),
             employment.getMonth(), employment.getCostUnit());
+        System.out.println(employment.getCostUnit());
 
         ControllingAssistant expectedAssistant = new ControllingAssistant();
         expectedAssistant.setName(assistant.getFirstName() + " "

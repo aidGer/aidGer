@@ -32,9 +32,9 @@ public class ControllingCreator {
     private final int month;
 
     /**
-     * The funds of this controlling report.
+     * The costUnit of this controlling report.
      */
-    private final int funds;
+    private final int costUnit;
 
     /**
      * Initializes a new controlling creator and sets the year, month and funds.
@@ -43,13 +43,13 @@ public class ControllingCreator {
      *            The year of this controlling report.
      * @param month
      *            The month of this controlling report.
-     * @param funds
-     *            The funds of this controlling report.
+     * @param costUnit
+     *            The costUnit of this controlling report.
      */
-    public ControllingCreator(int year, int month, int funds) {
+    public ControllingCreator(int year, int month, int costUnit) {
         this.year = year;
         this.month = month;
-        this.funds = funds;
+        this.costUnit = costUnit;
     }
 
     /**
@@ -76,7 +76,7 @@ public class ControllingCreator {
                 for (Employment employment : employments) {
                     new BalanceHelper();
                     if (assistant.getId().equals(employment.getAssistantId())
-                            && employment.getFunds().equals(funds)
+                            && employment.getCostUnit().equals(costUnit)
                             && (BalanceHelper
                                 .calculatePreTaxBudgetCost(employment) != -1 || !ignore)) {
                         if (controllingAssistant == null) {
