@@ -20,6 +20,7 @@
     <property name="source.dir" value="src" />
     <property name="test.source.dir" value="tests" />
     <property name="test.pattern" value="**/**Test.java" />
+    <property name="test.excludepattern" value="**/controller/test/**.java" />
 
     <property name="lib.derby" value="lib/derby.jar" />
     <property name="lib.itext" value="lib/iText-5.0.4.jar" />
@@ -104,6 +105,7 @@
             <batchtest todir="${test.report.dir}">
                 <fileset dir="${test.source.dir}">
                     <include name="${test.pattern}" />
+                    <exclude name="${test.excludepattern}" />
                 </fileset>
             </batchtest>
         </junit>
