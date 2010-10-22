@@ -92,13 +92,17 @@ public abstract class IFinancialCategoryManagerTest extends IAdoHiveManagerTest<
 		IFinancialCategory i1 = newE();
 		IFinancialCategory i2 = newE();
 		i1.setCostUnits(new Integer[]{1});
+                i1.setBudgetCosts(new Integer[]{1});
 		i2.setCostUnits(new Integer[]{1});
+                i2.setBudgetCosts(new Integer[]{1});
 		instance.add(i1);
 		instance.add(i2);
 		assertEquals(2,instance.getAll().size());
 		i2.setCostUnits(new Integer[]{1,2});
+                i2.setBudgetCosts(new Integer[]{1,2});
 		instance.update(i2);
 		i1.setCostUnits(new Integer[]{1,2});
+                i1.setBudgetCosts(new Integer[]{1,2});
 		instance.update(i1);
 		List<IFinancialCategory> getall = instance.getAll();
 		assertEquals(2,getall.size());
