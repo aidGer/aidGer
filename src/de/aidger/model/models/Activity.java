@@ -187,6 +187,10 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
             addError("documentType", _("Document Type"), _("is too long"));
             ret = false;
         }
+        if (processor.length() > 2) {
+            addError("processor", _("Processor"), _("is too long"));
+            ret = false;
+        }
         return ret;
     }
 

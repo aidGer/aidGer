@@ -139,12 +139,11 @@ public class ActivityTest {
         activity.setProcessor(null);
         assertFalse(activity.save());
         activity.resetErrors();
-        activity.setProcessor("Tester");
 
-        activity.setSender(null);
+        activity.setProcessor("Tester");
         assertFalse(activity.save());
         activity.resetErrors();
-        activity.setSender("Test Sender");
+        activity.setProcessor("T");
 
         activity.setType(null);
         assertFalse(activity.save());
