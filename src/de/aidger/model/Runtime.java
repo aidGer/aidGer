@@ -137,7 +137,7 @@ public final class Runtime {
         String test = System.getenv("AIDGER_TEST");
         if (test != null) {
             testRun = true;
-            configPath = ".";
+            configPath = "./";
         }
 
         configuration = new Configuration();
@@ -345,16 +345,6 @@ public final class Runtime {
      * @return True if no lock file exists and the application can be started
      */
     protected boolean checkLock() {
-        /*
-         * File lock = new File(configPath + "/aidger.lock"); if (lock.exists())
-         * { return false; }
-         * 
-         * try { lock.createNewFile(); lock.deleteOnExit(); } catch (IOException
-         * ex) { Logger.error(_("Couldn't create lockfile")); }
-         * 
-         * return true;
-         */
-
         try {
             final File file = new File(configPath + "/aidger.lock");
             final java.io.RandomAccessFile randomAccessFile = new java.io.RandomAccessFile(
@@ -378,7 +368,6 @@ public final class Runtime {
             }
         } catch (Exception e) {
             System.err.println("Unable to create and/or lock file");
-
         }
         return false;
     }
