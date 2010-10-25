@@ -33,13 +33,20 @@ public final class Configuration {
     private static final int version = 2;
 
     /**
-     * Initializes this Configuration with a given path.
-     *
-     * @param path
-     *            The path of the configuration.
+     * Initializes the Configuration.
      */
     public Configuration() {
-        file = Runtime.getInstance().getConfigPath() + "settings.cfg";
+        this("settings.cfg");
+    }
+
+    /**
+     * Initializes the Configuration with a given filename.
+     *
+     * @param filename
+     *            The filename of the configuration.
+     */
+    public Configuration(String filename) {
+        file = Runtime.getInstance().getConfigPath() + filename;
 
         /* Check if the configuration exists and create it if it does not */
     	File config = new File(file);
