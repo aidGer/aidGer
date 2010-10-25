@@ -1,4 +1,5 @@
 CHANGES IN VERSION 0.2:
+    * [CHANGE] Use AIDGER_TEST environment variable to use current directory instead of the .config one for storage
 
 
 CHANGES IN VERSION 0.1.1:
