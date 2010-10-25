@@ -128,6 +128,7 @@
 
     <target name="dist" depends="compile-source" description="Generates the distribution">
         <delete dir="${test.classes.dir}" />
+        <delete dir="${dist.dir}" />
         <mkdir dir="${dist.dir}" />
 
         <jar jarfile="${dist.dir}/${appFileName}-${appVersion}-${buildNumber}.jar" basedir="${classes.dir}" level="9">
