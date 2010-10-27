@@ -142,6 +142,7 @@
                 <attribute name="Implementation-Title" value="${appName}" />
                 <attribute name="Implementation-Version" value="${appVersion}-${buildNumber}" />
                 <attribute name="Implementation-Vendor" value="Team aidGer" />
+                <attribute name="SplashScreen-Image" value="de/aidger/res/icons/splashscreen.png" />
             </manifest>
         </jar>
 
