@@ -19,7 +19,7 @@
 /**
  * 
  */
-package de.unistuttgart.iste.se.adohive.controller.derby;
+package de.unistuttgart.iste.se.adohive.controller.ansi;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -32,7 +32,7 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
  * @author rashfael
  *
  */
-class DerbyEmploymentManager extends JdbcEmploymentManager {
+class AnsiEmploymentManager extends JdbcEmploymentManager {
 	private final static String CREATE_TABLE = 
 		"CREATE TABLE \"Beschaeftigung\" (\n" +
 		"\"ID\" bigint NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)," +
@@ -56,7 +56,7 @@ class DerbyEmploymentManager extends JdbcEmploymentManager {
 	 * @param con
 	 * @throws AdoHiveException
 	 */
-	public DerbyEmploymentManager(Connection con, SqlDialect dialect) throws AdoHiveException {
+	public AnsiEmploymentManager(Connection con, SqlDialect dialect) throws AdoHiveException {
 		super(con, dialect);
 	}
 

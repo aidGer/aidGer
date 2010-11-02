@@ -23,7 +23,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
-import de.unistuttgart.iste.se.adohive.controller.derby.DerbyAdoHiveController;
+import de.unistuttgart.iste.se.adohive.controller.ansi.AnsiAdoHiveController;
 import de.unistuttgart.iste.se.adohive.controller.test.AdohiveControllerTest;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
@@ -36,7 +36,7 @@ public class DerbyAdohiveControllerTest extends AdohiveControllerTest {
 		
 		// test if an instance is returned
 		try {
-			myInstance = DerbyAdoHiveController.getInstance();
+			myInstance = AnsiAdoHiveController.getInstance();
 		} catch (AdoHiveException e) {
 			fail("getInstance threw an error.");
 			e.printStackTrace();
@@ -45,7 +45,7 @@ public class DerbyAdohiveControllerTest extends AdohiveControllerTest {
 
 		// test if the same instance is returned
 		try {
-			myInstance2 = DerbyAdoHiveController.getInstance();
+			myInstance2 = AnsiAdoHiveController.getInstance();
 		} catch (AdoHiveException e) {
 			fail("getInstance threw an error.");
 			e.printStackTrace();

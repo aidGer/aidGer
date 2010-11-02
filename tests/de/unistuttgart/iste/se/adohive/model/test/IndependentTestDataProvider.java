@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import de.unistuttgart.iste.se.adohive.controller.derby.DerbyAdoHiveController;
+import de.unistuttgart.iste.se.adohive.controller.ansi.AnsiAdoHiveController;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
@@ -95,9 +95,9 @@ public class IndependentTestDataProvider implements ITestDataProvider {
 	@Override
 	public IActivity newIActivity() throws AdoHiveException {
 		IAssistant assi = newIAssistant();
-		DerbyAdoHiveController.getInstance().getAssistantManager().add(assi);
+		AnsiAdoHiveController.getInstance().getAssistantManager().add(assi);
 		ICourse course = newICourse();
-		DerbyAdoHiveController.getInstance().getCourseManager().add(course);
+		AnsiAdoHiveController.getInstance().getCourseManager().add(course);
 		IActivity activity = new Activity();
 		activity.setAssistantId(assi.getId());
 		activity.setCourseId(course.getId());
@@ -118,7 +118,7 @@ public class IndependentTestDataProvider implements ITestDataProvider {
 	@Override
 	public IContract newIContract() throws AdoHiveException  {
 		IAssistant assi = newIAssistant();
-		DerbyAdoHiveController.getInstance().getAssistantManager().add(assi);
+		AnsiAdoHiveController.getInstance().getAssistantManager().add(assi);
 		Contract contract = new Contract();
 		contract.setAssistantId(assi.getId());
 		return contract;
@@ -130,7 +130,7 @@ public class IndependentTestDataProvider implements ITestDataProvider {
 	@Override
 	public ICourse newICourse() throws AdoHiveException  {
 		IFinancialCategory fcat = newIFinancialCategory();
-		DerbyAdoHiveController.getInstance().getFinancialCategoryManager().add(fcat);
+		AnsiAdoHiveController.getInstance().getFinancialCategoryManager().add(fcat);
 		Course course = new Course();
 		course.setFinancialCategoryId(fcat.getId());
 		return course;
@@ -142,9 +142,9 @@ public class IndependentTestDataProvider implements ITestDataProvider {
 	@Override
 	public IEmployment newIEmployment() throws AdoHiveException  {
 		IContract contract = newIContract();
-		DerbyAdoHiveController.getInstance().getContractManager().add(contract);
+		AnsiAdoHiveController.getInstance().getContractManager().add(contract);
 		ICourse course = newICourse();
-		DerbyAdoHiveController.getInstance().getCourseManager().add(course);
+		AnsiAdoHiveController.getInstance().getCourseManager().add(course);
 		Employment employment = new Employment();
 		employment.setAssistantId(contract.getAssistantId());
 		employment.setContractId(contract.getId());

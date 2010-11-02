@@ -19,12 +19,12 @@
 /**
  * 
  */
-package de.unistuttgart.iste.se.adohive.controller.derby;
+package de.unistuttgart.iste.se.adohive.controller.ansi;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import de.unistuttgart.iste.se.adohive.controller.jdbc.JdbcCourseManager;
+import de.unistuttgart.iste.se.adohive.controller.jdbc.JdbcHourlyWageManager;
 import de.unistuttgart.iste.se.adohive.controller.jdbc.SqlDialect;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
@@ -32,31 +32,22 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
  * @author rashfael
  *
  */
-class DerbyCourseManager extends JdbcCourseManager {
-
-	private final static String CREATE_TABLE = 
-		"CREATE TABLE \"Veranstaltung\" (\n" +
-		"\"ID\" bigint NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)," +
-		"\"Finanzkategorie_ID\" bigint NOT NULL," +
-		"\"Bezeichnung\" varchar(255) DEFAULT NULL," +
-		"\"Semester\" varchar(6) DEFAULT NULL," +
-		"\"Dozent\" varchar(255) DEFAULT NULL," +
-		"\"Betreuer\" varchar(255) DEFAULT NULL," +
-		"\"Gruppenanzahl\" int DEFAULT NULL," +
-		"\"Zielpublikum\" varchar(100) DEFAULT NULL," +
-		"\"HKS\" float DEFAULT NULL," +
-		"\"Umfang\" varchar(100) DEFAULT NULL," +
-		"\"Teil\" varchar(1) DEFAULT NULL," +
-		"\"Gruppe\" varchar(100) DEFAULT NULL," +
-		"\"Bemerkung\" varchar(100) DEFAULT NULL," +
-		"PRIMARY KEY (ID)" +
-		")";
+class AnsiHourlyWageManager extends JdbcHourlyWageManager {
 	
+	private static final String CREATE_TABLE = 
+		"CREATE TABLE \"Stundenlohn\" (" +
+		"\"Qualifikation\" varchar(2) NOT NULL, " +
+		"\"Jahr\" int NOT NULL, " +
+		"\"Monat\" int NOT NULL, " +
+		"\"Lohn\" decimal(5,2) NOT NULL, " +
+		"PRIMARY KEY (\"Qualifikation\", \"Jahr\", \"Monat\")" +
+		")";
+
 	/**
 	 * @param con
 	 * @throws AdoHiveException
 	 */
-	public DerbyCourseManager(Connection con, SqlDialect dialect) throws AdoHiveException {
+	public AnsiHourlyWageManager(Connection con, SqlDialect dialect) throws AdoHiveException {
 		super(con, dialect);
 	}
 
@@ -65,8 +56,8 @@ class DerbyCourseManager extends JdbcCourseManager {
 	 */
 	@Override
 	protected void createTable() throws SQLException{
-		//this.con.prepareStatement("DROP TABLE \"Veranstaltung\"").execute();
-		this.con.prepareStatement(CREATE_TABLE).execute();	
+		//this.con.prepareStatement("DROP TABLE \"Stundenlohn\"").execute();
+		this.con.prepareStatement(CREATE_TABLE).execute();		
 	}
 
 }
