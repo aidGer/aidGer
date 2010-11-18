@@ -76,6 +76,8 @@ public class ViewerDeleteAction extends AbstractAction {
                                 errorMessage += "- " + error + "\n";
                             }
 
+                            model.resetErrors();
+
                             UI.displayError(MessageFormat
                                 .format(_("Could not remove the entity {0}:"),
                                     new Object[] { tab.getType()

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE tests SYSTEM "project.dtd">
 <tests product="TestDataManager" team="05" version="1.0">
-<sequence created="21.10.2010" creator="aidGerTeam" name="Project" number="0">
+<sequence created="24.10.2010" creator="aidGerTeam" name="Project" number="0">
 <description>This is the root node of the project. It contains all test sequences and test cases.</description>
 <pre/>
 <sequence created="11.05.2010" creator="aidGerTeam" name="Systemtest" number="3">
@@ -4026,6 +4026,499 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 </executedsequence>
 </executedsequence>
 </testrun>
+<testrun enddate="24.10.2010 20:08" priority="E" startdate="24.10.2010 19:59" tester="aidGerTeam">
+<description>Alles gut :-)</description>
+<sut>aidGer</sut>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Vorgänge" number="8">
+<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten, Löschen, Anzeigen und Suchen von Vorgängen.</description>
+<pre>Das Programm wurde gestartet.</pre>
+</sequence>
+<pre/>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Hinzufügen" number="108">
+<description>Die Testsequenz enthält Testfälle zum Hinzufügen eines Vorgangs in die Datenbank.</description>
+<pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:00" outcome="Ok" postok="Y" preok="Y" starttime="19:59">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:05" number="189" priority="B" title="Vorgang einmal korrekt hinzufügen">
+<description>Es wird ein Vorgang zur Datenbank hinzugefügt. Alle Eingaben sind korrekt. Es ist keine Massenerfassung von Vorgängen.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 28 wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Datum "15.10.2010" ein
+
+* Benutzer wählt die Hilfskraft "Peter Planlos" aus
+
+* Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
+
+* Benutzer gibt den Bearbeiter "PG" ein
+
+* Benutzer entfernt das Häkchen bei "Referenzierte Hilfskräfte waren die Initiatoren"
+
+* Benutzer gibt den Initiator "Bart Simpson" ein
+
+* Benutzer gibt den Typ "Neueinstellung" ein
+
+* Benutzer gibt den Dokumenttyp "eMail" ein
+
+* Benutzer gibt den Inhalt "nichts" ein
+
+* Benutzer gibt keine Bemerkung ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Vorgang ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Die Zuordnung zur Hilfskraft und Veranstaltung ist vorhanden. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Vorgang ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Die Zuordnung zur Hilfskraft und Veranstaltung ist vorhanden. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:01" outcome="Ok" postok="Y" preok="Y" starttime="20:00">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:05" number="325" priority="B" title="Vorgang einmal korrekt hinzufügen">
+<description>Es wird ein Vorgang zur Datenbank hinzugefügt. Alle Eingaben sind korrekt. Es ist keine Massenerfassung von Vorgängen.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 28 wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Datum "15.10.2010" ein
+
+* Benutzer wählt die Hilfskraft "Peter Planlos" aus
+
+* Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
+
+* Benutzer gibt den Bearbeiter "PG" ein
+
+* Benutzer gibt den Typ "Neueinstellung" ein
+
+* Benutzer gibt den Dokumenttyp "eMail" ein
+
+* Benutzer gibt den Inhalt "nichts" ein
+
+* Benutzer gibt keine Bemerkung ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Vorgang ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Der Initiator ist gleich der Hilfskraft. Die Zuordnung zur Hilfskraft und Veranstaltung ist vorhanden. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Vorgang ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Der Initiator ist gleich der Hilfskraft. Die Zuordnung zur Hilfskraft und Veranstaltung ist vorhanden. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:02" outcome="Ok" postok="Y" preok="Y" starttime="20:01">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:05" number="191" priority="B" title="Vorgang mehrmals für Hilfskräfte korrekt hinzufügen (Massenerfassung)">
+<description>Es wird ein Vorgang zur Datenbank hinzugefügt. Alle Eingaben sind korrekt. Es ist eine Massenerfassung von Vorgängen für verschiedene Hilfskräfte.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die benötigte Veranstaltungs- und Hilfskrafttestfälle wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Datum "01.03.2009" ein
+
+* Benutzer wählt die Hilfskraft "Peter Planlos" aus
+
+* Benutzer wählt zusätzlich die Hilfskraft "Carl Coder" aus
+
+* Benutzer wählt zusätzlich die Hilfskraft "Fred Feuerstein" aus
+
+* Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
+
+* Benutzer gibt den Bearbeiter "PG" ein
+
+* Benutzer entfernt das Häkchen bei "Referenzierte Hilfskräfte waren die Initiatoren"
+
+* Benutzer gibt den Initiator "Lisa Simpson" ein
+
+* Benutzer gibt den Typ "Posteingang" ein
+
+* Benutzer gibt den Dokumenttyp "Arbeitsvertrag" ein
+
+* Benutzer gibt den Inhalt "nichts" ein
+
+* Benutzer gibt keine Bemerkung ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Vorgänge sind mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Dabei wurden Vorgänge zu jeder ausgewählten Hilfskraft erstellt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die Vorgänge sind mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Dabei wurden Vorgänge zu jeder ausgewählten Hilfskraft erstellt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:03" outcome="Ok" postok="Y" preok="Y" starttime="20:02">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:05" number="193" priority="B" title="Vorgang mehrmals für Veranstaltungen korrekt hinzufügen (Massenerfassung)">
+<description>Es wird ein Vorgang zur Datenbank hinzugefügt. Alle Eingaben sind korrekt. Es ist eine Massenerfassung von Vorgängen für verschiedene Veranstaltungen.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die benötigte Veranstaltungs- und Hilfskrafttestfälle wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Datum "07.06.2011" ein
+
+* Benutzer wählt zusätzlich die Hilfskraft "Fred Feuerstein" aus
+
+* Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
+
+* Benutzer wählt zusätzlich die Veranstaltung "Mensa überleben für Pizza-Fans" aus
+
+* Benutzer gibt den Bearbeiter "PG" ein
+
+* Benutzer entfernt das Häkchen bei "Referenzierte Hilfskräfte waren die Initiatoren"
+
+* Benutzer gibt den Initiator "Homer Simpson" ein
+
+* Benutzer gibt den Typ "Postausgang" ein
+
+* Benutzer gibt die Art des Vorgangsdokument "Gehaltsabrechnung" ein
+
+* Benutzer gibt den Inhalt "nichts" ein
+
+* Benutzer gibt keine Bemerkung ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Vorgänge sind mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Dabei wurden Vorgänge zu jeder ausgewählten Veranstaltung erstellt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die Vorgänge sind mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Dabei wurden Vorgänge zu jeder ausgewählten Veranstaltung erstellt. Das Tab wird geschloßen und das System öffnet das zuvor angezeigte Tab.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:03" outcome="Ok" postok="Y" preok="Y" starttime="20:03">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:05" number="192" priority="B" title="Vorgang inkorrekt hinzufügen">
+<description>Es wird ein Vorgang zur Datenbank hinzugefügt. Es wurden falsche Eingaben gemacht.</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 28 wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Datum "01.01.2010" ein
+
+* Benutzer wählt die Hilfskraft "Peter Planlos" aus
+
+* Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
+
+* Benutzer gibt den Bearbeiter "PG" ein
+
+* Benutzer lässt den Initiator leer
+
+* Benutzer gibt den Typ "Postausgang" ein
+
+* Benutzer gibt den Dokumenttyp "Lohnsteuerkarte" ein
+
+* Benutzer gibt den Inhalt "nichts" ein
+
+* Benutzer gibt keine Bemerkung ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Vorgang wurde in der Datenbank nicht abgelegt. Der Benutzer wird darüber informiert, dass Inhalt leer ist.
+Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Vorgang wurde in der Datenbank nicht abgelegt. Der Benutzer wird darüber informiert, dass Inhalt leer ist.
+Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:03" outcome="Ok" postok="Y" preok="Y" starttime="20:03">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="194" priority="D" title="Abbruch: Vorgang hinzufügen">
+<description>Es soll ein Vorgang hinzugefügt werden. Dieser Vorgang wird abgebrochen</description>
+<pre>Der Hinzufügen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer wählt die Hilfskraft "Peter Planlos" aus
+
+* Benutzer wählt die Veranstaltung "Nutzlose Betriebssysteme in der Praxis" aus
+
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
+<post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet den zuvor angezeigten Tab.</post>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Bearbeiten" number="109">
+<description>Die Testsequenz enthält Testfälle zum Bearbeiten eines Vorgangs in die Datenbank.</description>
+<pre>Benutzer möchte einen Vorgang bearbeiten.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:03" outcome="Ok" postok="Y" preok="Y" starttime="20:03">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="195" priority="C" title="Vorgang korrekt bearbeiten">
+<description>Es soll ein Vorgang bearbeitet werden. Alle Eingaben sind korrekt.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 189 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den Vorgang "Peter Planlos - Nutzlose Betriebssysteme in der Praxis"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer gibt die Bemerkung "Ich bin ein Bemerkungsfeld" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die geänderten Daten werden in der Datenbank hinterlegt und das System kehrt zum vorher angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die geänderten Daten werden in der Datenbank hinterlegt und das System kehrt zum vorher angezeigten Tab zurück.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:04" outcome="Ok" postok="Y" preok="Y" starttime="20:04">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="196" priority="C" title="Vorgang inkorrekt bearbeiten">
+<description>Es soll ein Vorgang  bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 191 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den Vorgang "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer löscht den Inhalt des Felds Bearbeiter
+
+* Benutzer löscht den Inhalt des Felds Inhalt
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Datensatz wird nicht editiert. Der Benutzer bleibt im Bearbeiten-Tab und wird über die leer gelassenen Felder informiert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Datensatz wird nicht editiert. Der Benutzer bleibt im Bearbeiten-Tab und wird über die leer gelassenen Felder informiert.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:04" outcome="Ok" postok="Y" preok="Y" starttime="20:04">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="198" priority="C" title="Abbruch: Vorgang bearbeiten">
+<description>Es soll ein Vorgang bearbeitet werden. Dies wird jedoch abgebrochen.</description>
+<pre>Der Bearbeiten-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 189 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den Vorgang "Peter Planlos - Nutzlose Betriebssysteme in der Praxis"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ersetzt den Initiator mit "Philipp"
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Die Änderungen am Datensatz werden verworfen, das Bearbeiten-Tab wird geschloßen und der Benutzer befindet sich erneut im davor angezeigten Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die Änderungen am Datensatz werden verworfen, das Bearbeiten-Tab wird geschloßen und der Benutzer befindet sich erneut im davor angezeigten Tab.</post>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Suchen" number="113">
+<description>Die Testsequenz enthält Testfälle zum Suchen eines Vorgangs in die Datenbank.</description>
+<pre>Benutzer möchte einen Vorgang suchen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:04" outcome="Ok" postok="Y" preok="Y" starttime="20:04">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="207" priority="C" title="Vorgang suchen nach Bearbeiter">
+<description>Es soll eine Vorgang gesucht werden. Es wird nach dem Bearbeiter gesucht.</description>
+<pre>Der Testfall 193 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt im Suchfeld "PG" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheinen 3 Vorgänge (Testfall 193). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>In der Anzeige-Tabelle erscheinen 3 Vorgänge (Testfall 193). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:05" outcome="Ok" postok="Y" preok="Y" starttime="20:04">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="208" priority="C" title="Vorgang suchen nach Veranstaltungsname">
+<description>Es soll ein Vorgang gesucht werden. Es wird nach dem Veranstaltungsname gesucht.</description>
+<pre>Der Testfälle 189, 191 und 193 wurden ausgeführt.</pre>
+<actions>* Benutzer gibt im Suchfeld "Nutzlose Betriebssysteme in der Praxis" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheinen aufgrund der zuvor ausgeführten Testfälle 5 Vorgänge. Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>In der Anzeige-Tabelle erscheinen aufgrund der zuvor ausgeführten Testfälle 5 Vorgänge. Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:05" outcome="Ok" postok="Y" preok="Y" starttime="20:05">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="209" priority="C" title="Vorgang unvollständig suchen">
+<description>Es soll eine Vorgang gesucht werden. Das zugehörige Hilfskraft wird nur teilweise eingeben.</description>
+<pre>Der Testfall 189 und 191 wurden ausgeführt.</pre>
+<actions>* Benutzer gibt in das Suchfeld "Peter" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheinen die zwei Vorgänge aus 189 und 191. Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:05" outcome="Ok" postok="Y" preok="Y" starttime="20:05">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:01" number="210" priority="C" title="Suchfilter entfernen">
+<description>Der angewandte Suchfilter soll entfernt werden.</description>
+<pre>Der Testfall 187 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt auf den Button neben dem Suchfeld</actions>
+<post>Die Anzeige-Tabelle zeigt alle Veranstaltungen an. Das Suchfeld wurde geleert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die Anzeige-Tabelle zeigt alle Veranstaltungen an. Das Suchfeld wurde geleert.</post>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Anzeigen" number="112">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen eines Vorgangs in die Datenbank.</description>
+<pre>Benutzer möchte einen Vorgang anzeigen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:05" outcome="Ok" postok="Y" preok="Y" starttime="20:05">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="203" priority="C" title="Vorgang anzeigen und schließen">
+<description>Es soll ein Vorgang angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
+<pre>Der Testfall 189 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den Vorgang "Peter Planlos - Nutzlose Betriebssysteme in der Praxis"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht den Vorgang erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 189 übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum zuvor angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Benutzer hat eine Einsicht den Vorgang erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 189 übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum zuvor angezeigten Tab zurück.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:06" outcome="Ok" postok="Y" preok="Y" starttime="20:05">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="204" priority="C" title="Vorgang anzeigen und bearbeiten">
+<description>Es soll ein Vorgang angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
+<pre>Der Testfall 193 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den Vorgang "Fred Feuerstein - Laufende Forschung"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* System geht in den "Bearbeiten"-Tab über
+
+* Benutzer gibt den Vorgangstext "Ich bin der neue und sehr tolle Vorgangstext" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Vorgangsdaten erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 193 übereinstimmen. Nach dem Bearbeiten wurde der Datensatz korrekt geändert und gespeichert. Der Benutzer befindet sich im vorher angezeigten Reiter wieder.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Benutzer hat eine Einsicht über alle Vorgangsdaten erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 193 übereinstimmen. Nach dem Bearbeiten wurde der Datensatz korrekt geändert und gespeichert. Der Benutzer befindet sich im vorher angezeigten Reiter wieder.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:06" outcome="Ok" postok="Y" preok="Y" starttime="20:06">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="205" priority="C" title="Hilfskraft aus Vorgang anzeigen">
+<description>Es soll ein Vorgang angezeigt werden. Anschließend soll die Hilfskraft zum Vorgang angezeigt werden.</description>
+<pre>Der Testfall 191 ausgeführt.</pre>
+<actions>* Benutzer markiert den Vorgang "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
+
+* Benutzer klickt auf den Button "Hilfskraft"
+
+* System öffnet die Hilfskraft in einem neuen "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Vorgangsdaten erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 191 übereinstimmen. Des weiteren konnte er sich über die ausgewählte Hilfskraft informieren. Der Benutzer befindet sich wieder im zuvor angezeigten Reiter.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Benutzer hat eine Einsicht über alle Vorgangsdaten erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 191 übereinstimmen. Des weiteren konnte er sich über die ausgewählte Hilfskraft informieren. Der Benutzer befindet sich wieder im zuvor angezeigten Reiter.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:07" outcome="Ok" postok="Y" preok="Y" starttime="20:06">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:02" number="206" priority="C" title="Vorgang anzeigen ohne Auswahl">
+<description>Es soll ein Vorgang angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Vorgänge und es erscheint eine entsprechende Fehlermeldung.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Vorgänge und es erscheint eine entsprechende Fehlermeldung.</post>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Löschen" number="111">
+<description>Die Testsequenz enthält Testfälle zum Löschen eines Vorgangs in die Datenbank.</description>
+<pre>Benutzer möchte einen Vorgang löschen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:07" outcome="Ok" postok="Y" preok="Y" starttime="20:07">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="199" priority="C" title="Vorgang korrekt entfernen">
+<description>Es soll ein Vorgang gelöscht werden, was korrekt funktioniert.</description>
+<pre>Der Testfall 189 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den Vorgang "Peter Planlos - Nutzlose Betriebssysteme in der Praxis"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Vorgänge.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Vorgänge.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:07" outcome="Ok" postok="Y" preok="Y" starttime="20:07">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="200" priority="C" title="Vorgang entfernen mit Taste Entf">
+<description>Es soll ein Vorgangt gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
+<pre>Der Testfall 191 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den Vorgang "Fred Feuerstein - Laufende Forschung"
+
+* Benutzer drückt die Taste "Entf"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Vorgänge.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Vorgänge.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:07" outcome="Ok" postok="Y" preok="Y" starttime="20:07">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="201" priority="C" title="Abbruch: Vorgang entfernen">
+<description>Es soll ein Vorgang gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
+<pre>Der Testfall 191 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den Vorgang "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Nein"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Vorgänge.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Vorgänge.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:08" outcome="Ok" postok="Y" preok="Y" starttime="20:07">
+<testcase created="16.05.2010" creator="aidGerTeam" effort="00:03" number="202" priority="C" title="Vorgang entfernen ohne Auswahl">
+<description>Es soll ein Vorgang gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Button "Nein"</actions>
+<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Vorgänge.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Vorgänge.</post>
+<comment>Button heißt "Löschen" natürlich.</comment>
+</result>
+</executedsequence>
+</executedsequence>
+</testrun>
 </tsa>
 <tsa name="Berichte" number="9" revId="1">
 <relatedsequence>9</relatedsequence>
@@ -4579,6 +5072,317 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 </executedsequence>
 </executedsequence>
 </testrun>
+<testrun enddate="24.10.2010 20:07" priority="E" startdate="24.10.2010 20:00" tester="aidGerTeam">
+<description/>
+<sut/>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Berichte" number="9">
+<description>Die Testsequenz dient zur Generation verschiedenster Berichte. Die Berichte sollen als PDF abgespeichert werden können.</description>
+<pre>Das Programm wurde gestartet und Benutzer befindet sich im Menüpunkt Berichte.</pre>
+</sequence>
+<pre/>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Jahresbilanzen" number="114">
+<description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von einer Jahresbilanz.</description>
+<pre>* Benutzer klickt auf den Link "Jahresbilanz" in der TaskPane Berichte.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:01" outcome="Ok" postok="Y" preok="Y" starttime="20:01">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="211" priority="C" title="Jahresbilanz für ein Jahr generieren">
+<description>Es soll eine Jahresbilanz generiert und anschließend dargestellt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Jahr "2010" ein
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Die erstellte Jahresbilanz wird für das angegebene Jahr im Frame intern angezeigt. Es muss eine Veranstaltungen in der Bilanz auftauchen für dieses Jahr. Die eingeplante HKS und der HKS Grundbedarf sowie die Plankosten müssen alle korrekt berechnet sein.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:01" outcome="Ok" postok="Y" preok="Y" starttime="20:01">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="213" priority="C" title="Jahresbilanz für ein Jahr ohne Beschäftigungen generieren">
+<description>Es soll eine Jahresbilanz generiert und anschließend dargestellt werden. Problem ist, dass es keine Bescheschäftigungen in diesem Jahr gibt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Jahr "2005" ein
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Der Benutzer soll nicht die Möglichkeit haben, dieses Jahr auszuwählen, da keine Veranstaltungen in der Datenbank hierfür existieren.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:02" outcome="Ok" postok="Y" preok="Y" starttime="20:01">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="212" priority="C" title="Jahresbilanz in PDF-Format exportieren">
+<description>Eine generierte Jahresbilanz soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 211 wurde bereits ausgeführt. Benutzer befindet sich im Jahresbilanz-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"
+
+* Benutzer wählt den namen "Jahresbilanz.pdf" als Dateiname
+
+* Benutzer klickt auf "Exportieren"</actions>
+<post>Die bereits dargestellte Jahresbilanz wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Semesterbilanzen" number="123">
+<description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von einer Semesterbilanz.</description>
+<pre>* Benutzer klickt auf den Link "Semesterbilanz" in der TaskPane Berichte.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:02" outcome="Ok" postok="Y" preok="Y" starttime="20:02">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="214" priority="C" title="Semesterbilanz für ein Semester generieren">
+<description>Es soll eine Semesterbilanz generiert und anschließend dargestellt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Semester "WS0809" ein
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Die erstellte Semesterbilanz wird für das angegebene Jahr im Frame intern angezeigt. Die Semesterbilanz umfasst eine Veranstaltung im WS0809. Dabei wurden die eingeplanten HKS, der HKS Grundbedarf sowie die Plankosten korrekt bestimmt. Es ist hierbei irrelevant, dass die Veranstaltung laut Beschäftigung erst November 2010 beginnt. Diese Überprüfung hat nicht stattgefunden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:02" outcome="Ok" postok="Y" preok="Y" starttime="20:02">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="215" priority="C" title="Semesterbilanz für ein Semester ohne Veranstaltungen generieren">
+<description>Es soll eine Semesterbilanz generiert und anschließend dargestellt werden. Problem ist, dass es keine Veranstaltungen in diesem Semester gibt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Semester "SS05" ein
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Der Benutzer soll nicht die Möglichkeit haben, dieses Semester auszuwählen, da keine Veranstaltungen in der Datenbank hierfür existieren.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:03" outcome="Ok" postok="Y" preok="Y" starttime="20:03">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="216" priority="C" title="Semesterbilanz in PDF-Format exportieren">
+<description>Eine generierte Semesterbilanz soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 214 wurde bereits ausgeführt. Benutzer befindet sich im Semesterbilanz-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"
+
+* Benutzer wählt den namen "Semesterbilanz.pdf" als Dateiname
+
+* Benutzer klickt auf "Exportieren"</actions>
+<post>Die bereits dargestellte Semesterbilanz wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Teilbilanzen via Filter" number="124">
+<description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von einer Teilbilanz.</description>
+<pre>* Benutzer klickt auf den Link "Gesamtbilanz" in der TaskPane Berichte.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:04" outcome="Ok" postok="Y" preok="Y" starttime="20:03">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="217" priority="C" title="Teilbilanz mit bestimmten Dozent generieren">
+<description>Es soll eine Teilbilanz mit einem bestimmten Dozenz generiert und anschließend dargestellt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Dozent - B. Gates" hinzu
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Die erstellte Teilbilanz wird für den Dozent "B.Gates" im Frame intern angezeigt. Die Teilbilanz umfasst eine Veranstaltung aus Testfall 159.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:04" outcome="Ok" postok="Y" preok="Y" starttime="20:04">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="233" priority="C" title="Teilbilanz mit Filter findet keine Veranstaltungen">
+<description>Es soll eine Teilbilanz für einen angegebenen Zeitraum generiert und anschließend dargestellt werden. Mit der Filterung wurde jedoch keine Veranstaltung gefunden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Gruppe" hinzu
+
+* Benutzer gibt den Gruppe "Tolle Gruppe" ein
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Der Benutzer soll nicht die Möglichkeit haben, diese Gruppe auszuwählen, da keine solche Gruppe in der Datenbank existiert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:04" outcome="Ok" postok="Y" preok="Y" starttime="20:04">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="234" priority="C" title="Teilbilanz in PDF-Format exportieren">
+<description>Eine generierte Teilbilanz soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 217 wurde bereits ausgeführt. Benutzer befindet sich im Teilbilanz-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"
+
+* Benutzer wählt den namen "Teilbilanz.pdf" als Dateiname
+
+* Benutzer klickt auf "Exportieren"</actions>
+<post>Die bereits dargestellte Teilbilanz wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Tätigkeitsnachweise" number="115">
+<description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von eines Tätigkeitsnachweises.</description>
+<pre>* Benutzer klickt auf den Link "Tätigkeitsnachweis" in der TaskPane Berichte.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:05" outcome="Ok" postok="Y" preok="Y" starttime="20:04">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="218" priority="C" title="Tätigkeitsnachweis für eine Hilfskraft generieren (alle Beschäftigungen)">
+<description>Es soll ein Tätigkeitsnachweis für eine Hilfskraft generiert und anschließend dargestellt werden. Es werden alle Beschäftigungen angezeigt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Der erstellte Tätigkeitsnachweis wird für das angegebene Jahr im Frame intern angezeigt. Es wird eine Beschäftigung dargestellt. Es müssen mindestens die Spalten Zeitraum, Veranstaltung und Umfang angezeigt werden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:05" outcome="Ok" postok="Y" preok="Y" starttime="20:05">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="220" priority="C" title="Tätigkeitsnachweis in PDF-Format exportieren">
+<description>Ein generierter Tätigkeitsnachweis soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 218 wurde bereits ausgeführt. Benutzer befindet sich im Tätigkeitsnachweis-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"
+
+* Benutzer wählt den namen "Tätigkeitsnachweis.pdf" als Dateiname
+
+* Benutzer klickt auf "Exportieren"</actions>
+<post>Der bereits dargestellte Tätigkeitsnachweis wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Vorgangsprotokolle" number="116">
+<description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren eines Vorgangprotokolls.</description>
+<pre>* Benutzer klickt auf den Link "Vorgänge exportieren" in der TaskPane Vorgänge.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:05" outcome="Ok" postok="Y" preok="Y" starttime="20:05">
+<testcase created="21.10.2010" creator="aidGerTeam" effort="00:00" number="321" priority="C" title="Export ohne Daten">
+<description>Der Export Button soll ausgegraut sein, falls es keine zu exportierende Daten gibt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Menüpunkt "Vorgänge - Exportieren"</actions>
+<post>Der Export Button ist ausgegraut.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:06" outcome="Ok" postok="Y" preok="Y" starttime="20:05">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="225" priority="C" title="Vorgangsprotokoll für einen Tag generieren">
+<description>Es soll eine Vorgangsprotokoll für einen Tag generiert und anschließend dargestellt werden.</description>
+<pre>Benutzer befindet sich im Vorgänge exportieren-Tab. Es wurde ein Vorgang heute angelegt.</pre>
+<actions>* Benutzer wählt "Anzahl an Tagen die angezeigt werden soll(nach heute):" aus
+
+* Benutzer wählt die Tagesanzahl "0" aus</actions>
+<post>Das erstellte Vorgangsprotokoll wird für den heutigen Tag im Frame intern angezeigt. Es sollen dabei so viele Informationen wie möglich dargestellt werden. Alle Vorgänge von heute werden angezeigt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:06" outcome="Ok" postok="Y" preok="Y" starttime="20:06">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="229" priority="C" title="Vorgangsprotokoll für einen Tag in PDF-Format exportieren">
+<description>Ein generiertes Vorgangsprotokoll soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Benutzer befindet sich im Vorgänge exportieren-Tab. Der Testfall 225 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"
+
+* Benutzer wählt den namen "Protokoll.pdf" als Dateiname
+
+* Benutzer klickt auf "Exportieren"</actions>
+<post>Das bereits dargestellte Vorgangsprotokoll wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:06" outcome="Ok" postok="Y" preok="Y" starttime="20:06">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="320" priority="C" title="Vorgangsprotokoll für alle Tage generieren">
+<description>Es soll eine Vorgangsprotokoll für einen Tag generiert und anschließend dargestellt werden.</description>
+<pre>Benutzer befindet sich im Vorgänge exportieren-Tab. Es wurde ein Vorgang heute angelegt.</pre>
+<actions>* Benutzer wählt "Alle Vorgänge anzeigen" aus</actions>
+<post>Das erstellte Vorgangsprotokoll wird für alle Tage im Frame intern angezeigt. Es sollen dabei so viele Informationen wie möglich dargestellt werden. Alle Vorgänge werden angezeigt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:07" outcome="Ok" postok="Y" preok="Y" starttime="20:07">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="230" priority="C" title="Vorgangsprotokoll für einen Zeitraum generieren">
+<description>Es soll eine Vorgangsprotokoll für einen Zeitraum generiert und anschließend dargestellt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Vorgängen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt die Tagesanzahl "5" aus
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Das erstellte Vorgangsprotokoll für den Zeitraum im Frame intern angezeigt. Es sollen dabei so viele Informationen wie möglich dargestellt werden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:07" outcome="Ok" postok="Y" preok="Y" starttime="20:07">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="232" priority="C" title="Vorgangsprotokoll für einen Zeitraum in PDF-Format exportieren">
+<description>Ein generiertes Vorgangsprotokoll soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 230 wurde bereits ausgeführt. Benutzer befindet sich im Vorgangsprotokoll-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"
+
+* Benutzer wählt den namen "Protokoll.pdf" als Dateiname
+
+* Benutzer klickt auf "Exportieren"</actions>
+<post>Das bereits dargestellte Vorgangsprotokoll wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+</executedsequence>
+</testrun>
 </tsa>
 <tsa name="Controlling" number="10" revId="1">
 <relatedsequence>10</relatedsequence>
@@ -4979,6 +5783,265 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 
 * Benutzer gibt die Reale Kosten "viel zu viel" ein</actions>
 <post>Der Benutzer bekommt die Fehlermeldung, dass er das Format für die realen Kosten nicht eingehalten hat. Die Zelle wird geleert und der Benutzer kann die Kosten erneut eingeben.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+</executedsequence>
+</testrun>
+<testrun enddate="24.10.2010 20:13" priority="E" startdate="24.10.2010 20:08" tester="aidGerTeam">
+<description/>
+<sut/>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Controlling" number="10">
+<description>Die Testsequenz dient zum Testen des Controllings.</description>
+<pre>Das Programm wurde gestartet und der Benutzer befindet sich im Menüpunkt Controlling.</pre>
+</sequence>
+<pre/>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Veranstaltungen prüfen" number="305">
+<description>Die Testsequenz dient zum Prüfen von Veranstaltungen. Es können standardmäßig alle Veranstaltungen angezeigt werden. Über einen Filter können nur spezifische Veranstaltungen (z.B. Veranstaltungen in einem Semester) betrachtet werden. Die Liste kann zudem exportiert werden.</description>
+<pre>Der Benutzer möchte Veranstaltungen prüfen und klickt auf den Menüpunkt "Veranstaltungen prüfen". Es sind die Default-Einstellungen ausgewählt.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:08" outcome="Ok" postok="Y" preok="Y" starttime="20:08">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="244" priority="C" title="Alle Veranstaltungen anzeigen">
+<description>Für die Budgetprüfung sollen alle Veranstaltungen angezeigt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Es wird eine Tabelle angeigt, in der alle Veranstaltungen mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet sind. Es müssen 3 Veranstaltungen angezeigt werden:
+
+Nutzlose Betriebssysteme in der Praxis: 95 / 157,5
+Laufende Forschung: 47 / 45
+Mensa überleben für Pizza-Fan: 47 / 120
+
+Die Zeile "Laufende Forschung" muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:09" outcome="Ok" postok="Y" preok="Y" starttime="20:08">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="245" priority="C" title="Veranstaltungen via Filter (Dozent) anzeigen">
+<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter über Dozent benutzt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Dozent - Gustav Guifrickel" hinzu
+
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Es wird nur die Veranstaltung "Laufende Forschung" mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet.
+
+Laufende Forschung: 47 / 45
+
+Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:09" outcome="Ok" postok="Y" preok="Y" starttime="20:09">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="247" priority="C" title="Veranstaltungen via Filter (Übrige HKS) anzeigen">
+<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter über Übrige HKS benutzt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Übrige HKS" hinzu
+
+* Benutzer gibt die die übrige HKS kleiner als "0"
+
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Es wird nur die Veranstaltung "Laufende Forschung" mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet.
+
+Laufende Forschung: 47 / 45
+
+Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:10" outcome="Ok" postok="Y" preok="Y" starttime="20:09">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="246" priority="C" title="Veranstaltungsliste in PDF-Format exportieren">
+<description>Eine Veranstaltungsliste soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 244 wurde bereits ausgeführt. Benutzer befindet sich im "Controlling Veranstaltungen"-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"
+
+* Benutzer wählt den namen "Controlling.pdf" als Dateiname
+
+* Benutzer klickt auf "Exportieren"</actions>
+<post>Die bereits dargestellte Veranstaltungsliste wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Veranstaltungen mit negativen übrigen HKS werden auch in der PDF hervorgehoben.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:10" outcome="Ok" postok="Y" preok="Y" starttime="20:10">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="249" priority="C" title="Budgetprüfung ohne Veranstaltungen">
+<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter benutzt. Dieser Filter führt jedoch zu keinem Ergebnis.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Semester" hinzu
+
+* Benutzer gibt das Semester "Dumbdidum" ein
+
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Der Benutzer soll nicht die Möglichkeit haben, diese Falscheingabe durchzuführen. Daher wird ebenfalls keine neue Veranstaltungstabelle angezeigt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Hilfskräfte prüfen" number="306">
+<description>Die Testsequenz dient zum Prüfen von Hilfskräften. Es können Monatsauszüge der angestellten Hilfskräfte angezeigt und exportiert werden. Zwischen den Monaten kann leicht navigiert werden. Außerdem müssen komfortabel die realen Kosten in die Tabelle eingetragen werden können. Desweiteren werden bei Soll-Ist-Abweichungen Warnungen angezeigt.</description>
+<pre>Der Benutzer möchte Hilfskräfte prüfen und klickt auf den Menüpunkt "Hilfskräfte prüfen". Es sind die Default-Einstellungen ausgewählt.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:10" outcome="Ok" postok="Y" preok="Y" starttime="20:10">
+<testcase created="21.10.2010" creator="aidGerTeam" effort="00:00" number="322" priority="C" title="Export ohne Daten">
+<description>Die Export Buttons sollten ausgegraut sein, falls es keine Daten zu exportieren gibt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Menüpunkt "Controlling Hilfskräfte"</actions>
+<post>Die Export Buttons sind ausgegraut.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:10" outcome="Ok" postok="Y" preok="Y" starttime="20:10">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="242" priority="C" title="Monatsauszug für ein Monat anzeigen">
+<description>Es soll eine Monatsauszug für einen Monat angezeigt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt in der Dropdown-Liste den Monat "November 2010" aus
+
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Der Monatsauszug wird für den angegebenen Monat dargestellt. Es wird die Hilfskraft "Carl Coder" angezeigt. Dabei werden die Plankosten korrekt berrechnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:11" outcome="Ok" postok="Y" preok="Y" starttime="20:11">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="248" priority="C" title="Monatsauszug ohne Hilfskräfte anzeigen">
+<description>Es soll eine Monatsauszug für einen Monat angezeigt werden. Das Problem tritt auf, dass für diesen Monat keine Hilfskräfte beschäftigt sind.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt in der Dropdown-Liste den Monat "Oktober 2010" aus</actions>
+<post>Der Benutzer soll nicht die Möglichkeit haben, diesen Monat auszuwählen, da keine Beschäftigungen vor diesem Monat in diesem Jahr stattfanden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:11" outcome="Ok" postok="Y" preok="Y" starttime="20:11">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="238" priority="C" title="Monatsauszug in PDF-Format exportieren">
+<description>Eine generierter Monatsauszug soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 242 wurde bereits ausgeführt. Benutzer befindet sich im "Controlling Hilfskräfte"-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Alles Exportieren"
+
+* Benutzer wählt den namen "Controlling.pdf" als Dateiname
+
+* Benutzer klickt auf "Exportieren"</actions>
+<post>Der bereits dargestellte Monatsauszug wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:11" outcome="Ok" postok="Y" preok="Y" starttime="20:11">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="240" priority="C" title="Reale Kosten eintragen und keine Abweichung">
+<description>Im aktuellen Monatsauszug sollen die realen Kosten eingetragen werden. Es gibt keine Abweichung zwischen Soll und Ist.</description>
+<pre>Testfall 236 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt die Zelle "Reale Kosten" bei der Hilfskraft "Carl Coder" an
+
+* Benutzer gibt die Reale Kosten 315 ein</actions>
+<post>Die realen Kosten für die Hilfskraft werden in der Tabelle angezeigt. Es besteht keine Abweichung zwischen Soll und Ist. Der Benutzer kann sich den Auszug ins PDF-Format exportieren lassen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:13" outcome="Ok" postok="Y" preok="Y" starttime="20:11">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="241" priority="C" title="Reale Kosten eintragen und eine Abweichung">
+<description>Im aktuellen Monatsauszug sollen die realen Kosten eingetragen werden. Es gibt eine Abweichung zwischen Soll und Ist.</description>
+<pre>Testfall 236 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt die Zelle "Reale Kosten" bei der Hilfskraft "Carl Coder" an
+
+* Benutzer gibt die Reale Kosten 1000 ein</actions>
+<post>Die realen Kosten für die Hilfskraft werden in der Tabelle angezeigt. Es besteht eine Abweichung zwischen geplanten und realen Kosten, worüber der Benutzer durch eine softe Warnung informiert wird. Der Benutzer kann sich trotzdem den Auszug ins PDF-Format exportieren lassen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:13" outcome="Ok" postok="Y" preok="Y" starttime="20:13">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="243" priority="C" title="Reale Kosten inkorrekt eintragen">
+<description>Im aktuellen Monatsauszug sollen die realen Kosten eingetragen werden. Das Format wurde dabei jedoch nicht eingehalten.</description>
+<pre>Testfall 236 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt die Zelle "Reale Kosten" bei der Hilfskraft "Carl Coder" an
+
+* Benutzer gibt die Reale Kosten "viel zu viel" ein</actions>
+<post>Der Benutzer wird darüber informiert, dass er das Format für die realen Kosten nicht eingehalten hat.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:13" outcome="Ok" postok="Y" preok="Y" starttime="20:13">
+<testcase created="21.10.2010" creator="aidGerTeam" effort="00:00" number="323" priority="C" title="Auszug ohne Stundenlohn">
+<description>Es soll ein Auszug erstellt werden für eine Hilfskraft in einem Intervall, in dem diese keinen Stundenlohn hat.</description>
+<pre>Die Testfälle zum Erstellen von Hilfskräften und Veranstaltungen wurden ausgeführt. Es wurde eine Beschäftigung für Carl Coder für den Monat 12/2001 erstellt. Es wurden keine Stundenlöhne erstellt. Benutzer befindet sich im Menüpunkt "Controlling Hilfskräfte".</pre>
+<actions>* Benutzer wählt das Jahr 2001 und den Monat 12 aus
+
+* Benutzer klickt auf Generieren
+
+* Benutzer wird darauf hingewiesen, dass es fehlende Stundenlöhne gibt und gefragt ob die betroffenen Daten trotzdem berücksichtigt werden sollen
+
+*Benutzer klickt "Ja"</actions>
+<post>In der Tabelle erscheint ein Eintrag für Carl Coder mit Plankosten 0 und der Bemerkung, dass die Berechnung fehlerhaft sein könnte.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:13" outcome="Ok" postok="Y" preok="Y" starttime="20:13">
+<testcase created="21.10.2010" creator="aidGerTeam" effort="00:00" number="324" priority="C" title="Abbruch: Auszug ohne Stundenlohn">
+<description>Es soll ein Auszug erstellt werden für eine Hilfskraft in einem Intervall, in dem diese keinen Stundenlohn hat.</description>
+<pre>Die Testfälle zum Erstellen von Hilfskräften und Veranstaltungen wurden ausgeführt. Es wurde eine Beschäftigung für Carl Coder für den Monat 12/2001 erstellt. Es wurden keine Stundenlöhne erstellt. Benutzer befindet sich im Menüpunkt "Controlling Hilfskräfte".</pre>
+<actions>* Benutzer wählt das Jahr 2001 und den Monat 12 aus
+
+* Benutzer klickt auf Generieren
+
+* Benutzer wird darauf hingewiesen, dass es fehlende Stundenlöhne gibt und gefragt ob die betroffenen Daten trotzdem berücksichtigt werden sollen
+
+*Benutzer klickt "Nein"</actions>
+<post>In der Tabelle erscheint kein Eintrag.</post>
 <tags/>
 </testcase>
 <pre/>
@@ -6223,6 +7286,1150 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 </executedsequence>
 </executedsequence>
 </testrun>
+<testrun enddate="24.10.2010 20:15" priority="E" startdate="24.10.2010 20:14" tester="aidGerTeam">
+<description/>
+<sut/>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Allgemeines" number="87">
+<description>Die Testsequenz dient zum Testen allgemeiner Funktionalitäten der Software.</description>
+<pre>Das Programm wurde gestartet.</pre>
+</sequence>
+<pre/>
+<executedsequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Programmeinstellungen" number="252">
+<description>Die Testsequenz dient zum Testen der Wirksamkeit der Programmeinstellungen in der Software.</description>
+<pre>Benutzer möchte das Programm individuell einstellen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="260" priority="C" title="Name des Barbeiters bei Vorgangserfassung">
+<description>Die Wirksamkeit der Einstellung "Name des Bearbeiters" bei der Vorgangserfassung soll getestet werden.</description>
+<pre>Benutzer möchte den Namen des Bearbeiters ändern. Der Name ist bislang auf "Carl Coder" eingestellt. Alle bisherigen Vorgänge wurden korrekt mit diesem Namen abgespeichert.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer gibt den Namen "Albert Zebra" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer drückt auf den Button "Vorgänge"
+
+* Benutzer drückt auf den Button "Hinzufügen"
+
+* Benutzer drückt auf den Button "Abbrechen"</actions>
+<post>Beim Hinzufügen des neuen Vorgangs ist standardmäßig der neue Name "AZ" in das korrekte Feld eingetragen. Beim Speichern des Vorgangs wird dieser und nicht der alte Namen übernommen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="118" priority="C" title="Mehrsprachigkeit: Umstellung auf Deutsch">
+<description>Die Wirksamkeit der Umstellung auf die Sprache Deutsch soll getestet werden.</description>
+<pre>Das Programm ist auf Englisch eingestellt und verhält sich demnach.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer wählt die Sprache "Deutsch" aus
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Benutzer wird darüber informiert, dass die Änderung nur nach einem Neustart des Programms wirksam ist. Nach einem Neustart ist die komplette Software auf die Sprache Deutsch umgestellt und verhält sich demnach.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="259" priority="C" title="Mehrsprachigkeit: Umstellung auf Englisch">
+<description>Die Wirksamkeit der Umstellung auf die Sprache Englisch soll getestet werden.</description>
+<pre>Das Programm ist auf Deutsch eingestellt und verhält sich demnach.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer wählt die Sprache "Englisch" aus
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Benutzer wird darüber informiert, dass die Änderung nur nach einem Neustart des Programms wirksam ist. Nach einem Neustart ist die komplette Software auf die Sprache Englisch umgestellt und verhält sich demnach.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="255" priority="C" title="PDF-Viewer">
+<description>Die Wirksamkeit der Einstellung "PDF Anzeiger" soll getestet werden.</description>
+<pre>Benutzer möchte den PDF-Viewer ändern.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer gibt den neuen Pfad des PDF-Viewers an
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer zeigt sich den aktuellen Monatsauszug an
+
+* Benutzer drückt auf den Button "Exportieren"</actions>
+<post>Der neue und nicht der alte PDF-Viewer wird geöffnet und zeigt den generierten Monatsauszug an.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="256" priority="C" title="Anzahl der Vorgänge">
+<description>Die Wirksamkeit der Einstellung "Anzahl der Vorgänge" soll getestet werden.</description>
+<pre>Benutzer möchte die Anzahl der Vorgänge ändern. Die jetzige Einstellung umfasst 3 Vorgänge. Zur angezeigten Hilfskraft müssen mindestens 4 Vorgänge hinterlegt sein.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer gibt die neue Anzahl "4" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer öffnet die Detailansicht einer Hilfskraft
+
+* Benutzer drückt auf den Button "Abbrechen"</actions>
+<post>Es werden die neusten vier Vorgänge zu der ausgewählten Hilfskraft in der Detailansicht angezeigt. Die Einstellung wurde dauerhaft gespeichert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="257" priority="C" title="Berichte automatisch nach Generierung öffnen">
+<description>Die Wirksamkeit der Einstellung "Berichte automatisch nach Generierung öffnen" soll getestet werden.</description>
+<pre>Die Einstellung "Berichte automatisch nach Generierung öffnen" ist deaktiviert (Standard).</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer setzt das Häkchen bei "Berichte automatisch nach Generierung öffnen"
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer lässt sich die Jahresbilanz für 2010 über den Menüpunkt Berichte generieren</actions>
+<post>Der Bericht wird nicht mehr intern in einem Reiter angezeigt, sondern der PDF-Viewer wird direkt mit dem erstellen Bericht geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="258" priority="C" title="Reiter bei Verlassen speichern">
+<description>Die Wirksamkeit der Einstellung "Reiter bei Verlassen speichern" soll getestet werden.</description>
+<pre>Die Einstellung "Reiter bei Verlassen speichern" ist aktiviert.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer entfernt das Häkchen bei "Reiter bei Verlassen speichern"
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer öffnet die Stammdatenansicht Hilfskräfte in einem neuen Reiter
+
+* Benutzer öffnet das Controlling (aktueller Monat) in einem neuen Reiter
+
+* Benutzer beendet das Programm
+
+* Benutzer startet das Programm</actions>
+<post>Die geöffneten Reiter wurden nicht wieder geöffnet. Der Benutzer wird ausschließlich mit dem Willkommen-Reiter begrüßt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="301" priority="C" title="Pessimistischer Faktor">
+<description>Die Wirksamkeit der Einstellung "Pessimistischer Faktor" soll getestet werden.</description>
+<pre>Benutzer möchte den pessimistischen Faktor ändern. Die jetzige Einstellung ist 1.0. In der Schnelleinstellung ist die pessimistische Berechnung ausgewählt.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer geht in den Tab "Berichte"
+
+* Benutzer gibt den neuen pessimistischen Faktor "1.3" ein
+
+* Benutzer wählt die Berechnungsmethode "Pessimistisch" aus
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer generiert eine Semesterbilanz</actions>
+<post>Die angezeigten Budgetkosten der Gruppen wurden korrekt mit dem neuen Faktor berechnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="302" priority="C" title="Historischer Faktor">
+<description>Die Wirksamkeit der Einstellung "Historischer Faktor" soll getestet werden.</description>
+<pre>Benutzer möchte den historischen Faktor ändern. Die jetzige Einstellung ist 1.0. In der Schnelleinstellung ist die historische Berechnung ausgewählt.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer geht in den Tab "Berichte"
+
+* Benutzer gibt den neuen historiscen Faktor "1.4" ein
+
+* Benutzer wählt die Berechnungsmethode "Historisch" aus
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer generiert eine Gesamtbilanz</actions>
+<post>Die angezeigten Budgetkosten der Gruppen wurden korrekt mit dem neuen Faktor berechnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="300" priority="C" title="Zeit bis zur Anonymisierung">
+<description>Die Wirksamkeit der Einstellung "Zeit bis zur Anonymisierung" soll getestet werden.</description>
+<pre>Benutzer möchte die Zeit bis zur Anonymisierung ändern. Die jetzige Einstellung ist 365 Tage. Es gibt 2 Hilfskräfte, deren letzte Beschäftigung 50 Tage her ist.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer gibt die neue Zeit "50" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer startet das Programm neu</actions>
+<post>Die 2 Hilfskräfte wurden anonymisiert, d.h. ihre Namen und ihre Email wurden mit "****" ersetzt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="303" priority="C" title="Controllingtoleranz">
+<description>Die Wirksamkeit der Einstellung "Controllingtoleranz" soll getestet werden.</description>
+<pre>Benutzer möchte die Controllingtoleranz ändern. Die jetzige Einstellung ist 0.0. Die Testfälle zum Hinzufügen von Beschäftigungen wurden ausgeführt. Die realen Kosten sind bei allen Hilfskräften mit den Plankosten identisch.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer gibt die neue Toleranz "10" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer prüft die Hilfskräfte
+
+* Benutzer gibt die realen Kosten für eine Hilfskraft mit einer absichtlichen Abweichung von 16€ ein.
+
+* Benutzer gibt die realen Kosten für eine andere Hilfskraft mit einer absichtlichen Abweichung von 8€ ein.</actions>
+<post>Ausschließlich die Hilfskraft mit der 16€ Abweichung wird als Unstimmigkeit angezeigt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Tabbing" number="264">
+<description>Die Testsequenz dient zum Testen des Tabbings im Programm.</description>
+<pre>Das Programm verwendet Tabs für eine einfachere Bedienung von aidGer.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="265" priority="C" title="Leerer Tab öffnen">
+<description>Es soll ein neuer leerer Tab geöffnet werden.</description>
+<pre>Benutzer möchte einen leeren Tab öffnen.</pre>
+<actions>* Benutzer drückt auf den "+"-Button bei den Reitern</actions>
+<post>Ein neuer Tab hat sich geöffnet und befindet sich im Vordergrund. Es können nun alle Navigationselemente in diesem Reiter geöffnet werden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="266" priority="C" title="Ein neuen Tab via mittlerer Maustaste (Navigationsleiste)">
+<description>Es soll ein neuer Tab mit Hilfe der mittleren Maustaste geöffnet werden.</description>
+<pre>Benutzer möchte sich Daten in einem neuen Tab anzeigen lassen.</pre>
+<actions>* Benutzer klickt mit der mittleren Maustaste auf "Controlling" in der Navigationsleiste</actions>
+<post>Der aktuelle Monatsauszug hat sich in einem neuen Reiter geöffnet. Dieser ist zudem in den Vordergrund gekommen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="268" priority="C" title="Zwischen Tabs navigieren">
+<description>Es soll zwischen den Tabs navigiert werden können.</description>
+<pre>Benutzer möchte zwischen den Tabs navigieren.</pre>
+<actions>* Benutzer erstellt vier neue Tabs via "+"-Button
+
+* Benutzer klickt auf Tab 1
+
+* Benutzer klickt auf Tab 3</actions>
+<post>Beim Wechseln der Tabs wurde jeweils der Inhalt im Content-Frame geändert. Der Benutzer befindet sich im Tab 3.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="267" priority="C" title="Einen Tab schließen">
+<description>Es soll ein Tab geschlossen werden.</description>
+<pre>Der Benutzer möchte einen nicht mehr benötigten Tab schließen.</pre>
+<actions>* Benutzer klickt auf das "X" im Reiter</actions>
+<post>Das Tab hat sich geschlossen. Falls der Tab nicht selektiert war, bleibt der angezeigte Tab im Vordergrund. Wurde das angezeigte Tab geschloßen, wird der nächste Tab genommen. Wird der letzte Tab geschloßen, so wird der nun neue letzte Tab selektiert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Navigationsleiste" number="269">
+<description>Die Testsequenz dient zum Testen des Navigationsleiste im Programm.</description>
+<pre>Der Benutzer möchte zwischen den verschiedenen Ansichten navigieren.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="270" priority="C" title="Verhalten bei Programmstart">
+<description>Das Verhalten der Navigationsleiste beim Programmstart soll getestet werden.</description>
+<pre>Das Programm wurde gestartet.</pre>
+<actions/>
+<post>Die Menüpunkte, die beim letzten Schließen des Programs geöffnet waren sind geöffnet. Beim ersten Start ist nur der Punkt Stammdatenverwaltung geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="271" priority="C" title="Klick auf geschlossenen Menüpunkt">
+<description>Das Verhalten beim Klick auf einen geschlossenen Menüpunkt soll getestet werden.</description>
+<pre>Benutzer möchte einen Menüpunkt öffnen, um weitere Navigationsmöglichkeiten zu diesem Menüpunkt zu bekommen.</pre>
+<actions>* Benutzer klickt auf einen geschlossenen Menüpunkt</actions>
+<post>Der geschlossene Menüpunkt öffnet seinen untergeordneten Menükontext. Der Benutzer kann zudem im geöffneten Menükontext weiter navigieren.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="272" priority="C" title="Klick auf aktivem Menüpunkt">
+<description/>
+<pre>Ein Menüpunkt ist bereits offen, d.h. sein Menükontext wird angezeigt.</pre>
+<actions>* Benutzer klickt erneut auf den offenen Menüpunkt</actions>
+<post>Der Menüpunkt schließt sich, d.h. sein Menükontext wird nicht mehr angezeigt. Der Content-Frame ändert sich dabei nicht. Andere offene Menüpunkte ändern ihren Zustand nicht.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Drucken" number="251">
+<description>Die Testsequenz dient zum Testen der Druckmöglichkeit in der Software.</description>
+<pre>Der Benutzer möchte angezeigte Daten drucken.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="117" priority="C" title="Drucken eines Monatsauszuges">
+<description>Es soll die Druckmöglichkeit in der Software getestet werden. Es wird ein Monatsauszug gedruckt.</description>
+<pre>Testfall 242 (Controlliing) wurde ausgeführt. Der Controlling-Tab ist vom Benutzer geöffnet.</pre>
+<actions>* Benutzer klickt auf den Menüeintrag "Datei"
+
+* Benutzer klickt auf den Menüeintrag "Drucken"
+
+* Benutzer stellt seinen bereits konfigurierten Drucker ein
+
+* Benutzer drückt auf den Button "Drucken"</actions>
+<post>Es soll der angezeigte Monatsauszug am Drucker gedruckt werden. Dabei wird der gerenderte Tab gedruckt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="254" priority="C" title="Drucken der Beschäftigungen">
+<description>Es soll die Druckmöglichkeit in der Software getestet werden. Es werden die angezeigten Beschäftigungen gedruckt.</description>
+<pre>Die Testfälle zum Hinzufügen von Beschäftigungen wurden ausgeführt. Der Beschäftigungen-Tab ist vom Benutzer geöffnet.</pre>
+<actions>* Benutzer klickt auf den Menüeintrag "Datei"
+
+* Benutzer klickt auf den Menüeintrag "Drucken"
+
+* Benutzer stellt seinen bereits konfigurierten Drucker ein
+
+* Benutzer drückt auf den Button "Drucken"</actions>
+<post>Es wird die angezeigte Beschäftigungsliste gedruckt. Der gerenderte Tab wird gedruckt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="253" priority="C" title="Drucken mit Shortcut">
+<description>Es soll die Druckmöglichkeit in der Software getestet werden. Das Drucken wird durch den Shortcut ausgelöst.</description>
+<pre/>
+<actions>* Benutzer klickt auf den "+" Button bei den Reitern
+
+* Benutzer drückt den Shortcut "STRG + P"
+
+* Benutzer drückt auf den Button "Abbrechen"</actions>
+<post>Der Druckdialog wird geöffnet und wieder geschlossen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Überschreiten von Limits" number="261">
+<description>Die Testsequenz dient zum Testen des Erscheines spezifizierter Warnungen beim Überschreiten von Limits.</description>
+<pre>Warnungen wurden spezifiziert, die in bestimmten Situationen erscheinen müssen.</pre>
+</sequence>
+<result actionok="Y" endtime="" outcome="NA" postok="Y" preok="N" starttime="">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:04" number="274" priority="A" title="Budgetüberschreitung einer Veranstaltung">
+<description>Es soll das Erscheinen einer Warnung bei der Budgetüberschreitung einer Veranstaltung getestet werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Beschäftigungen und Veranstaltungen wurden ausgeführt.</pre>
+<actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung für eine existierende Veranstaltung. Die Hilfskraft arbeitet monatlich 1000 HKS.</actions>
+<post>Der Benutzer wird beim Erstellen der Beschäftigung darüber informiert, dass das Budget für die Veranstaltung überschritten wurde. Er kann auswählen ob er die Beschäftigung trotzdem hinzufügen will oder nicht.</post>
+<tags/>
+</testcase>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="" outcome="NA" postok="Y" preok="N" starttime="">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="277" priority="C" title="Budgetüberschreitung eines Funds einer Finanzkategorie">
+<description>Es soll das Erscheinen einer Warnung bei der Budgetüberschreitung eines Funds einer Finanzkategorie getestet werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Finanzkategorie wurden ausgeführt.</pre>
+<actions>* Benutzer erstellt 10 neue Beschäftigung und weist diesen eine Veranstaltung zu, die eine existierende Finanzkategorie hat und deren Budget bei 400€ liegt. Die geprüfte Hilfskraft arbeitet jeden Monat 84 Stunden.</actions>
+<post>Der Benutzer wird darüber informiert, dass das Budget der Finanzkategorie durch das Erstellen der Beschäftigungen überschritten wurde. Er kann auswählen ob er die Beschäftigung trotzdem hinzufügen möchte oder nicht.</post>
+<tags/>
+</testcase>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="" outcome="NA" postok="Y" preok="N" starttime="">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="275" priority="A" title="Überschreitung der Beschäftigungsgrenze einer Hilfskraft">
+<description>Es soll das Erscheinen einer Warnung bei einer Überschreitung der Beschäftigungsgrenze einer Hilfskraft getestet werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Hilfskräften, Beschäftigungen und Veranstaltungen wurden ausgeführt.</pre>
+<actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung für eine existierende Hilfskraft und weist dieser für zwei Monate 90 HKS zu.</actions>
+<post>Der Benutzer wird darüber informiert, dass die Beschäftigungsgrenze von 85h in den entsprechenden Monaten überschritten wurden. Er kann auswählen ob er die Beschäftigung trotzdem hinzufügen möchte oder nicht.</post>
+<tags/>
+</testcase>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="" outcome="NA" postok="Y" preok="N" starttime="">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="276" priority="C" title="Hilfskraft mehr als 6 Jahre angestellt">
+<description>Es soll das Erscheinen einer Warnung getestet werden, wenn die Hilfskraft mehr als 6 Jahre angestellt ist.</description>
+<pre>Die Testfälle zum Hinzufügen von Hilfskräften, Beschäftigungen und Veranstaltungen wurden ausgeführt. Die Hilfskraft "Peter Planlos" ist bereits 5 1/2 Jahre angestellt.</pre>
+<actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung, um somit die Hilfskraft Peter Plan für ein weiteres Jahr einzustellen.</actions>
+<post>Der Benutzer bekommt die Warnung angezeigt, dass durch die Beschäftigung die Hilfskraft für mehr als 6 Jahre angestellt ist. Er kann auswählen ob er die Beschäftigung trotzdem hinzufügen möchte oder nicht.</post>
+<tags/>
+</testcase>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="28.06.2010" creator="aidGerTeam" name="Allgemein" number="309">
+<description>Die Testsequenz dient zum Testen allgemeiner Funktionalitäten der Software.</description>
+<pre/>
+</sequence>
+<result actionok="Y" endtime="" outcome="NA" postok="Y" preok="N" starttime="">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="90" priority="C" title="Änderung der Fenstergröße">
+<description>Es soll das Verhalten bei einer Veränderung der Fenstergröße getestet werden.</description>
+<pre/>
+<actions>* Benutzer zieht das Programmfenster breiter
+
+* Benutzer zieht das Programmfenster höher</actions>
+<post>Bei einer Veränderung der Fenstergröße in der Breite wird nur der Inhaltsbereich verändert, um mehr Platz für Informationen/Formulare zu bekommen. Die Navigationsleiste wird höchstens so breit wie das breiteste Element in ihr.
+
+Sollte sich die Fenstergröße in der Höhe verändern, ändert sich die Größe beider Elemente gleichmäßig.</post>
+<tags/>
+</testcase>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="" outcome="NA" postok="Y" preok="N" starttime="">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="91" priority="C" title="Auswahl eines Elements in der Navigationsleiste">
+<description>Es wird die Auswahl eines Menüeintrags in der Navigationsleiste getestet. Es gibt Unterschiede zwischen einem linken und einen mittleren Mausklick.</description>
+<pre/>
+<actions>* Benutzer drückt mit der linken Maustaste auf den Menüpunkt Berichte
+
+* Benutzer drückt mit der mittleren Maustaste auf den Menüpunkt Controlling</actions>
+<post>Wird vom Benutzer ein Element in der Navigationsleiste mit der linken Maustaste ausgewählt, wird der aktuelle Inhalt des Inhaltsbereichs verworfen und durch den Inhalt des neuen Elements ersetzt.
+
+Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen, wird ein neuer Reiter geöffnet und der Inhalt des Elements in diesem neuen Reiter dargestellt. Der aktuelle Reiter bleibt dabei vollständig erhalten, gerät jedoch in den Hintergrund (ist also nicht mehr sichtbar).</post>
+<tags/>
+</testcase>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="" outcome="NA" postok="Y" preok="N" starttime="">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="263" priority="C" title="Willkommensreiter anzeigen">
+<description>Der Willkommensreiter soll beim Programmstart angezeigt werden. Die Einstellung "Merke meine Reiter" ist nicht gesetzt.</description>
+<pre>Die Einstellung "Merke meine Reiter" ist nicht gesetzt.</pre>
+<actions>* Benutzer startet das Programm neu</actions>
+<post>In einem einzigen Reiter ist das Willkommen-Tab geöffnet. Der Willkommensreiter enthält Informationen über die letzten Ereignisse (z.b. Berichte oder Vorgänge), Hinweise und Statistiken.</post>
+<tags/>
+</testcase>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="" outcome="NA" postok="Y" preok="N" starttime="">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="304" priority="C" title="Willkommensreiter nicht anzeigen">
+<description>Der Willkommensreiter soll beim Programmstart angezeigt werden. Die Einstellung "Merke meine Reiter" ist gesetzt.</description>
+<pre>Die Einstellung "Merke meine Reiter" ist gesetzt.</pre>
+<actions>* Benutzer öffnet die Reiter "Veranstaltungen", "Controlling Hilfskräfte" und "Beschäftigungen"
+
+* Benutzer startet das Programm neu</actions>
+<post>Der Willkommensreiter wird nicht geöffnet. Es werden ausschließlich die 3 geöffneten Reiter vor dem Programmneustart angezeigt.</post>
+<tags/>
+</testcase>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="" outcome="NA" postok="Y" preok="N" starttime="">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="119" priority="C" title="Export-Schnittstelle für Vorgänge">
+<description>Der Export von Vorgängen (z.B. zur möglichen Benutzung im Ticket-System) muss getestet werden.</description>
+<pre>Testfälle zum Hinzufügen von Vorgängen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt im Menü den Punkt "Vorgang exportieren"
+
+* Benutzer wählt die Tagesanzahl "5" aus
+
+* Benutzer drückt den Button "Exportieren"</actions>
+<post>Die Vorgänge der letzten 5 Tage werden in der Tabelle angezeigt. Die angezeigten Vorgänge werden im PDF-Format exportiert. In einer späteren SUT sollte hier ein für das Ticket-System verständliches Format benutzt werden.</post>
+<tags/>
+</testcase>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="" outcome="NA" postok="Y" preok="N" starttime="">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="262" priority="C" title="Programm beenden">
+<description>Das Programm soll beendet werden.</description>
+<pre>Benutzer möchte das Programm beenden.</pre>
+<actions>* Benutzer drückt auf den "X"-Button</actions>
+<post>Alle Ressourcen müssen freigegeben werden. Die Reiter müssen je nach Einstellung gespeichert werden. Die Konfiguration muss geschrieben werden. Das Fenster soll verschwinden.</post>
+<tags/>
+</testcase>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+</executedsequence>
+</testrun>
+<testrun enddate="24.10.2010 20:20" priority="E" startdate="24.10.2010 20:15" tester="aidGerTeam">
+<description/>
+<sut/>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Allgemeines" number="87">
+<description>Die Testsequenz dient zum Testen allgemeiner Funktionalitäten der Software.</description>
+<pre>Das Programm wurde gestartet.</pre>
+</sequence>
+<pre/>
+<executedsequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Programmeinstellungen" number="252">
+<description>Die Testsequenz dient zum Testen der Wirksamkeit der Programmeinstellungen in der Software.</description>
+<pre>Benutzer möchte das Programm individuell einstellen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="260" priority="C" title="Name des Barbeiters bei Vorgangserfassung">
+<description>Die Wirksamkeit der Einstellung "Name des Bearbeiters" bei der Vorgangserfassung soll getestet werden.</description>
+<pre>Benutzer möchte den Namen des Bearbeiters ändern. Der Name ist bislang auf "Carl Coder" eingestellt. Alle bisherigen Vorgänge wurden korrekt mit diesem Namen abgespeichert.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer gibt den Namen "Albert Zebra" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer drückt auf den Button "Vorgänge"
+
+* Benutzer drückt auf den Button "Hinzufügen"
+
+* Benutzer drückt auf den Button "Abbrechen"</actions>
+<post>Beim Hinzufügen des neuen Vorgangs ist standardmäßig der neue Name "AZ" in das korrekte Feld eingetragen. Beim Speichern des Vorgangs wird dieser und nicht der alte Namen übernommen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="118" priority="C" title="Mehrsprachigkeit: Umstellung auf Deutsch">
+<description>Die Wirksamkeit der Umstellung auf die Sprache Deutsch soll getestet werden.</description>
+<pre>Das Programm ist auf Englisch eingestellt und verhält sich demnach.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer wählt die Sprache "Deutsch" aus
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Benutzer wird darüber informiert, dass die Änderung nur nach einem Neustart des Programms wirksam ist. Nach einem Neustart ist die komplette Software auf die Sprache Deutsch umgestellt und verhält sich demnach.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="259" priority="C" title="Mehrsprachigkeit: Umstellung auf Englisch">
+<description>Die Wirksamkeit der Umstellung auf die Sprache Englisch soll getestet werden.</description>
+<pre>Das Programm ist auf Deutsch eingestellt und verhält sich demnach.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer wählt die Sprache "Englisch" aus
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Benutzer wird darüber informiert, dass die Änderung nur nach einem Neustart des Programms wirksam ist. Nach einem Neustart ist die komplette Software auf die Sprache Englisch umgestellt und verhält sich demnach.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="255" priority="C" title="PDF-Viewer">
+<description>Die Wirksamkeit der Einstellung "PDF Anzeiger" soll getestet werden.</description>
+<pre>Benutzer möchte den PDF-Viewer ändern.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer gibt den neuen Pfad des PDF-Viewers an
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer zeigt sich den aktuellen Monatsauszug an
+
+* Benutzer drückt auf den Button "Exportieren"</actions>
+<post>Der neue und nicht der alte PDF-Viewer wird geöffnet und zeigt den generierten Monatsauszug an.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="256" priority="C" title="Anzahl der Vorgänge">
+<description>Die Wirksamkeit der Einstellung "Anzahl der Vorgänge" soll getestet werden.</description>
+<pre>Benutzer möchte die Anzahl der Vorgänge ändern. Die jetzige Einstellung umfasst 3 Vorgänge. Zur angezeigten Hilfskraft müssen mindestens 4 Vorgänge hinterlegt sein.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer gibt die neue Anzahl "4" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer öffnet die Detailansicht einer Hilfskraft
+
+* Benutzer drückt auf den Button "Abbrechen"</actions>
+<post>Es werden die neusten vier Vorgänge zu der ausgewählten Hilfskraft in der Detailansicht angezeigt. Die Einstellung wurde dauerhaft gespeichert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="257" priority="C" title="Berichte automatisch nach Generierung öffnen">
+<description>Die Wirksamkeit der Einstellung "Berichte automatisch nach Generierung öffnen" soll getestet werden.</description>
+<pre>Die Einstellung "Berichte automatisch nach Generierung öffnen" ist deaktiviert (Standard).</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer setzt das Häkchen bei "Berichte automatisch nach Generierung öffnen"
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer lässt sich die Jahresbilanz für 2010 über den Menüpunkt Berichte generieren</actions>
+<post>Der Bericht wird nicht mehr intern in einem Reiter angezeigt, sondern der PDF-Viewer wird direkt mit dem erstellen Bericht geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="258" priority="C" title="Reiter bei Verlassen speichern">
+<description>Die Wirksamkeit der Einstellung "Reiter bei Verlassen speichern" soll getestet werden.</description>
+<pre>Die Einstellung "Reiter bei Verlassen speichern" ist aktiviert.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer entfernt das Häkchen bei "Reiter bei Verlassen speichern"
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer öffnet die Stammdatenansicht Hilfskräfte in einem neuen Reiter
+
+* Benutzer öffnet das Controlling (aktueller Monat) in einem neuen Reiter
+
+* Benutzer beendet das Programm
+
+* Benutzer startet das Programm</actions>
+<post>Die geöffneten Reiter wurden nicht wieder geöffnet. Der Benutzer wird ausschließlich mit dem Willkommen-Reiter begrüßt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="301" priority="C" title="Pessimistischer Faktor">
+<description>Die Wirksamkeit der Einstellung "Pessimistischer Faktor" soll getestet werden.</description>
+<pre>Benutzer möchte den pessimistischen Faktor ändern. Die jetzige Einstellung ist 1.0. In der Schnelleinstellung ist die pessimistische Berechnung ausgewählt.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer geht in den Tab "Berichte"
+
+* Benutzer gibt den neuen pessimistischen Faktor "1.3" ein
+
+* Benutzer wählt die Berechnungsmethode "Pessimistisch" aus
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer generiert eine Semesterbilanz</actions>
+<post>Die angezeigten Budgetkosten der Gruppen wurden korrekt mit dem neuen Faktor berechnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="302" priority="C" title="Historischer Faktor">
+<description>Die Wirksamkeit der Einstellung "Historischer Faktor" soll getestet werden.</description>
+<pre>Benutzer möchte den historischen Faktor ändern. Die jetzige Einstellung ist 1.0. In der Schnelleinstellung ist die historische Berechnung ausgewählt.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer geht in den Tab "Berichte"
+
+* Benutzer gibt den neuen historiscen Faktor "1.4" ein
+
+* Benutzer wählt die Berechnungsmethode "Historisch" aus
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer generiert eine Gesamtbilanz</actions>
+<post>Die angezeigten Budgetkosten der Gruppen wurden korrekt mit dem neuen Faktor berechnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="300" priority="C" title="Zeit bis zur Anonymisierung">
+<description>Die Wirksamkeit der Einstellung "Zeit bis zur Anonymisierung" soll getestet werden.</description>
+<pre>Benutzer möchte die Zeit bis zur Anonymisierung ändern. Die jetzige Einstellung ist 365 Tage. Es gibt 2 Hilfskräfte, deren letzte Beschäftigung 50 Tage her ist.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer gibt die neue Zeit "50" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer startet das Programm neu</actions>
+<post>Die 2 Hilfskräfte wurden anonymisiert, d.h. ihre Namen und ihre Email wurden mit "****" ersetzt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="303" priority="C" title="Controllingtoleranz">
+<description>Die Wirksamkeit der Einstellung "Controllingtoleranz" soll getestet werden.</description>
+<pre>Benutzer möchte die Controllingtoleranz ändern. Die jetzige Einstellung ist 0.0. Die Testfälle zum Hinzufügen von Beschäftigungen wurden ausgeführt. Die realen Kosten sind bei allen Hilfskräften mit den Plankosten identisch.</pre>
+<actions>* Benutzer öffnet den Einstellungsdialog
+
+* Benutzer gibt die neue Toleranz "10" ein
+
+* Benutzer drückt auf den Button "Speichern"
+
+* Benutzer prüft die Hilfskräfte
+
+* Benutzer gibt die realen Kosten für eine Hilfskraft mit einer absichtlichen Abweichung von 16€ ein.
+
+* Benutzer gibt die realen Kosten für eine andere Hilfskraft mit einer absichtlichen Abweichung von 8€ ein.</actions>
+<post>Ausschließlich die Hilfskraft mit der 16€ Abweichung wird als Unstimmigkeit angezeigt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Tabbing" number="264">
+<description>Die Testsequenz dient zum Testen des Tabbings im Programm.</description>
+<pre>Das Programm verwendet Tabs für eine einfachere Bedienung von aidGer.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="265" priority="C" title="Leerer Tab öffnen">
+<description>Es soll ein neuer leerer Tab geöffnet werden.</description>
+<pre>Benutzer möchte einen leeren Tab öffnen.</pre>
+<actions>* Benutzer drückt auf den "+"-Button bei den Reitern</actions>
+<post>Ein neuer Tab hat sich geöffnet und befindet sich im Vordergrund. Es können nun alle Navigationselemente in diesem Reiter geöffnet werden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="266" priority="C" title="Ein neuen Tab via mittlerer Maustaste (Navigationsleiste)">
+<description>Es soll ein neuer Tab mit Hilfe der mittleren Maustaste geöffnet werden.</description>
+<pre>Benutzer möchte sich Daten in einem neuen Tab anzeigen lassen.</pre>
+<actions>* Benutzer klickt mit der mittleren Maustaste auf "Controlling" in der Navigationsleiste</actions>
+<post>Der aktuelle Monatsauszug hat sich in einem neuen Reiter geöffnet. Dieser ist zudem in den Vordergrund gekommen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="268" priority="C" title="Zwischen Tabs navigieren">
+<description>Es soll zwischen den Tabs navigiert werden können.</description>
+<pre>Benutzer möchte zwischen den Tabs navigieren.</pre>
+<actions>* Benutzer erstellt vier neue Tabs via "+"-Button
+
+* Benutzer klickt auf Tab 1
+
+* Benutzer klickt auf Tab 3</actions>
+<post>Beim Wechseln der Tabs wurde jeweils der Inhalt im Content-Frame geändert. Der Benutzer befindet sich im Tab 3.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="267" priority="C" title="Einen Tab schließen">
+<description>Es soll ein Tab geschlossen werden.</description>
+<pre>Der Benutzer möchte einen nicht mehr benötigten Tab schließen.</pre>
+<actions>* Benutzer klickt auf das "X" im Reiter</actions>
+<post>Das Tab hat sich geschlossen. Falls der Tab nicht selektiert war, bleibt der angezeigte Tab im Vordergrund. Wurde das angezeigte Tab geschloßen, wird der nächste Tab genommen. Wird der letzte Tab geschloßen, so wird der nun neue letzte Tab selektiert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Navigationsleiste" number="269">
+<description>Die Testsequenz dient zum Testen des Navigationsleiste im Programm.</description>
+<pre>Der Benutzer möchte zwischen den verschiedenen Ansichten navigieren.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:16" outcome="Comment" postok="Y" preok="Y" starttime="20:15">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="270" priority="C" title="Verhalten bei Programmstart">
+<description>Das Verhalten der Navigationsleiste beim Programmstart soll getestet werden.</description>
+<pre>Das Programm wurde gestartet.</pre>
+<actions/>
+<post>Die Menüpunkte, die beim letzten Schließen des Programs geöffnet waren sind geöffnet. Beim ersten Start ist nur der Punkt Stammdatenverwaltung geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment>Test Case outdated. WelcomeTab is open.</comment>
+</result>
+<result actionok="Y" endtime="20:16" outcome="Ok" postok="Y" preok="Y" starttime="20:16">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="271" priority="C" title="Klick auf geschlossenen Menüpunkt">
+<description>Das Verhalten beim Klick auf einen geschlossenen Menüpunkt soll getestet werden.</description>
+<pre>Benutzer möchte einen Menüpunkt öffnen, um weitere Navigationsmöglichkeiten zu diesem Menüpunkt zu bekommen.</pre>
+<actions>* Benutzer klickt auf einen geschlossenen Menüpunkt</actions>
+<post>Der geschlossene Menüpunkt öffnet seinen untergeordneten Menükontext. Der Benutzer kann zudem im geöffneten Menükontext weiter navigieren.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:17" outcome="Ok" postok="Y" preok="Y" starttime="20:16">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="272" priority="C" title="Klick auf aktivem Menüpunkt">
+<description/>
+<pre>Ein Menüpunkt ist bereits offen, d.h. sein Menükontext wird angezeigt.</pre>
+<actions>* Benutzer klickt erneut auf den offenen Menüpunkt</actions>
+<post>Der Menüpunkt schließt sich, d.h. sein Menükontext wird nicht mehr angezeigt. Der Content-Frame ändert sich dabei nicht. Andere offene Menüpunkte ändern ihren Zustand nicht.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Drucken" number="251">
+<description>Die Testsequenz dient zum Testen der Druckmöglichkeit in der Software.</description>
+<pre>Der Benutzer möchte angezeigte Daten drucken.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:17" outcome="Skipped" postok="Y" preok="Y" starttime="20:17">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="117" priority="C" title="Drucken eines Monatsauszuges">
+<description>Es soll die Druckmöglichkeit in der Software getestet werden. Es wird ein Monatsauszug gedruckt.</description>
+<pre>Testfall 242 (Controlliing) wurde ausgeführt. Der Controlling-Tab ist vom Benutzer geöffnet.</pre>
+<actions>* Benutzer klickt auf den Menüeintrag "Datei"
+
+* Benutzer klickt auf den Menüeintrag "Drucken"
+
+* Benutzer stellt seinen bereits konfigurierten Drucker ein
+
+* Benutzer drückt auf den Button "Drucken"</actions>
+<post>Es soll der angezeigte Monatsauszug am Drucker gedruckt werden. Dabei wird der gerenderte Tab gedruckt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:17" outcome="Skipped" postok="Y" preok="Y" starttime="20:17">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="254" priority="C" title="Drucken der Beschäftigungen">
+<description>Es soll die Druckmöglichkeit in der Software getestet werden. Es werden die angezeigten Beschäftigungen gedruckt.</description>
+<pre>Die Testfälle zum Hinzufügen von Beschäftigungen wurden ausgeführt. Der Beschäftigungen-Tab ist vom Benutzer geöffnet.</pre>
+<actions>* Benutzer klickt auf den Menüeintrag "Datei"
+
+* Benutzer klickt auf den Menüeintrag "Drucken"
+
+* Benutzer stellt seinen bereits konfigurierten Drucker ein
+
+* Benutzer drückt auf den Button "Drucken"</actions>
+<post>Es wird die angezeigte Beschäftigungsliste gedruckt. Der gerenderte Tab wird gedruckt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:17" outcome="Skipped" postok="Y" preok="Y" starttime="20:17">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="253" priority="C" title="Drucken mit Shortcut">
+<description>Es soll die Druckmöglichkeit in der Software getestet werden. Das Drucken wird durch den Shortcut ausgelöst.</description>
+<pre/>
+<actions>* Benutzer klickt auf den "+" Button bei den Reitern
+
+* Benutzer drückt den Shortcut "STRG + P"
+
+* Benutzer drückt auf den Button "Abbrechen"</actions>
+<post>Der Druckdialog wird geöffnet und wieder geschlossen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="18.05.2010" creator="aidGerTeam" name="Überschreiten von Limits" number="261">
+<description>Die Testsequenz dient zum Testen des Erscheines spezifizierter Warnungen beim Überschreiten von Limits.</description>
+<pre>Warnungen wurden spezifiziert, die in bestimmten Situationen erscheinen müssen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:17" outcome="Ok" postok="Y" preok="Y" starttime="20:17">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:04" number="274" priority="A" title="Budgetüberschreitung einer Veranstaltung">
+<description>Es soll das Erscheinen einer Warnung bei der Budgetüberschreitung einer Veranstaltung getestet werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Beschäftigungen und Veranstaltungen wurden ausgeführt.</pre>
+<actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung für eine existierende Veranstaltung. Die Hilfskraft arbeitet monatlich 1000 HKS.</actions>
+<post>Der Benutzer wird beim Erstellen der Beschäftigung darüber informiert, dass das Budget für die Veranstaltung überschritten wurde. Er kann auswählen ob er die Beschäftigung trotzdem hinzufügen will oder nicht.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:17" outcome="Ok" postok="Y" preok="Y" starttime="20:17">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="277" priority="C" title="Budgetüberschreitung eines Funds einer Finanzkategorie">
+<description>Es soll das Erscheinen einer Warnung bei der Budgetüberschreitung eines Funds einer Finanzkategorie getestet werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Finanzkategorie wurden ausgeführt.</pre>
+<actions>* Benutzer erstellt 10 neue Beschäftigung und weist diesen eine Veranstaltung zu, die eine existierende Finanzkategorie hat und deren Budget bei 400€ liegt. Die geprüfte Hilfskraft arbeitet jeden Monat 84 Stunden.</actions>
+<post>Der Benutzer wird darüber informiert, dass das Budget der Finanzkategorie durch das Erstellen der Beschäftigungen überschritten wurde. Er kann auswählen ob er die Beschäftigung trotzdem hinzufügen möchte oder nicht.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:18" outcome="Ok" postok="Y" preok="Y" starttime="20:17">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="275" priority="A" title="Überschreitung der Beschäftigungsgrenze einer Hilfskraft">
+<description>Es soll das Erscheinen einer Warnung bei einer Überschreitung der Beschäftigungsgrenze einer Hilfskraft getestet werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Hilfskräften, Beschäftigungen und Veranstaltungen wurden ausgeführt.</pre>
+<actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung für eine existierende Hilfskraft und weist dieser für zwei Monate 90 HKS zu.</actions>
+<post>Der Benutzer wird darüber informiert, dass die Beschäftigungsgrenze von 85h in den entsprechenden Monaten überschritten wurden. Er kann auswählen ob er die Beschäftigung trotzdem hinzufügen möchte oder nicht.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:18" outcome="Ok" postok="Y" preok="Y" starttime="20:18">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="276" priority="C" title="Hilfskraft mehr als 6 Jahre angestellt">
+<description>Es soll das Erscheinen einer Warnung getestet werden, wenn die Hilfskraft mehr als 6 Jahre angestellt ist.</description>
+<pre>Die Testfälle zum Hinzufügen von Hilfskräften, Beschäftigungen und Veranstaltungen wurden ausgeführt. Die Hilfskraft "Peter Planlos" ist bereits 5 1/2 Jahre angestellt.</pre>
+<actions>* Benutzer erstellt eine neue korrekt eingegebene Beschäftigung, um somit die Hilfskraft Peter Plan für ein weiteres Jahr einzustellen.</actions>
+<post>Der Benutzer bekommt die Warnung angezeigt, dass durch die Beschäftigung die Hilfskraft für mehr als 6 Jahre angestellt ist. Er kann auswählen ob er die Beschäftigung trotzdem hinzufügen möchte oder nicht.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="28.06.2010" creator="aidGerTeam" name="Allgemein" number="309">
+<description>Die Testsequenz dient zum Testen allgemeiner Funktionalitäten der Software.</description>
+<pre/>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="20:18" outcome="Ok" postok="Y" preok="Y" starttime="20:18">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="90" priority="C" title="Änderung der Fenstergröße">
+<description>Es soll das Verhalten bei einer Veränderung der Fenstergröße getestet werden.</description>
+<pre/>
+<actions>* Benutzer zieht das Programmfenster breiter
+
+* Benutzer zieht das Programmfenster höher</actions>
+<post>Bei einer Veränderung der Fenstergröße in der Breite wird nur der Inhaltsbereich verändert, um mehr Platz für Informationen/Formulare zu bekommen. Die Navigationsleiste wird höchstens so breit wie das breiteste Element in ihr.
+
+Sollte sich die Fenstergröße in der Höhe verändern, ändert sich die Größe beider Elemente gleichmäßig.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:19" outcome="Ok" postok="Y" preok="Y" starttime="20:18">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="91" priority="C" title="Auswahl eines Elements in der Navigationsleiste">
+<description>Es wird die Auswahl eines Menüeintrags in der Navigationsleiste getestet. Es gibt Unterschiede zwischen einem linken und einen mittleren Mausklick.</description>
+<pre/>
+<actions>* Benutzer drückt mit der linken Maustaste auf den Menüpunkt Berichte
+
+* Benutzer drückt mit der mittleren Maustaste auf den Menüpunkt Controlling</actions>
+<post>Wird vom Benutzer ein Element in der Navigationsleiste mit der linken Maustaste ausgewählt, wird der aktuelle Inhalt des Inhaltsbereichs verworfen und durch den Inhalt des neuen Elements ersetzt.
+
+Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen, wird ein neuer Reiter geöffnet und der Inhalt des Elements in diesem neuen Reiter dargestellt. Der aktuelle Reiter bleibt dabei vollständig erhalten, gerät jedoch in den Hintergrund (ist also nicht mehr sichtbar).</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:19" outcome="Ok" postok="Y" preok="Y" starttime="20:19">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="263" priority="C" title="Willkommensreiter anzeigen">
+<description>Der Willkommensreiter soll beim Programmstart angezeigt werden. Die Einstellung "Merke meine Reiter" ist nicht gesetzt.</description>
+<pre>Die Einstellung "Merke meine Reiter" ist nicht gesetzt.</pre>
+<actions>* Benutzer startet das Programm neu</actions>
+<post>In einem einzigen Reiter ist das Willkommen-Tab geöffnet. Der Willkommensreiter enthält Informationen über die letzten Ereignisse (z.b. Berichte oder Vorgänge), Hinweise und Statistiken.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:19" outcome="Ok" postok="Y" preok="Y" starttime="20:19">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="304" priority="C" title="Willkommensreiter nicht anzeigen">
+<description>Der Willkommensreiter soll beim Programmstart angezeigt werden. Die Einstellung "Merke meine Reiter" ist gesetzt.</description>
+<pre>Die Einstellung "Merke meine Reiter" ist gesetzt.</pre>
+<actions>* Benutzer öffnet die Reiter "Veranstaltungen", "Controlling Hilfskräfte" und "Beschäftigungen"
+
+* Benutzer startet das Programm neu</actions>
+<post>Der Willkommensreiter wird nicht geöffnet. Es werden ausschließlich die 3 geöffneten Reiter vor dem Programmneustart angezeigt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="20:19" outcome="Comment" postok="Y" preok="Y" starttime="20:19">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="119" priority="C" title="Export-Schnittstelle für Vorgänge">
+<description>Der Export von Vorgängen (z.B. zur möglichen Benutzung im Ticket-System) muss getestet werden.</description>
+<pre>Testfälle zum Hinzufügen von Vorgängen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt im Menü den Punkt "Vorgang exportieren"
+
+* Benutzer wählt die Tagesanzahl "5" aus
+
+* Benutzer drückt den Button "Exportieren"</actions>
+<post>Die Vorgänge der letzten 5 Tage werden in der Tabelle angezeigt. Die angezeigten Vorgänge werden im PDF-Format exportiert. In einer späteren SUT sollte hier ein für das Ticket-System verständliches Format benutzt werden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment>Test Case not necessary any more.</comment>
+</result>
+<result actionok="Y" endtime="20:19" outcome="Ok" postok="Y" preok="Y" starttime="20:19">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="262" priority="C" title="Programm beenden">
+<description>Das Programm soll beendet werden.</description>
+<pre>Benutzer möchte das Programm beenden.</pre>
+<actions>* Benutzer drückt auf den "X"-Button</actions>
+<post>Alle Ressourcen müssen freigegeben werden. Die Reiter müssen je nach Einstellung gespeichert werden. Die Konfiguration muss geschrieben werden. Das Fenster soll verschwinden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+</executedsequence>
+</testrun>
 </tsa>
 <tsa name="Verträge" number="279" revId="1">
 <relatedsequence>279</relatedsequence>
@@ -7006,6 +9213,436 @@ Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</po
 <pre/>
 <actions/>
 <post/>
+<comment/>
+</result>
+</executedsequence>
+</executedsequence>
+</testrun>
+<testrun enddate="24.10.2010 19:36" priority="E" startdate="24.10.2010 18:56" tester="aidGerTeam">
+<description>Mir ist noch aufgefallen, dass die Fehlermeldungen beim Löschen eines Vertrags, der noch referenziert wird, nicht zurückgesetzt werden.</description>
+<sut>aidGer</sut>
+<executedsequence>
+<sequence created="27.06.2010" creator="aidGerTeam" name="Verträge" number="279">
+<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten, Löschen, Anzeigen und Suchen von Verträgen.</description>
+<pre/>
+</sequence>
+<pre/>
+<executedsequence>
+<sequence created="27.06.2010" creator="aidGerTeam" name="Hinzufügen" number="280">
+<description>Die Testsequenz enthält Testfälle zum Hinzufügen eines Vertrags zur die Datenbank.</description>
+<pre/>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="19:03" outcome="Ok" postok="Y" preok="Y" starttime="18:57">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="287" priority="A" title="Vertrag korrekt erstellen">
+<description>Es soll ein Vertrag erstellt werden. Alle Eingaben sind korrekt.</description>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 44 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer wählt die Hilfskraft "Carl Coder" aus
+
+* Benutzer gibt das Abschlußdatum "10.10.2010" ein
+
+* Benutzer lässt den Standardwert bei Anfangsdatum
+
+* Benutzer erhöht Enddatum um 1
+
+* Benutzer wählt bei Art des Vertrags "Neuvertrag" aus
+
+* Benutzer setzt "Delegation" auf "Nein"
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Vertrag wurde im System mit den korrekten Werten vollständig gespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehrt zum Menüpunkt Verträge im alten Reiter zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="19:04" outcome="Ok" postok="Y" preok="Y" starttime="19:03">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="288" priority="A" title="Vertrag korrekt erstellen">
+<description>Es soll ein Vertrag erstellt werden. Alle Eingaben sind korrekt.</description>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 45 und 39 wurden ausgeführt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer wählt die Hilfskraft "Peter Planlos" aus
+
+* Benutzer gibt das Abschlußdatum "11.12.2009" ein
+
+* Benutzer lässt den Standardwert bei Anfangsdatum
+
+* Benutzer erhöht Enddatum um 1
+
+* Benutzer gibt bei Art des Vertrags "Aufstockung" ein
+
+* Benutzer setzt "Delegation" auf "Ja"
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Vertrag wurde im System mit den korrekten Werten vollständig gespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehrt zum Menüpunkt Verträge im alten Reiter zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="19:05" outcome="Ok" postok="Y" preok="Y" starttime="19:04">
+<testcase created="21.10.2010" creator="aidGerTeam" effort="00:00" number="312" priority="C" title="Überlappenden Vertrag korrekt erstellen">
+<description>Es soll ein Vertrag erstellt werden welcher mit einem anderen überlappt. Alle Eingaben sind korrekt.</description>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44 und 287 wurden ausgeführt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer wählt die Hilfskraft "Carl Coder" aus
+
+* Benutzer gibt das Abschlußdatum "09.10.2010" ein
+
+* Benutzer lässt den Standardwert bei Anfangsdatum
+
+* Benutzer erhöht Enddatum um 1
+
+* Benutzer wählt bei Art des Vertrags "Neuvertrag" aus
+
+* Benutzer setzt "Delegation" auf "Nein"
+
+* Benutzer klickt auf den Button "Speichern"
+
+* Benutzer wird darauf hingewiesen, dass der Neuvertrag mit einem anderen überlappt und gefragt ob er fortfahren möchte
+
+* Benutzer klickt auf "Ja"</actions>
+<post>Der Vertrag wurde im System mit den korrekten Werten vollständig gespeichert. Der "Hinzufügen"-Tab wurde geschloßen und der Benutzer kehrt zum Menüpunkt Verträge im alten Reiter zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="19:06" outcome="Ok" postok="Y" preok="Y" starttime="19:06">
+<testcase created="21.10.2010" creator="aidGerTeam" effort="00:00" number="313" priority="C" title="Überlappenden Vertrag korrekt erstellen und abbrechen">
+<description>Es soll ein Vertrag erstellt werden welcher mit einem anderen überlappt. Alle Eingaben sind korrekt.</description>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44 und 287 wurden ausgeführt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer wählt die Hilfskraft "Carl Coder" aus
+
+* Benutzer gibt das Abschlußdatum "09.10.2010" ein
+
+* Benutzer lässt den Standardwert bei Anfangsdatum
+
+* Benutzer erhöht Enddatum um 1
+
+* Benutzer wählt bei Art des Vertrags "Neuvertrag" aus
+
+* Benutzer setzt "Delegation" auf "Nein"
+
+* Benutzer klickt auf den Button "Speichern"
+
+* Benutzer wird darauf hingewiesen, dass der Neuvertrag mit einem anderen überlappt und gefragt ob er fortfahren möchte
+
+* Benutzer klickt auf "Nein"</actions>
+<post>Der Vertrag wurde nicht im System gespeichert. Der Benutzer befindet sich noch im Hinzufügen-Tab und kann seine eingegebenen Daten ändern.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Vertrag wurde nicht im System gespeichert. Der Benutzer befindet sich noch im Hinzufügen-Tab und kann seine eingegebenen Daten ändern.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="19:07" outcome="Ok" postok="Y" preok="Y" starttime="19:06">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="166" priority="A" title="Vertragsdaten inkorrekt erstellen">
+<description>Es wird ein neuer Vertrag erstellt. Die darin befindlichen Daten sind jedoch in einer inkorrekten Reihenfolge.</description>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 44 wurde korrekt ausgeführt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer wählt die Hilfskraft "Carl Coder" aus
+
+* Benutzer gibt das Abschlußdatum "01.10.2010" ein
+
+* Benutzer gibt das Anfangsdatum "01.11.2010" ein
+
+* Benutzer gibt das Enddatum "01.05.2010" ein
+
+* Benutzer gibt bei Art des Vertrags "Aufstockung" ein
+
+* Benutzer setzt "Delegation" auf "Ja"
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Benutzer wird informiert, dass er Falscheingaben gemacht hat: Das Beschäftigungsende liegt vor dem Beschäftigungsbeginn und das Bestätigungsdatum vor dem Abschlussdatum.
+Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Benutzer wird informiert, dass er Falscheingaben gemacht hat: Das Beschäftigungsende liegt vor dem Beschäftigungsbeginn und das Bestätigungsdatum vor dem Abschlussdatum.
+Der Reiter bleibt offen, so dass der Benutzer seine Angaben verbessern kann.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="19:07" outcome="Ok" postok="Y" preok="Y" starttime="19:07">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="289" priority="A" title="Abbruch: Vertrag erstellen">
+<description>Es soll ein Vertrag erstellt werden. Die Erstellung wird jedoch abgebrochen.</description>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. </pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer wählt die Hilfskraft "Carl Coder" aus
+
+* Benutzer gibt das Abschlußdatum "11.12.2009" ein
+
+* Benutzer lässt den Standardwert bei Beschätigungsbeginn
+
+* Benutzer erhöht Beschäftigungsende um 1
+
+* Benutzer gibt bei Art des Vertrags "Aufstockung" ein
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Die Vertragsdaten wurden verworfen. Das Tab-Fenster wird geschloßen und der Benutzer kehrt zum zuvor angezeigten Reiter zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die Vertragsdaten wurden verworfen. Das Tab-Fenster wird geschloßen und der Benutzer kehrt zum zuvor angezeigten Reiter zurück.</post>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="27.06.2010" creator="aidGerTeam" name="Bearbeiten" number="281">
+<description>Die Testsequenz enthält Testfälle zur Bearbeitung eines Vertrags in der Datenbank.</description>
+<pre/>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="19:07" outcome="Ok" postok="Y" preok="Y" starttime="19:07">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="172" priority="B" title="Vertrag korrekt bearbeiten">
+<description>Die Vertragsdaten sollen editiert werden. Alle Eingaben sind dabei korrekt.</description>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 287 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den in 288 erstellten Vertrag
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer erhöht das Bestätigungsdatum um 1
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die geänderten Vertragsdaten werden in der Datenbank hinterlegt und das System kehrt zum vorher angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die geänderten Vertragsdaten werden in der Datenbank hinterlegt und das System kehrt zum vorher angezeigten Tab zurück.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="19:12" outcome="Ok" postok="Y" preok="Y" starttime="19:07">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="174" priority="B" title="Vertrag inkorrekt bearbeiten">
+<description>Die Vertragsdaten sollen editiert werden. Es wurden falsche Eingaben gemacht.</description>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 287 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den in 287 erstellten Vertrag
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer gibt das Bestätigungsdatum "03.12.2009" ein
+
+* Benutzer gibt als Beschäftigungsende "01.12.2009" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die geänderten Vertragsdaten werden verworfen und der Benutzer wird darüber informiert, dass das Bestätigungsdatum nicht vor dem Abschlußdatum liegen kann. Außerdem erhält er die Meldung, dass das Beschäftigungsende nicht vor dem Beschäftigungsstart möglich ist. Der Benutzer befindet sich weiterhin im Vertragstab und kann seine Eingabe korrigieren.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die geänderten Vertragsdaten werden verworfen und der Benutzer wird darüber informiert, dass das Bestätigungsdatum nicht vor dem Abschlußdatum liegen kann. Außerdem erhält er die Meldung, dass das Beschäftigungsende nicht vor dem Beschäftigungsstart möglich ist. Der Benutzer befindet sich weiterhin im Vertragstab und kann seine Eingabe korrigieren.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="19:13" outcome="Ok" postok="Y" preok="Y" starttime="19:12">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="173" priority="B" title="Abbruch: Vertrag bearbeiten">
+<description>Die Vertragsdaten sollen editiert werden. Dieser Vorgang wird jedoch abgebrochen.</description>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 287 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert den in 287 erstellten Vertrag
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer gibt das Bestätigungsdatum "19.12.2009" ein
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Die geänderten Vertragsdaten werden verworfen und das System kehrt zum vorher angezeigten Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die geänderten Vertragsdaten werden verworfen und das System kehrt zum vorher angezeigten Tab zurück.</post>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="27.06.2010" creator="aidGerTeam" name="Suchen" number="284">
+<description>Die Testsequenz enthält Testfälle zum Suchen eines Vertrags in der Datenbank.</description>
+<pre/>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="19:13" outcome="Ok" postok="Y" preok="Y" starttime="19:13">
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="299" priority="C" title="Vertrag suchen">
+<description/>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 287 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt "Neuvertrag" ins Suchfeld ein
+
+* System aktualisiert die Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich der gesuchte Vertrag (Testfall 287). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>In der Anzeige-Tabelle erscheint ausschließlich der gesuchte Vertrag (Testfall 287). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="19:13" outcome="Ok" postok="Y" preok="Y" starttime="19:13">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="298" priority="C" title="Suchfilter entfernen">
+<description>Der angewandte Suchfilter soll entfernt werden.</description>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 299 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt auf den Button neben dem Suchfeld</actions>
+<post>Die Anzeige-Tabelle zeigt alle Beschäftigungen an. Das Suchfeld wurde geleert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Die Anzeige-Tabelle zeigt alle Beschäftigungen an. Das Suchfeld wurde geleert.</post>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="27.06.2010" creator="aidGerTeam" name="Anzeigen" number="283">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen eines Vertrags aus der Datenbank.</description>
+<pre/>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="19:30" outcome="Ok" postok="Y" preok="Y" starttime="19:13">
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="295" priority="C" title="Vertrag anzeigen und schließen">
+<description>Ein Vertrag soll angezeigt werden und die Anzeige direkt danach wieder geschlossen werden.</description>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 287 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert Vertrag aus 287
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet den Anzeigentab mit dem gewählten Vertrag
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Der Anzeigentab wird geschlossen und der Benutzer befindet sich wieder im zuletzt offenen Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment>Überschrift kann abgeschnitten sein.</comment>
+</result>
+<result actionok="Y" endtime="19:33" outcome="Ok" postok="Y" preok="Y" starttime="19:31">
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="296" priority="C" title="Vertrag anzeigen und bearbeiten">
+<description>Ein Vertrag soll angezeigt werden und daraufhin bearbeitet werden.</description>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 287 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert Vertrag aus 287
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet den Anzeigentab mit dem gewählten Vertrag
+
+* Benutzer klickt auf den Button "Bearbeiten"</actions>
+<post>Der Bearbeitentab für den gewählten Vertrag wird geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Bearbeitentab für den gewählten Vertrag wird geöffnet.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="19:34" outcome="Ok" postok="Y" preok="Y" starttime="19:33">
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="297" priority="C" title="Vertrag anzeigen ohne Auswahl">
+<description>Ein Vertrag soll angezeigt werden, es ist jedoch keiner ausgewählt.</description>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Es wurde kein Vertrag ausgewählt.</pre>
+<actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen und es erscheint eine entsprechende Fehlermeldung.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Beschäftigungen und es erscheint eine entsprechende Fehlermeldung.</post>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="27.06.2010" creator="aidGerTeam" name="Löschen" number="282">
+<description>Die Testsequenz enthält Testfälle zum Löschen eines Vertrags aus der Datenbank.</description>
+<pre/>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="19:34" outcome="Ok" postok="Y" preok="Y" starttime="19:34">
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="291" priority="C" title="Vertrag löschen ohne Referenz">
+<description>Es soll ein Vertrag gelöscht werden, was korrekt funktioniert. </description>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 287 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den in 287 erstellten Vertrag
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im selben Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im selben Tab.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="19:35" outcome="Ok" postok="Y" preok="Y" starttime="19:34">
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="292" priority="C" title="Vertrag löschen mit Referenz">
+<description>Es soll ein Vertrag gelöscht werden, der noch von einer Beschäftigung referenziert wird.</description>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 312 wurde ausgeführt. Es wurde eine Beschäftigung mit dem Vertrag aus 312 erstellt.</pre>
+<actions>* Benutzer markiert den in 287 erstellten Vertrag
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Ein Fehler-Popup wird angezeigt, da der Vertrag noch mit einer Beschäftigung verknüpft ist.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Ein Fehler-Popup wird angezeigt, da der Vertrag noch mit einer Beschäftigung verknüpft ist.</post>
+<comment/>
+</result>
+<result actionok="Y" endtime="19:36" outcome="Ok" postok="Y" preok="Y" starttime="19:35">
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="293" priority="C" title="Vertrag löschen mit Taste Entf">
+<description>Es soll ein Vertrag durch Drücken der Taste Entf gelöscht werden.</description>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 287 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den in 288 erstellten Vertrag
+
+* Benutzer drückt die Entf-Taste
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "OK"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im selben Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="19:36" outcome="Ok" postok="Y" preok="Y" starttime="19:36">
+<testcase created="27.06.2010" creator="aidGerTeam" effort="00:01" number="294" priority="C" title="Abbruch: Vertrag löschen">
+<description>Es soll ein Vertrag gelöscht werden. Dies wird jedoch abgebrochen</description>
+<pre>Der Vertrags-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 287 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert den in 287 erstellten Vertrag
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Nein"</actions>
+<post>Das Bestätigungs-Popup wird geschlossen und der Vertrag ist weiterhin in der Datenbank vorhanden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post>Das Bestätigungs-Popup wird geschlossen und der Vertrag ist weiterhin in der Datenbank vorhanden.</post>
 <comment/>
 </result>
 </executedsequence>
@@ -9174,6 +11811,600 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 </executedsequence>
 </executedsequence>
 </testrun>
+<testrun enddate="24.10.2010 18:21" priority="E" startdate="24.10.2010 18:05" tester="aidGerTeam">
+<description>All passed.</description>
+<sut/>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Veranstaltungen" number="12">
+<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten, Löschen, Anzeigen und Suchen der Stammdaten Veranstaltungen.</description>
+<pre>Benutzer befindet sich im Menüpunkt Veranstaltungen.</pre>
+</sequence>
+<pre/>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Hinzufügen" number="16">
+<description>Die Testsequenz enthält Testfälle zum Hinzufügen einer Veranstaltung in die Datenbank.</description>
+<pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="18:06" outcome="Ok" postok="Y" preok="Y" starttime="18:06">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:10" number="28" priority="B" title="Veranstaltung korrekt hinzufügen">
+<description>Es wird eine Veranstaltung zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Finanzkategorie "Lehre 0809" wurde korrekt erstellt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer gibt die Bezeichnung "Nutzlose Betriebssysteme in der Praxis" ein
+
+* Benutzer gibt das Semester "WS0809" ein
+
+* Benutzer gibt den Dozent "B. Gates" ein
+
+* Benutzer gibt die Gruppenanzahl "3" ein
+
+* Benutzer gibt das Zielpublikum "ST" ein
+
+* Benutzer gibt die HKS pro Gruppe "52,5" ein
+
+* Benutzer gibt den Umfang "1Ü" ein
+
+* Benutzer gibt den Teil "B" ein
+
+* Benutzer gibt die Gruppe "Vordiplom ST" ein
+
+* Benutzer lässt das Bemerkungsfeld leer
+
+* Benutzer wählt die Finanzkategorie "Lehre WS0809" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Veranstaltung ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das Veranstaltungen-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:07" outcome="Ok" postok="Y" preok="Y" starttime="18:06">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:10" number="38" priority="B" title="Veranstaltung korrekt hinzufügen">
+<description>Es wird eine Veranstaltung zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Finanzkategorie "Lehre SS10" wurde korrekt hinzugefügt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer gibt die Bezeichnung "Mensa überleben für Pizza-Fans" ein
+
+* Benutzer gibt das Semester "SS10" ein
+
+* Benutzer gibt den Dozent "Claudius Chipkartenfan" ein
+
+* Benutzer gibt die Gruppenanzahl "1" ein
+
+* Benutzer gibt das Zielpublikum "INF" ein
+
+* Benutzer gibt die Genehmigte HKS "45" ein
+
+* Benutzer gibt den Umfang "1Ü" ein
+
+* Benutzer gibt den Teil "A" ein
+
+* Benutzer gibt die Gruppe "Bachelor INF" ein
+
+* Benutzer lässt das Bemerkungsfeld leer
+
+* Benutzer wählt die Finanzkategorie "Lehre SS10" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Veranstaltung ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das Veranstaltungen-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:08" outcome="Ok" postok="Y" preok="Y" starttime="18:07">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:10" number="39" priority="B" title="Veranstaltung korrekt hinzufügen">
+<description>Es wird eine Veranstaltung zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Die Finanzkategorie "Forschung" wurde korrekt hinzugefügt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer gibt die Bezeichnung "Laufende Forschung" ein
+
+* Benutzer gibt das Semester "2009" ein
+
+* Benutzer gibt den Dozent "Gustav Guifrickel" ein
+
+* Benutzer gibt die Gruppenanzahl "1" ein
+
+* Benutzer lässt das Feld Zielpublikum leer
+
+* Benutzer gibt die Genehmigte HKS "120" ein
+
+* Benutzer lässt das Feld Umfang leer
+
+* Benutzer lässt das Feld Teil leer
+
+* Benutzer gibt die Gruppe "Forschung" ein
+
+* Benutzer lässt das Bemerkungsfeld leer
+
+* Benutzer wählt die Finanzkategorie "Forschung" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Veranstaltung ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das Veranstaltungen-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:08" outcome="Ok" postok="Y" preok="Y" starttime="18:08">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="30" priority="C" title="Veranstaltung unvollständig hinzufügen">
+<description>Es soll eine Veranstaltung hinzugefügt werden. Dabei werden Felder leer gelassen.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer gibt die Veranstaltung "Violette Parser" ein
+
+* Benutzer drückt auf Button "Speichern"</actions>
+<post>Der Benutzer wird darüber informiert, dass die leer gelassenen Felder noch auszufüllen sind. Das Tab bleibt weiterhin offen und der Benutzer kann die restlichen Felder ausfüllen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:09" outcome="Ok" postok="Y" preok="Y" starttime="18:08">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="29" priority="B" title="Veranstaltung inkorrekt hinzufügen">
+<description>Es wird eine Veranstaltung zum System hinzugefügt. Dabei werden falsche Eingaben gemacht.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer versucht die HKS "zwölf" einzugeben
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Die Veranstaltung wurde nicht hinzugefügt und der Benutzer befindet sich weiterhin im Hinzufügen-Tab, um seine Eingabe korrigieren zu können.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:10" outcome="Ok" postok="Y" preok="Y" starttime="18:09">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="33" priority="B" title="Veranstaltung inkorrekt hinzufügen">
+<description>Es soll eine Veranstaltung hinzugefügt werden. Es werden Felder falsch eingegeben.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer gibt die Veranstaltung "Swing für Gtk-Liebhaber" ein
+
+* Benutzer gibt das Semester "SS09" ein
+
+* Benutzer versucht die Gruppenanzahl "abc" einzugeben
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Die Veranstaltung wird nicht gespeichert und der Benutzer befindet sich weiterhin im Hinzufügen-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:10" outcome="Ok" postok="Y" preok="Y" starttime="18:10">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="31" priority="D" title="Abbruch: Veranstaltung hinzufügen">
+<description>Es soll eine Veranstaltung hinzugefügt werden. Dieser Vorgang wird abgebrochen</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Benutzer klickt auf "Hinzufügen"
+
+* Benutzer gibt die Veranstaltung "Laufende Forschung" ein
+
+* Benutzer gibt den Umfang "99" ein
+
+* Benutzer wählt die Finanzkategorie "Forschung" aus
+
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
+<post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet das Veranstaltungen-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Bearbeiten" number="17">
+<description>Die Testsequenz enthält Testfälle zum Bearbeiten einer Veranstaltung in die Datenbank.</description>
+<pre>Benutzer möchte eine Veranstaltung bearbeiten.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="18:10" outcome="Ok" postok="Y" preok="Y" starttime="18:10">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="34" priority="C" title="Veranstaltung korrekt bearbeiten">
+<description>Es soll eine Veranstaltung bearbeitet werden. Alle Eingaben sind korrekt.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer gibt den neuen Dozent "B. Gates, S. Ballmer" ein
+
+* Benutzer gibt die HKS "61" ein
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die geänderten Daten werden in der Datenbank hinterlegt und das System kehrt zum Veranstaltungen-Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:11" outcome="Ok" postok="Y" preok="Y" starttime="18:10">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="35" priority="C" title="Veranstaltung unvollständig bearbeiten">
+<description>Es soll eine Veranstaltung bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer löscht den Inhalt des Felds Semester
+
+* Benutzer löscht den Inhalt des Felds Dozent
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Datensatz wird nicht editiert. Der Benutzer bleibt im Bearbeiten-Tab und wird über die leer gelassenen Felder informiert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:12" outcome="Ok" postok="Y" preok="Y" starttime="18:11">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="36" priority="C" title="Veranstaltung inkorrekt bearbeiten">
+<description>Es soll eine Veranstaltung bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 39 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer versucht das Semester zu "XYZ" zu ändern
+
+* Benutzer klickt auf den Button "Speichern"
+</actions>
+<post>Der Datensatz wird nicht bearbeitet. Die Eingabe des Semesters wurde verweigert. Er befindet sich weiterhin im Bearbeiten-Tab, um seine Eingabe korrigieren zu können.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:12" outcome="Ok" postok="Y" preok="Y" starttime="18:12">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="37" priority="C" title="Abbruch: Veranstaltung bearbeiten">
+<description>Es soll eine Veranstaltung bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 38 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Mensa überleben für Pizza-Fans"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ersetzt das Feld Dozent mit "Emil Eisenbrecher"
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Die Änderungen am Datensatz werden verworfen, das Bearbeiten-Tab wird geschloßen und das System kehrt zum Veranstaltungen-Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Anzeigen" number="98">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen einer Veranstaltung in die Datenbank.</description>
+<pre>Benutzer möchte eine Veranstaltung anzeigen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="18:13" outcome="Ok" postok="Y" preok="Y" starttime="18:12">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="121" priority="C" title="Veranstaltung anzeigen und schließen">
+<description>Es soll eine Veranstaltung angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 28 übereinstimmen. Das Reiter-Fenster ist geschloßen und das System kehrt zum Veranstaltungen-Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:14" outcome="Ok" postok="Y" preok="Y" starttime="18:13">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="125" priority="C" title="Veranstaltung anzeigen und bearbeiten">
+<description>Es soll eine Veranstaltung angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 39 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* System geht in den "Bearbeiten"-Tab über
+
+* Benutzer gibt den neuen Dozent "B. Dates, S. Ballmer" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 39 übereinstimmen. Nach dem Bearbeiten wurde der Datensatz korrekt geändert und gespeichert. Das System kehrt zum Veranstaltungen-Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:15" outcome="Ok" postok="Y" preok="Y" starttime="18:14">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="127" priority="C" title="Veranstaltung anzeigen und Vorgang anzeigen">
+<description>Es soll eine Veranstaltung angezeigt werden. Anschließend soll ein Vorgang zur Veranstaltung angezeigt werden.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde ausgeführt. Der benütigte Vorgang wurde korrekt erstellt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt den Vorgang "Carl Coder - Nutzlose Betriebssystem in der Praxis" an
+
+* System öffnet den Vorgang in einem neuen "Anzeigen"-Tab
+
+* Benutzer schließt den Vorgangsreiter
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 28 übereinstimmen. Des weiteren konnte er sich über den ausgewählten Vorgang informieren. Das System kehrt zum Veranstaltungen-Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:15" outcome="Ok" postok="Y" preok="Y" starttime="18:15">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="126" priority="C" title="Veranstaltung anzeigen ohne Auswahl">
+<description>Es soll eine Veranstaltung angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Es wurde keine Veranstaltung ausgewählt.</pre>
+<actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen und es erscheint eine entsprechende Fehlermeldung.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Suchen" number="92">
+<description>Die Testsequenz enthält Testfälle zum Suchen einer Veranstaltung in die Datenbank.</description>
+<pre>Benutzer möchte eine Veranstaltung suchen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="18:15" outcome="Ok" postok="Y" preok="Y" starttime="18:15">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="128" priority="C" title="Veranstaltung suchen nach Name">
+<description>Es soll eine Veranstaltung gesucht werden. Es wird nach dem Namen gesucht.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt im Suchfeld "Nutzlose Betriebssysteme in der Praxis" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich die gesuche Veranstaltung (Testfall 28). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:16" outcome="Ok" postok="Y" preok="Y" starttime="18:15">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="130" priority="C" title="Veranstaltung suchen nach Dozent">
+<description>Es soll eine Veranstaltung gesucht werden. Es wird nach dem Dozent gesucht.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt im Suchfeld "B. Gates" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich die gesuche Veranstaltung (Testfall 28). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:16" outcome="Ok" postok="Y" preok="Y" starttime="18:16">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:00" number="131" priority="C" title="Veranstaltung unvollständig suchen">
+<description>Es soll eine Veranstaltung gesucht werden. Der Name der Veranstaltung wird nur teilweise eingeben.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 39 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt in das Suchfeld "Laufende" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich die gesuche Veranstaltung (Testfall 39). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:16" outcome="Ok" postok="Y" preok="Y" starttime="18:16">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="129" priority="C" title="Suchfilter entfernen">
+<description>Der angewandte Suchfilter soll entfernt werden.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 128 wurde ausgeführt.</pre>
+<actions>* Benutzer leert das Suchfeld</actions>
+<post>Die Anzeige-Tabelle zeigt alle Veranstaltungen an. Das Suchfeld wurde geleert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Vorgänge" number="132">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen von Vorgängen zu einer Veranstaltung.</description>
+<pre>Benutzer möchte Vorgänge zu einer Veranstaltung anzeigen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="18:17" outcome="Ok" postok="Y" preok="Y" starttime="18:16">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="133" priority="C" title="Vorgänge anzeigen und schließen">
+<description>Es sollen Vorgänge zu einer Veranstaltung angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfälle 28 wurde ausgeführt. Es wurden alle nötigen Vorgänge für diese Veranstaltung korrekt erstellt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Veranstaltung erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Das Reiter-Fenster ist geschloßen und das System kehrt zum Veranstaltungen-Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:18" outcome="Ok" postok="Y" preok="Y" starttime="18:17">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="134" priority="C" title="Vorgänge anzeigen und Detailansicht">
+<description>Es sollen Vorgänge zu einer Veranstaltung angezeigt werden. Ein einzelner Vorgang soll daraufhin angezeigt werden.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfälle 38 wurde ausgeführt. Die nötigen Vorgänge zu dieser Veranstaltung wurden korrekt hinzugefügt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Mensa überleben für Pizza-Fans"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Vorgang "Fred Feuerstein - Mensa überleben für Pizza-Fans"
+
+* System öffnet das "Anzeige"-Tab des Vorgangs
+
+* Benutzer schließt das Vorgangsreiter
+
+* Benutzer drückt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Veranstaltung erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Anschließend konnte er sich über einen einzelen Vorgang in einer Detailsicht informieren. Die beiden Reiter-Fenster sind geschloßen und das System kehrt zum Veranstaltungen-Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Löschen" number="18">
+<description>Die Testsequenz enthält Testfälle zum Löschen einer Veranstaltung in die Datenbank.</description>
+<pre>Benutzer möchte eine Veranstaltung löschen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="18:19" outcome="Ok" postok="Y" preok="Y" starttime="18:18">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="40" priority="C" title="Veranstaltung entfernen ohne Referenz">
+<description>Es soll eine Veranstaltung gelöscht werden, was korrekt funktioniert.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:19" outcome="Ok" postok="Y" preok="Y" starttime="18:19">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="97" priority="C" title="Veranstaltung entfernen mit Taste Entf">
+<description>Es soll eine Veranstaltung gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 39 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
+
+* Benutzer drückt die Taste "Entf"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:20" outcome="Ok" postok="Y" preok="Y" starttime="18:19">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="41" priority="C" title="Veranstaltung entfernen mit Referenz">
+<description>Es soll eine Veranstaltung gelöscht werden. Das Datum wird noch referenziert.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 28 wurde ausgeführt. Es wurde eine Hilfskraft korrekt hinzugefügt und eine Beschäftigung zur Veranstaltung aus 28.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Nutzlose Betriebssystem in der Praxis"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen. Der Benutzer wird darüber informiert, dass die Veranstaltung eine Referenz zu einer Beschäftigung hat.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:20" outcome="Ok" postok="Y" preok="Y" starttime="18:20">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="42" priority="C" title="Abbruch: Veranstaltung entfernen">
+<description>Es soll eine Veranstaltung gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 39 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Veranstaltung "Laufende Forschung"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Nein"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="18:20" outcome="Ok" postok="Y" preok="Y" starttime="18:20">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="43" priority="C" title="Veranstaltung entfernen ohne Auswahl">
+<description>Es soll eine Veranstaltung gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
+<pre>Der Veranstaltungen-Tab ist geöffnet und vom Benutzer ausgewählt. Es wurde keine Veranstaltung ausgewählt.</pre>
+<actions>* Benutzer klickt auf den Button "Löschen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Veranstaltungen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+</executedsequence>
+</testrun>
 </tsa>
 <tsa name="Hilfskräfte" number="13" revId="1">
 <relatedsequence>13</relatedsequence>
@@ -10169,6 +13400,584 @@ Das Tab-Fenster bleibt erhalten, so dass er seine Eingaben korrigieren kann.</po
 <testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="59" priority="C" title="Hilfskraft entfernen ohne Auswahl">
 <description>Es soll eine Hilfskraft gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
 <pre/>
+<actions>* Benutzer klickt auf den Button "Löschen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+</executedsequence>
+</testrun>
+<testrun enddate="24.10.2010 17:59" priority="E" startdate="24.10.2010 17:45" tester="aidGerTeam">
+<description>All passed.</description>
+<sut/>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Hilfskräfte" number="13">
+<description>Die Testsequenz dient zum Hinzufügen, Bearbeiten, Löschen, Anzeigen und Suchen der Stammdaten Hilfskräfte.</description>
+<pre>Benutzer befindet sich im Menüpunkt Hilfskräfte.</pre>
+</sequence>
+<pre/>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Hinzufügen" number="20">
+<description>Die Testsequenz enthält Testfälle zum Hinzufügen einer Hilfskraft in die Datenbank.</description>
+<pre>Benutzer hat auf den Button Hinzufügen gedrückt.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="17:46" outcome="Ok" postok="Y" preok="Y" starttime="17:45">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="44" priority="B" title="Hilfskraft korrekt hinzufügen">
+<description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Der Benutzer klickt auf "Hinzufügen".
+
+* Benutzer gibt den Vorname "Carl" ein
+
+* Benutzer gibt den Nachname "Coder" ein
+
+* Benutzer gibt die eMail-Adresse "coder@studi.informatik.uni-stuttgart.de" ein
+
+* Benutzer wählt die Qualifikation "Bachelor" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Hilfskraft ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das Hilfskräfte-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:46" outcome="Ok" postok="Y" preok="Y" starttime="17:46">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="317" priority="B" title="Bestehende Hilfskraft hinzufügen">
+<description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Alle Eingaben sind korrekt. Die Hilfskraft existiert bereits.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Testfall 44 wurde ausgeführt.</pre>
+<actions>* Der Benutzer klickt auf "Hinzufügen".
+
+* Benutzer gibt den Vorname "Carl" ein
+
+* Benutzer gibt den Nachname "Coder" ein
+
+* Benutzer gibt die eMail-Adresse "coder@studi.informatik.uni-stuttgart.de" ein
+
+* Benutzer wählt die Qualifikation "Bachelor" aus
+
+* Benutzer klickt auf den Button "Speichern"
+
+* System gibt Warnung aus, dass Hilfskraft schon existiert.
+
+* Benutzer klickt "Ja"</actions>
+<post>Die Hilfskraft ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das Hilfskräfte-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:47" outcome="Ok" postok="Y" preok="Y" starttime="17:46">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="318" priority="B" title="Abbruch: Bestehende Hilfskraft hinzufügen">
+<description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Alle Eingaben sind korrekt. Die Hilfskraft existiert bereits.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Testfall 44 wurde ausgeführt.</pre>
+<actions>* Der Benutzer klickt auf "Hinzufügen".
+
+* Benutzer gibt den Vorname "Carl" ein
+
+* Benutzer gibt den Nachname "Coder" ein
+
+* Benutzer gibt die eMail-Adresse "coder@studi.informatik.uni-stuttgart.de" ein
+
+* Benutzer wählt die Qualifikation "Bachelor" aus
+
+* Benutzer klickt auf den Button "Speichern"
+
+* System gibt Warnung aus, dass Hilfskraft schon existiert.
+
+* Benutzer klickt "Nein"</actions>
+<post>Die Hilfskraft wurde nicht in der Datenbank abgelegt. Der Benutzer befindet sich immer noch im Hinzufügen-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:47" outcome="Ok" postok="Y" preok="Y" starttime="17:47">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="45" priority="B" title="Hilfskraft korrekt hinzufügen">
+<description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Der Benutzer klickt auf "Hinzufügen".
+
+* Benutzer gibt den Vorname "Peter" ein
+
+* Benutzer gibt den Nachname "Planlos" ein
+
+* Benutzer gibt die eMail-Adresse "planlos@studi.informatik.uni-stuttgart.de" ein
+
+* Benutzer wählt die Qualifikation "Ungeprüft" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Hilfskraft ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das Hilfskräfte-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:48" outcome="Ok" postok="Y" preok="Y" starttime="17:47">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="46" priority="B" title="Hilfskraft korrekt hinzufügen">
+<description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Alle Eingaben sind korrekt.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Der Benutzer klickt auf "Hinzufügen".
+
+* Benutzer gibt den Vorname "Fred" ein
+
+* Benutzer gibt den Nachname "Feuerstein" ein
+
+* Benutzer gibt die eMail-Adresse "feuerstein@studi.informatik.uni-stuttgart.de" ein
+
+* Benutzer wählt die Qualifikation "Geprüft" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die Hilfskraft ist mit den korrekten eingegebenen Werten in der Datenbank abgelegt. Das Tab wird geschloßen und das System öffnet das Hilfskräfte-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:48" outcome="Ok" postok="Y" preok="Y" starttime="17:48">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:05" number="47" priority="B" title="Hilfskraft unvollständig hinzufügen">
+<description>Es wird eine Hilfskraft zur Datenbank hinzugefügt. Es sind Eingaben unvollständig.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Der Benutzer klickt auf "Hinzufügen".
+
+* Benutzer gibt den Vorname "Carl" ein
+
+* Benutzer gibt den Nachname "Coder" ein
+
+* Benutzer gibt keine eMail Adresse ein.
+
+* Benutzer wählt die Qualifikation "Bachelor" aus
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Benutzer wird darüber informiert, dass die leer gelassenen Felder noch auszufüllen sind. Das Tab bleibt weiterhin offen und der Benutzer kann die restlichen Felder ausfüllen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:49" outcome="Ok" postok="Y" preok="Y" starttime="17:48">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="49" priority="B" title="Hilfskraft inkorrekt hinzufügen">
+<description>Es soll eine Hilfskraft hinzugefügt werden. Es werden Felder falsch eingegeben.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Der Benutzer klickt auf "Hinzufügen".
+
+* Benutzer gibt den Vornamen "Marcus" ein
+
+* Benutzer gibt den Nachnamen "Krause" ein
+
+* Benutzer gibt die email-Adresse "email" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Benutzer wird darüber informiert, dass das Format einer eMail-Adresse nicht eingehalten wurde. Die Hilfskraft wird nicht gespeichert und der Benutzer befindet sich weiterhin im Hinzufügen-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:49" outcome="Ok" postok="Y" preok="Y" starttime="17:49">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="51" priority="D" title="Abbruch: Hilfskraft hinzufügen">
+<description>Es soll eine Veranstaltung hinzugefügt werden. Dieser Vorgang wird abgebrochen</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Der Benutzer klickt auf "Hinzufügen".
+
+* Benutzer gibt den Vornamen "Trick" ein
+
+* Benutzer klickt auf den Button "Abbrechen"    </actions>
+<post>Der Tab wird geschlossen und alle Eingaben werden verworfen. Das System öffnet das Hilfskräfte-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:49" outcome="Ok" postok="Y" preok="Y" starttime="17:49">
+<testcase created="21.10.2010" creator="aidGerTeam" effort="00:00" number="316" priority="C" title="Studimail automatisch ausfüllen lassen">
+<description>Die Studimail Adresse einer Hilfskraft soll automatisch ausgefüllt werden.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt.</pre>
+<actions>* Der Benutzer klickt auf "Hinzufügen"
+
+* Der Benutzer gibt als Vorname "Willi" ein
+
+* Der Benutzer gibt als Nachname "Wunderlich" ein
+
+* Der Benutzer drückt auf das Symbol neben dem Eingabefeld für die Email</actions>
+<post>Die Emailadresse "wunderwi@studi.informatik.uni-stuttgart.de" wurde in das Emailfeld eingetragen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Bearbeiten" number="19">
+<description>Die Testsequenz enthält Testfälle zum Bearbeiten einer Hilfskraft in die Datenbank.</description>
+<pre>Benutzer möchte eine Hilfskraft bearbeiten.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="17:50" outcome="Ok" postok="Y" preok="Y" starttime="17:50">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="52" priority="C" title="Hilfskraft korrekt bearbeiten">
+<description>Es soll eine Hilfskraft bearbeitet werden. Alle Eingaben sind korrekt.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ändert den Nachnamen zu "Plan"
+
+* Benutzer ändert die eMail-Adresse zu "plan@studi.informatik.uni-stuttgart.de"
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Die geänderten Daten werden in der Datenbank hinterlegt und das System kehrt zum Hilfskräfte-Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:50" outcome="Ok" postok="Y" preok="Y" starttime="17:50">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="53" priority="C" title="Hilfskraft unvollständig bearbeiten">
+<description>Es soll eine Hilfskraft bearbeitet werden. Eine Eingabe wurde editiert, aber nicht ausgefüllt.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 44 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Carl Coder"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer löscht den Inhalt des Felds Nachname
+
+* Benutzer klickt auf den Button "Speichern"</actions>
+<post>Der Datensatz wird nicht editiert. Der Benutzer bleibt im Bearbeiten-Tab und wird über die leer gelassenen Felder informiert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:51" outcome="Ok" postok="Y" preok="Y" starttime="17:50">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="54" priority="C" title="Hilfskraft inkorrekt bearbeiten">
+<description>Es soll eine Hilfskraft bearbeitet werden. Eine Eingabe wurde falsch editiert.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 46 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Fred Feuerstein"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ändert die eMail-Adresse zu "mail@domain"
+
+* Benutzer klickt auf den Button "Speichern"
+</actions>
+<post>Der Datensatz wird nicht bearbeitet. Der Benutzer  befindet sich weiterhin im Bearbeiten-Tab, um seine Eingabe korrigieren zu können.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:51" outcome="Ok" postok="Y" preok="Y" starttime="17:51">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="55" priority="C" title="Abbruch: Hilfskraft bearbeiten">
+<description>Es soll eine Hilfskraft bearbeitet werden. Dieser Vorgang wird abgebrochen.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* Benutzer ersetzt den Vornamen mit "Gustav"
+
+* Benutzer klickt auf den Button "Abbrechen"</actions>
+<post>Die Änderungen am Datensatz werden verworfen, das Bearbeiten-Tab wird geschloßen und der Benutzer befindet sich erneut im Hilfskräfte-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Anzeigen" number="99">
+<description>Die Testsequenz enthält Testfälle zum Anzeigen einer Hilfskraft in die Datenbank.</description>
+<pre>Benutzer möchte eine Hilfskraft anzeigen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="17:52" outcome="Ok" postok="Y" preok="Y" starttime="17:51">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="137" priority="C" title="Hilfskraft anzeigen und schließen">
+<description>Es soll eine Hilfskraft angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 46 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Fred Feuerstein"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 46 übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum Hilfskräfte-Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:53" outcome="Ok" postok="Y" preok="Y" starttime="17:52">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="138" priority="C" title="Hilfskraft anzeigen und bearbeiten">
+<description>Es soll eine Hilfskraft angezeigt werden. Anschließend möchte der Benutzer den Datensatz ändern.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Bearbeiten"
+
+* System geht in den "Bearbeiten"-Tab über
+
+* Benutzer gibt den neuen Nachname "Planvoll" ein
+
+* Benutzer drückt auf den Button "Speichern"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 45 übereinstimmen. Nach dem Bearbeiten wurde der Datensatz korrekt geändert und gespeichert. Der Benutzer befindet sich wieder im Hilfskräfte-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:54" outcome="Ok" postok="Y" preok="Y" starttime="17:53">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="139" priority="C" title="Hilfskraft anzeigen und Vorgang anzeigen">
+<description>Es soll eine Hilfskraft angezeigt werden. Anschließend soll ein Vorgang zur Hilfskraft angezeigt werden.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 44 wurde ausgeführt. Es wurde der benötigte Vorgang zu dieser Hilfskraft korrekt hinzugefügt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Carl Coder"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt den Vorgang "Carl Coder - Nutzlose Betriebssysteme in der Praxis" an
+
+* System öffnet den Vorgang in einem neuen "Anzeigen"-Tab
+
+* Benutzer schließt den Vorgangsreiter
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle Daten und die zugehörigen Vorgänge erhalten. Diese Daten müssen zu den eingebenen Daten im Testfall 44 übereinstimmen. Des weiteren konnte er sich über den ausgewählten Vorgang informieren. Der Benutzer befindet sich wieder im Hilfskräfte-Tab.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:54" outcome="Ok" postok="Y" preok="Y" starttime="17:54">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="140" priority="C" title="Hilfskraft anzeigen ohne Auswahl">
+<description>Es soll eine Hilfskraft angezeigt werden. Es wurde jedoch keine ausgewählt.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Es wurde keine Hilfskraft ausgewählt.</pre>
+<actions>* Benutzer klickt auf den Button "Anzeigen"</actions>
+<post>Kein Datensatz wurde aus der Datenbank angezeigt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte und es erscheint eine entsprechende Fehlermeldung.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Suchen" number="94">
+<description>Die Testsequenz enthält Testfälle zum Suchen einer Hilfskraft in die Datenbank.</description>
+<pre>Benutzer möchte eine Hilfskraft suchen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="17:55" outcome="Ok" postok="Y" preok="Y" starttime="17:54">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:02" number="141" priority="C" title="Hilfskraft suchen nach Nachname">
+<description>Es soll eine Hilfskraft gesucht werden. Es wird nach dem Nachnamen gesucht.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde ausgeführt.</pre>
+<actions>* Benutzer gibt im Suchfeld "Planlos" ein
+
+* System aktualisiert die Anzeige-Tabelle</actions>
+<post>In der Anzeige-Tabelle erscheint ausschließlich die gesuche Hilfskraft (Testfall 45). Der Benutzer hat weiterhin alle Aktionsmöglichkeiten (z.B. Bearbeiten oder Löschen). Die Tabelle wurde nach jeder Buchstabeneingabe aktualisiert. Ein Knopfdruck ist nicht erforderlich.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:55" outcome="Ok" postok="Y" preok="Y" starttime="17:55">
+<testcase created="13.05.2010" creator="aidGerTeam" effort="00:01" number="142" priority="C" title="Suchfilter entfernen">
+<description>Der angewandte Suchfilter soll entfernt werden.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 141 wurde ausgeführt.</pre>
+<actions>* Benutzer leert das Suchfeld</actions>
+<post>Die Anzeige-Tabelle zeigt alle Hilfskräfte an. Das Suchfeld wurde geleert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Vorgänge" number="136">
+<description/>
+<pre/>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="17:55" outcome="Ok" postok="Y" preok="Y" starttime="17:55">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="143" priority="C" title="Vorgänge anzeigen und schließen">
+<description>Es sollen Vorgänge zu einer Hilfskraft angezeigt werden. Das Fenster wird anschließend sofort wieder geschloßen.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 44 wurde ausgeführt. Es wurden die benötigten Vorgänge zu dieser Hilfskraft korrekt hinzugefügt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Carl Coder"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Hilfskraft erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Das Reiter-Fenster ist geschloßen und der Benutzer kehrt zum Hilfskräfte-Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:56" outcome="Ok" postok="Y" preok="Y" starttime="17:55">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:02" number="144" priority="C" title="Vorgänge anzeigen und Detailansicht">
+<description>Es sollen Vorgänge zu einer Hilfskraft angezeigt werden. Ein einzelner Vorgang soll daraufhin angezeigt werden.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Die Testfälle 44, 189, 191 und 193 wurden ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Carl Coder"
+
+* Benutzer klickt auf den Button "Anzeigen"
+
+* System öffnet das "Anzeigen"-Tab
+
+* Benutzer klickt auf den Vorgang "Carl Coder - Nutzlose Betriebssysteme in der Praxis"
+
+* System öffnet das "Anzeige"-Tab des Vorgangs
+
+* Benutzer schließt das Vorgangsreiter
+
+* Benutzer drückt auf den Button "Schließen"</actions>
+<post>Der Benutzer hat eine Einsicht über alle zugehörigen Vorgänge zu dieser Hilfskraft erhalten. Diese Daten müssen zu den eingebenen Daten in den Testfällen übereinstimmen. Anschließend konnte er sich über einen einzelen Vorgang in einer Detailsicht informieren. Die beiden Reiter-Fenster sind geschloßen und der Benutzer kehrt zum Hilfskräfte-Tab zurück.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Löschen" number="21">
+<description>Die Testsequenz enthält Testfälle zum Löschen einer Hilfskraft in die Datenbank.</description>
+<pre>Benutzer möchte eine Hilfskraft löschen.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="17:57" outcome="Ok" postok="Y" preok="Y" starttime="17:56">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="56" priority="C" title="Hilfskraft entfernen ohne Referenz">
+<description>Es soll eine Hilfskraft gelöscht werden, was korrekt funktioniert.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:57" outcome="Ok" postok="Y" preok="Y" starttime="17:57">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="146" priority="C" title="Hilfskraft entfernen mit Taste Entf">
+<description>Es soll eine Hilfskraft gelöscht werden, was korrekt funktioniert. Zum Löschen wurde die Entf-Taste verwendet.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
+
+* Benutzer drückt die Taste "Entf"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Der Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:58" outcome="Ok" postok="Y" preok="Y" starttime="17:57">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="58" priority="C" title="Abbruch: Hilfskraft entfernen">
+<description>Es soll eine Hilfskraft gelöscht werden, was sich der Benutzer dann anders überlegt.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 44 wurde ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Carl Coder"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Nein"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:59" outcome="Ok" postok="Y" preok="Y" starttime="17:58">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="57" priority="C" title="Hilfskraft entfernen mit Referenz">
+<description>Es soll eine Hilfskraft gelöscht werden. Das Datum wird noch referenziert.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Der Testfall 45 und 168 wurden ausgeführt.</pre>
+<actions>* Benutzer markiert die Hilfskraft "Peter Planlos"
+
+* Benutzer klickt auf den Button "Löschen"
+
+* System öffnet das Bestätigungs-Popup
+
+* Benutzer klickt auf den Button "Ja"</actions>
+<post>Der Datensatz wurde nicht aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="17:59" outcome="Ok" postok="Y" preok="Y" starttime="17:59">
+<testcase created="11.05.2010" creator="aidGerTeam" effort="00:03" number="59" priority="C" title="Hilfskraft entfernen ohne Auswahl">
+<description>Es soll eine Hilfskraft gelöscht werden. Es wurde jedoch keine ausgewählt.</description>
+<pre>Der Hilfskräfte-Tab ist geöffnet und vom Benutzer ausgewählt. Es wurde keine Hilfskraft ausgewählt.</pre>
 <actions>* Benutzer klickt auf den Button "Löschen"</actions>
 <post>Kein Datensatz wurde aus der Datenbank entfernt. Der Benutzer befindet sich weiterhin im Menüpunkt Hilfskräfte.</post>
 <tags/>

@@ -30,12 +30,12 @@ public class ConfigurationTest {
 
     @Before
     public void setUp() {
-        config = new Configuration();
+        config = new Configuration("test-settings.cfg");
     }
 
     @After
     public void cleanUp() {
-    	(new File(Runtime.getInstance().getConfigPath() + "settings.cfg")).
+    	(new File(Runtime.getInstance().getConfigPath() + "test-settings.cfg")).
     			delete();
     }
 
@@ -47,7 +47,7 @@ public class ConfigurationTest {
         System.out.println("constructor");
 
         File file = new File(Runtime.getInstance().getConfigPath() +
-        		"settings.cfg");
+        		"test-settings.cfg");
         assertTrue(file.exists());
         assertEquals("false", config.get("debug"));
 
@@ -77,7 +77,7 @@ public class ConfigurationTest {
         config.set("test", "test");
         assertEquals("test", config.get("test"));
 
-        config = new Configuration();
+        config = new Configuration("test-settings.cfg");
         assertEquals("test", config.get("test"));
     }
 

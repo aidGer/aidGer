@@ -27,6 +27,11 @@ public final class Runtime {
     private static Runtime instance = null;
 
     /**
+     * True, if this is a test run.
+     */
+    private boolean testRun = false;
+
+    /**
      * The path the config is saved in.
      */
     private String configPath;
@@ -117,15 +122,22 @@ public final class Runtime {
 
             /* Create the aidGer configuration directory. */
             if (!file.mkdirs()) {
-                UI
-                    .displayError(MessageFormat
-                        .format(
-                            "Could not create directory \"{0}\".\n"
-                                    + "Please make sure that you have enough rights to create this directory.",
-                            new Object[] { file.getPath() }));
+                UI.displayError(MessageFormat.format(
+                    "Could not create directory \"{0}\".\n"
+                    + "Please make sure that you have enough rights to create this directory.",
+                    new Object[] { file.getPath() }));
                 System.exit(-1);
             }
+        }
 
+        /*
+         * Check for an environment variable AIDGER_TEST and set the config path to "."
+         * if it is set. This is used, to seperate test and run configurations.
+         */
+        String test = System.getenv("AIDGER_TEST");
+        if (test != null) {
+            testRun = true;
+            configPath = "./";
         }
 
         configuration = new Configuration();
@@ -162,9 +174,8 @@ public final class Runtime {
         }
 
         /* Check if an instance of aidGer is already running */
-        if (!Boolean.valueOf(getOption("debug")) && !checkLock()) {
-            UI
-                .displayError(_("Only one instance of aidGer can be run at a time."));
+        if (!testRun && !checkLock()) {
+            UI.displayError(_("Only one instance of aidGer can be run at a time."));
             System.exit(-1);
         }
 
@@ -195,10 +206,19 @@ public final class Runtime {
     /**
      * Is this the first start of aidGer?
      * 
-     * @return True if this is the first start
+     * @return True, if this is the first start
      */
     public boolean isFirstStart() {
         return firstStart;
+    }
+
+    /**
+     * Is this a test run of aidGer?
+     *
+     * @return True, if this is a test run
+     */
+    public boolean isTestRun() {
+        return testRun;
     }
 
     /**
@@ -325,16 +345,6 @@ public final class Runtime {
      * @return True if no lock file exists and the application can be started
      */
     protected boolean checkLock() {
-        /*
-         * File lock = new File(configPath + "/aidger.lock"); if (lock.exists())
-         * { return false; }
-         * 
-         * try { lock.createNewFile(); lock.deleteOnExit(); } catch (IOException
-         * ex) { Logger.error(_("Couldn't create lockfile")); }
-         * 
-         * return true;
-         */
-
         try {
             final File file = new File(configPath + "/aidger.lock");
             final java.io.RandomAccessFile randomAccessFile = new java.io.RandomAccessFile(
@@ -358,7 +368,6 @@ public final class Runtime {
             }
         } catch (Exception e) {
             System.err.println("Unable to create and/or lock file");
-
         }
         return false;
     }
