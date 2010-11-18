@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.time.Day;
@@ -55,12 +57,17 @@ public class WelcomeTab extends Tab {
 
         final int countLastChanges = 5, countLastActivities = 10;
 
-        if (Runtime.getInstance().isFirstStart()) {
+        boolean databaseEmpty;
+        try {
+            databaseEmpty = (new Assistant()).size() == 0 && (new Activity()).size() == 0;
+        } catch (AdoHiveException ex) {
+            databaseEmpty = true;
+        }
+
+        if (Runtime.getInstance().isFirstStart() && databaseEmpty) {
             statisticsList.add(_("Currently no statistics are available."));
             lblFirstStart
                 .setText(_("This is the first time aidGer is started."));
-            Runtime.getInstance().setOption("last-start",
-                Long.toString(new java.util.Date().getTime()));
         } else {
             lblFirstStart.setText(MessageFormat
                 .format(_("The last start of aidGer was on {0}."),
@@ -71,8 +78,6 @@ public class WelcomeTab extends Tab {
                                     "last-start",
                                     Long.toString((new java.util.Date())
                                         .getTime()))))) }));
-            Runtime.getInstance().setOption("last-start",
-                Long.toString(new java.util.Date().getTime()));
 
             List<IActivity> activities = null;
             List<IAssistant> assistants = null;
@@ -299,6 +304,9 @@ public class WelcomeTab extends Tab {
         if (activitiesList.count() == 0) {
             activitiesList.add(_("None"));
         }
+
+        Runtime.getInstance().setOption("last-start",
+                Long.toString(new java.util.Date().getTime()));
     }
 
     /**
