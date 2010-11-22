@@ -1,6 +1,7 @@
 package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
+import de.aidger.utils.history.HistoryException;
 
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
@@ -28,6 +29,7 @@ import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.history.HistoryEvent;
 import de.aidger.utils.history.HistoryManager;
 import de.aidger.utils.reports.BalanceHelper;
+import de.aidger.view.UI;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.models.UIActivity;
 import de.aidger.view.models.UIModel;
@@ -93,83 +95,86 @@ public class WelcomeTab extends Tab {
             } catch (AdoHiveException ex) {
             }
 
-            List<HistoryEvent> events = HistoryManager.getInstance()
-                .getEvents();
+            try {
+                List<HistoryEvent> events = HistoryManager.getInstance().getEvents();
 
-            int min = events.size() > countLastChanges ? events.size()
+                int min = events.size() > countLastChanges ? events.size()
                     - countLastChanges : 0;
 
-            for (int i = events.size() - 1; i >= min; --i) {
-                HistoryEvent evt = events.get(i);
+                for (int i = events.size() - 1; i >= min; --i) {
+                    HistoryEvent evt = events.get(i);
 
-                try {
-                    UIModel modelUI = evt.getModel();
-                    String event = "";
+                    try {
+                        UIModel modelUI = evt.getModel();
+                        String event = "";
 
-                    switch (evt.status) {
-                    case Added:
-                        if (modelUI == null) {
+                        switch (evt.status) {
+                        case Added:
+                            if (modelUI == null) {
+                                event = MessageFormat
+                                    .format(_("{0}: {1} with Id {2} was added."),
+                                        new Object[] {
+                                                (new SimpleDateFormat(
+                                                    "dd.MM.yy HH:mm"))
+                                                    .format(evt.date),
+                                                DataType.valueOf(evt.type)
+                                                    .getDisplayName(), evt.id });
+                            } else {
+                                event = MessageFormat
+                                    .format(_("{0}: {1} {2} was added."),
+                                        new Object[] {
+                                                (new SimpleDateFormat(
+                                                    "dd.MM.yy HH:mm"))
+                                                    .format(evt.date),
+                                                modelUI.getDataType()
+                                                    .getDisplayName(),
+                                                modelUI.toString() });
+                            }
+                            break;
+                        case Changed:
+                            if (modelUI == null) {
+                                event = MessageFormat
+                                    .format(_("{0}: {1} with Id {2} was edited."),
+                                        new Object[] {
+                                                (new SimpleDateFormat(
+                                                    "dd.MM.yy HH:mm"))
+                                                    .format(evt.date),
+                                                DataType.valueOf(evt.type)
+                                                    .getDisplayName(), evt.id });
+                            } else {
+                                event = MessageFormat
+                                    .format(_("{0}: {1} {2} was edited."),
+                                        new Object[] {
+                                                (new SimpleDateFormat(
+                                                    "dd.MM.yy HH:mm"))
+                                                    .format(evt.date),
+                                                modelUI.getDataType()
+                                                    .getDisplayName(),
+                                                modelUI.toString() });
+                            }
+                            break;
+                        case Removed:
                             event = MessageFormat
-                                .format(_("{0}: {1} with Id {2} was added."),
+                                .format(
+                                    _("{0}: {1} with Id {2} was removed."),
                                     new Object[] {
-                                            (new SimpleDateFormat(
-                                                "dd.MM.yy HH:mm"))
+                                            (new SimpleDateFormat("dd.MM.yy HH:mm"))
                                                 .format(evt.date),
                                             DataType.valueOf(evt.type)
                                                 .getDisplayName(), evt.id });
-                        } else {
-                            event = MessageFormat
-                                .format(_("{0}: {1} {2} was added."),
-                                    new Object[] {
-                                            (new SimpleDateFormat(
-                                                "dd.MM.yy HH:mm"))
-                                                .format(evt.date),
-                                            modelUI.getDataType()
-                                                .getDisplayName(),
-                                            modelUI.toString() });
+                            break;
                         }
-                        break;
-                    case Changed:
-                        if (modelUI == null) {
-                            event = MessageFormat
-                                .format(_("{0}: {1} with Id {2} was edited."),
-                                    new Object[] {
-                                            (new SimpleDateFormat(
-                                                "dd.MM.yy HH:mm"))
-                                                .format(evt.date),
-                                            DataType.valueOf(evt.type)
-                                                .getDisplayName(), evt.id });
-                        } else {
-                            event = MessageFormat
-                                .format(_("{0}: {1} {2} was edited."),
-                                    new Object[] {
-                                            (new SimpleDateFormat(
-                                                "dd.MM.yy HH:mm"))
-                                                .format(evt.date),
-                                            modelUI.getDataType()
-                                                .getDisplayName(),
-                                            modelUI.toString() });
-                        }
-                        break;
-                    case Removed:
-                        event = MessageFormat
-                            .format(
-                                _("{0}: {1} with Id {2} was removed."),
-                                new Object[] {
-                                        (new SimpleDateFormat("dd.MM.yy HH:mm"))
-                                            .format(evt.date),
-                                        DataType.valueOf(evt.type)
-                                            .getDisplayName(), evt.id });
-                        break;
+
+                        historyList.add(event, modelUI);
+                    } catch (Exception e) {
                     }
-
-                    historyList.add(event, modelUI);
-                } catch (Exception e) {
                 }
+            } catch (HistoryException ex) {
+                UI.displayError(ex.getMessage());
             }
 
             if (activities != null) {
-                min = activities.size() > countLastActivities ? activities
+                int min = activities.size() > countLastActivities ? activities
                     .size()
                         - countLastActivities : 0;
 

@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 
 import de.aidger.model.Runtime;
 import java.io.File;
+import org.junit.After;
 
 /**
  * Tests the HistoryManager class.
@@ -18,6 +19,7 @@ public class HistoryManagerTest {
     @BeforeClass
     public static void setUpClass() throws Exception {
         Runtime.getInstance().initialize();
+        Runtime.getInstance().setConfigPath("./");
     }
 
     @Before
@@ -28,11 +30,16 @@ public class HistoryManagerTest {
         }
     }
 
+    @After
+    public void cleanUp() {
+    	(new File(Runtime.getInstance().getConfigPath() + "/history")).delete();
+    }
+
     /**
      * Test of getInstance method, of class HistoryManager.
      */
     @Test
-    public void testGetInstance() {
+    public void testGetInstance() throws HistoryException {
         System.out.println("getInstance");
 
         assertNotNull(HistoryManager.getInstance());
@@ -42,7 +49,7 @@ public class HistoryManagerTest {
      * Test of getEvents method, of class HistoryManager.
      */
     @Test
-    public void testGetEvents() {
+    public void testGetEvents() throws HistoryException {
         System.out.println("getEvents");
 
         assertTrue(HistoryManager.getInstance().getEvents().isEmpty());
@@ -57,7 +64,7 @@ public class HistoryManagerTest {
      * Test of addEvents method, of class HistoryManager.
      */
     @Test
-    public void testAddEvent() {
+    public void testAddEvent() throws HistoryException {
         System.out.println("addEvents");
 
         HistoryEvent evt = new HistoryEvent();
@@ -75,7 +82,7 @@ public class HistoryManagerTest {
      * Test of loadFromFile method, of class HistoryManager.
      */
     @Test
-    public void testLoadFromFile() {
+    public void testLoadFromFile() throws HistoryException {
         System.out.println("loadFromFile");
 
         testAddEvent();

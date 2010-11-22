@@ -18,6 +18,7 @@ import de.aidger.model.validators.PresenceValidator;
 import de.aidger.model.validators.Validator;
 import de.aidger.utils.Logger;
 import de.aidger.utils.history.HistoryEvent;
+import de.aidger.utils.history.HistoryException;
 import de.aidger.utils.history.HistoryManager;
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.controller.IAdoHiveManager;
@@ -206,7 +207,12 @@ public abstract class AbstractModel<T> extends Observable implements
                 : HistoryEvent.Status.Changed;
         evt.type = getClass().getSimpleName();
         evt.date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-        HistoryManager.getInstance().addEvent(evt);
+
+        try {
+            HistoryManager.getInstance().addEvent(evt);
+        } catch (HistoryException ex) {
+            Logger.error(ex.getMessage());
+        }
 
         setChanged();
         notifyObservers(true);
@@ -249,7 +255,12 @@ public abstract class AbstractModel<T> extends Observable implements
         evt.status = HistoryEvent.Status.Removed;
         evt.type = getClass().getSimpleName();
         evt.date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-        HistoryManager.getInstance().addEvent(evt);
+
+        try {
+            HistoryManager.getInstance().addEvent(evt);
+        } catch (HistoryException ex) {
+            Logger.error(ex.getMessage());
+        }
 
         setNew(true);
 
