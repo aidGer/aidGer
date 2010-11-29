@@ -1,5 +1,6 @@
 package de.aidger.model.models;
 
+import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 import de.aidger.model.Runtime;
 import de.unistuttgart.iste.se.adohive.controller.IAdoHiveManager;
@@ -9,6 +10,7 @@ import de.unistuttgart.iste.se.adohive.controller.IAdoHiveManager;
  * 
  * @author aidGer Team
  */
+@SuppressWarnings("unchecked")
 public class CostUnit extends AbstractModel {
     /**
      * The cost unit that is a 8 digit number.
@@ -141,5 +143,21 @@ public class CostUnit extends AbstractModel {
     @Override
     protected IAdoHiveManager getManager() {
         return Runtime.getInstance().getDataXMLManager();
+    }
+
+    /**
+     * Custom validation function.
+     * 
+     * @return True if the validation is successful
+     */
+    public boolean validate() {
+        boolean ret = true;
+
+        if (costUnit.length() != 8) {
+            addError("costUnit", _("Cost unit"), _("has to have a length of 8"));
+            ret = false;
+        }
+
+        return ret;
     }
 };
