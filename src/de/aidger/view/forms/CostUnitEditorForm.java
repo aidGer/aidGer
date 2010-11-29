@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import de.aidger.model.models.CostUnit;
+import de.aidger.view.utils.InputPatternFilter;
 
 /**
  * A form used for editing / creating new contracts.
@@ -32,6 +33,8 @@ public class CostUnitEditorForm extends JPanel {
         }
 
         initComponents();
+
+        InputPatternFilter.addFilter(txtCostUnit, "[0-9]{0,8}");
 
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
