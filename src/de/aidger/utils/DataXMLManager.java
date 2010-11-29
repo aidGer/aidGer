@@ -68,8 +68,10 @@ public class DataXMLManager implements IAdoHiveManager {
             costUnitMap.add(c_);
             costUnitMap.add(c__);
 
+            emailSuffix = "studi.informatik.uni-stuttgart.de";
+
             xmlEncoder.writeObject(costUnitMap);
-            xmlEncoder.writeObject("studi.informatik.uni-stuttgart.de");
+            xmlEncoder.writeObject(emailSuffix);
 
             xmlEncoder.close();
         } catch (IOException e) {
@@ -77,7 +79,7 @@ public class DataXMLManager implements IAdoHiveManager {
     }
 
     /**
-     * Reads the cost unit map by loading it from file.
+     * Reads the data by loading it from XML file.
      */
     private void readData() {
         try {
@@ -86,13 +88,18 @@ public class DataXMLManager implements IAdoHiveManager {
             costUnitMap = (List<CostUnit>) dec.readObject();
             emailSuffix = (String) dec.readObject();
 
+            // mark all cost units as not new
+            for (CostUnit c : costUnitMap) {
+                c.setNew(false);
+            }
+
             dec.close();
         } catch (IOException e) {
         }
     }
 
     /**
-     * Saves the data.
+     * Saves the data to the XML file.
      */
     private void saveData() {
         try {
@@ -192,7 +199,8 @@ public class DataXMLManager implements IAdoHiveManager {
 
     @Override
     public boolean update(IAdoHiveModel o) throws AdoHiveException {
-        return false;
+        // the old cost unit was already removed
+        return add(o);
     }
 
     @Override
@@ -204,7 +212,7 @@ public class DataXMLManager implements IAdoHiveManager {
         return true;
     }
 
-    // the following methods will not be used
+    // the following methods will not be used but are implemented
 
     @Override
     public void clear() throws AdoHiveException {

@@ -17,6 +17,7 @@ import javax.swing.Action;
 import javax.swing.JOptionPane;
 
 import de.aidger.model.AbstractModel;
+import de.aidger.model.Runtime;
 import de.aidger.model.inspectors.CostUnitBudgetLimitInspector;
 import de.aidger.model.inspectors.CourseBudgetLimitInspector;
 import de.aidger.model.inspectors.EmploymentLimitInspector;
@@ -323,6 +324,14 @@ public class EditorSaveAction extends AbstractAction {
 
         if (form.isEditMode()) {
             costUnit.setNew(false);
+
+            // remove the old cost unit
+            try {
+                Runtime.getInstance().getDataXMLManager().remove(
+                    costUnitBeforeEdit);
+            } catch (AdoHiveException e) {
+
+            }
         }
 
         return costUnitBeforeEdit;

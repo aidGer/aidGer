@@ -99,6 +99,27 @@ public class CostUnit extends AbstractModel {
         return funds + " (" + tokenDB + ")";
     }
 
+    /**
+     * Check if two objects are equal.
+     * 
+     * @param o
+     *            The other object
+     * @return True if both are equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof CostUnit) {
+            CostUnit c = (CostUnit) o;
+            return (costUnit == null ? c.costUnit == null : costUnit
+                .equals(c.costUnit))
+                    && (funds == null ? c.funds == null : funds.equals(c.funds))
+                    && (tokenDB == null ? c.tokenDB == null : tokenDB
+                        .equals(c.tokenDB));
+        } else {
+            return false;
+        }
+    }
+
     /*
      * (non-Javadoc)
      * 
