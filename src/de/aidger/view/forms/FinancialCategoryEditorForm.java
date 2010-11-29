@@ -23,10 +23,10 @@ import javax.swing.SwingUtilities;
 
 import de.aidger.model.Runtime;
 import de.aidger.model.models.FinancialCategory;
+import de.aidger.view.models.UICostUnit;
 import de.aidger.view.utils.HelpLabel;
 import de.aidger.view.utils.InputPatternFilter;
 import de.aidger.view.utils.InvalidLengthException;
-import de.aidger.view.utils.UICostUnit;
 
 /**
  * A form used for editing / creating new financial categories.
