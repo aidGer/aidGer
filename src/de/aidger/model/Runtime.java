@@ -132,6 +132,20 @@ public final class Runtime {
             }
         }
 
+        String templatePath = configPath + "/templates/";
+        File templates = new File(templatePath);
+
+        if (!templates.exists() || !templates.isDirectory()) {
+            if (!templates.mkdir()) {
+                UI
+                    .displayError(MessageFormat
+                        .format(
+                            "Could not create directory \"{0}\".\n"
+                                    + "Please make sure that you have enough rights to create this directory.",
+                            new Object[] { templates.getPath() }));
+            }
+        }
+
         /*
          * Check for an environment variable AIDGER_TEST and set the config path
          * to "." if it is set. This is used, to seperate test and run
