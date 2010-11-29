@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Locale;
 
 import de.aidger.utils.Configuration;
-import de.aidger.utils.CostUnitMap;
+import de.aidger.utils.DataXMLManager;
 import de.aidger.utils.Translation;
 import de.aidger.view.UI;
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
@@ -47,9 +47,9 @@ public final class Runtime {
     private Translation translation = null;
 
     /**
-     * The cost unit map.
+     * The data XML manager.
      */
-    private CostUnitMap costUnitMap = null;
+    private DataXMLManager dataManager = null;
 
     /**
      * Is this the first start of aidGer?
@@ -199,7 +199,7 @@ public final class Runtime {
 
         AdoHiveController.setConnectionString(getOption("database-uri"));
 
-        costUnitMap = new CostUnitMap();
+        dataManager = new DataXMLManager();
     }
 
     /**
@@ -349,12 +349,12 @@ public final class Runtime {
     }
 
     /**
-     * Gets the cost unit map.
+     * Returns the data XML manager.
      * 
-     * @return the cost unit map
+     * @return the data XML manager
      */
-    public CostUnitMap getCostUnitMap() {
-        return costUnitMap;
+    public DataXMLManager getDataXMLManager() {
+        return dataManager;
     }
 
     /**

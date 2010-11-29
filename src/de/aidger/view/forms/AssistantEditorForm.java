@@ -1,9 +1,6 @@
 package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
-import java.io.FileNotFoundException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -11,8 +8,6 @@ import javax.swing.SwingUtilities;
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Assistant;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
-import java.beans.XMLDecoder;
-import java.io.FileInputStream;
 
 /**
  * A form used for editing / creating new assistants.
@@ -35,15 +30,8 @@ public class AssistantEditorForm extends JPanel {
 
         /* Try to get the email suffix from the xml file */
         if (emailSuffix == null) {
-            try {
-                XMLDecoder dec = new XMLDecoder(new FileInputStream(
-                        Runtime.getInstance().getConfigPath() + "/costUnitMap.xml"));
-                dec.readObject();
-                emailSuffix = (String) dec.readObject();
-                dec.close();
-            } catch (Exception ex) {
-                emailSuffix = null;
-            }
+            emailSuffix = Runtime.getInstance().getDataXMLManager()
+                .getEmailSuffix();
         }
 
         /* If there is no suffix defined, hide the label */
@@ -180,6 +168,7 @@ public class AssistantEditorForm extends JPanel {
         txtEmail.setMinimumSize(new java.awt.Dimension(200, 25));
         txtEmail.setPreferredSize(new java.awt.Dimension(250, 25));
         txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtEmailFocusLost(evt);
             }
@@ -190,7 +179,8 @@ public class AssistantEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtEmail, gridBagConstraints);
 
-        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(Qualification.values()));
+        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(
+            Qualification.values()));
         cmbQualification.setPreferredSize(new java.awt.Dimension(250, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -199,8 +189,10 @@ public class AssistantEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbQualification, gridBagConstraints);
 
-        lblAutoGuess.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/aidger/res/icons/wand.png"))); // NOI18N
+        lblAutoGuess.setIcon(new javax.swing.ImageIcon(getClass().getResource(
+            "/de/aidger/res/icons/wand.png"))); // NOI18N
         lblAutoGuess.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblAutoGuessMouseClicked(evt);
             }
@@ -234,8 +226,8 @@ public class AssistantEditorForm extends JPanel {
             txtEmail.setText(username
                     + txtFirstName.getText().toLowerCase().charAt(0)
                     + txtFirstName.getText().toLowerCase().charAt(
-                        txtFirstName.getText().length() - 1)
-                    + "@" + emailSuffix);
+                        txtFirstName.getText().length() - 1) + "@"
+                    + emailSuffix);
             txtEmail.select(0, 0);
         }
     }//GEN-LAST:event_lblAutoGuessMouseClicked

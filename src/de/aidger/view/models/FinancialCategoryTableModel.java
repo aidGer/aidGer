@@ -7,7 +7,6 @@ import java.util.List;
 import de.aidger.model.AbstractModel;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.Logger;
-import de.aidger.view.utils.UICostUnit;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.unistuttgart.iste.se.adohive.controller.derby;
+package de.unistuttgart.iste.se.adohive.controller.ansi;
 
 import de.unistuttgart.iste.se.adohive.controller.jdbc.JdbcColumn;
 import de.unistuttgart.iste.se.adohive.controller.jdbc.SqlDialect;
@@ -10,7 +10,7 @@ import de.unistuttgart.iste.se.adohive.controller.jdbc.SqlDialect;
  * @author rashfael
  *
  */
-public class DerbySqlDialect implements SqlDialect {
+public class AnsiSqlDialect implements SqlDialect {
 
 	private static final String QUOTE = "\"";
 	/* (non-Javadoc)

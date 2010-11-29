@@ -1,11 +1,17 @@
 package de.aidger.model.models;
 
+import static de.aidger.utils.Translation._;
+import de.aidger.model.AbstractModel;
+import de.aidger.model.Runtime;
+import de.unistuttgart.iste.se.adohive.controller.IAdoHiveManager;
+
 /**
  * This class represents a single cost unit.
  * 
  * @author aidGer Team
  */
-public class CostUnit {
+@SuppressWarnings("unchecked")
+public class CostUnit extends AbstractModel {
     /**
      * The cost unit that is a 8 digit number.
      */
@@ -95,5 +101,63 @@ public class CostUnit {
     @Override
     public String toString() {
         return funds + " (" + tokenDB + ")";
+    }
+
+    /**
+     * Check if two objects are equal.
+     * 
+     * @param o
+     *            The other object
+     * @return True if both are equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof CostUnit) {
+            CostUnit c = (CostUnit) o;
+            return (costUnit == null ? c.costUnit == null : costUnit
+                .equals(c.costUnit))
+                    && (funds == null ? c.funds == null : funds.equals(c.funds))
+                    && (tokenDB == null ? c.tokenDB == null : tokenDB
+                        .equals(c.tokenDB));
+        } else {
+            return false;
+        }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.model.AbstractModel#clone()
+     */
+    @Override
+    public CostUnit clone() {
+        CostUnit costUnit = new CostUnit();
+        costUnit.setCostUnit(this.costUnit);
+        costUnit.setFunds(funds);
+        costUnit.setTokenDB(tokenDB);
+        costUnit.doClone(this);
+        return costUnit;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    protected IAdoHiveManager getManager() {
+        return Runtime.getInstance().getDataXMLManager();
+    }
+
+    /**
+     * Custom validation function.
+     * 
+     * @return True if the validation is successful
+     */
+    public boolean validate() {
+        boolean ret = true;
+
+        if (costUnit.length() != 8) {
+            addError("costUnit", _("Cost unit"), _("has to have a length of 8"));
+            ret = false;
+        }
+
+        return ret;
     }
 };

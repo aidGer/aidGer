@@ -19,12 +19,11 @@
 /**
  * 
  */
-package de.unistuttgart.iste.se.adohive.controller.derby;
+package de.unistuttgart.iste.se.adohive.controller.ansi;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 
-import de.unistuttgart.iste.se.adohive.controller.jdbc.JdbcHourlyWageManager;
+import de.unistuttgart.iste.se.adohive.controller.jdbc.JdbcFinancialCategoryManager;
 import de.unistuttgart.iste.se.adohive.controller.jdbc.SqlDialect;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
@@ -32,32 +31,17 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
  * @author rashfael
  *
  */
-class DerbyHourlyWageManager extends JdbcHourlyWageManager {
+class AnsiFinancialCategoryManager extends JdbcFinancialCategoryManager {
 	
-	private static final String CREATE_TABLE = 
-		"CREATE TABLE \"Stundenlohn\" (" +
-		"\"Qualifikation\" varchar(2) NOT NULL, " +
-		"\"Jahr\" int NOT NULL, " +
-		"\"Monat\" int NOT NULL, " +
-		"\"Lohn\" decimal(5,2) NOT NULL, " +
-		"PRIMARY KEY (\"Qualifikation\", \"Jahr\", \"Monat\")" +
-		")";
+		
 
 	/**
 	 * @param con
 	 * @throws AdoHiveException
 	 */
-	public DerbyHourlyWageManager(Connection con, SqlDialect dialect) throws AdoHiveException {
-		super(con, dialect);
-	}
-
-	/* (non-Javadoc)
-	 * @see de.unistuttgart.iste.se.adohive.controller.jdbc.JdbcAdoHiveManager#createTable()
-	 */
-	@Override
-	protected void createTable() throws SQLException{
-		//this.con.prepareStatement("DROP TABLE \"Stundenlohn\"").execute();
-		this.con.prepareStatement(CREATE_TABLE).execute();		
+	public AnsiFinancialCategoryManager(Connection con, SqlDialect dialect) throws AdoHiveException {
+		super(con);
+		internalManager = new AnsiInternalFinancialManager(con, dialect);
 	}
 
 }

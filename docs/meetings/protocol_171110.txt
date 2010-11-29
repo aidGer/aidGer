@@ -1,0 +1,52 @@
+- Geld
+-- 10 Stunden für November
+-- in 2011 neues Budget für aidGer
+
+- Meetings
+-- Mittwochs 1330 alle zwei Wochen
+-- erster Termin 17.11
+
+- Server Performance
+-- langsam --> wegen Java
+-- Möglichkeit von Server an der Uni ist vorhanden
+
+- Versionsnummern
+-- jetziges Schema gut, Problem: 0.X sieht unfertig aus
+-- erste offizielle Produktivversion wird als 1.0 gehandhabt
+-- 0.2 aufsplitten; eventuell ohne OR-Mapping
+-- 0.1 bleibt 0.1; erstes Produktivrelease als 1.0; 0.2 wird 2.0
+
+- Produktiveinsatz
+-- siehe adoHive
+
+- DB/OR-Mapper
+-- jpa zu groß
+-- annotations sollten jpa-konform sein
+-- solange Migrationsskript vorhanden ist, muss für DB's keine Abwärtskompatibilität gegeben sein
+-- Tabelle mit Versionsnummer
+
+- adoHive
+-- Konfigurierbarkeit DB-Treiber (Auswahlmöglichkeiten zwischen Derby/MySQL geben mit Advanced Options)
+-- selectDialog - wenn kein ANSI, Warnung
+-- aidGer ruft nur setDriver auf, adoHive findet DB selber raus
+
+- HSQLDB vs Derby --> 1.0 (falls zu kompliziert 2.0)
+-- SQLite anstelle von HSQLDB falls SQLite ANSI-konform --> Sebastian
+
+- Features 2.0 --> 1.0
+-- 205, 208, 227, 228, 183, 184, 188, 193, 202, 211, 222(niedrige Priorität), 218
+-- 197 --> TODO, kein Feature
+
+- Versions
+-- 0.1.2 in adoHive-branch
+-- 1.0 in master
+-- 2.0 nach 1.0 in master
+
+- Homepage
+-- FreeCSS
+-- Template eventuell wechseln
+-- Als Nebenprojekt laufen lassen
+-- Eigenes Repository
+
+- Termine
+-- 1.0 --> 30.11.10

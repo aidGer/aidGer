@@ -10,8 +10,8 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.reports.BalanceHelper;
+import de.aidger.view.models.UICostUnit;
 import de.aidger.view.models.UIFinancialCategory;
-import de.aidger.view.utils.UICostUnit;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**

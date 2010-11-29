@@ -28,13 +28,14 @@ import de.aidger.model.models.Contract;
 import de.aidger.model.models.CostUnit;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
-import de.aidger.utils.CostUnitMap;
+import de.aidger.utils.DataXMLManager;
 import de.aidger.view.UI;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.models.ComboBoxModel;
 import de.aidger.view.models.GenericListModel;
 import de.aidger.view.models.UIAssistant;
 import de.aidger.view.models.UIContract;
+import de.aidger.view.models.UICostUnit;
 import de.aidger.view.models.UICourse;
 import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.Tab;
@@ -43,7 +44,6 @@ import de.aidger.view.utils.AutoCompletion;
 import de.aidger.view.utils.HelpLabel;
 import de.aidger.view.utils.InputPatternFilter;
 import de.aidger.view.utils.NumberFormat;
-import de.aidger.view.utils.UICostUnit;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.IContract;
@@ -63,10 +63,10 @@ public class EmploymentEditorForm extends JPanel {
     private boolean editMode = false;
 
     /**
-     * The cost unit map.
+     * The data XML manager.
      */
-    private final CostUnitMap costUnitMap = Runtime.getInstance()
-        .getCostUnitMap();
+    private final DataXMLManager dataManager = Runtime.getInstance()
+        .getDataXMLManager();
 
     /**
      * Constructs an employment editor form.
@@ -193,7 +193,7 @@ public class EmploymentEditorForm extends JPanel {
             addNewDate();
 
             if (editMode) {
-                CostUnit costUnit = costUnitMap.fromTokenDB(employment
+                CostUnit costUnit = dataManager.fromTokenDB(employment
                     .getFunds());
                 cmbFunds.setSelectedItem(costUnit == null ? employment
                     .getFunds() : costUnit);
@@ -356,6 +356,25 @@ public class EmploymentEditorForm extends JPanel {
     }
 
     /**
+     * Removes all date lines from editor.
+     */
+    private void clearDateLines() {
+        for (DateLine dateLine : dateLines) {
+            remove(dateLine.lblDate);
+            remove(dateLine.spDate);
+            remove(dateLine.lblHourCount);
+            remove(dateLine.txtHourCount);
+            remove(dateLine.hlpHourCount);
+            remove(dateLine.btnPlusMinus);
+        }
+
+        dateLines.clear();
+
+        repaint();
+        revalidate();
+    }
+
+    /**
      * Adds a new date line to the form.
      */
     private void addNewDate() {
@@ -477,6 +496,7 @@ public class EmploymentEditorForm extends JPanel {
         cmbAssistant = new javax.swing.JComboBox();
         cmbCourse = new javax.swing.JComboBox();
         cmbContract = new javax.swing.JComboBox();
+        lblAutoGuess = new javax.swing.JLabel();
         btnContractAdd = new javax.swing.JButton();
         cmbCostUnit = new javax.swing.JComboBox();
         cmbFunds = new javax.swing.JComboBox();
@@ -566,6 +586,19 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbContract, gridBagConstraints);
+
+        lblAutoGuess.setIcon(new javax.swing.ImageIcon(getClass().getResource(
+            "/de/aidger/res/icons/wand.png"))); // NOI18N
+        lblAutoGuess.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAutoGuessMouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        add(lblAutoGuess, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 1;
@@ -581,8 +614,8 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbCostUnit, gridBagConstraints);
 
-        cmbFunds.setModel(new javax.swing.DefaultComboBoxModel(costUnitMap
-            .getMap().toArray()));
+        cmbFunds.setModel(new javax.swing.DefaultComboBoxModel(dataManager
+            .getCostUnitMap().toArray()));
         cmbFunds.setMinimumSize(new java.awt.Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -619,6 +652,34 @@ public class EmploymentEditorForm extends JPanel {
         add(filler, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void lblAutoGuessMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAutoGuessMouseClicked
+        Contract contract = (Contract) cmbContract.getSelectedItem();
+
+        if (contract == null) {
+            return;
+        }
+
+        Calendar start = Calendar.getInstance();
+        start.setTime(contract.getStartDate());
+        start.set(Calendar.DAY_OF_MONTH, 1);
+
+        Calendar end = Calendar.getInstance();
+        end.setTime(contract.getEndDate());
+        end.set(Calendar.DAY_OF_MONTH, 2);
+
+        clearDateLines();
+
+        addNewDate();
+        dateLines.get(0).spDate.setValue(start.getTime());
+        start.add(Calendar.MONTH, 1);
+
+        while (end.after(start)) {
+            addNewDate();
+
+            start.add(Calendar.MONTH, 1);
+        }
+    }//GEN-LAST:event_lblAutoGuessMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnContractAdd;
     private javax.swing.JComboBox cmbAssistant;
@@ -629,6 +690,7 @@ public class EmploymentEditorForm extends JPanel {
     private javax.swing.JComboBox cmbQualification;
     private javax.swing.JLabel filler;
     private javax.swing.JLabel lblAssistant;
+    private javax.swing.JLabel lblAutoGuess;
     private javax.swing.JLabel lblContract;
     private javax.swing.JLabel lblCostUnit;
     private javax.swing.JLabel lblCourse;

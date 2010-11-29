@@ -1,3 +1,7 @@
+CHANGES IN VERSION 0.2:
+    * [CHANGE] Use AIDGER_TEST environment variable to use current directory instead of the .config one for storage
+
+
 CHANGES IN VERSION 0.1.1:
     * [ADD] Cost unit map (cost unit <=> funds) as XML file (#163)
     * [ADD] Show warning if new contracts would overlap (#180)

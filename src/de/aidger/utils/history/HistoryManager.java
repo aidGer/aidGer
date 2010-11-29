@@ -38,8 +38,10 @@ final public class HistoryManager {
 
     /**
      * Initializes the HistoryManager class
+     *
+     * @throws HistoryException
      */
-    private HistoryManager() {
+    private HistoryManager() throws HistoryException {
         historyFile = Runtime.getInstance().getConfigPath() + "/history";
         loadFromFile();
     }
@@ -48,8 +50,9 @@ final public class HistoryManager {
      * Get the only instance of the HistoryManager class.
      *
      * @return The instance
+     * @throws HistoryException
      */
-    public static HistoryManager getInstance() {
+    public static HistoryManager getInstance() throws HistoryException {
         if (instance == null) {
             instance = new HistoryManager();
         }
@@ -71,8 +74,10 @@ final public class HistoryManager {
      *
      * @param evt
      *          The event to add
+     *
+     * @throws HistoryException
      */
-    public void addEvent(HistoryEvent evt) {
+    public void addEvent(HistoryEvent evt) throws HistoryException {
         events.add(evt);
         if (events.size() > Integer.parseInt(Runtime.getInstance().getOption(
                 "history-length", "100"))) {
@@ -91,16 +96,18 @@ final public class HistoryManager {
             obj.close();
             out.close();
         } catch (FileNotFoundException ex) {
-            // Shouldn't happen :)
+            throw new HistoryException(_("Couldn't find the history file."));
         } catch (IOException ex) {
-            UI.displayError(_("Writing to the history file failed."));
+            throw new HistoryException(_("Writing to the history file failed."));
         }
     }
 
     /**
      * Load the history from a file.
+     *
+     * @throws HistoryException
      */
-    protected void loadFromFile() {
+    protected void loadFromFile() throws HistoryException {
         File history = new File(historyFile);
         if (!history.exists()) {
             try {
@@ -111,7 +118,7 @@ final public class HistoryManager {
                 obj.close();
                 out.close();
             } catch (IOException ex) {
-                Logger.error(_("Creating the history file failed."));
+                throw new HistoryException(_("Creating the history file failed."));
             }
             return;
         }
@@ -123,11 +130,11 @@ final public class HistoryManager {
             obj.close();
             input.close();
         } catch (FileNotFoundException ex) {
-            // Shouldn't happen :)
+            throw new HistoryException(_("Couldn't find the history file."));
         } catch (IOException ex) {
-            UI.displayError(_("Reading the history from file failed."));
+            throw new HistoryException(_("Reading the history from file failed."));
         } catch (ClassNotFoundException ex) {
-            UI.displayError(_("Illegal modifications of the history file have been detected."));
+            throw new HistoryException(_("Illegal modifications of the history file have been detected."));
         }
     }
 }

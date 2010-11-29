@@ -20,7 +20,7 @@ package de.unistuttgart.iste.se.adohive.controller.derby.test;
 
 import junit.framework.Assert;
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
-import de.unistuttgart.iste.se.adohive.controller.derby.DerbyAdoHiveController;
+import de.unistuttgart.iste.se.adohive.controller.ansi.AnsiAdoHiveController;
 import de.unistuttgart.iste.se.adohive.controller.test.IAssistantManagerTest;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.test.ITestDataProvider;
@@ -44,7 +44,7 @@ public class DerbyAssistantManagerTest extends IAssistantManagerTest {
 	protected AdoHiveController getController() {
 		if (controller == null) {
 			 try {
-				controller = DerbyAdoHiveController.getInstance();
+				controller = AnsiAdoHiveController.getInstance();
 			} catch (AdoHiveException e) {
 				e.printStackTrace();
 				Assert.fail("could not load DerbyAdoHiveController");

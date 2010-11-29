@@ -8,7 +8,7 @@
 
     <property name="appName" value="aidGer" />
     <property name="appFileName" value="aidger" />
-    <property name="appVersion" value="0.1.1" />
+    <property name="appVersion" value="0.2" />
 
     <property name="default.target.dir" value="build" />
     <property name="dist.dir" value="dist" />
@@ -90,12 +90,26 @@
     <target name="compile-tests" depends="compile-source" description="Compiles all JUnit tests">
         <javac destdir="${test.classes.dir}" srcdir="${test.source.dir}" classpathref="build.classpath.test" includeantruntime="false" debug="true" debuglevel="source,lines,vars" encoding="UTF-8" />
     </target>
-
-    <target name="test" depends="compile-tests" description="Runs JUnit tests">
-        <delete dir="${basedir}/derbyDB" />
+    
+    <target name="prepare-tests" depends="init" description="Prepares the config and database for the JUnit tests">
+		<delete dir="${basedir}/database" />
         <mkdir dir="${test.report.dir}" />
+    </target>
+
+    <target name="finish-tests" description="Clean up after the tests have been run">
+		<delete>
+			<fileset dir="database" />
+			<fileset dir="." includes="*.cfg" />
+			<fileset dir="." includes="costUnitMap.xml" />
+			<fileset dir="." includes="*.log" />
+			<fileset dir="." includes="history" />
+		</delete>
+    </target>
+
+    <target name="test" depends="compile-tests, prepare-tests" description="Runs JUnit tests">
         <junit dir="${basedir}" printSummary="on" fork="true" haltonfailure="false">
             <sysproperty key="basedir" value="${basedir}" />
+            <env key="AIDGER_TEST" value="true" />
             <formatter type="xml" />
             <classpath>
                 <path refid="build.classpath.test" />
@@ -109,10 +123,12 @@
                 </fileset>
             </batchtest>
         </junit>
+        <antcall target="finish-tests" />
     </target>
 
     <target name="dist" depends="compile-source" description="Generates the distribution">
         <delete dir="${test.classes.dir}" />
+        <delete dir="${dist.dir}" />
         <mkdir dir="${dist.dir}" />
 
         <jar jarfile="${dist.dir}/${appFileName}-${appVersion}-${buildNumber}.jar" basedir="${classes.dir}" level="9">
@@ -126,6 +142,7 @@
                 <attribute name="Implementation-Title" value="${appName}" />
                 <attribute name="Implementation-Version" value="${appVersion}-${buildNumber}" />
                 <attribute name="Implementation-Vendor" value="Team aidGer" />
+                <attribute name="SplashScreen-Image" value="de/aidger/res/icons/splashscreen.png" />
             </manifest>
         </jar>
 

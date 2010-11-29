@@ -20,6 +20,7 @@ import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
+import de.aidger.model.models.CostUnit;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
@@ -28,6 +29,7 @@ import de.aidger.view.UI;
 import de.aidger.view.forms.ActivityEditorForm;
 import de.aidger.view.forms.AssistantEditorForm;
 import de.aidger.view.forms.ContractEditorForm;
+import de.aidger.view.forms.CostUnitEditorForm;
 import de.aidger.view.forms.CourseEditorForm;
 import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
@@ -175,6 +177,9 @@ public class EditorTab extends Tab {
             case HourlyWage:
                 model = new HourlyWage();
                 break;
+            case CostUnit:
+                model = new CostUnit();
+                break;
             case Employment:
                 model = new Employment();
                 break;
@@ -251,6 +256,8 @@ public class EditorTab extends Tab {
             return new FinancialCategoryEditorForm((FinancialCategory) model);
         case HourlyWage:
             return new HourlyWageEditorForm((HourlyWage) model);
+        case CostUnit:
+            return new CostUnitEditorForm((CostUnit) model);
         case Employment:
             return new EmploymentEditorForm((Employment) model, listModels);
         case Contract:

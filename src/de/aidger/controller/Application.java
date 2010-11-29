@@ -80,7 +80,6 @@ public final class Application {
      */
     public void initialize() {
         Runtime.getInstance().initialize();
-        HistoryManager.getInstance();
         registerActions();
     }
 

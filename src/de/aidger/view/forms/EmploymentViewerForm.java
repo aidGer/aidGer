@@ -16,9 +16,9 @@ import de.aidger.model.models.Employment;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.models.UIAssistant;
 import de.aidger.view.models.UIContract;
+import de.aidger.view.models.UICostUnit;
 import de.aidger.view.models.UICourse;
 import de.aidger.view.utils.NumberFormat;
-import de.aidger.view.utils.UICostUnit;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.IContract;
@@ -68,7 +68,7 @@ public class EmploymentViewerForm extends JPanel {
             hourCount.setText(NumberFormat.getInstance().format(
                 employment.getHourCount()));
             costUnit.setText(UICostUnit.valueOf(employment.getCostUnit()));
-            CostUnit costUnit_ = Runtime.getInstance().getCostUnitMap()
+            CostUnit costUnit_ = Runtime.getInstance().getDataXMLManager()
                 .fromTokenDB(employment.getFunds());
             funds.setText(costUnit_ == null ? employment.getFunds() : costUnit_
                 .toString());

@@ -32,13 +32,13 @@ public class AbstractModelTest {
     @BeforeClass
     public static void beforeClassSetUp() throws AdoHiveException {
         Runtime.getInstance().initialize();
+        new Employment().clearTable();        
+        new Activity().clearTable();
+        new Assistant().clearTable();
+        new Course().clearTable();
         new HourlyWage().clearTable();
         new FinancialCategory().clearTable();
         new Contract().clearTable();
-        new Assistant().clearTable();
-        new Employment().clearTable();
-        new Course().clearTable();
-        new Activity().clearTable();
     }
 
     /**

@@ -15,7 +15,6 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.utils.Logger;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
-import de.aidger.view.utils.UICostUnit;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.IContract;
@@ -84,7 +83,7 @@ public class EmploymentTableModel extends TableModel {
             cal.set(Calendar.MONTH, employment.getMonth() - 1);
             cal.set(Calendar.YEAR, employment.getYear());
 
-            CostUnit costUnit = Runtime.getInstance().getCostUnitMap()
+            CostUnit costUnit = Runtime.getInstance().getDataXMLManager()
                 .fromTokenDB(employment.getFunds());
 
             return new Object[] { employment.getId(),
