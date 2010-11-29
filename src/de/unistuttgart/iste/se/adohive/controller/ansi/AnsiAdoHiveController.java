@@ -19,7 +19,7 @@
 /**
  * 
  */
-package de.unistuttgart.iste.se.adohive.controller.derby;
+package de.unistuttgart.iste.se.adohive.controller.ansi;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -32,13 +32,14 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
  * @author rashfael
  *
  */
-public class DerbyAdoHiveController extends JdbcAdoHiveController {
+public class AnsiAdoHiveController extends JdbcAdoHiveController {
 
-	public DerbyAdoHiveController(String connectionString) throws AdoHiveException {
+	public AnsiAdoHiveController(String connectionString, String driver) throws AdoHiveException {
 		super();
 		try {
 			//Init driver
-			String driver = "org.apache.derby.jdbc.EmbeddedDriver";
+			if(driver == "" || driver == null)
+				driver = "org.apache.derby.jdbc.EmbeddedDriver";
 			Class.forName(driver).newInstance(); 
 			//grab the connection conf
 			if(connectionString != null)
@@ -48,17 +49,17 @@ public class DerbyAdoHiveController extends JdbcAdoHiveController {
 			//create one dialect Object for all managers
 			//NOTE: static does not really work, I would have done this with generics and static methods,
 			//but since generics in Java are crap (erasure), it does not work, so we are stuck with throwing around dialect objects
-			DerbySqlDialect dialect = new DerbySqlDialect();
+			AnsiSqlDialect dialect = new AnsiSqlDialect();
 			//init all managers
-			assistantManager = new DerbyAssistantManager(connection, dialect);
-			financialCategoryManager = new DerbyFinancialCategoryManager(connection, dialect);
-			hourlyWageManager = new DerbyHourlyWageManager(connection, dialect);
+			assistantManager = new AnsiAssistantManager(connection, dialect);
+			financialCategoryManager = new AnsiFinancialCategoryManager(connection, dialect);
+			hourlyWageManager = new AnsiHourlyWageManager(connection, dialect);
 			
-			contractManager = new DerbyContractManager(connection, dialect);
-			courseManager = new DerbyCourseManager(connection, dialect);
-			activityManager = new DerbyActivityManager(connection, dialect);
+			contractManager = new AnsiContractManager(connection, dialect);
+			courseManager = new AnsiCourseManager(connection, dialect);
+			activityManager = new AnsiActivityManager(connection, dialect);
 			
-			employmentManager = new DerbyEmploymentManager(connection, dialect);
+			employmentManager = new AnsiEmploymentManager(connection, dialect);
 			
 		} catch (SQLException e) {
 			throw new AdoHiveDatabaseException(e);

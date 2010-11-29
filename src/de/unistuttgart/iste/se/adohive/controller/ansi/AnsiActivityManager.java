@@ -19,12 +19,12 @@
 /**
  * 
  */
-package de.unistuttgart.iste.se.adohive.controller.derby;
+package de.unistuttgart.iste.se.adohive.controller.ansi;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import de.unistuttgart.iste.se.adohive.controller.jdbc.JdbcContractManager;
+import de.unistuttgart.iste.se.adohive.controller.jdbc.JdbcActivityManager;
 import de.unistuttgart.iste.se.adohive.controller.jdbc.SqlDialect;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
@@ -32,27 +32,30 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
  * @author rashfael
  *
  */
-class DerbyContractManager extends JdbcContractManager {
+class AnsiActivityManager extends JdbcActivityManager {
 	
 	private final static String CREATE_TABLE = 
-		"CREATE TABLE \"Vertrag\" (\n" +
-		"\"ID\" int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),\n" +
-		"\"Hilfskraft_ID\" bigint NOT NULL," +
-		"\"Art\" varchar(255) DEFAULT NULL,\n" +
-		"\"DatumAnfang\" date DEFAULT NULL,\n" +
-		"\"DatumEnde\" date DEFAULT NULL,\n" +
-		"\"DatumAbschluss\" date DEFAULT NULL,\n" +
-		"\"DatumBestaetigung\" date DEFAULT NULL,\n" +
-		"\"Delegation\" smallint DEFAULT NULL,\n"+
+		"CREATE TABLE \"Vorgang\" (\n" +
+		"\"ID\" bigint NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),\n" +
+		"\"Hilfskraft_ID\" bigint DEFAULT NULL," + 
+		"\"Veranstaltung_ID\" bigint DEFAULT NULL," +
+		"\"Art\" varchar(20) NOT NULL,\n" +
+		"\"Datum\" date NOT NULL,\n" +
+		"\"Inhalt\" long varchar DEFAULT NULL," +
+		"\"Sender\" varchar(50) DEFAULT NULL," +
+		"\"Dokumententyp\" varchar(50) DEFAULT NULL," +
+		"\"Bearbeiter\" varchar(2) DEFAULT NULL," +
+		"\"Bemerkung\" varchar(255) NOT NULL," +
 		"PRIMARY KEY (ID)," +
-		"CONSTRAINT VERTRAG_HILFSKRAFT_FK FOREIGN KEY (\"Hilfskraft_ID\") REFERENCES \"Hilfskraft\"(\"ID\")" +
+		"CONSTRAINT VORGANG_VERANSTALTUNG_FK FOREIGN KEY (\"Veranstaltung_ID\") REFERENCES \"Veranstaltung\"(\"ID\")," +
+		"CONSTRAINT VORGANG_HILFSKRAFT_FK FOREIGN KEY (\"Hilfskraft_ID\") REFERENCES \"Hilfskraft\"(\"ID\")" +
 		")";
 
 	/**
 	 * @param con
 	 * @throws AdoHiveException
 	 */
-	public DerbyContractManager(Connection con, SqlDialect dialect) throws AdoHiveException {
+	public AnsiActivityManager(Connection con, SqlDialect dialect) throws AdoHiveException {
 		super(con, dialect);
 	}
 
@@ -60,10 +63,9 @@ class DerbyContractManager extends JdbcContractManager {
 	 * @see de.unistuttgart.iste.se.adohive.controller.jdbc.JdbcAdoHiveManager#createTable()
 	 */
 	@Override
-	protected void createTable() throws SQLException {
-		//con.prepareStatement("DROP TABLE \"Hiwi\"").execute();
-		con.prepareStatement(CREATE_TABLE).execute();
+	protected void createTable() throws SQLException{
+		//this.con.prepareStatement("DROP TABLE \"Vorgang\"").execute();
+		this.con.prepareStatement(CREATE_TABLE).execute();		
 	}
-
 
 }
