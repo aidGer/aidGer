@@ -16,12 +16,21 @@ import de.aidger.model.models.CostUnit;
 public class CostUnitEditorForm extends JPanel {
 
     /**
+     * A flag whether the form is in edit mode.
+     */
+    private boolean editMode = false;
+
+    /**
      * Constructs a cost unit editor form.
      * 
      * @param costUnit
      *            the cost unit that will be edited
      */
     public CostUnitEditorForm(CostUnit costUnit) {
+        if (costUnit != null) {
+            editMode = true;
+        }
+
         initComponents();
 
         SwingUtilities.invokeLater(new Runnable() {
@@ -30,11 +39,47 @@ public class CostUnitEditorForm extends JPanel {
             }
         });
 
-        if (costUnit != null) {
+        if (editMode) {
             txtCostUnit.setText(costUnit.getCostUnit());
             txtFunds.setText(costUnit.getFunds());
             txtTokenDB.setText(costUnit.getTokenDB());
         }
+    }
+
+    /**
+     * Returns whether the form is in edit mode.
+     * 
+     * @return whether the form is in edit mode
+     */
+    public boolean isEditMode() {
+        return editMode;
+    }
+
+    /**
+     * Returns the cost unit.
+     * 
+     * @return the cost unit
+     */
+    public String getCostUnit() {
+        return txtCostUnit.getText();
+    }
+
+    /**
+     * Returns the funds.
+     * 
+     * @return the funds
+     */
+    public String getFunds() {
+        return txtFunds.getText();
+    }
+
+    /**
+     * Returns the database token.
+     * 
+     * @return the database token
+     */
+    public String getTokenDB() {
+        return txtTokenDB.getText();
     }
 
     /**

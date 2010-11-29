@@ -174,7 +174,7 @@ public class FinancialCategoryEditorForm extends JPanel {
 
         JComboBox cmbCostUnit = new JComboBox();
         cmbCostUnit.setModel(new DefaultComboBoxModel(Runtime.getInstance()
-            .getCostUnitMap().getCostUnits()));
+            .getDataXMLManager().getCostUnits()));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;

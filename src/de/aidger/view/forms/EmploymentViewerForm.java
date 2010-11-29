@@ -68,7 +68,7 @@ public class EmploymentViewerForm extends JPanel {
             hourCount.setText(NumberFormat.getInstance().format(
                 employment.getHourCount()));
             costUnit.setText(UICostUnit.valueOf(employment.getCostUnit()));
-            CostUnit costUnit_ = Runtime.getInstance().getCostUnitMap()
+            CostUnit costUnit_ = Runtime.getInstance().getDataXMLManager()
                 .fromTokenDB(employment.getFunds());
             funds.setText(costUnit_ == null ? employment.getFunds() : costUnit_
                 .toString());

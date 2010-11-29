@@ -99,8 +99,18 @@ public class CostUnit extends AbstractModel {
         return funds + " (" + tokenDB + ")";
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.model.AbstractModel#clone()
+     */
     @Override
-    public Object clone() {
-        return null;
+    public CostUnit clone() {
+        CostUnit costUnit = new CostUnit();
+        costUnit.setCostUnit(this.costUnit);
+        costUnit.setFunds(funds);
+        costUnit.setTokenDB(tokenDB);
+        costUnit.doClone(this);
+        return costUnit;
     }
 };

@@ -27,6 +27,7 @@ import de.aidger.model.inspectors.WorkingHourLimitInspector;
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
+import de.aidger.model.models.CostUnit;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
@@ -36,6 +37,7 @@ import de.aidger.view.UI;
 import de.aidger.view.forms.ActivityEditorForm;
 import de.aidger.view.forms.AssistantEditorForm;
 import de.aidger.view.forms.ContractEditorForm;
+import de.aidger.view.forms.CostUnitEditorForm;
 import de.aidger.view.forms.CourseEditorForm;
 import de.aidger.view.forms.EmploymentEditorForm;
 import de.aidger.view.forms.FinancialCategoryEditorForm;
@@ -299,6 +301,34 @@ public class EditorSaveAction extends AbstractAction {
     }
 
     /**
+     * Prepares the cost unit model by setting the values of the cost unit
+     * editor form to this model.
+     * 
+     * @param models
+     *            a list that contains the course model of the editor
+     * @param form
+     *            the course editor form
+     * @return the edited model
+     */
+    @SuppressWarnings("unchecked")
+    private AbstractModel prepareModels(List<AbstractModel> models,
+            CostUnitEditorForm form) {
+        CostUnit costUnit = (CostUnit) models.get(0);
+
+        CostUnit costUnitBeforeEdit = costUnit.clone();
+
+        costUnit.setCostUnit(form.getCostUnit());
+        costUnit.setFunds(form.getFunds());
+        costUnit.setTokenDB(form.getTokenDB());
+
+        if (form.isEditMode()) {
+            costUnit.setNew(false);
+        }
+
+        return costUnitBeforeEdit;
+    }
+
+    /**
      * Prepares the employment models by setting the values of the employment
      * editor form to this model. Returns the model from the database before it
      * is edited. If a database error occurs the model before it was edited is
@@ -555,6 +585,10 @@ public class EditorSaveAction extends AbstractAction {
             break;
         case HourlyWage:
             modelBeforeEdit = prepareModels(models, (HourlyWageEditorForm) tab
+                .getEditorForm());
+            break;
+        case CostUnit:
+            modelBeforeEdit = prepareModels(models, (CostUnitEditorForm) tab
                 .getEditorForm());
             break;
         case Employment:

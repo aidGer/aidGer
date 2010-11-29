@@ -28,7 +28,7 @@ import de.aidger.model.models.Contract;
 import de.aidger.model.models.CostUnit;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
-import de.aidger.utils.CostUnitMap;
+import de.aidger.utils.DataXMLManager;
 import de.aidger.view.UI;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.models.ComboBoxModel;
@@ -63,10 +63,10 @@ public class EmploymentEditorForm extends JPanel {
     private boolean editMode = false;
 
     /**
-     * The cost unit map.
+     * The data XML manager.
      */
-    private final CostUnitMap costUnitMap = Runtime.getInstance()
-        .getCostUnitMap();
+    private final DataXMLManager dataManager = Runtime.getInstance()
+        .getDataXMLManager();
 
     /**
      * Constructs an employment editor form.
@@ -193,7 +193,7 @@ public class EmploymentEditorForm extends JPanel {
             addNewDate();
 
             if (editMode) {
-                CostUnit costUnit = costUnitMap.fromTokenDB(employment
+                CostUnit costUnit = dataManager.fromTokenDB(employment
                     .getFunds());
                 cmbFunds.setSelectedItem(costUnit == null ? employment
                     .getFunds() : costUnit);
@@ -581,8 +581,8 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbCostUnit, gridBagConstraints);
 
-        cmbFunds.setModel(new javax.swing.DefaultComboBoxModel(costUnitMap
-            .getMap().toArray()));
+        cmbFunds.setModel(new javax.swing.DefaultComboBoxModel(dataManager
+            .getCostUnitMap().toArray()));
         cmbFunds.setMinimumSize(new java.awt.Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;

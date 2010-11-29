@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Locale;
 
 import de.aidger.utils.Configuration;
-import de.aidger.utils.CostUnitMap;
+import de.aidger.utils.DataXMLManager;
 import de.aidger.utils.Translation;
 import de.aidger.view.UI;
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
@@ -47,9 +47,9 @@ public final class Runtime {
     private Translation translation = null;
 
     /**
-     * The cost unit map.
+     * The data XML manager.
      */
-    private CostUnitMap costUnitMap = null;
+    private DataXMLManager dataManager = null;
 
     /**
      * Is this the first start of aidGer?
@@ -122,17 +122,20 @@ public final class Runtime {
 
             /* Create the aidGer configuration directory. */
             if (!file.mkdirs()) {
-                UI.displayError(MessageFormat.format(
-                    "Could not create directory \"{0}\".\n"
-                    + "Please make sure that you have enough rights to create this directory.",
-                    new Object[] { file.getPath() }));
+                UI
+                    .displayError(MessageFormat
+                        .format(
+                            "Could not create directory \"{0}\".\n"
+                                    + "Please make sure that you have enough rights to create this directory.",
+                            new Object[] { file.getPath() }));
                 System.exit(-1);
             }
         }
 
         /*
-         * Check for an environment variable AIDGER_TEST and set the config path to "."
-         * if it is set. This is used, to seperate test and run configurations.
+         * Check for an environment variable AIDGER_TEST and set the config path
+         * to "." if it is set. This is used, to seperate test and run
+         * configurations.
          */
         String test = System.getenv("AIDGER_TEST");
         if (test != null) {
@@ -175,13 +178,14 @@ public final class Runtime {
 
         /* Check if an instance of aidGer is already running */
         if (!testRun && !checkLock()) {
-            UI.displayError(_("Only one instance of aidGer can be run at a time."));
+            UI
+                .displayError(_("Only one instance of aidGer can be run at a time."));
             System.exit(-1);
         }
 
         AdoHiveController.setConnectionString(getOption("database-uri"));
 
-        costUnitMap = new CostUnitMap();
+        dataManager = new DataXMLManager();
     }
 
     /**
@@ -214,7 +218,7 @@ public final class Runtime {
 
     /**
      * Is this a test run of aidGer?
-     *
+     * 
      * @return True, if this is a test run
      */
     public boolean isTestRun() {
@@ -331,12 +335,12 @@ public final class Runtime {
     }
 
     /**
-     * Gets the cost unit map.
+     * Returns the data XML manager.
      * 
-     * @return the cost unit map
+     * @return the data XML manager
      */
-    public CostUnitMap getCostUnitMap() {
-        return costUnitMap;
+    public DataXMLManager getDataXMLManager() {
+        return dataManager;
     }
 
     /**

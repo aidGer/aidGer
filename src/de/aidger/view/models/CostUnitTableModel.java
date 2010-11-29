@@ -30,8 +30,8 @@ public class CostUnitTableModel extends TableModel {
     @Override
     @SuppressWarnings("unchecked")
     public void getAllModels() {
-        List<CostUnit> costUnits = Runtime.getInstance().getCostUnitMap()
-            .getMap();
+        List<CostUnit> costUnits = Runtime.getInstance().getDataXMLManager()
+            .getCostUnitMap();
 
         for (CostUnit costUnit : costUnits) {
             models.add(costUnit);

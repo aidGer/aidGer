@@ -84,7 +84,7 @@ public class EmploymentTableModel extends TableModel {
             cal.set(Calendar.MONTH, employment.getMonth() - 1);
             cal.set(Calendar.YEAR, employment.getYear());
 
-            CostUnit costUnit = Runtime.getInstance().getCostUnitMap()
+            CostUnit costUnit = Runtime.getInstance().getDataXMLManager()
                 .fromTokenDB(employment.getFunds());
 
             return new Object[] { employment.getId(),
