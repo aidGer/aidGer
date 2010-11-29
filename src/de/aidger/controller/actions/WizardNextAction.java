@@ -28,13 +28,8 @@ public class WizardNextAction extends AbstractAction {
         Wizard dlg = (Wizard) ((JComponent) e.getSource())
             .getTopLevelAncestor();
 
-        AbstractAction action = dlg.getNextAction();
-        Wizard next = dlg.getNextForm();
-
-        action.actionPerformed(e);
-        dlg.setVisible(false);
-        dlg.dispose();
-        next.setVisible(true);
+        dlg.executeNextAction(e);
+        dlg.showNextPanel();
     }
 
 }

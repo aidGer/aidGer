@@ -20,7 +20,7 @@ public class WizardPreviousAction extends AbstractAction {
      * Initializes the action.
      */
     public WizardPreviousAction() {
-        putValue(Action.NAME, _("Previous"));
+        putValue(Action.NAME, _("Back"));
         putValue(Action.SHORT_DESCRIPTION, _("Go back to the previous wizard form."));
     }
 
@@ -28,11 +28,7 @@ public class WizardPreviousAction extends AbstractAction {
         Wizard dlg = (Wizard) ((JComponent) e.getSource())
             .getTopLevelAncestor();
 
-        Wizard prev = dlg.getPreviousForm();
-
-        dlg.setVisible(false);
-        dlg.dispose();
-        prev.setVisible(true);
+        dlg.showPrevPanel();
     }
 
 }

@@ -1,13 +1,24 @@
 package de.aidger.view;
 
-import de.aidger.controller.actions.WizardNextAction;
 import de.aidger.controller.ActionNotFoundException;
-import de.aidger.controller.actions.ExitAction;
 import de.aidger.controller.ActionRegistry;
+import de.aidger.controller.actions.ExitAction;
 import de.aidger.controller.actions.WizardFinishAction;
+import de.aidger.controller.actions.WizardNextAction;
 import de.aidger.controller.actions.WizardPreviousAction;
-import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.AbstractAction;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JSeparator;
+import javax.swing.border.EmptyBorder;
 
 /**
  * Automatically displays buttons and advances to previous/next forms of the same wizard.
@@ -16,184 +27,133 @@ import javax.swing.AbstractAction;
  */
 abstract public class Wizard extends javax.swing.JDialog {
 
-    /**
-     * The next panel of the wizard.
-     */
-    private Wizard nextPanel = null;
+    private List<WizardPanel> panels = new ArrayList<WizardPanel>();
 
-    /**
-     * The action used when pressing the next button.
-     */
-    private AbstractAction nextAction = null;
-
-    /**
-     * The previous panel of the wizard.
-     */
-    private Wizard previousPanel = null;
+    private int index = 0;
 
     /** 
      * Creates a new wizard form
      */
     public Wizard(java.awt.Frame parent) {
         super(parent, true);
+        initLayout();
     }
 
-    /**
-     * Get the next wizard form.
-     *
-     * @return The next form
-     */
-    public Wizard getNextForm() {
-        return nextPanel;
+    public void addPanel(WizardPanel panel) {
+        panels.add(panel);
+        cardPanel.add(panel, panel.getClass().getName());
     }
 
-    /**
-     * Get the action to be executed after the Next Button gets pressed.
-     *
-     * @return The action to execute
-     */
-    public AbstractAction getNextAction() {
-        return nextAction;
+    public void showDialog() {
+        showFirstPanel();
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 
-    /**
-     * Get the previous wizard form.
-     *
-     * @return The previous form
-     */
-    public Wizard getPreviousForm() {
-        return previousPanel;
-    }
-
-    /**
-     * Set the next form of the wizard.
-     *
-     * @param next
-     *          Wizard form which will be shown after pressing the Next Button
-     */
-    protected void setNextForm(Wizard next) {
-        nextPanel = next;
-    }
-
-    /**
-     * Set the action which will be called when pressing the Next Button.
-     *
-     * @param action
-     *          The action to call
-     */
-    protected void setNextAction(AbstractAction action) {
-        nextAction = action;
-    }
-
-    /**
-     * Set the previous form of the wizard.
-     *
-     * @param previous
-     *          Wizard form which will be shown after pressing the Previous Button
-     */
-    protected void setPreviousForm(Wizard previous) {
-        previousPanel = previous;
-    }
-
-    /**
-     * Set the content of the wizard form and draw everything.
-     * All other set* functions need to be called before this one!!
-     *
-     * @param panel
-     *          The content of the wizard
-     */
-    protected void setContent(JPanel panel) {
-        embeddedPanel = panel;
-        initComponents();
-
-        if (previousPanel == null) {
-            previousBtn.setVisible(false);
+    public void showFirstPanel() {
+        if (panels.size() > 0) {
+            cardLayout.first(cardPanel);
+            index = 0;
+            try {
+                if (panels.size() == 1) {
+                    nextBtn.setAction(ActionRegistry.getInstance().get(WizardFinishAction.class.getName()));
+                }
+                prevBtn.setEnabled(false);
+            } catch (ActionNotFoundException ex) {
+                UI.displayError(ex.getMessage());
+            }
         }
+    }
+
+    public void showNextPanel() {
+        if (index + 1 != panels.size()) {
+            cardLayout.next(cardPanel);
+            ++index;
+
+            if (index + 1 == panels.size()) {
+                try {
+                    nextBtn.setAction(ActionRegistry.getInstance().get(WizardFinishAction.class.getName()));
+                } catch (ActionNotFoundException ex) {
+                    UI.displayError(ex.getMessage());
+                }
+            }
+            prevBtn.setEnabled(true);
+        }
+    }
+
+    public void showPrevPanel() {
+        if (index - 1 >= 0) {
+            cardLayout.previous(cardPanel);
+            --index;
+            
+            if (index == 0) {
+                prevBtn.setEnabled(false);
+            } else {
+                prevBtn.setEnabled(true);
+            }
+
+            try {
+                if (nextBtn.getAction() == ActionRegistry.getInstance().get(WizardFinishAction.class.getName())) {
+                    nextBtn.setAction(ActionRegistry.getInstance().get(WizardNextAction.class.getName()));
+                }
+            } catch (ActionNotFoundException ex) {
+                UI.displayError(ex.getMessage());
+            }
+        }
+    }
+
+    public void executeNextAction(ActionEvent e) {
+        AbstractAction action = panels.get(index).getNextAction();
+        if (action != null) {
+            action.actionPerformed(e);
+        }
+    }
+
+    private void initLayout() {
+        getContentPane().setLayout(new BorderLayout());
+
+        JPanel buttonPanel = new JPanel();
+        JSeparator separator = new JSeparator();
+        Box buttonBox = new Box(BoxLayout.X_AXIS);
+
+        cardPanel = new JPanel();
+        cardPanel.setBorder(new EmptyBorder(new Insets(5, 10, 5, 10)));
+
+        cardLayout = new CardLayout();
+        cardPanel.setLayout(cardLayout);
 
         try {
+            prevBtn = new JButton();
+            prevBtn.setAction(ActionRegistry.getInstance().get(WizardPreviousAction.class.getName()));
+            nextBtn = new JButton();
+            nextBtn.setAction(ActionRegistry.getInstance().get(WizardNextAction.class.getName()));
+            exitBtn = new JButton();
             exitBtn.setAction(ActionRegistry.getInstance().get(ExitAction.class.getName()));
-            previousBtn.setAction(ActionRegistry.getInstance().get(WizardPreviousAction.class.getName()));
-
-            if (nextPanel == null) {
-                nextBtn.setAction(ActionRegistry.getInstance().get(WizardFinishAction.class.getName()));
-            } else {
-                nextBtn.setAction(ActionRegistry.getInstance().get(WizardNextAction.class.getName()));
-            }
         } catch (ActionNotFoundException ex) {
             UI.displayError(ex.getMessage());
         }
+
+        buttonPanel.setLayout(new BorderLayout());
+        buttonPanel.add(separator, BorderLayout.NORTH);
+
+        buttonBox.setBorder(new EmptyBorder(new Insets(5, 10, 5, 10)));
+        buttonBox.add(exitBtn);
+        buttonBox.add(Box.createHorizontalStrut(300));
+        buttonBox.add(prevBtn);
+        buttonBox.add(Box.createHorizontalStrut(10));
+        buttonBox.add(nextBtn);        
+
+        buttonPanel.add(buttonBox, java.awt.BorderLayout.WEST);
+
+        getContentPane().add(buttonPanel, java.awt.BorderLayout.SOUTH);
+        getContentPane().add(cardPanel, java.awt.BorderLayout.CENTER);
     }
 
-    /** This method is called from within the constructor to
-     * initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is
-     * always regenerated by the Form Editor.
-     */
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-
-        embeddedPanel = embeddedPanel;
-        exitBtn = new javax.swing.JButton();
-        nextBtn = new javax.swing.JButton();
-        previousBtn = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        javax.swing.GroupLayout embeddedPanelLayout = new javax.swing.GroupLayout(embeddedPanel);
-        embeddedPanel.setLayout(embeddedPanelLayout);
-        embeddedPanelLayout.setHorizontalGroup(
-            embeddedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 501, Short.MAX_VALUE)
-        );
-        embeddedPanelLayout.setVerticalGroup(
-            embeddedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 364, Short.MAX_VALUE)
-        );
-
-        exitBtn.setText("Exit");
-
-        nextBtn.setText("Next");
-
-        previousBtn.setText("Previous");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(exitBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 346, Short.MAX_VALUE)
-                        .addComponent(previousBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nextBtn))
-                    .addComponent(embeddedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(embeddedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(exitBtn)
-                    .addComponent(nextBtn)
-                    .addComponent(previousBtn))
-                .addContainerGap())
-        );
-
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel embeddedPanel;
+    private CardLayout cardLayout;
+    private javax.swing.JPanel cardPanel;
     private javax.swing.JButton exitBtn;
     private javax.swing.JButton nextBtn;
-    private javax.swing.JButton previousBtn;
-    // End of variables declaration//GEN-END:variables
+    private javax.swing.JButton prevBtn;
 
 }

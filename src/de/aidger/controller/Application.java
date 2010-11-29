@@ -39,8 +39,10 @@ import de.aidger.controller.actions.ViewerCourseAction;
 import de.aidger.controller.actions.ViewerDeleteAction;
 import de.aidger.controller.actions.ViewerDetailViewAction;
 import de.aidger.controller.actions.ViewerEditAction;
+import de.aidger.controller.actions.WizardFinishAction;
+import de.aidger.controller.actions.WizardNextAction;
+import de.aidger.controller.actions.WizardPreviousAction;
 import de.aidger.model.Runtime;
-import de.aidger.utils.history.HistoryManager;
 import de.aidger.view.UI;
 
 /**
@@ -126,6 +128,10 @@ public final class Application {
 
         ActionRegistry.getInstance().register(new BudgetGenerateAction());
         ActionRegistry.getInstance().register(new BudgetExportAction());
+
+        ActionRegistry.getInstance().register(new WizardFinishAction());
+        ActionRegistry.getInstance().register(new WizardNextAction());
+        ActionRegistry.getInstance().register(new WizardPreviousAction());
 
         ActionRegistry.getInstance().register(new FirstStartCloseAction());
     }

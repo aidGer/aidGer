@@ -28,9 +28,7 @@ public class WizardFinishAction extends AbstractAction {
         Wizard dlg = (Wizard) ((JComponent) e.getSource())
             .getTopLevelAncestor();
 
-        AbstractAction action = dlg.getNextAction();
-
-        action.actionPerformed(e);
+        dlg.executeNextAction(e);
         dlg.setVisible(false);
         dlg.dispose();
     }
