@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import de.aidger.model.models.FinancialCategory;
-import de.aidger.view.utils.UICostUnit;
+import de.aidger.view.models.UICostUnit;
 
 /**
  * A form used for viewing financial categories.
