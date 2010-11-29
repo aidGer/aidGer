@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -185,9 +186,16 @@ public class ActivityReportConverter {
      */
     private void makeNewDocument(File file) {
         try {
-            reader = new PdfReader(getClass().getResource(
-                "/de/aidger/res/pdf/ActivityReportTemplate.pdf"));
-
+            File template = new File(Runtime.getInstance().getConfigPath()
+                    + "/templates/ActivityReportTemplate.pdf");
+            URL templateURL = null;
+            if (template.exists()) {
+                templateURL = template.toURI().toURL();
+            } else {
+                templateURL = getClass().getResource(
+                    "/de/aidger/res/pdf/ActivityReportTemplate.pdf");
+            }
+            reader = new PdfReader(templateURL);
             stamper = new PdfStamper(reader, new FileOutputStream(file));
             fileCreated = true;
             contentByte = stamper.getOverContent(1);
