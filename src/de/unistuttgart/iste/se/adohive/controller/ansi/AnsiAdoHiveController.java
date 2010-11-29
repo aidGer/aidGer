@@ -38,7 +38,7 @@ public class AnsiAdoHiveController extends JdbcAdoHiveController {
 		super();
 		try {
 			//Init driver
-			if(driver == "" || driver == null)
+			if(driver == null || driver.isEmpty())
 				driver = "org.apache.derby.jdbc.EmbeddedDriver";
 			Class.forName(driver).newInstance(); 
 			//grab the connection conf

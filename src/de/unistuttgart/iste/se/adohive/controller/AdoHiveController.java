@@ -117,11 +117,9 @@ public abstract class AdoHiveController {
     }
 
     public static AdoHiveController getInstance() throws AdoHiveException {
-        if (instance == null)
-            switch(sqlDialect) {
-            case AnsiDialect: instance = new AnsiAdoHiveController(connectionString, driver); break;
-            default : instance = new AnsiAdoHiveController(connectionString, driver); break;
-            }
+        if (instance == null) {
+            instance = new AnsiAdoHiveController(connectionString, driver);
+        }
 
         return instance;
     }
