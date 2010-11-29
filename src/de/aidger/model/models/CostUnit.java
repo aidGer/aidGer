@@ -1,11 +1,13 @@
 package de.aidger.model.models;
 
+import de.aidger.model.AbstractModel;
+
 /**
  * This class represents a single cost unit.
  * 
  * @author aidGer Team
  */
-public class CostUnit {
+public class CostUnit extends AbstractModel {
     /**
      * The cost unit that is a 8 digit number.
      */
@@ -95,5 +97,10 @@ public class CostUnit {
     @Override
     public String toString() {
         return funds + " (" + tokenDB + ")";
+    }
+
+    @Override
+    public Object clone() {
+        return null;
     }
 };

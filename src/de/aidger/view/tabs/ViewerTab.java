@@ -42,6 +42,7 @@ import de.aidger.view.UI;
 import de.aidger.view.models.ActivityTableModel;
 import de.aidger.view.models.AssistantTableModel;
 import de.aidger.view.models.ContractTableModel;
+import de.aidger.view.models.CostUnitTableModel;
 import de.aidger.view.models.CourseTableModel;
 import de.aidger.view.models.EmploymentTableModel;
 import de.aidger.view.models.FinancialCategoryTableModel;
@@ -63,9 +64,9 @@ public class ViewerTab extends Tab {
      */
     public enum DataType {
         Course(_("Course")), Assistant(_("Assistant")), FinancialCategory(
-                _("Financial Category")), HourlyWage(_("Hourly Wage")), Employment(
-                _("Employment")), Contract(_("Contract")), Activity(
-                _("Activity"));
+                _("Financial Category")), HourlyWage(_("Hourly Wage")), CostUnit(
+                _("Cost unit")), Employment(_("Employment")), Contract(
+                _("Contract")), Activity(_("Activity"));
 
         /**
          * The display name of an item.
@@ -151,6 +152,9 @@ public class ViewerTab extends Tab {
             break;
         case HourlyWage:
             tableModel = new HourlyWageTableModel();
+            break;
+        case CostUnit:
+            tableModel = new CostUnitTableModel();
             break;
         case Employment:
             tableModel = new EmploymentTableModel();
@@ -506,6 +510,8 @@ public class ViewerTab extends Tab {
             return _("Financial Categories");
         case HourlyWage:
             return _("Hourly Wages");
+        case CostUnit:
+            return _("Cost units");
         case Employment:
             return _("Employment overview");
         case Contract:
