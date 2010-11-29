@@ -36,6 +36,11 @@ public class DataXMLManager implements IAdoHiveManager {
     private List<CostUnit> costUnitMap = new ArrayList<CostUnit>();
 
     /**
+     * The unedited cost unit. It is needed by update().
+     */
+    private CostUnit costUnitBeforeEdit;
+
+    /**
      * The email suffix for the assistants.
      */
     private String emailSuffix;
@@ -152,6 +157,16 @@ public class DataXMLManager implements IAdoHiveManager {
     }
 
     /**
+     * Sets the unedited cost unit.
+     * 
+     * @param costUnitBeforeEdit
+     *            the unedited cost unit
+     */
+    public void setCostUnitBeforeEdit(CostUnit costUnitBeforeEdit) {
+        this.costUnitBeforeEdit = costUnitBeforeEdit;
+    }
+
+    /**
      * Returns a cost unit object from given database token.
      * 
      * @param tokenDB
@@ -199,8 +214,12 @@ public class DataXMLManager implements IAdoHiveManager {
 
     @Override
     public boolean update(IAdoHiveModel o) throws AdoHiveException {
-        // the old cost unit was already removed
-        return add(o);
+        costUnitMap.remove(costUnitBeforeEdit);
+        costUnitMap.add((CostUnit) o);
+
+        saveData();
+
+        return true;
     }
 
     @Override

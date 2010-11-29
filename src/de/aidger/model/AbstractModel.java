@@ -509,11 +509,6 @@ public abstract class AbstractModel<T> extends Observable implements
     protected IAdoHiveManager getManager() {
         String classname = getClass().getSimpleName();
 
-        // use data XML manager for cost units
-        if (classname.equals("CostUnit")) {
-            return Runtime.getInstance().getDataXMLManager();
-        }
-
         if (!managers.containsKey(classname) || managers.get(classname) == null) {
             /* Try to get the correct manager from the AdoHiveController */
             try {

@@ -1,6 +1,8 @@
 package de.aidger.model.models;
 
 import de.aidger.model.AbstractModel;
+import de.aidger.model.Runtime;
+import de.unistuttgart.iste.se.adohive.controller.IAdoHiveManager;
 
 /**
  * This class represents a single cost unit.
@@ -133,5 +135,11 @@ public class CostUnit extends AbstractModel {
         costUnit.setTokenDB(tokenDB);
         costUnit.doClone(this);
         return costUnit;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    protected IAdoHiveManager getManager() {
+        return Runtime.getInstance().getDataXMLManager();
     }
 };

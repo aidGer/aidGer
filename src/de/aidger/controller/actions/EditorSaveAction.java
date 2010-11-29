@@ -325,13 +325,8 @@ public class EditorSaveAction extends AbstractAction {
         if (form.isEditMode()) {
             costUnit.setNew(false);
 
-            // remove the old cost unit
-            try {
-                Runtime.getInstance().getDataXMLManager().remove(
-                    costUnitBeforeEdit);
-            } catch (AdoHiveException e) {
-
-            }
+            Runtime.getInstance().getDataXMLManager().setCostUnitBeforeEdit(
+                costUnitBeforeEdit);
         }
 
         return costUnitBeforeEdit;
