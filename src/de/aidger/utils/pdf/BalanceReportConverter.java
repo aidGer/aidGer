@@ -4,9 +4,11 @@ import static de.aidger.utils.Translation._;
 
 import java.awt.Desktop;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -22,9 +24,12 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.ColumnText;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfImportedPage;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfPageEventHelper;
+import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
 
@@ -61,6 +66,7 @@ public class BalanceReportConverter {
     /**
      * Contains the group tables and their names.
      */
+    @SuppressWarnings("unchecked")
     private ArrayList balanceReportGroups = null;
 
     /**
@@ -112,6 +118,7 @@ public class BalanceReportConverter {
      * @param calculationMethod
      *            The calculation method of this report.
      */
+    @SuppressWarnings("unchecked")
     public BalanceReportConverter(File file, int index, Object semester,
             BalanceFilter filters, int calculationMethod) {
         document = new Document(PageSize.A4.rotate());
@@ -132,7 +139,13 @@ public class BalanceReportConverter {
             name = _("Semester balance report") + " - " + semester;
             break;
         }
-        makeNewDocument(file);
+        File preTemplateFile = null;
+        try {
+            preTemplateFile = File.createTempFile("BalanceReport", ".pdf");
+        } catch (IOException e2) {
+            e2.printStackTrace();
+        }
+        makeNewDocument(preTemplateFile);
         if (fileCreated) {
             switch (index) {
             case 1:
@@ -155,6 +168,8 @@ public class BalanceReportConverter {
                 break;
             }
             document.close();
+            applyTemplate(file, preTemplateFile);
+            preTemplateFile.delete();
             /*
              * Open the created document if the setting is enabled with the
              * specified pdf viewer.
@@ -195,6 +210,77 @@ public class BalanceReportConverter {
     }
 
     /**
+     * Places the created document onto the template for this report.
+     * 
+     * @param file
+     *            The file to which this report will be saved.
+     * @param preTemplateFile
+     *            The report to be used.
+     */
+    private void applyTemplate(File file, File preTemplateFile) {
+        FileOutputStream outStream = null;
+        FileInputStream inStream = null;
+        PdfContentByte contentByte = null;
+        PdfReader reader = null, templateReader = null;
+        try {
+            /*
+             * Use the template located in the configuration path first, if it
+             * exists.
+             */
+            File template = new File(Runtime.getInstance().getConfigPath()
+                    + "/templates/BalanceReportTemplate.pdf");
+            URL templateURL = null;
+            if (template.exists()) {
+                templateURL = template.toURI().toURL();
+            } else {
+                templateURL = getClass().getResource(
+                    "/de/aidger/res/pdf/BalanceReportTemplate.pdf");
+            }
+            Document document = new Document(PageSize.A4.rotate());
+            outStream = new FileOutputStream(file.getPath());
+            inStream = new FileInputStream(preTemplateFile);
+            writer = PdfWriter.getInstance(document, outStream);
+            document.open();
+            contentByte = writer.getDirectContent();
+            reader = new PdfReader(inStream);
+            templateReader = new PdfReader(templateURL);
+            /*
+             * Add the template pdf to the document and place the finished
+             * report on top of it.
+             */
+            for (int i = 1; i <= reader.getNumberOfPages(); i++) {
+                document.newPage();
+                PdfImportedPage page = writer
+                    .getImportedPage(templateReader, 1);
+                int rotation = templateReader.getPageRotation(1);
+                if (rotation == 90 || rotation == 270) {
+                    //landscape mode
+                    contentByte.addTemplate(page, 0, -1f, 1f, 0, 0, reader
+                        .getPageSizeWithRotation(1).getHeight());
+                } else {
+                    //portrait mode
+                    contentByte.addTemplate(page, 1f, 0, 0, 1f, 0, 0);
+                }
+                page = writer.getImportedPage(reader, i);
+                rotation = reader.getPageRotation(i);
+                if (rotation == 90 || rotation == 270) {
+                    //landscape mode
+                    contentByte.addTemplate(page, 0, -1f, 1f, 0, 0, reader
+                        .getPageSizeWithRotation(1).getHeight());
+                } else {
+                    //portrait mode
+                    contentByte.addTemplate(page, 1f, 0, 0, 1f, 0, 0);
+                }
+            }
+            document.close();
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * Creates a new document.
      * 
      * @param path
@@ -215,7 +301,6 @@ public class BalanceReportConverter {
             UI.displayError(_("File could not be created.") + " "
                     + _("Please close all processes that are using the file."));
         } catch (DocumentException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -253,7 +338,7 @@ public class BalanceReportConverter {
          */
         @Override
         public void onStartPage(PdfWriter writer, Document document) {
-            PdfPTable table = new PdfPTable(new float[] { 0.2f, 0.6f, 0.2f });
+            PdfPTable table = new PdfPTable(3);
             table.setTotalWidth(writer.getPageSize().getRight()
                     - document.rightMargin() - document.leftMargin());
             try {
@@ -264,13 +349,6 @@ public class BalanceReportConverter {
                     BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 8);
 
                 PdfPCell left = new PdfPCell();
-                left.setHorizontalAlignment(Element.ALIGN_LEFT);
-                left.setVerticalAlignment(Element.ALIGN_BOTTOM);
-                left.setBorder(Rectangle.BOTTOM);
-                Image img = Image.getInstance(getClass().getResource(
-                    "/de/aidger/res/pdf/UniLogo.jpg"));
-                img.scaleAbsoluteWidth(150.0f);
-                left.addElement(img);
 
                 PdfPCell center;
                 if (writer.getCurrentPageNumber() == 1) {
@@ -285,9 +363,12 @@ public class BalanceReportConverter {
                 PdfPCell right = new PdfPCell(new Phrase(_("Author") + ": "
                         + Runtime.getInstance().getOption("name"),
                     authorNameFont));
-                right.setVerticalAlignment(Element.ALIGN_BOTTOM);
+                right.setVerticalAlignment(Element.ALIGN_TOP);
                 right.setHorizontalAlignment(Element.ALIGN_RIGHT);
-                right.setBorder(Rectangle.BOTTOM);
+
+                left.setBorder(0);
+                center.setBorder(0);
+                right.setBorder(0);
 
                 left.setPaddingBottom(10);
                 center.setPaddingBottom(10);
@@ -401,6 +482,7 @@ public class BalanceReportConverter {
      * @param semester
      *            The name of the semester to be added.
      */
+    @SuppressWarnings("unchecked")
     private void createSemester(String semester) {
         try {
             Font semesterTitleFont = new Font(BaseFont.createFont(
