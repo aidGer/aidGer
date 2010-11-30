@@ -1180,18 +1180,6 @@ Die verfügbaren Felder heißen wie folgt:
 \end_layout
 
 \begin_layout Itemize
-UniLogo - Feld für das Logo der Universität
-\end_layout
-
-\begin_layout Itemize
-IviLogo - Feld für das Logo des Institutsverbunds Informatik
-\end_layout
-
-\begin_layout Itemize
-SenderField - Feld für die Adresse des des Institutsverbunds
-\end_layout
-
-\begin_layout Itemize
 AssistantName - Feld für den Namen der Hilfskraft
 \end_layout
 
