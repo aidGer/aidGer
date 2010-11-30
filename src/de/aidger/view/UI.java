@@ -275,8 +275,8 @@ public final class UI extends JFrame {
 
         // Display the first start dialog on first start
         if (Runtime.getInstance().isFirstStart()) {
-            FirstStartDialog dlg = new FirstStartDialog(this, true);
-            dlg.setVisible(true);
+            FirstStartWizard wizard = new FirstStartWizard(this);
+            wizard.showDialog();
         }
 
         // Anonymize assistants and display a message

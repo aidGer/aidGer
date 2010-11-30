@@ -1,9 +1,9 @@
 package de.aidger.view;
 
+import static de.aidger.utils.Translation._;
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
 import de.aidger.controller.actions.ExitAction;
-import de.aidger.controller.actions.WizardFinishAction;
 import de.aidger.controller.actions.WizardNextAction;
 import de.aidger.controller.actions.WizardPreviousAction;
 import java.awt.BorderLayout;
@@ -53,39 +53,42 @@ abstract public class Wizard extends javax.swing.JDialog {
 
     public void showFirstPanel() {
         if (panels.size() > 0) {
+            panels.get(index = 0).preparePanel();
             cardLayout.first(cardPanel);
-            index = 0;
-            try {
-                if (panels.size() == 1) {
-                    nextBtn.setAction(ActionRegistry.getInstance().get(WizardFinishAction.class.getName()));
-                }
-                prevBtn.setEnabled(false);
-            } catch (ActionNotFoundException ex) {
-                UI.displayError(ex.getMessage());
+
+            prevBtn.setEnabled(false);
+            if (panels.size() == 1) {
+                nextBtn.setText(_("Finish"));
             }
         }
     }
 
     public void showNextPanel() {
         if (index + 1 != panels.size()) {
-            cardLayout.next(cardPanel);
-            ++index;
+            panels.get(++index).preparePanel();
+            cardLayout.next(cardPanel);            
 
             if (index + 1 == panels.size()) {
-                try {
-                    nextBtn.setAction(ActionRegistry.getInstance().get(WizardFinishAction.class.getName()));
-                } catch (ActionNotFoundException ex) {
-                    UI.displayError(ex.getMessage());
-                }
+                nextBtn.setText(_("Finish"));
             }
+
             prevBtn.setEnabled(true);
+        } else {
+            setVisible(false);
+            dispose();
+        }
+    }
+
+    public void showNextPanel(ActionEvent e) {
+        if (executeNextAction(e)) {
+            showNextPanel();
         }
     }
 
     public void showPrevPanel() {
         if (index - 1 >= 0) {
-            cardLayout.previous(cardPanel);
-            --index;
+            panels.get(--index).preparePanel();
+            cardLayout.previous(cardPanel);            
             
             if (index == 0) {
                 prevBtn.setEnabled(false);
@@ -93,21 +96,25 @@ abstract public class Wizard extends javax.swing.JDialog {
                 prevBtn.setEnabled(true);
             }
 
-            try {
-                if (nextBtn.getAction() == ActionRegistry.getInstance().get(WizardFinishAction.class.getName())) {
-                    nextBtn.setAction(ActionRegistry.getInstance().get(WizardNextAction.class.getName()));
-                }
-            } catch (ActionNotFoundException ex) {
-                UI.displayError(ex.getMessage());
+            if (nextBtn.getText().equals(_("Finish"))) {
+                nextBtn.setText(_("Next"));
             }
         }
     }
 
-    public void executeNextAction(ActionEvent e) {
+    public WizardPanel getCurrentPanel() {
+        return panels.get(index);
+    }
+
+    private boolean executeNextAction(ActionEvent e) {
         AbstractAction action = panels.get(index).getNextAction();
         if (action != null) {
             action.actionPerformed(e);
+            if (e.getSource() == null) {
+                return false;
+            }
         }
+        return true;
     }
 
     private void initLayout() {
