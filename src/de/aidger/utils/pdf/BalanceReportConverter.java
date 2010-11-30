@@ -555,6 +555,7 @@ public class BalanceReportConverter {
      *            The course for which a group shall be created.
      * @return The PdfPTable of the group.
      */
+    @SuppressWarnings("unchecked")
     private PdfPTable createGroup(ICourse course) {
         balanceReportGroupCreator = new BalanceReportGroupCreator(course,
             calculationMethod);
