@@ -7,9 +7,14 @@ import javax.swing.JPanel;
  *
  * @author rmbl
  */
-public class WizardPanel extends JPanel {
+public abstract class WizardPanel extends JPanel {
 
     private AbstractAction action;
+
+    /**
+     * Prepare the panel before showing it.
+     */
+    public abstract void preparePanel();
 
     public AbstractAction getNextAction() {
         return action;
