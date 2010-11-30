@@ -14,13 +14,16 @@ import de.aidger.controller.actions.BudgetGenerateAction;
 import de.aidger.controller.actions.ControllingExportAllAction;
 import de.aidger.controller.actions.ControllingExportDifferencesAction;
 import de.aidger.controller.actions.ControllingGenerateAction;
+import de.aidger.controller.actions.DatabaseCheckFinishAction;
+import de.aidger.controller.actions.DatabaseDetailsFinishAction;
 import de.aidger.controller.actions.DetailViewerCloseAction;
 import de.aidger.controller.actions.DetailViewerEditAction;
 import de.aidger.controller.actions.DialogAbortAction;
 import de.aidger.controller.actions.EditorCancelAction;
 import de.aidger.controller.actions.EditorSaveAction;
 import de.aidger.controller.actions.ExitAction;
-import de.aidger.controller.actions.FirstStartCloseAction;
+import de.aidger.controller.actions.DatabaseSelectionFinishAction;
+import de.aidger.controller.actions.FirstStartNameFinishAction;
 import de.aidger.controller.actions.HelpAction;
 import de.aidger.controller.actions.HomepageAction;
 import de.aidger.controller.actions.PrintAction;
@@ -29,6 +32,7 @@ import de.aidger.controller.actions.ReportExportAction;
 import de.aidger.controller.actions.ReportGenerateAction;
 import de.aidger.controller.actions.SettingsAction;
 import de.aidger.controller.actions.SettingsBrowseAction;
+import de.aidger.controller.actions.SettingsDatabaseConfigAction;
 import de.aidger.controller.actions.SettingsSaveAction;
 import de.aidger.controller.actions.ViewerActivityExportAction;
 import de.aidger.controller.actions.ViewerActivityReportAction;
@@ -39,7 +43,6 @@ import de.aidger.controller.actions.ViewerCourseAction;
 import de.aidger.controller.actions.ViewerDeleteAction;
 import de.aidger.controller.actions.ViewerDetailViewAction;
 import de.aidger.controller.actions.ViewerEditAction;
-import de.aidger.controller.actions.WizardFinishAction;
 import de.aidger.controller.actions.WizardNextAction;
 import de.aidger.controller.actions.WizardPreviousAction;
 import de.aidger.model.Runtime;
@@ -92,6 +95,7 @@ public final class Application {
         ActionRegistry.getInstance().register(new ExitAction());
         ActionRegistry.getInstance().register(new PrintAction());
         ActionRegistry.getInstance().register(new SettingsAction());
+        ActionRegistry.getInstance().register(new SettingsDatabaseConfigAction());
         ActionRegistry.getInstance().register(new SettingsBrowseAction());
         ActionRegistry.getInstance().register(new SettingsSaveAction());
         ActionRegistry.getInstance().register(new HelpAction());
@@ -129,11 +133,13 @@ public final class Application {
         ActionRegistry.getInstance().register(new BudgetGenerateAction());
         ActionRegistry.getInstance().register(new BudgetExportAction());
 
-        ActionRegistry.getInstance().register(new WizardFinishAction());
         ActionRegistry.getInstance().register(new WizardNextAction());
         ActionRegistry.getInstance().register(new WizardPreviousAction());
 
-        ActionRegistry.getInstance().register(new FirstStartCloseAction());
+        ActionRegistry.getInstance().register(new FirstStartNameFinishAction());
+        ActionRegistry.getInstance().register(new DatabaseSelectionFinishAction());
+        ActionRegistry.getInstance().register(new DatabaseDetailsFinishAction());
+        ActionRegistry.getInstance().register(new DatabaseCheckFinishAction());
     }
 
     /**
