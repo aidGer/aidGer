@@ -7,9 +7,11 @@ import static de.aidger.utils.Translation._;
 
 import java.awt.Desktop;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -24,9 +26,12 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.ColumnText;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfImportedPage;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfPageEventHelper;
+import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
 
@@ -79,10 +84,18 @@ public class ControllingConverter {
             document.topMargin() + 40, document.bottomMargin());
         file = checkExtension(file);
         name = _("Controlling report");
-        makeNewDocument(file);
+        File preTemplateFile = null;
+        try {
+            preTemplateFile = File.createTempFile("BudgetReport", ".pdf");
+        } catch (IOException e2) {
+            e2.printStackTrace();
+        }
+        makeNewDocument(preTemplateFile);
         if (fileCreated) {
             createTable();
             document.close();
+            applyTemplate(file, preTemplateFile);
+            preTemplateFile.delete();
             /*
              * Open the created document if the setting is enabled with the
              * specified pdf viewer.
@@ -120,6 +133,77 @@ public class ControllingConverter {
             return new File(file.getPath() + ".pdf");
         }
         return file;
+    }
+
+    /**
+     * Places the created document onto the template for this report.
+     * 
+     * @param file
+     *            The file to which this report will be saved.
+     * @param preTemplateFile
+     *            The report to be used.
+     */
+    private void applyTemplate(File file, File preTemplateFile) {
+        FileOutputStream outStream = null;
+        FileInputStream inStream = null;
+        PdfContentByte contentByte = null;
+        PdfReader reader = null, templateReader = null;
+        try {
+            /*
+             * Use the template located in the configuration path first, if it
+             * exists.
+             */
+            File template = new File(Runtime.getInstance().getConfigPath()
+                    + "/templates/ControllingTemplate.pdf");
+            URL templateURL = null;
+            if (template.exists()) {
+                templateURL = template.toURI().toURL();
+            } else {
+                templateURL = getClass().getResource(
+                    "/de/aidger/res/pdf/ControllingTemplate.pdf");
+            }
+            Document document = new Document(PageSize.A4);
+            outStream = new FileOutputStream(file.getPath());
+            inStream = new FileInputStream(preTemplateFile);
+            writer = PdfWriter.getInstance(document, outStream);
+            document.open();
+            contentByte = writer.getDirectContent();
+            reader = new PdfReader(inStream);
+            templateReader = new PdfReader(templateURL);
+            /*
+             * Add the template pdf to the document and place the finished
+             * report on top of it.
+             */
+            for (int i = 1; i <= reader.getNumberOfPages(); i++) {
+                document.newPage();
+                PdfImportedPage page = writer
+                    .getImportedPage(templateReader, 1);
+                int rotation = templateReader.getPageRotation(1);
+                if (rotation == 90 || rotation == 270) {
+                    //landscape mode
+                    contentByte.addTemplate(page, 0, -1f, 1f, 0, 0, reader
+                        .getPageSizeWithRotation(1).getHeight());
+                } else {
+                    //portrait mode
+                    contentByte.addTemplate(page, 1f, 0, 0, 1f, 0, 0);
+                }
+                page = writer.getImportedPage(reader, i);
+                rotation = reader.getPageRotation(i);
+                if (rotation == 90 || rotation == 270) {
+                    //landscape mode
+                    contentByte.addTemplate(page, 0, -1f, 1f, 0, 0, reader
+                        .getPageSizeWithRotation(1).getHeight());
+                } else {
+                    //portrait mode
+                    contentByte.addTemplate(page, 1f, 0, 0, 1f, 0, 0);
+                }
+            }
+            document.close();
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -190,13 +274,6 @@ public class ControllingConverter {
                     BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 8);
 
                 PdfPCell left = new PdfPCell();
-                left.setHorizontalAlignment(Element.ALIGN_LEFT);
-                left.setVerticalAlignment(Element.ALIGN_BOTTOM);
-                left.setBorder(Rectangle.BOTTOM);
-                Image img = Image.getInstance(getClass().getResource(
-                    "/de/aidger/res/pdf/UniLogo.jpg"));
-                img.scaleAbsoluteWidth(150.0f);
-                left.addElement(img);
 
                 PdfPCell center;
                 if (writer.getCurrentPageNumber() == 1) {
@@ -211,9 +288,13 @@ public class ControllingConverter {
                 PdfPCell right = new PdfPCell(new Phrase(_("Author") + ": "
                         + Runtime.getInstance().getOption("name"),
                     authorNameFont));
-                right.setVerticalAlignment(Element.ALIGN_BOTTOM);
+                right.setVerticalAlignment(Element.ALIGN_TOP);
                 right.setHorizontalAlignment(Element.ALIGN_RIGHT);
                 right.setBorder(Rectangle.BOTTOM);
+
+                left.setBorder(0);
+                center.setBorder(0);
+                right.setBorder(0);
 
                 left.setPaddingBottom(10);
                 center.setPaddingBottom(10);
@@ -274,7 +355,8 @@ public class ControllingConverter {
                 table = new PdfPTable(2);
                 table.setTotalWidth(writer.getPageSize().getRight()
                         - document.rightMargin() - document.leftMargin());
-                cell = new PdfPCell(new Phrase(_("Generated by: "), generatedByFont));
+                cell = new PdfPCell(new Phrase(_("Generated by: "),
+                    generatedByFont));
                 cell.setBorder(0);
                 cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
                 cell.setPaddingBottom(5);
@@ -284,7 +366,8 @@ public class ControllingConverter {
                 cell.setHorizontalAlignment(Element.ALIGN_LEFT);
                 cell.setBorder(0);
                 table.addCell(cell);
-                table.writeSelectedRows(0, -1, document.leftMargin(), 25, writer.getDirectContent());
+                table.writeSelectedRows(0, -1, document.leftMargin(), 25,
+                    writer.getDirectContent());
             } catch (DocumentException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
