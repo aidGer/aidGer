@@ -62,7 +62,7 @@ CREATE TABLE `FinanzPlan` (
 DROP TABLE IF EXISTS `HIWI`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `HIWI` (
+CREATE TABLE `Hiwi` (
   `ID` bigint(20) NOT NULL AUTO_INCREMENT,
   `Vorname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Nachname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,

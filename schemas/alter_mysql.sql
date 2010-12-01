@@ -15,7 +15,7 @@ ADD PRIMARY KEY (`ID`, `Kostenstelle`);
 
 --HIWI
 
-ALTER TABLE `HIWI` RENAME `Hilfskraft`,
+ALTER TABLE `Hiwi` RENAME `Hilfskraft`,
 CHANGE COLUMN `ID` `ID` INT NOT NULL AUTO_INCREMENT,
 CHANGE COLUMN `Studimail` `Email` varchar(255) DEFAULT NULL;
 
