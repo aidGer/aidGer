@@ -1,0 +1,6 @@
+-kleinen Systemtest mit MySQL mit frischer datenbank
+
+-1.0 als 1.0RC
+-1.0 am 08.12.2010 releasen
+
+-nächstes meeting 08.12.2010 13:30 suntrec
