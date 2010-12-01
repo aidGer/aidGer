@@ -124,6 +124,10 @@ public abstract class AdoHiveController {
         return instance;
     }
 
+    public static void resetInstance() {
+        instance = null;
+    }
+
     /**
      * calls clear for all managers in the right order to not violate any foreign keys
      * @throws AdoHiveException

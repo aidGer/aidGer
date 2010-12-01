@@ -32,7 +32,9 @@ public class DatabaseDetails extends WizardPanel {
     @Override
     public void preparePanel() {
         String dbtype = Runtime.getInstance().getOption("database-type");
-        if (dbtype.equals("0")) {
+        String uri = Runtime.getInstance().getOption("database-uri");
+
+        if (dbtype == null || dbtype.equals("0")) {
             portLbl.setVisible(false);
             portSpinner.setVisible(false);
             databaseLbl.setVisible(false);
@@ -45,8 +47,19 @@ public class DatabaseDetails extends WizardPanel {
             driverText.setVisible(false);
 
             hostLbl.setText(_("Path:"));
-            hostText.setText(Runtime.getInstance().getConfigPath() + "/database");
             driverText.setText("org.apache.derby.jdbc.EmbeddedDriver");
+
+            String host;
+            if (uri != null && uri.startsWith("jdbc:derby")) {
+                host = uri.substring(11);
+                if (host.endsWith(";create=true")) {
+                    host = host.substring(0, host.length() - 12);
+                }
+                
+            } else {            
+                host = Runtime.getInstance().getConfigPath() + "/database";
+            }
+            hostText.setText(host);
         } else if (dbtype.equals("1")) {
             portLbl.setVisible(true);
             portSpinner.setVisible(true);
@@ -58,12 +71,27 @@ public class DatabaseDetails extends WizardPanel {
             passwordText.setVisible(true);
             driverLbl.setVisible(false);
             driverText.setVisible(false);
-
-            hostText.setText("localhost");
-            portSpinner.setValue(3306);
-            usernameText.setText("root");
-            passwordText.setText("");
             driverText.setText("com.mysql.jdbc.Driver");
+
+            if (uri != null && uri.startsWith("jdbc:mysql")) {
+                uri = uri.substring(13);
+                String[] parts = uri.split("/");
+                String[] subparts = parts[0].split(":");
+                hostText.setText(subparts[0]);
+                portSpinner.setValue(Integer.parseInt(subparts[1]));
+                subparts = parts[1].split("\\?");
+                databaseText.setText(subparts[0]);
+                if (subparts.length > 1) {
+                    usernameText.setText(subparts[1].substring(5, subparts[1].indexOf("&")));
+                    passwordText.setText(subparts[1].substring(subparts[1].indexOf("&") + 9));
+                }
+            } else {
+                hostText.setText("localhost");
+                portSpinner.setValue(3306);
+                databaseText.setText("aidger");
+                usernameText.setText("root");
+                passwordText.setText("");
+            }            
         } else {
             portLbl.setVisible(false);
             portSpinner.setVisible(false);
@@ -77,8 +105,19 @@ public class DatabaseDetails extends WizardPanel {
             driverText.setVisible(true);
 
             hostLbl.setText(_("JDBC Uri:"));
-            hostText.setText("jdbc:derby:" + Runtime.getInstance().getConfigPath() + "/database;create=true");
-            driverText.setText("org.apache.derby.jdbc.EmbeddedDriver");
+
+            if (uri != null && !uri.isEmpty()) {
+                hostText.setText(uri);
+            } else {
+                hostText.setText("jdbc:derby:" + Runtime.getInstance().getConfigPath() + "/database;create=true");
+            }
+
+            String driver = Runtime.getInstance().getOption("database-driver");
+            if (driver != null && !driver.isEmpty()) {
+                driverText.setText(driver);
+            } else {
+                driverText.setText("org.apache.derby.jdbc.EmbeddedDriver");
+            }
         }
     }
 
@@ -162,7 +201,7 @@ public class DatabaseDetails extends WizardPanel {
 
         setPreferredSize(new java.awt.Dimension(500, 300));
 
-        jLabel2.setFont(new java.awt.Font("DejaVu Sans", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("DejaVu Sans", 0, 36));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/aidger/res/icons/aidger-icon.png"))); // NOI18N
         jLabel2.setText("aidGer");

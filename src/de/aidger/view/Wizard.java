@@ -106,6 +106,10 @@ abstract public class Wizard extends javax.swing.JDialog {
         return panels.get(index);
     }
 
+    protected void setCancelAction(AbstractAction action) {
+        exitBtn.setAction(action);
+    }
+
     private boolean executeNextAction(ActionEvent e) {
         AbstractAction action = panels.get(index).getNextAction();
         if (action != null) {

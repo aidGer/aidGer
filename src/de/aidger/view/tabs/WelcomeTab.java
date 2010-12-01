@@ -11,8 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.time.Day;
@@ -62,14 +60,18 @@ public class WelcomeTab extends Tab {
         boolean databaseEmpty;
         try {
             databaseEmpty = (new Assistant()).size() == 0 && (new Activity()).size() == 0;
-        } catch (AdoHiveException ex) {
+        } catch (Exception ex) {
             databaseEmpty = true;
         }
 
         if (Runtime.getInstance().isFirstStart() && databaseEmpty) {
-            statisticsList.add(_("Currently no statistics are available."));
+            statisticsList.add(_("There are currently no statistics are available."));
             lblFirstStart
                 .setText(_("This is the first time aidGer is started."));
+        } else if (databaseEmpty) {
+            statisticsList.add(_("There are currently no statistics are available."));
+            lblFirstStart.setForeground(java.awt.Color.RED);
+            lblFirstStart.setText(_("You have no data in your database or connecting to the database failed."));
         } else {
             lblFirstStart.setText(MessageFormat
                 .format(_("The last start of aidGer was on {0}."),

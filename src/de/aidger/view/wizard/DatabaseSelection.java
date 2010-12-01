@@ -3,12 +3,11 @@ package de.aidger.view.wizard;
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
 import de.aidger.controller.actions.DatabaseSelectionFinishAction;
+import de.aidger.model.Runtime;
 import static de.aidger.utils.Translation._;
+import de.aidger.view.UI;
 import de.aidger.view.WizardPanel;
 import de.aidger.view.utils.MultiLineLabelUI;
-import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.AbstractAction;
 
 /**
@@ -24,10 +23,17 @@ public class DatabaseSelection extends WizardPanel {
             setNextAction((AbstractAction) ActionRegistry.getInstance().get(
                     DatabaseSelectionFinishAction.class.getName()));
         } catch (ActionNotFoundException ex) {
-            Logger.getLogger(DatabaseSelection.class.getName()).log(Level.SEVERE, null, ex);
+            UI.displayError(ex.getMessage());
         }
 
         jLabel1.setUI(MultiLineLabelUI.labelUI);
+
+        String sel = Runtime.getInstance().getOption("database-type");
+        if (sel != null && sel.equals("1")) {
+            jRadioButton2.setSelected(true);
+        } else if (sel != null && sel.equals("2")) {
+            jRadioButton3.setSelected(true);
+        }
     }
     
     @Override
