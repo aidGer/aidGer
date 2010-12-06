@@ -16,16 +16,6 @@ import de.unistuttgart.iste.se.adohive.model.IContract;
 
 public abstract class IContractManagerTest extends IAdoHiveManagerTest<IContract> {
 
-	@Override
-	protected IAdoHiveManager<IContract> getInstance() {
-		try {
-			getController().clearAll();
-		} catch (AdoHiveException e) {
-			fail("Contract manager could not be cleared!");
-		}
-		
-		return getController().getContractManager();
-	}
 
 	@Override
 	protected int getItemId(IContract item) {

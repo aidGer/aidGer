@@ -76,19 +76,8 @@ public abstract class IFinancialCategoryManagerTest extends IAdoHiveManagerTest<
 		
 	}
 	
-	@Override
-	protected IAdoHiveManager<IFinancialCategory> getInstance() {
-		try {
-			getController().getFinancialCategoryManager().clear();
-		} catch (AdoHiveException e) {
-			fail("financial category manager could not be cleaned!");
-		}
-		return getController().getFinancialCategoryManager();
-	}
-	
 	@Test
 	public void testFinancialCategorySpecials() throws AdoHiveException{
-		IFinancialCategoryManager instance = (IFinancialCategoryManager) getInstance();
 		IFinancialCategory i1 = newE();
 		IFinancialCategory i2 = newE();
 		i1.setCostUnits(new Integer[]{1});

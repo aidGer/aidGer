@@ -26,6 +26,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.controller.IAdoHiveManager;
 import de.unistuttgart.iste.se.adohive.controller.ICourseManager;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
@@ -69,18 +70,6 @@ public abstract class ICourseManagerTest extends IAdoHiveManagerTest<ICourse> {
 	}
 	
 	@Override
-	protected IAdoHiveManager<ICourse> getInstance() {
-		try {
-			getController().clearAll();
-		} catch (AdoHiveException e) {
-			e.printStackTrace();
-			fail("course manager could not be cleaned!");
-		}
-		
-		return getController().getCourseManager();
-	}
-	
-	@Override
 	public ICourse newE()  throws AdoHiveException {
 		return getTestDataProvider().newICourse();
 	}
@@ -90,18 +79,18 @@ public abstract class ICourseManagerTest extends IAdoHiveManagerTest<ICourse> {
 		IFinancialCategory[] fcs = new IFinancialCategory[7];
 		for (int i = 0; i < 7; i++) {
 			fcs[i] = getTestDataProvider().newIFinancialCategory();
-			getController().getFinancialCategoryManager().add(fcs[i]);
+			AdoHiveController.getInstance().getFinancialCategoryManager().add(fcs[i]);
 		}
 		
 		ICourse[] cs = new ICourse[42];
 		for (int i = 0; i < 42; i++) {
 			cs[i] = getTestDataProvider().newICourse();
 			cs[i].setFinancialCategoryId(fcs[i % 7].getId());
-			getController().getCourseManager().add(cs[i]);
+			AdoHiveController.getInstance().getCourseManager().add(cs[i]);
 		}
 		
 		for (int i = 0; i < 7; i++) {
-			List<ICourse> lc = getController().getCourseManager().getCourses(fcs[i]);
+			List<ICourse> lc = AdoHiveController.getInstance().getCourseManager().getCourses(fcs[i]);
 			assertEquals(6, lc.size());
 			for (int j = 0; j < 6; j++) {
 				assertEquals(fcs[i].getId(), lc.get(j).getFinancialCategoryId());
@@ -111,7 +100,6 @@ public abstract class ICourseManagerTest extends IAdoHiveManagerTest<ICourse> {
 	
 	@Test
 	public void testGetCoursesBySemester() throws AdoHiveException {
-		ICourseManager instance = (ICourseManager)newInstance();
 		String[] semesters = new String[6];
 		String[] groups = new String[4]; 
 		for (int i = 0; i< 6; i++) {
@@ -130,14 +118,14 @@ public abstract class ICourseManagerTest extends IAdoHiveManagerTest<ICourse> {
 			instance.add(courses[i]);
 		}
 		
-		List<String> s = instance.getDistinctSemesters();
-		List<String> g = instance.getDistinctGroups();
+		List<String> s = ((ICourseManager)instance).getDistinctSemesters();
+		List<String> g = ((ICourseManager)instance).getDistinctGroups();
 		
 		assertEquals(6, s.size());
 		assertEquals(4, g.size());
 		
 		for (int i = 0; i < 6; i++) {
-			List<ICourse> lc = instance.getCoursesBySemester(semesters[i]);
+			List<ICourse> lc = ((ICourseManager)instance).getCoursesBySemester(semesters[i]);
 			assertEquals(4, lc.size());
 			for (ICourse c : lc) {
 				assertEquals(semesters[i], c.getSemester());
@@ -145,7 +133,7 @@ public abstract class ICourseManagerTest extends IAdoHiveManagerTest<ICourse> {
 		}
 		
 		for (int i = 0; i < 4; i++) {
-			List<ICourse> lc = instance.getCoursesByGroup(groups[i]);
+			List<ICourse> lc = ((ICourseManager)instance).getCoursesByGroup(groups[i]);
 			assertEquals(6, lc.size());
 			for (ICourse c : lc) {
 				assertEquals(groups[i], c.getGroup());

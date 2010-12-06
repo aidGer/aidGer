@@ -3,6 +3,8 @@
  */
 package de.unistuttgart.iste.se.adohive.controller.ansi;
 
+import java.math.BigDecimal;
+
 import de.unistuttgart.iste.se.adohive.controller.jdbc.JdbcColumn;
 import de.unistuttgart.iste.se.adohive.controller.jdbc.SqlDialect;
 
@@ -53,6 +55,10 @@ public class AnsiSqlDialect implements SqlDialect {
 		//jay for crappy Derby not having a boolean type
 		else if(cell instanceof Integer && (paramType == boolean.class || paramType == Boolean.class))
 			return((Integer)cell) != 0;
+		else if(cell instanceof Float && (paramType == double.class || paramType == Double.class))
+			return ((Float) cell).doubleValue();
+		else if(cell instanceof Double && (paramType == BigDecimal.class))
+			return new BigDecimal((Double)cell);
 		else 
 			return null;
 	}

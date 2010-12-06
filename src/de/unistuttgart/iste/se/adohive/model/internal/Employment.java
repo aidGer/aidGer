@@ -219,6 +219,7 @@ public final class Employment implements IEmployment {
 	/**
 	 * @param funds the funds to set
 	 */
+	@Deprecated
 	@AdoMethod(columnName = "Fonds")
 	public void setFunds(String funds) {
 		if(employment != null)
