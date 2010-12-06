@@ -1,4 +1,7 @@
-CHANGES IN VERSION 0.2:
+CHANGES IN VERSION 1.0:
+    * [ADD] Management of cost units can be done directly in the application (#218)
+    * [ADD] Generic data XML manager that stores its data in a XML file (#218)
+    * [ADD] Start and end date of contracts are used for auto guessing the months of employments (#202)
     * [CHANGE] Use AIDGER_TEST environment variable to use current directory instead of the .config one for storage
 
 
@@ -15,6 +18,7 @@ CHANGES IN VERSION 0.1.1:
     * [ADD] Export buttons for reports are greyed out when function is not available (#170)
     * [ADD] Autoguess the studimail address when creating an assistant (#160)
     * [ADD] Possibility to display all activities in a protocol (#169)
+    * [ADD] Templates for various reports (#183)
     * [FIX] Terms funds and cost unit are used correctly (#163)
     * [FIX] Display german umlauts correctly under windows (#200)
     * [FIX] Inspector checks (e.g. budget limits) are performed before saving models (#158)
@@ -35,6 +39,7 @@ CHANGES IN VERSION 0.1.1:
     * [CHANGE] Moved the button to remove filters to the left of the filter data
     * [CHANGE] Moved resource files into de.aidger.res package (#172)
     * [CHANGE] Missing hourly wages result in a warning rather than a wage of 0 (#181)
+    * [CHANGE] Templates are read from the local template folder first (#184)
 
 CHANGES IN VERSION 0.1:
     * Initial release

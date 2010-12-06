@@ -511,7 +511,7 @@ public class ViewerTab extends Tab {
         case HourlyWage:
             return _("Hourly Wages");
         case CostUnit:
-            return _("Cost units");
+            return _("Cost Units");
         case Employment:
             return _("Employment overview");
         case Contract:

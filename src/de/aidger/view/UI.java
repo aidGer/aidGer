@@ -648,7 +648,7 @@ public final class UI extends JFrame {
             Task.ViewFinancialCategories));
         tpMasterData.add(createTaskPaneButton(_("Hourly Wages"),
             Task.ViewHourlyWages));
-        tpMasterData.add(createTaskPaneButton(_("Cost units"),
+        tpMasterData.add(createTaskPaneButton(_("Cost Units"),
             Task.ViewCostUnits));
 
         TaskPane tpEmployments = new TaskPane(_("Employments"));
