@@ -51,7 +51,6 @@ public class DatabaseCheck extends WizardPanel {
      */
     @Override
     public void preparePanel() {
-        System.out.println("Preparing panel");
         jLabel3.setForeground(Color.red);
         jLabel3.setText(_("Trying to connect ..."));
         

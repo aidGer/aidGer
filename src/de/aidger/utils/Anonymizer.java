@@ -87,6 +87,8 @@ public class Anonymizer {
         } catch (AdoHiveException ex) {
             Logger.error(
                     _("Anonymizing Assistants failed because of a database error"));
+        } catch (NullPointerException ex) {
+            return 0;
         }
 
         return count;
