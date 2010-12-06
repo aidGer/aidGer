@@ -8,11 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-01 00:23+0100\n"
+"POT-Creation-Date: 2010-12-06 15:10+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -42,7 +41,7 @@ msgstr ""
 #: src/de/aidger/controller/actions/ReportExportAction.java:81
 #: src/de/aidger/controller/actions/ViewerActivityExportAction.java:37
 #: src/de/aidger/controller/actions/ViewerActivityExportAction.java:81
-#: src/de/aidger/view/UI.java:671
+#: src/de/aidger/view/UI.java:668
 #: src/de/aidger/view/tabs/ActivityReportViewerTab.java:214
 #: src/de/aidger/view/tabs/BalanceViewerTab.java:277
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:243
@@ -333,7 +332,7 @@ msgid "No name entered"
 msgstr ""
 
 #: src/de/aidger/controller/actions/HelpAction.java:35
-#: src/de/aidger/view/UI.java:605
+#: src/de/aidger/view/UI.java:602
 msgid "Help"
 msgstr ""
 
@@ -476,7 +475,7 @@ msgid "Please select only one entry from the table."
 msgstr ""
 
 #: src/de/aidger/controller/actions/ViewerAddAction.java:27
-#: src/de/aidger/view/UI.java:661 src/de/aidger/view/UI.java:670
+#: src/de/aidger/view/UI.java:658 src/de/aidger/view/UI.java:667
 #: src/de/aidger/view/tabs/ViewerTab.java:705
 msgid "Add"
 msgstr ""
@@ -1240,7 +1239,7 @@ msgstr ""
 msgid "Historical"
 msgstr ""
 
-#: src/de/aidger/view/SettingsDialog.java:455 src/de/aidger/view/UI.java:674
+#: src/de/aidger/view/SettingsDialog.java:455 src/de/aidger/view/UI.java:671
 msgid "Reports"
 msgstr ""
 
@@ -1257,160 +1256,160 @@ msgstr ""
 msgid "Info"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:289
+#: src/de/aidger/view/UI.java:286
 #, java-format
 msgid "{0} assistants have been anonymized"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:304
+#: src/de/aidger/view/UI.java:301
 #, java-format
 msgid "Adding new tab \"{0}\" at position {1}"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:354
+#: src/de/aidger/view/UI.java:351
 #, java-format
 msgid "Removing {0}. tab"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:449
+#: src/de/aidger/view/UI.java:446
 #, java-format
 msgid "Setting current tab to \"{0}\""
 msgstr ""
 
-#: src/de/aidger/view/UI.java:545 src/de/aidger/view/UI.java:812
+#: src/de/aidger/view/UI.java:542 src/de/aidger/view/UI.java:809
 msgid "Ready"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:586
+#: src/de/aidger/view/UI.java:583
 msgid "File"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:645
+#: src/de/aidger/view/UI.java:642
 msgid "Master Data Management"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:647 src/de/aidger/view/tabs/ViewerTab.java:506
+#: src/de/aidger/view/UI.java:644 src/de/aidger/view/tabs/ViewerTab.java:506
 msgid "Courses"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:648 src/de/aidger/view/tabs/ViewerTab.java:508
+#: src/de/aidger/view/UI.java:645 src/de/aidger/view/tabs/ViewerTab.java:508
 msgid "Assistants"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:650 src/de/aidger/view/tabs/ViewerTab.java:510
+#: src/de/aidger/view/UI.java:647 src/de/aidger/view/tabs/ViewerTab.java:510
 msgid "Financial Categories"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:652 src/de/aidger/view/tabs/ViewerTab.java:512
+#: src/de/aidger/view/UI.java:649 src/de/aidger/view/tabs/ViewerTab.java:512
 msgid "Hourly Wages"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:654 src/de/aidger/view/tabs/ViewerTab.java:514
-msgid "Cost units"
+#: src/de/aidger/view/UI.java:651 src/de/aidger/view/tabs/ViewerTab.java:514
+msgid "Cost Units"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:657 src/de/aidger/view/tabs/WelcomeTab.java:291
+#: src/de/aidger/view/UI.java:654 src/de/aidger/view/tabs/WelcomeTab.java:291
 msgid "Employments"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:659 src/de/aidger/view/UI.java:667
+#: src/de/aidger/view/UI.java:656 src/de/aidger/view/UI.java:664
 #: src/de/aidger/view/tabs/WelcomeTab.java:476
 msgid "Overview"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:663 src/de/aidger/view/tabs/ViewerTab.java:518
+#: src/de/aidger/view/UI.java:660 src/de/aidger/view/tabs/ViewerTab.java:518
 msgid "Contracts"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:666
+#: src/de/aidger/view/UI.java:663
 msgid "Activities"
 msgstr ""
 
 #.
 #. * This is a full balance report.
 #.
-#: src/de/aidger/view/UI.java:675
+#: src/de/aidger/view/UI.java:672
 #: src/de/aidger/view/tabs/BalanceViewerTab.java:75
 msgid "Full Balance Report"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:677
+#: src/de/aidger/view/UI.java:674
 #: src/de/aidger/view/tabs/BalanceViewerTab.java:88
 msgid "Annual Balance Report"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:679
+#: src/de/aidger/view/UI.java:676
 #: src/de/aidger/view/tabs/BalanceViewerTab.java:102
 msgid "Semester Balance Report"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:681
+#: src/de/aidger/view/UI.java:678
 #: src/de/aidger/view/tabs/ActivityReportViewerTab.java:273
 msgid "Generate Activity Report"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:684
+#: src/de/aidger/view/UI.java:681
 msgid "Controlling"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:685
+#: src/de/aidger/view/UI.java:682
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:523
 msgid "Course Controlling"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:687
+#: src/de/aidger/view/UI.java:684
 #: src/de/aidger/view/tabs/ControllingViewerTab.java:473
 msgid "Assistant Controlling"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:690
+#: src/de/aidger/view/UI.java:687
 msgid "Quick Settings"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:692
+#: src/de/aidger/view/UI.java:689
 msgid "Remember my tabs"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:703
+#: src/de/aidger/view/UI.java:700
 msgid "Open reports instantly"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:711
+#: src/de/aidger/view/UI.java:708
 msgid "Historical calculation"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:719
+#: src/de/aidger/view/UI.java:716
 msgid "Pessimistic calculation"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:780
+#: src/de/aidger/view/UI.java:777
 msgid "Open a new tab"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:928
+#: src/de/aidger/view/UI.java:925
 #, java-format
 msgid "Could not find tab class {0}"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:932
+#: src/de/aidger/view/UI.java:929
 #, java-format
 msgid "Could not find the correct constructor: {0}"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:936
+#: src/de/aidger/view/UI.java:933
 #, java-format
 msgid "Instantiating the class {0} failed"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:939
+#: src/de/aidger/view/UI.java:936
 msgid "Can't access a needed function"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:941
+#: src/de/aidger/view/UI.java:938
 msgid "Incorrect arguments saved for a tab"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:946
+#: src/de/aidger/view/UI.java:943
 msgid "Getting the model from the database failed"
 msgstr ""
 
@@ -1684,15 +1683,6 @@ msgstr ""
 msgid "(Unnamed)"
 msgstr ""
 
-#: src/de/aidger/view/tabs/HistoryTab.java:46
-msgid "Last Activities"
-msgstr ""
-
-#: src/de/aidger/view/tabs/HistoryTab.java:48
-#: src/de/aidger/view/tabs/WelcomeTab.java:367
-msgid "Last Changes"
-msgstr ""
-
 #: src/de/aidger/view/tabs/ProtocolViewerTab.java:152
 msgid "Export Activities"
 msgstr ""
@@ -1843,6 +1833,10 @@ msgstr ""
 msgid "Welcome to aidGer"
 msgstr ""
 
+#: src/de/aidger/view/tabs/WelcomeTab.java:367
+msgid "Last Changes"
+msgstr ""
+
 #: src/de/aidger/view/tabs/WelcomeTab.java:384
 msgid "Last activities"
 msgstr ""
@@ -1953,11 +1947,11 @@ msgstr ""
 msgid "Welcome to aidGer."
 msgstr ""
 
-#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:315
-#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:329
+#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:311
+#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:325
 msgid "COLUMN_NAME"
 msgstr ""
 
-#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:319
+#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:315
 msgid "IS_AUTOINCREMENT"
 msgstr ""
