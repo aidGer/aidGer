@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-06 15:10+0100\n"
+"POT-Creation-Date: 2010-12-07 19:35+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -214,7 +214,7 @@ msgstr ""
 #: src/de/aidger/model/models/Employment.java:201
 #: src/de/aidger/view/forms/CostUnitEditorForm.java:106
 #: src/de/aidger/view/forms/CostUnitViewerForm.java:49
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:531
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:580
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:153
 #: src/de/aidger/view/forms/FinancialCategoryEditorForm.java:167
 #: src/de/aidger/view/forms/FinancialCategoryViewerForm.java:47
@@ -252,7 +252,7 @@ msgstr ""
 #: src/de/aidger/controller/actions/EditorSaveAction.java:268
 #: src/de/aidger/model/models/Contract.java:64
 #: src/de/aidger/model/models/Contract.java:65
-#: src/de/aidger/view/forms/ContractEditorForm.java:280
+#: src/de/aidger/view/forms/ContractEditorForm.java:286
 #: src/de/aidger/view/forms/ContractViewerForm.java:123
 #: src/de/aidger/view/models/ContractTableModel.java:30
 msgid "End date"
@@ -267,7 +267,7 @@ msgstr ""
 #: src/de/aidger/model/models/Employment.java:217
 #: src/de/aidger/view/forms/CostUnitEditorForm.java:114
 #: src/de/aidger/view/forms/CostUnitViewerForm.java:57
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:539
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:588
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:161
 #: src/de/aidger/view/models/CostUnitTableModel.java:22
 #: src/de/aidger/view/models/EmploymentTableModel.java:36
@@ -277,7 +277,7 @@ msgstr ""
 
 #: src/de/aidger/controller/actions/EditorSaveAction.java:403
 #: src/de/aidger/model/models/Employment.java:205
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:403
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:443
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:145
 #: src/de/aidger/view/models/EmploymentTableModel.java:36
 msgid "Hour count"
@@ -487,9 +487,9 @@ msgstr ""
 #: src/de/aidger/utils/pdf/ControllingConverter.java:412
 #: src/de/aidger/view/forms/ActivityEditorForm.java:245
 #: src/de/aidger/view/forms/ActivityViewerForm.java:91
-#: src/de/aidger/view/forms/ContractEditorForm.java:248
+#: src/de/aidger/view/forms/ContractEditorForm.java:254
 #: src/de/aidger/view/forms/ContractViewerForm.java:91
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:509
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:558
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:113
 #: src/de/aidger/view/models/ActivityTableModel.java:27
 #: src/de/aidger/view/models/ContractTableModel.java:29
@@ -508,7 +508,7 @@ msgstr ""
 
 #: src/de/aidger/controller/actions/ViewerContractAction.java:31
 #: src/de/aidger/model/models/Employment.java:85
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:523
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:572
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:129
 #: src/de/aidger/view/models/EmploymentTableModel.java:36
 #: src/de/aidger/view/tabs/ViewerTab.java:69
@@ -527,7 +527,7 @@ msgstr ""
 #: src/de/aidger/utils/pdf/BudgetReportConverter.java:467
 #: src/de/aidger/view/forms/ActivityEditorForm.java:169
 #: src/de/aidger/view/forms/ActivityViewerForm.java:99
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:515
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:564
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:121
 #: src/de/aidger/view/models/ActivityTableModel.java:27
 #: src/de/aidger/view/models/EmploymentTableModel.java:35
@@ -664,7 +664,7 @@ msgstr ""
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:492
 #: src/de/aidger/view/forms/ActivityEditorForm.java:464
 #: src/de/aidger/view/forms/ActivityViewerForm.java:107
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:384
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:424
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:137
 #: src/de/aidger/view/forms/HourlyWageEditorForm.java:197
 #: src/de/aidger/view/forms/HourlyWageViewerForm.java:68
@@ -682,7 +682,7 @@ msgstr ""
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:492
 #: src/de/aidger/view/forms/ActivityEditorForm.java:486
 #: src/de/aidger/view/forms/ActivityViewerForm.java:131
-#: src/de/aidger/view/forms/ContractEditorForm.java:288
+#: src/de/aidger/view/forms/ContractEditorForm.java:294
 #: src/de/aidger/view/forms/ContractViewerForm.java:131
 #: src/de/aidger/view/models/ActivityTableModel.java:28
 #: src/de/aidger/view/models/ContractTableModel.java:31
@@ -754,7 +754,7 @@ msgstr ""
 #: src/de/aidger/model/models/HourlyWage.java:47
 #: src/de/aidger/view/forms/AssistantEditorForm.java:143
 #: src/de/aidger/view/forms/AssistantViewerForm.java:77
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:547
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:596
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:169
 #: src/de/aidger/view/forms/HourlyWageEditorForm.java:191
 #: src/de/aidger/view/forms/HourlyWageViewerForm.java:62
@@ -777,7 +777,7 @@ msgid "Assistant is still linked to a Contract"
 msgstr ""
 
 #: src/de/aidger/model/models/Contract.java:63
-#: src/de/aidger/view/forms/ContractEditorForm.java:256
+#: src/de/aidger/view/forms/ContractEditorForm.java:262
 #: src/de/aidger/view/forms/ContractViewerForm.java:99
 #: src/de/aidger/view/models/ContractTableModel.java:29
 msgid "Completion date"
@@ -785,7 +785,7 @@ msgstr ""
 
 #: src/de/aidger/model/models/Contract.java:64
 #: src/de/aidger/model/models/Contract.java:66
-#: src/de/aidger/view/forms/ContractEditorForm.java:272
+#: src/de/aidger/view/forms/ContractEditorForm.java:278
 #: src/de/aidger/view/forms/ContractViewerForm.java:115
 #: src/de/aidger/view/forms/HourlyWageEditorForm.java:205
 #: src/de/aidger/view/models/ContractTableModel.java:30
@@ -953,7 +953,7 @@ msgstr ""
 msgid "Default error"
 msgstr ""
 
-#: src/de/aidger/utils/Anonymizer.java:89
+#: src/de/aidger/utils/Anonymizer.java:98
 msgid "Anonymizing Assistants failed because of a database error"
 msgstr ""
 
@@ -1127,7 +1127,7 @@ msgstr ""
 #: src/de/aidger/view/forms/ActivityViewerForm.java:147
 #: src/de/aidger/view/forms/CourseEditorForm.java:387
 #: src/de/aidger/view/forms/CourseViewerForm.java:197
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:555
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:604
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:177
 #: src/de/aidger/view/models/ActivityTableModel.java:29
 #: src/de/aidger/view/models/CourseTableModel.java:29
@@ -1455,33 +1455,33 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: src/de/aidger/view/forms/ContractEditorForm.java:33
+#: src/de/aidger/view/forms/ContractEditorForm.java:34
 msgid "New contract"
 msgstr ""
 
-#: src/de/aidger/view/forms/ContractEditorForm.java:33
+#: src/de/aidger/view/forms/ContractEditorForm.java:34
 msgid "Increase"
 msgstr ""
 
-#: src/de/aidger/view/forms/ContractEditorForm.java:34
+#: src/de/aidger/view/forms/ContractEditorForm.java:35
 msgid "Decrease"
 msgstr ""
 
-#: src/de/aidger/view/forms/ContractEditorForm.java:34
+#: src/de/aidger/view/forms/ContractEditorForm.java:35
 msgid "Rebooking"
 msgstr ""
 
-#: src/de/aidger/view/forms/ContractEditorForm.java:139
+#: src/de/aidger/view/forms/ContractEditorForm.java:145
 msgid "Confirmation date can be entered after saving the contract."
 msgstr ""
 
-#: src/de/aidger/view/forms/ContractEditorForm.java:264
+#: src/de/aidger/view/forms/ContractEditorForm.java:270
 #: src/de/aidger/view/forms/ContractViewerForm.java:107
 #: src/de/aidger/view/models/ContractTableModel.java:30
 msgid "Confirmation date"
 msgstr ""
 
-#: src/de/aidger/view/forms/ContractEditorForm.java:296
+#: src/de/aidger/view/forms/ContractEditorForm.java:302
 #: src/de/aidger/view/forms/ContractViewerForm.java:139
 #: src/de/aidger/view/models/ContractTableModel.java:31
 msgid "Delegation"
@@ -1507,7 +1507,6 @@ msgstr ""
 
 #. help info for user
 #: src/de/aidger/view/forms/CourseEditorForm.java:54
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:431
 msgid "Only a decimal number is allowed."
 msgstr ""
 
@@ -1533,6 +1532,10 @@ msgstr ""
 
 #: src/de/aidger/view/forms/CourseViewerForm.java:165
 msgid "Total budgets"
+msgstr ""
+
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:468
+msgid "Generate employment months in concordance to the contract."
 msgstr ""
 
 #: src/de/aidger/view/forms/FinancialCategoryEditorForm.java:57
@@ -1947,11 +1950,11 @@ msgstr ""
 msgid "Welcome to aidGer."
 msgstr ""
 
-#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:311
-#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:325
+#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:322
+#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:337
 msgid "COLUMN_NAME"
 msgstr ""
 
-#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:315
+#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:327
 msgid "IS_AUTOINCREMENT"
 msgstr ""
