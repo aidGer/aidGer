@@ -8,7 +8,7 @@ CHANGES IN VERSION 1.0:
     * [CHANGE] Use AIDGER_TEST environment variable to use current directory instead of the .config one for storage
     * [CHANGE] Templates are read from the local template folder first (#184)
     * [CHANGE] Contract relation will be removed if another assistant is selected in employment editor (#243) 
-
+    * [CHANGE] Improve tool tip text of hourly wage in editor form (#237)
 
 CHANGES IN VERSION 0.1.1:
     * [ADD] Cost unit map (cost unit <=> funds) as XML file (#163)

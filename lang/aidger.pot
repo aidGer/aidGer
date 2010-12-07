@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-07 19:35+0100\n"
+"POT-Creation-Date: 2010-12-07 19:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -243,7 +243,7 @@ msgid "Year"
 msgstr ""
 
 #: src/de/aidger/controller/actions/EditorSaveAction.java:253
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:221
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:227
 #: src/de/aidger/view/forms/HourlyWageViewerForm.java:76
 #: src/de/aidger/view/models/HourlyWageTableModel.java:27
 msgid "Wage"
@@ -666,7 +666,7 @@ msgstr ""
 #: src/de/aidger/view/forms/ActivityViewerForm.java:107
 #: src/de/aidger/view/forms/EmploymentEditorForm.java:424
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:137
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:197
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:203
 #: src/de/aidger/view/forms/HourlyWageViewerForm.java:68
 #: src/de/aidger/view/models/ActivityTableModel.java:27
 #: src/de/aidger/view/models/EmploymentTableModel.java:36
@@ -756,7 +756,7 @@ msgstr ""
 #: src/de/aidger/view/forms/AssistantViewerForm.java:77
 #: src/de/aidger/view/forms/EmploymentEditorForm.java:596
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:169
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:191
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:197
 #: src/de/aidger/view/forms/HourlyWageViewerForm.java:62
 #: src/de/aidger/view/models/AssistantTableModel.java:26
 #: src/de/aidger/view/models/EmploymentTableModel.java:37
@@ -787,7 +787,7 @@ msgstr ""
 #: src/de/aidger/model/models/Contract.java:66
 #: src/de/aidger/view/forms/ContractEditorForm.java:278
 #: src/de/aidger/view/forms/ContractViewerForm.java:115
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:205
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:211
 #: src/de/aidger/view/models/ContractTableModel.java:30
 msgid "Start date"
 msgstr ""
@@ -1546,26 +1546,27 @@ msgstr ""
 msgid "Only a number is allowed."
 msgstr ""
 
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:26
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:28
 #: src/de/aidger/view/tabs/WelcomeTab.java:261
 msgid "Unchecked"
 msgstr ""
 
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:26
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:28
 #: src/de/aidger/view/tabs/WelcomeTab.java:262
 msgid "Checked"
 msgstr ""
 
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:26
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:28
 #: src/de/aidger/view/tabs/WelcomeTab.java:263
 msgid "Bachelor"
 msgstr ""
 
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:72
-msgid "Only a valid currency format is allowed."
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:76
+#, java-format
+msgid "Only a valid currency format is allowed. Example: 8{0}40"
 msgstr ""
 
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:213
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:219
 msgid "Finish date"
 msgstr ""
 
