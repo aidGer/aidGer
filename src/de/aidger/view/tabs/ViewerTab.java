@@ -479,8 +479,23 @@ public class ViewerTab extends Tab {
                     }
 
                     UI.getInstance().setStatusMessage(message);
+
+                    btnCourse.setEnabled(rowCount == 1);
+                    btnAssistant.setEnabled(rowCount == 1);
+                    btnContract.setEnabled(rowCount == 1);
                 }
             });
+
+        btnCourse.setEnabled(false);
+        btnAssistant.setEnabled(false);
+        btnContract.setEnabled(false);
+
+        btnCourse
+            .setToolTipText(_("Show the course of the selected employment in detail."));
+        btnAssistant
+            .setToolTipText(_("Show the assistant of the selected employment in detail."));
+        btnContract
+            .setToolTipText(_("Show the contract of the selected employment in detail."));
     }
 
     /**
@@ -658,29 +673,23 @@ public class ViewerTab extends Tab {
 
         btnAssistant.setText(_("Assistant"));
         btnAssistant.setFocusable(false);
-        btnAssistant
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAssistant.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnAssistant.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         btnContract.setText(_("Contract"));
         btnContract.setFocusable(false);
-        btnContract
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnContract.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnContract.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         btnActivityReport.setText(_("Activity Report"));
         btnActivityReport.setFocusable(false);
-        btnActivityReport
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnActivityReport
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnActivityReport.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnActivityReport.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         btnActivityExport.setText(_("Export"));
         btnActivityExport.setFocusable(false);
-        btnActivityExport
-            .setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnActivityExport
-            .setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnActivityExport.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnActivityExport.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -786,7 +795,6 @@ public class ViewerTab extends Tab {
     private javax.swing.JToolBar.Separator separator9;
     private javax.swing.JTable table;
     private javax.swing.JToolBar toolBar;
-
     // End of variables declaration//GEN-END:variables
 
     /**
