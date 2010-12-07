@@ -96,4 +96,45 @@ public class ComboBoxModel extends DefaultComboBoxModel implements
     public boolean contains(Object o) {
         return getIndexOf(o) > -1;
     }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see javax.swing.DefaultComboBoxModel#addElement(java.lang.Object)
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public void addElement(Object element) {
+        if (element instanceof Comparable) {
+            insertElementAt(element, 0);
+        } else {
+            super.addElement(element);
+        }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see javax.swing.DefaultComboBoxModel#insertElementAt(java.lang.Object,
+     * int)
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public void insertElementAt(Object element, int index) {
+        if (element instanceof Comparable) {
+            int size = getSize();
+
+            //  Determine where to insert element to keep model in sorted order
+
+            for (index = 0; index < size; index++) {
+                Comparable c = (Comparable) getElementAt(index);
+
+                if (c.compareTo(element) > 0) {
+                    break;
+                }
+            }
+        }
+
+        super.insertElementAt(element, index);
+    }
 }

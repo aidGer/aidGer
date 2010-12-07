@@ -12,6 +12,7 @@ import javax.swing.SwingUtilities;
 
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
+import de.aidger.utils.Anonymizer;
 import de.aidger.view.models.ComboBoxModel;
 import de.aidger.view.models.UIAssistant;
 import de.aidger.view.tabs.EditorTab;
@@ -97,6 +98,11 @@ public class ContractEditorForm extends JPanel {
 
             for (IAssistant a : assistants) {
                 Assistant assistant = new UIAssistant(a);
+
+                if (assistant.getLastName().equals(Anonymizer.token)
+                        && !editMode) {
+                    continue;
+                }
 
                 cmbAssistantModel.addElement(assistant);
 

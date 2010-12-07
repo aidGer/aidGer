@@ -9,7 +9,8 @@ import de.unistuttgart.iste.se.adohive.model.IAssistant;
  * 
  * @author aidGer Team
  */
-public class UIAssistant extends Assistant implements UIModel {
+public class UIAssistant extends Assistant implements UIModel,
+        Comparable<UIAssistant> {
 
     /**
      * The total hours the assistant is employed for a course.
@@ -93,5 +94,15 @@ public class UIAssistant extends Assistant implements UIModel {
         } else {
             return false;
         }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Comparable#compareTo(java.lang.Object)
+     */
+    @Override
+    public int compareTo(UIAssistant o) {
+        return toString().compareTo(o.toString());
     }
 }
