@@ -2,6 +2,8 @@ package de.aidger.view.forms;
 
 import static de.aidger.utils.Translation._;
 
+import java.text.DecimalFormatSymbols;
+import java.text.MessageFormat;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
@@ -69,7 +71,11 @@ public class HourlyWageEditorForm extends JPanel {
         // add input filters
         InputPatternFilter.addCurrencyFilter(txtWage);
 
-        hlpWage.setToolTipText(_("Only a valid currency format is allowed."));
+        hlpWage.setToolTipText(MessageFormat
+            .format(
+                _("Only a valid currency format is allowed. Example: 8{0}40"),
+                new Object[] { (new DecimalFormatSymbols())
+                    .getDecimalSeparator() }));
 
         if (hw != null) {
             cmbQualification.setSelectedItem(Qualification.valueOf(hw
