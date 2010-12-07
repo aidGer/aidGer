@@ -163,6 +163,10 @@ public class EmploymentEditorForm extends JPanel {
             ComboBoxModel cmbContractModel = new ComboBoxModel(
                 DataType.Contract);
 
+            if (!editMode) {
+                cmbContractModel.addElement(new UIContract());
+            }
+
             for (IContract c : contracts) {
                 Contract contract = new UIContract(c);
 
@@ -213,6 +217,13 @@ public class EmploymentEditorForm extends JPanel {
 
                 dl.txtHourCount.setText(NumberFormat.getInstance().format(
                     employment.getHourCount()));
+            } else {
+                cmbAssistant.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        cmbContract.setSelectedItem(new UIContract());
+                    }
+                });
             }
 
         } catch (AdoHiveException e) {
