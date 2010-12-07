@@ -4,6 +4,7 @@ CHANGES IN VERSION 1.0:
     * [ADD] Start and end date of contracts are used for auto guessing the months of employments (#202)
     * [ADD] Assistants are sorted and anonymous assistants are not shown if user wants to add a new contract (#248)
     * [ADD] Templates for various reports (#183)
+    * [FIX] Qualification of an assistant is also considered in identical assistant inspector (#244)
     * [CHANGE] Use AIDGER_TEST environment variable to use current directory instead of the .config one for storage
     * [CHANGE] Templates are read from the local template folder first (#184)
 

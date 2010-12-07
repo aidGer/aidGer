@@ -90,7 +90,10 @@ public class UIAssistant extends Assistant implements UIModel,
                         .equals(getLastName())))
                     && (getEmail() == null ? a.getEmail() == null : (a
                         .getEmail() == null ? false : a.getEmail().equals(
-                        getEmail())));
+                        getEmail())))
+                    && (getQualification() == null ? a.getQualification() == null
+                            : (a.getQualification() == null ? false : a
+                                .getQualification().equals(getQualification())));
         } else {
             return false;
         }
