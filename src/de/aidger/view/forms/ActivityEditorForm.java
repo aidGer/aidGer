@@ -109,9 +109,13 @@ public class ActivityEditorForm extends JPanel {
             if (name.lastIndexOf(" ") > 0) {
                 initials += name.charAt(0);
                 initials += name.charAt(name.lastIndexOf(" ") + 1);
+            } else if (name.length() >= 2) {
+                initials = name.substring(0, 2);
+            } else {
+                initials = name;
             }
 
-            txtProcessor.setText(initials);
+            txtProcessor.setText(initials.toUpperCase());
 
             txtType.setText(_("General activity"));
 
@@ -477,7 +481,8 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblProcessor, gridBagConstraints);
-        lblProcessor.getAccessibleContext().setAccessibleDescription("processor");
+        lblProcessor.getAccessibleContext().setAccessibleDescription(
+            "processor");
 
         lblInitiator.setText(_("Initiator"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -504,7 +509,8 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblDocumentType, gridBagConstraints);
-        lblDocumentType.getAccessibleContext().setAccessibleDescription("documentType");
+        lblDocumentType.getAccessibleContext().setAccessibleDescription(
+            "documentType");
 
         lblRemark.setText(_("Remark"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -525,7 +531,8 @@ public class ActivityEditorForm extends JPanel {
         lblContent.getAccessibleContext().setAccessibleDescription("content");
 
         spDate.setModel(new javax.swing.SpinnerDateModel());
-        spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate, "dd.MM.yyyy"));
+        spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate,
+            "dd.MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -571,7 +578,8 @@ public class ActivityEditorForm extends JPanel {
         add(txtType, gridBagConstraints);
 
         cmbDocumentType.setEditable(true);
-        cmbDocumentType.setModel(new DefaultComboBoxModel(getDocumentTypeSuggestions()));
+        cmbDocumentType.setModel(new DefaultComboBoxModel(
+            getDocumentTypeSuggestions()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
