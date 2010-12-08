@@ -203,6 +203,12 @@ public class AssistantEditorForm extends JPanel {
         add(lblAutoGuess, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Autocomplete some emailaddresses.
+     * Currently only studi => studi.informatik.uni-stuttgart.de
+     *
+     * @param evt
+     */
     private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
         if (!txtEmail.getText().isEmpty() && txtEmail.getText().contains("@")) {
             String[] email = txtEmail.getText().split("@", 2);
@@ -212,32 +218,46 @@ public class AssistantEditorForm extends JPanel {
             }
         }
     }//GEN-LAST:event_txtEmailFocusLost
-
+    
+    /**
+     * Update the email address if first or last name got updated and email is
+     * empty or a studimail address.
+     *
+     * @param evt
+     */
     private void lblAutoGuessMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAutoGuessMouseClicked
         if (!txtFirstName.getText().isEmpty()
                 && !txtLastName.getText().isEmpty()) {
-            String username;
-            if (txtLastName.getText().length() >= 6) {
-                username = txtLastName.getText().toLowerCase().substring(0, 6);
-            } else {
-                username = txtLastName.getText().toLowerCase();
+            String lastname = replaceUmlaute(txtLastName.getText()).toLowerCase();
+            String firstname = replaceUmlaute(txtFirstName.getText()).toLowerCase();
+            if (lastname.length() >= 6) {
+                lastname = lastname.substring(0, 6);
             }
 
-            txtEmail.setText(username
-                    + txtFirstName.getText().toLowerCase().charAt(0)
-                    + txtFirstName.getText().toLowerCase().charAt(
-                        txtFirstName.getText().length() - 1) + "@"
+            txtEmail.setText(lastname + firstname.charAt(0)
+                    + firstname.charAt(firstname.length() - 1) + "@"
                     + emailSuffix);
             txtEmail.select(0, 0);
         }
     }//GEN-LAST:event_lblAutoGuessMouseClicked
-
+    
     /**
-     * Update the email address if first or last name got updated and email is
-     * empty or a studimail address.
-     * 
-     * @param evt
+     * Replace äöüß with ae and the like ..
+     *
+     * @param str
+     *          The string to modify
+     * @return The modified string
      */
+    private String replaceUmlaute(String str) {
+        str = str.replaceAll( "Ü", "Ue");
+        str = str.replaceAll( "ü", "ue");
+        str = str.replaceAll( "Ö", "Oe");
+        str = str.replaceAll( "ö", "oe");
+        str = str.replaceAll( "Ä", "Ae");
+        str = str.replaceAll( "ä", "ae");
+        str = str.replaceAll( "ß", "ss");
+        return str;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cmbQualification;
     private javax.swing.JLabel lblAutoGuess;
