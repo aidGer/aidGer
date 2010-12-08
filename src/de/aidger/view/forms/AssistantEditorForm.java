@@ -117,6 +117,7 @@ public class AssistantEditorForm extends JPanel {
         lblFirstName.setMinimumSize(new java.awt.Dimension(100, 17));
         lblFirstName.setPreferredSize(new java.awt.Dimension(100, 17));
         add(lblFirstName, new java.awt.GridBagConstraints());
+        lblFirstName.getAccessibleContext().setAccessibleDescription("firstName");
 
         lblLastName.setText(_("Last Name"));
         lblLastName.setMaximumSize(new java.awt.Dimension(100, 17));
@@ -128,6 +129,7 @@ public class AssistantEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblLastName, gridBagConstraints);
+        lblLastName.getAccessibleContext().setAccessibleDescription("lastName");
 
         lblEmail.setText(_("Email"));
         lblEmail.setMaximumSize(new java.awt.Dimension(100, 17));
@@ -139,6 +141,7 @@ public class AssistantEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblEmail, gridBagConstraints);
+        lblEmail.getAccessibleContext().setAccessibleDescription("email");
 
         lblQualification.setText(_("Qualification"));
         lblQualification.setMaximumSize(new java.awt.Dimension(100, 17));
@@ -150,6 +153,7 @@ public class AssistantEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblQualification, gridBagConstraints);
+        lblQualification.getAccessibleContext().setAccessibleDescription("qualification");
 
         txtFirstName.setMinimumSize(new java.awt.Dimension(200, 25));
         txtFirstName.setPreferredSize(new java.awt.Dimension(250, 25));
@@ -168,7 +172,6 @@ public class AssistantEditorForm extends JPanel {
         txtEmail.setMinimumSize(new java.awt.Dimension(200, 25));
         txtEmail.setPreferredSize(new java.awt.Dimension(250, 25));
         txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtEmailFocusLost(evt);
             }
@@ -179,8 +182,7 @@ public class AssistantEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtEmail, gridBagConstraints);
 
-        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(
-            Qualification.values()));
+        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(Qualification.values()));
         cmbQualification.setPreferredSize(new java.awt.Dimension(250, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -189,10 +191,8 @@ public class AssistantEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbQualification, gridBagConstraints);
 
-        lblAutoGuess.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-            "/de/aidger/res/icons/wand.png"))); // NOI18N
+        lblAutoGuess.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/aidger/res/icons/wand.png"))); // NOI18N
         lblAutoGuess.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblAutoGuessMouseClicked(evt);
             }

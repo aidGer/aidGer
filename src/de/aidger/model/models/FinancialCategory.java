@@ -45,7 +45,9 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
     public FinancialCategory() {
         updatePKs = true;
 
-        validatePresenceOf(new String[] { "name" }, new String[] { _("Name") });
+        validatePresenceOf(new String[] { "name", "year", "costUnits",
+                "budgetCosts" }, new String[] { _("Name"), _("Year"),
+                _("Cost unit"), _("Budget Costs") });
     }
 
     /**

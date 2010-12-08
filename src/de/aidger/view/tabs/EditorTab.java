@@ -2,12 +2,14 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
+import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.text.MessageFormat;
 import java.util.Calendar;
 import java.util.List;
 
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.KeyStroke;
@@ -25,6 +27,9 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.models.HourlyWage;
+import de.aidger.model.validators.ExistanceValidator;
+import de.aidger.model.validators.PresenceValidator;
+import de.aidger.model.validators.Validator;
 import de.aidger.view.UI;
 import de.aidger.view.forms.ActivityEditorForm;
 import de.aidger.view.forms.AssistantEditorForm;
@@ -133,6 +138,7 @@ public class EditorTab extends Tab {
     /**
      * Initializes the components and the button actions.
      */
+    @SuppressWarnings("unchecked")
     private void init() {
         initComponents();
 
@@ -154,6 +160,33 @@ public class EditorTab extends Tab {
         } catch (ActionNotFoundException e) {
             UI.displayError(e.getMessage());
         }
+
+        // mark mandatory fields in all editor forms
+        Component[] components = editorForm.getComponents();
+        List<Validator> validators = getModel().getValidators();
+
+        for (Component c : components) {
+            if (c instanceof JLabel) {
+                String name = c.getAccessibleContext()
+                    .getAccessibleDescription();
+
+                for (Validator v : validators) {
+                    if (v instanceof PresenceValidator
+                            || v instanceof ExistanceValidator) {
+                        String[] mandatoryFields = v.getMembers();
+
+                        for (String mandatory : mandatoryFields) {
+                            if (mandatory.equals(name)) {
+                                JLabel l = (JLabel) c;
+                                l.setText(l.getText() + " *");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        addHint(_("Mandatory fields are marked with a star (*)."));
     }
 
     /**

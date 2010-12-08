@@ -110,6 +110,7 @@ public class CostUnitEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblCostUnit, gridBagConstraints);
+        lblCostUnit.getAccessibleContext().setAccessibleDescription("costUnit");
 
         lblFunds.setText(_("Funds"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -118,6 +119,7 @@ public class CostUnitEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblFunds, gridBagConstraints);
+        lblFunds.getAccessibleContext().setAccessibleDescription("funds");
 
         lblTokenDB.setText(_("Database token"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -126,6 +128,7 @@ public class CostUnitEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblTokenDB, gridBagConstraints);
+        lblTokenDB.getAccessibleContext().setAccessibleDescription("tokenDB");
 
         txtCostUnit.setMinimumSize(new java.awt.Dimension(200, 25));
         txtCostUnit.setPreferredSize(new java.awt.Dimension(200, 25));

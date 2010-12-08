@@ -114,9 +114,6 @@ public class EditorSaveAction extends AbstractAction {
             course
                 .setUnqualifiedWorkingHours(form.getUnqualifiedWorkingHours());
         } catch (ParseException e) {
-            course.addError("unqualifiedWorkingHours", _("AWH per group"),
-                new PresenceValidator(course, new String[0], new String[0])
-                    .getMessage());
         }
 
         try {
@@ -193,16 +190,10 @@ public class EditorSaveAction extends AbstractAction {
         try {
             fc.setBudgetCosts(form.getBudgetCosts());
         } catch (NumberFormatException e) {
-            fc.addError("budgetCosts", _("Budget Costs"),
-                new PresenceValidator(fc, new String[0], new String[0])
-                    .getMessage());
         }
 
         try {
             fc.setCostUnits(form.getCostUnits());
-        } catch (NumberFormatException e) {
-            fc.addError("funds", _("Cost unit"), new PresenceValidator(fc,
-                new String[0], new String[0]).getMessage());
         } catch (InvalidLengthException e) {
             fc
                 .addError("funds", _("Cost unit"),
@@ -212,8 +203,6 @@ public class EditorSaveAction extends AbstractAction {
         try {
             fc.setYear(form.getYear());
         } catch (NumberFormatException e) {
-            fc.addError("year", _("Year"), new PresenceValidator(fc,
-                new String[0], new String[0]).getMessage());
         }
 
         try {
@@ -250,8 +239,6 @@ public class EditorSaveAction extends AbstractAction {
         try {
             hw.setWage(round(form.getWage(), 2));
         } catch (ParseException e) {
-            hw.addError("wage", _("Wage"), new PresenceValidator(hw,
-                new String[0], new String[0]).getMessage());
         }
 
         if (form.isEditMode()) {
@@ -364,16 +351,10 @@ public class EditorSaveAction extends AbstractAction {
         employment.setAssistantId(assistantId);
         employment.setCourseId(courseId);
         employment.setContractId(form.getContractId());
+        employment.setFunds(form.getFunds());
         employment.setCostUnit(form.getCostUnit());
         employment.setQualification(form.getQualification());
         employment.setRemark(form.getRemark());
-
-        try {
-            employment.setFunds(form.getFunds());
-        } catch (NumberFormatException e) {
-            employment.addError("funds", _("Funds"), new PresenceValidator(
-                employment, new String[0], new String[0]).getMessage());
-        }
 
         List<Date> dates = form.getDates();
         List<Double> hcs = new ArrayList<Double>();

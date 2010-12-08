@@ -171,6 +171,8 @@ public class FinancialCategoryEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblCostUnit, gridBagConstraints);
+        lblCostUnit.getAccessibleContext()
+            .setAccessibleDescription("costUnits");
 
         JComboBox cmbCostUnit = new JComboBox();
         cmbCostUnit.setModel(new DefaultComboBoxModel(Runtime.getInstance()
@@ -190,6 +192,8 @@ public class FinancialCategoryEditorForm extends JPanel {
         gridBagConstraints.anchor = GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblBudgetCosts, gridBagConstraints);
+        lblBudgetCosts.getAccessibleContext().setAccessibleDescription(
+            "budgetCosts");
 
         JTextField txtBudgetCosts = new JTextField();
         txtBudgetCosts.setMinimumSize(new java.awt.Dimension(200, 25));
@@ -262,6 +266,7 @@ public class FinancialCategoryEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblName, gridBagConstraints);
+        lblName.getAccessibleContext().setAccessibleDescription("name");
 
         lblYear.setText(_("Year"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -270,6 +275,7 @@ public class FinancialCategoryEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblYear, gridBagConstraints);
+        lblYear.getAccessibleContext().setAccessibleDescription("year");
 
         txtName.setMinimumSize(new java.awt.Dimension(200, 25));
         txtName.setPreferredSize(new java.awt.Dimension(200, 25));
