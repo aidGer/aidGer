@@ -111,7 +111,7 @@ public class EditorTab extends Tab {
                 ret += "<" + h.getClass().getName() + "@"
                         + h.getQualification() + "@" + h.getMonth() + "@"
                         + h.getYear();
-            } else {
+            } else if (model.getId() > 0) {
                 ret += "<" + model.getClass().getName() + "@" + model.getId();
             }
         }
