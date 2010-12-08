@@ -279,6 +279,8 @@ public class ActivityEditorForm extends JPanel {
                 cmbAssistantModel.addElement(assistant);
             }
 
+            cmbAssistantModel.setSelectedItem(new UIAssistant());
+
             cmbAssistant.setModel(cmbAssistantModel);
         } catch (AdoHiveException e) {
         }
