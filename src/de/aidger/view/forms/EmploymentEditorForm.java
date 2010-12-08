@@ -41,7 +41,6 @@ import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.AutoCompletion;
-import de.aidger.view.utils.HelpLabel;
 import de.aidger.view.utils.InputPatternFilter;
 import de.aidger.view.utils.NumberFormat;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
@@ -163,6 +162,10 @@ public class EmploymentEditorForm extends JPanel {
             ComboBoxModel cmbContractModel = new ComboBoxModel(
                 DataType.Contract);
 
+            if (!editMode) {
+                cmbContractModel.addElement(new UIContract());
+            }
+
             for (IContract c : contracts) {
                 Contract contract = new UIContract(c);
 
@@ -213,6 +216,13 @@ public class EmploymentEditorForm extends JPanel {
 
                 dl.txtHourCount.setText(NumberFormat.getInstance().format(
                     employment.getHourCount()));
+            } else {
+                cmbAssistant.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        cmbContract.setSelectedItem(new UIContract());
+                    }
+                });
             }
 
         } catch (AdoHiveException e) {
@@ -364,7 +374,6 @@ public class EmploymentEditorForm extends JPanel {
             remove(dateLine.spDate);
             remove(dateLine.lblHourCount);
             remove(dateLine.txtHourCount);
-            remove(dateLine.hlpHourCount);
             remove(dateLine.btnPlusMinus);
         }
 
@@ -372,6 +381,37 @@ public class EmploymentEditorForm extends JPanel {
 
         repaint();
         revalidate();
+    }
+
+    /**
+     * Generates the employments months in concordance to the contract.
+     */
+    private void generateEmploymentMonths() {
+        Contract contract = (Contract) cmbContract.getSelectedItem();
+
+        if (contract == null || contract.getStartDate() == null) {
+            return;
+        }
+
+        Calendar start = Calendar.getInstance();
+        start.setTime(contract.getStartDate());
+        start.set(Calendar.DAY_OF_MONTH, 1);
+
+        Calendar end = Calendar.getInstance();
+        end.setTime(contract.getEndDate());
+        end.set(Calendar.DAY_OF_MONTH, 2);
+
+        clearDateLines();
+
+        addNewDate();
+        dateLines.get(0).spDate.setValue(start.getTime());
+        start.add(Calendar.MONTH, 1);
+
+        while (end.after(start)) {
+            addNewDate();
+
+            start.add(Calendar.MONTH, 1);
+        }
     }
 
     /**
@@ -420,22 +460,32 @@ public class EmploymentEditorForm extends JPanel {
 
         InputPatternFilter.addDoubleFilter(txtHourCount);
 
-        HelpLabel hlpHourCount = new HelpLabel();
-        gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
-        gridBagConstraints.anchor = GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 10);
-        add(hlpHourCount, gridBagConstraints);
+        if (dateLines.isEmpty() && !editMode) {
+            JLabel lblAutoGuess = new JLabel();
+            lblAutoGuess.setIcon(new javax.swing.ImageIcon(getClass()
+                .getResource("/de/aidger/res/icons/wand.png")));
+            lblAutoGuess
+                .setToolTipText(_("Generate employment months in concordance to the contract."));
+            gridBagConstraints = new GridBagConstraints();
+            gridBagConstraints.gridx = 4;
+            gridBagConstraints.gridy = 4;
+            gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+            add(lblAutoGuess, gridBagConstraints);
 
-        hlpHourCount.setToolTipText(_("Only a decimal number is allowed."));
+            lblAutoGuess.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    generateEmploymentMonths();
+                }
+            });
+        }
 
         JButton btnPlusMinus = new JButton();
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 5;
 
         DateLine dl = new DateLine(lblDate, spDate, lblHourCount, txtHourCount,
-            hlpHourCount, btnPlusMinus);
+            btnPlusMinus);
 
         if (dateLines.isEmpty()) {
             EditorTab.setTimeToNow(spDate);
@@ -496,7 +546,6 @@ public class EmploymentEditorForm extends JPanel {
         cmbAssistant = new javax.swing.JComboBox();
         cmbCourse = new javax.swing.JComboBox();
         cmbContract = new javax.swing.JComboBox();
-        lblAutoGuess = new javax.swing.JLabel();
         btnContractAdd = new javax.swing.JButton();
         cmbCostUnit = new javax.swing.JComboBox();
         cmbFunds = new javax.swing.JComboBox();
@@ -511,6 +560,7 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblAssistant, gridBagConstraints);
+        lblAssistant.getAccessibleContext().setAccessibleDescription("assistantId");
 
         lblCourse.setText(_("Course"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -519,6 +569,7 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblCourse, gridBagConstraints);
+        lblCourse.getAccessibleContext().setAccessibleDescription("courseId");
 
         lblContract.setText(_("Contract"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -527,6 +578,7 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblContract, gridBagConstraints);
+        lblContract.getAccessibleContext().setAccessibleDescription("contractId");
 
         lblCostUnit.setText(_("Cost unit"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -535,6 +587,7 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblCostUnit, gridBagConstraints);
+        lblCostUnit.getAccessibleContext().setAccessibleDescription("costUnit");
 
         lblFunds.setText(_("Funds"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -543,6 +596,7 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblFunds, gridBagConstraints);
+        lblFunds.getAccessibleContext().setAccessibleDescription("funds");
 
         lblQualification.setText(_("Qualification"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -551,6 +605,7 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblQualification, gridBagConstraints);
+        lblQualification.getAccessibleContext().setAccessibleDescription("qualification");
 
         lblRemark.setText(_("Remark"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -559,6 +614,7 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblRemark, gridBagConstraints);
+        lblRemark.getAccessibleContext().setAccessibleDescription("remark");
 
         cmbAssistant.setMinimumSize(new java.awt.Dimension(300, 25));
         cmbAssistant.setPreferredSize(new java.awt.Dimension(300, 25));
@@ -586,19 +642,6 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbContract, gridBagConstraints);
-
-        lblAutoGuess.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-            "/de/aidger/res/icons/wand.png"))); // NOI18N
-        lblAutoGuess.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblAutoGuessMouseClicked(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
-        add(lblAutoGuess, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 1;
@@ -614,8 +657,7 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbCostUnit, gridBagConstraints);
 
-        cmbFunds.setModel(new javax.swing.DefaultComboBoxModel(dataManager
-            .getCostUnitMap().toArray()));
+        cmbFunds.setModel(new javax.swing.DefaultComboBoxModel(dataManager.getCostUnitMap().toArray()));
         cmbFunds.setMinimumSize(new java.awt.Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -624,8 +666,7 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbFunds, gridBagConstraints);
 
-        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(
-            Qualification.values()));
+        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(Qualification.values()));
         cmbQualification.setEnabled(false);
         cmbQualification.setMinimumSize(new java.awt.Dimension(300, 25));
         cmbQualification.setPreferredSize(new java.awt.Dimension(300, 25));
@@ -652,34 +693,6 @@ public class EmploymentEditorForm extends JPanel {
         add(filler, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblAutoGuessMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAutoGuessMouseClicked
-        Contract contract = (Contract) cmbContract.getSelectedItem();
-
-        if (contract == null) {
-            return;
-        }
-
-        Calendar start = Calendar.getInstance();
-        start.setTime(contract.getStartDate());
-        start.set(Calendar.DAY_OF_MONTH, 1);
-
-        Calendar end = Calendar.getInstance();
-        end.setTime(contract.getEndDate());
-        end.set(Calendar.DAY_OF_MONTH, 2);
-
-        clearDateLines();
-
-        addNewDate();
-        dateLines.get(0).spDate.setValue(start.getTime());
-        start.add(Calendar.MONTH, 1);
-
-        while (end.after(start)) {
-            addNewDate();
-
-            start.add(Calendar.MONTH, 1);
-        }
-    }//GEN-LAST:event_lblAutoGuessMouseClicked
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnContractAdd;
     private javax.swing.JComboBox cmbAssistant;
@@ -690,7 +703,6 @@ public class EmploymentEditorForm extends JPanel {
     private javax.swing.JComboBox cmbQualification;
     private javax.swing.JLabel filler;
     private javax.swing.JLabel lblAssistant;
-    private javax.swing.JLabel lblAutoGuess;
     private javax.swing.JLabel lblContract;
     private javax.swing.JLabel lblCostUnit;
     private javax.swing.JLabel lblCourse;
@@ -712,7 +724,6 @@ public class EmploymentEditorForm extends JPanel {
         public JSpinner spDate;
         public JLabel lblHourCount;
         public JTextField txtHourCount;
-        public HelpLabel hlpHourCount;
         public JButton btnPlusMinus;
 
         /**
@@ -720,13 +731,11 @@ public class EmploymentEditorForm extends JPanel {
          * 
          */
         public DateLine(JLabel lblDate, JSpinner spDate, JLabel lblHourCount,
-                JTextField txtHourCount, HelpLabel hlpHourCount,
-                JButton btnPlusMinus) {
+                JTextField txtHourCount, JButton btnPlusMinus) {
             this.lblDate = lblDate;
             this.spDate = spDate;
             this.lblHourCount = lblHourCount;
             this.txtHourCount = txtHourCount;
-            this.hlpHourCount = hlpHourCount;
             this.btnPlusMinus = btnPlusMinus;
         }
     }
@@ -765,7 +774,6 @@ public class EmploymentEditorForm extends JPanel {
             remove(dateLine.spDate);
             remove(dateLine.lblHourCount);
             remove(dateLine.txtHourCount);
-            remove(dateLine.hlpHourCount);
             remove(dateLine.btnPlusMinus);
 
             dateLines.remove(dateLine);

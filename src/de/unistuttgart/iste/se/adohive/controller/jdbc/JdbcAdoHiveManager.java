@@ -172,7 +172,7 @@ abstract class JdbcAdoHiveManager<T extends IAdoHiveModel<T>> implements IAdoHiv
 			sb.append("SELECT * FROM ");
 			dialect.quote(tableName, sb);
 			sb.append(" WHERE");
-			sb.append(joinPrepared(params, "AND"));
+			sb.append(joinPrepared(params, " AND"));
 			PreparedStatement stmt = con.prepareStatement(sb.toString());
 			fillPrepared(stmt, params);
 			ResultSet rs = stmt.executeQuery();
@@ -265,9 +265,20 @@ abstract class JdbcAdoHiveManager<T extends IAdoHiveModel<T>> implements IAdoHiv
 		try {
 			stmt = con.prepareStatement("SELECT * FROM "+dialect.quote(tableName)+" OFFSET "+ index +" ROWS FETCH NEXT ROW ONLY");
 		} catch (SQLException e) {
-			throw new AdoHiveDatabaseException(e);
+				throw new AdoHiveDatabaseException(e);
 		}
-		return executeQuery(stmt).get(0);
+		//TODO: DO NOT TRY AT HOME
+		try {
+			return executeQuery(stmt).get(0);
+		} catch (AdoHiveDatabaseException ade) {
+			try {
+				stmt = con.prepareStatement("SELECT * FROM" + dialect.quote(tableName) + " LIMIT 1 OFFSET "+ index);
+			} catch (SQLException e) {
+				throw new AdoHiveDatabaseException(e);
+			}
+			return executeQuery(stmt).get(0);
+		}
+		
 	}
 	
 	@Override
@@ -308,7 +319,8 @@ abstract class JdbcAdoHiveManager<T extends IAdoHiveModel<T>> implements IAdoHiv
 			//I am not really sure what to set here for catalog and schema, needs testing
 			ResultSet columns = metadata.getColumns(null, null, tableName, null);
 			while(columns.next()) {
-				JdbcColumn column = columnMap.get(columns.getString("COLUMN_NAME"));
+				String columnName = columns.getString("COLUMN_NAME");
+				JdbcColumn column = columnMap.get(columnName);
 				if(column == null)
 					throw new AdoHiveException(); //TODO: Message
 				column.setSqlType(columns.getInt("DATA_TYPE"));
@@ -365,7 +377,7 @@ abstract class JdbcAdoHiveManager<T extends IAdoHiveModel<T>> implements IAdoHiv
 		query.append(" SET ");
 		joinPrepared(updateSetColumns, ",",query);
 		query.append(" WHERE ");
-		joinPrepared(updateWhereColumns, "AND", query);
+		joinPrepared(updateWhereColumns, " AND", query);
 		
 		try {
 			updateStatement = con.prepareStatement(query.toString());
@@ -381,7 +393,7 @@ abstract class JdbcAdoHiveManager<T extends IAdoHiveModel<T>> implements IAdoHiv
 		query.append("DELETE FROM ");
 		dialect.quote(tableName, query);
 		query.append(" WHERE");
-		joinPrepared(primaryKeys, "AND", query);
+		joinPrepared(primaryKeys, " AND", query);
 		try {
 			removeStatement = con.prepareStatement(query.toString());
 		} catch (SQLException e) {
@@ -433,7 +445,7 @@ abstract class JdbcAdoHiveManager<T extends IAdoHiveModel<T>> implements IAdoHiv
 		dialect.quote(tableName,sb);
 		if(keys != null && !keys.isEmpty()) {
 		sb.append(" WHERE ");
-		sb.append(joinPrepared(keys, "AND"));
+		sb.append(joinPrepared(keys, " AND"));
 		}
 		PreparedStatement stmt;
 		try {

@@ -47,12 +47,6 @@ public abstract class IAdoHiveManagerTest<T extends IAdoHiveModel<T>> extends IA
 	protected abstract ITestDataProvider getTestDataProvider();
 	
 	/**
-	 * returns the adohive controller for the current testing environment
-	 * @return an adohive controller
-	 */
-	protected abstract AdoHiveController getController();
-	
-	/**
 	 * @return <tt>true</tt> if the item class has an
 	 * id field, <tt>false</tt> otherwise
 	 */
@@ -72,15 +66,7 @@ public abstract class IAdoHiveManagerTest<T extends IAdoHiveModel<T>> extends IA
 	 * @return list with all keys of the item
 	 */
 	protected abstract List<Object> getItemKeys(T item);
-	
-	/**
-	 * can't be named newInstance() because the return
-	 * value isn't a part of the method signature.
-	 * thanks, java...
-	 * @return a new instance of the class under test
-	 */
-	protected abstract IAdoHiveManager<T> getInstance(); 
-	
+
 	/**
 	 * modifies the given item, so that a calls of
 	 * equals of the old item with the new modified
@@ -89,15 +75,9 @@ public abstract class IAdoHiveManagerTest<T extends IAdoHiveModel<T>> extends IA
 	 */
 	protected abstract void modifyItem(T item);
 	
-	@Override
-	public final IAdoHiveList<T> newInstance() {
-		return getInstance();
-	}
-	
 	@Test
 	public void testGetById() throws AdoHiveException {
 		if (itemClassHasId()) {
-			IAdoHiveManager<T> instance = getInstance();
 			T i1 = newE();
 			T i2 = newE();
 			T i3 = newE();
@@ -125,7 +105,6 @@ public abstract class IAdoHiveManagerTest<T extends IAdoHiveModel<T>> extends IA
 	@Test
 	public void testGetByKeys() throws AdoHiveException {
 		if (!itemClassHasId()) {
-			IAdoHiveManager<T> instance = getInstance();
 			T i1 = newE();
 			T i2 = newE();
 			T i3 = newE();
@@ -148,7 +127,6 @@ public abstract class IAdoHiveManagerTest<T extends IAdoHiveModel<T>> extends IA
 
 	@Test
 	public void testGetAll() throws AdoHiveException {
-		IAdoHiveManager<T> instance = getInstance();
 		T i1 = newE();
 		T i2 = newE();
 		T i3 = newE();
@@ -194,7 +172,6 @@ public abstract class IAdoHiveManagerTest<T extends IAdoHiveModel<T>> extends IA
 
 	@Test
 	public void testUpdate() throws AdoHiveException {
-		IAdoHiveManager<T> instance = getInstance();
 		T i1 = newE();
 		T i2;
 		

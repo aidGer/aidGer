@@ -39,7 +39,6 @@ import de.unistuttgart.iste.se.adohive.model.test.ITestDataProvider;
 public abstract class IAssistantManagerTest extends IAdoHiveManagerTest<IAssistant> {
 
 	protected abstract ITestDataProvider getTestDataProvider();
-	protected abstract AdoHiveController getController();
 	
 	@Override
 	protected int getItemId(IAssistant item) {
@@ -70,16 +69,5 @@ public abstract class IAssistantManagerTest extends IAdoHiveManagerTest<IAssista
 	@Override
 	public IAssistant newE() throws AdoHiveException {
 		return getTestDataProvider().newIAssistant();
-	}
-	
-	@Override
-	protected IAdoHiveManager<IAssistant> getInstance() {
-		try {
-			getController().clearAll();
-		} catch (AdoHiveException e) {
-			fail("assistant manager could not be cleaned!");
-		}
-		
-		return getController().getAssistantManager();
 	}
 }

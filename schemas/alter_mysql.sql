@@ -1,29 +1,42 @@
 
--- Beschäftigung ALTER
-ALTER TABLE `Beschaeftigung` CHANGE COLUMN `ID` `ID` INT NOT NULL AUTO_INCREMENT;
-ALTER TABLE `Beschaeftigung` CHANGE COLUMN `Hiwi_ID` `Hilfskraft_ID` INT NOT NULL;
-ALTER TABLE `Beschaeftigung` DROP `RealKosten`;
-ALTER TABLE `Beschaeftigung` ADD`Qualifikation` varchar(1) DEFAULT NULL;
 
---Finanzkategorie
+UPDATE `Beschaeftigung` SET `Kostenstelle` = '11111111' WHERE `Kostenstelle` = 's';
+UPDATE `Beschaeftigung` SET `Kostenstelle` = '22222222' WHERE `Kostenstelle` = 'h';
+UPDATE `Beschaeftigung` SET `Kostenstelle` = '33333333' WHERE `Kostenstelle` = 'd';
+
+ALTER TABLE `Beschaeftigung` 
+CHANGE COLUMN `ID` `ID` INT NOT NULL AUTO_INCREMENT,
+CHANGE COLUMN `Hiwi_ID` `Hilfskraft_ID` INT NOT NULL,
+DROP `RealKosten`,
+ADD`Qualifikation` varchar(1) DEFAULT NULL,
+ADD `Vertrag_ID` INT NOT NULL,
+CHANGE COLUMN `Kostenstelle` `Kostenstelle` INT(11) NOT NULL,
+CHANGE COLUMN `Monat` `Monat` TINYINT DEFAULT NULL,
+CHANGE COLUMN `Jahr` `Jahr` SMALLINT DEFAULT NULL;
+
+
+
+
 ALTER TABLE `FinanzPlan` RENAME `Finanzkategorie`,
-CHANGE COLUMN `FinanzKategorie` `Name` VARCHAR(150) DEFAULT NULL,
+CHANGE COLUMN `Finanzkategorie` `Name` VARCHAR(150) DEFAULT NULL,
 CHANGE COLUMN `PlankostenHaushalt` `Plankosten` int(10) DEFAULT NULL,
 ADD `Kostenstelle` INT NOT NULL,
 DROP PRIMARY KEY, 
 ADD PRIMARY KEY (`ID`, `Kostenstelle`);
 
---HIWI
+
 
 ALTER TABLE `Hiwi` RENAME `Hilfskraft`,
 CHANGE COLUMN `ID` `ID` INT NOT NULL AUTO_INCREMENT,
-CHANGE COLUMN `Studimail` `Email` varchar(255) DEFAULT NULL;
+CHANGE COLUMN `Studimail` `Email` varchar(255) DEFAULT NULL,
+DROP `Stundenlohn`,
+DROP `Handicap`;
 
--- Stundenlohn
+
 ALTER TABLE `Stundenlohn` DROP `ID`,
 ADD PRIMARY KEY (`Qualifikation`, `Jahr`, `Monat`);
 
---Veranstaltung
+
 ALTER TABLE `Veranstaltung` CHANGE COLUMN `ID` `ID` INT NOT NULL AUTO_INCREMENT,
 DROP `Projektart`,
 ADD `Betreuer` VARCHAR(255) DEFAULT NULL,

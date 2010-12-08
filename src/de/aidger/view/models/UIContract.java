@@ -37,6 +37,10 @@ public class UIContract extends Contract implements UIModel {
      */
     @Override
     public String toString() {
+        if (getType() == null) {
+            return "";
+        }
+
         return ContractType.valueOf(getType()).toString()
                 + " ("
                 + (new SimpleDateFormat("dd.MM.yy"))

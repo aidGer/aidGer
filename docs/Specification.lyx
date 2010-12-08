@@ -132,10 +132,6 @@ Der Kunde
 \end_layout
 
 \begin_layout Itemize
-Die Betreuer des Softwarepraktikums
-\end_layout
-
-\begin_layout Itemize
 Die künftige Programmierer bzw.
  Verwalter dieses Projektes
 \end_layout
@@ -563,6 +559,10 @@ Finanzkategorien
 Stundenlöhne
 \end_layout
 
+\begin_layout Itemize
+Kostenstellen
+\end_layout
+
 \begin_layout Standard
 Löschen von Stammdaten soll nur dann möglich sein, wenn sie nicht mehr referenzi
 ert werden.
@@ -606,6 +606,15 @@ Die folgenden Informationen müssen für jeden Stundenlohn erfasst werden:
  Qualifikation, Zeitpunkt, Lohn.
 \end_layout
 
+\begin_layout Subsubsection
+Erfassung von Kostenstellen
+\end_layout
+
+\begin_layout Standard
+Die folgenden Informationen müssen für jede kostenstelle erfasst werden:
+ Kostenstellennummer, Fonds, Datenbankkennung.
+\end_layout
+
 \begin_layout Subsection
 Anzeige des Budgets für Budgetprüfung
 \begin_inset CommandInset label
@@ -621,7 +630,8 @@ name "sub:Anzeige-des-Budgets"
 Das Budget aller Veranstaltungen soll für die Budgetprüfung tabellarisch
  dargestellt werden.
  Dabei soll für jede Veranstaltung angezeigt werden, wie viele Hilfskraftstunden
- (HKS) eingeplant und wie viele davon bereits tatsächlich gebucht sind.
+ (HKS) eingeplant, wie viele davon bereits tatsächlich gebucht sind und
+ wie viele noch verfügbar sind.
 \end_layout
 
 \begin_layout Subsection
@@ -775,11 +785,7 @@ Kostenstelle
 \end_layout
 
 \begin_layout Itemize
-Bemerkung
-\end_layout
-
-\begin_layout Itemize
-Zeitraum (Startdatum und Enddatum)
+Monate der Beschäftigung
 \end_layout
 
 \begin_layout Itemize
@@ -791,7 +797,8 @@ Vertrag
 \end_layout
 
 \begin_layout Standard
-Es müssen zudem Beschäftigungen einzeln gelöscht werden können (siehe auch
+Des Weiteren soll eine Bemerkung zu der Beschäftigung angegeben werden können.
+ Es müssen zudem Beschäftigungen einzeln gelöscht werden können (siehe auch
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -861,24 +868,24 @@ Abschlußdatum des Vertrags
 \end_layout
 
 \begin_layout Itemize
-Bestätigungsdatum des Vertrags
+Anfangsdatum des Vertrags
 \end_layout
 
 \begin_layout Itemize
-Beschäftigungsbeginn
+Enddatum des Vertrags
 \end_layout
 
 \begin_layout Itemize
-Beschäftigungsende
-\end_layout
-
-\begin_layout Itemize
-Art des Vertrags (z.B.
- Neuvertrag, Aufstockung)
+Typ des Vertrags (Neuvertrag, Aufstockung, Reduzierung, Umbuchung)
 \end_layout
 
 \begin_layout Itemize
 Einstellung nach Delegationsverfahren (ja / nein)
+\end_layout
+
+\begin_layout Standard
+Des Weiteren soll nach dem Speichern ein Bestätigungsdatum des Vertrags
+ eingegeben werden können.
 \end_layout
 
 \begin_layout Subsection
@@ -901,11 +908,11 @@ Datum des Vorgangs
 \end_layout
 
 \begin_layout Itemize
-Betroffene Hilfskraft
+Betroffene Hilfskräfte
 \end_layout
 
 \begin_layout Itemize
-Betroffene Veranstaltung
+Betroffene Veranstaltungen
 \end_layout
 
 \begin_layout Itemize
@@ -913,7 +920,7 @@ Bearbeiter
 \end_layout
 
 \begin_layout Itemize
-Sender
+Initiator
 \end_layout
 
 \begin_layout Itemize
@@ -999,7 +1006,7 @@ name "sub:Controlling-via-Monatsauszug"
 \begin_layout Standard
 Um das Überprüfen der Auszugslisten zu vereinfachen, muss für jeden Monat
  ein Monatsauszug erstellt werden, in welcher zu jeder Hilfskraft die Plankosten
- netto und brutto aufgelistet sind.
+ netto aufgelistet sind.
  Dieser Auszug soll komfortabel um den tatsächlichen Lohn ergänzbar sein,
  so dass die realen Kosten aus den Auszügen mit den Plankosten verglichen
  werden können.
@@ -1150,28 +1157,6 @@ Mitteilungen an Bearbeiter
 Die Bearbeiter sollen, z.B.
  bei Überschreitungen von Stundenzahlen der Hilfskräfte, durch visuelle
  Hervorhebung des fraglichen Werts, darauf aufmerksam gemacht werden.
-\end_layout
-
-\begin_layout Subsection
-Ticket-System
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:Ticket-System"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Der Anwender soll bei dem grundsätzlichen Ablauf eines Tickets unterstützt
- werden.
- Dies bedeutet insbesondere, dass der Benutzer pro versandter und empfangener
- eMail zusätzlich einen eMail-Vorgang im System anlegen kann, da jede empfangene
- eMail im Endeffekt ein Vorgang ist.
- Es sollte darüber hinaus eine mögliche Import- und Exportschnittstelle
- vorhergesehen werden, über die Vorgänge in Zukunft mit den Tickets des
- Ticket-Systems verbunden werden können.
 \end_layout
 
 \begin_layout Subsection
@@ -1333,11 +1318,6 @@ name "sub:Erweiterbarkeit"
 
 \begin_layout Itemize
 Das Programm soll ohne großen Aufwand erweiterbar sein.
-\end_layout
-
-\begin_layout Itemize
-Das Programm muss zur Zusammenarbeit mit dem Ticket-System eine entsprechende
- Import- und Exportschnittstelle vorhersehen.
 \end_layout
 
 \begin_layout Itemize
@@ -9776,6 +9756,29 @@ name "sec:Versionshistorie"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection*
+Version 0.5 (07.12.2010)
+\end_layout
+
+\begin_layout Itemize
+Anforderung für Ticket-System entfernt
+\end_layout
+
+\begin_layout Itemize
+Betreuer des Softwarepraktikums aus dem Leserkreis entfernt
+\end_layout
+
+\begin_layout Itemize
+Erweiterung von Stammdatenverwaltung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Stammdatenverwaltung"
+
+\end_inset
+
+ um Kostenstellen 
 \end_layout
 
 \begin_layout Subsection*

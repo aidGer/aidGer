@@ -34,6 +34,9 @@ public class CostUnit extends AbstractModel {
         this.costUnit = "";
         this.funds = "";
         this.tokenDB = "";
+
+        validatePresenceOf(new String[] { "costUnit", "funds", "tokenDB" },
+            new String[] { _("Cost unit"), _("Funds"), _("Database token") });
     }
 
     /**

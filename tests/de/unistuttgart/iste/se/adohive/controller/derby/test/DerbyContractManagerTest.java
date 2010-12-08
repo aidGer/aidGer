@@ -1,5 +1,8 @@
 package de.unistuttgart.iste.se.adohive.controller.derby.test;
 
+import org.junit.Before;
+import org.junit.BeforeClass;
+
 import junit.framework.Assert;
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.controller.ansi.AnsiAdoHiveController;
@@ -17,19 +20,25 @@ public class DerbyContractManagerTest extends IContractManagerTest {
 	protected ITestDataProvider getTestDataProvider() {
 		return tdp;
 	}
-
-	@Override
-	protected AdoHiveController getController() {
+	
+	@BeforeClass
+	public static void setController() {
 		if (controller == null) {
-			 try {
-				controller = AnsiAdoHiveController.getInstance();
+			try {
+				controller = AdoHiveController.getInstance();
+				AdoHiveController.getInstance().clearAll();
 			} catch (AdoHiveException e) {
-				Assert.fail("could not load DerbyAdoHiveController");
 				e.printStackTrace();
+				Assert.fail("could not load DerbyAdoHiveController");
 			}
 		}
-		
-		return controller;
 	}
+	
+	@Before
+	public void initInstance() throws AdoHiveException {
+		instance = controller.getContractManager();
+		instance.clear();
+	}
+
 
 }

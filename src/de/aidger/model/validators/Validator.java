@@ -116,7 +116,7 @@ public abstract class Validator {
                 + name.substring(1);
         try {
             java.lang.reflect.Method m = model.getClass().getDeclaredMethod(
-                    functionname, new Class<?>[0]);
+                functionname, new Class<?>[0]);
             return m.invoke(model, new Object[0]);
         } catch (Exception ex) {
             try {
@@ -125,6 +125,15 @@ public abstract class Validator {
                 return null;
             }
         }
+    }
+
+    /**
+     * Returns the members.
+     * 
+     * @return the members
+     */
+    public String[] getMembers() {
+        return members;
     }
 
 }

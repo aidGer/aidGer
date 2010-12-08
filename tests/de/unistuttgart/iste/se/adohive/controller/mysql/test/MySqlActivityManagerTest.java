@@ -16,32 +16,28 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-package de.unistuttgart.iste.se.adohive.controller.derby.test;
+package de.unistuttgart.iste.se.adohive.controller.mysql.test;
+
+import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
 
-import junit.framework.Assert;
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.controller.ansi.AnsiAdoHiveController;
-import de.unistuttgart.iste.se.adohive.controller.test.IFinancialCategoryManagerTest;
+import de.unistuttgart.iste.se.adohive.controller.test.IActivityManagerTest;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.test.ITestDataProvider;
 import de.unistuttgart.iste.se.adohive.model.test.IndependentTestDataProvider;
 
-public class DerbyFinancialCategoryManagerTest extends IFinancialCategoryManagerTest {
+public class MySqlActivityManagerTest extends IActivityManagerTest {
 
 	private static AdoHiveController controller;
 	private static ITestDataProvider tdp = new IndependentTestDataProvider();
-
-	@Override
-	protected ITestDataProvider getTestDataProvider() {
-		return tdp;
-	}
 	
 	@BeforeClass
 	public static void setController() {
-		if (controller == null) {
+			MySqlInit.init();
 			try {
 				controller = AdoHiveController.getInstance();
 				AdoHiveController.getInstance().clearAll();
@@ -49,12 +45,16 @@ public class DerbyFinancialCategoryManagerTest extends IFinancialCategoryManager
 				e.printStackTrace();
 				Assert.fail("could not load DerbyAdoHiveController");
 			}
-		}
 	}
 	
 	@Before
 	public void initInstance() throws AdoHiveException {
-		instance = controller.getFinancialCategoryManager();
+		instance = controller.getActivityManager();
 		instance.clear();
+	}
+
+	@Override
+	protected ITestDataProvider getTestDataProvider() {
+		return tdp;
 	}
 }

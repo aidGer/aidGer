@@ -2,8 +2,8 @@ package de.aidger.model.models;
 
 import static de.aidger.utils.Translation._;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.controller.ICourseManager;
@@ -83,8 +83,9 @@ public class Course extends AbstractModel<ICourse> implements ICourse {
      */
     public Course() {
         validatePresenceOf(new String[] { "description", "semester",
-                "lecturer", "group" }, new String[] { _("Description"),
-                _("Semester"), _("Lecturer"), _("Group") });
+                "lecturer", "group", "unqualifiedWorkingHours" }, new String[] {
+                _("Description"), _("Semester"), _("Lecturer"), _("Group"),
+                _("AWH per group") });
         validateExistanceOf(new String[] { "financialCategoryId" },
             new String[] { _("Financial Category") }, new FinancialCategory());
         validateFormatOf(new String[] { "semester" },

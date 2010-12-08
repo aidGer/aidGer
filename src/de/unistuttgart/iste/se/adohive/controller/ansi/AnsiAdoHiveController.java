@@ -42,14 +42,17 @@ public class AnsiAdoHiveController extends JdbcAdoHiveController {
 				driver = "org.apache.derby.jdbc.EmbeddedDriver";
 			Class.forName(driver).newInstance(); 
 			//grab the connection conf
-			if(connectionString != null)
-				connection = DriverManager.getConnection(connectionString);//"jdbc:derby:derbyDB;create=true");
-			else
-				connection = DriverManager.getConnection("jdbc:derby:derbyDB;create=true");
+			if(connectionString == null)
+				connectionString = "jdbc:derby:derbyDB;create=true";
+			connection = DriverManager.getConnection(connectionString);//"jdbc:derby:derbyDB;create=true");
 			//create one dialect Object for all managers
 			//NOTE: static does not really work, I would have done this with generics and static methods,
 			//but since generics in Java are crap (erasure), it does not work, so we are stuck with throwing around dialect objects
-			AnsiSqlDialect dialect = new AnsiSqlDialect();
+			AnsiSqlDialect dialect;
+			//if(connectionString.contains("mysql"))
+			//	dialect = new MySqlDialect();
+			//else
+				dialect = new AnsiSqlDialect();
 			//init all managers
 			assistantManager = new AnsiAssistantManager(connection, dialect);
 			financialCategoryManager = new AnsiFinancialCategoryManager(connection, dialect);

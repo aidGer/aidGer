@@ -1,8 +1,9 @@
 package de.aidger.model.models;
 
+import static de.aidger.utils.Translation._;
+
 import java.math.BigDecimal;
 
-import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
 
@@ -41,10 +42,10 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
     public HourlyWage() {
         updatePKs = true;
 
-        validatePresenceOf(new String[] { "qualification" }, new String[] {
-                _("Qualification") });
-        validateInclusionOf(new String[] { "qualification" }, new String[] {
-                _("Qualification") }, new String[] {"g", "u", "b"});
+        validatePresenceOf(new String[] { "qualification", "wage" },
+            new String[] { _("Qualification"), _("Wage") });
+        validateInclusionOf(new String[] { "qualification" },
+            new String[] { _("Qualification") }, new String[] { "g", "u", "b" });
     }
 
     /**
@@ -97,7 +98,7 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
                     && (qualification == null ? h.qualification == null
                             : h.qualification.equals(qualification))
                     && (wage == null ? h.wage == null : wage.subtract(h.wage)
-                            .doubleValue() <= 0.01);
+                        .doubleValue() <= 0.01);
         } else {
             return false;
         }
@@ -121,7 +122,7 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
 
     /**
      * Custom validation function.
-     *
+     * 
      * @return True if the validation is successfull
      */
     public boolean validate() {

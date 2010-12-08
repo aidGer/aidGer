@@ -264,6 +264,8 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblDescription, gridBagConstraints);
+        lblDescription.getAccessibleContext().setAccessibleDescription(
+            "description");
 
         lblSemester.setText(_("Semester"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -272,6 +274,7 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblSemester, gridBagConstraints);
+        lblSemester.getAccessibleContext().setAccessibleDescription("semester");
 
         lblLecturer.setText(_("Lecturer"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -280,6 +283,7 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblLecturer, gridBagConstraints);
+        lblLecturer.getAccessibleContext().setAccessibleDescription("lecturer");
 
         lblAdvisor.setText(_("Advisor"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -288,6 +292,7 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblAdvisor, gridBagConstraints);
+        lblAdvisor.getAccessibleContext().setAccessibleDescription("advisor");
 
         lblNumberOfGroups.setText(_("Number of Groups"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -296,6 +301,8 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblNumberOfGroups, gridBagConstraints);
+        lblNumberOfGroups.getAccessibleContext().setAccessibleDescription(
+            "numberOfGroups");
 
         lblTargetAudience.setText(_("Target Audience"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -304,6 +311,8 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblTargetAudience, gridBagConstraints);
+        lblTargetAudience.getAccessibleContext().setAccessibleDescription(
+            "targetAudience");
 
         txtDescription.setMinimumSize(new java.awt.Dimension(200, 25));
         txtDescription.setPreferredSize(new java.awt.Dimension(200, 25));
@@ -359,6 +368,8 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
         add(lblAWHperGroup, gridBagConstraints);
+        lblAWHperGroup.getAccessibleContext().setAccessibleDescription(
+            "unqualifiedWorkingHours");
 
         lblScope.setText(_("Scope"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -367,6 +378,7 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
         add(lblScope, gridBagConstraints);
+        lblScope.getAccessibleContext().setAccessibleDescription("scope");
 
         lblPart.setText(_("Part"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -375,6 +387,7 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
         add(lblPart, gridBagConstraints);
+        lblPart.getAccessibleContext().setAccessibleDescription("part");
 
         lblGroup.setText(_("Group"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -383,6 +396,7 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
         add(lblGroup, gridBagConstraints);
+        lblGroup.getAccessibleContext().setAccessibleDescription("group");
 
         lblRemark.setText(_("Remark"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -391,6 +405,7 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
         add(lblRemark, gridBagConstraints);
+        lblRemark.getAccessibleContext().setAccessibleDescription("remark");
 
         lblFinancialCategory.setText(_("Financial Category"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -399,6 +414,8 @@ public class CourseEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
         add(lblFinancialCategory, gridBagConstraints);
+        lblFinancialCategory.getAccessibleContext().setAccessibleDescription(
+            "financialCategoryId");
 
         txtAWHperGroup.setMinimumSize(new java.awt.Dimension(200, 25));
         txtAWHperGroup.setPreferredSize(new java.awt.Dimension(200, 25));
@@ -409,7 +426,7 @@ public class CourseEditorForm extends JPanel {
         add(txtAWHperGroup, gridBagConstraints);
 
         cmbScope.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
-                "", "1\u00dc", "2\u00dc", "1P", "2P", "4P", "6P" }));
+                "", "1Ü", "2Ü", "1P", "2P", "4P", "6P" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;

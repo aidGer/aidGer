@@ -69,15 +69,4 @@ public abstract class IHourlyWageManagerTest extends IAdoHiveManagerTest<IHourly
 			item.setWage(BigDecimal.valueOf(23.5));
 		}
 	}
-	
-	@Override
-	protected IAdoHiveManager<IHourlyWage> getInstance() {
-		try {
-			getController().getHourlyWageManager().clear();
-		} catch (AdoHiveException e) {
-			fail("assistant manager could not be cleaned!");
-		}
-		
-		return getController().getHourlyWageManager();
-	}
 }

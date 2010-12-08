@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-01 00:23+0100\n"
+"POT-Creation-Date: 2010-12-08 13:49+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
+"Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -39,14 +39,14 @@ msgstr "Programminformationen anzeigen"
 #: src/de/aidger/controller/actions/ReportExportAction.java:81
 #: src/de/aidger/controller/actions/ViewerActivityExportAction.java:37
 #: src/de/aidger/controller/actions/ViewerActivityExportAction.java:81
-#: src/de/aidger/view/UI.java:671
+#: src/de/aidger/view/UI.java:668
 #: src/de/aidger/view/tabs/ActivityReportViewerTab.java:214
 #: src/de/aidger/view/tabs/BalanceViewerTab.java:277
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:243
 #: src/de/aidger/view/tabs/ControllingViewerTab.java:347
 #: src/de/aidger/view/tabs/ProtocolViewerTab.java:211
-#: src/de/aidger/view/tabs/ViewerTab.java:651
-#: src/de/aidger/view/tabs/ViewerTab.java:678
+#: src/de/aidger/view/tabs/ViewerTab.java:666
+#: src/de/aidger/view/tabs/ViewerTab.java:689
 msgid "Export"
 msgstr "Exportieren"
 
@@ -167,14 +167,14 @@ msgstr "Schließen"
 #: src/de/aidger/controller/actions/DetailViewerEditAction.java:28
 #: src/de/aidger/controller/actions/ViewerEditAction.java:27
 #: src/de/aidger/view/tabs/DetailViewerTab.java:513
-#: src/de/aidger/view/tabs/ViewerTab.java:633
-#: src/de/aidger/view/tabs/ViewerTab.java:698
+#: src/de/aidger/view/tabs/ViewerTab.java:648
+#: src/de/aidger/view/tabs/ViewerTab.java:707
 msgid "Edit"
 msgstr "Bearbeiten"
 
 #: src/de/aidger/controller/actions/DialogAbortAction.java:26
 #: src/de/aidger/controller/actions/EditorCancelAction.java:26
-#: src/de/aidger/view/tabs/EditorTab.java:371
+#: src/de/aidger/view/tabs/EditorTab.java:404
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -184,13 +184,14 @@ msgstr "Aktion abbrechen"
 
 #: src/de/aidger/controller/actions/EditorSaveAction.java:80
 #: src/de/aidger/controller/actions/SettingsSaveAction.java:31
-#: src/de/aidger/view/tabs/EditorTab.java:368
+#: src/de/aidger/view/tabs/EditorTab.java:401
 msgid "Save"
 msgstr "Speichern"
 
 #: src/de/aidger/controller/actions/EditorSaveAction.java:117
-#: src/de/aidger/model/models/Course.java:222
-#: src/de/aidger/view/forms/CourseEditorForm.java:355
+#: src/de/aidger/model/models/Course.java:88
+#: src/de/aidger/model/models/Course.java:223
+#: src/de/aidger/view/forms/CourseEditorForm.java:364
 #: src/de/aidger/view/forms/CourseViewerForm.java:149
 #: src/de/aidger/view/models/CourseTableModel.java:28
 msgid "AWH per group"
@@ -210,7 +211,7 @@ msgstr "Plankosten"
 #: src/de/aidger/model/models/Employment.java:201
 #: src/de/aidger/view/forms/CostUnitEditorForm.java:106
 #: src/de/aidger/view/forms/CostUnitViewerForm.java:49
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:531
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:580
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:153
 #: src/de/aidger/view/forms/FinancialCategoryEditorForm.java:167
 #: src/de/aidger/view/forms/FinancialCategoryViewerForm.java:47
@@ -239,7 +240,7 @@ msgid "Year"
 msgstr "Jahr"
 
 #: src/de/aidger/controller/actions/EditorSaveAction.java:253
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:221
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:227
 #: src/de/aidger/view/forms/HourlyWageViewerForm.java:76
 #: src/de/aidger/view/models/HourlyWageTableModel.java:27
 msgid "Wage"
@@ -248,7 +249,7 @@ msgstr "Lohn"
 #: src/de/aidger/controller/actions/EditorSaveAction.java:268
 #: src/de/aidger/model/models/Contract.java:64
 #: src/de/aidger/model/models/Contract.java:65
-#: src/de/aidger/view/forms/ContractEditorForm.java:280
+#: src/de/aidger/view/forms/ContractEditorForm.java:286
 #: src/de/aidger/view/forms/ContractViewerForm.java:123
 #: src/de/aidger/view/models/ContractTableModel.java:30
 msgid "End date"
@@ -263,7 +264,7 @@ msgstr "muss hinter dem Startdatum liegen"
 #: src/de/aidger/model/models/Employment.java:217
 #: src/de/aidger/view/forms/CostUnitEditorForm.java:114
 #: src/de/aidger/view/forms/CostUnitViewerForm.java:57
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:539
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:588
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:161
 #: src/de/aidger/view/models/CostUnitTableModel.java:22
 #: src/de/aidger/view/models/EmploymentTableModel.java:36
@@ -273,7 +274,7 @@ msgstr "Fonds"
 
 #: src/de/aidger/controller/actions/EditorSaveAction.java:403
 #: src/de/aidger/model/models/Employment.java:205
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:403
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:443
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:145
 #: src/de/aidger/view/models/EmploymentTableModel.java:36
 msgid "Hour count"
@@ -281,7 +282,7 @@ msgstr "Stundenanzahl"
 
 #: src/de/aidger/controller/actions/EditorSaveAction.java:522
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:493
-#: src/de/aidger/view/forms/ActivityEditorForm.java:478
+#: src/de/aidger/view/forms/ActivityEditorForm.java:482
 #: src/de/aidger/view/forms/ActivityViewerForm.java:123
 #: src/de/aidger/view/models/ActivityTableModel.java:28
 #: src/de/aidger/view/tabs/ProtocolViewerTab.java:41
@@ -327,7 +328,7 @@ msgid "No name entered"
 msgstr "Kein Name eingegeben"
 
 #: src/de/aidger/controller/actions/HelpAction.java:35
-#: src/de/aidger/view/UI.java:605
+#: src/de/aidger/view/UI.java:602
 msgid "Help"
 msgstr "Hilfe"
 
@@ -446,8 +447,8 @@ msgid "Please select at least one entry from the table."
 msgstr "Bitte markieren Sie mindestens einen Eintrag aus der Tabelle."
 
 #: src/de/aidger/controller/actions/ViewerActivityReportAction.java:28
-#: src/de/aidger/view/tabs/ViewerTab.java:648
-#: src/de/aidger/view/tabs/ViewerTab.java:671
+#: src/de/aidger/view/tabs/ViewerTab.java:663
+#: src/de/aidger/view/tabs/ViewerTab.java:684
 msgid "Activity Report"
 msgstr "Tätigkeitsnachweis"
 
@@ -470,9 +471,9 @@ msgid "Please select only one entry from the table."
 msgstr "Bitte markieren Sie nur einen Eintrag aus der Tabelle."
 
 #: src/de/aidger/controller/actions/ViewerAddAction.java:27
-#: src/de/aidger/view/UI.java:661
-#: src/de/aidger/view/UI.java:670
-#: src/de/aidger/view/tabs/ViewerTab.java:705
+#: src/de/aidger/view/UI.java:658
+#: src/de/aidger/view/UI.java:667
+#: src/de/aidger/view/tabs/ViewerTab.java:714
 msgid "Add"
 msgstr "Hinzufügen"
 
@@ -483,9 +484,9 @@ msgstr "Hinzufügen"
 #: src/de/aidger/utils/pdf/ControllingConverter.java:412
 #: src/de/aidger/view/forms/ActivityEditorForm.java:245
 #: src/de/aidger/view/forms/ActivityViewerForm.java:91
-#: src/de/aidger/view/forms/ContractEditorForm.java:248
+#: src/de/aidger/view/forms/ContractEditorForm.java:254
 #: src/de/aidger/view/forms/ContractViewerForm.java:91
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:509
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:558
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:113
 #: src/de/aidger/view/models/ActivityTableModel.java:27
 #: src/de/aidger/view/models/ContractTableModel.java:29
@@ -493,8 +494,8 @@ msgstr "Hinzufügen"
 #: src/de/aidger/view/tabs/ActivityReportViewerTab.java:199
 #: src/de/aidger/view/tabs/ControllingViewerTab.java:42
 #: src/de/aidger/view/tabs/ViewerTab.java:66
-#: src/de/aidger/view/tabs/ViewerTab.java:642
-#: src/de/aidger/view/tabs/ViewerTab.java:659
+#: src/de/aidger/view/tabs/ViewerTab.java:657
+#: src/de/aidger/view/tabs/ViewerTab.java:674
 msgid "Assistant"
 msgstr "Hilfskraft"
 
@@ -504,12 +505,12 @@ msgstr "Die zugehörige Hilfskraft konnte nicht angezeigt werden."
 
 #: src/de/aidger/controller/actions/ViewerContractAction.java:31
 #: src/de/aidger/model/models/Employment.java:85
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:523
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:572
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:129
 #: src/de/aidger/view/models/EmploymentTableModel.java:36
 #: src/de/aidger/view/tabs/ViewerTab.java:69
-#: src/de/aidger/view/tabs/ViewerTab.java:645
-#: src/de/aidger/view/tabs/ViewerTab.java:665
+#: src/de/aidger/view/tabs/ViewerTab.java:660
+#: src/de/aidger/view/tabs/ViewerTab.java:679
 msgid "Contract"
 msgstr "Vertrag"
 
@@ -523,15 +524,15 @@ msgstr "Der zugehörige Vertrag konnte nicht angezeigt werden."
 #: src/de/aidger/utils/pdf/BudgetReportConverter.java:467
 #: src/de/aidger/view/forms/ActivityEditorForm.java:169
 #: src/de/aidger/view/forms/ActivityViewerForm.java:99
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:515
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:564
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:121
 #: src/de/aidger/view/models/ActivityTableModel.java:27
 #: src/de/aidger/view/models/EmploymentTableModel.java:35
 #: src/de/aidger/view/tabs/ActivityReportViewerTab.java:33
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:50
 #: src/de/aidger/view/tabs/ViewerTab.java:66
-#: src/de/aidger/view/tabs/ViewerTab.java:639
 #: src/de/aidger/view/tabs/ViewerTab.java:654
+#: src/de/aidger/view/tabs/ViewerTab.java:669
 msgid "Course"
 msgstr "Veranstaltung"
 
@@ -540,8 +541,8 @@ msgid "The related course could not be displayed."
 msgstr "Die zugehörige Veranstaltung konnte nicht angezeigt werden."
 
 #: src/de/aidger/controller/actions/ViewerDeleteAction.java:32
-#: src/de/aidger/view/tabs/ViewerTab.java:636
-#: src/de/aidger/view/tabs/ViewerTab.java:712
+#: src/de/aidger/view/tabs/ViewerTab.java:651
+#: src/de/aidger/view/tabs/ViewerTab.java:721
 msgid "Delete"
 msgstr "Löschen"
 
@@ -568,8 +569,8 @@ msgid "A database error occurred during removing."
 msgstr "Es ist ein Datenbankfehler beim Löschen aufgetreten."
 
 #: src/de/aidger/controller/actions/ViewerDetailViewAction.java:30
-#: src/de/aidger/view/tabs/ViewerTab.java:630
-#: src/de/aidger/view/tabs/ViewerTab.java:691
+#: src/de/aidger/view/tabs/ViewerTab.java:645
+#: src/de/aidger/view/tabs/ViewerTab.java:700
 msgid "View"
 msgstr "Anzeigen"
 
@@ -654,11 +655,11 @@ msgstr "Das Stundenzahl-Limit von {0}h ist für die Hilfskraft {1} in den folgen
 
 #: src/de/aidger/model/models/Activity.java:72
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:492
-#: src/de/aidger/view/forms/ActivityEditorForm.java:464
+#: src/de/aidger/view/forms/ActivityEditorForm.java:466
 #: src/de/aidger/view/forms/ActivityViewerForm.java:107
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:384
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:424
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:137
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:197
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:203
 #: src/de/aidger/view/forms/HourlyWageViewerForm.java:68
 #: src/de/aidger/view/models/ActivityTableModel.java:27
 #: src/de/aidger/view/models/EmploymentTableModel.java:36
@@ -672,9 +673,9 @@ msgstr "Datum"
 #: src/de/aidger/model/models/Contract.java:64
 #: src/de/aidger/model/models/Contract.java:167
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:492
-#: src/de/aidger/view/forms/ActivityEditorForm.java:486
+#: src/de/aidger/view/forms/ActivityEditorForm.java:491
 #: src/de/aidger/view/forms/ActivityViewerForm.java:131
-#: src/de/aidger/view/forms/ContractEditorForm.java:288
+#: src/de/aidger/view/forms/ContractEditorForm.java:294
 #: src/de/aidger/view/forms/ContractViewerForm.java:131
 #: src/de/aidger/view/models/ActivityTableModel.java:28
 #: src/de/aidger/view/models/ContractTableModel.java:31
@@ -685,7 +686,7 @@ msgstr "Typ"
 #: src/de/aidger/model/models/Activity.java:73
 #: src/de/aidger/model/models/Activity.java:191
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:493
-#: src/de/aidger/view/forms/ActivityEditorForm.java:470
+#: src/de/aidger/view/forms/ActivityEditorForm.java:473
 #: src/de/aidger/view/forms/ActivityViewerForm.java:115
 #: src/de/aidger/view/models/ActivityTableModel.java:28
 #: src/de/aidger/view/tabs/ProtocolViewerTab.java:42
@@ -694,7 +695,7 @@ msgstr "Bearbeiter"
 
 #: src/de/aidger/model/models/Activity.java:73
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:492
-#: src/de/aidger/view/forms/ActivityEditorForm.java:510
+#: src/de/aidger/view/forms/ActivityEditorForm.java:518
 #: src/de/aidger/view/forms/ActivityViewerForm.java:155
 #: src/de/aidger/view/models/ActivityTableModel.java:29
 #: src/de/aidger/view/tabs/ProtocolViewerTab.java:41
@@ -703,7 +704,7 @@ msgstr "Inhalt"
 
 #: src/de/aidger/model/models/Activity.java:73
 #: src/de/aidger/model/models/Activity.java:187
-#: src/de/aidger/view/forms/ActivityEditorForm.java:494
+#: src/de/aidger/view/forms/ActivityEditorForm.java:500
 #: src/de/aidger/view/forms/ActivityViewerForm.java:139
 #: src/de/aidger/view/models/ActivityTableModel.java:28
 msgid "Document Type"
@@ -746,9 +747,9 @@ msgstr "Nachname"
 #: src/de/aidger/model/models/HourlyWage.java:47
 #: src/de/aidger/view/forms/AssistantEditorForm.java:143
 #: src/de/aidger/view/forms/AssistantViewerForm.java:77
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:547
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:596
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:169
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:191
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:197
 #: src/de/aidger/view/forms/HourlyWageViewerForm.java:62
 #: src/de/aidger/view/models/AssistantTableModel.java:26
 #: src/de/aidger/view/models/EmploymentTableModel.java:37
@@ -769,7 +770,7 @@ msgid "Assistant is still linked to a Contract"
 msgstr "Es besteht noch eine Verbindung zwischen der Hilfskraft und einem Vertrag"
 
 #: src/de/aidger/model/models/Contract.java:63
-#: src/de/aidger/view/forms/ContractEditorForm.java:256
+#: src/de/aidger/view/forms/ContractEditorForm.java:262
 #: src/de/aidger/view/forms/ContractViewerForm.java:99
 #: src/de/aidger/view/models/ContractTableModel.java:29
 msgid "Completion date"
@@ -777,9 +778,9 @@ msgstr "Abschlußdatum"
 
 #: src/de/aidger/model/models/Contract.java:64
 #: src/de/aidger/model/models/Contract.java:66
-#: src/de/aidger/view/forms/ContractEditorForm.java:272
+#: src/de/aidger/view/forms/ContractEditorForm.java:278
 #: src/de/aidger/view/forms/ContractViewerForm.java:115
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:205
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:211
 #: src/de/aidger/view/models/ContractTableModel.java:30
 msgid "Start date"
 msgstr "Anfangsdatum"
@@ -792,7 +793,7 @@ msgstr "Die Zeitspanne Abschlußdatum und Bestätigungsdatum ist inkorrekt."
 msgid "Contract is still linked to an Employment"
 msgstr "Es besteht noch eine Verbindung zwischen dem Vertrag und einer Beschäftigung"
 
-#: src/de/aidger/model/models/Course.java:86
+#: src/de/aidger/model/models/Course.java:87
 #: src/de/aidger/view/forms/CourseEditorForm.java:262
 #: src/de/aidger/view/forms/CourseViewerForm.java:103
 #: src/de/aidger/view/models/CourseTableModel.java:26
@@ -800,10 +801,10 @@ msgid "Description"
 msgstr "Bezeichnung"
 
 #: src/de/aidger/model/models/Course.java:87
-#: src/de/aidger/model/models/Course.java:91
+#: src/de/aidger/model/models/Course.java:92
 #: src/de/aidger/utils/pdf/BalanceReportConverter.java:499
 #: src/de/aidger/utils/pdf/BudgetReportConverter.java:467
-#: src/de/aidger/view/forms/CourseEditorForm.java:268
+#: src/de/aidger/view/forms/CourseEditorForm.java:270
 #: src/de/aidger/view/forms/CourseViewerForm.java:109
 #: src/de/aidger/view/models/CourseTableModel.java:26
 #: src/de/aidger/view/reports/BalanceReportSemesterPanel.java:78
@@ -816,7 +817,7 @@ msgstr "Semester"
 #: src/de/aidger/model/models/Course.java:87
 #: src/de/aidger/utils/pdf/BalanceReportConverter.java:666
 #: src/de/aidger/utils/pdf/BudgetReportConverter.java:467
-#: src/de/aidger/view/forms/CourseEditorForm.java:276
+#: src/de/aidger/view/forms/CourseEditorForm.java:279
 #: src/de/aidger/view/forms/CourseViewerForm.java:117
 #: src/de/aidger/view/models/CourseTableModel.java:27
 #: src/de/aidger/view/reports/BalanceReportGroupPanel.java:36
@@ -831,7 +832,7 @@ msgstr "Dozent"
 #. NOI18N
 #: src/de/aidger/model/models/Course.java:87
 #: src/de/aidger/utils/pdf/BalanceReportConverter.java:699
-#: src/de/aidger/view/forms/CourseEditorForm.java:379
+#: src/de/aidger/view/forms/CourseEditorForm.java:392
 #: src/de/aidger/view/forms/CourseViewerForm.java:189
 #: src/de/aidger/view/models/CourseTableModel.java:29
 #: src/de/aidger/view/reports/BalanceReportGroupPanel.java:181
@@ -840,32 +841,32 @@ msgstr "Dozent"
 msgid "Group"
 msgstr "Gruppe"
 
-#: src/de/aidger/model/models/Course.java:89
-#: src/de/aidger/view/forms/CourseEditorForm.java:395
+#: src/de/aidger/model/models/Course.java:90
+#: src/de/aidger/view/forms/CourseEditorForm.java:410
 #: src/de/aidger/view/forms/CourseViewerForm.java:205
 #: src/de/aidger/view/models/CourseTableModel.java:29
 #: src/de/aidger/view/tabs/ViewerTab.java:67
 msgid "Financial Category"
 msgstr "Finanzkategorie"
 
-#: src/de/aidger/model/models/Course.java:217
-#: src/de/aidger/view/forms/CourseEditorForm.java:292
+#: src/de/aidger/model/models/Course.java:218
+#: src/de/aidger/view/forms/CourseEditorForm.java:297
 #: src/de/aidger/view/forms/CourseViewerForm.java:133
 #: src/de/aidger/view/models/CourseTableModel.java:27
 msgid "Number of Groups"
 msgstr "Gruppenanzahl"
 
-#: src/de/aidger/model/models/Course.java:218
-#: src/de/aidger/model/models/Course.java:223
+#: src/de/aidger/model/models/Course.java:219
+#: src/de/aidger/model/models/Course.java:224
 #: src/de/aidger/model/models/Employment.java:201
 msgid "has to be bigger than 0"
 msgstr "muss größer als 0 sein"
 
-#: src/de/aidger/model/models/Course.java:241
+#: src/de/aidger/model/models/Course.java:242
 msgid "Course is still linked to an Activity."
 msgstr "Es besteht noch eine Verbindung zwischen der Veranstaltung und einer Aktivität"
 
-#: src/de/aidger/model/models/Course.java:245
+#: src/de/aidger/model/models/Course.java:246
 msgid "Course is still linked to an Employment"
 msgstr "Es besteht noch eine Verbindung zwischen der Veranstaltung und einer Beschäftigung"
 
@@ -945,7 +946,7 @@ msgstr "ist leer"
 msgid "Default error"
 msgstr "Standardfehler"
 
-#: src/de/aidger/utils/Anonymizer.java:89
+#: src/de/aidger/utils/Anonymizer.java:98
 msgid "Anonymizing Assistants failed because of a database error"
 msgstr "Das Anonymisieren der Hilfskräfte schlug aufgrund eines Datenbankfehlers fehl."
 
@@ -1038,7 +1039,7 @@ msgid "Title"
 msgstr "Titel"
 
 #: src/de/aidger/utils/pdf/BalanceReportConverter.java:666
-#: src/de/aidger/view/forms/CourseEditorForm.java:371
+#: src/de/aidger/view/forms/CourseEditorForm.java:383
 #: src/de/aidger/view/forms/CourseViewerForm.java:181
 #: src/de/aidger/view/models/CourseTableModel.java:29
 #: src/de/aidger/view/reports/BalanceReportGroupPanel.java:36
@@ -1046,7 +1047,7 @@ msgid "Part"
 msgstr "Teil"
 
 #: src/de/aidger/utils/pdf/BalanceReportConverter.java:667
-#: src/de/aidger/view/forms/CourseEditorForm.java:300
+#: src/de/aidger/view/forms/CourseEditorForm.java:307
 #: src/de/aidger/view/forms/CourseViewerForm.java:141
 #: src/de/aidger/view/models/CourseTableModel.java:28
 #: src/de/aidger/view/reports/BalanceReportGroupPanel.java:37
@@ -1115,11 +1116,11 @@ msgstr "Reale Kosten (Brutto)"
 
 #: src/de/aidger/utils/pdf/ControllingConverter.java:414
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:493
-#: src/de/aidger/view/forms/ActivityEditorForm.java:502
+#: src/de/aidger/view/forms/ActivityEditorForm.java:509
 #: src/de/aidger/view/forms/ActivityViewerForm.java:147
-#: src/de/aidger/view/forms/CourseEditorForm.java:387
+#: src/de/aidger/view/forms/CourseEditorForm.java:401
 #: src/de/aidger/view/forms/CourseViewerForm.java:197
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:555
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:604
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:177
 #: src/de/aidger/view/models/ActivityTableModel.java:29
 #: src/de/aidger/view/models/CourseTableModel.java:29
@@ -1232,7 +1233,7 @@ msgid "Historical"
 msgstr "Historisch"
 
 #: src/de/aidger/view/SettingsDialog.java:455
-#: src/de/aidger/view/UI.java:674
+#: src/de/aidger/view/UI.java:671
 msgid "Reports"
 msgstr "Berichte"
 
@@ -1249,169 +1250,169 @@ msgstr "Fehler"
 msgid "Info"
 msgstr "Info"
 
-#: src/de/aidger/view/UI.java:289
+#: src/de/aidger/view/UI.java:286
 #, java-format
 msgid "{0} assistants have been anonymized"
 msgstr "{0} Hilfskräfte wurden anonymisiert"
 
-#: src/de/aidger/view/UI.java:304
+#: src/de/aidger/view/UI.java:301
 #, java-format
 msgid "Adding new tab \"{0}\" at position {1}"
 msgstr "Neuer Tab \"{0}\" an die {1}. Stelle hinzugefügt"
 
-#: src/de/aidger/view/UI.java:354
+#: src/de/aidger/view/UI.java:351
 #, java-format
 msgid "Removing {0}. tab"
 msgstr "{0}. Tab gelöscht"
 
-#: src/de/aidger/view/UI.java:449
+#: src/de/aidger/view/UI.java:446
 #, java-format
 msgid "Setting current tab to \"{0}\""
 msgstr "Momentaner Reiter ist nun \"{0}\""
 
-#: src/de/aidger/view/UI.java:545
-#: src/de/aidger/view/UI.java:812
+#: src/de/aidger/view/UI.java:542
+#: src/de/aidger/view/UI.java:809
 msgid "Ready"
 msgstr "Bereit"
 
-#: src/de/aidger/view/UI.java:586
+#: src/de/aidger/view/UI.java:583
 msgid "File"
 msgstr "Datei"
 
-#: src/de/aidger/view/UI.java:645
+#: src/de/aidger/view/UI.java:642
 msgid "Master Data Management"
 msgstr "Stammdatenverwaltung"
 
-#: src/de/aidger/view/UI.java:647
-#: src/de/aidger/view/tabs/ViewerTab.java:506
+#: src/de/aidger/view/UI.java:644
+#: src/de/aidger/view/tabs/ViewerTab.java:521
 msgid "Courses"
 msgstr "Veranstaltungen"
 
-#: src/de/aidger/view/UI.java:648
-#: src/de/aidger/view/tabs/ViewerTab.java:508
+#: src/de/aidger/view/UI.java:645
+#: src/de/aidger/view/tabs/ViewerTab.java:523
 msgid "Assistants"
 msgstr "Hilfskräfte"
 
-#: src/de/aidger/view/UI.java:650
-#: src/de/aidger/view/tabs/ViewerTab.java:510
+#: src/de/aidger/view/UI.java:647
+#: src/de/aidger/view/tabs/ViewerTab.java:525
 msgid "Financial Categories"
 msgstr "Finanzkategorien"
 
-#: src/de/aidger/view/UI.java:652
-#: src/de/aidger/view/tabs/ViewerTab.java:512
+#: src/de/aidger/view/UI.java:649
+#: src/de/aidger/view/tabs/ViewerTab.java:527
 msgid "Hourly Wages"
 msgstr "Stundenlöhne"
 
-#: src/de/aidger/view/UI.java:654
-#: src/de/aidger/view/tabs/ViewerTab.java:514
-msgid "Cost units"
+#: src/de/aidger/view/UI.java:651
+#: src/de/aidger/view/tabs/ViewerTab.java:529
+msgid "Cost Units"
 msgstr "Kostenstellen"
 
-#: src/de/aidger/view/UI.java:657
+#: src/de/aidger/view/UI.java:654
 #: src/de/aidger/view/tabs/WelcomeTab.java:291
 msgid "Employments"
 msgstr "Beschäftigungen"
 
-#: src/de/aidger/view/UI.java:659
-#: src/de/aidger/view/UI.java:667
+#: src/de/aidger/view/UI.java:656
+#: src/de/aidger/view/UI.java:664
 #: src/de/aidger/view/tabs/WelcomeTab.java:476
 msgid "Overview"
 msgstr "Übersicht"
 
-#: src/de/aidger/view/UI.java:663
-#: src/de/aidger/view/tabs/ViewerTab.java:518
+#: src/de/aidger/view/UI.java:660
+#: src/de/aidger/view/tabs/ViewerTab.java:533
 msgid "Contracts"
 msgstr "Verträge"
 
-#: src/de/aidger/view/UI.java:666
+#: src/de/aidger/view/UI.java:663
 msgid "Activities"
 msgstr "Vorgänge"
 
 #.
 #. * This is a full balance report.
 #.
-#: src/de/aidger/view/UI.java:675
+#: src/de/aidger/view/UI.java:672
 #: src/de/aidger/view/tabs/BalanceViewerTab.java:75
 msgid "Full Balance Report"
 msgstr "Bilanzbericht - Gesamt"
 
-#: src/de/aidger/view/UI.java:677
+#: src/de/aidger/view/UI.java:674
 #: src/de/aidger/view/tabs/BalanceViewerTab.java:88
 msgid "Annual Balance Report"
 msgstr "Jahresbilanz"
 
-#: src/de/aidger/view/UI.java:679
+#: src/de/aidger/view/UI.java:676
 #: src/de/aidger/view/tabs/BalanceViewerTab.java:102
 msgid "Semester Balance Report"
 msgstr "Semesterbilanz"
 
-#: src/de/aidger/view/UI.java:681
+#: src/de/aidger/view/UI.java:678
 #: src/de/aidger/view/tabs/ActivityReportViewerTab.java:273
 msgid "Generate Activity Report"
 msgstr "Tätigkeitsnachweis Generieren"
 
-#: src/de/aidger/view/UI.java:684
+#: src/de/aidger/view/UI.java:681
 msgid "Controlling"
 msgstr "Controlling"
 
-#: src/de/aidger/view/UI.java:685
+#: src/de/aidger/view/UI.java:682
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:523
 msgid "Course Controlling"
 msgstr "Controlling Veranstaltungen"
 
-#: src/de/aidger/view/UI.java:687
+#: src/de/aidger/view/UI.java:684
 #: src/de/aidger/view/tabs/ControllingViewerTab.java:473
 msgid "Assistant Controlling"
 msgstr "Controlling Hilfskräfte"
 
-#: src/de/aidger/view/UI.java:690
+#: src/de/aidger/view/UI.java:687
 msgid "Quick Settings"
 msgstr "Schnelleinstellungen"
 
-#: src/de/aidger/view/UI.java:692
+#: src/de/aidger/view/UI.java:689
 msgid "Remember my tabs"
 msgstr "Merke meine Reiter"
 
-#: src/de/aidger/view/UI.java:703
+#: src/de/aidger/view/UI.java:700
 msgid "Open reports instantly"
 msgstr "Berichte sofort öffnen"
 
-#: src/de/aidger/view/UI.java:711
+#: src/de/aidger/view/UI.java:708
 msgid "Historical calculation"
 msgstr "Historische Berechnung"
 
-#: src/de/aidger/view/UI.java:719
+#: src/de/aidger/view/UI.java:716
 msgid "Pessimistic calculation"
 msgstr "Pessimistische Berechnung"
 
-#: src/de/aidger/view/UI.java:780
+#: src/de/aidger/view/UI.java:777
 msgid "Open a new tab"
 msgstr "Öffnet einen neuen Tab"
 
-#: src/de/aidger/view/UI.java:928
+#: src/de/aidger/view/UI.java:925
 #, java-format
 msgid "Could not find tab class {0}"
 msgstr "Die Reiterklasse \"{0}\" konnte nicht gefunden werden."
 
-#: src/de/aidger/view/UI.java:932
+#: src/de/aidger/view/UI.java:929
 #, java-format
 msgid "Could not find the correct constructor: {0}"
 msgstr "Konnte den korrekten Konstruktor nicht finden: {0}"
 
-#: src/de/aidger/view/UI.java:936
+#: src/de/aidger/view/UI.java:933
 #, java-format
 msgid "Instantiating the class {0} failed"
 msgstr "Instanzierung der Klasse {0} ist fehlgeschlagen"
 
-#: src/de/aidger/view/UI.java:939
+#: src/de/aidger/view/UI.java:936
 msgid "Can't access a needed function"
 msgstr "Kann nicht auf eine benötigte Funktion zugreifen"
 
-#: src/de/aidger/view/UI.java:941
+#: src/de/aidger/view/UI.java:938
 msgid "Incorrect arguments saved for a tab"
 msgstr "Inkorrekte Argumente wurden für den Reiter gespeichert"
 
-#: src/de/aidger/view/UI.java:946
+#: src/de/aidger/view/UI.java:943
 msgid "Getting the model from the database failed"
 msgstr "Das Model konnte nicht aus der Datenbank geholt werden"
 
@@ -1429,23 +1430,23 @@ msgstr "Allgemeiner Vorgang"
 msgid "The already entered initiator will be removed."
 msgstr "Der bisher eingetragene Initiator wird gelöscht."
 
-#: src/de/aidger/view/forms/ActivityEditorForm.java:430
+#: src/de/aidger/view/forms/ActivityEditorForm.java:432
 msgid "Employment application"
 msgstr "Antrag auf Beschäftigung"
 
-#: src/de/aidger/view/forms/ActivityEditorForm.java:430
+#: src/de/aidger/view/forms/ActivityEditorForm.java:432
 msgid "Tax card"
 msgstr "Lohnsteuerkarte"
 
-#: src/de/aidger/view/forms/ActivityEditorForm.java:431
+#: src/de/aidger/view/forms/ActivityEditorForm.java:433
 msgid "Copy of social security card"
 msgstr "Kopie Sozialversicherungsausweis"
 
-#: src/de/aidger/view/forms/ActivityEditorForm.java:431
+#: src/de/aidger/view/forms/ActivityEditorForm.java:433
 msgid "Approved labor contract"
 msgstr "Genehmigter Arbeitsvertrag"
 
-#: src/de/aidger/view/forms/ActivityEditorForm.java:546
+#: src/de/aidger/view/forms/ActivityEditorForm.java:554
 msgid "Referenced assistants were initiators"
 msgstr "Referenzierte Hilfskräfte waren die Initiatoren"
 
@@ -1458,33 +1459,33 @@ msgstr "Referenzierte Hilfskräfte waren die Initiatoren"
 msgid "None"
 msgstr "Keine"
 
-#: src/de/aidger/view/forms/ContractEditorForm.java:33
+#: src/de/aidger/view/forms/ContractEditorForm.java:34
 msgid "New contract"
 msgstr "Neuvertrag"
 
-#: src/de/aidger/view/forms/ContractEditorForm.java:33
+#: src/de/aidger/view/forms/ContractEditorForm.java:34
 msgid "Increase"
 msgstr "Aufstockung"
 
-#: src/de/aidger/view/forms/ContractEditorForm.java:34
+#: src/de/aidger/view/forms/ContractEditorForm.java:35
 msgid "Decrease"
 msgstr "Reduzierung"
 
-#: src/de/aidger/view/forms/ContractEditorForm.java:34
+#: src/de/aidger/view/forms/ContractEditorForm.java:35
 msgid "Rebooking"
 msgstr "Umbuchung"
 
-#: src/de/aidger/view/forms/ContractEditorForm.java:139
+#: src/de/aidger/view/forms/ContractEditorForm.java:145
 msgid "Confirmation date can be entered after saving the contract."
 msgstr "Das Bestätigungsdatum kann nach dem Speichern des Vertrags eingegeben werden."
 
-#: src/de/aidger/view/forms/ContractEditorForm.java:264
+#: src/de/aidger/view/forms/ContractEditorForm.java:270
 #: src/de/aidger/view/forms/ContractViewerForm.java:107
 #: src/de/aidger/view/models/ContractTableModel.java:30
 msgid "Confirmation date"
 msgstr "Bestätigungsdatum"
 
-#: src/de/aidger/view/forms/ContractEditorForm.java:296
+#: src/de/aidger/view/forms/ContractEditorForm.java:302
 #: src/de/aidger/view/forms/ContractViewerForm.java:139
 #: src/de/aidger/view/models/ContractTableModel.java:31
 msgid "Delegation"
@@ -1510,7 +1511,6 @@ msgstr "Kennung in Datenbank"
 
 #. help info for user
 #: src/de/aidger/view/forms/CourseEditorForm.java:54
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:431
 msgid "Only a decimal number is allowed."
 msgstr "Nur eine Dezimalzahl ist erlaubt."
 
@@ -1522,13 +1522,13 @@ msgstr "Nur ein Buchstabe ist erlaubt."
 msgid "Only the format SS[XX], WS[XXXX] and year in 4 digits is allowed."
 msgstr "Nur das Format SS[XX], WS[XXXX] und ein Jahr in 4 Stellen ist erlaubt."
 
-#: src/de/aidger/view/forms/CourseEditorForm.java:284
+#: src/de/aidger/view/forms/CourseEditorForm.java:288
 #: src/de/aidger/view/forms/CourseViewerForm.java:125
 #: src/de/aidger/view/models/CourseTableModel.java:27
 msgid "Advisor"
 msgstr "Betreuer"
 
-#: src/de/aidger/view/forms/CourseEditorForm.java:363
+#: src/de/aidger/view/forms/CourseEditorForm.java:374
 #: src/de/aidger/view/forms/CourseViewerForm.java:173
 #: src/de/aidger/view/models/CourseTableModel.java:28
 msgid "Scope"
@@ -1538,6 +1538,10 @@ msgstr "Umfang"
 msgid "Total budgets"
 msgstr "Gesamt verfügbare HKS"
 
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:468
+msgid "Generate employment months in concordance to the contract."
+msgstr "Generiere die Monate der Beschäftigung anhand der Vertragsdaten."
+
 #: src/de/aidger/view/forms/FinancialCategoryEditorForm.java:57
 msgid "Only a year in 4 digits is allowed."
 msgstr "Nur ein Jahr in 4 Stellen ist erlaubt."
@@ -1546,26 +1550,27 @@ msgstr "Nur ein Jahr in 4 Stellen ist erlaubt."
 msgid "Only a number is allowed."
 msgstr "Nur eine Zahl ist erlaubt."
 
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:26
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:28
 #: src/de/aidger/view/tabs/WelcomeTab.java:261
 msgid "Unchecked"
 msgstr "Ungeprüft"
 
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:26
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:28
 #: src/de/aidger/view/tabs/WelcomeTab.java:262
 msgid "Checked"
 msgstr "Geprüft"
 
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:26
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:28
 #: src/de/aidger/view/tabs/WelcomeTab.java:263
 msgid "Bachelor"
 msgstr "Bachelor"
 
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:72
-msgid "Only a valid currency format is allowed."
-msgstr "Nur ein gültiges Geldformat ist erlaubt."
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:76
+#, java-format
+msgid "Only a valid currency format is allowed. Example: 8{0}40"
+msgstr "Nur ein gültiges Geldformat ist erlaubt. Beispiel: 8{0}40"
 
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:213
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:219
 msgid "Finish date"
 msgstr "Enddatum"
 
@@ -1671,32 +1676,27 @@ msgstr "Zugehörige Veranstaltungen"
 msgid "View {0}"
 msgstr "{0} anzeigen"
 
-#: src/de/aidger/view/tabs/EditorTab.java:206
+#: src/de/aidger/view/tabs/EditorTab.java:189
+msgid "Mandatory fields are marked with a star (*)."
+msgstr "Pflichtfelder sind mit einem Stern (*) gekennzeichnet."
+
+#: src/de/aidger/view/tabs/EditorTab.java:239
 #, java-format
 msgid "Add {0}"
 msgstr "{0} hinzufügen"
 
-#: src/de/aidger/view/tabs/EditorTab.java:212
+#: src/de/aidger/view/tabs/EditorTab.java:245
 #, java-format
 msgid "Edit {0}"
 msgstr "{0} bearbeiten"
 
-#: src/de/aidger/view/tabs/EditorTab.java:387
+#: src/de/aidger/view/tabs/EditorTab.java:420
 msgid "Hints"
 msgstr "Hinweise"
 
 #: src/de/aidger/view/tabs/EmptyTab.java:36
 msgid "(Unnamed)"
 msgstr "(Unbenannt)"
-
-#: src/de/aidger/view/tabs/HistoryTab.java:46
-msgid "Last Activities"
-msgstr "Letzte Vorgänge"
-
-#: src/de/aidger/view/tabs/HistoryTab.java:48
-#: src/de/aidger/view/tabs/WelcomeTab.java:367
-msgid "Last Changes"
-msgstr "Letzte Änderungen"
 
 #: src/de/aidger/view/tabs/ProtocolViewerTab.java:152
 msgid "Export Activities"
@@ -1725,7 +1725,7 @@ msgstr "Vorgang"
 #: src/de/aidger/view/tabs/ViewerTab.java:396
 #: src/de/aidger/view/tabs/ViewerTab.java:410
 #: src/de/aidger/view/tabs/ViewerTab.java:460
-#: src/de/aidger/view/tabs/ViewerTab.java:739
+#: src/de/aidger/view/tabs/ViewerTab.java:748
 msgid "Search"
 msgstr "Suchen"
 
@@ -1738,15 +1738,27 @@ msgstr "1 Objekt selektiert."
 msgid "{0} entities selected."
 msgstr "{0} Objekte selektiert."
 
-#: src/de/aidger/view/tabs/ViewerTab.java:516
+#: src/de/aidger/view/tabs/ViewerTab.java:494
+msgid "Show the course of the selected employment in detail."
+msgstr "Zeige die Veranstaltung der markierten Beschäftigung im Detail."
+
+#: src/de/aidger/view/tabs/ViewerTab.java:496
+msgid "Show the assistant of the selected employment in detail."
+msgstr "Zeige die Hilfskraft der markierten Beschäftigung im Detail."
+
+#: src/de/aidger/view/tabs/ViewerTab.java:498
+msgid "Show the contract of the selected employment in detail."
+msgstr "Zeige den Vertrag der markierten Beschäftigung im Detail."
+
+#: src/de/aidger/view/tabs/ViewerTab.java:531
 msgid "Employment overview"
 msgstr "Beschäftigungsübersicht"
 
-#: src/de/aidger/view/tabs/ViewerTab.java:520
+#: src/de/aidger/view/tabs/ViewerTab.java:535
 msgid "Activitiy overview"
 msgstr "Vorgangsübersicht"
 
-#: src/de/aidger/view/tabs/ViewerTab.java:522
+#: src/de/aidger/view/tabs/ViewerTab.java:537
 msgid "Data"
 msgstr "Daten"
 
@@ -1846,6 +1858,10 @@ msgstr "Anzahl der Beschäftigungen"
 #: src/de/aidger/view/tabs/WelcomeTab.java:347
 msgid "Welcome to aidGer"
 msgstr "Willkommen bei aidGer"
+
+#: src/de/aidger/view/tabs/WelcomeTab.java:367
+msgid "Last Changes"
+msgstr "Letzte Änderungen"
 
 #: src/de/aidger/view/tabs/WelcomeTab.java:384
 msgid "Last activities"
@@ -1958,182 +1974,133 @@ msgstr ""
 msgid "Welcome to aidGer."
 msgstr "Willkommen bei aidGer."
 
-#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:315
-#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:329
+#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:322
+#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:337
 msgid "COLUMN_NAME"
 msgstr ""
 
-#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:319
+#: src/de/unistuttgart/iste/se/adohive/controller/jdbc/JdbcAdoHiveManager.java:327
 msgid "IS_AUTOINCREMENT"
 msgstr ""
 
+#~ msgid "Cost units"
+#~ msgstr "Kostenstellen"
+#~ msgid "Last Activities"
+#~ msgstr "Letzte Vorgänge"
 #~ msgid "Continue"
 #~ msgstr "Weiter"
-
 #~ msgid "Close the dialog"
 #~ msgstr "Den Dialog schließen"
-
 #~ msgid "First Start"
 #~ msgstr "Erster Start"
-
 #~ msgid "Before you can start working, please enter your Name."
 #~ msgstr ""
 #~ "Bevor sie mit der Arbeit beginnen können, geben sie bitte ihren Namen an."
-
 #~ msgid "It will be used in all your activities."
 #~ msgstr "Dieser wird in allen Aktivitäten verwendet."
-
 #~ msgid ""
 #~ "While you enter your name, aidGer will try to connect to the database."
 #~ msgstr ""
 #~ "Während sie ihren Namen eingeben, wird aidGer versuchen zur Datenbank zu "
 #~ "verbinden."
-
 #~ msgid "Add Activity"
 #~ msgstr "Vorgang hinzufügen"
-
 #~ msgid "Add Employment"
 #~ msgstr "Beschäftigung hinzufügen"
-
 #~ msgid "Only a maximal length of 2 is allowed."
 #~ msgstr "Nur eine Maximallänge von 2 ist erlaubt."
-
 #~ msgid "Only a maximum length of 10 is allowed."
 #~ msgstr "Nur eine Maximalzahl von 10 ist erlaubt."
-
 #~ msgid "Only a number with 8 digits is allowed."
 #~ msgstr "Nur eine Zahl mit 8 Stellen ist erlaubt."
-
 #~ msgid "Personal"
 #~ msgstr "Persönlich"
-
 #~ msgid "Telephone"
 #~ msgstr "Telefon"
-
 #~ msgid "Internal mail"
 #~ msgstr "Hauspost"
-
 #~ msgid "External mail"
 #~ msgstr "Externe Post"
-
 #~ msgid "Transmission Type"
 #~ msgstr "Übermittlungsweg"
-
 #~ msgid "Show employments"
 #~ msgstr "Beschäftigungen anzeigen"
-
 #~ msgid "Hire assistant"
 #~ msgstr "Hilfskraft einstellen"
-
 #~ msgid "Show contracts"
 #~ msgstr "Verträge anzeigen"
-
 #~ msgid "Show activities"
 #~ msgstr "Vorgänge anzeigen"
-
 #~ msgid "Full Balance"
 #~ msgstr "Gesamtbilanz"
-
 #~ msgid "Annual Balance"
 #~ msgstr "Jahresbilanz"
-
 #~ msgid "Semester Balance"
 #~ msgstr "Semesterbilanz"
-
 #~ msgid "Check courses"
 #~ msgstr "Veranstaltungen prüfen"
-
 #~ msgid "Check assistants"
 #~ msgstr "Hilfskräfte prüfen"
-
 #~ msgid "Activity report"
 #~ msgstr "Tätigkeitsnachweis"
-
 #~ msgid "Balance Viewing"
 #~ msgstr "Bilanz Anzeige"
-
 #~ msgid "Ignore employments with missing hourly wages"
 #~ msgstr "Beschäftigungen mit fehlenden Stundenlöhnen ignorieren"
-
 #~ msgid "Sender"
 #~ msgstr "Einsender"
 
 #, fuzzy
 #~ msgid "Untitled"
 #~ msgstr "Titel"
-
 #~ msgid "Edit course"
 #~ msgstr "Veranstaltung bearbeiten"
-
 #~ msgid "Edit assistant"
 #~ msgstr "Hilfskraft bearbeiten"
-
 #~ msgid "Edit financial category"
 #~ msgstr "Finanzkategorie bearbeiten"
-
 #~ msgid "Edit hourly wage"
 #~ msgstr "Stundenlohn bearbeiten"
-
 #~ msgid "Edit employment"
 #~ msgstr "Beschäftigung bearbeiten"
-
 #~ msgid "Edit contract"
 #~ msgstr "Vertrag bearbeiten"
-
 #~ msgid "Edit activity"
 #~ msgstr "Vorgang bearbeiten"
-
 #~ msgid "Add course"
 #~ msgstr "Veranstaltung hinzufügen"
-
 #~ msgid "Add assistant"
 #~ msgstr "Hilfskraft hinzufügen"
-
 #~ msgid "Add financial category"
 #~ msgstr "Finanzkategorie hinzufügen"
-
 #~ msgid "Add hourly wage"
 #~ msgstr "Stundenlohn hinzufügen"
-
 #~ msgid "View course"
 #~ msgstr "Veranstaltung anzeigen"
-
 #~ msgid "View assistant"
 #~ msgstr "Hilfskraft anzeigen"
-
 #~ msgid "View financial category"
 #~ msgstr "Finanzkategorie anzeigen"
-
 #~ msgid "View hourly wage"
 #~ msgstr "Stundenlohn anzeigen"
-
 #~ msgid "View employment"
 #~ msgstr "Beschäftigung anzeigen"
-
 #~ msgid "View activity"
 #~ msgstr "Vorgang anzeigen"
-
 #~ msgid "Master Data Courses"
 #~ msgstr "Stammdaten Veranstaltungen"
-
 #~ msgid "Master Data Assistants"
 #~ msgstr "Stammdaten Hilfskräfte"
-
 #~ msgid "Master Data Financial Categories"
 #~ msgstr "Stammdaten Finanzkategorien"
-
 #~ msgid "Master Data Hourly Wages"
 #~ msgstr "Stammdaten Stundenlöhne"
-
 #~ msgid "Couldn't create lockfile"
 #~ msgstr "Konnte Lockdatei nicht erstellen"
-
 #~ msgid "Wrong format!"
 #~ msgstr "Falsche Format!"
-
 #~ msgid "No initials entered"
 #~ msgstr "Keine Initialen eingegeben"
-
 #~ msgid "Time"
 #~ msgstr "Zeit"
 
@@ -2144,138 +2111,95 @@ msgstr ""
 #, fuzzy
 #~ msgid "Remaining budget costs"
 #~ msgstr "Übrige HKS"
-
 #~ msgid "Username is empty."
 #~ msgstr "Name ist leer."
 
 #, fuzzy
 #~ msgid "Assistang"
 #~ msgstr "Hilfskraft"
-
 #~ msgid "Course budgets"
 #~ msgstr "Gebuchte HKS"
 
 #, fuzzy
 #~ msgid "Assistant budgets"
 #~ msgstr "Hilfskräfte"
-
 #~ msgid "Budget viewing"
 #~ msgstr "Budgetanzeige"
-
 #~ msgid "Protocol Viewing"
 #~ msgstr "Protokollanzeige"
-
 #~ msgid "Budget Check"
 #~ msgstr "Budgetprüfung"
-
 #~ msgid "View budget checks"
 #~ msgstr "Budgetprüfung anzeigen"
-
 #~ msgid "Activites"
 #~ msgstr "Vorgänge"
-
 #~ msgid "Choose a month"
 #~ msgstr "Wähle einen Monat"
-
 #~ msgid "Only a number with maximum length of 9 is allowed."
 #~ msgstr "Nur eine Zahl mit einer Maximallänge von 9 ist erlaubt."
-
 #~ msgid "Add Filter"
 #~ msgstr "Filter hinzufügen"
-
 #~ msgid "Granted AWH"
 #~ msgstr "Genehmigte HKS"
-
 #~ msgid ""
 #~ "You have hired the unchecked or bachelor assistant more than 6 years."
 #~ msgstr ""
 #~ "Sie haben die ungeprüfte oder Bachelor Hilfskraft mehr als 6 Jahre "
 #~ "eingestellt."
-
 #~ msgid "Create new employment"
 #~ msgstr "Neue Beschäftigung anlegen"
-
 #~ msgid "Budget costs from student fees"
 #~ msgstr "Plankosten aus Studiengebühren"
-
 #~ msgid "Budget costs from resources"
 #~ msgstr "Plankosten aus Haushaltsmitteln"
-
-#, fuzzy
-#~ msgid "Cost Unit"
-#~ msgstr "Kostenstelle"
-
 #~ msgid "Master Data"
 #~ msgstr "Stammdaten"
-
 #~ msgid "Protocol"
 #~ msgstr "Vorgangsprotokoll"
-
 #~ msgid "Financial Category Viewing"
 #~ msgstr "Finanzkategorieanzeige"
-
 #~ msgid "Fund"
 #~ msgstr "Fund"
-
 #~ msgid "eMail Address"
 #~ msgstr "Emailaddresse"
-
 #~ msgid "Comment"
 #~ msgstr "Kommentar"
-
 #~ msgid "Approved HKS"
 #~ msgstr "Genehmigte HKS"
-
 #~ msgid "Hourly Wage Viewing"
 #~ msgstr "Stundenlohnanzeige"
-
 #~ msgid "Effective Date"
 #~ msgstr "Zeitpunkt der Inkrafttretung"
-
 #~ msgid "Welcome"
 #~ msgstr "Willkommen"
-
 #~ msgid "Partial Balance"
 #~ msgstr "Teilbilanz"
-
 #~ msgid "Existing filters"
 #~ msgstr "Existierende Filter"
-
 #~ msgid "Could not remove model from database."
 #~ msgstr "Das Model konnte nicht aus der Datenbank gelöscht werden."
-
 #~ msgid "Readding model: {0}"
 #~ msgstr "Füge Model erneut hinzu: {0}"
-
 #~ msgid "Caught exception in getActivities(assistant): {0}"
 #~ msgstr "Ausnahme in getActivities(assistant): {0}"
-
 #~ msgid "Caught exception in getActivities(course): {0}"
 #~ msgstr "Ausnahme in getActivities(course): {0}"
-
 #~ msgid "Fonds"
 #~ msgstr "Fonds"
-
 #~ msgid "Validation failed."
 #~ msgstr "Validierung ist fehlgeschlagen."
-
 #~ msgid "Show/Hide Columns"
 #~ msgstr "Spalten ein-/ausblenden"
-
 #~ msgid "Removing tab at position {0}"
 #~ msgstr "{0}. Tab gelöscht"
-
 #~ msgid "Adding new empty tab"
 #~ msgstr "Neuer leerer Tab hinzugefügt"
-
 #~ msgid "More"
 #~ msgstr "Mehr"
-
 #~ msgid "Abort"
 #~ msgstr "Abbrechen"
-
 #~ msgid "New Tab"
 #~ msgstr "Neuer Reiter"
-
 #~ msgid "Financial Plans"
 #~ msgstr "Finanzpläne"
+

@@ -109,9 +109,13 @@ public class ActivityEditorForm extends JPanel {
             if (name.lastIndexOf(" ") > 0) {
                 initials += name.charAt(0);
                 initials += name.charAt(name.lastIndexOf(" ") + 1);
+            } else if (name.length() >= 2) {
+                initials = name.substring(0, 2);
+            } else {
+                initials = name;
             }
 
-            txtProcessor.setText(initials);
+            txtProcessor.setText(initials.toUpperCase());
 
             txtType.setText(_("General activity"));
 
@@ -278,6 +282,8 @@ public class ActivityEditorForm extends JPanel {
 
                 cmbAssistantModel.addElement(assistant);
             }
+
+            cmbAssistantModel.setSelectedItem(new UIAssistant());
 
             cmbAssistant.setModel(cmbAssistantModel);
         } catch (AdoHiveException e) {
@@ -466,6 +472,7 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblDate, gridBagConstraints);
+        lblDate.getAccessibleContext().setAccessibleDescription("date");
 
         lblProcessor.setText(_("Processor"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -474,6 +481,8 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblProcessor, gridBagConstraints);
+        lblProcessor.getAccessibleContext().setAccessibleDescription(
+            "processor");
 
         lblInitiator.setText(_("Initiator"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -482,6 +491,7 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblInitiator, gridBagConstraints);
+        lblInitiator.getAccessibleContext().setAccessibleDescription("sender");
 
         lblType.setText(_("Type"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -490,6 +500,7 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblType, gridBagConstraints);
+        lblType.getAccessibleContext().setAccessibleDescription("type");
 
         lblDocumentType.setText(_("Document Type"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -498,6 +509,8 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblDocumentType, gridBagConstraints);
+        lblDocumentType.getAccessibleContext().setAccessibleDescription(
+            "documentType");
 
         lblRemark.setText(_("Remark"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -506,6 +519,7 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblRemark, gridBagConstraints);
+        lblRemark.getAccessibleContext().setAccessibleDescription("remark");
 
         lblContent.setText(_("Content"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -514,6 +528,7 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblContent, gridBagConstraints);
+        lblContent.getAccessibleContext().setAccessibleDescription("content");
 
         spDate.setModel(new javax.swing.SpinnerDateModel());
         spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate,

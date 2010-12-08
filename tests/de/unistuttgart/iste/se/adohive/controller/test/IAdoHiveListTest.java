@@ -21,11 +21,14 @@
 
 package de.unistuttgart.iste.se.adohive.controller.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
+import org.junit.Before;
 import org.junit.Test;
 
-import de.unistuttgart.iste.se.adohive.controller.IAdoHiveList;
+import de.unistuttgart.iste.se.adohive.controller.IAdoHiveManager;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAdoHiveModel;
 
@@ -46,7 +49,7 @@ public abstract class IAdoHiveListTest<E extends IAdoHiveModel<E>> {
 	 * @return a new instance of the class implementing
 	 * IAdohiveListTest
 	 */
-	public abstract IAdoHiveList<E> newInstance();
+	public IAdoHiveManager<E> instance;
 	
 	/**
 	 * this abstract method generates a new E object
@@ -56,12 +59,9 @@ public abstract class IAdoHiveListTest<E extends IAdoHiveModel<E>> {
 	 */
 	public abstract E newE() throws AdoHiveException;
 	
-	
 	@Test
 	public void testSize() throws AdoHiveException {
-		
-		IAdoHiveList<E> instance = newInstance();
-		// test initial state
+				// test initial state
 		assertEquals(0, instance.size());
 		
 		// test size after adding some stuff
@@ -78,9 +78,7 @@ public abstract class IAdoHiveListTest<E extends IAdoHiveModel<E>> {
 	}
 
 	@Test
-	public void testIsEmpty() throws AdoHiveException {
-		IAdoHiveList<E> instance = newInstance();
-		
+	public void testIsEmpty() throws AdoHiveException {		
 		// test initial state
 		assertTrue(instance.isEmpty());
 		
@@ -95,7 +93,6 @@ public abstract class IAdoHiveListTest<E extends IAdoHiveModel<E>> {
 
 	@Test
 	public void testContains() throws AdoHiveException {
-		IAdoHiveList<E> instance = newInstance();
 		E e1 = newE();
 		E e2 = newE();
 		E e3 = newE();
@@ -126,7 +123,6 @@ public abstract class IAdoHiveListTest<E extends IAdoHiveModel<E>> {
 
 	@Test
 	public void testAdd() throws AdoHiveException {
-		IAdoHiveList<E> instance = newInstance();
 		E e1 = newE();
 		E e2 = newE();
 		E e3 = newE();
@@ -153,7 +149,6 @@ public abstract class IAdoHiveListTest<E extends IAdoHiveModel<E>> {
 
 	@Test
 	public void testRemove() throws AdoHiveException {
-		IAdoHiveList<E> instance = newInstance();
 		E e1 = newE();
 		E e2 = newE();
 		E e3 = newE();
@@ -209,7 +204,6 @@ public abstract class IAdoHiveListTest<E extends IAdoHiveModel<E>> {
 
 	@Test
 	public void testClear() throws AdoHiveException {
-		IAdoHiveList<E> instance = newInstance();
 		E e1 = newE();
 		
 		// test clear on empty list
@@ -233,7 +227,6 @@ public abstract class IAdoHiveListTest<E extends IAdoHiveModel<E>> {
 
 	@Test
 	public void testGet() throws AdoHiveException {
-		IAdoHiveList<E> instance = newInstance();
 		E e1 = newE();
 		E e2 = newE();
 		E e3 = newE();

@@ -19,9 +19,13 @@
 package de.unistuttgart.iste.se.adohive.controller.derby.test;
 
 import junit.framework.Assert;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
+
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.controller.ansi.AnsiAdoHiveController;
-import de.unistuttgart.iste.se.adohive.controller.test.*;
+import de.unistuttgart.iste.se.adohive.controller.test.IActivityManagerTest;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.test.ITestDataProvider;
 import de.unistuttgart.iste.se.adohive.model.test.IndependentTestDataProvider;
@@ -31,18 +35,23 @@ public class DerbyActivityManagerTest extends IActivityManagerTest {
 	private static AdoHiveController controller;
 	private static ITestDataProvider tdp = new IndependentTestDataProvider();
 	
-	@Override
-	protected AdoHiveController getController() {
+	@BeforeClass
+	public static void setController() {
 		if (controller == null) {
 			try {
-				controller = AnsiAdoHiveController.getInstance();
+				controller = AdoHiveController.getInstance();
+				AdoHiveController.getInstance().clearAll();
 			} catch (AdoHiveException e) {
 				e.printStackTrace();
 				Assert.fail("could not load DerbyAdoHiveController");
 			}
 		}
-		
-		return controller;
+	}
+	
+	@Before
+	public void initInstance() throws AdoHiveException {
+		instance = controller.getActivityManager();
+		instance.clear();
 	}
 
 	@Override

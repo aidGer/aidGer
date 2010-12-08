@@ -20,14 +20,13 @@ package de.unistuttgart.iste.se.adohive.controller.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 
-import de.unistuttgart.iste.se.adohive.controller.IAdoHiveManager;
+import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.IContract;
@@ -73,17 +72,6 @@ public abstract class IEmploymentManagerTest extends IAdoHiveManagerTest<IEmploy
 	}
 
 	@Override
-	protected IAdoHiveManager<IEmployment> getInstance() {
-		try {
-			getController().clearAll();
-		} catch (AdoHiveException e) {
-			fail("course manager could not be cleaned!");
-		}
-		
-		return getController().getEmploymentManager();
-	}
-
-	@Override
 	public IEmployment newE()  throws AdoHiveException {
 		return getTestDataProvider().newIEmployment();
 	}
@@ -117,7 +105,7 @@ public abstract class IEmploymentManagerTest extends IAdoHiveManagerTest<IEmploy
 			} while (equal);
 			c.setSemester(s);
 			courses[i] = c;
-			getController().getCourseManager().add(c);
+			AdoHiveController.getInstance().getCourseManager().add(c);
 			
 			do {
 				equal = false;
@@ -130,7 +118,7 @@ public abstract class IEmploymentManagerTest extends IAdoHiveManagerTest<IEmploy
 				}
 			} while (equal);
 			assistants[i] = a;
-			getController().getAssistantManager().add(a);
+			AdoHiveController.getInstance().getAssistantManager().add(a);
 			
 			do {
 				equal = false;
@@ -144,7 +132,7 @@ public abstract class IEmploymentManagerTest extends IAdoHiveManagerTest<IEmploy
 			} while (equal);
 			contracts[i] = ct;
 			ct.setAssistantId(a.getId());
-			getController().getContractManager().add(ct);
+			AdoHiveController.getInstance().getContractManager().add(ct);
 			
 			if (i< 5) semesters[i] = s;
 		}
@@ -161,14 +149,14 @@ public abstract class IEmploymentManagerTest extends IAdoHiveManagerTest<IEmploy
 			empls[i].setCourseId(courses[i / 81].getId());
 			empls[i].setMonth((byte) ((i % 100) % 12));
 			empls[i].setYear((short) ((i % 100) / 12 + 1970));
-			getController().getEmploymentManager().add(empls[i]);
+			AdoHiveController.getInstance().getEmploymentManager().add(empls[i]);
 		}
 		
 		// test if all the stuff is returned properly
 		for (int i = 0; i < 9; i++) {
-			List<IEmployment> listByAss = getController().getEmploymentManager().getEmployments(assistants[i]);
-			List<IEmployment> listByCou = getController().getEmploymentManager().getEmployments(courses[i]);
-			List<IEmployment> listByCon = getController().getEmploymentManager().getEmployments(contracts[i]);
+			List<IEmployment> listByAss = AdoHiveController.getInstance().getEmploymentManager().getEmployments(assistants[i]);
+			List<IEmployment> listByCou = AdoHiveController.getInstance().getEmploymentManager().getEmployments(courses[i]);
+			List<IEmployment> listByCon = AdoHiveController.getInstance().getEmploymentManager().getEmployments(contracts[i]);
 			
 			assertEquals(81, listByAss.size());
 			assertEquals(81, listByCou.size());
@@ -182,9 +170,9 @@ public abstract class IEmploymentManagerTest extends IAdoHiveManagerTest<IEmploy
 		}
 		
 		// now test behaviour for unused objects
-		assertEquals(getController().getEmploymentManager().getEmployments(assistants[9]).size(), 0);
-		assertEquals(getController().getEmploymentManager().getEmployments(courses[9]).size(), 0);
-		assertEquals(getController().getEmploymentManager().getEmployments(contracts[9]).size(), 0);
+		assertEquals(AdoHiveController.getInstance().getEmploymentManager().getEmployments(assistants[9]).size(), 0);
+		assertEquals(AdoHiveController.getInstance().getEmploymentManager().getEmployments(courses[9]).size(), 0);
+		assertEquals(AdoHiveController.getInstance().getEmploymentManager().getEmployments(contracts[9]).size(), 0);
 		
 		// finally, test getting stuff with dates
 		for (int startMonth = 0; startMonth < 50; startMonth++) {
@@ -214,17 +202,17 @@ public abstract class IEmploymentManagerTest extends IAdoHiveManagerTest<IEmploy
 						Short.toString(endYear) + ")");
 				*/
 				
-				assertEquals(expected, getController().getEmploymentManager().getEmployments(startYear, realStartMonth, endYear, realEndMonth).size());
+				assertEquals(expected, AdoHiveController.getInstance().getEmploymentManager().getEmployments(startYear, realStartMonth, endYear, realEndMonth).size());
 			}
 		}
 		
 		// test getting for semesters
 		for (int i = 0; i < 5; i++) {
-			List<IEmployment> l = getController().getEmploymentManager().getEmployments(semesters[i]);
+			List<IEmployment> l = AdoHiveController.getInstance().getEmploymentManager().getEmployments(semesters[i]);
 			// too lazy to calculate exact number
 			assertTrue(l.size() > 10);
 			for (IEmployment e : l) {
-				assertEquals(semesters[i], getController().getCourseManager().getById(e.getCourseId()).getSemester());
+				assertEquals(semesters[i], AdoHiveController.getInstance().getCourseManager().getById(e.getCourseId()).getSemester());
 			}
 		}
 	}

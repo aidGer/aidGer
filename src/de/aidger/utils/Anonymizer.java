@@ -1,6 +1,13 @@
 package de.aidger.utils;
 
 import static de.aidger.utils.Translation._;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Employment;
@@ -10,11 +17,6 @@ import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
 
 /**
  * Anonymizes assistants after a specified period of time.
@@ -24,14 +26,20 @@ import java.util.List;
 public class Anonymizer {
 
     /**
+     * The first and last name are replaced with this token.
+     */
+    public final static String token = "*****";
+
+    /**
      * Anonymizes assistants after a specified peroid of time.
      *
      * @return The count of anonymized assistants
      */
     public static int anonymizeAssistants() {
         int count = 0;
-        int time = -1 * Integer.parseInt(Runtime.getInstance().getOption(
-                "anonymize-time", "365"));
+        int time = -1
+                * Integer.parseInt(Runtime.getInstance().getOption(
+                    "anonymize-time", "365"));
 
         Calendar checkCal = new GregorianCalendar();
         checkCal.add(Calendar.DAY_OF_YEAR, time);
@@ -55,16 +63,17 @@ public class Anonymizer {
             List<IAssistant> assistants = (new Assistant()).getAll();
 
             for (IAssistant a : assistants) {
-                if (a.getFirstName().equals("*****")) {
+                if (a.getFirstName().equals(token)) {
                     continue;
                 }
 
                 Date latest = new Date(1);
                 List<Employment> employments = (new Employment())
-                        .getEmployments(new Assistant(a));
+                    .getEmployments(new Assistant(a));
 
                 for (Employment e : employments) {
-                    Calendar gc = new GregorianCalendar(e.getYear(), e.getMonth(), 1);
+                    Calendar gc = new GregorianCalendar(e.getYear(), e
+                        .getMonth(), 1);
                     if (gc.getTime().after(latest)) {
                         latest = gc.getTime();
                     }
@@ -74,13 +83,13 @@ public class Anonymizer {
                     count++;
 
                     Assistant ass = new Assistant(a);
-                    ass.setFirstName("*****");
-                    ass.setLastName("*****");
+                    ass.setFirstName(token);
+                    ass.setLastName(token);
                     ass.setEmail("ano@nym.com");
                     ass.save();
 
                     for (AssistantTableModel m : models) {
-                        m.update(ass, (Boolean) true);
+                        m.update(ass, true);
                     }
                 }
             }

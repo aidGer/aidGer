@@ -28,6 +28,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.controller.IActivityManager;
 import de.unistuttgart.iste.se.adohive.controller.IAdoHiveManager;
 import de.unistuttgart.iste.se.adohive.controller.IAssistantManager;
@@ -81,23 +82,11 @@ public abstract class IActivityManagerTest extends IAdoHiveManagerTest<IActivity
 		
 	}
 	
-	@Override
-	protected IAdoHiveManager<IActivity> getInstance() {
-		try {
-			getController().clearAll();
-		} catch (AdoHiveException e) {
-			fail("course manager could not be cleaned!");
-		}
-		
-		return getController().getActivityManager();
-	}
-	
 	@SuppressWarnings("deprecation")
 	@Test
 	public void testGetActivities() throws AdoHiveException {
-		IActivityManager instance = (IActivityManager) getInstance();
-		IAssistantManager amInstance = getController().getAssistantManager();
-		ICourseManager cmInstance = getController().getCourseManager();
+		IAssistantManager amInstance = AdoHiveController.getInstance().getAssistantManager();
+		ICourseManager cmInstance = AdoHiveController.getInstance().getCourseManager();
 		IActivity a[] = new IActivity[24];
 		IAssistant ass[] = new IAssistant[4];
 		ICourse c[] = new ICourse[3];
@@ -123,7 +112,7 @@ public abstract class IActivityManagerTest extends IAdoHiveManagerTest<IActivity
 		
 		// test getting the activities by course
 		for (int i = 0; i < 3; i++) {
-			List<IActivity> l = instance.getActivities(c[i]);
+			List<IActivity> l = ((IActivityManager)instance).getActivities(c[i]);
 			assertEquals(8, l.size());
 			/*
 			 * doesn't work because indexOf isn't implemented anymore
@@ -134,7 +123,7 @@ public abstract class IActivityManagerTest extends IAdoHiveManagerTest<IActivity
 		}
 		// test getting the activities by assistant
 		for (int i = 0; i < 4; i++) {
-			List<IActivity> l = instance.getActivities(ass[i]);
+			List<IActivity> l = ((IActivityManager)instance).getActivities(ass[i]);
 			assertEquals(6, l.size());
 			/*
 			 * doesn't work because indexOf isn't implemented anymore
@@ -146,7 +135,7 @@ public abstract class IActivityManagerTest extends IAdoHiveManagerTest<IActivity
 		// test getting the activities by date
 		for (int i = 0; i < 24; i++) {
 			for (int j = i; j < 24; j++) {
-				List<IActivity> l = instance.getActivities(new Date(i + 70, i % 12, i + 1), new Date(j + 70, j % 12, j + 1));
+				List<IActivity> l = ((IActivityManager)instance).getActivities(new Date(i + 70, i % 12, i + 1), new Date(j + 70, j % 12, j + 1));
 				assertEquals(j - i + 1, l.size());
 				for (IActivity ac : l) {
 					
@@ -170,7 +159,6 @@ public abstract class IActivityManagerTest extends IAdoHiveManagerTest<IActivity
 	
 	@Test
 	public void TestFKNull() throws AdoHiveException {
-		IActivityManager instance = (IActivityManager) getInstance();
 		IActivity activity = newE();
 		activity.setAssistantId(null);
 		instance.add(activity);

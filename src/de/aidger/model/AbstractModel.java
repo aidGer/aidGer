@@ -569,4 +569,13 @@ public abstract class AbstractModel<T> extends Observable implements
         setId(toClone.getId());
     }
 
+    /**
+     * Returns the validators of the model.
+     * 
+     * @return the validators of the model
+     */
+    public List<Validator> getValidators() {
+        return validators;
+    }
+
 }
