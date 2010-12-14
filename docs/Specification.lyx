@@ -1012,6 +1012,10 @@ Um das Überprüfen der Auszugslisten zu vereinfachen, muss für jeden Monat
  werden können.
  Es sollen zudem Warnungen ausgegeben werden, falls es Abweichungen zwischen
  Soll und Ist gibt.
+ Falls für betroffene Beschäftigungen keine Stundenlöhne hinterlegt sind,
+ soll entweder die Hilfskraft nicht angezeigt werden, oder die Beschäftigung
+ wird nicht berücksichtigt.
+ Darüber soll der Benutzer die Wahl haben.
 \end_layout
 
 \begin_layout Subsection
@@ -6291,6 +6295,62 @@ System markiert die Hilfskraft
 \end_layout
 
 \end_deeper
+\begin_layout Enumerate
+Für eine betroffene Beschäftigung existiert für einen Monat kein Stundenlohn
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+System informiert den Benutzer über das Problem und gibt die Möglichkeit,
+ die Beschäftigung zu ignorieren, oder die Hilfskraft nicht anzeigen zu
+ lassen
+\end_layout
+
+\begin_layout Enumerate
+Benutzer wählt 
+\begin_inset Quotes gld
+\end_inset
+
+Beschäftigung ignorieren
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+System erstellt Controlling-Bericht
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Für eine betroffene Beschäftigung existiert für einen Monat kein Stundenlohn
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+System informiert den Benutzer über das Problem und gibt die Möglichkeit,
+ die Beschäftigung zu ignorieren, oder die Hilfskraft nicht anzeigen zu
+ lassen
+\end_layout
+
+\begin_layout Enumerate
+Benutzer wählt 
+\begin_inset Quotes gld
+\end_inset
+
+Hilfskraft nicht anzeigen
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+System erstellt Controlling-Bericht
+\end_layout
+
+\end_deeper
 \end_inset
 </cell>
 </row>
@@ -6311,6 +6371,14 @@ Nachbedingung im Sonderfall:
 
 \begin_layout Enumerate
 Benutzer befindet sich weiterhin im Menüpunkt Controlling
+\end_layout
+
+\begin_layout Enumerate
+Die Plankosten wurden für die betroffene Beschäftiung mit 0 berechnet
+\end_layout
+
+\begin_layout Enumerate
+Der Controlling-Bericht enthält die betroffene Hilfskraft nicht
 \end_layout
 
 \end_inset
@@ -9779,6 +9847,17 @@ reference "sub:Stammdatenverwaltung"
 \end_inset
 
  um Kostenstellen 
+\end_layout
+
+\begin_layout Itemize
+Anforderung in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Controlling-via-Monatsauszug"
+
+\end_inset
+
+ aktualisiert
 \end_layout
 
 \begin_layout Subsection*
