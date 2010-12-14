@@ -586,6 +586,15 @@ Erfassung von Hilfskräften
 \begin_layout Standard
 Die folgenden Informationen müssen für jede Hilfskraft erfasst werden: Vorname,
  Nachname, eMail-Adresse, Qualifikation.
+\begin_inset Newline newline
+\end_inset
+
+Es soll die Möglichkeit vorhanden sein, automatisch die studi-Mail Adresse
+ einer Hilfskraft zu generieren.
+\begin_inset Newline newline
+\end_inset
+
+Sollte eine Hilfskraft existieren, so soll eine Warnung ausgegeben werden.
 \end_layout
 
 \begin_layout Subsubsection
@@ -611,7 +620,7 @@ Erfassung von Kostenstellen
 \end_layout
 
 \begin_layout Standard
-Die folgenden Informationen müssen für jede kostenstelle erfasst werden:
+Die folgenden Informationen müssen für jede Kostenstelle erfasst werden:
  Kostenstellennummer, Fonds, Datenbankkennung.
 \end_layout
 
@@ -807,6 +816,14 @@ reference "sub:Stammdatenverwaltung"
 \end_inset
 
 ).
+\begin_inset Newline newline
+\end_inset
+
+Bei der Buchung einer Beschäftigung soll überprüft werden, ob das Budget
+ der betroffenen Veranstaltung durch die hinzugefügte Beschäftigung überschritte
+n wird.
+ Ist dies der Fall, so soll die Möglichkeit gegeben sein, den Vorgang abzubreche
+n.
 \end_layout
 
 \begin_layout Subsubsection
@@ -886,6 +903,11 @@ Einstellung nach Delegationsverfahren (ja / nein)
 \begin_layout Standard
 Des Weiteren soll nach dem Speichern ein Bestätigungsdatum des Vertrags
  eingegeben werden können.
+\begin_inset Newline newline
+\end_inset
+
+Es soll außerdem geprüft werden, ob ein Neuvertrag einer Hilfskraft mit
+ einem anderen Neuvertrag derselben Hilfskraft überlappt.
 \end_layout
 
 \begin_layout Subsection
@@ -1482,8 +1504,8 @@ name "sec:Allgemeine-Beschreibung-des"
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename specification/mockup1.png
-	scale 75
+	filename specification/mockup1_new.png
+	width 100col%
 
 \end_inset
 
@@ -1499,11 +1521,11 @@ n angezeigt werden und der Benutzer einfach zwischen ihnen wechseln kann.
  Hier wird die aktuell ausgewählte Funktion angezeigt.
  Im Hintergrund können zudem noch weitere Funktionen offen sein.
  Diese befinden sich dann in weiteren Tabs.
- Im Beispiel wäre der 
+ Im Beispiel wäre 
 \begin_inset Quotes eld
 \end_inset
 
-Neue Tab
+Übersicht
 \begin_inset Quotes erd
 \end_inset
 
@@ -1511,7 +1533,7 @@ Neue Tab
 \begin_inset Quotes eld
 \end_inset
 
-Vorgänge
+Vorgangsübersicht
 \begin_inset Quotes erd
 \end_inset
 
@@ -1523,7 +1545,7 @@ Vorgänge
 \begin_inset Newline newline
 \end_inset
 
-Die Navigationsleiste und der Inhaltsbereich sind durch eine bewegliche,
+Die Navigationsleiste und der Inhaltsbereich sind durch eine unbewegliche,
  vertikale Leiste getrennt.
  Dadurch kann die Größe beider Bereiche individuell angepasst werden.
 \end_layout
@@ -2734,6 +2756,13 @@ arraystretch}{1.5}
 
 \begin_layout Section
 Stammdaten hinzufügen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Stammdaten-hinzufügen"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2961,6 +2990,54 @@ System ersetzt Content-Frame mit dem vorherigen Zustand
 \end_layout
 
 \end_deeper
+\begin_layout Enumerate
+Benutzer gibt die Daten einer bereits existierenden Hilfskraft ein
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+System öffnet ein Popup, in dem der Benutzer auf das Problem hingewiesen
+ wird.
+ Er wird gefragt, ob er fortfahren will.
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf 
+\begin_inset Quotes gld
+\end_inset
+
+Ja
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Benutzer gibt die Daten einer bereits existierenden Hilfskraft ein
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+System öffnet ein Popup, in dem der Benutzer auf das Problem hingewiesen
+ wird.
+ Er wird gefragt, ob er fortfahren will.
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf 
+\begin_inset Quotes gld
+\end_inset
+
+Nein
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \end_inset
 </cell>
 </row>
@@ -2987,6 +3064,14 @@ Die neuen (fehlerfreien) Stammdaten wurden hinzugefügt und der Benutzer
 \begin_layout Enumerate
 Es wurden keine Stammdaten hinzugefügt und der Benutzer befindet sich wieder
  im Menüpunkt Stammdaten
+\end_layout
+
+\begin_layout Enumerate
+siehe 1)
+\end_layout
+
+\begin_layout Enumerate
+siehe 2)
 \end_layout
 
 \end_inset
@@ -4545,6 +4630,13 @@ Tätigkeitsnachweis wurde nicht generiert und der Benutzer befindet sich
 
 \begin_layout Section
 Buchung von Beschäftigungen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Buchung-von-Beschäftigungen"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4789,11 +4881,45 @@ Die gebuchten HKS sind größer als die geplanten HKS
 
 \begin_deeper
 \begin_layout Enumerate
-System zeigt den Fehler in der Hinweisleiste an
+System öffnet ein Popup, in dem der Benutzer auf das Problem hingewiesen
+ wird.
+ Er wird gefragt, ob er fortfahren will, oder nicht
 \end_layout
 
 \begin_layout Enumerate
-System markiert das inkorrekte Feld
+Benutzer klickt auf 
+\begin_inset Quotes gld
+\end_inset
+
+Ja
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Die gebuchten HKS sind größer als die geplanten HKS
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+System öffnet ein Popup, in dem der Benutzer auf das Problem hingewiesen
+ wird.
+ Er wird gefragt, ob er fortfahren will, oder nicht
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf 
+\begin_inset Quotes gld
+\end_inset
+
+Nein
+\begin_inset Quotes grd
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -4804,7 +4930,46 @@ Die Stundenzahl der Hilfskraft überschreitet die vertraglich vereinbarte
 
 \begin_deeper
 \begin_layout Enumerate
-siehe 1a)
+System öffnet ein Popup, in dem der Benutzer auf das Problem hingewiesen
+ wird.
+ Er wird gefragt, ob er fortfahren will, oder nicht
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf 
+\begin_inset Quotes gld
+\end_inset
+
+Ja
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Die Stundenzahl der Hilfskraft überschreitet die vertraglich vereinbarte
+ Arbeitszeit
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+System öffnet ein Popup, in dem der Benutzer auf das Problem hingewiesen
+ wird.
+ Er wird gefragt, ob er fortfahren will, oder nicht
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf 
+\begin_inset Quotes gld
+\end_inset
+
+Nein
+\begin_inset Quotes grd
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -4815,7 +4980,11 @@ Benutzer gibt einen Zeitraum ein, bei welchem das Enddatum vor dem Anfangsdatum
 
 \begin_deeper
 \begin_layout Enumerate
-siehe 1a)
+System zeigt den Fehler in der Hinweisleiste an
+\end_layout
+
+\begin_layout Enumerate
+System markiert das inkorrekte Feld
 \end_layout
 
 \end_deeper
@@ -4825,7 +4994,7 @@ Benutzer gibt keine Zahl als Kostenstelle ein
 
 \begin_deeper
 \begin_layout Enumerate
-siehe 1a)
+siehe 5a)
 \end_layout
 
 \end_deeper
@@ -4835,7 +5004,7 @@ Benutzer gibt keine Zahl als Anzahl der Stunden ein
 
 \begin_deeper
 \begin_layout Enumerate
-siehe 1a)
+siehe 5a)
 \end_layout
 
 \end_deeper
@@ -4862,7 +5031,7 @@ Es wurde nicht gebucht und der Benutzer ist weiterhin im Buchungsreiter.
 \end_layout
 
 \begin_layout Enumerate
-siehe 1)
+Es wurde nicht gebucht und der Benutzer ist weiterhin im Buchungsreiter.
 \end_layout
 
 \begin_layout Enumerate
@@ -4870,11 +5039,19 @@ siehe 1)
 \end_layout
 
 \begin_layout Enumerate
-siehe 1)
+siehe 2)
 \end_layout
 
 \begin_layout Enumerate
-siehe 1)
+siehe 2)
+\end_layout
+
+\begin_layout Enumerate
+siehe 2)
+\end_layout
+
+\begin_layout Enumerate
+siehe 2)
 \end_layout
 
 \end_inset
@@ -5081,6 +5258,58 @@ System markiert das inkorrekte Feld
 \end_layout
 
 \end_deeper
+\begin_layout Enumerate
+Benutzer erstellt einen Neuvertrag, welcher mit einem anderen Neuvertrag
+ dieser Hilfskraft überlappt
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+System öffnet ein Popup, in dem der Benutzer auf das Problem hingewiesen
+ wird und gefragt wird ob er den Vertrag trotzdem erstellen will
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf 
+\begin_inset Quotes gld
+\end_inset
+
+Ja
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+System ersetzt Content-Frame mit dem vorherigen Zustand
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Benutzer erstellt einen Neuvertrag, welcher mit einem anderen Neuvertrag
+ dieser Hilfskraft überlappt
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+System öffnet ein Popup, in dem der Benutzer auf das Problem hingewiesen
+ wird und gefragt wird ob er den Vertrag trotzdem erstellen will
+\end_layout
+
+\begin_layout Enumerate
+Benutzer klickt auf 
+\begin_inset Quotes gld
+\end_inset
+
+Nein
+\begin_inset Quotes grd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \end_inset
 </cell>
 </row>
@@ -5101,6 +5330,15 @@ Nachbedingung im Sonderfall:
 
 \begin_layout Enumerate
 Benutzer befindet sich weiterhin im Buchungsreiter und muss seine Eingabe
+ korrigieren
+\end_layout
+
+\begin_layout Enumerate
+Die Vertragsdaten wurden zur vorherigen Beschäftigung zugeordnet.
+\end_layout
+
+\begin_layout Enumerate
+Benutzer befindet sich weiterhin im Buchungsreiter und kann seine Eingabe
  korrigieren
 \end_layout
 
@@ -6134,6 +6372,13 @@ Es werden keine Vorgänge angezeigt
 
 \begin_layout Section
 Controlling
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Controlling-Use-Case"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -6393,12 +6638,19 @@ Der Controlling-Bericht enthält die betroffene Hilfskraft nicht
 
 \begin_layout Section
 Bericht generieren
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Bericht-generieren"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="7" columns="2">
+<lyxtabular version="3" rows="5" columns="2">
 <features islongtable="true">
 <column alignment="left" valignment="top" width="3.5cm">
 <column alignment="left" valignment="top" width="10.5cm">
@@ -6466,7 +6718,7 @@ Benutzer wählt die gewünschte Berichtsart aus
 \end_layout
 
 \begin_layout Enumerate
-Benutzer gibt die geforderten Informationen ein
+Benutzer fügt die gewünschten Filter hinzu
 \end_layout
 
 \begin_layout Enumerate
@@ -6516,7 +6768,7 @@ Bericht wurde generiert, eventuell geöffnet und der Benutzer befindet sich
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6527,86 +6779,11 @@ Akteur:
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 Benutzer, System
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Alternativer Ablauf:
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Enumerate
-Benutzer gibt falsche Daten ein
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-System zeigt Fehler in der Hinweisleiste an
-\end_layout
-
-\begin_layout Enumerate
-Benutzer korrigiert seine Eingabe
-\end_layout
-
-\begin_layout Enumerate
-Benutzer klickt auf den Button 
-\begin_inset Quotes gld
-\end_inset
-
-Generieren
-\begin_inset Quotes grd
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-System generiert den Bericht
-\end_layout
-
-\begin_layout Enumerate
-System öffnet, je nach Einstellung, den Bericht
-\end_layout
-
-\end_deeper
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Nachbedingung im Sonderfall:
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Enumerate
-Bericht wurde generiert, eventuell geöffnet und der Benutzer befindet sich
- weiterhin im Menüpunkt Berichte
 \end_layout
 
 \end_inset
@@ -9850,10 +10027,70 @@ reference "sub:Stammdatenverwaltung"
 \end_layout
 
 \begin_layout Itemize
-Anforderung in 
+Anforderungen in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Controlling-via-Monatsauszug"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Buchung-von-Vertragsdaten"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Buchung-von-Beschäftigungen"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Stammdatenverwaltung"
+
+\end_inset
+
+ aktualisiert
+\end_layout
+
+\begin_layout Itemize
+Anwendungsfälle 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Controlling-Use-Case"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bericht-generieren"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Buchung-von-Vertragsdaten"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Buchung-von-Beschäftigungen"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Stammdaten-hinzufügen"
 
 \end_inset
 
