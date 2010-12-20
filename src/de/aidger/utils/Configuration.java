@@ -12,7 +12,7 @@ import de.aidger.model.Runtime;
 
 /**
  * Gets and sets the settings
- *
+ * 
  * @author aidGer Team
  */
 public final class Configuration {
@@ -41,7 +41,7 @@ public final class Configuration {
 
     /**
      * Initializes the Configuration with a given filename.
-     *
+     * 
      * @param filename
      *            The filename of the configuration.
      */
@@ -49,7 +49,7 @@ public final class Configuration {
         file = Runtime.getInstance().getConfigPath() + filename;
 
         /* Check if the configuration exists and create it if it does not */
-    	File config = new File(file);
+        File config = new File(file);
         if (!config.exists()) {
             createFile();
         } else {
@@ -74,7 +74,7 @@ public final class Configuration {
 
     /**
      * Gets the value of a property.
-     *
+     * 
      * @param option
      *            The property of which to get the value from
      * @return The value of the specified property.
@@ -85,7 +85,7 @@ public final class Configuration {
 
     /**
      * Sets the value of a property.
-     *
+     * 
      * @param option
      *            The property to change.
      * @param value
@@ -106,7 +106,7 @@ public final class Configuration {
 
     /**
      * Remove an option from the config.
-     *
+     * 
      * @param option
      *            The option to remove
      */
@@ -141,9 +141,9 @@ public final class Configuration {
 
     /**
      * Migrate an old configuration file to the current version.
-     *
+     * 
      * @param oldVersion
-     *              The version of the config file
+     *            The version of the config file
      */
     private void migrate(int oldVersion) {
         if (oldVersion < 1 && properties.getProperty("name") == null) {
@@ -157,11 +157,13 @@ public final class Configuration {
             properties.setProperty("anonymize-time", "365");
             properties.setProperty("tolerance", "0.0");
             properties.setProperty("calc-method", "1");
+            properties.setProperty("rounding", "2");
             properties.setProperty("debug", "false");
         }
         if (oldVersion < 2) {
             properties.setProperty("database-uri", "jdbc:derby:"
-                    + Runtime.getInstance().getConfigPath() + "/database;create=true");
+                    + Runtime.getInstance().getConfigPath()
+                    + "/database;create=true");
         }
 
         properties.setProperty("config-version", Integer.toString(version));

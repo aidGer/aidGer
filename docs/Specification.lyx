@@ -1504,8 +1504,8 @@ name "sec:Allgemeine-Beschreibung-des"
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename specification/mockup1_new.png
-	width 100col%
+	filename specification/mockup1.png
+	scale 75
 
 \end_inset
 

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.swing.table.DefaultTableModel;
 
+import de.aidger.model.Runtime;
 import de.aidger.model.reports.BalanceCourse;
 import de.aidger.model.reports.BalanceReportGroupCreator;
 import de.aidger.model.reports.BalanceCourse.BudgetCost;
@@ -81,12 +82,21 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
              * Add the first 6 columns to the table, whose names are always the
              * same.
              */
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < 4; i++) {
                 rowObjectVector.add(((BalanceCourse) balanceCourse)
                     .getCourseObject()[i]);
             }
-            sums.set(4, (Double) sums.get(4) + (Double) rowObjectVector.get(4));
-            sums.set(5, (Double) sums.get(5) + (Double) rowObjectVector.get(5));
+            for (int i = 4; i < 6; i++) {
+                rowObjectVector
+                    .add(new BigDecimal(
+                        (Double) (((BalanceCourse) balanceCourse)
+                            .getCourseObject()[i])).setScale(2,
+                        BigDecimal.ROUND_HALF_EVEN));
+            }
+            sums.set(4, (Double) sums.get(4)
+                    + ((BigDecimal) rowObjectVector.get(4)).doubleValue());
+            sums.set(5, (Double) sums.get(5)
+                    + ((BigDecimal) rowObjectVector.get(5)).doubleValue());
             /*
              * If there are additional columns already, add empty strings to
              * them.
@@ -110,18 +120,26 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
                 /*
                  * Set the budget cost of the cost unit to the one specified.
                  */
+                int decimalPlace = Integer.parseInt(Runtime.getInstance()
+                    .getOption("rounding", "2"));
+                double rounded = new BigDecimal(budgetCost.getValue())
+                    .setScale(decimalPlace, BigDecimal.ROUND_HALF_EVEN)
+                    .doubleValue();
                 rowObjectVector.set(costUnits.indexOf(budgetCostId) + 6,
-                    budgetCost.getValue());
+                    new BigDecimal(rounded).setScale(2,
+                        BigDecimal.ROUND_HALF_EVEN));
             }
             for (int i = 6; i < rowObjectVector.size(); i++) {
                 if (sums.size() < i + 1) {
                     if (!rowObjectVector.get(i).equals("")) {
-                        sums.add(rowObjectVector.get(i));
+                        sums.add(((BigDecimal) rowObjectVector.get(i))
+                            .doubleValue());
                     }
                 } else {
                     if (!rowObjectVector.get(i).equals("")) {
                         sums.set(i, (Double) sums.get(i)
-                                + (Double) rowObjectVector.get(i));
+                                + ((BigDecimal) rowObjectVector.get(i))
+                                    .doubleValue());
                     }
                 }
             }

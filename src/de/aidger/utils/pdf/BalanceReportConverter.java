@@ -8,6 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -605,8 +606,20 @@ public class BalanceReportConverter {
                 }
             }
             for (Object courseObject : rowObjectVector.toArray()) {
-                PdfPCell cell = new PdfPCell(new Phrase(
-                    courseObject.toString(), tableContentFont));
+                PdfPCell cell = null;
+                if (courseObject.getClass().equals(Double.class)) {
+                    int decimalPlace = Integer.parseInt(Runtime.getInstance()
+                        .getOption("rounding", "2"));
+                    double rounded = new BigDecimal((Double) courseObject)
+                        .setScale(decimalPlace, BigDecimal.ROUND_HALF_EVEN)
+                        .doubleValue();
+                    cell = new PdfPCell(new Phrase(new BigDecimal(rounded)
+                        .setScale(2, BigDecimal.ROUND_HALF_EVEN).toString(),
+                        tableContentFont));
+                } else {
+                    cell = new PdfPCell(new Phrase(courseObject.toString(),
+                        tableContentFont));
+                }
                 if (i != 0) {
                     cell.setBorder(4 + Rectangle.BOTTOM);
                 } else {
@@ -756,8 +769,19 @@ public class BalanceReportConverter {
                     cell.setBorder(Rectangle.TOP);
                 }
                 emptyRow.addCell(cell);
-                cell = new PdfPCell(new Phrase(new Phrase(sums.get(i)
-                    .toString(), tableContentFont)));
+                if (i < 4) {
+                    cell = new PdfPCell(new Phrase(new Phrase(sums.get(i)
+                        .toString(), tableContentFont)));
+                } else {
+                    int decimalPlace = Integer.parseInt(Runtime.getInstance()
+                        .getOption("rounding", "2"));
+                    double rounded = new BigDecimal((Double) sums.get(i))
+                        .setScale(decimalPlace, BigDecimal.ROUND_HALF_EVEN)
+                        .doubleValue();
+                    cell = new PdfPCell(new Phrase(new BigDecimal(rounded)
+                        .setScale(2, BigDecimal.ROUND_HALF_EVEN).toString(),
+                        tableContentFont));
+                }
                 if (i != 0) {
                     cell.setBorder(Rectangle.TOP + Rectangle.LEFT);
                 } else {
