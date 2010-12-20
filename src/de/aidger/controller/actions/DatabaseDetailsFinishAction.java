@@ -42,8 +42,11 @@ public class DatabaseDetailsFinishAction extends AbstractAction {
             }
             uri = "jdbc:mysql://" + dtls.getHost() + ":" + dtls.getPort() + "/" + dtls.getDatabase();
             if (!dtls.getUsername().isEmpty()) {
-                uri = uri.concat("?user=" + dtls.getUsername() + "&password=" + dtls.getPassword());
-            }
+                uri += "?user=" + dtls.getUsername() + "&password=" + dtls.getPassword()
+                		+ "&autoReconnect=true";
+            } else {
+            	uri += "?autoReconnect=true";
+            }            
         } else {
             if (dtls.getHost().isEmpty()) {
                 UI.displayError(_("The JDBC Uri can't be empty."));
