@@ -42,8 +42,11 @@ public class DatabaseDetailsFinishAction extends AbstractAction {
             }
             uri = "jdbc:mysql://" + dtls.getHost() + ":" + dtls.getPort() + "/" + dtls.getDatabase();
             if (!dtls.getUsername().isEmpty()) {
-                uri += "?user=" + dtls.getUsername() + "&password=" + dtls.getPassword()
-                		+ "&autoReconnect=true";
+                uri += "?user=" + dtls.getUsername() + "&password";
+                if (!dtls.getPassword().isEmpty()) {
+                	uri += "=" + dtls.getPassword();
+                }
+                uri += "&autoReconnect=true";
             } else {
             	uri += "?autoReconnect=true";
             }            
