@@ -1,0 +1,27 @@
+* Performance Probleme (45 Sec), #251
+  => Profiling nötig
+  - TableModel-Implementierung optimieren (AdoHive bietet get() Funktion)
+  - Zielversion: 1.0 (wenn Aufwand angemessen)
+
+* Auto-Reconnect, #252
+  - wird an den Connection-String angehängt
+
+* Null Pointer Exceptions aufgrund unvollständigen Daten, #249
+  - Default-Werte für alle (optionale) Felder in der Datenbank
+  - Foreign constraints einbauen
+
+* Cronjob für neue Spalte Stundenlohn für alle Hilfskräfte
+  - abhängig von Datenbestand berechnet
+  - computed value im Schema?
+  - zur Abwärtskompatibilität und Vergleich mit OpenOffice Lösung
+
+* Prüfen der DB-Verbindung
+  - AdoHive Exceptions ausbauen zur Abfrage
+
+* Jahresbilanz auf nicht-verwendete Filter auf 2.0 verschoben
+
+* Setzen des SQL-Modus in AdoHive ermöglichen
+
+* Standardverhalten: Screens im neuen Tab öffnen (neues Ticket)
+
+* Nächster Termin: 12.01.2011
