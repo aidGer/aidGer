@@ -55,6 +55,11 @@ public final class Runtime {
      * Is this the first start of aidGer?
      */
     private boolean firstStart = false;
+    
+    /**
+     * Does the connection to the database work?
+     */
+    private boolean connected = true;
 
     /**
      * Constructor must be private and does nothing.
@@ -196,8 +201,16 @@ public final class Runtime {
                 .displayError(_("Only one instance of aidGer can be run at a time."));
             System.exit(-1);
         }
-
-        AdoHiveController.setConnectionString(getOption("database-uri"));
+        
+        /* Set database connection settings and try to get an instance of AdoHiveController */
+        try {        	
+        	AdoHiveController.setDriver(getOption("database-driver"));
+        	AdoHiveController.setConnectionString(getOption("database-uri"));
+        	
+        	AdoHiveController.getInstance();
+        } catch (Exception e) {
+        	connected = false;
+        }
 
         dataManager = new DataXMLManager();
     }
@@ -237,6 +250,15 @@ public final class Runtime {
      */
     public boolean isTestRun() {
         return testRun;
+    }
+    
+    /**
+     * Does the connection to the database work
+     * 
+     * @return True, if it does work
+     */
+    public boolean isConnected() {
+    	return connected;
     }
 
     /**

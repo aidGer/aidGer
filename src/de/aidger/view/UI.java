@@ -277,6 +277,13 @@ public final class UI extends JFrame {
         if (Runtime.getInstance().isFirstStart()) {
             FirstStartWizard wizard = new FirstStartWizard(this);
             wizard.showDialog();
+        } else if (!Runtime.getInstance().isConnected()) {
+        	UI.displayError(_("Couldn't connect to the database!\n\nPlease enter a correct connection in the following dialog."));
+        	DatabaseSettingsWizard wizard = new DatabaseSettingsWizard(this);
+        	try {
+				wizard.setCancelAction((AbstractAction) ActionRegistry.getInstance().get(ExitAction.class.getName()));
+			} catch (ActionNotFoundException e) { UI.displayError("ExitAction not found!"); }
+        	wizard.showDialog();        	
         }
 
         // Anonymize assistants and display a message

@@ -83,7 +83,7 @@ public class DatabaseDetails extends WizardPanel {
                 databaseText.setText(subparts[0]);
                 if (subparts.length > 1) {
                     usernameText.setText(subparts[1].substring(5, subparts[1].indexOf("&")));
-                    passwordText.setText(subparts[1].substring(subparts[1].indexOf("&") + 9));
+                    passwordText.setText(subparts[1].substring(subparts[1].indexOf("&") + 9, subparts[1].lastIndexOf("&")));
                 }
             } else {
                 hostText.setText("localhost");

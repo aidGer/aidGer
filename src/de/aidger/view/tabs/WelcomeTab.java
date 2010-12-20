@@ -64,25 +64,22 @@ public class WelcomeTab extends Tab {
             databaseEmpty = true;
         }
 
+        lblFirstStart.setText(MessageFormat.format(_("The last start of aidGer was on {0}."),
+        			new Object[] { (new SimpleDateFormat("dd.MM.yy HH:mm")).format(new java.sql.Date(
+        					Long.valueOf(Runtime.getInstance().getOption("last-start",
+                                    Long.toString((new java.util.Date()).getTime()))))) }));
+        
         if (Runtime.getInstance().isFirstStart() && databaseEmpty) {
-            statisticsList.add(_("There are currently no statistics are available."));
+            statisticsList.add(_("There are currently no statistics available."));
             lblFirstStart
                 .setText(_("This is the first time aidGer is started."));
-        } else if (databaseEmpty) {
-            statisticsList.add(_("There are currently no statistics are available."));
-            lblFirstStart.setForeground(java.awt.Color.RED);
-            lblFirstStart.setText(_("You have no data in your database or connecting to the database failed."));
+        } else if (!Runtime.getInstance().isConnected()) { 
+        	statisticsList.add(_("There are currently no statistics available."));
+        	lblFirstStart.setForeground(java.awt.Color.red);
+        	lblFirstStart.setText(_("A connection to the database couldn't be established."));
+    	} else if (databaseEmpty) {
+            statisticsList.add(_("There are currently no statistics available."));
         } else {
-            lblFirstStart.setText(MessageFormat
-                .format(_("The last start of aidGer was on {0}."),
-                    new Object[] { (new SimpleDateFormat("dd.MM.yy HH:mm"))
-                        .format(new java.sql.Date(Long
-                            .valueOf(Runtime.getInstance()
-                                .getOption(
-                                    "last-start",
-                                    Long.toString((new java.util.Date())
-                                        .getTime()))))) }));
-
             List<IActivity> activities = null;
             List<IAssistant> assistants = null;
             List<IFinancialCategory> financials = null;
