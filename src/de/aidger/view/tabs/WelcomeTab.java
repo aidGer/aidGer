@@ -65,7 +65,7 @@ public class WelcomeTab extends Tab {
         }
 
         lblFirstStart.setText(MessageFormat.format(_("The last start of aidGer was on {0}."),
-        			new Object[] { (new SimpleDateFormat("dd.MM.yy HH:mm")).format(new java.sql.Date(
+        			new Object[] { (new SimpleDateFormat("dd.MM.yyyy HH:mm")).format(new java.sql.Date(
         					Long.valueOf(Runtime.getInstance().getOption("last-start",
                                     Long.toString((new java.util.Date()).getTime()))))) }));
         
