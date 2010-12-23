@@ -43,6 +43,12 @@ public class SettingsSaveAction extends AbstractAction {
         SettingsDialog dlg = (SettingsDialog) ((JComponent) e.getSource())
             .getTopLevelAncestor();
 
+        String beforeLang = Runtime.getInstance().getOption("language");
+        String beforePessimistic = Runtime.getInstance().getOption("pessimistic-factor");
+        String beforeHistoric = Runtime.getInstance().getOption("historic-factor");
+        String beforeCalc = Runtime.getInstance().getOption("calc-method");
+
+
         if (!PresenceValidator.validate(dlg.getUsername())) {
             UI.displayError(_("No name entered"));
             return;
@@ -58,7 +64,6 @@ public class SettingsSaveAction extends AbstractAction {
 
         List<Pair<String, String>> languages = Runtime.getInstance()
                 .getLanguages();
-        String before = Runtime.getInstance().getOption("language");
         if (dlg.getSelectedLanguage() == -1
                 || dlg.getSelectedLanguage() >= languages.size()) {
             UI.displayError(_("No Language selected or incorrect language selected."));
@@ -118,8 +123,14 @@ public class SettingsSaveAction extends AbstractAction {
         UI.getInstance().refreshQuickSettings();
 
         // Display info dialog if language has changed
-        if (!before.equals(Runtime.getInstance().getOption("language"))) {
+        if (!beforeLang.equals(Runtime.getInstance().getOption("language"))) {
             UI.displayInfo(_("You need to restart the application to finish the language change."));
+        }
+
+        if (!beforePessimistic.equals(Runtime.getInstance().getOption("pessimistic-factor"))
+                || !beforeHistoric.equals(Runtime.getInstance().getOption("historic-factor"))
+                || !beforeCalc.equals(Runtime.getInstance().getOption("calc-method"))) {
+            UI.displayInfo(_("You need to recalculate open reports for the new settings to impact the results."));
         }
     }
 }

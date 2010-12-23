@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-20 21:04+0100\n"
+"POT-Creation-Date: 2010-12-23 15:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -281,7 +281,7 @@ msgid "Quit the program"
 msgstr ""
 
 #: src/de/aidger/controller/actions/FirstStartNameFinishAction.java:28
-#: src/de/aidger/controller/actions/SettingsSaveAction.java:47
+#: src/de/aidger/controller/actions/SettingsSaveAction.java:53
 msgid "No name entered"
 msgstr ""
 
@@ -367,32 +367,38 @@ msgstr ""
 msgid "Save settings"
 msgstr ""
 
-#: src/de/aidger/controller/actions/SettingsSaveAction.java:55
+#: src/de/aidger/controller/actions/SettingsSaveAction.java:61
 msgid "PDF Viewer points to nonexistant file."
 msgstr ""
 
-#: src/de/aidger/controller/actions/SettingsSaveAction.java:64
+#: src/de/aidger/controller/actions/SettingsSaveAction.java:69
 msgid "No Language selected or incorrect language selected."
 msgstr ""
 
-#: src/de/aidger/controller/actions/SettingsSaveAction.java:71
+#: src/de/aidger/controller/actions/SettingsSaveAction.java:76
 msgid "The number of activities needs to be bigger than 0."
 msgstr ""
 
-#: src/de/aidger/controller/actions/SettingsSaveAction.java:90
+#: src/de/aidger/controller/actions/SettingsSaveAction.java:95
 msgid "Factors need to be a floating point number."
 msgstr ""
 
-#: src/de/aidger/controller/actions/SettingsSaveAction.java:99
+#: src/de/aidger/controller/actions/SettingsSaveAction.java:104
 msgid "Anonymization time needs to be an integer."
 msgstr ""
 
-#: src/de/aidger/controller/actions/SettingsSaveAction.java:107
+#: src/de/aidger/controller/actions/SettingsSaveAction.java:112
 msgid "Tolerance needs to be a floating point number."
 msgstr ""
 
-#: src/de/aidger/controller/actions/SettingsSaveAction.java:122
+#: src/de/aidger/controller/actions/SettingsSaveAction.java:127
 msgid "You need to restart the application to finish the language change."
+msgstr ""
+
+#: src/de/aidger/controller/actions/SettingsSaveAction.java:133
+msgid ""
+"You need to recalculate open reports for the new settings to impact the "
+"results."
 msgstr ""
 
 #: src/de/aidger/controller/actions/ViewerActivityExportAction.java:39

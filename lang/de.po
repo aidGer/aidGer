@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-20 21:04+0100\n"
+"POT-Creation-Date: 2010-12-23 15:47+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -275,7 +275,7 @@ msgid "Quit the program"
 msgstr "Programm beenden"
 
 #: src/de/aidger/controller/actions/FirstStartNameFinishAction.java:28
-#: src/de/aidger/controller/actions/SettingsSaveAction.java:47
+#: src/de/aidger/controller/actions/SettingsSaveAction.java:53
 msgid "No name entered"
 msgstr "Kein Name eingegeben"
 
@@ -361,33 +361,37 @@ msgstr "Öffnen Sie den Datenbankkonfigurationsassistenten."
 msgid "Save settings"
 msgstr "Einstellungen speichern"
 
-#: src/de/aidger/controller/actions/SettingsSaveAction.java:55
+#: src/de/aidger/controller/actions/SettingsSaveAction.java:61
 msgid "PDF Viewer points to nonexistant file."
 msgstr "PDF Anzeiger verweist auf nicht existierende Datei."
 
-#: src/de/aidger/controller/actions/SettingsSaveAction.java:64
+#: src/de/aidger/controller/actions/SettingsSaveAction.java:69
 msgid "No Language selected or incorrect language selected."
 msgstr "Keine oder falsche Sprache ausgewählt."
 
-#: src/de/aidger/controller/actions/SettingsSaveAction.java:71
+#: src/de/aidger/controller/actions/SettingsSaveAction.java:76
 msgid "The number of activities needs to be bigger than 0."
 msgstr "Die Anzahl an Aktivitäten muss größer als 0 sein."
 
-#: src/de/aidger/controller/actions/SettingsSaveAction.java:90
+#: src/de/aidger/controller/actions/SettingsSaveAction.java:95
 msgid "Factors need to be a floating point number."
 msgstr "Faktoren müssen Gleitkommazahlen sein."
 
-#: src/de/aidger/controller/actions/SettingsSaveAction.java:99
+#: src/de/aidger/controller/actions/SettingsSaveAction.java:104
 msgid "Anonymization time needs to be an integer."
 msgstr "Anonymisierungszeit muss eine Zahl sein."
 
-#: src/de/aidger/controller/actions/SettingsSaveAction.java:107
+#: src/de/aidger/controller/actions/SettingsSaveAction.java:112
 msgid "Tolerance needs to be a floating point number."
 msgstr "Toleranz muss eine Fließkommazahl sein."
 
-#: src/de/aidger/controller/actions/SettingsSaveAction.java:122
+#: src/de/aidger/controller/actions/SettingsSaveAction.java:127
 msgid "You need to restart the application to finish the language change."
 msgstr "Starten Sie die Anwendung erneut um die Sprache zu wechseln."
+
+#: src/de/aidger/controller/actions/SettingsSaveAction.java:133
+msgid "You need to recalculate open reports for the new settings to impact the results."
+msgstr "Generieren Sie offene Berichte neu, um die geänderten Einstellungen einfließen zu lassen."
 
 #: src/de/aidger/controller/actions/ViewerActivityExportAction.java:39
 msgid "Export the selected activies to a pdf file"
