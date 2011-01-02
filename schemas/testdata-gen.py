@@ -228,7 +228,7 @@ def generate_employments(assis, courses):
         for j in range(0, months):
             hours = random.randrange(10, 40, 1)
             id += 1
-            emp_list.append({ 'id' : id, 'assi' : assi['id'], 'course' : course['id'], 'month' : month.month, 'year' : month.year, 'hours' : hours, 'fonds' : cost_unit[0], 'costunit' : cost_unit[1], 'qualification' : assi['qualification'], 'contract' : None })
+            emp_list.append({ 'id' : id, 'assi' : assi['id'], 'course' : course['id'], 'month' : month.month, 'year' : month.year, 'hours' : hours, 'fonds' : cost_unit[0], 'costunit' : cost_unit[1], 'qualification' : assi['qualification'], 'contract' : None, 'cid' : contract['id'] })
 
             if j == 0:
                 emp_list[-1]['contract'] = contract
@@ -302,11 +302,11 @@ def generate_activities_sql(act):
 
 def generate_employments_sql(emp):
     global remark
-    sql = "INSERT INTO `Beschaeftigung` SET ID = '%i', Hilfskraft_ID = '%i', Veranstaltung_ID = '%i', Monat = '%i', Jahr = '%i', AnzahlStunden = '%i', Fonds = '%s', Bemerkung = '%s', Kostenstelle = '%s', Qualifikation = '%s';"
+    sql = "INSERT INTO `Beschaeftigung` SET ID = '%i', Hilfskraft_ID = '%i', Veranstaltung_ID = '%i', Vertrag_ID = '%i', Monat = '%i', Jahr = '%i', AnzahlStunden = '%i', Fonds = '%s', Bemerkung = '%s', Kostenstelle = '%s', Qualifikation = '%s';"
 
     for e in emp:
         generate_contract_sql(e['contract'])
-        print(sql % (e['id'], e['assi'], e['course'], e['month'], e['year'], e['hours'], e['fonds'], remark, e['costunit'], e['qualification']))
+        print(sql % (e['id'], e['assi'], e['course'], e['cid'], e['month'], e['year'], e['hours'], e['fonds'], remark, e['costunit'], e['qualification']))
 
 def generate_contract_sql(contract):
     if contract is None:

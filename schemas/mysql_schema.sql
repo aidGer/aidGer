@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: aidger
 -- ------------------------------------------------------
--- Server version	5.1.51
+-- Server version   5.1.51
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,6 +26,7 @@ CREATE TABLE `Beschaeftigung` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Veranstaltung_ID` bigint(19) NOT NULL,
   `Hilfskraft_ID` int(11) NOT NULL,
+  `Vertrag_ID` int(11) DEFAULT NULL,
   `Monat` bigint(2) DEFAULT NULL,
   `Jahr` bigint(4) DEFAULT NULL,
   `AnzahlStunden` float(10,1) DEFAULT NULL,
