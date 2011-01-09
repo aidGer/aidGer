@@ -1,205 +1,193 @@
 package de.aidger.view.models;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import de.aidger.model.AbstractModel;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Vector;
-
-import javax.swing.table.DefaultTableModel;
-
-import de.aidger.model.AbstractModel;
+import javax.swing.table.AbstractTableModel;
 
 /**
  * The class represents the abstract table model.
- * 
+ *
  * @author aidGer Team
  */
-@SuppressWarnings("serial")
-public abstract class TableModel extends DefaultTableModel implements Observer {
+public abstract class TableModel extends AbstractTableModel implements Observer {
+
+    /**
+     * Array containing the names of all columns
+     */
+    private String[] columnNames;
 
     /**
      * The static map of models. Each data type has its own list of models.
      */
-    @SuppressWarnings("unchecked")
-    protected static Map<String, List<AbstractModel>> mapModels = new HashMap<String, List<AbstractModel>>();
+    protected static Map<String, Map<Integer, AbstractModel>> mapModels = new HashMap<String, Map<Integer, AbstractModel>>();
 
     /**
      * The data type specific models that are displayed on the table.
      */
-    @SuppressWarnings("unchecked")
-    protected List<AbstractModel> models;
+    private Map<Integer, AbstractModel> models;
 
     /**
      * The model before it was edited.
      */
-    @SuppressWarnings("unchecked")
     private AbstractModel modelBeforeEdit;
 
     /**
-     * Constructs the table model.
+     * Constructs the tablemodel.
+     *
+     * @param columnNames
+     *              The names of all columns
      */
-    @SuppressWarnings("unchecked")
     public TableModel(String[] columnNames) {
-        setColumnIdentifiers(columnNames);
+        this.columnNames = columnNames;
 
         String className = this.getClass().getName();
 
         // get all models just once from database
         if (mapModels.get(className) == null) {
-            models = new ArrayList<AbstractModel>();
-
-            mapModels.put(className, models);
-
-            getAllModels();
+            models = new HashMap<Integer, AbstractModel>();
+            mapModels.put(className, models);            
         } else {
-            // models are already gotten
             models = mapModels.get(className);
         }
 
-        refresh();
+        fireTableDataChanged();
     }
 
     /**
-     * Converts the model to a row.
-     * 
+     * Get the value of the row for a specified model.
+     *
      * @param model
-     *            the model that will be converted
-     * @return the row that is converted from the model
+     *          The model for wich the row value is needed
+     * @param row
+     *          The index of the row
+     * @return The value of the row
      */
-    @SuppressWarnings("unchecked")
-    protected abstract Object[] convertModelToRow(AbstractModel model);
+    protected abstract Object getRowValue(AbstractModel model, int row);
 
     /**
-     * Gets all models from database and stores them in the table model.
+     * Get the model with the specified index.
+     *
+     * @param idx
+     *          The index of the model
+     * @return The model or null
      */
-    protected abstract void getAllModels();
+    protected abstract AbstractModel getModelFromDB(int idx);
 
-    /**
+        /**
      * Returns the model at the given index.
-     * 
+     *
      * @return the model at the given index
      */
-    @SuppressWarnings("unchecked")
     public AbstractModel getModel(int i) {
         return models.get(i);
     }
 
     /**
      * Sets the model before it was edited.
-     * 
+     *
      * @param m
      *            the model before it was edited
      */
-    @SuppressWarnings("unchecked")
     public void setModelBeforeEdit(AbstractModel m) {
         modelBeforeEdit = m;
     }
 
     /**
      * Returns the model before it was edited.
-     * 
+     *
      * @return the model before it was edited
      */
-    @SuppressWarnings("unchecked")
     public AbstractModel getModelBeforeEdit() {
         return modelBeforeEdit;
     }
 
     /**
-     * Refreshes the table.
+     * Return the count of columns.
+     *
+     * @return The count of columns
      */
-    @SuppressWarnings("unchecked")
-    private void refresh() {
-        getDataVector().removeAllElements();
+    public int getColumnCount() {
+        return columnNames.length;
+    }
 
-        fireTableDataChanged();
+    /**
+     * Return the name of the column.
+     *
+     * @param column
+     *          The index of the column
+     * @return The name of the column
+     */
+    @Override
+    public String getColumnName(int column) {
+        return columnNames[column];
+    }
 
-        for (AbstractModel model : models) {
-            // each model is added as a row to the table
-            addRow(convertModelToRow(model));
+    /**
+     * Return the value at a specific position.
+     *
+     * @param col
+     *          The column of the data
+     * @param row
+     *          The row of the data
+     * @return The value at the position
+     */
+    public Object getValueAt(int col, int row) {
+        AbstractModel model = null;
+        if (models.containsKey(col)) {
+            model = models.get(col);
+        } else {
+            model = getModelFromDB(col);
+            models.put(col, model);
         }
 
-        fireTableDataChanged();
+        return getRowValue(model, row);
     }
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
      */
-    @SuppressWarnings("unchecked")
-    @Override
     public void update(Observable m, Object arg) {
         AbstractModel model = (AbstractModel) m;
         Boolean save = (Boolean) arg;
+        int index = indexOf(model);
 
         if (save) { // the model was saved
-
-            models.remove(modelBeforeEdit);
-
-            int index = indexOf(modelBeforeEdit);
-
-            if (index != -1) {
-                removeRow(index);
-            }
-
-            if (!models.contains(model)) {
-                models.add(model);
-            }
-
-            addRow(convertModelToRow(model));
+            models.remove(index);
+            models.put(index, model);
+            fireTableRowsUpdated(index, index);
         } else { // the model was removed
-
-            models.remove(model);
-
-            int index = indexOf(model);
-
-            if (index != -1) {
-                removeRow(index);
-            }
+            models.remove(index);
+            fireTableRowsDeleted(index, index);
         }
     }
 
     /**
      * Returns the row index of the given model on the table.
-     * 
+     *
      * @param model
      *            the model on the table
      * @return the row index and -1 if model was not found or is null
      */
-    @SuppressWarnings("unchecked")
     private int indexOf(AbstractModel model) {
         if (model == null) {
             return -1;
         }
 
-        Object[] row = new Object[] {};
-
-        try {
-            row = convertModelToRow(model);
-        } catch (NullPointerException e) {
-        }
-
-        for (int i = 0; i < getDataVector().size(); ++i) {
-            if (Arrays.equals(row, ((Vector) getDataVector().get(i)).toArray())) {
-                return i;
+        Iterator it = models.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry) it.next();
+            if (((AbstractModel) pair.getValue()).equals(model)) {
+                return (Integer) pair.getKey();
             }
         }
 
         return -1;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see javax.swing.table.DefaultTableModel#isCellEditable(int, int)
-     */
-    @Override
-    public boolean isCellEditable(int row, int col) {
-        return false;
-    }
 }

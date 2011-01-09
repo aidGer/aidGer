@@ -2,13 +2,10 @@ package de.aidger.view.models;
 
 import static de.aidger.utils.Translation._;
 
-import java.util.List;
-
 import de.aidger.model.AbstractModel;
 import de.aidger.model.models.FinancialCategory;
-import de.aidger.utils.Logger;
+import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 
 /**
  * The class represents the table model for the master data financial
@@ -29,52 +26,6 @@ public class FinancialCategoryTableModel extends TableModel {
     /*
      * (non-Javadoc)
      * 
-     * @see de.aidger.view.models.TableModel#getAllModels()
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public void getAllModels() {
-        List<IFinancialCategory> fcs = null;
-
-        try {
-            fcs = (new FinancialCategory()).getAll();
-        } catch (AdoHiveException e) {
-            Logger.error(e.getMessage());
-        }
-
-        for (IFinancialCategory f : fcs) {
-            FinancialCategory fc = new FinancialCategory(f);
-
-            models.add(fc);
-        }
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @seede.aidger.view.models.TableModel#convertModelToRow(de.aidger.model.
-     * AbstractModel)
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    protected Object[] convertModelToRow(AbstractModel model) {
-        FinancialCategory fc = (FinancialCategory) model;
-
-        String funds = UICostUnit.valueOf(fc.getCostUnits()[0]);
-        String budgetCosts = String.valueOf(fc.getBudgetCosts()[0]);
-
-        for (int i = 1; i < fc.getCostUnits().length; i++) {
-            funds += "\n" + UICostUnit.valueOf(fc.getCostUnits()[i]);
-            budgetCosts += "\n" + fc.getBudgetCosts()[i];
-        }
-
-        return new Object[] { fc.getId(), fc.getName(), fc.getYear(), funds,
-                budgetCosts };
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
      * @see javax.swing.table.AbstractTableModel#getColumnClass(int)
      */
     @Override
@@ -85,5 +36,60 @@ public class FinancialCategoryTableModel extends TableModel {
         }
 
         return super.getColumnClass(column);
+    }
+
+        /**
+     * (non-Javadoc)
+     *
+     * @see de.aidger.view.models.TableModel#getRowValue(de.aidger.model.AbstractModel, int)
+     */
+    @Override
+    protected Object getRowValue(AbstractModel model, int row) {
+        FinancialCategory fc = (FinancialCategory) model;
+        switch (row) {
+            case 0: return fc.getId();
+            case 1: return fc.getName();
+            case 2: return fc.getYear();
+            case 3: 
+                String funds = UICostUnit.valueOf(fc.getCostUnits()[0]);
+                for (int i = 1; i < fc.getCostUnits().length; i++) {
+                    funds += "\n" + UICostUnit.valueOf(fc.getCostUnits()[i]);
+                }
+                return funds;
+            case 4:
+                String budgetCosts = String.valueOf(fc.getBudgetCosts()[0]);
+                for (int i = 1; i < fc.getCostUnits().length; i++) {
+                    budgetCosts += "\n" + fc.getBudgetCosts()[i];
+                }
+                return budgetCosts;
+        }
+        return null;
+    }
+
+    /**
+     * (non-Javadoc)
+     *
+     * @see de.aidger.view.models.TableModel#getModelFromDB(int)
+     */
+    @Override
+    protected AbstractModel getModelFromDB(int idx) {
+        try {
+            return new FinancialCategory(AdoHiveController.getInstance().getFinancialCategoryManager().get(idx));
+        } catch (AdoHiveException ex) {
+            return null;
+        }
+    }
+
+    /**
+     * (non-Javadoc)
+     *
+     * @see javax.swing.table.AbstractTableModel#getRowCount()
+     */
+    public int getRowCount() {
+        try {
+            return (new FinancialCategory()).size();
+        } catch (AdoHiveException ex) {
+            return 0;
+        }
     }
 }

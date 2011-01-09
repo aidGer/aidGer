@@ -2,14 +2,11 @@ package de.aidger.view.models;
 
 import static de.aidger.utils.Translation._;
 
-import java.util.List;
-
 import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Assistant;
-import de.aidger.utils.Logger;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
+import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
 
 /**
  * The class represents the table model for the master data assistants.
@@ -29,45 +26,6 @@ public class AssistantTableModel extends TableModel {
     /*
      * (non-Javadoc)
      * 
-     * @see de.aidger.view.models.TableModel#getAllModels()
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    protected void getAllModels() {
-        List<IAssistant> assistants = null;
-
-        try {
-            assistants = (new Assistant()).getAll();
-        } catch (AdoHiveException e) {
-            Logger.error(e.getMessage());
-        }
-
-        for (IAssistant a : assistants) {
-            Assistant assistant = new Assistant(a);
-
-            models.add(assistant);
-        }
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @seede.aidger.view.models.TableModel#convertModelToRow(de.aidger.model.
-     * AbstractModel)
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    protected Object[] convertModelToRow(AbstractModel model) {
-        Assistant assistant = (Assistant) model;
-
-        return new Object[] { assistant.getId(), assistant.getFirstName(),
-                assistant.getLastName(), assistant.getEmail(),
-                Qualification.valueOf(assistant.getQualification()) };
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
      * @see javax.swing.table.AbstractTableModel#getColumnClass(int)
      */
     @Override
@@ -78,5 +36,50 @@ public class AssistantTableModel extends TableModel {
         }
 
         return super.getColumnClass(column);
+    }
+
+    /**
+     * (non-Javadoc)
+     *
+     * @see de.aidger.view.models.TableModel#getRowValue(de.aidger.model.AbstractModel, int)
+     */
+    @Override
+    protected Object getRowValue(AbstractModel model, int row) {
+        Assistant assistant = (Assistant) model;
+        switch (row) {
+            case 0: return assistant.getId();
+            case 1: return assistant.getFirstName();
+            case 2: return assistant.getLastName();
+            case 3: return assistant.getEmail();
+            case 4: return Qualification.valueOf(assistant.getQualification());
+        }
+        return null;
+    }
+
+    /**
+     * (non-Javadoc)
+     *
+     * @see de.aidger.view.models.TableModel#getModelFromDB(int)
+     */
+    @Override
+    protected AbstractModel getModelFromDB(int idx) {
+        try {
+            return new Assistant(AdoHiveController.getInstance().getAssistantManager().get(idx));
+        } catch (AdoHiveException ex) {
+            return null;
+        }
+    }
+
+    /**
+     * (non-Javadoc)
+     *
+     * @see javax.swing.table.AbstractTableModel#getRowCount()
+     */
+    public int getRowCount() {
+        try {
+            return (new Assistant()).size();
+        } catch (AdoHiveException ex) {
+            return 0;
+        }
     }
 }

@@ -2,11 +2,10 @@ package de.aidger.view.models;
 
 import static de.aidger.utils.Translation._;
 
-import java.util.List;
-
 import de.aidger.model.AbstractModel;
 import de.aidger.model.Runtime;
 import de.aidger.model.models.CostUnit;
+import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * The class represents the table model for the contracts data.
@@ -22,34 +21,42 @@ public class CostUnitTableModel extends TableModel {
         super(new String[] { _("Cost unit"), _("Funds"), _("Database token") });
     }
 
-    /*
+    /**
      * (non-Javadoc)
-     * 
-     * @see de.aidger.view.models.TableModel#getAllModels()
+     *
+     * @see de.aidger.view.models.TableModel#getRowValue(de.aidger.model.AbstractModel, int)
      */
     @Override
-    @SuppressWarnings("unchecked")
-    public void getAllModels() {
-        List<CostUnit> costUnits = Runtime.getInstance().getDataXMLManager()
-            .getCostUnitMap();
-
-        for (CostUnit costUnit : costUnits) {
-            models.add(costUnit);
+    protected Object getRowValue(AbstractModel model, int row) {
+        CostUnit costunit = (CostUnit) model;
+        switch (row) {
+            case 0: return costunit.getCostUnit();
+            case 1: return costunit.getFunds();
+            case 2: return costunit.getTokenDB();
         }
+        return null;
     }
 
-    /*
+    /**
      * (non-Javadoc)
-     * 
-     * @seede.aidger.view.models.TableModel#convertModelToRow(de.aidger.model.
-     * AbstractModel)
+     *
+     * @see de.aidger.view.models.TableModel#getModelFromDB(int)
      */
-    @SuppressWarnings("unchecked")
     @Override
-    protected Object[] convertModelToRow(AbstractModel model) {
-        CostUnit costUnit = (CostUnit) model;
+    protected AbstractModel getModelFromDB(int idx) {
+        return Runtime.getInstance().getDataXMLManager().getCostUnitMap().get(idx);
+    }
 
-        return new Object[] { costUnit.getCostUnit(), costUnit.getFunds(),
-                costUnit.getTokenDB() };
+    /**
+     * (non-Javadoc)
+     *
+     * @see javax.swing.table.AbstractTableModel#getRowCount()
+     */
+    public int getRowCount() {
+        try {
+            return (new CostUnit()).size();
+        } catch (AdoHiveException ex) {
+            return 0;
+        }
     }
 }

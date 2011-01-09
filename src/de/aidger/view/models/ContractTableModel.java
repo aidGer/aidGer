@@ -4,16 +4,14 @@ import static de.aidger.utils.Translation._;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
-import de.aidger.utils.Logger;
 import de.aidger.view.forms.ContractEditorForm.ContractType;
+import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
-import de.unistuttgart.iste.se.adohive.model.IContract;
 
 /**
  * The class represents the table model for the contracts data.
@@ -34,61 +32,6 @@ public class ContractTableModel extends TableModel {
     /*
      * (non-Javadoc)
      * 
-     * @see de.aidger.view.models.TableModel#getAllModels()
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public void getAllModels() {
-        List<IContract> contracts = null;
-
-        try {
-            contracts = (new Contract()).getAll();
-        } catch (AdoHiveException e) {
-            Logger.error(e.getMessage());
-        }
-
-        for (IContract c : contracts) {
-            Contract contract = new Contract(c);
-
-            models.add(contract);
-        }
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @seede.aidger.view.models.TableModel#convertModelToRow(de.aidger.model.
-     * AbstractModel)
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    protected Object[] convertModelToRow(AbstractModel model) {
-        Contract contract = (Contract) model;
-
-        try {
-            IAssistant assistant = (new Assistant()).getById(contract
-                .getAssistantId());
-
-            Date confirmationDate = contract.getConfirmationDate();
-            Calendar cal = Calendar.getInstance();
-            cal.clear();
-
-            return new Object[] {
-                    contract.getId(),
-                    new UIAssistant(assistant),
-                    contract.getCompletionDate(),
-                    confirmationDate == null ? cal.getTime() : confirmationDate,
-                    contract.getStartDate(), contract.getEndDate(),
-                    ContractType.valueOf(contract.getType()),
-                    contract.isDelegation() };
-        } catch (AdoHiveException e) {
-            return new Object[] {};
-        }
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
      * @see javax.swing.table.AbstractTableModel#getColumnClass(int)
      */
     @Override
@@ -101,5 +44,62 @@ public class ContractTableModel extends TableModel {
         }
 
         return super.getColumnClass(column);
+    }
+
+    /**
+     * (non-Javadoc)
+     *
+     * @see de.aidger.view.models.TableModel#getRowValue(de.aidger.model.AbstractModel, int)
+     */
+    @Override
+    protected Object getRowValue(AbstractModel model, int row) {
+        try {
+            Contract contract = (Contract) model;
+            switch (row) {
+                case 0: return contract.getId();
+                case 1:
+                    IAssistant assistant = (new Assistant()).getById(contract.getAssistantId());
+                    return new UIAssistant(assistant);
+                case 2: return contract.getCompletionDate();
+                case 3:
+                    Date confirmationDate = contract.getConfirmationDate();
+                    Calendar cal = Calendar.getInstance();
+                    cal.clear();
+                    return confirmationDate == null ? cal.getTime() : confirmationDate;
+                case 4: return contract.getStartDate();
+                case 5: return contract.getEndDate();
+                case 6: return ContractType.valueOf(contract.getType());
+                case 7: return contract.isDelegation();
+            }
+        } catch (AdoHiveException ex) {
+        }
+        return null;
+    }
+
+    /**
+     * (non-Javadoc)
+     *
+     * @see de.aidger.view.models.TableModel#getModelFromDB(int)
+     */
+    @Override
+    protected AbstractModel getModelFromDB(int idx) {
+        try {
+            return new Contract(AdoHiveController.getInstance().getContractManager().get(idx));
+        } catch (AdoHiveException ex) {
+            return null;
+        }
+    }
+
+    /**
+     * (non-Javadoc)
+     *
+     * @see javax.swing.table.AbstractTableModel#getRowCount()
+     */
+    public int getRowCount() {
+        try {
+            return (new Contract()).size();
+        } catch (AdoHiveException ex) {
+            return 0;
+        }
     }
 }
