@@ -18,6 +18,9 @@ import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.IContract;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
+import de.unistuttgart.iste.se.adohive.model.IEmployment;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The class represents the table model for the employments data.
@@ -107,6 +110,24 @@ public class EmploymentTableModel extends TableModel {
         } catch (AdoHiveException ex) {
             return null;
         }
+    }
+
+    /**
+     * (non-javadoc)
+     *
+     * @see de.aidger.view.models.TableModel#getModels() 
+     */
+    protected List<AbstractModel> getModels() {
+        List<AbstractModel> ret = new ArrayList<AbstractModel>();
+        try {
+            List<IEmployment> lst = (new Employment()).getAll();
+            for (IEmployment e : lst) {
+                ret.add(new Employment(e));
+            }
+        } catch (AdoHiveException ex) {
+        }
+
+        return ret;
     }
 
     /**

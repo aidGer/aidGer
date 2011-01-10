@@ -47,7 +47,7 @@ public class AnsiSqlDialect implements SqlDialect {
 		else if(cell instanceof String && (paramType == char.class || paramType == Character.class))
 			return (Character)((String)cell).charAt(0);			
 		//jay for crappy Derby not having a byte type
-		else if(cell instanceof Integer && (paramType == byte.class	|| paramType == Byte.class))
+		else if(cell instanceof Integer && (paramType == byte.class || paramType == Byte.class))
 			return ((Integer)cell).byteValue();			
 		//derby seems to have a SMALLINT, but it returns an int *gahhh*
 		else if(cell instanceof Integer && (paramType == short.class || paramType == Short.class))
@@ -55,6 +55,14 @@ public class AnsiSqlDialect implements SqlDialect {
 		//jay for crappy Derby not having a boolean type
 		else if(cell instanceof Integer && (paramType == boolean.class || paramType == Boolean.class))
 			return((Integer)cell) != 0;
+                //MySQL returns Long instead of Integer
+                else if (cell instanceof Long && (paramType == byte.class || paramType == Byte.class))
+                        return ((Long) cell).byteValue();
+                else if (cell instanceof Long && (paramType == short.class || paramType == Short.class))
+                        return ((Long) cell).shortValue();
+                //CostUnit seems to be a string instead of an Integer
+                else if (cell instanceof String && (paramType == int.class || paramType == Integer.class))
+                        return Integer.parseInt((String) cell);
 		else if(cell instanceof Float && (paramType == double.class || paramType == Double.class))
 			return ((Float) cell).doubleValue();
 		else if(cell instanceof Double && (paramType == BigDecimal.class))

@@ -6,6 +6,9 @@ import de.aidger.model.AbstractModel;
 import de.aidger.model.models.FinancialCategory;
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The class represents the table model for the master data financial
@@ -78,6 +81,24 @@ public class FinancialCategoryTableModel extends TableModel {
         } catch (AdoHiveException ex) {
             return null;
         }
+    }
+
+    /**
+     * (non-javadoc)
+     *
+     * @see de.aidger.view.models.TableModel#getModels()
+     */
+    protected List<AbstractModel> getModels() {
+        List<AbstractModel> ret = new ArrayList<AbstractModel>();
+        try {
+            List<IFinancialCategory> lst = (new FinancialCategory()).getAll();
+            for (IFinancialCategory e : lst) {
+                ret.add(new FinancialCategory(e));
+            }
+        } catch (AdoHiveException ex) {
+        }
+
+        return ret;
     }
 
     /**

@@ -10,6 +10,9 @@ import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.unistuttgart.iste.se.adohive.model.IActivity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The class represents the table model for the activities.
@@ -90,6 +93,24 @@ public class ActivityTableModel extends TableModel {
         } catch (AdoHiveException ex) {
             return null;
         }
+    }
+
+    /**
+     * (non-javadoc)
+     *
+     * @see de.aidger.view.models.TableModel#getModels()
+     */
+    protected List<AbstractModel> getModels() {
+        List<AbstractModel> ret = new ArrayList<AbstractModel>();
+        try {
+            List<IActivity> lst = (new Activity()).getAll();
+            for (IActivity e : lst) {
+                ret.add(new Activity(e));
+            }
+        } catch (AdoHiveException ex) {
+        }
+
+        return ret;
     }
 
     /**

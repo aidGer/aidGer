@@ -10,6 +10,9 @@ import de.aidger.model.models.HourlyWage;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The class represents the table model for the master data hourly wages.
@@ -75,6 +78,24 @@ public class HourlyWageTableModel extends TableModel {
         } catch (AdoHiveException ex) {
             return null;
         }
+    }
+
+    /**
+     * (non-javadoc)
+     *
+     * @see de.aidger.view.models.TableModel#getModels()
+     */
+    protected List<AbstractModel> getModels() {
+        List<AbstractModel> ret = new ArrayList<AbstractModel>();
+        try {
+            List<IHourlyWage> lst = (new HourlyWage()).getAll();
+            for (IHourlyWage e : lst) {
+                ret.add(new HourlyWage(e));
+            }
+        } catch (AdoHiveException ex) {
+        }
+
+        return ret;
     }
 
     /**

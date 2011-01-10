@@ -12,6 +12,9 @@ import de.aidger.view.forms.ContractEditorForm.ContractType;
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
+import de.unistuttgart.iste.se.adohive.model.IContract;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The class represents the table model for the contracts data.
@@ -88,6 +91,24 @@ public class ContractTableModel extends TableModel {
         } catch (AdoHiveException ex) {
             return null;
         }
+    }
+
+    /**
+     * (non-javadoc)
+     *
+     * @see de.aidger.view.models.TableModel#getModels()
+     */
+    protected List<AbstractModel> getModels() {
+        List<AbstractModel> ret = new ArrayList<AbstractModel>();
+        try {
+            List<IContract> lst = (new Contract()).getAll();
+            for (IContract e : lst) {
+                ret.add(new Contract(e));
+            }
+        } catch (AdoHiveException ex) {
+        }
+
+        return ret;
     }
 
     /**

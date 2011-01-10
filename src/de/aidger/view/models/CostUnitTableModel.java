@@ -6,6 +6,7 @@ import de.aidger.model.AbstractModel;
 import de.aidger.model.Runtime;
 import de.aidger.model.models.CostUnit;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import java.util.List;
 
 /**
  * The class represents the table model for the contracts data.
@@ -45,6 +46,17 @@ public class CostUnitTableModel extends TableModel {
     @Override
     protected AbstractModel getModelFromDB(int idx) {
         return Runtime.getInstance().getDataXMLManager().getCostUnitMap().get(idx);
+    }
+
+    /**
+     * (non-javadoc)
+     *
+     * @see de.aidger.view.models.TableModel#getModels()
+     */
+    protected List<AbstractModel> getModels() {
+        List<CostUnit> lst = Runtime.getInstance().getDataXMLManager().getCostUnitMap();
+
+        return (List) lst;
     }
 
     /**

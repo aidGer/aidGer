@@ -3,6 +3,7 @@ package de.aidger.view.models;
 import de.aidger.model.AbstractModel;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
@@ -41,7 +42,7 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
      * @param columnNames
      *              The names of all columns
      */
-    public TableModel(String[] columnNames) {
+    protected TableModel(String[] columnNames) {
         this.columnNames = columnNames;
 
         String className = this.getClass().getName();
@@ -49,7 +50,12 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
         // get all models just once from database
         if (mapModels.get(className) == null) {
             models = new HashMap<Integer, AbstractModel>();
-            mapModels.put(className, models);            
+            mapModels.put(className, models);
+
+            List<AbstractModel> mdls = getModels();
+            for (int i = 0; i < mdls.size(); ++i) {
+                models.put(i, mdls.get(i));
+            }
         } else {
             models = mapModels.get(className);
         }
@@ -76,6 +82,8 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
      * @return The model or null
      */
     protected abstract AbstractModel getModelFromDB(int idx);
+
+    protected abstract List<AbstractModel> getModels();
 
         /**
      * Returns the model at the given index.

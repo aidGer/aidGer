@@ -7,7 +7,10 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.FinancialCategory;
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import de.unistuttgart.iste.se.adohive.model.ICourse;
 import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The class represents the table model for the master data courses.
@@ -87,6 +90,24 @@ public class CourseTableModel extends TableModel {
         } catch (AdoHiveException ex) {
             return null;
         }
+    }
+
+    /**
+     * (non-javadoc)
+     *
+     * @see de.aidger.view.models.TableModel#getModels()
+     */
+    protected List<AbstractModel> getModels() {
+        List<AbstractModel> ret = new ArrayList<AbstractModel>();
+        try {
+            List<ICourse> lst = (new Course()).getAll();
+            for (ICourse e : lst) {
+                ret.add(new Course(e));
+            }
+        } catch (AdoHiveException ex) {
+        }
+
+        return ret;
     }
 
     /**
