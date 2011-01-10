@@ -608,6 +608,9 @@ public class BalanceReportConverter {
             for (Object courseObject : rowObjectVector.toArray()) {
                 PdfPCell cell = null;
                 if (courseObject.getClass().equals(Double.class)) {
+                    /*
+                     * Round to the configured precision.
+                     */
                     int decimalPlace = Integer.parseInt(Runtime.getInstance()
                         .getOption("rounding", "2"));
                     double rounded = new BigDecimal((Double) courseObject)
@@ -773,6 +776,9 @@ public class BalanceReportConverter {
                     cell = new PdfPCell(new Phrase(new Phrase(sums.get(i)
                         .toString(), tableContentFont)));
                 } else {
+                    /*
+                     * Round to the configured precision.
+                     */
                     int decimalPlace = Integer.parseInt(Runtime.getInstance()
                         .getOption("rounding", "2"));
                     double rounded = new BigDecimal((Double) sums.get(i))

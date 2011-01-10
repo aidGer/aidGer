@@ -4,6 +4,7 @@ import static de.aidger.utils.Translation._;
 
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -14,7 +15,6 @@ import de.aidger.model.validators.PresenceValidator;
 import de.aidger.view.SettingsDialog;
 import de.aidger.view.UI;
 import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
-import java.util.List;
 
 /**
  * This action saves the settings in the dialog and closes it.
@@ -44,10 +44,11 @@ public class SettingsSaveAction extends AbstractAction {
             .getTopLevelAncestor();
 
         String beforeLang = Runtime.getInstance().getOption("language");
-        String beforePessimistic = Runtime.getInstance().getOption("pessimistic-factor");
-        String beforeHistoric = Runtime.getInstance().getOption("historic-factor");
+        String beforePessimistic = Runtime.getInstance().getOption(
+            "pessimistic-factor");
+        String beforeHistoric = Runtime.getInstance().getOption(
+            "historic-factor");
         String beforeCalc = Runtime.getInstance().getOption("calc-method");
-
 
         if (!PresenceValidator.validate(dlg.getUsername())) {
             UI.displayError(_("No name entered"));
@@ -63,17 +64,19 @@ public class SettingsSaveAction extends AbstractAction {
         }
 
         List<Pair<String, String>> languages = Runtime.getInstance()
-                .getLanguages();
+            .getLanguages();
         if (dlg.getSelectedLanguage() == -1
                 || dlg.getSelectedLanguage() >= languages.size()) {
-            UI.displayError(_("No Language selected or incorrect language selected."));
+            UI
+                .displayError(_("No Language selected or incorrect language selected."));
             return;
         }
-        Runtime.getInstance().setOption("language", languages.get(
-                dlg.getSelectedLanguage()).fst());
+        Runtime.getInstance().setOption("language",
+            languages.get(dlg.getSelectedLanguage()).fst());
 
         if (dlg.getNumOfActivities() <= 0) {
-            UI.displayError(_("The number of activities needs to be bigger than 0."));
+            UI
+                .displayError(_("The number of activities needs to be bigger than 0."));
             return;
         }
         Runtime.getInstance().setOption("activities",
@@ -99,7 +102,7 @@ public class SettingsSaveAction extends AbstractAction {
         try {
             int anon = Integer.parseInt(dlg.getAnonymizationTime());
             Runtime.getInstance().setOption("anonymize-time",
-                    dlg.getAnonymizationTime());
+                dlg.getAnonymizationTime());
         } catch (NumberFormatException ex) {
             UI.displayError(_("Anonymization time needs to be an integer."));
             return;
@@ -109,12 +112,16 @@ public class SettingsSaveAction extends AbstractAction {
             double tol = Double.parseDouble(dlg.getTolerance());
             Runtime.getInstance().setOption("tolerance", dlg.getTolerance());
         } catch (NumberFormatException ex) {
-            UI.displayError(_("Tolerance needs to be a floating point number."));
+            UI
+                .displayError(_("Tolerance needs to be a floating point number."));
             return;
         }
 
-        Runtime.getInstance().setOption("calc-method", Integer.toString(
-                dlg.getSelectedMethod()));
+        Runtime.getInstance().setOption("calc-method",
+            Integer.toString(dlg.getSelectedMethod()));
+
+        Runtime.getInstance().setOption("rounding",
+            Integer.toString(dlg.getRounding()));
 
         dlg.setVisible(false);
         dlg.dispose();
@@ -124,13 +131,18 @@ public class SettingsSaveAction extends AbstractAction {
 
         // Display info dialog if language has changed
         if (!beforeLang.equals(Runtime.getInstance().getOption("language"))) {
-            UI.displayInfo(_("You need to restart the application to finish the language change."));
+            UI
+                .displayInfo(_("You need to restart the application to finish the language change."));
         }
 
-        if (!beforePessimistic.equals(Runtime.getInstance().getOption("pessimistic-factor"))
-                || !beforeHistoric.equals(Runtime.getInstance().getOption("historic-factor"))
-                || !beforeCalc.equals(Runtime.getInstance().getOption("calc-method"))) {
-            UI.displayInfo(_("You need to recalculate open reports for the new settings to impact the results."));
+        if (!beforePessimistic.equals(Runtime.getInstance().getOption(
+            "pessimistic-factor"))
+                || !beforeHistoric.equals(Runtime.getInstance().getOption(
+                    "historic-factor"))
+                || !beforeCalc.equals(Runtime.getInstance().getOption(
+                    "calc-method"))) {
+            UI
+                .displayInfo(_("You need to recalculate open reports for the new settings to impact the results."));
         }
     }
 }

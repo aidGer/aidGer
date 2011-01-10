@@ -119,6 +119,16 @@ public class BalanceViewerTab extends ReportTab {
     }
 
     /**
+     * Whether the tab should be on a scroll pane.
+     * 
+     * @return
+     */
+    @Override
+    public boolean isScrollable() {
+        return false;
+    }
+
+    /**
      * Get the type of balance.
      * 
      * @return The type of balance
@@ -235,6 +245,7 @@ public class BalanceViewerTab extends ReportTab {
         jSeparator4 = new javax.swing.JToolBar.Separator();
         yearLabel = new javax.swing.JLabel();
         yearComboBox = new javax.swing.JComboBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
         contentPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
@@ -257,7 +268,9 @@ public class BalanceViewerTab extends ReportTab {
 
         contentPanel.setLayout(new javax.swing.BoxLayout(contentPanel,
             javax.swing.BoxLayout.Y_AXIS));
-        add(contentPanel, java.awt.BorderLayout.CENTER);
+        jScrollPane1.setViewportView(contentPanel);
+
+        add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
@@ -437,6 +450,7 @@ public class BalanceViewerTab extends ReportTab {
     private javax.swing.JPanel filtersPanel;
     private javax.swing.JButton generateButton;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;

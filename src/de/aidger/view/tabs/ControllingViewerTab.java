@@ -19,6 +19,7 @@ import de.aidger.controller.actions.ControllingGenerateAction;
 import de.aidger.model.Runtime;
 import de.aidger.model.controlling.ControllingAssistant;
 import de.aidger.model.controlling.ControllingCreator;
+import de.aidger.model.models.CostUnit;
 import de.aidger.utils.controlling.ControllingHelper;
 import de.aidger.view.UI;
 
@@ -33,7 +34,9 @@ public class ControllingViewerTab extends ReportTab {
     /**
      * The year, month and funds to be used with the controlling report.
      */
-    private int year, month, funds;
+    private int year, month;
+
+    private CostUnit funds;
 
     /**
      * The table model of the content table.
@@ -288,14 +291,14 @@ public class ControllingViewerTab extends ReportTab {
     private void createFundsItems(int year, int month) {
         if (monthComboBox.getSelectedIndex() >= 0) {
             fundsComboBox.removeAllItems();
-            int[] funds = new ControllingHelper().getFunds(year, month);
+            CostUnit[] funds = new ControllingHelper().getFunds(year, month);
             Object[] fundsObjects = new Object[funds.length];
             for (int i = 0; i < fundsObjects.length; i++) {
                 fundsObjects[i] = funds[i];
             }
             fundsComboBox.setModel(new DefaultComboBoxModel(fundsObjects));
             if (fundsComboBox.getItemCount() > 0) {
-                this.funds = (Integer) fundsComboBox.getSelectedItem();
+                this.funds = (CostUnit) fundsComboBox.getSelectedItem();
             }
         }
 
@@ -423,7 +426,7 @@ public class ControllingViewerTab extends ReportTab {
 
     private void fundsComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fundsComboBoxItemStateChanged
         if (fundsComboBox.getSelectedIndex() >= 0) {
-            this.funds = (Integer) fundsComboBox.getSelectedItem();
+            this.funds = (CostUnit) fundsComboBox.getSelectedItem();
         }
     }//GEN-LAST:event_fundsComboBoxItemStateChanged
 
