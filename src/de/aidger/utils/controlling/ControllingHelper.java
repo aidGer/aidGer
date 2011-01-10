@@ -7,7 +7,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import de.aidger.model.Runtime;
+import de.aidger.model.models.CostUnit;
 import de.aidger.model.models.Employment;
+import de.aidger.utils.DataXMLManager;
 import de.aidger.view.UI;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IEmployment;
@@ -25,6 +28,12 @@ public class ControllingHelper {
      */
     public ControllingHelper() {
     }
+
+    /**
+     * The data XML manager.
+     */
+    private final DataXMLManager dataManager = Runtime.getInstance()
+        .getDataXMLManager();
 
     /**
      * Determines all the available years of all employments.
@@ -102,8 +111,8 @@ public class ControllingHelper {
      *            The month of which to get the funds.
      * @return The funds.
      */
-    public int[] getFunds(int year, int month) {
-        ArrayList<Integer> costUnits = new ArrayList<Integer>();
+    public CostUnit[] getFunds(int year, int month) {
+        ArrayList<CostUnit> costUnits = new ArrayList<CostUnit>();
         List<Employment> employments;
         try {
             /*
@@ -114,18 +123,19 @@ public class ControllingHelper {
             employments = new Employment().getEmployments((short) year,
                 (byte) 1, (short) year, (byte) month);
             for (Employment employment : employments) {
-                if (!costUnits.contains(employment.getCostUnit())) {
-                    costUnits.add(employment.getCostUnit());
+                CostUnit costUnit = dataManager.fromTokenDB(employment
+                    .getFunds());
+                if (!costUnits.contains(costUnit)) {
+                    costUnits.add(costUnit);
                 }
             }
         } catch (AdoHiveException e) {
             UI.displayError(e.toString());
         }
-        int[] sortedCostUnits = new int[costUnits.size()];
+        CostUnit[] sortedCostUnits = new CostUnit[costUnits.size()];
         for (int i = 0; i < sortedCostUnits.length; i++) {
             sortedCostUnits[i] = costUnits.get(i);
         }
-        Arrays.sort(sortedCostUnits);
         return sortedCostUnits;
     }
 }

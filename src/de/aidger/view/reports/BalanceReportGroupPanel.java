@@ -119,6 +119,7 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
                 }
                 /*
                  * Set the budget cost of the cost unit to the one specified.
+                 * Round to the configured precision
                  */
                 int decimalPlace = Integer.parseInt(Runtime.getInstance()
                     .getOption("rounding", "2"));

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.aidger.model.models.Assistant;
+import de.aidger.model.models.CostUnit;
 import de.aidger.model.models.Employment;
 import de.aidger.utils.reports.BalanceHelper;
 import de.aidger.view.UI;
@@ -34,7 +35,7 @@ public class ControllingCreator {
     /**
      * The costUnit of this controlling report.
      */
-    private final int costUnit;
+    private final CostUnit costUnit;
 
     /**
      * Initializes a new controlling creator and sets the year, month and funds.
@@ -46,7 +47,7 @@ public class ControllingCreator {
      * @param costUnit
      *            The costUnit of this controlling report.
      */
-    public ControllingCreator(int year, int month, int costUnit) {
+    public ControllingCreator(int year, int month, CostUnit costUnit) {
         this.year = year;
         this.month = month;
         this.costUnit = costUnit;
@@ -76,7 +77,8 @@ public class ControllingCreator {
                 for (Employment employment : employments) {
                     new BalanceHelper();
                     if (assistant.getId().equals(employment.getAssistantId())
-                            && employment.getCostUnit().equals(costUnit)
+                            && employment.getCostUnit().toString().equals(
+                                costUnit.getCostUnit())
                             && (BalanceHelper
                                 .calculatePreTaxBudgetCost(employment) != -1 || !ignore)) {
                         if (controllingAssistant == null) {
