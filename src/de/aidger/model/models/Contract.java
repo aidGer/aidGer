@@ -59,13 +59,15 @@ public class Contract extends AbstractModel<IContract> implements IContract {
      * Initializes the Contract class.
      */
     public Contract() {
-        validatePresenceOf(new String[] { "completionDate", "endDate",
-                "startDate", "type" }, new String[] { _("Completion date"),
-                _("End date"), _("Start date"), _("Type") });
-        validateDateRange("startDate", "endDate", _("End date"),
-            _("Start date"));
-        validateExistanceOf(new String[] { "assistantId" },
-            new String[] { _("Assistant") }, new Assistant());
+        if (getValidators().isEmpty()) {
+            validatePresenceOf(new String[] { "completionDate", "endDate",
+                    "startDate", "type" }, new String[] { _("Completion date"),
+                    _("End date"), _("Start date"), _("Type") });
+            validateDateRange("startDate", "endDate", _("End date"),
+                _("Start date"));
+            validateExistanceOf(new String[] { "assistantId" },
+                new String[] { _("Assistant") }, new Assistant());
+        }
     }
 
     /**

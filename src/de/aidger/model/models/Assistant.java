@@ -40,12 +40,14 @@ public class Assistant extends AbstractModel<IAssistant> implements IAssistant {
      * Initializes the Assistant class.
      */
     public Assistant() {
-        validatePresenceOf(new String[] { "email", "firstName", "lastName",
-                "qualification" }, new String[] { _("Email"), _("First Name"),
-                _("Last Name"), _("Qualification") });
-        validateEmailAddress("email", _("Email"));
-        validateInclusionOf(new String[] { "qualification" }, new String[] { 
-                _("Qualification") }, new String[] { "g", "u", "b"});
+        if (getValidators().isEmpty()) {
+            validatePresenceOf(new String[] { "email", "firstName", "lastName",
+                    "qualification" }, new String[] { _("Email"), _("First Name"),
+                    _("Last Name"), _("Qualification") });
+            validateEmailAddress("email", _("Email"));
+            validateInclusionOf(new String[] { "qualification" }, new String[] {
+                    _("Qualification") }, new String[] { "g", "u", "b"});
+        }
     }
 
     /**

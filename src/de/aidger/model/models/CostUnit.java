@@ -15,28 +15,26 @@ public class CostUnit extends AbstractModel {
     /**
      * The cost unit that is a 8 digit number.
      */
-    private String costUnit;
+    private String costUnit = "";
 
     /**
      * The funds that is readable for humans.
      */
-    private String funds;
+    private String funds = "";
 
     /**
      * The token that is stored in the database for this cost unit.
      */
-    private String tokenDB;
+    private String tokenDB = "";
 
     /**
      * Creates a cost unit model.
      */
     public CostUnit() {
-        this.costUnit = "";
-        this.funds = "";
-        this.tokenDB = "";
-
-        validatePresenceOf(new String[] { "costUnit", "funds", "tokenDB" },
-            new String[] { _("Cost unit"), _("Funds"), _("Database token") });
+        if (getValidators().isEmpty()) {
+            validatePresenceOf(new String[] { "costUnit", "funds", "tokenDB" },
+                    new String[] { _("Cost unit"), _("Funds"), _("Database token") });
+        }
     }
 
     /**

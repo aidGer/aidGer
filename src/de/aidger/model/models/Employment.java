@@ -75,16 +75,18 @@ public class Employment extends AbstractModel<IEmployment> implements
      * Initializes the Employment class.
      */
     public Employment() {
-        validatePresenceOf(new String[] { "funds", "qualification" },
-            new String[] { _("Funds"), _("Qualification") });
-        validateInclusionOf(new String[] { "qualification" },
-            new String[] { _("Qualification") }, new String[] { "g", "u", "b" });
-        validateExistanceOf(new String[] { "assistantId" },
-            new String[] { _("Assistant") }, new Assistant());
-        validateExistanceOf(new String[] { "contractId" },
-            new String[] { _("Contract") }, new Contract());
-        validateExistanceOf(new String[] { "courseId" },
-            new String[] { _("Course") }, new Course());
+        if (getValidators().isEmpty()) {
+            validatePresenceOf(new String[] { "funds", "qualification" },
+                new String[] { _("Funds"), _("Qualification") });
+            validateInclusionOf(new String[] { "qualification" },
+                new String[] { _("Qualification") }, new String[] { "g", "u", "b" });
+            validateExistanceOf(new String[] { "assistantId" },
+                new String[] { _("Assistant") }, new Assistant());
+            validateExistanceOf(new String[] { "contractId" },
+                new String[] { _("Contract") }, new Contract());
+            validateExistanceOf(new String[] { "courseId" },
+                new String[] { _("Course") }, new Course());        
+        }
     }
 
     /**

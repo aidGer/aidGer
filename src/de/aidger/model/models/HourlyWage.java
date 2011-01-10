@@ -42,10 +42,12 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
     public HourlyWage() {
         updatePKs = true;
 
-        validatePresenceOf(new String[] { "qualification", "wage" },
-            new String[] { _("Qualification"), _("Wage") });
-        validateInclusionOf(new String[] { "qualification" },
-            new String[] { _("Qualification") }, new String[] { "g", "u", "b" });
+        if (getValidators().isEmpty()) {
+            validatePresenceOf(new String[] { "qualification", "wage" },
+                    new String[] { _("Qualification"), _("Wage") });
+            validateInclusionOf(new String[] { "qualification" },
+                    new String[] { _("Qualification") }, new String[] { "g", "u", "b" });
+        }
     }
 
     /**

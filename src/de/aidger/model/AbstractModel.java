@@ -41,6 +41,11 @@ public abstract class AbstractModel<T> extends Observable implements
     protected Integer id = 0;
 
     /**
+     * The name of the class.
+     */
+    protected String classname;
+
+    /**
      * Determines if the model has been saved in the db yet.
      */
     private boolean isNew = true;
@@ -53,7 +58,7 @@ public abstract class AbstractModel<T> extends Observable implements
     /**
      * Array containing all validators for that specific model.
      */
-    protected List<Validator> validators = new ArrayList<Validator>();
+    protected static Map<String, List<Validator>> validators = new HashMap<String, List<Validator>>();
 
     /**
      * Array containing errors if a validator fails.
@@ -66,7 +71,7 @@ public abstract class AbstractModel<T> extends Observable implements
     protected Map<String, List<String>> fieldErrors = new HashMap<String, List<String>>();
 
     /**
-     * Should the model first be removed before saveing. Needed for example for
+     * Should the model first be removed before saving. Needed for example for
      * HourlyWage which has several Primary Keys and needs to be removed when
      * edited.
      */
@@ -76,6 +81,16 @@ public abstract class AbstractModel<T> extends Observable implements
      * The old model before any changes.
      */
     private AbstractModel<T> pkModel = null;
+
+    /**
+     * The constructor of the AbstractModel class.
+     */
+    public AbstractModel() {
+        classname = getClass().getName();
+        if (!validators.containsKey(classname)) {
+            validators.put(classname, new ArrayList<Validator>());
+        }
+    }
 
     /**
      * Cloneable function inherited from IAdoHiveModel.
@@ -336,7 +351,7 @@ public abstract class AbstractModel<T> extends Observable implements
      *            The translated names
      */
     public void validatePresenceOf(String[] members, String[] trans) {
-        validators.add(new PresenceValidator(this, members, trans));
+        validators.get(classname).add(new PresenceValidator(this, members, trans));
     }
 
     /**
@@ -348,7 +363,7 @@ public abstract class AbstractModel<T> extends Observable implements
      *            The translated name
      */
     public void validateEmailAddress(String member, String trans) {
-        validators.add(new FormatValidator(this, new String[] { member },
+        validators.get(classname).add(new FormatValidator(this, new String[] { member },
             new String[] { trans },
             "^[\\w\\-]([\\.\\w])+[\\w]+@([\\p{L}\\-]+\\.)+[A-Z]{2,4}$", false));
     }
@@ -367,7 +382,7 @@ public abstract class AbstractModel<T> extends Observable implements
      */
     public void validateDateRange(String from, String to, String transFrom,
             String transTo) {
-        validators.add(new DateRangeValidator(this, from, to, transFrom,
+        validators.get(classname).add(new DateRangeValidator(this, from, to, transFrom,
             transTo));
     }
 
@@ -383,7 +398,7 @@ public abstract class AbstractModel<T> extends Observable implements
      */
     public void validateInclusionOf(String[] members, String[] trans,
             String[] inc) {
-        validators.add(new InclusionValidator(this, members, trans, inc));
+        validators.get(classname).add(new InclusionValidator(this, members, trans, inc));
     }
 
     /**
@@ -398,7 +413,7 @@ public abstract class AbstractModel<T> extends Observable implements
      */
     public void validateExistanceOf(String[] members, String[] trans,
             AbstractModel type) {
-        validators.add(new ExistanceValidator(this, members, trans, type));
+        validators.get(classname).add(new ExistanceValidator(this, members, trans, type));
     }
 
     /**
@@ -412,7 +427,7 @@ public abstract class AbstractModel<T> extends Observable implements
      *            THe format to check
      */
     public void validateFormatOf(String[] members, String[] trans, String format) {
-        validators.add(new FormatValidator(this, members, trans, format));
+        validators.get(classname).add(new FormatValidator(this, members, trans, format));
     }
 
     /**
@@ -495,7 +510,7 @@ public abstract class AbstractModel<T> extends Observable implements
                 ret = ret.substring(0, ret.length() - 2);
             }
         } catch (Exception ex) {
-            System.err.println(ex.getMessage());
+            Logger.error(ex.getMessage());
         }
         return ret + "]";
     }
@@ -507,23 +522,23 @@ public abstract class AbstractModel<T> extends Observable implements
      */
     @SuppressWarnings("unchecked")
     protected IAdoHiveManager getManager() {
-        String classname = getClass().getSimpleName();
+        String clazzname = getClass().getSimpleName();
 
-        if (!managers.containsKey(classname) || managers.get(classname) == null) {
+        if (!managers.containsKey(clazzname) || managers.get(clazzname) == null) {
             /* Try to get the correct manager from the AdoHiveController */
             try {
                 java.lang.reflect.Method m = AdoHiveController.class
-                    .getMethod("get" + classname + "Manager");
-                managers.put(classname, (IAdoHiveManager) m.invoke(
+                    .getMethod("get" + clazzname + "Manager");
+                managers.put(clazzname, (IAdoHiveManager) m.invoke(
                     AdoHiveController.getInstance(), new Object[0]));
             } catch (Exception ex) {
                 Logger.error(MessageFormat.format(
                     _("Could not get manager for class \"{0}\". Error: {1}"),
-                    new Object[] { classname, ex.getMessage() }));
+                    new Object[] { clazzname, ex.getMessage() }));
             }
         }
 
-        return managers.get(classname);
+        return managers.get(clazzname);
     }
 
     /**
@@ -534,7 +549,7 @@ public abstract class AbstractModel<T> extends Observable implements
     protected boolean doValidate() {
         /* Try to validate before adding/updating */
         boolean ret = true;
-        for (Validator v : validators) {
+        for (Validator v : validators.get(classname)) {
             if (!v.validate()) {
                 ret = false;
             }
@@ -575,7 +590,7 @@ public abstract class AbstractModel<T> extends Observable implements
      * @return the validators of the model
      */
     public List<Validator> getValidators() {
-        return validators;
+        return validators.get(classname);
     }
 
 }
