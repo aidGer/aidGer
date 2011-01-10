@@ -1,7 +1,7 @@
 package de.aidger.view.tabs;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -79,6 +79,15 @@ public abstract class Tab extends JPanel {
         if (!p.noPredecessor) {
             predecessor = p;
         }
+    }
+
+    /**
+     * Whether the tab should be on a scroll pane.
+     * 
+     * @return
+     */
+    public boolean isScrollable() {
+        return true;
     }
 
     /**

@@ -278,12 +278,16 @@ public final class UI extends JFrame {
             FirstStartWizard wizard = new FirstStartWizard(this);
             wizard.showDialog();
         } else if (!Runtime.getInstance().isConnected()) {
-        	UI.displayError(_("Couldn't connect to the database!\n\nPlease enter a correct connection in the following dialog."));
-        	DatabaseSettingsWizard wizard = new DatabaseSettingsWizard(this);
-        	try {
-				wizard.setCancelAction((AbstractAction) ActionRegistry.getInstance().get(ExitAction.class.getName()));
-			} catch (ActionNotFoundException e) { UI.displayError("ExitAction not found!"); }
-        	wizard.showDialog();        	
+            UI
+                .displayError(_("Couldn't connect to the database!\n\nPlease enter a correct connection in the following dialog."));
+            DatabaseSettingsWizard wizard = new DatabaseSettingsWizard(this);
+            try {
+                wizard.setCancelAction((AbstractAction) ActionRegistry
+                    .getInstance().get(ExitAction.class.getName()));
+            } catch (ActionNotFoundException e) {
+                UI.displayError("ExitAction not found!");
+            }
+            wizard.showDialog();
         }
 
         // Anonymize assistants and display a message
@@ -312,7 +316,11 @@ public final class UI extends JFrame {
 
         tab.performBeforeOpen();
 
-        tabbedPane.add(new JScrollPane(tab), index);
+        if (tab.isScrollable()) {
+            tabbedPane.add(new JScrollPane(tab), index);
+        } else {
+            tabbedPane.add(tab, index);
+        }
         tabbedPane.setTabComponentAt(index, new CloseTabComponent(tab
             .getTabName()));
 
@@ -360,8 +368,10 @@ public final class UI extends JFrame {
 
         tabbedPane.removeChangeListener(tabbedPaneListener);
 
-        Tab old = ((Tab) ((JScrollPane) tabbedPane.getComponentAt(index))
-            .getViewport().getView());
+        Tab old = Tab.class.isInstance(tabbedPane.getComponentAt(index)) ? (Tab) tabbedPane
+            .getComponentAt(index)
+                : (Tab) ((JScrollPane) tabbedPane.getComponentAt(index))
+                    .getViewport().getView();
 
         old.performBeforeClose();
 
@@ -414,8 +424,10 @@ public final class UI extends JFrame {
      * @return The selected tab
      */
     public Tab getCurrentTab() {
-        return (Tab) ((JScrollPane) tabbedPane.getSelectedComponent())
-            .getViewport().getView();
+        return Tab.class.isInstance(tabbedPane.getSelectedComponent()) ? (Tab) tabbedPane
+            .getSelectedComponent()
+                : (Tab) ((JScrollPane) tabbedPane.getSelectedComponent())
+                    .getViewport().getView();
     }
 
     /**
@@ -447,8 +459,10 @@ public final class UI extends JFrame {
      * @param index
      */
     public void setCurrentTabAt(int index) {
-        Tab newTab = (Tab) ((JScrollPane) tabbedPane.getComponentAt(index))
-            .getViewport().getView();
+        Tab newTab = Tab.class.isInstance(tabbedPane.getComponentAt(index)) ? (Tab) tabbedPane
+            .getComponentAt(index)
+                : (Tab) ((JScrollPane) tabbedPane.getComponentAt(index))
+                    .getViewport().getView();
 
         Logger.debug(MessageFormat.format(_("Setting current tab to \"{0}\""),
             new Object[] { newTab.getTabName() }));
@@ -832,8 +846,11 @@ public final class UI extends JFrame {
         // CloseTabComponent
 
         for (int i = 0; i < count - 1; ++i) {
-            Tab t = (Tab) ((JScrollPane) tabbedPane.getComponentAt(i))
-                .getViewport().getView();
+            Tab t;
+            t = Tab.class.isInstance(tabbedPane.getComponentAt(i)) ? (Tab) tabbedPane
+                .getComponentAt(i)
+                    : (Tab) ((JScrollPane) tabbedPane.getComponentAt(i))
+                        .getViewport().getView();
             String tab = t.toString();
             if (tab != null) {
                 list[i] = tab;
