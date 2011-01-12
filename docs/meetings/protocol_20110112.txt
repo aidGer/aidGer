@@ -1,0 +1,6 @@
+- Kleinigkeiten (263, 264, 268) sollten wenig Aufwand verursachen und werden demnaechst gefixt.
+- Jahresbericht (258): Philipp P. hat moegliche Fehlerquelle entdeckt, wird demnaechst gefixt und soll dann nochmal mit Produktivdaten getestet werden.
+- Build #153 ist kaputt, Speichern geht da nicht mehr, muss nochmal ueberarbeitet werden.
+- jetzige Version 1.0 wird zu RC 1.0 und auf naechsten Mittwoch terminiert, am darauffolgenden Sonntag ist der Release von 1.0 Final geplant.
+- Problem mit Robustheit kann notfalls auch auf 2.0 verschoben werden.
+- Durchsicht der restlichen Tickets erfolgt
