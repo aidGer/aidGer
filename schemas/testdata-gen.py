@@ -234,7 +234,7 @@ def generate_employments(assis, courses):
                 emp_list[-1]['contract'] = contract
 
             # Get the next month
-            y = month.year if month.month < 12 else 1
+            y = month.year if month.month < 12 else month.year + 1
             m = month.month + 1 if month.month < 12 else 1
             month = date(y, m, 1)
 
