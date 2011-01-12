@@ -72,12 +72,12 @@ public class BulletListAction extends LinkAction {
 
         if (SwingUtilities.isLeftMouseButton(e)) {
             UI.getInstance()
-                .replaceCurrentTab(
+                .addNewTab(
                     new DetailViewerTab(model.getDataType(),
                         (AbstractModel) model));
         } else if (SwingUtilities.isMiddleMouseButton(e)) {
             UI.getInstance()
-                .addNewTab(
+                .replaceCurrentTab(
                     new DetailViewerTab(model.getDataType(),
                         (AbstractModel) model));
         }

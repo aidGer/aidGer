@@ -170,13 +170,13 @@ public class TaskPaneAction extends LinkAction {
             Tab tab = getNewTab();
 
             if (tab != null) {
-                UI.getInstance().replaceCurrentTab(tab);
+                UI.getInstance().addNewTab(tab);
             }
         } else if (SwingUtilities.isMiddleMouseButton(e)) {
             Tab tab = getNewTab();
 
             if (tab != null) {
-                UI.getInstance().addNewTab(tab);
+                UI.getInstance().replaceCurrentTab(tab);
             }
         }
     }
