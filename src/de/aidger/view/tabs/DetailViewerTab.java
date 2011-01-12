@@ -2,6 +2,7 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -16,6 +17,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.swing.JPanel;
+import javax.swing.border.TitledBorder;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
@@ -95,6 +97,13 @@ public class DetailViewerTab extends Tab {
         this.model = model;
 
         init();
+
+        // fix preferred size of viewer form due to cutting off issues (#263)
+        Dimension size = viewerForm.getPreferredSize();
+        Dimension borderSize = ((TitledBorder) titleBorder.getBorder())
+            .getMinimumSize(viewerForm);
+        titleBorder.setPreferredSize(new Dimension(Math.max(size.width,
+            borderSize.width + 20), size.height));
 
         // init the related lists
 
@@ -488,6 +497,7 @@ public class DetailViewerTab extends Tab {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        titleBorder = new javax.swing.JPanel();
         viewerForm = createViewerForm();
         buttons = new javax.swing.JPanel();
         btnEdit = new javax.swing.JButton();
@@ -510,13 +520,14 @@ public class DetailViewerTab extends Tab {
 
         setLayout(new java.awt.GridBagLayout());
 
-        viewerForm.setBorder(javax.swing.BorderFactory.createTitledBorder(
+        titleBorder.setBorder(javax.swing.BorderFactory.createTitledBorder(
             javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1),
             getTabName()));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        add(viewerForm, gridBagConstraints);
+        titleBorder
+            .setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        titleBorder.add(viewerForm);
+
+        add(titleBorder, new java.awt.GridBagConstraints());
 
         btnEdit.setText(_("Edit"));
         buttons.add(btnEdit);
@@ -649,6 +660,7 @@ public class DetailViewerTab extends Tab {
     private javax.swing.JPanel panelLists;
     private javax.swing.JScrollPane scrollPane1;
     private javax.swing.JScrollPane scrollPane2;
+    private javax.swing.JPanel titleBorder;
     private javax.swing.JPanel viewerForm;
     // End of variables declaration//GEN-END:variables
 
