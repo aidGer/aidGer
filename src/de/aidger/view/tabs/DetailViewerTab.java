@@ -2,6 +2,7 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.math.BigDecimal;
@@ -265,6 +266,9 @@ public class DetailViewerTab extends Tab {
         listProperties[1].borderName = _("Related activities");
         listProperties[1].type = DataType.Activity;
 
+        // we need monospace font
+        list1.setFont(new Font("Monospaced", Font.PLAIN, 12));
+
         try {
             List<Employment> employments = (new Employment())
                 .getEmployments(course);
@@ -272,11 +276,14 @@ public class DetailViewerTab extends Tab {
             ListModel listAssistantsModel = new ListModel(DataType.Assistant);
 
             Map<Integer, Double> totalHours = new HashMap<Integer, Double>();
+            Map<Integer, String> tokenDBs = new HashMap<Integer, String>();
 
             for (Employment employment : employments) {
                 if (totalHours.get(employment.getAssistantId()) == null) {
                     totalHours.put(employment.getAssistantId(), employment
                         .getHourCount());
+                    tokenDBs.put(employment.getAssistantId(), employment
+                        .getFunds());
                 } else {
                     totalHours.put(employment.getAssistantId(), totalHours
                         .get(employment.getAssistantId())
@@ -293,6 +300,7 @@ public class DetailViewerTab extends Tab {
                 assistant.setTotalHours(new BigDecimal(totalHours
                     .get(assistantId)).setScale(2, BigDecimal.ROUND_HALF_EVEN)
                     .doubleValue());
+                assistant.setFunds(tokenDBs.get(assistantId));
 
                 listAssistantsModel.addElement(assistant);
             }

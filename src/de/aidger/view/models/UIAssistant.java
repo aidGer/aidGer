@@ -1,6 +1,8 @@
 package de.aidger.view.models;
 
+import de.aidger.model.Runtime;
 import de.aidger.model.models.Assistant;
+import de.aidger.model.models.CostUnit;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 
@@ -16,6 +18,11 @@ public class UIAssistant extends Assistant implements UIModel,
      * The total hours the assistant is employed for a course.
      */
     private double totalHours = 0.0;
+
+    /**
+     * The funds the assistant is payed from.
+     */
+    private String funds = "";
 
     /**
      * Initializes the Assistant class.
@@ -43,6 +50,38 @@ public class UIAssistant extends Assistant implements UIModel,
         this.totalHours = totalHours;
     }
 
+    /**
+     * Sets the funds for this assistant.
+     * 
+     * @param tokenDB
+     *            the database token of the funds
+     */
+    public void setFunds(String tokenDB) {
+        CostUnit costUnit = Runtime.getInstance().getDataXMLManager()
+            .fromTokenDB(tokenDB);
+        funds = costUnit == null ? tokenDB : costUnit.getFunds();
+    }
+
+    /**
+     * Returns the given string with the given length filled with spaces.
+     * 
+     * @param s
+     *            the string
+     * @param len
+     *            the length of the new string
+     * @return the given string with the given length filled with spaces
+     */
+    private String fillSpaces(String s, int len) {
+        final StringBuilder builder = new StringBuilder(len);
+        builder.append(s);
+
+        for (int t = s.length(); t < len; ++t) {
+            builder.append(' ');
+        }
+
+        return builder.toString();
+    }
+
     /*
      * (non-Javadoc)
      * 
@@ -56,6 +95,9 @@ public class UIAssistant extends Assistant implements UIModel,
             return "";
         } else if (totalHours == 0.0) {
             return name;
+        } else if (!funds.isEmpty()) {
+            return fillSpaces(name, 28) + fillSpaces(totalHours + "h", 8)
+                    + funds;
         } else {
             return name + " (" + totalHours + "h)";
         }
