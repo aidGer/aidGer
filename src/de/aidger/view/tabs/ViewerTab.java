@@ -51,6 +51,7 @@ import de.aidger.view.models.TableModel;
 import de.aidger.view.utils.BooleanTableRenderer;
 import de.aidger.view.utils.DateTableRenderer;
 import de.aidger.view.utils.MultiLineTableRenderer;
+import javax.swing.Timer;
 
 /**
  * A tab which will be used to display the data.
@@ -117,6 +118,11 @@ public class ViewerTab extends Tab {
      * The row sorter of the table.
      */
     private final TableRowSorter<TableModel> sorter;
+
+    /**
+     * Timer to wait a second before searching.
+     */
+    private Timer timer;
 
     /**
      * Constructs the data viewer tab.
@@ -426,28 +432,35 @@ public class ViewerTab extends Tab {
                 if (text.length() == 0) {
                     sorter.setRowFilter(null);
                 } else {
-                    RowFilter<TableModel, Integer> filter = new RowFilter<TableModel, Integer>() {
+                    if (timer == null || !timer.isRunning()) {
+                        AbstractAction action = new AbstractAction() {
+                            public void actionPerformed(ActionEvent ae) {
+                                RowFilter<TableModel, Integer> filter = new RowFilter<TableModel, Integer>() {
 
-                        private final Pattern pat = Pattern.compile(searchField
-                            .getText(), Pattern.CASE_INSENSITIVE);
+                                    private final Pattern pat = Pattern.compile(searchField.getText(), Pattern.CASE_INSENSITIVE);
 
-                        @Override
-                        public boolean include(
-                                Entry<? extends TableModel, ? extends Integer> entry) {
-                            for (int i = entry.getValueCount() - 1; i >= 0; i--) {
-                                Matcher m = pat
-                                    .matcher(entry.getStringValue(i));
-                                if (m.find()) {
-                                    return true;
-                                }
+                                    @Override
+                                    public boolean include(Entry<? extends TableModel, ? extends Integer> entry) {
+                                        for (int i = entry.getValueCount() - 1; i >= 0; i--) {
+                                            Matcher m = pat
+                                                .matcher(entry.getStringValue(i));
+                                            if (m.find()) {
+                                                return true;
+                                            }
+                                        }
+                                        return false;
+                                    }
+                                };
+                                sorter.setRowFilter(filter);
                             }
-
-                            return false;
-                        }
-                    };
-                    sorter.setRowFilter(filter);
+                        };
+                        timer = new Timer(500, action);
+                        timer.setRepeats(false);
+                        timer.start();
+                    } else {
+                        timer.restart();
+                    }
                 }
-
             }
         });
 
