@@ -4,7 +4,6 @@
 package de.aidger.model.reports;
 
 import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -12,6 +11,7 @@ import java.util.List;
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
+import de.aidger.utils.DateUtils;
 import de.aidger.view.UI;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
@@ -102,11 +102,10 @@ public class ProtocolCreator {
                             + "("
                             + new Course().getById(activity.getCourseId())
                                 .getSemester() + ")";
-                }
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+                }                
                 addedActivity[1] = courseName;
                 addedActivity[2] = activity.getType();
-                addedActivity[3] = dateFormat.format(activity.getDate());
+                addedActivity[3] = DateUtils.formatDate(activity.getDate());
                 addedActivity[4] = activity.getContent();
                 addedActivity[5] = activity.getSender();
                 addedActivity[6] = activity.getProcessor();
@@ -145,11 +144,10 @@ public class ProtocolCreator {
                         + "("
                         + new Course().getById(activity.getCourseId())
                             .getSemester() + ")";
-            }
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+            }            
             addedActivity[1] = courseName;
             addedActivity[2] = activity.getType();
-            addedActivity[3] = dateFormat.format(activity.getDate());
+            addedActivity[3] = DateUtils.formatDate(activity.getDate());
             addedActivity[4] = activity.getContent();
             addedActivity[5] = activity.getSender();
             addedActivity[6] = activity.getProcessor();

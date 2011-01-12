@@ -2,9 +2,8 @@ package de.aidger.view.models;
 
 import static de.aidger.utils.Translation._;
 
-import java.text.SimpleDateFormat;
-
 import de.aidger.model.models.Activity;
+import de.aidger.utils.DateUtils;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
 
@@ -39,7 +38,7 @@ public class UIActivity extends Activity implements UIModel {
     @Override
     public String toString() {
         return getType() + " (" + getSender() + " " + _("at") + " "
-                + (new SimpleDateFormat("dd.MM.yy")).format(getDate()) + ")";
+                + DateUtils.formatDate(getDate()) + ")";
     }
 
     /*

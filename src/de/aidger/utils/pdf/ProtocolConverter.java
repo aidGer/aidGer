@@ -12,7 +12,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
@@ -38,6 +37,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Activity;
 import de.aidger.model.reports.ProtocolCreator;
+import de.aidger.utils.DateUtils;
 import de.aidger.view.UI;
 
 /**
@@ -414,9 +414,8 @@ public class ProtocolConverter {
                 table.getDefaultCell().setHorizontalAlignment(
                     Element.ALIGN_RIGHT);
                 Calendar calendar = Calendar.getInstance();
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-                PdfPCell dateCell = new PdfPCell(new Phrase(dateFormat
-                    .format(calendar.getTime())));
+
+                PdfPCell dateCell = new PdfPCell(new Phrase(DateUtils.formatDate(calendar.getTime())));
                 dateCell.setHorizontalAlignment(Element.ALIGN_LEFT);
                 dateCell.setBorder(Rectangle.BOTTOM);
                 table.addCell(dateCell);

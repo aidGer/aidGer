@@ -13,6 +13,11 @@ import de.aidger.view.tabs.ViewerTab.DataType;
 public class UICostUnit extends CostUnit implements UIModel {
 
     /**
+     * Only one instance for all cost units because of performance problems.
+     */
+    private static final DecimalFormat format = new DecimalFormat("00000000");
+
+    /**
      * Initializes the CostUnit class.
      */
     public UICostUnit() {
@@ -46,6 +51,6 @@ public class UICostUnit extends CostUnit implements UIModel {
      * @return the cost unit as string
      */
     public static String valueOf(Integer costUnit) {
-        return (new DecimalFormat("00000000")).format(costUnit);
+        return format.format(costUnit);
     }
 }

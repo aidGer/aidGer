@@ -3,13 +3,12 @@ package de.aidger.view.forms;
 import static de.aidger.utils.Translation._;
 
 import java.awt.Color;
-import java.text.SimpleDateFormat;
-
 import javax.swing.JPanel;
 
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
+import de.aidger.utils.DateUtils;
 import de.aidger.view.models.UIAssistant;
 import de.aidger.view.models.UICourse;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
@@ -50,7 +49,7 @@ public class ActivityViewerForm extends JPanel {
             initiator.setText(activity.getSender());
             type.setText(activity.getType());
             documentType.setText(activity.getDocumentType());
-            date.setText((new SimpleDateFormat("dd.MM.yyyy")).format(activity
+            date.setText(DateUtils.formatDate(activity
                 .getDate()));
             remark.setText(activity.getRemark());
             content.setText(activity.getContent());

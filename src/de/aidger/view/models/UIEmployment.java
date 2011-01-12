@@ -2,11 +2,11 @@ package de.aidger.view.models;
 
 import static de.aidger.utils.Translation._;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Employment;
+import de.aidger.utils.DateUtils;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
@@ -52,7 +52,7 @@ public class UIEmployment extends Employment implements UIModel {
 
             return _("from") + " " + (new UIAssistant(assistant)).toString()
                     + " " + _("in") + " "
-                    + (new SimpleDateFormat("MMMM yy")).format(cal.getTime());
+                    + DateUtils.formatDate(cal.getTime());
         } catch (AdoHiveException e) {
             return "";
         }

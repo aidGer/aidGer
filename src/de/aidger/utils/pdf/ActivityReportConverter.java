@@ -12,7 +12,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -33,6 +32,7 @@ import com.itextpdf.text.pdf.PdfStamper;
 import com.itextpdf.text.pdf.AcroFields.FieldPosition;
 
 import de.aidger.model.Runtime;
+import de.aidger.utils.DateUtils;
 import de.aidger.view.UI;
 
 /**
@@ -130,7 +130,6 @@ public class ActivityReportConverter {
         form = stamper.getAcroFields();
         try {
             Calendar calendar = Calendar.getInstance();
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
             BaseFont fieldFont = BaseFont.createFont(BaseFont.HELVETICA,
                 BaseFont.CP1252, false);
             BaseFont fatFieldFont = BaseFont.createFont(
@@ -150,7 +149,7 @@ public class ActivityReportConverter {
             form.setFieldProperty("Date", "textfont", fieldFont, null);
             form.setFieldProperty("Date", "textsize", 12.0f, null);
             form.setFieldProperty("Date", "textcolor", BaseColor.BLACK, null);
-            form.setField("Date", dateFormat.format(calendar.getTime()));
+            form.setField("Date", DateUtils.formatDate(calendar.getTime()));
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

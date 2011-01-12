@@ -12,7 +12,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -36,6 +35,7 @@ import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import de.aidger.model.Runtime;
+import de.aidger.utils.DateUtils;
 import de.aidger.view.UI;
 
 /**
@@ -334,10 +334,8 @@ public class ControllingConverter {
                 table.getDefaultCell().setFixedHeight(20);
                 table.getDefaultCell().setHorizontalAlignment(
                     Element.ALIGN_RIGHT);
-                Calendar calendar = Calendar.getInstance();
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-                PdfPCell dateCell = new PdfPCell(new Phrase(dateFormat
-                    .format(calendar.getTime())));
+                Calendar calendar = Calendar.getInstance();                
+                PdfPCell dateCell = new PdfPCell(new Phrase(DateUtils.formatDate(calendar.getTime())));
                 dateCell.setHorizontalAlignment(Element.ALIGN_LEFT);
                 dateCell.setBorder(Rectangle.BOTTOM);
                 table.addCell(dateCell);

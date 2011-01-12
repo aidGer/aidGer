@@ -8,7 +8,6 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import org.junit.After;
@@ -19,6 +18,7 @@ import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.FinancialCategory;
+import de.aidger.utils.DateUtils;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
@@ -168,8 +168,7 @@ public class ProtocolCreatorTest {
      */
     @Test
     public void testGetObjectArray() throws AdoHiveException {
-        Object[] resultActivity = new Object[8];
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        Object[] resultActivity = new Object[8];        
 
         String assistantName = (new Assistant().getById(activity
             .getAssistantId())).getFirstName()
@@ -184,7 +183,7 @@ public class ProtocolCreatorTest {
                 + ")";
         resultActivity[1] = courseName;
         resultActivity[2] = activity.getType();
-        resultActivity[3] = dateFormat.format(activity.getDate());
+        resultActivity[3] = DateUtils.formatDate(activity.getDate());
         resultActivity[4] = activity.getContent();
         resultActivity[5] = activity.getSender();
         resultActivity[6] = activity.getProcessor();

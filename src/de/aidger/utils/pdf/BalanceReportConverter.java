@@ -10,7 +10,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -40,6 +39,7 @@ import de.aidger.model.reports.BalanceCourse;
 import de.aidger.model.reports.BalanceFilter;
 import de.aidger.model.reports.BalanceReportGroupCreator;
 import de.aidger.model.reports.BalanceCourse.BudgetCost;
+import de.aidger.utils.DateUtils;
 import de.aidger.utils.Logger;
 import de.aidger.utils.reports.BalanceHelper;
 import de.aidger.view.UI;
@@ -409,10 +409,8 @@ public class BalanceReportConverter {
                 table.getDefaultCell().setFixedHeight(20);
                 table.getDefaultCell().setHorizontalAlignment(
                     Element.ALIGN_RIGHT);
-                Calendar calendar = Calendar.getInstance();
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-                PdfPCell dateCell = new PdfPCell(new Phrase(dateFormat
-                    .format(calendar.getTime())));
+                Calendar calendar = Calendar.getInstance();                
+                PdfPCell dateCell = new PdfPCell(new Phrase(DateUtils.formatDate(calendar.getTime())));
                 dateCell.setHorizontalAlignment(Element.ALIGN_LEFT);
                 dateCell.setBorder(Rectangle.BOTTOM);
                 table.addCell(dateCell);
