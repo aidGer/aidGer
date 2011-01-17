@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.aidger.model.Runtime;
-import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.HourlyWage;
@@ -16,7 +15,6 @@ import de.aidger.model.reports.BalanceCourse;
 import de.aidger.model.reports.BalanceFilter;
 import de.aidger.view.UI;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 import de.unistuttgart.iste.se.adohive.model.IEmployment;
 import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
@@ -224,10 +222,8 @@ public class BalanceHelper {
                 * course.getUnqualifiedWorkingHours();
         balanceCourse.setBasicAWS(basicAWS);
         List<Employment> employments = null;
-        List<IAssistant> assistants = null;
         try {
             employments = (new Employment()).getEmployments(new Course(course));
-            assistants = (new Assistant()).getAll();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -236,24 +232,10 @@ public class BalanceHelper {
              * Sum up the budget costs of the course by multiplying the hours of
              * the fitting employments.
              */
-            if ((balanceCourse.getBudgetCosts().isEmpty() || !balanceCourse
-                .getBudgetCosts().contains(employment.getFunds()))) {
-                Double budgetCost = 0.0;
-                for (IAssistant assistant : assistants) {
-                    if (employment.getAssistantId().equals(assistant.getId())) {
-                        budgetCost = budgetCost
-                                + calculateBudgetCost(employment);
-                    }
-                }
-                if (balanceCourse.budgetCostExists(employment.getCostUnit())) {
-                    balanceCourse.addBudgetCostValue(employment.getCostUnit(),
-                        budgetCost.doubleValue());
-                } else {
-                    balanceCourse.addBudgetCost(employment.getCostUnit(),
-                        employment.getFunds(), budgetCost.doubleValue());
-                }
-                plannedAWS = plannedAWS + employment.getHourCount();
-            }
+            Double budgetCost = calculateBudgetCost(employment);
+            balanceCourse.addBudgetCost(employment.getCostUnit(), employment
+                .getFunds(), budgetCost.doubleValue());
+            plannedAWS = plannedAWS + employment.getHourCount();
         }
         balanceCourse.setPlannedAWS(new BigDecimal(plannedAWS).setScale(2,
             BigDecimal.ROUND_HALF_EVEN).doubleValue());

@@ -277,49 +277,28 @@ public class BalanceCourse {
     }
 
     /**
-     * Add budget costs of the course.
+     * Add budget costs of the course. If the cost unit exists already, add the
+     * value to that cost unit.
      * 
      * @param budgetCost
      *            The budget cost to be added to this course.
+     * @param name
+     *            The name of the cost unit.
+     * @param value
+     *            The value to be added to the cost unit.
      */
     public void addBudgetCost(int id, String name, double value) {
+        for (BudgetCost budgetCost : budgetCosts) {
+            if (budgetCost.getId() == id) {
+                budgetCost.setValue(budgetCost.getUnroundedValue() + value);
+                return;
+            }
+        }
         BudgetCost budgetCost = new BudgetCost();
         budgetCost.setId(id);
         budgetCost.setName(name);
         budgetCost.setValue(value);
         budgetCosts.add(budgetCost);
-    }
-
-    /**
-     * Adds the given cost to an already existing budget cost.
-     * 
-     * @param id
-     *            The id of the budget cost
-     * @param value
-     *            The cost to be added.
-     */
-    public void addBudgetCostValue(int id, double value) {
-        for (BudgetCost budgetCost : budgetCosts) {
-            if (budgetCost.getId() == id) {
-                budgetCost.setValue(budgetCost.getUnroundedValue() + value);
-            }
-        }
-    }
-
-    /**
-     * Checks if the budget cost of the given id already exists.
-     * 
-     * @param id
-     *            The id to check
-     * @return Wheter the budget cost exists or not
-     */
-    public boolean budgetCostExists(int id) {
-        for (BudgetCost budgetCost : budgetCosts) {
-            if (budgetCost.getId() == id) {
-                return true;
-            }
-        }
-        return false;
     }
 
     /**

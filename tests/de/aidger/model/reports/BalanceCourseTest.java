@@ -5,7 +5,6 @@ package de.aidger.model.reports;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -85,41 +84,13 @@ public class BalanceCourseTest {
 
         balanceCourse.addBudgetCost(11111111, "Test cost", 120);
 
+        balanceCourse.addBudgetCost(11111111, "Test cost", 15);
+
         BudgetCost resultBudgetCost = balanceCourse.getBudgetCosts().get(0);
 
         assertEquals(11111111, resultBudgetCost.getId());
         assertEquals("Test cost", resultBudgetCost.getName());
-        assertEquals(120, resultBudgetCost.getValue(), 0);
-    }
-
-    /**
-     * Tests the method addBudgetCostValue() of the class BalanceCourse.
-     */
-    @Test
-    public void testAddBudgetCostValue() {
-        System.out.println("addBudgetCostValue()");
-
-        balanceCourse.addBudgetCost(11111111, "Test cost", 120);
-
-        balanceCourse.addBudgetCostValue(11111111, 15);
-
-        BudgetCost resultBudgetCost = balanceCourse.getBudgetCosts().get(0);
-
         assertEquals(135, resultBudgetCost.getValue(), 0);
-    }
-
-    /**
-     * Tests the method budgetCostExists() of the class BalanceCourse.
-     */
-    @Test
-    public void testBudgetCostExists() {
-        System.out.println("budgetCostExists()");
-
-        balanceCourse.addBudgetCost(11111111, "Test cost", 120);
-
-        assertTrue(balanceCourse.budgetCostExists(11111111));
-
-        assertTrue(!balanceCourse.budgetCostExists(11111112));
     }
 
 }
