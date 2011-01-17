@@ -263,27 +263,27 @@ def generate_contract(assi, start, amount):
 ####################################################################################################
 
 def generate_assistants_sql(assis):
-    sql = "INSERT INTO `Hilfskraft` SET ID = '%i', Vorname = '%s', Nachname = '%s', Email = '%s', Qualifikation = '%s';"
+    sql = """INSERT INTO "Hilfskraft" (ID, Vorname, Nachname, Email, Qualifikation) VALUES ('%i', '%s', '%s', '%s', '%s');"""
 
     for a in assis:
         (firstname, lastname) = a['name'].split(' ', 1)
         print(sql % (a['id'], firstname, lastname, a['email'], a['qualification']))
 
 def generate_fcs_sql(fcs):
-    sql = "INSERT INTO `Finanzkategorie` SET ID = '%i', Name = '%s', Jahr = '%s', Plankosten = '%s', Kostenstelle = '%s';"
+    sql = """INSERT INTO "Finanzkategorie" (ID, Name, Jahr, Plankosten, Kostenstelle) VALUES ('%i', '%s', '%s', '%s', '%s');"""
 
     for f in fcs:
         print(sql % (f['id'], f['name'], f['year'], f['costs'], f['costunit']))
 
 def generate_wages_sql(wages):
-    sql = "INSERT INTO `Stundenlohn` SET Qualifikation = '%s', Monat = '%s', Jahr = '%s', Lohn = '%s';"
+    sql = """INSERT INTO "Stundenlohn" (Qualifikation, Monat, Jahr, Lohn) VALUES ('%s', '%s', '%s', '%s');"""
 
     for w in wages:
         print(sql % (w['qualification'], w['month'], w['year'], w['wage']))
 
 def generate_courses_sql(courses):
     global remark
-    sql = "INSERT INTO `Veranstaltung` SET ID = '%i', Bezeichnung = '%s', Semester = '%s', Dozent = '%s', Gruppenanzahl = '%s', Zielpublikum = '%s', HKS = '%i', Umfang = '%s', Teil = 'a', Gruppe = '', Bemerkung = '%s', Betreuer = '%s', Finanzkategorie_ID = '%i';"
+    sql = """INSERT INTO "Veranstaltung" (ID, Bezeichnung, Semester, Dozent, Gruppenanzahl, Zielpublikum, HKS, Umfang, Teil, Gruppe, Bemerkung, Betreuer, Finanzkategorie_ID) VALUES ('%i', '%s', '%s', '%s', '%s', '%s', '%i', '%s', 'a', '', '%s', '%s', '%i');"""
 
     for c in courses:
         #TODO: Add 'Zielpublikum'
@@ -292,7 +292,7 @@ def generate_courses_sql(courses):
 
 def generate_activities_sql(act):
     global remark
-    sql = "INSERT INTO `Vorgang` SET ID = '%i', Hilfskraft_ID = %s, Veranstaltung_ID = %s, Art = '%s', Datum = '%s', Inhalt = '%s', Sender = '%s', Dokumententyp = '%s', Bearbeiter = '%s', Bemerkung = '%s';"
+    sql = """INSERT INTO "Vorgang" (ID, Hilfskraft_ID, Veranstaltung_ID, Art, Datum, Inhalt, Sender, Dokumententyp, Bearbeiter, Bemerkung) VALUE ('%i', %s, %s, '%s', '%s', '%s', '%s', '%s', '%s', '%s');"""
 
     for a in act:
         #TODO: Add content
@@ -302,7 +302,7 @@ def generate_activities_sql(act):
 
 def generate_employments_sql(emp):
     global remark
-    sql = "INSERT INTO `Beschaeftigung` SET ID = '%i', Hilfskraft_ID = '%i', Veranstaltung_ID = '%i', Vertrag_ID = '%i', Monat = '%i', Jahr = '%i', AnzahlStunden = '%i', Fonds = '%s', Bemerkung = '%s', Kostenstelle = '%s', Qualifikation = '%s';"
+    sql = """INSERT INTO "Beschaeftigung" (ID, Hilfskraft_ID, Veranstaltung_ID, Vertrag_ID, Monat, Jahr, AnzahlStunden, Fonds, Bemerkung, Kostenstelle, Qualifikation) VALUES ('%i', '%i', '%i', '%i', '%i', '%i', '%i', '%s', '%s', '%s', '%s');"""
 
     for e in emp:
         generate_contract_sql(e['contract'])
@@ -312,7 +312,7 @@ def generate_contract_sql(contract):
     if contract is None:
         return
 
-    sql = "INSERT INTO `Vertrag` SET ID = '%i', Hilfskraft_ID = '%i', Art = '%s', DatumAnfang = '%s', DatumEnde = '%s', DatumAbschluss = '%s', DatumBestaetigung = '%s', Delegation = '%i';"
+    sql = """INSERT INTO "Vertrag" (ID, Hilfskraft_ID, Art, DatumAnfang, DatumEnde, DatumAbschluss, DatumBestaetigung, Delegation) VALUES ('%i', '%i', '%s', '%s', '%s', '%s', '%s', '%i');"""
     print(sql % (contract['id'], contract['assi'], contract['type'], contract['start'], contract['end'], contract['completion'], contract['confirmation'], contract['delegation']))
 
 
