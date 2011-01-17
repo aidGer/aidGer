@@ -28,6 +28,7 @@ import de.unistuttgart.iste.se.adohive.controller.jdbc.JdbcAdoHiveController;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveDatabaseException;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  * @author rashfael
@@ -53,11 +54,10 @@ public class AnsiAdoHiveController extends JdbcAdoHiveController {
 
                         // Try to get the SQL_MODE of the server if we're using a MySQL server
                         if (connectionString.contains("mysql")) {
-                            ResultSet result = connection.prepareStatement("SELECT @@SESSION.SQL_MODE;").executeQuery();
+                            Statement stmt = connection.createStatement();
+                            ResultSet result = stmt.executeQuery("SELECT @@SESSION.SQL_MODE;");
                             result.first();
                             String sqlmode = result.getString(1);
-
-                            System.out.println("SQL_MODE: " + sqlmode);
 
                             if (!sqlmode.contains("ANSI")) {
                                 sqlmode += ",ANSI, ANSI_QUOTES";
@@ -66,6 +66,9 @@ public class AnsiAdoHiveController extends JdbcAdoHiveController {
                                 sqlmode += ",ANSI_QUOTES";
                                 connection.prepareStatement("SET @@SESSION.SQL_MODE = '" + sqlmode + "'").execute();
                             }
+
+                            result.close();
+                            stmt.close();
                         }
 
 
