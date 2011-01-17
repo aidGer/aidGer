@@ -27,6 +27,7 @@ import java.sql.SQLException;
 import de.unistuttgart.iste.se.adohive.controller.jdbc.JdbcAdoHiveController;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveDatabaseException;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import java.sql.ResultSet;
 
 /**
  * @author rashfael
@@ -48,11 +49,26 @@ public class AnsiAdoHiveController extends JdbcAdoHiveController {
 			//create one dialect Object for all managers
 			//NOTE: static does not really work, I would have done this with generics and static methods,
 			//but since generics in Java are crap (erasure), it does not work, so we are stuck with throwing around dialect objects
-			AnsiSqlDialect dialect;
-			//if(connectionString.contains("mysql"))
-			//	dialect = new MySqlDialect();
-			//else
-				dialect = new AnsiSqlDialect();
+			AnsiSqlDialect dialect = new AnsiSqlDialect();
+
+                        // Try to get the SQL_MODE of the server if we're using a MySQL server
+                        if (connectionString.contains("mysql")) {
+                            ResultSet result = connection.prepareStatement("SELECT @@SESSION.SQL_MODE;").executeQuery();
+                            result.first();
+                            String sqlmode = result.getString(1);
+
+                            System.out.println("SQL_MODE: " + sqlmode);
+
+                            if (!sqlmode.contains("ANSI")) {
+                                sqlmode += ",ANSI, ANSI_QUOTES";
+                                connection.prepareStatement("SET @@SESSION.SQL_MODE = '" + sqlmode + "'").execute();
+                            } else if (!sqlmode.contains("ANSI_QUOTES")) {
+                                sqlmode += ",ANSI_QUOTES";
+                                connection.prepareStatement("SET @@SESSION.SQL_MODE = '" + sqlmode + "'").execute();
+                            }
+                        }
+
+
 			//init all managers
 			assistantManager = new AnsiAssistantManager(connection, dialect);
 			financialCategoryManager = new AnsiFinancialCategoryManager(connection, dialect);
