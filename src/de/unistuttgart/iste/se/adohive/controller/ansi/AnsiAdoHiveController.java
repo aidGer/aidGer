@@ -60,7 +60,10 @@ public class AnsiAdoHiveController extends JdbcAdoHiveController {
                             String sqlmode = result.getString(1);
 
                             if (!sqlmode.contains("ANSI")) {
-                                sqlmode += ",ANSI, ANSI_QUOTES";
+                                if (!sqlmode.isEmpty()) {
+                                    sqlmode += ",";
+                                }
+                                sqlmode += "ANSI,ANSI_QUOTES";
                                 connection.prepareStatement("SET @@SESSION.SQL_MODE = '" + sqlmode + "'").execute();
                             } else if (!sqlmode.contains("ANSI_QUOTES")) {
                                 sqlmode += ",ANSI_QUOTES";
