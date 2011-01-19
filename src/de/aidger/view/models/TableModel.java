@@ -67,7 +67,7 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
         String className = this.getClass().getName();
 
         // get all models just once from database
-        if (mapModels.get(className) == null) {
+        if (mapModels.get(className) == null || mapModels.get(className).isEmpty()) {
             models = new ArrayList<AbstractModel>();
             mapModels.put(className, models);
 
