@@ -308,7 +308,7 @@ public class BalanceCourse {
      */
     public void addBudgetCost(int id, String name, double value) {
         for (BudgetCost budgetCost : budgetCosts) {
-            if (budgetCost.getId() == id && budgetCost.getName().equals(name)) {
+            if (budgetCost.getName().equals(name)) {
                 budgetCost.setValue(budgetCost.getUnroundedValue() + value);
                 return;
             }
