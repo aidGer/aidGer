@@ -185,7 +185,7 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
     public void update(Observable m, Object arg) {
         AbstractModel model = (AbstractModel) m;
         Boolean save = (Boolean) arg;
-        int index = models.indexOf(model);
+        int index = indexOf(modelBeforeEdit);
 
         if (save && index >= 0) { // the model was saved
             models.set(index, model);
@@ -193,11 +193,26 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
         } else if (save) { // the model was newly created
             models.add(model);
             index = models.indexOf(model);
-            fireTableRowsInserted(index, index);
+            System.out.println("Size: " + models.size() + " Index: " + index);
+            fireTableDataChanged();
         } else { // the model was removed
             models.remove(index);
             fireTableRowsDeleted(index, index);
         }
+    }
+
+    private int indexOf(AbstractModel m) {
+        if (m == null) {
+            return -1;
+        }
+
+        for (int i = 0; i < models.size(); ++i) {
+            if (models.get(i).equals(m)) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
 }
