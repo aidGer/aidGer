@@ -45,7 +45,7 @@ public abstract class Validator {
     protected String message;
 
     /**
-     * Initialize the PresenceValidator class.
+     * Initialize the Validator class.
      */
     public Validator() {
         this.members = new String[0];
@@ -54,7 +54,7 @@ public abstract class Validator {
     }
 
     /**
-     * Initialize the PresenceValidator class.
+     * Initialize the Validator class.
      * 
      * @param members
      *            The members of the model to validate

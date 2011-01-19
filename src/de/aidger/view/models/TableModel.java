@@ -102,9 +102,14 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
      */
     protected abstract AbstractModel getModelFromDB(int idx);
 
+    /**
+     * Get a list containing all models.
+     *
+     * @return A list containing all models
+     */
     protected abstract List<AbstractModel> getModels();
 
-        /**
+    /**
      * Returns the model at the given index.
      *
      * @return the model at the given index

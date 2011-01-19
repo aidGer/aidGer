@@ -39,7 +39,9 @@ import de.unistuttgart.iste.se.adohive.model.IContract;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
 import de.unistuttgart.iste.se.adohive.model.IEmployment;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * The class represents the table model for the employments data.
@@ -48,6 +50,13 @@ import java.util.List;
  */
 @SuppressWarnings("serial")
 public class EmploymentTableModel extends TableModel {
+
+    private static Map<Integer, UIAssistant> assistantCache = new HashMap<Integer, UIAssistant>();
+
+    private static Map<Integer, UICourse> courseCache = new HashMap<Integer, UICourse>();
+
+    private static Map<Integer, UIContract> contractCache = new HashMap<Integer, UIContract>();
+
     /**
      * Constructs the table model for employments.
      */
@@ -89,14 +98,35 @@ public class EmploymentTableModel extends TableModel {
                 case 0:
                     return employment.getId();
                 case 1:
-                    IAssistant assistant = (new Assistant()).getById(employment.getAssistantId());
-                    return new UIAssistant(assistant);
+                    if (assistantCache.containsKey(employment.getAssistantId())) {
+                        return assistantCache.get(employment.getAssistantId());
+                    } else {
+                        IAssistant assistant = (new Assistant()).getById(employment.getAssistantId());
+                        UIAssistant a = new UIAssistant(assistant);
+
+                        assistantCache.put(a.getId(), a);
+                        return a;
+                    }
                 case 2:
-                    ICourse course = (new Course()).getById(employment.getCourseId());
-                    return new UICourse(course);
+                    if (courseCache.containsKey(employment.getCourseId())) {
+                        return courseCache.get(employment.getCourseId());
+                    } else {
+                        ICourse course = (new Course()).getById(employment.getCourseId());
+                        UICourse c = new UICourse(course);
+                        
+                        courseCache.put(c.getId(), c);
+                        return c;
+                    }
                 case 3:
-                    IContract contract = (new Contract()).getById(employment.getContractId());
-                    return new UIContract(contract);
+                    if (contractCache.containsKey(employment.getContractId())) {
+                        return contractCache.get(employment.getContractId());
+                    } else {
+                        IContract contract = (new Contract()).getById(employment.getContractId());
+                        UIContract c = new UIContract(contract);
+
+                        contractCache.put(c.getId(), c);
+                        return c;
+                    }
                 case 4:
                     Calendar cal = Calendar.getInstance();
                     cal.clear();
@@ -114,7 +144,7 @@ public class EmploymentTableModel extends TableModel {
             }
         } catch (AdoHiveException ex) {
         }
-         return null;
+        return null;
     }
 
     /**
