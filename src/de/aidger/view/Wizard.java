@@ -56,6 +56,8 @@ abstract public class Wizard extends javax.swing.JDialog {
     public Wizard(java.awt.Frame parent) {
         super(parent, true);
         initLayout();
+
+        getRootPane().setDefaultButton(nextBtn);
     }
 
     public void addPanel(WizardPanel panel) {
