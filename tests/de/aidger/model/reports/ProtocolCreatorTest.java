@@ -31,6 +31,7 @@ import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.aidger.model.models.Activity;
@@ -73,6 +74,11 @@ public class ProtocolCreatorTest {
 
     }
 
+    @BeforeClass
+    public static void beforeClassSetUp() {
+        de.aidger.model.Runtime.getInstance().initialize();
+    }
+
     /**
      * Prepares this test.
      * 
@@ -80,7 +86,6 @@ public class ProtocolCreatorTest {
      */
     @Before
     public void setUp() throws AdoHiveException {
-        de.aidger.model.Runtime.getInstance().initialize();
 
         assistant = new Assistant();
         assistant.setEmail("test@example.com");
@@ -187,7 +192,7 @@ public class ProtocolCreatorTest {
      */
     @Test
     public void testGetObjectArray() throws AdoHiveException {
-        Object[] resultActivity = new Object[8];        
+        Object[] resultActivity = new Object[8];
 
         String assistantName = (new Assistant().getById(activity
             .getAssistantId())).getFirstName()

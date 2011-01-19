@@ -76,7 +76,6 @@ import de.aidger.controller.actions.TaskPaneAction.Task;
 import de.aidger.model.AbstractModel;
 import de.aidger.model.Runtime;
 import de.aidger.model.models.HourlyWage;
-import de.aidger.utils.Anonymizer;
 import de.aidger.utils.Logger;
 import de.aidger.view.models.GenericListModel;
 import de.aidger.view.models.TableModel;
@@ -307,14 +306,6 @@ public final class UI extends JFrame {
                 UI.displayError("ExitAction not found!");
             }
             wizard.showDialog();
-        }
-
-        // Anonymize assistants and display a message
-        int count = Anonymizer.anonymizeAssistants();
-        if (count > 0) {
-            JOptionPane.showMessageDialog(this, MessageFormat.format(
-                _("{0} assistants have been anonymized"),
-                new Object[] { count }));
         }
     }
 
