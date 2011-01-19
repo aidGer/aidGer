@@ -37,23 +37,22 @@ public class PresenceValidator extends Validator {
     /**
      * Initialize the PresenceValidator class.
      *
-     * @param model
-     *              The model to validate
      * @param members
      *              The members of the model to validate
      * @param trans
      *              The translated names
      */
-    public PresenceValidator(AbstractModel model, String[] members,
+    public PresenceValidator(String[] members,
             String[] trans) {
-        super(model, members, trans);
+        super(members, trans);
         message = _("is empty");
     }
 
     /**
      * Validate one variable independently.
      *
-     * @param o The variable to validate
+     * @param o
+     *              The variable to validate
      * @return True if the variable validates
      */
     public static boolean validate(Object o) {
@@ -64,7 +63,7 @@ public class PresenceValidator extends Validator {
      * Validate the variable.
      *
      * @param o
-     *            The variable to validate
+     *              The variable to validate
      * @return True if the input validates, false otherwise
      */
     @Override

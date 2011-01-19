@@ -38,7 +38,7 @@ public class PresenceValidatorTest {
     public void testValidateVar() {
         System.out.println("validateVar");
 
-        PresenceValidator val = new PresenceValidator(null, null, null);
+        PresenceValidator val = new PresenceValidator(null, null);
 
         assertFalse(val.validateVar(null));
         assertFalse(val.validateVar(""));
@@ -53,7 +53,7 @@ public class PresenceValidatorTest {
     public void testValidate() {
         System.out.println("validate");
 
-        assertFalse(PresenceValidator.validate(null));
+        assertFalse(PresenceValidator.validate((Object) null));
         assertTrue(PresenceValidator.validate(this));
     }
 

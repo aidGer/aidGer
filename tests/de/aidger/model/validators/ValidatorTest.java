@@ -39,14 +39,13 @@ public class ValidatorTest {
         System.out.println("validate");
 
         ModelImpl model = new ModelImpl();
-        Validator valid = new ValidatorImpl(model,
-                new String[] { "test", "name" });
+        Validator valid = new ValidatorImpl(new String[] { "test", "name" });
 
-        assertTrue(valid.validate());
+        assertTrue(valid.validate(model));
 
-        valid = new ValidatorImpl(model, new String[] { "notdefined" });
+        valid = new ValidatorImpl(new String[] { "notdefined" });
 
-        assertFalse(valid.validate());
+        assertFalse(valid.validate(model));
     }
 
     /**
@@ -58,10 +57,10 @@ public class ValidatorTest {
 
         ModelImpl model = new ModelImpl();
 
-        Validator valid = new ValidatorImpl(model, new String[] { "notdefined" });
+        Validator valid = new ValidatorImpl(new String[] { "notdefined" });
         valid.setMessage("Bla");
 
-        assertFalse(valid.validate());
+        assertFalse(valid.validate(model));
         assertEquals(model.getErrors().get(0), "notdefined Bla");
     }
 
@@ -72,7 +71,7 @@ public class ValidatorTest {
     public void testGetMessage() {
         System.out.println("getMessage");
 
-        Validator valid = new ValidatorImpl(null, null);
+        Validator valid = new ValidatorImpl(null);
         valid.setMessage("Bla");
 
         assertEquals("Bla", valid.getMessage());
@@ -80,8 +79,8 @@ public class ValidatorTest {
 
     public class ValidatorImpl extends Validator {
 
-        public ValidatorImpl(AbstractModel model, String[] members) {
-            super(model, members, members);
+        public ValidatorImpl(String[] members) {
+            super(members, members);
         }
 
         public boolean validateVar(Object o) {

@@ -36,7 +36,7 @@ public class InclusionValidatorTest {
     public void testValidateVar() {
         System.out.println("validateVar");
 
-        InclusionValidator val = new InclusionValidator(null, null, null,
+        InclusionValidator val = new InclusionValidator(null, null,
                 new String[] { "in", "cl", "us", "ion" });
 
         assertFalse(val.validateVar(null));

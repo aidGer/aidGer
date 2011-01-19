@@ -46,7 +46,7 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.models.HourlyWage;
-import de.aidger.model.validators.ExistanceValidator;
+import de.aidger.model.validators.ExistenceValidator;
 import de.aidger.model.validators.PresenceValidator;
 import de.aidger.model.validators.Validator;
 import de.aidger.view.UI;
@@ -191,7 +191,7 @@ public class EditorTab extends Tab {
 
                 for (Validator v : validators) {
                     if (v instanceof PresenceValidator
-                            || v instanceof ExistanceValidator) {
+                            || v instanceof ExistenceValidator) {
                         String[] mandatoryFields = v.getMembers();
 
                         for (String mandatory : mandatoryFields) {

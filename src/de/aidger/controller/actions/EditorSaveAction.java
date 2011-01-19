@@ -401,7 +401,7 @@ public class EditorSaveAction extends AbstractAction {
             }
         } catch (ParseException e) {
             employment.addError("hourCount", _("Hour count"),
-                new PresenceValidator(employment, new String[0], new String[0])
+                new PresenceValidator(new String[0], new String[0])
                     .getMessage());
         }
 
@@ -520,7 +520,7 @@ public class EditorSaveAction extends AbstractAction {
 
                     if (initiator.isEmpty()) {
                         clone.addError("sender", _("Initiator"),
-                            new PresenceValidator(clone, new String[0],
+                            new PresenceValidator(new String[0],
                                 new String[0]).getMessage());
                     } else {
                         clone.setSender(form.getInitiator());

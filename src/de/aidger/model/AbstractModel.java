@@ -30,7 +30,7 @@ import java.util.Map;
 import java.util.Observable;
 
 import de.aidger.model.validators.DateRangeValidator;
-import de.aidger.model.validators.ExistanceValidator;
+import de.aidger.model.validators.ExistenceValidator;
 import de.aidger.model.validators.FormatValidator;
 import de.aidger.model.validators.InclusionValidator;
 import de.aidger.model.validators.PresenceValidator;
@@ -370,7 +370,7 @@ public abstract class AbstractModel<T> extends Observable implements
      *            The translated names
      */
     public void validatePresenceOf(String[] members, String[] trans) {
-        validators.get(classname).add(new PresenceValidator(this, members, trans));
+        validators.get(classname).add(new PresenceValidator(members, trans));
     }
 
     /**
@@ -382,7 +382,7 @@ public abstract class AbstractModel<T> extends Observable implements
      *            The translated name
      */
     public void validateEmailAddress(String member, String trans) {
-        validators.get(classname).add(new FormatValidator(this, new String[] { member },
+        validators.get(classname).add(new FormatValidator(new String[] { member },
             new String[] { trans },
             "^[\\w\\-]([\\.\\w])+[\\w]+@([\\p{L}\\-]+\\.)+[A-Z]{2,4}$", false));
     }
@@ -401,7 +401,7 @@ public abstract class AbstractModel<T> extends Observable implements
      */
     public void validateDateRange(String from, String to, String transFrom,
             String transTo) {
-        validators.get(classname).add(new DateRangeValidator(this, from, to, transFrom,
+        validators.get(classname).add(new DateRangeValidator(from, to, transFrom,
             transTo));
     }
 
@@ -417,7 +417,7 @@ public abstract class AbstractModel<T> extends Observable implements
      */
     public void validateInclusionOf(String[] members, String[] trans,
             String[] inc) {
-        validators.get(classname).add(new InclusionValidator(this, members, trans, inc));
+        validators.get(classname).add(new InclusionValidator(members, trans, inc));
     }
 
     /**
@@ -432,7 +432,7 @@ public abstract class AbstractModel<T> extends Observable implements
      */
     public void validateExistanceOf(String[] members, String[] trans,
             AbstractModel type) {
-        validators.get(classname).add(new ExistanceValidator(this, members, trans, type));
+        validators.get(classname).add(new ExistenceValidator(members, trans, type));
     }
 
     /**
@@ -446,7 +446,7 @@ public abstract class AbstractModel<T> extends Observable implements
      *            THe format to check
      */
     public void validateFormatOf(String[] members, String[] trans, String format) {
-        validators.get(classname).add(new FormatValidator(this, members, trans, format));
+        validators.get(classname).add(new FormatValidator(members, trans, format));
     }
 
     /**
@@ -569,7 +569,7 @@ public abstract class AbstractModel<T> extends Observable implements
         /* Try to validate before adding/updating */
         boolean ret = true;
         for (Validator v : validators.get(classname)) {
-            if (!v.validate()) {
+            if (!v.validate(this)) {
                 ret = false;
             }
         }

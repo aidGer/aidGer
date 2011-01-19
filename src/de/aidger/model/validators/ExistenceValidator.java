@@ -24,11 +24,11 @@ import de.aidger.model.AbstractModel;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
- * Validates the existance of an id in the database.
+ * Validates the existence of an id in the database.
  *
  * @author aidGer Team
  */
-public class ExistanceValidator extends Validator {
+public class ExistenceValidator extends Validator {
 
     /**
      * The type of model to check for.
@@ -36,10 +36,8 @@ public class ExistanceValidator extends Validator {
     private AbstractModel type = null;
 
     /**
-     * Initializes the ExistanceValidator class.
+     * Initializes the ExistenceValidator class.
      *
-     * @param model
-     *              The model to validate
      * @param members
      *              The member variables to check
      * @param trans
@@ -47,9 +45,9 @@ public class ExistanceValidator extends Validator {
      * @param type
      *              The type of model to check for
      */
-    public ExistanceValidator(AbstractModel model, String[] members,
+    public ExistenceValidator(String[] members,
             String[] trans, AbstractModel type) {
-        super(model, members, trans);
+        super(members, trans);
 
         this.message = _("doesn't exist in the database");
         this.type = type;

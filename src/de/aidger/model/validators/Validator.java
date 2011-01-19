@@ -30,11 +30,6 @@ import de.aidger.model.AbstractModel;
 public abstract class Validator {
 
     /**
-     * The model to check.
-     */
-    protected AbstractModel model;
-
-    /**
      * The members of the model to check.
      */
     protected String[] members;
@@ -53,7 +48,6 @@ public abstract class Validator {
      * Initialize the PresenceValidator class.
      */
     public Validator() {
-        this.model = null;
         this.members = new String[0];
         this.trans = new String[0];
         this.message = _("Default error");
@@ -62,15 +56,12 @@ public abstract class Validator {
     /**
      * Initialize the PresenceValidator class.
      * 
-     * @param model
-     *            The model to validate
      * @param members
      *            The members of the model to validate
      * @param trans
      *            The translated names
      */
-    public Validator(AbstractModel model, String[] members, String[] trans) {
-        this.model = model;
+    public Validator(String[] members, String[] trans) {
         this.members = members;
         this.trans = trans;
         this.message = _("Default error");
@@ -78,13 +69,15 @@ public abstract class Validator {
 
     /**
      * Validate the input.
-     * 
+     *
+     * @param model
+     *              The model to validate
      * @return True if it validates
      */
-    public boolean validate() {
+    public boolean validate(AbstractModel model) {
         boolean ret = true;
         for (int i = 0; i < members.length; ++i) {
-            Object value = getValueOf(members[i]);
+            Object value = getValueOf(model, members[i]);
             if (!validateVar(value)) {
                 ret = false;
                 if (model != null) {
@@ -97,7 +90,9 @@ public abstract class Validator {
 
     /**
      * Validate the variable.
-     * 
+     *
+     * @param m
+     *            The model to validate
      * @param o
      *            The variable to validate
      * @return True if the input validates, false otherwise
@@ -125,12 +120,14 @@ public abstract class Validator {
 
     /**
      * Get the value of the given member variable.
-     * 
+     *
+     * @param model
+     *            The model
      * @param name
      *            The name of the member variable
      * @return The value of the member variable or null
      */
-    protected Object getValueOf(String name) {
+    protected Object getValueOf(AbstractModel model, String name) {
         String functionname = "get" + name.substring(0, 1).toUpperCase()
                 + name.substring(1);
         try {

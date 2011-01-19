@@ -37,8 +37,6 @@ public class InclusionValidator extends Validator {
     /**
      * Initialize the InclusionValidator class.
      *
-     * @param model
-     *            The model to validate
      * @param members
      *            The members of the model to validate
      * @param trans
@@ -46,9 +44,9 @@ public class InclusionValidator extends Validator {
      * @param inc
      *            Array of possible values
      */
-    public InclusionValidator(AbstractModel model, String[] members, String[] trans,
+    public InclusionValidator(String[] members, String[] trans,
             String[] inc) {
-        super(model, members, trans);
+        super(members, trans);
 
         message = _("has an invalid value");
         list = inc;

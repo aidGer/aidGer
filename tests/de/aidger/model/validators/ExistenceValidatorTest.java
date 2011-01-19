@@ -27,18 +27,18 @@ import de.aidger.model.models.Assistant;
 import de.aidger.model.Runtime;
 
 /**
- * Tests the ExistanceValidator class.
+ * Tests the ExistenceValidator class.
  *
  * @author aidGer Team
  */
-public class ExistanceValidatorTest {
+public class ExistenceValidatorTest {
 
-    public ExistanceValidatorTest() {
+    public ExistenceValidatorTest() {
         Runtime.getInstance().initialize();
     }
 
     /**
-     * Test of validateVar method, of class ExistanceValidator.
+     * Test of validateVar method, of class ExistenceValidator.
      */
     @Test
     public void testValidateVar() throws AdoHiveException {
@@ -46,7 +46,7 @@ public class ExistanceValidatorTest {
 
         Assistant a = new Assistant();
 
-        ExistanceValidator val = new ExistanceValidator(null, null, null, a);
+        ExistenceValidator val = new ExistenceValidator(null, null, a);
 
         assertFalse(val.validateVar(new Object()));
         assertFalse(val.validateVar(0));
