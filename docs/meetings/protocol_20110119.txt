@@ -1,0 +1,6 @@
+* #269: Migrationsskript muss noch nachgezogen werden
+* v1.0-rc1 wird heute Abend released, falls alle Blocker behoben sind
+* #249 auf v2.0 verschoben
+* #251: Caching von Datenbankabfragen via *.getById(), die immer notwendig sind (Blocker)
+* WelcomeTab hat Performance-Probleme beim Start => Generation der Statistik erst nach Klick auf einen Button (neues Ticket)
+* Falls Suche nicht performant möglich ist, sollte auf ein Filter zurückgegriffen werden
