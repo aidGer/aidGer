@@ -129,20 +129,4 @@ public class CourseTableModel extends TableModel {
         return ret;
     }
 
-    /**
-     * (non-Javadoc)
-     *
-     * @see javax.swing.table.AbstractTableModel#getRowCount()
-     */
-    public int getRowCount() {
-        try {
-            int count = (new Course()).size();
-            System.out.println(count);
-            return (new Course()).size();
-        } catch (AdoHiveException ex) {
-            System.out.println("AHHHHH");
-            System.out.println(ex);
-            return 0;
-        }
-    }
 }

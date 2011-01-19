@@ -110,16 +110,4 @@ public class AssistantTableModel extends TableModel {
         return ret;
     }
 
-    /**
-     * (non-Javadoc)
-     *
-     * @see javax.swing.table.AbstractTableModel#getRowCount()
-     */
-    public int getRowCount() {
-        try {
-            return (new Assistant()).size();
-        } catch (AdoHiveException ex) {
-            return 0;
-        }
-    }
 }

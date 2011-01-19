@@ -132,16 +132,4 @@ public class ActivityTableModel extends TableModel {
         return ret;
     }
 
-    /**
-     * (non-Javadoc)
-     *
-     * @see javax.swing.table.AbstractTableModel#getRowCount() 
-     */
-    public int getRowCount() {
-        try {
-            return (new Activity()).size();
-        } catch (AdoHiveException ex) {
-            return 0;
-        }
-    }
 }

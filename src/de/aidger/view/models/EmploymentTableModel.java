@@ -179,16 +179,4 @@ public class EmploymentTableModel extends TableModel {
         return ret;
     }
 
-    /**
-     * (non-Javadoc)
-     *
-     * @see javax.swing.table.AbstractTableModel#getRowCount()
-     */
-    public int getRowCount() {
-        try {
-            return (new Employment()).size();
-        } catch (AdoHiveException ex) {
-            return 0;
-        }
-    }
 }
