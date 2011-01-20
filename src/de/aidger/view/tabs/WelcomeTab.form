@@ -153,7 +153,7 @@
             <Component class="javax.swing.JButton" name="generateStatistics">
               <Properties>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="_(&quot;Generate statistics&quot;)" type="code"/>
+                  <Connection code="_(&quot;Show statistics&quot;)" type="code"/>
                 </Property>
               </Properties>
               <Constraints>

@@ -104,6 +104,8 @@ public class WelcomeTab extends Tab {
                     .getOption("last-start",
                         Long.toString((new java.util.Date()).getTime()))))) }));
 
+        generateStatistics.setVisible(false);
+
         if (Runtime.getInstance().isFirstStart() && databaseEmpty) {
             statisticsList
                 .add(_("There are currently no statistics available."));
@@ -119,6 +121,8 @@ public class WelcomeTab extends Tab {
             statisticsList
                 .add(_("There are currently no statistics available."));
         } else {
+            generateStatistics.setVisible(true);
+
             try {
                 List<HistoryEvent> events = HistoryManager.getInstance()
                     .getEvents();
@@ -450,7 +454,7 @@ public class WelcomeTab extends Tab {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         statistics.add(statisticsList, gridBagConstraints);
 
-        generateStatistics.setText(_("Generate statistics"));
+        generateStatistics.setText(_("Show statistics"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
