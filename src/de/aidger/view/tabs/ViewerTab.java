@@ -70,6 +70,8 @@ import de.aidger.view.models.TableModel;
 import de.aidger.view.utils.BooleanTableRenderer;
 import de.aidger.view.utils.DateTableRenderer;
 import de.aidger.view.utils.MultiLineTableRenderer;
+import javax.swing.RowSorter.SortKey;
+import javax.swing.SortOrder;
 import javax.swing.Timer;
 
 /**
@@ -160,10 +162,16 @@ public class ViewerTab extends Tab {
         itemActivityReport.setVisible(false);
         itemActivityExport.setVisible(false);
 
+        List<SortKey> sortKeys = new ArrayList<SortKey>();
+
         // use different table model for each data type
         switch (type) {
         case Course:
             tableModel = new CourseTableModel();
+
+            sortKeys.add(new SortKey(1, SortOrder.ASCENDING));
+            sortKeys.add(new SortKey(3, SortOrder.ASCENDING));
+            sortKeys.add(new SortKey(4, SortOrder.ASCENDING));
             break;
         case Assistant:
             tableModel = new AssistantTableModel();
@@ -171,6 +179,9 @@ public class ViewerTab extends Tab {
             toolBar.add(btnActivityReport);
             toolBar.add(separator9);
             itemActivityReport.setVisible(true);
+
+            sortKeys.add(new SortKey(2, SortOrder.ASCENDING));
+            sortKeys.add(new SortKey(1, SortOrder.ASCENDING));
             break;
         case FinancialCategory:
             tableModel = new FinancialCategoryTableModel();
@@ -194,6 +205,10 @@ public class ViewerTab extends Tab {
             itemCourse.setVisible(true);
             itemAssistant.setVisible(true);
             itemContract.setVisible(true);
+
+            sortKeys.add(new SortKey(1, SortOrder.ASCENDING));
+            sortKeys.add(new SortKey(2, SortOrder.ASCENDING));
+            sortKeys.add(new SortKey(4, SortOrder.ASCENDING));
 
             break;
         case Contract:
@@ -219,12 +234,17 @@ public class ViewerTab extends Tab {
             itemAssistant.setVisible(true);
             itemActivityExport.setVisible(true);
 
+            sortKeys.add(new SortKey(1, SortOrder.ASCENDING));
+            sortKeys.add(new SortKey(2, SortOrder.ASCENDING));
+            sortKeys.add(new SortKey(4, SortOrder.ASCENDING));
+
             break;
         }
 
         table.setModel(tableModel);
 
         sorter = new TableRowSorter<TableModel>(tableModel);
+        sorter.setSortKeys(sortKeys);
         table.setRowSorter(sorter);
 
         table.setDoubleBuffered(true);
