@@ -193,9 +193,11 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
         } else if (save) { // the model was newly created
             models.add(model);
             index = models.indexOf(model);
-            System.out.println("Size: " + models.size() + " Index: " + index);
             fireTableDataChanged();
         } else { // the model was removed
+            if (index == -1) {
+                index = models.indexOf(model);
+            }
             models.remove(index);
             fireTableRowsDeleted(index, index);
         }
