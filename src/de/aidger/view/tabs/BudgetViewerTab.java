@@ -227,13 +227,17 @@ public class BudgetViewerTab extends ReportTab {
                 Color grey = new Color(242, 242, 242);
                 Color white = new Color(255, 255, 255);
                 if (row % 2 == 0) {
-                    if (Double.parseDouble(this.getValueAt(row, 4).toString()) == 0) {
+                    if (Double.parseDouble(this.getValueAt(row, 4).toString()) == 0
+                            && !this.getValueAt(row, 3).equals(
+                                this.getValueAt(row, 5))) {
                         returnComp.setBackground(alternateModColor);
                     } else {
                         returnComp.setBackground(grey);
                     }
                 } else {
-                    if (Double.parseDouble(this.getValueAt(row, 4).toString()) == 0) {
+                    if (Double.parseDouble(this.getValueAt(row, 4).toString()) == 0
+                            && !this.getValueAt(row, 3).equals(
+                                this.getValueAt(row, 5))) {
                         returnComp.setBackground(alternateColor);
                     } else {
                         returnComp.setBackground(white);
