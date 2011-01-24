@@ -31,7 +31,9 @@ import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * The class represents the table model for the activities.
@@ -40,6 +42,11 @@ import java.util.List;
  */
 @SuppressWarnings("serial")
 public class ActivityTableModel extends TableModel {
+
+    private static Map<Integer, Assistant> assistantCache = new HashMap<Integer, Assistant>();
+
+    private static Map<Integer, Course> courseCache = new HashMap<Integer, Course>();
+
     /**
      * Constructs the table model for activities.
      */
@@ -78,15 +85,28 @@ public class ActivityTableModel extends TableModel {
             switch (row) {
                 case 0: return activity.getId();
                 case 1:
-                    UIAssistant assistant = (activity.getAssistantId() == null) ?
-                        new UIAssistant() : new UIAssistant((new Assistant())
-                            .getById(activity.getAssistantId()));
-                    return assistant;
+                    if (assistantCache.containsKey(activity.getAssistantId())) {
+                        return assistantCache.get(activity.getAssistantId());
+                    } else {
+                        UIAssistant assistant = (activity.getAssistantId() == null) ?
+                            new UIAssistant() : new UIAssistant((new Assistant())
+                                .getById(activity.getAssistantId()));
+                        if (assistant != null) {
+                            assistantCache.put(assistant.getId(), assistant);
+                        }
+                        return assistant;
+                    }
                 case 2:
-                    UICourse course = (activity.getCourseId() == null) ? new UICourse()
-                    : new UICourse((new Course()).getById(activity
-                        .getCourseId()));
-                    return course;
+                    if (courseCache.containsKey(activity.getCourseId())) {
+                        courseCache.get(activity.getCourseId());
+                    } else {
+                        UICourse course = (activity.getCourseId() == null) ? new UICourse()
+                            : new UICourse((new Course()).getById(activity.getCourseId()));
+                        if (course != null) {
+                            courseCache.put(course.getId(), course);
+                        }
+                        return course;
+                    }
                 case 3: return activity.getDate();
                 case 4: return activity.getSender();
                 case 5: return activity.getProcessor();

@@ -30,10 +30,11 @@ import de.aidger.model.models.Contract;
 import de.aidger.view.forms.ContractEditorForm.ContractType;
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
 import de.unistuttgart.iste.se.adohive.model.IContract;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * The class represents the table model for the contracts data.
@@ -42,6 +43,9 @@ import java.util.List;
  */
 @SuppressWarnings("serial")
 public class ContractTableModel extends TableModel {
+
+    private static Map<Integer, Assistant> assistantCache = new HashMap<Integer, Assistant>();
+
     /**
      * Constructs the table model for contracts.
      */
@@ -80,8 +84,13 @@ public class ContractTableModel extends TableModel {
             switch (row) {
                 case 0: return contract.getId();
                 case 1:
-                    IAssistant assistant = (new Assistant()).getById(contract.getAssistantId());
-                    return new UIAssistant(assistant);
+                    if (assistantCache.containsKey(contract.getAssistantId())) {
+                        return assistantCache.get(contract.getAssistantId());
+                    } else {
+                        UIAssistant assistant = new UIAssistant((new Assistant()).getById(contract.getAssistantId()));
+                        assistantCache.put(assistant.getId(), assistant);
+                        return assistant;
+                    }
                 case 2: return contract.getCompletionDate();
                 case 3:
                     Date confirmationDate = contract.getConfirmationDate();
