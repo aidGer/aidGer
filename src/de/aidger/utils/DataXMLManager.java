@@ -219,7 +219,13 @@ public class DataXMLManager implements IAdoHiveManager {
 
     @Override
     public List<CostUnit> getAll() throws AdoHiveException {
-        return costUnitMap;
+        List<CostUnit> costUnits = new ArrayList<CostUnit>();
+
+        for (CostUnit costUnit : costUnitMap) {
+            costUnits.add(costUnit.clone());
+        }
+
+        return costUnits;
     }
 
     @Override
