@@ -520,8 +520,8 @@ public class EditorSaveAction extends AbstractAction {
 
                     if (initiator.isEmpty()) {
                         clone.addError("sender", _("Initiator"),
-                            new PresenceValidator(new String[0], new String[0])
-                                .getMessage());
+                            new PresenceValidator(new String[0],
+                                new String[0]).getMessage());
                     } else {
                         clone.setSender(form.getInitiator());
                     }
@@ -711,7 +711,12 @@ public class EditorSaveAction extends AbstractAction {
 
         for (AbstractModel model : models) {
 
-            // UI needs to be informed
+            // table model needs the model before it was edited 
+            tableModel.setModelBeforeEdit(modelBeforeEdit);
+
+            // the model is observed by the table model
+            model.addObserver(tableModel);
+
             UI.getInstance().addObserversTo(model, modelBeforeEdit,
                 tab.getType());
 
