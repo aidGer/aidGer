@@ -118,11 +118,11 @@ public class DetailViewerTab extends Tab {
         init();
 
         // fix preferred size of viewer form due to cutting off issues (#263)
-        Dimension size = viewerForm.getPreferredSize();
         Dimension borderSize = ((TitledBorder) titleBorder.getBorder())
             .getMinimumSize(viewerForm);
-        titleBorder.setPreferredSize(new Dimension(Math.max(size.width,
-            borderSize.width + 20), size.height));
+        titleBorder.setPreferredSize(new Dimension(Math.max(viewerForm
+            .getPreferredSize().width, borderSize.width + 20), titleBorder
+            .getPreferredSize().height));
 
         // init the related lists
 
