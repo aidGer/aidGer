@@ -20,7 +20,6 @@
 package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
-import de.aidger.utils.history.HistoryException;
 
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
@@ -44,6 +43,7 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.history.HistoryEvent;
+import de.aidger.utils.history.HistoryException;
 import de.aidger.utils.history.HistoryManager;
 import de.aidger.utils.reports.BalanceHelper;
 import de.aidger.view.UI;
@@ -67,6 +67,12 @@ import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 @SuppressWarnings("serial")
 public class WelcomeTab extends Tab {
 
+    List<IActivity> activities = null;
+    List<IAssistant> assistants = null;
+    List<IFinancialCategory> financials = null;
+    List<ICourse> courses = null;
+    List<IEmployment> employments = null;
+
     /**
      * Initialises the WelcomeTab class.
      */
@@ -74,50 +80,55 @@ public class WelcomeTab extends Tab {
     public WelcomeTab() {
         initComponents();
 
+        generateStatistics
+            .addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    generateStatistics();
+                }
+            });
+
         final int countLastChanges = 5, countLastActivities = 10;
 
         boolean databaseEmpty;
         try {
-            databaseEmpty = (new Assistant()).size() == 0 && (new Activity()).size() == 0;
+            databaseEmpty = (new Assistant()).size() == 0
+                    && (new Activity()).size() == 0;
         } catch (Exception ex) {
             databaseEmpty = true;
         }
 
-        lblFirstStart.setText(MessageFormat.format(_("The last start of aidGer was on {0}."),
-        			new Object[] { (new SimpleDateFormat("dd.MM.yyyy HH:mm")).format(new java.sql.Date(
-        					Long.valueOf(Runtime.getInstance().getOption("last-start",
-                                    Long.toString((new java.util.Date()).getTime()))))) }));
-        
+        lblFirstStart.setText(MessageFormat.format(
+            _("The last start of aidGer was on {0}."),
+            new Object[] { (new SimpleDateFormat("dd.MM.yyyy HH:mm"))
+                .format(new java.sql.Date(Long.valueOf(Runtime.getInstance()
+                    .getOption("last-start",
+                        Long.toString((new java.util.Date()).getTime()))))) }));
+
+        generateStatistics.setVisible(false);
+
         if (Runtime.getInstance().isFirstStart() && databaseEmpty) {
-            statisticsList.add(_("There are currently no statistics available."));
+            statisticsList
+                .add(_("There are currently no statistics available."));
             lblFirstStart
                 .setText(_("This is the first time aidGer is started."));
-        } else if (!Runtime.getInstance().isConnected()) { 
-        	statisticsList.add(_("There are currently no statistics available."));
-        	lblFirstStart.setForeground(java.awt.Color.red);
-        	lblFirstStart.setText(_("A connection to the database couldn't be established."));
-    	} else if (databaseEmpty) {
-            statisticsList.add(_("There are currently no statistics available."));
+        } else if (!Runtime.getInstance().isConnected()) {
+            statisticsList
+                .add(_("There are currently no statistics available."));
+            lblFirstStart.setForeground(java.awt.Color.red);
+            lblFirstStart
+                .setText(_("A connection to the database couldn't be established."));
+        } else if (databaseEmpty) {
+            statisticsList
+                .add(_("There are currently no statistics available."));
         } else {
-            List<IActivity> activities = null;
-            List<IAssistant> assistants = null;
-            List<IFinancialCategory> financials = null;
-            List<ICourse> courses = null;
-            List<IEmployment> employments = null;
-            try {
-                activities = (new Activity()).getAll();
-                assistants = (new Assistant()).getAll();
-                financials = (new FinancialCategory()).getAll();
-                courses = (new Course()).getAll();
-                employments = (new Employment()).getAll();
-            } catch (AdoHiveException ex) {
-            }
+            generateStatistics.setVisible(true);
 
             try {
-                List<HistoryEvent> events = HistoryManager.getInstance().getEvents();
+                List<HistoryEvent> events = HistoryManager.getInstance()
+                    .getEvents();
 
                 int min = events.size() > countLastChanges ? events.size()
-                    - countLastChanges : 0;
+                        - countLastChanges : 0;
 
                 for (int i = events.size() - 1; i >= min; --i) {
                     HistoryEvent evt = events.get(i);
@@ -129,54 +140,53 @@ public class WelcomeTab extends Tab {
                         switch (evt.status) {
                         case Added:
                             if (modelUI == null) {
-                                event = MessageFormat
-                                    .format(_("{0}: {1} with Id {2} was added."),
-                                        new Object[] {
-                                                (new SimpleDateFormat(
-                                                    "dd.MM.yy HH:mm"))
-                                                    .format(evt.date),
-                                                DataType.valueOf(evt.type)
-                                                    .getDisplayName(), evt.id });
+                                event = MessageFormat.format(
+                                    _("{0}: {1} with Id {2} was added."),
+                                    new Object[] {
+                                            (new SimpleDateFormat(
+                                                "dd.MM.yy HH:mm"))
+                                                .format(evt.date),
+                                            DataType.valueOf(evt.type)
+                                                .getDisplayName(), evt.id });
                             } else {
-                                event = MessageFormat
-                                    .format(_("{0}: {1} {2} was added."),
-                                        new Object[] {
-                                                (new SimpleDateFormat(
-                                                    "dd.MM.yy HH:mm"))
-                                                    .format(evt.date),
-                                                modelUI.getDataType()
-                                                    .getDisplayName(),
-                                                modelUI.toString() });
+                                event = MessageFormat.format(
+                                    _("{0}: {1} {2} was added."), new Object[] {
+                                            (new SimpleDateFormat(
+                                                "dd.MM.yy HH:mm"))
+                                                .format(evt.date),
+                                            modelUI.getDataType()
+                                                .getDisplayName(),
+                                            modelUI.toString() });
                             }
                             break;
                         case Changed:
                             if (modelUI == null) {
-                                event = MessageFormat
-                                    .format(_("{0}: {1} with Id {2} was edited."),
-                                        new Object[] {
-                                                (new SimpleDateFormat(
-                                                    "dd.MM.yy HH:mm"))
-                                                    .format(evt.date),
-                                                DataType.valueOf(evt.type)
-                                                    .getDisplayName(), evt.id });
+                                event = MessageFormat.format(
+                                    _("{0}: {1} with Id {2} was edited."),
+                                    new Object[] {
+                                            (new SimpleDateFormat(
+                                                "dd.MM.yy HH:mm"))
+                                                .format(evt.date),
+                                            DataType.valueOf(evt.type)
+                                                .getDisplayName(), evt.id });
                             } else {
-                                event = MessageFormat
-                                    .format(_("{0}: {1} {2} was edited."),
-                                        new Object[] {
-                                                (new SimpleDateFormat(
-                                                    "dd.MM.yy HH:mm"))
-                                                    .format(evt.date),
-                                                modelUI.getDataType()
-                                                    .getDisplayName(),
-                                                modelUI.toString() });
+                                event = MessageFormat.format(
+                                    _("{0}: {1} {2} was edited."),
+                                    new Object[] {
+                                            (new SimpleDateFormat(
+                                                "dd.MM.yy HH:mm"))
+                                                .format(evt.date),
+                                            modelUI.getDataType()
+                                                .getDisplayName(),
+                                            modelUI.toString() });
                             }
                             break;
                         case Removed:
                             event = MessageFormat
-                                .format(
-                                    _("{0}: {1} with Id {2} was removed."),
+                                .format(_("{0}: {1} with Id {2} was removed."),
                                     new Object[] {
-                                            (new SimpleDateFormat("dd.MM.yy HH:mm"))
+                                            (new SimpleDateFormat(
+                                                "dd.MM.yy HH:mm"))
                                                 .format(evt.date),
                                             DataType.valueOf(evt.type)
                                                 .getDisplayName(), evt.id });
@@ -191,6 +201,11 @@ public class WelcomeTab extends Tab {
                 UI.displayError(ex.getMessage());
             }
 
+            try {
+                activities = (new Activity()).getAll();
+            } catch (AdoHiveException ex) {
+            }
+
             if (activities != null) {
                 int min = activities.size() > countLastActivities ? activities
                     .size()
@@ -201,122 +216,6 @@ public class WelcomeTab extends Tab {
 
                     activitiesList.add(a.toString(), a);
                 }
-            }
-
-            Integer[] qualifications = new Integer[] { 0, 0, 0 };
-            for (IAssistant a : assistants) {
-                if (Qualification.valueOf(a.getQualification()) == Qualification.u) {
-                    ++qualifications[0];
-                } else if (Qualification.valueOf(a.getQualification()) == Qualification.g) {
-                    ++qualifications[1];
-                } else {
-                    ++qualifications[2];
-                }
-            }
-
-            int maxFunds = 0;
-            for (IFinancialCategory f : financials) {
-                for (int b : f.getBudgetCosts()) {
-                    maxFunds += b;
-                }
-            }
-
-            double bookedBudget = 0.0, totalBudget = 0.0;
-            for (ICourse c : courses) {
-                CourseBudget courseBudget = new CourseBudget(new Course(c));
-
-                bookedBudget += courseBudget.getBookedBudget();
-                totalBudget += courseBudget.getTotalBudget();
-            }
-
-            double bookedBudgetCosts = 0.0;
-            Map<Date, Integer> employmentsCount = new HashMap<Date, Integer>();
-
-            for (IEmployment e : employments) {
-                bookedBudgetCosts += BalanceHelper.calculateBudgetCost(e);
-
-                Calendar cal = Calendar.getInstance();
-                cal.clear();
-
-                cal.set(Calendar.MONTH, e.getMonth() - 1);
-                cal.set(Calendar.YEAR, e.getYear());
-
-                if (employmentsCount.get(cal.getTime()) == null) {
-                    employmentsCount.put(cal.getTime(), 1);
-                } else {
-                    employmentsCount.put(cal.getTime(), employmentsCount
-                        .get(cal.getTime()) + 1);
-                }
-            }
-
-            try {
-                statisticsList.add(MessageFormat.format(
-                    _("aidGer has created {0} activities."),
-                    new Object[] { activities.size() }));
-                statisticsList.add(MessageFormat
-                    .format(
-                        _("{0} assistants are working in {1} employments."),
-                        new Object[] { assistants.size(),
-                                (new Employment()).size() }));
-                statisticsList.add(MessageFormat.format(
-                    _("These employments are part of {0} courses."),
-                    new Object[] { (new Course()).size() }));
-                statisticsList
-                    .add(MessageFormat
-                        .format(
-                            _("Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."),
-                            (Object[]) qualifications));
-                statisticsList.add(MessageFormat.format(
-                    _("They are using funds of {0} Euros."),
-                    new Object[] { maxFunds }));
-            } catch (AdoHiveException ex) {
-            }
-
-            // create diagrams
-            DefaultPieDataset qualificationData = new DefaultPieDataset();
-            qualificationData.setValue(_("Unchecked"), qualifications[0]);
-            qualificationData.setValue(_("Checked"), qualifications[1]);
-            qualificationData.setValue(_("Bachelor"), qualifications[2]);
-
-            int widthPie = 260, heightPie = 220;
-
-            diagram1.setIcon(Charts.createPieChart3D(
-                _("Qualifications of all assistants"), qualificationData,
-                widthPie, heightPie));
-
-            DefaultPieDataset budgetCourseData = new DefaultPieDataset();
-            budgetCourseData.setValue(_("Booked budgets"), bookedBudget);
-            budgetCourseData.setValue(_("Remaining budgets"), totalBudget
-                    - bookedBudget);
-
-            diagram2.setIcon(Charts.createPieChart3D(
-                _("Budget of all courses"), budgetCourseData, widthPie,
-                heightPie));
-
-            DefaultPieDataset budgetFundsData = new DefaultPieDataset();
-            budgetFundsData.setValue(_("Used budget"), bookedBudgetCosts);
-            budgetFundsData.setValue(_("Remaining budget"), maxFunds
-                    - bookedBudgetCosts);
-
-            diagram3.setIcon(Charts.createPieChart3D(
-                _("Budget costs of all funds"), budgetFundsData, widthPie,
-                heightPie));
-
-            // diagram does not make sense for less than two months
-            if (employmentsCount.size() > 1) {
-                TimeSeries seriesEmployments = new TimeSeries(_("Employments"));
-
-                Set<Date> set = employmentsCount.keySet();
-
-                for (Date date : set) {
-                    seriesEmployments.add(new Day(date), employmentsCount
-                        .get(date));
-                }
-
-                TimeSeriesCollection employmentsCountData = new TimeSeriesCollection(
-                    seriesEmployments);
-                diagram4.setIcon(Charts.createXYAreaChart(
-                    _("Count of employments"), employmentsCountData, 500, 270));
             }
         }
 
@@ -329,7 +228,133 @@ public class WelcomeTab extends Tab {
         }
 
         Runtime.getInstance().setOption("last-start",
-                Long.toString(new java.util.Date().getTime()));
+            Long.toString(new java.util.Date().getTime()));
+    }
+
+    @SuppressWarnings("unchecked")
+    private void generateStatistics() {
+        generateStatistics.setVisible(false);
+
+        try {
+            assistants = (new Assistant()).getAll();
+            financials = (new FinancialCategory()).getAll();
+            courses = (new Course()).getAll();
+            employments = (new Employment()).getAll();
+        } catch (AdoHiveException ex) {
+        }
+
+        Integer[] qualifications = new Integer[] { 0, 0, 0 };
+        for (IAssistant a : assistants) {
+            if (Qualification.valueOf(a.getQualification()) == Qualification.u) {
+                ++qualifications[0];
+            } else if (Qualification.valueOf(a.getQualification()) == Qualification.g) {
+                ++qualifications[1];
+            } else {
+                ++qualifications[2];
+            }
+        }
+
+        int maxFunds = 0;
+        for (IFinancialCategory f : financials) {
+            for (int b : f.getBudgetCosts()) {
+                maxFunds += b;
+            }
+        }
+
+        double bookedBudget = 0.0, totalBudget = 0.0;
+        for (ICourse c : courses) {
+            CourseBudget courseBudget = new CourseBudget(new Course(c));
+
+            bookedBudget += courseBudget.getBookedBudget();
+            totalBudget += courseBudget.getTotalBudget();
+        }
+
+        double bookedBudgetCosts = 0.0;
+        Map<Date, Integer> employmentsCount = new HashMap<Date, Integer>();
+
+        for (IEmployment e : employments) {
+            bookedBudgetCosts += BalanceHelper.calculateBudgetCost(e);
+
+            Calendar cal = Calendar.getInstance();
+            cal.clear();
+
+            cal.set(Calendar.MONTH, e.getMonth() - 1);
+            cal.set(Calendar.YEAR, e.getYear());
+
+            if (employmentsCount.get(cal.getTime()) == null) {
+                employmentsCount.put(cal.getTime(), 1);
+            } else {
+                employmentsCount.put(cal.getTime(), employmentsCount.get(cal
+                    .getTime()) + 1);
+            }
+        }
+
+        try {
+            statisticsList.add(MessageFormat.format(
+                _("aidGer has created {0} activities."),
+                new Object[] { activities.size() }));
+            statisticsList.add(MessageFormat.format(
+                _("{0} assistants are working in {1} employments."),
+                new Object[] { assistants.size(), (new Employment()).size() }));
+            statisticsList.add(MessageFormat.format(
+                _("These employments are part of {0} courses."),
+                new Object[] { (new Course()).size() }));
+            statisticsList
+                .add(MessageFormat
+                    .format(
+                        _("Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."),
+                        (Object[]) qualifications));
+            statisticsList.add(MessageFormat.format(
+                _("They are using funds of {0} Euros."),
+                new Object[] { maxFunds }));
+        } catch (AdoHiveException ex) {
+        }
+
+        // create diagrams
+        DefaultPieDataset qualificationData = new DefaultPieDataset();
+        qualificationData.setValue(_("Unchecked"), qualifications[0]);
+        qualificationData.setValue(_("Checked"), qualifications[1]);
+        qualificationData.setValue(_("Bachelor"), qualifications[2]);
+
+        int widthPie = 260, heightPie = 220;
+
+        diagram1.setIcon(Charts.createPieChart3D(
+            _("Qualifications of all assistants"), qualificationData, widthPie,
+            heightPie));
+
+        DefaultPieDataset budgetCourseData = new DefaultPieDataset();
+        budgetCourseData.setValue(_("Booked budgets"), bookedBudget);
+        budgetCourseData.setValue(_("Remaining budgets"), totalBudget
+                - bookedBudget);
+
+        diagram2.setIcon(Charts.createPieChart3D(_("Budget of all courses"),
+            budgetCourseData, widthPie, heightPie));
+
+        DefaultPieDataset budgetFundsData = new DefaultPieDataset();
+        budgetFundsData.setValue(_("Used budget"), bookedBudgetCosts);
+        budgetFundsData.setValue(_("Remaining budget"), maxFunds
+                - bookedBudgetCosts);
+
+        diagram3.setIcon(Charts.createPieChart3D(
+            _("Budget costs of all funds"), budgetFundsData, widthPie,
+            heightPie));
+
+        // diagram does not make sense for less than two months
+        if (employmentsCount.size() > 1) {
+            TimeSeries seriesEmployments = new TimeSeries(_("Employments"));
+
+            Set<Date> set = employmentsCount.keySet();
+
+            for (Date date : set) {
+                seriesEmployments
+                    .add(new Day(date), employmentsCount.get(date));
+            }
+
+            TimeSeriesCollection employmentsCountData = new TimeSeriesCollection(
+                seriesEmployments);
+            diagram4.setIcon(Charts.createXYAreaChart(
+                _("Count of employments"), employmentsCountData, 500, 270));
+        }
     }
 
     /**
@@ -350,6 +375,7 @@ public class WelcomeTab extends Tab {
         activitiesList = new de.aidger.view.utils.BulletList();
         statistics = new javax.swing.JPanel();
         statisticsList = new de.aidger.view.utils.BulletList();
+        generateStatistics = new javax.swing.JButton();
         diagrams = new javax.swing.JPanel();
         diagram1 = new javax.swing.JLabel();
         diagram2 = new javax.swing.JLabel();
@@ -420,11 +446,21 @@ public class WelcomeTab extends Tab {
             _("Statistics & Diagrams")));
         statistics.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         statistics.add(statisticsList, gridBagConstraints);
+
+        generateStatistics.setText(_("Show statistics"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
+        statistics.add(generateStatistics, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -500,6 +536,7 @@ public class WelcomeTab extends Tab {
     private javax.swing.JLabel diagram3;
     private javax.swing.JLabel diagram4;
     private javax.swing.JPanel diagrams;
+    private javax.swing.JButton generateStatistics;
     private de.aidger.view.utils.BulletList historyList;
     private javax.swing.JPanel lastActivities;
     private javax.swing.JPanel lastChanges;

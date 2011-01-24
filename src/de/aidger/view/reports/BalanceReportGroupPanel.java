@@ -92,7 +92,7 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
         sums.add("");
         sums.add(0.0);
         sums.add(0.0);
-        ArrayList<Integer> costUnits = new ArrayList<Integer>();
+        ArrayList<String> costUnits = new ArrayList<String>();
         ArrayList<BalanceCourse> balanceCourses = groupCreator
             .getBalanceCourses();
         for (Object balanceCourse : balanceCourses) {
@@ -126,13 +126,12 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
             for (BudgetCost budgetCost : ((BalanceCourse) balanceCourse)
                 .getBudgetCosts()) {
                 String budgetCostName = budgetCost.getName();
-                int budgetCostId = budgetCost.getId();
                 /*
                  * Check by the id of the cost unit if that cost unit is already
                  * in the table. If not, add it.
                  */
-                if (!costUnits.contains(budgetCostId)) {
-                    costUnits.add(budgetCostId);
+                if (!costUnits.contains(budgetCostName)) {
+                    costUnits.add(budgetCostName);
                     rowObjectVector.add("");
                     addEmptyColumn(budgetCostName);
                 }
@@ -145,7 +144,7 @@ public class BalanceReportGroupPanel extends javax.swing.JPanel {
                 double rounded = new BigDecimal(budgetCost.getValue())
                     .setScale(decimalPlace, BigDecimal.ROUND_HALF_EVEN)
                     .doubleValue();
-                rowObjectVector.set(costUnits.indexOf(budgetCostId) + 6,
+                rowObjectVector.set(costUnits.indexOf(budgetCostName) + 6,
                     new BigDecimal(rounded).setScale(2,
                         BigDecimal.ROUND_HALF_EVEN));
             }

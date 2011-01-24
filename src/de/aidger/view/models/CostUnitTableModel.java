@@ -78,16 +78,4 @@ public class CostUnitTableModel extends TableModel {
         return (List) lst;
     }
 
-    /**
-     * (non-Javadoc)
-     *
-     * @see javax.swing.table.AbstractTableModel#getRowCount()
-     */
-    public int getRowCount() {
-        try {
-            return (new CostUnit()).size();
-        } catch (AdoHiveException ex) {
-            return 0;
-        }
-    }
 }

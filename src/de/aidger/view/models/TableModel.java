@@ -20,8 +20,8 @@
 package de.aidger.view.models;
 
 import de.aidger.model.AbstractModel;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Observable;
@@ -43,12 +43,12 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
     /**
      * The static map of models. Each data type has its own list of models.
      */
-    protected static Map<String, Map<Integer, AbstractModel>> mapModels = new HashMap<String, Map<Integer, AbstractModel>>();
+    protected static Map<String, List<AbstractModel>> mapModels = new HashMap<String, List<AbstractModel>>();
 
     /**
      * The data type specific models that are displayed on the table.
      */
-    private Map<Integer, AbstractModel> models;
+    private List<AbstractModel> models;
 
     /**
      * The model before it was edited.
@@ -67,14 +67,11 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
         String className = this.getClass().getName();
 
         // get all models just once from database
-        if (mapModels.get(className) == null) {
-            models = new HashMap<Integer, AbstractModel>();
+        if (mapModels.get(className) == null || mapModels.get(className).isEmpty()) {
+            models = new ArrayList<AbstractModel>();
             mapModels.put(className, models);
 
-            List<AbstractModel> mdls = getModels();
-            for (int i = 0; i < mdls.size(); ++i) {
-                models.put(i, mdls.get(i));
-            }
+            models = getModels();
         } else {
             models = mapModels.get(className);
         }
@@ -168,15 +165,16 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
      * @return The value at the position
      */
     public Object getValueAt(int col, int row) {
-        AbstractModel model = null;
-        if (models.containsKey(col)) {
-            model = models.get(col);
-        } else {
-            model = getModelFromDB(col);
-            models.put(col, model);
-        }
+        return getRowValue(models.get(col), row);
+    }
 
-        return getRowValue(model, row);
+    /**
+     * (non-Javadoc)
+     *
+     * @see javax.swing.table.AbstractTableModel#getRowCount()
+     */
+    public int getRowCount() {
+        return models.size();
     }
 
     /*
@@ -187,35 +185,32 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
     public void update(Observable m, Object arg) {
         AbstractModel model = (AbstractModel) m;
         Boolean save = (Boolean) arg;
-        int index = indexOf(model);
+        int index = indexOf(modelBeforeEdit);
 
-        if (save) { // the model was saved
-            models.remove(index);
-            models.put(index, model);
+        if (save && index >= 0) { // the model was saved
+            models.set(index, model);
             fireTableRowsUpdated(index, index);
+        } else if (save) { // the model was newly created
+            models.add(model);
+            index = models.indexOf(model);
+            fireTableDataChanged();
         } else { // the model was removed
+            if (index == -1) {
+                index = models.indexOf(model);
+            }
             models.remove(index);
             fireTableRowsDeleted(index, index);
         }
     }
 
-    /**
-     * Returns the row index of the given model on the table.
-     *
-     * @param model
-     *            the model on the table
-     * @return the row index and -1 if model was not found or is null
-     */
-    private int indexOf(AbstractModel model) {
-        if (model == null) {
+    private int indexOf(AbstractModel m) {
+        if (m == null) {
             return -1;
         }
 
-        Iterator it = models.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry) it.next();
-            if (((AbstractModel) pair.getValue()).equals(model)) {
-                return (Integer) pair.getKey();
+        for (int i = 0; i < models.size(); ++i) {
+            if (models.get(i).equals(m)) {
+                return i;
             }
         }
 

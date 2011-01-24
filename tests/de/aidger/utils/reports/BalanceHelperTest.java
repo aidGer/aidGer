@@ -470,13 +470,11 @@ public class BalanceHelperTest {
         assertEquals(employment1.getCostUnit(), resultBudgetCosts.get(0)
             .getId(), 0.001);
         assertEquals(employment1.getFunds(), resultBudgetCosts.get(0).getName());
-        assertEquals(new BigDecimal(120.0).setScale(2).doubleValue(),
+        assertEquals(new BigDecimal(240.0).setScale(2).doubleValue(),
             resultBudgetCosts.get(0).getValue(), 0.001);
-        assertEquals(employment2.getCostUnit(), resultBudgetCosts.get(1)
+        assertEquals(employment2.getCostUnit(), resultBudgetCosts.get(0)
             .getId(), 0.001);
-        assertEquals(employment2.getFunds(), resultBudgetCosts.get(1).getName());
-        assertEquals(new BigDecimal(120.0).setScale(2).doubleValue(),
-            resultBudgetCosts.get(1).getValue(), 0.001);
+        assertEquals(employment2.getFunds(), resultBudgetCosts.get(0).getName());
     }
 
     /**
