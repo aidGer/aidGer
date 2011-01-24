@@ -21,7 +21,11 @@ package de.aidger.view.models;
 
 import static de.aidger.utils.Translation._;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Activity;
@@ -30,10 +34,6 @@ import de.aidger.model.models.Course;
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IActivity;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * The class represents the table model for the activities.
@@ -75,45 +75,55 @@ public class ActivityTableModel extends TableModel {
 
     /**
      * (non-Javadoc)
-     *
-     * @see de.aidger.view.models.TableModel#getRowValue(de.aidger.model.AbstractModel, int) 
+     * 
+     * @see de.aidger.view.models.TableModel#getRowValue(de.aidger.model.AbstractModel,
+     *      int)
      */
     @Override
     protected Object getRowValue(AbstractModel model, int row) {
         try {
             Activity activity = (Activity) model;
             switch (row) {
-                case 0: return activity.getId();
-                case 1:
-                    if (assistantCache.containsKey(activity.getAssistantId())) {
-                        return assistantCache.get(activity.getAssistantId());
-                    } else {
-                        UIAssistant assistant = (activity.getAssistantId() == null) ?
-                            new UIAssistant() : new UIAssistant((new Assistant())
+            case 0:
+                return activity.getId();
+            case 1:
+                if (assistantCache.containsKey(activity.getAssistantId())) {
+                    return assistantCache.get(activity.getAssistantId());
+                } else {
+                    UIAssistant assistant = (activity.getAssistantId() == null) ? new UIAssistant()
+                            : new UIAssistant((new Assistant())
                                 .getById(activity.getAssistantId()));
-                        if (assistant != null) {
-                            assistantCache.put(assistant.getId(), assistant);
-                        }
-                        return assistant;
+                    if (assistant != null) {
+                        assistantCache.put(assistant.getId(), assistant);
                     }
-                case 2:
-                    if (courseCache.containsKey(activity.getCourseId())) {
-                        courseCache.get(activity.getCourseId());
-                    } else {
-                        UICourse course = (activity.getCourseId() == null) ? new UICourse()
-                            : new UICourse((new Course()).getById(activity.getCourseId()));
-                        if (course != null) {
-                            courseCache.put(course.getId(), course);
-                        }
-                        return course;
+                    return assistant;
+                }
+            case 2:
+                if (courseCache.containsKey(activity.getCourseId())) {
+                    return courseCache.get(activity.getCourseId());
+                } else {
+                    UICourse course = (activity.getCourseId() == null) ? new UICourse()
+                            : new UICourse((new Course()).getById(activity
+                                .getCourseId()));
+                    if (course != null) {
+                        courseCache.put(course.getId(), course);
                     }
-                case 3: return activity.getDate();
-                case 4: return activity.getSender();
-                case 5: return activity.getProcessor();
-                case 6: return activity.getType();
-                case 7: return activity.getDocumentType();
-                case 8: return activity.getContent();
-                case 9: return activity.getRemark();
+                    return course;
+                }
+            case 3:
+                return activity.getDate();
+            case 4:
+                return activity.getSender();
+            case 5:
+                return activity.getProcessor();
+            case 6:
+                return activity.getType();
+            case 7:
+                return activity.getDocumentType();
+            case 8:
+                return activity.getContent();
+            case 9:
+                return activity.getRemark();
             }
         } catch (AdoHiveException ex) {
         }
@@ -122,13 +132,14 @@ public class ActivityTableModel extends TableModel {
 
     /**
      * (non-Javadoc)
-     *
+     * 
      * @see de.aidger.view.models.TableModel#getModelFromDB(int)
      */
     @Override
     protected AbstractModel getModelFromDB(int idx) {
         try {
-            return new Activity(AdoHiveController.getInstance().getActivityManager().get(idx));
+            return new Activity(AdoHiveController.getInstance()
+                .getActivityManager().get(idx));
         } catch (AdoHiveException ex) {
             return null;
         }
@@ -136,9 +147,10 @@ public class ActivityTableModel extends TableModel {
 
     /**
      * (non-javadoc)
-     *
+     * 
      * @see de.aidger.view.models.TableModel#getModels()
      */
+    @Override
     protected List<AbstractModel> getModels() {
         List<AbstractModel> ret = new ArrayList<AbstractModel>();
         try {
