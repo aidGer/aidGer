@@ -44,7 +44,7 @@ import java.util.Map;
 @SuppressWarnings("serial")
 public class ContractTableModel extends TableModel {
 
-    private static Map<Integer, Assistant> assistantCache = new HashMap<Integer, Assistant>();
+    private static Map<Integer, UIAssistant> assistantCache = new HashMap<Integer, UIAssistant>();
 
     /**
      * Constructs the table model for contracts.

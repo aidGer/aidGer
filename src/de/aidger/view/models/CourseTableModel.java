@@ -27,9 +27,10 @@ import de.aidger.model.models.FinancialCategory;
 import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.ICourse;
-import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * The class represents the table model for the master data courses.
@@ -38,6 +39,9 @@ import java.util.List;
  */
 @SuppressWarnings("serial")
 public class CourseTableModel extends TableModel {
+
+    private Map<Integer, UIFinancialCategory> fcCache = new HashMap<Integer, UIFinancialCategory>();
+
     /**
      * Constructs the table model for courses.
      */
@@ -88,9 +92,14 @@ public class CourseTableModel extends TableModel {
                 case 10: return course.getGroup();
                 case 11: return course.getRemark();
                 case 12:
-                    IFinancialCategory fc = (new FinancialCategory())
-                            .getById(course.getFinancialCategoryId());
-                    return new UIFinancialCategory(fc);
+                    if (fcCache.containsKey(course.getFinancialCategoryId())) {
+                        return fcCache.get(course.getFinancialCategoryId());
+                    } else {
+                        UIFinancialCategory fc = new UIFinancialCategory((new FinancialCategory())
+                                .getById(course.getFinancialCategoryId()));
+                        fcCache.put(fc.getId(), fc);
+                        return fc;
+                    }
             }
         } catch (AdoHiveException ex) {
         }

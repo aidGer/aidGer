@@ -43,9 +43,9 @@ import java.util.Map;
 @SuppressWarnings("serial")
 public class ActivityTableModel extends TableModel {
 
-    private static Map<Integer, Assistant> assistantCache = new HashMap<Integer, Assistant>();
+    private static Map<Integer, UIAssistant> assistantCache = new HashMap<Integer, UIAssistant>();
 
-    private static Map<Integer, Course> courseCache = new HashMap<Integer, Course>();
+    private static Map<Integer, UICourse> courseCache = new HashMap<Integer, UICourse>();
 
     /**
      * Constructs the table model for activities.
