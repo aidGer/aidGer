@@ -188,19 +188,18 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
         int index = indexOf(modelBeforeEdit);
 
         if (save && index >= 0) { // the model was saved
-            models.set(index, model);
-            fireTableRowsUpdated(index, index);
+            models.set(index, model);            
         } else if (save) { // the model was newly created
             models.add(model);
-            index = models.indexOf(model);
-            fireTableDataChanged();
+            index = models.indexOf(model);            
         } else { // the model was removed
             if (index == -1) {
                 index = models.indexOf(model);
             }
-            models.remove(index);
-            fireTableRowsDeleted(index, index);
+            models.remove(index);            
         }
+
+        fireTableDataChanged();
     }
 
     private int indexOf(AbstractModel m) {
