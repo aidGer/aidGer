@@ -5875,6 +5875,317 @@ Das Tab bleibt weiterhin offen, so dass er seine Falscheingabe korrigieren kann.
 </executedsequence>
 </executedsequence>
 </testrun>
+<testrun enddate="24.01.2011 21:26" priority="E" startdate="24.01.2011 21:13" tester="aidGerTeam">
+<description/>
+<sut>aidGer v1.0-RC2</sut>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Berichte" number="9">
+<description>Die Testsequenz dient zur Generation verschiedenster Berichte. Die Berichte sollen als PDF abgespeichert werden können.</description>
+<pre>Das Programm wurde gestartet und Benutzer befindet sich im Menüpunkt Berichte.</pre>
+</sequence>
+<pre/>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Jahresbilanzen" number="114">
+<description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von einer Jahresbilanz.</description>
+<pre>* Benutzer klickt auf den Link "Jahresbilanz" in der TaskPane Berichte.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="21:13" outcome="Ok" postok="Y" preok="Y" starttime="21:13">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="211" priority="C" title="Jahresbilanz für ein Jahr generieren">
+<description>Es soll eine Jahresbilanz generiert und anschließend dargestellt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Jahr "2010" ein
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Die erstellte Jahresbilanz wird für das angegebene Jahr im Frame intern angezeigt. Es muss eine Veranstaltungen in der Bilanz auftauchen für dieses Jahr. Die eingeplante HKS und der HKS Grundbedarf sowie die Plankosten müssen alle korrekt berechnet sein.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:14" outcome="Ok" postok="Y" preok="Y" starttime="21:13">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="213" priority="C" title="Jahresbilanz für ein Jahr ohne Beschäftigungen generieren">
+<description>Es soll eine Jahresbilanz generiert und anschließend dargestellt werden. Problem ist, dass es keine Bescheschäftigungen in diesem Jahr gibt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Jahr "2005" ein
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Der Benutzer soll nicht die Möglichkeit haben, dieses Jahr auszuwählen, da keine Veranstaltungen in der Datenbank hierfür existieren.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:17" outcome="Ok" postok="Y" preok="Y" starttime="21:14">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="212" priority="C" title="Jahresbilanz in PDF-Format exportieren">
+<description>Eine generierte Jahresbilanz soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 211 wurde bereits ausgeführt. Benutzer befindet sich im Jahresbilanz-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"
+
+* Benutzer wählt den namen "Jahresbilanz.pdf" als Dateiname
+
+* Benutzer klickt auf "Exportieren"</actions>
+<post>Die bereits dargestellte Jahresbilanz wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment>Sieht gut aus :-)</comment>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Semesterbilanzen" number="123">
+<description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von einer Semesterbilanz.</description>
+<pre>* Benutzer klickt auf den Link "Semesterbilanz" in der TaskPane Berichte.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="21:20" outcome="Ok" postok="Y" preok="Y" starttime="21:17">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="214" priority="C" title="Semesterbilanz für ein Semester generieren">
+<description>Es soll eine Semesterbilanz generiert und anschließend dargestellt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Semester "WS0809" ein
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Die erstellte Semesterbilanz wird für das angegebene Jahr im Frame intern angezeigt. Die Semesterbilanz umfasst eine Veranstaltung im WS0809. Dabei wurden die eingeplanten HKS, der HKS Grundbedarf sowie die Plankosten korrekt bestimmt. Es ist hierbei irrelevant, dass die Veranstaltung laut Beschäftigung erst November 2010 beginnt. Diese Überprüfung hat nicht stattgefunden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment>Fehlermeldung, falls Filterung keine Bilanz ermöglicht</comment>
+</result>
+<result actionok="Y" endtime="21:21" outcome="Ok" postok="Y" preok="Y" starttime="21:21">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="215" priority="C" title="Semesterbilanz für ein Semester ohne Veranstaltungen generieren">
+<description>Es soll eine Semesterbilanz generiert und anschließend dargestellt werden. Problem ist, dass es keine Veranstaltungen in diesem Semester gibt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer gibt das Semester "SS05" ein
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Der Benutzer soll nicht die Möglichkeit haben, dieses Semester auszuwählen, da keine Veranstaltungen in der Datenbank hierfür existieren.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:21" outcome="Ok" postok="Y" preok="Y" starttime="21:21">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="216" priority="C" title="Semesterbilanz in PDF-Format exportieren">
+<description>Eine generierte Semesterbilanz soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 214 wurde bereits ausgeführt. Benutzer befindet sich im Semesterbilanz-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"
+
+* Benutzer wählt den namen "Semesterbilanz.pdf" als Dateiname
+
+* Benutzer klickt auf "Exportieren"</actions>
+<post>Die bereits dargestellte Semesterbilanz wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Teilbilanzen via Filter" number="124">
+<description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von einer Teilbilanz.</description>
+<pre>* Benutzer klickt auf den Link "Gesamtbilanz" in der TaskPane Berichte.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="21:22" outcome="Ok" postok="Y" preok="Y" starttime="21:21">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="217" priority="C" title="Teilbilanz mit bestimmten Dozent generieren">
+<description>Es soll eine Teilbilanz mit einem bestimmten Dozenz generiert und anschließend dargestellt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Dozent - B. Gates" hinzu
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Die erstellte Teilbilanz wird für den Dozent "B.Gates" im Frame intern angezeigt. Die Teilbilanz umfasst eine Veranstaltung aus Testfall 159.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:22" outcome="Ok" postok="Y" preok="Y" starttime="21:22">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="233" priority="C" title="Teilbilanz mit Filter findet keine Veranstaltungen">
+<description>Es soll eine Teilbilanz für einen angegebenen Zeitraum generiert und anschließend dargestellt werden. Mit der Filterung wurde jedoch keine Veranstaltung gefunden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Gruppe" hinzu
+
+* Benutzer gibt den Gruppe "Tolle Gruppe" ein
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Der Benutzer soll nicht die Möglichkeit haben, diese Gruppe auszuwählen, da keine solche Gruppe in der Datenbank existiert.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:22" outcome="Ok" postok="Y" preok="Y" starttime="21:22">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="234" priority="C" title="Teilbilanz in PDF-Format exportieren">
+<description>Eine generierte Teilbilanz soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 217 wurde bereits ausgeführt. Benutzer befindet sich im Teilbilanz-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"
+
+* Benutzer wählt den namen "Teilbilanz.pdf" als Dateiname
+
+* Benutzer klickt auf "Exportieren"</actions>
+<post>Die bereits dargestellte Teilbilanz wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Tätigkeitsnachweise" number="115">
+<description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren von eines Tätigkeitsnachweises.</description>
+<pre>* Benutzer klickt auf den Link "Tätigkeitsnachweis" in der TaskPane Berichte.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="21:23" outcome="Ok" postok="Y" preok="Y" starttime="21:23">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="218" priority="C" title="Tätigkeitsnachweis für eine Hilfskraft generieren (alle Beschäftigungen)">
+<description>Es soll ein Tätigkeitsnachweis für eine Hilfskraft generiert und anschließend dargestellt werden. Es werden alle Beschäftigungen angezeigt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt die Hilfskraft "Carl Coder" aus
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Der erstellte Tätigkeitsnachweis wird für das angegebene Jahr im Frame intern angezeigt. Es wird eine Beschäftigung dargestellt. Es müssen mindestens die Spalten Zeitraum, Veranstaltung und Umfang angezeigt werden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:24" outcome="Ok" postok="Y" preok="Y" starttime="21:23">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="220" priority="C" title="Tätigkeitsnachweis in PDF-Format exportieren">
+<description>Ein generierter Tätigkeitsnachweis soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 218 wurde bereits ausgeführt. Benutzer befindet sich im Tätigkeitsnachweis-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"
+
+* Benutzer wählt den namen "Tätigkeitsnachweis.pdf" als Dateiname
+
+* Benutzer klickt auf "Exportieren"</actions>
+<post>Der bereits dargestellte Tätigkeitsnachweis wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment>UIModels benutzen</comment>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="13.05.2010" creator="aidGerTeam" name="Vorgangsprotokolle" number="116">
+<description>Die Testsequenz enthält Testfälle zum Generieren und Exportieren eines Vorgangprotokolls.</description>
+<pre>* Benutzer klickt auf den Link "Vorgänge exportieren" in der TaskPane Vorgänge.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="21:26" outcome="Ok" postok="Y" preok="Y" starttime="21:24">
+<testcase created="21.10.2010" creator="aidGerTeam" effort="00:00" number="321" priority="C" title="Export ohne Daten">
+<description>Der Export Button soll ausgegraut sein, falls es keine zu exportierende Daten gibt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Menüpunkt "Vorgänge - Exportieren"</actions>
+<post>Der Export Button ist ausgegraut.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:26" outcome="Ok" postok="Y" preok="Y" starttime="21:26">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="225" priority="C" title="Vorgangsprotokoll für einen Tag generieren">
+<description>Es soll eine Vorgangsprotokoll für einen Tag generiert und anschließend dargestellt werden.</description>
+<pre>Benutzer befindet sich im Vorgänge exportieren-Tab. Es wurde ein Vorgang heute angelegt.</pre>
+<actions>* Benutzer wählt "Anzahl an Tagen die angezeigt werden soll(nach heute):" aus
+
+* Benutzer wählt die Tagesanzahl "0" aus</actions>
+<post>Das erstellte Vorgangsprotokoll wird für den heutigen Tag im Frame intern angezeigt. Es sollen dabei so viele Informationen wie möglich dargestellt werden. Alle Vorgänge von heute werden angezeigt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:26" outcome="Ok" postok="Y" preok="Y" starttime="21:26">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="229" priority="C" title="Vorgangsprotokoll für einen Tag in PDF-Format exportieren">
+<description>Ein generiertes Vorgangsprotokoll soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Benutzer befindet sich im Vorgänge exportieren-Tab. Der Testfall 225 wurde bereits ausgeführt.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"
+
+* Benutzer wählt den namen "Protokoll.pdf" als Dateiname
+
+* Benutzer klickt auf "Exportieren"</actions>
+<post>Das bereits dargestellte Vorgangsprotokoll wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:26" outcome="Ok" postok="Y" preok="Y" starttime="21:26">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="320" priority="C" title="Vorgangsprotokoll für alle Tage generieren">
+<description>Es soll eine Vorgangsprotokoll für einen Tag generiert und anschließend dargestellt werden.</description>
+<pre>Benutzer befindet sich im Vorgänge exportieren-Tab. Es wurde ein Vorgang heute angelegt.</pre>
+<actions>* Benutzer wählt "Alle Vorgänge anzeigen" aus</actions>
+<post>Das erstellte Vorgangsprotokoll wird für alle Tage im Frame intern angezeigt. Es sollen dabei so viele Informationen wie möglich dargestellt werden. Alle Vorgänge werden angezeigt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:26" outcome="Ok" postok="Y" preok="Y" starttime="21:26">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="230" priority="C" title="Vorgangsprotokoll für einen Zeitraum generieren">
+<description>Es soll eine Vorgangsprotokoll für einen Zeitraum generiert und anschließend dargestellt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Vorgängen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt die Tagesanzahl "5" aus
+
+* Benutzer klickt auf den Button "Generieren"</actions>
+<post>Das erstellte Vorgangsprotokoll für den Zeitraum im Frame intern angezeigt. Es sollen dabei so viele Informationen wie möglich dargestellt werden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:26" outcome="Ok" postok="Y" preok="Y" starttime="21:26">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="232" priority="C" title="Vorgangsprotokoll für einen Zeitraum in PDF-Format exportieren">
+<description>Ein generiertes Vorgangsprotokoll soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 230 wurde bereits ausgeführt. Benutzer befindet sich im Vorgangsprotokoll-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"
+
+* Benutzer wählt den namen "Protokoll.pdf" als Dateiname
+
+* Benutzer klickt auf "Exportieren"</actions>
+<post>Das bereits dargestellte Vorgangsprotokoll wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+</executedsequence>
+</testrun>
 </tsa>
 <tsa name="Controlling" number="10" revId="1">
 <relatedsequence>10</relatedsequence>
@@ -6523,6 +6834,265 @@ Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
 <comment/>
 </result>
 <result actionok="Y" endtime="20:13" outcome="Ok" postok="Y" preok="Y" starttime="20:13">
+<testcase created="21.10.2010" creator="aidGerTeam" effort="00:00" number="324" priority="C" title="Abbruch: Auszug ohne Stundenlohn">
+<description>Es soll ein Auszug erstellt werden für eine Hilfskraft in einem Intervall, in dem diese keinen Stundenlohn hat.</description>
+<pre>Die Testfälle zum Erstellen von Hilfskräften und Veranstaltungen wurden ausgeführt. Es wurde eine Beschäftigung für Carl Coder für den Monat 12/2001 erstellt. Es wurden keine Stundenlöhne erstellt. Benutzer befindet sich im Menüpunkt "Controlling Hilfskräfte".</pre>
+<actions>* Benutzer wählt das Jahr 2001 und den Monat 12 aus
+
+* Benutzer klickt auf Generieren
+
+* Benutzer wird darauf hingewiesen, dass es fehlende Stundenlöhne gibt und gefragt ob die betroffenen Daten trotzdem berücksichtigt werden sollen
+
+*Benutzer klickt "Nein"</actions>
+<post>In der Tabelle erscheint kein Eintrag.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+</executedsequence>
+</testrun>
+<testrun enddate="24.01.2011 21:36" priority="E" startdate="24.01.2011 21:29" tester="aidGerTeam">
+<description/>
+<sut>aidGer v1.0-RC2</sut>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Controlling" number="10">
+<description>Die Testsequenz dient zum Testen des Controllings.</description>
+<pre>Das Programm wurde gestartet und der Benutzer befindet sich im Menüpunkt Controlling.</pre>
+</sequence>
+<pre/>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Veranstaltungen prüfen" number="305">
+<description>Die Testsequenz dient zum Prüfen von Veranstaltungen. Es können standardmäßig alle Veranstaltungen angezeigt werden. Über einen Filter können nur spezifische Veranstaltungen (z.B. Veranstaltungen in einem Semester) betrachtet werden. Die Liste kann zudem exportiert werden.</description>
+<pre>Der Benutzer möchte Veranstaltungen prüfen und klickt auf den Menüpunkt "Veranstaltungen prüfen". Es sind die Default-Einstellungen ausgewählt.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="21:35" outcome="Ok" postok="Y" preok="Y" starttime="21:29">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="244" priority="C" title="Alle Veranstaltungen anzeigen">
+<description>Für die Budgetprüfung sollen alle Veranstaltungen angezeigt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Es wird eine Tabelle angeigt, in der alle Veranstaltungen mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet sind. Es müssen 3 Veranstaltungen angezeigt werden:
+
+Nutzlose Betriebssysteme in der Praxis: 95 / 157,5
+Laufende Forschung: 47 / 45
+Mensa überleben für Pizza-Fan: 47 / 120
+
+Die Zeile "Laufende Forschung" muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:35" outcome="Ok" postok="Y" preok="Y" starttime="21:35">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="245" priority="C" title="Veranstaltungen via Filter (Dozent) anzeigen">
+<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter über Dozent benutzt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Dozent - Gustav Guifrickel" hinzu
+
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Es wird nur die Veranstaltung "Laufende Forschung" mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet.
+
+Laufende Forschung: 47 / 45
+
+Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:35" outcome="Ok" postok="Y" preok="Y" starttime="21:35">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="247" priority="C" title="Veranstaltungen via Filter (Übrige HKS) anzeigen">
+<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter über Übrige HKS benutzt.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Übrige HKS" hinzu
+
+* Benutzer gibt die die übrige HKS kleiner als "0"
+
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Es wird nur die Veranstaltung "Laufende Forschung" mit mindestens den Spalten "Verbrauchte HKS",  "Genehmigte HKS" und "Übrige HKS" gelistet.
+
+Laufende Forschung: 47 / 45
+
+Die Zeile muss rot hinterlegt sein, da die übrige HKS negativ sind.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:35" outcome="Ok" postok="Y" preok="Y" starttime="21:35">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="246" priority="C" title="Veranstaltungsliste in PDF-Format exportieren">
+<description>Eine Veranstaltungsliste soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 244 wurde bereits ausgeführt. Benutzer befindet sich im "Controlling Veranstaltungen"-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Exportieren"
+
+* Benutzer wählt den namen "Controlling.pdf" als Dateiname
+
+* Benutzer klickt auf "Exportieren"</actions>
+<post>Die bereits dargestellte Veranstaltungsliste wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet. Veranstaltungen mit negativen übrigen HKS werden auch in der PDF hervorgehoben.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:35" outcome="Ok" postok="Y" preok="Y" starttime="21:35">
+<testcase created="18.05.2010" creator="aidGerTeam" effort="00:02" number="249" priority="C" title="Budgetprüfung ohne Veranstaltungen">
+<description>Für die Budgetprüfung sollen nur spezielle Veranstaltungen angezeigt werden. Es wird hierfür ein Filter benutzt. Dieser Filter führt jedoch zu keinem Ergebnis.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer fügt den Filter "Semester" hinzu
+
+* Benutzer gibt das Semester "Dumbdidum" ein
+
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Der Benutzer soll nicht die Möglichkeit haben, diese Falscheingabe durchzuführen. Daher wird ebenfalls keine neue Veranstaltungstabelle angezeigt.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+</executedsequence>
+<executedsequence>
+<sequence created="11.05.2010" creator="aidGerTeam" name="Hilfskräfte prüfen" number="306">
+<description>Die Testsequenz dient zum Prüfen von Hilfskräften. Es können Monatsauszüge der angestellten Hilfskräfte angezeigt und exportiert werden. Zwischen den Monaten kann leicht navigiert werden. Außerdem müssen komfortabel die realen Kosten in die Tabelle eingetragen werden können. Desweiteren werden bei Soll-Ist-Abweichungen Warnungen angezeigt.</description>
+<pre>Der Benutzer möchte Hilfskräfte prüfen und klickt auf den Menüpunkt "Hilfskräfte prüfen". Es sind die Default-Einstellungen ausgewählt.</pre>
+</sequence>
+<pre/>
+<result actionok="Y" endtime="21:35" outcome="Ok" postok="Y" preok="Y" starttime="21:35">
+<testcase created="21.10.2010" creator="aidGerTeam" effort="00:00" number="322" priority="C" title="Export ohne Daten">
+<description>Die Export Buttons sollten ausgegraut sein, falls es keine Daten zu exportieren gibt.</description>
+<pre/>
+<actions>* Benutzer klickt auf den Menüpunkt "Controlling Hilfskräfte"</actions>
+<post>Die Export Buttons sind ausgegraut.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:35" outcome="Ok" postok="Y" preok="Y" starttime="21:35">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="242" priority="C" title="Monatsauszug für ein Monat anzeigen">
+<description>Es soll eine Monatsauszug für einen Monat angezeigt werden.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt in der Dropdown-Liste den Monat "November 2010" aus
+
+* Benutzer drückt auf den Button "Generieren"</actions>
+<post>Der Monatsauszug wird für den angegebenen Monat dargestellt. Es wird die Hilfskraft "Carl Coder" angezeigt. Dabei werden die Plankosten korrekt berrechnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:35" outcome="Ok" postok="Y" preok="Y" starttime="21:35">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="248" priority="C" title="Monatsauszug ohne Hilfskräfte anzeigen">
+<description>Es soll eine Monatsauszug für einen Monat angezeigt werden. Das Problem tritt auf, dass für diesen Monat keine Hilfskräfte beschäftigt sind.</description>
+<pre>Die Testfälle zum Hinzufügen von Veranstaltungen, Hilfskräfte und Beschäftigungen wurden ausgeführt.</pre>
+<actions>* Benutzer wählt in der Dropdown-Liste den Monat "Oktober 2010" aus</actions>
+<post>Der Benutzer soll nicht die Möglichkeit haben, diesen Monat auszuwählen, da keine Beschäftigungen vor diesem Monat in diesem Jahr stattfanden.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:35" outcome="Ok" postok="Y" preok="Y" starttime="21:35">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:02" number="238" priority="C" title="Monatsauszug in PDF-Format exportieren">
+<description>Eine generierter Monatsauszug soll in das PDF-Format exportiert werden, so dass der Bericht auf der Platte abgelegt werden kann.</description>
+<pre>Der Testfall 242 wurde bereits ausgeführt. Benutzer befindet sich im "Controlling Hilfskräfte"-Reiter.</pre>
+<actions>* Benutzer klickt auf den Button "Alles Exportieren"
+
+* Benutzer wählt den namen "Controlling.pdf" als Dateiname
+
+* Benutzer klickt auf "Exportieren"</actions>
+<post>Der bereits dargestellte Monatsauszug wurde in das PDF-Format exportiert und mit dem eingestellten PDF-Viewer geöffnet.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:35" outcome="Ok" postok="Y" preok="Y" starttime="21:35">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="240" priority="C" title="Reale Kosten eintragen und keine Abweichung">
+<description>Im aktuellen Monatsauszug sollen die realen Kosten eingetragen werden. Es gibt keine Abweichung zwischen Soll und Ist.</description>
+<pre>Testfall 236 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt die Zelle "Reale Kosten" bei der Hilfskraft "Carl Coder" an
+
+* Benutzer gibt die Reale Kosten 315 ein</actions>
+<post>Die realen Kosten für die Hilfskraft werden in der Tabelle angezeigt. Es besteht keine Abweichung zwischen Soll und Ist. Der Benutzer kann sich den Auszug ins PDF-Format exportieren lassen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:36" outcome="Ok" postok="Y" preok="Y" starttime="21:36">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="241" priority="C" title="Reale Kosten eintragen und eine Abweichung">
+<description>Im aktuellen Monatsauszug sollen die realen Kosten eingetragen werden. Es gibt eine Abweichung zwischen Soll und Ist.</description>
+<pre>Testfall 236 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt die Zelle "Reale Kosten" bei der Hilfskraft "Carl Coder" an
+
+* Benutzer gibt die Reale Kosten 1000 ein</actions>
+<post>Die realen Kosten für die Hilfskraft werden in der Tabelle angezeigt. Es besteht eine Abweichung zwischen geplanten und realen Kosten, worüber der Benutzer durch eine softe Warnung informiert wird. Der Benutzer kann sich trotzdem den Auszug ins PDF-Format exportieren lassen.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:36" outcome="Ok" postok="Y" preok="Y" starttime="21:36">
+<testcase created="17.05.2010" creator="aidGerTeam" effort="00:03" number="243" priority="C" title="Reale Kosten inkorrekt eintragen">
+<description>Im aktuellen Monatsauszug sollen die realen Kosten eingetragen werden. Das Format wurde dabei jedoch nicht eingehalten.</description>
+<pre>Testfall 236 wurde ausgeführt.</pre>
+<actions>* Benutzer klickt die Zelle "Reale Kosten" bei der Hilfskraft "Carl Coder" an
+
+* Benutzer gibt die Reale Kosten "viel zu viel" ein</actions>
+<post>Der Benutzer wird darüber informiert, dass er das Format für die realen Kosten nicht eingehalten hat.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:36" outcome="Ok" postok="Y" preok="Y" starttime="21:36">
+<testcase created="21.10.2010" creator="aidGerTeam" effort="00:00" number="323" priority="C" title="Auszug ohne Stundenlohn">
+<description>Es soll ein Auszug erstellt werden für eine Hilfskraft in einem Intervall, in dem diese keinen Stundenlohn hat.</description>
+<pre>Die Testfälle zum Erstellen von Hilfskräften und Veranstaltungen wurden ausgeführt. Es wurde eine Beschäftigung für Carl Coder für den Monat 12/2001 erstellt. Es wurden keine Stundenlöhne erstellt. Benutzer befindet sich im Menüpunkt "Controlling Hilfskräfte".</pre>
+<actions>* Benutzer wählt das Jahr 2001 und den Monat 12 aus
+
+* Benutzer klickt auf Generieren
+
+* Benutzer wird darauf hingewiesen, dass es fehlende Stundenlöhne gibt und gefragt ob die betroffenen Daten trotzdem berücksichtigt werden sollen
+
+*Benutzer klickt "Ja"</actions>
+<post>In der Tabelle erscheint ein Eintrag für Carl Coder mit Plankosten 0 und der Bemerkung, dass die Berechnung fehlerhaft sein könnte.</post>
+<tags/>
+</testcase>
+<pre/>
+<actions/>
+<post/>
+<comment/>
+</result>
+<result actionok="Y" endtime="21:36" outcome="Ok" postok="Y" preok="Y" starttime="21:36">
 <testcase created="21.10.2010" creator="aidGerTeam" effort="00:00" number="324" priority="C" title="Abbruch: Auszug ohne Stundenlohn">
 <description>Es soll ein Auszug erstellt werden für eine Hilfskraft in einem Intervall, in dem diese keinen Stundenlohn hat.</description>
 <pre>Die Testfälle zum Erstellen von Hilfskräften und Veranstaltungen wurden ausgeführt. Es wurde eine Beschäftigung für Carl Coder für den Monat 12/2001 erstellt. Es wurden keine Stundenlöhne erstellt. Benutzer befindet sich im Menüpunkt "Controlling Hilfskräfte".</pre>
