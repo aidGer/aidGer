@@ -133,6 +133,9 @@ public class EditorSaveAction extends AbstractAction {
             course
                 .setUnqualifiedWorkingHours(form.getUnqualifiedWorkingHours());
         } catch (ParseException e) {
+            course.addError("unqualifiedWorkingHours", _("AWH per group"),
+                new PresenceValidator(new String[0], new String[0])
+                    .getMessage());
         }
 
         try {
@@ -209,6 +212,9 @@ public class EditorSaveAction extends AbstractAction {
         try {
             fc.setBudgetCosts(form.getBudgetCosts());
         } catch (NumberFormatException e) {
+            fc.addError("budgetCosts", _("Budget Costs"),
+                new PresenceValidator(new String[0], new String[0])
+                    .getMessage());
         }
 
         try {
@@ -222,6 +228,8 @@ public class EditorSaveAction extends AbstractAction {
         try {
             fc.setYear(form.getYear());
         } catch (NumberFormatException e) {
+            fc.addError("year", _("Year"), new PresenceValidator(new String[0],
+                new String[0]).getMessage());
         }
 
         try {
@@ -258,6 +266,8 @@ public class EditorSaveAction extends AbstractAction {
         try {
             hw.setWage(round(form.getWage(), 2));
         } catch (ParseException e) {
+            hw.addError("wage", _("Wage"), new PresenceValidator(new String[0],
+                new String[0]).getMessage());
         }
 
         if (form.isEditMode()) {
@@ -516,15 +526,7 @@ public class EditorSaveAction extends AbstractAction {
                     clone.setSender(new UIAssistant(assistants.get(j))
                         .toString());
                 } else {
-                    String initiator = form.getInitiator();
-
-                    if (initiator.isEmpty()) {
-                        clone.addError("sender", _("Initiator"),
-                            new PresenceValidator(new String[0],
-                                new String[0]).getMessage());
-                    } else {
-                        clone.setSender(form.getInitiator());
-                    }
+                    clone.setSender(form.getInitiator());
                 }
             }
         }
