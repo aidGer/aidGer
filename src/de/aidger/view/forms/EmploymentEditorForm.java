@@ -156,7 +156,8 @@ public class EmploymentEditorForm extends JPanel {
                 cmbAssistantModel.addElement(assistant);
 
                 if (employment != null
-                        && assistant.getId() == employment.getAssistantId()) {
+                        && assistant.getId()
+                            .equals(employment.getAssistantId())) {
                     cmbAssistantModel.setSelectedItem(assistant);
                 }
             }
@@ -579,7 +580,8 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblAssistant, gridBagConstraints);
-        lblAssistant.getAccessibleContext().setAccessibleDescription("assistantId");
+        lblAssistant.getAccessibleContext().setAccessibleDescription(
+            "assistantId");
 
         lblCourse.setText(_("Course"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -597,7 +599,8 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblContract, gridBagConstraints);
-        lblContract.getAccessibleContext().setAccessibleDescription("contractId");
+        lblContract.getAccessibleContext().setAccessibleDescription(
+            "contractId");
 
         lblCostUnit.setText(_("Cost unit"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -624,7 +627,8 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(lblQualification, gridBagConstraints);
-        lblQualification.getAccessibleContext().setAccessibleDescription("qualification");
+        lblQualification.getAccessibleContext().setAccessibleDescription(
+            "qualification");
 
         lblRemark.setText(_("Remark"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -676,7 +680,8 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbCostUnit, gridBagConstraints);
 
-        cmbFunds.setModel(new javax.swing.DefaultComboBoxModel(dataManager.getCostUnitMap().toArray()));
+        cmbFunds.setModel(new javax.swing.DefaultComboBoxModel(dataManager
+            .getCostUnitMap().toArray()));
         cmbFunds.setMinimumSize(new java.awt.Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -685,7 +690,8 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbFunds, gridBagConstraints);
 
-        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(Qualification.values()));
+        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(
+            Qualification.values()));
         cmbQualification.setEnabled(false);
         cmbQualification.setMinimumSize(new java.awt.Dimension(300, 25));
         cmbQualification.setPreferredSize(new java.awt.Dimension(300, 25));

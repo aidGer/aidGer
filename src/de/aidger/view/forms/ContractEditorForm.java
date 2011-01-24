@@ -126,13 +126,13 @@ public class ContractEditorForm extends JPanel {
                 cmbAssistantModel.addElement(assistant);
 
                 if (contract != null
-                        && assistant.getId() == contract.getAssistantId()) {
+                        && assistant.getId().equals(contract.getAssistantId())) {
                     cmbAssistantModel.setSelectedItem(assistant);
                 }
-
-                cmbAssistant.setModel(cmbAssistantModel);
-                tab.getListModels().add(cmbAssistantModel);
             }
+
+            cmbAssistant.setModel(cmbAssistantModel);
+            tab.getListModels().add(cmbAssistantModel);
         } catch (AdoHiveException e) {
         }
 
@@ -277,7 +277,8 @@ public class ContractEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblAssistant, gridBagConstraints);
-        lblAssistant.getAccessibleContext().setAccessibleDescription("assistantId");
+        lblAssistant.getAccessibleContext().setAccessibleDescription(
+            "assistantId");
 
         lblCompletionDate.setText(_("Completion date"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -286,7 +287,8 @@ public class ContractEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblCompletionDate, gridBagConstraints);
-        lblCompletionDate.getAccessibleContext().setAccessibleDescription("completionDate");
+        lblCompletionDate.getAccessibleContext().setAccessibleDescription(
+            "completionDate");
 
         lblConfirmationDate.setText(_("Confirmation date"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -295,7 +297,8 @@ public class ContractEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblConfirmationDate, gridBagConstraints);
-        lblConfirmationDate.getAccessibleContext().setAccessibleDescription("confirmationDate");
+        lblConfirmationDate.getAccessibleContext().setAccessibleDescription(
+            "confirmationDate");
 
         lblStartDate.setText(_("Start date"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -304,7 +307,8 @@ public class ContractEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblStartDate, gridBagConstraints);
-        lblStartDate.getAccessibleContext().setAccessibleDescription("startDate");
+        lblStartDate.getAccessibleContext().setAccessibleDescription(
+            "startDate");
 
         lblEndDate.setText(_("End date"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -331,7 +335,8 @@ public class ContractEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblDelegation, gridBagConstraints);
-        lblDelegation.getAccessibleContext().setAccessibleDescription("delegation");
+        lblDelegation.getAccessibleContext().setAccessibleDescription(
+            "delegation");
 
         cmbAssistant.setMinimumSize(new java.awt.Dimension(200, 25));
         cmbAssistant.setPreferredSize(new java.awt.Dimension(200, 25));
@@ -343,7 +348,8 @@ public class ContractEditorForm extends JPanel {
         add(cmbAssistant, gridBagConstraints);
 
         spCompletionDate.setModel(new javax.swing.SpinnerDateModel());
-        spCompletionDate.setEditor(new javax.swing.JSpinner.DateEditor(spCompletionDate, "dd.MM.yyyy"));
+        spCompletionDate.setEditor(new javax.swing.JSpinner.DateEditor(
+            spCompletionDate, "dd.MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -352,7 +358,8 @@ public class ContractEditorForm extends JPanel {
         add(spCompletionDate, gridBagConstraints);
 
         spConfirmationDate.setModel(new javax.swing.SpinnerDateModel());
-        spConfirmationDate.setEditor(new javax.swing.JSpinner.DateEditor(spConfirmationDate, "dd.MM.yyyy"));
+        spConfirmationDate.setEditor(new javax.swing.JSpinner.DateEditor(
+            spConfirmationDate, "dd.MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -361,7 +368,8 @@ public class ContractEditorForm extends JPanel {
         add(spConfirmationDate, gridBagConstraints);
 
         spStartDate.setModel(new javax.swing.SpinnerDateModel());
-        spStartDate.setEditor(new javax.swing.JSpinner.DateEditor(spStartDate, "dd.MM.yyyy"));
+        spStartDate.setEditor(new javax.swing.JSpinner.DateEditor(spStartDate,
+            "dd.MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -370,7 +378,8 @@ public class ContractEditorForm extends JPanel {
         add(spStartDate, gridBagConstraints);
 
         spEndDate.setModel(new javax.swing.SpinnerDateModel());
-        spEndDate.setEditor(new javax.swing.JSpinner.DateEditor(spEndDate, "dd.MM.yyyy"));
+        spEndDate.setEditor(new javax.swing.JSpinner.DateEditor(spEndDate,
+            "dd.MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -386,7 +395,8 @@ public class ContractEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbType, gridBagConstraints);
 
-        cmbDelegation.setModel(new DefaultComboBoxModel(new Object[] { Boolean.FALSE, Boolean.TRUE }));
+        cmbDelegation.setModel(new DefaultComboBoxModel(new Object[] {
+                Boolean.FALSE, Boolean.TRUE }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
