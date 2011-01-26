@@ -1,5 +1,6 @@
 CHANGES IN VERSION 1.0:
     * [ADD] MySQL support in AdoHive
+    * [ADD] Caching of data in tables and validators (#251)
     * [ADD] Databaseconnection check on application startup (#234)
     * [ADD] Management of cost units can be done directly in the application (#218)
     * [ADD] Generic data XML manager that stores its data in a XML file (#218)
@@ -7,15 +8,29 @@ CHANGES IN VERSION 1.0:
     * [ADD] Assistants are sorted and anonymous assistants are not shown if user wants to add a new contract (#248)
     * [ADD] Mandatory form fields are marked with star based on existance and presence validator (#238)
     * [ADD] Templates for various reports (#183)
-    * [ADD] Configure the database connection through the settings (#227)
+    * [ADD] Configure the database connection through the settings (#211, #227)
+    * [ADD] Option for rounding values in balance reports (#255)
+    * [ADD] Splashscreen on startup (#193)
     * [FIX] Qualification of an assistant is also considered in identical assistant inspector (#244)
     * [FIX] Processor of an activity is also auto guessed if user specify only a first name (#241)
+    * [FIX] Welcome Tab no longer crashes with no available database
+    * [FIX] Umlauthandling when autoguessing studimails (#250)
+    * [FIX] Database connection error handling on application start (#234)
+    * [FIX] Check for database connection before creating statistics on first startup (#208)
+    * [FIX] Courses with booked budget equal to total budget are no longer marked overbooked in controlling (#279)
     * [CHANGE] Use AIDGER_TEST environment variable to use current directory instead of the .config one for storage
     * [CHANGE] Templates are read from the local template folder first (#184)
     * [CHANGE] Contract relation will be removed if another assistant is selected in employment editor (#243) 
     * [CHANGE] Improve tool tip text of hourly wage in editor form (#237)
     * [CHANGE] Employment additional toolbar buttons have tool tips and will be disabled if click makes no sense (#239)
     * [CHANGE] Improve the first start wizard and add database configuration capabilities (#228)
+    * [CHANGE] Use DatabaseToken of cost units instead of cost unit number for matching cost units in reports and controlling (#258, #266)
+    * [CHANGE] Links in the menu open new tabs by default (#268)
+    * [CHANGE] Assistants are not automatically anonymized at program startup (#275)
+    * [CHANGE] Replaced statistics with a button for showing the statistics (#275)
+    * [CHANGE] Improved first start wizard (#228)
+    * [CHANGE] Info message is displayed when changing importants report settings (#260)
+    * [CHANGE] Search function has a time delay between entering letters and searching (#251)
 
 CHANGES IN VERSION 0.1.1:
     * [ADD] Cost unit map (cost unit <=> funds) as XML file (#163)
