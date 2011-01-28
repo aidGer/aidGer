@@ -103,15 +103,19 @@ public class ControllingViewerTab extends ReportTab {
                     DefaultTableModel model = (DefaultTableModel) e.getSource();
                     if (column == 2) {
                         try {
-                            if (Double.parseDouble(model
-                                .getValueAt(row, column).toString())
-                                    - epsilon > Double.parseDouble(model
+                            System.out.println(Double.parseDouble(model
                                 .getValueAt(row, column - 1).toString())
+                                    * (1 - epsilon / 100));
+                            if (Double.parseDouble(model
+                                .getValueAt(row, column).toString()) < Double
+                                .parseDouble(model.getValueAt(row, column - 1)
+                                    .toString())
+                                    * (1 - epsilon / 100)
                                     || Double.parseDouble(model.getValueAt(row,
-                                        column).toString())
-                                            + epsilon < Double
+                                        column).toString()) > Double
                                         .parseDouble(model.getValueAt(row,
-                                            column - 1).toString())) {
+                                            column - 1).toString())
+                                            * (1 + epsilon / 100)) {
                                 model.setValueAt(_("Costs don't match!"), row,
                                     column + 1);
                             } else {

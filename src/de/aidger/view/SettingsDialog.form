@@ -348,7 +348,7 @@
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="_(&quot;Tolerance of Controlling:&quot;)" type="code"/>
+                  <Connection code="_(&quot;Tolerance of Controlling in %:&quot;)" type="code"/>
                 </Property>
               </Properties>
             </Component>
