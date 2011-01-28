@@ -22,8 +22,8 @@
  */
 package de.aidger.model.controlling;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
 
@@ -35,6 +35,7 @@ import org.junit.Test;
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
+import de.aidger.model.models.CostUnit;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
@@ -54,8 +55,9 @@ public class ControllingAssistantTest {
     private Contract contract;
     private Assistant assistant;
     private FinancialCategory fc;
-    private ControllingCreator controllingCreator;
     private ControllingAssistant controllingAssistant;
+    private ControllingAssistant controllingAssistant2;
+    private CostUnit costUnit;
 
     /**
      * Prepares the test set.
@@ -121,13 +123,20 @@ public class ControllingAssistantTest {
         course.setUnqualifiedWorkingHours(100.0);
         course.save();
 
+        costUnit = new CostUnit();
+        costUnit.setFunds("Test Fund");
+        costUnit.setCostUnit("11111112");
+        costUnit.setTokenDB("A");
+        costUnit.setNew(true);
+        costUnit.save();
+
         employment = new Employment();
         employment.setId(1);
         employment.setAssistantId(assistant.getId());
         employment.setContractId(contract.getId());
         employment.setCourseId(course.getId());
-        employment.setFunds("0711");
-        employment.setCostUnit(1);
+        employment.setFunds(costUnit.getTokenDB());
+        employment.setCostUnit(Integer.parseInt(costUnit.getCostUnit()));
         employment.setHourCount(40.0);
         employment.setMonth((byte) 10);
         employment.setQualification("g");
@@ -146,21 +155,24 @@ public class ControllingAssistantTest {
     }
 
     @Test
-    public void testGetObjectArray() {
-        System.out.println("getObjectArray()");
+    public void testCompareTo() {
+        System.out.println("compareTo()");
 
         controllingAssistant = new ControllingAssistant();
-        controllingAssistant.setName(assistant.getFirstName() + " "
-                + assistant.getLastName());
+        controllingAssistant.setFirstName(assistant.getFirstName());
+        controllingAssistant.setLastName(assistant.getLastName());
         new BalanceHelper();
         controllingAssistant.setCosts(BalanceHelper
             .calculatePreTaxBudgetCost(employment));
 
-        Object[] expectedResult = {
-                assistant.getFirstName() + " " + assistant.getLastName(),
-                BalanceHelper.calculatePreTaxBudgetCost(employment), false };
+        controllingAssistant2 = new ControllingAssistant();
+        controllingAssistant2.setFirstName(assistant.getFirstName());
+        controllingAssistant2.setLastName(assistant.getLastName());
+        new BalanceHelper();
+        controllingAssistant2.setCosts(BalanceHelper
+            .calculatePreTaxBudgetCost(employment));
 
-        assertArrayEquals(expectedResult, controllingAssistant.getObjectArray());
+        assertTrue(controllingAssistant.compareTo(controllingAssistant2) == 0);
     }
 
     /**

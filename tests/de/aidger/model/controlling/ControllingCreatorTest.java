@@ -22,7 +22,7 @@
  */
 package de.aidger.model.controlling;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.sql.Date;
@@ -127,6 +127,7 @@ public class ControllingCreatorTest {
         costUnit.setFunds("Test Fund");
         costUnit.setCostUnit("11111112");
         costUnit.setTokenDB("A");
+        costUnit.setNew(true);
         costUnit.save();
 
         employment = new Employment();
@@ -134,7 +135,7 @@ public class ControllingCreatorTest {
         employment.setAssistantId(assistant.getId());
         employment.setContractId(contract.getId());
         employment.setCourseId(course.getId());
-        employment.setFunds(costUnit.getFunds());
+        employment.setFunds(costUnit.getTokenDB());
         employment.setCostUnit(Integer.parseInt(costUnit.getCostUnit()));
         employment.setHourCount(40.0);
         employment.setMonth((byte) 10);
@@ -168,14 +169,14 @@ public class ControllingCreatorTest {
             employment.getMonth(), costUnit);
 
         ControllingAssistant expectedAssistant = new ControllingAssistant();
-        expectedAssistant.setName(assistant.getFirstName() + " "
-                + assistant.getLastName());
+        expectedAssistant.setFirstName(assistant.getFirstName());
+        expectedAssistant.setLastName(assistant.getLastName());
         new BalanceHelper();
         expectedAssistant.setCosts(0);
         expectedAssistant.setFlagged(true);
 
-        assertArrayEquals(controllingCreator.getAssistants(false).get(0)
-            .getObjectArray(), expectedAssistant.getObjectArray());
+        assertEquals(controllingCreator.getAssistants(false).get(0).toString(),
+            expectedAssistant.toString());
     }
 
     /**

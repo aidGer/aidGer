@@ -110,9 +110,10 @@ public class ControllingCreator {
                                 .calculatePreTaxBudgetCost(employment) != -1 || !ignore)) {
                         if (controllingAssistant == null) {
                             controllingAssistant = new ControllingAssistant();
-                            controllingAssistant.setName(assistant
-                                .getFirstName()
-                                    + " " + assistant.getLastName());
+                            controllingAssistant.setFirstName(assistant
+                                .getFirstName());
+                            controllingAssistant.setLastName(assistant
+                                .getLastName());
                         }
                         // Costs are needed pre-tax for this.
                         double costs = BalanceHelper
@@ -137,6 +138,23 @@ public class ControllingCreator {
         } catch (AdoHiveException e) {
             UI.displayError(e.toString());
         }
-        return controllingAssistants;
+        // Sort the controlling assistants
+        ArrayList<ControllingAssistant> sortedAssistants = new ArrayList<ControllingAssistant>();
+        for (ControllingAssistant a1 : controllingAssistants) {
+            boolean added = false;
+            for (int i = 0; i < sortedAssistants.size(); i++) {
+                int comparison = a1.compareTo(sortedAssistants.get(i));
+                if (comparison < 0) {
+                    sortedAssistants.add(i, a1);
+                    added = true;
+                    break;
+                }
+            }
+            if (!added) {
+                // Greater than any other controlling assistants
+                sortedAssistants.add(a1);
+            }
+        }
+        return sortedAssistants;
     }
 }

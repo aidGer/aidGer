@@ -29,12 +29,17 @@ import java.math.BigDecimal;
  * 
  * @author aidGer Team
  */
-public class ControllingAssistant {
+public class ControllingAssistant implements Comparable<ControllingAssistant> {
 
     /**
      * The name of this assistant
      */
-    private String name;
+    private String firstName;
+
+    /**
+     * The name of this assistant
+     */
+    private String lastName;
 
     /**
      * The total income of this assistant.
@@ -50,27 +55,48 @@ public class ControllingAssistant {
      * Initializes a new controlling assistant.
      */
     public ControllingAssistant() {
-        setName("");
+        setFirstName("");
+        setLastName("");
         setCosts(0);
+        setFlagged(false);
     }
 
     /**
-     * Sets the name of this assistant.
+     * Sets the first name of this assistant.
      * 
      * @param name
      *            the name to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String name) {
+        this.firstName = name;
     }
 
     /**
-     * Returns the name of this assistant.
+     * Returns the first name of this assistant.
      * 
      * @return the name
      */
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    /**
+     * Sets the last name of this assistant.
+     * 
+     * @param name
+     *            the name to set
+     */
+    public void setLastName(String name) {
+        this.lastName = name;
+    }
+
+    /**
+     * Returns the last name of this assistant.
+     * 
+     * @return the name
+     */
+    public String getLastName() {
+        return lastName;
     }
 
     /**
@@ -94,15 +120,6 @@ public class ControllingAssistant {
     }
 
     /**
-     * Gets this assistant as an object array.
-     * 
-     * @return The assistant
-     */
-    public Object[] getObjectArray() {
-        return new Object[] { getName(), getCosts(), isFlagged() };
-    }
-
-    /**
      * Sets whether or not there might've been an error in the calculations.
      * 
      * @param flagged
@@ -118,5 +135,32 @@ public class ControllingAssistant {
      */
     public boolean isFlagged() {
         return flagged;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Comparable#compareTo(java.lang.Object)
+     */
+    @Override
+    public int compareTo(ControllingAssistant arg0) {
+        // Sort by last name first and then first name
+        int comparison = this.getLastName().toLowerCase().compareTo(
+            arg0.getLastName().toLowerCase());
+        if (comparison == 0) {
+            comparison = this.getFirstName().toLowerCase().compareTo(
+                arg0.getFirstName().toLowerCase());
+        }
+        return comparison;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return firstName + " " + lastName;
     }
 }

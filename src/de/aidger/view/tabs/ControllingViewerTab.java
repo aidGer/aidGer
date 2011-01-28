@@ -22,6 +22,7 @@ package de.aidger.view.tabs;
 import static de.aidger.utils.Translation._;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
@@ -29,6 +30,8 @@ import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
@@ -215,7 +218,7 @@ public class ControllingViewerTab extends ReportTab {
             month, funds).getAssistants(false);
         boolean errorInCalculation = false;
         for (ControllingAssistant assistant : assistants) {
-            if ((Boolean) assistant.getObjectArray()[2]) {
+            if (assistant.isFlagged()) {
                 errorInCalculation = true;
             }
         }
@@ -233,12 +236,12 @@ public class ControllingViewerTab extends ReportTab {
         }
         if (ignore == 0) {
             for (ControllingAssistant assistant : assistants) {
-                addRow(assistant.getObjectArray());
+                addRow(assistant);
             }
         } else {
             for (ControllingAssistant assistant : assistants) {
                 if (!assistant.isFlagged()) {
-                    addRow(assistant.getObjectArray());
+                    addRow(assistant);
                 }
             }
         }
@@ -250,16 +253,14 @@ public class ControllingViewerTab extends ReportTab {
      * @param assistant
      *            The assistant to add.
      */
-    private void addRow(Object[] assistant) {
+    private void addRow(ControllingAssistant assistant) {
         Object[] rowArray = new Object[controllingTableModel.getColumnCount()];
-        for (int i = 0; i < rowArray.length; i++) {
-            if (i < assistant.length - 1) {
-                rowArray[i] = assistant[i];
-            } else {
-                rowArray[i] = "";
-            }
+        rowArray[0] = assistant;
+        rowArray[1] = assistant.getCosts();
+        for (int i = 2; i < rowArray.length; i++) {
+            rowArray[i] = "";
         }
-        if ((Boolean) assistant[assistant.length - 1]) {
+        if (assistant.isFlagged()) {
             rowArray[rowArray.length - 1] = _("Calculations may be off, due to missing hourly wages.");
         }
         controllingTableModel.addRow(rowArray);
@@ -402,6 +403,20 @@ public class ControllingViewerTab extends ReportTab {
         jTable1.setModel(controllingTableModel);
         jScrollPane1.setViewportView(jTable1);
 
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(
+            jTable1.getModel()) {
+            Comparator<String> comparator = new Comparator<String>() {
+                public int compare(String s1, String s2) {
+                    String[] strings1 = s1.split("\\s");
+                    String[] strings2 = s2.split("\\s");
+                    return strings1[strings1.length - 1]
+                        .compareTo(strings2[strings2.length - 1]);
+                }
+            };
+        };
+
+        jTable1.setRowSorter(sorter);
+
         tablePanel.add(jScrollPane1);
 
         contentPanel.add(tablePanel, java.awt.BorderLayout.CENTER);
@@ -498,5 +513,4 @@ public class ControllingViewerTab extends ReportTab {
     public String getTabName() {
         return _("Assistant Controlling");
     }
-
 }
