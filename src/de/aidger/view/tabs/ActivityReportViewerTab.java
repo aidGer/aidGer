@@ -34,7 +34,9 @@ import de.aidger.model.models.Assistant;
 import de.aidger.model.reports.ActivityEmployment;
 import de.aidger.utils.reports.ActivityReportHelper;
 import de.aidger.view.UI;
+import de.aidger.view.models.ComboBoxModel;
 import de.aidger.view.models.UIAssistant;
+import de.aidger.view.tabs.ViewerTab.DataType;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAssistant;
 
@@ -58,6 +60,11 @@ public class ActivityReportViewerTab extends Tab {
     };
 
     /**
+     * The model of the assistant combo box.
+     */
+    ComboBoxModel cmbAssistantModel = new ComboBoxModel(DataType.Assistant);
+
+    /**
      * The assistants in the combo box.
      */
     private ArrayList<UIAssistant> assistants;
@@ -67,6 +74,8 @@ public class ActivityReportViewerTab extends Tab {
      */
     public ActivityReportViewerTab() {
         initComponents();
+
+        assistantComboBox.setModel(cmbAssistantModel);
         fillAssistants();
         try {
             generateButton.setAction(ActionRegistry.getInstance().get(
@@ -144,7 +153,8 @@ public class ActivityReportViewerTab extends Tab {
             addRow(reportHelper.getEmploymentArray(activityEmployment));
         }
         visualizeExportButton();
-        assistantComboBox.setSelectedIndex(assistants.indexOf(assistant));
+        assistantComboBox.setSelectedIndex(cmbAssistantModel
+            .getIndexOf(assistant));
     }
 
     /**
@@ -166,11 +176,12 @@ public class ActivityReportViewerTab extends Tab {
             fillingAssistants = new Assistant().getAll();
             for (IAssistant assistant : fillingAssistants) {
                 assistants.add(new UIAssistant(assistant));
-                assistantComboBox.addItem(new UIAssistant(assistant));
+                cmbAssistantModel.addElement(new UIAssistant(assistant));
             }
         } catch (AdoHiveException e) {
             UI.displayError(e.toString());
         }
+        assistantComboBox.setSelectedIndex(0);
     }
 
     /**
