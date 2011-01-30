@@ -25,6 +25,8 @@ package de.aidger.utils.reports;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Course;
@@ -355,66 +357,29 @@ public class BalanceHelper {
              * Check for every semester out of the semester vector, if the year
              * of that semester is already noted and add it if it's not.
              */
-            for (Object semester : semesters) {
-                char[] semesterChar = ((String) semester).toCharArray();
+            for (String semester : semesters) {
                 int year = 0;
-                if (Character.isDigit(semesterChar[0])) {
-                    // The semester is in the form YYYY.
-                    for (int i = 0; i < semesterChar.length; i++) {
-                        year = year
-                                + Character.getNumericValue(semesterChar[i])
-                                * (int) Math.pow(10, 3 - i);
+                Pattern semesterPattern = Pattern
+                    .compile("([S|W]S)?(\\d{2})(\\d{0,2})");
+                Matcher semesterMatcher = semesterPattern.matcher(semester);
+                semesterMatcher.find();
+                if (semesterMatcher.group(1) != null) {
+                    /*
+                     * Semester is either SS or WS. Add the first year
+                     * regardless.
+                     */
+                    year = 2000 + Integer.parseInt(semesterMatcher.group(2));
+                    if (semesterMatcher.group(1).equals("WS")) {
+                        // Semester is WS. Add the second year.
+                        if (!years.contains(year)) {
+                            years.add(year);
+                        }
+                        year = 2000 + Integer
+                            .parseInt(semesterMatcher.group(3));
                     }
                 } else {
-                    // The semester is in the form SSYY or WSYYYY.
-                    int i = 0;
-                    while (!Character.isDigit(semesterChar[i])) {
-                        i++;
-                    }
-                    int power = 0;
-                    switch (semesterChar.length - i) {
-                    case 2:
-                        // The semester is in the form SSYY
-                        year = 2000;
-                        power = 10;
-                        for (int j = i; j < semesterChar.length; j++) {
-                            year = year
-                                    + Character
-                                        .getNumericValue(semesterChar[j])
-                                    * power;
-                            if (power == 10) {
-                                power = 1;
-                            } else {
-                                power = 10;
-                            }
-                        }
-                        break;
-                    case 4:
-                        /*
-                         * The semester is in the form WSYYYY. Both semester
-                         * years must be checked
-                         */
-                        for (int l = 0; l < 3; l = l + 2) {
-                            year = 2000;
-                            power = 10;
-                            for (int j = i + l; j < semesterChar.length
-                                    - (2 - l); j++) {
-                                year = year
-                                        + Character
-                                            .getNumericValue(semesterChar[j])
-                                        * power;
-                                if (power == 10) {
-                                    power = 1;
-                                } else {
-                                    power = 10;
-                                }
-                            }
-                            if (!years.contains(year)) {
-                                years.add(year);
-                            }
-                        }
-                        break;
-                    }
+                    // Semester is in the form YYYY.
+                    year = Integer.parseInt(semester);
                 }
                 if (!years.contains(year)) {
                     years.add(year);
@@ -443,6 +408,18 @@ public class BalanceHelper {
             ArrayList<Integer> years = new ArrayList<Integer>();
             return years;
         }
+    }
+
+    /**
+     * Calculates the year of a given semester
+     * 
+     * @param semester
+     *            The semester to use
+     * @return The year of the semester.
+     */
+    public int getSemesterYear(String semester) {
+        return 0;
+
     }
 
     /**
