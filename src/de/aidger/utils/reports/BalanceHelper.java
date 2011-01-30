@@ -411,18 +411,6 @@ public class BalanceHelper {
     }
 
     /**
-     * Calculates the year of a given semester
-     * 
-     * @param semester
-     *            The semester to use
-     * @return The year of the semester.
-     */
-    public int getSemesterYear(String semester) {
-        return 0;
-
-    }
-
-    /**
      * Checks if the given semester contains any courses.
      * 
      * @param semester
