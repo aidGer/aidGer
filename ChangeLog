@@ -32,6 +32,7 @@ CHANGES IN VERSION 1.0:
     * [CHANGE] Info message is displayed when changing importants report settings (#260)
     * [CHANGE] Search function has a time delay between entering letters and searching (#251)
     * [CHANGE] Controlling tolerance is now relative instead of absolute (#290)
+    * [CHANGE] Field date is read only if user wants to edit a hourly wage (#288)
     * [CHANGE] Optimize loading time on startup (#235)
     * [CHANGE] Assistants in assistant controlling will be sorted by last name and then by first name (#289)
 

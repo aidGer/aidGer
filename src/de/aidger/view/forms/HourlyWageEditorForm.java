@@ -105,6 +105,7 @@ public class HourlyWageEditorForm extends JPanel {
             cal.set(Calendar.MONTH, hw.getMonth() - 1);
             cal.set(Calendar.YEAR, hw.getYear());
             spDate.setValue(cal.getTime());
+            spDate.setEnabled(false);
 
             lblStartDate.setVisible(false);
             spStartDate.setVisible(false);
@@ -218,7 +219,8 @@ public class HourlyWageEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblQualification, gridBagConstraints);
-        lblQualification.getAccessibleContext().setAccessibleDescription("qualification");
+        lblQualification.getAccessibleContext().setAccessibleDescription(
+            "qualification");
 
         lblDate.setText(_("Date"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -236,7 +238,8 @@ public class HourlyWageEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblStartDate, gridBagConstraints);
-        lblStartDate.getAccessibleContext().setAccessibleDescription("startDate");
+        lblStartDate.getAccessibleContext().setAccessibleDescription(
+            "startDate");
 
         lblFinishDate.setText(_("Finish date"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -245,7 +248,8 @@ public class HourlyWageEditorForm extends JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(lblFinishDate, gridBagConstraints);
-        lblFinishDate.getAccessibleContext().setAccessibleDescription("finishDate");
+        lblFinishDate.getAccessibleContext().setAccessibleDescription(
+            "finishDate");
 
         lblWage.setText(_("Wage"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -256,14 +260,16 @@ public class HourlyWageEditorForm extends JPanel {
         add(lblWage, gridBagConstraints);
         lblWage.getAccessibleContext().setAccessibleDescription("wage");
 
-        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(Qualification.values()));
+        cmbQualification.setModel(new javax.swing.DefaultComboBoxModel(
+            Qualification.values()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbQualification, gridBagConstraints);
 
         spDate.setModel(new javax.swing.SpinnerDateModel());
-        spDate.setEditor(new javax.swing.JSpinner.DateEditor(spDate, "MM.yyyy"));
+        spDate
+            .setEditor(new javax.swing.JSpinner.DateEditor(spDate, "MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -272,7 +278,8 @@ public class HourlyWageEditorForm extends JPanel {
         add(spDate, gridBagConstraints);
 
         spStartDate.setModel(new javax.swing.SpinnerDateModel());
-        spStartDate.setEditor(new javax.swing.JSpinner.DateEditor(spStartDate, "MM.yyyy"));
+        spStartDate.setEditor(new javax.swing.JSpinner.DateEditor(spStartDate,
+            "MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -281,7 +288,8 @@ public class HourlyWageEditorForm extends JPanel {
         add(spStartDate, gridBagConstraints);
 
         spFinishDate.setModel(new javax.swing.SpinnerDateModel());
-        spFinishDate.setEditor(new javax.swing.JSpinner.DateEditor(spFinishDate, "MM.yyyy"));
+        spFinishDate.setEditor(new javax.swing.JSpinner.DateEditor(
+            spFinishDate, "MM.yyyy"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
