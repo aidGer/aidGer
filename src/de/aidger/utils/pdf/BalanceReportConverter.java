@@ -173,17 +173,14 @@ public class BalanceReportConverter {
                 for (int i = 0; i < semesters.size(); i++) {
                     if (new BalanceHelper().courseExists((String) semesters
                         .get(i), filters)) {
-                        balanceReportGroups = new ArrayList<ArrayList>();
                         createSemester((String) semesters.get(i));
                     }
                 }
                 break;
             case 2:
-                balanceReportGroups = new ArrayList<ArrayList>();
                 createYear((Integer) semester);
                 break;
             case 3:
-                balanceReportGroups = new ArrayList<ArrayList>();
                 createSemester("" + semester);
                 break;
             }
@@ -428,8 +425,9 @@ public class BalanceReportConverter {
                 table.getDefaultCell().setFixedHeight(20);
                 table.getDefaultCell().setHorizontalAlignment(
                     Element.ALIGN_RIGHT);
-                Calendar calendar = Calendar.getInstance();                
-                PdfPCell dateCell = new PdfPCell(new Phrase(DateUtils.formatDate(calendar.getTime())));
+                Calendar calendar = Calendar.getInstance();
+                PdfPCell dateCell = new PdfPCell(new Phrase(DateUtils
+                    .formatDate(calendar.getTime())));
                 dateCell.setHorizontalAlignment(Element.ALIGN_LEFT);
                 dateCell.setBorder(Rectangle.BOTTOM);
                 table.addCell(dateCell);
@@ -502,6 +500,7 @@ public class BalanceReportConverter {
      */
     @SuppressWarnings("unchecked")
     private void createSemester(String semester) {
+        balanceReportGroups = new ArrayList<ArrayList>();
         try {
             Font semesterTitleFont = new Font(BaseFont.createFont(
                 BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.EMBEDDED),
