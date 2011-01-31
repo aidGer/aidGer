@@ -11,6 +11,7 @@ CHANGES IN VERSION 1.0:
     * [ADD] Configure the database connection through the settings (#211, #227)
     * [ADD] Option for rounding values in balance reports (#255)
     * [ADD] Splashscreen on startup (#193)
+    * [ADD] Date range and funds will be displayed on exported controlling reports (#294)
     * [FIX] Qualification of an assistant is also considered in identical assistant inspector (#244)
     * [FIX] Processor of an activity is also auto guessed if user specify only a first name (#241)
     * [FIX] Welcome Tab no longer crashes with no available database

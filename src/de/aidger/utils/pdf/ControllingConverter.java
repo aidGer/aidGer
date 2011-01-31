@@ -96,13 +96,14 @@ public class ControllingConverter {
      * @param file
      *            The file for the report.
      */
-    public ControllingConverter(File file, ArrayList<String[]> tableRows) {
+    public ControllingConverter(File file, ArrayList<String[]> tableRows,
+            String title) {
         this.tableRows = tableRows;
         document = new Document(PageSize.A4);
         document.setMargins(document.leftMargin(), document.rightMargin(),
             document.topMargin() + 40, document.bottomMargin());
         file = checkExtension(file);
-        name = _("Controlling report");
+        name = _("Controlling report") + "\n" + title;
         File preTemplateFile = null;
         try {
             preTemplateFile = File.createTempFile("BudgetReport", ".pdf");
@@ -353,8 +354,9 @@ public class ControllingConverter {
                 table.getDefaultCell().setFixedHeight(20);
                 table.getDefaultCell().setHorizontalAlignment(
                     Element.ALIGN_RIGHT);
-                Calendar calendar = Calendar.getInstance();                
-                PdfPCell dateCell = new PdfPCell(new Phrase(DateUtils.formatDate(calendar.getTime())));
+                Calendar calendar = Calendar.getInstance();
+                PdfPCell dateCell = new PdfPCell(new Phrase(DateUtils
+                    .formatDate(calendar.getTime())));
                 dateCell.setHorizontalAlignment(Element.ALIGN_LEFT);
                 dateCell.setBorder(Rectangle.BOTTOM);
                 table.addCell(dateCell);

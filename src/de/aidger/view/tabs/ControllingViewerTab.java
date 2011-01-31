@@ -54,12 +54,19 @@ import de.aidger.view.UI;
 public class ControllingViewerTab extends ReportTab {
 
     /**
-     * The year, month and funds to be used with the controlling report.
+     * The year, month to be used with the controlling report.
      */
     private int year, month;
 
+    /**
+     * The funds of the controlling report.
+     */
     private CostUnit funds;
 
+    /**
+     * The title of the generated controlling report.
+     */
+    private String title;
     /**
      * The table model of the content table.
      */
@@ -159,6 +166,16 @@ public class ControllingViewerTab extends ReportTab {
     }
 
     /**
+     * Returns the title of the generated controlling report.
+     * 
+     * @return The title - "1." + year + " - " + month + "." + year + "\n" +
+     *         funds
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
      * Enables the export buttons if there is data in the table.
      */
     public void enableExport() {
@@ -216,6 +233,7 @@ public class ControllingViewerTab extends ReportTab {
         }
         List<ControllingAssistant> assistants = new ControllingCreator(year,
             month, funds).getAssistants(false);
+        title = "1." + year + " - " + month + "." + year + "\n" + funds;
         boolean errorInCalculation = false;
         for (ControllingAssistant assistant : assistants) {
             if (assistant.isFlagged()) {

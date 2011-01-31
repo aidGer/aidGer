@@ -120,7 +120,8 @@ public class ControllingExportDifferencesAction extends AbstractAction {
                 }
             } while (!exit);
 
-            new ControllingConverter(file, tab.getRows(_("Costs don't match!")));
+            new ControllingConverter(file,
+                tab.getRows(_("Costs don't match!")), tab.getTitle());
         }
     }
 
