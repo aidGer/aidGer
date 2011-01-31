@@ -81,19 +81,21 @@ public class UICourse extends Course implements UIModel, Comparable<UICourse> {
     }
 
     /**
-     * Returns the year of a given semester.
+     * Returns the year of a given semester. If there was an error, the year 0
+     * is returned.
      * 
      * @param semester
      *            the semester (SSXX, WSXXXX, XXXX)
      * @return the year in 4 digits
      */
     private Integer getYearOfSemester(String semester) {
-        if (semester != null) {
+        try {
             Matcher m = patternSemester.matcher(semester);
             return m.find() ? Integer.valueOf("20" + m.group(1)) : Integer
                 .valueOf(semester);
+        } catch (Exception e) {
+            return 0;
         }
-        return 0;
     }
 
     /*
@@ -103,6 +105,16 @@ public class UICourse extends Course implements UIModel, Comparable<UICourse> {
      */
     @Override
     public int compareTo(UICourse o) {
+        int c = 0;
+
+        if (getDescription() != null && o.getDescription() != null) {
+            c = getDescription().compareTo(o.getDescription());
+        }
+
+        if (getSemester() == null || o.getSemester() == null) {
+            return c;
+        }
+
         Integer year = getYearOfSemester(getSemester()), oYear = getYearOfSemester(o
             .getSemester());
 
@@ -111,12 +123,12 @@ public class UICourse extends Course implements UIModel, Comparable<UICourse> {
         } else if (year < oYear) {
             return -1;
         } else {
-            int c = getSemester().substring(0, 1).compareTo(
+            int c_ = getSemester().substring(0, 1).compareTo(
                 o.getSemester().substring(0, 1));
-            if (c == 0) {
-                return getDescription().compareTo(o.getDescription());
-            } else {
+            if (c_ == 0) {
                 return c;
+            } else {
+                return c_;
             }
         }
     }
