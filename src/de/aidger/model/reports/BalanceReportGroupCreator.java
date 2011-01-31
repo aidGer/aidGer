@@ -61,7 +61,15 @@ public class BalanceReportGroupCreator {
      *            The course to be added.
      */
     public void addCourse(ICourse course) {
-        balanceCourses.add(BalanceHelper.getBalanceCourse(course));
+        BalanceCourse balanceCourse = BalanceHelper.getBalanceCourse(course);
+        for (BalanceCourse currentCourse : balanceCourses) {
+            if (balanceCourse.compareTo(currentCourse) <= 0) {
+                balanceCourses.add(balanceCourses.indexOf(currentCourse),
+                    balanceCourse);
+                return;
+            }
+        }
+        balanceCourses.add(balanceCourse);
     }
 
     /**

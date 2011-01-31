@@ -31,7 +31,7 @@ import java.util.ArrayList;
  * @author aidGer Team
  * 
  */
-public class BalanceCourse {
+public class BalanceCourse implements Comparable<BalanceCourse> {
 
     /**
      * The title of the course.
@@ -327,5 +327,22 @@ public class BalanceCourse {
      */
     public ArrayList<BudgetCost> getBudgetCosts() {
         return budgetCosts;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Comparable#compareTo(java.lang.Object)
+     */
+    @Override
+    public int compareTo(BalanceCourse arg0) {
+        int comparison = Title.toLowerCase().compareTo(
+            arg0.getTitle().toLowerCase());
+        if (comparison == 0) {
+            comparison = Character.toLowerCase(Part)
+                    - Character.toLowerCase(arg0.getPart());
+        }
+        return comparison != 0 ? comparison : TargetAudience.toLowerCase()
+            .compareTo(arg0.getTargetAudience().toLowerCase());
     }
 }

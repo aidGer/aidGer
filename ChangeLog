@@ -36,6 +36,7 @@ CHANGES IN VERSION 1.0:
     * [CHANGE] Field date is read only if user wants to edit a hourly wage (#288)
     * [CHANGE] Optimize loading time on startup (#235)
     * [CHANGE] Assistants in assistant controlling will be sorted by last name and then by first name (#289)
+    * [CHANGE] Courses will be sorted by title, then part and then target audience (#292)
 
 CHANGES IN VERSION 0.1.1:
     * [ADD] Cost unit map (cost unit <=> funds) as XML file (#163)
