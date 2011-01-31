@@ -4,8 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-31 21:33+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-"
-"stuttgart.de>\n"
+"Last-Translator: \n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -144,12 +143,8 @@ msgid "Generate the controlling report"
 msgstr "Generiert den Controlling Bericht"
 
 #: src/de/aidger/controller/actions/DatabaseCheckFinishAction.java:43
-msgid ""
-"A successful connection needs to be established before the wizard can be "
-"finished."
-msgstr ""
-"Eine erfolgreiche Verbindung muss vorhanden sein, bevor Sie den Assistenten "
-"beenden können."
+msgid "A successful connection needs to be established before the wizard can be finished."
+msgstr "Eine erfolgreiche Verbindung muss vorhanden sein, bevor Sie den Assistenten beenden können."
 
 #: src/de/aidger/controller/actions/DatabaseDetailsFinishAction.java:50
 msgid "The path can't be empty."
@@ -293,11 +288,8 @@ msgstr "Das {0}-Objekt wurde erfolgreich gespeichert."
 
 #: src/de/aidger/controller/actions/EditorSaveAction.java:737
 #, java-format
-msgid ""
-"Could not save the entity {0} because it already exists in the database."
-msgstr ""
-"Das {0}-Objekt konnte nicht gespeichert werden, da es bereits in der "
-"Datenbank vorhanden ist."
+msgid "Could not save the entity {0} because it already exists in the database."
+msgstr "Das {0}-Objekt konnte nicht gespeichert werden, da es bereits in der Datenbank vorhanden ist."
 
 #: src/de/aidger/controller/actions/EditorSaveAction.java:742
 #, java-format
@@ -428,12 +420,8 @@ msgid "You need to restart the application to finish the language change."
 msgstr "Starten Sie die Anwendung erneut um die Sprache zu wechseln."
 
 #: src/de/aidger/controller/actions/SettingsSaveAction.java:164
-msgid ""
-"You need to recalculate open reports for the new settings to impact the "
-"results."
-msgstr ""
-"Generieren Sie offene Berichte neu, um die geänderten Einstellungen "
-"einfließen zu lassen."
+msgid "You need to recalculate open reports for the new settings to impact the results."
+msgstr "Generieren Sie offene Berichte neu, um die geänderten Einstellungen einfließen zu lassen."
 
 #: src/de/aidger/controller/actions/ViewerActivityExportAction.java:58
 msgid "Export the selected activies to a pdf file"
@@ -469,7 +457,8 @@ msgid "Please select only one entry from the table."
 msgstr "Bitte markieren Sie nur einen Eintrag aus der Tabelle."
 
 #: src/de/aidger/controller/actions/ViewerAddAction.java:46
-#: src/de/aidger/view/UI.java:689 src/de/aidger/view/UI.java:698
+#: src/de/aidger/view/UI.java:689
+#: src/de/aidger/view/UI.java:698
 #: src/de/aidger/view/tabs/ViewerTab.java:766
 msgid "Add"
 msgstr "Hinzufügen"
@@ -623,24 +612,18 @@ msgstr "Nur eine Instanz von aidGer darf zur selben Zeit laufen."
 
 #: src/de/aidger/model/inspectors/CostUnitBudgetLimitInspector.java:105
 #, java-format
-msgid ""
-"The budget costs limit for funds {0} in financial category {1} is exceeded "
-"({2}€ / {3}€)."
-msgstr ""
-"Das Budgetkosten-Limit für das Finanzmittel {0} in der Finanzkategorie {1} "
-"ist überschritten ({2}€ / {3}€)."
+msgid "The budget costs limit for funds {0} in financial category {1} is exceeded ({2}€ / {3}€)."
+msgstr "Das Budgetkosten-Limit für das Finanzmittel {0} in der Finanzkategorie {1} ist überschritten ({2}€ / {3}€)."
 
 #: src/de/aidger/model/inspectors/CourseBudgetLimitInspector.java:65
 #, java-format
 msgid "The budget limit for course {0} is exceeded ({1}h / {2}h)."
-msgstr ""
-"Das Budget-Limit für die Veranstaltung {0} ist überschritten ({1}h / {2}h)."
+msgstr "Das Budget-Limit für die Veranstaltung {0} ist überschritten ({1}h / {2}h)."
 
 #: src/de/aidger/model/inspectors/EmploymentLimitInspector.java:106
 #, java-format
 msgid "You have hired {0} with qualification {1} more than {2} years."
-msgstr ""
-"Sie haben {0} mit der Qualifikation {1} mehr als {2} Jahre eingestellt."
+msgstr "Sie haben {0} mit der Qualifikation {1} mehr als {2} Jahre eingestellt."
 
 #: src/de/aidger/model/inspectors/IdenticalAssistantInspector.java:62
 msgid "The same assistant exists already in the database."
@@ -653,12 +636,8 @@ msgstr "Der Neuvertrag von {0} überlappt mit einem anderen."
 
 #: src/de/aidger/model/inspectors/WorkingHourLimitInspector.java:110
 #, java-format
-msgid ""
-"The working hour limit of {0}h for the assistant {1} is exceeded in the "
-"following dates:"
-msgstr ""
-"Das Stundenzahl-Limit von {0}h ist für die Hilfskraft {1} in den folgenden "
-"Zeitpunkten überschritten:"
+msgid "The working hour limit of {0}h for the assistant {1} is exceeded in the following dates:"
+msgstr "Das Stundenzahl-Limit von {0}h ist für die Hilfskraft {1} in den folgenden Zeitpunkten überschritten:"
 
 #: src/de/aidger/model/models/Activity.java:92
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:510
@@ -766,19 +745,15 @@ msgstr "Qualifikation"
 
 #: src/de/aidger/model/models/Assistant.java:154
 msgid "Assistant is still linked to an Activity"
-msgstr ""
-"Es besteht noch eine Verbindung zwischen der Hilfskraft und einer Aktivität"
+msgstr "Es besteht noch eine Verbindung zwischen der Hilfskraft und einer Aktivität"
 
 #: src/de/aidger/model/models/Assistant.java:158
 msgid "Assistant is still linked to an Employment"
-msgstr ""
-"Es besteht noch eine Verbindung zwischen der Hilfskraft und einer "
-"Beschäftigung"
+msgstr "Es besteht noch eine Verbindung zwischen der Hilfskraft und einer Beschäftigung"
 
 #: src/de/aidger/model/models/Assistant.java:162
 msgid "Assistant is still linked to a Contract"
-msgstr ""
-"Es besteht noch eine Verbindung zwischen der Hilfskraft und einem Vertrag"
+msgstr "Es besteht noch eine Verbindung zwischen der Hilfskraft und einem Vertrag"
 
 #: src/de/aidger/model/models/Contract.java:83
 #: src/de/aidger/view/forms/ContractEditorForm.java:283
@@ -802,8 +777,7 @@ msgstr "Die Zeitspanne Abschlußdatum und Bestätigungsdatum ist inkorrekt."
 
 #: src/de/aidger/model/models/Contract.java:212
 msgid "Contract is still linked to an Employment"
-msgstr ""
-"Es besteht noch eine Verbindung zwischen dem Vertrag und einer Beschäftigung"
+msgstr "Es besteht noch eine Verbindung zwischen dem Vertrag und einer Beschäftigung"
 
 #: src/de/aidger/model/models/CostUnit.java:55
 #: src/de/aidger/model/models/Employment.java:99
@@ -896,15 +870,11 @@ msgstr "muss größer als 0 sein"
 
 #: src/de/aidger/model/models/Course.java:263
 msgid "Course is still linked to an Activity."
-msgstr ""
-"Es besteht noch eine Verbindung zwischen der Veranstaltung und einer "
-"Aktivität"
+msgstr "Es besteht noch eine Verbindung zwischen der Veranstaltung und einer Aktivität"
 
 #: src/de/aidger/model/models/Course.java:267
 msgid "Course is still linked to an Employment"
-msgstr ""
-"Es besteht noch eine Verbindung zwischen der Veranstaltung und einer "
-"Beschäftigung"
+msgstr "Es besteht noch eine Verbindung zwischen der Veranstaltung und einer Beschäftigung"
 
 #: src/de/aidger/model/models/Employment.java:226
 msgid "has to be positive"
@@ -950,9 +920,7 @@ msgstr "kann nicht 0 sein."
 
 #: src/de/aidger/model/models/FinancialCategory.java:175
 msgid "Financial Category is still linked to a Course."
-msgstr ""
-"Es besteht noch eine Verbindung zwischen der Finanzkategorie und einer "
-"Veranstaltung"
+msgstr "Es besteht noch eine Verbindung zwischen der Finanzkategorie und einer Veranstaltung"
 
 #: src/de/aidger/model/validators/DateRangeValidator.java:51
 msgid "is an incorrect date range"
@@ -986,9 +954,7 @@ msgstr "Standardfehler"
 
 #: src/de/aidger/utils/Anonymizer.java:117
 msgid "Anonymizing Assistants failed because of a database error"
-msgstr ""
-"Das Anonymisieren der Hilfskräfte schlug aufgrund eines Datenbankfehlers "
-"fehl."
+msgstr "Das Anonymisieren der Hilfskräfte schlug aufgrund eines Datenbankfehlers fehl."
 
 #: src/de/aidger/utils/Configuration.java:157
 #, java-format
@@ -1150,11 +1116,11 @@ msgstr "Controlling Hilfskräfte"
 
 #: src/de/aidger/utils/pdf/ControllingConverter.java:316
 msgid "Selected Funds"
-msgstr ""
+msgstr "Ausgewählter Fonds"
 
 #: src/de/aidger/utils/pdf/ControllingConverter.java:322
 msgid "Considered Period"
-msgstr ""
+msgstr "Berücksichtigter Zeitraum"
 
 #: src/de/aidger/utils/pdf/ControllingConverter.java:460
 msgid "Planned costs(pre-tax)"
@@ -1275,9 +1241,8 @@ msgid "Time until anonymization in days:"
 msgstr "Zeit bis zur Anonymisierung in Tagen:"
 
 #: src/de/aidger/view/SettingsDialog.java:432
-#, fuzzy
 msgid "Tolerance of Controlling in %:"
-msgstr "Controllingtoleranz:"
+msgstr "Controllingtoleranz in %:"
 
 #: src/de/aidger/view/SettingsDialog.java:434
 msgid "Calculation method:"
@@ -1293,9 +1258,10 @@ msgstr "Historisch"
 
 #: src/de/aidger/view/SettingsDialog.java:442
 msgid "Rounding Precision"
-msgstr ""
+msgstr "Rundungsgenauigkeit"
 
-#: src/de/aidger/view/SettingsDialog.java:508 src/de/aidger/view/UI.java:702
+#: src/de/aidger/view/SettingsDialog.java:508
+#: src/de/aidger/view/UI.java:702
 msgid "Reports"
 msgstr "Berichte"
 
@@ -1337,7 +1303,8 @@ msgstr "{0}. Tab gelöscht"
 msgid "Setting current tab to \"{0}\""
 msgstr "Momentaner Reiter ist nun \"{0}\""
 
-#: src/de/aidger/view/UI.java:573 src/de/aidger/view/UI.java:840
+#: src/de/aidger/view/UI.java:573
+#: src/de/aidger/view/UI.java:840
 msgid "Ready"
 msgstr "Bereit"
 
@@ -1349,36 +1316,44 @@ msgstr "Datei"
 msgid "Master Data Management"
 msgstr "Stammdatenverwaltung"
 
-#: src/de/aidger/view/UI.java:675 src/de/aidger/view/tabs/ViewerTab.java:573
+#: src/de/aidger/view/UI.java:675
+#: src/de/aidger/view/tabs/ViewerTab.java:573
 msgid "Courses"
 msgstr "Veranstaltungen"
 
-#: src/de/aidger/view/UI.java:676 src/de/aidger/view/tabs/ViewerTab.java:575
+#: src/de/aidger/view/UI.java:676
+#: src/de/aidger/view/tabs/ViewerTab.java:575
 msgid "Assistants"
 msgstr "Hilfskräfte"
 
-#: src/de/aidger/view/UI.java:678 src/de/aidger/view/tabs/ViewerTab.java:577
+#: src/de/aidger/view/UI.java:678
+#: src/de/aidger/view/tabs/ViewerTab.java:577
 msgid "Financial Categories"
 msgstr "Finanzkategorien"
 
-#: src/de/aidger/view/UI.java:680 src/de/aidger/view/tabs/ViewerTab.java:579
+#: src/de/aidger/view/UI.java:680
+#: src/de/aidger/view/tabs/ViewerTab.java:579
 msgid "Hourly Wages"
 msgstr "Stundenlöhne"
 
-#: src/de/aidger/view/UI.java:682 src/de/aidger/view/tabs/ViewerTab.java:581
+#: src/de/aidger/view/UI.java:682
+#: src/de/aidger/view/tabs/ViewerTab.java:581
 msgid "Cost Units"
 msgstr "Kostenstellen"
 
-#: src/de/aidger/view/UI.java:685 src/de/aidger/view/tabs/WelcomeTab.java:344
+#: src/de/aidger/view/UI.java:685
+#: src/de/aidger/view/tabs/WelcomeTab.java:344
 msgid "Employments"
 msgstr "Beschäftigungen"
 
-#: src/de/aidger/view/UI.java:687 src/de/aidger/view/UI.java:695
+#: src/de/aidger/view/UI.java:687
+#: src/de/aidger/view/UI.java:695
 #: src/de/aidger/view/tabs/WelcomeTab.java:528
 msgid "Overview"
 msgstr "Übersicht"
 
-#: src/de/aidger/view/UI.java:691 src/de/aidger/view/tabs/ViewerTab.java:585
+#: src/de/aidger/view/UI.java:691
+#: src/de/aidger/view/tabs/ViewerTab.java:585
 msgid "Contracts"
 msgstr "Verträge"
 
@@ -1469,7 +1444,8 @@ msgstr "Inkorrekte Argumente wurden für den Reiter gespeichert"
 msgid "Getting the model from the database failed"
 msgstr "Das Model konnte nicht aus der Datenbank geholt werden"
 
-#: src/de/aidger/view/Wizard.java:82 src/de/aidger/view/Wizard.java:93
+#: src/de/aidger/view/Wizard.java:82
+#: src/de/aidger/view/Wizard.java:93
 #: src/de/aidger/view/Wizard.java:120
 msgid "Finish"
 msgstr "Fertig"
@@ -1529,8 +1505,7 @@ msgstr "Umbuchung"
 
 #: src/de/aidger/view/forms/ContractEditorForm.java:164
 msgid "Confirmation date can be entered after saving the contract."
-msgstr ""
-"Das Bestätigungsdatum kann nach dem Speichern des Vertrags eingegeben werden."
+msgstr "Das Bestätigungsdatum kann nach dem Speichern des Vertrags eingegeben werden."
 
 #: src/de/aidger/view/forms/ContractEditorForm.java:293
 #: src/de/aidger/view/forms/ContractViewerForm.java:126
@@ -1698,9 +1673,7 @@ msgstr ""
 
 #: src/de/aidger/view/tabs/ControllingViewerTab.java:252
 msgid "Shall the affected assistants be included in the report anyway?"
-msgstr ""
-"Sollen die betroffenen Hilfskräfte trotzdem in der Auswertung berücksichtigt "
-"werden?"
+msgstr "Sollen die betroffenen Hilfskräfte trotzdem in der Auswertung berücksichtigt werden?"
 
 #: src/de/aidger/view/tabs/ControllingViewerTab.java:283
 msgid "Calculations may be off, due to missing hourly wages."
@@ -1873,8 +1846,7 @@ msgstr "Diese Beschäftigungen gehören zu {0} Veranstaltungen."
 
 #: src/de/aidger/view/tabs/WelcomeTab.java:305
 #, java-format
-msgid ""
-"Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."
+msgid "Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."
 msgstr "Von den Hilfskräften sind {0} ungeprüft, {1} geprüft und {2} Bachelors"
 
 #: src/de/aidger/view/tabs/WelcomeTab.java:308
@@ -1938,20 +1910,13 @@ msgstr "Versuche zur Datenbank zu verbinden ..."
 
 #: src/de/aidger/view/wizard/DatabaseCheck.java:113
 msgid ""
-"aidGer will now try to establish a connection to the database and configure "
-"the database if necessary.\n"
+"aidGer will now try to establish a connection to the database and configure the database if necessary.\n"
 "\n"
-"If the text below changes and becomes green, it is save to finish the wizard "
-"and start working with aidGer. Otherwise you should go back to the previous "
-"page and configure your database correctly."
+"If the text below changes and becomes green, it is save to finish the wizard and start working with aidGer. Otherwise you should go back to the previous page and configure your database correctly."
 msgstr ""
-"aidGer versucht nun eine Verbindung zur Datenbank herzustellen und diese, "
-"falls nötig, zu konfigurieren.\n"
+"aidGer versucht nun eine Verbindung zur Datenbank herzustellen und diese, falls nötig, zu konfigurieren.\n"
 "\n"
-"Wenn der Text unterhalb sich ändert und grün wird, kann der Assistent "
-"geschlossen werden und Sie können mit der Arbeit mit aidGer beginnen. Sollte "
-"dies nicht der Fall sein, so gehen Sie bitte auf die vorherige Seite zurück "
-"und konfigurieren Sie die Datenbankverbindung korrekt."
+"Wenn der Text unterhalb sich ändert und grün wird, kann der Assistent geschlossen werden und Sie können mit der Arbeit mit aidGer beginnen. Sollte dies nicht der Fall sein, so gehen Sie bitte auf die vorherige Seite zurück und konfigurieren Sie die Datenbankverbindung korrekt."
 
 #: src/de/aidger/view/wizard/DatabaseCheck.java:164
 msgid "Connection failed. Please check with your Administrator"
@@ -2000,12 +1965,10 @@ msgstr "Datenbank:"
 #: src/de/aidger/view/wizard/DatabaseSelection.java:96
 msgid ""
 "Select the type of database that you want to use.\n"
-"The default value is a safe guess if you want to try aidGer or only plan to "
-"use it on one computer."
+"The default value is a safe guess if you want to try aidGer or only plan to use it on one computer."
 msgstr ""
 "Wählen Sie den Datenbanktyp aus, den Sie benutzen wollen.\n"
-"Die Standardauswahl ist eine sichere Wahl, falls Sie aidGer nur ausprobieren "
-"wollen oder es nur auf einem Computer benutzen."
+"Die Standardauswahl ist eine sichere Wahl, falls Sie aidGer nur ausprobieren wollen oder es nur auf einem Computer benutzen."
 
 #: src/de/aidger/view/wizard/DatabaseSelection.java:101
 msgid "Derby Database"
@@ -2030,17 +1993,12 @@ msgstr ""
 #: src/de/aidger/view/wizard/FirstStartWelcome.java:39
 msgid ""
 "This wizard will try to help you setup aidGer.\n"
-"It will ask for important informations and requires, that you know where the "
-"database you'll be using is located.\n"
-"If you don't have this information, you can still use aidGer with a local "
-"database."
+"It will ask for important informations and requires, that you know where the database you'll be using is located.\n"
+"If you don't have this information, you can still use aidGer with a local database."
 msgstr ""
-"Dieser Assisstent wird ihnen bei der Einrichtung von aidGer behilflich "
-"sein.\n"
-"Er wird wichtige Informationen abfragen und benötigt vor allem ihre "
-"Datenbankinformationen.\n"
-"Sollten Sie diese Informationen nicht haben, so können Sie aidGer trotzdem "
-"mit einer lokalen Datenbank einsetzen."
+"Dieser Assisstent wird ihnen bei der Einrichtung von aidGer behilflich sein.\n"
+"Er wird wichtige Informationen abfragen und benötigt vor allem ihre Datenbankinformationen.\n"
+"Sollten Sie diese Informationen nicht haben, so können Sie aidGer trotzdem mit einer lokalen Datenbank einsetzen."
 
 #: src/de/aidger/view/wizard/FirstStartWelcome.java:72
 msgid "Welcome to aidGer."
