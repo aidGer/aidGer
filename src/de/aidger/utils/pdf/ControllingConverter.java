@@ -313,12 +313,14 @@ public class ControllingConverter {
                     cell.setVerticalAlignment(Element.ALIGN_BOTTOM);
                     cell.setBorder(0);
                     centerTable.addCell(cell);
-                    cell = new PdfPCell(new Phrase(title[1], pageSubTitleFont));
+                    cell = new PdfPCell(new Phrase(_("Selected Funds") + ": "
+                            + title[1], pageSubTitleFont));
                     cell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     cell.setVerticalAlignment(Element.ALIGN_BOTTOM);
                     cell.setBorder(0);
                     centerTable.addCell(cell);
-                    cell = new PdfPCell(new Phrase(title[0], pageSubTitleFont));
+                    cell = new PdfPCell(new Phrase(_("Considered Period")
+                            + ": " + title[0], pageSubTitleFont));
                     cell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     cell.setVerticalAlignment(Element.ALIGN_BOTTOM);
                     cell.setBorder(0);

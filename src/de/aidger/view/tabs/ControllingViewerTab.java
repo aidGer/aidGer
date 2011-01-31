@@ -234,7 +234,7 @@ public class ControllingViewerTab extends ReportTab {
         List<ControllingAssistant> assistants = new ControllingCreator(year,
             month, funds).getAssistants(false);
         title = new String[] { "1." + year + " - " + month + "." + year,
-                funds.toString() };
+                funds == null ? "" : funds.toString() };
         boolean errorInCalculation = false;
         for (ControllingAssistant assistant : assistants) {
             if (assistant.isFlagged()) {
