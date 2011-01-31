@@ -81,20 +81,21 @@ public class UICourse extends Course implements UIModel, Comparable<UICourse> {
     }
 
     /**
-     * Returns the year of a given semester.
+     * Returns the year of a given semester. If there was an error, the year 0
+     * is returned.
      * 
      * @param semester
      *            the semester (SSXX, WSXXXX, XXXX)
      * @return the year in 4 digits
      */
     private Integer getYearOfSemester(String semester) {
-        if (semester == null) {
+        try {
+            Matcher m = patternSemester.matcher(semester);
+            return m.find() ? Integer.valueOf("20" + m.group(1)) : Integer
+                .valueOf(semester);
+        } catch (Exception e) {
             return 0;
         }
-
-        Matcher m = patternSemester.matcher(semester);
-        return m.find() ? Integer.valueOf("20" + m.group(1)) : Integer
-            .valueOf(semester);
     }
 
     /*
