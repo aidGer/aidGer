@@ -118,9 +118,9 @@ public class UICourse extends Course implements UIModel, Comparable<UICourse> {
         Integer year = getYearOfSemester(getSemester()), oYear = getYearOfSemester(o
             .getSemester());
 
-        if (year > oYear) {
+        if (year < oYear) {
             return 1;
-        } else if (year < oYear) {
+        } else if (year > oYear) {
             return -1;
         } else {
             int c_ = getSemester().substring(0, 1).compareTo(
@@ -128,7 +128,7 @@ public class UICourse extends Course implements UIModel, Comparable<UICourse> {
             if (c_ == 0) {
                 return c;
             } else {
-                return c_;
+                return -c_;
             }
         }
     }
