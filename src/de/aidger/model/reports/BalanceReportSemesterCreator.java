@@ -19,8 +19,8 @@
 
 package de.aidger.model.reports;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import de.aidger.model.models.Course;
 import de.aidger.utils.reports.BalanceHelper;
@@ -76,42 +76,49 @@ public class BalanceReportSemesterCreator {
     private void addGroups(String semester, BalanceFilter filters) {
         List<Course> courses = null;
         try {
-            courses = (new Course()).getCoursesBySemester(semester);
+            if (semester != null) {
+                courses = (new Course()).getCoursesBySemester(semester);
+            } else {
+                courses = new ArrayList<Course>();
+                List<Course> unsortedCourses = new Course().getAll();
+                for (ICourse course : unsortedCourses) {
+                    if (course.getSemester() == null) {
+                        courses.add(new Course(course));
+                    }
+                }
+            }
         } catch (AdoHiveException e) {
             UI.displayError(e.toString());
         }
         List<Course> filteredCourses = balanceHelper.filterCourses(courses,
             filters);
         for (ICourse course : filteredCourses) {
-            if (course.getSemester().equals(semester)) {
-                if (balanceReportGroupCreators.isEmpty()) {
+            if (balanceReportGroupCreators.isEmpty()) {
+                /*
+                 * If there are no groups in the semester yet, add a new one.
+                 */
+                createGroup(course);
+            } else {
+                boolean foundGroup = false;
+                for (int i = 0; i <= balanceReportGroupCreators.size() - 1; i++) {
+                    if ((balanceReportGroupCreators.get(i)).get(1).equals(
+                        course.getGroup())) {
+                        /*
+                         * If the course group already exists in this semester,
+                         * add another row to it with this course.
+                         */
+                        ((BalanceReportGroupCreator) (balanceReportGroupCreators
+                            .get(i)).get(0)).addCourse(course);
+                        foundGroup = true;
+                        break;
+                    }
+                }
+                if (!foundGroup) {
                     /*
-                     * If there are no groups in the semester yet, add a new
-                     * one.
+                     * If the course group wasn't in the semester yet, add a new
+                     * group.
                      */
                     createGroup(course);
-                } else {
-                    boolean foundGroup = false;
-                    for (int i = 0; i <= balanceReportGroupCreators.size() - 1; i++) {
-                        if ((balanceReportGroupCreators.get(i)).get(1).equals(
-                            course.getGroup())) {
-                            /*
-                             * If the course group already exists in this
-                             * semester, add another row to it with this course.
-                             */
-                            ((BalanceReportGroupCreator) (balanceReportGroupCreators
-                                .get(i)).get(0)).addCourse(course);
-                            foundGroup = true;
-                            break;
-                        }
-                    }
-                    if (!foundGroup) {
-                        /*
-                         * If the course group wasn't in the semester yet, add a
-                         * new group.
-                         */
-                        createGroup(course);
-                    }
                 }
             }
         }

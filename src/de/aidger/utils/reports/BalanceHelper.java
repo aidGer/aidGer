@@ -154,72 +154,90 @@ public class BalanceHelper {
      *            The semester to check.
      * @return The years of the semester.
      */
-    public String[] getYearSemesters(int year) {
-        // Lose the first two numbers of the year
-        int semester = year % 100;
-        /*
-         * Contains the year in YYYY form, the previous, current and next
-         * semester in that order.
-         */
-        String[] semesters = new String[4];
-        semesters[0] = "" + year;
-        switch (semester) {
-        /*
-         * If the given year is 2001-2008, (year % 100) will give a single
-         * number below 9. Therefore, the previous, current and next semester
-         * all need a leading 0 added.
-         */
-        case 0:
-            semesters[1] = "WS" + "99" + "00";
-            semesters[2] = "SS" + "00";
-            semesters[3] = "WS" + "00" + "01";
-            break;
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-        case 6:
-        case 7:
-        case 8:
-            semesters[1] = "WS0" + (semester - 1) + "0" + semester;
-            semesters[2] = "SS0" + semester;
-            semesters[3] = "WS0" + semester + "0" + (semester + 1);
-            break;
-        /*
-         * If the given year is 2009, the previous and current semester will
-         * both be a single number and therefore need a leading 0 added. The
-         * next semester will be 10 and thus needs no adjustments.
-         */
-        case 9:
-            semesters[1] = "WS0" + (semester - 1) + "0" + semester;
-            semesters[2] = "SS0" + semester;
-            semesters[3] = "WS0" + semester + (semester + 1);
-            break;
-        /*
-         * If the given year is 2010, the current and next semesters will be 10
-         * and 11 and therefore don't need a leading 0. The previous semester
-         * will be 9 though.
-         */
-        case 10:
-            semesters[1] = "WS0" + (semester - 1) + semester;
-            semesters[2] = "SS" + semester;
-            semesters[3] = "WS" + semester + (semester + 1);
-            break;
-        case 99:
-            semesters[1] = "WS" + (semester - 1) + semester;
-            semesters[2] = "SS" + semester;
-            semesters[3] = "WS" + semester + "00";
-            break;
-        /*
-         * In all other relevant cases (11 and higher), the semesters can be
-         * used the way (year % 100) returns them.
-         */
-        default:
-            semesters[1] = "WS" + (semester - 1) + semester;
-            semesters[2] = "SS" + semester;
-            semesters[3] = "WS" + semester + (semester + 1);
-            break;
+    public ArrayList<String> getYearSemesters(int year) {
+        ArrayList<String> semesters;
+        if (year != 0) {
+            // Lose the first two numbers of the year
+            int semester = year % 100;
+            /*
+             * Contains the year in YYYY form, the previous, current and next
+             * semester in that order.
+             */
+            semesters = new ArrayList<String>();
+            semesters.add("" + year);
+            switch (semester) {
+            /*
+             * If the given year is 2001-2008, (year % 100) will give a single
+             * number below 9. Therefore, the previous, current and next
+             * semester all need a leading 0 added.
+             */
+            case 0:
+                semesters.add("WS" + "99" + "00");
+                semesters.add("SS" + "00");
+                semesters.add("WS" + "00" + "01");
+                break;
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+                semesters.add("WS0" + (semester - 1) + "0" + semester);
+                semesters.add("SS0" + semester);
+                semesters.add("WS0" + semester + "0" + (semester + 1));
+                break;
+            /*
+             * If the given year is 2009, the previous and current semester will
+             * both be a single number and therefore need a leading 0 added. The
+             * next semester will be 10 and thus needs no adjustments.
+             */
+            case 9:
+                semesters.add("WS0" + (semester - 1) + "0" + semester);
+                semesters.add("SS0" + semester);
+                semesters.add("WS0" + semester + (semester + 1));
+                break;
+            /*
+             * If the given year is 2010, the current and next semesters will be
+             * 10 and 11 and therefore don't need a leading 0. The previous
+             * semester will be 9 though.
+             */
+            case 10:
+                semesters.add("WS0" + (semester - 1) + semester);
+                semesters.add("SS" + semester);
+                semesters.add("WS" + semester + (semester + 1));
+                break;
+            case 99:
+                semesters.add("WS" + (semester - 1) + semester);
+                semesters.add("SS" + semester);
+                semesters.add("WS" + semester + "00");
+                break;
+            /*
+             * In all other relevant cases (11 and higher), the semesters can be
+             * used the way (year % 100) returns them.
+             */
+            default:
+                semesters.add("WS" + (semester - 1) + semester);
+                semesters.add("SS" + semester);
+                semesters.add("WS" + semester + (semester + 1));
+                break;
+            }
+        } else {
+            ArrayList<String> allSemesters = getSemesters();
+            semesters = new ArrayList<String>();
+            for (String semester : allSemesters) {
+                if (semester == null) {
+                    semesters.add(semester);
+                    continue;
+                }
+                Pattern semesterPattern = Pattern
+                    .compile("([S|W]S)?(\\d{2})(\\d{0,2})");
+                Matcher semesterMatcher = semesterPattern.matcher(semester);
+                if (!semesterMatcher.find()) {
+                    semesters.add(semester);
+                }
+            }
         }
         return semesters;
     }
@@ -358,34 +376,35 @@ public class BalanceHelper {
              * of that semester is already noted and add it if it's not.
              */
             for (String semester : semesters) {
+                int year = 0;
                 if (semester != null) {
-                    int year = 0;
                     Pattern semesterPattern = Pattern
                         .compile("([S|W]S)?(\\d{2})(\\d{0,2})");
                     Matcher semesterMatcher = semesterPattern.matcher(semester);
-                    semesterMatcher.find();
-                    if (semesterMatcher.group(1) != null) {
-                        /*
-                         * Semester is either SS or WS. Add the first year
-                         * regardless.
-                         */
-                        year = 2000 + Integer
-                            .parseInt(semesterMatcher.group(2));
-                        if (semesterMatcher.group(1).equals("WS")) {
-                            // Semester is WS. Add the second year.
-                            if (!years.contains(year)) {
-                                years.add(year);
-                            }
+                    if (semesterMatcher.find()) {
+                        if (semesterMatcher.group(1) != null) {
+                            /*
+                             * Semester is either SS or WS. Add the first year
+                             * regardless.
+                             */
                             year = 2000 + Integer.parseInt(semesterMatcher
-                                .group(3));
+                                .group(2));
+                            if (semesterMatcher.group(1).equals("WS")) {
+                                // Semester is WS. Add the second year.
+                                if (!years.contains(year)) {
+                                    years.add(year);
+                                }
+                                year = 2000 + Integer.parseInt(semesterMatcher
+                                    .group(3));
+                            }
+                        } else {
+                            // Semester is in the form YYYY.
+                            year = Integer.parseInt(semester);
                         }
-                    } else {
-                        // Semester is in the form YYYY.
-                        year = Integer.parseInt(semester);
                     }
-                    if (!years.contains(year)) {
-                        years.add(year);
-                    }
+                }
+                if (!years.contains(year)) {
+                    years.add(year);
                 }
             }
             ArrayList<Integer> sortedYears = new ArrayList<Integer>();
@@ -423,7 +442,17 @@ public class BalanceHelper {
     public boolean courseExists(String semester, BalanceFilter filters) {
         List<Course> courses = null;
         try {
-            courses = (new Course()).getCoursesBySemester(semester);
+            if (semester != null) {
+                courses = (new Course()).getCoursesBySemester(semester);
+            } else {
+                courses = new ArrayList<Course>();
+                List<Course> unsortedCourses = new Course().getAll();
+                for (ICourse course : unsortedCourses) {
+                    if (course.getSemester() == null) {
+                        courses.add(new Course(course));
+                    }
+                }
+            }
         } catch (AdoHiveException e) {
             UI.displayError(e.toString());
         }

@@ -405,47 +405,47 @@ public class BalanceHelperTest {
         System.out.println("getYearSemesters()");
         balanceHelper = new BalanceHelper();
 
-        String[] years = balanceHelper.getYearSemesters(2000);
+        ArrayList<String> years = balanceHelper.getYearSemesters(2000);
 
-        assertEquals("2000", years[0]);
-        assertEquals("WS9900", years[1]);
-        assertEquals("SS00", years[2]);
-        assertEquals("WS0001", years[3]);
+        assertEquals("2000", years.get(0));
+        assertEquals("WS9900", years.get(1));
+        assertEquals("SS00", years.get(2));
+        assertEquals("WS0001", years.get(3));
 
         years = balanceHelper.getYearSemesters(2001);
 
-        assertEquals("2001", years[0]);
-        assertEquals("WS0001", years[1]);
-        assertEquals("SS01", years[2]);
-        assertEquals("WS0102", years[3]);
+        assertEquals("2001", years.get(0));
+        assertEquals("WS0001", years.get(1));
+        assertEquals("SS01", years.get(2));
+        assertEquals("WS0102", years.get(3));
 
         years = balanceHelper.getYearSemesters(2009);
 
-        assertEquals("2009", years[0]);
-        assertEquals("WS0809", years[1]);
-        assertEquals("SS09", years[2]);
-        assertEquals("WS0910", years[3]);
+        assertEquals("2009", years.get(0));
+        assertEquals("WS0809", years.get(1));
+        assertEquals("SS09", years.get(2));
+        assertEquals("WS0910", years.get(3));
 
         years = balanceHelper.getYearSemesters(2010);
 
-        assertEquals("2010", years[0]);
-        assertEquals("WS0910", years[1]);
-        assertEquals("SS10", years[2]);
-        assertEquals("WS1011", years[3]);
+        assertEquals("2010", years.get(0));
+        assertEquals("WS0910", years.get(1));
+        assertEquals("SS10", years.get(2));
+        assertEquals("WS1011", years.get(3));
 
         years = balanceHelper.getYearSemesters(2011);
 
-        assertEquals("2011", years[0]);
-        assertEquals("WS1011", years[1]);
-        assertEquals("SS11", years[2]);
-        assertEquals("WS1112", years[3]);
+        assertEquals("2011", years.get(0));
+        assertEquals("WS1011", years.get(1));
+        assertEquals("SS11", years.get(2));
+        assertEquals("WS1112", years.get(3));
 
         years = balanceHelper.getYearSemesters(2099);
 
-        assertEquals("2099", years[0]);
-        assertEquals("WS9899", years[1]);
-        assertEquals("SS99", years[2]);
-        assertEquals("WS9900", years[3]);
+        assertEquals("2099", years.get(0));
+        assertEquals("WS9899", years.get(1));
+        assertEquals("SS99", years.get(2));
+        assertEquals("WS9900", years.get(3));
     }
 
     /**

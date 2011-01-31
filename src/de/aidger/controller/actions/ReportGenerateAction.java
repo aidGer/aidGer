@@ -90,17 +90,17 @@ public class ReportGenerateAction extends AbstractAction {
                 tab.clearPanel();
 
                 Object year = tab.getYear();
-                String[] yearSemesters = new BalanceHelper()
+                ArrayList<String> yearSemesters = new BalanceHelper()
                     .getYearSemesters((Integer) year);
-                for (int i = 0; i < yearSemesters.length; i++) {
-                    if (new BalanceHelper().courseExists(yearSemesters[i], tab
+                for (String yearSemester : yearSemesters) {
+                    if (new BalanceHelper().courseExists(yearSemester, tab
                         .getBalanceFilter())) {
                         try {
                             BalanceReportSemesterCreator yearBalanceCreator = new BalanceReportSemesterCreator(
-                                yearSemesters[i], tab.getBalanceFilter(), tab
+                                yearSemester, tab.getBalanceFilter(), tab
                                     .getCalculationMethod());
                             tab.addPanel(new BalanceReportSemesterPanel(
-                                yearSemesters[i], yearBalanceCreator));
+                                yearSemester, yearBalanceCreator));
                         } catch (AdoHiveException e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -112,19 +112,17 @@ public class ReportGenerateAction extends AbstractAction {
                 tab.clearPanel();
 
                 Object year2 = tab.getYear();
-                if (year2 != null) {
-                    BalanceReportSemesterCreator fullBalanceCreator = null;
-                    try {
-                        fullBalanceCreator = new BalanceReportSemesterCreator(
-                            (String) year2, tab.getBalanceFilter(), tab
-                                .getCalculationMethod());
-                    } catch (AdoHiveException e1) {
-                        // TODO Auto-generated catch block
-                        e1.printStackTrace();
-                    }
-                    tab.addPanel(new BalanceReportSemesterPanel((String) year2,
-                        fullBalanceCreator));
+                BalanceReportSemesterCreator fullBalanceCreator = null;
+                try {
+                    fullBalanceCreator = new BalanceReportSemesterCreator(
+                        (String) year2, tab.getBalanceFilter(), tab
+                            .getCalculationMethod());
+                } catch (AdoHiveException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
                 }
+                tab.addPanel(new BalanceReportSemesterPanel((String) year2,
+                    fullBalanceCreator));
             }
         }
     }
