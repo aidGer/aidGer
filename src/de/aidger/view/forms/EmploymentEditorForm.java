@@ -172,28 +172,8 @@ public class EmploymentEditorForm extends JPanel {
                 cmbCourseModel.addElement(course);
 
                 if (employment != null
-                        && course.getId() == employment.getCourseId()) {
+                        && course.getId().equals(employment.getCourseId())) {
                     cmbCourseModel.setSelectedItem(course);
-                }
-            }
-
-            List<IContract> contracts = (new Contract()).getAll();
-
-            ComboBoxModel cmbContractModel = new ComboBoxModel(
-                DataType.Contract);
-
-            if (!editMode) {
-                cmbContractModel.addElement(new UIContract());
-            }
-
-            for (IContract c : contracts) {
-                Contract contract = new UIContract(c);
-
-                cmbContractModel.addElement(contract);
-
-                if (employment != null
-                        && contract.getId() == employment.getContractId()) {
-                    cmbContractModel.setSelectedItem(contract);
                 }
             }
 
@@ -202,12 +182,11 @@ public class EmploymentEditorForm extends JPanel {
 
             cmbAssistant.setModel(cmbAssistantModel);
             cmbCourse.setModel(cmbCourseModel);
-            cmbContract.setModel(cmbContractModel);
+
             cmbCostUnit.setModel(cmbFundsModel);
 
             listModels.add(cmbAssistantModel);
             listModels.add(cmbCourseModel);
-            listModels.add(cmbContractModel);
 
             if (cmbAssistant.getSelectedItem() != null) {
                 refreshQualification((Assistant) cmbAssistant.getSelectedItem());
@@ -236,15 +215,61 @@ public class EmploymentEditorForm extends JPanel {
 
                 dl.txtHourCount.setText(NumberFormat.getInstance().format(
                     employment.getHourCount()));
-            } else {
-                cmbAssistant.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        cmbContract.setSelectedItem(new UIContract());
-                    }
-                });
             }
 
+            List<Contract> contracts;
+            if (editMode) {
+                contracts = (new Contract())
+                    .getContracts((Assistant) cmbAssistant.getSelectedItem());
+            } else {
+                contracts = (new Contract()).getAll();
+            }
+
+            ComboBoxModel cmbContractModel = new ComboBoxModel(
+                DataType.Contract);
+
+            if (!editMode) {
+                cmbContractModel.addElement(new UIContract());
+            }
+
+            for (IContract c : contracts) {
+                Contract contract = new UIContract(c);
+
+                cmbContractModel.addElement(contract);
+
+                if (employment != null
+                        && contract.getId() == employment.getContractId()) {
+                    cmbContractModel.setSelectedItem(contract);
+                }
+            }
+
+            cmbAssistant.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    try {
+                        List<Contract> contracts = (new Contract())
+                            .getContracts((Assistant) cmbAssistant
+                                .getSelectedItem());
+
+                        ComboBoxModel cmbContractModel = (ComboBoxModel) cmbContract
+                            .getModel();
+
+                        cmbContractModel.removeAllElements();
+
+                        cmbContractModel.addElement(new UIContract());
+
+                        for (Contract c : contracts) {
+                            Contract contract = new UIContract(c);
+
+                            cmbContractModel.addElement(contract);
+                        }
+                    } catch (AdoHiveException e2) {
+                    }
+                }
+            });
+
+            cmbContract.setModel(cmbContractModel);
+            listModels.add(cmbContractModel);
         } catch (AdoHiveException e) {
         }
 
