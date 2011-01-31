@@ -358,31 +358,34 @@ public class BalanceHelper {
              * of that semester is already noted and add it if it's not.
              */
             for (String semester : semesters) {
-                int year = 0;
-                Pattern semesterPattern = Pattern
-                    .compile("([S|W]S)?(\\d{2})(\\d{0,2})");
-                Matcher semesterMatcher = semesterPattern.matcher(semester);
-                semesterMatcher.find();
-                if (semesterMatcher.group(1) != null) {
-                    /*
-                     * Semester is either SS or WS. Add the first year
-                     * regardless.
-                     */
-                    year = 2000 + Integer.parseInt(semesterMatcher.group(2));
-                    if (semesterMatcher.group(1).equals("WS")) {
-                        // Semester is WS. Add the second year.
-                        if (!years.contains(year)) {
-                            years.add(year);
-                        }
+                if (semester != null) {
+                    int year = 0;
+                    Pattern semesterPattern = Pattern
+                        .compile("([S|W]S)?(\\d{2})(\\d{0,2})");
+                    Matcher semesterMatcher = semesterPattern.matcher(semester);
+                    semesterMatcher.find();
+                    if (semesterMatcher.group(1) != null) {
+                        /*
+                         * Semester is either SS or WS. Add the first year
+                         * regardless.
+                         */
                         year = 2000 + Integer
-                            .parseInt(semesterMatcher.group(3));
+                            .parseInt(semesterMatcher.group(2));
+                        if (semesterMatcher.group(1).equals("WS")) {
+                            // Semester is WS. Add the second year.
+                            if (!years.contains(year)) {
+                                years.add(year);
+                            }
+                            year = 2000 + Integer.parseInt(semesterMatcher
+                                .group(3));
+                        }
+                    } else {
+                        // Semester is in the form YYYY.
+                        year = Integer.parseInt(semester);
                     }
-                } else {
-                    // Semester is in the form YYYY.
-                    year = Integer.parseInt(semester);
-                }
-                if (!years.contains(year)) {
-                    years.add(year);
+                    if (!years.contains(year)) {
+                        years.add(year);
+                    }
                 }
             }
             ArrayList<Integer> sortedYears = new ArrayList<Integer>();
