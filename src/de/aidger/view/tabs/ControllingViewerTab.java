@@ -66,7 +66,7 @@ public class ControllingViewerTab extends ReportTab {
     /**
      * The title of the generated controlling report.
      */
-    private String title;
+    private String[] title;
     /**
      * The table model of the content table.
      */
@@ -171,7 +171,7 @@ public class ControllingViewerTab extends ReportTab {
      * @return The title - "1." + year + " - " + month + "." + year + "\n" +
      *         funds
      */
-    public String getTitle() {
+    public String[] getTitle() {
         return title;
     }
 
@@ -233,7 +233,8 @@ public class ControllingViewerTab extends ReportTab {
         }
         List<ControllingAssistant> assistants = new ControllingCreator(year,
             month, funds).getAssistants(false);
-        title = "1." + year + " - " + month + "." + year + "\n" + funds;
+        title = new String[] { "1." + year + " - " + month + "." + year,
+                funds.toString() };
         boolean errorInCalculation = false;
         for (ControllingAssistant assistant : assistants) {
             if (assistant.isFlagged()) {

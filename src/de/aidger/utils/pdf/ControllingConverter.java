@@ -86,6 +86,11 @@ public class ControllingConverter {
     private static String name;
 
     /**
+     * The date range and funds of this report.
+     */
+    private static String[] title;
+
+    /**
      * The table rows that this report should contain.
      */
     private final ArrayList<String[]> tableRows;
@@ -97,13 +102,14 @@ public class ControllingConverter {
      *            The file for the report.
      */
     public ControllingConverter(File file, ArrayList<String[]> tableRows,
-            String title) {
+            String[] title) {
+        this.title = title;
         this.tableRows = tableRows;
         document = new Document(PageSize.A4);
         document.setMargins(document.leftMargin(), document.rightMargin(),
             document.topMargin() + 40, document.bottomMargin());
         file = checkExtension(file);
-        name = _("Controlling report") + "\n" + title;
+        name = _("Assistant Controlling");
         File preTemplateFile = null;
         try {
             preTemplateFile = File.createTempFile("BudgetReport", ".pdf");
@@ -283,13 +289,16 @@ public class ControllingConverter {
          */
         @Override
         public void onStartPage(PdfWriter writer, Document document) {
-            PdfPTable table = new PdfPTable(3);
+            PdfPTable table = new PdfPTable(new float[] { 3, 4, 3 });
             table.setTotalWidth(writer.getPageSize().getRight()
                     - document.rightMargin() - document.leftMargin());
             try {
                 Font pageTitleFont = new Font(BaseFont
                     .createFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252,
                         BaseFont.EMBEDDED), 18);
+                Font pageSubTitleFont = new Font(BaseFont
+                    .createFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252,
+                        BaseFont.EMBEDDED), 12);
                 Font authorNameFont = new Font(BaseFont.createFont(
                     BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.EMBEDDED), 8);
 
@@ -297,7 +306,24 @@ public class ControllingConverter {
 
                 PdfPCell center;
                 if (writer.getCurrentPageNumber() == 1) {
-                    center = new PdfPCell(new Phrase(name, pageTitleFont));
+                    PdfPTable centerTable = new PdfPTable(1);
+                    PdfPCell cell = new PdfPCell(
+                        new Phrase(name, pageTitleFont));
+                    cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    cell.setVerticalAlignment(Element.ALIGN_BOTTOM);
+                    cell.setBorder(0);
+                    centerTable.addCell(cell);
+                    cell = new PdfPCell(new Phrase(title[1], pageSubTitleFont));
+                    cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    cell.setVerticalAlignment(Element.ALIGN_BOTTOM);
+                    cell.setBorder(0);
+                    centerTable.addCell(cell);
+                    cell = new PdfPCell(new Phrase(title[0], pageSubTitleFont));
+                    cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    cell.setVerticalAlignment(Element.ALIGN_BOTTOM);
+                    cell.setBorder(0);
+                    centerTable.addCell(cell);
+                    center = new PdfPCell(centerTable);
                 } else {
                     center = new PdfPCell(new Phrase(""));
                 }
@@ -323,7 +349,7 @@ public class ControllingConverter {
                 table.addCell(center);
                 table.addCell(right);
                 table.writeSelectedRows(0, -1, document.leftMargin(), document
-                    .getPageSize().getTop() - 15, writer.getDirectContent());
+                    .getPageSize().getTop() - 10, writer.getDirectContent());
             } catch (DocumentException e1) {
             } catch (IOException e1) {
                 // TODO Auto-generated catch block

@@ -158,7 +158,8 @@ public class ControllingConverterTest {
         testRow.add(new String[] { "Test Tester", "20.0", "200.0",
                 "Costs don't match!" });
 
-        new ControllingConverter(testFile, testRow, "Test Title");
+        new ControllingConverter(testFile, testRow, new String[] {
+                "Test Title", "Test Title" });
 
         File file = new File("Test_Report.pdf");
 
@@ -166,7 +167,8 @@ public class ControllingConverterTest {
 
         testFile = new File("Test_Report.pdf");
 
-        new ControllingConverter(testFile, testRow, "Test Title");
+        new ControllingConverter(testFile, testRow, new String[] {
+                "Test Title", "Test Title" });
 
         file = new File("Test_Report.pdf");
 
