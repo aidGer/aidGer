@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-20 22:33+0100\n"
+"POT-Creation-Date: 2011-01-31 21:29+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,10 +42,10 @@ msgstr ""
 #: src/de/aidger/controller/actions/ViewerActivityExportAction.java:56
 #: src/de/aidger/controller/actions/ViewerActivityExportAction.java:100
 #: src/de/aidger/view/UI.java:699
-#: src/de/aidger/view/tabs/ActivityReportViewerTab.java:233
+#: src/de/aidger/view/tabs/ActivityReportViewerTab.java:244
 #: src/de/aidger/view/tabs/BalanceViewerTab.java:309
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:266
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:369
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:393
 #: src/de/aidger/view/tabs/ProtocolViewerTab.java:230
 #: src/de/aidger/view/tabs/ViewerTab.java:718
 #: src/de/aidger/view/tabs/ViewerTab.java:741
@@ -103,10 +103,10 @@ msgstr ""
 #: src/de/aidger/controller/actions/BudgetGenerateAction.java:54
 #: src/de/aidger/controller/actions/ControllingGenerateAction.java:48
 #: src/de/aidger/controller/actions/ReportGenerateAction.java:49
-#: src/de/aidger/view/tabs/ActivityReportViewerTab.java:224
+#: src/de/aidger/view/tabs/ActivityReportViewerTab.java:235
 #: src/de/aidger/view/tabs/BalanceViewerTab.java:300
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:257
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:360
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:384
 msgid "Generate"
 msgstr ""
 
@@ -127,7 +127,7 @@ msgid "Export the whole report to a pdf file"
 msgstr ""
 
 #: src/de/aidger/controller/actions/ControllingExportDifferencesAction.java:54
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:383
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:407
 msgid "Export differences"
 msgstr ""
 
@@ -135,8 +135,8 @@ msgstr ""
 msgid "Export the differences in the report to a pdf file"
 msgstr ""
 
-#: src/de/aidger/controller/actions/ControllingExportDifferencesAction.java:123
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:115
+#: src/de/aidger/controller/actions/ControllingExportDifferencesAction.java:124
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:129
 msgid "Costs don't match!"
 msgstr ""
 
@@ -192,14 +192,32 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: src/de/aidger/controller/actions/EditorSaveAction.java:218
+#: src/de/aidger/controller/actions/EditorSaveAction.java:136
+#: src/de/aidger/model/models/Course.java:108
+#: src/de/aidger/model/models/Course.java:244
+#: src/de/aidger/view/forms/CourseEditorForm.java:383
+#: src/de/aidger/view/forms/CourseViewerForm.java:168
+#: src/de/aidger/view/models/CourseTableModel.java:51
+msgid "AWH per group"
+msgstr ""
+
+#: src/de/aidger/controller/actions/EditorSaveAction.java:215
+#: src/de/aidger/model/models/FinancialCategory.java:70
+#: src/de/aidger/model/models/FinancialCategory.java:155
+#: src/de/aidger/view/forms/FinancialCategoryEditorForm.java:207
+#: src/de/aidger/view/forms/FinancialCategoryViewerForm.java:82
+#: src/de/aidger/view/models/FinancialCategoryTableModel.java:45
+msgid "Budget Costs"
+msgstr ""
+
+#: src/de/aidger/controller/actions/EditorSaveAction.java:224
 #: src/de/aidger/model/models/CostUnit.java:55
 #: src/de/aidger/model/models/CostUnit.java:177
 #: src/de/aidger/model/models/Employment.java:222
 #: src/de/aidger/model/models/FinancialCategory.java:70
 #: src/de/aidger/view/forms/CostUnitEditorForm.java:125
 #: src/de/aidger/view/forms/CostUnitViewerForm.java:68
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:602
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:630
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:172
 #: src/de/aidger/view/forms/FinancialCategoryEditorForm.java:186
 #: src/de/aidger/view/forms/FinancialCategoryViewerForm.java:66
@@ -210,63 +228,75 @@ msgstr ""
 msgid "Cost unit"
 msgstr ""
 
-#: src/de/aidger/controller/actions/EditorSaveAction.java:219
+#: src/de/aidger/controller/actions/EditorSaveAction.java:225
 #: src/de/aidger/model/models/CostUnit.java:177
 msgid "has to have a length of 8"
 msgstr ""
 
-#: src/de/aidger/controller/actions/EditorSaveAction.java:274
+#: src/de/aidger/controller/actions/EditorSaveAction.java:231
+#: src/de/aidger/model/models/Employment.java:230
+#: src/de/aidger/model/models/FinancialCategory.java:69
+#: src/de/aidger/model/models/FinancialCategory.java:149
+#: src/de/aidger/model/models/HourlyWage.java:152
+#: src/de/aidger/view/forms/FinancialCategoryEditorForm.java:290
+#: src/de/aidger/view/forms/FinancialCategoryViewerForm.java:127
+#: src/de/aidger/view/models/FinancialCategoryTableModel.java:44
+#: src/de/aidger/view/tabs/BalanceViewerTab.java:284
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:446
+msgid "Year"
+msgstr ""
+
+#: src/de/aidger/controller/actions/EditorSaveAction.java:269
+#: src/de/aidger/model/models/HourlyWage.java:66
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:254
+#: src/de/aidger/view/forms/HourlyWageViewerForm.java:95
+#: src/de/aidger/view/models/HourlyWageTableModel.java:47
+msgid "Wage"
+msgstr ""
+
+#: src/de/aidger/controller/actions/EditorSaveAction.java:284
 #: src/de/aidger/model/models/Contract.java:84
 #: src/de/aidger/model/models/Contract.java:85
-#: src/de/aidger/view/forms/ContractEditorForm.java:309
+#: src/de/aidger/view/forms/ContractEditorForm.java:313
 #: src/de/aidger/view/forms/ContractViewerForm.java:142
-#: src/de/aidger/view/models/ContractTableModel.java:50
+#: src/de/aidger/view/models/ContractTableModel.java:54
 msgid "End date"
 msgstr ""
 
-#: src/de/aidger/controller/actions/EditorSaveAction.java:275
+#: src/de/aidger/controller/actions/EditorSaveAction.java:285
 msgid "must be after start date"
 msgstr ""
 
-#: src/de/aidger/controller/actions/EditorSaveAction.java:403
+#: src/de/aidger/controller/actions/EditorSaveAction.java:413
 #: src/de/aidger/model/models/Employment.java:226
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:462
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:488
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:164
 #: src/de/aidger/view/models/EmploymentTableModel.java:65
 msgid "Hour count"
 msgstr ""
 
-#: src/de/aidger/controller/actions/EditorSaveAction.java:522
-#: src/de/aidger/utils/pdf/ProtocolConverter.java:511
-#: src/de/aidger/view/forms/ActivityEditorForm.java:506
-#: src/de/aidger/view/forms/ActivityViewerForm.java:141
-#: src/de/aidger/view/models/ActivityTableModel.java:48
-#: src/de/aidger/view/tabs/ProtocolViewerTab.java:60
-msgid "Initiator"
-msgstr ""
-
-#: src/de/aidger/controller/actions/EditorSaveAction.java:698
+#: src/de/aidger/controller/actions/EditorSaveAction.java:700
 #: src/de/aidger/view/forms/ActivityEditorForm.java:173
 msgid "Would you like to continue anyway?"
 msgstr ""
 
-#: src/de/aidger/controller/actions/EditorSaveAction.java:701
+#: src/de/aidger/controller/actions/EditorSaveAction.java:703
 #: src/de/aidger/view/forms/ActivityEditorForm.java:174
 msgid "Confirmation"
 msgstr ""
 
-#: src/de/aidger/controller/actions/EditorSaveAction.java:728
+#: src/de/aidger/controller/actions/EditorSaveAction.java:730
 #, java-format
 msgid "The entity {0} was saved successfully."
 msgstr ""
 
-#: src/de/aidger/controller/actions/EditorSaveAction.java:735
+#: src/de/aidger/controller/actions/EditorSaveAction.java:737
 #, java-format
 msgid ""
 "Could not save the entity {0} because it already exists in the database."
 msgstr ""
 
-#: src/de/aidger/controller/actions/EditorSaveAction.java:740
+#: src/de/aidger/controller/actions/EditorSaveAction.java:742
 #, java-format
 msgid "Could not save the entity {0} to database: {1}"
 msgstr ""
@@ -295,9 +325,9 @@ msgstr ""
 
 #: src/de/aidger/controller/actions/HelpAction.java:99
 #: src/de/aidger/utils/pdf/ActivityReportConverter.java:138
-#: src/de/aidger/utils/pdf/BalanceReportConverter.java:207
+#: src/de/aidger/utils/pdf/BalanceReportConverter.java:204
 #: src/de/aidger/utils/pdf/BudgetReportConverter.java:143
-#: src/de/aidger/utils/pdf/ControllingConverter.java:132
+#: src/de/aidger/utils/pdf/ControllingConverter.java:139
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:141
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:212
 msgid "No pdf viewer could be found!"
@@ -332,7 +362,7 @@ msgid "Generate the report"
 msgstr ""
 
 #: src/de/aidger/controller/actions/SettingsAction.java:47
-#: src/de/aidger/view/SettingsDialog.java:342
+#: src/de/aidger/view/SettingsDialog.java:341
 msgid "Settings"
 msgstr ""
 
@@ -341,7 +371,7 @@ msgid "Display program settings"
 msgstr ""
 
 #: src/de/aidger/controller/actions/SettingsBrowseAction.java:46
-#: src/de/aidger/view/SettingsDialog.java:363
+#: src/de/aidger/view/SettingsDialog.java:361
 msgid "Browse"
 msgstr ""
 
@@ -354,7 +384,7 @@ msgid "Please select an executable."
 msgstr ""
 
 #: src/de/aidger/controller/actions/SettingsDatabaseConfigAction.java:41
-#: src/de/aidger/view/SettingsDialog.java:614
+#: src/de/aidger/view/SettingsDialog.java:510
 msgid "Open Database Configuration"
 msgstr ""
 
@@ -443,18 +473,18 @@ msgstr ""
 #: src/de/aidger/model/models/Activity.java:95
 #: src/de/aidger/model/models/Contract.java:88
 #: src/de/aidger/model/models/Employment.java:103
-#: src/de/aidger/utils/pdf/ControllingConverter.java:429
+#: src/de/aidger/utils/pdf/ControllingConverter.java:457
 #: src/de/aidger/view/forms/ActivityEditorForm.java:268
 #: src/de/aidger/view/forms/ActivityViewerForm.java:109
 #: src/de/aidger/view/forms/ContractEditorForm.java:273
 #: src/de/aidger/view/forms/ContractViewerForm.java:110
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:577
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:603
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:132
-#: src/de/aidger/view/models/ActivityTableModel.java:47
-#: src/de/aidger/view/models/ContractTableModel.java:49
+#: src/de/aidger/view/models/ActivityTableModel.java:54
+#: src/de/aidger/view/models/ContractTableModel.java:53
 #: src/de/aidger/view/models/EmploymentTableModel.java:64
-#: src/de/aidger/view/tabs/ActivityReportViewerTab.java:218
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:64
+#: src/de/aidger/view/tabs/ActivityReportViewerTab.java:229
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:74
 #: src/de/aidger/view/tabs/ViewerTab.java:88
 #: src/de/aidger/view/tabs/ViewerTab.java:709
 #: src/de/aidger/view/tabs/ViewerTab.java:726
@@ -467,7 +497,7 @@ msgstr ""
 
 #: src/de/aidger/controller/actions/ViewerContractAction.java:50
 #: src/de/aidger/model/models/Employment.java:105
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:593
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:620
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:148
 #: src/de/aidger/view/models/EmploymentTableModel.java:65
 #: src/de/aidger/view/tabs/ViewerTab.java:91
@@ -486,11 +516,11 @@ msgstr ""
 #: src/de/aidger/utils/pdf/BudgetReportConverter.java:484
 #: src/de/aidger/view/forms/ActivityEditorForm.java:192
 #: src/de/aidger/view/forms/ActivityViewerForm.java:117
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:584
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:611
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:140
-#: src/de/aidger/view/models/ActivityTableModel.java:47
+#: src/de/aidger/view/models/ActivityTableModel.java:54
 #: src/de/aidger/view/models/EmploymentTableModel.java:64
-#: src/de/aidger/view/tabs/ActivityReportViewerTab.java:52
+#: src/de/aidger/view/tabs/ActivityReportViewerTab.java:54
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:69
 #: src/de/aidger/view/tabs/ViewerTab.java:88
 #: src/de/aidger/view/tabs/ViewerTab.java:706
@@ -623,11 +653,11 @@ msgstr ""
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:510
 #: src/de/aidger/view/forms/ActivityEditorForm.java:489
 #: src/de/aidger/view/forms/ActivityViewerForm.java:125
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:443
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:469
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:156
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:223
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:225
 #: src/de/aidger/view/forms/HourlyWageViewerForm.java:87
-#: src/de/aidger/view/models/ActivityTableModel.java:47
+#: src/de/aidger/view/models/ActivityTableModel.java:54
 #: src/de/aidger/view/models/EmploymentTableModel.java:65
 #: src/de/aidger/view/models/HourlyWageTableModel.java:47
 #: src/de/aidger/view/tabs/ProtocolViewerTab.java:60
@@ -641,10 +671,10 @@ msgstr ""
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:510
 #: src/de/aidger/view/forms/ActivityEditorForm.java:515
 #: src/de/aidger/view/forms/ActivityViewerForm.java:149
-#: src/de/aidger/view/forms/ContractEditorForm.java:318
+#: src/de/aidger/view/forms/ContractEditorForm.java:322
 #: src/de/aidger/view/forms/ContractViewerForm.java:150
-#: src/de/aidger/view/models/ActivityTableModel.java:48
-#: src/de/aidger/view/models/ContractTableModel.java:51
+#: src/de/aidger/view/models/ActivityTableModel.java:55
+#: src/de/aidger/view/models/ContractTableModel.java:55
 #: src/de/aidger/view/tabs/ProtocolViewerTab.java:60
 msgid "Type"
 msgstr ""
@@ -654,7 +684,7 @@ msgstr ""
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:511
 #: src/de/aidger/view/forms/ActivityEditorForm.java:496
 #: src/de/aidger/view/forms/ActivityViewerForm.java:133
-#: src/de/aidger/view/models/ActivityTableModel.java:48
+#: src/de/aidger/view/models/ActivityTableModel.java:55
 #: src/de/aidger/view/tabs/ProtocolViewerTab.java:61
 msgid "Processor"
 msgstr ""
@@ -663,7 +693,7 @@ msgstr ""
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:510
 #: src/de/aidger/view/forms/ActivityEditorForm.java:543
 #: src/de/aidger/view/forms/ActivityViewerForm.java:173
-#: src/de/aidger/view/models/ActivityTableModel.java:49
+#: src/de/aidger/view/models/ActivityTableModel.java:56
 #: src/de/aidger/view/tabs/ProtocolViewerTab.java:60
 msgid "Content"
 msgstr ""
@@ -672,7 +702,7 @@ msgstr ""
 #: src/de/aidger/model/models/Activity.java:208
 #: src/de/aidger/view/forms/ActivityEditorForm.java:524
 #: src/de/aidger/view/forms/ActivityViewerForm.java:157
-#: src/de/aidger/view/models/ActivityTableModel.java:48
+#: src/de/aidger/view/models/ActivityTableModel.java:55
 msgid "Document Type"
 msgstr ""
 
@@ -713,9 +743,9 @@ msgstr ""
 #: src/de/aidger/model/models/HourlyWage.java:68
 #: src/de/aidger/view/forms/AssistantEditorForm.java:165
 #: src/de/aidger/view/forms/AssistantViewerForm.java:96
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:620
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:648
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:188
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:216
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:217
 #: src/de/aidger/view/forms/HourlyWageViewerForm.java:81
 #: src/de/aidger/view/models/AssistantTableModel.java:45
 #: src/de/aidger/view/models/EmploymentTableModel.java:66
@@ -736,18 +766,18 @@ msgid "Assistant is still linked to a Contract"
 msgstr ""
 
 #: src/de/aidger/model/models/Contract.java:83
-#: src/de/aidger/view/forms/ContractEditorForm.java:282
+#: src/de/aidger/view/forms/ContractEditorForm.java:283
 #: src/de/aidger/view/forms/ContractViewerForm.java:118
-#: src/de/aidger/view/models/ContractTableModel.java:49
+#: src/de/aidger/view/models/ContractTableModel.java:53
 msgid "Completion date"
 msgstr ""
 
 #: src/de/aidger/model/models/Contract.java:84
 #: src/de/aidger/model/models/Contract.java:86
-#: src/de/aidger/view/forms/ContractEditorForm.java:300
+#: src/de/aidger/view/forms/ContractEditorForm.java:303
 #: src/de/aidger/view/forms/ContractViewerForm.java:134
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:232
-#: src/de/aidger/view/models/ContractTableModel.java:50
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:234
+#: src/de/aidger/view/models/ContractTableModel.java:54
 msgid "Start date"
 msgstr ""
 
@@ -764,11 +794,11 @@ msgstr ""
 #: src/de/aidger/model/models/Employment.java:238
 #: src/de/aidger/view/forms/CostUnitEditorForm.java:134
 #: src/de/aidger/view/forms/CostUnitViewerForm.java:76
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:611
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:639
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:180
 #: src/de/aidger/view/models/CostUnitTableModel.java:41
 #: src/de/aidger/view/models/EmploymentTableModel.java:65
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:428
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:466
 msgid "Funds"
 msgstr ""
 
@@ -782,17 +812,17 @@ msgstr ""
 #: src/de/aidger/model/models/Course.java:107
 #: src/de/aidger/view/forms/CourseEditorForm.java:281
 #: src/de/aidger/view/forms/CourseViewerForm.java:122
-#: src/de/aidger/view/models/CourseTableModel.java:45
+#: src/de/aidger/view/models/CourseTableModel.java:49
 msgid "Description"
 msgstr ""
 
 #: src/de/aidger/model/models/Course.java:107
 #: src/de/aidger/model/models/Course.java:112
-#: src/de/aidger/utils/pdf/BalanceReportConverter.java:517
+#: src/de/aidger/utils/pdf/BalanceReportConverter.java:516
 #: src/de/aidger/utils/pdf/BudgetReportConverter.java:484
 #: src/de/aidger/view/forms/CourseEditorForm.java:289
 #: src/de/aidger/view/forms/CourseViewerForm.java:128
-#: src/de/aidger/view/models/CourseTableModel.java:45
+#: src/de/aidger/view/models/CourseTableModel.java:49
 #: src/de/aidger/view/reports/BalanceReportSemesterPanel.java:97
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:69
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:96
@@ -801,11 +831,11 @@ msgid "Semester"
 msgstr ""
 
 #: src/de/aidger/model/models/Course.java:107
-#: src/de/aidger/utils/pdf/BalanceReportConverter.java:699
+#: src/de/aidger/utils/pdf/BalanceReportConverter.java:719
 #: src/de/aidger/utils/pdf/BudgetReportConverter.java:484
 #: src/de/aidger/view/forms/CourseEditorForm.java:298
 #: src/de/aidger/view/forms/CourseViewerForm.java:136
-#: src/de/aidger/view/models/CourseTableModel.java:46
+#: src/de/aidger/view/models/CourseTableModel.java:50
 #: src/de/aidger/view/reports/BalanceReportGroupPanel.java:56
 #: src/de/aidger/view/tabs/BalanceViewerTab.java:125
 #: src/de/aidger/view/tabs/BalanceViewerTab.java:235
@@ -817,28 +847,20 @@ msgstr ""
 
 #. NOI18N
 #: src/de/aidger/model/models/Course.java:107
-#: src/de/aidger/utils/pdf/BalanceReportConverter.java:732
+#: src/de/aidger/utils/pdf/BalanceReportConverter.java:752
 #: src/de/aidger/view/forms/CourseEditorForm.java:411
 #: src/de/aidger/view/forms/CourseViewerForm.java:208
-#: src/de/aidger/view/models/CourseTableModel.java:48
+#: src/de/aidger/view/models/CourseTableModel.java:52
 #: src/de/aidger/view/reports/BalanceReportGroupPanel.java:218
 #: src/de/aidger/view/tabs/BalanceViewerTab.java:124
 #: src/de/aidger/view/tabs/BalanceViewerTab.java:231
 msgid "Group"
 msgstr ""
 
-#: src/de/aidger/model/models/Course.java:108
-#: src/de/aidger/model/models/Course.java:244
-#: src/de/aidger/view/forms/CourseEditorForm.java:383
-#: src/de/aidger/view/forms/CourseViewerForm.java:168
-#: src/de/aidger/view/models/CourseTableModel.java:47
-msgid "AWH per group"
-msgstr ""
-
 #: src/de/aidger/model/models/Course.java:110
 #: src/de/aidger/view/forms/CourseEditorForm.java:429
 #: src/de/aidger/view/forms/CourseViewerForm.java:224
-#: src/de/aidger/view/models/CourseTableModel.java:48
+#: src/de/aidger/view/models/CourseTableModel.java:52
 #: src/de/aidger/view/tabs/ViewerTab.java:89
 msgid "Financial Category"
 msgstr ""
@@ -846,7 +868,7 @@ msgstr ""
 #: src/de/aidger/model/models/Course.java:239
 #: src/de/aidger/view/forms/CourseEditorForm.java:316
 #: src/de/aidger/view/forms/CourseViewerForm.java:152
-#: src/de/aidger/view/models/CourseTableModel.java:46
+#: src/de/aidger/view/models/CourseTableModel.java:50
 msgid "Number of Groups"
 msgstr ""
 
@@ -869,18 +891,6 @@ msgid "has to be positive"
 msgstr ""
 
 #: src/de/aidger/model/models/Employment.java:230
-#: src/de/aidger/model/models/FinancialCategory.java:69
-#: src/de/aidger/model/models/FinancialCategory.java:149
-#: src/de/aidger/model/models/HourlyWage.java:152
-#: src/de/aidger/view/forms/FinancialCategoryEditorForm.java:290
-#: src/de/aidger/view/forms/FinancialCategoryViewerForm.java:127
-#: src/de/aidger/view/models/FinancialCategoryTableModel.java:44
-#: src/de/aidger/view/tabs/BalanceViewerTab.java:284
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:408
-msgid "Year"
-msgstr ""
-
-#: src/de/aidger/model/models/Employment.java:230
 #: src/de/aidger/model/models/FinancialCategory.java:149
 #: src/de/aidger/model/models/HourlyWage.java:152
 msgid "is an incorrect year"
@@ -888,7 +898,7 @@ msgstr ""
 
 #: src/de/aidger/model/models/Employment.java:234
 #: src/de/aidger/model/models/HourlyWage.java:156
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:418
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:456
 msgid "Month"
 msgstr ""
 
@@ -914,27 +924,12 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: src/de/aidger/model/models/FinancialCategory.java:70
-#: src/de/aidger/model/models/FinancialCategory.java:155
-#: src/de/aidger/view/forms/FinancialCategoryEditorForm.java:207
-#: src/de/aidger/view/forms/FinancialCategoryViewerForm.java:82
-#: src/de/aidger/view/models/FinancialCategoryTableModel.java:45
-msgid "Budget Costs"
-msgstr ""
-
 #: src/de/aidger/model/models/FinancialCategory.java:155
 msgid "can't be zero."
 msgstr ""
 
 #: src/de/aidger/model/models/FinancialCategory.java:175
 msgid "Financial Category is still linked to a Course."
-msgstr ""
-
-#: src/de/aidger/model/models/HourlyWage.java:66
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:250
-#: src/de/aidger/view/forms/HourlyWageViewerForm.java:95
-#: src/de/aidger/view/models/HourlyWageTableModel.java:47
-msgid "Wage"
 msgstr ""
 
 #: src/de/aidger/model/validators/DateRangeValidator.java:51
@@ -998,25 +993,25 @@ msgid "Illegal modifications of the history file have been detected."
 msgstr ""
 
 #: src/de/aidger/utils/pdf/ActivityReportConverter.java:221
-#: src/de/aidger/utils/pdf/BalanceReportConverter.java:321
+#: src/de/aidger/utils/pdf/BalanceReportConverter.java:318
 #: src/de/aidger/utils/pdf/BudgetReportConverter.java:255
-#: src/de/aidger/utils/pdf/ControllingConverter.java:244
+#: src/de/aidger/utils/pdf/ControllingConverter.java:251
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:324
 msgid "File could not be created."
 msgstr ""
 
 #: src/de/aidger/utils/pdf/ActivityReportConverter.java:222
-#: src/de/aidger/utils/pdf/BalanceReportConverter.java:322
+#: src/de/aidger/utils/pdf/BalanceReportConverter.java:319
 #: src/de/aidger/utils/pdf/BudgetReportConverter.java:256
-#: src/de/aidger/utils/pdf/ControllingConverter.java:245
+#: src/de/aidger/utils/pdf/ControllingConverter.java:252
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:325
 msgid "Please close all processes that are using the file."
 msgstr ""
 
 #: src/de/aidger/utils/pdf/ActivityReportConverter.java:244
-#: src/de/aidger/utils/pdf/BalanceReportConverter.java:450
+#: src/de/aidger/utils/pdf/BalanceReportConverter.java:448
 #: src/de/aidger/utils/pdf/BudgetReportConverter.java:386
-#: src/de/aidger/utils/pdf/ControllingConverter.java:375
+#: src/de/aidger/utils/pdf/ControllingConverter.java:403
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:455
 msgid "Generated by: "
 msgstr ""
@@ -1033,60 +1028,60 @@ msgstr ""
 msgid "Semester balance report"
 msgstr ""
 
-#: src/de/aidger/utils/pdf/BalanceReportConverter.java:383
+#: src/de/aidger/utils/pdf/BalanceReportConverter.java:380
 #: src/de/aidger/utils/pdf/BudgetReportConverter.java:318
-#: src/de/aidger/utils/pdf/ControllingConverter.java:307
+#: src/de/aidger/utils/pdf/ControllingConverter.java:334
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:386
 msgid "Author"
 msgstr ""
 
-#: src/de/aidger/utils/pdf/BalanceReportConverter.java:436
+#: src/de/aidger/utils/pdf/BalanceReportConverter.java:434
 #: src/de/aidger/utils/pdf/BudgetReportConverter.java:372
-#: src/de/aidger/utils/pdf/ControllingConverter.java:361
+#: src/de/aidger/utils/pdf/ControllingConverter.java:389
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:441
 msgid "Page"
 msgstr ""
 
-#: src/de/aidger/utils/pdf/BalanceReportConverter.java:437
+#: src/de/aidger/utils/pdf/BalanceReportConverter.java:435
 #: src/de/aidger/utils/pdf/BudgetReportConverter.java:373
-#: src/de/aidger/utils/pdf/ControllingConverter.java:362
+#: src/de/aidger/utils/pdf/ControllingConverter.java:390
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:442
 msgid "of"
 msgstr ""
 
-#: src/de/aidger/utils/pdf/BalanceReportConverter.java:699
+#: src/de/aidger/utils/pdf/BalanceReportConverter.java:719
 #: src/de/aidger/view/reports/BalanceReportGroupPanel.java:56
 msgid "Title"
 msgstr ""
 
-#: src/de/aidger/utils/pdf/BalanceReportConverter.java:699
+#: src/de/aidger/utils/pdf/BalanceReportConverter.java:719
 #: src/de/aidger/view/forms/CourseEditorForm.java:402
 #: src/de/aidger/view/forms/CourseViewerForm.java:200
-#: src/de/aidger/view/models/CourseTableModel.java:48
+#: src/de/aidger/view/models/CourseTableModel.java:52
 #: src/de/aidger/view/reports/BalanceReportGroupPanel.java:56
 msgid "Part"
 msgstr ""
 
-#: src/de/aidger/utils/pdf/BalanceReportConverter.java:700
+#: src/de/aidger/utils/pdf/BalanceReportConverter.java:720
 #: src/de/aidger/view/forms/CourseEditorForm.java:326
 #: src/de/aidger/view/forms/CourseViewerForm.java:160
-#: src/de/aidger/view/models/CourseTableModel.java:47
+#: src/de/aidger/view/models/CourseTableModel.java:51
 #: src/de/aidger/view/reports/BalanceReportGroupPanel.java:57
 #: src/de/aidger/view/tabs/BalanceViewerTab.java:126
 msgid "Target Audience"
 msgstr ""
 
-#: src/de/aidger/utils/pdf/BalanceReportConverter.java:700
+#: src/de/aidger/utils/pdf/BalanceReportConverter.java:720
 #: src/de/aidger/view/reports/BalanceReportGroupPanel.java:57
 msgid "Planned AWS"
 msgstr ""
 
-#: src/de/aidger/utils/pdf/BalanceReportConverter.java:700
+#: src/de/aidger/utils/pdf/BalanceReportConverter.java:720
 #: src/de/aidger/view/reports/BalanceReportGroupPanel.java:57
 msgid "Basic needed AWS"
 msgstr ""
 
-#: src/de/aidger/utils/pdf/BalanceReportConverter.java:711
+#: src/de/aidger/utils/pdf/BalanceReportConverter.java:731
 #: src/de/aidger/view/reports/BalanceReportGroupPanel.java:188
 msgid "Budget costs from"
 msgstr ""
@@ -1094,7 +1089,7 @@ msgstr ""
 #.
 #. * Create the row for the sums.
 #.
-#: src/de/aidger/utils/pdf/BalanceReportConverter.java:772
+#: src/de/aidger/utils/pdf/BalanceReportConverter.java:792
 #: src/de/aidger/view/reports/BalanceReportGroupPanel.java:89
 msgid "Sum"
 msgstr ""
@@ -1108,7 +1103,7 @@ msgstr ""
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:70
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:97
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:186
-#: src/de/aidger/view/tabs/WelcomeTab.java:322
+#: src/de/aidger/view/tabs/WelcomeTab.java:326
 msgid "Booked budgets"
 msgstr ""
 
@@ -1123,30 +1118,32 @@ msgstr ""
 msgid "Total Budgets"
 msgstr ""
 
-#: src/de/aidger/utils/pdf/ControllingConverter.java:105
-msgid "Controlling report"
+#: src/de/aidger/utils/pdf/ControllingConverter.java:112
+#: src/de/aidger/view/UI.java:715
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:533
+msgid "Assistant Controlling"
 msgstr ""
 
-#: src/de/aidger/utils/pdf/ControllingConverter.java:430
+#: src/de/aidger/utils/pdf/ControllingConverter.java:458
 msgid "Planned costs(pre-tax)"
 msgstr ""
 
-#: src/de/aidger/utils/pdf/ControllingConverter.java:430
+#: src/de/aidger/utils/pdf/ControllingConverter.java:458
 msgid "Actual costs(pre-tax)"
 msgstr ""
 
-#: src/de/aidger/utils/pdf/ControllingConverter.java:431
+#: src/de/aidger/utils/pdf/ControllingConverter.java:459
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:511
 #: src/de/aidger/view/forms/ActivityEditorForm.java:534
 #: src/de/aidger/view/forms/ActivityViewerForm.java:165
 #: src/de/aidger/view/forms/CourseEditorForm.java:420
 #: src/de/aidger/view/forms/CourseViewerForm.java:216
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:629
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:658
 #: src/de/aidger/view/forms/EmploymentViewerForm.java:196
-#: src/de/aidger/view/models/ActivityTableModel.java:49
-#: src/de/aidger/view/models/CourseTableModel.java:48
+#: src/de/aidger/view/models/ActivityTableModel.java:56
+#: src/de/aidger/view/models/CourseTableModel.java:52
 #: src/de/aidger/view/models/EmploymentTableModel.java:66
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:65
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:75
 #: src/de/aidger/view/tabs/ProtocolViewerTab.java:61
 msgid "Remark"
 msgstr ""
@@ -1164,6 +1161,14 @@ msgstr ""
 #: src/de/aidger/utils/pdf/ProtocolConverter.java:510
 #: src/de/aidger/view/tabs/ProtocolViewerTab.java:59
 msgid "Affected course"
+msgstr ""
+
+#: src/de/aidger/utils/pdf/ProtocolConverter.java:511
+#: src/de/aidger/view/forms/ActivityEditorForm.java:506
+#: src/de/aidger/view/forms/ActivityViewerForm.java:141
+#: src/de/aidger/view/models/ActivityTableModel.java:55
+#: src/de/aidger/view/tabs/ProtocolViewerTab.java:60
+msgid "Initiator"
 msgstr ""
 
 #: src/de/aidger/view/AboutDialog.java:84
@@ -1188,80 +1193,80 @@ msgstr ""
 msgid "Close tab"
 msgstr ""
 
-#: src/de/aidger/view/SettingsDialog.java:344
+#: src/de/aidger/view/SettingsDialog.java:343
 msgid "Language:"
 msgstr ""
 
-#: src/de/aidger/view/SettingsDialog.java:346
+#: src/de/aidger/view/SettingsDialog.java:345
 msgid "Amount of activities:"
 msgstr ""
 
-#: src/de/aidger/view/SettingsDialog.java:348
+#: src/de/aidger/view/SettingsDialog.java:346
 msgid "The amount of activities shown in detailviews."
 msgstr ""
 
-#: src/de/aidger/view/SettingsDialog.java:350
+#: src/de/aidger/view/SettingsDialog.java:348
 msgid "Name:"
 msgstr ""
 
+#: src/de/aidger/view/SettingsDialog.java:349
 #: src/de/aidger/view/SettingsDialog.java:351
-#: src/de/aidger/view/SettingsDialog.java:353
 msgid "The name used in activities."
 msgstr ""
 
-#: src/de/aidger/view/SettingsDialog.java:355
+#: src/de/aidger/view/SettingsDialog.java:353
 msgid "PDF Viewer:"
 msgstr ""
 
-#: src/de/aidger/view/SettingsDialog.java:359
+#: src/de/aidger/view/SettingsDialog.java:357
 msgid "Open reports automatically after exporting"
 msgstr ""
 
-#: src/de/aidger/view/SettingsDialog.java:361
+#: src/de/aidger/view/SettingsDialog.java:359
 msgid "Save Tabs when quitting"
 msgstr ""
 
-#: src/de/aidger/view/SettingsDialog.java:495
+#: src/de/aidger/view/SettingsDialog.java:424
 msgid "General"
 msgstr ""
 
-#: src/de/aidger/view/SettingsDialog.java:497
+#: src/de/aidger/view/SettingsDialog.java:426
 msgid "Pessimistic Factor:"
 msgstr ""
 
-#: src/de/aidger/view/SettingsDialog.java:499
+#: src/de/aidger/view/SettingsDialog.java:428
 msgid "Historical Factor:"
 msgstr ""
 
-#: src/de/aidger/view/SettingsDialog.java:501
+#: src/de/aidger/view/SettingsDialog.java:430
 msgid "Time until anonymization in days:"
 msgstr ""
 
-#: src/de/aidger/view/SettingsDialog.java:503
-msgid "Tolerance of Controlling:"
+#: src/de/aidger/view/SettingsDialog.java:432
+msgid "Tolerance of Controlling in %:"
 msgstr ""
 
-#: src/de/aidger/view/SettingsDialog.java:505
+#: src/de/aidger/view/SettingsDialog.java:434
 msgid "Calculation method:"
 msgstr ""
 
-#: src/de/aidger/view/SettingsDialog.java:508
+#: src/de/aidger/view/SettingsDialog.java:437
 msgid "Pessimistic"
 msgstr ""
 
-#: src/de/aidger/view/SettingsDialog.java:511
+#: src/de/aidger/view/SettingsDialog.java:440
 msgid "Historical"
 msgstr ""
 
-#: src/de/aidger/view/SettingsDialog.java:513
+#: src/de/aidger/view/SettingsDialog.java:442
 msgid "Rounding Precision"
 msgstr ""
 
-#: src/de/aidger/view/SettingsDialog.java:612 src/de/aidger/view/UI.java:702
+#: src/de/aidger/view/SettingsDialog.java:508 src/de/aidger/view/UI.java:702
 msgid "Reports"
 msgstr ""
 
-#: src/de/aidger/view/SettingsDialog.java:629
+#: src/de/aidger/view/SettingsDialog.java:529
 msgid "Database"
 msgstr ""
 
@@ -1270,7 +1275,7 @@ msgid "Error"
 msgstr ""
 
 #: src/de/aidger/view/UI.java:280
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:227
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:253
 msgid "Info"
 msgstr ""
 
@@ -1328,12 +1333,12 @@ msgstr ""
 msgid "Cost Units"
 msgstr ""
 
-#: src/de/aidger/view/UI.java:685 src/de/aidger/view/tabs/WelcomeTab.java:340
+#: src/de/aidger/view/UI.java:685 src/de/aidger/view/tabs/WelcomeTab.java:344
 msgid "Employments"
 msgstr ""
 
 #: src/de/aidger/view/UI.java:687 src/de/aidger/view/UI.java:695
-#: src/de/aidger/view/tabs/WelcomeTab.java:518
+#: src/de/aidger/view/tabs/WelcomeTab.java:528
 msgid "Overview"
 msgstr ""
 
@@ -1364,7 +1369,7 @@ msgid "Semester Balance Report"
 msgstr ""
 
 #: src/de/aidger/view/UI.java:709
-#: src/de/aidger/view/tabs/ActivityReportViewerTab.java:292
+#: src/de/aidger/view/tabs/ActivityReportViewerTab.java:303
 msgid "Generate Activity Report"
 msgstr ""
 
@@ -1375,11 +1380,6 @@ msgstr ""
 #: src/de/aidger/view/UI.java:713
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:546
 msgid "Course Controlling"
-msgstr ""
-
-#: src/de/aidger/view/UI.java:715
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:495
-msgid "Assistant Controlling"
 msgstr ""
 
 #: src/de/aidger/view/UI.java:718
@@ -1470,8 +1470,8 @@ msgstr ""
 #: src/de/aidger/view/forms/ActivityViewerForm.java:61
 #: src/de/aidger/view/tabs/DetailViewerTab.java:589
 #: src/de/aidger/view/tabs/DetailViewerTab.java:628
-#: src/de/aidger/view/tabs/WelcomeTab.java:219
 #: src/de/aidger/view/tabs/WelcomeTab.java:223
+#: src/de/aidger/view/tabs/WelcomeTab.java:227
 msgid "None"
 msgstr ""
 
@@ -1495,15 +1495,15 @@ msgstr ""
 msgid "Confirmation date can be entered after saving the contract."
 msgstr ""
 
-#: src/de/aidger/view/forms/ContractEditorForm.java:291
+#: src/de/aidger/view/forms/ContractEditorForm.java:293
 #: src/de/aidger/view/forms/ContractViewerForm.java:126
-#: src/de/aidger/view/models/ContractTableModel.java:50
+#: src/de/aidger/view/models/ContractTableModel.java:54
 msgid "Confirmation date"
 msgstr ""
 
-#: src/de/aidger/view/forms/ContractEditorForm.java:327
+#: src/de/aidger/view/forms/ContractEditorForm.java:331
 #: src/de/aidger/view/forms/ContractViewerForm.java:158
-#: src/de/aidger/view/models/ContractTableModel.java:51
+#: src/de/aidger/view/models/ContractTableModel.java:55
 msgid "Delegation"
 msgstr ""
 
@@ -1534,13 +1534,13 @@ msgstr ""
 
 #: src/de/aidger/view/forms/CourseEditorForm.java:307
 #: src/de/aidger/view/forms/CourseViewerForm.java:144
-#: src/de/aidger/view/models/CourseTableModel.java:46
+#: src/de/aidger/view/models/CourseTableModel.java:50
 msgid "Advisor"
 msgstr ""
 
 #: src/de/aidger/view/forms/CourseEditorForm.java:393
 #: src/de/aidger/view/forms/CourseViewerForm.java:192
-#: src/de/aidger/view/models/CourseTableModel.java:47
+#: src/de/aidger/view/models/CourseTableModel.java:51
 msgid "Scope"
 msgstr ""
 
@@ -1548,7 +1548,7 @@ msgstr ""
 msgid "Total budgets"
 msgstr ""
 
-#: src/de/aidger/view/forms/EmploymentEditorForm.java:487
+#: src/de/aidger/view/forms/EmploymentEditorForm.java:513
 msgid "Generate employment months in concordance to the contract."
 msgstr ""
 
@@ -1561,17 +1561,17 @@ msgid "Only a number is allowed."
 msgstr ""
 
 #: src/de/aidger/view/forms/HourlyWageEditorForm.java:47
-#: src/de/aidger/view/tabs/WelcomeTab.java:311
+#: src/de/aidger/view/tabs/WelcomeTab.java:315
 msgid "Unchecked"
 msgstr ""
 
 #: src/de/aidger/view/forms/HourlyWageEditorForm.java:47
-#: src/de/aidger/view/tabs/WelcomeTab.java:312
+#: src/de/aidger/view/tabs/WelcomeTab.java:316
 msgid "Checked"
 msgstr ""
 
 #: src/de/aidger/view/forms/HourlyWageEditorForm.java:47
-#: src/de/aidger/view/tabs/WelcomeTab.java:313
+#: src/de/aidger/view/tabs/WelcomeTab.java:317
 msgid "Bachelor"
 msgstr ""
 
@@ -1580,14 +1580,14 @@ msgstr ""
 msgid "Only a valid currency format is allowed. Example: 8{0}40"
 msgstr ""
 
-#: src/de/aidger/view/forms/HourlyWageEditorForm.java:241
+#: src/de/aidger/view/forms/HourlyWageEditorForm.java:244
 msgid "Finish date"
 msgstr ""
 
-#: src/de/aidger/view/models/ActivityTableModel.java:47
+#: src/de/aidger/view/models/ActivityTableModel.java:54
 #: src/de/aidger/view/models/AssistantTableModel.java:44
-#: src/de/aidger/view/models/ContractTableModel.java:49
-#: src/de/aidger/view/models/CourseTableModel.java:45
+#: src/de/aidger/view/models/ContractTableModel.java:53
+#: src/de/aidger/view/models/CourseTableModel.java:49
 #: src/de/aidger/view/models/EmploymentTableModel.java:64
 #: src/de/aidger/view/models/FinancialCategoryTableModel.java:44
 msgid "ID"
@@ -1609,15 +1609,15 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-#: src/de/aidger/view/tabs/ActivityReportViewerTab.java:52
+#: src/de/aidger/view/tabs/ActivityReportViewerTab.java:54
 msgid "Period"
 msgstr ""
 
-#: src/de/aidger/view/tabs/ActivityReportViewerTab.java:52
+#: src/de/aidger/view/tabs/ActivityReportViewerTab.java:54
 msgid "Extent"
 msgstr ""
 
-#: src/de/aidger/view/tabs/ActivityReportViewerTab.java:248
+#: src/de/aidger/view/tabs/ActivityReportViewerTab.java:259
 msgid "Assistant name"
 msgstr ""
 
@@ -1637,30 +1637,30 @@ msgstr ""
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:70
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:97
 #: src/de/aidger/view/tabs/BudgetViewerTab.java:184
-#: src/de/aidger/view/tabs/WelcomeTab.java:323
+#: src/de/aidger/view/tabs/WelcomeTab.java:327
 msgid "Remaining budgets"
 msgstr ""
 
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:64
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:74
 msgid "Planned costs (pre-tax)"
 msgstr ""
 
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:65
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:75
 msgid "Actual costs (pre-tax)"
 msgstr ""
 
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:223
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:249
 msgid ""
 "The resulting report may contain incorrect calculations, \n"
 "because you did not enter hourly wages for some periods, \n"
 "in which some of your assistants are employed."
 msgstr ""
 
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:226
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:252
 msgid "Shall the affected assistants be included in the report anyway?"
 msgstr ""
 
-#: src/de/aidger/view/tabs/ControllingViewerTab.java:259
+#: src/de/aidger/view/tabs/ControllingViewerTab.java:283
 msgid "Calculations may be off, due to missing hourly wages."
 msgstr ""
 
@@ -1770,117 +1770,117 @@ msgid "Data"
 msgstr ""
 
 #: src/de/aidger/view/tabs/WelcomeTab.java:101
-#: src/de/aidger/view/tabs/WelcomeTab.java:393
+#: src/de/aidger/view/tabs/WelcomeTab.java:397
 #, java-format
 msgid "The last start of aidGer was on {0}."
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:109
-#: src/de/aidger/view/tabs/WelcomeTab.java:114
-#: src/de/aidger/view/tabs/WelcomeTab.java:120
+#: src/de/aidger/view/tabs/WelcomeTab.java:111
+#: src/de/aidger/view/tabs/WelcomeTab.java:116
+#: src/de/aidger/view/tabs/WelcomeTab.java:122
 msgid "There are currently no statistics available."
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:111
+#: src/de/aidger/view/tabs/WelcomeTab.java:113
 msgid "This is the first time aidGer is started."
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:117
+#: src/de/aidger/view/tabs/WelcomeTab.java:119
 msgid "A connection to the database couldn't be established."
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:140
+#: src/de/aidger/view/tabs/WelcomeTab.java:144
 #, java-format
 msgid "{0}: {1} with Id {2} was added."
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:149
+#: src/de/aidger/view/tabs/WelcomeTab.java:153
 #, java-format
 msgid "{0}: {1} {2} was added."
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:161
+#: src/de/aidger/view/tabs/WelcomeTab.java:165
 #, java-format
 msgid "{0}: {1} with Id {2} was edited."
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:170
+#: src/de/aidger/view/tabs/WelcomeTab.java:174
 #, java-format
 msgid "{0}: {1} {2} was edited."
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:182
+#: src/de/aidger/view/tabs/WelcomeTab.java:186
 #, java-format
 msgid "{0}: {1} with Id {2} was removed."
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:290
+#: src/de/aidger/view/tabs/WelcomeTab.java:294
 #, java-format
 msgid "aidGer has created {0} activities."
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:293
+#: src/de/aidger/view/tabs/WelcomeTab.java:297
 #, java-format
 msgid "{0} assistants are working in {1} employments."
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:296
+#: src/de/aidger/view/tabs/WelcomeTab.java:300
 #, java-format
 msgid "These employments are part of {0} courses."
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:301
+#: src/de/aidger/view/tabs/WelcomeTab.java:305
 #, java-format
 msgid ""
 "Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:304
+#: src/de/aidger/view/tabs/WelcomeTab.java:308
 #, java-format
 msgid "They are using funds of {0} Euros."
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:318
+#: src/de/aidger/view/tabs/WelcomeTab.java:322
 msgid "Qualifications of all assistants"
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:326
+#: src/de/aidger/view/tabs/WelcomeTab.java:330
 msgid "Budget of all courses"
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:330
+#: src/de/aidger/view/tabs/WelcomeTab.java:334
 msgid "Used budget"
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:331
+#: src/de/aidger/view/tabs/WelcomeTab.java:335
 msgid "Remaining budget"
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:335
+#: src/de/aidger/view/tabs/WelcomeTab.java:339
 msgid "Budget costs of all funds"
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:352
+#: src/de/aidger/view/tabs/WelcomeTab.java:356
 msgid "Count of employments"
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:385
+#: src/de/aidger/view/tabs/WelcomeTab.java:389
 msgid "Welcome to aidGer"
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:403
+#: src/de/aidger/view/tabs/WelcomeTab.java:409
 msgid "Last Changes"
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:418
+#: src/de/aidger/view/tabs/WelcomeTab.java:426
 msgid "Last activities"
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:436
+#: src/de/aidger/view/tabs/WelcomeTab.java:446
 msgid "Statistics & Diagrams"
 msgstr ""
 
-#: src/de/aidger/view/tabs/WelcomeTab.java:447
+#: src/de/aidger/view/tabs/WelcomeTab.java:457
 msgid "Show statistics"
 msgstr ""
 
