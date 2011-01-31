@@ -88,9 +88,12 @@ public class UICourse extends Course implements UIModel, Comparable<UICourse> {
      * @return the year in 4 digits
      */
     private Integer getYearOfSemester(String semester) {
-        Matcher m = patternSemester.matcher(semester);
-        return m.find() ? Integer.valueOf("20" + m.group(1)) : Integer
-            .valueOf(semester);
+        if (semester != null) {
+            Matcher m = patternSemester.matcher(semester);
+            return m.find() ? Integer.valueOf("20" + m.group(1)) : Integer
+                .valueOf(semester);
+        }
+        return 0;
     }
 
     /*
