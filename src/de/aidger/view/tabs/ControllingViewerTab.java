@@ -166,16 +166,6 @@ public class ControllingViewerTab extends ReportTab {
     }
 
     /**
-     * Returns the title of the generated controlling report.
-     * 
-     * @return The title - "1." + year + " - " + month + "." + year + "\n" +
-     *         funds
-     */
-    public String[] getTitle() {
-        return title;
-    }
-
-    /**
      * Enables the export buttons if there is data in the table.
      */
     public void enableExport() {
@@ -222,6 +212,16 @@ public class ControllingViewerTab extends ReportTab {
             }
         }
         return returnVector;
+    }
+
+    /**
+     * Returns the title of the generated controlling report.
+     * 
+     * @return The title - "1." + year + " - " + month + "." + year + "\n" +
+     *         funds
+     */
+    public String[] getTitle() {
+        return title;
     }
 
     /**
