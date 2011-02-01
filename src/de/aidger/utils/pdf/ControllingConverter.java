@@ -56,6 +56,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import de.aidger.model.Runtime;
 import de.aidger.utils.DateUtils;
 import de.aidger.view.UI;
+import de.aidger.view.tabs.ControllingViewerTab;
 
 /**
  * This class converts controlling reports to a format for itext and exports
@@ -102,8 +103,12 @@ public class ControllingConverter {
      *            The file for the report.
      */
     public ControllingConverter(File file, ArrayList<String[]> tableRows,
-            String[] title) {
-        this.title = title;
+            ControllingViewerTab tab) {
+        if (tab != null) {
+            title = tab.getTitle();
+        } else {
+            title = new String[] { "", "" };
+        }
         this.tableRows = tableRows;
         document = new Document(PageSize.A4);
         document.setMargins(document.leftMargin(), document.rightMargin(),
@@ -289,7 +294,8 @@ public class ControllingConverter {
          */
         @Override
         public void onStartPage(PdfWriter writer, Document document) {
-            PdfPTable table = new PdfPTable(new float[] { 3, 4, 3 });
+            PdfPTable table = new PdfPTable(new float[] { (float) 2.5, 5,
+                    (float) 2.5 });
             table.setTotalWidth(writer.getPageSize().getRight()
                     - document.rightMargin() - document.leftMargin());
             try {

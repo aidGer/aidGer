@@ -120,7 +120,7 @@ public class ControllingExportAllAction extends AbstractAction {
                 }
             } while (!exit);
 
-            new ControllingConverter(file, tab.getRows(null), tab.getTitle());
+            new ControllingConverter(file, tab.getRows(null), tab);
         }
     }
 }
