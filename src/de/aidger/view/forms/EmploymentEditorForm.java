@@ -222,7 +222,11 @@ public class EmploymentEditorForm extends JPanel {
                 contracts = (new Contract())
                     .getContracts((Assistant) cmbAssistant.getSelectedItem());
             } else {
-                contracts = (new Contract()).getAll();
+                List<IContract> tmpContracts = (new Contract()).getAll();
+                contracts = new ArrayList<Contract>();
+                for (IContract c : tmpContracts) {
+                    contracts.add(new Contract(c));
+                }
             }
 
             ComboBoxModel cmbContractModel = new ComboBoxModel(
