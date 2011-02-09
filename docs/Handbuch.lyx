@@ -1110,7 +1110,8 @@ Generieren
 \emph on
 Export
 \emph default
--Knopfes, der nach dem Generieren des Berichtes erscheint.
+-Knopfes, der nach dem Generieren des Berichtes erscheint, kann der Bericht
+ als PDF-Datei exportiert werden.
 \end_layout
 
 \begin_layout Standard
@@ -1164,7 +1165,7 @@ Tätigkeitsbericht
 \end_layout
 
 \begin_layout Section
-Anpassbarkeit des Aussehen des Tätigkeitsnachweis
+Anpassbarkeit des Aussehens der Berichte
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Anpassbarkeit-des-Aussehen"
@@ -1175,35 +1176,35 @@ name "sec:Anpassbarkeit-des-Aussehen"
 \end_layout
 
 \begin_layout Standard
-Das Aussehen des Tätigkeitsnachweis kann nachträglich geändert werden.
- Hierfür ist das OpenOffice Dokument 
+Das Aussehen der Berichte kann nachträglich geändert werden.
+ Hierfür sind die OpenOffice-Dokumente
 \family typewriter
-ActivityReportTemplate.odt
+, die auf Template.odt
 \family default
- mitgeliefert, welches Sie individuell nach Ihren Vorstellungen anpassen
- können.
- Das Dokument verwendet Formular-Steuerelemente, um nachträglich in den
- von OpenOffice definierten Formularfelder Daten wie beispielsweise den
+ enden, mitgeliefert.
+ Diese können Sie individuell, nach Ihren Vorstellungen, anpassen.
+ Die Dokumente verwenden Formular-Steuerelemente, um nachträglich in den
+ von OpenOffice definierten Formularfeldern Daten wie beispielsweise den
  Author oder das IVI-Logo einzubinden.
- Damit aidGer die neu erstellte Vorlage verwenden kann, muss diese zuerst
- nach PDF umgewandelt werden.
- Anschließend muss direkt im 
-\shape italic
-JAR-Archiv
-\shape default
- die alte PDF-Vorlage 
-\family typewriter
-ActivityReportTemplate.pdf
-\family default
- unter 
-\family typewriter
-src/de/aidger/res/pdf
-\family default
- mit dem neuem PDF-Template ersetzt werden.
-\begin_inset Newline newline
+ Damit aidGer die neu erstellten Vorlagen verwenden kann, müssen diese zuerst
+ als PDF-Dateien exportiert werden.
+ 
+\end_layout
+
+\begin_layout Standard
+Zur Installation der neuen Vorlagen, kopieren Sie diese in den Ordner 
+\begin_inset Quotes gld
 \end_inset
 
-Die verfügbaren Felder heißen wie folgt:
+templates
+\begin_inset Quotes grd
+\end_inset
+
+ im Konfigurationsordner von aidGer.
+\end_layout
+
+\begin_layout Subsection
+Verfügbare Felder im Tätigkeitsnachweis
 \end_layout
 
 \begin_layout Itemize
@@ -1220,6 +1221,16 @@ CreatorName - Feld für den Namen des Autors
 
 \begin_layout Itemize
 Date - Feld für das Datum
+\end_layout
+
+\begin_layout Subsection
+Verfügbare Felder in anderen Berichten
+\end_layout
+
+\begin_layout Standard
+In anderen Berichten existieren keine Felder, stattdessen lassen sich Logos
+ und sonstige Informationen frei hinzufügen um Ihre Berichte informativer
+ zu gestalten.
 \end_layout
 
 \begin_layout Section
