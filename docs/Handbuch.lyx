@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -310,21 +310,20 @@ Beim ersten Start wird Ihnen ein Dialog angezeigt, der Ihnen dabei hilft,
  mit Ihrer Konfiguration angelegt und die Verbindung zur Datenbank hergestellt
  bzw.
  überprüft.
- Bei der Benutzung von Derby wird eine neue Datenbank angelegt.
- Dies kann einige Zeit dauern.
+ 
 \end_layout
 
 \begin_layout Standard
-Nach Eingabe ihres Namen und der erfolgreichen Herstellung der Verbindung
- zur Datenbank kann auf den Button 
-\begin_inset Quotes gld
-\end_inset
-
-Weiter
-\begin_inset Quotes grd
-\end_inset
-
- geklickt werden und aidGer benutzt werden.
+Zuerst wird dabei ihr Name abgefragt, bevor es weitergeht mit der Konfiguration
+ der Datenbankverbindung.
+ Dabei gibt es drei Möglichkeiten.
+ Sie können zum einen eine Derby-Datenbank einrichten, die sich im von Ihnen
+ angegebenen Ordner befindet oder später angelegt wird, eine MySQL-Datenbank
+ benutzen, die Sie selbst anlegen müssen, oder die Datenbankverbindung als
+ JDBC URI angeben.
+ Für die anzugebenden Daten setzen Sie sich am Besten mit ihrem Administrator
+ in Verbindung.
+ Zum Testen reicht es jedoch einfach eine Derby-Datenbank zu verwenden.
 \end_layout
 
 \begin_layout Standard
@@ -335,6 +334,24 @@ Weiter
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Falls Ihnen benötigte Informationen noch nicht vorliegen, können Sie über
+ den 
+\shape italic
+Beenden
+\shape default
+-Knopf aidGer beenden.
+ Mit Hilfe der 
+\shape italic
+Weiter
+\shape default
+- und 
+\shape italic
+Zurück
+\shape default
+-Knöpfe können Sie zwischen den einzelnen Schritten des Assistenten navigieren.
 \end_layout
 
 \begin_layout Section
@@ -353,8 +370,8 @@ name "sec:Willkommensreiter"
 Sind keine Reiter offen wird von aidGer immer der Willkommensreiter angezeigt.
  Dieser zeigt unter anderem das Datum und die Zeit des letzten aidGer Einsatzes
  an.
- Zudem werden Statistiken über die Datenbank aggregiert und in Diagrammen
- dargestellt.
+ Zudem können Statistiken über die Datenbank aggregiert und in Diagrammen
+ dargestellt werden.
 \end_layout
 
 \begin_layout Standard
@@ -363,6 +380,12 @@ Sind keine Reiter offen wird von aidGer immer der Willkommensreiter angezeigt.
  Bei den letzten Änderungen werden nur Ihre eigenen Änderungen angezeigt,
  da diese nur lokal gespeichert werden.
  Vorgänge werden jedoch global angezeigt.
+\end_layout
+
+\begin_layout Standard
+Um die Statistiken zu generieren, klicken Sie einfach den entsprechenden
+ Knopf und wenig später werden Ihnen die im Bild sichtbaren Kuchen- bzw.
+ Verlaufsdiagramme angezeigt.
 \end_layout
 
 \begin_layout Standard
@@ -528,7 +551,7 @@ lines 0
 placement L
 overhang 0in
 width "40col%"
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -552,10 +575,10 @@ Die Navigationsleiste besteht aus einzelnen Boxen, die geöffnet und geschlossen
  Der Zustand der Boxen wird gespeichert und beim nächsten Start wiederhergestell
 t.
  Durch einen Klick mit der linken Maustaste auf die Unterpunkte wird der
- jeweilige Reiter im Inhaltsbereich angezeigt.
- Wird der Klick mit der mittleren Maustaste durchgeführt, so wird ein neuer
- Reiter im Inhaltsbereich aufgemacht, der mit dem Inhalt des jeweiligen
- Unterpunktes gefüllt wird.
+ jeweilige Reiter zusätzlich angezeigt.
+ Wird der Klick mit der mittleren Maustaste durchgeführt, so wird der Inhalt
+ des jeweiligen Unterpunktes im momentan angezeigten Reiter des Inhaltsbereiches
+ angezeigt.
 \end_layout
 
 \begin_layout Standard
@@ -641,7 +664,7 @@ name "cha:Stammdaten"
 \end_layout
 
 \begin_layout Standard
-Es gibt vier verschiedene Typen von Stammdaten.
+Es gibt fünf verschiedene Typen von Stammdaten.
  Dies sind 
 \series bold
 Veranstaltungen
@@ -654,9 +677,13 @@ Hilfskräfte
 \series bold
  Finanzkategorien
 \series default
- und 
+, 
 \series bold
 Stundenlöhne
+\series default
+ und 
+\series bold
+Kostenstellen
 \series default
 .
  Die Aktionen die für diese Stammdaten durchgeführt werden kann sind für
@@ -1460,6 +1487,69 @@ Der Faktor der bei der Berechnung von Berichten verwendet wird.
  Die Auswahl besteht zwischen dem historischen und dem pessimistischen Faktor.
 \end_layout
 
+\begin_layout Section
+Datenbankeinstellungen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Datenbankeinstellungen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Datenbankeinstellungen sind als Assistent angelegt.
+ Zum Öffnen klicken Sie im Datenbankreiter auf den großen Knopf und der
+ Assistent sollte sich öffnen.
+\end_layout
+
+\begin_layout Standard
+Im ersten Schritt können Sie nun den Typ der Datenbank auswählen bzw.
+ die freie Eingabe wählen.
+ Im nächsten Schritt werden ihrer ersten Auswahl entsprechend einige Optionen
+ zu Ihrer Verfügung stehen um eine Verbindung mit ihrer Datenbank zu ermöglichen.
+\end_layout
+
+\begin_layout Subsection
+Derby-Datenbank
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Derby-Datenbank"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Haben Sie eine Derby-Datenbank ausgewählt, so wird Ihnen nur eine Einstellung
+ zur Verfügung stehen.
+ Im von Ihnen angegebenen Pfad sollte sich bereits eine Derby-Datenbank
+ befinden oder Sie sollten sicherstellen, dass der Ordner komplett leer
+ ist, so dass aidGer eine neue Datenbank erstellen kann.
+\end_layout
+
+\begin_layout Subsection
+MySQL-Datenbank
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:MySQL-Datenbank"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Haben Sie eine MySQL-Datenbank ausgewählt, so müssen Sie nun die Verbindungsinfo
+rmationen dieser Datenbank eingeben.
+ Hierbei gibt es die Einschränkung, dass keine UNIX-Sockets verwendet werden
+ können sondern eine Verbindung über TCP/IP hergestellt werden muss.
+ Für die benötigten Informationen zu Ihrer Datenbank setzten Sie sich am
+ Besten mit ihrem Administrator in Verbindung.
+\end_layout
+
 \begin_layout Chapter
 Sonstiges
 \begin_inset CommandInset label
@@ -1665,8 +1755,19 @@ name "sec:Versionshistorie"
 
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+Version 1.0 (09.02.2010)
+\end_layout
+
+\begin_layout Standard
+\noindent
+Für 1.0 aktualisierte Version
+\end_layout
+
 \begin_layout Paragraph*
-Version 1.0 (13.07.2010)
+Version 0.2 (13.07.2010)
 \end_layout
 
 \begin_layout Standard
