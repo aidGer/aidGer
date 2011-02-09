@@ -2,7 +2,7 @@
 <project basedir="." default="release" name="aidGer">
 
     <property environment="env" description="System environment variables (including those set by Hudson)" />
-    <condition property="buildNumber" value="${env.BUILD_NUMBER}" else="dev">
+    <condition property="buildNumber" value="-${env.BUILD_NUMBER}" else="">
         <isset property="env.BUILD_NUMBER" />
     </condition>
 
@@ -94,7 +94,7 @@
     </target>
     
     <target name="prepare-tests" depends="init" description="Prepares the config and database for the JUnit tests">
-		<delete dir="${basedir}/database" />
+	<delete dir="${basedir}/database" />
         <mkdir dir="${test.report.dir}" />
     </target>
 
@@ -133,7 +133,7 @@
         <delete dir="${dist.dir}" />
         <mkdir dir="${dist.dir}" />
 
-        <jar jarfile="${dist.dir}/${appFileName}-${appVersion}-${buildNumber}.jar" basedir="${classes.dir}" level="9">
+        <jar jarfile="${dist.dir}/${appFileName}-${appVersion}${buildNumber}.jar" basedir="${classes.dir}" level="9">
             <zipfileset src="${lib.derby}" />
             <zipfileset src="${lib.mysql}" />
             <zipfileset src="${lib.itext}" />
@@ -149,7 +149,7 @@
             </manifest>
         </jar>
 
-        <zip destfile="${dist.dir}/${appFileName}-src-${appVersion}-${buildNumber}.zip" level="9">
+        <zip destfile="${dist.dir}/${appFileName}-src-${appVersion}${buildNumber}.zip" level="9">
             <zipfileset dir="${basedir}">
                 <include name="lib/*.jar" />
                 <include name="src/**" />
