@@ -81,6 +81,31 @@ import javax.swing.Timer;
  */
 @SuppressWarnings("serial")
 public class ViewerTab extends Tab {
+
+    private class SearchRowFilter extends RowFilter<TableModel, Integer> {
+
+            private final Pattern pat;
+
+            public SearchRowFilter(String search) {
+                super();
+
+                // Sanitize the search string before using it
+                search = search.replaceAll("([\\\\\\*\\+\\?\\(\\)\\{\\}\\[\\]\\|\\^\\$])", "\\\\$1");
+                pat = Pattern.compile(search, Pattern.CASE_INSENSITIVE);
+            }
+
+            @Override
+            public boolean include(Entry<? extends TableModel, ? extends Integer> entry) {
+                for (int i = entry.getValueCount() - 1; i >= 0; i--) {
+                    Matcher m = pat
+                        .matcher(entry.getStringValue(i));
+                    if (m.find()) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        };
     /**
      * The type of the data that will be viewed.
      */
@@ -474,22 +499,7 @@ public class ViewerTab extends Tab {
                     if (timer == null || !timer.isRunning()) {
                         AbstractAction action = new AbstractAction() {
                             public void actionPerformed(ActionEvent ae) {
-                                RowFilter<TableModel, Integer> filter = new RowFilter<TableModel, Integer>() {
-
-                                    private final Pattern pat = Pattern.compile(searchField.getText(), Pattern.CASE_INSENSITIVE);
-
-                                    @Override
-                                    public boolean include(Entry<? extends TableModel, ? extends Integer> entry) {
-                                        for (int i = entry.getValueCount() - 1; i >= 0; i--) {
-                                            Matcher m = pat
-                                                .matcher(entry.getStringValue(i));
-                                            if (m.find()) {
-                                                return true;
-                                            }
-                                        }
-                                        return false;
-                                    }
-                                };
+                                RowFilter<TableModel, Integer> filter = new SearchRowFilter(searchField.getText());
                                 sorter.setRowFilter(filter);
                             }
                         };
