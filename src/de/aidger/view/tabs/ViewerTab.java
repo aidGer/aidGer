@@ -259,6 +259,7 @@ public class ViewerTab extends Tab {
             itemAssistant.setVisible(true);
             itemActivityExport.setVisible(true);
 
+            sortKeys.add(new SortKey(0, SortOrder.DESCENDING));
             sortKeys.add(new SortKey(1, SortOrder.ASCENDING));
             sortKeys.add(new SortKey(2, SortOrder.ASCENDING));
             sortKeys.add(new SortKey(4, SortOrder.ASCENDING));
@@ -269,8 +270,11 @@ public class ViewerTab extends Tab {
         table.setModel(tableModel);
 
         sorter = new TableRowSorter<TableModel>(tableModel);
-        sorter.setSortKeys(sortKeys);
+        sorter.setSortsOnUpdates(true);
         table.setRowSorter(sorter);
+        sorter.setSortKeys(sortKeys);
+        sorter.sort();
+
 
         table.setDoubleBuffered(true);
         table.setFocusCycleRoot(true);
@@ -292,7 +296,7 @@ public class ViewerTab extends Tab {
         });
 
         // sort on first column by default
-        sorter.toggleSortOrder(0);
+        //sorter.toggleSortOrder(0);
 
         // type specific cell rendering
 
