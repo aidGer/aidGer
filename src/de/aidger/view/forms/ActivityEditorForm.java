@@ -452,8 +452,9 @@ public class ActivityEditorForm extends JPanel {
      * @return a list of suggestions for document type field
      */
     private Object[] getDocumentTypeSuggestions() {
-        return new Object[] { _("Employment application"), _("Tax card"),
-                _("Copy of social security card"), _("Approved labor contract") };
+        return new Object[] { _("Message"), _("Employment application"), _("Tax card"),
+                _("Copy of social security card"), _("Approved labor contract"),
+                _("Other") };
     }
 
     /**
