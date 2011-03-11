@@ -5,7 +5,7 @@ CHANGES IN VERSION 1.1:
     * [CHANGE] Budget costs of financial categories can be zero (#307)
     * [FIX] Detail viewer window is closed if it was previously opened in a new tab (#298)
     * [FIX] Searchstrings including Regexp are sanitized (#296)
-    * [FIX] Validation of financial category is done properly
+    * [FIX] Presence validation of courses, hourly wages, financial categories and employments is done properly
     * [FIX] Row sorting in viewer tabs (#306)
 
 CHANGES IN VERSION 1.0:
