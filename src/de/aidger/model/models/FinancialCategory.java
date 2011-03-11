@@ -157,7 +157,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
         if (budgetCosts != null) {
 	        for (int b : budgetCosts) {
 	            if (b < 0) {
-	                addError("budgetCosts", _("Budget Costs"), _("can't be less than zero."));
+	                addError("budgetCosts", _("Budget Costs"), _("can't be less than zero"));
 	                ret = false;
 	                break;
 	            }
@@ -168,7 +168,7 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
 	        List<Integer> costUnits_ = Arrays.asList(costUnits);
 	        for (Integer c : costUnits) {
 	        	if (Collections.frequency(costUnits_, c) > 1) {
-	        		addError("costUnits", _("Cost Units"), _("can't be the same."));
+	        		addError("costUnits", _("Cost Units"), _("can't be the same"));
 	        		
 	        		ret = false;
 	        		break;
