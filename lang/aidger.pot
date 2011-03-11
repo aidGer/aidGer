@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-11 16:57+0100\n"
+"POT-Creation-Date: 2011-03-11 20:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,9 +71,7 @@ msgstr ""
 msgid "Generate the controlling report"
 msgstr ""
 
-msgid ""
-"A successful connection needs to be established before the wizard can be "
-"finished."
+msgid "A successful connection needs to be established before the wizard can be finished."
 msgstr ""
 
 msgid "The path can't be empty."
@@ -138,8 +136,7 @@ msgid "The entity {0} was saved successfully."
 msgstr ""
 
 #, java-format
-msgid ""
-"Could not save the entity {0} because it already exists in the database."
+msgid "Could not save the entity {0} because it already exists in the database."
 msgstr ""
 
 #, java-format
@@ -230,9 +227,7 @@ msgstr ""
 msgid "You need to restart the application to finish the language change."
 msgstr ""
 
-msgid ""
-"You need to recalculate open reports for the new settings to impact the "
-"results."
+msgid "You need to recalculate open reports for the new settings to impact the results."
 msgstr ""
 
 msgid "Export the selected activies to a pdf file"
@@ -333,9 +328,7 @@ msgid "Only one instance of aidGer can be run at a time."
 msgstr ""
 
 #, java-format
-msgid ""
-"The budget costs limit for funds {0} in financial category {1} is exceeded "
-"({2}€ / {3}€)."
+msgid "The budget costs limit for funds {0} in financial category {1} is exceeded ({2}€ / {3}€)."
 msgstr ""
 
 #, java-format
@@ -354,9 +347,7 @@ msgid "The new contract of {0} overlaps with another one."
 msgstr ""
 
 #, java-format
-msgid ""
-"The working hour limit of {0}h for the assistant {1} is exceeded in the "
-"following dates:"
+msgid "The working hour limit of {0}h for the assistant {1} is exceeded in the following dates:"
 msgstr ""
 
 msgid "Date"
@@ -465,6 +456,12 @@ msgid "Name"
 msgstr ""
 
 msgid "can't be less than zero."
+msgstr ""
+
+msgid "Cost Units"
+msgstr ""
+
+msgid "can't be the same."
 msgstr ""
 
 msgid "Financial Category is still linked to a Course."
@@ -724,9 +721,6 @@ msgid "Financial Categories"
 msgstr ""
 
 msgid "Hourly Wages"
-msgstr ""
-
-msgid "Cost Units"
 msgstr ""
 
 msgid "Employments"
@@ -1081,8 +1075,7 @@ msgid "These employments are part of {0} courses."
 msgstr ""
 
 #, java-format
-msgid ""
-"Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."
+msgid "Of the assistants {0} are unchecked, {1} are checked and {2} are bachelors."
 msgstr ""
 
 #, java-format
@@ -1129,12 +1122,9 @@ msgid "Trying to connect ..."
 msgstr ""
 
 msgid ""
-"aidGer will now try to establish a connection to the database and configure "
-"the database if necessary.\n"
+"aidGer will now try to establish a connection to the database and configure the database if necessary.\n"
 "\n"
-"If the text below changes and becomes green, it is save to finish the wizard "
-"and start working with aidGer. Otherwise you should go back to the previous "
-"page and configure your database correctly."
+"If the text below changes and becomes green, it is save to finish the wizard and start working with aidGer. Otherwise you should go back to the previous page and configure your database correctly."
 msgstr ""
 
 msgid "Connection failed. Please check with your Administrator"
@@ -1172,8 +1162,7 @@ msgstr ""
 
 msgid ""
 "Select the type of database that you want to use.\n"
-"The default value is a safe guess if you want to try aidGer or only plan to "
-"use it on one computer."
+"The default value is a safe guess if you want to try aidGer or only plan to use it on one computer."
 msgstr ""
 
 msgid "Derby Database"
@@ -1192,10 +1181,8 @@ msgstr ""
 
 msgid ""
 "This wizard will try to help you setup aidGer.\n"
-"It will ask for important informations and requires, that you know where the "
-"database you'll be using is located.\n"
-"If you don't have this information, you can still use aidGer with a local "
-"database."
+"It will ask for important informations and requires, that you know where the database you'll be using is located.\n"
+"If you don't have this information, you can still use aidGer with a local database."
 msgstr ""
 
 msgid "Welcome to aidGer."
