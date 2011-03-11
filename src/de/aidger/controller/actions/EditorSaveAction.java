@@ -133,9 +133,7 @@ public class EditorSaveAction extends AbstractAction {
             course
                 .setUnqualifiedWorkingHours(form.getUnqualifiedWorkingHours());
         } catch (ParseException e) {
-            course.addError("unqualifiedWorkingHours", _("AWH per group"),
-                new PresenceValidator(new String[0], new String[0])
-                    .getMessage());
+            course.setUnqualifiedWorkingHours(null);
         }
 
         try {
@@ -263,8 +261,7 @@ public class EditorSaveAction extends AbstractAction {
         try {
             hw.setWage(round(form.getWage(), 2));
         } catch (ParseException e) {
-            hw.addError("wage", _("Wage"), new PresenceValidator(new String[0],
-                new String[0]).getMessage());
+            hw.setWage(null);
         }
 
         if (form.isEditMode()) {
@@ -407,9 +404,7 @@ public class EditorSaveAction extends AbstractAction {
                 clone.setHourCount(hcs.get(i));
             }
         } catch (ParseException e) {
-            employment.addError("hourCount", _("Hour count"),
-                new PresenceValidator(new String[0], new String[0])
-                    .getMessage());
+            employment.setHourCount(null);
         }
 
         try {

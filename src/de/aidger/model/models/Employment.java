@@ -95,8 +95,8 @@ public class Employment extends AbstractModel<IEmployment> implements
      */
     public Employment() {
         if (getValidators().isEmpty()) {
-            validatePresenceOf(new String[] { "funds", "qualification" },
-                new String[] { _("Funds"), _("Qualification") });
+            validatePresenceOf(new String[] { "funds", "qualification", "hourCount" },
+                new String[] { _("Funds"), _("Qualification"), _("Hour count") });
             validateInclusionOf(new String[] { "qualification" },
                 new String[] { _("Qualification") }, new String[] { "g", "u", "b" });
             validateExistanceOf(new String[] { "assistantId" },
