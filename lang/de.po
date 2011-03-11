@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-11 16:57+0100\n"
+"POT-Creation-Date: 2011-03-11 20:57+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -456,6 +456,12 @@ msgstr "Name"
 msgid "can't be less than zero."
 msgstr "kann nicht kleiner als 0 sein."
 
+msgid "Cost Units"
+msgstr "Kostenstellen"
+
+msgid "can't be the same."
+msgstr "können nicht gleich sein."
+
 msgid "Financial Category is still linked to a Course."
 msgstr "Es besteht noch eine Verbindung zwischen der Finanzkategorie und einer Veranstaltung"
 
@@ -717,9 +723,6 @@ msgstr "Finanzkategorien"
 
 msgid "Hourly Wages"
 msgstr "Stundenlöhne"
-
-msgid "Cost Units"
-msgstr "Kostenstellen"
 
 msgid "Employments"
 msgstr "Beschäftigungen"

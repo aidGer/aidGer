@@ -22,6 +22,7 @@ package de.aidger.model.models;
 import static de.aidger.utils.Translation._;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import de.aidger.model.AbstractModel;
@@ -155,6 +156,16 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
                 addError("budgetCosts", _("Budget Costs"), _("can't be less than zero."));
                 ret = false;
             }
+        }
+        
+        List<Integer> costUnits_ = Arrays.asList(costUnits);
+        for (Integer c : costUnits) {
+        	if (Collections.frequency(costUnits_, c) > 1) {
+        		addError("costUnits", _("Cost Units"), _("can't be the same."));
+        		
+        		ret = false;
+        		break;
+        	}
         }
 
         return ret;
