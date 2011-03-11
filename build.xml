@@ -40,7 +40,7 @@
     </target>
 
     <target name="lang-gen" description="Extracts and merges the language files" depends="init-gettext">
-        <gettext-extract keysFile="aidger.pot" poDirectory="lang" keywords="-k_">
+        <gettext-extract keysFile="aidger.pot" poDirectory="lang" keywords="-k_ --no-location">
             <fileset dir="${source.dir}" includes="**/*.java" />
         </gettext-extract>
         <gettext-merge keysFile="aidger.pot" poDirectory="lang" />
