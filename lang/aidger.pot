@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-11 20:57+0100\n"
+"POT-Creation-Date: 2011-03-11 22:16+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -878,6 +878,9 @@ msgid "Generate employment months in concordance to the contract."
 msgstr ""
 
 msgid "Only a year in 4 digits is allowed."
+msgstr ""
+
+msgid "Please select.."
 msgstr ""
 
 msgid "Only a number is allowed."
