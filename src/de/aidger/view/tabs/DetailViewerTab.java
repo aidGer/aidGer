@@ -220,22 +220,6 @@ public class DetailViewerTab extends Tab {
         return ret;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see de.aidger.view.tabs.Tab#getPredecessor()
-     */
-    @Override
-    public Tab getPredecessor() {
-        Tab p = super.getPredecessor();
-
-        if (p == null) {
-            p = new ViewerTab(getType());
-        }
-
-        return p;
-    }
-
     /**
      * Initializes the components and the button actions.
      */
