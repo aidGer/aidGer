@@ -203,18 +203,18 @@ public class DataXMLManager implements IAdoHiveManager {
     }
 
     /**
-     * Returns an object list of all stored cost units.
+     * Returns a list of all stored cost units.
      * 
-     * @return an object list of all stored cost units
+     * @return a list of all stored cost units
      */
-    public Object[] getCostUnits() {
+    public List<String> getCostUnits() {
         List<String> costUnits = new ArrayList<String>();
 
         for (CostUnit c : getCostUnitMap()) {
             costUnits.add(c.getCostUnit());
         }
 
-        return costUnits.toArray();
+        return costUnits;
     }
 
     @Override

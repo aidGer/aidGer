@@ -142,30 +142,38 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
     /**
      * Custom validation function.
      * 
-     * @return True if the validation is successfull
+     * @return True if the validation is successful
      */
     public boolean validate() {
         boolean ret = true;
-        if (year <= 1000 || year >= 10000) {
-            addError("year", _("Year"), _("is an incorrect year"));
-            ret = false;
+        
+        if (year != null) {
+	        if (year <= 1000 || year >= 10000) {
+	            addError("year", _("Year"), _("is an incorrect year"));
+	            ret = false;
+	        }
         }
 
-        for (int b : budgetCosts) {
-            if (b < 0) {
-                addError("budgetCosts", _("Budget Costs"), _("can't be less than zero."));
-                ret = false;
-            }
+        if (budgetCosts != null) {
+	        for (int b : budgetCosts) {
+	            if (b < 0) {
+	                addError("budgetCosts", _("Budget Costs"), _("can't be less than zero."));
+	                ret = false;
+	                break;
+	            }
+	        }
         }
         
-        List<Integer> costUnits_ = Arrays.asList(costUnits);
-        for (Integer c : costUnits) {
-        	if (Collections.frequency(costUnits_, c) > 1) {
-        		addError("costUnits", _("Cost Units"), _("can't be the same."));
-        		
-        		ret = false;
-        		break;
-        	}
+        if (costUnits != null) {
+	        List<Integer> costUnits_ = Arrays.asList(costUnits);
+	        for (Integer c : costUnits) {
+	        	if (Collections.frequency(costUnits_, c) > 1) {
+	        		addError("costUnits", _("Cost Units"), _("can't be the same."));
+	        		
+	        		ret = false;
+	        		break;
+	        	}
+	        }
         }
 
         return ret;

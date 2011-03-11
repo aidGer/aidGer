@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-11 20:57+0100\n"
+"POT-Creation-Date: 2011-03-11 22:16+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -880,6 +880,9 @@ msgstr "Generiere die Monate der Beschäftigung anhand der Vertragsdaten."
 
 msgid "Only a year in 4 digits is allowed."
 msgstr "Nur ein Jahr in 4 Stellen ist erlaubt."
+
+msgid "Please select.."
+msgstr "Bitte auswählen.."
 
 msgid "Only a number is allowed."
 msgstr "Nur eine Zahl ist erlaubt."

@@ -212,24 +212,21 @@ public class EditorSaveAction extends AbstractAction {
         try {
             fc.setBudgetCosts(form.getBudgetCosts());
         } catch (NumberFormatException e) {
-            fc.addError("budgetCosts", _("Budget Costs"),
-                new PresenceValidator(new String[0], new String[0])
-                    .getMessage());
+            fc.setBudgetCosts(null);
         }
 
         try {
             fc.setCostUnits(form.getCostUnits());
         } catch (InvalidLengthException e) {
-            fc
-                .addError("funds", _("Cost unit"),
-                    _("has to have a length of 8"));
+            fc.addError("costUnits", _("Cost unit"), _("has to have a length of 8"));
+        } catch (NumberFormatException e) {
+        	fc.setCostUnits(null);
         }
 
         try {
             fc.setYear(form.getYear());
         } catch (NumberFormatException e) {
-            fc.addError("year", _("Year"), new PresenceValidator(new String[0],
-                new String[0]).getMessage());
+            fc.setYear(null);
         }
 
         try {

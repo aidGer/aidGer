@@ -100,18 +100,22 @@ public class FinancialCategoryEditorForm extends JPanel {
         Collections.sort(costUnitLines, new Comparator<CostUnitLine>() {
             @Override
             public int compare(CostUnitLine f, CostUnitLine s) {
-                Integer first = Integer.valueOf((String) f.cmbCostUnit
-                    .getSelectedItem());
-                Integer second = Integer.valueOf((String) s.cmbCostUnit
-                    .getSelectedItem());
-
-                if (first < second) {
-                    return -1;
-                } else if (first > second) {
-                    return 1;
-                } else {
-                    return 0;
-                }
+            	try {
+	                Integer first = Integer.valueOf((String) f.cmbCostUnit
+	                    .getSelectedItem());
+	                Integer second = Integer.valueOf((String) s.cmbCostUnit
+	                    .getSelectedItem());
+	
+	                if (first < second) {
+	                    return -1;
+	                } else if (first > second) {
+	                    return 1;
+	                } else {
+	                    return 0;
+	                }
+            	} catch (NumberFormatException e) {
+            		return 0;
+            	}
             }
         });
     }
@@ -193,9 +197,11 @@ public class FinancialCategoryEditorForm extends JPanel {
         lblCostUnit.getAccessibleContext()
             .setAccessibleDescription("costUnits");
 
+        List<String> costUnits = Runtime.getInstance().getDataXMLManager().getCostUnits();
+        costUnits.add(0, _("Please select.."));
+        
         JComboBox cmbCostUnit = new JComboBox();
-        cmbCostUnit.setModel(new DefaultComboBoxModel(Runtime.getInstance()
-            .getDataXMLManager().getCostUnits()));
+        cmbCostUnit.setModel(new DefaultComboBoxModel(costUnits.toArray()));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
