@@ -151,8 +151,8 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
         }
 
         for (int b : budgetCosts) {
-            if (b <= 0) {
-                addError("budgetCosts", _("Budget Costs"), _("can't be zero."));
+            if (b < 0) {
+                addError("budgetCosts", _("Budget Costs"), _("can't be less than zero."));
                 ret = false;
             }
         }
