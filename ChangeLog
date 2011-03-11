@@ -1,6 +1,7 @@
 CHANGES IN VERSION 1.1:
     * [ADD] Two new document types for activities (#304)
     * [CHANGE] Budget costs of financial categories can be zero (#307)
+    * [FIX] Detail viewer window is closed if it was previously opened in a new tab (#298)
     * [FIX] Searchstrings including Regexp are sanitized (#296)
     * [FIX] Row sorting in viewer tabs (#306)
 
