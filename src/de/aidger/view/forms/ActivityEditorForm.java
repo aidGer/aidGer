@@ -224,6 +224,8 @@ public class ActivityEditorForm extends JPanel {
 
                 cmbCourseModel.addElement(course);
             }
+            
+            cmbCourseModel.setSelectedItem(new UICourse());
 
             cmbCourse.setModel(cmbCourseModel);
         } catch (AdoHiveException e) {
