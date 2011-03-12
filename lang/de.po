@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-11 23:14+0100\n"
+"POT-Creation-Date: 2011-03-12 11:43+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -96,26 +96,17 @@ msgstr "Aktion abbrechen"
 msgid "Save"
 msgstr "Speichern"
 
-msgid "AWH per group"
-msgstr "HKS pro Gruppe"
-
 msgid "Cost unit"
 msgstr "Kostenstelle"
 
 msgid "has to have a length of 8"
 msgstr "muss eine Länge von 8 haben"
 
-msgid "Wage"
-msgstr "Lohn"
-
 msgid "End date"
 msgstr "Enddatum"
 
 msgid "must be after start date"
 msgstr "muss hinter dem Startdatum liegen"
-
-msgid "Hour count"
-msgstr "Stundenanzahl"
 
 msgid "Would you like to continue anyway?"
 msgstr "Möchten Sie dennoch fortfahren?"
@@ -412,6 +403,9 @@ msgstr "Dozent"
 msgid "Group"
 msgstr "Gruppe"
 
+msgid "AWH per group"
+msgstr "HKS pro Gruppe"
+
 msgid "Financial Category"
 msgstr "Finanzkategorie"
 
@@ -426,6 +420,9 @@ msgstr "Es besteht noch eine Verbindung zwischen der Veranstaltung und einer Akt
 
 msgid "Course is still linked to an Employment"
 msgstr "Es besteht noch eine Verbindung zwischen der Veranstaltung und einer Beschäftigung"
+
+msgid "Hour count"
+msgstr "Stundenanzahl"
 
 msgid "has to be positive"
 msgstr "muss positiv sein"
@@ -464,6 +461,9 @@ msgstr "können nicht gleich sein"
 
 msgid "Financial Category is still linked to a Course."
 msgstr "Es besteht noch eine Verbindung zwischen der Finanzkategorie und einer Veranstaltung"
+
+msgid "Wage"
+msgstr "Lohn"
 
 msgid "is an incorrect date range"
 msgstr "ist ein ungültiges Datum"
@@ -1011,6 +1011,21 @@ msgstr "Vorgang"
 msgid "Search"
 msgstr "Suchen"
 
+msgid "AWH"
+msgstr "HKS"
+
+#, java-format
+msgid "with total consumption of {0} AWH selected."
+msgstr "mit Gesamtverbrauch von {0} HKS selektiert."
+
+#, java-format
+msgid "{0} employments"
+msgstr "{0} Beschäftigungen"
+
+#, java-format
+msgid "{0} employment"
+msgstr "{0} Beschäftigung"
+
 msgid "1 entity selected."
 msgstr "1 Objekt selektiert."
 
@@ -1284,9 +1299,6 @@ msgstr ""
 #~ msgid "Transmission Type"
 #~ msgstr "Übermittlungsweg"
 
-#~ msgid "Show employments"
-#~ msgstr "Beschäftigungen anzeigen"
-
 #~ msgid "Hire assistant"
 #~ msgstr "Hilfskraft einstellen"
 
@@ -1368,9 +1380,6 @@ msgstr ""
 
 #~ msgid "View hourly wage"
 #~ msgstr "Stundenlohn anzeigen"
-
-#~ msgid "View employment"
-#~ msgstr "Beschäftigung anzeigen"
 
 #~ msgid "View activity"
 #~ msgstr "Vorgang anzeigen"

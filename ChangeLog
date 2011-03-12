@@ -1,4 +1,5 @@
 CHANGES IN VERSION 1.1:
+    * [ADD] Show useful statistics in status bar for employment overview (#297)
     * [ADD] Two new document types for activities (#304)
     * [ADD] Check whether a cost unit was selected more than once in financial category editor (#299)
     * [ADD] No cost unit default selection in financial category editor (#299)

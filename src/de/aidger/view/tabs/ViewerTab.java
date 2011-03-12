@@ -29,7 +29,10 @@ import java.awt.event.MouseListener;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -40,6 +43,9 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTable;
 import javax.swing.KeyStroke;
 import javax.swing.RowFilter;
+import javax.swing.RowSorter.SortKey;
+import javax.swing.SortOrder;
+import javax.swing.Timer;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
@@ -57,6 +63,7 @@ import de.aidger.controller.actions.ViewerDeleteAction;
 import de.aidger.controller.actions.ViewerDetailViewAction;
 import de.aidger.controller.actions.ViewerEditAction;
 import de.aidger.model.Runtime;
+import de.aidger.model.models.Employment;
 import de.aidger.view.UI;
 import de.aidger.view.models.ActivityTableModel;
 import de.aidger.view.models.AssistantTableModel;
@@ -70,9 +77,7 @@ import de.aidger.view.models.TableModel;
 import de.aidger.view.utils.BooleanTableRenderer;
 import de.aidger.view.utils.DateTableRenderer;
 import de.aidger.view.utils.MultiLineTableRenderer;
-import javax.swing.RowSorter.SortKey;
-import javax.swing.SortOrder;
-import javax.swing.Timer;
+import de.aidger.view.utils.NumberFormat;
 
 /**
  * A tab which will be used to display the data.
@@ -84,36 +89,38 @@ public class ViewerTab extends Tab {
 
     private class SearchRowFilter extends RowFilter<TableModel, Integer> {
 
-            private final Pattern pat;
+        private final Pattern pat;
 
-            public SearchRowFilter(String search) {
-                super();
+        public SearchRowFilter(String search) {
+            super();
 
-                // Sanitize the search string before using it
-                search = search.replaceAll("([\\\\\\*\\+\\?\\(\\)\\{\\}\\[\\]\\|\\^\\$])", "\\\\$1");
-                pat = Pattern.compile(search, Pattern.CASE_INSENSITIVE);
-            }
+            // Sanitize the search string before using it
+            search = search.replaceAll(
+                "([\\\\\\*\\+\\?\\(\\)\\{\\}\\[\\]\\|\\^\\$])", "\\\\$1");
+            pat = Pattern.compile(search, Pattern.CASE_INSENSITIVE);
+        }
 
-            @Override
-            public boolean include(Entry<? extends TableModel, ? extends Integer> entry) {
-                for (int i = entry.getValueCount() - 1; i >= 0; i--) {
-                    Matcher m = pat
-                        .matcher(entry.getStringValue(i));
-                    if (m.find()) {
-                        return true;
-                    }
+        @Override
+        public boolean include(
+            Entry<? extends TableModel, ? extends Integer> entry) {
+            for (int i = entry.getValueCount() - 1; i >= 0; i--) {
+                Matcher m = pat.matcher(entry.getStringValue(i));
+                if (m.find()) {
+                    return true;
                 }
-                return false;
             }
-        };
+            return false;
+        }
+    };
+
     /**
      * The type of the data that will be viewed.
      */
     public enum DataType {
         Course(_("Course")), Assistant(_("Assistant")), FinancialCategory(
-                _("Financial Category")), HourlyWage(_("Hourly Wage")), CostUnit(
-                _("Cost unit")), Employment(_("Employment")), Contract(
-                _("Contract")), Activity(_("Activity"));
+            _("Financial Category")), HourlyWage(_("Hourly Wage")), CostUnit(
+            _("Cost unit")), Employment(_("Employment")), Contract(
+            _("Contract")), Activity(_("Activity"));
 
         /**
          * The display name of an item.
@@ -176,8 +183,8 @@ public class ViewerTab extends Tab {
      * @param type
      *            the type of the data
      */
-    @SuppressWarnings("unchecked")
-    public ViewerTab(DataType type) {
+    @SuppressWarnings("rawtypes")
+    public ViewerTab(final DataType type) {
         this.type = type;
         initComponents();
 
@@ -274,7 +281,6 @@ public class ViewerTab extends Tab {
         table.setRowSorter(sorter);
         sorter.setSortKeys(sortKeys);
         sorter.sort();
-
 
         table.setDoubleBuffered(true);
         table.setFocusCycleRoot(true);
@@ -388,13 +394,14 @@ public class ViewerTab extends Tab {
                 ActionRegistry.getInstance().get(
                     ViewerDeleteAction.class.getName()));
             table.getActionMap().put("selectAllEntries", new AbstractAction() {
+                @Override
                 public void actionPerformed(ActionEvent e) {
                     table.selectAll();
                 }
             });
 
-            table.addMouseListener((MouseListener) ActionRegistry.getInstance()
-                .get(ViewerDetailViewAction.class.getName()));
+            table.addMouseListener((MouseListener) ActionRegistry.getInstance().get(
+                ViewerDetailViewAction.class.getName()));
 
         } catch (ActionNotFoundException e) {
             UI.displayError(e.getMessage());
@@ -433,13 +440,13 @@ public class ViewerTab extends Tab {
         while (en.hasMoreElements()) {
             TableColumn column = (TableColumn) en.nextElement();
 
-            JCheckBoxMenuItem mi = new JCheckBoxMenuItem(new AbstractAction(
-                column.getHeaderValue().toString()) {
+            JCheckBoxMenuItem mi = new JCheckBoxMenuItem(new AbstractAction(column.getHeaderValue().toString()) {
+                @Override
                 public void actionPerformed(ActionEvent evt) {
                     String cmd = evt.getActionCommand();
 
-                    int index = table.getTableHeader().getColumnModel()
-                        .getColumnIndex(cmd);
+                    int index = table.getTableHeader().getColumnModel().getColumnIndex(
+                        cmd);
 
                     toggleColumnVisibility(index);
                 }
@@ -502,6 +509,7 @@ public class ViewerTab extends Tab {
                 } else {
                     if (timer == null || !timer.isRunning()) {
                         AbstractAction action = new AbstractAction() {
+                            @Override
                             public void actionPerformed(ActionEvent ae) {
                                 RowFilter<TableModel, Integer> filter = new SearchRowFilter(searchField.getText());
                                 sorter.setRowFilter(filter);
@@ -535,13 +543,67 @@ public class ViewerTab extends Tab {
                 @Override
                 public void valueChanged(ListSelectionEvent e) {
                     int rowCount = table.getSelectedRowCount();
+                    String message = "";
 
-                    String message = _("1 entity selected.");
+                    if (type == DataType.Employment) {
+                        Map<Integer, Double> hourCount = new HashMap<Integer, Double>();
+                        double hourCountTotal = 0;
 
-                    if (rowCount > 1) {
+                        for (int row : table.getSelectedRows()) {
+                            int index = table.convertRowIndexToModel(row);
+                            Employment employment = (Employment) ((EmploymentTableModel) table.getModel()).getModel(index);
+
+                            int costUnit = employment.getCostUnit();
+                            double hc = employment.getHourCount();
+
+                            if (hourCount.get(costUnit) == null) {
+                                hourCount.put(costUnit, hc);
+                            } else {
+                                hourCount.put(costUnit, hourCount.get(costUnit)
+                                                        + hc);
+                            }
+
+                            hourCountTotal += employment.getHourCount();
+                        }
+
+                        message = " (";
+
+                        Set<Integer> costUnitSet = hourCount.keySet();
+
+                        for (Integer costUnit : costUnitSet) {
+                            message += _("Cost unit")
+                                       + " "
+                                       + costUnit
+                                       + ": "
+                                       + NumberFormat.getInstance().format(
+                                           hourCount.get(costUnit)) + " "
+                                       + _("AWH") + ", ";
+                        }
+
+                        message = message.substring(0, message.length() - 2)
+                                  + ")";
+
                         message = MessageFormat.format(
-                            _("{0} entities selected."),
-                            new Object[] { rowCount });
+                            _("with total consumption of {0} AWH selected."),
+                            new Object[] { hourCountTotal })
+                                  + message;
+
+                        if (rowCount > 1) {
+                            message = MessageFormat.format(
+                                _("{0} employments"), new Object[] { rowCount })
+                                      + " " + message;
+                        } else {
+                            message = MessageFormat.format(_("{0} employment"),
+                                new Object[] { rowCount }) + " " + message;
+                        }
+                    } else {
+                        message = _("1 entity selected.");
+
+                        if (rowCount > 1) {
+                            message = MessageFormat.format(
+                                _("{0} entities selected."),
+                                new Object[] { rowCount });
+                        }
                     }
 
                     UI.getInstance().setStatusMessage(message);
@@ -556,12 +618,9 @@ public class ViewerTab extends Tab {
         btnAssistant.setEnabled(false);
         btnContract.setEnabled(false);
 
-        btnCourse
-            .setToolTipText(_("Show the course of the selected employment in detail."));
-        btnAssistant
-            .setToolTipText(_("Show the assistant of the selected employment in detail."));
-        btnContract
-            .setToolTipText(_("Show the contract of the selected employment in detail."));
+        btnCourse.setToolTipText(_("Show the course of the selected employment in detail."));
+        btnAssistant.setToolTipText(_("Show the assistant of the selected employment in detail."));
+        btnContract.setToolTipText(_("Show the contract of the selected employment in detail."));
     }
 
     /**
@@ -572,7 +631,7 @@ public class ViewerTab extends Tab {
     @Override
     public String toString() {
         return getClass().getName() + "<" + DataType.class.getName() + "@"
-                + type;
+               + type;
     }
 
     /*
@@ -861,6 +920,7 @@ public class ViewerTab extends Tab {
     private javax.swing.JToolBar.Separator separator9;
     private javax.swing.JTable table;
     private javax.swing.JToolBar toolBar;
+
     // End of variables declaration//GEN-END:variables
 
     /**
