@@ -572,7 +572,7 @@ public final class UI extends JFrame {
             public void run() {
                 setStatusMessage(_("Ready"));
             }
-        }, 3000);
+        }, 8000);
     }
 
     /**
