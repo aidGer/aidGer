@@ -4,6 +4,7 @@ CHANGES IN VERSION 1.1:
     * [ADD] Check whether a cost unit was selected more than once in financial category editor (#299)
     * [ADD] No cost unit default selection in financial category editor (#299)
     * [ADD] Show hint that an activity will be created for each selected assistant and course (#309)
+    * [ADD] Controlling for financial categories (#303)
     * [CHANGE] Budget costs of financial categories can be zero (#307)
     * [FIX] Detail viewer window is closed if it was previously opened in a new tab (#298)
     * [FIX] Searchstrings including Regexp are sanitized (#296)
