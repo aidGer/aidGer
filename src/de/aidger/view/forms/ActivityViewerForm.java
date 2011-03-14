@@ -22,6 +22,7 @@ package de.aidger.view.forms;
 import static de.aidger.utils.Translation._;
 
 import java.awt.Color;
+
 import javax.swing.JPanel;
 
 import de.aidger.model.models.Activity;
@@ -53,25 +54,25 @@ public class ActivityViewerForm extends JPanel {
             if (activity.getAssistantId() == null) {
                 assistant.setText(_("None"));
             } else {
-                assistant.setText(new UIAssistant((new Assistant())
-                    .getById(activity.getAssistantId())).toString());
+                assistant.setText(new UIAssistant((new Assistant()).getById(activity.getAssistantId())).toString());
             }
 
             if (activity.getCourseId() == null) {
                 course.setText(_("None"));
             } else {
-                course.setText(new UICourse((new Course()).getById(activity
-                    .getCourseId())).toString());
+                course.setText(new UICourse((new Course()).getById(activity.getCourseId())).toString());
             }
 
             processor.setText(activity.getProcessor());
             initiator.setText(activity.getSender());
             type.setText(activity.getType());
             documentType.setText(activity.getDocumentType());
-            date.setText(DateUtils.formatDate(activity
-                .getDate()));
+            date.setText(DateUtils.formatDate(activity.getDate()));
             remark.setText(activity.getRemark());
             content.setText(activity.getContent());
+
+            content.setLineWrap(true);
+            content.setWrapStyleWord(true);
         } catch (AdoHiveException e) {
         }
     }
@@ -226,11 +227,12 @@ public class ActivityViewerForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(remark, gridBagConstraints);
 
-        content.setBackground(new Color(0,0,0,0));
+        content.setBackground(new Color(0, 0, 0, 0));
         content.setColumns(20);
         content.setEditable(false);
         content.setRows(5);
-        content.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        content.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0,
+            0));
         content.setOpaque(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;

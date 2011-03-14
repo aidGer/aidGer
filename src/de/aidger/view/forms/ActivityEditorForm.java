@@ -90,6 +90,9 @@ public class ActivityEditorForm extends JPanel {
 
         InputPatternFilter.addFilter(txtProcessor, ".{0,2}");
 
+        txtContent.setLineWrap(true);
+        txtContent.setWrapStyleWord(true);
+
         addNewCourse();
         addNewAssistant();
 
