@@ -714,6 +714,8 @@ public final class UI extends JFrame {
             Task.CheckCourses));
         tpControlling.add(createTaskPaneButton(_("Assistant Controlling"),
             Task.CheckAssistants));
+        tpControlling.add(createTaskPaneButton(_("Financial Categories"),
+            Task.CheckFinancialCategories));
 
         TaskPane tpQuickSettings = new TaskPane(_("Quick Settings"));
 

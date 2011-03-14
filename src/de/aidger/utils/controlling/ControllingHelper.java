@@ -29,10 +29,12 @@ import java.util.List;
 import de.aidger.model.Runtime;
 import de.aidger.model.models.CostUnit;
 import de.aidger.model.models.Employment;
+import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.DataXMLManager;
 import de.aidger.view.UI;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IEmployment;
+import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 
 /**
  * This class is used to calculate all the available years, the months of a year
@@ -156,5 +158,34 @@ public class ControllingHelper {
             sortedCostUnits[i] = costUnits.get(i);
         }
         return sortedCostUnits;
+    }
+
+    /**
+     * Gets all the years, in which financial categories exist.
+     * 
+     * @return A list of years, in which financial categories exist
+     */
+    public List<Integer> getFinancialYears() {
+        List<Integer> years = new ArrayList<Integer>();
+        List<IFinancialCategory> financialCategories;
+        try {
+            financialCategories = new FinancialCategory().getAll();
+            for (IFinancialCategory financialCategory : financialCategories) {
+                if (!years.contains(financialCategory.getYear().intValue())) {
+                    for (int i = 0; i < years.size(); i++) {
+                        if (years.get(i) > financialCategory.getYear()
+                            .intValue()) {
+                            years
+                                .add(i, financialCategory.getYear().intValue());
+                        }
+                    }
+                    years.add(financialCategory.getYear().intValue());
+                }
+            }
+        } catch (AdoHiveException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return years;
     }
 }
