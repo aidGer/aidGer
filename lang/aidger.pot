@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-12 11:43+0100\n"
+"POT-Creation-Date: 2011-03-14 18:28+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -799,6 +799,9 @@ msgid "Finish"
 msgstr ""
 
 msgid "General activity"
+msgstr ""
+
+msgid "An activity will be created for each selected assistant and course."
 msgstr ""
 
 msgid "The already entered initiator will be removed."
