@@ -34,6 +34,7 @@ import de.aidger.view.tabs.BudgetViewerTab;
 import de.aidger.view.tabs.ControllingViewerTab;
 import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.EmptyTab;
+import de.aidger.view.tabs.FinancialControllingViewerTab;
 import de.aidger.view.tabs.ProtocolViewerTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
@@ -53,7 +54,7 @@ public class TaskPaneAction extends LinkAction {
      */
     public enum Task {
 
-        ViewCourses, ViewAssistants, ViewFinancialCategories, ViewHourlyWages, ViewCostUnits, ViewEmployments, CreateNewEmployment, ViewContracts, ViewActivities, CreateNewActivity, ExportActivities, ViewFullBalance, ViewAnnualBalance, ViewSemesterBalance, ViewActivityReport, CheckCourses, CheckAssistants, ViewEmpty, Void
+        ViewCourses, ViewAssistants, ViewFinancialCategories, ViewHourlyWages, ViewCostUnits, ViewEmployments, CreateNewEmployment, ViewContracts, ViewActivities, CreateNewActivity, ExportActivities, ViewFullBalance, ViewAnnualBalance, ViewSemesterBalance, ViewActivityReport, CheckCourses, CheckAssistants, CheckFinancialCategories, ViewEmpty, Void
 
     }
 
@@ -155,6 +156,8 @@ public class TaskPaneAction extends LinkAction {
             return new BudgetViewerTab();
         case CheckAssistants:
             return new ControllingViewerTab();
+        case CheckFinancialCategories:
+            return new FinancialControllingViewerTab();
         case ViewEmpty:
             return new EmptyTab();
         case Void:

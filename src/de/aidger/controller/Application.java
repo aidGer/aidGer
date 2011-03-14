@@ -35,13 +35,14 @@ import de.aidger.controller.actions.ControllingExportDifferencesAction;
 import de.aidger.controller.actions.ControllingGenerateAction;
 import de.aidger.controller.actions.DatabaseCheckFinishAction;
 import de.aidger.controller.actions.DatabaseDetailsFinishAction;
+import de.aidger.controller.actions.DatabaseSelectionFinishAction;
 import de.aidger.controller.actions.DetailViewerCloseAction;
 import de.aidger.controller.actions.DetailViewerEditAction;
 import de.aidger.controller.actions.DialogAbortAction;
 import de.aidger.controller.actions.EditorCancelAction;
 import de.aidger.controller.actions.EditorSaveAction;
 import de.aidger.controller.actions.ExitAction;
-import de.aidger.controller.actions.DatabaseSelectionFinishAction;
+import de.aidger.controller.actions.FinancialControllingGenerateAction;
 import de.aidger.controller.actions.FirstStartNameFinishAction;
 import de.aidger.controller.actions.HelpAction;
 import de.aidger.controller.actions.HomepageAction;
@@ -114,7 +115,8 @@ public final class Application {
         ActionRegistry.getInstance().register(new ExitAction());
         ActionRegistry.getInstance().register(new PrintAction());
         ActionRegistry.getInstance().register(new SettingsAction());
-        ActionRegistry.getInstance().register(new SettingsDatabaseConfigAction());
+        ActionRegistry.getInstance().register(
+            new SettingsDatabaseConfigAction());
         ActionRegistry.getInstance().register(new SettingsBrowseAction());
         ActionRegistry.getInstance().register(new SettingsSaveAction());
         ActionRegistry.getInstance().register(new HelpAction());
@@ -149,6 +151,9 @@ public final class Application {
         ActionRegistry.getInstance().register(
             new ControllingExportDifferencesAction());
 
+        ActionRegistry.getInstance().register(
+            new FinancialControllingGenerateAction());
+
         ActionRegistry.getInstance().register(new BudgetGenerateAction());
         ActionRegistry.getInstance().register(new BudgetExportAction());
 
@@ -156,8 +161,10 @@ public final class Application {
         ActionRegistry.getInstance().register(new WizardPreviousAction());
 
         ActionRegistry.getInstance().register(new FirstStartNameFinishAction());
-        ActionRegistry.getInstance().register(new DatabaseSelectionFinishAction());
-        ActionRegistry.getInstance().register(new DatabaseDetailsFinishAction());
+        ActionRegistry.getInstance().register(
+            new DatabaseSelectionFinishAction());
+        ActionRegistry.getInstance()
+            .register(new DatabaseDetailsFinishAction());
         ActionRegistry.getInstance().register(new DatabaseCheckFinishAction());
     }
 
