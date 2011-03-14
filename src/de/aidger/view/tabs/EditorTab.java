@@ -123,13 +123,13 @@ public class EditorTab extends Tab {
     @Override
     public String toString() {
         String ret = getClass().getName() + "<" + DataType.class.getName()
-                + "@" + type;
+                     + "@" + type;
         if (model != null) {
             if (model.getClass().equals(HourlyWage.class)) {
                 HourlyWage h = (HourlyWage) model;
                 ret += "<" + h.getClass().getName() + "@"
-                        + h.getQualification() + "@" + h.getMonth() + "@"
-                        + h.getYear();
+                       + h.getQualification() + "@" + h.getMonth() + "@"
+                       + h.getYear();
             } else if (model.getId() > 0) {
                 ret += "<" + model.getClass().getName() + "@" + model.getId();
             }
@@ -186,12 +186,11 @@ public class EditorTab extends Tab {
 
         for (Component c : components) {
             if (c instanceof JLabel) {
-                String name = c.getAccessibleContext()
-                    .getAccessibleDescription();
+                String name = c.getAccessibleContext().getAccessibleDescription();
 
                 for (Validator v : validators) {
                     if (v instanceof PresenceValidator
-                            || v instanceof ExistenceValidator) {
+                        || v instanceof ExistenceValidator) {
                         String[] mandatoryFields = v.getMembers();
 
                         for (String mandatory : mandatoryFields) {
@@ -255,15 +254,16 @@ public class EditorTab extends Tab {
     @Override
     public String getTabName() {
         if (!isEditMode()) {
-            return MessageFormat.format(_("Add {0}"), new Object[] { type
-                .getDisplayName() });
+            return MessageFormat.format(_("Add {0}"),
+                new Object[] { type.getDisplayName() });
         }
 
         UIModel modelUI = (UIModel) UIModelFactory.create(model);
 
         return modelUI == null ? MessageFormat.format(_("Edit {0}"),
             new Object[] { type.getDisplayName() }) : type.getDisplayName()
-                + " " + modelUI.toString();
+                                                      + " "
+                                                      + modelUI.toString();
     }
 
     /**
@@ -315,7 +315,7 @@ public class EditorTab extends Tab {
         case Contract:
             return new ContractEditorForm((Contract) model, this);
         case Activity:
-            return new ActivityEditorForm((Activity) model);
+            return new ActivityEditorForm((Activity) model, this);
         default:
             return new JPanel();
         }
@@ -383,8 +383,8 @@ public class EditorTab extends Tab {
 
         cal.clear();
 
-        cal.set(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now
-            .get(Calendar.DATE));
+        cal.set(now.get(Calendar.YEAR), now.get(Calendar.MONTH),
+            now.get(Calendar.DATE));
 
         cal.add(field, amount);
 
@@ -434,9 +434,8 @@ public class EditorTab extends Tab {
         gridBagConstraints.weighty = 1.0;
         add(filler, gridBagConstraints);
 
-        hints.setBorder(javax.swing.BorderFactory
-            .createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1,
-                1, 1, 1), _("Hints")));
+        hints.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), _("Hints")));
         hints.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
