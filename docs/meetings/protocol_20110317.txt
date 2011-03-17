@@ -1,0 +1,41 @@
+Protokoll Meeting 17.03.2011
+============================
+
+Webseite generell:
+* Abstuffung der Ränder fehlt
+* Logo hinzufügen
+* Schatten reduzieren (nur Hauptüberschriften)
+* Download in Navigation
+* Bilder in Screenshots packen
+* "Über uns" mit Impressum (Impressumlink in Footer)
+* CSS Gradient in Headerstreifen + Schatten zu Contentbereich
+* Kontaktmöglichkeit
+* Externe Links auf Institut/SoPra (zusätzlich als extern kennzeichnen)
+
+Homepage:
+* News zu knapp (Titel + 2/3 Zeilen)
+* Aufbau im Kasten mehr wie bei Revager (Beschreibung + Kernfeatures)
+* Download neben "Mehr Features"
+* Kasten ersetzen mit Kasten über Gesamtseite mit Gradient von Blau zu Weiss
+* Screenshot zu groß und nicht lesbar
+* Features auf Homepage reduzieren
+* Weiss abschwächen (Richtung Grau)
+
+Features:
+* Statistiken werden nicht mehr automatisch geöffnet
+* Filter gelten nicht für "eine" Veranstaltung sondern für "bestimmte" Veranstaltungen
+
+Download:
+* Links zu aktuellen Jars und Zips (.Exe für Windows?)
+* Link zu Handbuch
+* Installationsanleitung
+
+Entwicklung:
+* aidGer wird mit Hilfe der Open Source Kollaborationsplatform Redmine unter dev.aidger.de entwickelt
+* Beschreibung der Entwicklungsmethode, Architektur, verwendete Sprache/Bibliotheken
+
+Über uns:
+* Impressum hinzufügen
+* SoPra 2010
+* Sebastian als Entwickler von AdoHive aufführen
+* Weiterentwicklung
