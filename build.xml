@@ -29,9 +29,38 @@
     <property name="lib.jfreechart" value="lib/jfreechart-1.0.13.jar" />
     <property name="lib.junit" value="lib/junit.jar" />
     <property name="lib.gettexttasks" value="lib/gettext-ant-tasks.jar" />
+	<property name="lib.launch4j.linux" location="${lib.dir}/launch4j/launch4j-3.0.2-linux.tgz" />
+	<property name="lib.launch4j.windows" location="${lib.dir}/launch4j/launch4j-3.0.2-win32.zip" />
+	<property name="lib.launch4j.macosx" location="${lib.dir}/launch4j/launch4j-3.0.2-macosx.tgz" />
 
     <property name="config.dir" value="${user.home}/.config/aidGer" />
     <available property="isConfigDir" file="${config.dir}" />
+
+    <!-- Detect the operating system -->
+
+    <condition property="isWindows">
+        <or>
+	        <os name="Windows 2000" />
+	        <os name="Windows XP" />
+	        <os name="Windows 2003" />
+	        <os name="Windows Vista" />
+	        <os name="Windows 7" />
+    	</or>
+    </condition>
+
+    <condition property="isLinux">
+        <os name="Linux" />
+    </condition>
+
+    <condition property="isMacOSX">
+        <os name="Mac OS X" />
+    </condition>
+
+    <condition property="isLaunch4jAvailable">
+		<available file="${lib.dir}/launch4j/launch4j" />
+	</condition>
+
+    <!-- Internationalisation stuff -->
 
     <target name="init-gettext" description="Loads the gettext tasks">
         <taskdef name="gettext-extract" classname="org.xnap.commons.ant.gettext.GettextExtractKeysTask" classpath="${lib.gettexttasks}" />
@@ -55,6 +84,8 @@
             <fileset dir="${source.dir}/de/aidger/res/lang" />
         </copy>
     </target>
+
+    <!-- Initialise the build process -->
 
     <target name="init" depends="lang-install">
         <mkdir dir="${classes.dir}" />
@@ -85,6 +116,8 @@
         <delete dir="${dist.dir}" />
     </target>
 
+    <!-- Compile the code -->
+
     <target name="compile-source" depends="init" description="Compiles all .java files in src">
         <javac destdir="${classes.dir}" srcdir="${source.dir}" classpathref="build.classpath" includeantruntime="false" debug="true" debuglevel="source,lines,vars" encoding="UTF-8" />
     </target>
@@ -92,6 +125,8 @@
     <target name="compile-tests" depends="compile-source" description="Compiles all JUnit tests">
         <javac destdir="${test.classes.dir}" srcdir="${test.source.dir}" classpathref="build.classpath.test" includeantruntime="false" debug="true" debuglevel="source,lines,vars" encoding="UTF-8" />
     </target>
+
+    <!-- Run the tests -->
     
     <target name="prepare-tests" depends="init" description="Prepares the config and database for the JUnit tests">
 	<delete dir="${basedir}/database" />
@@ -127,6 +162,8 @@
         </junit>
         <antcall target="finish-tests" />
     </target>
+
+    <!-- Create packages -->
 
     <target name="dist" depends="compile-source" description="Generates the distribution">
         <delete dir="${test.classes.dir}" />
@@ -166,10 +203,64 @@
     </target>
 
     <target name="jar" depends="dist" />
+    
+    <!-- Launch4J stuff -->
+    <target name="prepare-launch4j-unix">
+		<untar src="${lib.dir}/launch4j/l4j.tar" dest="${lib.dir}/launch4j" />
 
+		<delete file="${lib.dir}/launch4j/l4j.tar" />
+
+		<chmod perm="a+rwx">
+			<fileset dir="${lib.dir}/launch4j/launch4j">
+				<include name="**/*" />
+			</fileset>
+		</chmod>
+	</target>
+    
+	<target name="prepare-launch4j-linux" if="isLinux">
+		<gunzip src="${lib.launch4j.linux}" dest="${lib.dir}/launch4j/l4j.tar" />
+		<antcall target="prepare-launch4j-unix" />
+	</target>
+
+	<target name="prepare-launch4j-macosx" if="isMacOSX">
+		<gunzip src="${lib.launch4j.macosx}" dest="${lib.dir}/launch4j/l4j.tar" />
+		<antcall target="prepare-launch4j-unix" />
+	</target>
+
+	<target name="prepare-launch4j-windows" if="isWindows">
+		<unzip src="${lib.launch4j.windows}" dest="${lib.dir}/launch4j" />
+	</target>
+
+	<target name="prepare-launch4j">
+		<!-- Remove old Launch4j library if there is one -->
+		<delete dir="${lib.dir}/launch4j/launch4j" />
+
+		<antcall target="prepare-launch4j-linux" />
+		<antcall target="prepare-launch4j-windows" />
+		<antcall target="prepare-launch4j-macosx" />
+	</target>
+	
+	<target name="build-launch4j" depends="dist,prepare-launch4j" if="isLaunch4jAvailable" description="Generate runnable .exe file for MS Windows">
+		<property name="dir.launch4j" location="${lib.dir}/launch4j/launch4j" />
+		<property name="conf.launch4j" location="${lib.dir}/launch4j/launch4j-conf.xml" />
+
+		<taskdef name="launch4j" classname="net.sf.launch4j.ant.Launch4jTask" classpath="${dir.launch4j}/launch4j.jar:${dir.launch4j}/lib/xstream.jar" />
+
+		<launch4j configFile="${conf.launch4j}" 
+jar="${dist.dir}/${appFileName}-${appVersion}${buildNumber}.jar" outfile="${dist.dir}/${appFileName}_${appVersion}${buildNumber}.exe" />
+	</target>
+
+    <!-- Test aidGer and create all release files after that -->
+    
     <target name="release" description="Generates a full release">
         <antcall target="test" />
         <antcall target="dist" />
+    </target>
+    
+    <target name="release-win32" description="Generates a full release including a .exe file">
+        <antcall target="test" />
+        <antcall target="dist" />
+        <antcall target="build-launch4j" />
     </target>
 
 </project>
