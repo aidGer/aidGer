@@ -8,6 +8,11 @@ build/*
 manifest.mf
 nbproject/*
 dist/*
+nbbuild.xml
+
+# IDEA
+.idea/*
+*.iml
 
 # Code Coverage
 coverage/*
@@ -15,7 +20,9 @@ codecover/*
 
 # Database
 derbyDB
+database
 derby.log
 
+settings.cfg
 bin/*
 *~
