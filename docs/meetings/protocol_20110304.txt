@@ -1,0 +1,11 @@
+Meeting 04.03.2011
+===================
+
+* #301: Änderung des Datenmodells erst in 2.0 (neues Table zur Verbindung Veranstaltung <-> Finanzkategorie)
+* Warnungen bei Budgetüberschreitung bei Anlegen einer Beschäftigung werden vom Benutzer ignoriert (wegen Aufteilung WS)
+* Neues Controllingmodul zur Überprüfung der Finanzkategorien (neues Issue für Phil)
+* Dokumententyp "Mitteilung" und "Sonstige" anfügen. Mitteilung als Default.
+* Vorgang hinzufügen: NullPointerException in EditorSaveAction:510 wenn keine Veranstaltung angegeben. Erst auf null prüfen, dann auf ID.
+* Vorgänge nach ID (oder Datum) rückwärts sortieren
+* Plankosten für CostUnit dürfen auch null sein.
+* Momentanten Homepagestand auf test.aidger.de freischalten.
