@@ -122,11 +122,6 @@ public final class UI extends JFrame {
     private JLabel statusLabel;
 
     /**
-     * A timer used for status messages.
-     */
-    private Timer statusTimer = new Timer();
-
-    /**
      * Quick Settings CheckBox for the remember tabs setting.
      */
     private JCheckBox rememberCheckBox;
@@ -563,16 +558,6 @@ public final class UI extends JFrame {
      */
     public void setStatusMessage(String message) {
         statusLabel.setText(message);
-
-        statusTimer.cancel();
-
-        statusTimer = new Timer();
-        statusTimer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                setStatusMessage(_("Ready"));
-            }
-        }, 8000);
     }
 
     /**
