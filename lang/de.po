@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-14 18:28+0100\n"
+"POT-Creation-Date: 2012-03-23 19:06+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Christian Buchgraber <buchgrcn@studi.informatik.uni-stuttgart.de>\n"
+"Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -703,9 +703,6 @@ msgstr "{0}. Tab gelöscht"
 msgid "Setting current tab to \"{0}\""
 msgstr "Momentaner Reiter ist nun \"{0}\""
 
-msgid "Ready"
-msgstr "Bereit"
-
 msgid "File"
 msgstr "Datei"
 
@@ -775,6 +772,9 @@ msgstr "Pessimistische Berechnung"
 msgid "Open a new tab"
 msgstr "Öffnet einen neuen Tab"
 
+msgid "Ready"
+msgstr "Bereit"
+
 #, java-format
 msgid "Could not find tab class {0}"
 msgstr "Die Reiterklasse \"{0}\" konnte nicht gefunden werden."
@@ -799,8 +799,11 @@ msgstr "Das Model konnte nicht aus der Datenbank geholt werden"
 msgid "Finish"
 msgstr "Fertig"
 
-msgid "General activity"
-msgstr "Allgemeiner Vorgang"
+msgid "Used budget"
+msgstr "Verbrauchtes Budget"
+
+msgid "Total budget"
+msgstr "Gesamtes Budget"
 
 msgid "An activity will be created for each selected assistant and course."
 msgstr "Ein Vorgang wird für jede ausgewählte Hilfskraft und Veranstaltung angelegt."
@@ -825,6 +828,39 @@ msgstr "Genehmigter Arbeitsvertrag"
 
 msgid "Other"
 msgstr "Sonstige"
+
+msgid "Not Assigned"
+msgstr "Nicht festgelegt"
+
+msgid "Request/Information"
+msgstr "Anfrage/Auskunft"
+
+msgid "Announcement"
+msgstr "Ankündigung"
+
+msgid "Request for Employment"
+msgstr "Antrag auf Beschäftigung"
+
+msgid "Generic Activity"
+msgstr "Allgemeiner Vorgang"
+
+msgid "Notification"
+msgstr "Benachrichtigung"
+
+msgid "Clarification"
+msgstr "Klärung"
+
+msgid "Late Filing of Documents"
+msgstr "Nachreichung von Unterlagen"
+
+msgid "Advance Reservation"
+msgstr "Voranmeldung"
+
+msgid "Transfer Request"
+msgstr "Umbuchungsgesuch"
+
+msgid "Special Authorization"
+msgstr "Sondergenehmigung"
 
 msgid "Referenced assistants were initiators"
 msgstr "Referenzierte Hilfskräfte waren die Initiatoren"
@@ -993,6 +1029,9 @@ msgstr "Hinweise"
 msgid "(Unnamed)"
 msgstr "(Unbenannt)"
 
+msgid "Financial Category Controlling"
+msgstr "Finanzkategorie-Controlling"
+
 msgid "Export Activities"
 msgstr "Vorgänge exportieren"
 
@@ -1112,9 +1151,6 @@ msgstr "Qualifikationen aller Hilfskräfte"
 
 msgid "Budget of all courses"
 msgstr "Budget aller Veranstaltungen"
-
-msgid "Used budget"
-msgstr "Verbrauchtes Budget"
 
 msgid "Remaining budget"
 msgstr "Übriges Budget"
@@ -1480,9 +1516,6 @@ msgstr ""
 
 #~ msgid "Protocol"
 #~ msgstr "Vorgangsprotokoll"
-
-#~ msgid "Financial Category Viewing"
-#~ msgstr "Finanzkategorieanzeige"
 
 #~ msgid "Fund"
 #~ msgstr "Fund"

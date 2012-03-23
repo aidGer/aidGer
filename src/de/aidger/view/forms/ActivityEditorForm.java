@@ -100,7 +100,7 @@ public class ActivityEditorForm extends JPanel {
             spDate.setValue(activity.getDate());
             txtInitiator.setText(activity.getSender());
             txtProcessor.setText(activity.getProcessor());
-            txtType.setText(activity.getType());
+            cmbType.setSelectedItem(activity.getType());
             cmbDocumentType.setSelectedItem(activity.getDocumentType());
             txtContent.setText(activity.getContent());
             txtRemark.setText(activity.getRemark());
@@ -139,8 +139,6 @@ public class ActivityEditorForm extends JPanel {
             }
 
             txtProcessor.setText(initials.toUpperCase());
-
-            txtType.setText(_("General activity"));
 
             chkInitiator.setSelected(true);
             txtInitiator.setEnabled(false);
@@ -442,7 +440,7 @@ public class ActivityEditorForm extends JPanel {
      * @return The type of the activity
      */
     public String getType() {
-        return txtType.getText();
+        return (String) cmbType.getSelectedItem();
     }
 
     /**
@@ -455,14 +453,27 @@ public class ActivityEditorForm extends JPanel {
     }
 
     /**
-     * Returns a list of suggestions for document type field.
+     * Returns a list of suggestions for the document type field.
      * 
-     * @return a list of suggestions for document type field
+     * @return a list of suggestions for the document type field
      */
     private Object[] getDocumentTypeSuggestions() {
         return new Object[] { _("Message"), _("Employment application"),
             _("Tax card"), _("Copy of social security card"),
             _("Approved labor contract"), _("Other") };
+    }
+
+    /**
+     * Returns a list of suggestions for the type field.
+     *
+     * @return a list of suggestions for the type field
+     */
+    private Object[] getTypeSuggestions() {
+        return new Object[] {
+            _("Not Assigned"), _("Request/Information"), _("Announcement"), _("Request for Employment"),
+            _("Generic Activity"), _("Notification"), _("Clarification"), _("Late Filing of Documents"),
+            _("Advance Reservation"), _("Transfer Request"), _("Special Authorization")
+        };
     }
 
     /**
@@ -485,7 +496,7 @@ public class ActivityEditorForm extends JPanel {
         txtProcessor = new javax.swing.JTextField();
         txtInitiator = new javax.swing.JTextField();
         chkInitiator = new javax.swing.JCheckBox();
-        txtType = new javax.swing.JTextField();
+        cmbType = new javax.swing.JComboBox();
         cmbDocumentType = new javax.swing.JComboBox();
         txtRemark = new javax.swing.JTextField();
         scrollPane = new javax.swing.JScrollPane();
@@ -521,33 +532,33 @@ public class ActivityEditorForm extends JPanel {
         add(lblInitiator, gridBagConstraints);
         lblInitiator.getAccessibleContext().setAccessibleDescription("sender");
 
-        lblType.setText(_("Type"));
+        lblRemark.setText(_("Remark"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
-        add(lblType, gridBagConstraints);
-        lblType.getAccessibleContext().setAccessibleDescription("type");
+        add(lblRemark, gridBagConstraints);
+        lblRemark.getAccessibleContext().setAccessibleDescription("remark");
 
-        lblDocumentType.setText(_("Document Type"));
+        lblType.setText(_("Type"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(lblDocumentType, gridBagConstraints);
-        lblDocumentType.getAccessibleContext().setAccessibleDescription(
-            "documentType");
+        add(lblType, gridBagConstraints);
+        lblType.getAccessibleContext().setAccessibleDescription("type");
 
-        lblRemark.setText(_("Remark"));
+        lblDocumentType.setText(_("Document Type"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
-        add(lblRemark, gridBagConstraints);
-        lblRemark.getAccessibleContext().setAccessibleDescription("remark");
+        add(lblDocumentType, gridBagConstraints);
+        lblDocumentType.getAccessibleContext().setAccessibleDescription(
+                "documentType");
 
         lblContent.setText(_("Content"));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -595,33 +606,35 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         add(chkInitiator, gridBagConstraints);
 
-        txtType.setMinimumSize(new java.awt.Dimension(200, 25));
-        txtType.setPreferredSize(new java.awt.Dimension(200, 25));
+        txtRemark.setMinimumSize(new java.awt.Dimension(200, 25));
+        txtRemark.setPreferredSize(new java.awt.Dimension(200, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(txtType, gridBagConstraints);
+        add(txtRemark, gridBagConstraints);
 
-        cmbDocumentType.setEditable(true);
-        cmbDocumentType.setModel(new DefaultComboBoxModel(getDocumentTypeSuggestions()));
+        cmbType.setEditable(true);
+        cmbType.setModel(new DefaultComboBoxModel(getTypeSuggestions()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(cmbDocumentType, gridBagConstraints);
+        add(cmbType, gridBagConstraints);
 
-        txtRemark.setMinimumSize(new java.awt.Dimension(200, 25));
-        txtRemark.setPreferredSize(new java.awt.Dimension(200, 25));
+        cmbDocumentType.setEditable(true);
+        cmbDocumentType.setModel(new DefaultComboBoxModel(getDocumentTypeSuggestions()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(txtRemark, gridBagConstraints);
+        add(cmbDocumentType, gridBagConstraints);
+
+
 
         txtContent.setColumns(20);
         txtContent.setRows(5);
@@ -651,6 +664,7 @@ public class ActivityEditorForm extends JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox chkInitiator;
     private javax.swing.JComboBox cmbDocumentType;
+    private javax.swing.JComboBox cmbType;
     private javax.swing.JLabel filler;
     private de.aidger.view.utils.HelpLabel hlpProcessor;
     private javax.swing.JLabel lblContent;
@@ -666,7 +680,6 @@ public class ActivityEditorForm extends JPanel {
     private javax.swing.JTextField txtInitiator;
     private javax.swing.JTextField txtProcessor;
     private javax.swing.JTextField txtRemark;
-    private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables
 
     private final List<CourseLine> courseLines = new ArrayList<CourseLine>();
