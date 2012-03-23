@@ -196,7 +196,8 @@ public class DatabaseDetails extends WizardPanel {
      * @return The password
      */
     public String getPassword() {
-        return passwordText.getText();
+        //TODO: Fixes deprecation warning in Java7 but keeps the password in memory
+        return new String(passwordText.getPassword());
     }
 
     /** This method is called from within the constructor to

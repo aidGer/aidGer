@@ -13,6 +13,7 @@ nbbuild.xml
 # IDEA
 .idea/*
 *.iml
+out/*
 
 # Code Coverage
 coverage/*
