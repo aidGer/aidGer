@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aidGer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-23 19:06+0100\n"
+"POT-Creation-Date: 2012-03-27 21:39+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Philipp Gildein <philipp@gildein.com>\n"
 "Language-Team: aidGer Team <info@aidger.de>\n"
@@ -838,8 +838,8 @@ msgstr "Anfrage/Auskunft"
 msgid "Announcement"
 msgstr "Ankündigung"
 
-msgid "Request for Employment"
-msgstr "Antrag auf Beschäftigung"
+msgid "Employment Request"
+msgstr "Beschäftigungsantrag"
 
 msgid "Generic Activity"
 msgstr "Allgemeiner Vorgang"
@@ -850,8 +850,9 @@ msgstr "Benachrichtigung"
 msgid "Clarification"
 msgstr "Klärung"
 
-msgid "Late Filing of Documents"
-msgstr "Nachreichung von Unterlagen"
+#, fuzzy
+msgid "Late Filed Document"
+msgstr "Dokument Nachreichen"
 
 msgid "Advance Reservation"
 msgstr "Voranmeldung"
@@ -859,7 +860,7 @@ msgstr "Voranmeldung"
 msgid "Transfer Request"
 msgstr "Umbuchungsgesuch"
 
-msgid "Special Authorization"
+msgid "Special Permit"
 msgstr "Sondergenehmigung"
 
 msgid "Referenced assistants were initiators"
@@ -1264,6 +1265,9 @@ msgstr ""
 
 msgid "IS_AUTOINCREMENT"
 msgstr ""
+
+#~ msgid "Request for Employment"
+#~ msgstr "Antrag auf Beschäftigung"
 
 #~ msgid "Controlling report"
 #~ msgstr "Controlling Bericht"

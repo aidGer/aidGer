@@ -470,9 +470,9 @@ public class ActivityEditorForm extends JPanel {
      */
     private Object[] getTypeSuggestions() {
         return new Object[] {
-            _("Not Assigned"), _("Request/Information"), _("Announcement"), _("Request for Employment"),
-            _("Generic Activity"), _("Notification"), _("Clarification"), _("Late Filing of Documents"),
-            _("Advance Reservation"), _("Transfer Request"), _("Special Authorization")
+            _("Not Assigned"), _("Request/Information"), _("Announcement"), _("Employment Request"),
+            _("Generic Activity"), _("Notification"), _("Clarification"), _("Late Filed Document"),
+            _("Advance Reservation"), _("Transfer Request"), _("Special Permit")
         };
     }
 
@@ -616,7 +616,7 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtRemark, gridBagConstraints);
 
-        cmbType.setEditable(true);
+        cmbType.setEditable(false);
         cmbType.setModel(new DefaultComboBoxModel(getTypeSuggestions()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -633,8 +633,6 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbDocumentType, gridBagConstraints);
-
-
 
         txtContent.setColumns(20);
         txtContent.setRows(5);
