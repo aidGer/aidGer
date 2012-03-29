@@ -13,7 +13,6 @@ public class MySqlInit {
 
 	public static void init() {
 		AdoHiveController.setDriver("com.mysql.jdbc.Driver");
-		AdoHiveController.setConnectionString("jdbc:mysql://localhost:3306/aidger?user=aidger&password=aidger");
-		
+		AdoHiveController.setConnectionString("jdbc:mysql://localhost:3306/aidger-test?user=root");
 	}
 }
