@@ -616,7 +616,7 @@ public class ActivityEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(txtRemark, gridBagConstraints);
 
-        cmbType.setEditable(false);
+        cmbType.setEditable(true);
         cmbType.setModel(new DefaultComboBoxModel(getTypeSuggestions()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
