@@ -6,6 +6,8 @@ CHANGES IN VERSION 1.1:
     * [ADD] Controlling for financial categories (#303)
     * [ADD] Show hint that an activity will be created for each selected assistant and course (#309)
     * [CHANGE] Budget costs of financial categories can be zero (#307)
+    * [CHANGE] Activity Type is now a checkbox (#319)
+    * [CHANGE] Statusbar isn't cleared anymore (#322)
     * [FIX] Detail viewer window is closed if it was previously opened in a new tab (#298)
     * [FIX] Searchstrings including Regexp are sanitized (#296)
     * [FIX] Field content has line wrapping in activity forms (#310)
