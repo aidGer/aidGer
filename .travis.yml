@@ -1,4 +1,4 @@
 language: java
 before_script:
-    - mysql -e 'CREATE DATABASE aidger-test;'
-    - mysql aidger-test < schemas/mysql_schema.sql
+    - mysql -e 'CREATE DATABASE aidgertest;'
+    - mysql aidgertest < schemas/mysql_schema.sql
