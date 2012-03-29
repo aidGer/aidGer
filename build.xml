@@ -8,7 +8,7 @@
 
     <property name="appName" value="aidGer" />
     <property name="appFileName" value="aidger" />
-    <property name="appVersion" value="2.0-dev" />
+    <property name="appVersion" value="1.1-rc1" />
 
     <property name="default.target.dir" value="build" />
     <property name="dist.dir" value="dist" />
