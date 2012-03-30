@@ -23,7 +23,6 @@ import de.aidger.model.Runtime;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.CostUnit;
 import de.aidger.view.tabs.ViewerTab.DataType;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
 
 /**
  * The UI assistant is used for prettier rendering of the model.
@@ -55,7 +54,7 @@ public class UIAssistant extends Assistant implements UIModel,
      * @param a
      *            the assistant model
      */
-    public UIAssistant(IAssistant a) {
+    public UIAssistant(Assistant a) {
         super(a);
     }
 
@@ -141,8 +140,8 @@ public class UIAssistant extends Assistant implements UIModel,
      */
     @Override
     public boolean equals(Object o) {
-        if (o instanceof IAssistant) {
-            IAssistant a = (IAssistant) o;
+        if (o instanceof Assistant) {
+            Assistant a = (Assistant) o;
             return (getFirstName() == null ? a.getFirstName() == null : (a
                 .getFirstName() == null ? false : a.getFirstName().equals(
                 getFirstName())))

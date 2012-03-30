@@ -53,7 +53,7 @@ public class Translation {
 
     /**
      * Initializes this class. Resolves the file path of the translation files.
-     * 
+     *
      * @param language
      *            The language to which the program will be translated.
      */

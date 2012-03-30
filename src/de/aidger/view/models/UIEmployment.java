@@ -27,9 +27,7 @@ import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Employment;
 import de.aidger.utils.DateUtils;
 import de.aidger.view.tabs.ViewerTab.DataType;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
-import de.unistuttgart.iste.se.adohive.model.IEmployment;
+import siena.SienaException;
 
 /**
  * The UI employment is used for prettier rendering of the model.
@@ -50,7 +48,7 @@ public class UIEmployment extends Employment implements UIModel {
      * @param e
      *            the employment model
      */
-    public UIEmployment(IEmployment e) {
+    public UIEmployment(Employment e) {
         super(e);
     }
 
@@ -62,7 +60,7 @@ public class UIEmployment extends Employment implements UIModel {
     @Override
     public String toString() {
         try {
-            IAssistant assistant = (new Assistant()).getById(getAssistantId());
+            Assistant assistant = (new Assistant()).getById(getAssistantId());
 
             Calendar cal = Calendar.getInstance();
             cal.clear();
@@ -72,7 +70,7 @@ public class UIEmployment extends Employment implements UIModel {
             return _("from") + " " + (new UIAssistant(assistant)).toString()
                     + " " + _("in") + " "
                     + DateUtils.formatDate(cal.getTime());
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             return "";
         }
     }

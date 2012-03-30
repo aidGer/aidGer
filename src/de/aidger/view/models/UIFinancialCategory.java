@@ -21,7 +21,6 @@ package de.aidger.view.models;
 
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.view.tabs.ViewerTab.DataType;
-import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 
 /**
  * The UI financial category is used for prettier rendering of the model.
@@ -43,7 +42,7 @@ public class UIFinancialCategory extends FinancialCategory implements UIModel {
      * @param c
      *            the assistant model
      */
-    public UIFinancialCategory(IFinancialCategory fc) {
+    public UIFinancialCategory(FinancialCategory fc) {
         super(fc);
     }
 

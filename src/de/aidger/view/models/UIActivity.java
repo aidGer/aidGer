@@ -24,7 +24,6 @@ import static de.aidger.utils.Translation._;
 import de.aidger.model.models.Activity;
 import de.aidger.utils.DateUtils;
 import de.aidger.view.tabs.ViewerTab.DataType;
-import de.unistuttgart.iste.se.adohive.model.IActivity;
 
 /**
  * The UI activity is used for prettier rendering of the model.
@@ -45,7 +44,7 @@ public class UIActivity extends Activity implements UIModel {
      * @param a
      *            the activity model
      */
-    public UIActivity(IActivity a) {
+    public UIActivity(Activity a) {
         super(a);
     }
 

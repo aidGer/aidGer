@@ -23,7 +23,6 @@ import de.aidger.model.models.Contract;
 import de.aidger.utils.DateUtils;
 import de.aidger.view.forms.ContractEditorForm.ContractType;
 import de.aidger.view.tabs.ViewerTab.DataType;
-import de.unistuttgart.iste.se.adohive.model.IContract;
 
 /**
  * The UI contract is used for prettier rendering of the model.
@@ -44,7 +43,7 @@ public class UIContract extends Contract implements UIModel {
      * @param c
      *            the contract model
      */
-    public UIContract(IContract c) {
+    public UIContract(Contract c) {
         super(c);
     }
 

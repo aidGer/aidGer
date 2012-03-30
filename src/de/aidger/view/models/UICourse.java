@@ -24,7 +24,6 @@ import java.util.regex.Pattern;
 
 import de.aidger.model.models.Course;
 import de.aidger.view.tabs.ViewerTab.DataType;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
  * The UI course is used for prettier rendering of the model.
@@ -51,7 +50,7 @@ public class UICourse extends Course implements UIModel, Comparable<UICourse> {
      * @param c
      *            the course model
      */
-    public UICourse(ICourse c) {
+    public UICourse(Course c) {
         super(c);
     }
 

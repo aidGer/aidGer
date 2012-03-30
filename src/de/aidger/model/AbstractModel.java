@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 
 import siena.Model;
+import siena.Query;
 import siena.Id;
 
 import de.aidger.model.validators.DateRangeValidator;
@@ -65,6 +66,11 @@ public abstract class AbstractModel<T> extends Model {
     protected String classname;
 
     /**
+     * The class object
+     */
+    protected Class<? extends AbstractModel> clazz;
+
+    /**
      * Array containing all validators for that specific model.
      */
     protected static Map<String, List<Validator>> validators = new HashMap<String, List<Validator>>();
@@ -90,7 +96,8 @@ public abstract class AbstractModel<T> extends Model {
      * The constructor of the AbstractModel class.
      */
     public AbstractModel() {
-        classname = getClass().getName();
+        clazz = getClass();
+        classname = clazz.getName();
         if (!validators.containsKey(classname)) {
             validators.put(classname, new ArrayList<Validator>());
         }
@@ -179,6 +186,37 @@ public abstract class AbstractModel<T> extends Model {
         } catch (HistoryException ex) {
             Logger.error(ex.getMessage());
         }
+    }
+
+    /**
+     * Get the Query object for the current class.
+     *
+     * @return The query object
+     */
+    public Query<T> all() {
+        return (Query<T>) Model.all(clazz);
+    }
+
+    /**
+     * Get all models from the database.
+     *
+     * @return An array containing all found models or null
+     */
+    @SuppressWarnings("unchecked")
+    public List getAll() {
+        return all().fetch();
+    }
+
+    /**
+     * Get a specific model by specifying its unique id.
+     *
+     * @param id
+     *            The unique id of the model
+     * @return The model if one was found or null
+     */
+    @SuppressWarnings("unchecked")
+    public T getById(int id) {
+        return (T) all().getByKey(id);
     }
 
     /**
