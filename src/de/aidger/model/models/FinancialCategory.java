@@ -25,10 +25,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import siena.Table;
+import siena.Column;
+
 import de.aidger.model.AbstractModel;
-import de.unistuttgart.iste.se.adohive.controller.IFinancialCategoryManager;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 
 /**
  * Represents a single entry in the financial category column of the database.
@@ -36,27 +36,33 @@ import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
  * 
  * @author aidGer Team
  */
-public class FinancialCategory extends AbstractModel<IFinancialCategory>
-        implements IFinancialCategory {
+@Table("Finanzkategorie")
+public class FinancialCategory extends AbstractModel<FinancialCategory> {
 
     /**
      * The name of the category.
      */
+    @Column("Name")
     private String name;
+
+    //TODO: The arrays shouldn't work with siena
 
     /**
      * The budget costs of the category.
      */
+    @Column("Plankosten")
     private Integer[] budgetCosts;
 
     /**
      * The cost units of the category.
      */
+    @Column("Kostenstelle")
     private Integer[] costUnits;
 
     /**
      * The year the category is valid.
      */
+    @Column("Jahr")
     private Short year;
 
     /**
@@ -79,14 +85,13 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      * @param f
      *            the financial category model
      */
-    public FinancialCategory(IFinancialCategory f) {
+    public FinancialCategory(FinancialCategory f) {
         this();
         setId(f.getId());
         setBudgetCosts(f.getBudgetCosts());
         setCostUnits(f.getCostUnits());
         setName(f.getName());
         setYear(f.getYear());
-        setNew(false);
     }
 
     /**
@@ -95,48 +100,12 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
     @Override
     public FinancialCategory clone() {
         FinancialCategory f = new FinancialCategory();
+        f.setId(id);
         f.setBudgetCosts(budgetCosts);
         f.setCostUnits(costUnits);
         f.setName(name);
         f.setYear(year);
-        f.doClone(this);
         return f;
-    }
-
-    /**
-     * Check if two objects are equal.
-     * 
-     * @param o
-     *            The other object
-     * @return True if both are equal
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (o instanceof FinancialCategory) {
-            FinancialCategory f = (FinancialCategory) o;
-            return (id == null ? f.id == null : id.equals(f.id))
-                    && Arrays.equals(f.budgetCosts, budgetCosts)
-                    && Arrays.equals(f.costUnits, costUnits)
-                    && (year == null ? f.year == null : year.equals(f.year))
-                    && (name == null ? f.name == null : f.name.equals(name));
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * Generate a unique hashcode for this instance.
-     * 
-     * @return The hashcode
-     */
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 37 * hash + (name != null ? name.hashCode() : 0);
-        hash = 37 * hash + Arrays.hashCode(budgetCosts);
-        hash = 37 * hash + Arrays.hashCode(costUnits);
-        hash = 37 * hash + (year != null ? year.hashCode() : 0);
-        return hash;
     }
 
     /**
@@ -183,9 +152,8 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      * Custom validation function for remove().
      * 
      * @return True if everything is correct
-     * @throws AdoHiveException
      */
-    public boolean validateOnRemove() throws AdoHiveException {
+    public boolean validateOnRemove() {
         boolean ret = true;
 
         List courses = (new Course()).getCourses(this);
@@ -202,11 +170,10 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      * Get a list of distinct funds.
      * 
      * @return List of distinct cost units
-     * @throws AdoHiveException
      */
-    public List<Integer> getDistinctCostUnits() throws AdoHiveException {
-        IFinancialCategoryManager mgr = (IFinancialCategoryManager) getManager();
-        return mgr.getDistinctCostUnits();
+    public List<Integer> getDistinctCostUnits() {
+        //TODO: Implement
+        return null;
     }
 
     /**
@@ -214,7 +181,6 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      * 
      * @return The budget costs of the category
      */
-    @Override
     public Integer[] getBudgetCosts() {
         return budgetCosts;
     }
@@ -224,7 +190,6 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      * 
      * @return The funds of the category
      */
-    @Override
     public Integer[] getCostUnits() {
         return costUnits;
     }
@@ -234,7 +199,6 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      * 
      * @return The name of the category
      */
-    @Override
     public String getName() {
         return name;
     }
@@ -244,7 +208,6 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      * 
      * @return The year the category is valid
      */
-    @Override
     public Short getYear() {
         return year;
     }
@@ -255,7 +218,6 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      * @param costs
      *            The budget costs of the category
      */
-    @Override
     public void setBudgetCosts(Integer[] costs) {
         budgetCosts = costs;
     }
@@ -266,7 +228,6 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      * @param costUnits
      *            The cost units of the category
      */
-    @Override
     public void setCostUnits(Integer[] costUnits) {
         this.costUnits = costUnits;
     }
@@ -277,7 +238,6 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      * @param name
      *            The name of the category
      */
-    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -288,7 +248,6 @@ public class FinancialCategory extends AbstractModel<IFinancialCategory>
      * @param year
      *            The year the category is valid.
      */
-    @Override
     public void setYear(Short year) {
         this.year = year;
     }

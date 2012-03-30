@@ -27,7 +27,9 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Observable;
+
+import siena.Model;
+import siena.Id;
 
 import de.aidger.model.validators.DateRangeValidator;
 import de.aidger.model.validators.ExistenceValidator;
@@ -35,14 +37,11 @@ import de.aidger.model.validators.FormatValidator;
 import de.aidger.model.validators.InclusionValidator;
 import de.aidger.model.validators.PresenceValidator;
 import de.aidger.model.validators.Validator;
+import de.aidger.model.validators.ValidationException;
 import de.aidger.utils.Logger;
 import de.aidger.utils.history.HistoryEvent;
 import de.aidger.utils.history.HistoryException;
 import de.aidger.utils.history.HistoryManager;
-import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
-import de.unistuttgart.iste.se.adohive.controller.IAdoHiveManager;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IAdoHiveModel;
 
 /**
  * AbstractModel contains all important database related functions which all
@@ -51,28 +50,19 @@ import de.unistuttgart.iste.se.adohive.model.IAdoHiveModel;
  * 
  * @author Philipp Gildein
  */
-public abstract class AbstractModel<T> extends Observable implements
-        IAdoHiveModel<T> {
+//TODO: Had to remove Observable ... do something similar
+public abstract class AbstractModel<T> extends Model {
 
     /**
      * The unique id of the model in the database.
      */
+    @Id
     protected Integer id = 0;
 
     /**
      * The name of the class.
      */
     protected String classname;
-
-    /**
-     * Determines if the model has been saved in the db yet.
-     */
-    private boolean isNew = true;
-
-    /**
-     * Used to cache the AdoHiveManagers after getting them the first time.
-     */
-    protected static Map<String, IAdoHiveManager> managers = new HashMap<String, IAdoHiveManager>();
 
     /**
      * Array containing all validators for that specific model.
@@ -97,11 +87,6 @@ public abstract class AbstractModel<T> extends Observable implements
     protected boolean updatePKs = false;
 
     /**
-     * The old model before any changes.
-     */
-    private AbstractModel<T> pkModel = null;
-
-    /**
      * The constructor of the AbstractModel class.
      */
     public AbstractModel() {
@@ -120,119 +105,22 @@ public abstract class AbstractModel<T> extends Observable implements
     abstract public T clone();
 
     /**
-     * Get all models from the database.
-     * 
-     * @return An array containing all found models or null
-     */
-    @SuppressWarnings("unchecked")
-    public List getAll() throws AdoHiveException {
-        return getManager().getAll();
-    }
-
-    /**
-     * Get a specific model by specifying its unique id.
-     * 
-     * @param id
-     *            The unique id of the model
-     * @return The model if one was found or null
-     */
-    @SuppressWarnings("unchecked")
-    public T getById(int id) throws AdoHiveException {
-        return (T) getManager().getById(id);
-    }
-
-    /**
-     * Get a specific model by specifying a set of keys.
-     * 
-     * @param o
-     *            The set of keys specific to this model
-     * @return The model if one was found or null
-     */
-    @SuppressWarnings("unchecked")
-    public T getByKeys(Object... o) throws AdoHiveException {
-        return (T) getManager().getByKeys(o);
-    }
-
-    /**
-     * Get the number of models in the database.
-     * 
-     * @return The number of models
-     * @throws AdoHiveException
-     */
-    public int size() throws AdoHiveException {
-        return getManager().size();
-    }
-
-    /**
-     * Returns true if no model has been saved into the database.
-     * 
-     * @return True if no model is in the database
-     * @throws AdoHiveException
-     */
-    public boolean isEmpty() throws AdoHiveException {
-        return getManager().isEmpty();
-    }
-
-    /**
-     * Checks if the current instance exists in the database.
-     * 
-     * @return True if the instance exists
-     * @throws AdoHiveException
-     */
-    public boolean isInDatabase() throws AdoHiveException {
-        return getManager().contains(this);
-    }
-
-    /**
-     * Deletes everything from the associated table.
-     * 
-     * @throws AdoHiveException
-     */
-    public void clearTable() throws AdoHiveException {
-        getManager().clear();
-        id = 0; // Reset
-    }
-
-    // TODO: Add get(index) method?
-
-    /**
      * Save the current model to the database.
      * 
      * @return True if validation succeeds
-     * @throws AdoHiveException
      */
     @SuppressWarnings("unchecked")
-    public boolean save() throws AdoHiveException {
+    public void store() throws ValidationException {
+        /* Validation of the model */
         if (!doValidate()) {
-            return false;
+            throw new ValidationException(_("Validation failed."));
         } else if (!errors.isEmpty()) {
-            Logger
-                .debug(_("The model was not saved because the error list is not empty."));
-            return false;
+            throw new ValidationException(_("The model was not saved because the error list is not empty."));
         }
 
-        /* Add or update model */
-        IAdoHiveManager mgr = getManager();
-        boolean wasNew = isNew;
-        if (isNew) {
-            Logger.info(MessageFormat.format(_("Adding model: {0}"),
-                new Object[] { toString() }));
+        boolean wasNew = getId() == 0;
 
-            mgr.add(this);
-            setNew(false);
-        } else if (updatePKs) {
-            Logger.info(MessageFormat.format(_("Updating PKs for model: {0}"),
-                new Object[] { toString() }));
-
-            mgr.remove(pkModel);
-            mgr.add(this);
-            pkModel = (AbstractModel<T>) clone();
-        } else {
-            Logger.info(MessageFormat.format(_("Updating model: {0}"),
-                new Object[] { toString() }));
-
-            mgr.update(this);
-        }
+        save();
 
         /* Add event to the HistoryManager */
         HistoryEvent evt = new HistoryEvent();
@@ -248,30 +136,25 @@ public abstract class AbstractModel<T> extends Observable implements
             Logger.error(ex.getMessage());
         }
 
-        setChanged();
-        notifyObservers(true);
-
-        return true;
+        /* Observable calls */
+        //TODO: See top
+        //setChanged();
+        //notifyObservers(true);
     }
 
     /**
      * Remove the current model from the database.
      * 
      * @return False if the model is new or doesn't validate
-     * @throws AdoHiveException
      */
     @SuppressWarnings("unchecked")
-    public boolean remove() throws AdoHiveException {
-        if (isNew) {
-            return false;
-        }
-
+    public void remove() throws ValidationException {
         /* Check if there is a custom validation function */
         try {
             java.lang.reflect.Method m = getClass().getDeclaredMethod(
                 "validateOnRemove");
             if (!(Boolean) m.invoke(this, new Object[0])) {
-                return false;
+                throw new ValidationException();
             }
         } catch (Exception ex) {
         }
@@ -279,9 +162,10 @@ public abstract class AbstractModel<T> extends Observable implements
         Logger.info(MessageFormat.format(_("Removing model: {0}"),
             new Object[] { toString() }));
 
-        getManager().remove(this);
-        setChanged();
-        notifyObservers(false);
+        delete();
+        //TODO: See top
+        //setChanged();
+        //notifyObservers(false);
 
         /* Add event to the HistoryManager */
         HistoryEvent evt = new HistoryEvent();
@@ -295,10 +179,25 @@ public abstract class AbstractModel<T> extends Observable implements
         } catch (HistoryException ex) {
             Logger.error(ex.getMessage());
         }
+    }
 
-        setNew(true);
+    /**
+     * Returns the unique id of the model.
+     *
+     * @return The unique id of the model
+     */
+    public Integer getId() {
+        return id;
+    }
 
-        return true;
+    /**
+     * Sets the unique id of the model
+     *
+     * @param id
+     *          The new id of the model
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**
@@ -430,7 +329,7 @@ public abstract class AbstractModel<T> extends Observable implements
      * @param trans
      *            The translated names
      */
-    public void validateExistanceOf(String[] members, String[] trans,
+    public void validateExistenceOf(String[] members, String[] trans,
             AbstractModel type) {
         validators.get(classname).add(new ExistenceValidator(members, trans, type));
     }
@@ -443,7 +342,7 @@ public abstract class AbstractModel<T> extends Observable implements
      * @param trans
      *            The translated names
      * @param format
-     *            THe format to check
+     *            The format to check
      */
     public void validateFormatOf(String[] members, String[] trans, String format) {
         validators.get(classname).add(new FormatValidator(members, trans, format));
@@ -456,56 +355,6 @@ public abstract class AbstractModel<T> extends Observable implements
      */
     public boolean validateModel() {
         return doValidate() && errors.isEmpty();
-    }
-
-    /**
-     * Returns the unique id of the activity.
-     * 
-     * @return The unique id of the activity
-     */
-    @Override
-    public Integer getId() {
-        return id;
-    }
-
-    /**
-     * Set the unique id of the assistant.
-     * 
-     * <b>!!! THIS IS FOR INTERNAL ADOHIVE USAGE ONLY !!!</b>
-     * 
-     * @param id
-     *            The unique id of the assistant
-     */
-    @Override
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Set if the model is new and should be added to the database.
-     * 
-     * @param isnew
-     *            Is the model new?
-     */
-    public void setNew(boolean isnew) {
-        isNew = isnew;
-        if (isNew) {
-            setId(0);
-            if (updatePKs) {
-                pkModel = null;
-            }
-        } else if (updatePKs) {
-            pkModel = (AbstractModel<T>) clone();
-        }
-    }
-
-    /**
-     * Get the state of the model in the db.
-     * 
-     * @return True if the model is new
-     */
-    protected boolean isNew() {
-        return isNew;
     }
 
     /**
@@ -535,32 +384,6 @@ public abstract class AbstractModel<T> extends Observable implements
     }
 
     /**
-     * Extract the name of the class and return the correct manager.
-     * 
-     * @return The name of the model class
-     */
-    @SuppressWarnings("unchecked")
-    protected IAdoHiveManager getManager() {
-        String clazzname = getClass().getSimpleName();
-
-        if (!managers.containsKey(clazzname) || managers.get(clazzname) == null) {
-            /* Try to get the correct manager from the AdoHiveController */
-            try {
-                java.lang.reflect.Method m = AdoHiveController.class
-                    .getMethod("get" + clazzname + "Manager");
-                managers.put(clazzname, (IAdoHiveManager) m.invoke(
-                    AdoHiveController.getInstance(), new Object[0]));
-            } catch (Exception ex) {
-                Logger.error(MessageFormat.format(
-                    _("Could not get manager for class \"{0}\". Error: {1}"),
-                    new Object[] { clazzname, ex.getMessage() }));
-            }
-        }
-
-        return managers.get(clazzname);
-    }
-
-    /**
      * Validate the input using the validators and a custom validate function.
      * 
      * @return True if everything validates
@@ -585,22 +408,6 @@ public abstract class AbstractModel<T> extends Observable implements
         }
 
         return ret;
-    }
-
-    /**
-     * Protected helper method to correctly clone models with updatePKs = true.
-     * 
-     * @param toClone
-     *            The model that gets cloned
-     */
-    protected void doClone(AbstractModel toClone) {
-        isNew = toClone.isNew;
-        if (isNew) {
-            pkModel = null;
-        } else if (updatePKs) {
-            pkModel = toClone.pkModel;
-        }
-        setId(toClone.getId());
     }
 
     /**

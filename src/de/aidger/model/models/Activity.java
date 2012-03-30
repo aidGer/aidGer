@@ -22,13 +22,12 @@ package de.aidger.model.models;
 import static de.aidger.utils.Translation._;
 
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 
+import siena.Table;
+import siena.Column;
+
 import de.aidger.model.AbstractModel;
-import de.unistuttgart.iste.se.adohive.controller.IActivityManager;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IActivity;
 
 /**
  * Represents a single entry in the activity column of the database. Contains
@@ -36,51 +35,61 @@ import de.unistuttgart.iste.se.adohive.model.IActivity;
  * 
  * @author aidGer Team
  */
-public class Activity extends AbstractModel<IActivity> implements IActivity {
+@Table("Vorgang")
+public class Activity extends AbstractModel<Activity>  {
 
     /**
      * References the corresponding assistant.
      */
+    @Column("Hilfskraft_ID")
     private Integer assistantId;
 
     /**
      * References the course by its unique id.
      */
+    @Column("Veranstaltung_ID")
     private Integer courseId;
 
     /**
      * The date on which this activity took place.
      */
+    @Column("Datum")
     private Date date;
 
     /**
      * The sender of the activity.
      */
+    @Column("Sender")
     private String sender;
 
     /**
      * The type of document referenced by this activity.
      */
+    @Column("Dokumententyp")
     private String documentType;
 
     /**
      * The type of the activity.
      */
+    @Column("Art")
     private String type;
 
     /**
      * The processor of the activity.
      */
+    @Column("Bearbeiter")
     private String processor;
 
     /**
      * The contents of the activity.
      */
+    @Column("Inhalt")
     private String content;
 
     /**
      * Remarks for the activity.
      */
+    @Column("Bemerkung")
     private String remark;
 
     /**
@@ -91,10 +100,10 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
              validatePresenceOf(new String[] { "date", "type", "processor",
                     "content", "documentType" }, new String[] { _("Date"),
                     _("Type"), _("Processor"), _("Content"), _("Document Type") });
-            validateExistanceOf(new String[] { "assistantId" },
-                    new String[] { _("Assistant") }, new Assistant());
-            validateExistanceOf(new String[] { "courseId" },
-                    new String[] { _("Course") }, new Course());
+            validateExistenceOf(new String[]{"assistantId"},
+                    new String[]{_("Assistant")}, new Assistant());
+            validateExistenceOf(new String[]{"courseId"},
+                    new String[]{_("Course")}, new Course());
         }
     }
 
@@ -104,7 +113,7 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @param a
      *            the activity model
      */
-    public Activity(IActivity a) {
+    public Activity(Activity a) {
         this();
         setId(a.getId());
         setAssistantId(a.getAssistantId());
@@ -116,8 +125,6 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
         setRemark(a.getRemark());
         setSender(a.getSender());
         setType(a.getType());
-
-        setNew(false);
     }
 
     /**
@@ -126,6 +133,7 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
     @Override
     public Activity clone() {
         Activity a = new Activity();
+        a.setId(id);
         a.setAssistantId(assistantId);
         a.setContent(content);
         a.setCourseId(courseId);
@@ -135,62 +143,7 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
         a.setRemark(remark);
         a.setSender(sender);
         a.setType(type);
-        a.doClone(this);
         return a;
-    }
-
-    /**
-     * Check if two objects are equal.
-     * 
-     * @param o
-     *            The other object
-     * @return True if both are equal
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (o instanceof Activity) {
-            Activity a = (Activity) o;
-            return (assistantId == null ? a.assistantId == null : assistantId
-                .equals(a.assistantId))
-                    && (id == null ? a.id == null : id.equals(a.id))
-                    && (courseId == null ? a.courseId == null : courseId
-                        .equals(a.courseId))
-                    && (date == null ? a.date == null : date.toString().equals(
-                        a.date.toString()))
-                    && (content == null ? a.content == null : content
-                        .equals(a.content))
-                    && (documentType == null ? a.documentType == null
-                            : documentType.equals(a.documentType))
-                    && (processor == null ? a.processor == null : processor
-                        .equals(a.processor))
-                    && (remark == null ? a.remark == null : remark
-                        .equals(a.remark))
-                    && (sender == null ? a.sender == null : sender
-                        .equals(a.sender))
-                    && (type == null ? a.type == null : type.equals(a.type));
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * Generate a unique hashcode for this instance.
-     * 
-     * @return The hashcode
-     */
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + assistantId;
-        hash = 97 * hash + courseId;
-        hash = 97 * hash + (date != null ? date.hashCode() : 0);
-        hash = 97 * hash + (sender != null ? sender.hashCode() : 0);
-        hash = 97 * hash + (documentType != null ? documentType.hashCode() : 0);
-        hash = 97 * hash + (type != null ? type.hashCode() : 0);
-        hash = 97 * hash + (processor != null ? processor.hashCode() : 0);
-        hash = 97 * hash + (content != null ? content.hashCode() : 0);
-        hash = 97 * hash + (remark != null ? remark.hashCode() : 0);
-        return hash;
     }
 
     /**
@@ -224,10 +177,9 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      *         found
      */
     @SuppressWarnings("unchecked")
-    public List<Activity> getActivities(Assistant assistant)
-            throws AdoHiveException {
-        IActivityManager mgr = (IActivityManager) getManager();
-        return castList(mgr.getActivities(assistant));
+    public List<Activity> getActivities(Assistant assistant) {
+        //TODO: Implement
+        return null;
     }
 
     /**
@@ -238,9 +190,9 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @return The activities related to the course or null if none were found
      */
     @SuppressWarnings("unchecked")
-    public List<Activity> getActivities(Course course) throws AdoHiveException {
-        IActivityManager mgr = (IActivityManager) getManager();
-        return castList(mgr.getActivities(course));
+    public List<Activity> getActivities(Course course) {
+        //TODO: Implement
+        return null;
     }
 
     /**
@@ -252,10 +204,9 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      *            End of the date range
      * @return All activities that occured during that date range
      */
-    public List<Activity> getActivities(Date from, Date to)
-            throws AdoHiveException {
-        IActivityManager mgr = (IActivityManager) getManager();
-        return castList(mgr.getActivities(from, to));
+    public List<Activity> getActivities(Date from, Date to) {
+        //TODO: Implement
+        return null;
     }
 
     /**
@@ -263,7 +214,6 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * 
      * @return The id of the referenced assistant
      */
-    @Override
     public Integer getAssistantId() {
         return assistantId;
     }
@@ -273,7 +223,6 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * 
      * @return The contents of the activity
      */
-    @Override
     public String getContent() {
         return content;
     }
@@ -283,7 +232,6 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * 
      * @return The id of the referenced course.
      */
-    @Override
     public Integer getCourseId() {
         return courseId;
     }
@@ -293,7 +241,6 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * 
      * @return The date of the activity.
      */
-    @Override
     public Date getDate() {
         return date;
     }
@@ -303,7 +250,6 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * 
      * @return The type of document
      */
-    @Override
     public String getDocumentType() {
         return documentType;
     }
@@ -313,7 +259,6 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * 
      * @return The processor of the activity.
      */
-    @Override
     public String getProcessor() {
         return processor;
     }
@@ -323,7 +268,6 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * 
      * @return Remarks to the activity
      */
-    @Override
     public String getRemark() {
         return remark;
     }
@@ -333,7 +277,6 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * 
      * @return The sender of the activity.
      */
-    @Override
     public String getSender() {
         return sender;
     }
@@ -343,7 +286,6 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * 
      * @return The type of the activity
      */
-    @Override
     public String getType() {
         return type;
     }
@@ -354,7 +296,6 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @param id
      *            The id of the assistant
      */
-    @Override
     public void setAssistantId(Integer id) {
         assistantId = id;
     }
@@ -365,7 +306,6 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @param cont
      *            The contents of the activity
      */
-    @Override
     public void setContent(String cont) {
         content = cont;
     }
@@ -376,7 +316,6 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @param id
      *            The id of the course
      */
-    @Override
     public void setCourseId(Integer id) {
         courseId = id;
     }
@@ -387,7 +326,6 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @param dt
      *            The date of the activity
      */
-    @Override
     public void setDate(Date dt) {
         date = dt;
     }
@@ -398,7 +336,6 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @param type
      *            The type of the document
      */
-    @Override
     public void setDocumentType(String type) {
         documentType = type;
     }
@@ -409,7 +346,6 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @param proc
      *            The processor of the activity
      */
-    @Override
     public void setProcessor(String proc) {
         processor = proc;
     }
@@ -420,7 +356,6 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @param rem
      *            Remarks to the activity
      */
-    @Override
     public void setRemark(String rem) {
         remark = rem;
     }
@@ -431,7 +366,6 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @param send
      *            The sender of the activity
      */
-    @Override
     public void setSender(String send) {
         sender = send;
     }
@@ -442,24 +376,8 @@ public class Activity extends AbstractModel<IActivity> implements IActivity {
      * @param typec
      *            The type of the activity
      */
-    @Override
     public void setType(String typec) {
         type = typec;
-    }
-
-    /**
-     * Cast the list from interface to real class.
-     * 
-     * @param list
-     *            The list to cast
-     * @return The new list
-     */
-    protected List<Activity> castList(List<IActivity> list) {
-        List<Activity> ret = new ArrayList<Activity>();
-        for (IActivity act : list) {
-            ret.add(new Activity(act));
-        }
-        return ret;
     }
 
 }

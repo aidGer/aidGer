@@ -22,14 +22,12 @@ package de.aidger.model.models;
 import static de.aidger.utils.Translation._;
 
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
+import siena.Table;
+import siena.Column;
+
 import de.aidger.model.AbstractModel;
-import de.unistuttgart.iste.se.adohive.controller.IEmploymentManager;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IEmployment;
 
 /**
  * Represents a single entry in the employment column of the database. Contains
@@ -37,57 +35,67 @@ import de.unistuttgart.iste.se.adohive.model.IEmployment;
  * 
  * @author aidGer Team
  */
-public class Employment extends AbstractModel<IEmployment> implements
-        IEmployment {
+@Table("Beschaeftigung")
+public class Employment extends AbstractModel<Employment> {
 
     /**
      * References the corresponding assistant.
      */
+    @Column("Hilfskraft_ID")
     private Integer assistantId;
 
     /**
      * References the corresponding contract.
      */
+    @Column("Vertrag_ID")
     private Integer contractId;
 
     /**
      * References the corresponding course.
      */
+    @Column("Veranstaltung_ID")
     private Integer courseId;
 
     /**
      * The funds of the employment.
      */
+    @Column("Fonds")
     private String funds;
 
     /**
      * The month in which the employment took place.
      */
+    @Column("Monat")
     private Byte month;
 
     /**
      * The year in which the employment took place.
      */
+    @Column("Jahr")
     private Short year;
 
     /**
      * The hours worked during the employment.
      */
+    @Column("AnzahlStunden")
     private Double hourCount;
 
     /**
      * The cost unit given by the university.
      */
+    @Column("Kostenstelle")
     private Integer costUnit;
 
     /**
      * The qualification of the employment.
      */
+    @Column("Qualifikation")
     private String qualification;
 
     /**
      * Remarks regarding the employment.
      */
+    @Column("Bemerkung")
     private String remark;
 
     /**
@@ -99,12 +107,12 @@ public class Employment extends AbstractModel<IEmployment> implements
                 new String[] { _("Funds"), _("Qualification"), _("Hour count") });
             validateInclusionOf(new String[] { "qualification" },
                 new String[] { _("Qualification") }, new String[] { "g", "u", "b" });
-            validateExistanceOf(new String[] { "assistantId" },
-                new String[] { _("Assistant") }, new Assistant());
-            validateExistanceOf(new String[] { "contractId" },
-                new String[] { _("Contract") }, new Contract());
-            validateExistanceOf(new String[] { "courseId" },
-                new String[] { _("Course") }, new Course());        
+            validateExistenceOf(new String[]{"assistantId"},
+                    new String[]{_("Assistant")}, new Assistant());
+            validateExistenceOf(new String[]{"contractId"},
+                    new String[]{_("Contract")}, new Contract());
+            validateExistenceOf(new String[]{"courseId"},
+                    new String[]{_("Course")}, new Course());
         }
     }
 
@@ -114,7 +122,7 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param e
      *            the employment model
      */
-    public Employment(IEmployment e) {
+    public Employment(Employment e) {
         this();
         setId(e.getId());
         setAssistantId(e.getAssistantId());
@@ -127,7 +135,6 @@ public class Employment extends AbstractModel<IEmployment> implements
         setQualification(e.getQualification());
         setRemark(e.getRemark());
         setYear(e.getYear());
-        setNew(false);
     }
 
     /**
@@ -147,68 +154,7 @@ public class Employment extends AbstractModel<IEmployment> implements
         e.setQualification(qualification);
         e.setRemark(remark);
         e.setYear(year);
-        e.doClone(this);
         return e;
-    }
-
-    /**
-     * Check if two objects are equal.
-     * 
-     * @param o
-     *            The other object
-     * @return True if both are equal
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (o instanceof Employment) {
-            Employment e = (Employment) o;
-            return (id == null ? e.id == null : id.equals(e.id))
-                    && (assistantId == null ? e.assistantId == null
-                            : assistantId.equals(e.assistantId))
-                    && (contractId == null ? e.contractId == null : contractId
-                        .equals(e.contractId))
-                    && (funds == null ? e.funds == null : funds.equals(e.funds))
-                    && (courseId == null ? e.courseId == null : courseId
-                        .equals(e.courseId))
-                    && (month == null ? e.month == null : month.equals(e.month))
-                    && (year == null ? e.year == null : year.equals(e.year))
-                    && (costUnit == null ? e.getCostUnit() == null : costUnit
-                        .equals(e.getCostUnit()))
-                    && (hourCount == null ? e.hourCount == null : hourCount
-                        .equals(e.hourCount))
-                    && (qualification == null ? e.getQualification() == null
-                            : qualification.equals(e.getQualification()))
-                    && (remark == null ? e.getRemark() == null : remark
-                        .equals(e.getRemark()));
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * Generate a unique hashcode for this instance.
-     * 
-     * @return The hashcode
-     */
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + (assistantId != null ? assistantId.hashCode() : 0);
-        hash = 29 * hash + (contractId != null ? contractId.hashCode() : 0);
-        hash = 29 * hash + (courseId != null ? courseId.hashCode() : 0);
-        hash = 29 * hash + (funds != null ? funds.hashCode() : 0);
-        hash = 29 * hash + (month != null ? month.hashCode() : 0);
-        hash = 29 * hash + (year != null ? year.hashCode() : 0);
-        hash = 29
-                * hash
-                + (int) (Double.doubleToLongBits(hourCount) ^ (Double
-                    .doubleToLongBits(hourCount) >>> 32));
-        hash = 29 * hash + (costUnit != null ? costUnit.hashCode() : 0);
-        hash = 29 * hash
-                + (qualification != null ? qualification.hashCode() : 0);
-        hash = 29 * hash + (remark != null ? remark.hashCode() : 0);
-        return hash;
     }
 
     /**
@@ -250,20 +196,10 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param end
      *            The end date
      * @return The employments during the given time
-     * @throws AdoHiveException
      */
-    public List<Employment> getEmployments(Date start, Date end)
-            throws AdoHiveException {
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(start);
-        short startYear = (short) cal.get(Calendar.YEAR);
-        byte startMonth = (byte) cal.get(Calendar.MONTH);
-
-        cal.setTime(end);
-        short endYear = (short) cal.get(Calendar.YEAR);
-        byte endMonth = (byte) cal.get(Calendar.MONTH);
-
-        return getEmployments(startYear, startMonth, endYear, endMonth);
+    public List<Employment> getEmployments(Date start, Date end) {
+        //TODO: Implement
+        return null;
     }
 
     /**
@@ -278,13 +214,11 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param endMonth
      *            The end month
      * @return The employments during the given time
-     * @throws AdoHiveException
      */
     public List<Employment> getEmployments(short startYear, byte startMonth,
-            short endYear, byte endMonth) throws AdoHiveException {
-        IEmploymentManager mgr = (IEmploymentManager) getManager();
-        return castList(mgr.getEmployments(startYear, startMonth, endYear,
-            endMonth));
+            short endYear, byte endMonth) {
+        //TODO: Implement
+        return null;
     }
 
     /**
@@ -293,12 +227,10 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param contract
      *            The given contract
      * @return The employments with the given contract
-     * @throws AdoHiveException
      */
-    public List<Employment> getEmployments(Contract contract)
-            throws AdoHiveException {
-        IEmploymentManager mgr = (IEmploymentManager) getManager();
-        return castList(mgr.getEmployments(contract));
+    public List<Employment> getEmployments(Contract contract) {
+        //TODO: Implement
+        return null;
     }
 
     /**
@@ -307,12 +239,10 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param assistant
      *            The given assistant
      * @return The employments of the given assistant
-     * @throws AdoHiveException
      */
-    public List<Employment> getEmployments(Assistant assistant)
-            throws AdoHiveException {
-        IEmploymentManager mgr = (IEmploymentManager) getManager();
-        return castList(mgr.getEmployments(assistant));
+    public List<Employment> getEmployments(Assistant assistant) {
+        //TODO: Implement
+        return null;
     }
 
     /**
@@ -321,12 +251,10 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param course
      *            The given course
      * @return The employments for the given course
-     * @throws AdoHiveException
      */
-    public List<Employment> getEmployments(Course course)
-            throws AdoHiveException {
-        IEmploymentManager mgr = (IEmploymentManager) getManager();
-        return castList(mgr.getEmployments(course));
+    public List<Employment> getEmployments(Course course) {
+        //TODO: Implement
+        return null;
     }
 
     /**
@@ -335,23 +263,20 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param semester
      *            The given semester
      * @return The employments in the given semester
-     * @throws AdoHiveException
      */
-    public List<Employment> getEmployments(String semester)
-            throws AdoHiveException {
-        IEmploymentManager mgr = (IEmploymentManager) getManager();
-        return castList(mgr.getEmployments(semester));
+    public List<Employment> getEmployments(String semester) {
+        //TODO: Implement
+        return null;
     }
 
     /**
      * Get a list of distinct cost units.
      * 
      * @return A list of distinct cost units
-     * @throws AdoHiveException
      */
-    public List<Integer> getDistinctCostUnits() throws AdoHiveException {
-        IEmploymentManager mgr = (IEmploymentManager) getManager();
-        return mgr.getDistinctCostUnits();
+    public List<Integer> getDistinctCostUnits() {
+        //TODO: Implement
+        return null;
     }
 
     /**
@@ -359,7 +284,6 @@ public class Employment extends AbstractModel<IEmployment> implements
      * 
      * @return The id of the assistant
      */
-    @Override
     public Integer getAssistantId() {
         return assistantId;
     }
@@ -369,7 +293,6 @@ public class Employment extends AbstractModel<IEmployment> implements
      * 
      * @return The id of the contract
      */
-    @Override
     public Integer getContractId() {
         return contractId;
     }
@@ -379,7 +302,6 @@ public class Employment extends AbstractModel<IEmployment> implements
      * 
      * @return The cost unit of the contract
      */
-    @Override
     public Integer getCostUnit() {
         return costUnit;
     }
@@ -389,7 +311,6 @@ public class Employment extends AbstractModel<IEmployment> implements
      * 
      * @return The id of the course
      */
-    @Override
     public Integer getCourseId() {
         return courseId;
     }
@@ -399,7 +320,6 @@ public class Employment extends AbstractModel<IEmployment> implements
      * 
      * @return The funds of the employment
      */
-    @Override
     public String getFunds() {
         return funds;
     }
@@ -409,7 +329,6 @@ public class Employment extends AbstractModel<IEmployment> implements
      * 
      * @return The hours worked during the employment
      */
-    @Override
     public Double getHourCount() {
         return hourCount;
     }
@@ -419,7 +338,6 @@ public class Employment extends AbstractModel<IEmployment> implements
      * 
      * @return The month of the employment
      */
-    @Override
     public Byte getMonth() {
         return month;
     }
@@ -429,7 +347,6 @@ public class Employment extends AbstractModel<IEmployment> implements
      * 
      * @return The qualification of the employment
      */
-    @Override
     public String getQualification() {
         return qualification;
     }
@@ -439,7 +356,6 @@ public class Employment extends AbstractModel<IEmployment> implements
      * 
      * @return The remarks regarding the employment
      */
-    @Override
     public String getRemark() {
         return remark;
     }
@@ -449,7 +365,6 @@ public class Employment extends AbstractModel<IEmployment> implements
      * 
      * @return The year of the employment
      */
-    @Override
     public Short getYear() {
         return year;
     }
@@ -460,7 +375,6 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param id
      *            The id of the assistant
      */
-    @Override
     public void setAssistantId(Integer id) {
         assistantId = id;
     }
@@ -471,7 +385,6 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param id
      *            The id of the contract
      */
-    @Override
     public void setContractId(Integer id) {
         contractId = id;
     }
@@ -482,7 +395,6 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param cost
      *            The cost unit of the contract
      */
-    @Override
     public void setCostUnit(Integer cost) {
         costUnit = cost;
     }
@@ -493,7 +405,6 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param id
      *            The id of the course
      */
-    @Override
     public void setCourseId(Integer id) {
         courseId = id;
     }
@@ -504,7 +415,6 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param funds
      *            The funds of the employment
      */
-    @Override
     public void setFunds(String funds) {
         this.funds = funds;
     }
@@ -515,7 +425,6 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param hours
      *            The hours worked during the employment
      */
-    @Override
     public void setHourCount(Double hours) {
         hourCount = hours;
     }
@@ -526,7 +435,6 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param month
      *            The month of the employment
      */
-    @Override
     public void setMonth(Byte month) {
         this.month = month;
 
@@ -538,7 +446,6 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param quali
      *            The qualification of the employment
      */
-    @Override
     public void setQualification(String quali) {
         qualification = quali;
     }
@@ -549,7 +456,6 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param rem
      *            The remarks regarding the employment
      */
-    @Override
     public void setRemark(String rem) {
         remark = rem;
     }
@@ -560,24 +466,8 @@ public class Employment extends AbstractModel<IEmployment> implements
      * @param year
      *            The year of the employment
      */
-    @Override
     public void setYear(Short year) {
         this.year = year;
-    }
-
-    /**
-     * Cast the list from interface to real class.
-     * 
-     * @param list
-     *            The list to cast
-     * @return The new list
-     */
-    protected List<Employment> castList(List<IEmployment> list) {
-        List<Employment> ret = new ArrayList<Employment>();
-        for (IEmployment emp : list) {
-            ret.add(new Employment(emp));
-        }
-        return ret;
     }
 
 }

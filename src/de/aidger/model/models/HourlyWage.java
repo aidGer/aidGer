@@ -23,8 +23,10 @@ import static de.aidger.utils.Translation._;
 
 import java.math.BigDecimal;
 
+import siena.Table;
+import siena.Column;
+
 import de.aidger.model.AbstractModel;
-import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
 
 /**
  * Represents a single entry in the hourly wage column of the database. Contains
@@ -32,27 +34,31 @@ import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
  * 
  * @author aidGer Team
  */
-public class HourlyWage extends AbstractModel<IHourlyWage> implements
-        IHourlyWage {
+@Table("Stundenlohn")
+public class HourlyWage extends AbstractModel<HourlyWage> {
 
     /**
      * The qualification needed for the wage
      */
+    @Column("Qualifikation")
     private String qualification;
 
     /**
      * The month the wage is valid in.
      */
+    @Column("Monat")
     private Byte month;
 
     /**
      * The year the wage is valid in.
      */
+    @Column("Jahr")
     private Short year;
 
     /**
      * The wage per hour.
      */
+    @Column("Lohn")
     private BigDecimal wage;
 
     /**
@@ -75,14 +81,13 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      * @param h
      *            the hourly wage model
      */
-    public HourlyWage(IHourlyWage h) {
+    public HourlyWage(HourlyWage h) {
         this();
         setId(h.getId());
         setMonth(h.getMonth());
         setQualification(h.getQualification());
         setWage(h.getWage());
         setYear(h.getYear());
-        setNew(false);
     }
 
     /**
@@ -91,54 +96,12 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
     @Override
     public HourlyWage clone() {
         HourlyWage h = new HourlyWage();
+        h.setId(id);
         h.setMonth(month);
         h.setQualification(qualification);
         h.setWage(wage);
         h.setYear(year);
-        h.doClone(this);
         return h;
-    }
-
-    /**
-     * Check if two objects are equal.
-     * 
-     * @param o
-     *            The other object
-     * @return True if both are equal
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (o instanceof HourlyWage) {
-            HourlyWage h = (HourlyWage) o;
-            /*
-             * ID is not used anymore because the database table itself doesn't
-             * contain one.
-             */
-            return (month == null ? h.month == null : month.equals(h.month))
-                    && (year == null ? h.year == null : year.equals(h.year))
-                    && (qualification == null ? h.qualification == null
-                            : h.qualification.equals(qualification))
-                    && (wage == null ? h.wage == null : wage.subtract(h.wage)
-                        .doubleValue() <= 0.01);
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * Generate a unique hashcode for this instance.
-     * 
-     * @return The hashcode
-     */
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash
-                + (qualification != null ? qualification.hashCode() : 0);
-        hash = 37 * hash + (month != null ? month.hashCode() : 0);
-        hash = 37 * hash + (year != null ? year.hashCode() : 0);
-        hash = 37 * hash + (wage != null ? wage.hashCode() : 0);
-        return hash;
     }
 
     /**
@@ -164,7 +127,6 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      * 
      * @return The month the wage is valid in
      */
-    @Override
     public Byte getMonth() {
         return month;
     }
@@ -174,7 +136,6 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      * 
      * @return The qualification needed for the wage
      */
-    @Override
     public String getQualification() {
         return qualification;
     }
@@ -184,7 +145,6 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      * 
      * @return The wage per hour
      */
-    @Override
     public BigDecimal getWage() {
         return wage;
     }
@@ -194,7 +154,6 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      * 
      * @return The year the wage is valid in
      */
-    @Override
     public Short getYear() {
         return year;
     }
@@ -205,7 +164,6 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      * @param month
      *            The month the wage is valid in
      */
-    @Override
     public void setMonth(Byte month) {
         this.month = month;
     }
@@ -216,7 +174,6 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      * @param qual
      *            The qualification needed for the wage
      */
-    @Override
     public void setQualification(String qual) {
         qualification = qual;
     }
@@ -227,7 +184,6 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      * @param wage
      *            The wage per hour
      */
-    @Override
     public void setWage(BigDecimal wage) {
         this.wage = wage;
     }
@@ -238,7 +194,6 @@ public class HourlyWage extends AbstractModel<IHourlyWage> implements
      * @param year
      *            The year the wage is valid in.
      */
-    @Override
     public void setYear(Short year) {
         this.year = year;
     }

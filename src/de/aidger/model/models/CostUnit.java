@@ -22,15 +22,15 @@ package de.aidger.model.models;
 import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 import de.aidger.model.Runtime;
-import de.unistuttgart.iste.se.adohive.controller.IAdoHiveManager;
 
 /**
  * This class represents a single cost unit.
  * 
  * @author aidGer Team
  */
+//TODO: Rewrite! Uses XML instead of DB
 @SuppressWarnings("unchecked")
-public class CostUnit extends AbstractModel {
+public class CostUnit extends AbstractModel<CostUnit> {
     /**
      * The cost unit that is a 8 digit number.
      */
@@ -152,17 +152,11 @@ public class CostUnit extends AbstractModel {
     @Override
     public CostUnit clone() {
         CostUnit costUnit = new CostUnit();
+        costUnit.setId(id);
         costUnit.setCostUnit(this.costUnit);
         costUnit.setFunds(funds);
         costUnit.setTokenDB(tokenDB);
-        costUnit.doClone(this);
         return costUnit;
-    }
-
-    @SuppressWarnings("unchecked")
-    @Override
-    protected IAdoHiveManager getManager() {
-        return Runtime.getInstance().getDataXMLManager();
     }
 
     /**
