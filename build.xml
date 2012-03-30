@@ -22,6 +22,7 @@
     <property name="test.pattern" value="**/**Test.java" />
     <property name="test.excludepattern" value="**/controller/test/**.java" />
 
+    <property name="lib.siena" value="lib/siena-1.0.0-b6.jar" />
     <property name="lib.derby" value="lib/derby.jar" />
     <property name="lib.mysql" value="lib/mysql-connector-java-5.1.13-bin.jar" />
     <property name="lib.itext" value="lib/iText-5.0.4.jar" />
@@ -171,6 +172,7 @@
         <mkdir dir="${dist.dir}" />
 
         <jar jarfile="${dist.dir}/${appFileName}-${appVersion}${buildNumber}.jar" basedir="${classes.dir}" level="9">
+            <zipfileset src="${lib.siena}" />
             <zipfileset src="${lib.derby}" />
             <zipfileset src="${lib.mysql}" />
             <zipfileset src="${lib.itext}" />
