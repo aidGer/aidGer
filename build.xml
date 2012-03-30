@@ -8,7 +8,7 @@
 
     <property name="appName" value="aidGer" />
     <property name="appFileName" value="aidger" />
-    <property name="appVersion" value="1.1" />
+    <property name="appVersion" value="1.5-dev" />
 
     <property name="default.target.dir" value="build" />
     <property name="dist.dir" value="dist" />
@@ -258,7 +258,7 @@ jar="${dist.dir}/${appFileName}-${appVersion}${buildNumber}.jar" outfile="${dist
     </target>
     
     <target name="release-win32" description="Generates a full release including a .exe file">
-        <antcall target="test" />
+<!--        <antcall target="test" /> -->
         <antcall target="dist" />
         <antcall target="build-launch4j" />
     </target>
