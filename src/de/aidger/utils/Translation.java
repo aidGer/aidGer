@@ -32,7 +32,6 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 import de.aidger.model.Runtime;
-import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
 
 /**
  * Sets the translation of the program. If Strings of the current language can't
@@ -55,8 +54,6 @@ public class Translation {
     /**
      * Initializes this class. Resolves the file path of the translation files.
      * 
-     * @param path
-     *            The path of the aidGer settings.
      * @param language
      *            The language to which the program will be translated.
      */
