@@ -220,6 +220,41 @@ public abstract class AbstractModel<T> extends Model {
     }
 
     /**
+     * Get the number of models in the database.
+     *
+     * @return The number of models
+     */
+    public int size() {
+        return all().count();
+    }
+
+    /**
+     * Returns true if no model has been saved into the database.
+     *
+     * @return True if no model is in the database
+     */
+    public boolean isEmpty() {
+        return size() == 0;
+    }
+
+    /**
+     * Checks if the current instance exists in the database.
+     *
+     * @return True if the instance exists
+     */
+    public boolean isInDatabase() {
+        return getById(id) != null;
+    }
+
+    /**
+     * Deletes everything from the associated table.
+     */
+    public void clearTable() {
+        all().delete();
+        id = 0; // Reset
+    }
+
+    /**
      * Returns the unique id of the model.
      *
      * @return The unique id of the model
