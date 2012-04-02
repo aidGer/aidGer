@@ -120,7 +120,7 @@
     <!-- Compile the code -->
 
     <target name="compile-source" depends="init" description="Compiles all .java files in src">
-        <javac destdir="${classes.dir}" srcdir="${source.dir}" classpathref="build.classpath" includeantruntime="false" debug="true" debuglevel="source,lines,vars" encoding="UTF-8" />
+        <javac destdir="${classes.dir}" srcdir="${source.dir}" classpathref="build.classpath" includeantruntime="false" debug="true" debuglevel="source,lines,vars" encoding="UTF-8" target="1.6" />
     </target>
 
     <target name="compile-tests" depends="compile-source" description="Compiles all JUnit tests">
