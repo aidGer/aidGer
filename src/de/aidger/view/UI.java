@@ -85,7 +85,7 @@ import de.aidger.view.tabs.ViewerTab;
 import de.aidger.view.tabs.WelcomeTab;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.LinkButton;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import siena.SienaException;
 
 /**
  * The UI manages the main window and all its tabs. The main window consists of
@@ -264,7 +264,7 @@ public final class UI extends JFrame {
     /**
      * Display an info message in a dialog window.
      * 
-     * @param error
+     * @param info
      *            The info message to display
      */
     public static void displayInfo(String info) {
@@ -534,7 +534,8 @@ public final class UI extends JFrame {
 
                 tM.setModelBeforeEdit(modelBeforeEdit);
 
-                model.addObserver(tM);
+                //TODO: Readd
+                //model.addObserver(tM);
             }
 
             // list models
@@ -544,7 +545,8 @@ public final class UI extends JFrame {
                 if (lM.getDataType() == type) {
                     lM.setModelBeforeEdit(modelBeforeEdit);
 
-                    model.addObserver(lM);
+                    //TODO: Readd
+                    //model.addObserver(lM);
                 }
             }
         }
@@ -641,8 +643,8 @@ public final class UI extends JFrame {
      * 
      * @param name
      *            the button name
-     * @param tab
-     *            the tab that will be opened on click
+     * @param task
+     *             the tab that will be opened on click
      * @return the task pane button
      */
     private LinkButton createTaskPaneButton(String name, Task task) {
@@ -915,8 +917,9 @@ public final class UI extends JFrame {
                         Object o;
 
                         if (current.equals(HourlyWage.class)) {
-                            o = a.getByKeys(parts[1], Byte.valueOf(parts[2]),
-                                Short.valueOf(parts[3]));
+                            //TODO: Rewrite as query
+                            //o = a.getByKeys(parts[1], Byte.valueOf(parts[2]),
+                            //    Short.valueOf(parts[3]));
                         } else {
                             o = a.getById(Integer.parseInt(parts[1]));
                         }
@@ -960,7 +963,7 @@ public final class UI extends JFrame {
                 Logger.error(ex.getMessage());
             } catch (InvocationTargetException ex) {
                 Logger.error(ex.getMessage());
-            } catch (AdoHiveException ex) {
+            } catch (SienaException ex) {
                 Logger.error(_("Getting the model from the database failed"));
             }
         }

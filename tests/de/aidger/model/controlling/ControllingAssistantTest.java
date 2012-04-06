@@ -27,6 +27,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
 
+import de.aidger.model.validators.ValidationException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -41,7 +42,6 @@ import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.models.HourlyWage;
 import de.aidger.utils.reports.BalanceHelper;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * Tests the class ControllingAssistant.
@@ -61,11 +61,9 @@ public class ControllingAssistantTest {
 
     /**
      * Prepares the test set.
-     * 
-     * @throws AdoHiveException
      */
     @BeforeClass
-    public static void beforeClassSetUp() throws AdoHiveException {
+    public static void beforeClassSetUp() {
         de.aidger.model.Runtime.getInstance().initialize();
         new HourlyWage().clearTable();
         new FinancialCategory().clearTable();
@@ -78,11 +76,9 @@ public class ControllingAssistantTest {
 
     /**
      * Prepares the tests.
-     * 
-     * @throws AdoHiveException
      */
     @Before
-    public void setUp() throws AdoHiveException {
+    public void setUp() {
         fc = new FinancialCategory();
         fc.setBudgetCosts(new Integer[] { 100 });
         fc.setCostUnits(new Integer[] { 10001000 });
@@ -127,7 +123,6 @@ public class ControllingAssistantTest {
         costUnit.setFunds("Test Fund");
         costUnit.setCostUnit("11111112");
         costUnit.setTokenDB("A");
-        costUnit.setNew(true);
         costUnit.save();
 
         employment = new Employment();
@@ -177,11 +172,9 @@ public class ControllingAssistantTest {
 
     /**
      * Cleans up after the tests.
-     * 
-     * @throws AdoHiveException
      */
     @After
-    public void cleanUp() throws AdoHiveException {
+    public void cleanUp() throws ValidationException {
         fc.remove();
         assistant.remove();
         contract.remove();

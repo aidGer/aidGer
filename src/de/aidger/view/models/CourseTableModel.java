@@ -24,9 +24,8 @@ import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.FinancialCategory;
-import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
+import siena.SienaException;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -101,7 +100,7 @@ public class CourseTableModel extends TableModel {
                         return fc;
                     }
             }
-        } catch (AdoHiveException ex) {
+        } catch (SienaException ex) {
         }
         return null;
     }
@@ -114,8 +113,10 @@ public class CourseTableModel extends TableModel {
     @Override
     protected AbstractModel getModelFromDB(int idx) {
         try {
-            return new Course(AdoHiveController.getInstance().getCourseManager().get(idx));
-        } catch (AdoHiveException ex) {
+            //TODO: Rewrite with Siena
+            //return new Course(AdoHiveController.getInstance().getCourseManager().get(idx));
+            return null;
+        } catch (SienaException ex) {
             return null;
         }
     }
@@ -128,11 +129,11 @@ public class CourseTableModel extends TableModel {
     protected List<AbstractModel> getModels() {
         List<AbstractModel> ret = new ArrayList<AbstractModel>();
         try {
-            List<ICourse> lst = (new Course()).getAll();
-            for (ICourse e : lst) {
+            List<Course> lst = (new Course()).getAll();
+            for (Course e : lst) {
                 ret.add(new Course(e));
             }
-        } catch (AdoHiveException ex) {
+        } catch (SienaException ex) {
         }
 
         return ret;

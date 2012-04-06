@@ -36,7 +36,7 @@ import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
+import de.aidger.utils.Pair;
 
 /**
  * Tests the Runtime class.

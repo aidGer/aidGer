@@ -38,8 +38,7 @@ import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.AutoCompletion;
 import de.aidger.view.utils.BooleanListRenderer;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
+import siena.SienaException;
 
 /**
  * A form used for editing / creating new contracts.
@@ -110,12 +109,12 @@ public class ContractEditorForm extends JPanel {
         cmbDelegation.setRenderer(new BooleanListRenderer());
 
         try {
-            List<IAssistant> assistants = (new Assistant()).getAll();
+            List<Assistant> assistants = (new Assistant()).getAll();
 
             ComboBoxModel cmbAssistantModel = new ComboBoxModel(
                 DataType.Assistant);
 
-            for (IAssistant a : assistants) {
+            for (Assistant a : assistants) {
                 Assistant assistant = new UIAssistant(a);
 
                 if (assistant.getLastName().equals(Anonymizer.token)
@@ -133,7 +132,8 @@ public class ContractEditorForm extends JPanel {
 
             cmbAssistant.setModel(cmbAssistantModel);
             tab.getListModels().add(cmbAssistantModel);
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
+            //TODO: Handle
         }
 
         if (editMode) {

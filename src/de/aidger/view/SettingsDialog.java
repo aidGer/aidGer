@@ -41,7 +41,7 @@ import de.aidger.controller.actions.SettingsBrowseAction;
 import de.aidger.controller.actions.SettingsDatabaseConfigAction;
 import de.aidger.controller.actions.SettingsSaveAction;
 import de.aidger.model.Runtime;
-import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
+import de.aidger.utils.Pair;
 
 public class SettingsDialog extends JDialog {
 

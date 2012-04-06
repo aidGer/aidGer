@@ -34,7 +34,7 @@ import de.aidger.view.UI;
 import de.aidger.view.tabs.DetailViewerTab;
 import de.aidger.view.tabs.ViewerTab;
 import de.aidger.view.tabs.ViewerTab.DataType;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import siena.SienaException;
 
 /**
  * This action shows the course for a given model.
@@ -79,8 +79,7 @@ public class ViewerCourseAction extends AbstractAction {
                     Employment employment = (Employment) tab.getTableModel()
                         .getModel(index);
 
-                    course = new Course((new Course()).getById(employment
-                        .getCourseId()));
+                    course = (new Course()).getById(employment.getCourseId());
 
                     break;
                 case Activity:
@@ -88,8 +87,7 @@ public class ViewerCourseAction extends AbstractAction {
                         .getModel(index);
 
                     course = (activity.getCourseId() == null) ? null
-                            : new Course((new Course()).getById(activity
-                                .getCourseId()));
+                            : (new Course()).getById(activity.getCourseId());
 
                     break;
                 }
@@ -98,9 +96,8 @@ public class ViewerCourseAction extends AbstractAction {
                     UI.getInstance().replaceCurrentTab(
                         new DetailViewerTab(DataType.Course, course));
                 }
-            } catch (AdoHiveException e1) {
-                UI
-                    .displayError(_("The related course could not be displayed."));
+            } catch (SienaException e1) {
+                UI.displayError(_("The related course could not be displayed."));
             }
         }
     }

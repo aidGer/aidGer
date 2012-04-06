@@ -31,9 +31,7 @@ import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
-import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IActivity;
+import siena.SienaException;
 
 /**
  * The class represents the table model for the activities.
@@ -125,7 +123,7 @@ public class ActivityTableModel extends TableModel {
             case 9:
                 return activity.getRemark();
             }
-        } catch (AdoHiveException ex) {
+        } catch (SienaException ex) {
         }
         return null;
     }
@@ -138,9 +136,11 @@ public class ActivityTableModel extends TableModel {
     @Override
     protected AbstractModel getModelFromDB(int idx) {
         try {
-            return new Activity(AdoHiveController.getInstance()
-                .getActivityManager().get(idx));
-        } catch (AdoHiveException ex) {
+            //TODO: Rewrite with Siena
+            //return new Activity(AdoHiveController.getInstance()
+            //    .getActivityManager().get(idx));
+            return null;
+        } catch (SienaException ex) {
             return null;
         }
     }
@@ -154,11 +154,11 @@ public class ActivityTableModel extends TableModel {
     protected List<AbstractModel> getModels() {
         List<AbstractModel> ret = new ArrayList<AbstractModel>();
         try {
-            List<IActivity> lst = (new Activity()).getAll();
-            for (IActivity e : lst) {
+            List<Activity> lst = (new Activity()).getAll();
+            for (Activity e : lst) {
                 ret.add(new Activity(e));
             }
-        } catch (AdoHiveException ex) {
+        } catch (SienaException ex) {
         }
 
         return ret;

@@ -32,7 +32,8 @@ import de.aidger.view.UI;
 import de.aidger.view.tabs.DetailViewerTab;
 import de.aidger.view.tabs.ViewerTab;
 import de.aidger.view.tabs.ViewerTab.DataType;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import siena.SienaException;
+
 import javax.swing.ImageIcon;
 
 /**
@@ -74,14 +75,12 @@ public class ViewerContractAction extends AbstractAction {
                 index);
 
             try {
-                Contract contract = new Contract((new Contract())
-                    .getById(employment.getContractId()));
+                Contract contract = (new Contract()).getById(employment.getContractId());
 
                 UI.getInstance().replaceCurrentTab(
                     new DetailViewerTab(DataType.Contract, contract));
-            } catch (AdoHiveException e1) {
-                UI
-                    .displayError(_("The related contract could not be displayed."));
+            } catch (SienaException e1) {
+                UI.displayError(_("The related contract could not be displayed."));
             }
         }
     }

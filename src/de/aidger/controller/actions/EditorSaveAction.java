@@ -69,14 +69,6 @@ import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
 import de.aidger.view.utils.InvalidLengthException;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IActivity;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
-import de.unistuttgart.iste.se.adohive.model.IContract;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
-import de.unistuttgart.iste.se.adohive.model.IEmployment;
-import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
-import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
 
 /**
  * This action saves the model and replaces the current tab with the model
@@ -142,7 +134,7 @@ public class EditorSaveAction extends AbstractAction {
         }
 
         try {
-            ICourse c = course.getById(course.getId());
+            Course c = course.getById(course.getId());
 
             return c == null ? courseBeforeEdit : new Course(c);
         } catch (AdoHiveException e) {
@@ -175,7 +167,7 @@ public class EditorSaveAction extends AbstractAction {
         assistant.setQualification(form.getQualification());
 
         try {
-            IAssistant a = assistant.getById(assistant.getId());
+            Assistant a = assistant.getById(assistant.getId());
 
             return a == null ? assistantBeforeEdit : new Assistant(a);
         } catch (AdoHiveException e) {
@@ -229,7 +221,7 @@ public class EditorSaveAction extends AbstractAction {
 
         try {
             // fc.getByKeys expects only the ID as key
-            IFinancialCategory f = fc.getByKeys(fc.getId());
+            FinancialCategory f = fc.getByKeys(fc.getId());
 
             return f == null ? fcBeforeEdit : new FinancialCategory(f);
         } catch (AdoHiveException e) {
@@ -301,7 +293,7 @@ public class EditorSaveAction extends AbstractAction {
         }
 
         try {
-            IHourlyWage h = hwBeforeEdit.getByKeys(hwBeforeEdit
+            HourlyWage h = hwBeforeEdit.getByKeys(hwBeforeEdit
                 .getQualification(), hwBeforeEdit.getMonth(), hwBeforeEdit
                 .getYear());
 
@@ -408,7 +400,7 @@ public class EditorSaveAction extends AbstractAction {
         }
 
         try {
-            IEmployment e = employment.getById(employment.getId());
+            Employment e = employment.getById(employment.getId());
 
             return e == null ? employmentBeforeEdit : new Employment(e);
         } catch (AdoHiveException e) {
@@ -450,7 +442,7 @@ public class EditorSaveAction extends AbstractAction {
         contract.setDelegation(form.isDelegation());
 
         try {
-            IContract c = contract.getById(contract.getId());
+            Contract c = contract.getById(contract.getId());
 
             return c == null ? contractBeforeEdit : new Contract(c);
         } catch (AdoHiveException e) {
@@ -524,7 +516,7 @@ public class EditorSaveAction extends AbstractAction {
         }
 
         try {
-            IActivity a = activity.getById(activity.getId());
+            Activity a = activity.getById(activity.getId());
 
             return a == null ? activityBeforeEdit : new Activity(a);
         } catch (AdoHiveException e) {

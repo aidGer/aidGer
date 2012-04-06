@@ -33,7 +33,7 @@ import de.aidger.model.reports.BalanceCourse;
 import de.aidger.model.reports.BalanceCourse.BudgetCost;
 import de.aidger.utils.reports.BalanceHelper;
 import de.aidger.view.models.UICourse;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import siena.SienaException;
 
 /**
  * 
@@ -105,7 +105,7 @@ public class ControllingFinancialCategory extends javax.swing.JPanel {
                 rows.add(rowDataArray);
                 usedBudget += budget;
             }
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             e.printStackTrace();
         }
         return rows;

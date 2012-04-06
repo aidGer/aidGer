@@ -51,9 +51,7 @@ import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.AutoCompletion;
 import de.aidger.view.utils.InputPatternFilter;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
+import siena.SienaException;
 
 /**
  * A form used for editing / creating new activities.
@@ -120,7 +118,8 @@ public class ActivityEditorForm extends JPanel {
                     ? new UIAssistant()
                     : new UIAssistant((new Assistant()).getById(activity.getAssistantId()));
                 al.cmbAssistant.setSelectedItem(assistant);
-            } catch (AdoHiveException e) {
+            } catch (SienaException e) {
+                //TODO: Handle
             }
         } else {
             EditorTab.setTimeToNow(spDate);
@@ -217,13 +216,13 @@ public class ActivityEditorForm extends JPanel {
         AutoCompletion.enable(cmbCourse);
 
         try {
-            List<ICourse> courses = (new Course()).getAll();
+            List<Course> courses = (new Course()).getAll();
 
             ComboBoxModel cmbCourseModel = new ComboBoxModel(DataType.Course);
 
             cmbCourseModel.addElement(new UICourse());
 
-            for (ICourse c : courses) {
+            for (Course c : courses) {
                 Course course = new UICourse(c);
 
                 cmbCourseModel.addElement(course);
@@ -232,7 +231,8 @@ public class ActivityEditorForm extends JPanel {
             cmbCourseModel.setSelectedItem(new UICourse());
 
             cmbCourse.setModel(cmbCourseModel);
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
+            //TODO: Handle
         }
 
         CourseLine cl = new CourseLine(lblCourse, cmbCourse, btnPlusMinus);
@@ -296,13 +296,13 @@ public class ActivityEditorForm extends JPanel {
         AutoCompletion.enable(cmbAssistant);
 
         try {
-            List<IAssistant> assistants = (new Assistant()).getAll();
+            List<Assistant> assistants = (new Assistant()).getAll();
 
             ComboBoxModel cmbAssistantModel = new ComboBoxModel(DataType.Assistant);
 
             cmbAssistantModel.addElement(new UIAssistant());
 
-            for (IAssistant a : assistants) {
+            for (Assistant a : assistants) {
                 Assistant assistant = new UIAssistant(a);
 
                 cmbAssistantModel.addElement(assistant);
@@ -311,7 +311,8 @@ public class ActivityEditorForm extends JPanel {
             cmbAssistantModel.setSelectedItem(new UIAssistant());
 
             cmbAssistant.setModel(cmbAssistantModel);
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
+            //TODO: Handle
         }
 
         AssistantLine al = new AssistantLine(lblAssistant, cmbAssistant, btnPlusMinus);

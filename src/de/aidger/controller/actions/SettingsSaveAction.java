@@ -33,7 +33,7 @@ import de.aidger.model.Runtime;
 import de.aidger.model.validators.PresenceValidator;
 import de.aidger.view.SettingsDialog;
 import de.aidger.view.UI;
-import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
+import de.aidger.utils.Pair;
 
 /**
  * This action saves the settings in the dialog and closes it.
@@ -86,16 +86,14 @@ public class SettingsSaveAction extends AbstractAction {
             .getLanguages();
         if (dlg.getSelectedLanguage() == -1
                 || dlg.getSelectedLanguage() >= languages.size()) {
-            UI
-                .displayError(_("No Language selected or incorrect language selected."));
+            UI.displayError(_("No Language selected or incorrect language selected."));
             return;
         }
         Runtime.getInstance().setOption("language",
             languages.get(dlg.getSelectedLanguage()).fst());
 
         if (dlg.getNumOfActivities() <= 0) {
-            UI
-                .displayError(_("The number of activities needs to be bigger than 0."));
+            UI.displayError(_("The number of activities needs to be bigger than 0."));
             return;
         }
         Runtime.getInstance().setOption("activities",

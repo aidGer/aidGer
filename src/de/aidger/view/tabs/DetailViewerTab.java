@@ -69,9 +69,7 @@ import de.aidger.view.models.UICourse;
 import de.aidger.view.models.UIModel;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.UIModelFactory;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
+import siena.SienaException;
 
 /**
  * A tab which will be used to view the model.
@@ -306,7 +304,7 @@ public class DetailViewerTab extends Tab {
             Set<Integer> set = totalHours.keySet();
 
             for (Integer assistantId : set) {
-                IAssistant a = (new Assistant()).getById(assistantId);
+                Assistant a = (new Assistant()).getById(assistantId);
 
                 UIAssistant assistant = new UIAssistant(a);
                 assistant.setTotalHours(new BigDecimal(totalHours
@@ -336,7 +334,8 @@ public class DetailViewerTab extends Tab {
 
             list1.setModel(listAssistantsModel);
             list2.setModel(listActivitiesModel);
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
+            //TODO: Handle
         }
     }
 
@@ -360,7 +359,7 @@ public class DetailViewerTab extends Tab {
             ListModel listCoursesModel = new ListModel(DataType.Course);
 
             for (Employment employment : employments) {
-                ICourse c = (new Course()).getById(employment.getCourseId());
+                Course c = (new Course()).getById(employment.getCourseId());
 
                 Course course = new UICourse(c);
 
@@ -389,7 +388,8 @@ public class DetailViewerTab extends Tab {
 
             list1.setModel(listCoursesModel);
             list2.setModel(listActivitiesModel);
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
+            //TODO: Handle
         }
     }
 
@@ -417,7 +417,8 @@ public class DetailViewerTab extends Tab {
             }
 
             list1.setModel(listCoursesModel);
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
+            //TODO: Handle
         }
     }
 

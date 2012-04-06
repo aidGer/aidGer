@@ -35,10 +35,7 @@ import de.aidger.model.models.HourlyWage;
 import de.aidger.model.reports.BalanceCourse;
 import de.aidger.model.reports.BalanceFilter;
 import de.aidger.view.UI;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
-import de.unistuttgart.iste.se.adohive.model.IEmployment;
-import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
+import siena.SienaException;
 
 /**
  * This class is used to get all the existing semesters and years.
@@ -250,7 +247,7 @@ public class BalanceHelper {
      *            The course to be calculated.
      * @return The balance course model.
      */
-    public static BalanceCourse getBalanceCourse(ICourse course) {
+    public static BalanceCourse getBalanceCourse(Course course) {
         BalanceCourse balanceCourse = new BalanceCourse();
         balanceCourse.setTitle(course.getDescription());
         balanceCourse.setPart(course.getPart());
@@ -266,7 +263,7 @@ public class BalanceHelper {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        for (IEmployment employment : employments) {
+        for (Employment employment : employments) {
             /*
              * Sum up the budget costs of the course by multiplying the hours of
              * the fitting employments.
@@ -284,7 +281,7 @@ public class BalanceHelper {
     /**
      * Calculates the budget costs of this employment
      */
-    public static double calculateBudgetCost(IEmployment employment) {
+    public static double calculateBudgetCost(Employment employment) {
         String qualification = employment.getQualification();
         double calculationFactor = 1.0;
         double calculationMethod = Integer.parseInt(Runtime.getInstance()
@@ -296,10 +293,10 @@ public class BalanceHelper {
             calculationFactor = Double.parseDouble(de.aidger.model.Runtime
                 .getInstance().getOption("historic-factor", "1.0"));
         }
-        List<IHourlyWage> hourlyWages;
+        List<HourlyWage> hourlyWages;
         try {
             hourlyWages = new HourlyWage().getAll();
-            for (IHourlyWage hourlyWage : hourlyWages) {
+            for (HourlyWage hourlyWage : hourlyWages) {
                 if (hourlyWage.getMonth().equals(employment.getMonth())
                         && hourlyWage.getYear().equals(employment.getYear())
                         && hourlyWage.getQualification().equals(qualification)) {
@@ -307,7 +304,7 @@ public class BalanceHelper {
                             * calculationFactor * employment.getHourCount();
                 }
             }
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             UI.displayError(e.toString());
         }
         return 0;
@@ -316,13 +313,13 @@ public class BalanceHelper {
     /**
      * Calculates the budget costs of this employment as pre-tax.
      */
-    public static double calculatePreTaxBudgetCost(IEmployment employment) {
+    public static double calculatePreTaxBudgetCost(Employment employment) {
         String qualification = employment.getQualification();
         double calculationFactor = 1.0;
-        List<IHourlyWage> hourlyWages;
+        List<HourlyWage> hourlyWages;
         try {
             hourlyWages = new HourlyWage().getAll();
-            for (IHourlyWage hourlyWage : hourlyWages) {
+            for (HourlyWage hourlyWage : hourlyWages) {
                 if (hourlyWage.getMonth().equals(employment.getMonth())
                         && hourlyWage.getYear().equals(employment.getYear())
                         && hourlyWage.getQualification().equals(qualification)) {
@@ -330,7 +327,7 @@ public class BalanceHelper {
                             * calculationFactor * employment.getHourCount();
                 }
             }
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             UI.displayError(e.toString());
         }
         return -1;
@@ -351,7 +348,7 @@ public class BalanceHelper {
         try {
             List<String> semesters = (new Course()).getDistinctSemesters();
             semestersVector = new ArrayList<String>(semesters);
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             e.printStackTrace();
         }
         return semestersVector;
@@ -447,13 +444,13 @@ public class BalanceHelper {
             } else {
                 courses = new ArrayList<Course>();
                 List<Course> unsortedCourses = new Course().getAll();
-                for (ICourse course : unsortedCourses) {
+                for (Course course : unsortedCourses) {
                     if (course.getSemester() == null) {
                         courses.add(new Course(course));
                     }
                 }
             }
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             UI.displayError(e.toString());
         }
         List<Course> filteredCourses = this.filterCourses(courses, filters);

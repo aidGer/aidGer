@@ -34,8 +34,7 @@ import de.aidger.view.UI;
 import de.aidger.view.models.AssistantTableModel;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
+import siena.SienaException;
 
 /**
  * Anonymizes assistants after a specified period of time.
@@ -79,9 +78,9 @@ public class Anonymizer {
         }
 
         try {
-            List<IAssistant> assistants = (new Assistant()).getAll();
+            List<Assistant> assistants = (new Assistant()).getAll();
 
-            for (IAssistant a : assistants) {
+            for (Assistant a : assistants) {
                 if (a.getFirstName().equals(token)) {
                     continue;
                 }
@@ -108,11 +107,12 @@ public class Anonymizer {
                     ass.save();
 
                     for (AssistantTableModel m : models) {
-                        m.update(ass, true);
+                        //TODO: Rewrite
+                        //m.update(ass, true);
                     }
                 }
             }
-        } catch (AdoHiveException ex) {
+        } catch (SienaException ex) {
             Logger.error(
                     _("Anonymizing Assistants failed because of a database error"));
         } catch (NullPointerException ex) {

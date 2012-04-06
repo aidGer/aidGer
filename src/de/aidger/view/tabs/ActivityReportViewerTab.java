@@ -37,8 +37,7 @@ import de.aidger.view.UI;
 import de.aidger.view.models.ComboBoxModel;
 import de.aidger.view.models.UIAssistant;
 import de.aidger.view.tabs.ViewerTab.DataType;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
+import siena.SienaException;
 
 /**
  * This class is used to display the activity report of one assistant.
@@ -170,15 +169,15 @@ public class ActivityReportViewerTab extends Tab {
      * Adds all of the assistants into the combo box.
      */
     private void fillAssistants() {
-        List<IAssistant> fillingAssistants;
+        List<Assistant> fillingAssistants;
         assistants = new ArrayList<UIAssistant>();
         try {
             fillingAssistants = new Assistant().getAll();
-            for (IAssistant assistant : fillingAssistants) {
+            for (Assistant assistant : fillingAssistants) {
                 assistants.add(new UIAssistant(assistant));
                 cmbAssistantModel.addElement(new UIAssistant(assistant));
             }
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             UI.displayError(e.toString());
         }
         assistantComboBox.setSelectedIndex(0);

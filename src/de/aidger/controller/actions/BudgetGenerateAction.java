@@ -37,8 +37,7 @@ import de.aidger.model.budgets.CourseBudget;
 import de.aidger.model.models.Course;
 import de.aidger.view.UI;
 import de.aidger.view.tabs.BudgetViewerTab;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
+import siena.SienaException;
 
 /**
  * This action generates a budget report.
@@ -70,12 +69,12 @@ public class BudgetGenerateAction extends AbstractAction {
         try {
             viewerTab.clearTable();
             BudgetCreator budgetCreator = new BudgetCreator();
-            List<ICourse> courses = (new Course()).getAll();
+            List<Course> courses = (new Course()).getAll();
             /*
              * Get course budgets for all courses along with the filter
              * criteria.
              */
-            for (ICourse course : courses) {
+            for (Course course : courses) {
                 budgetCreator.addCourseBudget(new Course(course), viewerTab
                     .getBudgetFilter());
             }
@@ -87,7 +86,7 @@ public class BudgetGenerateAction extends AbstractAction {
             for (CourseBudget courseBudget : courseBudgets) {
                 viewerTab.addRow(budgetCreator.getObjectArray(courseBudget));
             }
-        } catch (AdoHiveException ex) {
+        } catch (SienaException ex) {
             // TODO Auto-generated catch block
             ex.printStackTrace();
         }

@@ -32,8 +32,7 @@ import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
 import de.aidger.utils.DateUtils;
 import de.aidger.view.UI;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IActivity;
+import siena.SienaException;
 
 /**
  * This class creates the activities for an activity protocol.
@@ -95,10 +94,10 @@ public class ProtocolCreator {
              */
             activities = new Activity().getActivities(new java.sql.Date(
                 checkDate.getTime()), new java.sql.Date(currentDate.getTime()));
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             UI.displayError(e.toString());
         }
-        for (IActivity activity : activities) {
+        for (Activity activity : activities) {
             /*
              * If the date of the activity is after, or equal to the
              * currentDate, it lies within the wanted time frame.
@@ -130,7 +129,7 @@ public class ProtocolCreator {
                 addedActivity[6] = activity.getProcessor();
                 addedActivity[7] = activity.getRemark();
                 addedActivities.add(addedActivity);
-            } catch (AdoHiveException e) {
+            } catch (SienaException e) {
                 UI.displayError(e.toString());
             }
         }
@@ -171,7 +170,7 @@ public class ProtocolCreator {
             addedActivity[5] = activity.getSender();
             addedActivity[6] = activity.getProcessor();
             addedActivity[7] = activity.getRemark();
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }

@@ -41,8 +41,7 @@ import de.aidger.model.models.Course;
 import de.aidger.utils.reports.BalanceHelper;
 import de.aidger.view.UI;
 import de.aidger.view.reports.BalanceFilterPanel;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
+import siena.SienaException;
 
 /**
  * This class displays a table of all the course budgets.
@@ -147,8 +146,8 @@ public class BudgetViewerTab extends ReportTab {
     /**
      * Removes the specified filter from the filters list.
      * 
-     * @param type
-     *            The type of filter.
+     * @param name
+     *            The name of filter.
      * @param value
      *            The value of the filter.
      */
@@ -339,14 +338,14 @@ public class BudgetViewerTab extends ReportTab {
             filterComboBox.removeAllItems();
             budgetFilterText.setVisible(false);
             budgetFilterText.setText("");
-            List<ICourse> courses = null;
+            List<Course> courses = null;
             try {
                 courses = (new Course()).getAll();
-            } catch (AdoHiveException e) {
+            } catch (SienaException e) {
                 UI.displayError(e.toString());
             }
             ArrayList<String> courseLecturers = new ArrayList<String>();
-            for (ICourse course : courses) {
+            for (Course course : courses) {
                 if (!courseLecturers.contains(course.getLecturer())) {
                     courseLecturers.add(course.getLecturer());
                     filterComboBox.addItem(course.getLecturer());
@@ -368,7 +367,7 @@ public class BudgetViewerTab extends ReportTab {
                 for (String semester : courseSemesters) {
                     filterComboBox.addItem(semester);
                 }
-            } catch (AdoHiveException e) {
+            } catch (SienaException e) {
                 UI.displayError(e.toString());
             }
             break;

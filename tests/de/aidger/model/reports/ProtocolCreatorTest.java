@@ -29,6 +29,7 @@ import static org.junit.Assert.assertTrue;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import de.aidger.model.validators.ValidationException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -39,7 +40,6 @@ import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.DateUtils;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * Tests the class ProtocolCreator
@@ -62,7 +62,7 @@ public class ProtocolCreatorTest {
     }
 
     @After
-    public void cleanUp() throws AdoHiveException {
+    public void cleanUp() throws ValidationException {
 
         course.remove();
 
@@ -81,11 +81,9 @@ public class ProtocolCreatorTest {
 
     /**
      * Prepares this test.
-     * 
-     * @throws AdoHiveException
      */
     @Before
-    public void setUp() throws AdoHiveException {
+    public void setUp() {
 
         assistant = new Assistant();
         assistant.setEmail("test@example.com");
@@ -145,11 +143,9 @@ public class ProtocolCreatorTest {
 
     /**
      * Tests the createProtocol method of ProtocolCreator.
-     * 
-     * @throws AdoHiveException
      */
     @Test
-    public void testCreateProtocol() throws AdoHiveException {
+    public void testCreateProtocol() {
         System.out.println("createProtocol()");
 
         ArrayList activities = protocolCreator.createProtocol(-1);
@@ -187,11 +183,9 @@ public class ProtocolCreatorTest {
 
     /**
      * Tests the method getObjectArray() of the class ProtocolCreator.
-     * 
-     * @throws AdoHiveException
      */
     @Test
-    public void testGetObjectArray() throws AdoHiveException {
+    public void testGetObjectArray() {
         Object[] resultActivity = new Object[8];
 
         String assistantName = (new Assistant().getById(activity

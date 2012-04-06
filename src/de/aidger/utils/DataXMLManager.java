@@ -35,6 +35,9 @@ import de.unistuttgart.iste.se.adohive.controller.IAdoHiveManager;
 import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import de.unistuttgart.iste.se.adohive.model.IAdoHiveModel;
 
+//TODO: Handle all empty exception handlers
+//TODO: Rewrite completely
+
 /**
  * This class manages data stored in a XML file.
  * 

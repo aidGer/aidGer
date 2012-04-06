@@ -38,10 +38,7 @@ import de.aidger.view.models.UIContract;
 import de.aidger.view.models.UICostUnit;
 import de.aidger.view.models.UICourse;
 import de.aidger.view.utils.NumberFormat;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
-import de.unistuttgart.iste.se.adohive.model.IContract;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
+import siena.SienaException;
 
 /**
  * A form used for viewing employments in detail.
@@ -61,16 +58,16 @@ public class EmploymentViewerForm extends JPanel {
         initComponents();
 
         try {
-            IAssistant a_ = (new Assistant()).getById(employment
+            Assistant a_ = (new Assistant()).getById(employment
                 .getAssistantId());
 
             Assistant a = new UIAssistant(a_);
 
-            ICourse c_ = (new Course()).getById(employment.getCourseId());
+            Course c_ = (new Course()).getById(employment.getCourseId());
 
             Course c = new UICourse(c_);
 
-            IContract co_ = (new Contract())
+            Contract co_ = (new Contract())
                 .getById(employment.getContractId());
 
             Contract co = new UIContract(co_);
@@ -95,7 +92,8 @@ public class EmploymentViewerForm extends JPanel {
                 employment.getQualification()).toString());
             remark.setText(employment.getRemark());
 
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
+            //TODO: Handle
         }
     }
 

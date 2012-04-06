@@ -36,8 +36,7 @@ import de.aidger.view.models.UIFinancialCategory;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.InputPatternFilter;
 import de.aidger.view.utils.NumberFormat;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
+import siena.SienaException;
 
 /**
  * A form used for editing / creating new courses.
@@ -75,18 +74,18 @@ public class CourseEditorForm extends JPanel {
         hlpSemester
             .setToolTipText(_("Only the format SS[XX], WS[XXXX] and year in 4 digits is allowed."));
 
-        List<IFinancialCategory> fcs = null;
+        List<FinancialCategory> fcs = null;
 
         try {
             fcs = (new FinancialCategory()).getAll();
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             Logger.error(e.getMessage());
         }
 
         ComboBoxModel cmbFinancialCategoryModel = new ComboBoxModel(
             DataType.FinancialCategory);
 
-        for (IFinancialCategory fc : fcs) {
+        for (FinancialCategory fc : fcs) {
             cmbFinancialCategoryModel.addElement(new UIFinancialCategory(fc));
         }
 
@@ -109,11 +108,11 @@ public class CourseEditorForm extends JPanel {
             txtRemark.setText(course.getRemark());
 
             try {
-                IFinancialCategory fc = (new FinancialCategory())
+                FinancialCategory fc = (new FinancialCategory())
                     .getById(course.getFinancialCategoryId());
 
                 cmbFinancialCategory.setSelectedItem(new FinancialCategory(fc));
-            } catch (AdoHiveException e) {
+            } catch (SienaException e) {
                 Logger.error(e.getMessage());
             }
         } else {

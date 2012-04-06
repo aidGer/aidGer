@@ -24,9 +24,8 @@ import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Assistant;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
-import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
+import siena.SienaException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,8 +85,10 @@ public class AssistantTableModel extends TableModel {
     @Override
     protected AbstractModel getModelFromDB(int idx) {
         try {
-            return new Assistant(AdoHiveController.getInstance().getAssistantManager().get(idx));
-        } catch (AdoHiveException ex) {
+            //TODO: Rewrite with Siena
+            //return new Assistant(AdoHiveController.getInstance().getAssistantManager().get(idx));
+            return null;
+        } catch (SienaException ex) {
             return null;
         }
     }
@@ -100,11 +101,11 @@ public class AssistantTableModel extends TableModel {
     protected List<AbstractModel> getModels() {
         List<AbstractModel> ret = new ArrayList<AbstractModel>();
         try {
-            List<IAssistant> lst = (new Assistant()).getAll();
-            for (IAssistant e : lst) {
+            List<Assistant> lst = (new Assistant()).getAll();
+            for (Assistant e : lst) {
                 ret.add(new Assistant(e));
             }
-        } catch (AdoHiveException ex) {
+        } catch (SienaException ex) {
         }
 
         return ret;

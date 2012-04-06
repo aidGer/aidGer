@@ -29,8 +29,7 @@ import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.Logger;
 import de.aidger.view.models.UIFinancialCategory;
 import de.aidger.view.utils.NumberFormat;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
+import siena.SienaException;
 
 /**
  * A form used for viewing courses in detail.
@@ -70,11 +69,11 @@ public class CourseViewerForm extends JPanel {
         remark.setText(course.getRemark());
 
         try {
-            IFinancialCategory fc = (new FinancialCategory()).getById(course
+            FinancialCategory fc = (new FinancialCategory()).getById(course
                 .getFinancialCategoryId());
 
             financialCategory.setText(new UIFinancialCategory(fc).toString());
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             Logger.error(e.getMessage());
         }
     }

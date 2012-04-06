@@ -21,8 +21,8 @@ package de.aidger.model.reports;
 
 import java.util.ArrayList;
 
+import de.aidger.model.models.Course;
 import de.aidger.utils.reports.BalanceHelper;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
  * This class manages the BalanceReportGroupViewer which calls it. It adds
@@ -48,7 +48,7 @@ public class BalanceReportGroupCreator {
      * @param course
      *            The course to be added.
      */
-    public BalanceReportGroupCreator(ICourse course, int calculationMethod) {
+    public BalanceReportGroupCreator(Course course, int calculationMethod) {
         this.calculationMethod = calculationMethod;
         addCourse(course);
     }
@@ -60,7 +60,7 @@ public class BalanceReportGroupCreator {
      * @param course
      *            The course to be added.
      */
-    public void addCourse(ICourse course) {
+    public void addCourse(Course course) {
         BalanceCourse balanceCourse = BalanceHelper.getBalanceCourse(course);
         for (BalanceCourse currentCourse : balanceCourses) {
             if (balanceCourse.compareTo(currentCourse) <= 0) {

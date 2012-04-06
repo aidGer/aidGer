@@ -25,8 +25,7 @@ import java.util.List;
 import de.aidger.model.models.Course;
 import de.aidger.utils.reports.BalanceHelper;
 import de.aidger.view.UI;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
+import siena.SienaException;
 
 /**
  * This class manages the BalanceReportSemesterViewer which calls it. It adds
@@ -58,10 +57,9 @@ public class BalanceReportSemesterCreator {
      * 
      * @param semester
      *            The semester of which the groups shall be added.
-     * @throws AdoHiveException
      */
     public BalanceReportSemesterCreator(String semester, BalanceFilter filters,
-            int calculationMethod) throws AdoHiveException {
+            int calculationMethod) {
         this.calculationMethod = calculationMethod;
         balanceHelper = new BalanceHelper();
         addGroups(semester, filters);
@@ -81,18 +79,18 @@ public class BalanceReportSemesterCreator {
             } else {
                 courses = new ArrayList<Course>();
                 List<Course> unsortedCourses = new Course().getAll();
-                for (ICourse course : unsortedCourses) {
+                for (Course course : unsortedCourses) {
                     if (course.getSemester() == null) {
                         courses.add(new Course(course));
                     }
                 }
             }
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             UI.displayError(e.toString());
         }
         List<Course> filteredCourses = balanceHelper.filterCourses(courses,
             filters);
-        for (ICourse course : filteredCourses) {
+        for (Course course : filteredCourses) {
             if (balanceReportGroupCreators.isEmpty()) {
                 /*
                  * If there are no groups in the semester yet, add a new one.
@@ -131,7 +129,7 @@ public class BalanceReportSemesterCreator {
      * @param course
      *            The first course, which the group contains.
      */
-    private void createGroup(ICourse course) {
+    private void createGroup(Course course) {
         BalanceReportGroupCreator balanceReportGroupCreator = new BalanceReportGroupCreator(
             course, calculationMethod);
         balanceReportGroupCreators.add(new ArrayList<Object>());

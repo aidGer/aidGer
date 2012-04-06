@@ -62,10 +62,7 @@ import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.AutoCompletion;
 import de.aidger.view.utils.InputPatternFilter;
 import de.aidger.view.utils.NumberFormat;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
-import de.unistuttgart.iste.se.adohive.model.IContract;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
+import siena.SienaException;
 
 /**
  * A form used for editing / creating new employments.
@@ -145,12 +142,12 @@ public class EmploymentEditorForm extends JPanel {
         });
 
         try {
-            List<IAssistant> assistants = (new Assistant()).getAll();
+            List<Assistant> assistants = (new Assistant()).getAll();
 
             ComboBoxModel cmbAssistantModel = new ComboBoxModel(
                 DataType.Assistant);
 
-            for (IAssistant a : assistants) {
+            for (Assistant a : assistants) {
                 Assistant assistant = new UIAssistant(a);
 
                 cmbAssistantModel.addElement(assistant);
@@ -162,11 +159,11 @@ public class EmploymentEditorForm extends JPanel {
                 }
             }
 
-            List<ICourse> courses = (new Course()).getAll();
+            List<Course> courses = (new Course()).getAll();
 
             ComboBoxModel cmbCourseModel = new ComboBoxModel(DataType.Course);
 
-            for (ICourse c : courses) {
+            for (Course c : courses) {
                 Course course = new UICourse(c);
 
                 cmbCourseModel.addElement(course);
@@ -222,9 +219,9 @@ public class EmploymentEditorForm extends JPanel {
                 contracts = (new Contract())
                     .getContracts((Assistant) cmbAssistant.getSelectedItem());
             } else {
-                List<IContract> tmpContracts = (new Contract()).getAll();
+                List<Contract> tmpContracts = (new Contract()).getAll();
                 contracts = new ArrayList<Contract>();
-                for (IContract c : tmpContracts) {
+                for (Contract c : tmpContracts) {
                     contracts.add(new Contract(c));
                 }
             }
@@ -236,7 +233,7 @@ public class EmploymentEditorForm extends JPanel {
                 cmbContractModel.addElement(new UIContract());
             }
 
-            for (IContract c : contracts) {
+            for (Contract c : contracts) {
                 Contract contract = new UIContract(c);
 
                 cmbContractModel.addElement(contract);
@@ -267,14 +264,16 @@ public class EmploymentEditorForm extends JPanel {
 
                             cmbContractModel.addElement(contract);
                         }
-                    } catch (AdoHiveException e2) {
+                    } catch (SienaException e2) {
+                        //TODO: Handle
                     }
                 }
             });
 
             cmbContract.setModel(cmbContractModel);
             listModels.add(cmbContractModel);
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
+            //TODO: Handle
         }
 
         cmbFunds.addActionListener(new ActionListener() {

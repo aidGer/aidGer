@@ -36,8 +36,7 @@ import de.aidger.model.reports.BalanceFilter;
 import de.aidger.utils.reports.BalanceHelper;
 import de.aidger.view.UI;
 import de.aidger.view.reports.BalanceFilterPanel;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
+import siena.SienaException;
 
 /**
  * A tab for viewing balance reports.
@@ -221,8 +220,8 @@ public class BalanceViewerTab extends ReportTab {
     /**
      * Removes the specified filter from the filters list.
      * 
-     * @param type
-     *            The type of filter.
+     * @param name
+     *            The name of the filter.
      * @param value
      *            The value of the filter.
      */
@@ -408,14 +407,14 @@ public class BalanceViewerTab extends ReportTab {
          */
         case 0:
             filterComboBox.removeAllItems();
-            List<ICourse> courses = null;
+            List<Course> courses = null;
             try {
                 courses = (new Course()).getAll();
-            } catch (AdoHiveException e) {
+            } catch (SienaException e) {
                 UI.displayError(e.toString());
             }
             ArrayList<String> courseGroups = new ArrayList<String>();
-            for (ICourse course : courses) {
+            for (Course course : courses) {
                 if (!courseGroups.contains(course.getGroup())) {
                     courseGroups.add(course.getGroup());
                     filterComboBox.addItem(course.getGroup());
@@ -427,11 +426,11 @@ public class BalanceViewerTab extends ReportTab {
             courses = null;
             try {
                 courses = (new Course()).getAll();
-            } catch (AdoHiveException e) {
+            } catch (SienaException e) {
                 UI.displayError(e.toString());
             }
             ArrayList<String> courseLecturers = new ArrayList<String>();
-            for (ICourse course : courses) {
+            for (Course course : courses) {
                 if (!courseLecturers.contains(course.getLecturer())) {
                     courseLecturers.add(course.getLecturer());
                     filterComboBox.addItem(course.getLecturer());
@@ -443,11 +442,11 @@ public class BalanceViewerTab extends ReportTab {
             courses = null;
             try {
                 courses = (new Course()).getAll();
-            } catch (AdoHiveException e) {
+            } catch (SienaException e) {
                 UI.displayError(e.toString());
             }
             ArrayList<String> courseAudiences = new ArrayList<String>();
-            for (ICourse course : courses) {
+            for (Course course : courses) {
                 if (!courseAudiences.contains(course.getTargetAudience())) {
                     courseAudiences.add(course.getTargetAudience());
                     filterComboBox.addItem(course.getTargetAudience());

@@ -52,12 +52,7 @@ import de.aidger.view.models.UIActivity;
 import de.aidger.view.models.UIModel;
 import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.Charts;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IActivity;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
-import de.unistuttgart.iste.se.adohive.model.IEmployment;
-import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
+import siena.SienaException;
 
 /**
  * A tab which greats the user when the application starts.
@@ -67,11 +62,11 @@ import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 @SuppressWarnings("serial")
 public class WelcomeTab extends Tab {
 
-    List<IActivity> activities = null;
-    List<IAssistant> assistants = null;
-    List<IFinancialCategory> financials = null;
-    List<ICourse> courses = null;
-    List<IEmployment> employments = null;
+    List<Activity> activities = null;
+    List<Assistant> assistants = null;
+    List<FinancialCategory> financials = null;
+    List<Course> courses = null;
+    List<Employment> employments = null;
 
     /**
      * Initialises the WelcomeTab class.
@@ -203,7 +198,8 @@ public class WelcomeTab extends Tab {
 
             try {
                 activities = (new Activity()).getAll();
-            } catch (AdoHiveException ex) {
+            } catch (SienaException ex) {
+                //TODO: Handle
             }
 
             if (activities != null) {
@@ -240,11 +236,12 @@ public class WelcomeTab extends Tab {
             financials = (new FinancialCategory()).getAll();
             courses = (new Course()).getAll();
             employments = (new Employment()).getAll();
-        } catch (AdoHiveException ex) {
+        } catch (SienaException ex) {
+            //TODO: Handle
         }
 
         Integer[] qualifications = new Integer[] { 0, 0, 0 };
-        for (IAssistant a : assistants) {
+        for (Assistant a : assistants) {
             if (Qualification.valueOf(a.getQualification()) == Qualification.u) {
                 ++qualifications[0];
             } else if (Qualification.valueOf(a.getQualification()) == Qualification.g) {
@@ -255,14 +252,14 @@ public class WelcomeTab extends Tab {
         }
 
         int maxFunds = 0;
-        for (IFinancialCategory f : financials) {
+        for (FinancialCategory f : financials) {
             for (int b : f.getBudgetCosts()) {
                 maxFunds += b;
             }
         }
 
         double bookedBudget = 0.0, totalBudget = 0.0;
-        for (ICourse c : courses) {
+        for (Course c : courses) {
             CourseBudget courseBudget = new CourseBudget(new Course(c));
 
             bookedBudget += courseBudget.getBookedBudget();
@@ -272,7 +269,7 @@ public class WelcomeTab extends Tab {
         double bookedBudgetCosts = 0.0;
         Map<Date, Integer> employmentsCount = new HashMap<Date, Integer>();
 
-        for (IEmployment e : employments) {
+        for (Employment e : employments) {
             bookedBudgetCosts += BalanceHelper.calculateBudgetCost(e);
 
             Calendar cal = Calendar.getInstance();
@@ -307,7 +304,7 @@ public class WelcomeTab extends Tab {
             statisticsList.add(MessageFormat.format(
                 _("They are using funds of {0} Euros."),
                 new Object[] { maxFunds }));
-        } catch (AdoHiveException ex) {
+        } catch (SienaException ex) {
         }
 
         // create diagrams

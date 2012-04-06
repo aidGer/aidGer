@@ -33,7 +33,7 @@ import de.aidger.utils.reports.BalanceHelper;
 import de.aidger.view.UI;
 import de.aidger.view.reports.BalanceReportSemesterPanel;
 import de.aidger.view.tabs.BalanceViewerTab;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import siena.SienaException;
 
 /**
  * This action generates a report.
@@ -77,7 +77,7 @@ public class ReportGenerateAction extends AbstractAction {
                                 (String) semesters.get(i), tab
                                     .getBalanceFilter(), tab
                                     .getCalculationMethod());
-                        } catch (AdoHiveException e1) {
+                        } catch (SienaException e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
                         }
@@ -101,7 +101,7 @@ public class ReportGenerateAction extends AbstractAction {
                                     .getCalculationMethod());
                             tab.addPanel(new BalanceReportSemesterPanel(
                                 yearSemester, yearBalanceCreator));
-                        } catch (AdoHiveException e1) {
+                        } catch (SienaException e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
                         }
@@ -117,7 +117,7 @@ public class ReportGenerateAction extends AbstractAction {
                     fullBalanceCreator = new BalanceReportSemesterCreator(
                         (String) year2, tab.getBalanceFilter(), tab
                             .getCalculationMethod());
-                } catch (AdoHiveException e1) {
+                } catch (SienaException e1) {
                     // TODO Auto-generated catch block
                     e1.printStackTrace();
                 }

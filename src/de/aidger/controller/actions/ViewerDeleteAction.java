@@ -32,9 +32,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 import de.aidger.model.AbstractModel;
+import de.aidger.model.validators.ValidationException;
 import de.aidger.view.UI;
 import de.aidger.view.tabs.ViewerTab;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import siena.SienaException;
 
 /**
  * This action removes a model from the table and the database.
@@ -74,6 +75,7 @@ public class ViewerDeleteAction extends AbstractAction {
                 JOptionPane.YES_NO_OPTION);
 
             if (ret == JOptionPane.YES_OPTION) {
+                //AbstractModel model = null;
                 try {
                     List<AbstractModel> models = new ArrayList<AbstractModel>();
 
@@ -87,7 +89,9 @@ public class ViewerDeleteAction extends AbstractAction {
                         UI.getInstance().addObserversTo(model, null,
                             tab.getType());
 
-                        if (!model.remove()) {
+                        try {
+                            model.remove();
+                        } catch (ValidationException e1) {
                             List<String> errors = model.getErrors();
                             String errorMessage = "";
 
@@ -98,31 +102,23 @@ public class ViewerDeleteAction extends AbstractAction {
                             model.resetErrors();
 
                             UI.displayError(MessageFormat
-                                .format(_("Could not remove the entity {0}:"),
-                                    new Object[] { tab.getType()
-                                        .getDisplayName() })
+                                    .format(_("Could not remove the entity {0}:"),
+                                            new Object[] { tab.getType().getDisplayName() })
                                     + "\n\n" + errorMessage);
-
                             return;
                         }
 
-                        UI
-                            .getInstance()
-                            .setStatusMessage(
-                                MessageFormat
-                                    .format(
-                                        _("The entity {0} was removed successfully."),
-                                        new Object[] { tab.getType()
-                                            .getDisplayName() }));
+                        UI.getInstance().setStatusMessage(
+                            MessageFormat.format(
+                                _("The entity {0} was removed successfully."),
+                                new Object[] { tab.getType().getDisplayName() }));
                     }
-                } catch (AdoHiveException e1) {
-                    UI
-                        .displayError(_("A database error occurred during removing."));
+                } catch (SienaException e1) {
+                    UI.displayError(_("A database error occurred during removing."));
                 }
             }
         } else {
-            UI
-                .displayError(_("Please select at least one entry from the table."));
+            UI.displayError(_("Please select at least one entry from the table."));
         }
     }
 }

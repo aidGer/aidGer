@@ -29,8 +29,7 @@ import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.view.forms.ContractEditorForm.ContractType;
 import de.aidger.view.models.UIAssistant;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
+import siena.SienaException;
 
 /**
  * A form used for viewing contracts in detail.
@@ -52,7 +51,7 @@ public class ContractViewerForm extends JPanel {
         String f = "dd.MM.yyyy";
 
         try {
-            IAssistant a = (new Assistant()).getById(contract.getAssistantId());
+            Assistant a = (new Assistant()).getById(contract.getAssistantId());
 
             assistant.setText((new UIAssistant(a)).toString());
             completionDate.setText((new SimpleDateFormat(f)).format(contract
@@ -77,7 +76,7 @@ public class ContractViewerForm extends JPanel {
             }
 
             delegation.setText(strDelegation);
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
         }
     }
 

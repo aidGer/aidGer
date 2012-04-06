@@ -31,7 +31,7 @@ import de.aidger.model.models.Course;
 import de.aidger.utils.DateUtils;
 import de.aidger.view.models.UIAssistant;
 import de.aidger.view.models.UICourse;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import siena.SienaException;
 
 /**
  * A form used for viewing activities in detail.
@@ -73,7 +73,7 @@ public class ActivityViewerForm extends JPanel {
 
             content.setLineWrap(true);
             content.setWrapStyleWord(true);
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
         }
     }
 

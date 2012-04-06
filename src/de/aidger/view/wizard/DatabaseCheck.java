@@ -39,7 +39,6 @@ import static de.aidger.utils.Translation._;
 import de.aidger.view.UI;
 import de.aidger.view.WizardPanel;
 import de.aidger.view.utils.MultiLineLabelUI;
-import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
 import java.awt.Color;
 import java.util.List;
 import javax.swing.AbstractAction;
@@ -72,10 +71,11 @@ public class DatabaseCheck extends WizardPanel {
     public void preparePanel() {
         jLabel3.setForeground(Color.red);
         jLabel3.setText(_("Trying to connect ..."));
-        
-        AdoHiveController.setConnectionString(Runtime.getInstance().getOption("database-uri"));
-        AdoHiveController.setDriver(Runtime.getInstance().getOption("database-driver"));
-        AdoHiveController.resetInstance();
+
+        //TODO: Rewrite with Siena
+        //AdoHiveController.setConnectionString(Runtime.getInstance().getOption("database-uri"));
+        //AdoHiveController.setDriver(Runtime.getInstance().getOption("database-driver"));
+        //AdoHiveController.resetInstance();
 
         BackgroundThread thread = new BackgroundThread();
         thread.start();
