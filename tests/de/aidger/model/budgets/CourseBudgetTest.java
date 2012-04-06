@@ -33,12 +33,13 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import siena.SienaException;
+
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * Test the budget checker class.
@@ -65,7 +66,7 @@ public class CourseBudgetTest {
      * @throws AdoHiveException
      */
     @Before
-    public void setUp() throws AdoHiveException {
+    public void setUp() throws SienaException {
         fc = new FinancialCategory();
         fc.setBudgetCosts(new Integer[] { 100 });
         fc.setCostUnits(new Integer[] { 10001000 });
@@ -139,7 +140,7 @@ public class CourseBudgetTest {
      * @throws AdoHiveException
      */
     @Test
-    public void testParameterizedConstructor() throws AdoHiveException {
+    public void testParameterizedConstructor() throws SienaException {
         System.out.println("new CourseBudget(course)");
 
         courseBudget = new CourseBudget(course);
@@ -178,7 +179,7 @@ public class CourseBudgetTest {
      * @throws AdoHiveException
      */
     @Test
-    public void testIsOverbooked() throws AdoHiveException {
+    public void testIsOverbooked() throws SienaException {
         employment.setHourCount(301.0);
         employment.save();
 
@@ -193,7 +194,7 @@ public class CourseBudgetTest {
      * @throws AdoHiveException
      */
     @After
-    public void cleanUp() throws AdoHiveException {
+    public void cleanUp() throws SienaException {
         fc.remove();
         assistant.remove();
         contract.remove();

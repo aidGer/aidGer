@@ -33,6 +33,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import siena.SienaException;
+
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
@@ -40,7 +42,6 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.reports.BalanceHelper;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * Tests the class BalanceReportConverter.
@@ -71,7 +72,7 @@ public class BalanceReportConverterTest {
      * @throws AdoHiveException
      */
     @BeforeClass
-    public static void beforeClassSetUp() throws AdoHiveException {
+    public static void beforeClassSetUp() throws SienaException {
         de.aidger.model.Runtime.getInstance().initialize();
 
         String autoOpen = Runtime.getInstance().getOption("auto-open");
@@ -110,7 +111,6 @@ public class BalanceReportConverterTest {
         assistant.save();
 
         contract = new Contract();
-        contract.setNew(true);
         contract.setStartDate(new Date(1970, 1, 1));
         contract.setCompletionDate(new Date(1970, 1, 3));
         contract.setConfirmationDate(new Date(1970, 1, 2));
@@ -130,7 +130,6 @@ public class BalanceReportConverterTest {
         employment1.setQualification("g");
         employment1.setRemark("Test remark");
         employment1.setYear((short) 1970);
-        employment1.setNew(true);
         employment1.save();
 
         employment2 = new Employment();
@@ -144,7 +143,6 @@ public class BalanceReportConverterTest {
         employment2.setQualification("g");
         employment2.setRemark("Test remark");
         employment2.setYear((short) 1970);
-        employment2.setNew(true);
         employment2.save();
     }
 
@@ -154,32 +152,27 @@ public class BalanceReportConverterTest {
      * @throws AdoHiveException
      */
     @Test
-    public void testConstructor() throws AdoHiveException {
+    public void testConstructor() throws SienaException {
         System.out.println("Constructor");
 
         Course course2 = course.clone();
         course2.setSemester("WS1011");
-        course2.setNew(true);
         course2.save();
 
         Course course3 = course2.clone();
         course3.setGroup("Test group 2");
-        course3.setNew(true);
         course3.save();
 
         Course course4 = course2.clone();
         course4.setGroup("Test group 2");
-        course4.setNew(true);
         course4.save();
 
         Course course5 = course.clone();
         course5.setSemester("WS0001");
-        course5.setNew(true);
         course5.save();
 
         Course course6 = course.clone();
         course6.setSemester("WS9900");
-        course6.setNew(true);
         course6.save();
 
         ArrayList years = new BalanceHelper().getYears();
@@ -230,7 +223,7 @@ public class BalanceReportConverterTest {
      * Cleans up after every test.
      */
     @After
-    public void cleanUp() throws AdoHiveException {
+    public void cleanUp() throws SienaException {
 
         course.remove();
 

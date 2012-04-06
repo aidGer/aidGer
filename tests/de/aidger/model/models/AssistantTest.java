@@ -30,7 +30,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import siena.SienaException;
 
 /**
  * Tests the Assistant class.
@@ -60,10 +60,9 @@ public class AssistantTest {
      * Test of constructor, of class Assistant.
      */
     @Test
-    public void testConstructor() throws AdoHiveException {
+    public void testConstructor() throws SienaException {
         System.out.println("Constructor");
 
-        assistant.setNew(true);
         assistant.save();
 
         Assistant result = new Assistant(assistant.getById(assistant.getId()));
@@ -76,10 +75,9 @@ public class AssistantTest {
      * Test of validation methods, of class Assistant.
      */
     @Test
-    public void testValidation() throws AdoHiveException {
+    public void testValidation() throws SienaException {
         System.out.println("Validation");
 
-        assistant.setNew(true);
         assertTrue(assistant.save());
 
         assistant.setEmail(null);
@@ -121,7 +119,7 @@ public class AssistantTest {
      * Test of validateOnRemove, of class Assistant.
      */
     @Test
-    public void testValidateOnRemove() throws AdoHiveException {
+    public void testValidateOnRemove() throws SienaException {
         System.out.println("validateOnRemove");
 
         assertTrue(assistant.save());

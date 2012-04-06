@@ -34,7 +34,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.aidger.model.Runtime;
-import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
 
 /**
  * Tests the Translation class.

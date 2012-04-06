@@ -32,7 +32,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import siena.SienaException;
 
 /**
  * Tests the Employment class.
@@ -52,7 +52,7 @@ public class EmploymentTest {
     private static FinancialCategory financial = null;
 
     @BeforeClass
-    public static void beforeClassSetUp() throws AdoHiveException {
+    public static void beforeClassSetUp() throws SienaException {
         de.aidger.model.Runtime.getInstance().initialize();
 
         assistant = new Assistant();
@@ -115,10 +115,9 @@ public class EmploymentTest {
      * Test of constructor, of class Employment.
      */
     @Test
-    public void testConstructor() throws AdoHiveException {
+    public void testConstructor() throws SienaException {
         System.out.println("Constructor");
 
-        employment.setNew(true);
         employment.save();
 
         Employment result = new Employment(employment.getById(employment
@@ -132,10 +131,9 @@ public class EmploymentTest {
      * Test of validation, of class Employment.
      */
     @Test
-    public void testValidation() throws AdoHiveException {
+    public void testValidation() throws SienaException {
         System.out.println("Validation");
 
-        employment.setNew(true);
         assertTrue(employment.save());
 
         employment.setAssistantId(0);
@@ -240,7 +238,7 @@ public class EmploymentTest {
      * Test of getEmployments method, of class Employment.
      */
     @Test
-    public void testGetEmployments_Date_Date() throws AdoHiveException {
+    public void testGetEmployments_Date_Date() throws SienaException {
         System.out.println("getEmployments");
         Date start = new Date(new GregorianCalendar(2010, 10, 1).getTime()
             .getTime());
@@ -250,10 +248,8 @@ public class EmploymentTest {
         employment.clearTable();
         employment.setMonth((byte) 10);
         employment.setYear((short) 2010);
-        employment.setNew(true);
         employment.save();
 
-        employment.setNew(true);
         employment.setMonth((byte) 11);
         employment.save();
 
@@ -268,13 +264,12 @@ public class EmploymentTest {
      */
     @Test
     public void testGetEmployments_short_byte_short_byte()
-            throws AdoHiveException {
+            throws SienaException {
         System.out.println("getEmployments");
 
         employment.clearTable();
         employment.setMonth((byte) 7);
         employment.setYear((short) 2010);
-        employment.setNew(true);
         employment.save();
 
         List result = employment.getEmployments((short) 2010, (byte) 7,
@@ -289,14 +284,13 @@ public class EmploymentTest {
      * Test of getEmployments method, of class Employment.
      */
     @Test
-    public void testGetEmployments_Contract() throws AdoHiveException {
+    public void testGetEmployments_Contract() throws SienaException {
         System.out.println("getEmployments");
 
         employment.clearTable();
         employment.setContractId(contract.getId());
         employment.setMonth((byte) 7);
         employment.setYear((short) 2010);
-        employment.setNew(true);
         employment.save();
 
         List result = employment.getEmployments(contract);
@@ -310,14 +304,13 @@ public class EmploymentTest {
      * Test of getEmployments method, of class Employment.
      */
     @Test
-    public void testGetEmployments_Assistant() throws AdoHiveException {
+    public void testGetEmployments_Assistant() throws SienaException {
         System.out.println("getEmployments");
 
         employment.clearTable();
         employment.setAssistantId(assistant.getId());
         employment.setMonth((byte) 7);
         employment.setYear((short) 2010);
-        employment.setNew(true);
         employment.save();
 
         List result = employment.getEmployments(assistant);
@@ -331,14 +324,13 @@ public class EmploymentTest {
      * Test of getEmployments method, of class Employment.
      */
     @Test
-    public void testGetEmployments_Course() throws AdoHiveException {
+    public void testGetEmployments_Course() throws SienaException {
         System.out.println("getEmployments");
 
         employment.clearTable();
         employment.setCourseId(course.getId());
         employment.setMonth((byte) 7);
         employment.setYear((short) 2010);
-        employment.setNew(true);
         employment.save();
 
         List result = employment.getEmployments(course);
@@ -352,11 +344,10 @@ public class EmploymentTest {
      * Test of getEmployments method, of class Employment.
      */
     @Test
-    public void testGetEmployments_String() throws AdoHiveException {
+    public void testGetEmployments_String() throws SienaException {
         System.out.println("getEmployments");
 
         employment.clearTable();
-        employment.setNew(true);
         employment.save();
 
         List result = employment.getEmployments("SS09");

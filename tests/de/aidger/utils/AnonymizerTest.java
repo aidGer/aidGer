@@ -29,13 +29,14 @@ import java.util.GregorianCalendar;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import siena.SienaException;
+
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * Tests the Anonymizer class.
@@ -53,7 +54,7 @@ public class AnonymizerTest {
      * Test of anonymizeAssistants method, of class Anonymizer.
      */
     @Test
-    public void testAnonymizeAssistants() throws AdoHiveException {
+    public void testAnonymizeAssistants() throws SienaException {
         System.out.println("anonymizeAssistants");
 
         String old = Runtime.getInstance().getOption("anonymize-time");
@@ -123,7 +124,6 @@ public class AnonymizerTest {
         employment.setYear((short) cal.get(Calendar.YEAR));
         employment.save();
 
-        employment.setNew(true);
         employment.setMonth((byte) now.get(Calendar.MONTH));
         employment.setYear((short) now.get(Calendar.YEAR));
         employment.setAssistantId(b.getId());

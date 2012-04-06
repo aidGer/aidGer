@@ -32,6 +32,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import siena.SienaException;
+
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
@@ -40,7 +42,6 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.models.HourlyWage;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * Tests the class ControllingHelper.
@@ -58,7 +59,7 @@ public class ControllingHelperTest {
     private CostUnit costUnit;
 
     @BeforeClass
-    public static void beforeClassSetUp() throws AdoHiveException {
+    public static void beforeClassSetUp() throws SienaException {
         de.aidger.model.Runtime.getInstance().initialize();
         new HourlyWage().clearTable();
         new FinancialCategory().clearTable();
@@ -76,7 +77,7 @@ public class ControllingHelperTest {
      * @throws AdoHiveException
      */
     @Before
-    public void setUp() throws AdoHiveException {
+    public void setUp() throws SienaException {
         fc = new FinancialCategory();
         fc.setBudgetCosts(new Integer[] { 100 });
         fc.setCostUnits(new Integer[] { 10001000 });
@@ -169,7 +170,7 @@ public class ControllingHelperTest {
      * @throws AdoHiveException
      */
     @Test
-    public void testGetYearMonths() throws AdoHiveException {
+    public void testGetYearMonths() throws SienaException {
         System.out.println("getYearMonths()");
 
         int[] result = controllingHelper.getYearMonths(employment.getYear());
@@ -184,12 +185,10 @@ public class ControllingHelperTest {
 
         Employment employment2 = employment.clone();
         employment2.setMonth((byte) (employment.getMonth() + 1));
-        employment2.setNew(true);
         employment2.save();
 
         Employment employment3 = employment.clone();
         employment3.setMonth((byte) (employment2.getMonth() + 1));
-        employment3.setNew(true);
         employment3.save();
 
         controllingHelper = new ControllingHelper();

@@ -28,7 +28,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import siena.SienaException;
 
 /**
  * Tests the FinancialCategory class.
@@ -58,10 +58,9 @@ public class FinancialCategoryTest {
      * Test of constructor, of class FinancialCategory.
      */
     @Test
-    public void testConstructor() throws AdoHiveException {
+    public void testConstructor() throws SienaException {
         System.out.println("Constructor");
 
-        financial.setNew(true);
         financial.save();
 
         FinancialCategory result = new FinancialCategory(financial
@@ -75,10 +74,9 @@ public class FinancialCategoryTest {
      * Test of validation methods, of class FinancialCategory.
      */
     @Test
-    public void testValidation() throws AdoHiveException {
+    public void testValidation() throws SienaException {
         System.out.println("Validation");
 
-        financial.setNew(true);
         assertTrue(financial.save());
 
         financial.setName(null);
@@ -107,7 +105,7 @@ public class FinancialCategoryTest {
      * Test of validateOnRemove, of class Contract.
      */
     @Test
-    public void testValidateOnRemove() throws AdoHiveException {
+    public void testValidateOnRemove() throws SienaException {
         System.out.println("validateOnRemove");
 
         financial.clearTable();

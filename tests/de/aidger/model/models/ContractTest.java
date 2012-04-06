@@ -31,7 +31,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import siena.SienaException;
 
 /**
  * Tests the Contract class.
@@ -45,7 +45,7 @@ public class ContractTest {
     protected static Assistant assistant = null;
 
     @BeforeClass
-    public static void beforeClassSetUp() throws AdoHiveException {
+    public static void beforeClassSetUp() throws SienaException {
         de.aidger.model.Runtime.getInstance().initialize();
 
         assistant = new Assistant();
@@ -73,10 +73,9 @@ public class ContractTest {
      * Test of constructor, of class Contract.
      */
     @Test
-    public void testConstructor() throws AdoHiveException {
+    public void testConstructor() throws SienaException {
         System.out.println("Constructor");
 
-        contract.setNew(true);
         contract.save();
 
         Contract result = new Contract(contract.getById(contract.getId()));
@@ -89,10 +88,9 @@ public class ContractTest {
      * Test of validation, of class Contract.
      */
     @Test
-    public void testValidation() throws AdoHiveException {
+    public void testValidation() throws SienaException {
         System.out.println("Validation");
 
-        contract.setNew(true);
         assertTrue(contract.save());
 
         contract.setAssistantId(0);
@@ -139,7 +137,7 @@ public class ContractTest {
      * Test of validateOnRemove, of class Contract.
      */
     @Test
-    public void testValidateOnRemove() throws AdoHiveException {
+    public void testValidateOnRemove() throws SienaException {
         System.out.println("validateOnRemove");
 
         assertTrue(contract.save());
@@ -241,10 +239,9 @@ public class ContractTest {
      * Test of getContracts method, of class Contract.
      */
     @Test
-    public void testGetContracts() throws AdoHiveException {
+    public void testGetContracts() throws SienaException {
         System.out.println("getContracts");
 
-        contract.setNew(true);
         contract.save();
 
         List result = contract.getContracts(new Date(20), new Date(1000));

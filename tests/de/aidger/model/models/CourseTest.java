@@ -31,7 +31,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import siena.SienaException;
 
 /**
  * Tests the Course class.
@@ -48,7 +48,7 @@ public class CourseTest {
     }
 
     @Before
-    public void setUp() throws AdoHiveException {
+    public void setUp() throws SienaException {
         FinancialCategory fc = new FinancialCategory();
         fc.setBudgetCosts(new Integer[] { 100 });
         fc.setCostUnits(new Integer[] { 10001000 });
@@ -76,10 +76,9 @@ public class CourseTest {
      * Test of constructor, of class Course.
      */
     @Test
-    public void testConstructor() throws AdoHiveException {
+    public void testConstructor() throws SienaException {
         System.out.println("Constructor");
 
-        course.setNew(true);
         course.save();
 
         Course result = new Course(course.getById(course.getId()));
@@ -92,10 +91,9 @@ public class CourseTest {
      * Test of validation, of class Course.
      */
     @Test
-    public void testValidation() throws AdoHiveException {
+    public void testValidation() throws SienaException {
         System.out.println("Validation");
 
-        course.setNew(true);
         assertTrue(course.save());
 
         course.setDescription(null);
@@ -136,7 +134,7 @@ public class CourseTest {
      * Test of validateOnRemove, of class Contract.
      */
     @Test
-    public void testValidateOnRemove() throws AdoHiveException {
+    public void testValidateOnRemove() throws SienaException {
         System.out.println("validateOnRemove");
 
         assertTrue(course.save());
@@ -249,7 +247,7 @@ public class CourseTest {
      * Test of getCourses method, of class Course.
      */
     @Test
-    public void testGetCourses_FinancialCategory() throws AdoHiveException {
+    public void testGetCourses_FinancialCategory() throws SienaException {
         System.out.println("getCourses");
 
         FinancialCategory fc = new FinancialCategory();
@@ -259,7 +257,6 @@ public class CourseTest {
         fc.setYear((short) 2010);
         fc.save();
 
-        course.setNew(true);
         course.setFinancialCategoryId(fc.getId());
         course.save();
 
@@ -274,10 +271,9 @@ public class CourseTest {
      * Test of getCoursesBySemester method, of class Course.
      */
     @Test
-    public void testGetCoursesBySemester() throws AdoHiveException {
+    public void testGetCoursesBySemester() throws SienaException {
         System.out.println("getCoursesBySemester");
 
-        course.setNew(true);
         course.save();
 
         List result = course.getCoursesBySemester(course.getSemester());
@@ -290,10 +286,9 @@ public class CourseTest {
      * Test of getCoursesByGroup method, of class Course.
      */
     @Test
-    public void testGetCoursesByGroup() throws AdoHiveException {
+    public void testGetCoursesByGroup() throws SienaException {
         System.out.println("getCoursesByGroup");
 
-        course.setNew(true);
         course.save();
 
         List result = course.getCoursesByGroup(course.getGroup());
@@ -306,11 +301,10 @@ public class CourseTest {
      * Test of getDistinctSemesters method, of class Course.
      */
     @Test
-    public void testGetDistinctSemesters() throws AdoHiveException {
+    public void testGetDistinctSemesters() throws SienaException {
         System.out.println("getDistinctSemesters");
 
         course.setSemester("SS10");
-        course.setNew(true);
         course.save();
 
         List result = course.getDistinctSemesters();
@@ -323,11 +317,10 @@ public class CourseTest {
      * Test of getDistinctGroups method, of class Course.
      */
     @Test
-    public void testGetDistinctGroups() throws AdoHiveException {
+    public void testGetDistinctGroups() throws SienaException {
         System.out.println("getDistinctGroups");
 
         course.setGroup("A");
-        course.setNew(true);
         course.save();
 
         List result = course.getDistinctGroups();

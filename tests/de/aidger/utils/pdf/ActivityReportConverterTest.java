@@ -33,9 +33,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import siena.SienaException;
+
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Assistant;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * Tests the class ActivityReportConverter.
@@ -67,7 +68,7 @@ public class ActivityReportConverterTest {
      * @throws AdoHiveException
      */
     @Before
-    public void setUp() throws AdoHiveException {
+    public void setUp() throws SienaException {
         assistant = new Assistant();
         assistant.setFirstName("Test");
         assistant.setLastName("Tester");
@@ -113,7 +114,7 @@ public class ActivityReportConverterTest {
      * @throws AdoHiveException
      */
     @After
-    public void cleanUp() throws AdoHiveException {
+    public void cleanUp() throws SienaException {
         assistant.remove();
     }
 

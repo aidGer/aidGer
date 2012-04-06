@@ -36,6 +36,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import siena.SienaException;
+
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
@@ -46,7 +48,6 @@ import de.aidger.model.models.HourlyWage;
 import de.aidger.model.reports.BalanceCourse;
 import de.aidger.model.reports.BalanceFilter;
 import de.aidger.model.reports.BalanceCourse.BudgetCost;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * Tests the class BalanceHelper.
@@ -82,7 +83,7 @@ public class BalanceHelperTest {
     private HourlyWage hourlyWage = null;
 
     @BeforeClass
-    public static void beforeClassSetUp() throws AdoHiveException {
+    public static void beforeClassSetUp() throws SienaException {
         de.aidger.model.Runtime.getInstance().initialize();
         new HourlyWage().clearTable();
         new FinancialCategory().clearTable();
@@ -94,7 +95,7 @@ public class BalanceHelperTest {
     }
 
     @After
-    public void cleanUp() throws AdoHiveException {
+    public void cleanUp() throws SienaException {
 
         course.remove();
 
@@ -123,7 +124,7 @@ public class BalanceHelperTest {
      * @throws AdoHiveException
      */
     @Before
-    public void setUp() throws AdoHiveException {
+    public void setUp() throws SienaException {
         financialCategory = new FinancialCategory();
         financialCategory.setBudgetCosts(new Integer[] { 1000 });
         financialCategory.setCostUnits(new Integer[] { 10000000 });
@@ -144,22 +145,18 @@ public class BalanceHelperTest {
         course.setSemester("SS09");
         course.setTargetAudience("Testers");
         course.setUnqualifiedWorkingHours(100.0);
-        course.setNew(true);
         course.save();
 
         course2 = course.clone();
         course2.setLecturer("Test Tester 2");
-        course2.setNew(true);
         course2.save();
 
         course3 = course.clone();
         course3.setTargetAudience("Testers 2");
-        course3.setNew(true);
         course3.save();
 
         course4 = course.clone();
         course4.setGroup("Test group 2");
-        course4.setNew(true);
         course4.save();
 
         assistant = new Assistant();
@@ -170,7 +167,6 @@ public class BalanceHelperTest {
         assistant.save();
 
         contract = new Contract();
-        contract.setNew(true);
         contract.setStartDate(new Date(1970, 1, 1));
         contract.setCompletionDate(new Date(1970, 1, 2));
         contract.setConfirmationDate(new Date(1970, 1, 3));
@@ -191,7 +187,6 @@ public class BalanceHelperTest {
         employment1.setQualification("g");
         employment1.setRemark("Test remark");
         employment1.setYear((short) 1970);
-        employment1.setNew(true);
         employment1.save();
 
         employment2 = new Employment();
@@ -205,7 +200,6 @@ public class BalanceHelperTest {
         employment2.setQualification("g");
         employment2.setRemark("Test remark");
         employment2.setYear((short) 1970);
-        employment2.setNew(true);
         employment2.save();
 
         hourlyWage = new HourlyWage();
@@ -213,7 +207,6 @@ public class BalanceHelperTest {
         hourlyWage.setYear(employment1.getYear());
         hourlyWage.setQualification(employment1.getQualification());
         hourlyWage.setWage(new BigDecimal(10));
-        hourlyWage.setNew(true);
         hourlyWage.save();
 
         balanceCourse = new BalanceCourse();
@@ -247,12 +240,12 @@ public class BalanceHelperTest {
      * @throws AdoHiveException
      */
     @Test
-    public void testFilterCourses() throws AdoHiveException {
+    public void testFilterCourses() throws SienaException {
         System.out.println("filterCourses()");
 
         balanceHelper = new BalanceHelper();
 
-        List<Course> courses = new Course().castList((new Course()).getAll());
+        List<Course> courses = new Course().getAll();
 
         /*
          * The course should exist in the course list.
@@ -483,19 +476,17 @@ public class BalanceHelperTest {
      * @throws AdoHiveException
      */
     @Test
-    public void testGetYears() throws AdoHiveException {
+    public void testGetYears() throws SienaException {
         System.out.println("getYears()");
 
         balanceHelper = new BalanceHelper();
 
         Course course2 = course.clone();
         course2.setSemester("2000");
-        course2.setNew(true);
         course2.save();
 
         Course course3 = course.clone();
         course3.setSemester("WS0910");
-        course3.setNew(true);
         course3.save();
 
         ArrayList years = balanceHelper.getYears();
@@ -554,7 +545,7 @@ public class BalanceHelperTest {
      * @throws AdoHiveException
      */
     @Test
-    public void testCalculateBudgetCost() throws AdoHiveException {
+    public void testCalculateBudgetCost() throws SienaException {
         System.out.println("calculateBudgetCost()");
 
         de.aidger.model.Runtime.getInstance().setOption("calc-method", "0");
@@ -584,7 +575,7 @@ public class BalanceHelperTest {
      * @throws AdoHiveException
      */
     @Test
-    public void testCalculatePreTaxBudgetCost() throws AdoHiveException {
+    public void testCalculatePreTaxBudgetCost() throws SienaException {
         System.out.println("calculatePreTaxBudgetCost()");
 
         new BalanceHelper();

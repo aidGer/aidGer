@@ -35,12 +35,13 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import siena.SienaException;
+
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.FinancialCategory;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * Tests the class ProtocolConverter.
@@ -78,7 +79,7 @@ public class ProtocolConverterTest {
      * @throws AdoHiveException
      */
     @Before
-    public void setUp() throws AdoHiveException {
+    public void setUp() throws SienaException {
         de.aidger.model.Runtime.getInstance().initialize();
 
         assistant = new Assistant();
@@ -131,7 +132,7 @@ public class ProtocolConverterTest {
      * @throws AdoHiveException
      */
     @Test
-    public void testConstructorRange() throws AdoHiveException {
+    public void testConstructorRange() throws SienaException {
         System.out.println("Constructor for activities in time range");
 
         File testFile = new File("Test_Report");
@@ -161,7 +162,7 @@ public class ProtocolConverterTest {
     }
 
     @After
-    public void cleanUp() throws AdoHiveException {
+    public void cleanUp() throws SienaException {
 
         course.remove();
 

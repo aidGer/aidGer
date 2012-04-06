@@ -31,8 +31,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import siena.SienaException;
+
 import de.aidger.model.budgets.BudgetFilter.Comparison;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * Test the budget filter class.
@@ -54,7 +55,7 @@ public class BudgetFilterTest {
      * @throws AdoHiveException
      */
     @Before
-    public void setUp() throws AdoHiveException {
+    public void setUp() throws SienaException {
     }
 
     /**
@@ -159,7 +160,7 @@ public class BudgetFilterTest {
      * @throws AdoHiveException
      */
     @After
-    public void cleanUp() throws AdoHiveException {
+    public void cleanUp() throws SienaException {
     }
 
 }

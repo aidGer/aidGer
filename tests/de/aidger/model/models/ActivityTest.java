@@ -31,7 +31,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import siena.SienaException;
 
 /**
  * Tests the Activity class.
@@ -49,7 +49,7 @@ public class ActivityTest {
     private static FinancialCategory financial = null;
 
     @BeforeClass
-    public static void beforeClassSetUp() throws AdoHiveException {
+    public static void beforeClassSetUp() throws SienaException {
         de.aidger.model.Runtime.getInstance().initialize();
 
         assistant = new Assistant();
@@ -104,10 +104,9 @@ public class ActivityTest {
      * Test of constructor, of class Activity.
      */
     @Test
-    public void testConstructor() throws AdoHiveException {
+    public void testConstructor() throws SienaException {
         System.out.println("Constructor");
 
-        activity.setNew(true);
         activity.save();
 
         Activity result = new Activity(activity.getById(activity.getId()));
@@ -120,10 +119,8 @@ public class ActivityTest {
      * Test of validation, of class Activity.
      */
     @Test
-    public void testValidation() throws AdoHiveException {
+    public void testValidation() throws SienaException {
         System.out.println("Validation");
-
-        activity.setNew(true);
 
         activity.setAssistantId(0);
         assertFalse(activity.save());
@@ -221,7 +218,7 @@ public class ActivityTest {
      * Test of getActivities method, of class Activity.
      */
     @Test
-    public void testGetActivities_Assistant() throws AdoHiveException {
+    public void testGetActivities_Assistant() throws SienaException {
         System.out.println("getActivities");
 
         Assistant a = new Assistant();
@@ -232,7 +229,6 @@ public class ActivityTest {
         a.save();
 
         activity.setAssistantId(a.getId());
-        activity.setNew(true);
         activity.save();
 
         List result = activity.getActivities(a);
@@ -245,11 +241,10 @@ public class ActivityTest {
      * Test of getActivities method, of class Activity.
      */
     @Test
-    public void testGetActivities_Course() throws AdoHiveException {
+    public void testGetActivities_Course() throws SienaException {
         System.out.println("getActivities");
 
         activity.setCourseId(course.getId());
-        activity.setNew(true);
         activity.save();
 
         List result = activity.getActivities(course);
@@ -262,7 +257,7 @@ public class ActivityTest {
      * Test of getActivities method, of class Activity.
      */
     @Test
-    public void testGetActivities_Date_Date() throws AdoHiveException {
+    public void testGetActivities_Date_Date() throws SienaException {
         System.out.println("getActivities");
 
         List result = activity.getActivities(new Date(99), new Date(101));

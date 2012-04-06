@@ -19,8 +19,9 @@
 
 package de.aidger.model.validators;
 
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import org.junit.Test;
+
+import siena.SienaException;
 import static org.junit.Assert.*;
 
 import de.aidger.model.models.Assistant;
@@ -41,7 +42,7 @@ public class ExistenceValidatorTest {
      * Test of validateVar method, of class ExistenceValidator.
      */
     @Test
-    public void testValidateVar() throws AdoHiveException {
+    public void testValidateVar() throws SienaException {
         System.out.println("validateVar");
 
         Assistant a = new Assistant();

@@ -34,6 +34,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import siena.SienaException;
+
 import de.aidger.model.models.Activity;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
@@ -42,7 +44,6 @@ import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.models.HourlyWage;
 import de.aidger.model.reports.ActivityEmployment;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * Tests the class ActivityReportHelper.
@@ -59,7 +60,7 @@ public class ActivityReportHelperTest {
     private ActivityReportHelper activityReportHelper;
 
     @BeforeClass
-    public static void beforeClassSetUp() throws AdoHiveException {
+    public static void beforeClassSetUp() throws SienaException {
         de.aidger.model.Runtime.getInstance().initialize();
         new HourlyWage().clearTable();
         new FinancialCategory().clearTable();
@@ -76,7 +77,7 @@ public class ActivityReportHelperTest {
      * @throws AdoHiveException
      */
     @Before
-    public void setUp() throws AdoHiveException {
+    public void setUp() throws SienaException {
         fc = new FinancialCategory();
         fc.setBudgetCosts(new Integer[] { 100 });
         fc.setCostUnits(new Integer[] { 10001000 });
@@ -142,7 +143,7 @@ public class ActivityReportHelperTest {
     }
 
     @Test
-    public void testGetEmployments() throws AdoHiveException {
+    public void testGetEmployments() throws SienaException {
         System.out.println("addCourseEmployment()");
 
         List<ActivityEmployment> result = activityReportHelper
@@ -167,7 +168,6 @@ public class ActivityReportHelperTest {
 
         Employment employment2 = employment.clone();
         employment2.setMonth((byte) (employment.getMonth() + 1));
-        employment2.setNew(true);
         employment2.save();
 
         result = activityReportHelper.getEmployments(assistant);
@@ -193,7 +193,6 @@ public class ActivityReportHelperTest {
 
         Employment employment3 = employment2.clone();
         employment3.setMonth((byte) (employment2.getMonth() + 1));
-        employment3.setNew(true);
         employment3.save();
 
         result = activityReportHelper.getEmployments(assistant);
@@ -222,7 +221,6 @@ public class ActivityReportHelperTest {
 
         Employment employment4 = employment.clone();
         employment4.setMonth((byte) (employment.getMonth() + 2));
-        employment4.setNew(true);
         employment4.save();
 
         result = activityReportHelper.getEmployments(assistant);
@@ -261,7 +259,6 @@ public class ActivityReportHelperTest {
         Employment employment5 = employment.clone();
         employment5.setMonth((byte) (1));
         employment5.setYear((short) (employment4.getYear() + 1));
-        employment5.setNew(true);
         employment5.save();
 
         result = activityReportHelper.getEmployments(assistant);
@@ -293,12 +290,10 @@ public class ActivityReportHelperTest {
 
         Employment employment6 = employment.clone();
         employment6.setMonth((byte) (employment.getMonth() + 2));
-        employment6.setNew(true);
         employment6.save();
 
         Employment employment7 = employment.clone();
         employment7.setMonth((byte) (employment.getMonth() + 1));
-        employment7.setNew(true);
         employment7.save();
 
         result = activityReportHelper.getEmployments(assistant);
@@ -327,12 +322,10 @@ public class ActivityReportHelperTest {
 
         Course course2 = course.clone();
         course2.setDescription("Test Description");
-        course2.setNew(true);
         course2.save();
 
         Employment employment8 = employment.clone();
         employment8.setCourseId(course2.getId());
-        employment8.setNew(true);
         employment8.save();
 
         result = activityReportHelper.getEmployments(assistant);
@@ -354,11 +347,10 @@ public class ActivityReportHelperTest {
     }
 
     @Test
-    public void testGetEmploymentArray() throws AdoHiveException {
+    public void testGetEmploymentArray() throws SienaException {
         System.out.println("getEmploymentArray()");
         Employment employment2 = employment.clone();
         employment2.setMonth((byte) (employment.getMonth() + 1));
-        employment2.setNew(true);
         employment2.save();
 
         List<ActivityEmployment> result = activityReportHelper
@@ -380,7 +372,6 @@ public class ActivityReportHelperTest {
 
         Employment employment3 = employment.clone();
         employment3.setMonth((byte) (1));
-        employment3.setNew(true);
         employment3.save();
 
         result = activityReportHelper.getEmployments(assistant);
@@ -402,7 +393,7 @@ public class ActivityReportHelperTest {
     }
 
     @After
-    public void cleanUp() throws AdoHiveException {
+    public void cleanUp() throws SienaException {
         fc.remove();
         assistant.remove();
         contract.remove();
