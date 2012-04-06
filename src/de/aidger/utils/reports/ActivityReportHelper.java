@@ -25,13 +25,13 @@ package de.aidger.utils.reports;
 import java.util.ArrayList;
 import java.util.List;
 
+import siena.SienaException;
+
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.reports.ActivityEmployment;
 import de.aidger.view.UI;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
  * The class creates the activity employment objects for one assistant for the
@@ -182,7 +182,7 @@ public class ActivityReportHelper {
              * chronological order.
              */
             for (Employment employment : employments) {
-                ICourse course = new Course().getById(employment.getCourseId());
+                Course course = new Course().getById(employment.getCourseId());
                 addCourseEmployment(course.getDescription() + "("
                         + course.getSemester() + ")", employment);
             }
@@ -282,7 +282,7 @@ public class ActivityReportHelper {
                     }
                 }
             }
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             UI.displayError(e.toString());
         }
         return activityEmployments;

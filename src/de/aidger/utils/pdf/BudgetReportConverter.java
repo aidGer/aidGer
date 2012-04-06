@@ -36,6 +36,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import siena.SienaException;
+
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -63,8 +65,6 @@ import de.aidger.model.budgets.CourseBudget;
 import de.aidger.model.models.Course;
 import de.aidger.utils.DateUtils;
 import de.aidger.view.UI;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
  * This class converts budget reports to a format for itext and exports it.
@@ -442,12 +442,12 @@ public class BudgetReportConverter {
             contentTable.addCell(contentCell);
 
             BudgetCreator budgetCreator = new BudgetCreator();
-            List<ICourse> courses = (new Course()).getAll();
+            List<Course> courses = (new Course()).getAll();
             /*
              * Get course budgets for all courses along with the filter
              * criteria.
              */
-            for (ICourse course : courses) {
+            for (Course course : courses) {
                 budgetCreator.addCourseBudget(new Course(course), filters);
             }
             ArrayList<CourseBudget> courseBudgets = budgetCreator
@@ -462,7 +462,7 @@ public class BudgetReportConverter {
                 contentTable.addCell(contentCell);
             }
             document.add(contentTable);
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             UI.displayError(e.toString());
         } catch (DocumentException e) {
             // TODO Auto-generated catch block

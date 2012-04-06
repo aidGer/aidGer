@@ -25,9 +25,9 @@ package de.aidger.model.controlling;
 import java.util.ArrayList;
 import java.util.List;
 
+import siena.SienaException;
+
 import de.aidger.model.models.FinancialCategory;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 
 /**
  * This class creates a controlling report for financial categories
@@ -51,16 +51,16 @@ public class FinancialControllingCreator {
      */
     public List<FinancialCategory> getCategories(int year) {
         List<FinancialCategory> financialCategories = new ArrayList<FinancialCategory>();
-        List<IFinancialCategory> tempFinancialCategories = new ArrayList<IFinancialCategory>();
+        List<FinancialCategory> tempFinancialCategories = new ArrayList<FinancialCategory>();
         try {
             tempFinancialCategories = new FinancialCategory().getAll();
             // Only use the financial categories with the given year and convert them to aidGer model form
-            for (IFinancialCategory category : tempFinancialCategories) {
+            for (FinancialCategory category : tempFinancialCategories) {
                 if (category.getYear().intValue() == year) {
                     financialCategories.add(new FinancialCategory(category));
                 }
             }
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             e.printStackTrace();
         }
         return financialCategories;

@@ -25,6 +25,8 @@ package de.aidger.model.controlling;
 import java.util.ArrayList;
 import java.util.List;
 
+import siena.SienaException;
+
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.CostUnit;
@@ -32,8 +34,6 @@ import de.aidger.model.models.Employment;
 import de.aidger.utils.DataXMLManager;
 import de.aidger.utils.reports.BalanceHelper;
 import de.aidger.view.UI;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
 
 /**
  * This class is used to get all controlling assistant objects for a given year,
@@ -91,11 +91,11 @@ public class ControllingCreator {
     public ArrayList<ControllingAssistant> getAssistants(boolean ignore) {
         ArrayList<ControllingAssistant> controllingAssistants = new ArrayList<ControllingAssistant>();
         try {
-            List<IAssistant> assistants = new Assistant().getAll();
+            List<Assistant> assistants = new Assistant().getAll();
             // Get all the employments that fit the time span.
             List<Employment> employments = new Employment().getEmployments(
                 (short) year, (byte) 1, (short) year, (byte) month);
-            for (IAssistant assistant : assistants) {
+            for (Assistant assistant : assistants) {
                 /*
                  * There's no need to add the assistant, if there are no fitting
                  * employments for it.
@@ -135,7 +135,7 @@ public class ControllingCreator {
                     controllingAssistants.add(controllingAssistant);
                 }
             }
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             UI.displayError(e.toString());
         }
         // Sort the controlling assistants

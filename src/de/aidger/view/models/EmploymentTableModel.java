@@ -32,16 +32,12 @@ import de.aidger.model.models.CostUnit;
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
-import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IAssistant;
-import de.unistuttgart.iste.se.adohive.model.IContract;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
-import de.unistuttgart.iste.se.adohive.model.IEmployment;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import siena.SienaException;
 
 /**
  * The class represents the table model for the employments data.
@@ -101,7 +97,7 @@ public class EmploymentTableModel extends TableModel {
                     if (assistantCache.containsKey(employment.getAssistantId())) {
                         return assistantCache.get(employment.getAssistantId());
                     } else {
-                        IAssistant assistant = (new Assistant()).getById(employment.getAssistantId());
+                        Assistant assistant = (new Assistant()).getById(employment.getAssistantId());
                         UIAssistant a = new UIAssistant(assistant);
 
                         assistantCache.put(a.getId(), a);
@@ -111,7 +107,7 @@ public class EmploymentTableModel extends TableModel {
                     if (courseCache.containsKey(employment.getCourseId())) {
                         return courseCache.get(employment.getCourseId());
                     } else {
-                        ICourse course = (new Course()).getById(employment.getCourseId());
+                        Course course = (new Course()).getById(employment.getCourseId());
                         UICourse c = new UICourse(course);
                         
                         courseCache.put(c.getId(), c);
@@ -121,7 +117,7 @@ public class EmploymentTableModel extends TableModel {
                     if (contractCache.containsKey(employment.getContractId())) {
                         return contractCache.get(employment.getContractId());
                     } else {
-                        IContract contract = (new Contract()).getById(employment.getContractId());
+                        Contract contract = (new Contract()).getById(employment.getContractId());
                         UIContract c = new UIContract(contract);
 
                         contractCache.put(c.getId(), c);
@@ -142,7 +138,7 @@ public class EmploymentTableModel extends TableModel {
                 case 8: return Qualification.valueOf(employment.getQualification());
                 case 9: return employment.getRemark();
             }
-        } catch (AdoHiveException ex) {
+        } catch (SienaException ex) {
         }
         return null;
     }
@@ -155,8 +151,10 @@ public class EmploymentTableModel extends TableModel {
     @Override
     protected AbstractModel getModelFromDB(int idx) {
         try {
-            return new Employment(AdoHiveController.getInstance().getEmploymentManager().get(idx));
-        } catch (AdoHiveException ex) {
+        	//TODO: rewrite with Siena
+            //return new Employment(AdoHiveController.getInstance().getEmploymentManager().get(idx));
+        	return null;
+        } catch (SienaException ex) {
             return null;
         }
     }
@@ -169,11 +167,11 @@ public class EmploymentTableModel extends TableModel {
     protected List<AbstractModel> getModels() {
         List<AbstractModel> ret = new ArrayList<AbstractModel>();
         try {
-            List<IEmployment> lst = (new Employment()).getAll();
-            for (IEmployment e : lst) {
+            List<Employment> lst = (new Employment()).getAll();
+            for (Employment e : lst) {
                 ret.add(new Employment(e));
             }
-        } catch (AdoHiveException ex) {
+        } catch (SienaException ex) {
         }
 
         return ret;

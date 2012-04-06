@@ -27,11 +27,10 @@ import java.util.Date;
 import de.aidger.model.AbstractModel;
 import de.aidger.model.models.HourlyWage;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
-import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
 import java.util.ArrayList;
 import java.util.List;
+
+import siena.SienaException;
 
 /**
  * The class represents the table model for the master data hourly wages.
@@ -93,8 +92,10 @@ public class HourlyWageTableModel extends TableModel {
     @Override
     protected AbstractModel getModelFromDB(int idx) {
         try {
-            return new HourlyWage(AdoHiveController.getInstance().getHourlyWageManager().get(idx));
-        } catch (AdoHiveException ex) {
+        	//TODO: rewrite with Siena
+            //return new HourlyWage(AdoHiveController.getInstance().getHourlyWageManager().get(idx));
+        	return null;
+        } catch (SienaException ex) {
             return null;
         }
     }
@@ -107,11 +108,11 @@ public class HourlyWageTableModel extends TableModel {
     protected List<AbstractModel> getModels() {
         List<AbstractModel> ret = new ArrayList<AbstractModel>();
         try {
-            List<IHourlyWage> lst = (new HourlyWage()).getAll();
-            for (IHourlyWage e : lst) {
+            List<HourlyWage> lst = (new HourlyWage()).getAll();
+            for (HourlyWage e : lst) {
                 ret.add(new HourlyWage(e));
             }
-        } catch (AdoHiveException ex) {
+        } catch (SienaException ex) {
         }
 
         return ret;
@@ -125,7 +126,7 @@ public class HourlyWageTableModel extends TableModel {
     public int getRowCount() {
         try {
             return (new HourlyWage()).size();
-        } catch (AdoHiveException ex) {
+        } catch (SienaException ex) {
             return 0;
         }
     }

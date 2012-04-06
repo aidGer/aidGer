@@ -28,13 +28,12 @@ import de.aidger.model.AbstractModel;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.view.forms.ContractEditorForm.ContractType;
-import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IContract;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import siena.SienaException;
 
 /**
  * The class represents the table model for the contracts data.
@@ -102,7 +101,7 @@ public class ContractTableModel extends TableModel {
                 case 6: return ContractType.valueOf(contract.getType());
                 case 7: return contract.isDelegation();
             }
-        } catch (AdoHiveException ex) {
+        } catch (SienaException ex) {
         }
         return null;
     }
@@ -115,8 +114,10 @@ public class ContractTableModel extends TableModel {
     @Override
     protected AbstractModel getModelFromDB(int idx) {
         try {
-            return new Contract(AdoHiveController.getInstance().getContractManager().get(idx));
-        } catch (AdoHiveException ex) {
+        	//TODO: rewrite with Siena
+            //return new Contract(AdoHiveController.getInstance().getContractManager().get(idx));
+        	return null;
+        } catch (SienaException ex) {
             return null;
         }
     }
@@ -129,11 +130,11 @@ public class ContractTableModel extends TableModel {
     protected List<AbstractModel> getModels() {
         List<AbstractModel> ret = new ArrayList<AbstractModel>();
         try {
-            List<IContract> lst = (new Contract()).getAll();
-            for (IContract e : lst) {
+            List<Contract> lst = (new Contract()).getAll();
+            for (Contract e : lst) {
                 ret.add(new Contract(e));
             }
-        } catch (AdoHiveException ex) {
+        } catch (SienaException ex) {
         }
 
         return ret;

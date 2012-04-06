@@ -24,7 +24,6 @@ import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
 import de.aidger.model.Runtime;
 import de.aidger.model.models.CostUnit;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 import java.util.List;
 
 /**

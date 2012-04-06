@@ -26,15 +26,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import siena.SienaException;
+
 import de.aidger.model.Runtime;
 import de.aidger.model.models.CostUnit;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.DataXMLManager;
 import de.aidger.view.UI;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IEmployment;
-import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
 
 /**
  * This class is used to calculate all the available years, the months of a year
@@ -64,13 +63,13 @@ public class ControllingHelper {
     public int[] getEmploymentYears() {
         ArrayList<Short> years = new ArrayList<Short>();
         try {
-            List<IEmployment> employments = new Employment().getAll();
-            for (IEmployment employment : employments) {
+            List<Employment> employments = new Employment().getAll();
+            for (Employment employment : employments) {
                 if (!years.contains(employment.getYear())) {
                     years.add(employment.getYear());
                 }
             }
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             UI.displayError(e.toString());
         }
         int[] sortedYears = new int[years.size()];
@@ -99,7 +98,7 @@ public class ControllingHelper {
                     months.add(employment.getMonth());
                 }
             }
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             UI.displayError(e.toString());
         }
         int[] sortedMonths = new int[months.size()];
@@ -150,7 +149,7 @@ public class ControllingHelper {
                     costUnits.add(costUnit);
                 }
             }
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             UI.displayError(e.toString());
         }
         CostUnit[] sortedCostUnits = new CostUnit[costUnits.size()];
@@ -167,10 +166,10 @@ public class ControllingHelper {
      */
     public List<Integer> getFinancialYears() {
         List<Integer> years = new ArrayList<Integer>();
-        List<IFinancialCategory> financialCategories;
+        List<FinancialCategory> financialCategories;
         try {
             financialCategories = new FinancialCategory().getAll();
-            for (IFinancialCategory financialCategory : financialCategories) {
+            for (FinancialCategory financialCategory : financialCategories) {
                 if (!years.contains(financialCategory.getYear().intValue())) {
                     for (int i = 0; i < years.size(); i++) {
                         if (years.get(i) > financialCategory.getYear()
@@ -182,7 +181,7 @@ public class ControllingHelper {
                     years.add(financialCategory.getYear().intValue());
                 }
             }
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }

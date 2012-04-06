@@ -62,8 +62,6 @@ import de.aidger.utils.DateUtils;
 import de.aidger.utils.Logger;
 import de.aidger.utils.reports.BalanceHelper;
 import de.aidger.view.UI;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.ICourse;
 
 /**
  * This class converts balance reports to a format for iText and exports it to a
@@ -539,7 +537,7 @@ public class BalanceReportConverter {
             } else {
                 courses = new ArrayList<Course>();
                 List<Course> unsortedCourses = new Course().getAll();
-                for (ICourse course : unsortedCourses) {
+                for (Course course : unsortedCourses) {
                     if (course.getSemester() == null) {
                         courses.add(new Course(course));
                     }
@@ -547,7 +545,7 @@ public class BalanceReportConverter {
             }
             List<Course> filteredCourses = balanceHelper.filterCourses(courses,
                 filters);
-            for (ICourse course : filteredCourses) {
+            for (Course course : filteredCourses) {
                 PdfPTable groupTable = null;
                 if (balanceReportGroups.isEmpty()) {
                     groupTable = createGroup(course);
@@ -680,7 +678,7 @@ public class BalanceReportConverter {
      * @return The PdfPTable of the group.
      */
     @SuppressWarnings("unchecked")
-    private PdfPTable createGroup(ICourse course) {
+    private PdfPTable createGroup(Course course) {
         balanceReportGroupCreator = new BalanceReportGroupCreator(course,
             calculationMethod);
         List<Course> courses = null;
@@ -692,13 +690,13 @@ public class BalanceReportConverter {
             } else {
                 courses = new ArrayList<Course>();
                 List<Course> unsortedCourses = new Course().getAll();
-                for (ICourse currentCourse : unsortedCourses) {
+                for (Course currentCourse : unsortedCourses) {
                     if (currentCourse.getSemester() == null) {
                         courses.add(new Course(currentCourse));
                     }
                 }
             }
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             UI.displayError(e.toString());
         }
         List<Course> filteredCourses = balanceHelper.filterCourses(courses,

@@ -24,9 +24,10 @@ package de.aidger.model.budgets;
 
 import java.util.List;
 
+import siena.SienaException;
+
 import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
 
 /**
  * This class is used to get the budget of all courses.
@@ -86,7 +87,7 @@ public class BudgetChecker {
             for (Employment employment : employments) {
                 actualBudget = actualBudget + employment.getHourCount();
             }
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
