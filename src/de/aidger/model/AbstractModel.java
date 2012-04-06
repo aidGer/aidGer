@@ -117,7 +117,7 @@ public abstract class AbstractModel<T> extends Model {
      * @return True if validation succeeds
      */
     @SuppressWarnings("unchecked")
-    public void store() throws ValidationException {
+    public void save() {
         /* Validation of the model */
         if (!doValidate()) {
             throw new ValidationException(_("Validation failed."));
@@ -127,7 +127,7 @@ public abstract class AbstractModel<T> extends Model {
 
         boolean wasNew = getId() == 0;
 
-        save();
+        super.save();
 
         /* Add event to the HistoryManager */
         HistoryEvent evt = new HistoryEvent();
@@ -155,7 +155,7 @@ public abstract class AbstractModel<T> extends Model {
      * @return False if the model is new or doesn't validate
      */
     @SuppressWarnings("unchecked")
-    public void remove() throws ValidationException {
+    public void remove() {
         /* Check if there is a custom validation function */
         try {
             java.lang.reflect.Method m = getClass().getDeclaredMethod(

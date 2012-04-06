@@ -24,7 +24,7 @@ package de.aidger.utils;
  *
  * @author Philipp Gildein
  */
-public class AidgerException extends Exception {
+public class AidgerException extends RuntimeException {
 
     public AidgerException()
     {
