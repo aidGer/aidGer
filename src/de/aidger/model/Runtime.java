@@ -28,10 +28,9 @@ import java.util.Locale;
 
 import de.aidger.utils.Configuration;
 import de.aidger.utils.DataXMLManager;
+import de.aidger.utils.Pair;
 import de.aidger.utils.Translation;
 import de.aidger.view.UI;
-import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
-import de.unistuttgart.iste.se.adohive.util.tuple.Pair;
 
 /**
  * Initializes Configuration and Translation and relays the methods
@@ -222,11 +221,12 @@ public final class Runtime {
         }
         
         /* Set database connection settings and try to get an instance of AdoHiveController */
-        try {        	
-        	AdoHiveController.setDriver(getOption("database-driver"));
+        try {
+            //TODO: Rewrite with Siena
+        /*	AdoHiveController.setDriver(getOption("database-driver"));
         	AdoHiveController.setConnectionString(getOption("database-uri"));
         	
-        	AdoHiveController.getInstance();
+        	AdoHiveController.getInstance(); */
         } catch (Exception e) {
         	connected = false;
         }

@@ -33,7 +33,7 @@ import java.util.Set;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Employment;
 import de.aidger.view.models.UIAssistant;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import siena.SienaException;
 
 /**
  * An inspector for the working hour limit of 85h per month in a period of time
@@ -123,7 +123,7 @@ public class WorkingHourLimitInspector extends Inspector {
             if (exceed) {
                 result = limitMsg;
             }
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
         }
     }
 

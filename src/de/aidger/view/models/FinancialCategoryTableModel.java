@@ -23,9 +23,8 @@ import static de.aidger.utils.Translation._;
 
 import de.aidger.model.AbstractModel;
 import de.aidger.model.models.FinancialCategory;
-import de.unistuttgart.iste.se.adohive.controller.AdoHiveController;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IFinancialCategory;
+import siena.SienaException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,8 +95,10 @@ public class FinancialCategoryTableModel extends TableModel {
     @Override
     protected AbstractModel getModelFromDB(int idx) {
         try {
-            return new FinancialCategory(AdoHiveController.getInstance().getFinancialCategoryManager().get(idx));
-        } catch (AdoHiveException ex) {
+            //TODO: Rewrite with siena
+            //return new FinancialCategory(AdoHiveController.getInstance().getFinancialCategoryManager().get(idx));
+            return null;
+        } catch (SienaException ex) {
             return null;
         }
     }
@@ -110,11 +111,11 @@ public class FinancialCategoryTableModel extends TableModel {
     protected List<AbstractModel> getModels() {
         List<AbstractModel> ret = new ArrayList<AbstractModel>();
         try {
-            List<IFinancialCategory> lst = (new FinancialCategory()).getAll();
-            for (IFinancialCategory e : lst) {
+            List<FinancialCategory> lst = (new FinancialCategory()).getAll();
+            for (FinancialCategory e : lst) {
                 ret.add(new FinancialCategory(e));
             }
-        } catch (AdoHiveException ex) {
+        } catch (SienaException ex) {
         }
 
         return ret;

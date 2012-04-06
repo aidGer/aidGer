@@ -38,8 +38,6 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.models.HourlyWage;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
 
 /**
  * Tests the AbstractModel class.
@@ -49,7 +47,7 @@ import de.unistuttgart.iste.se.adohive.model.IHourlyWage;
 public class AbstractModelTest {
 
     @BeforeClass
-    public static void beforeClassSetUp() throws AdoHiveException {
+    public static void beforeClassSetUp() {
         Runtime.getInstance().initialize();
         new Employment().clearTable();        
         new Activity().clearTable();
@@ -64,7 +62,7 @@ public class AbstractModelTest {
      * Test of getAll method, of class AbstractModel.
      */
     @Test
-    public void testGetAll() throws AdoHiveException {
+    public void testGetAll() {
         System.out.println("getAll");
 
         HourlyWage h = new HourlyWage();
@@ -83,7 +81,7 @@ public class AbstractModelTest {
         g.setYear((short) 2010);
         g.save();
 
-        List<IHourlyWage> list = h.getAll();
+        List<HourlyWage> list = h.getAll();
 
         assertNotNull(list);
         assertEquals(2, list.size());
@@ -95,7 +93,7 @@ public class AbstractModelTest {
      * Test of getById method, of class AbstractModel.
      */
     @Test
-    public void testGetById() throws AdoHiveException {
+    public void testGetById() {
         System.out.println("getById");
 
         Assistant a = new Assistant();
@@ -117,7 +115,7 @@ public class AbstractModelTest {
      * Test of getByKeys method, of class AbstractModel.
      */
     @Test
-    public void testGetByKeys() throws AdoHiveException {
+    public void testGetByKeys() {
         System.out.println("getByKeys");
 
         HourlyWage h = new HourlyWage();
@@ -129,8 +127,9 @@ public class AbstractModelTest {
         h.setWage(new BigDecimal(200));
         h.save();
 
-        HourlyWage result = new HourlyWage(h.getByKeys("g", (byte) 10,
-            (short) 2010));
+        //TODO: Rewrite with siena
+        HourlyWage result = null;//new HourlyWage(h.getByKeys("g", (byte) 10,
+        //    (short) 2010));
 
         assertNotNull(result);
         assertEquals(h, result);
@@ -151,7 +150,7 @@ public class AbstractModelTest {
      * Test of size method, of class AbstractModel.
      */
     @Test
-    public void testSize() throws AdoHiveException {
+    public void testSize() {
         System.out.println("size");
 
         Assistant a = new Assistant();
@@ -171,7 +170,7 @@ public class AbstractModelTest {
      * Test of isEmpty method, of class AbstractModel.
      */
     @Test
-    public void testIsEmpty() throws AdoHiveException {
+    public void testIsEmpty() {
         System.out.println("isEmpty");
 
         Assistant a = new Assistant();
@@ -191,7 +190,7 @@ public class AbstractModelTest {
      * Test of isInDatabase method, of class AbstractModel.
      */
     @Test
-    public void testIsInDatabase() throws AdoHiveException {
+    public void testIsInDatabase() {
         System.out.println("isInDatabase");
 
         Assistant a = new Assistant();
@@ -210,7 +209,7 @@ public class AbstractModelTest {
      * Test of clearTable method, of class AbstractModel.
      */
     @Test
-    public void testClearTable() throws AdoHiveException {
+    public void testClearTable() {
         System.out.println("clearTable");
 
         Assistant a = new Assistant();
@@ -230,7 +229,7 @@ public class AbstractModelTest {
      * Test of save method, of class AbstractModel.
      */
     @Test
-    public void testSave() throws AdoHiveException {
+    public void testSave() {
         System.out.println("save");
 
         /* Test of adding a model */
@@ -356,20 +355,6 @@ public class AbstractModelTest {
     }
 
     /**
-     * Test of setNew method, of class AbstractModel.
-     */
-    @Test
-    public void testSetNew() {
-        System.out.println("setNew");
-
-        Assistant a = new Assistant();
-        a.setId(3);
-        a.setNew(true);
-
-        assertTrue(a.getId() == 0);
-    }
-
-    /**
      * Test of toString method, of class AbstractModel.
      */
     @Test
@@ -394,7 +379,7 @@ public class AbstractModelTest {
      * Test of validateEmailOf method, of class AbstractModel.
      */
     @Test
-    public void testValidateEmailOf() throws AdoHiveException {
+    public void testValidateEmailOf() {
         System.out.println("validateEmailOf");
 
         Assistant a = new Assistant();

@@ -21,7 +21,7 @@ package de.aidger.model.validators;
 
 import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import siena.SienaException;
 
 /**
  * Validates the existence of an id in the database.
@@ -69,7 +69,7 @@ public class ExistenceValidator extends Validator {
         } else {
             try {
                 return type.getById((Integer) o) != null;
-            } catch (AdoHiveException ex) {
+            } catch (SienaException ex) {
                 return false;
             }
         }

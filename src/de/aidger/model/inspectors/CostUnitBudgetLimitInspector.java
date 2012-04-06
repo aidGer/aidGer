@@ -31,7 +31,7 @@ import de.aidger.model.models.FinancialCategory;
 import de.aidger.utils.reports.BalanceHelper;
 import de.aidger.view.models.UICostUnit;
 import de.aidger.view.models.UIFinancialCategory;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import siena.SienaException;
 
 /**
  * An inspector for the budget limit in € for cost units.
@@ -108,7 +108,7 @@ public class CostUnitBudgetLimitInspector extends Inspector {
                                 round(bookedBudgetCosts, 2),
                                 round(maxBudgetCosts, 2) });
             }
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
         }
     }
 

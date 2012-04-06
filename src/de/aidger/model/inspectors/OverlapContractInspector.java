@@ -29,7 +29,7 @@ import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Contract;
 import de.aidger.view.forms.ContractEditorForm.ContractType;
 import de.aidger.view.models.UIAssistant;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import siena.SienaException;
 
 /**
  * Inspector for overlapped new contracts.
@@ -92,7 +92,7 @@ public class OverlapContractInspector extends Inspector {
                     return;
                 }
             }
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
         }
     }
 }

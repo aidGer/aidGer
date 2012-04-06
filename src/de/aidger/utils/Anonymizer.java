@@ -113,8 +113,7 @@ public class Anonymizer {
                 }
             }
         } catch (SienaException ex) {
-            Logger.error(
-                    _("Anonymizing Assistants failed because of a database error"));
+            Logger.error(_("Anonymizing Assistants failed because of a database error"));
         } catch (NullPointerException ex) {
             return 0;
         }

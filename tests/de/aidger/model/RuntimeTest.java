@@ -33,10 +33,9 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import java.util.List;
 
+import de.aidger.utils.Pair;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import de.aidger.utils.Pair;
 
 /**
  * Tests the Runtime class.

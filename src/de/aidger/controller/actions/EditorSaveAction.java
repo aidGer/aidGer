@@ -69,6 +69,7 @@ import de.aidger.view.tabs.EditorTab;
 import de.aidger.view.tabs.Tab;
 import de.aidger.view.tabs.ViewerTab;
 import de.aidger.view.utils.InvalidLengthException;
+import siena.SienaException;
 
 /**
  * This action saves the model and replaces the current tab with the model
@@ -137,7 +138,7 @@ public class EditorSaveAction extends AbstractAction {
             Course c = course.getById(course.getId());
 
             return c == null ? courseBeforeEdit : new Course(c);
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             return courseBeforeEdit;
         }
     }
@@ -170,7 +171,7 @@ public class EditorSaveAction extends AbstractAction {
             Assistant a = assistant.getById(assistant.getId());
 
             return a == null ? assistantBeforeEdit : new Assistant(a);
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             return assistantBeforeEdit;
         }
     }
@@ -221,10 +222,11 @@ public class EditorSaveAction extends AbstractAction {
 
         try {
             // fc.getByKeys expects only the ID as key
-            FinancialCategory f = fc.getByKeys(fc.getId());
+            //TODO: Rewrite with siena
+            FinancialCategory f = null; //fc.getByKeys(fc.getId());
 
             return f == null ? fcBeforeEdit : new FinancialCategory(f);
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             return fcBeforeEdit;
         }
     }
@@ -293,12 +295,13 @@ public class EditorSaveAction extends AbstractAction {
         }
 
         try {
-            HourlyWage h = hwBeforeEdit.getByKeys(hwBeforeEdit
-                .getQualification(), hwBeforeEdit.getMonth(), hwBeforeEdit
-                .getYear());
+            //TODO: Rewrite
+            HourlyWage h = null;//hwBeforeEdit.getByKeys(hwBeforeEdit
+                //.getQualification(), hwBeforeEdit.getMonth(), hwBeforeEdit
+                //.getYear());
 
             return h == null ? hwBeforeEdit : new HourlyWage(h);
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             return hwBeforeEdit;
         }
     }
@@ -325,8 +328,6 @@ public class EditorSaveAction extends AbstractAction {
         costUnit.setTokenDB(form.getTokenDB());
 
         if (form.isEditMode()) {
-            costUnit.setNew(false);
-
             Runtime.getInstance().getDataXMLManager().setCostUnitBeforeEdit(
                 costUnitBeforeEdit);
         }
@@ -403,7 +404,7 @@ public class EditorSaveAction extends AbstractAction {
             Employment e = employment.getById(employment.getId());
 
             return e == null ? employmentBeforeEdit : new Employment(e);
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             return employmentBeforeEdit;
         }
     }
@@ -445,7 +446,7 @@ public class EditorSaveAction extends AbstractAction {
             Contract c = contract.getById(contract.getId());
 
             return c == null ? contractBeforeEdit : new Contract(c);
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             return contractBeforeEdit;
         }
     }
@@ -519,7 +520,7 @@ public class EditorSaveAction extends AbstractAction {
             Activity a = activity.getById(activity.getId());
 
             return a == null ? activityBeforeEdit : new Activity(a);
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
             return activityBeforeEdit;
         }
     }
@@ -688,7 +689,7 @@ public class EditorSaveAction extends AbstractAction {
                         return;
                     }
                 }
-            } catch (AdoHiveException e2) {
+            } catch (SienaException e2) {
                 // continue as if no checks were performed
             }
         }
@@ -701,7 +702,8 @@ public class EditorSaveAction extends AbstractAction {
             tableModel.setModelBeforeEdit(modelBeforeEdit);
 
             // the model is observed by the table model
-            model.addObserver(tableModel);
+            //TODO: Readd
+            //model.addObserver(tableModel);
 
             UI.getInstance().addObserversTo(model, modelBeforeEdit,
                 tab.getType());
@@ -713,7 +715,7 @@ public class EditorSaveAction extends AbstractAction {
                     MessageFormat.format(
                         _("The entity {0} was saved successfully."),
                         new Object[] { tab.getType().getDisplayName() }));
-            } catch (AdoHiveException e1) {
+            } catch (SienaException e1) {
                 if (e1.getCause().getClass() == SQLIntegrityConstraintViolationException.class) {
                     UI
                         .displayError(MessageFormat

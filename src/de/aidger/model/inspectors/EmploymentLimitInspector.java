@@ -31,7 +31,7 @@ import de.aidger.model.models.Assistant;
 import de.aidger.model.models.Employment;
 import de.aidger.view.forms.HourlyWageEditorForm.Qualification;
 import de.aidger.view.models.UIAssistant;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
+import siena.SienaException;
 
 /**
  * An inspector for the 6 year employment limit for assistants.
@@ -108,7 +108,7 @@ public class EmploymentLimitInspector extends Inspector {
                                 qualification, year });
             }
 
-        } catch (AdoHiveException e1) {
+        } catch (SienaException e1) {
         }
     }
 }
