@@ -29,11 +29,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import siena.SienaException;
+
 import de.aidger.model.Runtime;
 import de.aidger.model.models.CostUnit;
-import de.unistuttgart.iste.se.adohive.controller.IAdoHiveManager;
-import de.unistuttgart.iste.se.adohive.exceptions.AdoHiveException;
-import de.unistuttgart.iste.se.adohive.model.IAdoHiveModel;
 
 //TODO: Handle all empty exception handlers
 //TODO: Rewrite completely
@@ -44,7 +43,7 @@ import de.unistuttgart.iste.se.adohive.model.IAdoHiveModel;
  * @author aidGer Team
  */
 @SuppressWarnings("unchecked")
-public class DataXMLManager implements IAdoHiveManager {
+public class DataXMLManager {
 
     /**
      * The file name where the data will be stored.
@@ -115,11 +114,6 @@ public class DataXMLManager implements IAdoHiveManager {
             costUnitMap = (List<CostUnit>) dec.readObject();
             emailSuffix = (String) dec.readObject();
 
-            // mark all cost units as not new
-            for (CostUnit c : costUnitMap) {
-                c.setNew(false);
-            }
-
             dec.close();
         } catch (IOException e) {
         }
@@ -162,7 +156,7 @@ public class DataXMLManager implements IAdoHiveManager {
     public List<CostUnit> getCostUnitMap() {
         try {
             return getAll();
-        } catch (AdoHiveException e) {
+        } catch (SienaException e) {
 
         }
 
@@ -220,8 +214,7 @@ public class DataXMLManager implements IAdoHiveManager {
         return costUnits;
     }
 
-    @Override
-    public List<CostUnit> getAll() throws AdoHiveException {
+    public List<CostUnit> getAll() throws SienaException {
         List<CostUnit> costUnits = new ArrayList<CostUnit>();
 
         for (CostUnit costUnit : costUnitMap) {
@@ -231,8 +224,7 @@ public class DataXMLManager implements IAdoHiveManager {
         return costUnits;
     }
 
-    @Override
-    public boolean add(IAdoHiveModel e) throws AdoHiveException {
+    public boolean add(CostUnit e) throws SienaException {
         costUnitMap.add((CostUnit) e);
 
         saveData();
@@ -240,8 +232,7 @@ public class DataXMLManager implements IAdoHiveManager {
         return true;
     }
 
-    @Override
-    public boolean update(IAdoHiveModel o) throws AdoHiveException {
+    public boolean update(CostUnit o) throws SienaException {
         costUnitMap.remove(costUnitBeforeEdit);
         costUnitMap.add((CostUnit) o);
 
@@ -250,8 +241,7 @@ public class DataXMLManager implements IAdoHiveManager {
         return true;
     }
 
-    @Override
-    public boolean remove(IAdoHiveModel e) throws AdoHiveException {
+    public boolean remove(CostUnit e) throws SienaException {
         costUnitMap.remove(e);
 
         saveData();
@@ -261,44 +251,36 @@ public class DataXMLManager implements IAdoHiveManager {
 
     // the following methods will not be used but are implemented
 
-    @Override
-    public void clear() throws AdoHiveException {
+    public void clear() throws SienaException {
         costUnitMap.clear();
     }
 
-    @Override
-    public boolean contains(IAdoHiveModel o) throws AdoHiveException {
+    public boolean contains(CostUnit o) throws SienaException {
         return costUnitMap.contains(o);
     }
 
-    @Override
-    public IAdoHiveModel get(int index) throws AdoHiveException {
+    public CostUnit get(int index) throws SienaException {
         return costUnitMap.get(index);
     }
 
-    @Override
-    public boolean isEmpty() throws AdoHiveException {
+    public boolean isEmpty() throws SienaException {
         return costUnitMap.isEmpty();
     }
 
-    @Override
-    public int size() throws AdoHiveException {
+    public int size() throws SienaException {
         return costUnitMap.size();
     }
 
-    @Override
     public List<CostUnit> subList(int fromIndex, int toIndex)
-            throws AdoHiveException {
+            throws SienaException {
         return costUnitMap.subList(fromIndex, toIndex);
     }
 
-    @Override
-    public IAdoHiveModel getById(int id) throws AdoHiveException {
+    public CostUnit getById(int id) throws SienaException {
         return get(id);
     }
 
-    @Override
-    public IAdoHiveModel getByKeys(Object... o) throws AdoHiveException {
+    public CostUnit getByKeys(Object... o) throws SienaException {
         return null;
     }
 }

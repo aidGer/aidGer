@@ -81,6 +81,8 @@ public class ComboBoxModel extends DefaultComboBoxModel implements
     @SuppressWarnings("unchecked")
     @Override
     public void update(Observable m, Object arg) {
+    	//TODO: re-implement
+    	/*
         AbstractModel model = (AbstractModel) m;
         Boolean save = (Boolean) arg;
 
@@ -103,6 +105,7 @@ public class ComboBoxModel extends DefaultComboBoxModel implements
         }
 
         fireContentsChanged(this, 0, getSize());
+        */
     }
 
     /**

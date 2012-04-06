@@ -183,6 +183,8 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
      * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
      */
     public void update(Observable m, Object arg) {
+    	//TODO: re-implement
+    	/*
         AbstractModel model = (AbstractModel) m;
         Boolean save = (Boolean) arg;
         int index = indexOf(modelBeforeEdit);
@@ -200,6 +202,7 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
         }
 
         fireTableDataChanged();
+        */
     }
 
     private int indexOf(AbstractModel m) {

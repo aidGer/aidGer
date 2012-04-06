@@ -924,8 +924,8 @@ public final class UI extends JFrame {
                             o = a.getById(Integer.parseInt(parts[1]));
                         }
 
-                        ctrParams.add(obj.getConstructor(
-                            o.getClass().getInterfaces()[0]).newInstance(o));
+                        //ctrParams.add(obj.getConstructor(
+                            //o.getClass().getInterfaces()[0]).newInstance(o));
                     } else if (current.getSuperclass().getSuperclass().equals(
                         AbstractModel.class)) {
                         Class obj = Class.forName(parts[0]);

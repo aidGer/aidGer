@@ -80,6 +80,8 @@ public class ListModel extends DefaultListModel implements GenericListModel {
     @SuppressWarnings("unchecked")
     @Override
     public void update(Observable m, Object arg) {
+    	//TODO: re-implement
+    	/*
         AbstractModel model = (AbstractModel) m;
         Boolean save = (Boolean) arg;
 
@@ -102,5 +104,6 @@ public class ListModel extends DefaultListModel implements GenericListModel {
         }
 
         fireContentsChanged(this, 0, getSize());
+        */
     }
 }
