@@ -22,6 +22,7 @@ package de.aidger.model.models;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
@@ -134,58 +135,85 @@ public class EmploymentTest {
     public void testValidation() throws SienaException {
         System.out.println("Validation");
 
-        assertTrue(employment.save());
+        employment.save();
+        List<Employment> list = employment.getAll();
+        assertNotNull(list);
+        employment.remove();
+        list = employment.getAll();
+        assertNull(list);
 
         employment.setAssistantId(0);
-        assertFalse(employment.save());
+        employment.save();
+        list = employment.getAll();
+        assertNull(list);
         employment.resetErrors();
         employment.setAssistantId(assistant.getId());
 
         employment.setContractId(0);
-        assertFalse(employment.save());
+        employment.save();
+        list = employment.getAll();
+        assertNull(list);
         employment.resetErrors();
         employment.setContractId(contract.getId());
 
         employment.setFunds(null);
-        assertFalse(employment.save());
+        employment.save();
+        list = employment.getAll();
+        assertNull(list);
         employment.resetErrors();
 
         employment.setFunds("01234567890");
-        assertFalse(employment.save());
+        employment.save();
+        list = employment.getAll();
+        assertNull(list);
         employment.resetErrors();
         employment.setFunds("0711");
 
         employment.setCourseId(0);
-        assertFalse(employment.save());
+        employment.save();
+        list = employment.getAll();
+        assertNull(list);
         employment.resetErrors();
         employment.setCourseId(course.getId());
 
         employment.setCostUnit(0);
-        assertFalse(employment.save());
+        employment.save();
+        list = employment.getAll();
+        assertNull(list);
         employment.resetErrors();
         employment.setCostUnit(1);
 
         employment.setHourCount(-1.0);
-        assertFalse(employment.save());
+        employment.save();
+        list = employment.getAll();
+        assertNull(list);
         employment.resetErrors();
         employment.setHourCount(40.0);
 
         employment.setMonth((byte) 0);
-        assertFalse(employment.save());
+        employment.save();
+        list = employment.getAll();
+        assertNull(list);
         employment.resetErrors();
         employment.setMonth((byte) 10);
 
         employment.setQualification(null);
-        assertFalse(employment.save());
+        employment.save();
+        list = employment.getAll();
+        assertNull(list);
         employment.resetErrors();
 
         employment.setQualification("Q");
-        assertFalse(employment.save());
+        employment.save();
+        list = employment.getAll();
+        assertNull(list);
         employment.resetErrors();
         employment.setQualification("g");
 
         employment.setYear((short) 999);
-        assertFalse(employment.save());
+        employment.save();
+        list = employment.getAll();
+        assertNull(list);
         employment.resetErrors();
     }
 

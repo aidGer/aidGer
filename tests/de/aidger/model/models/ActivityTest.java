@@ -19,6 +19,7 @@
 
 package de.aidger.model.models;
 
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -123,50 +124,70 @@ public class ActivityTest {
         System.out.println("Validation");
 
         activity.setAssistantId(0);
-        assertFalse(activity.save());
+        activity.save();
+        List<Activity> list = activity.getAll();
+        assertNull(list);
         activity.resetErrors();
         activity.setAssistantId(assistant.getId());
 
         activity.setContent(null);
-        assertFalse(activity.save());
+        activity.save();
+        list = activity.getAll();
+        assertNull(list);
         activity.resetErrors();
         activity.setContent("New assistant");
 
         activity.setCourseId(0);
-        assertFalse(activity.save());
+        activity.save();
+        list = activity.getAll();
+        assertNull(list);
         activity.resetErrors();
         activity.setCourseId(course.getId());
 
         activity.setDate(null);
-        assertFalse(activity.save());
+        activity.save();
+        list = activity.getAll();
+        assertNull(list);
         activity.resetErrors();
         activity.setDate(new Date(100));
 
         activity.setDocumentType(null);
-        assertFalse(activity.save());
+        activity.save();
+        list = activity.getAll();
+        assertNull(list);
         activity.resetErrors();
 
         activity
             .setDocumentType("012345678901234567890123456789012345678901234567890");
-        assertFalse(activity.save());
+        activity.save();
+        list = activity.getAll();
+        assertNull(list);
         activity.resetErrors();
         activity.setDocumentType("Type");
 
         activity.setProcessor(null);
-        assertFalse(activity.save());
+        activity.save();
+        list = activity.getAll();
+        assertNull(list);
         activity.resetErrors();
 
         activity.setProcessor("Tester");
-        assertFalse(activity.save());
+        activity.save();
+        list = activity.getAll();
+        assertNull(list);
         activity.resetErrors();
         activity.setProcessor("T");
 
         activity.setType(null);
-        assertFalse(activity.save());
+        activity.save();
+        list = activity.getAll();
+        assertNull(list);
         activity.resetErrors();
 
         activity.setType("012345678901234567890");
-        assertFalse(activity.save());
+        activity.save();
+        list = activity.getAll();
+        assertNull(list);
         activity.resetErrors();
     }
 

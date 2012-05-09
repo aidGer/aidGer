@@ -22,6 +22,7 @@ package de.aidger.model.models;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
@@ -94,39 +95,58 @@ public class CourseTest {
     public void testValidation() throws SienaException {
         System.out.println("Validation");
 
-        assertTrue(course.save());
+        course.save();
+        List<Course> list = course.getAll();
+        assertNotNull(list);
+        course.remove();
+        list = course.getAll();
+        assertNull(list);
 
         course.setDescription(null);
-        assertFalse(course.save());
+        course.save();
+        list = course.getAll();
+        assertNull(list);
         course.resetErrors();
         course.setDescription("Description");
 
         course.setGroup(null);
-        assertFalse(course.save());
+        course.save();
+        list = course.getAll();
+        assertNull(list);
         course.resetErrors();
         course.setGroup("2");
 
         course.setLecturer(null);
-        assertFalse(course.save());
+        course.save();
+        list = course.getAll();
+        assertNull(list);
         course.resetErrors();
         course.setLecturer("Test Tester");
 
         course.setNumberOfGroups(-1);
-        assertFalse(course.save());
+        course.save();
+        list = course.getAll();
+        assertNull(list);
         course.resetErrors();
         course.setNumberOfGroups(3);
 
         course.setSemester(null);
-        assertFalse(course.save());
+        course.save();
+        list = course.getAll();
+        assertNull(list);
         course.resetErrors();
 
         course.setSemester("abc 2000");
-        assertFalse(course.save());
+        course.save();
+        list = course.getAll();
+        assertNull(list);
         course.resetErrors();
         course.setSemester("SS09");
 
         course.setUnqualifiedWorkingHours(0.0);
-        assertFalse(course.save());
+        course.save();
+        list = course.getAll();
+        assertNull(list);
         course.resetErrors();
     }
 
@@ -137,8 +157,12 @@ public class CourseTest {
     public void testValidateOnRemove() throws SienaException {
         System.out.println("validateOnRemove");
 
-        assertTrue(course.save());
-        assertTrue(course.remove());
+        course.save();
+        List<Course> list = course.getAll();
+        assertNotNull(list);
+        course.remove();
+        list = course.getAll();
+        assertNull(list);
 
         course.save();
         Activity activity = new Activity();
@@ -153,7 +177,9 @@ public class CourseTest {
         activity.setType("Test Type");
         activity.save();
 
-        assertFalse(course.remove());
+        course.remove();
+        list = course.getAll();
+        assertNotNull(list);
         course.resetErrors();
         activity.remove();
 
@@ -187,11 +213,15 @@ public class CourseTest {
         employment.setYear((short) 2010);
         employment.save();
 
-        assertFalse(course.remove());
+        course.remove();
+        list = course.getAll();
+        assertNotNull(list);
         course.resetErrors();
         employment.remove();
 
-        assertTrue(course.remove());
+        course.remove();
+        list = course.getAll();
+        assertNull(list);
     }
 
     /**

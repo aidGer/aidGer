@@ -22,7 +22,10 @@ package de.aidger.model.models;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -77,28 +80,45 @@ public class FinancialCategoryTest {
     public void testValidation() throws SienaException {
         System.out.println("Validation");
 
-        assertTrue(financial.save());
+        financial.save();
+        List<FinancialCategory> list = financial.getAll();
+        assertNotNull(list);
+        financial.remove();
+        list = financial.getAll();
+        assertNull(list);
 
         financial.setName(null);
-        assertFalse(financial.save());
+        financial.save();
+        list = financial.getAll();
+        assertNull(list);
         financial.setName("Tester");
 
         financial.setYear((short) 999);
-        assertFalse(financial.save());
+        financial.save();
+        list = financial.getAll();
+        assertNull(list);
 
         financial.setYear((short) 10101);
-        assertFalse(financial.save());
+        financial.save();
+        list = financial.getAll();
+        assertNull(list);
         financial.setYear((short) 2010);
 
         financial.setBudgetCosts(new Integer[] { 0, -1 });
-        assertFalse(financial.save());
+        financial.save();
+        list = financial.getAll();
+        assertNull(list);
         financial.setBudgetCosts(new Integer[] { 100, 200 });
 
         financial.setCostUnits(new Integer[] { 1234567 });
-        assertFalse(financial.save());
+        financial.save();
+        list = financial.getAll();
+        assertNull(list);
 
         financial.setCostUnits(new Integer[] { 123456789 });
-        assertFalse(financial.save());
+        financial.save();
+        list = financial.getAll();
+        assertNull(list);
     }
 
     /**
@@ -109,8 +129,12 @@ public class FinancialCategoryTest {
         System.out.println("validateOnRemove");
 
         financial.clearTable();
-        assertTrue(financial.save());
-        assertTrue(financial.remove());
+        financial.save();
+        List<FinancialCategory> list = financial.getAll();
+        assertNotNull(list);
+        financial.remove();
+        list = financial.getAll();
+        assertNull(list);
 
         financial.save();
         Course course = new Course();
@@ -128,11 +152,15 @@ public class FinancialCategoryTest {
         course.setUnqualifiedWorkingHours(100.0);
         course.save();
 
-        assertFalse(financial.remove());
+        financial.remove();
+        list = financial.getAll();
+        assertNotNull(list);
         financial.resetErrors();
         course.remove();
 
-        assertTrue(financial.remove());
+        financial.remove();
+        list = financial.getAll();
+        assertNull(list);
     }
 
     /**

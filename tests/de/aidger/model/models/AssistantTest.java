@@ -22,9 +22,11 @@ package de.aidger.model.models;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -78,41 +80,60 @@ public class AssistantTest {
     public void testValidation() throws SienaException {
         System.out.println("Validation");
 
-        assertTrue(assistant.save());
+        assistant.save();
+        List<Assistant> list = assistant.getAll();
+        assertNotNull(list);
+        assistant.clearTable();
 
         assistant.setEmail(null);
-        assertFalse(assistant.save());
+        assistant.save();
+        list = assistant.getAll();
+        assertNull(list);
         assistant.resetErrors();
 
         assistant.setEmail("test");
-        assertFalse(assistant.save());
+        assistant.save();
+        list = assistant.getAll();
+        assertNull(list);
         assistant.resetErrors();
         assistant.setEmail("test@example.com");
 
         assistant.setFirstName(null);
-        assertFalse(assistant.save());
+        assistant.save();
+        list = assistant.getAll();
+        assertNull(list);
         assistant.resetErrors();
 
         assistant.setFirstName("");
-        assertFalse(assistant.save());
+        assistant.save();
+        list = assistant.getAll();
+        assertNull(list);
         assistant.resetErrors();
         assistant.setFirstName("Test");
 
         assistant.setLastName(null);
-        assertFalse(assistant.save());
+        assistant.save();
+        list = assistant.getAll();
+        assertNull(list);
         assistant.resetErrors();
 
         assistant.setLastName("");
-        assertFalse(assistant.save());
+        assistant.save();
+        list = assistant.getAll();
+        assertNull(list);
         assistant.resetErrors();
         assistant.setLastName("Test");
 
         assistant.setQualification(null);
-        assertFalse(assistant.save());
+        assistant.save();
+        list = assistant.getAll();
+        assertNull(list);
         assistant.resetErrors();
 
         assistant.setQualification("Q");
-        assertFalse(assistant.save());
+        assistant.save();
+        list = assistant.getAll();
+        assertNull(list);
     }
 
     /**
@@ -122,8 +143,12 @@ public class AssistantTest {
     public void testValidateOnRemove() throws SienaException {
         System.out.println("validateOnRemove");
 
-        assertTrue(assistant.save());
-        assertTrue(assistant.remove());
+        assistant.save();
+        List<Assistant> list = assistant.getAll();
+        assertNotNull(list);
+        assistant.remove();
+        list = assistant.getAll();
+        assertNull(list);
 
         assistant.save();
         Activity activity = new Activity();
@@ -138,7 +163,9 @@ public class AssistantTest {
         activity.setType("Test Type");
         activity.save();
 
-        assertFalse(assistant.remove());
+        assistant.remove();
+        list = assistant.getAll();
+        assertNotNull(list);
         assistant.resetErrors();
         activity.remove();
 
@@ -187,7 +214,9 @@ public class AssistantTest {
         employment.setYear((short) 2010);
         employment.save();
 
-        assertFalse(assistant.remove());
+        assistant.remove();
+        list = assistant.getAll();
+        assertNotNull(list);
         assistant.resetErrors();
         fc.remove();
         course.remove();
@@ -195,11 +224,15 @@ public class AssistantTest {
         employment.remove();
 
         contract.save();
-        assertFalse(assistant.remove());
+        assistant.remove();
+        list = assistant.getAll();
+        assertNotNull(list);
         assistant.resetErrors();
         contract.remove();
 
-        assertTrue(assistant.remove());
+        assistant.remove();
+        list = assistant.getAll();
+        assertNull(list);
     }
 
     /**

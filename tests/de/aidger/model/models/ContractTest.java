@@ -19,6 +19,7 @@
 
 package de.aidger.model.models;
 
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -91,44 +92,63 @@ public class ContractTest {
     public void testValidation() throws SienaException {
         System.out.println("Validation");
 
-        assertTrue(contract.save());
+        contract.save();
+        List<Contract> list = contract.getAll();
+        assertNotNull(list);
+        contract.clearTable();
 
         contract.setAssistantId(0);
-        assertFalse(contract.save());
+        contract.save();
+        list = contract.getAll();
+        assertNull(list);
         contract.resetErrors();
         contract.setAssistantId(assistant.getId());
 
         contract.setCompletionDate(null);
-        assertFalse(contract.save());
+        contract.save();
+        list = contract.getAll();
+        assertNull(list);
         contract.resetErrors();
         contract.setCompletionDate(new Date(10));
 
         contract.setEndDate(null);
-        assertFalse(contract.save());
+        contract.save();
+        list = contract.getAll();
+        assertNull(list);
         contract.resetErrors();
         contract.setEndDate(new Date(1000));
 
         contract.setStartDate(null);
-        assertFalse(contract.save());
+        contract.save();
+        list = contract.getAll();
+        assertNull(list);
         contract.resetErrors();
         contract.setStartDate(new Date(20));
 
         contract.setType(null);
-        assertFalse(contract.save());
+        contract.save();
+        list = contract.getAll();
+        assertNull(list);
         contract.resetErrors();
 
         contract.setType("012345678901234567890");
-        assertFalse(contract.save());
+        contract.save();
+        list = contract.getAll();
+        assertNull(list);
         contract.resetErrors();
         contract.setType("Type");
 
         contract.setConfirmationDate(new Date(1));
-        assertFalse(contract.save());
+        contract.save();
+        list = contract.getAll();
+        assertNull(list);
         contract.resetErrors();
         contract.setConfirmationDate(new Date(10));
 
         contract.setEndDate(new Date(10));
-        assertFalse(contract.save());
+        contract.save();
+        list = contract.getAll();
+        assertNull(list);
         contract.resetErrors();
         contract.setEndDate(new Date(1000));
     }
@@ -140,8 +160,12 @@ public class ContractTest {
     public void testValidateOnRemove() throws SienaException {
         System.out.println("validateOnRemove");
 
-        assertTrue(contract.save());
-        assertTrue(contract.remove());
+        contract.save();
+        List<Contract> list = contract.getAll();
+        assertNotNull(list);
+        contract.remove();
+        list = contract.getAll();
+        assertNull(list);
 
         contract.save();
 
@@ -180,11 +204,15 @@ public class ContractTest {
         employment.setYear((short) 2010);
         employment.save();
 
-        assertFalse(contract.remove());
+        contract.remove();
+        list = contract.getAll();
+        assertNotNull(list);
         contract.resetErrors();
         employment.remove();
 
-        assertTrue(contract.remove());
+        contract.remove();
+        list = contract.getAll();
+        assertNull(list);
     }
 
     /**

@@ -24,8 +24,11 @@ import org.junit.Before;
 import static org.junit.Assert.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.junit.BeforeClass;
+
+import siena.SienaException;
 
 /**
  * Tests the HourlyWage class.
@@ -78,27 +81,44 @@ public class HourlyWageTest {
         System.out.println("Validation");
 
         hourly.clearTable();
-        assertTrue(hourly.save());
+        hourly.save();
+        List<HourlyWage> list = hourly.getAll();
+        assertNotNull(list);
+        hourly.remove();
+        list = hourly.getAll();
+        assertNull(list);
 
         hourly.setQualification(null);
-        assertFalse(hourly.save());
+        hourly.save();
+        list = hourly.getAll();
+        assertNull(list);
 
         hourly.setQualification("Q");
-        assertFalse(hourly.save());
+        hourly.save();
+        list = hourly.getAll();
+        assertNull(list);
         hourly.setQualification("g");
 
         hourly.setMonth((byte) -1);
-        assertFalse(hourly.save());
+        hourly.save();
+        list = hourly.getAll();
+        assertNull(list);
 
         hourly.setMonth((byte) 13);
-        assertFalse(hourly.save());
+        hourly.save();
+        list = hourly.getAll();
+        assertNull(list);
         hourly.setMonth((byte) 10);
 
         hourly.setYear((short) 999);
-        assertFalse(hourly.save());
+        hourly.save();
+        list = hourly.getAll();
+        assertNull(list);
 
         hourly.setYear((short) 10101);
-        assertFalse(hourly.save());
+        hourly.save();
+        list = hourly.getAll();
+        assertNull(list);
     }
 
 
