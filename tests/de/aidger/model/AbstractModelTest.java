@@ -62,7 +62,7 @@ public class AbstractModelTest {
     }
     
     @Rule
-    ExpectedException exception = ExpectedException.none();
+    public ExpectedException exception = ExpectedException.none();
 
     /**
      * Test of getAll method, of class AbstractModel.
@@ -147,7 +147,7 @@ public class AbstractModelTest {
         a.setQualification("g");
         a.save();
 
-        // re-implement
+        //TODO: re-implement
         /*
         Assistant res = new Assistant(a.getByKeys(a.getId()));
 
