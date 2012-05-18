@@ -99,6 +99,7 @@
         </copy>
 
         <path id="build.classpath">
+            <pathelement location="${lib.siena}" />
             <pathelement location="${lib.derby}" />
             <pathelement location="${lib.mysql}" />
             <pathelement location="${lib.itext}" />

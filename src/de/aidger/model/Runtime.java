@@ -21,16 +21,23 @@ package de.aidger.model;
 
 import static de.aidger.utils.Translation._;
 
+import java.beans.PersistenceDelegate;
 import java.io.File;
+import java.net.URI;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Locale;
+import java.util.Properties;
 
+import de.aidger.model.models.*;
 import de.aidger.utils.Configuration;
 import de.aidger.utils.DataXMLManager;
 import de.aidger.utils.Pair;
 import de.aidger.utils.Translation;
 import de.aidger.view.UI;
+import siena.PersistenceManager;
+import siena.PersistenceManagerFactory;
+import siena.jdbc.JdbcPersistenceManager;
 
 /**
  * Initializes Configuration and Translation and relays the methods
@@ -222,11 +229,25 @@ public final class Runtime {
         
         /* Set database connection settings and try to get an instance of AdoHiveController */
         try {
-            //TODO: Rewrite with Siena
-        /*	AdoHiveController.setDriver(getOption("database-driver"));
-        	AdoHiveController.setConnectionString(getOption("database-uri"));
-        	
-        	AdoHiveController.getInstance(); */
+            Properties p = new Properties();
+            p.put("driver", getOption("database-driver"));
+            URI uri = new URI(getOption("database-uri"));
+            String[] user = uri.getUserInfo().split(":");
+            p.put("user", user[0]);
+            p.put("password", user[1]);
+            p.put("url", getOption("database-uri"));
+
+            PersistenceManager pm = new JdbcPersistenceManager();
+            pm.init(p);
+            PersistenceManagerFactory.install(pm, Activity.class);
+            PersistenceManagerFactory.install(pm, Assistant.class);
+            PersistenceManagerFactory.install(pm, Contract.class);
+            PersistenceManagerFactory.install(pm, Course.class);
+            PersistenceManagerFactory.install(pm, Employment.class);
+            PersistenceManagerFactory.install(pm, FinancialCategory.class);
+            PersistenceManagerFactory.install(pm, HourlyWage.class);
+
+            //TODO: Get a connection
         } catch (Exception e) {
         	connected = false;
         }
