@@ -142,9 +142,10 @@
     </target>
 
     <target name="test" depends="compile-tests, prepare-tests" description="Runs JUnit tests">
-        <junit dir="${basedir}" printSummary="on" fork="true" haltonfailure="false">
+        <junit dir="${basedir}" fork="true" haltonfailure="true">
             <sysproperty key="basedir" value="${basedir}" />
             <env key="AIDGER_TEST" value="true" />
+            <formatter type="plain" usefile="false" />
             <formatter type="xml" />
             <classpath>
                 <path refid="build.classpath.test" />
