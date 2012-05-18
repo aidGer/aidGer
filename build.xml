@@ -23,7 +23,6 @@
     <property name="test.excludepattern" value="**/controller/test/**.java" />
 
     <property name="lib.siena" value="lib/siena-1.0.0-b6.jar" />
-    <property name="lib.derby" value="lib/derby.jar" />
     <property name="lib.mysql" value="lib/mysql-connector-java-5.1.13-bin.jar" />
     <property name="lib.itext" value="lib/iText-5.0.4.jar" />
     <property name="lib.jcommon" value="lib/jcommon-1.0.16.jar" />
@@ -100,7 +99,6 @@
 
         <path id="build.classpath">
             <pathelement location="${lib.siena}" />
-            <pathelement location="${lib.derby}" />
             <pathelement location="${lib.mysql}" />
             <pathelement location="${lib.itext}" />
             <pathelement location="${lib.jcommon}" />
@@ -131,13 +129,11 @@
     <!-- Run the tests -->
     
     <target name="prepare-tests" depends="init" description="Prepares the config and database for the JUnit tests">
-	<delete dir="${basedir}/database" />
         <mkdir dir="${test.report.dir}" />
     </target>
 
     <target name="finish-tests" description="Clean up after the tests have been run">
 		<delete>
-			<fileset dir="database" />
 			<fileset dir="." includes="*.cfg" />
 			<fileset dir="." includes="costUnitMap.xml" />
 			<fileset dir="." includes="*.log" />
@@ -174,7 +170,6 @@
 
         <jar jarfile="${dist.dir}/${appFileName}-${appVersion}${buildNumber}.jar" basedir="${classes.dir}" level="9">
             <zipfileset src="${lib.siena}" />
-            <zipfileset src="${lib.derby}" />
             <zipfileset src="${lib.mysql}" />
             <zipfileset src="${lib.itext}" />
             <zipfileset src="${lib.jcommon}" />
