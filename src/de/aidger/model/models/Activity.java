@@ -176,10 +176,8 @@ public class Activity extends AbstractModel<Activity>  {
      * @return The activities related to the assistant or null if none were
      *         found
      */
-    @SuppressWarnings("unchecked")
     public List<Activity> getActivities(Assistant assistant) {
-        //TODO: Implement
-        return null;
+        return all().filter("Hilfskraft_ID", assistant.getId()).fetch();
     }
 
     /**
@@ -189,10 +187,8 @@ public class Activity extends AbstractModel<Activity>  {
      *            The course for which all activities should be returned
      * @return The activities related to the course or null if none were found
      */
-    @SuppressWarnings("unchecked")
     public List<Activity> getActivities(Course course) {
-        //TODO: Implement
-        return null;
+        return all().filter("Veranstaltung_ID", course.getId()).fetch();
     }
 
     /**
@@ -205,8 +201,7 @@ public class Activity extends AbstractModel<Activity>  {
      * @return All activities that occured during that date range
      */
     public List<Activity> getActivities(Date from, Date to) {
-        //TODO: Implement
-        return null;
+    	return all().filter("Datum >", from).filter("Datum < to", to).fetch();
     }
 
     /**

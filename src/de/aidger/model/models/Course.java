@@ -21,6 +21,7 @@ package de.aidger.model.models;
 
 import static de.aidger.utils.Translation._;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import siena.Table;
@@ -221,8 +222,7 @@ public class Course extends AbstractModel<Course> {
      * @return A list of courses
      */
     public List<Course> getCourses(FinancialCategory category) {
-        //TODO: Implement
-        return null;
+        return all().filter("Finanzkategorie_ID", category.getId()).fetch();
     }
 
     /**
@@ -233,8 +233,7 @@ public class Course extends AbstractModel<Course> {
      * @return List of courses
      */
     public List<Course> getCoursesBySemester(String semester) {
-        //TODO: Implement
-        return null;
+        return all().filter("Semester", semester).fetch();
     }
 
     /**
@@ -245,8 +244,7 @@ public class Course extends AbstractModel<Course> {
      * @return List of courses
      */
     public List<Course> getCoursesByGroup(String group) {
-        //TODO: Implement
-        return null;
+        return all().filter("Gruppe", group).fetch();
     }
 
     /**
@@ -255,8 +253,12 @@ public class Course extends AbstractModel<Course> {
      * @return List of semesters
      */
     public List<String> getDistinctSemesters() {
-        //TODO: Implement
-        return null;
+        List<Course> courses = all().order("Semester").fetch();
+        List<String> semesters = new ArrayList<String>();
+        for(Course course : courses)
+        	if(!semesters.contains(course.getSemester()))
+        		semesters.add(course.getSemester());
+        return semesters;
     }
 
     /**
@@ -265,8 +267,12 @@ public class Course extends AbstractModel<Course> {
      * @return List of groups
      */
     public List<String> getDistinctGroups() {
-        //TODO: Implement
-        return null;
+    	List<Course> courses = all().order("Gruppe").fetch();
+    	List<String> groups = new ArrayList<String>();
+    	for(Course course : courses)
+    		if(!groups.contains(course.getGroup()))
+    			groups.add(course.getGroup());
+    	return groups;
     }
 
     /**
