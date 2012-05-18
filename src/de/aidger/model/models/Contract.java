@@ -22,6 +22,7 @@ package de.aidger.model.models;
 import static de.aidger.utils.Translation._;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import siena.Table;
@@ -48,7 +49,7 @@ public class Contract extends AbstractModel<Contract> {
     /**
      * The date the contract was completed.
      */
-    @Column("DatumEnde")
+    @Column("DatumAbschluss")
     private Date completionDate;
 
     /**
@@ -178,8 +179,17 @@ public class Contract extends AbstractModel<Contract> {
      * @return List of contracts
      */
     public List<Contract> getContracts(Date start, Date end) {
-        //TODO: Implement
-        return null;
+    	List<Contract> contracts = all().filter("DatumAnfang >=", start).filter("DatumAnfang <=", end).fetch();
+    	for(Contract contract : all().filter("DatumEnde >=", start).filter("DatumEnde <=", end).fetch())
+    		if(!contracts.contains(contract)) 
+    			contracts.add(contract);
+    	for(Contract contract : all().filter("DatumAbschluss >=", start).filter("DatumAbschluss <=", end).fetch())
+    		if(!contracts.contains(contract)) 
+    			contracts.add(contract);
+    	for(Contract contract : all().filter("DatumBestaetigung >=", start).filter("DatumBestaetigung <=", end).fetch())
+    		if(!contracts.contains(contract)) 
+    			contracts.add(contract);
+    	return contracts;
     }
 
     /**
@@ -189,9 +199,8 @@ public class Contract extends AbstractModel<Contract> {
      *          The assistant to search for
      * @return List of contracts
      */
-    public List<Contract> getContracts(Assistant assi) {
-		//TODO: Implement
-        return null;
+    public List<Contract> getContracts(Assistant assistant) {
+        return all().filter("Hilfskraft_ID", assistant.getId()).fetch();
     }
 
     /**

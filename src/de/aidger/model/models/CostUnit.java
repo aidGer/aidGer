@@ -29,7 +29,6 @@ import de.aidger.model.Runtime;
  * @author aidGer Team
  */
 //TODO: Rewrite! Uses XML instead of DB
-@SuppressWarnings("unchecked")
 public class CostUnit extends AbstractModel<CostUnit> {
     /**
      * The cost unit that is a 8 digit number.

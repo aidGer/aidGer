@@ -22,6 +22,8 @@ package de.aidger.model.models;
 import static de.aidger.utils.Translation._;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import siena.Table;
@@ -198,8 +200,15 @@ public class Employment extends AbstractModel<Employment> {
      * @return The employments during the given time
      */
     public List<Employment> getEmployments(Date start, Date end) {
-        //TODO: Implement
-        return null;
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(start);
+        short startYear = (short) cal.get(Calendar.YEAR);
+        byte startMonth = (byte) cal.get(Calendar.MONTH);
+
+        cal.setTime(end);
+        short endYear = (short) cal.get(Calendar.YEAR);
+        byte endMonth = (byte) cal.get(Calendar.MONTH);
+        return getEmployments(startYear, startMonth, endYear, endMonth);
     }
 
     /**
@@ -217,8 +226,8 @@ public class Employment extends AbstractModel<Employment> {
      */
     public List<Employment> getEmployments(short startYear, byte startMonth,
             short endYear, byte endMonth) {
-        //TODO: Implement
-        return null;
+        return all().filter("Monat >=", startMonth).filter("Monat <=", endMonth)
+        		.filter("Jahr >=", startYear).filter("Jahr <=", endYear).fetch();
     }
 
     /**
@@ -229,8 +238,7 @@ public class Employment extends AbstractModel<Employment> {
      * @return The employments with the given contract
      */
     public List<Employment> getEmployments(Contract contract) {
-        //TODO: Implement
-        return null;
+        return all().filter("Vertrag_ID", contract.getId()).fetch();
     }
 
     /**
@@ -241,8 +249,7 @@ public class Employment extends AbstractModel<Employment> {
      * @return The employments of the given assistant
      */
     public List<Employment> getEmployments(Assistant assistant) {
-        //TODO: Implement
-        return null;
+        return all().filter("Hilfskraft_ID", assistant.getId()).fetch();
     }
 
     /**
@@ -253,8 +260,7 @@ public class Employment extends AbstractModel<Employment> {
      * @return The employments for the given course
      */
     public List<Employment> getEmployments(Course course) {
-        //TODO: Implement
-        return null;
+        return all().filter("Veranstaltung_ID", course.getId()).fetch();
     }
 
     /**
@@ -265,8 +271,7 @@ public class Employment extends AbstractModel<Employment> {
      * @return The employments in the given semester
      */
     public List<Employment> getEmployments(String semester) {
-        //TODO: Implement
-        return null;
+        return all().filter("Semester", semester).fetch();
     }
 
     /**
@@ -275,8 +280,12 @@ public class Employment extends AbstractModel<Employment> {
      * @return A list of distinct cost units
      */
     public List<Integer> getDistinctCostUnits() {
-        //TODO: Implement
-        return null;
+    	List<Employment> employments = all().order("Kostenstelle").fetch();
+    	List<Integer> costUnits = new ArrayList<Integer>();
+    	for(Employment employment : employments)
+    		if(!costUnits.contains(employment.getCostUnit()))
+    			costUnits.add(employment.getCostUnit());
+    	return costUnits;
     }
 
     /**
