@@ -31,6 +31,7 @@ import java.util.Map;
 import siena.Model;
 import siena.Query;
 import siena.Id;
+import siena.Ignore;
 
 import de.aidger.model.validators.DateRangeValidator;
 import de.aidger.model.validators.ExistenceValidator;
@@ -63,26 +64,31 @@ public abstract class AbstractModel<T> extends Model {
     /**
      * The name of the class.
      */
+    @Ignore
     protected String classname;
 
     /**
      * The class object
      */
+    @Ignore
     protected Class<? extends AbstractModel> clazz;
 
     /**
      * Array containing all validators for that specific model.
      */
+    @Ignore
     protected static Map<String, List<Validator>> validators = new HashMap<String, List<Validator>>();
 
     /**
      * Array containing errors if a validator fails.
      */
+    @Ignore
     protected List<String> errors = new ArrayList<String>();
 
     /**
      * Map of errors for specific fields.
      */
+    @Ignore
     protected Map<String, List<String>> fieldErrors = new HashMap<String, List<String>>();
 
     /**
@@ -90,6 +96,7 @@ public abstract class AbstractModel<T> extends Model {
      * HourlyWage which has several Primary Keys and needs to be removed when
      * edited.
      */
+    @Ignore
     protected boolean updatePKs = false;
 
     /**
@@ -217,6 +224,28 @@ public abstract class AbstractModel<T> extends Model {
     @SuppressWarnings("unchecked")
     public T getById(int id) {
         return (T) all().getByKey(id);
+    }
+
+    /**
+     * Get a specific model by specifying its primary key.
+     *
+     * @param id
+     *          The primary key of the model
+     * @return The model if one was found or null
+     */
+    public T getByKey(Object id) {
+        return (T) all().getByKey(id);
+    }
+
+    /**
+     * Get a specific model by specifying its primary keys.
+     *
+     * @param ids
+     *          The primary keys of the model
+     * @return The model if one was found or null
+     */
+    public T getByKeys(Object... ids) {
+        return (T) null;
     }
 
     /**

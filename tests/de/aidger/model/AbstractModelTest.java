@@ -111,7 +111,7 @@ public class AbstractModelTest {
         a.setQualification("g");
         a.save();
 
-        Assistant result = new Assistant(a.getById(a.getId()));
+        Assistant result = a.getById(a.getId());
 
         assertNotNull(result);
         assertEquals(a.getId(), result.getId());
@@ -248,18 +248,18 @@ public class AbstractModelTest {
         a.setLastName("Tester");
         a.setQualification("g");
 
-        List<Assistant> a_ = new Assistant().all().filter("Vorname", "Test").filter("Nachname", "Tester").fetch();
+        List<Assistant> a_ = new Assistant().all().filter("firstName", "Test").filter("lastName", "Tester").fetch();
         assertTrue(a_.size() == 1);	
         assertTrue(a.getId() > 0);
-        assertEquals(a, new Assistant(a.getById(a.getId())));
+        assertEquals(a, a.getById(a.getId()));
 
         /* Test of updating a model */
         a.setFirstName("Tester");
         a.setLastName("Test");
 
-        a_ = new Assistant().all().filter("Vorname", "Tester").filter("Nachname", "Test").fetch();
+        a_ = new Assistant().all().filter("fieldName", "Tester").filter("lastName", "Test").fetch();
         assertTrue(a_.size() == 1);	
-        assertEquals(a, new Assistant(a.getById(a.getId())));
+        assertEquals(a, a.getById(a.getId()));
 
         /* Test fail of doValidate */
         a.setFirstName(null);
@@ -286,11 +286,11 @@ public class AbstractModelTest {
         HourlyWage g = h.clone();
 
         h.save();
-        List<HourlyWage> h_ = new HourlyWage().all().filter("Qualifikation", "g").filter("Monat", "10").filter("Lohn", "200").filter("Jahr", "2010").fetch();
+        List<HourlyWage> h_ = new HourlyWage().all().filter("qualification", "g").filter("month", "10").filter("wage", "200").filter("year", "2010").fetch();
         assertTrue(h_.size() == 1);	
 
         h.setQualification("u");
-        h_ = new HourlyWage().all().filter("Qualifikation", "u").filter("Monat", "10").filter("Lohn", "200").filter("Jahr", "2010").fetch();
+        h_ = new HourlyWage().all().filter("qualification", "u").filter("month", "10").filter("wage", "200").filter("year", "2010").fetch();
         assertTrue(h_.size() == 1);	
         //TODO: re-implement
         //assertTrue(h.getByKeys(g.getQualification(), g.getMonth(), g.getYear()) == null);
@@ -439,14 +439,14 @@ public class AbstractModelTest {
 
         a.setEmail("email@example.com");
         a.save();
-        List<Assistant> a_ = new Assistant().all().filter("Vorname", "Test")
-        		.filter("Nachname", "Tester").filter("Qualifikation", "g").filter("Email", "email@example.com").fetch();
+        List<Assistant> a_ = new Assistant().all().filter("firstName", "Test")
+        		.filter("lastName", "Tester").filter("qualification", "g").filter("email", "email@example.com").fetch();
         assertTrue(a_.size() == 1);	
 
         a.setEmail("test@über-älles.de");
         a.save();
-        a_ = new Assistant().all().filter("Vorname", "Test")
-        		.filter("Nachname", "Tester").filter("Qualifikation", "g").filter("Email", "test@über-älles.de").fetch();
+        a_ = new Assistant().all().filter("firstName", "Test")
+        		.filter("lastName", "Tester").filter("qualification", "g").filter("email", "test@über-älles.de").fetch();
         assertTrue(a_.size() == 1);	
     }
 
