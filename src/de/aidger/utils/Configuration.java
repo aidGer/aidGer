@@ -180,9 +180,8 @@ public final class Configuration {
             properties.setProperty("debug", "false");
         }
         if (oldVersion < 2) {
-            properties.setProperty("database-uri", "jdbc:derby:"
-                    + Runtime.getInstance().getConfigPath()
-                    + "/database;create=true");
+            properties.setProperty("database-driver", "com.mysql.jdbc.Driver");
+            properties.setProperty("database-uri", "jdbc:mysql://localhost/aidger?user=root&password=");
         }
 
         properties.setProperty("config-version", Integer.toString(version));

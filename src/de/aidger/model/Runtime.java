@@ -228,7 +228,7 @@ public final class Runtime {
         try {
             Properties p = new Properties();
             p.put("driver", getOption("database-driver", "com.mysql.jdbc.Driver"));
-            URI uri = new URI(getOption("database-uri", "jdbc:mysql://@localhost/aidger?user=root&password="));
+            URI uri = new URI(getOption("database-uri", "jdbc:mysql://localhost/aidger?user=root&password="));
             if (uri.getQuery() != null) {
                 String[] user = uri.getQuery().split("&");
                 p.put("user", user[0].substring(5));
