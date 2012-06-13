@@ -111,11 +111,6 @@ public class Assistant extends AbstractModel<Assistant> {
     public boolean validateOnRemove() {
         boolean ret = true;
 
-        if (getId() == null) {
-            addError(_("Assistant not saved yet."));
-            return false;
-        }
-
         List act = (new Activity()).getActivities(this);
         List emp = (new Employment()).getEmployments(this);
         List contr = (new Contract()).getContracts(this);

@@ -71,6 +71,7 @@ public class HistoryManagerTest {
     public void testGetEvents() throws HistoryException {
         System.out.println("getEvents");
 
+        cleanUp();
         HistoryManager.getInstance().loadFromFile();
         assertTrue(HistoryManager.getInstance().getEvents().isEmpty());
 

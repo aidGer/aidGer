@@ -65,7 +65,7 @@ public class ActivityReportConverterTest {
     /**
      * Sets up every test.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @Before
     public void setUp() throws SienaException {
@@ -111,7 +111,7 @@ public class ActivityReportConverterTest {
     /**
      * Cleans up after every test.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @After
     public void cleanUp() throws SienaException {

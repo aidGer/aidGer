@@ -153,6 +153,11 @@ public abstract class AbstractModel<T> extends Model {
      */
     @SuppressWarnings("unchecked")
     public void remove() {
+        /* Check if the model is saved in the db */
+        if (isInDatabase()) {
+            throw new ValidationException(_("Model not yet saved."));
+        }
+
         /* Check if there is a custom validation function */
         try {
             java.lang.reflect.Method m = getClass().getDeclaredMethod(
