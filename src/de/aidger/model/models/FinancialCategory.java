@@ -69,8 +69,6 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
      * Initialize the FinancialCategory class.
      */
     public FinancialCategory() {
-        updatePKs = true;
-
         if (getValidators().isEmpty()) {
             validatePresenceOf(new String[] { "name", "year", "costUnits",
                     "budgetCosts" }, new String[] { _("Name"), _("Year"),

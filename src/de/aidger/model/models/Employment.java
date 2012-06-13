@@ -226,8 +226,8 @@ public class Employment extends AbstractModel<Employment> {
      */
     public List<Employment> getEmployments(short startYear, byte startMonth,
             short endYear, byte endMonth) {
-        return all().filter("Monat >=", startMonth).filter("Monat <=", endMonth)
-        		.filter("Jahr >=", startYear).filter("Jahr <=", endYear).fetch();
+        return all().filter("month >=", startMonth).filter("month <=", endMonth)
+        		.filter("year >=", startYear).filter("year <=", endYear).fetch();
     }
 
     /**
@@ -238,7 +238,7 @@ public class Employment extends AbstractModel<Employment> {
      * @return The employments with the given contract
      */
     public List<Employment> getEmployments(Contract contract) {
-        return all().filter("Vertrag_ID", contract.getId()).fetch();
+        return all().filter("contractId", contract.getId()).fetch();
     }
 
     /**
@@ -249,7 +249,7 @@ public class Employment extends AbstractModel<Employment> {
      * @return The employments of the given assistant
      */
     public List<Employment> getEmployments(Assistant assistant) {
-        return all().filter("Hilfskraft_ID", assistant.getId()).fetch();
+        return all().filter("assistantId", assistant.getId()).fetch();
     }
 
     /**
@@ -260,7 +260,7 @@ public class Employment extends AbstractModel<Employment> {
      * @return The employments for the given course
      */
     public List<Employment> getEmployments(Course course) {
-        return all().filter("Veranstaltung_ID", course.getId()).fetch();
+        return all().filter("courseId", course.getId()).fetch();
     }
 
     /**
@@ -271,7 +271,7 @@ public class Employment extends AbstractModel<Employment> {
      * @return The employments in the given semester
      */
     public List<Employment> getEmployments(String semester) {
-        return all().filter("Semester", semester).fetch();
+        return all().filter("semester", semester).fetch();
     }
 
     /**
@@ -280,7 +280,7 @@ public class Employment extends AbstractModel<Employment> {
      * @return A list of distinct cost units
      */
     public List<Integer> getDistinctCostUnits() {
-    	List<Employment> employments = all().order("Kostenstelle").fetch();
+    	List<Employment> employments = all().order("costUnit").fetch();
     	List<Integer> costUnits = new ArrayList<Integer>();
     	for(Employment employment : employments)
     		if(!costUnits.contains(employment.getCostUnit()))

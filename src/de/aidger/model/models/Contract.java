@@ -179,14 +179,14 @@ public class Contract extends AbstractModel<Contract> {
      * @return List of contracts
      */
     public List<Contract> getContracts(Date start, Date end) {
-    	List<Contract> contracts = all().filter("DatumAnfang >=", start).filter("DatumAnfang <=", end).fetch();
-    	for(Contract contract : all().filter("DatumEnde >=", start).filter("DatumEnde <=", end).fetch())
+    	List<Contract> contracts = all().filter("startDate >=", start).filter("startDate <=", end).fetch();
+    	for(Contract contract : all().filter("endDate >=", start).filter("endDate <=", end).fetch())
     		if(!contracts.contains(contract)) 
     			contracts.add(contract);
-    	for(Contract contract : all().filter("DatumAbschluss >=", start).filter("DatumAbschluss <=", end).fetch())
+    	for(Contract contract : all().filter("completionDate >=", start).filter("completionDate <=", end).fetch())
     		if(!contracts.contains(contract)) 
     			contracts.add(contract);
-    	for(Contract contract : all().filter("DatumBestaetigung >=", start).filter("DatumBestaetigung <=", end).fetch())
+    	for(Contract contract : all().filter("confirmationDate >=", start).filter("confirmationDate <=", end).fetch())
     		if(!contracts.contains(contract)) 
     			contracts.add(contract);
     	return contracts;
@@ -200,7 +200,7 @@ public class Contract extends AbstractModel<Contract> {
      * @return List of contracts
      */
     public List<Contract> getContracts(Assistant assistant) {
-        return all().filter("Hilfskraft_ID", assistant.getId()).fetch();
+        return all().filter("assistantId", assistant.getId()).fetch();
     }
 
     /**

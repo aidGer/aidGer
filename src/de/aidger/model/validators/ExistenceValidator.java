@@ -64,11 +64,11 @@ public class ExistenceValidator extends Validator {
     public boolean validateVar(Object o) {
         if (o == null) {
             return true;
-        } else if (!(o instanceof Integer)) {
+        } else if (!(o instanceof Long)) {
             return false;
         } else {
             try {
-                return type.getById((Integer) o) != null;
+                return type.getById((Long) o) != null;
             } catch (SienaException ex) {
                 return false;
             }

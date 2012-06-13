@@ -28,9 +28,12 @@ import static org.junit.Assert.assertTrue;
 import java.sql.Date;
 import java.util.List;
 
+import de.aidger.model.validators.ValidationException;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import siena.SienaException;
 
@@ -42,6 +45,9 @@ import siena.SienaException;
 public class AssistantTest {
 
     protected Assistant assistant = null;
+
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
 
     @BeforeClass
     public static void beforeClassSetUp() {
@@ -77,14 +83,16 @@ public class AssistantTest {
      * Test of validation methods, of class Assistant.
      */
     @Test
-    public void testValidation() throws SienaException {
+    public void testValidation() {
         System.out.println("Validation");
 
         assistant.save();
         List<Assistant> list = assistant.getAll();
         assertNotNull(list);
+        assertTrue(list.size() > 0);
         assistant.clearTable();
 
+        exception.expect(ValidationException.class);
         assistant.setEmail(null);
         assistant.save();
         list = assistant.getAll();
@@ -134,6 +142,8 @@ public class AssistantTest {
         assistant.save();
         list = assistant.getAll();
         assertNull(list);
+
+        exception = ExpectedException.none();
     }
 
     /**
@@ -143,6 +153,7 @@ public class AssistantTest {
     public void testValidateOnRemove() throws SienaException {
         System.out.println("validateOnRemove");
 
+        assistant.clearTable();
         assistant.save();
         List<Assistant> list = assistant.getAll();
         assertNotNull(list);
@@ -163,6 +174,7 @@ public class AssistantTest {
         activity.setType("Test Type");
         activity.save();
 
+        exception.expect(ValidationException.class);
         assistant.remove();
         list = assistant.getAll();
         assertNotNull(list);
@@ -229,6 +241,8 @@ public class AssistantTest {
         assertNotNull(list);
         assistant.resetErrors();
         contract.remove();
+
+        exception = ExpectedException.none();
 
         assistant.remove();
         list = assistant.getAll();

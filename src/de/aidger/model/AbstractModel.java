@@ -90,14 +90,6 @@ public abstract class AbstractModel<T> extends Model {
     protected Map<String, List<String>> fieldErrors = new HashMap<String, List<String>>();
 
     /**
-     * Should the model first be removed before saving. Needed for example for
-     * HourlyWage which has several Primary Keys and needs to be removed when
-     * edited.
-     */
-    @Ignore
-    protected boolean updatePKs = false;
-
-    /**
      * The constructor of the AbstractModel class.
      */
     public AbstractModel() {
@@ -209,9 +201,9 @@ public abstract class AbstractModel<T> extends Model {
      *
      * @return An array containing all found models or null
      */
-    @SuppressWarnings("unchecked")
     public List getAll() {
-        return all().fetch();
+        List l = all().fetch();
+        return l.isEmpty() ? null : l;
     }
 
     /**

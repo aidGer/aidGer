@@ -169,7 +169,7 @@ public class AbstractModelTest {
         a.setQualification("g");
         a.save();
 
-        assertTrue(a.size() == size + 1);
+        assertEquals(size + 1, a.size());
     }
 
     /**
@@ -275,6 +275,7 @@ public class AbstractModelTest {
         a.resetErrors();
         a.addError("error message");
         a.save();
+        exception = ExpectedException.none();
 
         /* Test saving when editing a primary key */
         HourlyWage h = new HourlyWage();
@@ -292,9 +293,8 @@ public class AbstractModelTest {
 
         h.setQualification("u");
         h_ = new HourlyWage().all().filter("qualification", "u").filter("month", "10").filter("wage", "200").filter("year", "2010").fetch();
-        assertTrue(h_.size() == 1);	
-        //TODO: re-implement
-        //assertTrue(h.getByKeys(g.getQualification(), g.getMonth(), g.getYear()) == null);
+        assertTrue(h_.size() == 1);
+        assertTrue(h.getByKeys(g.getQualification(), g.getMonth(), g.getYear()) == null);
     }
 
     /**
