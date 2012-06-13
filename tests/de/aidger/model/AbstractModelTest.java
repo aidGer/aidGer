@@ -261,18 +261,19 @@ public class AbstractModelTest {
         assertEquals(a, a.getById(a.getId()));
 
         /* Test fail of doValidate */
-        a.setFirstName(null);
-        a.save();
         exception.expect(ValidationException.class);
         exception.expectMessage("Validation failed.");
+        a.setFirstName(null);
+        a.save();
         a.setFirstName("Tester");
+        exception = ExpectedException.none();
 
         /* Test fail with errors */
+        exception.expect(ValidationException.class);
+        exception.expectMessage("The model was not saved because the error list is not empty.");
         a.resetErrors();
         a.addError("error message");
         a.save();
-        exception.expect(ValidationException.class);
-        exception.expectMessage("The model was not saved because the error list is not empty.");
 
         /* Test saving when editing a primary key */
         HourlyWage h = new HourlyWage();
@@ -308,8 +309,9 @@ public class AbstractModelTest {
         a.setLastName("Tester");
         a.setQualification("g");
 
-        a.remove();
         exception.expect(ValidationException.class);
+        a.remove();
+        exception = ExpectedException.none();
 
         a.save();
         int id = a.getId();
@@ -406,36 +408,32 @@ public class AbstractModelTest {
         a.setLastName("Tester");
         a.setQualification("g");
 
+        exception.expect(ValidationException.class);
         a.setEmail(null);
         a.save();
-        exception.expect(ValidationException.class);
         a.resetErrors();
 
         a.setEmail("");
         a.save();
-        exception.expect(ValidationException.class);
         a.resetErrors();
 
         a.setEmail("a@example.com");
         a.save();
-        exception.expect(ValidationException.class);
         a.resetErrors();
 
         a.setEmail("email@example");
         a.save();
-        exception.expect(ValidationException.class);
         a.resetErrors();
 
         a.setEmail("email@example.c");
         a.save();
-        exception.expect(ValidationException.class);
         a.resetErrors();
 
         a.setEmail("münchen@überälles.de");
         a.save();
-        exception.expect(ValidationException.class);
         a.resetErrors();
 
+        exception = ExpectedException.none();
         a.setEmail("email@example.com");
         a.save();
         List<Assistant> a_ = new Assistant().all().filter("firstName", "Test")

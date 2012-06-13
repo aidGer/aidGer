@@ -21,6 +21,7 @@ package de.aidger.model;
 
 import static de.aidger.utils.Translation._;
 
+import java.lang.reflect.InvocationTargetException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -162,7 +163,7 @@ public abstract class AbstractModel<T> extends Model {
      * @return False if the model is new or doesn't validate
      */
     @SuppressWarnings("unchecked")
-    public void remove() {
+    public void remove() throws ValidationException {
         /* Check if there is a custom validation function */
         try {
             java.lang.reflect.Method m = getClass().getDeclaredMethod(
@@ -170,8 +171,10 @@ public abstract class AbstractModel<T> extends Model {
             if (!(Boolean) m.invoke(this, new Object[0])) {
                 throw new ValidationException();
             }
-        } catch (Exception ex) {
-        }
+        } catch (NoSuchMethodException x) {
+        } catch (IllegalAccessException x) {
+        } catch (InvocationTargetException x) {}
+
 
         Logger.info(MessageFormat.format(_("Removing model: {0}"),
             new Object[] { toString() }));
