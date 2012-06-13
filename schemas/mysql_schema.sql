@@ -57,12 +57,14 @@ DROP TABLE IF EXISTS `Finanzkategorie`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Finanzkategorie` (
-  `ID` int(10) NOT NULL AUTO_INCREMENT,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Gruppe` int(11) NOT NULL,
   `Name` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Jahr` smallint(5) DEFAULT NULL,
   `Plankosten` int(10) DEFAULT NULL,
   `Kostenstelle` int(11) NOT NULL,
-  PRIMARY KEY (`ID`)
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `GruppeKosten` (`Gruppe`, `Kostenstelle`)
 ) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

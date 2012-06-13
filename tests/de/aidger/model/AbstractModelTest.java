@@ -132,7 +132,6 @@ public class AbstractModelTest {
         h.setWage(200.0);
         h.save();
 
-        System.out.println(h.getId());
         HourlyWage result = h.getByKeys("g", (byte) 10, (short) 2010);
 
         assertNotNull(result);
@@ -146,7 +145,6 @@ public class AbstractModelTest {
         a.setQualification("g");
         a.save();
 
-        System.out.println(a.getId());
         Assistant res = a.getByKey(a.getId());
         assertNotNull(res);
         assertEquals(a, res);
@@ -301,7 +299,7 @@ public class AbstractModelTest {
      * Test of remove method, of class AbstractModel.
      */
     @Test
-    public void testRemove() throws Exception {
+    public void testRemove() {
         System.out.println("remove");
 
         Assistant a = new Assistant();
@@ -309,6 +307,7 @@ public class AbstractModelTest {
         a.setFirstName("Test");
         a.setLastName("Tester");
         a.setQualification("g");
+        a.save();
 
         exception.expect(ValidationException.class);
         a.remove();
