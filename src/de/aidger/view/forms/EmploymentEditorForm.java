@@ -324,12 +324,12 @@ public class EmploymentEditorForm extends JPanel {
      * 
      * @return The id of the contract
      */
-    public int getContractId() {
+    public Long getContractId() {
         if (cmbContract.getSelectedItem() != null) {
             return ((Contract) cmbContract.getSelectedItem()).getId();
         }
 
-        return 0;
+        return null;
     }
 
     /**

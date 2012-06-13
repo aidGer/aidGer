@@ -41,9 +41,9 @@ import siena.SienaException;
 @SuppressWarnings("serial")
 public class ActivityTableModel extends TableModel {
 
-    private static Map<Integer, UIAssistant> assistantCache = new HashMap<Integer, UIAssistant>();
+    private static Map<Long, UIAssistant> assistantCache = new HashMap<Long, UIAssistant>();
 
-    private static Map<Integer, UICourse> courseCache = new HashMap<Integer, UICourse>();
+    private static Map<Long, UICourse> courseCache = new HashMap<Long, UICourse>();
 
     /**
      * Constructs the table model for activities.

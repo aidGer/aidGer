@@ -99,7 +99,7 @@ public class EmploymentTest {
     @Before
     public void setUp() {
         employment = new Employment();
-        employment.setId(1);
+        employment.setId((long) 1);
         employment.setAssistantId(assistant.getId());
         employment.setContractId(contract.getId());
         employment.setCourseId(course.getId());
@@ -142,14 +142,14 @@ public class EmploymentTest {
         list = employment.getAll();
         assertNull(list);
 
-        employment.setAssistantId(0);
+        employment.setAssistantId((long) 0);
         employment.save();
         list = employment.getAll();
         assertNull(list);
         employment.resetErrors();
         employment.setAssistantId(assistant.getId());
 
-        employment.setContractId(0);
+        employment.setContractId((long) 0);
         employment.save();
         list = employment.getAll();
         assertNull(list);
@@ -169,7 +169,7 @@ public class EmploymentTest {
         employment.resetErrors();
         employment.setFunds("0711");
 
-        employment.setCourseId(0);
+        employment.setCourseId((long) 0);
         employment.save();
         list = employment.getAll();
         assertNull(list);

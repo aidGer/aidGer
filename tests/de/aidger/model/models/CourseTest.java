@@ -58,7 +58,7 @@ public class CourseTest {
         fc.save();
 
         course = new Course();
-        course.setId(1);
+        course.setId((long) 1);
         course.setAdvisor("Tester");
         course.setDescription("Description");
         course.setFinancialCategoryId(fc.getId());

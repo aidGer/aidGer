@@ -117,7 +117,7 @@ public class AbstractModelTest {
     }
 
     /**
-     * Test of getByKeys method, of class AbstractModel.
+     * Test of getByKey(s) method, of class AbstractModel.
      */
     @Test
     public void testGetByKeys() {
@@ -132,26 +132,24 @@ public class AbstractModelTest {
         h.setWage(200.0);
         h.save();
 
-        //TODO: Rewrite with siena
-        HourlyWage result = null;//new HourlyWage(h.getByKeys("g", (byte) 10,
-        //    (short) 2010));
+        System.out.println(h.getId());
+        HourlyWage result = h.getByKeys("g", (byte) 10, (short) 2010);
 
         assertNotNull(result);
         assertEquals(h, result);
 
         Assistant a = new Assistant();
+        a.clearTable();
         a.setEmail("test@example.com");
         a.setFirstName("Test");
         a.setLastName("Tester");
         a.setQualification("g");
         a.save();
 
-        //TODO: re-implement
-        /*
-        Assistant res = new Assistant(a.getByKeys(a.getId()));
-
+        System.out.println(a.getId());
+        Assistant res = a.getByKey(a.getId());
+        assertNotNull(res);
         assertEquals(a, res);
-        */
     }
 
     /**
@@ -242,10 +240,12 @@ public class AbstractModelTest {
 
         /* Test of adding a model */
         Assistant a = new Assistant();
+        a.clearTable();
         a.setEmail("test@example.com");
         a.setFirstName("Test");
         a.setLastName("Tester");
         a.setQualification("g");
+        a.save();
 
         List<Assistant> a_ = new Assistant().all().filter("firstName", "Test").filter("lastName", "Tester").fetch();
         assertTrue(a_.size() == 1);	
@@ -255,8 +255,9 @@ public class AbstractModelTest {
         /* Test of updating a model */
         a.setFirstName("Tester");
         a.setLastName("Test");
+        a.save();
 
-        a_ = new Assistant().all().filter("fieldName", "Tester").filter("lastName", "Test").fetch();
+        a_ = new Assistant().all().filter("firstName", "Tester").filter("lastName", "Test").fetch();
         assertTrue(a_.size() == 1);	
         assertEquals(a, a.getById(a.getId()));
 
@@ -314,12 +315,12 @@ public class AbstractModelTest {
         exception = ExpectedException.none();
 
         a.save();
-        int id = a.getId();
+        Long id = a.getId();
 
         a.remove();
 
         assertNull(a.getById(id));
-        assertTrue(a.getId() <= 0);
+        assertNull(a.getId());
     }
 
     /**

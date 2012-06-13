@@ -89,7 +89,7 @@ public class ActivityTest {
     @Before
     public void setUp() {
         activity = new Activity();
-        activity.setId(1);
+        activity.setId((long) 1);
         activity.setAssistantId(assistant.getId());
         activity.setContent("New assistant");
         activity.setCourseId(course.getId());
@@ -123,7 +123,7 @@ public class ActivityTest {
     public void testValidation() throws SienaException {
         System.out.println("Validation");
 
-        activity.setAssistantId(0);
+        activity.setAssistantId((long) 0);
         activity.save();
         List<Activity> list = activity.getAll();
         assertNull(list);
@@ -137,7 +137,7 @@ public class ActivityTest {
         activity.resetErrors();
         activity.setContent("New assistant");
 
-        activity.setCourseId(0);
+        activity.setCourseId((long) 0);
         activity.save();
         list = activity.getAll();
         assertNull(list);

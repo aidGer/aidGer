@@ -46,7 +46,7 @@ public class HourlyWageTest {
     @Before
     public void setUp() {
         hourly = new HourlyWage();
-        hourly.setId(1);
+        hourly.setId((long) 1);
         hourly.setMonth((byte) 10);
         hourly.setQualification("g");
         hourly.setWage(200.0);

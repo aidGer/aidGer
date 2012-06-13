@@ -50,7 +50,7 @@ public class FinancialCategoryTest {
     @Before
     public void setUp() {
         financial = new FinancialCategory();
-        financial.setId(1);
+        financial.setId((long) 1);
         financial.setBudgetCosts(new Integer[] { 100, 200 });
         financial.setCostUnits(new Integer[] { 10001000, 20002000 });
         financial.setName("Tester");

@@ -113,7 +113,7 @@ public class ProtocolConverterTest {
 
         activity = new Activity();
         activity.clearTable();
-        activity.setId(1);
+        activity.setId((long) 1);
         activity.setAssistantId(assistant.getId());
         activity.setContent("New assistant");
         activity.setCourseId(course.getId());

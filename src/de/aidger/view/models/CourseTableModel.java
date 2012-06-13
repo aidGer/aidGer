@@ -39,7 +39,7 @@ import java.util.Map;
 @SuppressWarnings("serial")
 public class CourseTableModel extends TableModel {
 
-    private Map<Integer, UIFinancialCategory> fcCache = new HashMap<Integer, UIFinancialCategory>();
+    private Map<Long, UIFinancialCategory> fcCache = new HashMap<Long, UIFinancialCategory>();
 
     /**
      * Constructs the table model for courses.

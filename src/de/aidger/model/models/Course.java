@@ -42,7 +42,7 @@ public class Course extends AbstractModel<Course> {
      * References the corresponding financial category.
      */
     @Column("Finanzkategorie_ID")
-    private Integer financialCategoryId;
+    private Long financialCategoryId;
 
     /**
      * The advisor of the course.
@@ -298,7 +298,7 @@ public class Course extends AbstractModel<Course> {
      * 
      * @return The id of the category
      */
-    public Integer getFinancialCategoryId() {
+    public Long getFinancialCategoryId() {
         return financialCategoryId;
     }
 
@@ -410,7 +410,7 @@ public class Course extends AbstractModel<Course> {
      *            The id of the category
      */
 
-    public void setFinancialCategoryId(Integer id) {
+    public void setFinancialCategoryId(Long id) {
         financialCategoryId = id;
     }
 

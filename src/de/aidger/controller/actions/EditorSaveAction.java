@@ -353,7 +353,7 @@ public class EditorSaveAction extends AbstractAction {
 
         Employment employmentBeforeEdit = employment.clone();
 
-        int assistantId = 0, courseId = 0;
+        Long assistantId = null, courseId = null;
 
         if (form.getAssistant() != null) {
             assistantId = form.getAssistant().getId();
@@ -427,8 +427,7 @@ public class EditorSaveAction extends AbstractAction {
 
         Contract contractBeforeEdit = contract.clone();
 
-        int assistantId = 0;
-
+        Long assistantId = null;
         if (form.getAssistant() != null) {
             assistantId = form.getAssistant().getId();
         }
@@ -491,20 +490,8 @@ public class EditorSaveAction extends AbstractAction {
 
                 models.add(clone);
 
-                int courseId = courses.get(i).getId();
-                int assistantId = assistants.get(j).getId();
-
-                if (courseId != 0) {
-                    clone.setCourseId(courseId);
-                } else {
-                    clone.setCourseId(null);
-                }
-
-                if (assistantId != 0) {
-                    clone.setAssistantId(assistantId);
-                } else {
-                    clone.setAssistantId(null);
-                }
+                clone.setCourseId(courses.get(i).getId());
+                clone.setAssistantId(assistants.get(j).getId());
 
                 if (form.isInitiatorReferenced()) {
                     clone.setSender(new UIAssistant(assistants.get(j))

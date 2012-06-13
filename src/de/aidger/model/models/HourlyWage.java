@@ -107,8 +107,8 @@ public class HourlyWage extends AbstractModel<HourlyWage> {
      *            The other object
      * @return True if both are equal
      */
-   @Override
-   public boolean equals(Object o) {
+    @Override
+    public boolean equals(Object o) {
         if (o instanceof HourlyWage) {
             HourlyWage h = (HourlyWage) o;
             return (month == null ? h.month == null : month.equals(h.month))
@@ -137,6 +137,21 @@ public class HourlyWage extends AbstractModel<HourlyWage> {
             ret = false;
         }
         return ret;
+    }
+
+    /**
+     * Get an HourlyWage by its three unique keys
+     *
+     * @param q
+     *      The qualification
+     * @param m
+     *      The month
+     * @param y
+     *      The year
+     * @return The HourlyWage matching those three keys
+     */
+    public HourlyWage getByKeys(String q, byte m, short y) {
+        return all().filter("qualification", q).filter("month", m).filter("year", y).get();
     }
 
     /**

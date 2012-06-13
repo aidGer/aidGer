@@ -36,7 +36,7 @@ public class HistoryEvent implements Serializable {
     /**
      * The id of the model.
      */
-    public Integer id;
+    public Long id;
 
     /**
      * The type of the model.
@@ -83,10 +83,10 @@ public class HistoryEvent implements Serializable {
      */
     public enum Status {
         Added(0),
-	Changed(1),
-	Removed(2);
+	    Changed(1),
+	    Removed(2);
 
-	private final int id;
+	    private final int id;
 
         /**
          * Initializes the Status enum.
@@ -94,18 +94,18 @@ public class HistoryEvent implements Serializable {
          * @param id
          *          The id of the status
          */
-	Status(int id) {
-            this.id = id;
-	}
+        Status(int id) {
+                this.id = id;
+        }
 
         /**
          * Get the id of the status.
          *
          * @return The id of the status
          */
-	public int getId() {
-            return id;
-	}
+        public int getId() {
+                return id;
+        }
 
         /**
          * Get the correct Status from an int
@@ -114,13 +114,13 @@ public class HistoryEvent implements Serializable {
          *          The id of the searched Status
          * @return The correct Status or null
          */
-	public Status fromId(int id) {
-            for (Status e : Status.values()) {
-                if (e.id == id) {
-                    return e;
+        public Status fromId(int id) {
+                for (Status e : Status.values()) {
+                    if (e.id == id) {
+                        return e;
+                    }
                 }
-            }
-            return null;
-	}
+                return null;
+        }
     }
 }

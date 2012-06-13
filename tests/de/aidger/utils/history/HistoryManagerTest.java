@@ -88,7 +88,7 @@ public class HistoryManagerTest {
 
         HistoryEvent evt = new HistoryEvent();
         evt.date = new java.sql.Date(0);
-        evt.id = 0;
+        evt.id = (long) 0;
         evt.type = "Assistant";
         evt.status = HistoryEvent.Status.Added;
 

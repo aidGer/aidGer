@@ -111,7 +111,7 @@ public class Assistant extends AbstractModel<Assistant> {
     public boolean validateOnRemove() {
         boolean ret = true;
 
-        if (getId() <= 0) {
+        if (getId() == null) {
             addError(_("Assistant not saved yet."));
             return false;
         }

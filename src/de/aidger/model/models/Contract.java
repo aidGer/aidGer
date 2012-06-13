@@ -44,7 +44,7 @@ public class Contract extends AbstractModel<Contract> {
      * References the corresponding assistant.
      */
     @Column("Hilfskraft_ID")
-    private Integer assistantId;
+    private Long assistantId;
 
     /**
      * The date the contract was completed.
@@ -208,7 +208,7 @@ public class Contract extends AbstractModel<Contract> {
      * 
      * @return The id
      */
-    public Integer getAssistantId() {
+    public Long getAssistantId() {
         return assistantId;
     }
 
@@ -272,7 +272,7 @@ public class Contract extends AbstractModel<Contract> {
      * @param id
      *            The id
      */
-    public void setAssistantId(Integer id) {
+    public void setAssistantId(Long id) {
         assistantId = id;
     }
 

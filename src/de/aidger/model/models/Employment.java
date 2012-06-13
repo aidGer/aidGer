@@ -44,19 +44,19 @@ public class Employment extends AbstractModel<Employment> {
      * References the corresponding assistant.
      */
     @Column("Hilfskraft_ID")
-    private Integer assistantId;
+    private Long assistantId;
 
     /**
      * References the corresponding contract.
      */
     @Column("Vertrag_ID")
-    private Integer contractId;
+    private Long contractId;
 
     /**
      * References the corresponding course.
      */
     @Column("Veranstaltung_ID")
-    private Integer courseId;
+    private Long courseId;
 
     /**
      * The funds of the employment.
@@ -293,7 +293,7 @@ public class Employment extends AbstractModel<Employment> {
      * 
      * @return The id of the assistant
      */
-    public Integer getAssistantId() {
+    public Long getAssistantId() {
         return assistantId;
     }
 
@@ -302,7 +302,7 @@ public class Employment extends AbstractModel<Employment> {
      * 
      * @return The id of the contract
      */
-    public Integer getContractId() {
+    public Long getContractId() {
         return contractId;
     }
 
@@ -320,7 +320,7 @@ public class Employment extends AbstractModel<Employment> {
      * 
      * @return The id of the course
      */
-    public Integer getCourseId() {
+    public Long getCourseId() {
         return courseId;
     }
 
@@ -384,7 +384,7 @@ public class Employment extends AbstractModel<Employment> {
      * @param id
      *            The id of the assistant
      */
-    public void setAssistantId(Integer id) {
+    public void setAssistantId(Long id) {
         assistantId = id;
     }
 
@@ -394,7 +394,7 @@ public class Employment extends AbstractModel<Employment> {
      * @param id
      *            The id of the contract
      */
-    public void setContractId(Integer id) {
+    public void setContractId(Long id) {
         contractId = id;
     }
 
@@ -414,7 +414,7 @@ public class Employment extends AbstractModel<Employment> {
      * @param id
      *            The id of the course
      */
-    public void setCourseId(Integer id) {
+    public void setCourseId(Long id) {
         courseId = id;
     }
 

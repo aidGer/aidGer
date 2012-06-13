@@ -42,13 +42,13 @@ public class Activity extends AbstractModel<Activity>  {
      * References the corresponding assistant.
      */
     @Column("Hilfskraft_ID")
-    private Integer assistantId;
+    private Long assistantId;
 
     /**
      * References the course by its unique id.
      */
     @Column("Veranstaltung_ID")
-    private Integer courseId;
+    private Long courseId;
 
     /**
      * The date on which this activity took place.
@@ -209,7 +209,7 @@ public class Activity extends AbstractModel<Activity>  {
      * 
      * @return The id of the referenced assistant
      */
-    public Integer getAssistantId() {
+    public Long getAssistantId() {
         return assistantId;
     }
 
@@ -227,7 +227,7 @@ public class Activity extends AbstractModel<Activity>  {
      * 
      * @return The id of the referenced course.
      */
-    public Integer getCourseId() {
+    public Long getCourseId() {
         return courseId;
     }
 
@@ -291,7 +291,7 @@ public class Activity extends AbstractModel<Activity>  {
      * @param id
      *            The id of the assistant
      */
-    public void setAssistantId(Integer id) {
+    public void setAssistantId(Long id) {
         assistantId = id;
     }
 
@@ -311,7 +311,7 @@ public class Activity extends AbstractModel<Activity>  {
      * @param id
      *            The id of the course
      */
-    public void setCourseId(Integer id) {
+    public void setCourseId(Long id) {
         courseId = id;
     }
 

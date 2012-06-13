@@ -285,8 +285,8 @@ public class DetailViewerTab extends Tab {
 
             ListModel listAssistantsModel = new ListModel(DataType.Assistant);
 
-            Map<Integer, Double> totalHours = new HashMap<Integer, Double>();
-            Map<Integer, String> tokenDBs = new HashMap<Integer, String>();
+            Map<Long, Double> totalHours = new HashMap<Long, Double>();
+            Map<Long, String> tokenDBs = new HashMap<Long, String>();
 
             for (Employment employment : employments) {
                 if (totalHours.get(employment.getAssistantId()) == null) {
@@ -301,9 +301,9 @@ public class DetailViewerTab extends Tab {
                 }
             }
 
-            Set<Integer> set = totalHours.keySet();
+            Set<Long> set = totalHours.keySet();
 
-            for (Integer assistantId : set) {
+            for (Long assistantId : set) {
                 Assistant a = (new Assistant()).getById(assistantId);
 
                 UIAssistant assistant = new UIAssistant(a);

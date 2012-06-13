@@ -702,7 +702,7 @@ public class BalanceReportConverter {
         }
         List<Course> filteredCourses = balanceHelper.filterCourses(courses,
             filters);
-        ArrayList<Integer> addedCourses = new ArrayList<Integer>();
+        ArrayList<Long> addedCourses = new ArrayList<Long>();
         addedCourses.add(course.getId());
         for (Course filteredCourse : filteredCourses) {
             if (!addedCourses.contains(filteredCourse.getId())

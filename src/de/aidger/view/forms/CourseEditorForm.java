@@ -135,13 +135,12 @@ public class CourseEditorForm extends JPanel {
      * 
      * @return The id of the category
      */
-    public int getFinancialCategoryId() {
+    public Long getFinancialCategoryId() {
         if (cmbFinancialCategory.getSelectedItem() == null) {
-            return 0;
+            return null;
         }
 
-        return ((FinancialCategory) cmbFinancialCategory.getSelectedItem())
-            .getId();
+        return ((FinancialCategory) cmbFinancialCategory.getSelectedItem()).getId();
     }
 
     /**

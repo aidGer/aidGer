@@ -51,7 +51,7 @@ public class AssistantTest {
     @Before
     public void setUp() {
         assistant = new Assistant();
-        assistant.setId(1);
+        assistant.setId((long) 1);
         assistant.setEmail("test@example.com");
         assistant.setFirstName("Test");
         assistant.setLastName("Tester");

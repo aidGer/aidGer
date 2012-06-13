@@ -47,11 +47,11 @@ import java.util.Map;
 @SuppressWarnings("serial")
 public class EmploymentTableModel extends TableModel {
 
-    private static Map<Integer, UIAssistant> assistantCache = new HashMap<Integer, UIAssistant>();
+    private static Map<Long, UIAssistant> assistantCache = new HashMap<Long, UIAssistant>();
 
-    private static Map<Integer, UICourse> courseCache = new HashMap<Integer, UICourse>();
+    private static Map<Long, UICourse> courseCache = new HashMap<Long, UICourse>();
 
-    private static Map<Integer, UIContract> contractCache = new HashMap<Integer, UIContract>();
+    private static Map<Long, UIContract> contractCache = new HashMap<Long, UIContract>();
 
     /**
      * Constructs the table model for employments.

@@ -29,10 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import siena.Model;
-import siena.Query;
-import siena.Id;
-import siena.Ignore;
+import siena.*;
 
 import de.aidger.model.validators.DateRangeValidator;
 import de.aidger.model.validators.ExistenceValidator;
@@ -59,8 +56,8 @@ public abstract class AbstractModel<T> extends Model {
     /**
      * The unique id of the model in the database.
      */
-    @Id
-    protected Integer id = 0;
+    @Id(Generator.AUTO_INCREMENT)
+    protected Long id = null;
 
     /**
      * The name of the class.
@@ -133,7 +130,7 @@ public abstract class AbstractModel<T> extends Model {
             throw new ValidationException(_("The model was not saved because the error list is not empty."));
         }
 
-        boolean wasNew = getId() == 0;
+        boolean wasNew = getId() == null;
 
         super.save();
 
@@ -163,7 +160,7 @@ public abstract class AbstractModel<T> extends Model {
      * @return False if the model is new or doesn't validate
      */
     @SuppressWarnings("unchecked")
-    public void remove() throws ValidationException {
+    public void remove() {
         /* Check if there is a custom validation function */
         try {
             java.lang.reflect.Method m = getClass().getDeclaredMethod(
@@ -225,8 +222,19 @@ public abstract class AbstractModel<T> extends Model {
      * @return The model if one was found or null
      */
     @SuppressWarnings("unchecked")
-    public T getById(int id) {
+    public T getById(Long id) {
         return (T) all().getByKey(id);
+    }
+
+    /**
+     * Get a specific model by specifying its unique id.
+     *
+     * @param id
+     *            The unique id of the model
+     * @return The model if one was found or null
+     */
+    public T getById(int id) {
+        return getById((long) id);
     }
 
     /**
@@ -238,17 +246,6 @@ public abstract class AbstractModel<T> extends Model {
      */
     public T getByKey(Object id) {
         return (T) all().getByKey(id);
-    }
-
-    /**
-     * Get a specific model by specifying its primary keys.
-     *
-     * @param ids
-     *          The primary keys of the model
-     * @return The model if one was found or null
-     */
-    public T getByKeys(Object... ids) {
-        return (T) null;
     }
 
     /**
@@ -275,7 +272,7 @@ public abstract class AbstractModel<T> extends Model {
      * @return True if the instance exists
      */
     public boolean isInDatabase() {
-        return getById(id) != null;
+        return id != null && getById(id) != null;
     }
 
     /**
@@ -283,7 +280,7 @@ public abstract class AbstractModel<T> extends Model {
      */
     public void clearTable() {
         all().delete();
-        id = 0; // Reset
+        id = null; // Reset
     }
 
     /**
@@ -291,7 +288,7 @@ public abstract class AbstractModel<T> extends Model {
      *
      * @return The unique id of the model
      */
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -301,7 +298,7 @@ public abstract class AbstractModel<T> extends Model {
      * @param id
      *          The new id of the model
      */
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

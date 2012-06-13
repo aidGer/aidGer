@@ -60,7 +60,7 @@ public class ContractTest {
     @Before
     public void setUp() {
         contract = new Contract();
-        contract.setId(1);
+        contract.setId((long) 1);
         contract.setAssistantId(assistant.getId());
         contract.setCompletionDate(new Date(10));
         contract.setConfirmationDate(new Date(100));
@@ -97,7 +97,7 @@ public class ContractTest {
         assertNotNull(list);
         contract.clearTable();
 
-        contract.setAssistantId(0);
+        contract.setAssistantId((long) 0);
         contract.save();
         list = contract.getAll();
         assertNull(list);

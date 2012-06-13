@@ -104,7 +104,7 @@ public class ControllingCreatorTest {
         contract.save();
 
         course = new Course();
-        course.setId(1);
+        course.setId((long) 1);
         course.setAdvisor("Tester");
         course.setDescription("Description");
         course.setFinancialCategoryId(fc.getId());
@@ -126,7 +126,7 @@ public class ControllingCreatorTest {
         costUnit.save();
 
         employment = new Employment();
-        employment.setId(1);
+        employment.setId((long) 1);
         employment.setAssistantId(assistant.getId());
         employment.setContractId(contract.getId());
         employment.setCourseId(course.getId());
