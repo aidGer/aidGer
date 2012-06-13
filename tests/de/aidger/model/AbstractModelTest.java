@@ -25,7 +25,6 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import org.junit.BeforeClass;
@@ -76,14 +75,14 @@ public class AbstractModelTest {
 
         h.setMonth((byte) 10);
         h.setQualification("g");
-        h.setWage(new java.math.BigDecimal(200));
+        h.setWage(200.0);
         h.setYear((short) 2010);
         h.save();
 
         HourlyWage g = new HourlyWage();
         g.setMonth((byte) 10);
         g.setQualification("u");
-        g.setWage(new java.math.BigDecimal(200));
+        g.setWage(200.0);
         g.setYear((short) 2010);
         g.save();
 
@@ -130,7 +129,7 @@ public class AbstractModelTest {
         h.setQualification("g");
         h.setMonth((byte) 10);
         h.setYear((short) 2010);
-        h.setWage(new BigDecimal(200));
+        h.setWage(200.0);
         h.save();
 
         //TODO: Rewrite with siena
@@ -280,7 +279,7 @@ public class AbstractModelTest {
         h.clearTable();
         h.setMonth((byte) 10);
         h.setQualification("g");
-        h.setWage(new BigDecimal(200));
+        h.setWage(200.0);
         h.setYear((short) 2010);
 
         HourlyWage g = h.clone();

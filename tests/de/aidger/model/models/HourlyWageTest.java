@@ -23,7 +23,6 @@ import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.*;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import org.junit.BeforeClass;
@@ -50,7 +49,7 @@ public class HourlyWageTest {
         hourly.setId(1);
         hourly.setMonth((byte) 10);
         hourly.setQualification("g");
-        hourly.setWage(new BigDecimal(200));
+        hourly.setWage(200.0);
         hourly.setYear((short) 2010);
     }
 

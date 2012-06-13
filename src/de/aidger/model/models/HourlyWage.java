@@ -21,8 +21,6 @@ package de.aidger.model.models;
 
 import static de.aidger.utils.Translation._;
 
-import java.math.BigDecimal;
-
 import siena.Table;
 import siena.Column;
 
@@ -59,14 +57,12 @@ public class HourlyWage extends AbstractModel<HourlyWage> {
      * The wage per hour.
      */
     @Column("Lohn")
-    private BigDecimal wage;
+    private Double wage;
 
     /**
      * Initializes the HourlyWage class.
      */
     public HourlyWage() {
-        updatePKs = true;
-
         if (getValidators().isEmpty()) {
             validatePresenceOf(new String[] { "qualification", "wage" },
                     new String[] { _("Qualification"), _("Wage") });
@@ -102,6 +98,27 @@ public class HourlyWage extends AbstractModel<HourlyWage> {
         h.setWage(wage);
         h.setYear(year);
         return h;
+    }
+
+    /**
+     * Check if two objects are equal.
+     *
+     * @param o
+     *            The other object
+     * @return True if both are equal
+     */
+   @Override
+   public boolean equals(Object o) {
+        if (o instanceof HourlyWage) {
+            HourlyWage h = (HourlyWage) o;
+            return (month == null ? h.month == null : month.equals(h.month))
+                    && (year == null ? h.year == null : year.equals(h.year))
+                    && (qualification == null ? h.qualification == null
+                            : h.qualification.equals(qualification))
+                    && (wage == null ? h.wage == null : wage - h.wage <= 0.01);
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -145,7 +162,7 @@ public class HourlyWage extends AbstractModel<HourlyWage> {
      * 
      * @return The wage per hour
      */
-    public BigDecimal getWage() {
+    public Double getWage() {
         return wage;
     }
 
@@ -184,7 +201,7 @@ public class HourlyWage extends AbstractModel<HourlyWage> {
      * @param wage
      *            The wage per hour
      */
-    public void setWage(BigDecimal wage) {
+    public void setWage(Double wage) {
         this.wage = wage;
     }
 

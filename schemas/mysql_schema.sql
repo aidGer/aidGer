@@ -109,11 +109,13 @@ DROP TABLE IF EXISTS `Stundenlohn`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Stundenlohn` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Qualifikation` varchar(2) COLLATE utf8_unicode_ci NOT NULL,
   `Jahr` int(4) NOT NULL,
   `Monat` int(2) NOT NULL,
   `Lohn` double(5,2) NOT NULL,
-  PRIMARY KEY (`Qualifikation`,`Jahr`,`Monat`)
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `QualJahrMonat` (`Qualifikation`,`Jahr`,`Monat`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

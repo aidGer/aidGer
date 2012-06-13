@@ -25,5 +25,9 @@ database
 derby.log
 
 settings.cfg
+aidger.log
+data.xml
+history
 bin/*
 *~
+

@@ -206,7 +206,7 @@ public class BalanceHelperTest {
         hourlyWage.setMonth(employment1.getMonth());
         hourlyWage.setYear(employment1.getYear());
         hourlyWage.setQualification(employment1.getQualification());
-        hourlyWage.setWage(new BigDecimal(10));
+        hourlyWage.setWage(10.0);
         hourlyWage.save();
 
         balanceCourse = new BalanceCourse();

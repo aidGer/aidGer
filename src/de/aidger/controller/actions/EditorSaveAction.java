@@ -222,8 +222,7 @@ public class EditorSaveAction extends AbstractAction {
 
         try {
             // fc.getByKeys expects only the ID as key
-            //TODO: Rewrite with siena
-            FinancialCategory f = null; //fc.getByKeys(fc.getId());
+            FinancialCategory f = fc.getByKey(fc.getId());
 
             return f == null ? fcBeforeEdit : new FinancialCategory(f);
         } catch (SienaException e) {
@@ -526,16 +525,16 @@ public class EditorSaveAction extends AbstractAction {
     }
 
     /**
-     * Returns the rounded double as BigDecimal.
+     * Returns the rounded double.
      * 
      * @param d
      *            the double value
      * @param scale
      *            the scale
-     * @return the rounded BigDecimal value
+     * @return the rounded double value
      */
-    public static BigDecimal round(double d, int scale) {
-        return (new BigDecimal(d).setScale(scale, BigDecimal.ROUND_HALF_EVEN));
+    public static Double round(double d, int scale) {
+        return (new BigDecimal(d).setScale(scale, BigDecimal.ROUND_HALF_EVEN)).doubleValue();
     }
 
     /*
