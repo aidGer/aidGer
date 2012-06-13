@@ -420,6 +420,16 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
             throw new ValidationException(_("The model was not saved because the error list is not empty."));
         }
         
+        // TODO: implement als transaction to ensure no duplicate groups
+        if(id == null) {
+        	List<FinancialCategoryEntry> temp = new FinancialCategoryEntry().all().order("-group").fetch();
+        	if(temp == null || temp.size() == 0) {
+        		this.setId((long) 0);
+        	} else {
+        		this.setId(temp.get(0).getGroup() + 1);
+        	}
+        }
+        
         for(FinancialCategoryEntry entry : entries) {
         	entry.save();
         }
