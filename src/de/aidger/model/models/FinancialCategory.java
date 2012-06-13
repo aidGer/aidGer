@@ -53,118 +53,6 @@ import de.aidger.utils.history.HistoryManager;
  */
 public class FinancialCategory extends AbstractModel<FinancialCategory> {
 
-	@Table("Finanzkategorie")
-	private class FinancialCategoryEntry extends Model {
-		
-		@Id(Generator.AUTO_INCREMENT)
-		private Long id = null;
-		
-		@Column("Gruppe")
-		private Long group;
-
-	    @Column("Name")
-	    private String name;
-	    
-	    @Column("Plankosten")
-	    private Integer budgetCost;
-
-	    @Column("Kostenstelle")
-	    private Integer costUnit;
-	    
-	    @Column("Jahr")
-	    private Short year;
-
-		public Long getId() {
-			return id;
-		}
-
-		public void setId(Long id) {
-			this.id = id;
-		}
-
-		public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
-		public Integer getBudgetCost() {
-			return budgetCost;
-		}
-
-		public void setBudgetCost(Integer budgetCost) {
-			this.budgetCost = budgetCost;
-		}
-
-		public Integer getCostUnit() {
-			return costUnit;
-		}
-
-		public void setCostUnit(Integer costUnit) {
-			this.costUnit = costUnit;
-		}
-
-		public Short getYear() {
-			return year;
-		}
-
-		public void setYear(Short year) {
-			this.year = year;
-		}
-		
-		public Query<FinancialCategoryEntry> all() {
-			return (Query<FinancialCategoryEntry>) Model.all(this.getClass());
-		}
-
-		public Long getGroup() {
-			return group;
-		}
-
-		public void setGroup(Long group) {
-			this.group = group;
-		}
-		
-		public void remove() {
-			Logger.info(MessageFormat.format(_("Removing model: {0}"), toString()));
-			
-			delete();
-
-	        /* Add event to the HistoryManager */
-	        HistoryEvent evt = new HistoryEvent();
-	        evt.id = getId();
-	        evt.status = HistoryEvent.Status.Removed;
-	        evt.type = getClass().getSimpleName();
-	        evt.date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-
-	        try {
-	            HistoryManager.getInstance().addEvent(evt);
-	        } catch (HistoryException ex) {
-	            Logger.error(ex.getMessage());
-	        }
-		}
-		
-		public void save() {
-	        boolean wasNew = getId() == null;
-
-	        super.save();
-
-	        /* Add event to the HistoryManager */
-	        HistoryEvent evt = new HistoryEvent();
-	        evt.id = getId();
-	        evt.status = wasNew ? HistoryEvent.Status.Added
-	                : HistoryEvent.Status.Changed;
-	        evt.type = getClass().getSimpleName();
-	        evt.date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-
-	        try {
-	            HistoryManager.getInstance().addEvent(evt);
-	        } catch (HistoryException ex) {
-	            Logger.error(ex.getMessage());
-	        }
-		}
-	}
 	
     /**
      * The name of the category.
@@ -176,7 +64,7 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
      */
     private Short year;
     
-    private ArrayList<FinancialCategoryEntry> entries;
+    private ArrayList<InternalFinancialCategory> entries;
 
     /**
      * Initialize the FinancialCategory class.
@@ -187,7 +75,7 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
                     "budgetCosts" }, new String[] { _("Name"), _("Year"),
                     _("Cost unit"), _("Budget Costs") });
         }
-        entries = new ArrayList<FinancialCategoryEntry>();
+        entries = new ArrayList<InternalFinancialCategory>();
     }
 
     /**
@@ -340,9 +228,9 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
     public void setBudgetCosts(Integer[] costs) {
         for (int i = 0; i < entries.size(); i++) {
         	if(costs.length >= i + 1) {
-        		entries.get(i).budgetCost = costs[i];
+        		entries.get(i).setBudgetCost(costs[i]);
         	} else {
-        		entries.get(i).budgetCost = null;
+        		entries.get(i).setBudgetCost(null);
         	}
         }
     }
@@ -356,11 +244,11 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
     public void setCostUnits(Integer[] costUnits) {
         for(int i = 0; i < costUnits.length; i++) {
         	if(entries.size() < i) {
-            	FinancialCategoryEntry entry = entries.get(i);
-        		entry.costUnit = costUnits[i];
+        		InternalFinancialCategory entry = entries.get(i);
+        		entry.setCostUnit(costUnits[i]);
         	} else {
-        		FinancialCategoryEntry entry = newEntry();
-        		entry.costUnit = costUnits[i];
+        		InternalFinancialCategory entry = newEntry();
+        		entry.setCostUnit(costUnits[i]);
         		entries.add(entry);
         	}
         }
@@ -373,7 +261,7 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
     @Override
     public void setId(Long id) {
     	this.id = id;
-    	for(FinancialCategoryEntry entry : entries) {
+    	for(InternalFinancialCategory entry : entries) {
     		entry.setGroup(id);
     	}
     }
@@ -386,7 +274,7 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
      */
     public void setName(String name) {
         this.name = name;
-        for(FinancialCategoryEntry entry : entries) {
+        for(InternalFinancialCategory entry : entries) {
         	entry.setName(name);
         }
     }
@@ -399,13 +287,13 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
      */
     public void setYear(Short year) {
         this.year = year;
-        for(FinancialCategoryEntry entry : entries) {
+        for(InternalFinancialCategory entry : entries) {
         	entry.setYear(year);
         }
     }
     
-    private FinancialCategoryEntry newEntry() {
-    	FinancialCategoryEntry entry = new FinancialCategoryEntry();
+    private InternalFinancialCategory newEntry() {
+    	InternalFinancialCategory entry = new InternalFinancialCategory();
     	entry.setId(this.id);
     	entry.setName(this.name);
     	entry.setYear(this.year);
@@ -422,7 +310,7 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
         
         // TODO: implement als transaction to ensure no duplicate groups
         if(id == null) {
-        	List<FinancialCategoryEntry> temp = new FinancialCategoryEntry().all().order("-group").fetch();
+        	List<InternalFinancialCategory> temp = new InternalFinancialCategory().all().order("-group").fetch();
         	if(temp == null || temp.size() == 0) {
         		this.setId((long) 0);
         	} else {
@@ -430,7 +318,7 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
         	}
         }
         
-        for(FinancialCategoryEntry entry : entries) {
+        for(InternalFinancialCategory entry : entries) {
         	entry.save();
         }
     }
@@ -447,16 +335,16 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
         } catch (NoSuchMethodException x) {
         } catch (IllegalAccessException x) {
         } catch (InvocationTargetException x) {}
-        for(FinancialCategoryEntry entry : entries) {
+        for(InternalFinancialCategory entry : entries) {
         	entry.remove();
         }
     }
     
     @Override
     public List<FinancialCategory> getAll() {
-    	List<FinancialCategoryEntry> allEntries = new FinancialCategoryEntry().all().fetch();
+    	List<InternalFinancialCategory> allEntries = new InternalFinancialCategory().getAll();
     	HashMap<Long, FinancialCategory> fcMap = new HashMap<Long, FinancialCategory>();
-    	for(FinancialCategoryEntry entry : allEntries) {
+    	for(InternalFinancialCategory entry : allEntries) {
     		if(fcMap.containsKey(entry.getGroup())) {
     			fcMap.get(entry.getGroup()).entries.add(entry);
     		} else {
@@ -482,13 +370,23 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
     }
     
     @Override
+    public FinancialCategory getByKey(Object id) {
+    	for(FinancialCategory fc : this.getAll()) {
+    		if (id == null ? false : id.getClass() == Integer.class || id.getClass() == Long.class) {
+    			if(fc.getId() == id) return fc;
+    		}
+    	}
+    	return null;
+    }
+    
+    @Override
     public int size() {
     	return this.getAll().size();
     }
     
     @Override
     public void clearTable() {
-    	FinancialCategoryEntry entry = new FinancialCategoryEntry();
+    	InternalFinancialCategory entry = new InternalFinancialCategory();
     	entry.delete();
     	entry.setId(null);
     	this.setId(null);

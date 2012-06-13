@@ -201,17 +201,17 @@ public class EditorSaveAction extends AbstractAction {
         form.sortCostUnits();
 
         try {
-            fc.setBudgetCosts(form.getBudgetCosts());
-        } catch (NumberFormatException e) {
-            fc.setBudgetCosts(null);
-        }
-
-        try {
             fc.setCostUnits(form.getCostUnits());
         } catch (InvalidLengthException e) {
             fc.addError("costUnits", _("Cost unit"), _("has to have a length of 8"));
         } catch (NumberFormatException e) {
         	fc.setCostUnits(null);
+        }
+
+        try {
+            fc.setBudgetCosts(form.getBudgetCosts());
+        } catch (NumberFormatException e) {
+            fc.setBudgetCosts(null);
         }
 
         try {
