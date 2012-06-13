@@ -71,12 +71,13 @@ public class HistoryManagerTest {
     public void testGetEvents() throws HistoryException {
         System.out.println("getEvents");
 
+        HistoryManager.getInstance().loadFromFile();
         assertTrue(HistoryManager.getInstance().getEvents().isEmpty());
 
         HistoryManager.getInstance().addEvent(new HistoryEvent());
 
+        assertFalse(HistoryManager.getInstance().getEvents().isEmpty());
         assertTrue(HistoryManager.getInstance().getEvents().size() > 0);
-
     }
 
     /**
