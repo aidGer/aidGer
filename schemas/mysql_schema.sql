@@ -62,7 +62,7 @@ CREATE TABLE `Finanzkategorie` (
   `Jahr` smallint(5) DEFAULT NULL,
   `Plankosten` int(10) DEFAULT NULL,
   `Kostenstelle` int(11) NOT NULL,
-  PRIMARY KEY (`ID`,`Kostenstelle`)
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
