@@ -24,6 +24,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.sql.Date;
 import java.util.GregorianCalendar;
@@ -32,6 +33,8 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import de.aidger.model.validators.ValidationException;
 
 import siena.SienaException;
 
@@ -98,6 +101,7 @@ public class EmploymentTest {
 
     @Before
     public void setUp() {
+    	new Employment().clearTable();
         employment = new Employment();
         employment.setId((long) 1);
         employment.setAssistantId(assistant.getId());
@@ -143,75 +147,108 @@ public class EmploymentTest {
         assertNull(list);
 
         employment.setAssistantId((long) 0);
-        employment.save();
+        try {
+            employment.save();
+        	fail("No validation exception!");
+        } catch(ValidationException e) {}
         list = employment.getAll();
         assertNull(list);
         employment.resetErrors();
         employment.setAssistantId(assistant.getId());
 
         employment.setContractId((long) 0);
-        employment.save();
+        try {
+            employment.save();
+        	fail("No validation exception!");
+        } catch(ValidationException e) {}
         list = employment.getAll();
         assertNull(list);
         employment.resetErrors();
         employment.setContractId(contract.getId());
 
         employment.setFunds(null);
-        employment.save();
+        try {
+            employment.save();
+        	fail("No validation exception!");
+        } catch(ValidationException e) {}
         list = employment.getAll();
         assertNull(list);
         employment.resetErrors();
 
         employment.setFunds("01234567890");
-        employment.save();
+        try {
+            employment.save();
+        	fail("No validation exception!");
+        } catch(ValidationException e) {}
         list = employment.getAll();
         assertNull(list);
         employment.resetErrors();
         employment.setFunds("0711");
 
         employment.setCourseId((long) 0);
-        employment.save();
+        try {
+            employment.save();
+        	fail("No validation exception!");
+        } catch(ValidationException e) {}
         list = employment.getAll();
         assertNull(list);
         employment.resetErrors();
         employment.setCourseId(course.getId());
 
         employment.setCostUnit(0);
-        employment.save();
+        try {
+            employment.save();
+        	fail("No validation exception!");
+        } catch(ValidationException e) {}
         list = employment.getAll();
         assertNull(list);
         employment.resetErrors();
         employment.setCostUnit(1);
 
         employment.setHourCount(-1.0);
-        employment.save();
+        try {
+            employment.save();
+        	fail("No validation exception!");
+        } catch(ValidationException e) {}
         list = employment.getAll();
         assertNull(list);
         employment.resetErrors();
         employment.setHourCount(40.0);
 
         employment.setMonth((byte) 0);
-        employment.save();
+        try {
+            employment.save();
+        	fail("No validation exception!");
+        } catch(ValidationException e) {}
         list = employment.getAll();
         assertNull(list);
         employment.resetErrors();
         employment.setMonth((byte) 10);
 
         employment.setQualification(null);
-        employment.save();
+        try {
+            employment.save();
+        	fail("No validation exception!");
+        } catch(ValidationException e) {}
         list = employment.getAll();
         assertNull(list);
         employment.resetErrors();
 
         employment.setQualification("Q");
-        employment.save();
+        try {
+            employment.save();
+        	fail("No validation exception!");
+        } catch(ValidationException e) {}
         list = employment.getAll();
         assertNull(list);
         employment.resetErrors();
         employment.setQualification("g");
 
         employment.setYear((short) 999);
-        employment.save();
+        try {
+            employment.save();
+        	fail("No validation exception!");
+        } catch(ValidationException e) {}
         list = employment.getAll();
         assertNull(list);
         employment.resetErrors();
