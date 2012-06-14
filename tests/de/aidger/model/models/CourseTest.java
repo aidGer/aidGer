@@ -57,6 +57,8 @@ public class CourseTest {
 
     @Before
     public void setUp() throws SienaException {
+    	new Course().clearTable();
+    	new FinancialCategory().clearTable();
         FinancialCategory fc = new FinancialCategory();
         fc.setBudgetCosts(new Integer[] { 100 });
         fc.setCostUnits(new Integer[] { 10001000 });
