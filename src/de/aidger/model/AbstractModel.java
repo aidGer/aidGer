@@ -174,6 +174,9 @@ public abstract class AbstractModel<T> extends Model {
             new Object[] { toString() }));
 
         delete();
+        if (getId() != null) {
+            setId(null);
+        }
         //TODO: See top
         //setChanged();
         //notifyObservers(false);
@@ -276,7 +279,12 @@ public abstract class AbstractModel<T> extends Model {
      * Deletes everything from the associated table.
      */
     public void clearTable() {
-        all().delete();
+        try {
+            all().delete();
+        } catch (SienaException x) {
+            if (!x.getMessage().equals("No updated rows") && !x.getMessage().endsWith("rows deleted"))
+                throw x;
+        }
         id = null; // Reset
     }
 

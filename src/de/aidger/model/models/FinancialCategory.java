@@ -31,12 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import siena.Generator;
-import siena.Id;
-import siena.Model;
-import siena.Query;
-import siena.Table;
-import siena.Column;
+import siena.*;
 
 import de.aidger.model.AbstractModel;
 import de.aidger.model.validators.ValidationException;
@@ -386,10 +381,14 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
     
     @Override
     public void clearTable() {
-    	InternalFinancialCategory entry = new InternalFinancialCategory();
-    	entry.delete();
-    	entry.setId(null);
-    	this.setId(null);
+        try {
+    	    InternalFinancialCategory entry = new InternalFinancialCategory();
+    	    entry.all().delete();
+    	    this.setId(null);
+        } catch (SienaException x) {
+            if (!x.getMessage().equals("No updated rows") && !x.getMessage().endsWith("rows deleted"))
+                throw x;
+        }
     }
 
 }
