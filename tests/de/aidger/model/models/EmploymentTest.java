@@ -278,6 +278,7 @@ public class EmploymentTest {
         employment.setYear((short) 2010);
         employment.save();
 
+        employment.setId(null);
         employment.setMonth((byte) 11);
         employment.save();
 

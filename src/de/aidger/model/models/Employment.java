@@ -226,8 +226,14 @@ public class Employment extends AbstractModel<Employment> {
      */
     public List<Employment> getEmployments(short startYear, byte startMonth,
             short endYear, byte endMonth) {
-        return all().filter("month >=", startMonth).filter("month <=", endMonth)
-        		.filter("year >=", startYear).filter("year <=", endYear).fetch();
+    	List<Employment> employments = all().filter("year >=", startYear).filter("year <=", endYear).fetch();
+    	for(Employment employment : employments) {
+    		if((employment.getMonth() < startMonth && employment.getYear() <= startYear) ||
+    				(employment.getMonth() > endMonth && employment.getYear() >= endYear)) {
+    			employments.remove(employment);
+    		}
+    	}
+        return employments;
     }
 
     /**
