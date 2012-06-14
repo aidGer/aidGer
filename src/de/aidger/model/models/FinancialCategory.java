@@ -366,7 +366,9 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
     
     @Override
     public FinancialCategory getByKey(Object id) {
-    	for(FinancialCategory fc : this.getAll()) {
+    	List<FinancialCategory> categories = this.getAll();
+    	if(categories == null) return null;
+    	for(FinancialCategory fc : categories) {
     		if (id == null ? false : id.getClass() == Integer.class || id.getClass() == Long.class) {
     			if(fc.getId() == id) return fc;
     		}

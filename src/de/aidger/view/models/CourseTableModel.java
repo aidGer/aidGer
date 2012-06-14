@@ -130,6 +130,7 @@ public class CourseTableModel extends TableModel {
         List<AbstractModel> ret = new ArrayList<AbstractModel>();
         try {
             List<Course> lst = (new Course()).getAll();
+            if(lst == null) return ret;
             for (Course e : lst) {
                 ret.add(new Course(e));
             }

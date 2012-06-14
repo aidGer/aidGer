@@ -109,6 +109,7 @@ public class HourlyWageTableModel extends TableModel {
         List<AbstractModel> ret = new ArrayList<AbstractModel>();
         try {
             List<HourlyWage> lst = (new HourlyWage()).getAll();
+            if(lst == null) return ret;
             for (HourlyWage e : lst) {
                 ret.add(new HourlyWage(e));
             }

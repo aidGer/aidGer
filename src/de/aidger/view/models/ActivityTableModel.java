@@ -155,6 +155,7 @@ public class ActivityTableModel extends TableModel {
         List<AbstractModel> ret = new ArrayList<AbstractModel>();
         try {
             List<Activity> lst = (new Activity()).getAll();
+            if(lst == null) return ret;
             for (Activity e : lst) {
                 ret.add(new Activity(e));
             }
