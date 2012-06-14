@@ -154,7 +154,7 @@ public abstract class AbstractModel<T> extends Model {
     @SuppressWarnings("unchecked")
     public void remove() {
         /* Check if the model is saved in the db */
-        if (isInDatabase()) {
+        if (!isInDatabase()) {
             throw new ValidationException(_("Model not yet saved."));
         }
 
@@ -163,7 +163,7 @@ public abstract class AbstractModel<T> extends Model {
             java.lang.reflect.Method m = getClass().getDeclaredMethod(
                 "validateOnRemove");
             if (!(Boolean) m.invoke(this, new Object[0])) {
-                throw new ValidationException();
+                throw new ValidationException(_("Validation failed"));
             }
         } catch (NoSuchMethodException x) {
         } catch (IllegalAccessException x) {

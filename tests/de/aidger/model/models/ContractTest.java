@@ -28,10 +28,13 @@ import static org.junit.Assert.assertTrue;
 import java.sql.Date;
 import java.util.List;
 
+import de.aidger.model.validators.ValidationException;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
 
+import org.junit.rules.ExpectedException;
 import siena.SienaException;
 
 /**
@@ -44,6 +47,9 @@ public class ContractTest {
     protected Contract contract = null;
 
     protected static Assistant assistant = null;
+
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
 
     @BeforeClass
     public static void beforeClassSetUp() throws SienaException {
@@ -60,7 +66,6 @@ public class ContractTest {
     @Before
     public void setUp() {
         contract = new Contract();
-        contract.setId((long) 1);
         contract.setAssistantId(assistant.getId());
         contract.setCompletionDate(new Date(10));
         contract.setConfirmationDate(new Date(100));
@@ -96,6 +101,8 @@ public class ContractTest {
         List<Contract> list = contract.getAll();
         assertNotNull(list);
         contract.clearTable();
+
+        exception.expect(ValidationException.class);
 
         contract.setAssistantId((long) 0);
         contract.save();
@@ -151,6 +158,8 @@ public class ContractTest {
         assertNull(list);
         contract.resetErrors();
         contract.setEndDate(new Date(1000));
+
+        exception = ExpectedException.none();
     }
 
     /**
@@ -204,11 +213,17 @@ public class ContractTest {
         employment.setYear((short) 2010);
         employment.save();
 
+        exception.expect(ValidationException.class);
         contract.remove();
         list = contract.getAll();
         assertNotNull(list);
         contract.resetErrors();
+
+        exception = ExpectedException.none();
+        fc.remove();
+        course.remove();
         employment.remove();
+
 
         contract.remove();
         list = contract.getAll();

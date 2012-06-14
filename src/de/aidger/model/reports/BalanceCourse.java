@@ -41,7 +41,7 @@ public class BalanceCourse implements Comparable<BalanceCourse> {
     /**
      * The part of the course.
      */
-    private char Part;
+    private String Part;
 
     /**
      * The lecturer of the course.
@@ -76,7 +76,7 @@ public class BalanceCourse implements Comparable<BalanceCourse> {
         budgetCosts = new ArrayList<BudgetCost>();
         Title = Lecturer = TargetAudience = "";
         PlannedAWS = BasicAWS = 0.0;
-        Part = '-';
+        Part = "-";
     }
 
     /**
@@ -114,8 +114,18 @@ public class BalanceCourse implements Comparable<BalanceCourse> {
      * @param part
      *            the part to set
      */
-    public void setPart(char part) {
-        Part = part;
+    public void setPart(String part) {
+        Part = part.substring(0, 1);
+    }
+
+    /**
+     * Sets the part of the course.
+     *
+     * @param part
+     *            the part to set
+     */
+    public void setPart(Character part) {
+        Part = String.valueOf(part);
     }
 
     /**
@@ -123,7 +133,7 @@ public class BalanceCourse implements Comparable<BalanceCourse> {
      * 
      * @return the part
      */
-    public char getPart() {
+    public String getPart() {
         return Part;
     }
 
@@ -339,8 +349,7 @@ public class BalanceCourse implements Comparable<BalanceCourse> {
         int comparison = Title.toLowerCase().compareTo(
             arg0.getTitle().toLowerCase());
         if (comparison == 0) {
-            comparison = Character.toLowerCase(Part)
-                    - Character.toLowerCase(arg0.getPart());
+            comparison = Part.compareTo(arg0.getPart());
         }
         return comparison != 0 ? comparison : TargetAudience.toLowerCase()
             .compareTo(arg0.getTargetAudience().toLowerCase());

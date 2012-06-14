@@ -96,7 +96,7 @@ public class Course extends AbstractModel<Course> {
      * The part of the course (e.g. 'a' and 'b' or '1' and '2')
      */
     @Column("Teil")
-    private Character part;
+    private String part;
 
     /**
      * The group of the course.
@@ -124,6 +124,7 @@ public class Course extends AbstractModel<Course> {
             validateFormatOf(new String[] { "semester" },
                     new String[] { _("Semester") },
                     "^(SS[0-9]{2}|WS[0-9]{4}|[0-9]{4})$");
+            validateFormatOf(new String[] { "part" }, new String[] { _("Part") }, "^[a-zA-Z]$");
         }
     }
 
@@ -334,7 +335,7 @@ public class Course extends AbstractModel<Course> {
      * 
      * @return The part of the course
      */
-    public Character getPart() {
+    public String getPart() {
         return part;
     }
 
@@ -450,8 +451,18 @@ public class Course extends AbstractModel<Course> {
      * @param part
      *            The part of the course
      */
+    public void setPart(String part) {
+        this.part = part.substring(0, 1);
+    }
+
+    /**
+     * Set the part of the course.
+     *
+     * @param part
+     *            The part of the course
+     */
     public void setPart(Character part) {
-        this.part = part;
+        this.part = String.valueOf(part);
     }
 
     /**
