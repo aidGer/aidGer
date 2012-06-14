@@ -95,33 +95,21 @@ public class BalanceHelperTest {
     }
 
     @After
-    public void cleanUp() throws SienaException {
-
-        course.remove();
-
-        course2.remove();
-
-        course3.remove();
-
-        course4.remove();
-
-        assistant.remove();
-
+    public void cleanUp() {
         employment1.remove();
-
         employment2.remove();
-
         contract.remove();
-
+        course.remove();
+        course2.remove();
+        course3.remove();
+        course4.remove();
+        assistant.remove();
         financialCategory.remove();
-
         hourlyWage.remove();
     }
 
     /**
      * Sets up the Test of the class BalanceHelper.
-     * 
-     * @throws AdoHiveException
      */
     @Before
     public void setUp() throws SienaException {

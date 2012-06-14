@@ -65,7 +65,6 @@ public class AnonymizerTest {
         Calendar now = new GregorianCalendar();
 
         Assistant a = new Assistant();
-
         a.setEmail("test@example.com");
         a.setFirstName("Test");
         a.setLastName("Tester");
@@ -78,6 +77,13 @@ public class AnonymizerTest {
         b.setLastName("Tester2");
         b.setQualification("u");
         b.save();
+
+        Assistant c = new Assistant();
+        c.setEmail("test@example.com");
+        c.setFirstName("Test3");
+        c.setLastName("Tester3");
+        c.setQualification("u");
+        c.save();
 
         FinancialCategory financial = new FinancialCategory();
         financial.setBudgetCosts(new Integer[] { 100, 200 });
@@ -124,22 +130,28 @@ public class AnonymizerTest {
         employment.setYear((short) cal.get(Calendar.YEAR));
         employment.save();
 
-        employment.setMonth((byte) now.get(Calendar.MONTH));
-        employment.setYear((short) now.get(Calendar.YEAR));
-        employment.setAssistantId(b.getId());
-        employment.save();
+        Employment e2 = employment.clone();
+        e2.setId(null);
+        e2.setMonth((byte) now.get(Calendar.MONTH));
+        e2.setYear((short) now.get(Calendar.YEAR));
+        e2.setAssistantId(b.getId());
+        e2.save();
 
         Anonymizer.anonymizeAssistants();
 
-        Assistant assi = new Assistant(a.getById(a.getId()));
-
+        // Assistant with old employment => anonymize
+        Assistant assi = a.getById(a.getId());
         assertFalse(assi.getFirstName().equals(a.getFirstName()));
         assertFalse(assi.getLastName().equals(a.getLastName()));
         assertFalse(assi.getEmail().equals(a.getEmail()));
 
-        assi = new Assistant(a.getById(b.getId()));
-
+        // Assistant with new employment => don't anonymize
+        assi = a.getById(b.getId());
         assertEquals(assi, b);
+
+        // Assistant with no employment => don't anonymize
+        assi = a.getById(c.getId());
+        assertEquals(assi, c);
 
         Runtime.getInstance().setOption("anonymize-time", old);
     }
