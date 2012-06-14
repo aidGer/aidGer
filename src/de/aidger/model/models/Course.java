@@ -223,7 +223,7 @@ public class Course extends AbstractModel<Course> {
      * @return A list of courses
      */
     public List<Course> getCourses(FinancialCategory category) {
-        return all().filter("Finanzkategorie_ID", category.getId()).fetch();
+        return all().filter("financialCategoryId", category.getId()).fetch();
     }
 
     /**
@@ -234,7 +234,7 @@ public class Course extends AbstractModel<Course> {
      * @return List of courses
      */
     public List<Course> getCoursesBySemester(String semester) {
-        return all().filter("Semester", semester).fetch();
+        return all().filter("semester", semester).fetch();
     }
 
     /**
@@ -245,7 +245,7 @@ public class Course extends AbstractModel<Course> {
      * @return List of courses
      */
     public List<Course> getCoursesByGroup(String group) {
-        return all().filter("Gruppe", group).fetch();
+        return all().filter("group", group).fetch();
     }
 
     /**
@@ -254,7 +254,7 @@ public class Course extends AbstractModel<Course> {
      * @return List of semesters
      */
     public List<String> getDistinctSemesters() {
-        List<Course> courses = all().order("Semester").fetch();
+        List<Course> courses = all().order("semester").fetch();
         List<String> semesters = new ArrayList<String>();
         for(Course course : courses)
         	if(!semesters.contains(course.getSemester()))
@@ -268,7 +268,7 @@ public class Course extends AbstractModel<Course> {
      * @return List of groups
      */
     public List<String> getDistinctGroups() {
-    	List<Course> courses = all().order("Gruppe").fetch();
+    	List<Course> courses = all().order("group").fetch();
     	List<String> groups = new ArrayList<String>();
     	for(Course course : courses)
     		if(!groups.contains(course.getGroup()))

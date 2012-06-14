@@ -28,10 +28,13 @@ import static org.junit.Assert.assertTrue;
 import java.sql.Date;
 import java.util.List;
 
+import de.aidger.model.validators.ValidationException;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
 
+import org.junit.rules.ExpectedException;
 import siena.SienaException;
 
 /**
@@ -48,6 +51,9 @@ public class ActivityTest {
     private static Course course = null;
 
     private static FinancialCategory financial = null;
+
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
 
     @BeforeClass
     public static void beforeClassSetUp() throws SienaException {
@@ -89,11 +95,10 @@ public class ActivityTest {
     @Before
     public void setUp() {
         activity = new Activity();
-        activity.setId((long) 1);
         activity.setAssistantId(assistant.getId());
         activity.setContent("New assistant");
         activity.setCourseId(course.getId());
-        activity.setDate(new Date(100));
+        activity.setDate(new Date(1000000000));
         activity.setDocumentType("Test Type");
         activity.setProcessor("T");
         activity.setRemark("Remark");
@@ -122,6 +127,8 @@ public class ActivityTest {
     @Test
     public void testValidation() throws SienaException {
         System.out.println("Validation");
+
+        exception.expect(ValidationException.class);
 
         activity.setAssistantId((long) 0);
         activity.save();
@@ -189,6 +196,8 @@ public class ActivityTest {
         list = activity.getAll();
         assertNull(list);
         activity.resetErrors();
+
+        exception = ExpectedException.none();
     }
 
     /**
@@ -281,7 +290,7 @@ public class ActivityTest {
     public void testGetActivities_Date_Date() throws SienaException {
         System.out.println("getActivities");
 
-        List result = activity.getActivities(new Date(99), new Date(101));
+        List result = activity.getActivities(new Date(1), new Date(1010000000));
 
         assertNotNull(result);
         assertTrue(result.size() >= 3);

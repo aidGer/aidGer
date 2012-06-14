@@ -19,6 +19,8 @@
 
 package de.aidger.model.models;
 
+import de.aidger.model.validators.ValidationException;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.*;
@@ -27,6 +29,7 @@ import java.util.List;
 
 import org.junit.BeforeClass;
 
+import org.junit.rules.ExpectedException;
 import siena.SienaException;
 
 /**
@@ -37,6 +40,9 @@ import siena.SienaException;
 public class HourlyWageTest {
 
     protected HourlyWage hourly = null;
+
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
 
     @BeforeClass
     public static void beforeClassSetUp() {
@@ -57,26 +63,23 @@ public class HourlyWageTest {
      * Test of constructor, of class HourlyWage.
      */
     @Test
-    public void testConstructor() throws SienaException {
+    public void testConstructor() {
         System.out.println("Constructor");
 
         hourly.clearTable();
         hourly.save();
 
-        //TODO: re-implement
-        //HourlyWage result = new HourlyWage(hourly.getByKeys(
-        //        hourly.getQualification(), hourly.getMonth(),
-        //        hourly.getYear()));
-        //
-        //assertNotNull(result);
-        //assertEquals(hourly, result);
+        HourlyWage result = hourly.getByKeys(hourly.getQualification(), hourly.getMonth(), hourly.getYear());
+
+        assertNotNull(result);
+        assertEquals(hourly, result);
     }
 
     /**
      * Test of validation methods, of class HourlyWage.
      */
     @Test
-    public void testValidation() throws SienaException {
+    public void testValidation() {
         System.out.println("Validation");
 
         hourly.clearTable();
@@ -86,6 +89,8 @@ public class HourlyWageTest {
         hourly.remove();
         list = hourly.getAll();
         assertNull(list);
+
+        exception.expect(ValidationException.class);
 
         hourly.setQualification(null);
         hourly.save();
@@ -118,6 +123,8 @@ public class HourlyWageTest {
         hourly.save();
         list = hourly.getAll();
         assertNull(list);
+
+        exception = ExpectedException.none();
     }
 
 

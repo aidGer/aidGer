@@ -307,7 +307,6 @@ public class AbstractModelTest {
         a.setFirstName("Test");
         a.setLastName("Tester");
         a.setQualification("g");
-        a.save();
 
         exception.expect(ValidationException.class);
         a.remove();
@@ -315,7 +314,6 @@ public class AbstractModelTest {
 
         a.save();
         Long id = a.getId();
-
         a.remove();
 
         assertNull(a.getById(id));

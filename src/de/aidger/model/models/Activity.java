@@ -201,7 +201,7 @@ public class Activity extends AbstractModel<Activity>  {
      * @return All activities that occured during that date range
      */
     public List<Activity> getActivities(Date from, Date to) {
-    	return all().filter("date >", from).filter("date < to", to).fetch();
+    	return all().filter("date >=", from).filter("date <=", to).fetch();
     }
 
     /**

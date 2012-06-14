@@ -28,10 +28,14 @@ import static org.junit.Assert.assertTrue;
 import java.sql.Date;
 import java.util.List;
 
+import de.aidger.model.validators.ValidationException;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
 
+import org.junit.rules.ExpectedException;
+import org.junit.tests.running.methods.ExpectedTest;
 import siena.SienaException;
 
 /**
@@ -42,6 +46,9 @@ import siena.SienaException;
 public class CourseTest {
 
     protected Course course = null;
+
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
 
     @BeforeClass
     public static void beforeClassSetUp() {
@@ -102,6 +109,8 @@ public class CourseTest {
         list = course.getAll();
         assertNull(list);
 
+        exception.expect(ValidationException.class);
+
         course.setDescription(null);
         course.save();
         list = course.getAll();
@@ -148,6 +157,8 @@ public class CourseTest {
         list = course.getAll();
         assertNull(list);
         course.resetErrors();
+
+        exception = ExpectedException.none();
     }
 
     /**
@@ -177,6 +188,7 @@ public class CourseTest {
         activity.setType("Test Type");
         activity.save();
 
+        exception.expect(ValidationException.class);
         course.remove();
         list = course.getAll();
         assertNotNull(list);
@@ -218,6 +230,8 @@ public class CourseTest {
         assertNotNull(list);
         course.resetErrors();
         employment.remove();
+
+        exception = ExpectedException.none();
 
         course.remove();
         list = course.getAll();
