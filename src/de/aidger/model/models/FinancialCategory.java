@@ -238,7 +238,7 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
      */
     public void setCostUnits(Integer[] costUnits) {
         for(int i = 0; i < costUnits.length; i++) {
-        	if(entries.size() < i) {
+        	if(entries.size() >= i + 1) {
         		InternalFinancialCategory entry = entries.get(i);
         		entry.setCostUnit(costUnits[i]);
         	} else {
@@ -289,7 +289,7 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
     
     private InternalFinancialCategory newEntry() {
     	InternalFinancialCategory entry = new InternalFinancialCategory();
-    	entry.setId(this.id);
+    	entry.setGroup(this.id);
     	entry.setName(this.name);
     	entry.setYear(this.year);
     	return entry;
@@ -351,7 +351,7 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
     			fcMap.put(fc.getId(), fc);
     		}
     	}
-    	return new ArrayList<FinancialCategory>(fcMap.values());
+    	return fcMap.values().size() == 0 ? null : new ArrayList<FinancialCategory>(fcMap.values());
     }
     
     @Override

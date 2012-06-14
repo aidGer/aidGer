@@ -19,6 +19,7 @@
 
 package de.aidger.model.models;
 
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -30,6 +31,9 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
+import de.aidger.model.validators.ValidationException;
 
 import siena.SienaException;
 
@@ -41,7 +45,7 @@ import siena.SienaException;
 public class FinancialCategoryTest {
 
     protected FinancialCategory financial = null;
-
+    
     @BeforeClass
     public static void beforeClassSetUp() {
         de.aidger.model.Runtime.getInstance().initialize();
@@ -49,10 +53,12 @@ public class FinancialCategoryTest {
 
     @Before
     public void setUp() {
+        new Course().clearTable();
+        new FinancialCategory().clearTable();
         financial = new FinancialCategory();
         financial.setId((long) 1);
-        financial.setBudgetCosts(new Integer[] { 100, 200 });
         financial.setCostUnits(new Integer[] { 10001000, 20002000 });
+        financial.setBudgetCosts(new Integer[] { 100, 200 });
         financial.setName("Tester");
         financial.setYear((short) 2010);
     }
@@ -86,37 +92,55 @@ public class FinancialCategoryTest {
         financial.remove();
         list = financial.getAll();
         assertNull(list);
-
+        
         financial.setName(null);
-        financial.save();
+        try {
+            financial.save();
+        	fail("No validation exception!");
+        } catch(ValidationException e) {}
         list = financial.getAll();
         assertNull(list);
         financial.setName("Tester");
 
         financial.setYear((short) 999);
-        financial.save();
+        try {
+            financial.save();
+        	fail("No validation exception!");
+        } catch(ValidationException e) {}
         list = financial.getAll();
         assertNull(list);
 
         financial.setYear((short) 10101);
-        financial.save();
+        try {
+            financial.save();
+        	fail("No validation exception!");
+        } catch(ValidationException e) {}
         list = financial.getAll();
         assertNull(list);
         financial.setYear((short) 2010);
 
         financial.setBudgetCosts(new Integer[] { 0, -1 });
-        financial.save();
+        try {
+            financial.save();
+        	fail("No validation exception!");
+        } catch(ValidationException e) {}
         list = financial.getAll();
         assertNull(list);
         financial.setBudgetCosts(new Integer[] { 100, 200 });
 
         financial.setCostUnits(new Integer[] { 1234567 });
-        financial.save();
+        try {
+            financial.save();
+        	fail("No validation exception!");
+        } catch(ValidationException e) {}
         list = financial.getAll();
         assertNull(list);
 
         financial.setCostUnits(new Integer[] { 123456789 });
-        financial.save();
+        try {
+            financial.save();
+        	fail("No validation exception!");
+        } catch(ValidationException e) {}
         list = financial.getAll();
         assertNull(list);
     }
@@ -152,7 +176,10 @@ public class FinancialCategoryTest {
         course.setUnqualifiedWorkingHours(100.0);
         course.save();
 
-        financial.remove();
+        try {
+        	financial.remove();
+        	fail("No validation exception!");
+        } catch(ValidationException e) {}
         list = financial.getAll();
         assertNotNull(list);
         financial.resetErrors();

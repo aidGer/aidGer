@@ -271,7 +271,14 @@ public class Employment extends AbstractModel<Employment> {
      * @return The employments in the given semester
      */
     public List<Employment> getEmployments(String semester) {
-        return all().filter("semester", semester).fetch();
+    	List<Employment> employments = new Employment().all().fetch();
+    	for(Employment employment : employments) {
+    		Course course = new Course().getById(employment.getCourseId());
+    		if (!course.getSemester().equals(semester)) {
+    			employments.remove(employment);
+    		}
+    	}
+    	return employments;
     }
 
     /**

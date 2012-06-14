@@ -12,6 +12,7 @@ import siena.Id;
 import siena.Model;
 import siena.Query;
 import siena.Table;
+import de.aidger.model.validators.ValidationException;
 import de.aidger.utils.Logger;
 import de.aidger.utils.history.HistoryEvent;
 import de.aidger.utils.history.HistoryException;
@@ -110,6 +111,11 @@ public class InternalFinancialCategory extends Model {
 	}
 	
 	public void remove() {
+        /* Check if the model is saved in the db */
+        if (id == null ? false : all().getByKey(id) == null) {
+            return;
+        }
+        
 		Logger.info(MessageFormat.format(_("Removing model: {0}"), toString()));
 		
 		delete();
