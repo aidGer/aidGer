@@ -155,7 +155,7 @@ public abstract class AbstractModel<T> extends Model {
     public void remove() {
         /* Check if the model is saved in the db */
         if (!isInDatabase()) {
-            throw new ValidationException(_("Model not yet saved."));
+            return;
         }
 
         /* Check if there is a custom validation function */
