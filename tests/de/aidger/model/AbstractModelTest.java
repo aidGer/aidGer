@@ -308,9 +308,8 @@ public class AbstractModelTest {
         a.setLastName("Tester");
         a.setQualification("g");
 
-        exception.expect(ValidationException.class);
         a.remove();
-        exception = ExpectedException.none();
+        assertNull(a.getId());
 
         a.save();
         Long id = a.getId();
