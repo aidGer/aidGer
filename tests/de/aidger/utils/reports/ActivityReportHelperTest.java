@@ -168,6 +168,7 @@ public class ActivityReportHelperTest {
 
         Employment employment2 = employment.clone();
         employment2.setMonth((byte) (employment.getMonth() + 1));
+        employment2.setId(null);
         employment2.save();
 
         result = activityReportHelper.getEmployments(assistant);
@@ -193,6 +194,7 @@ public class ActivityReportHelperTest {
 
         Employment employment3 = employment2.clone();
         employment3.setMonth((byte) (employment2.getMonth() + 1));
+        employment3.setId(null);
         employment3.save();
 
         result = activityReportHelper.getEmployments(assistant);
@@ -221,6 +223,7 @@ public class ActivityReportHelperTest {
 
         Employment employment4 = employment.clone();
         employment4.setMonth((byte) (employment.getMonth() + 2));
+        employment4.setId(null);
         employment4.save();
 
         result = activityReportHelper.getEmployments(assistant);
@@ -259,6 +262,7 @@ public class ActivityReportHelperTest {
         Employment employment5 = employment.clone();
         employment5.setMonth((byte) (1));
         employment5.setYear((short) (employment4.getYear() + 1));
+        employment5.setId(null);
         employment5.save();
 
         result = activityReportHelper.getEmployments(assistant);
@@ -290,10 +294,12 @@ public class ActivityReportHelperTest {
 
         Employment employment6 = employment.clone();
         employment6.setMonth((byte) (employment.getMonth() + 2));
+        employment6.setId(null);
         employment6.save();
 
         Employment employment7 = employment.clone();
         employment7.setMonth((byte) (employment.getMonth() + 1));
+        employment7.setId(null);
         employment7.save();
 
         result = activityReportHelper.getEmployments(assistant);
@@ -322,10 +328,12 @@ public class ActivityReportHelperTest {
 
         Course course2 = course.clone();
         course2.setDescription("Test Description");
+        course2.setId(null);
         course2.save();
 
         Employment employment8 = employment.clone();
         employment8.setCourseId(course2.getId());
+        employment8.setId(null);
         employment8.save();
 
         result = activityReportHelper.getEmployments(assistant);
@@ -351,6 +359,7 @@ public class ActivityReportHelperTest {
         System.out.println("getEmploymentArray()");
         Employment employment2 = employment.clone();
         employment2.setMonth((byte) (employment.getMonth() + 1));
+        employment2.setId(null);
         employment2.save();
 
         List<ActivityEmployment> result = activityReportHelper
@@ -372,6 +381,7 @@ public class ActivityReportHelperTest {
 
         Employment employment3 = employment.clone();
         employment3.setMonth((byte) (1));
+        employment3.setId(null);
         employment3.save();
 
         result = activityReportHelper.getEmployments(assistant);
@@ -394,10 +404,10 @@ public class ActivityReportHelperTest {
 
     @After
     public void cleanUp() throws SienaException {
-        employment.remove();
-        contract.remove();
-        course.remove();
-        assistant.remove();
-        fc.remove();
+        employment.clearTable();
+        contract.clearTable();
+        course.clearTable();
+        assistant.clearTable();
+        fc.clearTable();
     }
 }

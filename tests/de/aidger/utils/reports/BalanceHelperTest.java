@@ -137,14 +137,17 @@ public class BalanceHelperTest {
 
         course2 = course.clone();
         course2.setLecturer("Test Tester 2");
+        course2.setId(null);
         course2.save();
 
         course3 = course.clone();
         course3.setTargetAudience("Testers 2");
+        course3.setId(null);
         course3.save();
 
         course4 = course.clone();
         course4.setGroup("Test group 2");
+        course4.setId(null);
         course4.save();
 
         assistant = new Assistant();
@@ -471,10 +474,12 @@ public class BalanceHelperTest {
 
         Course course2 = course.clone();
         course2.setSemester("2000");
+        course2.setId(null);
         course2.save();
 
         Course course3 = course.clone();
         course3.setSemester("WS0910");
+        course3.setId(null);
         course3.save();
 
         ArrayList years = balanceHelper.getYears();
@@ -573,7 +578,7 @@ public class BalanceHelperTest {
 
         hourlyWage.remove();
 
-        assertEquals(-1, BalanceHelper.calculatePreTaxBudgetCost(employment1),
+        assertEquals(0, BalanceHelper.calculatePreTaxBudgetCost(employment1),
             0);
     }
 }

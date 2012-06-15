@@ -164,11 +164,11 @@ public class ProtocolConverterTest {
     @After
     public void cleanUp() throws SienaException {
 
+        activity.remove();
+
         course.remove();
 
         assistant.remove();
-
-        activity.remove();
 
         financial.remove();
 
