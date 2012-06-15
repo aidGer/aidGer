@@ -153,4 +153,25 @@ public class InternalFinancialCategory extends Model {
             Logger.error(ex.getMessage());
         }
 	}
+	
+    @Override
+    public String toString() {
+        String ret = getClass().getSimpleName() + " [" + "ID: " + getId()
+                + ", ";
+        try {
+            for (java.lang.reflect.Method m : getClass().getDeclaredMethods()) {
+                if (m.getName().startsWith("get") && !m.getName().equals("getAll")
+                        && m.getParameterTypes().length == 0) {
+                    ret += m.getName().substring(3) + ": ";
+                    ret += m.invoke(this, new Object[0]) + ", ";
+                }
+            }
+            if (ret.endsWith(", ")) {
+                ret = ret.substring(0, ret.length() - 2);
+            }
+        } catch (Exception ex) {
+            Logger.error(ex.getMessage());
+        }
+        return ret + "]";
+    }
 }
