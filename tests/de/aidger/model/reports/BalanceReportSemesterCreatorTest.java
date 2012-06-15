@@ -74,6 +74,12 @@ public class BalanceReportSemesterCreatorTest {
     @After
     public void cleanUp() throws SienaException {
 
+        employment1.remove();
+
+        employment2.remove();
+
+        contract.remove();
+
         course.remove();
 
         course2.remove();
@@ -83,12 +89,6 @@ public class BalanceReportSemesterCreatorTest {
         course4.remove();
 
         assistant.remove();
-
-        employment1.remove();
-
-        employment2.remove();
-
-        contract.remove();
 
         financialCategory.remove();
     }
@@ -145,11 +145,12 @@ public class BalanceReportSemesterCreatorTest {
 
         contract = new Contract();
         contract.setStartDate(new Date(1970, 1, 1));
-        contract.setCompletionDate(new Date(1970, 1, 3));
-        contract.setConfirmationDate(new Date(1970, 1, 2));
+        contract.setCompletionDate(new Date(1970, 1, 2));
+        contract.setConfirmationDate(new Date(1970, 1, 3));
         contract.setEndDate(new Date(1970, 1, 4));
         contract.setDelegation(true);
         contract.setType("Test type");
+        contract.setAssistantId(assistant.getId());
         contract.save();
 
         employment1 = new Employment();

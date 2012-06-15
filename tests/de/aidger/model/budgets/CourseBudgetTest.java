@@ -67,6 +67,12 @@ public class CourseBudgetTest {
      */
     @Before
     public void setUp() throws SienaException {
+    	new FinancialCategory().clearTable();
+    	new Assistant().clearTable();
+    	new Contract().clearTable();
+    	new Course().clearTable();
+    	new Employment().clearTable();
+    	
         fc = new FinancialCategory();
         fc.setBudgetCosts(new Integer[] { 100 });
         fc.setCostUnits(new Integer[] { 10001000 });
@@ -195,11 +201,11 @@ public class CourseBudgetTest {
      */
     @After
     public void cleanUp() throws SienaException {
-        fc.remove();
-        assistant.remove();
+        employment.remove();
         contract.remove();
         course.remove();
-        employment.remove();
+        assistant.remove();
+        fc.remove();
     }
 
 }

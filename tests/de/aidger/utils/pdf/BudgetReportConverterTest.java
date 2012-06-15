@@ -108,11 +108,12 @@ public class BudgetReportConverterTest {
 
         contract = new Contract();
         contract.setStartDate(new Date(1970, 1, 1));
-        contract.setCompletionDate(new Date(1970, 1, 3));
-        contract.setConfirmationDate(new Date(1970, 1, 2));
+        contract.setCompletionDate(new Date(1970, 1, 2));
+        contract.setConfirmationDate(new Date(1970, 1, 3));
         contract.setEndDate(new Date(1970, 1, 4));
         contract.setDelegation(true);
         contract.setType("Test type");
+        contract.setAssistantId(assistant.getId());
         contract.save();
 
         employment1 = new Employment();
@@ -174,15 +175,15 @@ public class BudgetReportConverterTest {
     @After
     public void cleanUp() throws SienaException {
 
-        course.remove();
-
-        assistant.remove();
-
         employment1.remove();
 
         employment2.remove();
 
         contract.remove();
+
+        course.remove();
+
+        assistant.remove();
 
         financialCategory.remove();
 

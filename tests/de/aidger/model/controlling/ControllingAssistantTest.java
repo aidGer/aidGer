@@ -175,10 +175,10 @@ public class ControllingAssistantTest {
      */
     @After
     public void cleanUp() throws ValidationException {
-        fc.remove();
-        assistant.remove();
+        employment.remove();
         contract.remove();
         course.remove();
-        employment.remove();
+        assistant.remove();
+        fc.remove();
     }
 }

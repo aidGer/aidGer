@@ -64,11 +64,11 @@ public class ProtocolCreatorTest {
     @After
     public void cleanUp() throws ValidationException {
 
+        activity.remove();
+
         course.remove();
 
         assistant.remove();
-
-        activity.remove();
 
         financial.remove();
 

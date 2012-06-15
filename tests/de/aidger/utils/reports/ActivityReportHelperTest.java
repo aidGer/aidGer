@@ -394,10 +394,10 @@ public class ActivityReportHelperTest {
 
     @After
     public void cleanUp() throws SienaException {
-        fc.remove();
-        assistant.remove();
+        employment.remove();
         contract.remove();
         course.remove();
-        employment.remove();
+        assistant.remove();
+        fc.remove();
     }
 }

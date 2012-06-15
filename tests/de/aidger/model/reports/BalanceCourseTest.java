@@ -24,6 +24,7 @@ package de.aidger.model.reports;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -74,7 +75,7 @@ public class BalanceCourseTest {
         assertEquals(result.getTitle(), "");
         assertEquals(result.getBasicAWS(), 0.0, 0);
         assertEquals(result.getLecturer(), "");
-        assertEquals(result.getPart(), '-');
+        assertTrue(result.getPart() == '-');
         assertEquals(result.getPlannedAWS(), 0.0, 0);
     }
 
