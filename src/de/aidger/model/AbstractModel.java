@@ -122,8 +122,8 @@ public abstract class AbstractModel<T> extends Model {
             throw new ValidationException(_("The model was not saved because the error list is not empty."));
         }
 
+        Logger.info(MessageFormat.format(_("Saving model: {0}"), new Object[] { toString() }));
         boolean wasNew = getId() == null;
-
         super.save();
 
         /* Add event to the HistoryManager */
@@ -170,8 +170,7 @@ public abstract class AbstractModel<T> extends Model {
         } catch (InvocationTargetException x) {}
 
 
-        Logger.info(MessageFormat.format(_("Removing model: {0}"),
-            new Object[] { toString() }));
+        Logger.info(MessageFormat.format(_("Removing model: {0}"), new Object[] { toString() }));
 
         delete();
         if (getId() != null) {
