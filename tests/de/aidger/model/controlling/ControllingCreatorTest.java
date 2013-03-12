@@ -179,10 +179,10 @@ public class ControllingCreatorTest {
      */
     @After
     public void cleanUp() throws ValidationException {
-        fc.remove();
-        assistant.remove();
-        contract.remove();
-        course.remove();
         employment.remove();
+        course.remove();
+        contract.remove();
+        assistant.remove();
+        fc.remove();
     }
 }
