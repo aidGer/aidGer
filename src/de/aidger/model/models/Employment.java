@@ -226,13 +226,16 @@ public class Employment extends AbstractModel<Employment> {
      */
     public List<Employment> getEmployments(short startYear, byte startMonth,
             short endYear, byte endMonth) {
-    	List<Employment> employments = all().filter("year >=", startYear).filter("year <=", endYear).fetch();
-    	for(Employment employment : employments) {
-    		if((employment.getMonth() < startMonth && employment.getYear() <= startYear) ||
-    				(employment.getMonth() > endMonth && employment.getYear() >= endYear)) {
-    			employments.remove(employment);
-    		}
-    	}
+        List<Employment> employments = all().filter("year >=", startYear)
+                .filter("year <=", endYear).fetch();
+        for (int i = 0; i < employments.size(); i++) {
+            if ((employments.get(i).getMonth() < startMonth && employments.get(
+                    i).getYear() <= startYear)
+                    || (employments.get(i).getMonth() > endMonth && employments
+                            .get(i).getYear() >= endYear)) {
+                employments.remove(employments.get(i));
+            }
+        }
         return employments;
     }
 
@@ -277,14 +280,14 @@ public class Employment extends AbstractModel<Employment> {
      * @return The employments in the given semester
      */
     public List<Employment> getEmployments(String semester) {
-    	List<Employment> employments = new Employment().all().fetch();
-    	for(Employment employment : employments) {
-    		Course course = new Course().getById(employment.getCourseId());
-    		if (!course.getSemester().equals(semester)) {
-    			employments.remove(employment);
-    		}
-    	}
-    	return employments;
+        List<Employment> employments = new Employment().all().fetch();
+        for (int i = 0; i < employments.size(); i++) {
+            Course course = new Course().getById(employments.get(i).getCourseId());
+            if (!course.getSemester().equals(semester)) {
+                employments.remove(employments.get(i));
+            }
+        }
+        return employments;
     }
 
     /**

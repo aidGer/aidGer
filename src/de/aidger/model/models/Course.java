@@ -452,12 +452,12 @@ public class Course extends AbstractModel<Course> {
      *            The part of the course
      */
     public void setPart(String part) {
-        this.part = part.substring(0, 1);
+        this.part = part == null ? null : part.substring(0, 1);
     }
 
     /**
      * Set the part of the course.
-     *
+     * 
      * @param part
      *            The part of the course
      */
