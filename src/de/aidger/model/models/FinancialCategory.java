@@ -83,8 +83,7 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
     public FinancialCategory(FinancialCategory f) {
         this();
         setId(f.getId());
-        setCostUnits(f.getCostUnits());
-        setBudgetCosts(f.getBudgetCosts());
+        this.entries = f.entries;
         setName(f.getName());
         setYear(f.getYear());
     }
@@ -96,8 +95,7 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
     public FinancialCategory clone() {
         FinancialCategory f = new FinancialCategory();
         f.setId(id);
-        f.setCostUnits(getCostUnits());
-        f.setBudgetCosts(getBudgetCosts());
+        f.entries = this.entries;
         f.setName(name);
         f.setYear(year);
         return f;
@@ -166,8 +164,15 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
      * @return List of distinct cost units
      */
     public List<Integer> getDistinctCostUnits() {
-        //TODO: Implement
-        return null;
+    	//TODO: Make sure that distinct cost units mean "SELECT DISTINCT Kostenstelle from finanzkategorie"
+    	List<Integer> costUnits = new ArrayList<Integer>();
+    	List<InternalFinancialCategory> allEntries = new InternalFinancialCategory().getAll();
+    	for(InternalFinancialCategory fc : allEntries) {
+    		if(!costUnits.contains(fc.getCostUnit())) {
+    			costUnits.add(fc.getCostUnit());
+    		}
+    	}
+        return costUnits;
     }
 
     /**
