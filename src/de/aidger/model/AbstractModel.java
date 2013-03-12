@@ -113,7 +113,6 @@ public abstract class AbstractModel<T> extends Model {
      * 
      * @return True if validation succeeds
      */
-    @SuppressWarnings("unchecked")
     public void save() {
         /* Validation of the model */
         if (!doValidate()) {
@@ -151,7 +150,6 @@ public abstract class AbstractModel<T> extends Model {
      * 
      * @return False if the model is new or doesn't validate
      */
-    @SuppressWarnings("unchecked")
     public void remove() {
         /* Check if the model is saved in the db */
         if (!isInDatabase()) {
@@ -220,7 +218,6 @@ public abstract class AbstractModel<T> extends Model {
      *            The unique id of the model
      * @return The model if one was found or null
      */
-    @SuppressWarnings("unchecked")
     public T getById(Long id) {
         return (T) all().getByKey(id);
     }

@@ -21,7 +21,6 @@ package de.aidger.model;
 
 import static de.aidger.utils.Translation._;
 
-import java.beans.PersistenceDelegate;
 import java.io.File;
 import java.net.URI;
 import java.text.MessageFormat;
@@ -32,9 +31,9 @@ import java.util.Properties;
 import de.aidger.model.models.*;
 import de.aidger.utils.*;
 import de.aidger.view.UI;
-import siena.PersistenceManager;
 import siena.PersistenceManagerFactory;
 import siena.jdbc.JdbcPersistenceManager;
+import siena.jdbc.ThreadedConnectionManager;
 
 /**
  * Initializes Configuration and Translation and relays the methods
@@ -72,6 +71,11 @@ public final class Runtime {
      * The data XML manager.
      */
     private DataXMLManager dataManager = null;
+    
+    /**
+     * The Siena Connection Manager. Only use if direct access is really needed.
+     */
+    private ThreadedConnectionManager connManager = null;
 
     /**
      * Is this the first start of aidGer?
@@ -149,12 +153,9 @@ public final class Runtime {
 
             /* Create the aidGer configuration directory. */
             if (!file.mkdirs()) {
-                UI
-                    .displayError(MessageFormat
-                        .format(
-                            "Could not create directory \"{0}\".\n"
-                                    + "Please make sure that you have enough rights to create this directory.",
-                            new Object[] { file.getPath() }));
+                UI.displayError(MessageFormat.format("Could not create directory \"{0}\".\n" +
+                        "Please make sure that you have enough rights to create this directory.",
+                        new Object[] { file.getPath() }));
                 System.exit(-1);
             }
         }
@@ -164,12 +165,9 @@ public final class Runtime {
 
         if (!templates.exists() || !templates.isDirectory()) {
             if (!templates.mkdir()) {
-                UI
-                    .displayError(MessageFormat
-                        .format(
-                            "Could not create directory \"{0}\".\n"
-                                    + "Please make sure that you have enough rights to create this directory.",
-                            new Object[] { templates.getPath() }));
+                UI.displayError(MessageFormat.format("Could not create directory \"{0}\".\n" +
+                        "Please make sure that you have enough rights to create this directory.",
+                        new Object[] { templates.getPath() }));
             }
         }
 
@@ -178,8 +176,7 @@ public final class Runtime {
          * to "." if it is set. This is used, to seperate test and run
          * configurations.
          */
-        String test = System.getenv("AIDGER_TEST");
-        if (test != null) {
+        if (System.getenv("AIDGER_TEST") != null) {
             testRun = true;
             configPath = "./";
         }
@@ -219,28 +216,16 @@ public final class Runtime {
 
         /* Check if an instance of aidGer is already running */
         if (!testRun && !checkLock()) {
-            UI
-                .displayError(_("Only one instance of aidGer can be run at a time."));
+            UI.displayError(_("Only one instance of aidGer can be run at a time."));
             System.exit(-1);
         }
         
         /* Set database connection settings and try to get an instance of AdoHiveController */
         try {
-            Properties p = new Properties();
-            p.put("driver", getOption("database-driver", "com.mysql.jdbc.Driver"));
-            URI uri = new URI(getOption("database-uri", "jdbc:mysql://localhost/aidger?user=root&password="));
-            if (uri.getQuery() != null) {
-                String[] user = uri.getQuery().split("&");
-                p.put("user", user[0].substring(5));
-                p.put("password", user[1].substring(9));
-            }
-            p.put("url", getOption("database-uri"));
+        	reloadDatabaseConnection();
 
-            PersistenceManager pm = new JdbcPersistenceManager();
-            pm.init(p);
-            PersistenceManagerFactory.install(pm, Activity.class);
-
-            //TODO: Get a connection
+            /* Try to get a connection which throws an exception if it fails */
+            connManager.getConnection();
         } catch (Exception e) {
             Logger.error("Could not connect to the Database: " + e.toString());
             e.printStackTrace();
@@ -295,6 +280,39 @@ public final class Runtime {
     public boolean isConnected() {
     	return connected;
     }
+    
+    /**
+     * Returns the Siena Connection Manager. Only use if really necessary.
+     * 
+     * @return The connection manager 
+     */
+    public ThreadedConnectionManager getConnectionManager() {
+    	return connManager;
+    }
+    
+    /**
+     * Reloads the database connection details from the config file
+     * 
+     * @throws URISyntaxException and SienaException
+     */
+    public void reloadDatabaseConnection() throws Exception {
+        Properties p = new Properties();
+        p.put("driver", getOption("database-driver", "com.mysql.jdbc.Driver"));
+        URI uri = new URI(getOption("database-uri", "jdbc:mysql://localhost/aidger?user=root&password="));
+        if (uri.getQuery() != null) {
+            String[] user = uri.getQuery().split("&");
+            p.put("user", user[0].substring(5));
+            p.put("password", user[1].substring(9));
+        }
+        p.put("url", getOption("database-uri"));
+
+        connManager = new ThreadedConnectionManager();
+        connManager.init(p);
+        
+        JdbcPersistenceManager pm = new JdbcPersistenceManager();
+        pm.setConnectionManager(connManager);
+        PersistenceManagerFactory.install(pm, Activity.class);
+    }
 
     /**
      * Returns the location and name of the .jar file.
@@ -302,8 +320,7 @@ public final class Runtime {
      * @return The location
      */
     public String getJarLocation() {
-        String location = getClass().getProtectionDomain().getCodeSource()
-            .getLocation().toString();
+        String location = getClass().getProtectionDomain().getCodeSource().getLocation().toString();
         int idx = location.indexOf(":");
 
         /* Windows uses file:/C:/folder whereas Unix uses file:/folder */

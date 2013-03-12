@@ -81,24 +81,11 @@ public class DatabaseCheck extends WizardPanel {
         jLabel3.setForeground(Color.red);
         jLabel3.setText(_("Trying to connect ..."));
 
-        String databaseURI = Runtime.getInstance().getOption("database-uri", "com.mysql.jdbc.Driver");
-        String databaseDriver = Runtime.getInstance().getOption("database-driver", "jdbc:mysql://localhost:3066/aidger?user=root&password=&");
-        
-        try{
-            Properties p = new Properties();
-            p.put("driver", databaseDriver);
-            URI uri = new URI(databaseURI);
-            if (uri.getQuery() != null) {
-                String[] user = uri.getQuery().split("&");
-                p.put("user", user[0].substring(5));
-                p.put("password", user[1].substring(9));
-            }
-            p.put("url", databaseURI);
-            
-        	PersistenceManager pm = PersistenceManagerFactory.getPersistenceManager(Activity.class);
-        	pm.init(p);
-        }
-        catch(Exception e){
+        /* Reload the database configuration and try to get a connection to it */
+        try {
+        	Runtime.getInstance().reloadDatabaseConnection();
+        	Runtime.getInstance().getConnectionManager().getConnection();
+        } catch(Exception e){
             Logger.error("Could not connect to the Database: " + e.toString());
             e.printStackTrace();
         }
