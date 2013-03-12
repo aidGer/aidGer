@@ -57,16 +57,6 @@ public class CostUnitTableModel extends TableModel {
     }
 
     /**
-     * (non-Javadoc)
-     *
-     * @see de.aidger.view.models.TableModel#getModelFromDB(int)
-     */
-    @Override
-    protected AbstractModel getModelFromDB(int idx) {
-        return Runtime.getInstance().getDataXMLManager().getCostUnitMap().get(idx);
-    }
-
-    /**
      * (non-javadoc)
      *
      * @see de.aidger.view.models.TableModel#getModels()

@@ -21,15 +21,15 @@ package de.aidger.view.models;
 
 import static de.aidger.utils.Translation._;
 
-import de.aidger.model.AbstractModel;
-import de.aidger.model.models.Course;
-import de.aidger.model.models.FinancialCategory;
-import siena.SienaException;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import siena.SienaException;
+import de.aidger.model.AbstractModel;
+import de.aidger.model.models.Course;
+import de.aidger.model.models.FinancialCategory;
 
 /**
  * The class represents the table model for the master data courses.
@@ -70,35 +70,49 @@ public class CourseTableModel extends TableModel {
 
     /**
      * (non-Javadoc)
-     *
-     * @see de.aidger.view.models.TableModel#getRowValue(de.aidger.model.AbstractModel, int)
+     * 
+     * @see de.aidger.view.models.TableModel#getRowValue(de.aidger.model.AbstractModel,
+     *      int)
      */
     @Override
     protected Object getRowValue(AbstractModel model, int row) {
         try {
             Course course = (Course) model;
             switch (row) {
-                case 0: return course.getId();
-                case 1: return course.getDescription();
-                case 2: return course.getSemester();
-                case 3: return course.getLecturer();
-                case 4: return course.getAdvisor();
-                case 5: return course.getNumberOfGroups();
-                case 6: return course.getTargetAudience();
-                case 7: return course.getUnqualifiedWorkingHours();
-                case 8: return course.getScope();
-                case 9: return course.getPart();
-                case 10: return course.getGroup();
-                case 11: return course.getRemark();
-                case 12:
-                    if (fcCache.containsKey(course.getFinancialCategoryId())) {
-                        return fcCache.get(course.getFinancialCategoryId());
-                    } else {
-                        UIFinancialCategory fc = new UIFinancialCategory((new FinancialCategory())
-                                .getById(course.getFinancialCategoryId()));
-                        fcCache.put(fc.getId(), fc);
-                        return fc;
-                    }
+            case 0:
+                return course.getId();
+            case 1:
+                return course.getDescription();
+            case 2:
+                return course.getSemester();
+            case 3:
+                return course.getLecturer();
+            case 4:
+                return course.getAdvisor();
+            case 5:
+                return course.getNumberOfGroups();
+            case 6:
+                return course.getTargetAudience();
+            case 7:
+                return course.getUnqualifiedWorkingHours();
+            case 8:
+                return course.getScope();
+            case 9:
+                return course.getPart();
+            case 10:
+                return course.getGroup();
+            case 11:
+                return course.getRemark();
+            case 12:
+                if (fcCache.containsKey(course.getFinancialCategoryId())) {
+                    return fcCache.get(course.getFinancialCategoryId());
+                } else {
+                    UIFinancialCategory fc = new UIFinancialCategory(
+                            (new FinancialCategory()).getById(course
+                                    .getFinancialCategoryId()));
+                    fcCache.put(fc.getId(), fc);
+                    return fc;
+                }
             }
         } catch (SienaException ex) {
         }
@@ -106,31 +120,16 @@ public class CourseTableModel extends TableModel {
     }
 
     /**
-     * (non-Javadoc)
-     *
-     * @see de.aidger.view.models.TableModel#getModelFromDB(int)
-     */
-    @Override
-    protected AbstractModel getModelFromDB(int idx) {
-        try {
-            //TODO: Rewrite with Siena
-            //return new Course(AdoHiveController.getInstance().getCourseManager().get(idx));
-            return null;
-        } catch (SienaException ex) {
-            return null;
-        }
-    }
-
-    /**
      * (non-javadoc)
-     *
+     * 
      * @see de.aidger.view.models.TableModel#getModels()
      */
     protected List<AbstractModel> getModels() {
         List<AbstractModel> ret = new ArrayList<AbstractModel>();
         try {
             List<Course> lst = (new Course()).getAll();
-            if(lst == null) return ret;
+            if (lst == null)
+                return ret;
             for (Course e : lst) {
                 ret.add(new Course(e));
             }

@@ -144,22 +144,6 @@ public class EmploymentTableModel extends TableModel {
     }
 
     /**
-     * (non-Javadoc)
-     *
-     * @see de.aidger.view.models.TableModel#getModelFromDB(int)
-     */
-    @Override
-    protected AbstractModel getModelFromDB(int idx) {
-        try {
-            //TODO: Rewrite with Siena
-            //return new Employment(AdoHiveController.getInstance().getEmploymentManager().get(idx));
-            return null;
-        } catch (SienaException ex) {
-            return null;
-        }
-    }
-
-    /**
      * (non-javadoc)
      *
      * @see de.aidger.view.models.TableModel#getModels() 

@@ -85,22 +85,6 @@ public class HourlyWageTableModel extends TableModel {
     }
 
     /**
-     * (non-Javadoc)
-     *
-     * @see de.aidger.view.models.TableModel#getModelFromDB(int)
-     */
-    @Override
-    protected AbstractModel getModelFromDB(int idx) {
-        try {
-            //TODO: Rewrite with Siena
-            //return new HourlyWage(AdoHiveController.getInstance().getHourlyWageManager().get(idx));
-            return null;
-        } catch (SienaException ex) {
-            return null;
-        }
-    }
-
-    /**
      * (non-javadoc)
      *
      * @see de.aidger.view.models.TableModel#getModels()
