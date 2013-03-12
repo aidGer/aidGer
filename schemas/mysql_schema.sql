@@ -90,7 +90,7 @@ CREATE TABLE `Kosteneinheit` (
   `Fonds` TEXT NOT NULL DEFAULT '',
   `TokenDB` VARCHAR(100) NOT NULL DEFAULT '',
 
-  PRIMARY KEY (`ID`),
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
