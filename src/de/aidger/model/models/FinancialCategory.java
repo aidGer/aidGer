@@ -22,23 +22,16 @@ package de.aidger.model.models;
 import static de.aidger.utils.Translation._;
 
 import java.lang.reflect.InvocationTargetException;
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import siena.*;
 
 import de.aidger.model.AbstractModel;
 import de.aidger.model.validators.ValidationException;
-import de.aidger.utils.Logger;
-import de.aidger.utils.history.HistoryEvent;
-import de.aidger.utils.history.HistoryException;
-import de.aidger.utils.history.HistoryManager;
 
 /**
  * Represents a single entry in the financial category column of the database.
@@ -148,7 +141,7 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
     public boolean validateOnRemove() {
         boolean ret = true;
 
-        List courses = (new Course()).getCourses(this);
+        List<Course> courses = (new Course()).getCourses(this);
 
         if (courses.size() > 0) {
             addError(_("Financial Category is still linked to a Course."));

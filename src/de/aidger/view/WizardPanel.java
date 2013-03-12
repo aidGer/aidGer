@@ -28,7 +28,9 @@ import javax.swing.JPanel;
  */
 public abstract class WizardPanel extends JPanel {
 
-    private AbstractAction action;
+	private static final long serialVersionUID = 1L;
+	
+	private AbstractAction action;
 
     /**
      * Prepare the panel before showing it.

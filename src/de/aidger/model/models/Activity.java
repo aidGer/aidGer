@@ -26,6 +26,7 @@ import java.util.List;
 
 import siena.Table;
 import siena.Column;
+import siena.SimpleDate;
 
 import de.aidger.model.AbstractModel;
 
@@ -54,6 +55,7 @@ public class Activity extends AbstractModel<Activity>  {
      * The date on which this activity took place.
      */
     @Column("Datum")
+    @SimpleDate
     private Date date;
 
     /**

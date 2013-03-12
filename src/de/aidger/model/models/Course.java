@@ -201,8 +201,8 @@ public class Course extends AbstractModel<Course> {
     public boolean validateOnRemove() {
         boolean ret = true;
 
-        List act = (new Activity()).getActivities(this);
-        List emp = (new Employment()).getEmployments(this);
+        List<Activity> act = (new Activity()).getActivities(this);
+        List<Employment> emp = (new Employment()).getEmployments(this);
 
         if (act.size() > 0) {
             addError(_("Course is still linked to an Activity."));

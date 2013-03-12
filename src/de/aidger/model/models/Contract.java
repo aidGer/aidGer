@@ -22,11 +22,11 @@ package de.aidger.model.models;
 import static de.aidger.utils.Translation._;
 
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 import siena.Table;
 import siena.Column;
+import siena.SimpleDate;
 
 import de.aidger.model.AbstractModel;
 import de.aidger.model.validators.DateRangeValidator;
@@ -50,12 +50,14 @@ public class Contract extends AbstractModel<Contract> {
      * The date the contract was completed.
      */
     @Column("DatumAbschluss")
+    @SimpleDate
     private Date completionDate;
 
     /**
      * The date the contract was confirmed.
      */
     @Column("DatumBestaetigung")
+    @SimpleDate
     private Date confirmationDate;
 
     /**
@@ -68,12 +70,14 @@ public class Contract extends AbstractModel<Contract> {
      * The date the contract ends.
      */
     @Column("DatumEnde")
+    @SimpleDate
     private Date endDate;
 
     /**
      * The date the contract starts.
      */
     @Column("DatumAnfang")
+    @SimpleDate
     private Date startDate;
 
     /**
@@ -160,7 +164,7 @@ public class Contract extends AbstractModel<Contract> {
     public boolean validateOnRemove() {
         boolean ret = true;
 
-        List emps = (new Employment()).getEmployments(this);
+        List<Employment> emps = (new Employment()).getEmployments(this);
 
         if (emps.size() > 0) {
             addError(_("Contract is still linked to an Employment"));
