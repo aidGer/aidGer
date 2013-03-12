@@ -59,6 +59,13 @@ public class RuntimeTest {
         Runtime rt = Runtime.getInstance();
         assertNotNull(rt);
     }
+    
+    @Test
+    public void testIsTestRun() {
+        System.out.println("isTestRun");
+        
+        assertTrue(Runtime.getInstance().isTestRun());
+    }
 
     /**
      * Test of getJarLocation method, of class Runtime.
