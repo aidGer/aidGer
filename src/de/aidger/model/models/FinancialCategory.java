@@ -28,8 +28,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-import siena.*;
-
+import siena.SienaException;
 import de.aidger.model.AbstractModel;
 import de.aidger.model.validators.ValidationException;
 
@@ -41,7 +40,6 @@ import de.aidger.model.validators.ValidationException;
  */
 public class FinancialCategory extends AbstractModel<FinancialCategory> {
 
-	
     /**
      * The name of the category.
      */
@@ -51,7 +49,7 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
      * The year the category is valid.
      */
     private Short year;
-    
+
     private ArrayList<InternalFinancialCategory> entries;
 
     /**
@@ -157,14 +155,16 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
      * @return List of distinct cost units
      */
     public List<Integer> getDistinctCostUnits() {
-    	//TODO: Make sure that distinct cost units mean "SELECT DISTINCT Kostenstelle from finanzkategorie"
-    	List<Integer> costUnits = new ArrayList<Integer>();
-    	List<InternalFinancialCategory> allEntries = new InternalFinancialCategory().getAll();
-    	for(InternalFinancialCategory fc : allEntries) {
-    		if(!costUnits.contains(fc.getCostUnit())) {
-    			costUnits.add(fc.getCostUnit());
-    		}
-    	}
+        // TODO: Make sure that distinct cost units mean
+        // "SELECT DISTINCT Kostenstelle from finanzkategorie"
+        List<Integer> costUnits = new ArrayList<Integer>();
+        List<InternalFinancialCategory> allEntries = new InternalFinancialCategory()
+                .getAll();
+        for (InternalFinancialCategory fc : allEntries) {
+            if (!costUnits.contains(fc.getCostUnit())) {
+                costUnits.add(fc.getCostUnit());
+            }
+        }
         return costUnits;
     }
 
@@ -174,10 +174,10 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
      * @return The budget costs of the category
      */
     public Integer[] getBudgetCosts() {
-    	Integer[] costs = new Integer[entries.size()];
-    	for(int i = 0; i < entries.size(); i++) {
-    		costs[i] = entries.get(i).getBudgetCost();
-    	}
+        Integer[] costs = new Integer[entries.size()];
+        for (int i = 0; i < entries.size(); i++) {
+            costs[i] = entries.get(i).getBudgetCost();
+        }
         return costs;
     }
 
@@ -187,10 +187,10 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
      * @return The funds of the category
      */
     public Integer[] getCostUnits() {
-    	Integer[] costUnits = new Integer[entries.size()];
-    	for(int i = 0; i < entries.size(); i++) {
-    		costUnits[i] = entries.get(i).getCostUnit();
-    	}
+        Integer[] costUnits = new Integer[entries.size()];
+        for (int i = 0; i < entries.size(); i++) {
+            costUnits[i] = entries.get(i).getCostUnit();
+        }
         return costUnits;
     }
 
@@ -220,11 +220,11 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
      */
     public void setBudgetCosts(Integer[] costs) {
         for (int i = 0; i < entries.size(); i++) {
-        	if(costs.length >= i + 1) {
-        		entries.get(i).setBudgetCost(costs[i]);
-        	} else {
-        		entries.get(i).setBudgetCost(null);
-        	}
+            if (costs.length >= i + 1) {
+                entries.get(i).setBudgetCost(costs[i]);
+            } else {
+                entries.get(i).setBudgetCost(null);
+            }
         }
     }
 
@@ -235,28 +235,28 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
      *            The cost units of the category
      */
     public void setCostUnits(Integer[] costUnits) {
-        for(int i = 0; i < costUnits.length; i++) {
-        	if(entries.size() >= i + 1) {
-        		InternalFinancialCategory entry = entries.get(i);
-        		entry.setCostUnit(costUnits[i]);
-        	} else {
-        		InternalFinancialCategory entry = newEntry();
-        		entry.setCostUnit(costUnits[i]);
-        		entries.add(entry);
-        	}
+        for (int i = 0; i < costUnits.length; i++) {
+            if (entries.size() >= i + 1) {
+                InternalFinancialCategory entry = entries.get(i);
+                entry.setCostUnit(costUnits[i]);
+            } else {
+                InternalFinancialCategory entry = newEntry();
+                entry.setCostUnit(costUnits[i]);
+                entries.add(entry);
+            }
         }
-        for(int i = costUnits.length; i < entries.size(); i++) {
-        	entries.get(i).remove();
-        	entries.remove(i);
+        for (int i = costUnits.length; i < entries.size(); i++) {
+            entries.get(i).remove();
+            entries.remove(i);
         }
     }
-    
+
     @Override
     public void setId(Long id) {
-    	this.id = id;
-    	for(InternalFinancialCategory entry : entries) {
-    		entry.setGroup(id);
-    	}
+        this.id = id;
+        for (InternalFinancialCategory entry : entries) {
+            entry.setGroup(id);
+        }
     }
 
     /**
@@ -267,8 +267,8 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
      */
     public void setName(String name) {
         this.name = name;
-        for(InternalFinancialCategory entry : entries) {
-        	entry.setName(name);
+        for (InternalFinancialCategory entry : entries) {
+            entry.setName(name);
         }
     }
 
@@ -280,113 +280,120 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
      */
     public void setYear(Short year) {
         this.year = year;
-        for(InternalFinancialCategory entry : entries) {
-        	entry.setYear(year);
+        for (InternalFinancialCategory entry : entries) {
+            entry.setYear(year);
         }
     }
-    
+
     private InternalFinancialCategory newEntry() {
-    	InternalFinancialCategory entry = new InternalFinancialCategory();
-    	entry.setGroup(this.id);
-    	entry.setName(this.name);
-    	entry.setYear(this.year);
-    	return entry;
+        InternalFinancialCategory entry = new InternalFinancialCategory();
+        entry.setGroup(this.id);
+        entry.setName(this.name);
+        entry.setYear(this.year);
+        return entry;
     }
-    
+
     public void save() {
         /* Validation of the model */
         if (!doValidate()) {
             throw new ValidationException(_("Validation failed."));
         } else if (!errors.isEmpty()) {
-            throw new ValidationException(_("The model was not saved because the error list is not empty."));
+            throw new ValidationException(
+                    _("The model was not saved because the error list is not empty."));
         }
-        
+
         // TODO: implement als transaction to ensure no duplicate groups
-        if(id == null) {
-        	List<InternalFinancialCategory> temp = new InternalFinancialCategory().all().order("-group").fetch();
-        	if(temp == null || temp.size() == 0) {
-        		this.setId((long) 0);
-        	} else {
-        		this.setId(temp.get(0).getGroup() + 1);
-        	}
+        if (id == null) {
+            List<InternalFinancialCategory> temp = new InternalFinancialCategory()
+                    .all().order("-group").fetch();
+            if (temp == null || temp.size() == 0) {
+                this.setId((long) 0);
+            } else {
+                this.setId(temp.get(0).getGroup() + 1);
+            }
         }
-        
-        for(InternalFinancialCategory entry : entries) {
-        	entry.save();
+
+        for (InternalFinancialCategory entry : entries) {
+            entry.save();
         }
     }
 
-    
     public void remove() {
         /* Check if there is a custom validation function */
         try {
             java.lang.reflect.Method m = getClass().getDeclaredMethod(
-                "validateOnRemove");
+                    "validateOnRemove");
             if (!(Boolean) m.invoke(this, new Object[0])) {
                 throw new ValidationException();
             }
         } catch (NoSuchMethodException x) {
         } catch (IllegalAccessException x) {
-        } catch (InvocationTargetException x) {}
-        for(InternalFinancialCategory entry : entries) {
-        	entry.remove();
+        } catch (InvocationTargetException x) {
+        }
+        for (InternalFinancialCategory entry : entries) {
+            entry.remove();
         }
     }
-    
+
     @Override
     public List<FinancialCategory> getAll() {
-    	List<InternalFinancialCategory> allEntries = new InternalFinancialCategory().getAll();
-    	HashMap<Long, FinancialCategory> fcMap = new HashMap<Long, FinancialCategory>();
-    	for(InternalFinancialCategory entry : allEntries) {
-    		if(fcMap.containsKey(entry.getGroup())) {
-    			fcMap.get(entry.getGroup()).entries.add(entry);
-    		} else {
-    			FinancialCategory fc = new FinancialCategory();
-    			fc.setId(entry.getGroup());
-    			fc.setName(entry.getName());
-    			fc.setYear(entry.getYear());
-    			fc.entries.add(entry);
-    			fcMap.put(fc.getId(), fc);
-    		}
-    	}
-    	return fcMap.values().size() == 0 ? null : new ArrayList<FinancialCategory>(fcMap.values());
+        List<InternalFinancialCategory> allEntries = new InternalFinancialCategory()
+                .getAll();
+        HashMap<Long, FinancialCategory> fcMap = new HashMap<Long, FinancialCategory>();
+        for (InternalFinancialCategory entry : allEntries) {
+            if (fcMap.containsKey(entry.getGroup())) {
+                fcMap.get(entry.getGroup()).entries.add(entry);
+            } else {
+                FinancialCategory fc = new FinancialCategory();
+                fc.setId(entry.getGroup());
+                fc.setName(entry.getName());
+                fc.setYear(entry.getYear());
+                fc.entries.add(entry);
+                fcMap.put(fc.getId(), fc);
+            }
+        }
+        return new ArrayList<FinancialCategory>(fcMap.values());
     }
-    
+
     @Override
     public FinancialCategory getById(Long id) {
-    	for(FinancialCategory fc : this.getAll()) {
-    		if(fc.getId() == id) {
-    			return fc;
-    		}
-    	}
-    	return null;
+        for (FinancialCategory fc : this.getAll()) {
+            if (fc.getId() == id) {
+                return fc;
+            }
+        }
+        return null;
     }
-    
+
     @Override
     public FinancialCategory getByKey(Object id) {
-    	List<FinancialCategory> categories = this.getAll();
-    	if(categories == null) return null;
-    	for(FinancialCategory fc : categories) {
-    		if (id == null ? false : id.getClass() == Integer.class || id.getClass() == Long.class) {
-    			if(fc.getId() == id) return fc;
-    		}
-    	}
-    	return null;
+        List<FinancialCategory> categories = this.getAll();
+        if (categories == null)
+            return null;
+        for (FinancialCategory fc : categories) {
+            if (id == null ? false : id.getClass() == Integer.class
+                    || id.getClass() == Long.class) {
+                if (fc.getId() == id)
+                    return fc;
+            }
+        }
+        return null;
     }
-    
+
     @Override
     public int size() {
-    	return this.getAll().size();
+        return this.getAll().size();
     }
-    
+
     @Override
     public void clearTable() {
         try {
-    	    InternalFinancialCategory entry = new InternalFinancialCategory();
-    	    entry.all().delete();
-    	    this.setId(null);
+            InternalFinancialCategory entry = new InternalFinancialCategory();
+            entry.all().delete();
+            this.setId(null);
         } catch (SienaException x) {
-            if (!x.getMessage().equals("No updated rows") && !x.getMessage().endsWith("rows deleted"))
+            if (!x.getMessage().equals("No updated rows")
+                    && !x.getMessage().endsWith("rows deleted"))
                 throw x;
         }
     }
