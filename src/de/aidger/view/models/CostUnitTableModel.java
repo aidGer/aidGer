@@ -22,7 +22,6 @@ package de.aidger.view.models;
 import static de.aidger.utils.Translation._;
 
 import de.aidger.model.AbstractModel;
-import de.aidger.model.Runtime;
 import de.aidger.model.models.CostUnit;
 import java.util.List;
 
@@ -62,7 +61,7 @@ public class CostUnitTableModel extends TableModel {
      * @see de.aidger.view.models.TableModel#getModels()
      */
     protected List<AbstractModel> getModels() {
-        List<CostUnit> lst = Runtime.getInstance().getDataXMLManager().getCostUnitMap();
+        List<CostUnit> lst = (new CostUnit()).getAll();
 
         return (List) lst;
     }

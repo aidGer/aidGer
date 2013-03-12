@@ -31,7 +31,6 @@ import de.aidger.model.Runtime;
 import de.aidger.model.models.Assistant;
 import de.aidger.model.models.CostUnit;
 import de.aidger.model.models.Employment;
-import de.aidger.utils.DataXMLManager;
 import de.aidger.utils.reports.BalanceHelper;
 import de.aidger.view.UI;
 
@@ -57,12 +56,6 @@ public class ControllingCreator {
      * The costUnit of this controlling report.
      */
     private final CostUnit costUnit;
-
-    /**
-     * The data XML manager.
-     */
-    private final DataXMLManager dataManager = Runtime.getInstance()
-        .getDataXMLManager();
 
     /**
      * Initializes a new controlling creator and sets the year, month and funds.
@@ -104,7 +97,7 @@ public class ControllingCreator {
                 for (Employment employment : employments) {
                     new BalanceHelper();
                     if (assistant.getId().equals(employment.getAssistantId())
-                            && dataManager.fromTokenDB(employment.getFunds())
+                            && costUnit.fromTokenDB(employment.getFunds())
                                 .equals(costUnit)
                             && (BalanceHelper
                                 .calculatePreTaxBudgetCost(employment) != -1 || !ignore)) {

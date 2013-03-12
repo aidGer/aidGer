@@ -49,8 +49,7 @@ public class AssistantEditorForm extends JPanel {
 
         /* Try to get the email suffix from the xml file */
         if (emailSuffix == null) {
-            emailSuffix = Runtime.getInstance().getDataXMLManager()
-                .getEmailSuffix();
+            emailSuffix = Runtime.getInstance().getOption("email-suffix", "studi.informatik.uni-stuttgart.de");
         }
 
         /* If there is no suffix defined, hide the label */

@@ -21,28 +21,34 @@ package de.aidger.model.models;
 
 import static de.aidger.utils.Translation._;
 import de.aidger.model.AbstractModel;
-import de.aidger.model.Runtime;
+import java.util.ArrayList;
+import java.util.List;
+import siena.Column;
+import siena.Table;
 
 /**
  * This class represents a single cost unit.
  * 
  * @author aidGer Team
  */
-//TODO: Rewrite! Uses XML instead of DB
+@Table("Kosteneinheit")
 public class CostUnit extends AbstractModel<CostUnit> {
     /**
      * The cost unit that is a 8 digit number.
      */
+    @Column("Kosteneinheit")
     private String costUnit = "";
 
     /**
      * The funds that is readable for humans.
      */
+    @Column("Fonds")
     private String funds = "";
 
     /**
      * The token that is stored in the database for this cost unit.
      */
+    @Column("TokenDB")
     private String tokenDB = "";
 
     /**
@@ -172,5 +178,31 @@ public class CostUnit extends AbstractModel<CostUnit> {
         }
 
         return ret;
+    }
+    
+    /**
+     * Get CostUnit from TokenDB
+     * 
+     * @param token Token to search for
+     * @return The found CostUnit
+     */
+    public CostUnit fromTokenDB(String token) {
+        return all().filter("tokenDB", token).get();
+    }
+    
+    /**
+     * Get a list of all distinct cost units
+     * 
+     * @return List of cost units
+     */
+    public List<String> getAllCostUnits() {
+        List<String> costunits = new ArrayList<String>();
+        List<CostUnit> lst = getAll();
+        for (CostUnit c : lst) {
+            if (!costunits.contains(c.getCostUnit())) {
+                costunits.add(c.getCostUnit());
+            }                
+        }
+        return costunits;
     }
 };

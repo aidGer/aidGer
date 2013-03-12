@@ -131,8 +131,7 @@ public class EmploymentTableModel extends TableModel {
                     return cal.getTime();
                 case 5: return employment.getHourCount();
                 case 6: 
-                    CostUnit costUnit = Runtime.getInstance().getDataXMLManager()
-                            .fromTokenDB(employment.getFunds());
+                    CostUnit costUnit = (new CostUnit()).fromTokenDB(employment.getFunds());
                     return costUnit == null ? employment.getCostUnit() : costUnit;
                 case 7: return UICostUnit.valueOf(employment.getCostUnit());
                 case 8: return Qualification.valueOf(employment.getQualification());

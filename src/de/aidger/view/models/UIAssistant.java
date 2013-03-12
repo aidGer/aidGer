@@ -75,8 +75,7 @@ public class UIAssistant extends Assistant implements UIModel,
      *            the database token of the funds
      */
     public void setFunds(String tokenDB) {
-        CostUnit costUnit = Runtime.getInstance().getDataXMLManager()
-            .fromTokenDB(tokenDB);
+        CostUnit costUnit = (new CostUnit()).fromTokenDB(tokenDB);
         funds = costUnit == null ? tokenDB : costUnit.getFunds();
     }
 

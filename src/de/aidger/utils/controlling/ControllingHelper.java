@@ -32,7 +32,6 @@ import de.aidger.model.Runtime;
 import de.aidger.model.models.CostUnit;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
-import de.aidger.utils.DataXMLManager;
 import de.aidger.view.UI;
 
 /**
@@ -48,12 +47,6 @@ public class ControllingHelper {
      */
     public ControllingHelper() {
     }
-
-    /**
-     * The data XML manager.
-     */
-    private final DataXMLManager dataManager = Runtime.getInstance()
-        .getDataXMLManager();
 
     /**
      * Determines all the available years of all employments.
@@ -143,7 +136,7 @@ public class ControllingHelper {
             employments = new Employment().getEmployments((short) year,
                 (byte) 1, (short) year, (byte) month);
             for (Employment employment : employments) {
-                CostUnit costUnit = dataManager.fromTokenDB(employment
+                CostUnit costUnit = (new CostUnit()).fromTokenDB(employment
                     .getFunds());
                 if (!costUnits.contains(costUnit)) {
                     costUnits.add(costUnit);

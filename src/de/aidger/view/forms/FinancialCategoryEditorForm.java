@@ -41,6 +41,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import de.aidger.model.Runtime;
+import de.aidger.model.models.CostUnit;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.view.models.UICostUnit;
 import de.aidger.view.utils.HelpLabel;
@@ -197,7 +198,7 @@ public class FinancialCategoryEditorForm extends JPanel {
         lblCostUnit.getAccessibleContext()
             .setAccessibleDescription("costUnits");
 
-        List<String> costUnits = Runtime.getInstance().getDataXMLManager().getCostUnits();
+        List<String> costUnits = (new CostUnit()).getAllCostUnits();
         costUnits.add(0, _("Please select.."));
         
         JComboBox cmbCostUnit = new JComboBox();

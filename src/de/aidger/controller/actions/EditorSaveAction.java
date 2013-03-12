@@ -52,7 +52,6 @@ import de.aidger.model.models.Course;
 import de.aidger.model.models.Employment;
 import de.aidger.model.models.FinancialCategory;
 import de.aidger.model.models.HourlyWage;
-import de.aidger.model.validators.PresenceValidator;
 import de.aidger.view.UI;
 import de.aidger.view.forms.ActivityEditorForm;
 import de.aidger.view.forms.AssistantEditorForm;
@@ -325,11 +324,6 @@ public class EditorSaveAction extends AbstractAction {
         costUnit.setCostUnit(form.getCostUnit());
         costUnit.setFunds(form.getFunds());
         costUnit.setTokenDB(form.getTokenDB());
-
-        if (form.isEditMode()) {
-            Runtime.getInstance().getDataXMLManager().setCostUnitBeforeEdit(
-                costUnitBeforeEdit);
-        }
 
         return costUnitBeforeEdit;
     }

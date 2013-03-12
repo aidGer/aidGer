@@ -68,11 +68,6 @@ public final class Runtime {
     private Translation translation = null;
 
     /**
-     * The data XML manager.
-     */
-    private DataXMLManager dataManager = null;
-    
-    /**
      * The Siena Connection Manager. Only use if direct access is really needed.
      */
     private ThreadedConnectionManager connManager = null;
@@ -231,8 +226,6 @@ public final class Runtime {
             e.printStackTrace();
         	connected = false;
         }
-
-        dataManager = new DataXMLManager();
     }
 
     /**
@@ -420,15 +413,6 @@ public final class Runtime {
      */
     public List<Pair<String, String>> getLanguages() {
         return translation.getLanguages();
-    }
-
-    /**
-     * Returns the data XML manager.
-     * 
-     * @return the data XML manager
-     */
-    public DataXMLManager getDataXMLManager() {
-        return dataManager;
     }
 
     /**

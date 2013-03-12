@@ -78,6 +78,32 @@ LOCK TABLES `Finanzkategorie` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `Kosteneinheit`
+--
+
+DROP TABLE IF EXISTS `Kosteneinheit`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Kosteneinheit` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Kosteneinheit` VARCHAR(8) NOT NULL DEFAULT '',
+  `Fonds` TEXT NOT NULL DEFAULT '',
+  `TokenDB` VARCHAR(100) NOT NULL DEFAULT '',
+
+  PRIMARY KEY (`ID`),
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Finanzkategorie`
+--
+
+LOCK TABLES `Kosteneinheit` WRITE;
+/*!40000 ALTER TABLE `Kosteneinheit` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Kosteneinheit` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Hilfskraft`
 --
 
