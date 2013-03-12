@@ -36,12 +36,21 @@ import de.aidger.controller.actions.DatabaseCheckFinishAction;
 import de.aidger.model.Runtime;
 import de.aidger.model.models.Activity;
 import static de.aidger.utils.Translation._;
+import de.aidger.utils.Logger;
 import de.aidger.view.UI;
 import de.aidger.view.WizardPanel;
 import de.aidger.view.utils.MultiLineLabelUI;
 import java.awt.Color;
+import java.net.URI;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.List;
+import java.util.Properties;
+
 import javax.swing.AbstractAction;
+
+import siena.PersistenceManager;
+import siena.PersistenceManagerFactory;
 
 /**
  * Check the previously entered database connection
@@ -72,10 +81,27 @@ public class DatabaseCheck extends WizardPanel {
         jLabel3.setForeground(Color.red);
         jLabel3.setText(_("Trying to connect ..."));
 
-        //TODO: Rewrite with Siena
-        //AdoHiveController.setConnectionString(Runtime.getInstance().getOption("database-uri"));
-        //AdoHiveController.setDriver(Runtime.getInstance().getOption("database-driver"));
-        //AdoHiveController.resetInstance();
+        String databaseURI = Runtime.getInstance().getOption("database-uri", "com.mysql.jdbc.Driver");
+        String databaseDriver = Runtime.getInstance().getOption("database-driver", "jdbc:mysql://localhost:3066/aidger?user=root&password=&");
+        
+        try{
+            Properties p = new Properties();
+            p.put("driver", databaseDriver);
+            URI uri = new URI(databaseURI);
+            if (uri.getQuery() != null) {
+                String[] user = uri.getQuery().split("&");
+                p.put("user", user[0].substring(5));
+                p.put("password", user[1].substring(9));
+            }
+            p.put("url", databaseURI);
+            
+        	PersistenceManager pm = PersistenceManagerFactory.getPersistenceManager(Activity.class);
+        	pm.init(p);
+        }
+        catch(Exception e){
+            Logger.error("Could not connect to the Database: " + e.toString());
+            e.printStackTrace();
+        }
 
         BackgroundThread thread = new BackgroundThread();
         thread.start();
