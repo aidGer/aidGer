@@ -210,7 +210,7 @@ public class AssistantTest {
         contract.setDelegation(false);
         contract.setEndDate(new Date(1000));
         contract.setStartDate(new Date(20));
-        contract.setType("Type");
+        contract.setType("newContract");
         contract.save();
 
         Employment employment = new Employment();
