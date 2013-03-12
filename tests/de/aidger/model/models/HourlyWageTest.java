@@ -88,41 +88,41 @@ public class HourlyWageTest {
         assertNotNull(list);
         hourly.remove();
         list = hourly.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
 
         exception.expect(ValidationException.class);
 
         hourly.setQualification(null);
         hourly.save();
         list = hourly.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
 
         hourly.setQualification("Q");
         hourly.save();
         list = hourly.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         hourly.setQualification("g");
 
         hourly.setMonth((byte) -1);
         hourly.save();
         list = hourly.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
 
         hourly.setMonth((byte) 13);
         hourly.save();
         list = hourly.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         hourly.setMonth((byte) 10);
 
         hourly.setYear((short) 999);
         hourly.save();
         list = hourly.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
 
         hourly.setYear((short) 10101);
         hourly.save();
         list = hourly.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
 
         exception = ExpectedException.none();
     }

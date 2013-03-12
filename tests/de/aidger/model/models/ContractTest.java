@@ -72,7 +72,7 @@ public class ContractTest {
         contract.setDelegation(false);
         contract.setEndDate(new Date(1000));
         contract.setStartDate(new Date(20));
-        contract.setType("Type");
+        contract.setType("newContract");
     }
 
     /**
@@ -143,7 +143,7 @@ public class ContractTest {
         list = contract.getAll();
         assertNull(list);
         contract.resetErrors();
-        contract.setType("Type");
+        contract.setType("newContract");
 
         contract.setConfirmationDate(new Date(1));
         contract.save();
@@ -171,10 +171,10 @@ public class ContractTest {
 
         contract.save();
         List<Contract> list = contract.getAll();
-        assertNotNull(list);
+        assertTrue(list.size() > 0);
         contract.remove();
         list = contract.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
 
         contract.save();
 
@@ -216,7 +216,7 @@ public class ContractTest {
         exception.expect(ValidationException.class);
         contract.remove();
         list = contract.getAll();
-        assertNotNull(list);
+        assertTrue(list.size() > 0);
         contract.resetErrors();
 
         exception = ExpectedException.none();
@@ -227,7 +227,7 @@ public class ContractTest {
 
         contract.remove();
         list = contract.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
     }
 
     /**

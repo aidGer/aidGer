@@ -208,7 +208,7 @@ public abstract class AbstractModel<T> extends Model {
      */
     public List getAll() {
         List l = all().fetch();
-        return l.isEmpty() ? null : l;
+        return l;
     }
 
     /**

@@ -159,7 +159,7 @@ public class AssistantTest {
         assertNotNull(list);
         assistant.remove();
         list = assistant.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
 
         assistant.save();
         Activity activity = new Activity();
@@ -177,7 +177,7 @@ public class AssistantTest {
         exception.expect(ValidationException.class);
         assistant.remove();
         list = assistant.getAll();
-        assertNotNull(list);
+        assertTrue(list.size() > 0);
         assistant.resetErrors();
         activity.remove();
 
@@ -228,7 +228,7 @@ public class AssistantTest {
 
         assistant.remove();
         list = assistant.getAll();
-        assertNotNull(list);
+        assertTrue(list.size() > 0);
         assistant.resetErrors();
         fc.remove();
         course.remove();
@@ -238,7 +238,7 @@ public class AssistantTest {
         contract.save();
         assistant.remove();
         list = assistant.getAll();
-        assertNotNull(list);
+        assertTrue(list.size() > 0);
         assistant.resetErrors();
         contract.remove();
 
@@ -246,7 +246,7 @@ public class AssistantTest {
 
         assistant.remove();
         list = assistant.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
     }
 
     /**

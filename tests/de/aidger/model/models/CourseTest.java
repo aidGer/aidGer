@@ -109,55 +109,55 @@ public class CourseTest {
         assertNotNull(list);
         course.remove();
         list = course.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
 
         exception.expect(ValidationException.class);
 
         course.setDescription(null);
         course.save();
         list = course.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         course.resetErrors();
         course.setDescription("Description");
 
         course.setGroup(null);
         course.save();
         list = course.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         course.resetErrors();
         course.setGroup("2");
 
         course.setLecturer(null);
         course.save();
         list = course.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         course.resetErrors();
         course.setLecturer("Test Tester");
 
         course.setNumberOfGroups(-1);
         course.save();
         list = course.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         course.resetErrors();
         course.setNumberOfGroups(3);
 
         course.setSemester(null);
         course.save();
         list = course.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         course.resetErrors();
 
         course.setSemester("abc 2000");
         course.save();
         list = course.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         course.resetErrors();
         course.setSemester("SS09");
 
         course.setUnqualifiedWorkingHours(0.0);
         course.save();
         list = course.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         course.resetErrors();
 
         exception = ExpectedException.none();
@@ -175,7 +175,7 @@ public class CourseTest {
         assertNotNull(list);
         course.remove();
         list = course.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
 
         course.save();
         Activity activity = new Activity();
@@ -193,7 +193,7 @@ public class CourseTest {
         exception.expect(ValidationException.class);
         course.remove();
         list = course.getAll();
-        assertNotNull(list);
+        assertTrue(list.size() > 0);
         course.resetErrors();
         activity.remove();
 
@@ -211,7 +211,7 @@ public class CourseTest {
         contract.setDelegation(false);
         contract.setEndDate(new Date(1000));
         contract.setStartDate(new Date(20));
-        contract.setType("Type");
+        contract.setType("newContract");
         contract.save();
 
         Employment employment = new Employment();
@@ -229,7 +229,7 @@ public class CourseTest {
 
         course.remove();
         list = course.getAll();
-        assertNotNull(list);
+        assertTrue(list.size() > 0);
         course.resetErrors();
         employment.remove();
 
@@ -237,7 +237,7 @@ public class CourseTest {
 
         course.remove();
         list = course.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
     }
 
     /**

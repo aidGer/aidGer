@@ -95,7 +95,7 @@ public class EmploymentTest {
         contract.setDelegation(false);
         contract.setEndDate(new Date(1000));
         contract.setStartDate(new Date(20));
-        contract.setType("Type");
+        contract.setType("newContract");
         contract.save();
     }
 
@@ -144,7 +144,7 @@ public class EmploymentTest {
         assertNotNull(list);
         employment.remove();
         list = employment.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
 
         employment.setAssistantId((long) 0);
         try {
@@ -152,7 +152,7 @@ public class EmploymentTest {
         	fail("No validation exception!");
         } catch(ValidationException e) {}
         list = employment.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         employment.resetErrors();
         employment.setAssistantId(assistant.getId());
 
@@ -162,7 +162,7 @@ public class EmploymentTest {
         	fail("No validation exception!");
         } catch(ValidationException e) {}
         list = employment.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         employment.resetErrors();
         employment.setContractId(contract.getId());
 
@@ -172,7 +172,7 @@ public class EmploymentTest {
         	fail("No validation exception!");
         } catch(ValidationException e) {}
         list = employment.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         employment.resetErrors();
 
         employment.setFunds("01234567890");
@@ -181,7 +181,7 @@ public class EmploymentTest {
         	fail("No validation exception!");
         } catch(ValidationException e) {}
         list = employment.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         employment.resetErrors();
         employment.setFunds("0711");
 
@@ -191,7 +191,7 @@ public class EmploymentTest {
         	fail("No validation exception!");
         } catch(ValidationException e) {}
         list = employment.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         employment.resetErrors();
         employment.setCourseId(course.getId());
 
@@ -201,7 +201,7 @@ public class EmploymentTest {
         	fail("No validation exception!");
         } catch(ValidationException e) {}
         list = employment.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         employment.resetErrors();
         employment.setCostUnit(1);
 
@@ -211,7 +211,7 @@ public class EmploymentTest {
         	fail("No validation exception!");
         } catch(ValidationException e) {}
         list = employment.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         employment.resetErrors();
         employment.setHourCount(40.0);
 
@@ -221,7 +221,7 @@ public class EmploymentTest {
         	fail("No validation exception!");
         } catch(ValidationException e) {}
         list = employment.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         employment.resetErrors();
         employment.setMonth((byte) 10);
 
@@ -231,7 +231,7 @@ public class EmploymentTest {
         	fail("No validation exception!");
         } catch(ValidationException e) {}
         list = employment.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         employment.resetErrors();
 
         employment.setQualification("Q");
@@ -240,7 +240,7 @@ public class EmploymentTest {
         	fail("No validation exception!");
         } catch(ValidationException e) {}
         list = employment.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         employment.resetErrors();
         employment.setQualification("g");
 
@@ -250,7 +250,7 @@ public class EmploymentTest {
         	fail("No validation exception!");
         } catch(ValidationException e) {}
         list = employment.getAll();
-        assertNull(list);
+        assertTrue(list.size() == 0);
         employment.resetErrors();
     }
 
