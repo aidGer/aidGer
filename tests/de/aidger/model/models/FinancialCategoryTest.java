@@ -20,10 +20,6 @@
 package de.aidger.model.models;
 
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 
 import java.util.List;
 
@@ -213,7 +209,7 @@ public class FinancialCategoryTest {
         FinancialCategory result = financial.clone();
 
         assertEquals(financial, result);
-        assertFalse(financial.equals(new Object()));
+        assertNotEquals(financial, new Object());        
     }
 
     /**

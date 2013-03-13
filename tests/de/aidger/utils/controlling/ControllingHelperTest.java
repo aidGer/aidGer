@@ -23,6 +23,7 @@
 package de.aidger.utils.controlling;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -216,7 +217,6 @@ public class ControllingHelperTest {
 
         assertEquals(1, result.length);
         System.out.println(result[0]);
-        assertTrue(employment.getCostUnit().toString().equals(
-            (result[0]).getCostUnit()));
+        assertNotEquals(employment.getCostUnit().toString(), (result[0]).getCostUnit());
     }
 }

@@ -84,45 +84,38 @@ public class HourlyWageTest {
 
         hourly.clearTable();
         hourly.save();
-        List<HourlyWage> list = hourly.getAll();
-        assertNotNull(list);
+        assertNotNull(hourly.getAll());
+        
         hourly.remove();
-        list = hourly.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(hourly.getAll().isEmpty());
 
         exception.expect(ValidationException.class);
 
         hourly.setQualification(null);
         hourly.save();
-        list = hourly.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(hourly.getAll().isEmpty());
 
         hourly.setQualification("Q");
         hourly.save();
-        list = hourly.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(hourly.getAll().isEmpty());
         hourly.setQualification("g");
 
         hourly.setMonth((byte) -1);
         hourly.save();
-        list = hourly.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(hourly.getAll().isEmpty());
 
         hourly.setMonth((byte) 13);
         hourly.save();
-        list = hourly.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(hourly.getAll().isEmpty());
         hourly.setMonth((byte) 10);
 
         hourly.setYear((short) 999);
         hourly.save();
-        list = hourly.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(hourly.getAll().isEmpty());
 
         hourly.setYear((short) 10101);
         hourly.save();
-        list = hourly.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(hourly.getAll().isEmpty());
 
         exception = ExpectedException.none();
     }
@@ -153,7 +146,7 @@ public class HourlyWageTest {
         HourlyWage result = hourly.clone();
 
         assertEquals(hourly, result);
-        assertFalse(hourly.equals(new Object()));
+        assertNotEquals(hourly, new Object());
     }
 
     /**

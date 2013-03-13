@@ -232,7 +232,7 @@ public class ActivityTest {
         Activity result = activity.clone();
 
         assertEquals(activity, result);
-        assertFalse(activity.equals(new Object()));
+        assertNotEquals(activity, new Object());        
     }
 
     /**

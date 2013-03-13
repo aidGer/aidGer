@@ -331,7 +331,7 @@ public class AbstractModelTest {
 
         List<String> result = e.getErrors();
         assertTrue(result.size() == 1);
-        assertTrue(result.get(0).equals("error message"));
+        assertEquals(result.get(0), "error message");        
     }
 
     /**
@@ -349,7 +349,7 @@ public class AbstractModelTest {
 
         assertTrue(result.size() == 1);
         assertTrue(e.getErrors().size() == 2);
-        assertTrue(result.get(0).equals("field error message"));
+        assertEquals(result.get(0), "field error message");        
     }
 
     /**

@@ -172,11 +172,10 @@ public class ContractTest {
         System.out.println("validateOnRemove");
 
         contract.save();
-        List<Contract> list = contract.getAll();
-        assertTrue(list.size() > 0);
+        assertFalse(contract.getAll().isEmpty());
+        
         contract.remove();
-        list = contract.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(contract.getAll().isEmpty());
 
         contract.save();
 
@@ -215,21 +214,20 @@ public class ContractTest {
         employment.setYear((short) 2010);
         employment.save();
 
-        exception.expect(ValidationException.class);
-        contract.remove();
-        list = contract.getAll();
-        assertTrue(list.size() > 0);
+        try {
+            contract.remove();
+            assertTrue(false);
+        } catch (ValidationException e) {}
+        
+        assertFalse(contract.getAll().isEmpty());
         contract.resetErrors();
-
-        exception = ExpectedException.none();
-        fc.remove();
-        course.remove();
+        
         employment.remove();
-
+        course.remove();
+        fc.remove();
 
         contract.remove();
-        list = contract.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(contract.getAll().isEmpty());
     }
 
     /**
@@ -260,13 +258,7 @@ public class ContractTest {
         Contract result = contract.clone();
 
         assertEquals(contract, result);
-        assertFalse(contract.equals(new Object()));
-
-        result.setCompletionDate(null);
-        result.setConfirmationDate(null);
-        result.setEndDate(null);
-        result.setStartDate(null);
-        assertFalse(contract.equals(result));
+        assertNotEquals(contract, new Object());
     }
 
     /**
@@ -292,7 +284,7 @@ public class ContractTest {
         List result = contract.getContracts(new Date(20), new Date(1000));
 
         assertNotNull(result);
-        assertTrue(result.size() > 0);
+        assertFalse(result.isEmpty());
     }
     
     /**
@@ -308,7 +300,7 @@ public class ContractTest {
      */
     @AfterClass
     public static void cleanUpClass() throws ValidationException {
-        assistant.remove();        
+        assistant.remove();
     }
 
 }

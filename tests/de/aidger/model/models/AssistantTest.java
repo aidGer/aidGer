@@ -20,6 +20,7 @@
 package de.aidger.model.models;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -283,7 +284,7 @@ public class AssistantTest {
         Assistant result = assistant.clone();
 
         assertEquals(assistant, result);
-        assertFalse(assistant.equals(new Object()));
+        assertNotEquals(assistant, new Object());        
     }
 
     /**

@@ -20,7 +20,7 @@
 package de.aidger.utils;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 
 import java.sql.Date;
 import java.util.Calendar;
@@ -141,9 +141,10 @@ public class AnonymizerTest {
 
         // Assistant with old employment => anonymize
         Assistant assi = a.getById(a.getId());
-        assertFalse(assi.getFirstName().equals(a.getFirstName()));
-        assertFalse(assi.getLastName().equals(a.getLastName()));
-        assertFalse(assi.getEmail().equals(a.getEmail()));
+        
+        assertNotEquals(assi.getFirstName(), a.getFirstName());
+        assertNotEquals(assi.getLastName(), a.getLastName());
+        assertNotEquals(assi.getEmail(), a.getEmail());
 
         // Assistant with new employment => don't anonymize
         assi = a.getById(b.getId());

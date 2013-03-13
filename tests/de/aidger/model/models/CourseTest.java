@@ -20,9 +20,10 @@
 package de.aidger.model.models;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 import java.sql.Date;
 import java.util.List;
@@ -107,59 +108,50 @@ public class CourseTest {
         System.out.println("Validation");
 
         course.save();
-        List<Course> list = course.getAll();
-        assertNotNull(list);
+        assertNotNull(course.getAll());
         course.remove();
-        list = course.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(course.getAll().isEmpty());
 
         exception.expect(ValidationException.class);
 
         course.setDescription(null);
         course.save();
-        list = course.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(course.getAll().isEmpty());
         course.resetErrors();
         course.setDescription("Description");
 
         course.setGroup(null);
         course.save();
-        list = course.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(course.getAll().isEmpty());
         course.resetErrors();
         course.setGroup("2");
 
         course.setLecturer(null);
         course.save();
-        list = course.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(course.getAll().isEmpty());
         course.resetErrors();
         course.setLecturer("Test Tester");
 
         course.setNumberOfGroups(-1);
         course.save();
-        list = course.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(course.getAll().isEmpty());
         course.resetErrors();
         course.setNumberOfGroups(3);
 
         course.setSemester(null);
         course.save();
-        list = course.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(course.getAll().isEmpty());
         course.resetErrors();
 
         course.setSemester("abc 2000");
         course.save();
-        list = course.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(course.getAll().isEmpty());
         course.resetErrors();
         course.setSemester("SS09");
 
         course.setUnqualifiedWorkingHours(0.0);
         course.save();
-        list = course.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(course.getAll().isEmpty());
         course.resetErrors();
 
         exception = ExpectedException.none();
@@ -172,12 +164,11 @@ public class CourseTest {
     public void testValidateOnRemove() throws SienaException {
         System.out.println("validateOnRemove");
 
+        course.clearTable();
         course.save();
-        List<Course> list = course.getAll();
-        assertNotNull(list);
+        assertNotNull(course.getAll());
         course.remove();
-        list = course.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(course.getAll().isEmpty());
 
         course.save();
         Activity activity = new Activity();
@@ -192,10 +183,12 @@ public class CourseTest {
         activity.setType("Test Type");
         activity.save();
 
-        exception.expect(ValidationException.class);
-        course.remove();
-        list = course.getAll();
-        assertTrue(list.size() > 0);
+        try {
+            course.remove();
+            assertTrue(false);
+        } catch (ValidationException e) {}
+        
+        assertFalse(course.getAll().isEmpty());
         course.resetErrors();
         activity.remove();
 
@@ -229,17 +222,20 @@ public class CourseTest {
         employment.setYear((short) 2010);
         employment.save();
 
-        course.remove();
-        list = course.getAll();
-        assertTrue(list.size() > 0);
+        try {
+            course.remove();
+            assertTrue(false);
+        } catch (ValidationException e) {}
+        
+        assertFalse(course.getAll().isEmpty());
         course.resetErrors();
+        
         employment.remove();
-
-        exception = ExpectedException.none();
+        contract.remove();
+        assistant.remove();
 
         course.remove();
-        list = course.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(course.getAll().isEmpty());
     }
 
     /**
@@ -277,7 +273,7 @@ public class CourseTest {
         Course result = course.clone();
 
         assertEquals(course, result);
-        assertFalse(course.equals(new Object()));
+        assertNotEquals(course, new Object());        
     }
 
     /**
