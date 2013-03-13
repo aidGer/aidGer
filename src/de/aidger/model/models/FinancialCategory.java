@@ -235,6 +235,8 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
      *            The cost units of the category
      */
     public void setCostUnits(Integer[] costUnits) {
+        if(costUnits == null)
+            return;
         for (int i = 0; i < costUnits.length; i++) {
             if (entries.size() >= i + 1) {
                 InternalFinancialCategory entry = entries.get(i);

@@ -284,7 +284,9 @@ public class EmploymentEditorForm extends JPanel {
     private void refreshCostUnit() {
         CostUnit costUnit = (CostUnit) cmbFunds.getSelectedItem();
 
-        cmbCostUnit.setSelectedItem(costUnit.getCostUnit());
+        if(costUnit != null) {
+            cmbCostUnit.setSelectedItem(costUnit.getCostUnit());
+        }
     }
 
     /**
@@ -352,6 +354,9 @@ public class EmploymentEditorForm extends JPanel {
      * @throws NumberFormatException
      */
     public Integer getCostUnit() throws NumberFormatException {
+        if(cmbCostUnit.getSelectedItem() == null)
+            return null;
+        
         return Integer.valueOf((String) cmbCostUnit.getSelectedItem());
     }
 

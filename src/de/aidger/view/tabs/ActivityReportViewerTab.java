@@ -180,7 +180,9 @@ public class ActivityReportViewerTab extends Tab {
         } catch (SienaException e) {
             UI.displayError(e.toString());
         }
-        assistantComboBox.setSelectedIndex(0);
+        if(!assistants.isEmpty()) {
+            assistantComboBox.setSelectedIndex(0);
+        }
     }
 
     /**
