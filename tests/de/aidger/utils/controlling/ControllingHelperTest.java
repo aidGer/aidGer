@@ -185,10 +185,12 @@ public class ControllingHelperTest {
 
         Employment employment2 = employment.clone();
         employment2.setMonth((byte) (employment.getMonth() + 1));
+        employment2.markAsNew();
         employment2.save();
 
         Employment employment3 = employment.clone();
         employment3.setMonth((byte) (employment2.getMonth() + 1));
+        employment3.markAsNew();
         employment3.save();
 
         controllingHelper = new ControllingHelper();

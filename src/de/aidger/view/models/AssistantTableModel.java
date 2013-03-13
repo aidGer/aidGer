@@ -86,7 +86,7 @@ public class AssistantTableModel extends TableModel {
         List<AbstractModel> ret = new ArrayList<AbstractModel>();
         try {
             List<Assistant> lst = (new Assistant()).getAll();
-            if(lst == null) return ret;
+            if(lst.isEmpty()) return ret;
             for (Assistant e : lst) {
                 ret.add(new Assistant(e));
             }

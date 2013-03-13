@@ -191,6 +191,13 @@ public abstract class AbstractModel<T> extends Model {
             Logger.error(ex.getMessage());
         }
     }
+    
+    /**
+     * Mark this model as new.
+     */
+    public void markAsNew() {
+        this.setId(null);
+    }
 
     /**
      * Get the Query object for the current class.

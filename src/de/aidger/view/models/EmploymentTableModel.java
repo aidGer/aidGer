@@ -151,7 +151,7 @@ public class EmploymentTableModel extends TableModel {
         List<AbstractModel> ret = new ArrayList<AbstractModel>();
         try {
             List<Employment> lst = (new Employment()).getAll();
-            if(lst == null) return ret;
+            if(lst.isEmpty()) return ret;
             for (Employment e : lst) {
                 ret.add(new Employment(e));
             }
