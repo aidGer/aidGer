@@ -296,7 +296,7 @@ public class BalanceHelper {
         List<HourlyWage> hourlyWages;
         try {
             hourlyWages = new HourlyWage().getAll();
-            if (hourlyWages == null)
+            if (hourlyWages.isEmpty())
                 return 0;
             for (HourlyWage hourlyWage : hourlyWages) {
                 if (hourlyWage.getMonth().equals(employment.getMonth())
@@ -321,7 +321,7 @@ public class BalanceHelper {
         List<HourlyWage> hourlyWages;
         try {
             hourlyWages = new HourlyWage().getAll();
-            if (hourlyWages == null)
+            if (hourlyWages.isEmpty())
                 return 0;
             for (HourlyWage hourlyWage : hourlyWages) {
                 if (hourlyWage.getMonth().equals(employment.getMonth())

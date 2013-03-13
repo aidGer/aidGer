@@ -96,7 +96,7 @@ public class FinancialCategoryTableModel extends TableModel {
         List<AbstractModel> ret = new ArrayList<AbstractModel>();
         try {
             List<FinancialCategory> lst = (new FinancialCategory()).getAll();
-            if (lst == null) return ret;
+            if (lst.isEmpty()) return ret;
             for (FinancialCategory e : lst) {
                 ret.add(new FinancialCategory(e));
             }

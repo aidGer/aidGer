@@ -91,6 +91,13 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
         f.setYear(year);
         return f;
     }
+    
+    @Override
+    public void markAsNew() {
+        for(InternalFinancialCategory entry : entries) {
+            entry.markAsNew();
+        }
+    }
 
     /**
      * Custom validation function.
@@ -370,7 +377,7 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
     @Override
     public FinancialCategory getByKey(Object id) {
         List<FinancialCategory> categories = this.getAll();
-        if (categories == null)
+        if (categories.isEmpty())
             return null;
         for (FinancialCategory fc : categories) {
             if (id == null ? false : id.getClass() == Integer.class

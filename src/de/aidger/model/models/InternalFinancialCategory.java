@@ -134,6 +134,10 @@ public class InternalFinancialCategory extends Model {
         }
 	}
 	
+	public void markAsNew() {
+	    this.setId(null);
+	}
+	
 	public void save() {
         boolean wasNew = getId() == null;
 
