@@ -28,10 +28,11 @@
     <property name="lib.jcommon" value="lib/jcommon-1.0.16.jar" />
     <property name="lib.jfreechart" value="lib/jfreechart-1.0.13.jar" />
     <property name="lib.junit" value="lib/junit.jar" />
+    <property name="lib.hamcrest" value="lib/hamcrest-core-1.3.jar" />
     <property name="lib.gettexttasks" value="lib/gettext-ant-tasks.jar" />
-	<property name="lib.launch4j.linux" location="${lib.dir}/launch4j/launch4j-3.0.2-linux.tgz" />
-	<property name="lib.launch4j.windows" location="${lib.dir}/launch4j/launch4j-3.0.2-win32.zip" />
-	<property name="lib.launch4j.macosx" location="${lib.dir}/launch4j/launch4j-3.0.2-macosx.tgz" />
+    <property name="lib.launch4j.linux" location="${lib.dir}/launch4j/launch4j-3.0.2-linux.tgz" />
+    <property name="lib.launch4j.windows" location="${lib.dir}/launch4j/launch4j-3.0.2-win32.zip" />
+    <property name="lib.launch4j.macosx" location="${lib.dir}/launch4j/launch4j-3.0.2-macosx.tgz" />
 
     <property name="config.dir" value="${user.home}/.config/aidGer" />
     <available property="isConfigDir" file="${config.dir}" />
@@ -108,6 +109,7 @@
             <pathelement location="${classes.dir}" />
             <path refid="build.classpath" />
             <pathelement location="${lib.junit}" />
+            <pathelement location="${lib.hamcrest}" />
         </path>
     </target>
 
