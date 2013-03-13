@@ -156,11 +156,12 @@ public class AssistantTest {
 
         assistant.clearTable();
         assistant.save();
-        List<Assistant> list = assistant.getAll();
-        assertNotNull(list);
+
+        assertNotNull(assistant.getAll());
+        assertFalse(assistant.getAll().isEmpty());
+        
         assistant.remove();
-        list = assistant.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(assistant.getAll().isEmpty());
 
         assistant.save();
         Activity activity = new Activity();
@@ -175,10 +176,12 @@ public class AssistantTest {
         activity.setType("Test Type");
         activity.save();
 
-        exception.expect(ValidationException.class);
-        assistant.remove();
-        list = assistant.getAll();
-        assertTrue(list.size() > 0);
+        try {
+            assistant.remove();
+            assertTrue(false);
+        } catch (ValidationException e) {}
+        
+        assertFalse(assistant.getAll().isEmpty());
         assistant.resetErrors();
         activity.remove();
 
@@ -227,27 +230,32 @@ public class AssistantTest {
         employment.setYear((short) 2010);
         employment.save();
 
-        assistant.remove();
-        list = assistant.getAll();
-        assertTrue(list.size() > 0);
+        try {
+            assistant.remove();
+            assertTrue(false);
+        } catch (ValidationException e) {}
+        
+        assertFalse(assistant.getAll().isEmpty());
         assistant.resetErrors();
-        fc.remove();
-        course.remove();
-        contract.remove();
+        
         employment.remove();
+        contract.remove();
+        course.remove();
+        fc.remove();
 
         contract.save();
-        assistant.remove();
-        list = assistant.getAll();
-        assertTrue(list.size() > 0);
+        
+        try {
+            assistant.remove();
+            assertTrue(false);
+        } catch (ValidationException e) {}
+        
+        assertFalse(assistant.getAll().isEmpty());
         assistant.resetErrors();
         contract.remove();
 
-        exception = ExpectedException.none();
-
         assistant.remove();
-        list = assistant.getAll();
-        assertTrue(list.size() == 0);
+        assertTrue(assistant.getAll().isEmpty());
     }
 
     /**
