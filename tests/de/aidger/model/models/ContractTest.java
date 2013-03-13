@@ -29,6 +29,8 @@ import java.sql.Date;
 import java.util.List;
 
 import de.aidger.model.validators.ValidationException;
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Rule;
@@ -291,6 +293,22 @@ public class ContractTest {
 
         assertNotNull(result);
         assertTrue(result.size() > 0);
+    }
+    
+    /**
+     * Cleans up after the tests.
+     */
+    @After
+    public void cleanUp() throws ValidationException {
+        contract.remove();
+    }
+    
+    /**
+     * Cleans up after the whole class is done.
+     */
+    @AfterClass
+    public static void cleanUpClass() throws ValidationException {
+        assistant.remove();        
     }
 
 }

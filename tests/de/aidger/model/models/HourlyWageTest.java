@@ -26,11 +26,11 @@ import org.junit.Before;
 import static org.junit.Assert.*;
 
 import java.util.List;
+import org.junit.After;
 
 import org.junit.BeforeClass;
 
 import org.junit.rules.ExpectedException;
-import siena.SienaException;
 
 /**
  * Tests the HourlyWage class.
@@ -165,6 +165,14 @@ public class HourlyWageTest {
         HourlyWage result = hourly.clone();
 
         assertEquals(hourly.hashCode(), result.hashCode());
+    }
+    
+        /**
+     * Cleans up after the tests.
+     */
+    @After
+    public void cleanUp() throws ValidationException {
+        hourly.remove();
     }
 
 }

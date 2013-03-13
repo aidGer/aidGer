@@ -29,6 +29,7 @@ import java.sql.Date;
 import java.util.List;
 
 import de.aidger.model.validators.ValidationException;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Rule;
@@ -287,5 +288,11 @@ public class AssistantTest {
 
         assertEquals(assistant.hashCode(), result.hashCode());
     }
+    
+    @After
+    public void cleanUp() {
+        assistant.remove();
+    }
+    
 
 }

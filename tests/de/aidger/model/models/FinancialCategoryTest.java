@@ -24,16 +24,15 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import de.aidger.model.validators.ValidationException;
+import org.junit.After;
 
 import siena.SienaException;
 
@@ -53,7 +52,6 @@ public class FinancialCategoryTest {
 
     @Before
     public void setUp() {
-        new Course().clearTable();
         new FinancialCategory().clearTable();
         financial = new FinancialCategory();
         financial.setId((long) 1);
@@ -228,5 +226,13 @@ public class FinancialCategoryTest {
 
         assertEquals(financial.hashCode(), result.hashCode());
     }
-
+    
+        /**
+     * Cleans up after the tests.
+     */
+    @After
+    public void cleanUp() throws ValidationException {
+        financial.remove();
+    }
+    
 }

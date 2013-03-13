@@ -29,6 +29,8 @@ import java.sql.Date;
 import java.util.List;
 
 import de.aidger.model.validators.ValidationException;
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Rule;
@@ -290,10 +292,66 @@ public class ActivityTest {
     public void testGetActivities_Date_Date() throws SienaException {
         System.out.println("getActivities");
 
+        activity.clearTable();
+        activity.save();
+        
+        Activity a1 = new Activity();
+        a1.setDate(new Date(10));
+        a1.setContent("New assistant");
+        a1.setDocumentType("Test Type");
+        a1.setProcessor("T");
+        a1.setRemark("Remark");
+        a1.setSender("Test Sender");
+        a1.setType("Test Type");
+        a1.save();
+        
+        Activity a2 = new Activity();
+        a2.setDate(new Date(1000));
+        a2.setContent("New assistant");
+        a2.setDocumentType("Test Type");
+        a2.setProcessor("T");
+        a2.setRemark("Remark");
+        a2.setSender("Test Sender");
+        a2.setType("Test Type");
+        a2.save();
+        
+        Activity a3 = new Activity();
+        a3.setDate(new Date(2010000000));
+        a3.setContent("New assistant");
+        a3.setDocumentType("Test Type");
+        a3.setProcessor("T");
+        a3.setRemark("Remark");
+        a3.setSender("Test Sender");
+        a3.setType("Test Type");
+        a3.save();
+        
         List result = activity.getActivities(new Date(1), new Date(1010000000));
 
         assertNotNull(result);
-        assertTrue(result.size() >= 3);
+        System.out.println(result.size());
+        assertEquals(3, result.size());
+        
+        a1.remove();
+        a2.remove();
+        a3.remove();
+    }
+    
+    /**
+     * Cleans up after the tests.
+     */
+    @After
+    public void cleanUp() throws ValidationException {
+        activity.remove();
+    }
+    
+    /**
+     * Cleans up after the whole class is done.
+     */
+    @AfterClass
+    public static void cleanUpClass() throws ValidationException {
+        course.remove();
+        financial.remove();
+        assistant.remove();        
     }
 
 }

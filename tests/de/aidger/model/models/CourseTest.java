@@ -22,20 +22,19 @@ package de.aidger.model.models;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
 import java.util.List;
 
 import de.aidger.model.validators.ValidationException;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 
 import org.junit.rules.ExpectedException;
-import org.junit.tests.running.methods.ExpectedTest;
 import siena.SienaException;
 
 /**
@@ -46,6 +45,8 @@ import siena.SienaException;
 public class CourseTest {
 
     protected Course course = null;
+    
+    protected FinancialCategory fc = null;
 
     @Rule
     public ExpectedException exception = ExpectedException.none();
@@ -59,7 +60,8 @@ public class CourseTest {
     public void setUp() throws SienaException {
     	new Course().clearTable();
     	new FinancialCategory().clearTable();
-        FinancialCategory fc = new FinancialCategory();
+        
+        fc = new FinancialCategory();
         fc.setBudgetCosts(new Integer[] { 100 });
         fc.setCostUnits(new Integer[] { 10001000 });
         fc.setName("name");
@@ -373,6 +375,15 @@ public class CourseTest {
 
         assertNotNull(result);
         assertTrue(result.contains(course.getGroup()));
+    }
+    
+    /**
+     * Cleans up after the tests.
+     */
+    @After
+    public void cleanUp() throws ValidationException {
+        course.remove();
+        fc.remove();
     }
 
 }

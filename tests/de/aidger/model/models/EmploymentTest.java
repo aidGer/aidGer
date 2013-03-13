@@ -22,7 +22,6 @@ package de.aidger.model.models;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -35,6 +34,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.aidger.model.validators.ValidationException;
+import org.junit.After;
+import org.junit.AfterClass;
 
 import siena.SienaException;
 
@@ -420,6 +421,25 @@ public class EmploymentTest {
 
         assertNotNull(result);
         assertTrue(result.size() > 0);
+    }
+    
+    /**
+     * Cleans up after the tests.
+     */
+    @After
+    public void cleanUp() throws ValidationException {
+        employment.remove();
+    }
+    
+    /**
+     * Cleans up after the whole class is done.
+     */
+    @AfterClass
+    public static void cleanUpClass() throws ValidationException {
+        contract.remove();
+        course.remove();
+        financial.remove();
+        assistant.remove();        
     }
 
 }
