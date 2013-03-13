@@ -78,7 +78,7 @@ public class LoggerTest {
     @Test
     public void testDebug() {
         System.out.println("debug");
-
+        
         File file = new File(Runtime.getInstance().getConfigPath().concat(
                 "/aidger.log"));
         long before = file.length();

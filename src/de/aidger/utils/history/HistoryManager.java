@@ -21,8 +21,6 @@ package de.aidger.utils.history;
 
 import static de.aidger.utils.Translation._;
 import de.aidger.model.Runtime;
-import de.aidger.utils.Logger;
-import de.aidger.view.UI;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -129,6 +127,7 @@ final public class HistoryManager {
     protected void loadFromFile() throws HistoryException {
         File history = new File(historyFile);
         if (!history.exists()) {
+            events = new ArrayList<HistoryEvent>();
             try {
                 history.createNewFile();
                 FileOutputStream out = new FileOutputStream(history);
