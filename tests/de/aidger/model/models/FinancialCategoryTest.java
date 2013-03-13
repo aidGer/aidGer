@@ -86,10 +86,10 @@ public class FinancialCategoryTest {
 
         financial.save();
         List<FinancialCategory> list = financial.getAll();
-        assertNotNull(list);
+        assertTrue(!list.isEmpty());
         financial.remove();
         list = financial.getAll();
-        assertNull(list);
+        assertTrue(list.isEmpty());
         
         financial.setName(null);
         try {
@@ -97,7 +97,7 @@ public class FinancialCategoryTest {
         	fail("No validation exception!");
         } catch(ValidationException e) {}
         list = financial.getAll();
-        assertNull(list);
+        assertTrue(list.isEmpty());
         financial.setName("Tester");
 
         financial.setYear((short) 999);
@@ -106,7 +106,7 @@ public class FinancialCategoryTest {
         	fail("No validation exception!");
         } catch(ValidationException e) {}
         list = financial.getAll();
-        assertNull(list);
+        assertTrue(list.isEmpty());
 
         financial.setYear((short) 10101);
         try {
@@ -114,7 +114,7 @@ public class FinancialCategoryTest {
         	fail("No validation exception!");
         } catch(ValidationException e) {}
         list = financial.getAll();
-        assertNull(list);
+        assertTrue(list.isEmpty());
         financial.setYear((short) 2010);
 
         financial.setBudgetCosts(new Integer[] { 0, -1 });
@@ -123,7 +123,7 @@ public class FinancialCategoryTest {
         	fail("No validation exception!");
         } catch(ValidationException e) {}
         list = financial.getAll();
-        assertNull(list);
+        assertTrue(list.isEmpty());
         financial.setBudgetCosts(new Integer[] { 100, 200 });
 
         financial.setCostUnits(new Integer[] { 1234567 });
@@ -132,7 +132,7 @@ public class FinancialCategoryTest {
         	fail("No validation exception!");
         } catch(ValidationException e) {}
         list = financial.getAll();
-        assertNull(list);
+        assertTrue(list.isEmpty());
 
         financial.setCostUnits(new Integer[] { 123456789 });
         try {
@@ -140,7 +140,7 @@ public class FinancialCategoryTest {
         	fail("No validation exception!");
         } catch(ValidationException e) {}
         list = financial.getAll();
-        assertNull(list);
+        assertTrue(list.isEmpty());
     }
 
     /**
@@ -153,10 +153,10 @@ public class FinancialCategoryTest {
         financial.clearTable();
         financial.save();
         List<FinancialCategory> list = financial.getAll();
-        assertNotNull(list);
+        assertTrue(!list.isEmpty());
         financial.remove();
         list = financial.getAll();
-        assertNull(list);
+        assertTrue(list.isEmpty());
 
         financial.save();
         Course course = new Course();
@@ -179,13 +179,13 @@ public class FinancialCategoryTest {
         	fail("No validation exception!");
         } catch(ValidationException e) {}
         list = financial.getAll();
-        assertNotNull(list);
+        assertTrue(!list.isEmpty());
         financial.resetErrors();
         course.remove();
 
         financial.remove();
         list = financial.getAll();
-        assertNull(list);
+        assertTrue(list.isEmpty());
     }
 
     /**

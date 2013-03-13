@@ -112,7 +112,7 @@ public class InternalFinancialCategory extends Model {
 	
 	public void remove() {
         /* Check if the model is saved in the db */
-        if (id == null ? false : all().getByKey(id) == null) {
+        if (id == null || all().getByKey(id) == null) {
             return;
         }
         
