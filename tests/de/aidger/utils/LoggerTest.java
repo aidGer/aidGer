@@ -25,6 +25,7 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import java.util.logging.Level;
 
+import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -40,6 +41,21 @@ public class LoggerTest {
     @BeforeClass
     public static void setUpClass() throws Exception {
         Runtime.getInstance().initialize();
+
+        File file = new File(Runtime.getInstance().getConfigPath().concat(
+                "/aidger.log"));
+        if(file.exists()) {
+            file.delete();
+        }
+    }
+    
+    @After
+    public void cleanUp() {
+        File file = new File(Runtime.getInstance().getConfigPath().concat(
+                "/aidger.log"));
+        if(file.exists()) {
+            file.delete();
+        }
     }
 
     /**
