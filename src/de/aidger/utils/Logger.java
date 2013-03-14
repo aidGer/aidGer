@@ -93,9 +93,14 @@ public final class Logger {
     }
     
     /**
-     * Destroy the current logger instance.
+     * Destroy the current logger instance. Removes access from the log file.
      */
     public void destroy() {
+        Handler[] handlers = logger.getHandlers();
+        for(int i = 0; i < handlers.length; i++) {
+            handlers[i].close();
+            logger.removeHandler(handlers[i]);
+        }
         instance = null;
     }
 

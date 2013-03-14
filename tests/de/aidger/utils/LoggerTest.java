@@ -42,8 +42,8 @@ public class LoggerTest {
     public static void setUpClass() throws Exception {
         Runtime.getInstance().initialize();
 
-        File file = new File(Runtime.getInstance().getConfigPath().concat(
-                "/aidger.log"));
+        File file = new File(Runtime.getInstance().getConfigPath().concat("/aidger.log"));
+        
         if(file.exists()) {
             file.delete();
         }
@@ -51,13 +51,13 @@ public class LoggerTest {
     
     @After
     public void cleanUp() {
-        File file = new File(Runtime.getInstance().getConfigPath().concat(
-                "/aidger.log"));
+        File file = new File(Runtime.getInstance().getConfigPath().concat("/aidger.log"));
+        
+        Logger.getInstance().destroy();
+        
         if(file.exists()) {
             file.delete();
         }
-        
-        Logger.getInstance().destroy();
     }
 
     /**
@@ -70,8 +70,7 @@ public class LoggerTest {
         Logger result = Logger.getInstance();
         assertNotNull(result);
 
-        File file = new File(Runtime.getInstance().getConfigPath().concat(
-                "/aidger.log"));
+        File file = new File(Runtime.getInstance().getConfigPath().concat("/aidger.log"));
         assertTrue(file.exists());
     }
 
@@ -82,8 +81,7 @@ public class LoggerTest {
     public void testLogMsg() {
         System.out.println("logMsg");
 
-        File file = new File(Runtime.getInstance().getConfigPath().concat(
-                "/aidger.log"));
+        File file = new File(Runtime.getInstance().getConfigPath().concat("/aidger.log"));
         long before = file.length();
         Logger.getInstance().logMsg(Level.SEVERE, "Some logging message");
 
@@ -97,8 +95,7 @@ public class LoggerTest {
     public void testDebug() {
         System.out.println("debug");
         
-        File file = new File(Runtime.getInstance().getConfigPath().concat(
-                "/aidger.log"));
+        File file = new File(Runtime.getInstance().getConfigPath().concat("/aidger.log"));
         long before = file.length();
         Logger.debug("Debug logging message");
 
@@ -112,8 +109,7 @@ public class LoggerTest {
     public void testInfo() {
         System.out.println("info");
 
-        File file = new File(Runtime.getInstance().getConfigPath().concat(
-                "/aidger.log"));
+        File file = new File(Runtime.getInstance().getConfigPath().concat("/aidger.log"));
         long before = file.length();
         Logger.info("Info logging message");
 
@@ -127,8 +123,7 @@ public class LoggerTest {
     public void testError() {
         System.out.println("error");
 
-        File file = new File(Runtime.getInstance().getConfigPath().concat(
-                "/aidger.log"));
+        File file = new File(Runtime.getInstance().getConfigPath().concat("/aidger.log"));
         long before = file.length();
         Logger.error("Error logging message");
 
