@@ -21,6 +21,8 @@ package de.aidger.model.models;
 
 import static de.aidger.utils.Translation._;
 
+import java.util.List;
+
 import siena.Table;
 import siena.Column;
 
@@ -98,6 +100,34 @@ public class HourlyWage extends AbstractModel<HourlyWage> {
         h.setWage(wage);
         h.setYear(year);
         return h;
+    }
+    
+    /**
+     * Returns the hourly wages for a specified month in a specified year.
+     * 
+     * @param month
+     *      The month of which to get hourly wages.
+     * @param year
+     *      The year in which the hourly wages should be active.
+     * @return List of hourly wages active in the specified month.
+     */
+    public List<HourlyWage> get(Byte month, Short year) {
+        return all().filter("month", month).filter("year", year).fetch();
+    }
+    
+    /**
+     * Get the hourly wage for a qualification active in the specified month and year.
+     * 
+     * @param month
+     *      The month in which the hourly wage should be active.
+     * @param year
+     *      The year in which the hourly wage should be active.
+     * @param qualification
+     *      The qualification for which the hourly wage should be used.
+     * @return The hourly wage which is used for the qualification at the given month.
+     */
+    public HourlyWage get(Byte month, Short year, String qualification) {
+        return all().filter("month", month).filter("year", year).filter("qualification", qualification).get();
     }
 
     /**

@@ -191,8 +191,7 @@ public class BalanceCourse implements Comparable<BalanceCourse> {
      * @return the plannedAWS
      */
     public double getPlannedAWS() {
-        return (new BigDecimal(PlannedAWS)).setScale(2,
-            BigDecimal.ROUND_HALF_EVEN).doubleValue();
+        return (new BigDecimal(PlannedAWS)).setScale(2, BigDecimal.ROUND_HALF_EVEN).doubleValue();
     }
 
     /**
@@ -211,8 +210,7 @@ public class BalanceCourse implements Comparable<BalanceCourse> {
      * @return the basicAWS
      */
     public double getBasicAWS() {
-        return (new BigDecimal(BasicAWS)).setScale(2,
-            BigDecimal.ROUND_HALF_EVEN).doubleValue();
+        return (new BigDecimal(BasicAWS)).setScale(2, BigDecimal.ROUND_HALF_EVEN).doubleValue();
     }
 
     public class BudgetCost {
@@ -300,8 +298,7 @@ public class BalanceCourse implements Comparable<BalanceCourse> {
          * @return the value
          */
         public double getValue() {
-            return new BigDecimal(value)
-                .setScale(2, BigDecimal.ROUND_HALF_EVEN).doubleValue();
+            return new BigDecimal(value).setScale(2, BigDecimal.ROUND_HALF_EVEN).doubleValue();
         }
     }
 

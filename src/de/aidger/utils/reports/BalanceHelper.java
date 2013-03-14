@@ -24,6 +24,7 @@ package de.aidger.utils.reports;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -59,8 +60,7 @@ public class BalanceHelper {
      *            The filters to use.
      * @return The filtered courses
      */
-    public List<Course> filterCourses(List<Course> courses,
-            BalanceFilter filters) {
+    public List<Course> filterCourses(List<Course> courses, BalanceFilter filters) {
         List<Course> filteredOnceCourses = new ArrayList<Course>();
         List<Course> filteredTwiceCourses = new ArrayList<Course>();
         List<Course> filteredTriceCourses = new ArrayList<Course>();
@@ -78,8 +78,7 @@ public class BalanceHelper {
                  */
                 for (Object group : filters.getGroups()) {
                     for (Course course : courses) {
-                        if (!filteredOnceCourses.contains(course)
-                                && course.getGroup().equals(group)) {
+                        if (!filteredOnceCourses.contains(course) && course.getGroup().equals(group)) {
                             /*
                              * The course is not already in the filtered courses
                              * and meets the group criteria.
@@ -98,8 +97,7 @@ public class BalanceHelper {
                  */
                 for (Object lecturer : filters.getLecturers()) {
                     for (Course course : filteredOnceCourses) {
-                        if (!filteredTwiceCourses.contains(course)
-                                && course.getLecturer().equals(lecturer)) {
+                        if (!filteredTwiceCourses.contains(course) && course.getLecturer().equals(lecturer)) {
                             /*
                              * The course is not already in the filtered courses
                              * and meets the lecturer criteria.
@@ -118,8 +116,7 @@ public class BalanceHelper {
                  */
                 for (Object lecturer : filters.getTargetAudiences()) {
                     for (Course course : filteredTwiceCourses) {
-                        if (!filteredTriceCourses.contains(course)
-                                && course.getTargetAudience().equals(lecturer)) {
+                        if (!filteredTriceCourses.contains(course) && course.getTargetAudience().equals(lecturer)) {
                             /*
                              * The course is not already in the filtered courses
                              * and meets the target audience criteria.
@@ -228,8 +225,7 @@ public class BalanceHelper {
                     semesters.add(semester);
                     continue;
                 }
-                Pattern semesterPattern = Pattern
-                    .compile("([S|W]S)?(\\d{2})(\\d{0,2})");
+                Pattern semesterPattern = Pattern.compile("([S|W]S)?(\\d{2})(\\d{0,2})");
                 Matcher semesterMatcher = semesterPattern.matcher(semester);
                 if (!semesterMatcher.find()) {
                     semesters.add(semester);
@@ -254,8 +250,7 @@ public class BalanceHelper {
         balanceCourse.setLecturer(course.getLecturer());
         balanceCourse.setTargetAudience(course.getTargetAudience());
         double plannedAWS = 0;
-        double basicAWS = course.getNumberOfGroups()
-                * course.getUnqualifiedWorkingHours();
+        double basicAWS = course.getNumberOfGroups() * course.getUnqualifiedWorkingHours();
         balanceCourse.setBasicAWS(basicAWS);
         List<Employment> employments = null;
         try {
@@ -269,12 +264,10 @@ public class BalanceHelper {
              * the fitting employments.
              */
             Double budgetCost = calculateBudgetCost(employment);
-            balanceCourse.addBudgetCost(employment.getCostUnit(), employment
-                .getFunds(), budgetCost.doubleValue());
+            balanceCourse.addBudgetCost(employment.getCostUnit(), employment.getFunds(), budgetCost.doubleValue());
             plannedAWS = plannedAWS + employment.getHourCount();
         }
-        balanceCourse.setPlannedAWS(new BigDecimal(plannedAWS).setScale(2,
-            BigDecimal.ROUND_HALF_EVEN).doubleValue());
+        balanceCourse.setPlannedAWS(new BigDecimal(plannedAWS).setScale(2, BigDecimal.ROUND_HALF_EVEN).doubleValue());
         return balanceCourse;
     }
 
@@ -282,30 +275,13 @@ public class BalanceHelper {
      * Calculates the budget costs of this employment
      */
     public static double calculateBudgetCost(Employment employment) {
-        String qualification = employment.getQualification();
-        double calculationFactor = 1.0;
-        double calculationMethod = Integer.parseInt(Runtime.getInstance()
-            .getOption("calc-method"));
-        if (calculationMethod == 1) {
-            calculationFactor = Double.parseDouble(de.aidger.model.Runtime
-                .getInstance().getOption("pessimistic-factor", "1.0"));
-        } else {
-            calculationFactor = Double.parseDouble(de.aidger.model.Runtime
-                .getInstance().getOption("historic-factor", "1.0"));
-        }
-        List<HourlyWage> hourlyWages;
+        double calculationMethod = Integer.parseInt(Runtime.getInstance().getOption("calc-method", "1.0"));
+        double calculationFactor = Double.parseDouble(de.aidger.model.Runtime.getInstance().getOption(calculationMethod == 1 ? "pessimistic-factor" : "historic-factor", "1.0"));
         try {
-            hourlyWages = new HourlyWage().getAll();
-            if (hourlyWages.isEmpty())
+            HourlyWage hourlyWage = new HourlyWage().get(employment.getMonth(), employment.getYear(), employment.getQualification());
+            if (hourlyWage == null)
                 return 0;
-            for (HourlyWage hourlyWage : hourlyWages) {
-                if (hourlyWage.getMonth().equals(employment.getMonth())
-                        && hourlyWage.getYear().equals(employment.getYear())
-                        && hourlyWage.getQualification().equals(qualification)) {
-                    return hourlyWage.getWage().doubleValue()
-                            * calculationFactor * employment.getHourCount();
-                }
-            }
+            return hourlyWage.getWage().doubleValue() * calculationFactor * employment.getHourCount();
         } catch (SienaException e) {
             UI.displayError(e.toString());
         }
@@ -316,21 +292,11 @@ public class BalanceHelper {
      * Calculates the budget costs of this employment as pre-tax.
      */
     public static double calculatePreTaxBudgetCost(Employment employment) {
-        String qualification = employment.getQualification();
-        double calculationFactor = 1.0;
-        List<HourlyWage> hourlyWages;
         try {
-            hourlyWages = new HourlyWage().getAll();
-            if (hourlyWages.isEmpty())
+            HourlyWage hourlyWage = new HourlyWage().get(employment.getMonth(), employment.getYear(), employment.getQualification());
+            if (hourlyWage == null)
                 return 0;
-            for (HourlyWage hourlyWage : hourlyWages) {
-                if (hourlyWage.getMonth().equals(employment.getMonth())
-                        && hourlyWage.getYear().equals(employment.getYear())
-                        && hourlyWage.getQualification().equals(qualification)) {
-                    return hourlyWage.getWage().doubleValue()
-                            * calculationFactor * employment.getHourCount();
-                }
-            }
+            return hourlyWage.getWage().doubleValue() * employment.getHourCount();
         } catch (SienaException e) {
             UI.displayError(e.toString());
         }
@@ -344,18 +310,12 @@ public class BalanceHelper {
      * @return A ArrayList containing the semesters as Strings.
      */
     public ArrayList<String> getSemesters() {
-        ArrayList<String> semestersVector = new ArrayList<String>();
-        /*
-         * Add an empty semester string as the first entry. Relevant for the
-         * combo boxes.
-         */
         try {
-            List<String> semesters = (new Course()).getDistinctSemesters();
-            semestersVector = new ArrayList<String>(semesters);
+            return new ArrayList<String>((new Course()).getDistinctSemesters());
         } catch (SienaException e) {
             e.printStackTrace();
         }
-        return semestersVector;
+        return null;
     }
 
     /**
@@ -366,71 +326,42 @@ public class BalanceHelper {
      */
     public ArrayList<Integer> getYears() {
         ArrayList<String> semesters = getSemesters();
-        if (semesters.size() > 0) {
-            /*
-             * Only get the years, if there are any valid courses with a
-             * semester.
-             */
-            ArrayList<Integer> years = new ArrayList<Integer>();
-            /*
-             * Check for every semester out of the semester vector, if the year
-             * of that semester is already noted and add it if it's not.
-             */
-            for (String semester : semesters) {
-                int year = 0;
-                if (semester != null) {
-                    Pattern semesterPattern = Pattern
-                        .compile("([S|W]S)?(\\d{2})(\\d{0,2})");
-                    Matcher semesterMatcher = semesterPattern.matcher(semester);
-                    if (semesterMatcher.find()) {
-                        if (semesterMatcher.group(1) != null) {
-                            /*
-                             * Semester is either SS or WS. Add the first year
-                             * regardless.
-                             */
-                            year = 2000 + Integer.parseInt(semesterMatcher
-                                .group(2));
-                            if (semesterMatcher.group(1).equals("WS")) {
-                                // Semester is WS. Add the second year.
-                                if (!years.contains(year)) {
-                                    years.add(year);
-                                }
-                                year = 2000 + Integer.parseInt(semesterMatcher
-                                    .group(3));
+        ArrayList<Integer> years = new ArrayList<Integer>();
+        /*
+         * Check for every semester out of the semester vector, if the year
+         * of that semester is already noted and add it if it's not.
+         */
+        for (String semester : semesters) {
+            int year = 0;
+            if (semester != null) {
+                Pattern semesterPattern = Pattern.compile("([S|W]S)?(\\d{2})(\\d{0,2})");
+                Matcher semesterMatcher = semesterPattern.matcher(semester);
+                if (semesterMatcher.find()) {
+                    if (semesterMatcher.group(1) != null) {
+                        /*
+                         * Semester is either SS or WS. Add the first year
+                         * regardless.
+                         */
+                        year = 2000 + Integer.parseInt(semesterMatcher.group(2));
+                        if (semesterMatcher.group(1).equals("WS")) {
+                            // Semester is WS. Add the second year.
+                            if (!years.contains(year)) {
+                                years.add(year);
                             }
-                        } else {
-                            // Semester is in the form YYYY.
-                            year = Integer.parseInt(semester);
+                            year = 2000 + Integer.parseInt(semesterMatcher.group(3));
                         }
+                    } else {
+                        // Semester is in the form YYYY.
+                        year = Integer.parseInt(semester);
                     }
                 }
-                if (!years.contains(year)) {
-                    years.add(year);
-                }
             }
-            ArrayList<Integer> sortedYears = new ArrayList<Integer>();
-            sortedYears.add(years.get(0));
-            for (int i = 1; i < years.size(); i++) {
-                boolean addedYear = false;
-                for (int j = 0; j < sortedYears.size(); j++) {
-                    if ((Integer) years.get(i) <= (Integer) sortedYears.get(j)) {
-                        sortedYears.add(j, years.get(i));
-                        addedYear = true;
-                        break;
-                    }
-                }
-                if (!addedYear) {
-                    sortedYears.add(years.get(i));
-                }
+            if (!years.contains(year)) {
+                years.add(year);
             }
-            return sortedYears;
-        } else {
-            /*
-             * There are no valid courses. Return empty vector.
-             */
-            ArrayList<Integer> years = new ArrayList<Integer>();
-            return years;
         }
+        Collections.sort(years);
+        return years;
     }
 
     /**
