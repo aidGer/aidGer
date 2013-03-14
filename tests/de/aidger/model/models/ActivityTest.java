@@ -344,7 +344,7 @@ public class ActivityTest {
         activity.remove();
     }
     
-    /**
+    /** 
      * Cleans up after the whole class is done.
      */
     @AfterClass
