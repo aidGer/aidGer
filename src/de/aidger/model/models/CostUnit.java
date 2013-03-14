@@ -31,12 +31,12 @@ import siena.Table;
  * 
  * @author aidGer Team
  */
-@Table("Kosteneinheit")
-public class CostUnit extends AbstractModel<CostUnit> {
+@Table("Kostenstelle")
+public class CostUnit extends AbstractModel<CostUnit> implements Comparable<CostUnit> {
     /**
      * The cost unit that is a 8 digit number.
      */
-    @Column("Kosteneinheit")
+    @Column("Kostenstelle")
     private String costUnit = "";
 
     /**
@@ -204,5 +204,10 @@ public class CostUnit extends AbstractModel<CostUnit> {
             }                
         }
         return costunits;
+    }
+
+    @Override
+    public int compareTo(CostUnit other) {
+        return this.getFunds().compareTo(other.getFunds());
     }
 };

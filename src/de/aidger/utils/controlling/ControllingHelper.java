@@ -24,6 +24,7 @@ package de.aidger.utils.controlling;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import siena.SienaException;
@@ -65,11 +66,11 @@ public class ControllingHelper {
         } catch (SienaException e) {
             UI.displayError(e.toString());
         }
+        Collections.sort(years);
         int[] sortedYears = new int[years.size()];
         for (int i = 0; i < sortedYears.length; i++) {
             sortedYears[i] = years.get(i);
         }
-        Arrays.sort(sortedYears);
         return sortedYears;
     }
 
@@ -81,24 +82,24 @@ public class ControllingHelper {
      * @return The months
      */
     public int[] getYearMonths(int year) {
-        ArrayList<Byte> months = new ArrayList<Byte>();
+        ArrayList<Integer> months = new ArrayList<Integer>();
         List<Employment> employments;
         try {
             employments = new Employment().getEmployments((short) year,
                 (byte) 1, (short) year, (byte) 12);
             for (Employment employment : employments) {
-                if (!months.contains(employment.getMonth())) {
-                    months.add(employment.getMonth());
+                if (!months.contains((int) employment.getMonth())) {
+                    months.add((int) employment.getMonth());
                 }
             }
         } catch (SienaException e) {
             UI.displayError(e.toString());
         }
+        Collections.sort(months);
         int[] sortedMonths = new int[months.size()];
-        for (int i = 0; i < sortedMonths.length; i++) {
-            sortedMonths[i] = months.get(i);
+        for(int i = 0; i < sortedMonths.length; i++) {
+            sortedMonths[i] = (int) months.get(i);
         }
-        Arrays.sort(sortedMonths);
         /*
          * Since the controlling reports always include all the months of a year
          * before the given month, all the months following the first month must
@@ -136,8 +137,7 @@ public class ControllingHelper {
             employments = new Employment().getEmployments((short) year,
                 (byte) 1, (short) year, (byte) month);
             for (Employment employment : employments) {
-                CostUnit costUnit = (new CostUnit()).fromTokenDB(employment
-                    .getFunds());
+                CostUnit costUnit = (new CostUnit()).fromTokenDB(employment.getFunds());
                 if (!costUnits.contains(costUnit)) {
                     costUnits.add(costUnit);
                 }
@@ -145,11 +145,8 @@ public class ControllingHelper {
         } catch (SienaException e) {
             UI.displayError(e.toString());
         }
-        CostUnit[] sortedCostUnits = new CostUnit[costUnits.size()];
-        for (int i = 0; i < sortedCostUnits.length; i++) {
-            sortedCostUnits[i] = costUnits.get(i);
-        }
-        return sortedCostUnits;
+        Collections.sort(costUnits);
+        return (CostUnit[]) costUnits.toArray();
     }
 
     /**
@@ -164,13 +161,6 @@ public class ControllingHelper {
             financialCategories = new FinancialCategory().getAll();
             for (FinancialCategory financialCategory : financialCategories) {
                 if (!years.contains(financialCategory.getYear().intValue())) {
-                    for (int i = 0; i < years.size(); i++) {
-                        if (years.get(i) > financialCategory.getYear()
-                            .intValue()) {
-                            years
-                                .add(i, financialCategory.getYear().intValue());
-                        }
-                    }
                     years.add(financialCategory.getYear().intValue());
                 }
             }
@@ -178,6 +168,7 @@ public class ControllingHelper {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        Collections.sort(years);
         return years;
     }
 }

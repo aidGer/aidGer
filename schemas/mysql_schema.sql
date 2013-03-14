@@ -81,12 +81,12 @@ UNLOCK TABLES;
 -- Table structure for table `Kosteneinheit`
 --
 
-DROP TABLE IF EXISTS `Kosteneinheit`;
+DROP TABLE IF EXISTS `Kostenstelle`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Kosteneinheit` (
+CREATE TABLE `Kostenstelle` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Kosteneinheit` VARCHAR(8) NOT NULL DEFAULT '',
+  `Kostenstelle` VARCHAR(8) NOT NULL DEFAULT '',
   `Fonds` TEXT NOT NULL DEFAULT '',
   `TokenDB` VARCHAR(100) NOT NULL DEFAULT '',
 
