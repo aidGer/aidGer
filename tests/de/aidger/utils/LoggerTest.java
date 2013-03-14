@@ -56,6 +56,8 @@ public class LoggerTest {
         if(file.exists()) {
             file.delete();
         }
+        
+        Logger.getInstance().destroy();
     }
 
     /**

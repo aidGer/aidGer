@@ -91,6 +91,13 @@ public final class Logger {
 
         return instance;
     }
+    
+    /**
+     * Destroy the current logger instance.
+     */
+    public void destroy() {
+        instance = null;
+    }
 
     /**
      * Log a message with the given level to all handlers.
