@@ -136,6 +136,14 @@ public class HourlyWageTest {
         assertEquals(hourly.getWage(), result.getWage());
         assertEquals(hourly.getYear(), result.getYear());
     }
+    
+    /**
+     * Test the get(month, year) and get(month, year, qualification) method of class HourlyWage.
+     */
+    @Test
+    public void testGet() {
+        //TODO: Write test case.
+    }
 
     /**
      * Test of equals method, of class HourlyWage.
