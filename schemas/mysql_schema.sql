@@ -78,7 +78,7 @@ LOCK TABLES `Finanzkategorie` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Kosteneinheit`
+-- Table structure for table `Kostenstelle`
 --
 
 DROP TABLE IF EXISTS `Kostenstelle`;
@@ -98,9 +98,9 @@ CREATE TABLE `Kostenstelle` (
 -- Dumping data for table `Finanzkategorie`
 --
 
-LOCK TABLES `Kosteneinheit` WRITE;
-/*!40000 ALTER TABLE `Kosteneinheit` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Kosteneinheit` ENABLE KEYS */;
+LOCK TABLES `Kostenstelle` WRITE;
+/*!40000 ALTER TABLE `Kostenstelle` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Kostenstelle` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
