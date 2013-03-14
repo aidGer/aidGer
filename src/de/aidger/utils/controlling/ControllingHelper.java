@@ -146,7 +146,7 @@ public class ControllingHelper {
             UI.displayError(e.toString());
         }
         Collections.sort(costUnits);
-        return (CostUnit[]) costUnits.toArray();
+        return (CostUnit[]) costUnits.toArray(new CostUnit[costUnits.size()]);
     }
 
     /**
