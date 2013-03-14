@@ -219,6 +219,6 @@ public class ControllingHelperTest {
 
         assertEquals(1, result.length);
         System.out.println(result[0]);
-        assertNotEquals(employment.getCostUnit().toString(), (result[0]).getCostUnit());
+        assertEquals(employment.getCostUnit().toString(), (result[0]).getCostUnit());
     }
 }
