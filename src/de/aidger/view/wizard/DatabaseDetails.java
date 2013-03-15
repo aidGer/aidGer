@@ -96,18 +96,24 @@ public class DatabaseDetails extends WizardPanel {
                 uri = uri.substring(13);
                 String[] parts = uri.split("/");
                 String[] subparts = parts[0].split(":");
-                hostText.setText(subparts[0]);
-                portSpinner.setValue(Integer.parseInt(subparts[1]));
+                
+                hostText.setText(subparts[0]);                
+                if (subparts.length == 1) {
+                	portSpinner.setValue(3306);
+                } else {
+                	portSpinner.setValue(Integer.parseInt(subparts[1]));
+                }               	
+                
                 subparts = parts[1].split("\\?");
                 databaseText.setText(subparts[0]);
                 if (subparts.length > 1) {
-                    usernameText.setText(subparts[1].substring(5, subparts[1].indexOf("&")));
-                    if (subparts[1].charAt(subparts[1].indexOf("&") + 9) == '=') {
-                        passwordText.setText(subparts[1].substring(subparts[1].indexOf("&") + 10, subparts[1].lastIndexOf("&")));
+                	int divider = subparts[1].indexOf("&");
+                    usernameText.setText(subparts[1].substring(5, divider));
+                    if (subparts[1].length() > divider + 10 && subparts[1].charAt(divider + 9) == '=') {
+                        passwordText.setText(subparts[1].substring(divider + 10, subparts[1].lastIndexOf("&")));
                     } else {
                         passwordText.setText("");
                     }
-
                 }
             } else {
                 hostText.setText("localhost");
