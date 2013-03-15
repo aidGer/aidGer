@@ -45,6 +45,8 @@ import java.util.List;
 
 import javax.swing.AbstractAction;
 
+import siena.SienaException;
+
 /**
  * Check the previously entered database connection
  *
@@ -76,15 +78,15 @@ public class DatabaseCheck extends WizardPanel {
         jLabel3.setForeground(Color.red);
         jLabel3.setText(_("Trying to connect ..."));
 
-        /* Reload the database configuration and try to get a connection to it */
+        /* Reload the database configuration */
         try {
         	Runtime.getInstance().reloadDatabaseConnection();
-        	Runtime.getInstance().getConnectionManager().getConnection();
         } catch(Exception e){
-            Logger.error("Could not connect to the Database: " + e.toString());
+            Logger.error("Reloading the database configuration failed: " + e.toString());
             e.printStackTrace();
         }
 
+        /* Try to get a connection to the database server */
         BackgroundThread thread = new BackgroundThread();
         thread.start();
     }
@@ -161,19 +163,18 @@ public class DatabaseCheck extends WizardPanel {
     private class BackgroundThread extends Thread {
 
         @Override
-        public void run() {
-            List lst = null;
+        public void run() {        	
             try {
-                 lst = (new Activity()).getAll();
-            } catch (Exception ex) {
-            }
-
-            if (lst == null) {
-                jLabel3.setText(_("Connection failed. Please check with your Administrator"));
-            } else {
+            	// Try to get a connection which fails if it can't connect
+                Runtime.getInstance().getConnectionManager().getConnection();
+                 
                 jLabel3.setForeground(Color.green);
                 jLabel3.setText(_("Connection successful."));
                 hasConnected = true;
+            } catch (SienaException ex) {
+            	jLabel3.setText(_("Connection failed. Please check with your Administrator"));
+            	Logger.error("SienaException: " + ex.getMessage());
+            	return;
             }
         }
     }
