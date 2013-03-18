@@ -201,7 +201,7 @@ public class CostUnit extends AbstractModel<CostUnit> implements Comparable<Cost
         for (CostUnit c : lst) {
             if (!costunits.contains(c.getCostUnit())) {
                 costunits.add(c.getCostUnit());
-            }                
+            }
         }
         return costunits;
     }
