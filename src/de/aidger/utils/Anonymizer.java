@@ -63,20 +63,6 @@ public class Anonymizer {
         checkCal.add(Calendar.DAY_OF_YEAR, time);
         Date checkDate = checkCal.getTime();
 
-        // Try to find any existing Assistant Viewer Tabs to update them correctly
-        List<AssistantTableModel> models = new ArrayList<AssistantTableModel>();
-
-        if (UI.getWindows().length > 0) {
-            for (Tab t : UI.getInstance().getTabs()) {
-                if (t instanceof ViewerTab) {
-                    ViewerTab v = (ViewerTab) t;
-                    if (v.getTableModel() instanceof AssistantTableModel) {
-                        models.add((AssistantTableModel) v.getTableModel());
-                    }
-                }
-            }
-        }
-
         try {
             List<Assistant> assistants = (new Assistant()).getAll();
 
@@ -99,17 +85,13 @@ public class Anonymizer {
 
                 if (latest.after(new Date(2)) && latest.before(checkDate)) {
                     count++;
+                    
+                    a.setFirstName(token);
+                    a.setLastName(token);
+                    a.setEmail("ano@nym.com");
+                    a.save();
 
-                    Assistant ass = new Assistant(a);
-                    ass.setFirstName(token);
-                    ass.setLastName(token);
-                    ass.setEmail("ano@nym.com");
-                    ass.save();
-
-                    for (AssistantTableModel m : models) {
-                        //TODO: Rewrite
-                        //m.update(ass, true);
-                    }
+                    //TODO: Check if manual observer trigger is needed after all
                 }
             }
         } catch (SienaException ex) {

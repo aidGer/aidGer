@@ -34,7 +34,6 @@ public class ComboBoxModel extends DefaultComboBoxModel implements
     /**
      * The model before it was edited.
      */
-    @SuppressWarnings("unchecked")
     private AbstractModel modelBeforeEdit;
 
     /**
