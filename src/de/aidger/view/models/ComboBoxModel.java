@@ -32,11 +32,6 @@ public class ComboBoxModel extends DefaultComboBoxModel implements
         GenericListModel {
 
     /**
-     * The model before it was edited.
-     */
-    private AbstractModel modelBeforeEdit;
-
-    /**
      * The type of the displayed data.
      */
     private final DataType dataType;
@@ -54,57 +49,10 @@ public class ComboBoxModel extends DefaultComboBoxModel implements
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * de.aidger.view.models.Model#setModelBeforeEdit(de.aidger.model.AbstractModel
-     * )
-     */
-    @SuppressWarnings("unchecked")
-    public void setModelBeforeEdit(AbstractModel m) {
-        modelBeforeEdit = m;
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
      * @see de.aidger.view.models.Model#getDataType()
      */
     public DataType getDataType() {
         return dataType;
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public void update(Observable m, Object arg) {
-    	//TODO: re-implement
-    	/*
-        AbstractModel model = (AbstractModel) m;
-        Boolean save = (Boolean) arg;
-
-        Object modelUI = UIModelFactory.create(model);
-
-        if (modelUI == null) {
-            modelUI = model;
-        }
-
-        if (save) { // the model was saved
-
-            removeElement(modelBeforeEdit);
-
-            if (!contains(modelUI)) {
-                addElement(modelUI);
-            }
-        } else { // the model was removed
-
-            removeElement(modelUI);
-        }
-
-        fireContentsChanged(this, 0, getSize());
-        */
     }
 
     /**
@@ -157,5 +105,44 @@ public class ComboBoxModel extends DefaultComboBoxModel implements
         }
 
         super.insertElementAt(element, index);
+    }
+    
+    public void removeElementById(long id) {
+        for(int i = 0; i < getSize(); i++) {
+            if(((AbstractModel) getElementAt(i)).getId() != null && ((AbstractModel) getElementAt(i)).getId() == id) {
+                removeElementAt(i);
+                return;
+            }
+        }
+    }
+
+    @Override
+    public void onSave(AbstractModel model) {
+        Object modelUI = UIModelFactory.create(model);
+
+        if (modelUI == null) {
+            modelUI = model;
+        }
+        
+        removeElementById(model.getId());
+
+        if (!contains(modelUI)) {
+            addElement(modelUI);
+        }
+        
+        fireContentsChanged(this, 0, getSize());
+    }
+
+    @Override
+    public void onRemove(AbstractModel model) {
+        Object modelUI = UIModelFactory.create(model);
+
+        if (modelUI == null) {
+            modelUI = model;
+        }
+        
+        removeElementById(model.getId());
+        
+        fireContentsChanged(this, 0, getSize());
     }
 }

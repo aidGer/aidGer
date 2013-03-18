@@ -20,12 +20,11 @@
 package de.aidger.view.models;
 
 import de.aidger.model.AbstractModel;
+import de.aidger.model.Observer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Observable;
-import java.util.Observer;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -107,25 +106,6 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
     }
 
     /**
-     * Sets the model before it was edited.
-     *
-     * @param m
-     *            the model before it was edited
-     */
-    public void setModelBeforeEdit(AbstractModel m) {
-        modelBeforeEdit = m;
-    }
-
-    /**
-     * Returns the model before it was edited.
-     *
-     * @return the model before it was edited
-     */
-    public AbstractModel getModelBeforeEdit() {
-        return modelBeforeEdit;
-    }
-
-    /**
      * Return the count of columns.
      *
      * @return The count of columns
@@ -167,33 +147,28 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
     public int getRowCount() {
         return models.size();
     }
+    
+    public void onSave(AbstractModel model) {
+        int index = indexOf(model);
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
-     */
-    public void update(Observable m, Object arg) {
-    	//TODO: re-implement
-    	/*
-        AbstractModel model = (AbstractModel) m;
-        Boolean save = (Boolean) arg;
-        int index = indexOf(modelBeforeEdit);
-
-        if (save && index >= 0) { // the model was saved
+        if (index >= 0) { // the model was saved
             models.set(index, model);            
-        } else if (save) { // the model was newly created
-            models.add(model);
-            index = models.indexOf(model);            
-        } else { // the model was removed
-            if (index == -1) {
-                index = models.indexOf(model);
-            }
-            models.remove(index);            
+        } else { // the model was newly created
+            models.add(model);       
         }
-
+        
         fireTableDataChanged();
-        */
+    }
+    
+    public void onRemove(AbstractModel model) {
+        int index = indexOf(model);
+        
+        if (index == -1) {
+            index = models.indexOf(model);
+        }
+        models.remove(index);
+        
+        fireTableDataChanged();
     }
 
     private int indexOf(AbstractModel m) {
@@ -202,7 +177,7 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
         }
 
         for (int i = 0; i < models.size(); ++i) {
-            if (models.get(i).equals(m)) {
+            if (models.get(i).getId() == m.getId()) {
                 return i;
             }
         }

@@ -19,8 +19,7 @@
 
 package de.aidger.view.models;
 
-import java.util.Observer;
-
+import de.aidger.model.Observer;
 import de.aidger.model.AbstractModel;
 import de.aidger.view.tabs.ViewerTab.DataType;
 
@@ -30,15 +29,6 @@ import de.aidger.view.tabs.ViewerTab.DataType;
  * @author aidGer Team
  */
 public interface GenericListModel extends Observer {
-
-    /**
-     * Sets the model before it was edited.
-     * 
-     * @param m
-     *            the model before it was edited
-     */
-    @SuppressWarnings("unchecked")
-    public void setModelBeforeEdit(AbstractModel m);
 
     /**
      * Returns the type of the displayed data.

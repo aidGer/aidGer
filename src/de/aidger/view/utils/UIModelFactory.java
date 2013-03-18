@@ -38,15 +38,9 @@ public class UIModelFactory {
     @SuppressWarnings("unchecked")
     public static Object create(AbstractModel model) {
         try {
-            Class classUI = Class.forName("de.aidger.view.models.UI"
-                    + model.getClass().getSimpleName());
+            Class classUI = Class.forName("de.aidger.view.models.UI" + model.getClass().getSimpleName());
 
-            Class classInterface = Class
-                .forName("de.unistuttgart.iste.se.adohive.model.I"
-                        + model.getClass().getSimpleName());
-
-            return classUI.getConstructor(classInterface).newInstance(
-                classInterface.cast(model));
+            return classUI.getConstructor(model.getClass()).newInstance(model);
         } catch (Exception e) {
         }
 

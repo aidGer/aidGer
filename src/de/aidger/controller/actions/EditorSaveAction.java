@@ -678,15 +678,11 @@ public class EditorSaveAction extends AbstractAction {
 
         for (AbstractModel model : models) {
 
-            // table model needs the model before it was edited 
-            tableModel.setModelBeforeEdit(modelBeforeEdit);
-
             // the model is observed by the table model
             //TODO: Readd
-            //model.addObserver(tableModel);
+            model.subscribe(tableModel);
 
-            UI.getInstance().addObserversTo(model, modelBeforeEdit,
-                tab.getType());
+            UI.getInstance().addObserversTo(model, tab.getType());
 
             try {
                 model.save();

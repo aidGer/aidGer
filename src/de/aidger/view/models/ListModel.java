@@ -19,8 +19,6 @@
 
 package de.aidger.view.models;
 
-import java.util.Observable;
-
 import javax.swing.DefaultListModel;
 
 import de.aidger.model.AbstractModel;
@@ -29,12 +27,6 @@ import de.aidger.view.utils.UIModelFactory;
 
 @SuppressWarnings("serial")
 public class ListModel extends DefaultListModel implements GenericListModel {
-
-    /**
-     * The model before it was edited.
-     */
-    @SuppressWarnings("unchecked")
-    private AbstractModel modelBeforeEdit;
 
     /**
      * The type of the displayed data.
@@ -54,56 +46,46 @@ public class ListModel extends DefaultListModel implements GenericListModel {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * de.aidger.view.models.Model#setModelBeforeEdit(de.aidger.model.AbstractModel
-     * )
-     */
-    @SuppressWarnings("unchecked")
-    public void setModelBeforeEdit(AbstractModel m) {
-        modelBeforeEdit = m;
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
      * @see de.aidger.view.models.Model#getDataType()
      */
     public DataType getDataType() {
         return dataType;
     }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public void update(Observable m, Object arg) {
-    	//TODO: re-implement
-    	/*
-        AbstractModel model = (AbstractModel) m;
-        Boolean save = (Boolean) arg;
-
+    
+    public void removeElementById(long id) {
+        for(int i = 0; i < getSize(); i++) {
+            if(((AbstractModel) getElementAt(i)).getId() != null && ((AbstractModel) getElementAt(i)).getId() == id) {
+                removeElementAt(i);
+                return;
+            }
+        }
+    }
+    
+    public void onSave(AbstractModel model) {
         Object modelUI = UIModelFactory.create(model);
 
         if (modelUI == null) {
             modelUI = model;
         }
 
-        if (save) { // the model was saved
+        removeElementById(model.getId());
 
-            removeElement(modelBeforeEdit);
-
-            if (!contains(modelUI)) {
-                addElement(modelUI);
-            }
-        } else { // the model was removed
-
-            removeElement(modelUI);
+        if (!contains(modelUI)) {
+            addElement(modelUI);
         }
 
         fireContentsChanged(this, 0, getSize());
-        */
+    }
+    
+    public void onRemove(AbstractModel model) {
+        Object modelUI = UIModelFactory.create(model);
+
+        if (modelUI == null) {
+            modelUI = model;
+        }
+
+        removeElementById(model.getId());
+
+        fireContentsChanged(this, 0, getSize());
     }
 }

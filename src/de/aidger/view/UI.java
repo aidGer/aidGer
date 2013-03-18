@@ -515,14 +515,11 @@ public final class UI extends JFrame {
      * 
      * @param model
      *            the observerd model
-     * @param modelBeforeEdit
-     *            the observerd model before it is edited
      * @param type
      *            the type of the observed model
      */
     @SuppressWarnings("unchecked")
-    public void addObserversTo(AbstractModel model,
-            AbstractModel modelBeforeEdit, DataType type) {
+    public void addObserversTo(AbstractModel model, DataType type) {
         /*
          * model should also be observed by the already existing table and list
          * models of the same type
@@ -532,10 +529,8 @@ public final class UI extends JFrame {
             if (t instanceof ViewerTab && ((ViewerTab) t).getType() == type) {
                 TableModel tM = ((ViewerTab) t).getTableModel();
 
-                tM.setModelBeforeEdit(modelBeforeEdit);
-
                 //TODO: Readd
-                //model.addObserver(tM);
+                model.subscribe(tM);
             }
 
             // list models
@@ -543,10 +538,9 @@ public final class UI extends JFrame {
 
             for (GenericListModel lM : lMs) {
                 if (lM.getDataType() == type) {
-                    lM.setModelBeforeEdit(modelBeforeEdit);
 
                     //TODO: Readd
-                    //model.addObserver(lM);
+                    model.subscribe(lM);
                 }
             }
         }
