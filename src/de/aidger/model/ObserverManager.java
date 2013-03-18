@@ -56,6 +56,12 @@ public class ObserverManager {
         return instance;
     }
     
+    /**
+     * Register a new observer for a model
+     * 
+     * @param observable The model to observer
+     * @param observer The observer
+     */
     public void register(AbstractModel<?> observable, Observer observer) {
     	String identifier = getIdentifier(observable);
     	if (!observers.containsKey(identifier)) {
@@ -65,6 +71,12 @@ public class ObserverManager {
     	observers.get(identifier).add(observer);
     }
     
+    /**
+     * Unregister an observer from a model
+     * 
+     * @param observable The model that was observed
+     * @param observer The observer to unregister
+     */
     public void unregister(AbstractModel<?> observable, Observer observer) {
     	String identifier = getIdentifier(observable);
     	if (observers.containsKey(identifier)) {
@@ -72,18 +84,34 @@ public class ObserverManager {
     	}
     }
     
+    /**
+     * Trigger a save event
+     * 
+     * @param observable The model that got saved
+     */
     public void triggerSave(AbstractModel observable) {
     	for (Observer o : observers.get(getIdentifier(observable))) {
     		o.onSave(observable);
     	}
     }
     
+    /**
+     * Trigger a remove event
+     * 
+     * @param observable The model that got removed
+     */
     public void triggerRemove(AbstractModel observable) {
     	for (Observer o : observers.get(getIdentifier(observable))) {
     		o.onRemove(observable);
     	}
     }
     
+    /**
+     * Return the identifier string
+     * 
+     * @param model The model to identify
+     * @return The identifier string
+     */
     private String getIdentifier(AbstractModel<?> model) {
     	return model.clazz.getName() + "_" + model.getId().toString();
     }

@@ -139,9 +139,7 @@ public abstract class AbstractModel<T> extends Model {
         }
 
         /* Observable calls */
-        //TODO: See top
-        //setChanged();
-        //notifyObservers(true);
+        ObserverManager.getInstance().triggerSave(this);
     }
 
     /**
@@ -170,12 +168,10 @@ public abstract class AbstractModel<T> extends Model {
         Logger.info(MessageFormat.format(_("Removing model: {0}"), new Object[] { toString() }));
 
         delete();
+        ObserverManager.getInstance().triggerRemove(this);
         if (getId() != null) {
             setId(null);
-        }
-        //TODO: See top
-        //setChanged();
-        //notifyObservers(false);
+        }        
 
         /* Add event to the HistoryManager */
         HistoryEvent evt = new HistoryEvent();
@@ -296,6 +292,8 @@ public abstract class AbstractModel<T> extends Model {
 
     /**
      * Deletes everything from the associated table.
+     * 
+     * NOTE: Does not call observers or handle unsubscribing
      */
     public void clearTable() {
         try {
