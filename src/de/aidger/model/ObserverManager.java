@@ -90,8 +90,12 @@ public class ObserverManager {
      * @param observable The model that got saved
      */
     public void triggerSave(AbstractModel observable) {
-    	for (Observer o : observers.get(getIdentifier(observable))) {
-    		o.onSave(observable);
+    	String identifier = getIdentifier(observable);
+    	
+    	if (observers.containsKey(identifier)) {  
+	    	for (Observer o : observers.get(identifier)) {
+	    		o.onSave(observable);
+	    	}
     	}
     }
     
@@ -101,8 +105,12 @@ public class ObserverManager {
      * @param observable The model that got removed
      */
     public void triggerRemove(AbstractModel observable) {
-    	for (Observer o : observers.get(getIdentifier(observable))) {
-    		o.onRemove(observable);
+    	String identifier = getIdentifier(observable);
+    	
+    	if (observers.containsKey(identifier)) {    	
+	    	for (Observer o : observers.get(identifier)) {
+	    		o.onRemove(observable);
+	    	}
     	}
     }
     
