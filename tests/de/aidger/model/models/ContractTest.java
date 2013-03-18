@@ -20,10 +20,6 @@
 package de.aidger.model.models;
 
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
 import java.util.List;
@@ -86,7 +82,7 @@ public class ContractTest {
 
         contract.save();
 
-        Contract result = new Contract(contract.getById(contract.getId()));
+        Contract result = contract.getById(contract.getId());
 
         assertNotNull(result);
         assertEquals(contract, result);
@@ -100,64 +96,55 @@ public class ContractTest {
         System.out.println("Validation");
 
         contract.save();
-        List<Contract> list = contract.getAll();
-        assertNotNull(list);
+        assertFalse(contract.getAll().isEmpty());
         contract.clearTable();
 
         exception.expect(ValidationException.class);
 
         contract.setAssistantId((long) 0);
         contract.save();
-        list = contract.getAll();
-        assertNull(list);
+        assertTrue(contract.getAll().isEmpty());
         contract.resetErrors();
         contract.setAssistantId(assistant.getId());
 
         contract.setCompletionDate(null);
         contract.save();
-        list = contract.getAll();
-        assertNull(list);
+        assertTrue(contract.getAll().isEmpty());
         contract.resetErrors();
         contract.setCompletionDate(new Date(10));
 
         contract.setEndDate(null);
         contract.save();
-        list = contract.getAll();
-        assertNull(list);
+        assertTrue(contract.getAll().isEmpty());
         contract.resetErrors();
         contract.setEndDate(new Date(1000));
 
         contract.setStartDate(null);
         contract.save();
-        list = contract.getAll();
-        assertNull(list);
+        assertTrue(contract.getAll().isEmpty());
         contract.resetErrors();
         contract.setStartDate(new Date(20));
 
         contract.setType(null);
         contract.save();
-        list = contract.getAll();
-        assertNull(list);
+        assertTrue(contract.getAll().isEmpty());
         contract.resetErrors();
 
         contract.setType("012345678901234567890");
         contract.save();
-        list = contract.getAll();
-        assertNull(list);
+        assertTrue(contract.getAll().isEmpty());
         contract.resetErrors();
         contract.setType("newContract");
 
         contract.setConfirmationDate(new Date(1));
         contract.save();
-        list = contract.getAll();
-        assertNull(list);
+        assertTrue(contract.getAll().isEmpty());
         contract.resetErrors();
         contract.setConfirmationDate(new Date(10));
 
         contract.setEndDate(new Date(10));
         contract.save();
-        list = contract.getAll();
-        assertNull(list);
+        assertTrue(contract.getAll().isEmpty());
         contract.resetErrors();
         contract.setEndDate(new Date(1000));
 
@@ -281,7 +268,7 @@ public class ContractTest {
 
         contract.save();
 
-        List result = contract.getContracts(new Date(20), new Date(1000));
+        List<Contract> result = contract.getContracts(new Date(20), new Date(1000));
 
         assertNotNull(result);
         assertFalse(result.isEmpty());

@@ -213,9 +213,8 @@ public abstract class AbstractModel<T> extends Model {
      *
      * @return An array containing all found models or null
      */
-    public List getAll() {
-        List l = all().fetch();
-        return l;
+    public List<T> getAll() {
+        return all().fetch();
     }
 
     /**
