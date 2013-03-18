@@ -94,9 +94,7 @@ public class ActivityReportConverterTest {
             testFile, testRow, "blibber");
 
         File file = new File("Test_Report.pdf");
-
         assertTrue(file.exists());
-
         file.delete();
 
         testFile = new File("Test_Report.pdf");
@@ -104,8 +102,8 @@ public class ActivityReportConverterTest {
         converter = new ActivityReportConverter(testFile, testRow, "blibber");
 
         file = new File("Test_Report.pdf");
-
         assertTrue(file.exists());
+        file.delete();
     }
 
     /**
