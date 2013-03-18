@@ -50,7 +50,6 @@ import de.aidger.utils.history.HistoryManager;
  * 
  * @author Philipp Gildein
  */
-//TODO: Had to remove Observable ... do something similar
 public abstract class AbstractModel<T> extends Model {
 
     /**
@@ -190,6 +189,24 @@ public abstract class AbstractModel<T> extends Model {
         } catch (HistoryException ex) {
             Logger.error(ex.getMessage());
         }
+    }
+    
+    /**
+     * Allow Observers to subscribe to save/remove events
+     * 
+     * @param obs The observer to subscribe
+     */
+    public void subscribe(Observer<T> obs) {
+    	ObserverManager.getInstance().register(this, obs);
+    }
+    
+    /**
+     * Unsubscribe an Observer from the events
+     * 
+     * @param obs The observer to unsubscribe
+     */
+    public void unsubscribe(Observer<T> obs) {
+    	ObserverManager.getInstance().unregister(this, obs);
     }
     
     /**
