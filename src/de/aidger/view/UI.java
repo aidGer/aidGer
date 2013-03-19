@@ -528,6 +528,8 @@ public final class UI extends JFrame {
             // table models
             if (t instanceof ViewerTab && ((ViewerTab) t).getType() == type) {
                 TableModel tM = ((ViewerTab) t).getTableModel();
+                
+                tM.addModel(model);
 
                 //TODO: Readd
                 model.subscribe(tM);
@@ -539,6 +541,8 @@ public final class UI extends JFrame {
             for (GenericListModel lM : lMs) {
                 if (lM.getDataType() == type) {
 
+                    lM.addModel(model);
+                    
                     //TODO: Readd
                     model.subscribe(lM);
                 }

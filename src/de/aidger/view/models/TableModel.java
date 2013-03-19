@@ -148,6 +148,41 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
         return models.size();
     }
     
+    /**
+     * Removes a model from the tableModel identified by its id.
+     * 
+     * @param id 
+     *          The id of the model to be removed.
+     */
+    public void removeModelById(long id) {
+        for (int i = 0; i < models.size(); ++i) {
+            if (models.get(i).getId() == id) {
+                models.remove(i);
+            }
+        }
+    }
+    
+    /**
+     * Adds a model to the tableModel. Does not add if a model with the model's id already exists in the tableModel.
+     * 
+     * @param model
+     *          The model to be added to the tableModel.
+     */
+    public void addModel(AbstractModel model) {
+        int index = indexOf(model);
+        
+        if(index == -1) {
+            models.add(model);
+        }
+        
+        fireTableDataChanged();
+    }
+    
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.model.Observer#onSave()
+     */
     public void onSave(AbstractModel model) {
         int index = indexOf(model);
 
@@ -159,7 +194,13 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
         
         fireTableDataChanged();
     }
+
     
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.model.Observer#onRemove()
+     */
     public void onRemove(AbstractModel model) {
         int index = indexOf(model);
         
@@ -171,6 +212,14 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
         fireTableDataChanged();
     }
 
+    /**
+     * Determines the index of the specified model in the list of models of this tableModel.
+     * 
+     * @param m
+     *          The model of which the index is sought.
+     * @return
+     *          The index of the model. -1 if model is not found or null.
+     */
     private int indexOf(AbstractModel m) {
         if (m == null) {
             return -1;

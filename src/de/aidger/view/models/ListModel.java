@@ -52,6 +52,12 @@ public class ListModel extends DefaultListModel implements GenericListModel {
         return dataType;
     }
     
+    /**
+     * Removes the element with the given id from the list.
+     * 
+     * @param id
+     *          The id of the model to remove from the list.
+     */
     public void removeElementById(long id) {
         for(int i = 0; i < getSize(); i++) {
             if(((AbstractModel) getElementAt(i)).getId() != null && ((AbstractModel) getElementAt(i)).getId() == id) {
@@ -60,7 +66,31 @@ public class ListModel extends DefaultListModel implements GenericListModel {
             }
         }
     }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.models.GenericListModel#addModel()
+     */
+    public void addModel(AbstractModel model) {
+        Object modelUI = UIModelFactory.create(model);
+
+        if (modelUI == null) {
+            modelUI = model;
+        }
+        
+        if(!contains(modelUI)) {
+            addElement(modelUI);
+        }
+        
+        fireContentsChanged(this, 0, getSize());
+    }
     
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.model.Observer#onSave()
+     */
     public void onSave(AbstractModel model) {
         Object modelUI = UIModelFactory.create(model);
 
@@ -77,6 +107,11 @@ public class ListModel extends DefaultListModel implements GenericListModel {
         fireContentsChanged(this, 0, getSize());
     }
     
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.model.Observer#onRemove()
+     */
     public void onRemove(AbstractModel model) {
         Object modelUI = UIModelFactory.create(model);
 
@@ -85,6 +120,18 @@ public class ListModel extends DefaultListModel implements GenericListModel {
         }
 
         removeElementById(model.getId());
+
+        fireContentsChanged(this, 0, getSize());
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.models.GenericListModel#removeModelById()
+     */
+    @Override
+    public void removeModelById(long id) {
+        removeElementById(id);
 
         fireContentsChanged(this, 0, getSize());
     }

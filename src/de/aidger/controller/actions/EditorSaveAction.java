@@ -677,15 +677,19 @@ public class EditorSaveAction extends AbstractAction {
         // finally save all prepared models
 
         for (AbstractModel model : models) {
-
-            // the model is observed by the table model
-            //TODO: Readd
-            model.subscribe(tableModel);
-
-            UI.getInstance().addObserversTo(model, tab.getType());
+            
+            boolean isNew = !model.isInDatabase();
+            
+            if(!isNew) {    
+                UI.getInstance().addObserversTo(model, tab.getType());
+            }
 
             try {
                 model.save();
+                
+                if(isNew) {
+                    UI.getInstance().addObserversTo(model, tab.getType());
+                }
 
                 UI.getInstance().setStatusMessage(
                     MessageFormat.format(

@@ -107,6 +107,12 @@ public class ComboBoxModel extends DefaultComboBoxModel implements
         super.insertElementAt(element, index);
     }
     
+    /**
+     * Removes the element specified by the id from the list.
+     * 
+     * @param id
+     *          The id of the model/element to remove.
+     */
     public void removeElementById(long id) {
         for(int i = 0; i < getSize(); i++) {
             if(((AbstractModel) getElementAt(i)).getId() != null && ((AbstractModel) getElementAt(i)).getId() == id) {
@@ -115,7 +121,12 @@ public class ComboBoxModel extends DefaultComboBoxModel implements
             }
         }
     }
-
+    
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.model.Observer#onSave()
+     */
     @Override
     public void onSave(AbstractModel model) {
         Object modelUI = UIModelFactory.create(model);
@@ -133,6 +144,11 @@ public class ComboBoxModel extends DefaultComboBoxModel implements
         fireContentsChanged(this, 0, getSize());
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.model.Observer#onRemove()
+     */
     @Override
     public void onRemove(AbstractModel model) {
         Object modelUI = UIModelFactory.create(model);
@@ -142,6 +158,38 @@ public class ComboBoxModel extends DefaultComboBoxModel implements
         }
         
         removeElementById(model.getId());
+        
+        fireContentsChanged(this, 0, getSize());
+    }
+
+    /**
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.models.GenericListModel#addModel()
+     */
+    @Override
+    public void addModel(AbstractModel model) {
+        Object modelUI = UIModelFactory.create(model);
+
+        if (modelUI == null) {
+            modelUI = model;
+        }
+        
+        if (!contains(modelUI)) {
+            addElement(modelUI);
+        }
+        
+        fireContentsChanged(this, 0, getSize());
+    }
+
+    /**
+     * (non-Javadoc)
+     * 
+     * @see de.aidger.view.models.GenericListModel.removeModelById()
+     */
+    @Override
+    public void removeModelById(long id) {
+        removeElementById(id);
         
         fireContentsChanged(this, 0, getSize());
     }

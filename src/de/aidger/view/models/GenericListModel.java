@@ -36,4 +36,20 @@ public interface GenericListModel extends Observer {
      * @return the type of the displayed data
      */
     public DataType getDataType();
+    
+    /**
+     * Adds a model to the listModel.
+     * 
+     * @param model
+     *          The model to add to the list. Does not add if model already exists in the list.
+     */
+    public void addModel(AbstractModel model);
+    
+    /**
+     * Removes the model with the specified id from the list.
+     * 
+     * @param id
+     *          The id of the model to remove.
+     */
+    public void removeModelById(long id);
 }
