@@ -52,7 +52,7 @@ public class BudgetFilterTest {
     /**
      * Sets up every test.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @Before
     public void setUp() throws SienaException {
@@ -157,7 +157,7 @@ public class BudgetFilterTest {
     /**
      * Cleans up after the tests.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @After
     public void cleanUp() throws SienaException {

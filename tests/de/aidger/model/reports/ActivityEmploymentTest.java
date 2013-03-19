@@ -65,7 +65,7 @@ public class ActivityEmploymentTest {
     /**
      * Sets up every test.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @Before
     public void setUp() throws SienaException {

@@ -69,7 +69,7 @@ public class BalanceReportConverterTest {
     /**
      * Prepares this test.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @BeforeClass
     public static void beforeClassSetUp() throws SienaException {
@@ -150,7 +150,7 @@ public class BalanceReportConverterTest {
     /**
      * Tests the constructor of the class BalanceReportConverter.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @Test
     public void testConstructor() throws SienaException {

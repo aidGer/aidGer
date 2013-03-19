@@ -66,7 +66,7 @@ public class ControllingConverterTest {
     /**
      * Prepares this test.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @BeforeClass
     public static void beforeClassSetUp() throws SienaException {
@@ -175,7 +175,7 @@ public class ControllingConverterTest {
     /**
      * Cleans up after the tests.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @After
     public void cleanUp() throws SienaException {

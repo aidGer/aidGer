@@ -100,7 +100,7 @@ public abstract class AbstractModel<T> extends Model {
     }
 
     /**
-     * Cloneable function inherited from IAdoHiveModel.
+     * Clones a model, including all of its attributes.
      * 
      * @return Clone of the model
      */

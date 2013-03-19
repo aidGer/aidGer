@@ -75,7 +75,7 @@ public class ControllingHelperTest {
     /**
      * Sets up every test.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @Before
     public void setUp() throws SienaException {
@@ -168,7 +168,7 @@ public class ControllingHelperTest {
     /**
      * Tests the method getYearMonths() of the class ControllingHelper.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @Test
     public void testGetYearMonths() throws SienaException {

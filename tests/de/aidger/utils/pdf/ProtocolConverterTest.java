@@ -76,7 +76,7 @@ public class ProtocolConverterTest {
     /**
      * Prepares this test.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @Before
     public void setUp() throws SienaException {
@@ -129,7 +129,7 @@ public class ProtocolConverterTest {
     /**
      * Tests the constructor of the class ProtocolConverter.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @Test
     public void testConstructorRange() throws SienaException {

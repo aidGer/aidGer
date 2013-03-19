@@ -69,10 +69,7 @@ public class HistoryEvent implements Serializable {
             Object o = a.getById(id);
 
             Class classUI = Class.forName("de.aidger.view.models.UI" + type);
-            Class classInterface = Class
-                    .forName("de.unistuttgart.iste.se.adohive.model.I" + type);
-            return (UIModel) classUI.getConstructor(classInterface)
-                    .newInstance(classInterface.cast(o));
+            return (UIModel) classUI.getConstructor(obj).newInstance(o);
         } catch (Exception ex) {
             return null;
         }

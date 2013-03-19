@@ -96,7 +96,7 @@ public class BalanceReportSemesterCreatorTest {
     /**
      * Prepares this test.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @BeforeClass
     public static void beforeClassSetUp() throws SienaException {
@@ -185,7 +185,7 @@ public class BalanceReportSemesterCreatorTest {
     /**
      * Tests the constructor of the class BalanceReportSemesterCreator.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @Test
     public void testConstructor() throws SienaException {

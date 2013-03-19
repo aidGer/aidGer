@@ -63,7 +63,7 @@ public class CourseBudgetTest {
     /**
      * Sets up every test.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @Before
     public void setUp() throws SienaException {
@@ -143,7 +143,7 @@ public class CourseBudgetTest {
     /**
      * Tests the parameterized constructor of the class CourseBudget.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @Test
     public void testParameterizedConstructor() throws SienaException {
@@ -182,7 +182,7 @@ public class CourseBudgetTest {
     /**
      * Tests the method isOverBooked of the class CourseBudget.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @Test
     public void testIsOverbooked() throws SienaException {
@@ -197,7 +197,7 @@ public class CourseBudgetTest {
     /**
      * Cleans up after the tests.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @After
     public void cleanUp() throws SienaException {

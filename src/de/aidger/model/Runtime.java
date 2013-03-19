@@ -215,7 +215,7 @@ public final class Runtime {
             System.exit(-1);
         }
         
-        /* Set database connection settings and try to get an instance of AdoHiveController */
+        /* Set database connection settings and try to get a connection */
         try {
         	reloadDatabaseConnection();
 

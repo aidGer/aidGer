@@ -228,7 +228,7 @@ public class BalanceHelperTest {
     /**
      * Test the method filterCourses() of class BalanceHelper.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @Test
     public void testFilterCourses() throws SienaException {
@@ -464,7 +464,7 @@ public class BalanceHelperTest {
     /**
      * Tests the method getYears().
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @Test
     public void testGetYears() throws SienaException {
@@ -535,7 +535,7 @@ public class BalanceHelperTest {
     /**
      * Tests the method calculateBudgetCost() of the class BalanceHelper.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @Test
     public void testCalculateBudgetCost() throws SienaException {
@@ -565,7 +565,7 @@ public class BalanceHelperTest {
     /**
      * Tests the method calculatePreTaxBudgetCost() of the class BalanceHelper.
      * 
-     * @throws AdoHiveException
+     * @throws SienaException
      */
     @Test
     public void testCalculatePreTaxBudgetCost() throws SienaException {
