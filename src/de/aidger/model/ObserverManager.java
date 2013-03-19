@@ -64,8 +64,11 @@ public class ObserverManager {
      */
     public void register(AbstractModel<?> observable, Observer observer) {
     	String identifier = getIdentifier(observable);
+    	
     	if (!observers.containsKey(identifier)) {
     		observers.put(identifier, new ArrayList<Observer>());
+    	} else if (observers.get(identifier).contains(observer)) {
+    		return;
     	}
     	
     	observers.get(identifier).add(observer);
