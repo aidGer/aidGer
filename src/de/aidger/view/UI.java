@@ -372,10 +372,8 @@ public final class UI extends JFrame {
 
         tabbedPane.removeChangeListener(tabbedPaneListener);
 
-        Tab old = Tab.class.isInstance(tabbedPane.getComponentAt(index)) ? (Tab) tabbedPane
-            .getComponentAt(index)
-                : (Tab) ((JScrollPane) tabbedPane.getComponentAt(index))
-                    .getViewport().getView();
+        Tab old = Tab.class.isInstance(tabbedPane.getComponentAt(index)) ? (Tab) tabbedPane.getComponentAt(index)
+                : (Tab) ((JScrollPane) tabbedPane.getComponentAt(index)).getViewport().getView();
 
         old.performBeforeClose();
 
@@ -463,13 +461,10 @@ public final class UI extends JFrame {
      * @param index
      */
     public void setCurrentTabAt(int index) {
-        Tab newTab = Tab.class.isInstance(tabbedPane.getComponentAt(index)) ? (Tab) tabbedPane
-            .getComponentAt(index)
-                : (Tab) ((JScrollPane) tabbedPane.getComponentAt(index))
-                    .getViewport().getView();
+        Tab newTab = Tab.class.isInstance(tabbedPane.getComponentAt(index)) ? (Tab) tabbedPane.getComponentAt(index)
+                : (Tab) ((JScrollPane) tabbedPane.getComponentAt(index)).getViewport().getView();
 
-        Logger.debug(MessageFormat.format(_("Setting current tab to \"{0}\""),
-            new Object[] { newTab.getTabName() }));
+        Logger.debug(MessageFormat.format(_("Setting current tab to \"{0}\""), new Object[] { newTab.getTabName() }));
 
         tabbedPane.setSelectedIndex(index);
     }
