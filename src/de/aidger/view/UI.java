@@ -159,7 +159,6 @@ public final class UI extends JFrame {
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
 
-        contentPane.add(createToolbar(), BorderLayout.PAGE_START);
         contentPane.add(createTaskPane(), BorderLayout.LINE_START);
         contentPane.add(createTabbedPane(), BorderLayout.CENTER);
         contentPane.add(createStatusPane(), BorderLayout.PAGE_END);
@@ -531,7 +530,6 @@ public final class UI extends JFrame {
                 
                 tM.addModel(model);
 
-                //TODO: Readd
                 model.subscribe(tM);
             }
 
@@ -543,7 +541,6 @@ public final class UI extends JFrame {
 
                     lM.addModel(model);
                     
-                    //TODO: Readd
                     model.subscribe(lM);
                 }
             }
@@ -623,17 +620,6 @@ public final class UI extends JFrame {
             AboutAction.class.getName())));
 
         return helpMenu;
-    }
-
-    /**
-     * Sets up the toolbar.
-     */
-    private JToolBar createToolbar() {
-        JToolBar toolBar = new JToolBar();
-
-        // toolBar.add(ActionRegistry.getInstance().get(OpenAction.class.getName()));
-
-        return toolBar;
     }
 
     /**
