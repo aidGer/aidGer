@@ -58,6 +58,7 @@ public class CostUnit extends AbstractModel<CostUnit> implements Comparable<Cost
         if (getValidators().isEmpty()) {
             validatePresenceOf(new String[] { "costUnit", "funds", "tokenDB" },
                     new String[] { _("Cost unit"), _("Funds"), _("Database token") });
+            validateUniquenessOf(new String[] { "costUnit"}, new String[] { _("Cost unit")}, this);
         }
     }
 
@@ -204,6 +205,17 @@ public class CostUnit extends AbstractModel<CostUnit> implements Comparable<Cost
             }
         }
         return costunits;
+    }
+    
+    /**
+     * Get CostUnit based on its cost unit number.
+     * 
+     * @param costUnit
+     *          The cost unit number of the cost unit.
+     * @return The cost unit matching the cost unit number.
+     */
+    public CostUnit getCostUnit(int costUnit) {
+        return all().filter("costUnit", String.valueOf(costUnit)).get();
     }
 
     @Override

@@ -174,7 +174,15 @@ public class EmploymentEditorForm extends JPanel {
             cmbCourse.setModel(cmbCourseModel);
 
             cmbCostUnit.setModel(cmbFundsModel);
-
+            
+            ComboBoxModel cmbCostUnitModel = new ComboBoxModel(DataType.CostUnit);
+            List<CostUnit> costUnits = new CostUnit().getAll();
+            for(CostUnit costUnit : costUnits) {
+                cmbCostUnitModel.addModel(costUnit);
+            }
+            cmbFunds.setModel(cmbCostUnitModel);
+            
+            listModels.add(cmbCostUnitModel);
             listModels.add(cmbAssistantModel);
             listModels.add(cmbCourseModel);
 
@@ -186,13 +194,10 @@ public class EmploymentEditorForm extends JPanel {
 
             if (editMode) {
                 CostUnit costUnit = (new CostUnit()).fromTokenDB(employment.getFunds());
-                cmbFunds.setSelectedItem(costUnit == null ? employment
-                    .getFunds() : costUnit);
+                cmbFunds.setSelectedItem(costUnit);
 
-                cmbCostUnit.setSelectedItem(UICostUnit.valueOf(employment
-                    .getCostUnit()));
-                cmbQualification.setSelectedItem(Qualification
-                    .valueOf(employment.getQualification()));
+                cmbCostUnit.setSelectedItem(UICostUnit.valueOf(employment.getCostUnit()));
+                cmbQualification.setSelectedItem(Qualification.valueOf(employment.getQualification()));
                 txtRemark.setText(employment.getRemark());
 
                 DateLine dl = dateLines.get(0);
@@ -702,7 +707,6 @@ public class EmploymentEditorForm extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(cmbCostUnit, gridBagConstraints);
 
-        cmbFunds.setModel(new javax.swing.DefaultComboBoxModel((new CostUnit()).getAll().toArray()));
         cmbFunds.setMinimumSize(new java.awt.Dimension(300, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;

@@ -36,6 +36,7 @@ import de.aidger.model.validators.ExistenceValidator;
 import de.aidger.model.validators.FormatValidator;
 import de.aidger.model.validators.InclusionValidator;
 import de.aidger.model.validators.PresenceValidator;
+import de.aidger.model.validators.UniquenessValidator;
 import de.aidger.model.validators.Validator;
 import de.aidger.model.validators.ValidationException;
 import de.aidger.utils.Logger;
@@ -470,6 +471,20 @@ public abstract class AbstractModel<T> extends Model {
      */
     public void validateFormatOf(String[] members, String[] trans, String format) {
         validators.get(classname).add(new FormatValidator(members, trans, format));
+    }
+    
+    /**
+     * Adds a uniqueness validator to the model.
+     * 
+     * @param members
+     *          The name of the member variables to validate
+     * @param trans
+     *          The translated names
+     * @param type
+     *          The type of the model
+     */
+    public void validateUniquenessOf(String[] members, String[] trans, AbstractModel type) {
+        validators.get(classname).add(new UniquenessValidator(members, trans, type));
     }
 
     /**

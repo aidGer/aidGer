@@ -43,7 +43,11 @@ import javax.swing.SwingUtilities;
 import de.aidger.model.Runtime;
 import de.aidger.model.models.CostUnit;
 import de.aidger.model.models.FinancialCategory;
+import de.aidger.view.models.ComboBoxModel;
+import de.aidger.view.models.GenericListModel;
 import de.aidger.view.models.UICostUnit;
+import de.aidger.view.tabs.EditorTab;
+import de.aidger.view.tabs.ViewerTab.DataType;
 import de.aidger.view.utils.HelpLabel;
 import de.aidger.view.utils.InputPatternFilter;
 import de.aidger.view.utils.InvalidLengthException;
@@ -55,6 +59,8 @@ import de.aidger.view.utils.InvalidLengthException;
  */
 @SuppressWarnings("serial")
 public class FinancialCategoryEditorForm extends JPanel {
+    
+    EditorTab tab;
 
     /**
      * Constructs a financial category editor form.
@@ -62,7 +68,9 @@ public class FinancialCategoryEditorForm extends JPanel {
      * @param fc
      *            the financial category that will be edited
      */
-    public FinancialCategoryEditorForm(FinancialCategory fc) {
+    public FinancialCategoryEditorForm(FinancialCategory fc, EditorTab tab) {
+        this.tab = tab;
+        
         initComponents();
 
         SwingUtilities.invokeLater(new Runnable() {
@@ -84,10 +92,8 @@ public class FinancialCategoryEditorForm extends JPanel {
                 addNewCostUnit();
 
                 CostUnitLine fl = costUnitLines.get(i);
-                fl.cmbCostUnit.setSelectedItem(UICostUnit.valueOf(fc
-                    .getCostUnits()[i]));
-                fl.txtBudgetCosts.setText(String
-                    .valueOf(fc.getBudgetCosts()[i]));
+                fl.cmbCostUnit.setSelectedItem(new CostUnit().getCostUnit(fc.getCostUnits()[i]));
+                fl.txtBudgetCosts.setText(String.valueOf(fc.getBudgetCosts()[i]));
             }
         } else {
             addNewCostUnit();
@@ -102,10 +108,8 @@ public class FinancialCategoryEditorForm extends JPanel {
             @Override
             public int compare(CostUnitLine f, CostUnitLine s) {
             	try {
-	                Integer first = Integer.valueOf((String) f.cmbCostUnit
-	                    .getSelectedItem());
-	                Integer second = Integer.valueOf((String) s.cmbCostUnit
-	                    .getSelectedItem());
+	                Integer first = Integer.valueOf(((CostUnit) f.cmbCostUnit.getSelectedItem()).getCostUnit());
+	                Integer second = Integer.valueOf(((CostUnit) s.cmbCostUnit.getSelectedItem()).getCostUnit());
 	
 	                if (first < second) {
 	                    return -1;
@@ -131,8 +135,7 @@ public class FinancialCategoryEditorForm extends JPanel {
         Integer[] budgetCosts = new Integer[costUnitLines.size()];
 
         for (int i = 0; i < costUnitLines.size(); ++i) {
-            budgetCosts[i] = Integer
-                .valueOf(costUnitLines.get(i).txtBudgetCosts.getText());
+            budgetCosts[i] = Integer.valueOf(costUnitLines.get(i).txtBudgetCosts.getText());
         }
 
         return budgetCosts;
@@ -145,16 +148,14 @@ public class FinancialCategoryEditorForm extends JPanel {
      * @throws NumberFormatException
      *             InvaludLengthException
      */
-    public Integer[] getCostUnits() throws NumberFormatException,
-            InvalidLengthException {
+    public Integer[] getCostUnits() throws NumberFormatException, InvalidLengthException {
         Integer[] costUnits = new Integer[costUnitLines.size()];
 
         for (int i = 0; i < costUnitLines.size(); ++i) {
-            String costUnit = (String) costUnitLines.get(i).cmbCostUnit
-                .getSelectedItem();
-            costUnits[i] = Integer.valueOf(costUnit);
+            CostUnit costUnit = (CostUnit) costUnitLines.get(i).cmbCostUnit.getSelectedItem();
+            costUnits[i] = Integer.valueOf(costUnit.getCostUnit());
 
-            if (costUnit.length() != 8) {
+            if (costUnit.getCostUnit().length() != 8) {
                 throw new InvalidLengthException();
             }
         }
@@ -198,11 +199,17 @@ public class FinancialCategoryEditorForm extends JPanel {
         lblCostUnit.getAccessibleContext()
             .setAccessibleDescription("costUnits");
 
-        List<String> costUnits = (new CostUnit()).getAllCostUnits();
-        costUnits.add(0, _("Please select.."));
+        ComboBoxModel costUnitModel = new ComboBoxModel(DataType.CostUnit);
+        List<CostUnit> costUnits = (new CostUnit()).getAll();
+        for(CostUnit costUnit : costUnits) {
+            costUnitModel.addModel(costUnit);
+        }
         
         JComboBox cmbCostUnit = new JComboBox();
-        cmbCostUnit.setModel(new DefaultComboBoxModel(costUnits.toArray()));
+        cmbCostUnit.setModel(costUnitModel);
+        if(cmbCostUnit.getItemCount() > 0)
+            cmbCostUnit.setSelectedItem(null);
+        tab.getListModels().add(costUnitModel);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
@@ -394,6 +401,7 @@ public class FinancialCategoryEditorForm extends JPanel {
          */
         @Override
         public void actionPerformed(ActionEvent e) {
+            tab.getListModels().remove(costUnitLine.cmbCostUnit.getModel());
             remove(costUnitLine.lblCostUnit);
             remove(costUnitLine.cmbCostUnit);
             remove(costUnitLine.lblBudgetCosts);

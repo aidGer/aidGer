@@ -305,7 +305,7 @@ public class EditorTab extends Tab {
         case Assistant:
             return new AssistantEditorForm((Assistant) model);
         case FinancialCategory:
-            return new FinancialCategoryEditorForm((FinancialCategory) model);
+            return new FinancialCategoryEditorForm((FinancialCategory) model, this);
         case HourlyWage:
             return new HourlyWageEditorForm((HourlyWage) model);
         case CostUnit:
