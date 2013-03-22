@@ -180,5 +180,6 @@ public class ControllingAssistantTest {
         course.remove();
         assistant.remove();
         fc.remove();
+        costUnit.remove();
     }
 }

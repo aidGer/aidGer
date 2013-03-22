@@ -184,5 +184,6 @@ public class ControllingCreatorTest {
         contract.remove();
         assistant.remove();
         fc.remove();
+        costUnit.remove();
     }
 }

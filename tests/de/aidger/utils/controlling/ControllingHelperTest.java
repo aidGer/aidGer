@@ -29,6 +29,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -205,6 +206,9 @@ public class ControllingHelperTest {
         assertTrue(employment.getMonth() == result[0]);
         assertTrue(employment2.getMonth() == result[1]);
         assertTrue(employment3.getMonth() == result[2]);
+        
+        employment2.remove();
+        employment3.remove();
     }
 
     /**
@@ -220,5 +224,15 @@ public class ControllingHelperTest {
         assertEquals(1, result.length);
         System.out.println(result[0]);
         assertEquals(employment.getCostUnit().toString(), (result[0]).getCostUnit());
+    }
+    
+    @After
+    public void cleanUp() throws SienaException{
+        employment.remove();
+        contract.remove();
+        course.remove();
+        assistant.remove();
+        fc.remove();
+        costUnit.remove();
     }
 }

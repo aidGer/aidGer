@@ -19,6 +19,7 @@
 
 package de.aidger.model.validators;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import siena.SienaException;
@@ -36,6 +37,11 @@ public class UniquenessValidatorTest {
 
     public UniquenessValidatorTest() {
         Runtime.getInstance().initialize();
+    }
+    
+    @Before
+    public void setUp() throws SienaException{
+        new Assistant().clearTable();
     }
 
     /**

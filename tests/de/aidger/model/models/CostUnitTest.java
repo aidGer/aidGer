@@ -161,10 +161,6 @@ public class CostUnitTest {
     	
     	CostUnit c2 = costUnit.clone();
     	c2.markAsNew();
-    	c2.save();
-    	
-    	assertEquals(1, costUnit.getAllCostUnits().size());
-    	
     	c2.setCostUnit("20202020");
     	c2.save();
     	
