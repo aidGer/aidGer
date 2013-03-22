@@ -1,4 +1,16 @@
 language: java
+
+env:
+	global:
+		- "ARTIFACTS_AWS_REGION=eu-west-1"
+		- "ARTIFACTS_S3_BUCKET=aidger-artifacts"
+		- secure: "P6E+3FRPt3SHHwVfUDH7/RonDB4jPFrEwbCN8twYIJmV2KQZptSfiLSUlkMO\nv/kwpseJV1pjG0H879qEAz9YOmCD3SGWiXhm5CCr6OTIkaE2sxWbqdnjrf2L\nvxvmn5sFRmUiGWnM7RiZL9CN5QrzlPUKL0/1T0jlzKgJaXPhWsI="
+		- secure: "4GyKgEyjquqrIDQezBR2peD0qmAoBSe80uI0HV9vrokuw0Mrgk5faA2qt5fw\n5AGtSbVGwpy24E6mCrcQ18vHmHIAcUjZhQ7rWfsRcilM0Z34dJhhthdubmUQ\npF7ItULAje3TGPN6cO47KllF3U+rX4ffBEwjTbBPof8e3Jz2FI0="
+
 before_script:
-    - mysql -e 'CREATE DATABASE aidger;'
-    - mysql aidger < schemas/mysql_schema.sql
+    - "mysql -e 'CREATE DATABASE aidger;'"
+    - "mysql aidger < schemas/mysql_schema.sql"
+    - "gem install travis-artifacts"
+
+after_success:
+  - "travis-artifacts upload --path dist/aidger-1.5-dev.jar"
