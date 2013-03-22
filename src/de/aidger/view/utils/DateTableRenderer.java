@@ -52,15 +52,16 @@ public class DateTableRenderer extends DefaultTableCellRenderer {
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value,
             boolean isSelected, boolean hasFocus, int row, int column) {
-        String text = format.format((Date) value);
-
-        Calendar cal = Calendar.getInstance();
-        cal.clear();
-
-        // it could be that no date shall be shown
-        if (value.equals(cal.getTime())) {
-            text = "";
-        }
+    	String text = "";
+    	if (value != null && Date.class.isInstance(value)) {
+	        Calendar cal = Calendar.getInstance();
+	        cal.clear();
+	
+	        // it could be that no date shall be shown
+	        if (!value.equals(cal.getTime())) {
+	        	text = format.format((Date) value);
+	        }
+    	}
 
         return super.getTableCellRendererComponent(table, text, isSelected,
             hasFocus, row, column);
