@@ -32,6 +32,7 @@ import de.aidger.model.models.*;
 import de.aidger.utils.*;
 import de.aidger.view.UI;
 import siena.PersistenceManagerFactory;
+import siena.SienaException;
 import siena.jdbc.JdbcPersistenceManager;
 import siena.jdbc.ThreadedConnectionManager;
 
@@ -218,13 +219,9 @@ public final class Runtime {
         /* Set database connection settings and try to get a connection */
         try {
         	reloadDatabaseConnection();
-
-            /* Try to get a connection which throws an exception if it fails */
-            connManager.getConnection();
         } catch (Exception e) {
             Logger.error("Could not connect to the Database: " + e.toString());
             e.printStackTrace();
-        	connected = false;
         }
     }
 
@@ -305,6 +302,15 @@ public final class Runtime {
         JdbcPersistenceManager pm = new JdbcPersistenceManager();
         pm.setConnectionManager(connManager);
         PersistenceManagerFactory.install(pm, Activity.class);
+        
+        /* Check if the connection was successful */
+        connected = true;
+        try {
+        	connManager.getConnection();
+        } catch (SienaException ex) {
+        	connected = false;
+        	throw ex;
+        }
     }
 
     /**

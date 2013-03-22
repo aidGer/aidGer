@@ -78,14 +78,6 @@ public class DatabaseCheck extends WizardPanel {
         jLabel3.setForeground(Color.red);
         jLabel3.setText(_("Trying to connect ..."));
 
-        /* Reload the database configuration */
-        try {
-        	Runtime.getInstance().reloadDatabaseConnection();
-        } catch(Exception e){
-            Logger.error("Reloading the database configuration failed: " + e.toString());
-            e.printStackTrace();
-        }
-
         /* Try to get a connection to the database server */
         BackgroundThread thread = new BackgroundThread();
         thread.start();
@@ -165,17 +157,19 @@ public class DatabaseCheck extends WizardPanel {
         @Override
         public void run() {        	
             try {
-            	// Try to get a connection which fails if it can't connect
-                Runtime.getInstance().getConnectionManager().getConnection();
-                 
+            	// Reloads the configuration and tries to connect
+            	Runtime.getInstance().reloadDatabaseConnection();
+            	                 
                 jLabel3.setForeground(Color.green);
                 jLabel3.setText(_("Connection successful."));
                 hasConnected = true;
             } catch (SienaException ex) {
             	jLabel3.setText(_("Connection failed. Please check with your Administrator"));
             	Logger.error("SienaException: " + ex.getMessage());
-            	return;
-            }
+            } catch (Exception ex) {
+            	jLabel3.setText(_("Internal failure. Please check with your Administrator"));
+            	Logger.error("Exception: " + ex.getMessage());
+            } 
         }
     }
 

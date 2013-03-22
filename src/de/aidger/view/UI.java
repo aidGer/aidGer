@@ -159,7 +159,6 @@ public final class UI extends JFrame {
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
 
-        contentPane.add(createToolbar(), BorderLayout.PAGE_START);
         contentPane.add(createTaskPane(), BorderLayout.LINE_START);
         contentPane.add(createTabbedPane(), BorderLayout.CENTER);
         contentPane.add(createStatusPane(), BorderLayout.PAGE_END);
@@ -373,10 +372,8 @@ public final class UI extends JFrame {
 
         tabbedPane.removeChangeListener(tabbedPaneListener);
 
-        Tab old = Tab.class.isInstance(tabbedPane.getComponentAt(index)) ? (Tab) tabbedPane
-            .getComponentAt(index)
-                : (Tab) ((JScrollPane) tabbedPane.getComponentAt(index))
-                    .getViewport().getView();
+        Tab old = Tab.class.isInstance(tabbedPane.getComponentAt(index)) ? (Tab) tabbedPane.getComponentAt(index)
+                : (Tab) ((JScrollPane) tabbedPane.getComponentAt(index)).getViewport().getView();
 
         old.performBeforeClose();
 
@@ -464,13 +461,10 @@ public final class UI extends JFrame {
      * @param index
      */
     public void setCurrentTabAt(int index) {
-        Tab newTab = Tab.class.isInstance(tabbedPane.getComponentAt(index)) ? (Tab) tabbedPane
-            .getComponentAt(index)
-                : (Tab) ((JScrollPane) tabbedPane.getComponentAt(index))
-                    .getViewport().getView();
+        Tab newTab = Tab.class.isInstance(tabbedPane.getComponentAt(index)) ? (Tab) tabbedPane.getComponentAt(index)
+                : (Tab) ((JScrollPane) tabbedPane.getComponentAt(index)).getViewport().getView();
 
-        Logger.debug(MessageFormat.format(_("Setting current tab to \"{0}\""),
-            new Object[] { newTab.getTabName() }));
+        Logger.debug(MessageFormat.format(_("Setting current tab to \"{0}\""), new Object[] { newTab.getTabName() }));
 
         tabbedPane.setSelectedIndex(index);
     }
@@ -531,7 +525,6 @@ public final class UI extends JFrame {
                 
                 tM.addModel(model);
 
-                //TODO: Readd
                 model.subscribe(tM);
             }
 
@@ -543,7 +536,6 @@ public final class UI extends JFrame {
 
                     lM.addModel(model);
                     
-                    //TODO: Readd
                     model.subscribe(lM);
                 }
             }
@@ -623,17 +615,6 @@ public final class UI extends JFrame {
             AboutAction.class.getName())));
 
         return helpMenu;
-    }
-
-    /**
-     * Sets up the toolbar.
-     */
-    private JToolBar createToolbar() {
-        JToolBar toolBar = new JToolBar();
-
-        // toolBar.add(ActionRegistry.getInstance().get(OpenAction.class.getName()));
-
-        return toolBar;
     }
 
     /**
