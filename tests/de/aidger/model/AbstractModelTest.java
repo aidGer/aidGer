@@ -246,7 +246,8 @@ public class AbstractModelTest {
         a.save();
 
         List<Assistant> a_ = new Assistant().all().filter("firstName", "Test").filter("lastName", "Tester").fetch();
-        assertTrue(a_.size() == 1);	
+        assertTrue(a_.size() == 1);
+        assertNotNull(a.getId());
         assertTrue(a.getId() > 0);
         assertEquals(a, a.getById(a.getId()));
 
