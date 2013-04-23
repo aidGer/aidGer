@@ -184,25 +184,28 @@ public class BalanceReportConverter {
                 break;
             }
             document.close();
-            applyTemplate(file, preTemplateFile);
-            preTemplateFile.delete();
-            /*
-             * Open the created document if the setting is enabled with the
-             * specified pdf viewer.
-             */
-            if (Runtime.getInstance().getOption("auto-open").equals("true")) {
-                try {
-                    java.lang.Runtime.getRuntime().exec(
-                        new String[] {
-                                Runtime.getInstance().getOption("pdf-viewer"),
-                                file.getAbsolutePath() });
-                } catch (IOException e) {
-                    try {
-                        Desktop.getDesktop().open(file);
-                    } catch (IOException e1) {
-                        UI.displayError(_("No pdf viewer could be found!"));
-                    }
-                }
+            if(applyTemplate(file, preTemplateFile)) {
+	            preTemplateFile.delete();
+	            /*
+	             * Open the created document if the setting is enabled with the
+	             * specified pdf viewer.
+	             */
+	            if (Runtime.getInstance().getOption("auto-open").equals("true")) {
+	                try {
+	                    java.lang.Runtime.getRuntime().exec(
+	                        new String[] {
+	                                Runtime.getInstance().getOption("pdf-viewer"),
+	                                file.getAbsolutePath() });
+	                } catch (IOException e) {
+	                    try {
+	                        Desktop.getDesktop().open(file);
+	                    } catch (IOException e1) {
+	                        UI.displayError(_("No pdf viewer could be found!"));
+	                    }
+	                }
+	            }
+            } else {
+            	preTemplateFile.delete();
             }
         }
     }
@@ -233,7 +236,7 @@ public class BalanceReportConverter {
      * @param preTemplateFile
      *            The report to be used.
      */
-    private void applyTemplate(File file, File preTemplateFile) {
+    private boolean applyTemplate(File file, File preTemplateFile) {
         FileOutputStream outStream = null;
         FileInputStream inStream = null;
         PdfContentByte contentByte = null;
@@ -251,6 +254,10 @@ public class BalanceReportConverter {
             } else {
                 templateURL = getClass().getResource(
                     "/de/aidger/res/pdf/BalanceReportTemplate.pdf");
+            }
+            if(templateURL == null) {
+            	throw new FileNotFoundException(_("The report template could not be loaded.") + " " 
+            			+ _("Please make sure that a fitting template exists in the template folder."));
             }
             Document document = new Document(PageSize.A4.rotate());
             outStream = new FileOutputStream(file.getPath());
@@ -289,11 +296,17 @@ public class BalanceReportConverter {
                 }
             }
             document.close();
+            return true;
+        } catch(FileNotFoundException e) {
+        	if(e.getMessage() != null) {
+        		UI.displayError(e.getMessage());
+        	}
         } catch (DocumentException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return false;
     }
 
     /**
