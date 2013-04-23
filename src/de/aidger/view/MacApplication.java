@@ -2,6 +2,8 @@ package de.aidger.view;
 
 import java.awt.event.ActionEvent;
 
+import javax.swing.ImageIcon;
+
 import com.apple.eawt.AboutHandler;
 import com.apple.eawt.AppEvent.AboutEvent;
 import com.apple.eawt.AppEvent.PreferencesEvent;
@@ -19,6 +21,8 @@ public final class MacApplication {
 		Application app = Application.getApplication();
 		app.setAboutHandler(new MacAboutHandler());
 		app.setPreferencesHandler(new MacPreferencesHandler());
+		
+		app.setDockIconImage(new ImageIcon(Object.class.getResource("/de/aidger/res/icons/aidger-icon.png")).getImage());
 	}
 	
 	protected static ActionEvent getEvent() {
