@@ -179,7 +179,7 @@
             <zipfileset src="${lib.itext}" />
             <zipfileset src="${lib.jcommon}" />
             <zipfileset src="${lib.jfreechart}" />
-            <zipfileset src="${lib.orange" />
+            <zipfileset src="${lib.orange}" />
             <manifest>
                 <attribute name="Main-Class" value="de.aidger.controller.Application" />
                 <attribute name="Class-Path" value="." />
