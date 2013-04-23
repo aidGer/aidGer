@@ -138,13 +138,15 @@ def generate_fcs():
     years = get_years()
     fcs = []
     id = 0
+    group = 0
     for y in years:
         for c in categories:
             cost = int(random.random() * 10000)
             costunit = int(random.random() * 100000000)
             id += 1
+            group += 1
 
-            fcs.append({'id' : id, 'name' : c, 'year' : y, 'costs' : cost, 'costunit' : costunit })
+            fcs.append({'id' : id, 'group' : group, 'name' : c, 'year' : y, 'costs' : cost, 'costunit' : costunit })
     return fcs
 
 def generate_wages():
@@ -272,10 +274,10 @@ def generate_assistants_sql(assis):
         print(sql % (a['id'], firstname, lastname, a['email'], a['qualification']))
 
 def generate_fcs_sql(fcs):
-    sql = """INSERT INTO "Finanzkategorie" (ID, Name, Jahr, Plankosten, Kostenstelle) VALUES ('%i', '%s', '%s', '%s', '%s');"""
+    sql = """INSERT INTO "Finanzkategorie" (ID, Gruppe, Name, Jahr, Plankosten, Kostenstelle) VALUES ('%i', '%i', '%s', '%s', '%s', '%s');"""
 
     for f in fcs:
-        print(sql % (f['id'], f['name'], f['year'], f['costs'], f['costunit']))
+        print(sql % (f['id'], f['group'], f['name'], f['year'], f['costs'], f['costunit']))
 
 def generate_wages_sql(wages):
     sql = """INSERT INTO "Stundenlohn" (Qualifikation, Monat, Jahr, Lohn) VALUES ('%s', '%s', '%s', '%s');"""
