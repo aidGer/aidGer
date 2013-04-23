@@ -80,6 +80,8 @@ public final class Application {
      * Holds an instance of this class.
      */
     private static Application instance = null;
+    
+    boolean isMac = false;
 
     /**
      * Constructor must be private and does nothing.
@@ -107,6 +109,15 @@ public final class Application {
         Runtime.getInstance().initialize();
         registerActions();
     }
+    
+    /**
+     * Returns true if the computer is running Mac OS
+     * 
+     * @return True if Mac OS is running
+     */
+    public boolean isMac() {
+    	return isMac;
+    }
 
     /**
      * Registers all action classes at ActionRegistry
@@ -115,8 +126,7 @@ public final class Application {
         ActionRegistry.getInstance().register(new ExitAction());
         ActionRegistry.getInstance().register(new PrintAction());
         ActionRegistry.getInstance().register(new SettingsAction());
-        ActionRegistry.getInstance().register(
-            new SettingsDatabaseConfigAction());
+        ActionRegistry.getInstance().register(new SettingsDatabaseConfigAction());
         ActionRegistry.getInstance().register(new SettingsBrowseAction());
         ActionRegistry.getInstance().register(new SettingsSaveAction());
         ActionRegistry.getInstance().register(new HelpAction());
@@ -142,17 +152,14 @@ public final class Application {
         ActionRegistry.getInstance().register(new ReportGenerateAction());
         ActionRegistry.getInstance().register(new ReportExportAction());
         ActionRegistry.getInstance().register(new ProtocolExportAction());
-        ActionRegistry.getInstance().register(
-            new ActivityReportGenerateAction());
+        ActionRegistry.getInstance().register(new ActivityReportGenerateAction());
         ActionRegistry.getInstance().register(new ActivityReportExportAction());
 
         ActionRegistry.getInstance().register(new ControllingGenerateAction());
         ActionRegistry.getInstance().register(new ControllingExportAllAction());
-        ActionRegistry.getInstance().register(
-            new ControllingExportDifferencesAction());
+        ActionRegistry.getInstance().register(new ControllingExportDifferencesAction());
 
-        ActionRegistry.getInstance().register(
-            new FinancialControllingGenerateAction());
+        ActionRegistry.getInstance().register(new FinancialControllingGenerateAction());
 
         ActionRegistry.getInstance().register(new BudgetGenerateAction());
         ActionRegistry.getInstance().register(new BudgetExportAction());
@@ -161,10 +168,8 @@ public final class Application {
         ActionRegistry.getInstance().register(new WizardPreviousAction());
 
         ActionRegistry.getInstance().register(new FirstStartNameFinishAction());
-        ActionRegistry.getInstance().register(
-            new DatabaseSelectionFinishAction());
-        ActionRegistry.getInstance()
-            .register(new DatabaseDetailsFinishAction());
+        ActionRegistry.getInstance().register(new DatabaseSelectionFinishAction());
+        ActionRegistry.getInstance().register(new DatabaseDetailsFinishAction());
         ActionRegistry.getInstance().register(new DatabaseCheckFinishAction());
     }
 
@@ -174,7 +179,17 @@ public final class Application {
      * @param args
      */
     public static void main(String[] args) {
-        // set the look & feel
+    	Application app = Application.getInstance();
+    	// Check for Mac OS and set some options
+    	if (System.getProperty("os.name").toLowerCase().indexOf("mac") > -1) {
+    		app.isMac = true;
+    		
+    		System.setProperty("apple.laf.useScreenMenuBar", "true");
+    		System.setProperty("com.apple.macos.useScreenMenuBar", "true");
+    		System.setProperty("com.apple.mrj.application.apple.menu.about.name", "aidGer");
+    	}    	
+    	
+        // Set the look & feel
         try {
             for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -184,15 +199,14 @@ public final class Application {
             }
         } catch (Exception e) {
             try {
-                UIManager.setLookAndFeel(UIManager
-                    .getSystemLookAndFeelClassName());
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             } catch (Exception e_) {
 
             }
 
         }
 
-        // set some individual look & feel
+        // Set some individual look & feel
         Font oldFont = UIManager.getFont("TitledBorder.font");
         UIManager.put("TitledBorder.font", new Font(oldFont.getName(), oldFont
             .getStyle(), 15));

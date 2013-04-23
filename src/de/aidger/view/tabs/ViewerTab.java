@@ -21,6 +21,7 @@ package de.aidger.view.tabs;
 
 import static de.aidger.utils.Translation._;
 
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
@@ -382,7 +383,7 @@ public class ViewerTab extends Tab {
             table.getInputMap().put(
                 KeyStroke.getKeyStroke(KeyEvent.VK_DELETE, 0), "removeEntry");
             table.getInputMap().put(
-                KeyStroke.getKeyStroke(KeyEvent.VK_A, ActionEvent.CTRL_MASK),
+                KeyStroke.getKeyStroke(KeyEvent.VK_A, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
                 "selectAllEntries");
 
             table.getActionMap().put(

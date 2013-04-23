@@ -22,6 +22,7 @@ package de.aidger.controller.actions;
 import static de.aidger.utils.Translation._;
 
 import java.awt.Desktop;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
@@ -53,7 +54,7 @@ public class HelpAction extends AbstractAction {
     public HelpAction() {
         putValue(Action.NAME, _("Help"));
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_H,
-            ActionEvent.CTRL_MASK));
+        		Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         putValue(Action.SHORT_DESCRIPTION, _("Display the help"));
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
             "/de/aidger/res/icons/question.png")));

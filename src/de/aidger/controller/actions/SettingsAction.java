@@ -21,6 +21,7 @@ package de.aidger.controller.actions;
 
 import static de.aidger.utils.Translation._;
 
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
@@ -46,7 +47,7 @@ public class SettingsAction extends AbstractAction {
     public SettingsAction() {
         putValue(Action.NAME, _("Settings"));
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_S,
-            ActionEvent.CTRL_MASK));
+    		Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         putValue(Action.SHORT_DESCRIPTION, _("Display program settings"));
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
                 "/de/aidger/res/icons/switch.png")));

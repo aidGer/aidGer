@@ -23,6 +23,7 @@ import static de.aidger.utils.Translation._;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.print.PageFormat;
@@ -51,7 +52,7 @@ public class PrintAction extends AbstractAction {
     public PrintAction() {
         putValue(Action.NAME, _("Print"));
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_P,
-            ActionEvent.CTRL_MASK));
+    		Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         putValue(Action.SHORT_DESCRIPTION, _("Print program contents"));
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
                 "/de/aidger/res/icons/printer.png")));

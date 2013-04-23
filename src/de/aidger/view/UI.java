@@ -24,6 +24,7 @@ import static de.aidger.utils.Translation._;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Frame;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -63,9 +64,11 @@ import javax.swing.KeyStroke;
 import javax.swing.WindowConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.plaf.MenuBarUI;
 
 import de.aidger.controller.ActionNotFoundException;
 import de.aidger.controller.ActionRegistry;
+import de.aidger.controller.Application;
 import de.aidger.controller.actions.AboutAction;
 import de.aidger.controller.actions.ExitAction;
 import de.aidger.controller.actions.HelpAction;
@@ -154,6 +157,11 @@ public final class UI extends JFrame {
 
         // Create the menu bar
         setJMenuBar(createMainMenuBar());
+        
+        // Apply mac specific settings
+        if (Application.getInstance().isMac()) {
+        	MacApplication.initialize();
+        }
 
         // Build the main panel
         Container contentPane = getContentPane();
@@ -204,10 +212,10 @@ public final class UI extends JFrame {
         InputMap inputMap = comp.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
 
         inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_T,
-            ActionEvent.CTRL_MASK), "addNewTab");
+    		Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()), "addNewTab");
 
         inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_W,
-            ActionEvent.CTRL_MASK), "removeCurrentTab");
+    		Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()), "removeCurrentTab");
 
         actionMap.put("addNewTab", new AbstractAction() {
             public void actionPerformed(ActionEvent e) {
@@ -572,11 +580,16 @@ public final class UI extends JFrame {
     private JMenuBar createMainMenuBar() {
         try {
             JMenuBar menuBar = new JMenuBar();
+            
+            if (Application.getInstance().isMac()) {            	
+    				menuBar.setUI((MenuBarUI) Class.forName("com.apple.laf.AquaMenuBarUI").newInstance());
+            }
+            
             menuBar.add(createFileMenu());
             menuBar.add(createHelpMenu());
 
             return menuBar;
-        } catch (ActionNotFoundException e) {
+        } catch (Exception e) {
             displayError(e.getMessage());
             return null;
         }
@@ -594,9 +607,12 @@ public final class UI extends JFrame {
             PrintAction.class.getName())));
         fileMenu.add(new JMenuItem(ActionRegistry.getInstance().get(
             SettingsAction.class.getName())));
-        fileMenu.addSeparator();
-        fileMenu.add(new JMenuItem(ActionRegistry.getInstance().get(
-            ExitAction.class.getName())));
+
+        if (!Application.getInstance().isMac()) {
+        	fileMenu.addSeparator();
+        	fileMenu.add(new JMenuItem(ActionRegistry.getInstance().get(
+        			ExitAction.class.getName())));
+        }
 
         return fileMenu;
     }

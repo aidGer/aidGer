@@ -21,6 +21,7 @@ package de.aidger.controller.actions;
 
 import static de.aidger.utils.Translation._;
 
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
@@ -44,7 +45,7 @@ public class DialogAbortAction extends AbstractAction {
     public DialogAbortAction() {
         putValue(Action.NAME, _("Cancel"));
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_A,
-            ActionEvent.CTRL_MASK));
+        		Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         putValue(Action.SHORT_DESCRIPTION, _("Cancel the operation"));
     }
 

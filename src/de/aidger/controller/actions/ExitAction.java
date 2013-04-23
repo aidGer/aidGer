@@ -21,6 +21,7 @@ package de.aidger.controller.actions;
 
 import static de.aidger.utils.Translation._;
 
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
@@ -43,7 +44,7 @@ public class ExitAction extends AbstractAction {
     public ExitAction() {
         putValue(Action.NAME, _("Quit"));
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_Q,
-            ActionEvent.CTRL_MASK));
+        		Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         putValue(Action.SHORT_DESCRIPTION, _("Quit the program"));
 
         putValue(Action.SMALL_ICON, new ImageIcon(getClass().getResource(
