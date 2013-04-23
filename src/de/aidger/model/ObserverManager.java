@@ -123,7 +123,7 @@ public class ObserverManager {
      * @param model The model to identify
      * @return The identifier string
      */
-    private String getIdentifier(AbstractModel<?> model) {
+    protected String getIdentifier(AbstractModel<?> model) {
     	return model.clazz.getName() + "_" + model.getId().toString();
     }
 
