@@ -213,13 +213,21 @@ public class ActivityReportConverter {
                 templateURL = getClass().getResource(
                     "/de/aidger/res/pdf/ActivityReportTemplate.pdf");
             }
+            if(templateURL == null) {
+            	throw new FileNotFoundException(_("The report template could not be loaded.") + " " 
+            			+ _("Please make sure that a fitting template exists in the template folder."));
+            }
             reader = new PdfReader(templateURL);
             stamper = new PdfStamper(reader, new FileOutputStream(file));
             fileCreated = true;
             contentByte = stamper.getOverContent(1);
         } catch (FileNotFoundException e1) {
-            UI.displayError(_("File could not be created.") + " "
+        	if(e1.getMessage() != null) {
+        		UI.displayError(e1.getMessage());
+        	} else {
+        		UI.displayError(_("File could not be created.") + " "
                     + _("Please close all processes that are using the file."));
+        	}
         } catch (DocumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
