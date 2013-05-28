@@ -233,7 +233,7 @@ public class Employment extends AbstractModel<Employment> {
                     i).getYear() <= startYear)
                     || (employments.get(i).getMonth() > endMonth && employments
                             .get(i).getYear() >= endYear)) {
-                employments.remove(employments.get(i));
+                employments.remove(employments.get(i--));
             }
         }
         return employments;
