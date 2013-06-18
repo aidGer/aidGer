@@ -8363,7 +8363,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Benutzer möchte das Programm individuell einstellen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="260" priority="C" title="Name des Barbeiters bei Vorgangserfassung">
 <description>Die Wirksamkeit der Einstellung "Name des Bearbeiters" bei der Vorgangserfassung soll getestet werden.</description>
 <pre>Benutzer möchte den Namen des Bearbeiters ändern. Der Name ist bislang auf "Carl Coder" eingestellt. Alle bisherigen Vorgänge wurden korrekt mit diesem Namen abgespeichert.</pre>
@@ -8386,7 +8386,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="118" priority="C" title="Mehrsprachigkeit: Umstellung auf Deutsch">
 <description>Die Wirksamkeit der Umstellung auf die Sprache Deutsch soll getestet werden.</description>
 <pre>Das Programm ist auf Englisch eingestellt und verhält sich demnach.</pre>
@@ -8403,7 +8403,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="259" priority="C" title="Mehrsprachigkeit: Umstellung auf Englisch">
 <description>Die Wirksamkeit der Umstellung auf die Sprache Englisch soll getestet werden.</description>
 <pre>Das Programm ist auf Deutsch eingestellt und verhält sich demnach.</pre>
@@ -8420,7 +8420,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="255" priority="C" title="PDF-Viewer">
 <description>Die Wirksamkeit der Einstellung "PDF Anzeiger" soll getestet werden.</description>
 <pre>Benutzer möchte den PDF-Viewer ändern.</pre>
@@ -8441,7 +8441,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="256" priority="C" title="Anzahl der Vorgänge">
 <description>Die Wirksamkeit der Einstellung "Anzahl der Vorgänge" soll getestet werden.</description>
 <pre>Benutzer möchte die Anzahl der Vorgänge ändern. Die jetzige Einstellung umfasst 3 Vorgänge. Zur angezeigten Hilfskraft müssen mindestens 4 Vorgänge hinterlegt sein.</pre>
@@ -8462,7 +8462,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="257" priority="C" title="Berichte automatisch nach Generierung öffnen">
 <description>Die Wirksamkeit der Einstellung "Berichte automatisch nach Generierung öffnen" soll getestet werden.</description>
 <pre>Die Einstellung "Berichte automatisch nach Generierung öffnen" ist deaktiviert (Standard).</pre>
@@ -8481,7 +8481,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="258" priority="C" title="Reiter bei Verlassen speichern">
 <description>Die Wirksamkeit der Einstellung "Reiter bei Verlassen speichern" soll getestet werden.</description>
 <pre>Die Einstellung "Reiter bei Verlassen speichern" ist aktiviert.</pre>
@@ -8506,7 +8506,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="301" priority="C" title="Pessimistischer Faktor">
 <description>Die Wirksamkeit der Einstellung "Pessimistischer Faktor" soll getestet werden.</description>
 <pre>Benutzer möchte den pessimistischen Faktor ändern. Die jetzige Einstellung ist 1.0. In der Schnelleinstellung ist die pessimistische Berechnung ausgewählt.</pre>
@@ -8529,7 +8529,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="302" priority="C" title="Historischer Faktor">
 <description>Die Wirksamkeit der Einstellung "Historischer Faktor" soll getestet werden.</description>
 <pre>Benutzer möchte den historischen Faktor ändern. Die jetzige Einstellung ist 1.0. In der Schnelleinstellung ist die historische Berechnung ausgewählt.</pre>
@@ -8552,7 +8552,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="300" priority="C" title="Zeit bis zur Anonymisierung">
 <description>Die Wirksamkeit der Einstellung "Zeit bis zur Anonymisierung" soll getestet werden.</description>
 <pre>Benutzer möchte die Zeit bis zur Anonymisierung ändern. Die jetzige Einstellung ist 365 Tage. Es gibt 2 Hilfskräfte, deren letzte Beschäftigung 50 Tage her ist.</pre>
@@ -8571,7 +8571,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="303" priority="C" title="Controllingtoleranz">
 <description>Die Wirksamkeit der Einstellung "Controllingtoleranz" soll getestet werden.</description>
 <pre>Benutzer möchte die Controllingtoleranz ändern. Die jetzige Einstellung ist 0.0. Die Testfälle zum Hinzufügen von Beschäftigungen wurden ausgeführt. Die realen Kosten sind bei allen Hilfskräften mit den Plankosten identisch.</pre>
@@ -8601,7 +8601,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Das Programm verwendet Tabs für eine einfachere Bedienung von aidGer.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="265" priority="C" title="Leerer Tab öffnen">
 <description>Es soll ein neuer leerer Tab geöffnet werden.</description>
 <pre>Benutzer möchte einen leeren Tab öffnen.</pre>
@@ -8614,7 +8614,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="266" priority="C" title="Ein neuen Tab via mittlerer Maustaste (Navigationsleiste)">
 <description>Es soll ein neuer Tab mit Hilfe der mittleren Maustaste geöffnet werden.</description>
 <pre>Benutzer möchte sich Daten in einem neuen Tab anzeigen lassen.</pre>
@@ -8627,7 +8627,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="268" priority="C" title="Zwischen Tabs navigieren">
 <description>Es soll zwischen den Tabs navigiert werden können.</description>
 <pre>Benutzer möchte zwischen den Tabs navigieren.</pre>
@@ -8644,7 +8644,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="267" priority="C" title="Einen Tab schließen">
 <description>Es soll ein Tab geschlossen werden.</description>
 <pre>Der Benutzer möchte einen nicht mehr benötigten Tab schließen.</pre>
@@ -8664,7 +8664,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Der Benutzer möchte zwischen den verschiedenen Ansichten navigieren.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="270" priority="C" title="Verhalten bei Programmstart">
 <description>Das Verhalten der Navigationsleiste beim Programmstart soll getestet werden.</description>
 <pre>Das Programm wurde gestartet.</pre>
@@ -8677,7 +8677,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="271" priority="C" title="Klick auf geschlossenen Menüpunkt">
 <description>Das Verhalten beim Klick auf einen geschlossenen Menüpunkt soll getestet werden.</description>
 <pre>Benutzer möchte einen Menüpunkt öffnen, um weitere Navigationsmöglichkeiten zu diesem Menüpunkt zu bekommen.</pre>
@@ -8690,7 +8690,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:00" number="272" priority="C" title="Klick auf aktivem Menüpunkt">
 <description/>
 <pre>Ein Menüpunkt ist bereits offen, d.h. sein Menükontext wird angezeigt.</pre>
@@ -8710,7 +8710,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Der Benutzer möchte angezeigte Daten drucken.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="117" priority="C" title="Drucken eines Monatsauszuges">
 <description>Es soll die Druckmöglichkeit in der Software getestet werden. Es wird ein Monatsauszug gedruckt.</description>
 <pre>Testfall 242 (Controlliing) wurde ausgeführt. Der Controlling-Tab ist vom Benutzer geöffnet.</pre>
@@ -8729,7 +8729,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="254" priority="C" title="Drucken der Beschäftigungen">
 <description>Es soll die Druckmöglichkeit in der Software getestet werden. Es werden die angezeigten Beschäftigungen gedruckt.</description>
 <pre>Die Testfälle zum Hinzufügen von Beschäftigungen wurden ausgeführt. Der Beschäftigungen-Tab ist vom Benutzer geöffnet.</pre>
@@ -8748,7 +8748,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="253" priority="C" title="Drucken mit Shortcut">
 <description>Es soll die Druckmöglichkeit in der Software getestet werden. Das Drucken wird durch den Shortcut ausgelöst.</description>
 <pre/>
@@ -8929,7 +8929,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Benutzer möchte das Programm individuell einstellen.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="260" priority="C" title="Name des Barbeiters bei Vorgangserfassung">
 <description>Die Wirksamkeit der Einstellung "Name des Bearbeiters" bei der Vorgangserfassung soll getestet werden.</description>
 <pre>Benutzer möchte den Namen des Bearbeiters ändern. Der Name ist bislang auf "Carl Coder" eingestellt. Alle bisherigen Vorgänge wurden korrekt mit diesem Namen abgespeichert.</pre>
@@ -8952,7 +8952,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="118" priority="C" title="Mehrsprachigkeit: Umstellung auf Deutsch">
 <description>Die Wirksamkeit der Umstellung auf die Sprache Deutsch soll getestet werden.</description>
 <pre>Das Programm ist auf Englisch eingestellt und verhält sich demnach.</pre>
@@ -8969,7 +8969,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="259" priority="C" title="Mehrsprachigkeit: Umstellung auf Englisch">
 <description>Die Wirksamkeit der Umstellung auf die Sprache Englisch soll getestet werden.</description>
 <pre>Das Programm ist auf Deutsch eingestellt und verhält sich demnach.</pre>
@@ -8986,7 +8986,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="255" priority="C" title="PDF-Viewer">
 <description>Die Wirksamkeit der Einstellung "PDF Anzeiger" soll getestet werden.</description>
 <pre>Benutzer möchte den PDF-Viewer ändern.</pre>
@@ -9007,7 +9007,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="256" priority="C" title="Anzahl der Vorgänge">
 <description>Die Wirksamkeit der Einstellung "Anzahl der Vorgänge" soll getestet werden.</description>
 <pre>Benutzer möchte die Anzahl der Vorgänge ändern. Die jetzige Einstellung umfasst 3 Vorgänge. Zur angezeigten Hilfskraft müssen mindestens 4 Vorgänge hinterlegt sein.</pre>
@@ -9028,7 +9028,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="257" priority="C" title="Berichte automatisch nach Generierung öffnen">
 <description>Die Wirksamkeit der Einstellung "Berichte automatisch nach Generierung öffnen" soll getestet werden.</description>
 <pre>Die Einstellung "Berichte automatisch nach Generierung öffnen" ist deaktiviert (Standard).</pre>
@@ -9047,7 +9047,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="258" priority="C" title="Reiter bei Verlassen speichern">
 <description>Die Wirksamkeit der Einstellung "Reiter bei Verlassen speichern" soll getestet werden.</description>
 <pre>Die Einstellung "Reiter bei Verlassen speichern" ist aktiviert.</pre>
@@ -9072,7 +9072,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="301" priority="C" title="Pessimistischer Faktor">
 <description>Die Wirksamkeit der Einstellung "Pessimistischer Faktor" soll getestet werden.</description>
 <pre>Benutzer möchte den pessimistischen Faktor ändern. Die jetzige Einstellung ist 1.0. In der Schnelleinstellung ist die pessimistische Berechnung ausgewählt.</pre>
@@ -9095,7 +9095,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="302" priority="C" title="Historischer Faktor">
 <description>Die Wirksamkeit der Einstellung "Historischer Faktor" soll getestet werden.</description>
 <pre>Benutzer möchte den historischen Faktor ändern. Die jetzige Einstellung ist 1.0. In der Schnelleinstellung ist die historische Berechnung ausgewählt.</pre>
@@ -9118,7 +9118,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="300" priority="C" title="Zeit bis zur Anonymisierung">
 <description>Die Wirksamkeit der Einstellung "Zeit bis zur Anonymisierung" soll getestet werden.</description>
 <pre>Benutzer möchte die Zeit bis zur Anonymisierung ändern. Die jetzige Einstellung ist 365 Tage. Es gibt 2 Hilfskräfte, deren letzte Beschäftigung 50 Tage her ist.</pre>
@@ -9137,7 +9137,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:03" number="303" priority="C" title="Controllingtoleranz">
 <description>Die Wirksamkeit der Einstellung "Controllingtoleranz" soll getestet werden.</description>
 <pre>Benutzer möchte die Controllingtoleranz ändern. Die jetzige Einstellung ist 0.0. Die Testfälle zum Hinzufügen von Beschäftigungen wurden ausgeführt. Die realen Kosten sind bei allen Hilfskräften mit den Plankosten identisch.</pre>
@@ -9167,7 +9167,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Das Programm verwendet Tabs für eine einfachere Bedienung von aidGer.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="265" priority="C" title="Leerer Tab öffnen">
 <description>Es soll ein neuer leerer Tab geöffnet werden.</description>
 <pre>Benutzer möchte einen leeren Tab öffnen.</pre>
@@ -9180,7 +9180,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="266" priority="C" title="Ein neuen Tab via mittlerer Maustaste (Navigationsleiste)">
 <description>Es soll ein neuer Tab mit Hilfe der mittleren Maustaste geöffnet werden.</description>
 <pre>Benutzer möchte sich Daten in einem neuen Tab anzeigen lassen.</pre>
@@ -9193,7 +9193,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="268" priority="C" title="Zwischen Tabs navigieren">
 <description>Es soll zwischen den Tabs navigiert werden können.</description>
 <pre>Benutzer möchte zwischen den Tabs navigieren.</pre>
@@ -9210,7 +9210,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:15" outcome="Skipped" postok="Y" preok="Y" starttime="20:15">
+<result actionok="Y" endtime="20:15" outcome="NA" postok="Y" preok="Y" starttime="20:15">
 <testcase created="18.05.2010" creator="aidGerTeam" effort="00:01" number="267" priority="C" title="Einen Tab schließen">
 <description>Es soll ein Tab geschlossen werden.</description>
 <pre>Der Benutzer möchte einen nicht mehr benötigten Tab schließen.</pre>
@@ -9276,7 +9276,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <pre>Der Benutzer möchte angezeigte Daten drucken.</pre>
 </sequence>
 <pre/>
-<result actionok="Y" endtime="20:17" outcome="Skipped" postok="Y" preok="Y" starttime="20:17">
+<result actionok="Y" endtime="20:17" outcome="NA" postok="Y" preok="Y" starttime="20:17">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="117" priority="C" title="Drucken eines Monatsauszuges">
 <description>Es soll die Druckmöglichkeit in der Software getestet werden. Es wird ein Monatsauszug gedruckt.</description>
 <pre>Testfall 242 (Controlliing) wurde ausgeführt. Der Controlling-Tab ist vom Benutzer geöffnet.</pre>
@@ -9295,7 +9295,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:17" outcome="Skipped" postok="Y" preok="Y" starttime="20:17">
+<result actionok="Y" endtime="20:17" outcome="NA" postok="Y" preok="Y" starttime="20:17">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="254" priority="C" title="Drucken der Beschäftigungen">
 <description>Es soll die Druckmöglichkeit in der Software getestet werden. Es werden die angezeigten Beschäftigungen gedruckt.</description>
 <pre>Die Testfälle zum Hinzufügen von Beschäftigungen wurden ausgeführt. Der Beschäftigungen-Tab ist vom Benutzer geöffnet.</pre>
@@ -9314,7 +9314,7 @@ Sollte der Benutzer die mittlere Maustaste benutzen um das Element auszuwählen,
 <post/>
 <comment/>
 </result>
-<result actionok="Y" endtime="20:17" outcome="Skipped" postok="Y" preok="Y" starttime="20:17">
+<result actionok="Y" endtime="20:17" outcome="NA" postok="Y" preok="Y" starttime="20:17">
 <testcase created="13.05.2010" creator="aidGerTeam" effort="00:03" number="253" priority="C" title="Drucken mit Shortcut">
 <description>Es soll die Druckmöglichkeit in der Software getestet werden. Das Drucken wird durch den Shortcut ausgelöst.</description>
 <pre/>
