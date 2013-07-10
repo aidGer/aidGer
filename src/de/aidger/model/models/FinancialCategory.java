@@ -30,6 +30,7 @@ import java.util.List;
 
 import siena.SienaException;
 import de.aidger.model.AbstractModel;
+import de.aidger.model.ObserverManager;
 import de.aidger.model.validators.ValidationException;
 
 /**
@@ -343,6 +344,9 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
         for (InternalFinancialCategory entry : entries) {
             entry.save();
         }
+
+        /* Observable calls */
+        ObserverManager.getInstance().triggerSave(this);
     }
 
     public void remove() {
@@ -360,6 +364,9 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
         for (InternalFinancialCategory entry : entries) {
             entry.remove();
         }
+
+        /* Observable calls */
+        ObserverManager.getInstance().triggerRemove(this);
     }
 
     @Override
