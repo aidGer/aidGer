@@ -226,7 +226,7 @@ public abstract class TableModel extends AbstractTableModel implements Observer 
         }
 
         for (int i = 0; i < models.size(); ++i) {
-            if (models.get(i).getId() == m.getId()) {
+            if (models.get(i).getId().equals(m.getId())) {
                 return i;
             }
         }

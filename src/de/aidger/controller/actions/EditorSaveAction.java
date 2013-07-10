@@ -529,9 +529,6 @@ public class EditorSaveAction extends AbstractAction {
     public void actionPerformed(ActionEvent e) {
         EditorTab tab = (EditorTab) UI.getInstance().getCurrentTab();
 
-        ViewerTab viewerTab = new ViewerTab(tab.getType());
-        TableModel tableModel = viewerTab.getTableModel();
-
         // if something went wrong just the clone model is affected
         AbstractModel clone = (AbstractModel) tab.getModel().clone();
 
@@ -717,6 +714,7 @@ public class EditorSaveAction extends AbstractAction {
         Tab p = tab.getPredecessor();
 
         if (p instanceof DetailViewerTab) {
+            ViewerTab viewerTab = new ViewerTab(tab.getType());
             p = viewerTab;
         }
 
