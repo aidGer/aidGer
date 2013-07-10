@@ -245,11 +245,14 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
     public void setBudgetCosts(Integer[] costs) {
         if(costs == null) 
             return;
-        for (int i = 0; i < entries.size(); i++) {
-            if (costs.length >= i + 1) {
-                entries.get(i).setBudgetCost(costs[i]);
+        for (int i = 0; i < costs.length; i++) {
+            if (entries.size() >= i + 1) {
+                InternalFinancialCategory entry = entries.get(i);
+                entry.setBudgetCost(costs[i]);
             } else {
-                entries.get(i).setBudgetCost(null);
+                InternalFinancialCategory entry = newEntry();
+                entry.setBudgetCost(costs[i]);
+                entries.add(entry);
             }
         }
     }
