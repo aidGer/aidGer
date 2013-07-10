@@ -114,18 +114,31 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
 	        }
         }
 
-        if (this.getBudgetCosts() != null) {
-	        for (int b : this.getBudgetCosts()) {
+        if (this.getBudgetCosts() != null && this.getBudgetCosts().length > 0) {
+	        for (Integer b : this.getBudgetCosts()) {
+	            if(b == null) {
+	                addError("budgetCosts", _("Budget Costs"), _("is empty"));
+	                ret = false;
+	                break;
+	            }
 	            if (b < 0) {
 	                addError("budgetCosts", _("Budget Costs"), _("can't be less than zero"));
 	                ret = false;
 	                break;
 	            }
 	        }
+        } else {
+            addError("budgetCosts", _("Budget Costs"), _("is empty"));
+            ret = false;
         }
         
-        if (this.getCostUnits() != null) {
+        if (this.getCostUnits() != null && this.getCostUnits().length > 0) {
 	        for (Integer c : this.getCostUnits()) {
+                if(c == null) {
+                    addError("costUnits", _("Cost Units"), _("is empty"));
+                    ret = false;
+                    break;
+                }
 	        	if (Collections.frequency(Arrays.asList(this.getCostUnits()), c) > 1) {
 	        		addError("costUnits", _("Cost Units"), _("can't be the same"));
 	        		
@@ -133,6 +146,9 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
 	        		break;
 	        	}
 	        }
+        } else {
+            addError("costUnits", _("Cost Units"), _("is empty"));
+            ret = false;
         }
 
         return ret;
@@ -226,6 +242,8 @@ public class FinancialCategory extends AbstractModel<FinancialCategory> {
      *            The budget costs of the category
      */
     public void setBudgetCosts(Integer[] costs) {
+        if(costs == null) 
+            return;
         for (int i = 0; i < entries.size(); i++) {
             if (costs.length >= i + 1) {
                 entries.get(i).setBudgetCost(costs[i]);

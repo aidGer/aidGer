@@ -120,6 +120,8 @@ public class FinancialCategoryEditorForm extends JPanel {
 	                }
             	} catch (NumberFormatException e) {
             		return 0;
+            	} catch (NullPointerException e) {
+            	    return 0;
             	}
             }
         });
@@ -153,10 +155,14 @@ public class FinancialCategoryEditorForm extends JPanel {
 
         for (int i = 0; i < costUnitLines.size(); ++i) {
             CostUnit costUnit = (CostUnit) costUnitLines.get(i).cmbCostUnit.getSelectedItem();
-            costUnits[i] = Integer.valueOf(costUnit.getCostUnit());
-
-            if (costUnit.getCostUnit().length() != 8) {
-                throw new InvalidLengthException();
+            if(costUnit != null) {
+                costUnits[i] = Integer.valueOf(costUnit.getCostUnit());
+    
+                if (costUnit.getCostUnit().length() != 8) {
+                    throw new InvalidLengthException();
+                }
+            } else {
+                costUnits[i] = null;
             }
         }
 
