@@ -72,7 +72,7 @@ public class OverlapContractInspector extends Inspector {
             for (Contract other : contracts) {
                 // only handle new contracts and different one
                 if (ContractType.valueOf(other.getType()) != ContractType.newContract
-                        || contract.getId().equals(other.getId())) {
+                        || (contract.getId() != null && contract.getId().equals(other.getId()))) {
                     continue;
                 }
 
