@@ -58,6 +58,16 @@
         <os name="Mac OS X" />
     </condition>
 
+    <!-- Get Git Revision -->
+    <available file=".git" type="dir" property="git.present"/>
+    <target name="git-revision" if="git.present">
+        <exec executable="git" outputproperty="git.revision" failifexecutionfails="false" errorproperty="">
+            <arg value="rev-parse" />
+            <arg value="HEAD" />
+        </exec>
+        <echo message="Revision: ${git.revision}" />
+    </target>
+
     <condition property="isLaunch4jAvailable">
 		<available file="${lib.dir}/launch4j/launch4j" />
 	</condition>
@@ -168,7 +178,7 @@
 
     <!-- Create packages -->
 
-    <target name="dist" depends="compile-source" description="Generates the distribution">
+    <target name="dist" depends="compile-source, git-revision" description="Generates the distribution">
         <delete dir="${test.classes.dir}" />
         <delete dir="${dist.dir}" />
         <mkdir dir="${dist.dir}" />
@@ -186,6 +196,7 @@
                 <attribute name="Implementation-Title" value="${appName}" />
                 <attribute name="Implementation-Version" value="${appVersion}-${buildNumber}" />
                 <attribute name="Implementation-Vendor" value="Team aidGer" />
+                <attribute name="Specification-Version" value="${git.revision}" />
                 <attribute name="SplashScreen-Image" value="de/aidger/res/icons/splashscreen.png" />
             </manifest>
         </jar>

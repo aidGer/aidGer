@@ -57,8 +57,13 @@ public class AboutDialog extends JDialog {
         } catch (ActionNotFoundException ex) {
             UI.displayError(ex.getMessage());
         }
-
-        jLabel1.setText("aidGer " + getClass().getPackage().getImplementationVersion());
+    
+        String version = getClass().getPackage().getImplementationVersion();
+        if (version.endsWith("-"))
+            version.substring(0, version.length() - 2);
+        if (!getClass().getPackage().getSpecificationVersion().isEmpty())
+            version += " @ " + getClass().getPackage().getSpecificationVersion().substring(0, 7);
+        jLabel1.setText("aidGer " + version);
 
         setLocationRelativeTo(null);
 

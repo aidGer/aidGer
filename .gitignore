@@ -15,6 +15,10 @@ nbbuild.xml
 *.iml
 out/*
 
+# VIM
+*.swp
+.syntastic_javac_config
+
 # Code Coverage
 coverage/*
 codecover/*
