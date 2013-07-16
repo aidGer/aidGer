@@ -12,3 +12,13 @@ ALTER TABLE `Finanzkategorie` DROP PRIMARY KEY,
     AUTO_INCREMENT = 1,
     ADD `ID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST,
     ADD UNIQUE KEY `GruppeKosten` (`Gruppe`, `Kostenstelle`);
+
+CREATE TABLE `Kostenstelle` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Kostenstelle` VARCHAR(8) NOT NULL DEFAULT '',
+  `Fonds` TEXT NOT NULL DEFAULT '',
+  `TokenDB` VARCHAR(100) NOT NULL DEFAULT '',
+
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
