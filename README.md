@@ -1,12 +1,11 @@
 aidGer - The assistant manager [![Build Status](https://travis-ci.org/aidGer/aidGer.png)](https://travis-ci.org/aidGer/aidGer)
 ==============================
 
-Warning: This repository is currently in an unstable state and probably 
-won't build!
+aidGer is a tool for managing student and research assistants. It is written in Java and requires a Database (Apache Derby and MySQL are officially supported).
+
 
 History:
 --------
 
-aidGer is the end product of the Software Praktikum (SoPra) 2010 and is 
-currently used in production at the Hilfskraftverwaltung of the IvI at 
-the University of Stuttgart.
+aidGer is the end product of the Software Praktikum (SoPra) 2010 and is in production use
+at the Hilfskraftverwaltung of the IvI at the University of Stuttgart.
